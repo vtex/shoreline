@@ -74,7 +74,7 @@ function Example() {
                 Open Menu
               </MenuButton>
               <MenuList aria-label="Menu">
-                <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+                <MenuItem icon={<IconLink />}>Link to</MenuItem>
                 <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
                 <MenuSeparator />
                 <MenuItem icon={<IconTrash />}>Delete</MenuItem>

@@ -16,7 +16,7 @@ export const MenuList = jsx(ReakitMenu)(style.list, {
     return {
       ...menuListProps,
       state,
-      children: <IconContainer space="small">{children}</IconContainer>,
+      children: <IconContainer size="small">{children}</IconContainer>,
     }
   },
 })

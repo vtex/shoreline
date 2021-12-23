@@ -4,10 +4,10 @@ import {
   Flex,
   IconCaretUp,
   tag,
-  IconListBullets,
   Button,
   focusVisible,
   color,
+  IconDotsThreeVertical,
 } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
@@ -153,7 +153,7 @@ export function Sidebar() {
               '>div': { justifyContent: 'start' },
             }}
             onClick={() => setBulkVisile((v) => !v)}
-            icon={<IconListBullets />}
+            icon={<IconDotsThreeVertical />}
           >
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
           </Button>

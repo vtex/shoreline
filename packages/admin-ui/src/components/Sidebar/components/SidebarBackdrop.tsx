@@ -1,6 +1,6 @@
 import type { Ref } from 'react'
 import React, { Fragment, forwardRef } from 'react'
-import { IconCaretUp } from '@vtex/phosphor-icons'
+import { IconCaretRight } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 
 import { Button } from '../../Button'
@@ -84,9 +84,8 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           },
         }}
         icon={
-          <IconCaretUp
-            size={20}
-            direction={reduced ? 'right' : 'left'}
+          <IconCaretRight
+            mirrored={!reduced}
             csx={{
               display: 'flex',
               justifyContent: 'center',

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 import {
   IconHeart,
-  IconLinkSimple,
+  IconLink,
   IconTrash,
   IconTruck,
   IconPlus,
@@ -33,7 +33,7 @@ export const Playground = () => {
       <MenuButton display="menu" />
       <MenuList aria-label="Menu">
         <MenuItem icon={<IconTruck />}>Download</MenuItem>
-        <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+        <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
         <MenuSeparator />
         <MenuItem icon={<IconTrash />} tone="critical">
@@ -54,7 +54,7 @@ export const InitallyVisible = () => {
       <MenuButton display="menu" />
       <MenuList aria-label="Menu">
         <MenuItem icon={<IconTruck />}>Download</MenuItem>
-        <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+        <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
         <MenuSeparator />
         <MenuItem icon={<IconTrash />} tone="critical">
@@ -86,7 +86,7 @@ export const WithConstraint = () => {
           {canDownload ? (
             <MenuItem icon={<IconPlus />}>Download</MenuItem>
           ) : null}
-          <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+          <MenuItem icon={<IconLink />}>Link to</MenuItem>
           <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
           <MenuItem icon={<IconTrash />} tone="critical">
             Delete

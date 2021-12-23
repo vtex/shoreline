@@ -83,7 +83,7 @@ export const Tag = jsx('div')(
       return {
         ...props,
         children: (
-          <IconContainer space="small">
+          <IconContainer size="small">
             {icon}
             {label}
             {!!handleDelete && (

@@ -4,7 +4,7 @@ import {
   IconXCircle,
   IconBell,
   IconCheckCircle,
-  IconWarningOctagon,
+  IconWarning,
 } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 import { useTimeout } from '@vtex/admin-ui-hooks'
@@ -19,7 +19,7 @@ interface ToastProps extends InternalToast {
 
 const icons = {
   positive: <IconCheckCircle csx={{ color: '$positive' }} />,
-  warning: <IconWarningOctagon csx={{ color: '$warning' }} />,
+  warning: <IconWarning csx={{ color: '$warning' }} />,
   critical: <IconXCircle csx={{ color: '$critical' }} />,
   info: <IconBell csx={{ color: '$info' }} />,
 }

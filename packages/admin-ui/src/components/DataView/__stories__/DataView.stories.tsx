@@ -4,7 +4,7 @@ import {
   IconTrash,
   IconHeart,
   IconArrowLineDown,
-  IconLinkSimple,
+  IconLink,
 } from '@vtex/phosphor-icons'
 
 import { DataView, useDataViewState } from '../index'
@@ -82,7 +82,7 @@ export function ToolbarControls() {
                 </Button>
                 <MenuList aria-label="actions">
                   <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-                  <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+                  <MenuItem icon={<IconLink />}>Link to</MenuItem>
                   <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
                   <MenuSeparator />
                   <MenuItem icon={<IconTrash />}>Delete</MenuItem>

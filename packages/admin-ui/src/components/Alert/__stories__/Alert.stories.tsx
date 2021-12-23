@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import {
   IconCheckCircle,
-  IconWarningOctagon,
+  IconWarning,
   IconXCircle,
   IconQuestion,
   IconWarningCircle,
@@ -40,7 +40,7 @@ export function Tones() {
       <Alert tone="positive" icon={<IconCheckCircle />} visible>
         Order successfully placed
       </Alert>
-      <Alert tone="warning" icon={<IconWarningOctagon />} visible>
+      <Alert tone="warning" icon={<IconWarning />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
       <Alert tone="critical" icon={<IconXCircle />} visible>

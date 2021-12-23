@@ -6,22 +6,11 @@ import { createIconProvider } from '@vtex/phosphor-icons'
 
 import { useSystem } from './createSystem'
 
-const directions = {
-  up: 0,
-  right: 90,
-  down: 180,
-  left: 270,
-}
-
 function useIconProps(props: IconProps) {
-  const {
-    csx: containerCsx,
-    svgProps: { size: containerSize },
-  } = useIconContainer()
+  const { csx: containerCsx, size: containerSize } = useIconContainer()
 
   const {
     csx = {},
-    direction = 'up',
     title,
     size = containerSize,
     children,
@@ -30,11 +19,13 @@ function useIconProps(props: IconProps) {
   } = props
 
   const { cn, cx } = useSystem()
-  const rotationDeg = directions[direction]
+
+  const sizeValue = size === 'small' ? '1rem' : '1.25rem'
 
   return {
     ...iconProps,
-    size,
+    width: sizeValue,
+    height: sizeValue,
     children: (
       <>
         {title ? <title>{title}</title> : null}
@@ -44,10 +35,9 @@ function useIconProps(props: IconProps) {
     className: cx(
       className,
       cn({
-        size,
-        minHeight: size,
-        minWidth: size,
-        transform: `rotate(${rotationDeg}deg)`,
+        size: sizeValue,
+        minHeight: sizeValue,
+        minWidth: sizeValue,
         ...containerCsx,
         ...csx,
       })
@@ -58,7 +48,7 @@ function useIconProps(props: IconProps) {
 export const IconProvider = createIconProvider({ useIconProps })
 
 export const IconContainerContext = createContext<IconContext>({
-  space: 'regular',
+  size: 'normal',
 })
 
 export function IconContainer(props: PropsWithChildren<IconContext>) {
@@ -72,38 +62,25 @@ export function IconContainer(props: PropsWithChildren<IconContext>) {
 }
 
 export function useIconContainer(): UseIconReturn {
-  const { space, csx = {} } = useContext(IconContainerContext)
-
-  const svgProps = {
-    small: {
-      size: 16,
-    },
-    regular: {
-      size: 20,
-    },
-  }[space]
+  const { size, csx = {} } = useContext(IconContainerContext)
 
   return {
-    space,
+    size,
     csx,
-    isSmall: space === 'small',
-    isRegular: space === 'regular',
-    svgProps,
+    isSmall: size === 'small',
+    isNormal: size === 'normal',
   }
 }
 
-export type AvailableSpace = 'regular' | 'small'
+export type AvailableSize = 'normal' | 'small'
 export interface IconContext {
-  space: AvailableSpace
+  size: AvailableSize
   csx?: StyleProp
 }
 
 export type UseIconReturn = {
-  space: AvailableSpace
+  size: AvailableSize
   csx: StyleProp
-  svgProps: {
-    size: number
-  }
   isSmall: boolean
-  isRegular: boolean
+  isNormal: boolean
 }

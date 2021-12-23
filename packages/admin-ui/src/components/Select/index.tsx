@@ -6,7 +6,7 @@ import { Box } from '../Box'
 import type { SystemComponent } from '../../types'
 import { FieldContainer, FieldDetails } from '../Field'
 
-import { IconCaret } from '@vtex/admin-ui-icons'
+import { IconCaretDown } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 import * as style from './Select.style'
 
@@ -56,7 +56,7 @@ export const Select = forwardRef(
             csx={csx}
             {...selectProps}
           />
-          <IconCaret direction="down" size={24} csx={style.caret} />
+          <IconCaretDown size="small" csx={style.caret} />
         </Box>
 
         {message && <FieldDetails message={message} tone={tone} />}

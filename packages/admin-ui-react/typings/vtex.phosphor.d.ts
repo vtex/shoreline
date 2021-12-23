@@ -2,9 +2,11 @@ import type { IconOptions as PhosphorOptions } from '@vtex/phosphor-icons'
 
 import type { CsxCall } from '../src/types'
 
+type IconSize = 'normal' | 'small'
+
 declare module '@vtex/phosphor-icons' {
   export interface IconOptions extends CsxCall {
-    direction?: 'up' | 'down' | 'right' | 'left'
     title?: string
+    size?: IconSize
   }
 }

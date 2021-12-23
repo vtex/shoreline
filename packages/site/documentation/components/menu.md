@@ -27,7 +27,7 @@ function Example() {
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem icon={<IconLinkSimple />}>Link to</MenuItem>
+        <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuSeparator />
         <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
@@ -61,7 +61,7 @@ function Example() {
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem disabled icon={<IconLinkSimple />}>
+        <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
@@ -85,7 +85,7 @@ function Example() {
       <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem disabled icon={<IconLinkSimple />}>
+        <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
@@ -109,7 +109,7 @@ function Example() {
       <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem disabled icon={<IconLinkSimple />}>
+        <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
@@ -140,7 +140,7 @@ function Example() {
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem ref={ref} icon={<IconLinkSimple />}>
+        <MenuItem ref={ref} icon={<IconLink />}>
           Link to
         </MenuItem>
         <MenuSeparator />
@@ -171,7 +171,7 @@ function Example() {
       <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
         <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-        <MenuItem disabled icon={<IconLinkSimple />}>
+        <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
