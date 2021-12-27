@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 import {
   IconCheckCircle,
   IconWarning,
-  IconXCircle,
+  IconXOctagon,
   IconQuestion,
   IconWarningCircle,
 } from '@vtex/phosphor-icons'
@@ -43,7 +43,7 @@ export function Tones() {
       <Alert tone="warning" icon={<IconWarning />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert tone="critical" icon={<IconXCircle />} visible>
+      <Alert tone="critical" icon={<IconXOctagon />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>

@@ -154,7 +154,7 @@ function Example() {
       <Alert tone="warning" icon={<IconWarning />} visible>
         Warning Alert
       </Alert>
-      <Alert tone="critical" icon={<IconXCircle />} visible>
+      <Alert tone="critical" icon={<IconXOctagon />} visible>
         Critical Alert
       </Alert>
     </Set>

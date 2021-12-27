@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 import {
   IconX,
-  IconXCircle,
+  IconXOctagon,
   IconBell,
   IconCheckCircle,
   IconWarning,
@@ -18,9 +18,9 @@ interface ToastProps extends InternalToast {
 }
 
 const icons = {
-  positive: <IconCheckCircle csx={{ color: '$positive' }} />,
-  warning: <IconWarning csx={{ color: '$warning' }} />,
-  critical: <IconXCircle csx={{ color: '$critical' }} />,
+  positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
+  warning: <IconWarning weight="fill" csx={{ color: '$warning' }} />,
+  critical: <IconXOctagon weight="fill" csx={{ color: '$critical' }} />,
   info: <IconBell csx={{ color: '$info' }} />,
 }
 

@@ -3,6 +3,13 @@ import * as AdminUI from '@vtex/admin-ui'
 import type { Icon } from '@vtex/phosphor-icons'
 
 function generateMap() {
+  iconsDoc.sort((a, b) => {
+    if (a < b) return -1
+    if (a > b) return 1
+
+    return 0
+  })
+
   return iconsDoc.map((name) => {
     const Icon = (AdminUI as Record<string, any>)[`Icon${name}`] as Icon
 
@@ -37,7 +44,7 @@ export const iconsDoc = [
   'PaperPlaneTilt',
   'Printer',
   'Check',
-  'CalendarPlus',
+  'CalendarBlank',
   'Alarm',
   'Clock',
   'ArrowCounterClockwise',
@@ -116,6 +123,7 @@ export const iconsDoc = [
   'Question',
   'Bell',
   'XCircle',
+  'XOctagon',
   'Warning',
   'WarningCircle',
   'CheckCircle',

@@ -14,7 +14,7 @@ import { Button } from '../Button'
  *   label="Here goes your label!"
  *   icon={<Icon />}
  *   handleDelete={() => ...}
- *   palet te="red"
+ *   palette="red"
  *   size="small"
  * />
  */
