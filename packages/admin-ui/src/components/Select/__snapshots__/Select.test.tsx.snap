@@ -53,14 +53,10 @@ exports[`Select should match the snapshot 1`] = `
 }
 
 .emotion-2 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  width: 1rem;
+  height: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
   position: absolute;
   right: 12px;
   top: 25%;
@@ -128,15 +124,24 @@ exports[`Select should match the snapshot 1`] = `
       </select>
       <svg
         class="emotion-2"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1rem"
+        viewBox="0 0 256 256"
+        width="1rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M16 14L12 10L8 14"
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
+        />
+        <polyline
+          fill="none"
+          points="208 96 128 176 48 96"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          stroke-width="16"
         />
       </svg>
     </div>

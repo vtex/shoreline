@@ -91,14 +91,10 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
-  height: 20px;
-  min-height: 20px;
-  min-width: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-13 {
@@ -224,15 +220,15 @@ exports[`Menu should match snapshot hidden 1`] = `
           <svg
             class="emotion-0"
             fill="currentColor"
-            height="20"
+            height="1.25rem"
             viewBox="0 0 256 256"
-            width="20"
+            width="1.25rem"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               fill="none"
-              height="256"
-              width="256"
+              height="16rem"
+              width="16rem"
             />
             <polyline
               fill="none"
@@ -412,14 +408,10 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
-  height: 20px;
-  min-height: 20px;
-  min-width: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-5 {
@@ -545,15 +537,15 @@ exports[`Menu should match snapshot visible 1`] = `
           <svg
             class="emotion-0"
             fill="currentColor"
-            height="20"
+            height="1.25rem"
             viewBox="0 0 256 256"
-            width="20"
+            width="1.25rem"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               fill="none"
-              height="256"
-              width="256"
+              height="16rem"
+              width="16rem"
             />
             <polyline
               fill="none"

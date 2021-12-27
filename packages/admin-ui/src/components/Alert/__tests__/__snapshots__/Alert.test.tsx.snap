@@ -26,14 +26,10 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
-  height: 20px;
-  min-height: 20px;
-  min-width: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-2 {
@@ -154,15 +150,15 @@ exports[`Alert should match snapshot 1`] = `
         <svg
           class="emotion-0"
           fill="currentColor"
-          height="20"
+          height="1.25rem"
           viewBox="0 0 256 256"
-          width="20"
+          width="1.25rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
             fill="none"
-            height="256"
-            width="256"
+            height="16rem"
+            width="16rem"
           />
           <polyline
             fill="none"
@@ -215,14 +211,10 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
-  height: 20px;
-  min-height: 20px;
-  min-width: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-2 {
@@ -343,15 +335,15 @@ exports[`Alert should match snapshot 1`] = `
         <svg
           class="emotion-0"
           fill="currentColor"
-          height="20"
+          height="1.25rem"
           viewBox="0 0 256 256"
-          width="20"
+          width="1.25rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
             fill="none"
-            height="256"
-            width="256"
+            height="16rem"
+            width="16rem"
           />
           <line
             fill="none"
@@ -361,19 +353,20 @@ exports[`Alert should match snapshot 1`] = `
             stroke-width="16"
             x1="128"
             x2="128"
-            y1="80"
-            y2="136"
+            y1="104"
+            y2="144"
           />
           <path
-            d="M164.45079,32H91.54921a8,8,0,0,0-5.65686,2.34315l-51.5492,51.5492A8,8,0,0,0,32,91.54921v72.90158a8,8,0,0,0,2.34315,5.65686l51.5492,51.5492A8,8,0,0,0,91.54921,224h72.90158a8,8,0,0,0,5.65686-2.34315l51.5492-51.5492A8,8,0,0,0,224,164.45079V91.54921a8,8,0,0,0-2.34315-5.65686l-51.5492-51.5492A8,8,0,0,0,164.45079,32Z"
+            d="M114.15243,39.98472,26.17616,191.977a16.00005,16.00005,0,0,0,13.84762,24.01535H215.97625A16,16,0,0,0,229.82386,191.977L141.84757,39.98472A16,16,0,0,0,114.15243,39.98472Z"
             fill="none"
             stroke="currentColor"
-            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             stroke-width="16"
           />
           <circle
             cx="128"
-            cy="172"
+            cy="180"
             r="12"
           />
         </svg>
@@ -409,14 +402,10 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
-  height: 20px;
-  min-height: 20px;
-  min-width: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-2 {
@@ -537,15 +526,15 @@ exports[`Alert should match snapshot 1`] = `
         <svg
           class="emotion-0"
           fill="currentColor"
-          height="20"
+          height="1.25rem"
           viewBox="0 0 256 256"
-          width="20"
+          width="1.25rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
             fill="none"
-            height="256"
-            width="256"
+            height="16rem"
+            width="16rem"
           />
           <circle
             cx="128"

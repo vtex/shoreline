@@ -547,14 +547,10 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 16px;
-  height: 16px;
-  min-height: 16px;
-  min-width: 16px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1rem;
+  height: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
 }
 
 <div
@@ -575,15 +571,15 @@ exports[`Tag tests should match snapshot 1`] = `
           <svg
             class="emotion-0"
             fill="currentColor"
-            height="16"
+            height="1rem"
             viewBox="0 0 256 256"
-            width="16"
+            width="1rem"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               fill="none"
-              height="256"
-              width="256"
+              height="16rem"
+              width="16rem"
             />
             <line
               stroke="currentColor"
@@ -736,14 +732,10 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 16px;
-  height: 16px;
-  min-height: 16px;
-  min-width: 16px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  width: 1rem;
+  height: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
 }
 
 <div
@@ -752,15 +744,15 @@ exports[`Tag tests should match snapshot 1`] = `
     <svg
       class="emotion-0"
       fill="currentColor"
-      height="16"
+      height="1rem"
       viewBox="0 0 256 256"
-      width="16"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
         fill="none"
-        height="256"
-        width="256"
+        height="16rem"
+        width="16rem"
       />
       <line
         fill="none"
@@ -800,15 +792,15 @@ exports[`Tag tests should match snapshot 1`] = `
           <svg
             class="emotion-0"
             fill="currentColor"
-            height="16"
+            height="1rem"
             viewBox="0 0 256 256"
-            width="16"
+            width="1rem"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               fill="none"
-              height="256"
-              width="256"
+              height="16rem"
+              width="16rem"
             />
             <line
               stroke="currentColor"
