@@ -1,4 +1,5 @@
 import { colors } from './colors'
+import { typography } from './typography'
 import { ring, border } from './styleKit'
 
 const lightTheme = {
@@ -149,6 +150,56 @@ const lightTheme = {
       bottom: '0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)',
     },
   },
+  text: {
+    pageTitle: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
+      fontSize: typography.fontSize.xl,
+      lineHeight: typography.lineHeight.sm,
+    },
+    title1: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.medium,
+      fontSize: typography.fontSize.lg,
+      lineHeight: typography.lineHeight.xl,
+    },
+    title2: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
+      fontSize: typography.fontSize.lg,
+      lineHeight: typography.lineHeight.xl,
+    },
+    action1: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.medium,
+      fontSize: typography.fontSize.md,
+      lineHeight: typography.lineHeight.lg,
+    },
+    action2: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
+      fontSize: typography.fontSize.md,
+      lineHeight: typography.lineHeight.lg,
+    },
+    display: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.medium,
+      fontSize: typography.fontSize.xxl,
+      lineHeight: typography.lineHeight.md,
+    },
+    body: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
+      fontSize: typography.fontSize.md,
+      lineHeight: typography.lineHeight.lg,
+    },
+    detail: {
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
+      fontSize: typography.fontSize.sm,
+      lineHeight: typography.lineHeight.md,
+    },
+  },
 }
 
 export const defaultTheme = {
@@ -157,42 +208,18 @@ export const defaultTheme = {
   },
   ...lightTheme,
   global: {
-    '@font-face': {
-      fontFamily: 'VTEX Trust',
-      fontDisplay: 'swap',
-      fontStyle: 'normal',
-      src: "url('https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF.woff2')",
-      unicodeRange: `U+0020-007E, U+00A0-0107, U+010A-0113, U+0116-011B,
-              U+011E-0123, U+0126-0127, U+012A-012B, U+012E-0131, U+0136-0137,
-              U+0139-0148, U+014A-014D, U+0150-015B, U+015E-0167, U+016A-016B,
-              U+016E-017E, U+0192, U+01EA-01EB, U+0218-021B, U+0237, U+02C6-02C7,
-              U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0312,
-              U+0326-0328, U+0335, U+0337-0338, U+0394, U+03A9, U+03BC, U+03C0,
-              U+0E3F, U+1E80-1E85, U+1E9E, U+1EF2-1EF3, U+2000-200B, U+2013-2014,
-              U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+202F-2030,
-              U+2032-2033, U+2039-203A, U+2044, U+205F, U+2070, U+2074-2079,
-              U+2080-2089, U+20A1, U+20A4, U+20A9-20AE, U+20B1, U+20B4, U+20B8-20BA,
-              U+20BF, U+2117, U+2122, U+215D, U+2202, U+220F, U+2211-2212, U+221A,
-              U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+FB01-FB02`,
-    },
+    ...typography.fontFace.vtexTrust,
     body: {
       margin: 0,
       bg: 'base',
       color: 'base',
-      lineHeight: 1,
     },
     'html, body': {
-      fontFamily: 'sans',
-      fontSettings: 'regular',
+      ...lightTheme.text.body,
     },
-    'strong, b': {
-      fontFamily: 'sans',
-      fontSettings: 'bold',
-    },
-    'pre, code': { fontFamily: 'mono' },
+    'pre, code': { fontFamily: typography.fontStack.mono },
     '*': {
-      fontFamily: 'sans',
-      fontSettings: 'regular',
+      ...lightTheme.text.body,
       fontWeight: 'normal',
     },
     '*, ::before, ::after': {
@@ -268,63 +295,6 @@ export const defaultTheme = {
     pop: 'all 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',
     callout: 'all 240ms cubic-bezier(0.4, 0.14, 0.3, 1)',
   },
-  fonts: {
-    sans: '"VTEX Trust", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-    mono: '"MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace',
-  },
-  fontSizes: {
-    '0': '0.75rem',
-    '1': '0.875rem',
-    '2': '1rem',
-    '3': '1.125rem',
-    '4': '1.25rem',
-  },
-  text: {
-    code: {
-      fontFamily: 'mono',
-      lineHeight: 'code',
-      fontSize: 1,
-      fontFeatureSettings: "'clig' 0, 'calt' 0",
-      fontVariantLigatures: 'normal',
-    },
-    small: {
-      fontFamily: 'sans',
-      lineHeight: 'small',
-      fontSettings: 'regular',
-      fontSize: 0,
-    },
-    body: {
-      fontFamily: 'sans',
-      lineHeight: 'body',
-      fontSettings: 'regular',
-      fontSize: 1,
-    },
-    highlight: {
-      fontFamily: 'sans',
-      lineHeight: 'highlight',
-      fontSettings: 'regular',
-      fontSize: 1,
-    },
-    action: {
-      fontFamily: 'sans',
-      lineHeight: 'action',
-      fontSettings: 'regular',
-      fontSize: 1,
-      textTransform: 'uppercase',
-    },
-    subtitle: {
-      fontFamily: 'sans',
-      lineHeight: 'subtitle',
-      fontSettings: 'regular',
-      fontSize: 2,
-    },
-    headline: {
-      fontFamily: 'sans',
-      lineHeight: 'headline',
-      fontSettings: 'regular',
-      fontSize: 4,
-    },
-  },
   zIndices: {
     under: -1,
     plain: 0,
@@ -338,24 +308,6 @@ export const defaultTheme = {
     sidebarDisclosure: 999,
     sidebarOverlay: 99,
     sidebarUl: -999,
-  },
-  fontSettings: {
-    hairline: "'WGHT' 100",
-    thin: "'WGHT' 250",
-    light: "'WGHT' 375",
-    regular: "'WGHT' 500",
-    medium: "'WGHT' 650",
-    bold: "'WGHT' 875",
-    black: "'WGHT' 1000",
-  },
-  lineHeights: {
-    code: 1,
-    small: 1.125,
-    body: 1.25,
-    highlight: 1.25,
-    action: 1.5,
-    subtitle: 1.5,
-    headline: 1.5,
   },
   borderRadius: {
     default: '4px',

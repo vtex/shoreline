@@ -4,6 +4,7 @@ import type {
   BorderTokens,
   FgTokens,
   ColorTokens,
+  TextTokens,
 } from '../theme/types'
 
 export type StandardCSSProperties = CSS.Properties<number | string>
@@ -56,26 +57,7 @@ export interface AliasesCSSProperties {
   /**
    * Admin-ui available text patterns
    */
-  text?:
-    | 'code'
-    | 'small'
-    | 'body'
-    | 'highlight'
-    | 'action'
-    | 'subtitle'
-    | 'headline'
-  /**
-   * Shorthand for fontVariationSettings
-   */
-  fontSettings?:
-    | 'hairline'
-    | 'thin'
-    | 'light'
-    | 'regular'
-    | 'medium'
-    | 'bold'
-    | 'black'
-    | StandardCSSProperties['fontVariationSettings']
+  text?: TextTokens
 }
 
 export interface ResponsiveAliases {
@@ -151,12 +133,6 @@ export interface OverwriteCSSProperties {
    */
   boxShadow?: CSS.Property.BoxShadow | number
   /**
-   * CSS **`font-weight`** property
-   * @default normal
-   * @deprecated use fontSettings instead
-   */
-  fontWeight?: CSS.Property.FontWeight | string
-  /**
    * CSS **`border-top-style`** property
    * @default none
    */
@@ -190,11 +166,6 @@ export interface OverwriteCSSProperties {
    * @default auto
    */
   zIndex?: CSS.Property.ZIndex | string
-  /**
-   * CSS **`font-family`** property
-   * @default inherit
-   */
-  fontFamily?: 'inherit' | 'mono' | 'sans' | string
 }
 
 /**
