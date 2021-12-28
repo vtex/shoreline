@@ -1,11 +1,11 @@
 {
-  "name": "admin-ui-docs",
+  "name": "@vtex/admin-ui-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build-docs": "yarn --cwd ../../ build:ci && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -17,6 +17,8 @@
     "@docusaurus/core": "2.0.0-beta.14",
     "@docusaurus/preset-classic": "2.0.0-beta.14",
     "@docusaurus/theme-live-codeblock": "2.0.0-beta.14",
+    "@vtex/admin-formik": "^0.3.1",
+    "@vtex/admin-ui": "^0.116.0",
     "docusaurus-plugin-sass": "^0.2.1",
     "sass": "^1.45.1",
     "@mdx-js/react": "^1.6.21",
