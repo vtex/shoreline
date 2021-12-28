@@ -130,6 +130,13 @@ export const iconsDoc = [
 ]
 
 export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
-export const small = ['CaretDown', 'CaretRight', 'X', 'ArrowUpRight']
+export const small = [
+  'CaretDown',
+  'CaretRight',
+  'X',
+  'ArrowUpRight',
+  'Check',
+  'Minus',
+]
 
 export const icons = generateMap()

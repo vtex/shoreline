@@ -11,7 +11,9 @@ import {
   Search,
   Set,
   Text,
+  Alert,
   Center,
+  Anchor,
 } from '@vtex/admin-ui'
 import { small, filled } from './icons'
 
@@ -74,6 +76,9 @@ export function IconsGrid(props: IconsGridProps) {
     }
   }, [searchedItems.length])
 
+  const { selectedItem: selectedSize } = sizeDropdown
+  const { selectedItem: selectedWeight } = weightDropdown
+
   return (
     <DataView state={dataView} csx={{ marginX: 2 }}>
       <DataViewControls>
@@ -91,11 +96,17 @@ export function IconsGrid(props: IconsGridProps) {
           variant="adaptative-dark"
         />
       </DataViewControls>
+      {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
+        <Alert visible csx={{ marginBottom: 4 }}>
+          Some icons below are opaque because they still don’t have a use case
+          mapped. If you need to use one of them, please{' '}
+          <Anchor href="https://github.com/vtex/onda/issues/new/choose">
+            let us know through a Github issue.
+          </Anchor>
+        </Alert>
+      ) : null}
       <Grid templateColumns="repeat(3, 1fr)" gap="3">
         {searchedItems.map((item) => {
-          const { selectedItem: selectedSize } = sizeDropdown
-          const { selectedItem: selectedWeight } = weightDropdown
-
           const smallFilter =
             selectedSize === 'Small' && !small.includes(item.name)
 
@@ -110,9 +121,7 @@ export function IconsGrid(props: IconsGridProps) {
                 height: 100,
                 maxWidth: 250,
                 borderRadius: 'default',
-                ':hover': {
-                  bg: notMapped ? '$primary' : '$secondary',
-                },
+                border: '$neutral',
               }}
             >
               <IconPreview
