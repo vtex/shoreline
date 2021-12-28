@@ -10,11 +10,15 @@
     "baseBranch": "origin/main",
     "pipeline": {
       "build": {
-        "dependsOn": ["^build"],
+        "dependsOn": [
+          "^build"
+        ],
         "outputs": []
       },
       "test": {
-        "dependsOn": ["build"],
+        "dependsOn": [
+          "build"
+        ],
         "outputs": []
       },
       "lint": {
@@ -118,8 +122,7 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "yarn test",
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
