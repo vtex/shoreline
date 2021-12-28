@@ -4,12 +4,13 @@ exports[`Collapsible should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 650;
+  font-size: 0.875rem;
+  line-height: 1.4;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.5rem;
@@ -219,12 +220,13 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 <DocumentFragment>
   .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 650;
+  font-size: 0.875rem;
+  line-height: 1.4;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.5rem;

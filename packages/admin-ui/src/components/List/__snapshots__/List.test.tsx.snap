@@ -4,9 +4,9 @@ exports[`List tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  line-height: 1.4;
   list-style-position: inside;
 }
 
@@ -21,9 +21,9 @@ exports[`List tests should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 <ul
@@ -37,9 +37,9 @@ exports[`List tests should match snapshot 1`] = `
   </ul>
   .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  line-height: 1.4;
   list-style-position: inside;
 }
 
@@ -54,9 +54,9 @@ exports[`List tests should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 <ol

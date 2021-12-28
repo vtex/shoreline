@@ -93,7 +93,7 @@ describe('parse', () => {
     it('parses object rules', () => {
       const result = parse({
         padding: 4,
-        text: 'small',
+        text: '$detail',
       })
 
       expect(result).toEqual({
@@ -106,7 +106,7 @@ describe('parse', () => {
     it('parses functional rules', () => {
       const result = parse({
         padding: 4,
-        text: 'small',
+        text: '$detail',
       })
 
       expect(result).toEqual({

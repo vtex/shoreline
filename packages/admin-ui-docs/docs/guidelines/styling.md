@@ -33,7 +33,6 @@ Scales are values that can be consumed from specific properties within the `Styl
     borderColor: 'container',
     borderRadius: 4,
     padding: 3,
-    fontSize: 3,
   }}
 >
   styled box
@@ -82,7 +81,6 @@ Scoped classNames can also be created and reused multiple times.
       padding: 1,
       borderRadius: 'default',
       cursor: 'pointer',
-      fontSize: 1,
       textDecoration: 'none',
       '+ .button': {
         marginLeft: 2,

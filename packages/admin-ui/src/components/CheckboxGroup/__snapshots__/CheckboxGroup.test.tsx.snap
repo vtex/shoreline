@@ -3,8 +3,10 @@
 exports[`CheckboxGroup should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
-  lh: highlight;
+  font-size: 2;
+  line-height: 1.4;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -18,7 +20,6 @@ exports[`CheckboxGroup should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-size: 1rem;
 }
 
 .emotion-0>label>input {
@@ -59,9 +60,9 @@ exports[`CheckboxGroup should match snapshot with label 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 <label
@@ -70,8 +71,10 @@ exports[`CheckboxGroup should match snapshot with label 1`] = `
     label
   </label>
   .emotion-0 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
-  lh: highlight;
+  font-size: 2;
+  line-height: 1.4;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -85,7 +88,6 @@ exports[`CheckboxGroup should match snapshot with label 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-size: 1rem;
 }
 
 .emotion-0>label>input {

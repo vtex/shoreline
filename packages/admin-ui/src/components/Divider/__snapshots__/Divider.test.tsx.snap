@@ -3,10 +3,6 @@
 exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1.25rem;
   border: 1px solid hsla(0, 0%, 87%, 1);
   margin: 0rem;
   border-bottom: 0;
@@ -18,10 +14,6 @@ exports[`Heading tests should match snapshot 1`] = `
     role="separator"
   />
   .emotion-0 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.5;
-  font-variation-settings: 'WGHT' 500;
-  font-size: 1.25rem;
   border: 1px solid hsla(0, 0%, 87%, 1);
   margin: 0rem;
   border-left: 0;

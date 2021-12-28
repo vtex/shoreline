@@ -36,12 +36,12 @@ import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to handle different styles, and also the `TextPattern`.
+You can use the `csx` property to handle different styles.
 
 ### Example
 
 ```jsx live
-<Paragraph text="body" padding={6} csx={{ bg: 'muted', color: 'muted' }}>
+<Paragraph  padding={6} csx={{ bg: 'muted', color: 'muted' }}>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
   ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem
   convallis. Ut scelerisque mauris velit, sit amet iaculis elit feugiat commodo.
