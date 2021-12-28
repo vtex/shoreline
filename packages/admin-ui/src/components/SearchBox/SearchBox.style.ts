@@ -4,19 +4,6 @@ function css(csx: StyleObject): StyleObject {
   return csx
 }
 
-const typography = {
-  title: css({
-    fontFamily: 'sans',
-    fontSize: '1.2rem',
-    fontSettings: 'regular',
-  }),
-  body: css({
-    fontFamily: 'sans',
-    fontSize: '1rem',
-    fontSettings: 'regular',
-  }),
-}
-
 const scrollbar = css({
   scrollbarWidth: 'thin',
   scrollbarColor: '$primary',
@@ -52,9 +39,9 @@ const menu = (scrollable: boolean) =>
 
 const option = (highlighted: boolean) =>
   css({
-    ...typography.body,
+    text: '$body',
     p: {
-      ...typography.body,
+      text: '$body',
     },
     paddingX: 3,
     height: 40,
@@ -84,7 +71,7 @@ const inputContainer = css({
 
 const input = (open: boolean, standalone: boolean) =>
   css({
-    ...typography.title,
+    text: '$title1',
     bg: '$form.neutral',
     color: '$form.neutral',
     height: 64,
@@ -119,7 +106,7 @@ const inputButton = css({
 const label = css({
   paddingLeft: 3,
   color: '$secondary',
-  fontSize: 0,
+  text: '$body',
   marginY: 2,
 })
 
@@ -127,8 +114,7 @@ const footer = css({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: 0,
-  fontSettings: 'regular',
+  text: '$body',
   height: 40,
   textAlign: 'center',
   border: 'divider-top',
@@ -141,6 +127,7 @@ const footer = css({
   color: '$secondary',
 })
 
+// TODO create kbd component
 const kbd = css({
   bg: '$secondary',
   color: '$secondary',
@@ -166,12 +153,12 @@ const emptyContainer = css({
 
 const emptyTitle = css({
   color: 'base',
-  fontSize: 1,
+  text: '$title1',
 })
 
 const emptySubtitle = css({
   color: '$secondary',
-  fontSize: 0,
+  text: '$title2',
 })
 
 export {

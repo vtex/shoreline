@@ -32,8 +32,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
   const critical = tone === 'critical'
 
   const inputClassName = cn({
-    fontFamily: 'sans',
-    fontSettings: 'regular',
+    text: '$body',
     width: 'full',
     height: 48,
     paddingLeft: 3,
@@ -42,7 +41,6 @@ export const AbstractInput = forwardRef(function AbstractInput(
     border: critical ? '$form.critical' : '$form.neutral',
     borderRadius: 'default',
     marginY: 1,
-    fontSize: 1,
     color: '$form.neutral',
     outline: 0,
     transition: 'snap',

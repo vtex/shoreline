@@ -4,26 +4,29 @@ import type { ComponentPropsWithRef } from 'react'
 export const Text = jsx('span')({
   variants: {
     variant: {
-      headline: {
-        text: 'headline',
+      pageTitle: {
+        text: '$pageTitle',
       },
-      subtitle: {
-        text: 'subtitle',
+      title1: {
+        text: '$title1',
+      },
+      title2: {
+        text: '$title2',
+      },
+      action1: {
+        text: '$action1',
+      },
+      action2: {
+        text: '$action2',
+      },
+      display: {
+        text: '$display',
       },
       body: {
-        text: 'body',
+        text: '$body',
       },
-      small: {
-        text: 'small',
-      },
-      action: {
-        text: 'action',
-      },
-      highlight: {
-        text: 'highlight',
-      },
-      code: {
-        text: 'code',
+      detail: {
+        text: '$detail',
       },
     },
     tone: {

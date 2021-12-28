@@ -50,7 +50,7 @@ export const FormikCheckbox = forwardRef(
           <Label htmlFor={id}>{label}</Label>
         </Set>
         {errorMessage && (
-          <Text variant="small" tone="critical">
+          <Text variant="detail" tone="critical">
             {errorMessage}
           </Text>
         )}

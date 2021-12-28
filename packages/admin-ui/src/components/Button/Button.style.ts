@@ -29,8 +29,7 @@ export function action(options: { tone: ActionTone; variant: ActionVariant }) {
 }
 
 export const baseline = css({
-  fontFamily: 'sans',
-  fontSettings: 'regular',
+  text: '$action1',
   border: 'none',
   borderRadius: 'default',
   cursor: 'pointer',
@@ -64,7 +63,6 @@ export const small = (options: { icon: IconVariant }) => {
   }[icon]
 
   return css({
-    fontSize: 0,
     height: 32,
     width: icon !== 'only' ? 'auto' : 32,
     ...space,
@@ -94,7 +92,6 @@ export const regular = (options: { icon: IconVariant }) => {
   }[icon]
 
   return css({
-    fontSize: 1,
     height: 40,
     width: icon !== 'only' ? 'auto' : 40,
     ...space,

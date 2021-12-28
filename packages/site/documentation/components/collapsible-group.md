@@ -36,10 +36,10 @@ function Example() {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Campaign - Campaign Name
             </Text>
           </Set>
@@ -82,10 +82,10 @@ function Example() {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -102,13 +102,13 @@ function Example() {
             <CollapsibleHeader label={value} />
             <CollapsibleContent>
               <Set orientation="vertical" spacing={2}>
-                <Text variant="small" tone="info">
+                <Text variant="detail" tone="info">
                   N 00025755809
                 </Text>
-                <Text variant="small" tone="info">
+                <Text variant="detail" tone="info">
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" tone="info">
+                <Text variant="detail" tone="info">
                   Type - Total Express
                 </Text>
                 <Text tone="info">Tracking - XSDFE231675</Text>

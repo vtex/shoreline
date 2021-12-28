@@ -10,7 +10,7 @@ import type { ComponentPropsWithRef } from 'react'
  * </FieldContainer>
  */
 export const FloatingLabel = jsx('label')({
-  text: 'body',
+  text: '$body',
   fontSize: 1,
   left: 12,
   paddingTop: 2,

@@ -167,7 +167,7 @@ export const NumericStepper = forwardRef(
         </Box>
         {hasHelper && (
           <Text
-            variant="small"
+            variant="detail"
             tone={tone === 'critical' ? 'critical' : 'secondary'}
             csx={{
               marginTop: 2,

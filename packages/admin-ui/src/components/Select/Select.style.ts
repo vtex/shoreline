@@ -11,7 +11,7 @@ export const container = css({
 })
 
 export const baseline = css({
-  fontSize: 1,
+  text: '$body',
   outline: 'none',
   appearance: 'none',
   paddingTop: '1.125rem',
@@ -49,7 +49,7 @@ export function label(options: { active: boolean }) {
     color: '$secondary',
     zIndex: 2,
     transition: 'all 0.2s ease-out',
-    ...(active ? { top: 2, text: 'small' } : {}),
+    ...(active ? { top: 2, text: '$detail' } : {}),
   })
 }
 

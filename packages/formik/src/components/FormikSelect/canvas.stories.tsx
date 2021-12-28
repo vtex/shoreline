@@ -64,7 +64,7 @@ export const Playground: Story<FormikSelectProps> = (args) => {
                 Reset Forms
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -74,7 +74,7 @@ export const Playground: Story<FormikSelectProps> = (args) => {
                 Save
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -84,7 +84,7 @@ export const Playground: Story<FormikSelectProps> = (args) => {
                 Set initial values
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -93,13 +93,13 @@ export const Playground: Story<FormikSelectProps> = (args) => {
             </Flex>
             <Set orientation="vertical" spacing={4}>
               <Set orientation="vertical">
-                <Text variant="subtitle">Current value in formik :</Text>
+                <Text variant="title2">Current value in formik :</Text>
                 <Text tone="secondary">
                   <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
               <Set orientation="vertical">
-                <Text variant="subtitle">Current initial value in formik:</Text>
+                <Text variant="title2">Current initial value in formik:</Text>
                 <Text tone="secondary">
                   <pre>{JSON.stringify(currentInitialValues)}</pre>
                 </Text>
@@ -148,7 +148,7 @@ export const Basic = () => (
             </FormikSelect>
           </Box>
           <Set orientation="vertical">
-            <Text variant="subtitle">Current value in formik :</Text>
+            <Text variant="title2">Current value in formik :</Text>
             <Text tone="secondary">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
@@ -185,7 +185,7 @@ export const Error = () => (
           </FormikSelect>
         </Box>
         <Set>
-          <Text variant="subtitle">Current value in formik :</Text>
+          <Text variant="title2">Current value in formik :</Text>
           <Text tone="secondary">
             <pre>{JSON.stringify(values)}</pre>
           </Text>
@@ -235,7 +235,7 @@ export const ChangeValueOutside = () => {
               </Button>
             </Box>
             <Set orientation="vertical">
-              <Text variant="subtitle">Current value in formik :</Text>
+              <Text variant="title2">Current value in formik :</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>

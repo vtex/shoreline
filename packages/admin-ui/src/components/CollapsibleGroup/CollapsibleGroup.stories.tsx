@@ -26,7 +26,7 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
       <Collapsible state={promos}>
         <CollapsibleHeader label="Promos" />
         <CollapsibleContent>
-          <Text variant="action">
+          <Text variant="action1">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
@@ -36,10 +36,10 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -64,7 +64,7 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
       <Collapsible state={promos}>
         <CollapsibleHeader label="Promos" />
         <CollapsibleContent>
-          <Text variant="action">
+          <Text variant="action1">
             APP BRINDE 458 - MOBFIQ R$ 99 TMP OFERTA - 899 OIS : CAE SEMANA -
             ALEMANA
           </Text>
@@ -74,10 +74,10 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
           <Set orientation="vertical">
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
-            <Text variant="small" tone="secondary">
+            <Text variant="detail" tone="secondary">
               Campaign - Campaing Name
             </Text>
           </Set>
@@ -94,13 +94,13 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
             <CollapsibleHeader label={value} />
             <CollapsibleContent>
               <Set orientation="vertical" spacing={2}>
-                <Text variant="small" tone="info">
+                <Text variant="detail" tone="info">
                   N 00025755809
                 </Text>
-                <Text variant="small" tone="secondary">
+                <Text variant="detail" tone="secondary">
                   Total cost of items - 39,00 BRL
                 </Text>
-                <Text variant="small" tone="secondary">
+                <Text variant="detail" tone="secondary">
                   Type - Total Express
                 </Text>
                 <Text tone="info">Tracking - XSDFE231675</Text>

@@ -102,7 +102,7 @@ Provides the [VTEX Trust font](/typography/introduction/#variable-fonts) and com
 
 <Heading>This is a Heading!</Heading>
 
-<Text variant="subtitle">Text with subtitle style!</Heading>
+<Text variant="title2">Text with subtitle style!</Heading>
 
 <h1 className={cn({ text: 'headline' })}>This is a Heading!</h1>
 ```

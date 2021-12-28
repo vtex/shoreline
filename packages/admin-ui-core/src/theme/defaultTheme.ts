@@ -215,11 +215,13 @@ export const defaultTheme = {
       color: 'base',
     },
     'html, body': {
-      ...lightTheme.text.body,
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
     },
     'pre, code': { fontFamily: typography.fontStack.mono },
     '*': {
-      ...lightTheme.text.body,
+      fontFamily: typography.fontStack.sans,
+      fontVariationSettings: typography.fontWeight.regular,
       fontWeight: 'normal',
     },
     '*, ::before, ::after': {

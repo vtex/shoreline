@@ -23,7 +23,7 @@ export const FieldDetails = jsx(Role)(
           <>
             {message ? (
               <Text
-                variant="small"
+                variant="detail"
                 tone={tone === 'critical' ? 'critical' : 'secondary'}
               >
                 {message}
@@ -32,7 +32,7 @@ export const FieldDetails = jsx(Role)(
               <div>{/** spacer element */}</div>
             )}
             {!!charLimit && (
-              <Text variant="small" tone="secondary">
+              <Text variant="detail" tone="secondary">
                 {`${value?.toString().length}/${charLimit}`}
               </Text>
             )}

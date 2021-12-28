@@ -37,12 +37,12 @@ export const ReactNodeLabel = () => {
       placement="right"
       label={
         <Set orientation="vertical" spacing={2}>
-          <Text variant="small" tone="secondary">
+          <Text variant="detail" tone="secondary">
             Previous Order: 102183 (211-213)
           </Text>
           <Tag palette="green" label="Ready for Handling" size="small" />
-          <Text variant="small">João da Silva</Text>
-          <Text variant="small">49,00 BRL</Text>
+          <Text variant="detail">João da Silva</Text>
+          <Text variant="detail">49,00 BRL</Text>
         </Set>
       }
     >

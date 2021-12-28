@@ -27,8 +27,7 @@ export function RadioGroup(props: RadioGroupProps) {
       <tag.div
         as={ReakitRadioGroup}
         csx={{
-          fontSettings: 'regular',
-          lh: 'highlight',
+          text: '$body',
           marginTop: 3,
           marginBottom: 6,
           display: 'flex',

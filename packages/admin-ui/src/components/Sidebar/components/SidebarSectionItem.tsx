@@ -53,13 +53,13 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           height: 'auto',
           marginY: 1,
           textAlign: 'left',
+          text: '$action1',
           bg: selected
             ? '$action.main.tertiarySelected'
             : '$action.main.tertiary',
           '> div': {
             justifyContent: 'start',
-            fontSize: '14px',
-            fontSettings: selected ? 'medium' : 'regular',
+            text: '$action1',
             color: selected
               ? '$action.main.tertiarySelected'
               : '$action.main.tertiary',
