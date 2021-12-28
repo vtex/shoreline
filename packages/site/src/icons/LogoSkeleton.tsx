@@ -1,12 +1,15 @@
 import React from 'react'
-import { useSystem } from '@vtex/admin-ui'
-import { Icon } from '@vtex/admin-ui-icons'
+import { useSystem, tag } from '@vtex/admin-ui'
 
 export default function LogoSkeleton() {
   const { cn } = useSystem()
 
   return (
-    <Icon title="VTEX skeleton" size={48} viewBox="0 0 1044.3 1108">
+    <tag.svg
+      csx={{ size: 48, minHeight: 48, minWidth: 48 }}
+      viewBox="0 0 1044.3 1108"
+    >
+      <title>VTEX skeleton</title>
       <path
         d="M903.9 174.5H234.8c-38.1.2-69 31.3-68.7 69.6 0 11 2.9 22 7.9 31.7l67 126.9H119.6c-24-.4-44.1 18.5-44.5 42.7-.2 7.5 1.5 14.8 5.1 21.4l215.2 404.9c11.7 21.8 38.8 30 60.6 18.3 7.7-4.2 14.1-10.6 18.3-18.3L432.7 762 506 900.2c17.8 33.7 59.7 46.3 93.4 28.4 12.1-6.4 21.8-16.3 28.4-28.4l335.5-627.9a66.4 66.4 0 00-1.8-65.7c-12.2-20-34.2-32.1-57.6-32.1zM605 439.9L458.2 713.8a29 29 0 01-39.4 11.9c-5.1-2.6-9.3-6.8-11.9-11.9l-145-271.2c-7.1-13.2-2-29.5 11-36.6 4-2.2 8.4-3.3 12.8-3.1h296.5a25.2 25.2 0 0125.6 24.7c.2 4.2-.9 8.4-2.8 12.3z"
         className={cn({ fill: 'mid.tertiary' })}
@@ -34,6 +37,6 @@ export default function LogoSkeleton() {
           strokeMiterlimit: 10,
         })}
       />
-    </Icon>
+    </tag.svg>
   )
 }

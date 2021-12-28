@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { Story, Meta } from '@storybook/react'
-import { IconAdd, IconLock } from '@vtex/admin-ui-icons'
+import { IconPlus, IconLock } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 
 import { AbstractInput, AbstractInputPassword } from './index'
@@ -28,7 +28,7 @@ export const Playground: Story = (args) => {
 Playground.args = {
   id: 'AbstractInput',
   suffix: 'Kg',
-  icon: <IconAdd />,
+  icon: <IconPlus />,
 }
 
 export const Error: Story = () => {
@@ -73,7 +73,7 @@ export const Overridecsx: Story = () => {
         value={value}
         id="username"
         suffix="kg"
-        icon={<IconAdd />}
+        icon={<IconPlus />}
         csx={{ border: '$positive' }}
       />
     </Box>

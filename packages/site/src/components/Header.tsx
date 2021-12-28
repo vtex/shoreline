@@ -11,7 +11,7 @@ import {
   get,
   unstableSearchBox as SearchBox,
   unstableUseSearchBoxState as useSearchBoxState,
-  IconSearch,
+  IconMagnifyingGlass,
   Paragraph,
 } from '@vtex/admin-ui'
 import { FaGithub } from 'react-icons/fa'
@@ -138,7 +138,7 @@ export default function Header() {
           }}
           state={dialog}
         >
-          <IconSearch />
+          <IconMagnifyingGlass />
           <Paragraph>Search for pages</Paragraph>
         </tag.button>
         <tag.div

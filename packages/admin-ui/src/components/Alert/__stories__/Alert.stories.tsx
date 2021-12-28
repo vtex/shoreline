@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import {
-  IconWarningColorful,
-  IconSuccessColorful,
-  IconErrorColorful,
-  IconHelp,
+  IconCheckCircle,
+  IconWarning,
+  IconXOctagon,
+  IconQuestion,
   IconWarningCircle,
-} from '@vtex/admin-ui-icons'
+} from '@vtex/phosphor-icons'
 
 import type { AlertProps } from '../index'
 import { Alert } from '../index'
@@ -34,16 +34,16 @@ Playground.args = {
 export function Tones() {
   return (
     <Set orientation="vertical" fluid>
-      <Alert tone="info" icon={<IconHelp />} visible>
+      <Alert tone="info" icon={<IconQuestion />} visible>
         Order successfully placed
       </Alert>
-      <Alert tone="positive" icon={<IconSuccessColorful />} visible>
+      <Alert tone="positive" icon={<IconCheckCircle />} visible>
         Order successfully placed
       </Alert>
-      <Alert tone="warning" icon={<IconWarningColorful />} visible>
+      <Alert tone="warning" icon={<IconWarning />} visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert tone="critical" icon={<IconErrorColorful />} visible>
+      <Alert tone="critical" icon={<IconXOctagon />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Set>

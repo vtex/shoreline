@@ -1,0 +1,70 @@
+---
+title: Iconography
+path: /foundations/icons/
+---
+
+# Iconography
+
+<IconsGrid />
+
+## Variations
+
+### Weight
+
+By default, all icons from the library are rendered with the value `outline`. They all have support to be either `fill` or `outline`. Example:
+
+```jsx
+function Example() {
+  return (
+    <>
+      <IconBell />
+      <IconBell weight="fill" />
+      <IconEnvelope />
+      <IconEnvelope weight="fill" />
+    </>
+  )
+}
+```
+
+### Size
+
+By default, all icons from the library are rendered with the value `regular`. They all have support to be either `small` or `regular`. Example:
+
+```jsx
+function Example() {
+  return (
+    <>
+      <IconCaretDown />
+      <IconCaretDown size="small" />
+      <IconArrowUpRight />
+      <IconArrowUpRight size="small" />
+    </>
+  )
+}
+```
+
+### Mirrored
+
+Use the `mirrored` property to mirror the icon direction, for example:
+
+```jsx
+function Example() {
+  return (
+    <>
+      <IconCaretRight mirrored />
+      <IconArrowRight mirrored />
+    </>
+  )
+}
+```
+
+## Props
+
+All props of `svg` JSX.Element.
+
+| Name     | Type              | Description                                   | Required | Default   |
+| -------- | ----------------- | --------------------------------------------- | -------- | --------- |
+| csx      | `StyleObject`     | Styles properties                             | 🚫       | -         |
+| weight   | `outline, weight` | Icon weight                                   | 🚫       | `outline` |
+| size     | `small, regular`  | Icon size                                     | 🚫       | `regular` |
+| mirrored | `boolean`         | Whether the icon direction is mirrored or not | 🚫       | `false`   |

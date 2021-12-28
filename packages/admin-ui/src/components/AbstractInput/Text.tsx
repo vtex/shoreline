@@ -2,8 +2,8 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { InputProps as ReakitInputProps } from 'reakit'
 import { Input as ReakitInput } from 'reakit'
-import { IconCancel, IconContainer } from '@vtex/admin-ui-icons'
-import { useSystem } from '@vtex/admin-ui-react'
+import { IconXCircle } from '@vtex/phosphor-icons'
+import { IconContainer, useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
 import { Button } from '../Button'
@@ -50,7 +50,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
       border: critical ? '$form.criticalHover' : '$form.neutralHover',
     },
     ':focus': {
-      borderColor: critical ? '$form.criticalFocus' : '$form.neutralFocus',
+      border: critical ? '$form.criticalFocus' : '$form.neutralFocus',
       boxShadow: critical ? '$ring.critical' : '$ring.neutral',
     },
     ':disabled': {
@@ -80,7 +80,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
     >
       {icon && (
         <IconContainer
-          space="regular"
+          size="regular"
           csx={{
             color: '$secondary',
             top: 1,
@@ -119,7 +119,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
           {showClear && (
             <Button
               variant="adaptative-dark"
-              icon={<IconCancel />}
+              icon={<IconXCircle />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
               size="small"

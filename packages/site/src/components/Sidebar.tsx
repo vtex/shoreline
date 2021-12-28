@@ -2,12 +2,12 @@ import type { ReactNode } from 'react'
 import React, { createContext, useMemo, useState } from 'react'
 import {
   Flex,
-  IconCaret,
+  IconCaretUp,
   tag,
-  IconTopic,
   Button,
   focusVisible,
   color,
+  IconDotsThreeVertical,
 } from '@vtex/admin-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { unstable_useId as useId } from 'reakit'
@@ -153,7 +153,7 @@ export function Sidebar() {
               '>div': { justifyContent: 'start' },
             }}
             onClick={() => setBulkVisile((v) => !v)}
-            icon={<IconTopic />}
+            icon={<IconDotsThreeVertical />}
           >
             {visible ? 'Collapse' : 'Expand'} Sidebar Items
           </Button>
@@ -295,7 +295,7 @@ function Section(props: SectionProps) {
         onClick={() => setVisible((v) => !v)}
       >
         <p>{section}</p>{' '}
-        <IconCaret
+        <IconCaretUp
           csx={{
             zIndex: 1,
             color: 'muted',

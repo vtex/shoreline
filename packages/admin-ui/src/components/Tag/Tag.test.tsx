@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, axe } from '../../test-utils'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconPlus } from '@vtex/phosphor-icons'
 
 import { Tag } from './index'
 
@@ -27,7 +27,7 @@ describe('Tag tests', () => {
         <Tag label="tag-2" size="regular" />
         <Tag label="tag-3" size="small" />
         <Tag label="tag-4" handleDelete={() => {}} />
-        <Tag label="tag-5" icon={<IconAdd />} handleDelete={() => {}} />
+        <Tag label="tag-5" icon={<IconPlus />} handleDelete={() => {}} />
       </>
     )
 
@@ -48,7 +48,7 @@ describe('Tag tests', () => {
         <Tag label="tag-2" size="regular" />
         <Tag label="tag-3" size="small" />
         <Tag label="tag-4" handleDelete={() => {}} />
-        <Tag label="tag-5" icon={<IconAdd />} handleDelete={() => {}} />
+        <Tag label="tag-5" icon={<IconPlus />} handleDelete={() => {}} />
       </>
     )
 

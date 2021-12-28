@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconPlus } from '@vtex/phosphor-icons'
 
 import { Box } from '../Box'
 import type { InputType, InputProps } from './index'
@@ -95,7 +95,7 @@ export const WithIcon = () => {
         onClear={() => setValue('')}
         id="textfield"
         label="Label"
-        icon={<IconAdd />}
+        icon={<IconPlus />}
       />
     </Box>
   )
@@ -114,7 +114,7 @@ export const FullBlown = () => {
         label="Label"
         helperText="Helper Text"
         suffix="Kg"
-        icon={<IconAdd />}
+        icon={<IconPlus />}
         charLimit={120}
       />
     </Box>

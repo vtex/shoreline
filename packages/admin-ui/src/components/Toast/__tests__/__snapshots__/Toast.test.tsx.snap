@@ -51,10 +51,10 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
   color: hsla(206, 63%, 44%, 1);
 }
 
@@ -213,10 +213,10 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 <div
@@ -228,29 +228,32 @@ exports[`Toast should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1.25rem"
+        viewBox="0 0 256 256"
+        width="1.25rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12.905 5.65676H12.907M12.907 5.65676H11.094C8.592 5.65676 6.563 7.68476 6.563 10.1878V12.9848C6.563 13.5148 6.352 14.0238 5.977 14.3988L5.336 15.0398C4.961 15.4148 4.75 15.9238 4.75 16.4538C4.75 17.4978 5.596 18.3438 6.64 18.3438H17.361C18.405 18.3438 19.251 17.4978 19.251 16.4538C19.251 15.9238 19.04 15.4148 18.665 15.0398L18.024 14.3988C17.649 14.0238 17.438 13.5148 17.438 12.9848V10.1881C17.438 7.68506 15.409 5.65676 12.907 5.65676Z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
         />
         <path
-          d="M9.70801 18.3438V18.7088C9.70801 19.9738 10.734 20.9998 12 20.9998V20.9998C13.266 20.9998 14.292 19.9738 14.292 18.7078V18.3428"
+          d="M56.20305,104A71.899,71.899,0,0,1,128.5484,32.002c39.58967.29432,71.25651,33.20133,71.25651,72.90185V112c0,35.81563,7.49325,56.59893,14.093,67.95814A7.999,7.999,0,0,1,207.01628,192H48.98365A7.99908,7.99908,0,0,1,42.103,179.95641c6.60328-11.35959,14.1-32.1426,14.1-67.95641Z"
+          fill="none"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          stroke-width="16"
         />
         <path
-          d="M13.833 5.751V4.833C13.833 3.821 13.013 3 12 3V3C10.987 3 10.167 3.821 10.167 4.833V5.751"
+          d="M96,192v8a32,32,0,0,0,64,0v-8"
+          fill="none"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          stroke-width="16"
         />
       </svg>
       <p
@@ -289,22 +292,36 @@ exports[`Toast should match snapshot 1`] = `
           >
             <svg
               class="emotion-6"
-              fill="none"
-              viewBox="0 0 24 24"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M6 6L18 18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
               />
-              <path
-                d="M18 6L6 18"
+              <line
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="56"
+                y2="200"
+              />
+              <line
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="200"
+                y2="56"
               />
             </svg>
              
@@ -482,11 +499,11 @@ exports[`Toast should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+.emotion-6 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-11 {
@@ -522,6 +539,14 @@ exports[`Toast should match snapshot 1`] = `
   background: hsla(123, 39%, 91%, 1);
 }
 
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  color: hsla(123, 41%, 37%, 1);
+}
+
 <div
     class="emotion-11"
     role="alert"
@@ -531,21 +556,19 @@ exports[`Toast should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1.25rem"
+        viewBox="0 0 256 256"
+        width="1.25rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          clip-rule="evenodd"
-          d="M12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12C21 16.971 16.971 21 12 21Z"
-          fill="hsla(123, 41%, 37%, 1)"
-          fill-rule="evenodd"
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
         />
         <path
-          d="M16 10L11 15L8 12"
-          stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          d="M128,24A104,104,0,1,0,232,128,104.12041,104.12041,0,0,0,128,24Zm49.53125,85.78906-58.67187,56a8.02441,8.02441,0,0,1-11.0625,0l-29.32813-28a8.00675,8.00675,0,0,1,11.0625-11.57812l23.79687,22.72656,53.14063-50.72656a8.00675,8.00675,0,0,1,11.0625,11.57812Z"
         />
       </svg>
       <p
@@ -583,23 +606,37 @@ exports[`Toast should match snapshot 1`] = `
             class="emotion-3"
           >
             <svg
-              class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
+              class="emotion-6"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M6 6L18 18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
               />
-              <path
-                d="M18 6L6 18"
+              <line
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="56"
+                y2="200"
+              />
+              <line
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="200"
+                y2="56"
               />
             </svg>
              
@@ -777,11 +814,11 @@ exports[`Toast should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+.emotion-6 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-11 {
@@ -817,6 +854,14 @@ exports[`Toast should match snapshot 1`] = `
   background: hsla(30, 100%, 92%, 1);
 }
 
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  color: hsla(30, 100%, 42%, 1);
+}
+
 <div
     class="emotion-11"
     role="alert"
@@ -826,28 +871,19 @@ exports[`Toast should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1.25rem"
+        viewBox="0 0 256 256"
+        width="1.25rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          clip-rule="evenodd"
-          d="M3 14.381V9.61899C3 8.01699 3.852 6.53599 5.236 5.72999L9.736 3.11099C11.135 2.29699 12.864 2.29699 14.263 3.11099L18.763 5.72999C20.148 6.53599 21 8.01699 21 9.61899V14.381C21 15.983 20.148 17.464 18.764 18.27L14.264 20.889C12.865 21.703 11.136 21.703 9.737 20.889L5.237 18.27C3.852 17.464 3 15.983 3 14.381Z"
-          fill="hsla(30, 100%, 42%, 1)"
-          fill-rule="evenodd"
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
         />
         <path
-          d="M12 12V7.5"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-        />
-        <path
-          d="M11.999 15.5C11.861 15.5 11.749 15.612 11.75 15.75C11.75 15.888 11.862 16 12 16C12.138 16 12.25 15.888 12.25 15.75C12.25 15.612 12.138 15.5 11.999 15.5"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          d="M236.74414,187.96585l-87.96875-152a24.012,24.012,0,0,0-41.54687,0v.00782L19.25977,187.96585a23.9982,23.9982,0,0,0,20.76562,36.02344H215.97852a23.9982,23.9982,0,0,0,20.76562-36.02344Zm-116.75-83.96875a8,8,0,1,1,16,0v40a8,8,0,1,1-16,0ZM128,192a12,12,0,1,1,12-12A12.00059,12.00059,0,0,1,128,192Z"
         />
       </svg>
       <p
@@ -885,23 +921,37 @@ exports[`Toast should match snapshot 1`] = `
             class="emotion-3"
           >
             <svg
-              class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
+              class="emotion-6"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M6 6L18 18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
               />
-              <path
-                d="M18 6L6 18"
+              <line
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="56"
+                y2="200"
+              />
+              <line
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="200"
+                y2="56"
               />
             </svg>
              
@@ -1079,11 +1129,11 @@ exports[`Toast should match snapshot 1`] = `
   margin: 0.25rem;
 }
 
-.emotion-0 {
-  min-width: 24px;
-  min-height: 24px;
-  width: 24px;
-  height: 24px;
+.emotion-6 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .emotion-11 {
@@ -1119,6 +1169,14 @@ exports[`Toast should match snapshot 1`] = `
   background: hsla(0, 60%, 93%, 1);
 }
 
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  color: hsla(0, 58%, 52%, 1);
+}
+
 <div
     class="emotion-11"
     role="alert"
@@ -1128,28 +1186,22 @@ exports[`Toast should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1.25rem"
+        viewBox="0 0 256 256"
+        width="1.25rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
+        />
         <path
           clip-rule="evenodd"
-          d="M7.414 20.414L3.586 16.586C3.211 16.211 3 15.702 3 15.172V8.828C3 8.298 3.211 7.789 3.586 7.414L7.414 3.586C7.789 3.211 8.298 3 8.828 3H15.171C15.701 3 16.21 3.211 16.585 3.586L20.413 7.414C20.789 7.789 21 8.298 21 8.828V15.171C21 15.701 20.789 16.21 20.414 16.585L16 21H8.828C8.298 21 7.789 20.789 7.414 20.414Z"
-          fill="hsla(0, 58%, 52%, 1)"
+          d="M175.766 28.6875L227.312 80.2344C230.303 83.2416 231.987 87.3064 232 91.5472V164.453C231.987 168.694 230.303 172.758 227.312 175.766L175.766 227.313C172.759 230.302 168.694 231.987 164.453 232H91.5466C87.3058 231.987 83.2418 230.302 80.2346 227.313L28.6874 175.766C25.6974 172.758 24.0131 168.694 24 164.453V91.5472C24.0131 87.3064 25.6974 83.2416 28.6874 80.2344L80.2346 28.6875C83.2418 25.6974 87.3058 24.0132 91.5466 24H164.453C168.694 24.0132 172.759 25.6974 175.766 28.6875ZM167.387 156.932C166.984 155.962 166.393 155.079 165.649 154.337L139.306 127.993L165.649 101.65C167.147 100.149 167.987 98.1152 167.986 95.9952C167.985 93.8752 167.143 91.8416 165.643 90.3432C164.144 88.844 162.111 88.0008 159.991 88C157.871 87.9992 155.838 88.8392 154.337 90.3368L127.993 116.681L101.649 90.3368C100.149 88.8392 98.1146 87.9992 95.9946 88C93.8746 88.0008 91.8418 88.844 90.3426 90.3432C88.8434 91.8416 88.001 93.8752 88.0002 95.9952C87.9986 98.1152 88.8394 100.149 90.337 101.65L116.68 127.993L90.337 154.337C88.8394 155.838 87.9986 157.871 88.0002 159.991C88.001 162.111 88.8434 164.144 90.3426 165.643C91.8418 167.142 93.8746 167.985 95.9946 167.986C98.1146 167.987 100.149 167.147 101.649 165.65L127.993 139.306L154.337 165.65C155.079 166.394 155.961 166.984 156.932 167.387C157.903 167.79 158.943 167.998 159.995 167.998C161.046 167.999 162.087 167.792 163.059 167.39C164.03 166.988 164.912 166.398 165.655 165.655C166.399 164.912 166.988 164.03 167.39 163.058C167.792 162.087 167.999 161.046 167.999 159.995C167.998 158.944 167.79 157.903 167.387 156.932Z"
+          fill="currentColor"
           fill-rule="evenodd"
-        />
-        <path
-          d="M9 15L15 9"
-          stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-        />
-        <path
-          d="M15 15L9 9"
-          stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
         />
       </svg>
       <p
@@ -1187,23 +1239,37 @@ exports[`Toast should match snapshot 1`] = `
             class="emotion-3"
           >
             <svg
-              class="emotion-0"
-              fill="none"
-              viewBox="0 0 24 24"
+              class="emotion-6"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M6 6L18 18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
               />
-              <path
-                d="M18 6L6 18"
+              <line
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1.5"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="56"
+                y2="200"
+              />
+              <line
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+                x1="200"
+                x2="56"
+                y1="200"
+                y2="56"
               />
             </svg>
              

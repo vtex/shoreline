@@ -15,7 +15,7 @@ import { Tooltip } from '@vtex/admin-ui'
 function Example() {
   return (
     <Tooltip label="Tooltip Label" placement="right">
-      <Button icon={<IconDuplicate />} aria-label="Example button" />
+      <Button icon={<IconCopy />} aria-label="Example button" />
     </Tooltip>
   )
 }
@@ -29,7 +29,7 @@ You can pass a string to the `label` property.
 
 ```jsx
 <Tooltip label="Tooltip Label" placement="right">
-  <Button icon={<IconDuplicate />} variant="tertiary" />
+  <Button icon={<IconCopy />} variant="tertiary" />
 </Tooltip>
 ```
 
@@ -50,7 +50,7 @@ You can also pass a custom component to the `label` property.
     </Set>
   }
 >
-  <Button icon={<IconDuplicate />} variant="tertiary" />
+  <Button icon={<IconCopy />} variant="tertiary" />
 </Tooltip>
 ```
 
@@ -60,7 +60,7 @@ You can use the `visible` property to set the initial visibility of the tooltip.
 
 ```jsx
 <Tooltip label="Tooltip Label" visible placement="right">
-  <Button icon={<IconDuplicate />} variant="tertiary" />
+  <Button icon={<IconCopy />} variant="tertiary" />
 </Tooltip>
 ```
 
@@ -70,7 +70,7 @@ You can use the `placement` property to change the position that the Tooltip pop
 
 ```jsx
 <Tooltip label="Tooltip Label" placement="right">
-  <Button icon={<IconDuplicate />} variant="tertiary" />
+  <Button icon={<IconCopy />} variant="tertiary" />
 </Tooltip>
 ```
 

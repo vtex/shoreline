@@ -61,7 +61,7 @@ function Example() {
     <tag.div csx={{ width: 300 }}>
       <Input
         label="Label"
-        icon={<IconHelp />}
+        icon={<IconQuestion />}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
@@ -147,7 +147,7 @@ function Example() {
       <Input
         disabled
         label="Weight"
-        icon={<IconShipping />}
+        icon={<IconPackage />}
         suffix="Kg"
         charLimit={10}
         helperText="Add a weight!"
@@ -172,7 +172,7 @@ function Example() {
     <tag.div csx={{ width: 300 }}>
       <Input
         label="Weight"
-        icon={<IconShipping />}
+        icon={<IconPackage />}
         suffix="Kg"
         charLimit={10}
         helperText="Add a weight!"
@@ -198,7 +198,11 @@ function Example() {
       <Input
         buttonElements={
           <Flex justify="center" align="center">
-            <Button variant="adaptative-dark" icon={<IconHelp />} size="small" />
+            <Button
+              variant="adaptative-dark"
+              icon={<IconQuestion />}
+              size="small"
+            />
           </Flex>
         }
         label="Label"

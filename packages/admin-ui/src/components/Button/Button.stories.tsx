@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { Story, Meta } from '@storybook/react'
-import { IconAppStore, IconAdd } from '@vtex/admin-ui-icons'
+import { IconSquaresFour, IconPlus } from '@vtex/phosphor-icons'
 
 import type { ButtonProps } from './index'
 import { Button } from './index'
@@ -46,11 +46,11 @@ export const Variant: Story = () => {
 export const WithIcon: Story = () => {
   return (
     <Set>
-      <Button icon={<IconAppStore />}>Icon Start</Button>
-      <Button icon={<IconAppStore />} iconPosition="end" variant="secondary">
+      <Button icon={<IconSquaresFour />}>Icon Start</Button>
+      <Button icon={<IconSquaresFour />} iconPosition="end" variant="secondary">
         IconEnd
       </Button>
-      <Button icon={<IconAppStore title="Icon only" />} variant="tertiary" />
+      <Button icon={<IconSquaresFour title="Icon only" />} variant="tertiary" />
     </Set>
   )
 }
@@ -61,14 +61,14 @@ export const Loading = () => {
   return (
     <Set>
       <Button
-        icon={<IconAdd />}
+        icon={<IconPlus />}
         loading={loading}
         onClick={() => setLoading(!loading)}
       >
         Loading
       </Button>
       <Button
-        icon={<IconAdd />}
+        icon={<IconPlus />}
         loading={loading}
         variant="danger"
         iconPosition="end"
@@ -85,7 +85,7 @@ export const Loading = () => {
         Loading
       </Button>
       <Button
-        icon={<IconAdd />}
+        icon={<IconPlus />}
         loading={loading}
         variant="danger-secondary"
         onClick={() => setLoading(!loading)}

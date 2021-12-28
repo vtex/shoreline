@@ -1,8 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { Menu as ReakitMenu } from 'reakit/Menu'
-import { jsx } from '@vtex/admin-ui-react'
-import { IconContainer } from '@vtex/admin-ui-icons'
+import { jsx, IconContainer } from '@vtex/admin-ui-react'
 
 import * as style from '../Menu.style'
 import { useMenuContext } from './MenuContext'
@@ -17,7 +16,7 @@ export const MenuList = jsx(ReakitMenu)(style.list, {
     return {
       ...menuListProps,
       state,
-      children: <IconContainer space="small">{children}</IconContainer>,
+      children: <IconContainer size="small">{children}</IconContainer>,
     }
   },
 })

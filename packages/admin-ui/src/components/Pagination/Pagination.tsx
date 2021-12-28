@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { IconCaret } from '@vtex/admin-ui-icons'
+import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Set } from '../Set'
@@ -53,7 +53,7 @@ export const Pagination = jsx('div')(
                   disabled={loading || prevDisabled}
                   onClick={() => paginate({ type: 'prev' })}
                   size="small"
-                  icon={<IconCaret direction="left" />}
+                  icon={<IconCaretLeft />}
                 />
               </Tooltip>
 
@@ -63,7 +63,7 @@ export const Pagination = jsx('div')(
                   disabled={loading || nextDisabled}
                   onClick={() => paginate({ type: 'next' })}
                   size="small"
-                  icon={<IconCaret direction="right" />}
+                  icon={<IconCaretRight />}
                 />
               </Tooltip>
             </Set>

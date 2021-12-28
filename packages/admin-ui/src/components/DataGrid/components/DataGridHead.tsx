@@ -1,6 +1,6 @@
 import React, { cloneElement, Fragment } from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
-import { IconTriangle } from '@vtex/admin-ui-icons'
+import { IconCaretDown, IconCaretUp } from '@vtex/phosphor-icons'
 
 import { useStateContext } from '../context'
 import { Cell } from './DataGridCell'
@@ -34,7 +34,8 @@ const SortIndicator = jsx('div')(
         children: (
           <Fragment>
             {direction !== 'DSC' && (
-              <IconTriangle
+              <IconCaretUp
+                weight="fill"
                 csx={{
                   ...triangleCsx,
                   marginBottom: 0.5,
@@ -45,7 +46,8 @@ const SortIndicator = jsx('div')(
               />
             )}
             {direction !== 'ASC' && (
-              <IconTriangle
+              <IconCaretDown
+                weight="fill"
                 csx={{
                   ...triangleCsx,
                   marginTop: 0.5,
@@ -53,7 +55,6 @@ const SortIndicator = jsx('div')(
                     fill: direction === 'DSC' ? 'base' : 'muted',
                   },
                 }}
-                direction="down"
               />
             )}
           </Fragment>

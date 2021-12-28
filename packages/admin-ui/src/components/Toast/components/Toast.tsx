@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect } from 'react'
 import {
-  IconClose,
-  IconErrorColorful,
-  IconNotifications,
-  IconSuccessColorful,
-  IconWarningColorful,
-} from '@vtex/admin-ui-icons'
+  IconX,
+  IconXOctagon,
+  IconBell,
+  IconCheckCircle,
+  IconWarning,
+} from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
@@ -18,10 +18,10 @@ interface ToastProps extends InternalToast {
 }
 
 const icons = {
-  positive: <IconSuccessColorful />,
-  warning: <IconWarningColorful />,
-  critical: <IconErrorColorful />,
-  info: <IconNotifications csx={{ color: '$info' }} />,
+  positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
+  warning: <IconWarning weight="fill" csx={{ color: '$warning' }} />,
+  critical: <IconXOctagon weight="fill" csx={{ color: '$critical' }} />,
+  info: <IconBell csx={{ color: '$info' }} />,
 }
 
 export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
@@ -91,7 +91,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             {dismissible && (
               <Button
                 variant="adaptative-dark"
-                icon={<IconClose />}
+                icon={<IconX />}
                 size="small"
                 aria-label="Close toast"
                 onClick={remove}

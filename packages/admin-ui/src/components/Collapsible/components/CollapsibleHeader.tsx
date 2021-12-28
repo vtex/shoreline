@@ -1,7 +1,7 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import { IconCaret } from '@vtex/admin-ui-icons'
+import { IconCaretUp } from '@vtex/phosphor-icons'
 import { Disclosure as ReakitDisclosure } from 'reakit/Disclosure'
 
 import { Flex } from '../../Flex'
@@ -51,8 +51,11 @@ function Disclosure({ children }: { children: ReactNode }) {
             variant="adaptative-dark"
             {...enhancedProps}
             iconPosition="start"
+            csx={{
+              svg: { height: 20, width: 20, minHeight: 20, maxHeight: 20 },
+            }}
             icon={
-              <IconCaret
+              <IconCaretUp
                 csx={{
                   transition: 'transform 150ms ease',
                   transform: `rotate(${visible ? 180 : 90}deg)`,

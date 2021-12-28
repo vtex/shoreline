@@ -18,7 +18,7 @@ const ToastButton = () => {
       <Button
         onClick={() => {
           showToast({
-            message: 'tone here a longer message but not much longer than that',
+            message: 'Type here a longer message but not much longer than that',
             dismissible: true,
             action: { label: 'Action', onClick: () => {} },
           })

@@ -21,6 +21,7 @@
 - section: Foundations
   paths:
     - /foundations/colors/
+    - /foundations/icons/
     - /foundations/typography/
 - section: Components
   paths:
@@ -44,7 +45,6 @@
     - /formik/
     - /grid/
     - /heading/
-    - /icons/
     - /input/
     - /input-password/
     - /label/

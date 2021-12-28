@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
 import type { Meta } from '@storybook/react'
 import {
-  IconDelete,
-  IconFavorite,
-  IconImport,
+  IconTrash,
+  IconHeart,
+  IconArrowLineDown,
   IconLink,
-} from '@vtex/admin-ui-icons'
+} from '@vtex/phosphor-icons'
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
@@ -81,11 +81,11 @@ export function ToolbarControls() {
                   More
                 </Button>
                 <MenuList aria-label="actions">
-                  <MenuItem icon={<IconImport />}>Download</MenuItem>
+                  <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
                   <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                  <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                  <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
                   <MenuSeparator />
-                  <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+                  <MenuItem icon={<IconTrash />}>Delete</MenuItem>
                 </MenuList>
               </Menu>
             )}

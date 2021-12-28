@@ -7006,6 +7006,13 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
+"@vtex/phosphor-icons@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.0.tgz#a2a35352911b221feda45ae0aef169334c99e1ab"
+  integrity sha512-BO5xF0dX27OeLKOqq1j+mv6THiskDtap9pWQfMRG9BvgPr/4Hxx2k6d2fWUvIzGU4ZJ9OLRNDcrhlt3IU657Cw==
+  dependencies:
+    tiny-invariant "^1.1.0"
+
 "@vtex/prettier-config@^0.3.1":
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.3.6.tgz#31762608d9a59b815b6d4e963e439b12f1a12279"

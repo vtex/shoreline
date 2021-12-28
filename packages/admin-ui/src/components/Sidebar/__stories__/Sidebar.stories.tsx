@@ -1,16 +1,16 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 import {
-  IconAppStore,
-  IconHome,
-  IconMarketplace,
-  IconOrders,
-  IconProducts,
-  IconPromotions,
-  IconSettings,
-  IconShipping,
-  IconStorefront,
-} from '@vtex/admin-ui-icons'
+  IconSquaresFour,
+  IconHouse,
+  IconTreeStructure,
+  IconShoppingCartSimple,
+  IconTag,
+  IconMegaphone,
+  IconSlidersHorizontal,
+  IconPackage,
+  IconLayout,
+} from '@vtex/phosphor-icons'
 
 import { Box } from '../../Box'
 import {
@@ -30,13 +30,13 @@ export default {
 
 const top = [
   {
-    icon: <IconHome />,
+    icon: <IconHouse />,
     onClick: () => console.log('Click me'),
     label: 'Home',
     sections: [],
   },
   {
-    icon: <IconOrders />,
+    icon: <IconShoppingCartSimple />,
     onClick: () => console.log('Click me'),
     label: 'Orders',
     sections: [
@@ -52,7 +52,7 @@ const top = [
     ],
   },
   {
-    icon: <IconProducts />,
+    icon: <IconTag />,
     onClick: () => console.log('Click me'),
     label: 'Products',
     sections: [
@@ -75,7 +75,7 @@ const top = [
     ],
   },
   {
-    icon: <IconPromotions />,
+    icon: <IconMegaphone />,
     onClick: () => console.log('Click me'),
     label: 'Promotions',
     sections: [
@@ -92,7 +92,7 @@ const top = [
     ],
   },
   {
-    icon: <IconStorefront />,
+    icon: <IconLayout />,
     onClick: () => console.log('Click me'),
     label: 'Storefront',
     sections: [
@@ -103,7 +103,7 @@ const top = [
     ],
   },
   {
-    icon: <IconShipping />,
+    icon: <IconPackage />,
     onClick: () => console.log('Click me'),
     label: 'Shipping',
     sections: [
@@ -119,7 +119,7 @@ const top = [
     ],
   },
   {
-    icon: <IconMarketplace />,
+    icon: <IconTreeStructure />,
     onClick: () => console.log('Click me'),
     label: 'Marketplace',
     sections: [],
@@ -128,13 +128,13 @@ const top = [
 
 const bottom = [
   {
-    icon: <IconAppStore />,
+    icon: <IconSquaresFour />,
     onClick: () => console.log('Click me'),
     label: 'App Store',
     sections: [],
   },
   {
-    icon: <IconSettings />,
+    icon: <IconSlidersHorizontal />,
     onClick: () => console.log('Click me'),
     label: 'Settings',
     sections: [],

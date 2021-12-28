@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
-import { IconArrow } from '@vtex/admin-ui-icons'
+import { IconArrowLeft } from '@vtex/phosphor-icons'
 
 import { Button } from '../../Button'
 import { usePageHeaderContext } from './PageHeaderContext'
@@ -25,7 +25,7 @@ export const PageTitle = jsx('div')(
             {onPopNavigation && (
               <Button
                 variant="tertiary"
-                icon={<IconArrow direction="left" />}
+                icon={<IconArrowLeft />}
                 onClick={onPopNavigation}
               />
             )}

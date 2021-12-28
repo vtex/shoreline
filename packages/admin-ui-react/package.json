@@ -35,7 +35,8 @@
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "@vtex/phosphor-icons": ">=0.x"
   },
   "devDependencies": {
     "@vtex/admin-ui-core": "^0.3.0",

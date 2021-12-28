@@ -1,8 +1,9 @@
 import type { Ref } from 'react'
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
-import type { IconProps } from '@vtex/admin-ui-icons'
-import { Icon, IconDuplicate } from '@vtex/admin-ui-icons'
+import type { IconProps } from '@vtex/phosphor-icons'
+import { IconCopy } from '@vtex/phosphor-icons'
+import { tag } from '@vtex/admin-ui-react'
 
 import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
@@ -20,7 +21,7 @@ export default {
 export const Playground: Story<TooltipProps> = (args) => {
   return (
     <Tooltip {...args}>
-      <Button icon={<IconDuplicate />} variant="tertiary" />
+      <Button icon={<IconCopy />} variant="tertiary" />
     </Tooltip>
   )
 }
@@ -45,7 +46,7 @@ export const ReactNodeLabel = () => {
         </Set>
       }
     >
-      <Button icon={<IconDuplicate />} variant="tertiary" />
+      <Button icon={<IconCopy />} variant="tertiary" />
     </Tooltip>
   )
 }
@@ -58,7 +59,7 @@ export const CustomComponent = () => {
     const { viewBox = '0 0 12 12', width = 24, height = 24 } = props
 
     return (
-      <Icon
+      <tag.svg
         ref={ref}
         width={width}
         height={height}
@@ -78,7 +79,7 @@ export const CustomComponent = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </Icon>
+      </tag.svg>
     )
   })
 

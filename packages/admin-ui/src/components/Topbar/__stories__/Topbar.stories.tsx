@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react'
 import type { Meta } from '@storybook/react'
 import {
-  IconArrow,
-  IconHelp,
+  IconArrowUp,
+  IconQuestion,
   IconImage,
-  IconNotifications,
-  IconUndo,
-} from '@vtex/admin-ui-icons'
+  IconBell,
+  IconArrowUUpLeft,
+} from '@vtex/phosphor-icons'
 
 import { Topbar, TopbarStart, TopbarEnd } from '../index'
 import { Set } from '../../Set'
@@ -31,17 +31,17 @@ export function Example() {
       </TopbarStart>
       <TopbarEnd>
         <Set spacing={0}>
-          <Button variant="tertiary" icon={<IconUndo />}>
+          <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
             Switch to previous version
           </Button>
           <Button
             variant="tertiary"
-            icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
+            icon={<IconArrowUp csx={{ transform: `rotate(45deg)` }} />}
           >
             View Store
           </Button>
-          <Button variant="tertiary" icon={<IconNotifications />} />
-          <Button variant="tertiary" icon={<IconHelp />} />
+          <Button variant="tertiary" icon={<IconBell />} />
+          <Button variant="tertiary" icon={<IconQuestion />} />
         </Set>
       </TopbarEnd>
     </Topbar>
@@ -64,17 +64,17 @@ export function Loading() {
         </TopbarStart>
         <TopbarEnd>
           <Set spacing={0}>
-            <Button variant="tertiary" icon={<IconUndo />}>
+            <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
               Switch to previous version
             </Button>
             <Button
               variant="tertiary"
-              icon={<IconArrow csx={{ transform: `rotate(45deg)` }} />}
+              icon={<IconArrowUp csx={{ transform: `rotate(45deg)` }} />}
             >
               View Store
             </Button>
-            <Button variant="tertiary" icon={<IconNotifications />} />
-            <Button variant="tertiary" icon={<IconHelp />} />
+            <Button variant="tertiary" icon={<IconBell />} />
+            <Button variant="tertiary" icon={<IconQuestion />} />
           </Set>
         </TopbarEnd>
       </Topbar>

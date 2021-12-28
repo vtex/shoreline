@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, axe } from '../../test-utils'
-import { IconAdd } from '@vtex/admin-ui-icons'
+import { IconPlus } from '@vtex/phosphor-icons'
 
 import { Input } from './index'
 
@@ -65,7 +65,7 @@ describe('Input tests', () => {
           id="text-field-5"
         />
         <Input
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -76,7 +76,7 @@ describe('Input tests', () => {
           id="text-field-6"
         />
         <Input
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -114,7 +114,7 @@ describe('Input tests', () => {
           id="text-field-2"
         />
         <Input
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"
@@ -125,7 +125,7 @@ describe('Input tests', () => {
           id="text-field-3"
         />
         <Input
-          icon={<IconAdd />}
+          icon={<IconPlus />}
           suffix="Kg"
           charLimit={120}
           helperText="Helper Text"

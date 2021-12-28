@@ -29,7 +29,7 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-1:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
@@ -47,10 +47,10 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  min-width: 20px;
-  min-height: 20px;
   width: 20px;
   height: 20px;
+  min-height: 20px;
+  min-width: 20px;
   color: #000000;
   top: 0rem;
   left: 0rem;
@@ -77,14 +77,37 @@ exports[`Search tests should match snapshot 1`] = `
     >
       <svg
         class="emotion-0"
-        fill="none"
-        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1.25rem"
+        viewBox="0 0 256 256"
+        width="1.25rem"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.6921 16.7489C12.9329 18.9787 8.87883 18.8112 6.31415 16.2466C3.57033 13.5027 3.57033 9.05413 6.31415 6.31031C9.05798 3.56649 13.5066 3.56649 16.2504 6.31031C18.8151 8.87498 18.9825 12.9291 16.7528 15.6883L19.5366 18.4721C19.8295 18.765 19.8295 19.2398 19.5366 19.5327C19.2437 19.8256 18.7688 19.8256 18.4759 19.5327L15.6921 16.7489ZM7.37481 7.37097C9.53285 5.21293 13.0317 5.21293 15.1898 7.37097C17.3277 9.5089 17.3476 12.9628 15.2495 15.1252C15.2275 15.1428 15.2063 15.1617 15.1859 15.1821C15.1656 15.2024 15.1466 15.2237 15.1291 15.2457C12.9666 17.3438 9.51274 17.3238 7.37481 15.1859C5.21678 13.0279 5.21678 9.52901 7.37481 7.37097Z"
-          fill="currentColor"
-          fill-rule="evenodd"
+        <rect
+          fill="none"
+          height="16rem"
+          width="16rem"
+        />
+        <circle
+          cx="116"
+          cy="116"
+          fill="none"
+          r="84"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+        />
+        <line
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="16"
+          x1="175.39356"
+          x2="223.99414"
+          y1="175.40039"
+          y2="224.00098"
         />
       </svg>
       <input
@@ -162,7 +185,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 .emotion-2:focus {
-  border-color: form.neutralFocus;
+  border: 1px solid hsla(0, 0%, 33%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 

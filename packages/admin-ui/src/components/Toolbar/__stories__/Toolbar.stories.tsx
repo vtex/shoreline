@@ -1,12 +1,12 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import {
-  IconAction,
-  IconDelete,
-  IconFavorite,
-  IconImport,
+  IconDotsThreeVertical,
+  IconTrash,
+  IconHeart,
+  IconArrowLineDown,
   IconLink,
-} from '@vtex/admin-ui-icons'
+} from '@vtex/phosphor-icons'
 
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
 import { Button } from '../../Button'
@@ -59,15 +59,15 @@ export const WithMenu = () => {
         <ToolbarItem>
           {(itemProps) => (
             <Menu state={menuState}>
-              <MenuButton icon={<IconAction />} {...itemProps}>
+              <MenuButton icon={<IconDotsThreeVertical />} {...itemProps}>
                 More
               </MenuButton>
               <MenuList aria-label="actions">
-                <MenuItem icon={<IconImport />}>Download</MenuItem>
+                <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
                 <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
                 <MenuSeparator />
-                <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+                <MenuItem icon={<IconTrash />}>Delete</MenuItem>
               </MenuList>
             </Menu>
           )}
@@ -88,15 +88,15 @@ export const WithModal = () => {
         <ToolbarItem>
           {(itemProps) => (
             <Menu state={menuState}>
-              <MenuButton icon={<IconAction />} {...itemProps}>
+              <MenuButton icon={<IconDotsThreeVertical />} {...itemProps}>
                 More
               </MenuButton>
               <MenuList aria-label="actions">
-                <MenuItem icon={<IconImport />}>Download</MenuItem>
+                <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
                 <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+                <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
                 <MenuSeparator />
-                <MenuItem icon={<IconDelete />}>Delete</MenuItem>
+                <MenuItem icon={<IconTrash />}>Delete</MenuItem>
               </MenuList>
             </Menu>
           )}
