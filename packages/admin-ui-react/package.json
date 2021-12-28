@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-react.esm.js",
   "typings": "dist/index.d.ts",
@@ -34,9 +34,9 @@
   "peerDependencies": {
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",
+    "@vtex/phosphor-icons": ">=0.x",
     "react": ">=16",
-    "react-dom": ">=16",
-    "@vtex/phosphor-icons": ">=0.x"
+    "react-dom": ">=16"
   },
   "devDependencies": {
     "@vtex/admin-ui-core": "^0.3.0",

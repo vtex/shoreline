@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/gatsby-plugin-admin-ui@0.3.11...@vtex/gatsby-plugin-admin-ui@0.4.0) (2021-12-28)
+
+### Features
+
+- **icons:** add IconContainer component to admin-ui-react ([11af9e5](https://github.com/vtex/onda/commit/11af9e518ebb3c64e5593dad0283451186e82c16))
+
 ## [0.3.11](https://github.com/vtex/onda/compare/@vtex/gatsby-plugin-admin-ui@0.3.11-next.0...@vtex/gatsby-plugin-admin-ui@0.3.11) (2021-12-13)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.11...admin-site@0.16.0) (2021-12-28)
+
+### Features
+
+- **icons:** add IconContainer component to admin-ui-react ([11af9e5](https://github.com/vtex/onda/tree/master/packages/site/commit/11af9e518ebb3c64e5593dad0283451186e82c16))
+- **icons:** add XOctagon icon to the admin-ui lib ([6a2df83](https://github.com/vtex/onda/tree/master/packages/site/commit/6a2df8327982183cd0019ecacfc78df50f0f06cd))
+- **icons:** migrate from vtex.admin-ui-icons to vtex.phosphor-icons ([0ca3037](https://github.com/vtex/onda/tree/master/packages/site/commit/0ca3037f303a95edc62026dbed53a85e5ae8d69e))
+
 ## [0.15.11](https://github.com/vtex/onda/tree/master/packages/site/compare/admin-site@0.15.11-next.0...admin-site@0.15.11) (2021-12-13)
 
 ### Bug Fixes

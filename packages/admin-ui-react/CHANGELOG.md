@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.3.0...@vtex/admin-ui-react@0.4.0) (2021-12-28)
+
+### Features
+
+- **icons:** add IconContainer component to admin-ui-react ([11af9e5](https://github.com/vtex/onda/commit/11af9e518ebb3c64e5593dad0283451186e82c16))
+- **icons:** migrate from vtex.admin-ui-icons to vtex.phosphor-icons ([0ca3037](https://github.com/vtex/onda/commit/0ca3037f303a95edc62026dbed53a85e5ae8d69e))
+
 # [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-react@0.2.4-next.0...@vtex/admin-ui-react@0.3.0) (2021-12-13)
 
 ### Bug Fixes
