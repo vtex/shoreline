@@ -43,6 +43,7 @@ exports[`Select should match the snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.75rem;
   line-height: 1.5;
+  letter-spacing: 0.004em;
   position: absolute;
   top: 0.5rem;
   padding-left: 0.75rem;
@@ -74,6 +75,7 @@ exports[`Select should match the snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -138,9 +138,7 @@ export const AbstractInput = forwardRef(function AbstractInput(
                 marginTop: 'px',
                 width: '32px',
                 paddingLeft: 3,
-                lineHeight: 'body',
-                fontSettings: 'regular',
-                fontSize: 1,
+                text: '$body',
               }}
             >
               {suffix}

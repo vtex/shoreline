@@ -20,19 +20,18 @@ The admin-ui `StyleObject` lets you style elements while consuming values from t
 </Box>
 ```
 
-## Scales
+## Design tokens
 
-Scales are values that can be consumed from specific properties within the `StyleObject`. They are the recommended values for those props if you desire to reach consistency between apps. These are defined within our `default theme`, and you can check all the available scales on the [link](theming/).
+Design tokens can be consumed from specific properties within the `StyleObject`. They are the recommended values for those props if you desire to reach consistency between apps. These are defined within our `default theme`, and you can check all the available design tokens on the [link](design-tokens/).
 
 ```jsx live
 <Box
   csx={{
-    color: 'base',
-    backgroundColor: 'muted',
-    border: '1px solid',
-    borderColor: 'container',
-    borderRadius: 4,
-    padding: 3,
+    color: '$base',
+    bg: '$base',
+    border: '$neutral',
+    borderRadius: '$default',
+    padding: '$3',
   }}
 >
   styled box
@@ -47,12 +46,12 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
 <Box
   csx={{
     button: {
-      padding: 1,
-      margin: 1,
+      padding: '$1',
+      margin: '$1',
       cursor: 'pointer',
-      borderRadius: 'default',
-      bg: 'muted',
-      color: 'base',
+      borderRadius: '$default',
+      bg: '$muted',
+      color: '$base',
     },
     header: {
       button: {

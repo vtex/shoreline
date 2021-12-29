@@ -32,10 +32,10 @@ export const Group = jsx('div')(
       },
       size: {
         regular: {
-          fontSize: '2',
+          text: '$body',
         },
         small: {
-          fontSize: '1',
+          text: '$body',
         },
       },
     },

@@ -11,7 +11,6 @@ import type { ComponentPropsWithRef } from 'react'
  */
 export const FloatingLabel = jsx('label')({
   text: '$body',
-  fontSize: 1,
   left: 12,
   paddingTop: 2,
   color: '$secondary',

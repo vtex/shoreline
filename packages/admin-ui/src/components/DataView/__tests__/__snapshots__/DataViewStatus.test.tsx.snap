@@ -85,6 +85,7 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
   color: #000000;
 }
 
@@ -98,6 +99,7 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 .emotion-2:visited {
@@ -498,6 +500,7 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
   color: #000000;
 }
 
@@ -511,6 +514,7 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 .emotion-2:visited {
@@ -885,6 +889,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
   color: #000000;
 }
 
@@ -893,6 +898,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
   color: hsla(0, 0%, 43%, 1);
 }
 

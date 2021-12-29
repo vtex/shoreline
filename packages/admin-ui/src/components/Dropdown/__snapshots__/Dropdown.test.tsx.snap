@@ -93,6 +93,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -290,6 +291,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -487,6 +489,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -689,6 +692,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -886,6 +890,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;

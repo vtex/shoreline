@@ -45,28 +45,24 @@ export function RadioGroup(props: RadioGroupProps) {
           ...get<Record<string, StyleObject>, string, object>(
             {
               'horizontal-regular': {
-                fontSize: '2',
                 flexDirection: 'row',
                 '& label:not(:last-child)': {
                   marginRight: 6,
                 },
               },
               'vertical-regular': {
-                fontSize: '2',
                 flexDirection: 'column',
                 '& label:not(:last-child)': {
                   marginBottom: 4,
                 },
               },
               'horizontal-small': {
-                fontSize: '1',
                 flexDirection: 'row',
                 '& label:not(:last-child)': {
                   marginRight: 5,
                 },
               },
               'vertical-small': {
-                fontSize: '1',
                 flexDirection: 'column',
                 '& label:not(:last-child)': {
                   marginBottom: 4,

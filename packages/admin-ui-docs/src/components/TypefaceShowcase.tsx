@@ -121,7 +121,7 @@ export function TypefaceShowcase() {
           csx={{
             padding: 2,
             fontSize,
-            fontSettings: `"WGHT" ${wght}, "WDTH" ${wdth}, "ITAL" ${ital}`,
+            fontVariationSettings: `"WGHT" ${wght}, "WDTH" ${wdth}, "ITAL" ${ital}`,
           }}
         >
           VTEX Trust

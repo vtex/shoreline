@@ -37,6 +37,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 .emotion-4 {
@@ -44,6 +45,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -80,6 +82,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {
@@ -229,6 +232,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 .emotion-4 {
@@ -236,6 +240,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -272,6 +277,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {
@@ -427,6 +433,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 .emotion-4 {
@@ -434,6 +441,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -470,6 +478,7 @@ exports[`Alert should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {

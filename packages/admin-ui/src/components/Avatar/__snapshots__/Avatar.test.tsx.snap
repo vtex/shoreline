@@ -29,6 +29,7 @@ exports[`Avatar tests should match snaphot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
+  letter-spacing: 0.004em;
 }
 
 <div

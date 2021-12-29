@@ -7,6 +7,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h1
@@ -19,6 +20,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h2
@@ -31,6 +33,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h3
@@ -43,6 +46,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h4
@@ -55,6 +59,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h5
@@ -67,6 +72,7 @@ exports[`Heading tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 650;
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0em;
 }
 
 <h6

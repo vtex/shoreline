@@ -47,4 +47,10 @@ export const typography = {
     xl: '1.25rem',
     xxl: '1.5rem',
   },
+  letterSpacing: {
+    none: '0em',
+    sm: '-0.004em',
+    md: '0.004em',
+    lg: '0.01em',
+  },
 }

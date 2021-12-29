@@ -65,8 +65,8 @@ Text tone of voice
 
 All props of `span` jsx element.
 
-| Name     | Type               | Description                             | Required | Default    |
-| -------- | ------------------ | --------------------------------------- | -------- | ---------- |
-| as       | `TextElementType`  | Element to render                       | 🚫       | `'span'`   |
-| variant  | `TextVariantType`  | Text variant. Consumes the text pattern | 🚫       | `body`     |
-| feedback | `TextFeedbackType` | Text feedback                           | 🚫       | ` default` |
+| Name    | Type                                                                               | Description                             | Required | Default   |
+| ------- | ---------------------------------------------------------------------------------- | --------------------------------------- | -------- | --------- |
+| as      | `HTMLElementType`                                                                  | Element to render                       | 🚫       | `'span'`  |
+| variant | `pageTitle`, `title1`, `title2`, `action1`, `action2`, `display`, `body`, `detail` | Text variant. Consumes the text pattern | 🚫       | `body`    |
+| tone    | `primary`, `secondary`, `info`, `critical`, `warning`, `positive`                  | Text Tone of voice                      | 🚫       | `primary` |

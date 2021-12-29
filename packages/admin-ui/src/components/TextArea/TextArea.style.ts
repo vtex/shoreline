@@ -15,7 +15,6 @@ export const baseline = css({
   paddingRight: 4,
   borderRadius: 'default',
   marginY: 1,
-  fontSize: 1,
   outline: 0,
   transition: 'snap',
   color: '$form.neutral',
