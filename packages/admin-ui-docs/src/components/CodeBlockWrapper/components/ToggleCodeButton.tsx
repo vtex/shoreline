@@ -14,7 +14,7 @@ const ToggleCodeButton = (props: ToggleCodeButtonProps) => {
 
   return (
     <Button
-      variant="secondary"
+      variant="adaptative-dark"
       icon={<IconCode />}
       size="small"
       onClick={onToggleCodeBlock}

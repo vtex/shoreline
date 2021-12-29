@@ -51,7 +51,12 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           />
         )}
       </DataViewControls>
-      <DataGrid state={dataGrid} />
+      <DataGrid
+        state={dataGrid}
+        csx={{
+          tr: { bg: 'white !important' },
+        }}
+      />
     </DataView>
   )
 }

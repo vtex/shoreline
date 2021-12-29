@@ -14,7 +14,7 @@
 
 .playgroundHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   letter-spacing: 0.08rem;
   padding: 0.75rem;
   text-transform: uppercase;

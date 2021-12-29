@@ -8,14 +8,12 @@
 import * as React from 'react';
 import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live';
 import clsx from 'clsx';
-import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import styles from './styles.module.css';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 
-import { Button, IconCode } from '@vtex/admin-ui'
 import { ToggleCodeButton, useCollapsibleCodeBlock } from '../../components/CodeBlockWrapper'
 
 function Header({children}) {
@@ -30,13 +28,6 @@ function LivePreviewLoader() {
 function ResultWithHeader() {
   return (
     <>
-      <Header>
-        <Translate
-          id="theme.Playground.result"
-          description="The result label of the live codeblocks">
-          Result
-        </Translate>
-      </Header>
       {/* https://github.com/facebook/docusaurus/issues/5747 */}
       <div className={styles.playgroundPreview}>
         <BrowserOnly fallback={<LivePreviewLoader />}>
@@ -70,11 +61,6 @@ function EditorWithHeader() {
   return (
     <>
       <Header>
-        <Translate
-          id="theme.Playground.liveEditor"
-          description="The live editor label of the live codeblocks">
-          Live Editor
-        </Translate>
         <ToggleCodeButton onToggleCodeBlock={handleToggleCodeBlock}/>
       </Header>
       {isCodeVisible && <ThemedLiveEditor />}
