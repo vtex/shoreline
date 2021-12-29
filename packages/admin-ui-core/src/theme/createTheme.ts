@@ -8,7 +8,6 @@ const constants = {
   reservedNamespaces: [
     'global',
     'modes',
-    'text',
     'shadows',
     'sizes',
     'space',
