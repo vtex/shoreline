@@ -44,7 +44,7 @@
     "test": "turbo run test --parallel",
     "dev": "turbo run dev --parallel --no-cache",
     "version": "lerna run version",
-    "prepublish:main": "yarn && yarn build",
+    "prepublish:main": "yarn && yarn build && yarn check --integrity",
     "prepublish:experimental": "yarn && yarn build",
     "publish:main": "lerna publish",
     "publish:experimental": "lerna publish --preid experimental --dist-tag experimental",
