@@ -4,7 +4,7 @@ exports[`Search tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.002em;
@@ -162,7 +162,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.002em;

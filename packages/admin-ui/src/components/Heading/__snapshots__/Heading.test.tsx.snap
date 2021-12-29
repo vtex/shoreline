@@ -4,7 +4,7 @@ exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;
@@ -17,7 +17,7 @@ exports[`Heading tests should match snapshot 1`] = `
   </h1>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;
@@ -30,7 +30,7 @@ exports[`Heading tests should match snapshot 1`] = `
   </h2>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;
@@ -43,7 +43,7 @@ exports[`Heading tests should match snapshot 1`] = `
   </h3>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;
@@ -56,7 +56,7 @@ exports[`Heading tests should match snapshot 1`] = `
   </h4>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;
@@ -69,7 +69,7 @@ exports[`Heading tests should match snapshot 1`] = `
   </h5>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0em;

@@ -31,7 +31,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -96,7 +96,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -104,7 +104,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -270,7 +270,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -335,7 +335,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
@@ -343,7 +343,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 650;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
   letter-spacing: 0.01em;

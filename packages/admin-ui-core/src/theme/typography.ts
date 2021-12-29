@@ -27,12 +27,12 @@ export const typography = {
   },
   fontWeight: {
     hairline: "'WGHT' 100",
-    thin: "'WGHT' 250",
-    light: "'WGHT' 375",
-    regular: "'WGHT' 500",
-    medium: "'WGHT' 650",
-    bold: "'WGHT' 875",
-    black: "'WGHT' 1000",
+    thin: "'WGHT' 200",
+    light: "'WGHT' 300",
+    regular: "'WGHT' 400",
+    medium: "'WGHT' 500",
+    bold: "'WGHT' 700",
+    black: "'WGHT' 900",
   },
   lineHeight: {
     sm: 1.2,
