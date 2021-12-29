@@ -41,7 +41,7 @@ export const Avatar = jsx('div')(
 
       return {
         ...props,
-        children: <tag.div csx={{ text: '$body' }}>{content}</tag.div>,
+        children: <tag.div csx={{ text: '$action1' }}>{content}</tag.div>,
       }
     },
   }

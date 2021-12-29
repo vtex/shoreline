@@ -71,7 +71,7 @@ const inputContainer = css({
 
 const input = (open: boolean, standalone: boolean) =>
   css({
-    text: '$title1',
+    text: '$body',
     bg: '$form.neutral',
     color: '$form.neutral',
     height: 64,

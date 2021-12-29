@@ -50,7 +50,8 @@ export const typography = {
   letterSpacing: {
     none: '0em',
     sm: '-0.004em',
-    md: '0.004em',
-    lg: '0.01em',
+    md: '0.002em',
+    lg: '0.004em',
+    xl: '0.01em',
   },
 }

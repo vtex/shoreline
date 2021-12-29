@@ -23,7 +23,17 @@ export function RadioGroup(props: RadioGroupProps) {
 
   return (
     <Fragment>
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && (
+        <Label
+          csx={{
+            text: '$detail',
+            color: '$secondary',
+          }}
+          htmlFor={id}
+        >
+          {label}
+        </Label>
+      )}
       <tag.div
         as={ReakitRadioGroup}
         csx={{
@@ -38,7 +48,6 @@ export function RadioGroup(props: RadioGroupProps) {
           },
           '& > label': {
             cursor: 'pointer',
-            color: '$secondary',
             display: 'flex',
             alignItems: 'center',
           },

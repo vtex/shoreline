@@ -177,14 +177,14 @@ const lightTheme = {
       fontVariationSettings: typography.fontWeight.medium,
       fontSize: typography.fontSize.md,
       lineHeight: typography.lineHeight.lg,
-      letterSpacing: typography.letterSpacing.lg,
+      letterSpacing: typography.letterSpacing.xl,
     },
     action2: {
       fontFamily: typography.fontStack.sans,
       fontVariationSettings: typography.fontWeight.regular,
       fontSize: typography.fontSize.md,
       lineHeight: typography.lineHeight.lg,
-      letterSpacing: typography.letterSpacing.lg,
+      letterSpacing: typography.letterSpacing.xl,
     },
     display: {
       fontFamily: typography.fontStack.sans,
@@ -205,7 +205,7 @@ const lightTheme = {
       fontVariationSettings: typography.fontWeight.regular,
       fontSize: typography.fontSize.sm,
       lineHeight: typography.lineHeight.md,
-      letterSpacing: typography.letterSpacing.md,
+      letterSpacing: typography.letterSpacing.lg,
     },
   },
 }

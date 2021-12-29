@@ -117,6 +117,7 @@ export const outerContainer = css({
   margin: 'auto',
   alignItems: 'center',
   justifyContent: 'center',
+  text: '$action1',
 })
 
 export const innerContainer = (options: {
@@ -126,6 +127,7 @@ export const innerContainer = (options: {
   const { loading, iconEnd } = options
 
   return css({
+    text: '$action1',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -135,6 +137,7 @@ export const innerContainer = (options: {
 }
 
 export const spinnerContainer = css({
+  text: '$action1',
   position: 'absolute',
   alignItems: 'center',
   display: 'flex',

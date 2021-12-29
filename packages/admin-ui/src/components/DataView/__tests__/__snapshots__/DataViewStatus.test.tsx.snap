@@ -99,7 +99,7 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 .emotion-2:visited {
@@ -514,7 +514,7 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 .emotion-2:visited {
@@ -898,7 +898,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   color: hsla(0, 0%, 43%, 1);
 }
 

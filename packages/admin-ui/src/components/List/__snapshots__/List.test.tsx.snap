@@ -7,7 +7,7 @@ exports[`List tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   list-style-position: inside;
 }
 
@@ -25,7 +25,7 @@ exports[`List tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 <ul
@@ -42,7 +42,7 @@ exports[`List tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   list-style-position: inside;
 }
 
@@ -60,7 +60,7 @@ exports[`List tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 <ol

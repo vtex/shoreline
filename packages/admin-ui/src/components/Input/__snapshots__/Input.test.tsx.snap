@@ -47,7 +47,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -67,7 +67,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -163,7 +163,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -207,7 +207,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -312,7 +312,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -356,7 +356,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -463,7 +463,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -507,7 +507,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -618,7 +618,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -662,7 +662,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -769,7 +769,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -813,7 +813,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 44px;
@@ -890,7 +890,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 <div
@@ -1014,7 +1014,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -1058,7 +1058,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   width: 100%;
   height: 48px;
   padding-left: 44px;
@@ -1135,7 +1135,7 @@ exports[`Input tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
 }
 
 <div

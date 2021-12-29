@@ -115,7 +115,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -138,7 +138,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -301,7 +300,7 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.4;
-  letter-spacing: 0.004em;
+  letter-spacing: 0.002em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -324,7 +323,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
