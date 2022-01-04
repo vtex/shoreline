@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.3.0...@vtex/admin-ui-core@0.4.0) (2022-01-04)
+
+### Bug Fixes
+
+- **typography:** add line-height ([0f9080c](https://github.com/vtex/onda/commit/0f9080c71bd75f639977aa99a5e07f05efd62264))
+- **typography:** enable token parsing for text tokens ([02fd6fb](https://github.com/vtex/onda/commit/02fd6fbceb1c0f406118c690066fede26a2fae36))
+- **typography:** fontWeight values ([48acef9](https://github.com/vtex/onda/commit/48acef9630b4b8dfab925d26d832469bb03f28f8))
+- **typography:** update tokens values ([85addbf](https://github.com/vtex/onda/commit/85addbf5a7ccb1f64d9760df7287464fcd0f4fae))
+
+### Features
+
+- **typography:** add typography tokens ([0ca11de](https://github.com/vtex/onda/commit/0ca11de229920933d902af7b6a62628b9f96cf28))
+
 # [0.3.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.2.1-next.0...@vtex/admin-ui-core@0.3.0) (2021-12-13)
 
 ### Bug Fixes

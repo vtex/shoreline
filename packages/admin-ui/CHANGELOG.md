@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.116.1](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.116.0...@vtex/admin-ui@0.116.1) (2022-01-04)
+
+### Bug Fixes
+
+- **tabs:** change typography token ([889a57a](https://github.com/vtex/onda/commit/889a57a7d9dc03f22c31c12f8b8baef5d6b5480f))
+- **typography:** add line-height ([0f9080c](https://github.com/vtex/onda/commit/0f9080c71bd75f639977aa99a5e07f05efd62264))
+- **typography:** fontWeight values ([48acef9](https://github.com/vtex/onda/commit/48acef9630b4b8dfab925d26d832469bb03f28f8))
+
 # [0.116.0](https://github.com/vtex/onda/compare/@vtex/admin-ui@0.115.0...@vtex/admin-ui@0.116.0) (2021-12-28)
 
 ### Features
