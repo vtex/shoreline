@@ -17,7 +17,9 @@ export function Typeface() {
       resolver: {
         type: 'plain',
         render: (column) => (
-          <Text variant={column.item.token}>{column.item?.description}</Text>
+          <Text as="p" variant={column.item.token}>
+            {column.item?.description}
+          </Text>
         ),
       },
     },
