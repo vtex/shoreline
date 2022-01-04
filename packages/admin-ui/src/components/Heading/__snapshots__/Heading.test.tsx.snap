@@ -4,10 +4,10 @@ exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h1
@@ -17,10 +17,10 @@ exports[`Heading tests should match snapshot 1`] = `
   </h1>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h2
@@ -30,10 +30,10 @@ exports[`Heading tests should match snapshot 1`] = `
   </h2>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h3
@@ -43,10 +43,10 @@ exports[`Heading tests should match snapshot 1`] = `
   </h3>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h4
@@ -56,10 +56,10 @@ exports[`Heading tests should match snapshot 1`] = `
   </h4>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h5
@@ -69,10 +69,10 @@ exports[`Heading tests should match snapshot 1`] = `
   </h5>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
 }
 
 <h6

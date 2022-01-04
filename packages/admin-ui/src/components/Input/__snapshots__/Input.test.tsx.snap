@@ -44,10 +44,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -64,10 +64,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -160,10 +160,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -195,19 +195,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -309,10 +309,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -344,19 +344,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -460,10 +460,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -495,19 +495,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -615,10 +615,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -650,19 +650,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 0.75rem;
@@ -766,10 +766,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -801,19 +801,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-6 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 44px;
@@ -887,10 +887,10 @@ exports[`Input tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.75rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 <div
@@ -1011,10 +1011,10 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
   color: hsla(0, 0%, 43%, 1);
@@ -1046,19 +1046,19 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-6 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.75rem;
-  line-height: 1.3;
-  letter-spacing: 0.004em;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
   color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   width: 100%;
   height: 48px;
   padding-left: 44px;
@@ -1132,10 +1132,10 @@ exports[`Input tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.75rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 <div

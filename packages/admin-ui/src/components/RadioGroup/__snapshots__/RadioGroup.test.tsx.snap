@@ -112,10 +112,10 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -297,10 +297,10 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;

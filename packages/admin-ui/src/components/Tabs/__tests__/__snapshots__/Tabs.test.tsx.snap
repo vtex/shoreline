@@ -11,10 +11,10 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
   border: none;
   border-radius: 4px;
   border-bottom-left-radius: 0px;
@@ -51,10 +51,10 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
   border: none;
   border-radius: 4px;
   border-bottom-left-radius: 0px;
@@ -164,10 +164,10 @@ exports[`Tabs should match snapshot 1`] = `
   </div>
   .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
   border: none;
   border-radius: 4px;
   border-bottom-left-radius: 0px;
@@ -222,10 +222,10 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: 0.0023em;
   border: none;
   border-radius: 4px;
   border-bottom-left-radius: 0px;

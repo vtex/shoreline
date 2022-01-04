@@ -23,18 +23,18 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -100,10 +100,10 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -231,18 +231,18 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -308,10 +308,10 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -439,18 +439,18 @@ exports[`Dropdown tests should match snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -516,10 +516,10 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -652,18 +652,18 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -729,10 +729,10 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -860,18 +860,18 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   -webkit-justify-content: center;
   justify-content: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -937,10 +937,10 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;

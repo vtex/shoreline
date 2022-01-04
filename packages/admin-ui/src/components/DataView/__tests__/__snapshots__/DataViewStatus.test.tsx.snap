@@ -82,10 +82,10 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: -0.0029em;
   color: #000000;
 }
 
@@ -97,9 +97,9 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
   cursor: pointer;
   font-size: 0.875rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  font-variation-settings: 'WGHT' 475;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 .emotion-2:visited {
@@ -497,10 +497,10 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: -0.0029em;
   color: #000000;
 }
 
@@ -512,9 +512,9 @@ exports[`DataViewStatus should match snapshot error 1`] = `
   cursor: pointer;
   font-size: 0.875rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  font-variation-settings: 'WGHT' 475;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 .emotion-2:visited {
@@ -886,19 +886,19 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: -0.0029em;
   color: #000000;
 }
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4;
-  letter-spacing: 0.002em;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   color: hsla(0, 0%, 43%, 1);
 }
 
