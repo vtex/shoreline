@@ -24,7 +24,7 @@ Current Design System, the home for all our reusable patterns, components, and a
 
 A library of React components with a focus on accessibility and developer experience.
 
-We also have other packages that are responsible for providing the entire structure used by our library. Some of them are: [Theme](/guidelines/theming/), [Iconography](/components/icons), and [Core](#).
+We also have other packages that are responsible for providing the entire structure used by our library. Some of them are: [Theme](/guidelines/theming/), [Iconography](/foundations/icons), and [Core](#).
 
 ## About CSS styles
 
@@ -116,7 +116,7 @@ Exports a set of icons, most of them are not well documented.
 
 **Admin UI**
 
-Exports a set of [Icons](/components/icons) divided into categories according to their usage. It also has some features that our library provides. For example:
+Exports a set of [Icons](/foundations/icons) divided into categories according to their usage. It also has some features that our library provides. For example:
 
 - **Icons with direction:** Some icons have a state that allows the developer to control their direction (left, right, down, up).
 

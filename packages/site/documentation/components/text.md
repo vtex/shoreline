@@ -13,7 +13,7 @@ By default `<Text>` renders a `<span>` or a specific text element, like `<i>`, `
 import { Text } from '@vtex/admin-ui'
 
 function Example() {
-  return <Text variant="headline">Headline</Text>
+  return <Text variant="title1">Headline</Text>
 }
 ```
 
@@ -51,7 +51,7 @@ fontSize: 0, // 0.75rem
 ```
 
 ```jsx
-<Text variant="small">Here goes your text!</Text>
+<Text variant="detail">Here goes your text!</Text>
 ```
 
 #### Body
@@ -100,7 +100,7 @@ fontSize: 2, // 1rem
 ```
 
 ```jsx
-<Text variant="subtitle">Here goes your text!</Text>
+<Text variant="title2">Here goes your text!</Text>
 ```
 
 #### Headline
@@ -112,7 +112,7 @@ fontSize: 4, // 1.25rem
 ```
 
 ```jsx
-<Text variant="headline">Here goes your text!</Text>
+<Text variant="title1">Here goes your text!</Text>
 ```
 
 ## Props

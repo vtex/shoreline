@@ -82,7 +82,7 @@ export function DataViewStatus() {
       <Flex direction="column" align="center">
         {status === 'not-found' && (
           <Fragment>
-            <Text variant="subtitle">{statusObject.notFound?.message}</Text>
+            <Text variant="title2">{statusObject.notFound?.message}</Text>
             {statusObject.notFound?.suggestion && (
               <Text variant="body" tone="secondary">
                 {statusObject.notFound?.suggestion}
@@ -93,10 +93,10 @@ export function DataViewStatus() {
 
         {status === 'empty' && (
           <Fragment>
-            <Text variant="subtitle">{statusObject.empty?.message}</Text>
+            <Text variant="title2">{statusObject.empty?.message}</Text>
             {statusObject.empty?.action && (
               <Anchor
-                csx={{ fontSize: 1, text: 'body' }}
+                csx={{ fontSize: 1, text: '$body' }}
                 onClick={statusObject.empty?.action?.onClick}
                 href={statusObject.empty?.action?.href}
               >
@@ -108,10 +108,10 @@ export function DataViewStatus() {
 
         {status === 'error' && (
           <Fragment>
-            <Text variant="subtitle">{statusObject.error?.message}</Text>
+            <Text variant="title2">{statusObject.error?.message}</Text>
             {statusObject.error?.action && (
               <Anchor
-                csx={{ fontSize: 1, text: 'body' }}
+                csx={{ fontSize: 1, text: '$body' }}
                 onClick={statusObject.error?.action?.onClick}
                 href={statusObject.error?.action?.href}
               >

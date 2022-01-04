@@ -71,7 +71,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           }}
         >
           {icons[tone]}
-          <tag.p csx={{ textAlign: 'start', text: 'body' }}>{message}</tag.p>
+          <tag.p csx={{ textAlign: 'start', text: '$body' }}>{message}</tag.p>
         </tag.div>
         {(dismissible || action) && (
           <tag.div csx={{ display: 'flex', alignItems: 'center' }}>

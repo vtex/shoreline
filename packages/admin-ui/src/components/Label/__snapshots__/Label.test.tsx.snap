@@ -4,9 +4,10 @@ exports[`Label tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 <label
@@ -21,9 +22,10 @@ exports[`Label tests should match snapshot 1`] = `
   />
   .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 <label

@@ -13,7 +13,7 @@ import {
 } from '@vtex/admin-ui'
 import { FilterDataGrid } from '../FilterDataGrid'
 
-const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow']
+const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow', 'Text']
 
 export function TokensTable(props: TokensTableProps) {
   const dataView = useDataViewState()
@@ -105,11 +105,11 @@ export function TokensTable(props: TokensTableProps) {
             return (
               <Center
                 csx={{
-                  ...column.item.csx,
                   width: 100,
                   height: 60,
                   borderRadius: 'default',
                   fontSize: 22,
+                  ...column.item.csx,
                 }}
               >
                 AA

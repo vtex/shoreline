@@ -15,9 +15,9 @@ const theme = {
   },
   fontSizes: [12, 14, 16],
   text: {
-    small: {
-      fontSize: 1,
-      fontFamily: 'sans',
+    detail: {
+      fontSize: 14,
+      fontFamily: 'sans-serif',
     },
   },
   colors: {

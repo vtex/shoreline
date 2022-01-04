@@ -20,115 +20,22 @@ Our design system provides an [accessible default palette](/foundations/colors) 
 
 ## Typography
 
-To manage Typography options, the theme object supports the following keys: `fonts`, `fontSizes`, `fontSettings` (equivalent to `fontVariationSettings` property), and lineHeights.
-
-```ts isStatic
-export default {
-  fonts: {
-    sans: '"VTEX Trust", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-    mono: '"MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace',
-  },
-  fontSizes: {
-    0: '0.75rem',
-    1: '0.875rem',
-    2: '1rem',
-    3: '1.125rem',
-    4: '1.25rem',
-  },
-  fontSettings: {
-    hairline: "'WGHT' 100",
-    thin: "'WGHT' 250",
-    light: "'WGHT' 375",
-    regular: "'WGHT' 500",
-    medium: "'WGHT' 650",
-    bold: "'WGHT' 875",
-    black: "'WGHT' 1000",
-  },
-  lineHeights: {
-    code: 1,
-    small: 1.125,
-    body: 1.25,
-    highlight: 1.25,
-    action: 1.5,
-    subtitle: 1.5,
-    headline: 1.5,
-  },
-}
-```
-
-### Text Variant
-
-The [StyleObject](styling) accepts the `text` prop. It is a shortcut for the text variants of the `admin-ui`.
-This is preferred over the scales.
+The [StyleObject](styling) accepts the `text` prop. It combines `fontFamily`, `fontSize`, `fontVariationSettings`, and `lineHeight` css properties for a consistent font rendering throught the product.
 
 ```jsx live
-function Example() {
-  const { cn } = useSystem()
-
-  return <h1 className={cn({ text: 'headline' })}>Headline text</h1>
-}
+<tag.h1 csx={{ text: '$pageTitle' }}>Page title</tag.h1>
 ```
 
-| Value       | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| `code`      | `pre` & `code` tags. Use wheather you need monospaced fonts |
-| `small`     | for small elements, such as tags, etc.                      |
-| `body`      | default text for the most elements, such as `p`             |
-| `highlight` | for accent texts                                            |
-| `action`    | used on primary actions                                     |
-| `subtitle`  | for subtitles                                               |
-| `headline`  | for titles & page headers                                   |
-
-```ts isStatic
-export default {
-  text: {
-    code: {
-      fontFamily: 'mono',
-      lineHeight: 'code',
-      fontSize: 1,
-      fontFeatureSettings: "'clig' 0, 'calt' 0",
-      fontVariantLigatures: 'normal',
-    },
-    small: {
-      fontFamily: 'sans',
-      lineHeight: 'small',
-      fontSettings: 'regular',
-      fontSize: 0,
-    },
-    body: {
-      fontFamily: 'sans',
-      lineHeight: 'body',
-      fontSettings: 'regular',
-      fontSize: 1,
-    },
-    highlight: {
-      fontFamily: 'sans',
-      lineHeight: 'highlight',
-      fontSettings: 'regular',
-      fontSize: 1,
-    },
-    action: {
-      fontFamily: 'sans',
-      lineHeight: 'action',
-      fontSettings: 'regular',
-      fontSize: 1,
-      textTransform: 'uppercase',
-    },
-    subtitle: {
-      fontFamily: 'sans',
-      lineHeight: 'subtitle',
-      fontSettings: 'regular',
-      fontSize: 2,
-    },
-    headline: {
-      fontFamily: 'sans',
-      lineHeight: 'headline',
-      fontSettings: 'regular',
-      fontSize: 4,
-    },
-  },
-}
-```
+| Value        | Description                                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `$pageTitle` | Page header title                                                                                                         |
+| `$title1`    | Primary titles                                                                                                            |
+| `$title2`    | Nested titles                                                                                                             |
+| `$action1`   | Actions text                                                                                                              |
+| `$action2`   | Less proeminent actions, such as menus                                                                                    |
+| `$display`   | Totalizer value                                                                                                           |
+| `$body`      | Text in tables, modals, toasts, alerts, cards; Text in form fields and controls; Placeholder text in form fields.         |
+| `$detail`    | Text in tag, tooltip and table pagination; Form error and help text. Labels in form field placeholders and select inline. |
 
 ## Breakpoints
 

@@ -46,15 +46,6 @@ export function As() {
       <Text as="sub">sub</Text>
       <br />
       <Text as="sup">sup</Text>
-      <br />
-      <Text as="code" variant="code">
-        {`
-          function Code() {
-            const copy = () => return 'copied'
-            return <code>Inline code example</code>
-          }
-        `}
-      </Text>
     </>
   )
 }

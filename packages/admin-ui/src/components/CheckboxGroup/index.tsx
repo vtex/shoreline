@@ -6,8 +6,7 @@ import { Label } from '../Label'
 
 export const Group = jsx('div')(
   {
-    fontSettings: 'regular',
-    lh: 'highlight',
+    text: '$body',
     marginTop: 3,
     marginBottom: 6,
     display: 'flex',
@@ -33,10 +32,10 @@ export const Group = jsx('div')(
       },
       size: {
         regular: {
-          fontSize: '2',
+          text: '$body',
         },
         small: {
-          fontSize: '1',
+          text: '$body',
         },
       },
     },

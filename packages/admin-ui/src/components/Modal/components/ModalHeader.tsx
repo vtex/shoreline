@@ -54,7 +54,7 @@ export const ModalHeader = jsx('header')(
 
       const renderTitle = useMemo(() => {
         if (typeof title === 'string') {
-          return <Box csx={{ text: 'headline' }}>{title}</Box>
+          return <Box csx={{ text: '$title1' }}>{title}</Box>
         }
 
         return title

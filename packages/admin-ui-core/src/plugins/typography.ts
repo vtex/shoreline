@@ -2,25 +2,9 @@ import { createPlugin } from '../system'
 
 export const typography = createPlugin({
   name: 'onda-plugin-typography',
-  namespaces: [
-    'fonts',
-    'fontSizes',
-    'fontWeights',
-    'lineHeights',
-    'letterSpacings',
-    'fontSettings',
-    'text',
-  ],
-  aliases: {
-    fontSettings: 'fontVariationSettings',
-  },
+  namespaces: ['text'],
+  aliases: {},
   rules: {
-    fontFamily: 'fonts',
-    fontSize: 'fontSizes',
-    fontWeight: 'fontWeights',
-    lineHeight: 'lineHeights',
-    letterSpacing: 'letterSpacings',
-    fontVariationSettings: 'fontSettings',
     text: 'text',
   },
 })

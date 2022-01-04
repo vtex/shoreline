@@ -42,85 +42,31 @@ Text tone of voice
 
 ### Variant
 
-#### Small
-
-```jsx isStatic
-lineHeight: 'small', // 1.125
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 0, // 0.75rem
-```
-
 ```jsx live
-<Text variant="small">Here goes your text!</Text>
-```
-
-#### Body
-
-```jsx isStatic
-lineHeight: 'body', // 1.25
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 1, // 0.875rem
-```
-
-```jsx live
-<Text variant="body">Here goes your text!</Text>
-```
-
-#### Highlight
-
-```jsx isStatic
-lineHeight: 'highlight', // 1.25
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 1, // 0.875rem
-```
-
-```jsx live
-<Text variant="highlight">Here goes your text!</Text>
-```
-
-#### Action
-
-```jsx isStatic
-lineHeight: 'action', // 1.5
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 1, // 0.875rem
-textTransform: 'uppercase',
-```
-
-```jsx live
-<Text variant="action">Here goes your text!</Text>
-```
-
-#### Subtitle
-
-```jsx isStatic
-lineHeight: 'subtitle', // 1.5
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 2, // 1rem
-```
-
-```jsx live
-<Text variant="subtitle">Here goes your text!</Text>
-```
-
-#### Headline
-
-```jsx isStatic
-lineHeight: 'headline', // 1.5
-fontSettings: 'regular', // "'WGHT' 500"
-fontSize: 4, // 1.25rem
-```
-
-```jsx live
-<Text variant="headline">Here goes your text!</Text>
+<Box
+  csx={{
+    '> *': {
+      display: 'block',
+    },
+  }}
+>
+  <Text variant="pageTitle">PageTitle</Text>
+  <Text variant="title1">Title 1</Text>
+  <Text variant="title2">Title 2</Text>
+  <Text variant="action1">Action 1</Text>
+  <Text variant="action2">Action 2</Text>
+  <Text variant="display">Display</Text>
+  <Text variant="body">Body</Text>
+  <Text variant="detail">Detail</Text>
+</Box>
 ```
 
 ## Props
 
 All props of `span` jsx element.
 
-| Name     | Type               | Description                             | Required | Default    |
-| -------- | ------------------ | --------------------------------------- | -------- | ---------- |
-| as       | `TextElementType`  | Element to render                       | 🚫       | `'span'`   |
-| variant  | `TextVariantType`  | Text variant. Consumes the text pattern | 🚫       | `body`     |
-| feedback | `TextFeedbackType` | Text feedback                           | 🚫       | ` default` |
+| Name    | Type                                                                               | Description                             | Required | Default   |
+| ------- | ---------------------------------------------------------------------------------- | --------------------------------------- | -------- | --------- |
+| as      | `HTMLElementType`                                                                  | Element to render                       | 🚫       | `'span'`  |
+| variant | `pageTitle`, `title1`, `title2`, `action1`, `action2`, `display`, `body`, `detail` | Text variant. Consumes the text pattern | 🚫       | `body`    |
+| tone    | `primary`, `secondary`, `info`, `critical`, `warning`, `positive`                  | Text Tone of voice                      | 🚫       | `primary` |

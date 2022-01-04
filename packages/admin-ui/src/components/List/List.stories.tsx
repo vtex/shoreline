@@ -26,13 +26,13 @@ export const Playground: Story = (args) => {
 export function Patterns() {
   return (
     <List>
-      <List.Item csx={{ text: 'subtitle' }}>Coffee</List.Item>
+      <List.Item csx={{ text: '$title2' }}>Coffee</List.Item>
       <List>
-        <List.Item csx={{ text: 'highlight' }}>Arabica</List.Item>
-        <List.Item csx={{ text: 'highlight' }}>Robusta</List.Item>
+        <List.Item csx={{ text: '$body' }}>Arabica</List.Item>
+        <List.Item csx={{ text: '$body' }}>Robusta</List.Item>
       </List>
-      <List.Item csx={{ text: 'highlight' }}>Juice</List.Item>
-      <List.Item csx={{ text: 'highlight' }}>Tea</List.Item>
+      <List.Item csx={{ text: '$body' }}>Juice</List.Item>
+      <List.Item csx={{ text: '$body' }}>Tea</List.Item>
     </List>
   )
 }

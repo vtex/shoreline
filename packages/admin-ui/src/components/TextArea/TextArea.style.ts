@@ -6,17 +6,15 @@ function css(csx: StyleProp): StyleProp {
 }
 
 export const baseline = css({
-  fontFamily: 'sans',
+  text: '$body',
   paddingTop: 24,
   height: 100,
   resize: 'none',
-  fontSettings: 'regular',
   width: 'full',
   paddingLeft: 3,
   paddingRight: 4,
   borderRadius: 'default',
   marginY: 1,
-  fontSize: 1,
   outline: 0,
   transition: 'snap',
   color: '$form.neutral',

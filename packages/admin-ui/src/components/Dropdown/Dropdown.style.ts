@@ -14,7 +14,7 @@ export function listboxItem(options: { selected: boolean }) {
   return css({
     color: selected ? '$action.main.tertiarySelected' : '$action.main.tertiary',
     bg: selected ? '$action.main.tertiarySelected' : '$action.main.tertiary',
-    text: 'body',
+    text: '$action2',
     display: 'flex',
     alignItems: 'center',
     height: 24,

@@ -29,7 +29,7 @@ export const PageTitle = jsx('div')(
                 onClick={onPopNavigation}
               />
             )}
-            <tag.h1 csx={{ text: 'headline' }}>{children}</tag.h1>
+            <tag.h1 csx={{ text: '$pageTitle' }}>{children}</tag.h1>
           </Fragment>
         ),
       }

@@ -23,12 +23,21 @@ export function RadioGroup(props: RadioGroupProps) {
 
   return (
     <Fragment>
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && (
+        <Label
+          csx={{
+            text: '$detail',
+            color: '$secondary',
+          }}
+          htmlFor={id}
+        >
+          {label}
+        </Label>
+      )}
       <tag.div
         as={ReakitRadioGroup}
         csx={{
-          fontSettings: 'regular',
-          lh: 'highlight',
+          text: '$body',
           marginTop: 3,
           marginBottom: 6,
           display: 'flex',
@@ -39,35 +48,30 @@ export function RadioGroup(props: RadioGroupProps) {
           },
           '& > label': {
             cursor: 'pointer',
-            color: '$secondary',
             display: 'flex',
             alignItems: 'center',
           },
           ...get<Record<string, StyleObject>, string, object>(
             {
               'horizontal-regular': {
-                fontSize: '2',
                 flexDirection: 'row',
                 '& label:not(:last-child)': {
                   marginRight: 6,
                 },
               },
               'vertical-regular': {
-                fontSize: '2',
                 flexDirection: 'column',
                 '& label:not(:last-child)': {
                   marginBottom: 4,
                 },
               },
               'horizontal-small': {
-                fontSize: '1',
                 flexDirection: 'row',
                 '& label:not(:last-child)': {
                   marginRight: 5,
                 },
               },
               'vertical-small': {
-                fontSize: '1',
                 flexDirection: 'column',
                 '& label:not(:last-child)': {
                   marginBottom: 4,

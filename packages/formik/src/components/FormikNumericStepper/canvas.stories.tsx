@@ -65,7 +65,7 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
                 Reset Forms
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -75,7 +75,7 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
                 Save
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -89,7 +89,7 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
                 Set initial values
               </Button>
               <Text
-                variant="small"
+                variant="detail"
                 tone="secondary"
                 csx={{ marginBottom: 3, textAlign: 'center' }}
               >
@@ -98,13 +98,13 @@ export const Playground: Story<FormikNumericStepperProps> = (args) => {
             </Flex>
             <Set orientation="vertical" spacing={4}>
               <Set orientation="vertical">
-                <Text variant="subtitle">Current value in formik :</Text>
+                <Text variant="title2">Current value in formik :</Text>
                 <Text tone="secondary">
                   <pre>{JSON.stringify(values)}</pre>
                 </Text>
               </Set>
               <Set orientation="vertical">
-                <Text variant="subtitle">Current initial value in formik:</Text>
+                <Text variant="title2">Current initial value in formik:</Text>
                 <Text tone="secondary">
                   <pre>{JSON.stringify(currentInitialValues)}</pre>
                 </Text>
@@ -148,7 +148,7 @@ export const Basic = () => {
               />
             </Box>
             <Set orientation="vertical">
-              <Text variant="subtitle">Current value in formik :</Text>
+              <Text variant="title2">Current value in formik :</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
@@ -193,7 +193,7 @@ export const ErrorMessage = () => {
             />
           </Box>
           <Set>
-            <Text variant="subtitle">Current value in formik :</Text>
+            <Text variant="title2">Current value in formik :</Text>
             <Text tone="secondary">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
@@ -253,7 +253,7 @@ export const ErrorLimit = () => {
             </Set>
           </Set>
           <Set>
-            <Text variant="subtitle">Current value in formik :</Text>
+            <Text variant="title2">Current value in formik :</Text>
             <Text tone="secondary">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
@@ -303,7 +303,7 @@ export const WithIntl = () => {
               />
             </Box>
             <Set>
-              <Text variant="subtitle">Current value in formik :</Text>
+              <Text variant="title2">Current value in formik :</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
@@ -350,7 +350,7 @@ export const ChangeValueOutside = () => {
               </Button>
             </Box>
             <Set orientation="vertical">
-              <Text variant="subtitle">Current value in formik :</Text>
+              <Text variant="title2">Current value in formik :</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
@@ -400,7 +400,7 @@ export const ChangeInitialValue = () => {
                   Change initial value
                 </Button>
                 <Text
-                  variant="small"
+                  variant="detail"
                   tone="secondary"
                   csx={{ marginBottom: 3, textAlign: 'center' }}
                 >
@@ -409,13 +409,13 @@ export const ChangeInitialValue = () => {
               </Flex>
             </Box>
             <Set orientation="vertical" csx={{ marginX: 8 }}>
-              <Text variant="subtitle">Current value in formik :</Text>
+              <Text variant="title2">Current value in formik :</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(values)}</pre>
               </Text>
             </Set>
             <Set orientation="vertical">
-              <Text variant="subtitle">Current initial value in formik:</Text>
+              <Text variant="title2">Current initial value in formik:</Text>
               <Text tone="secondary">
                 <pre>{JSON.stringify(currentInitialValues)}</pre>
               </Text>
@@ -451,7 +451,7 @@ export const OnChangeExample = () => {
             />
           </Box>
           <Set orientation="vertical">
-            <Text variant="subtitle">
+            <Text variant="title2">
               Number of times the value has changed: {` ${changes}`}
             </Text>
           </Set>

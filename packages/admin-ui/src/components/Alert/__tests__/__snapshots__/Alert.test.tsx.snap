@@ -34,12 +34,18 @@ exports[`Alert should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 .emotion-4 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -72,7 +78,11 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 650;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {
@@ -219,12 +229,18 @@ exports[`Alert should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 .emotion-4 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -257,7 +273,11 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 650;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {
@@ -410,12 +430,18 @@ exports[`Alert should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  line-height: 1.25;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
 }
 
 .emotion-4 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   color: #000000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -448,7 +474,11 @@ exports[`Alert should match snapshot 1`] = `
 }
 
 .emotion-4 a {
-  font-variation-settings: 'WGHT' 650;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 @media (min-width: 48em) and (max-width: 64em) {

@@ -19,7 +19,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
       csx={{
         display: 'flex',
         alignItems: 'center',
-        fontSize: 0,
+        text: '$body',
         paddingY: 1,
         paddingX: 2,
         borderRadius: 'default',

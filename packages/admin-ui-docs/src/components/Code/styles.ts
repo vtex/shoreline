@@ -36,7 +36,7 @@ export default {
     padding: '1rem',
     bg: 'notification.critical',
     color: 'notification.critical',
-    text: 'body',
+    text: '$body',
   },
   copyButton: {
     position: 'absolute',

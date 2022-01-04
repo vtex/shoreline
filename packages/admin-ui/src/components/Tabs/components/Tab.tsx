@@ -5,8 +5,7 @@ import { useTabsContext } from '../context'
 
 export const Tab = jsx(ReakitTab)(
   {
-    fontFamily: 'sans',
-    fontSettings: 'regular',
+    text: '$action1',
     border: 'none',
     borderRadius: 'default',
     borderBottomLeftRadius: '0px',
@@ -30,7 +29,6 @@ export const Tab = jsx(ReakitTab)(
       boxShadow: 'focus',
     },
     paddingX: 6,
-    textTransform: 'uppercase',
     backgroundColor: 'transparent',
     color: '$primary',
     ':hover': {

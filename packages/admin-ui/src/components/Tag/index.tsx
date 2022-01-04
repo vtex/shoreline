@@ -23,6 +23,7 @@ export const Tag = jsx('div')(
     display: 'inline-flex',
     alignItems: 'center',
     borderRadius: '100px',
+    text: '$body',
     border: 'none',
     '> svg:nth-of-type(1)': {
       marginRight: 1,
@@ -41,9 +42,6 @@ export const Tag = jsx('div')(
         small: {
           height: 26,
           paddingX: '2',
-          lineHeight: 'small',
-          fontSettings: 'regular',
-          fontSize: 0,
           svg: {
             width: 16,
             height: 16,
@@ -58,9 +56,6 @@ export const Tag = jsx('div')(
         regular: {
           height: 40,
           paddingX: '4',
-          lineHeight: 'subtitle',
-          fontSettings: 'regular',
-          fontSize: 2,
           svg: {
             width: 20,
             minWidth: 20,

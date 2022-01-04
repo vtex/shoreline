@@ -6,7 +6,6 @@ import { Separator as ReakitSeparator } from 'reakit'
  * It renders an hr element and grants accessibility as described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
  */
 export const Divider = jsx(ReakitSeparator)({
-  text: 'headline',
   border: '$neutral',
   margin: 0,
   variants: {

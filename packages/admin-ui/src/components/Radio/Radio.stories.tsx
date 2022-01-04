@@ -53,7 +53,7 @@ export function Group() {
 
   return (
     <>
-      <Heading csx={{ text: 'highlight' }}>
+      <Heading csx={{ text: '$title2' }}>
         Selected solution: {state.state}
       </Heading>
       <RadioGroup state={state} orientation="vertical" aria-label="Solutions">

@@ -111,8 +111,11 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-3 {
-  font-variation-settings: 'WGHT' 500;
-  lh: highlight;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -123,7 +126,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  font-size: 1rem;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -136,7 +138,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -295,8 +296,11 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 }
 
 .emotion-3 {
-  font-variation-settings: 'WGHT' 500;
-  lh: highlight;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
@@ -307,7 +311,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  font-size: 1rem;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -320,7 +323,6 @@ exports[`RadioGroup tests should match snapshot with diferent orientations 1`] =
 
 .emotion-3>label {
   cursor: pointer;
-  color: hsla(0, 0%, 43%, 1);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

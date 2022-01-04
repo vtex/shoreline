@@ -8,7 +8,7 @@ function css(csx: StyleProp) {
 export const item = css({
   marginY: '2px',
   paddingX: 1,
-  fontSize: 1,
+  text: '$action2',
   border: 'none',
   textTransform: 'initial',
   width: 'full',
@@ -24,8 +24,6 @@ export const item = css({
     marginLeft: 0,
     marginRight: 2,
   },
-  fontFamily: 'sans',
-  fontSettings: 'regular',
   borderRadius: 'default',
   cursor: 'pointer',
   position: 'relative',

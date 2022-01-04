@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { ListItem } from './ListItem'
 
 const _List = jsx('ul')({
-  text: 'body',
+  text: '$body',
   listStylePosition: 'inside',
   '> ul, ol': {
     paddingLeft: 2,

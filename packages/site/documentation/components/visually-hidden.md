@@ -21,7 +21,7 @@ import { VisuallyHidden } from '@vtex/admin-ui'
     <label htmlFor="search">Hidden Label</label>
   </VisuallyHidden>
   <input id="search" type="search" placeholder="A11y Search Input" />
-  <Text variant="small" csx={{ alignSelf: 'flex-end', marginTop: 3 }}>
+  <Text variant="detail" csx={{ alignSelf: 'flex-end', marginTop: 3 }}>
     Use this input to search things
   </Text>
 </Box>

@@ -56,7 +56,7 @@ export function Horizontal() {
 
   return (
     <>
-      <Heading csx={{ text: 'highlight' }}>
+      <Heading csx={{ text: '$title2' }}>
         Selected solution: {radio.state}
       </Heading>
       <RadioGroup
@@ -94,7 +94,7 @@ export function Vertical() {
 
   return (
     <>
-      <Heading csx={{ text: 'highlight' }}>
+      <Heading csx={{ text: '$title2' }}>
         Selected solution: {radio.state}
       </Heading>
       <RadioGroup

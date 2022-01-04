@@ -41,12 +41,12 @@ You can also pass a custom component to the `label` property.
 <Tooltip
   label={
     <Set orientation="vertical" spacing={2}>
-      <Text variant="small" tone="info">
+      <Text variant="detail" tone="info">
         Previous Order: 102183 (211-213)
       </Text>
       <Tag palette="green" label="Ready for Handling" size="small" />
-      <Text variant="small">João da Silva</Text>
-      <Text variant="small">49,00 BRL</Text>
+      <Text variant="detail">João da Silva</Text>
+      <Text variant="detail">49,00 BRL</Text>
     </Set>
   }
 >

@@ -143,6 +143,17 @@ export const shadowTokens = asLiterals([
   '$overlay.bottom',
 ])
 
+export const textTokens = asLiterals([
+  '$pageTitle',
+  '$title1',
+  '$title2',
+  '$action1',
+  '$action2',
+  '$display',
+  '$body',
+  '$detail',
+])
+
 export const colorTokens = asLiterals([
   'white',
   'black',
@@ -233,3 +244,4 @@ export type FgTokens = typeof fgTokens[number]
 export type BgTokens = typeof bgTokens[number]
 export type BorderTokens = typeof borderTokens[number]
 export type ShadowTokens = typeof shadowTokens[number]
+export type TextTokens = typeof textTokens[number]

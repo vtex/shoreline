@@ -40,7 +40,7 @@ export const Pagination = jsx('div')(
             {!loading && (
               <Text
                 tone="secondary"
-                variant="small"
+                variant="detail"
                 csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
               >
                 {range[0]} — {range[1]} {preposition} {total} {subject}

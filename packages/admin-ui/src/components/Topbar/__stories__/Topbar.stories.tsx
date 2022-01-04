@@ -24,9 +24,7 @@ export function Example() {
       <TopbarStart>
         <Set spacing={3}>
           <Button variant="adaptative-dark" icon={<IconImage />} />
-          <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
-            dpsppinheiros
-          </Text>
+          <Text variant="action1">dpsppinheiros</Text>
         </Set>
       </TopbarStart>
       <TopbarEnd>
@@ -57,9 +55,7 @@ export function Loading() {
         <TopbarStart>
           <Set spacing={3}>
             <Button variant="adaptative-dark" icon={<IconImage />} />
-            <Text csx={{ fontSize: 2, fontSettings: 'medium' }}>
-              dpsppinheiros
-            </Text>
+            <Text variant="action1">dpsppinheiros</Text>
           </Set>
         </TopbarStart>
         <TopbarEnd>

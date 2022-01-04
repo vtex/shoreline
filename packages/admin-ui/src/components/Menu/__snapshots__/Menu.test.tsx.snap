@@ -6,12 +6,14 @@ exports[`Menu should match snapshot hidden 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.75rem;
@@ -69,9 +71,19 @@ exports[`Menu should match snapshot hidden 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -120,13 +132,15 @@ exports[`Menu should match snapshot hidden 1`] = `
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0071em;
   border: none;
   text-transform: initial;
   width: 100%;
   height: 32px;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
@@ -323,12 +337,14 @@ exports[`Menu should match snapshot visible 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  font-size: 0.875rem;
   height: 40px;
   width: auto;
   padding-left: 0.75rem;
@@ -386,9 +402,19 @@ exports[`Menu should match snapshot visible 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
 }
 
 .emotion-1 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -419,13 +445,15 @@ exports[`Menu should match snapshot visible 1`] = `
   margin-bottom: 0.125rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0071em;
   border: none;
   text-transform: initial;
   width: 100%;
   height: 32px;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 500;
   border-radius: 4px;
   cursor: pointer;
   position: relative;

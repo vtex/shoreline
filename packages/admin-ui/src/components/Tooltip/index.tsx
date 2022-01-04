@@ -61,7 +61,7 @@ export const Tooltip = jsx(Fragment)(
               csx={{
                 bg: '$inverted',
                 color: '$inverted',
-                fontSize: 1,
+                text: '$detail',
                 paddingY: '0.5625rem',
                 paddingX: 3,
                 borderRadius: 3,

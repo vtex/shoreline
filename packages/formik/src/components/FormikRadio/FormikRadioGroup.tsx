@@ -51,7 +51,7 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
       {errorMessage && (
-        <Text variant="small" tone="critical" csx={{ paddingTop: 1 }}>
+        <Text variant="detail" tone="critical" csx={{ paddingTop: 1 }}>
           {errorMessage}
         </Text>
       )}
