@@ -5,7 +5,7 @@ import { useTabsContext } from '../context'
 
 export const Tab = jsx(ReakitTab)(
   {
-    text: '$title1',
+    text: '$action1',
     border: 'none',
     borderRadius: 'default',
     borderBottomLeftRadius: '0px',
