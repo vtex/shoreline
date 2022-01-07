@@ -54,24 +54,20 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           marginY: 1,
           textAlign: 'left',
           text: '$action1',
-          bg: selected
-            ? '$action.main.tertiarySelected'
-            : '$action.main.tertiary',
+          bg: selected ? '$action.neutral.tertiary' : '$action.main.tertiary',
           '> div': {
             justifyContent: 'start',
             text: '$action1',
-            color: selected
-              ? '$action.main.tertiarySelected'
-              : '$action.main.tertiary',
+            color: selected ? '$action.neutral.tertiarySelected' : '$secondary',
           },
           ':active': {
-            bg: '$action.main.tertiaryPressed',
+            bg: '$action.neutral.tertiaryPressed',
             '> div': {
               color: '$action.main.tertiaryPressed',
             },
           },
           ':hover': {
-            bg: '$action.main.tertiaryHover',
+            bg: '$action.neutral.tertiaryHover',
             '> div': {
               color: '$action.main.tertiaryHover',
             },
