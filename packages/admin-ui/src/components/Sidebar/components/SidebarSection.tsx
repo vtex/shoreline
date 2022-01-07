@@ -40,12 +40,13 @@ export const SidebarSection = forwardRef(function SidebarSection(
     >
       <Text
         variant="action1"
-        tone="secondary"
+        tone="primary"
         csx={{
           fontSize: '0.6875rem',
           paddingBottom: '0.8125rem',
           paddingX: '0.75rem',
           fontSettings: 'medium',
+          textTransform: 'uppercase',
         }}
       >
         {title}
