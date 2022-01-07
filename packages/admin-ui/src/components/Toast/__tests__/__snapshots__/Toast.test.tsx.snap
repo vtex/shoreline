@@ -121,14 +121,6 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -217,14 +209,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -423,14 +407,6 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -519,14 +495,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -753,14 +721,6 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -849,14 +809,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -1083,14 +1035,6 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1179,14 +1123,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  margin: 0.25rem;
 }
 
 .emotion-6 {

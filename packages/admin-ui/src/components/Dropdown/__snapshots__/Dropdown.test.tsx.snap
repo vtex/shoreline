@@ -141,14 +141,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <div
     class="emotion-5"
   >
@@ -349,14 +341,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <div
     class="emotion-5"
   >
@@ -555,14 +539,6 @@ exports[`Dropdown tests should match snapshot 1`] = `
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 <div
@@ -770,14 +746,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <div
     class="emotion-5"
   >
@@ -976,14 +944,6 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 <div
