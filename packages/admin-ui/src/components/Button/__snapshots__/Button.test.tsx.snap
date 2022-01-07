@@ -92,14 +92,6 @@ exports[`Button tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <button
     class="emotion-2"
     type="button"
@@ -202,14 +194,6 @@ exports[`Button tests should match snapshot 1`] = `
 .emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 <button
@@ -316,14 +300,6 @@ exports[`Button tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <button
     class="emotion-2"
     type="button"
@@ -426,14 +402,6 @@ exports[`Button tests should match snapshot 1`] = `
 .emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
-}
-
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 <button
@@ -540,14 +508,6 @@ exports[`Button tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
 }
 
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 <button
     class="emotion-2"
     type="button"
@@ -650,14 +610,6 @@ exports[`Button tests should match snapshot 1`] = `
 .emotion-2:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
-}
-
-.emotion-2 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 <button

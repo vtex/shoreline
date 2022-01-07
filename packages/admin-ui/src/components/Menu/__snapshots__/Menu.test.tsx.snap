@@ -47,14 +47,6 @@ exports[`Menu should match snapshot hidden 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
-}
-
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -376,14 +368,6 @@ exports[`Menu should match snapshot visible 1`] = `
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0.25rem;
 }
 
 .emotion-2 {
