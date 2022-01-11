@@ -36,17 +36,21 @@ export const background = bgTokens.map(createMap('background', 'bg'))
 export const foreground = fgTokens.map(createMap('color', 'fg'))
 export const border = borderTokens.map(createMap('border', 'border'))
 export const shadow = shadowTokens.map(createMap('boxShadow', 'shadow'))
+
 export const text = textTokens.map(
   createMap('text', 'text', (v) => {
     const keys = Object.keys(v)
 
-    return (
-      <Set orientation="vertical">
-        {keys.map((key, index) => {
-          return <Text key={index}>{`${key}: ${v[key]}`}</Text>
-        })}
-      </Set>
-    )
+    return {
+      stringfied: JSON.stringify(v),
+      formatted: (
+        <Set orientation="vertical">
+          {keys.map((key, index) => (
+            <Text key={index}>{`${key}: ${v[key]}`}</Text>
+          ))}
+        </Set>
+      ),
+    }
   })
 )
 

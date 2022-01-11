@@ -37,9 +37,14 @@ export function TokensTable(props: TokensTableProps) {
 
       if (filter !== 'all' && filter !== item.type.toLowerCase()) return false
 
+      const isSearchedTexInValueColumn =
+        typeof item.value === 'string'
+          ? item.value.toLowerCase().includes(searchLowerCase)
+          : item.value.stringfied.toLowerCase().includes(searchLowerCase)
+
       return (
         item.token.toLowerCase().includes(searchLowerCase) ||
-        item.value.toLowerCase().includes(searchLowerCase)
+        isSearchedTexInValueColumn
       )
     })
   }, [search])
@@ -88,7 +93,9 @@ export function TokensTable(props: TokensTableProps) {
             return (
               <Flex direction="column">
                 <Text csx={{ fontSettings: 'medium' }}>
-                  {column.item.value}
+                  {typeof column.item.value === 'string'
+                    ? column.item.value
+                    : column.item.value.formatted}
                 </Text>
                 <Text tone="secondary">{get(theme, column.item.token)}</Text>
               </Flex>
@@ -133,11 +140,16 @@ export function TokensTable(props: TokensTableProps) {
   )
 }
 
+type TextValueProp = {
+  stringfied: string
+  formatted: Node
+}
+
 interface TokensTableProps {
   items: Array<{
     token: string
     description: string
-    value: string
+    value: string | TextValueProp
     type: string
     csx: StyleProp
   }>
