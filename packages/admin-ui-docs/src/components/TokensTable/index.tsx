@@ -37,14 +37,14 @@ export function TokensTable(props: TokensTableProps) {
 
       if (filter !== 'all' && filter !== item.type.toLowerCase()) return false
 
-      const isSearchedTexInValueColumn =
+      const isSearchedTextInValueColumn =
         typeof item.value === 'string'
           ? item.value.toLowerCase().includes(searchLowerCase)
           : item.value.stringfied.toLowerCase().includes(searchLowerCase)
 
       return (
         item.token.toLowerCase().includes(searchLowerCase) ||
-        isSearchedTexInValueColumn
+        isSearchedTextInValueColumn
       )
     })
   }, [search])
