@@ -5,7 +5,7 @@ about: If something isn't working as expected
 
 # Bug Report
 
-- [ ] I've read and understood the [Contributing guidelines](https://admin-ui-docs.vercel.app/contributing/overview/) and have done my best effort to follow them.
+- [ ] I've read and understood the [Contributing guidelines](https://admin-ui.vercel.app/contributing/onboarding) and have done my best effort to follow them.
 - [ ] I've searched for any related issues and avoided creating a duplicate issue.
 
 ## What happened
