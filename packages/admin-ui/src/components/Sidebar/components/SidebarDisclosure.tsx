@@ -37,18 +37,15 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
           {
             zIndex: 'sidebarDisclosure',
             bg: selected
-              ? '$action.main.tertiarySelected'
+              ? '$action.neutral.tertiaryHover'
               : '$action.main.tertiary',
-            color: selected
-              ? '$action.main.tertiarySelected'
-              : '$action.main.tertiary',
-
+            color: selected ? '$action.main.tertiarySelected' : '$secondary',
             ':active': {
-              bg: '$action.main.tertiaryPressed',
+              bg: '$action.neutral.tertiaryPressed',
               color: '$action.main.tertiaryPressed',
             },
             ':hover': {
-              bg: '$action.main.tertiaryHover',
+              bg: '$action.neutral.tertiaryHover',
               color: '$action.main.tertiaryHover',
             },
           },

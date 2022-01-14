@@ -153,10 +153,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-4 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -391,10 +387,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-5 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -647,10 +639,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -877,10 +865,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -1272,10 +1256,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -1556,10 +1536,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -2012,10 +1988,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -2393,10 +2365,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -2696,10 +2664,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 

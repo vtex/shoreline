@@ -183,10 +183,6 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 }
 
 .emotion-3 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
   margin: 0.25rem;
 }
 
