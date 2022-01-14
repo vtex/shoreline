@@ -107,6 +107,11 @@ export const outerContainer = css({
   text: '$action1',
 })
 
+export const svg = () =>
+  css({
+    margin: 1,
+  })
+
 export const innerContainer = (options: {
   loading: boolean
   iconEnd: boolean
