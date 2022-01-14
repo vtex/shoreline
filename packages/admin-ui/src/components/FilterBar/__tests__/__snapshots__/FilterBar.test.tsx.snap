@@ -67,6 +67,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-42 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -186,6 +190,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-45 svg {
+  margin: 0.25rem;
+}
+
 .emotion-48 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
@@ -227,6 +235,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
 .emotion-48:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-48 svg {
+  margin: 0.25rem;
 }
 
 .emotion-38 {
@@ -342,6 +354,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-5 svg {
+  margin: 0.25rem;
 }
 
 .emotion-5 div {
@@ -483,6 +499,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-27 svg {
+  margin: 0.25rem;
+}
+
 .emotion-27:disabled {
   background: hsla(0, 0%, 87%, 1);
   color: hsla(0, 0%, 43%, 1);
@@ -506,6 +526,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
 .emotion-27:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-27 svg {
+  margin: 0.25rem;
 }
 
 .emotion-34 {

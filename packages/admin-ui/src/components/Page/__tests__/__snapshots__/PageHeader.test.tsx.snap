@@ -182,6 +182,10 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-3 svg {
+  margin: 0.25rem;
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
