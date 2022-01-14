@@ -152,6 +152,10 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 <div
     class="emotion-6"
   >
@@ -380,6 +384,10 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-5 svg {
+  margin: 0.25rem;
 }
 
 <div
@@ -630,6 +638,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -850,6 +862,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-4 svg {
+  margin: 0.25rem;
 }
 
 .emotion-3 {
@@ -1239,6 +1255,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1513,6 +1533,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-5 svg {
+  margin: 0.25rem;
 }
 
 .emotion-4 {
@@ -1963,6 +1987,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2336,6 +2364,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2629,6 +2661,10 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-5 svg {
+  margin: 0.25rem;
 }
 
 .emotion-4 {

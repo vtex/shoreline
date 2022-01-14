@@ -66,6 +66,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -162,6 +166,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-8 svg {
+  margin: 0.25rem;
 }
 
 .emotion-0 {
@@ -376,6 +384,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -472,6 +484,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-8 svg {
+  margin: 0.25rem;
 }
 
 .emotion-0 {
@@ -701,6 +717,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -797,6 +817,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-8 svg {
+  margin: 0.25rem;
 }
 
 .emotion-0 {
@@ -1020,6 +1044,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1116,6 +1144,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-8 svg {
+  margin: 0.25rem;
 }
 
 .emotion-0 {
@@ -1345,6 +1377,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
 }
 
+.emotion-4 svg {
+  margin: 0.25rem;
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1441,6 +1477,10 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+}
+
+.emotion-8 svg {
+  margin: 0.25rem;
 }
 
 .emotion-0 {

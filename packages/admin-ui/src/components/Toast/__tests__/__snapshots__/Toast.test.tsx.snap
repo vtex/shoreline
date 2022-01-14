@@ -121,6 +121,10 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -209,6 +213,10 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-9 svg {
+  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -407,6 +415,10 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -495,6 +507,10 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-9 svg {
+  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -721,6 +737,10 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -809,6 +829,10 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-9 svg {
+  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -1035,6 +1059,10 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-5 svg {
+  margin: 0.25rem;
+}
+
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1123,6 +1151,10 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-9 svg {
+  margin: 0.25rem;
 }
 
 .emotion-6 {

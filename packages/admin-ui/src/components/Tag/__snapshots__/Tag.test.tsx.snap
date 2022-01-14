@@ -525,6 +525,10 @@ exports[`Tag tests should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
+.emotion-3 svg {
+  margin: 0.25rem;
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -714,6 +718,10 @@ exports[`Tag tests should match snapshot 1`] = `
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+}
+
+.emotion-4 svg {
+  margin: 0.25rem;
 }
 
 .emotion-3 {
