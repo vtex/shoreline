@@ -69,6 +69,7 @@ export const Button = jsx(ReakitButton)(
       return {
         ...restProps,
         csx: {
+          svg: style.svg(),
           ...style[size]({
             icon: !icon ? 'none' : !children ? 'only' : iconPosition,
           }),
