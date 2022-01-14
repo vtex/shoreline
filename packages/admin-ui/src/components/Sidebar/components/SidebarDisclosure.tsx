@@ -45,7 +45,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
               color: '$action.main.tertiaryPressed',
             },
             ':hover': {
-              bg: 'action.neutral.tertiaryHover',
+              bg: '$action.neutral.tertiaryHover',
               color: '$action.main.tertiaryHover',
             },
           },
