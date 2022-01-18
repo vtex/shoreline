@@ -16,29 +16,20 @@ import {
   Pagination,
 } from '@vtex/admin-ui'
 
+import style from './styles'
+
 export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
   const { pagination, dataGrid, filters, dataView, search, dropdown } = props
 
   return (
-    <DataView state={dataView}>
-      <DataViewControls>
+    <DataView state={dataView} csx={style.dataView}>
+      <DataViewControls csx={style.dataViewControls}>
         <Search id="search" placeholder="Search" state={search} />
         <Dropdown
           label="Filters"
           state={dropdown}
           items={filters}
-          csx={{
-            color: '$action.neutral.tertiary',
-            bg: '$action.neutral.tertiary',
-            ':hover': {
-              color: '$action.neutral.tertiaryHover',
-              bg: '$action.neutral.tertiaryHover',
-            },
-            ':active': {
-              color: '$action.neutral.tertiaryPressed',
-              bg: '$action.neutral.tertiaryPressed',
-            },
-          }}
+          csx={style.dropdown}
         />
         <FlexSpacer />
         {pagination && (
@@ -51,12 +42,7 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           />
         )}
       </DataViewControls>
-      <DataGrid
-        state={dataGrid}
-        csx={{
-          tr: { bg: 'white !important' },
-        }}
-      />
+      <DataGrid state={dataGrid} csx={style.dataGrid} />
     </DataView>
   )
 }

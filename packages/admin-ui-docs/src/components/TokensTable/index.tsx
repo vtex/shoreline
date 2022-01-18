@@ -15,6 +15,9 @@ import { FilterDataGrid } from '../FilterDataGrid'
 
 const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow', 'Text']
 
+const includesSearchedText = (columnText: string, searchedText: string) =>
+  columnText.toLowerCase().includes(searchedText)
+
 export function TokensTable(props: TokensTableProps) {
   const dataView = useDataViewState()
 
@@ -39,11 +42,12 @@ export function TokensTable(props: TokensTableProps) {
 
       const isSearchedTextInValueColumn =
         typeof item.value === 'string'
-          ? item.value.toLowerCase().includes(searchLowerCase)
-          : item.value.stringfied.toLowerCase().includes(searchLowerCase)
+          ? includesSearchedText(item.value, searchLowerCase)
+          : includesSearchedText(item.value.stringfied, searchLowerCase)
 
       return (
-        item.token.toLowerCase().includes(searchLowerCase) ||
+        includesSearchedText(item.token, searchLowerCase) ||
+        includesSearchedText(item.type, searchLowerCase) ||
         isSearchedTextInValueColumn
       )
     })
@@ -68,15 +72,35 @@ export function TokensTable(props: TokensTableProps) {
       {
         id: 'name',
         header: 'Token',
-        width: 500,
+        width: 350,
         resolver: {
           type: 'root',
           render: (column) => {
             return (
               <Flex direction="column">
-                <Text csx={{ fontSettings: 'medium' }}>
+                <Text
+                  csx={{
+                    fontSettings: 'bold',
+                  }}
+                >
                   {column.item.token}
                 </Text>
+                <Text tone="secondary">{column.item.description}</Text>
+              </Flex>
+            )
+          },
+        },
+      },
+      {
+        id: 'type',
+        header: 'Style prop',
+        width: 150,
+        resolver: {
+          type: 'root',
+          render: (column) => {
+            return (
+              <Flex direction="column">
+                <Text>{column.item.type}</Text>
                 <Text tone="secondary">{column.item.description}</Text>
               </Flex>
             )
