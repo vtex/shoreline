@@ -61,3 +61,4 @@ function jestMatchMedia() {
 
 export * from '@testing-library/react'
 export { render, withState, axe, jestMatchMedia, renderHook, act }
+export { press } from 'reakit-test-utils'
