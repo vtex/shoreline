@@ -25,3 +25,10 @@ declare module '@vtex/phosphor-icons' {
     size?: IconSize
   }
 }
+
+export interface IsInput {
+  /** Whether the input is disabled. */
+  isDisabled?: boolean
+  /** Whether the input can be selected but not changed by the user. */
+  isReadOnly?: boolean
+}
