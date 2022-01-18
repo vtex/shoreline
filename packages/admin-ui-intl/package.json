@@ -1,0 +1,41 @@
+{
+  "name": "@vtex/admin-ui-intl",
+  "description": "admin-ui internationalization package",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/admin-ui-intl.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/admin-ui-intl",
+    "type": "git",
+    "url": "git+https://github.com/vtex/onda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/onda/issues"
+  },
+  "scripts": {
+    "dev": "tsdx watch --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.json",
+    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "test": "tsdx test --passWithNoTests",
+    "test:ci": "tsdx test --silent"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
+  },
+  "dependencies": {
+    "@react-aria/i18n": "^3.3.4"
+  }
+}
