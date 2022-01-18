@@ -82,11 +82,13 @@ const config = {
         ],
         hideOnScroll: true,
       },
+      algolia: {
+        appId: 'R2IYF7ETH7',
+        apiKey: '599cec31baffa4868cae4e79f180729b',
+        indexName: 'docsearch',
+        contextualSearch: true,
+      },
       liveCodeBlock: {
-        /**
-         * The position of the live playground, above or under the editor
-         * Possible values: "top" | "bottom"
-         */
         playgroundPosition: 'top',
       },
       prism: {

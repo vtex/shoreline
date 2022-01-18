@@ -1,16 +1,17 @@
 @import "navbar.scss";
 @import "sidebar.scss";
+@import "search.scss";
 @import "markdown.scss";
 
 :root {
   --ifm-font-family-base: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif !important;
-  --ifm-color-primary: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-dark: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-darker: hsla(340, 82%, 39%, 1);
+  --ifm-color-primary: hsla(344, 69%, 53%, 1);
+  --ifm-color-primary-dark: hsla(342, 69%, 41%, 1);
+  --ifm-color-primary-darker: hsla(340, 82%, 29%, 1);
   --ifm-color-primary-darkest: hsla(340, 82%, 29%, 1);
-  --ifm-color-primary-light: hsla(340, 82%, 71%, 1);
-  --ifm-color-primary-lighter: hsla(340, 82%, 82%, 1);
-  --ifm-color-primary-lightest: hsla(340, 83%, 93%, 1);
+  --ifm-color-primary-light: hsla(341, 57%, 81%, 1);
+  --ifm-color-primary-lighter: hsla(340, 51%, 92%, 1);
+  --ifm-color-primary-lightest: hsla(340, 53%, 97%, 1);
   --ifm-code-font-size: 95%;
   --ifm-pre-background: rgba(250, 250, 250);
   --ifm-toc-border-color: hsla(0, 0%, 90%, 1);

@@ -1,0 +1,14 @@
+:root {
+  --ifm-z-index-fixed: 1000;
+}
+
+html[data-theme='light'] .DocSearch {
+  &-Button {
+    --docsearch-searchbox-background: hsla(0, 0%, 90%, 1);
+    --docsearch-muted-color: hsla(0, 0%, 43%, 1);
+  }
+
+  &-Logo svg {
+    --docsearch-logo-color: var(--ifm-color-primary);
+  }
+}
