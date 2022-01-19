@@ -29,7 +29,7 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           label="Filters"
           state={dropdown}
           items={filters}
-          csx={style.dropdown}
+          variant="adaptative-dark"
         />
         <FlexSpacer />
         {pagination && (
