@@ -1,40 +1,27 @@
-## admin-ui
-
-> VTEX admin component library
-
-Documentation site: https://admin-ui-docs.vercel.app/guide/get-started/
+# @vtex/admin-ui
 
 [![NPM](https://img.shields.io/npm/v/@vtex/admin-ui.svg)](https://www.npmjs.com/package/@vtex/admin-ui)
 
-### Install
+> Main package of the design system. It contains all the react components.
 
-```sh
-yarn add @vtex/admin-ui @vtex/admin-ui-icons
+This package is responsible for the following:
+
+1. Implement and export all the React components build for our design system.
+2. Export every other package used by the Design System (i.e. `@vtex/phosphor-icons`, `@vtex/admin-ui-react`, etc.).
+
+## Install
+
+To use Admin UI components all you need is to install the `@vtex/admin-ui` package.
+
+```bash
+yarn add @vtex/admin-ui
 ```
 
-```sh
-npm install @vtex/admin-ui @vtex/admin-ui-icons
-```
+## Codesandbox Template
 
-### Typescript
+[Admin UI Javascript](https://codesandbox.io/s/admin-ui-js-3w0d6)
+[Admin UI Typescript](https://codesandbox.io/s/admin-ui-ts-7hcnw)
 
-> If you are using typescript 4.1 & above, ignore the following steps
+## Contributing
 
-This package uses `emotion v11`, so if you are under typescript `4.1` you must install `@emotion/react` as a dev dependency and add it to your types.
-
-```sh
-yarn add @emotion/react -D
-```
-
-Add the types within `tsconfig.json`
-
-```js
-// tsconfig.json
-{
-  compilerOptions:{
-    types: ['@emotion/react/types/css-prop'],
-    // ...
-  }
-  // ...
-}
-```
+Feel like contributing? We have a [contributing guide](https://admin-ui.vercel.app/contributing/onboarding) to help guide you.
