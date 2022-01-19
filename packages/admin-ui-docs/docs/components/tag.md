@@ -15,7 +15,7 @@ import { Tag } from '@vtex/admin-ui'
 function Example() {
   return (
     <Tag
-      icon={<IconFavorite />}
+      icon={<IconHeart />}
       label="Here goes the label!"
       handleDelete={() => window.alert('Tag deleted')}
     />
@@ -66,7 +66,7 @@ You can add the `handleDelete` property to configure the tag as deletable. When 
 You can add one Icon on the left side of the `Tag`. Just use the `icon` property.
 
 ```jsx live
-<Tag icon={<IconFavorite />} label="Rio de Janeiro" />
+<Tag icon={<IconHeart />} label="Rio de Janeiro" />
 ```
 
 ## Props

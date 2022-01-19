@@ -26,10 +26,10 @@ function Example() {
     <Menu state={state}>
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
-        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
         <MenuItem icon={<IconLink />}>Link to</MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
   )
@@ -60,12 +60,12 @@ function Example() {
     <Menu state={state} hideOnClick>
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
-        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
   )
@@ -84,12 +84,12 @@ function Example() {
     <Menu state={state} hideOnClick>
       <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
-        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
   )
@@ -108,12 +108,12 @@ function Example() {
     <Menu state={state} hideOnClick>
       <MenuButton display="actions" variant="text" />
       <MenuList aria-label="actions" state={state}>
-        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
         <MenuItem disabled icon={<IconLink />}>
           Disabled Link
         </MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
   )
@@ -139,12 +139,12 @@ function Example() {
     <Menu state={state}>
       <MenuButton>Post options</MenuButton>
       <MenuList aria-label="actions" state={state}>
-        <MenuItem icon={<IconImport />}>Download</MenuItem>
+        <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
         <MenuItem ref={ref} icon={<IconLink />}>
           Link to
         </MenuItem>
         <MenuSeparator />
-        <MenuItem icon={<IconFavorite />}>Favorite</MenuItem>
+        <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
       </MenuList>
     </Menu>
   )

@@ -4,6 +4,7 @@
 packages/icons/native
 **/.cache
 **/coverage
+**/build
 storybook-static
 
 # Resolve: Parsing error: Unexpected token <
