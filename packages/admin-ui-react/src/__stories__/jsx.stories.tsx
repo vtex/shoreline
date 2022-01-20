@@ -313,7 +313,7 @@ export function ButtonSeries() {
     bg: 'transparent',
     margin: 1,
     borderRadius: 'default',
-    text: 'action',
+    text: '$action1',
     ':hover': {
       bg: 'base',
     },

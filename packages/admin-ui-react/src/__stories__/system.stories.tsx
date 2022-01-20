@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { createSystem, useSystem } from '../createSystem'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
-import { useThemeMode } from '../themeMode'
-
 import { unstableCreateAdminUI, defaultTheme } from '@vtex/admin-ui-core'
+
+import { useThemeMode } from '../themeMode'
+import { createSystem } from '../createSystem'
+import { useSystem } from '../context'
 
 const unstableSystem = unstableCreateAdminUI(defaultTheme, {
   enableModes: true,

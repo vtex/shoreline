@@ -2,7 +2,7 @@ import React from 'react'
 import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 import * as ReactIs from 'react-is'
 
-import { useSystem } from './createSystem'
+import { useSystem } from './context'
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
 
@@ -76,10 +76,13 @@ export function jsx<T extends React.ElementType = 'div'>(type: T) {
     let Component = (props: any, ref: React.Ref<any>) => {
       const { as: ComponentCall = type, ...unparsedProps } = props
       const system = useSystem()
-      const propsWithOptions = useOptions(
-        pick(unparsedProps, options) as any,
-        omit(unparsedProps, options) as any,
-        system
+      const { ref: optionsRef, ...propsWithOptions } = useOptions(
+        pick(unparsedProps, options) as any, // options
+        {
+          ref,
+          ...omit(unparsedProps, options),
+        } as any, // props w ref
+        system // admin-ui-system
       )
 
       const styledProps = useStylesheet({
@@ -95,7 +98,7 @@ export function jsx<T extends React.ElementType = 'div'>(type: T) {
         : maybeDirtyProps
 
       return (
-        <ComponentCall ref={ref} {...htmlProps}>
+        <ComponentCall ref={optionsRef} {...htmlProps}>
           {isFunction(children)
             ? children(htmlProps)
             : propsWithOptions.children}
@@ -319,11 +322,9 @@ export interface JsxConfiguration<
   options?: string[]
   useOptions?: (
     options: Options,
-    props: React.ComponentPropsWithoutRef<Type> &
-      CsxCall &
-      VariantsCall<Variants>,
+    props: React.ComponentPropsWithRef<Type> & CsxCall & VariantsCall<Variants>,
     system: ReturnType<typeof useSystem>
-  ) => React.ComponentPropsWithoutRef<Type> & VariantsCall<Variants>
+  ) => React.ComponentPropsWithRef<Type> & VariantsCall<Variants>
   sync?: Array<Sync<Variants>>
   memoize?: boolean
 }

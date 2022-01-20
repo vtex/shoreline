@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import type { StyleProp, UnstableAdminUI } from '@vtex/admin-ui-core'
+import type { UnstableAdminUI } from '@vtex/admin-ui-core'
 import {
   createAtoms,
   createClsx,
@@ -14,6 +14,7 @@ import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
 
 import { ThemeModeProvider } from './themeMode'
+import { SystemContext } from './context'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
@@ -24,25 +25,6 @@ export interface SystemSpec {
   emotionInstance?: Emotion
   unstableSystem?: UnstableAdminUI
   mode?: string
-}
-
-export const SystemContext = React.createContext<
-  | ({
-      theme: any
-      cn: (styleProp: StyleProp) => string
-    } & Pick<Emotion, 'cx' | 'keyframes'>)
-  | null
->(null)
-
-export function useSystem() {
-  const ctx = React.useContext(SystemContext)
-
-  invariant(
-    ctx,
-    'Waaaait! Something is wrong, make sure you are using the useSystem() hook under an AdminUI provider.'
-  )
-
-  return ctx
 }
 
 export type CreateAdminUIReturn = [
