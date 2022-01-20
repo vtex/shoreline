@@ -45,7 +45,7 @@ export const Selector = jsx(Role)(
 
           return {
             ArrowDown: () => {
-              isAlt && show()
+              if (isAlt) show()
             },
           }
         },
