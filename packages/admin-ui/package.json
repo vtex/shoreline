@@ -58,6 +58,7 @@
     "@vtex/admin-ui-react": "^0.4.1",
     "@vtex/phosphor-icons": "^0.2.0",
     "csstype": "^3.0.5",
+    "date-fns": "^2.28.0",
     "deepmerge": "^4.2.2",
     "downshift": "^6.0.6",
     "focus-visible": "^5.1.0",
