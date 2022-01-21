@@ -136,13 +136,13 @@ type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 
 The main objective of `DataGrid` is to provide a flexible render to support any kind of data type.
 
-| Attribute | Type                                            | Description                                                                                                                                                                                                                                           | Required |
-| --------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                                     | ✅       |
-| header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                                              | 🚫       |
-| accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                                      | 🚫       |
-| resolver  | `R`                                             | [Resolvers](data-grid/#resolver-options) api<br />Will select the [plain resolver](data-grid/#resolver-options) by default                                                                                                                  | 🚫       |
-| width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                                       | 🚫       |
+| Attribute | Type                                            | Description                                                                                                                                                                                                                             | Required |
+| --------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                       | ✅       |
+| header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                                | 🚫       |
+| accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                        | 🚫       |
+| resolver  | `R`                                             | [Resolvers](data-grid/#resolver-options) api<br />Will select the [plain resolver](data-grid/#resolver-options) by default                                                                                                              | 🚫       |
+| width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                         | 🚫       |
 | sortable  | `(a: T, b: T) => number`                        | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](data-grid/#sorting) | 🚫       |
 | compare   | `boolean`                                       | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](data-grid/#sorting)                                 | 🚫       |
 
@@ -865,10 +865,14 @@ function WithToolbar() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar}>
-          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
             Import
           </ToolbarButton>
-          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1128,10 +1132,14 @@ function WithFullTopbar() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar} aria-label="Toolbar">
-          <ToolbarButton size="small" variant="text" icon={<IconImport />}>
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
             Import
           </ToolbarButton>
-          <ToolbarButton size="small" variant="text" icon={<IconExport />}>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
             Export
           </ToolbarButton>
         </Toolbar>
@@ -1285,7 +1293,7 @@ function Example() {
         resolver: {
           type: 'root',
           render: function RenderIcon() {
-            return <IconDrag />
+            return <IconDotsSixVertical />
           },
         },
       },
