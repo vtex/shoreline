@@ -1,8 +1,24 @@
-# Onda component model
+# @vtex/admin-ui-react
+
+> React bindings for the [`@vtex/admin-ui-core`](./packages/core).
+
+## Install
+
+To use Admin UI react all you need is to install the `@vtex/admin-ui-react` package.
+
+```bash
+yarn add @vtex/admin-ui-react
+```
+
+or
+
+```bash
+npm install @vtex/admin-ui-react
+```
 
 ## jsx
 
-You can use the `jsx` function to create new components using elements or components as reference. It generates an `OndaJSXComponent` that inherits and enhances the reference types and styles.
+You can use the `jsx` function to create new components using elements or components as reference. It generates an `AdminUIJSXComponent` that inherits and enhances the reference types and styles.
 
 ### Referencing elements
 
@@ -258,4 +274,24 @@ const Button = jsx('button')(
 interface ButtonOptions {}
 
 type ButtonProps = React.ComponentPropsWithRef<typeof Button> & ButtonOptions
+```
+
+## tag
+
+You can think of `tag` as a jsx elements factory. You can use this to render any HTML element with the same API of jsx components.
+
+### Rendering elements
+
+You can replace div for any valid jsx tag.
+
+```jsx
+<tag.div csx={{ color: 'pink' }}>AdminUI styled div</tag.div>
+```
+
+### Polymorphism
+
+```jsx
+<tag.button as={ExternalLibButton} csx={{ bg: 'pink' }}>
+  🦄 this is magic
+</tag.button>
 ```
