@@ -58,8 +58,8 @@ const lightTheme = {
       neutralCheckedHover: colors.gray60,
       neutralCheckedPressed: colors.gray50,
       neutralInactive: colors.gray30,
-      neutralInactiveHover: colors.gray40,
-      neutralInactivePressed: colors.gray50,
+      neutralInactiveHover: colors.gray50,
+      neutralInactivePressed: colors.gray60,
       neutralActive: colors.black,
       neutralActiveHover: colors.gray60,
       neutralActivePressed: colors.gray50,
@@ -67,7 +67,7 @@ const lightTheme = {
   },
   fg: {
     primary: colors.black,
-    secondary: colors.gray40,
+    secondary: colors.gray50,
     disabled: colors.gray40,
     inverted: colors.white,
     positive: colors.green40,
@@ -127,9 +127,9 @@ const lightTheme = {
 
     form: {
       neutral: border('gray30'),
-      neutralHover: border('gray40'),
-      neutralFocus: border('gray50'),
-      neutralPressed: border('gray50'),
+      neutralHover: border('gray50'),
+      neutralFocus: border('gray60'),
+      neutralPressed: border('gray60'),
       neutralChecked: border('black'),
       neutralCheckedHover: border('gray60'),
       neutralCheckedPressed: border('gray50'),
