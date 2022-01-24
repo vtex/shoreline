@@ -7,8 +7,6 @@
 
 .playgroundContainer {
   margin-bottom: var(--ifm-leading);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-global-shadow-lw);
   overflow: hidden;
 }
 
@@ -22,6 +20,7 @@
   background: var(--ifm-color-emphasis-200);
   color: var(--ifm-color-content);
   font-size: var(--ifm-code-font-size);
+  border-radius: var(--ifm-global-radius);
 }
 
 .playgroundHeader:first-of-type {
