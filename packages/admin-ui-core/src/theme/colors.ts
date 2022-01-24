@@ -46,10 +46,10 @@ export const colors = createColorPalette({
     orange50: 'hsla(30, 100%, 33%, 1)',
     orange60: 'hsla(29, 100%, 18%, 1)',
 
-    cyan05: 'hsla(189, 62%, 96%, 1)',
+    cyan05: 'hsla(190, 60%, 96%, 1)',
     cyan10: 'hsla(190, 58%, 90%, 1)',
     cyan20: 'hsla(190, 61%, 78%, 1)',
-    cyan30: 'hsla(188, 62%, 62%, 1)',
+    cyan30: 'hsla(188, 63%, 62%, 1)',
     cyan40: 'hsla(186, 71%, 38%, 1)',
     cyan50: 'hsla(187, 61%, 32%, 1)',
     cyan60: 'hsla(187, 77%, 15%, 1)',
@@ -82,7 +82,7 @@ export const colors = createColorPalette({
     gray10: 'hsla(0, 0%, 90%, 1)',
     gray20: 'hsla(0, 0%, 87%, 1)',
     gray30: 'hsla(0, 0%, 73%, 1)',
-    gray40: 'hsla(0, 0%, 43%, 1)',
+    gray40: 'hsla(0, 0%, 45%, 1)',
     gray50: 'hsla(0, 0%, 33%, 1)',
     gray60: 'hsla(0, 0%, 23%, 1)',
 
