@@ -37,7 +37,7 @@
 }
 
 .playgroundPreview {
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--ifm-pre-background);
   line-height: normal;
 }
