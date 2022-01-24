@@ -6,7 +6,7 @@ const lightTheme = {
   bg: {
     primary: colors.white,
     secondary: colors.gray05,
-    disabled: colors.gray20,
+    disabled: colors.gray10,
     positive: colors.green10,
     critical: colors.red10,
     warning: colors.orange10,
