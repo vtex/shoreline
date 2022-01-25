@@ -246,7 +246,7 @@ exports[`Menu should match snapshot hidden 1`] = `
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            Open
@@ -573,7 +573,7 @@ exports[`Menu should match snapshot visible 1`] = `
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            Open

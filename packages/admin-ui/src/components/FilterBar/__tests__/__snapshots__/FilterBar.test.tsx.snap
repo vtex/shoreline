@@ -702,7 +702,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="16"
+                        stroke-width="18"
                       />
                     </svg>
                      
@@ -768,7 +768,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="16"
+                        stroke-width="18"
                       />
                     </svg>
                      
@@ -834,7 +834,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="16"
+                        stroke-width="18"
                       />
                     </svg>
                      item 1
@@ -882,18 +882,18 @@ exports[`FilterBar tests should match snapshot 1`] = `
                     />
                     <circle
                       cx="128"
-                      cy="128"
-                      r="12"
+                      cy="64"
+                      r="16"
                     />
                     <circle
                       cx="128"
-                      cy="64"
-                      r="12"
+                      cy="128"
+                      r="16"
                     />
                     <circle
                       cx="128"
                       cy="192"
-                      r="12"
+                      r="16"
                     />
                   </svg>
                    
@@ -949,7 +949,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                     />
                     <rect
                       fill="none"
@@ -957,7 +957,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                       width="128"
                       x="39.99902"
                       y="87.99414"
@@ -994,7 +994,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                       x1="215.99609"
                       x2="39.99609"
                       y1="56"
@@ -1005,7 +1005,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                       x1="104"
                       x2="104"
                       y1="104"
@@ -1016,7 +1016,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                       x1="152"
                       x2="152"
                       y1="104"
@@ -1028,7 +1028,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                     />
                     <path
                       d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
@@ -1036,7 +1036,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                     />
                   </svg>
                    Delete
@@ -1078,7 +1078,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -1089,7 +1089,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"

@@ -202,7 +202,7 @@ exports[`Collapsible should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
               />
             </svg>
              Collapsible Label
@@ -429,7 +429,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
               />
             </svg>
              Collapsible Label
@@ -484,7 +484,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      stroke-width="16"
+                      stroke-width="18"
                     />
                   </svg>
                    Collapsible Label

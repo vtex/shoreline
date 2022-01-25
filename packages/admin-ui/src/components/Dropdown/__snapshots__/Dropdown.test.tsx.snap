@@ -191,7 +191,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            Arabica
@@ -395,7 +395,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            French Press
@@ -599,7 +599,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            Latte
@@ -808,7 +808,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            7 days ago
@@ -1012,7 +1012,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="16"
+              stroke-width="18"
             />
           </svg>
            7 days ago
