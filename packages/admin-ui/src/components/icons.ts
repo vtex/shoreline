@@ -35,7 +35,6 @@ export {
   IconFaders,
   IconTrash,
   IconPencil,
-  IconArrowSquareOut,
   IconArrowUpRight,
   IconArrowCircleUpRight,
   IconArrowSquareUpRight,

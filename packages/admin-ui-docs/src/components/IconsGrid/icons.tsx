@@ -62,7 +62,6 @@ export const iconsDoc = [
   'Faders',
   'Trash',
   'Pencil',
-  'ArrowSquareOut',
   'ArrowUpRight',
   'ArrowCircleUpRight',
   'ArrowSquareUpRight',
@@ -132,6 +131,7 @@ export const iconsDoc = [
 export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
 export const small = [
   'CaretDown',
+  'CaretUp',
   'CaretRight',
   'X',
   'ArrowUpRight',
