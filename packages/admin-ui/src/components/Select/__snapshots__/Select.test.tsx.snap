@@ -47,7 +47,7 @@ exports[`Select should match the snapshot 1`] = `
   position: absolute;
   top: 0.5rem;
   padding-left: 0.75rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   z-index: 2;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -61,7 +61,7 @@ exports[`Select should match the snapshot 1`] = `
   position: absolute;
   right: 12px;
   top: 25%;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-3 {
@@ -92,13 +92,13 @@ exports[`Select should match the snapshot 1`] = `
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 

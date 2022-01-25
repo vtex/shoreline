@@ -23,8 +23,8 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -182,8 +182,8 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-5:disabled {
-  color: hsla(0, 0%, 43%, 1);
-  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 90%, 1);
 }
 
 .emotion-4 {
@@ -350,8 +350,8 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -491,8 +491,8 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-5:disabled {
-  color: hsla(0, 0%, 43%, 1);
-  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 90%, 1);
 }
 
 .emotion-4 {

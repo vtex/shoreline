@@ -97,8 +97,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -191,8 +191,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-9:hover {
@@ -391,8 +391,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -485,8 +485,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-9:hover {
@@ -713,8 +713,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -807,8 +807,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-9:hover {
@@ -1035,8 +1035,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -1129,8 +1129,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-9:hover {
