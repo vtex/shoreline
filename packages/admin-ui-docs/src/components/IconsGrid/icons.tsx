@@ -132,6 +132,7 @@ export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
 export const small = [
   'CaretDown',
   'CaretUp',
+  'CaretLeft',
   'CaretRight',
   'X',
   'ArrowUpRight',
