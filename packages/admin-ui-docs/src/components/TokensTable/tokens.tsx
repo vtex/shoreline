@@ -11,6 +11,27 @@ import {
   Set,
   Text,
 } from '@vtex/admin-ui'
+import { replaceHslForHex, RGBAToHexA } from '../utils'
+
+const colorFormatter = (color: string) => {
+  const isHsla = /.*hsl|hsla.*/gi.test(color)
+  const isRgba = /.*rgba.*/gi.test(color)
+
+  return {
+    stringfied: JSON.stringify(color),
+    formatted: (
+      <Set orientation="vertical">
+        <Text>{isHsla && replaceHslForHex(color)}</Text>
+        <Text>{isRgba && RGBAToHexA(color)}</Text>
+        <Text>{color}</Text>
+      </Set>
+    ),
+  }
+}
+
+const cssWithColorFormatter = (text: string) => {
+  return replaceHslForHex(text, { keepBothValues: true })
+}
 
 function createMap(
   prop: string,
@@ -32,10 +53,16 @@ function createMap(
   }
 }
 
-export const background = bgTokens.map(createMap('background', 'bg'))
-export const foreground = fgTokens.map(createMap('color', 'fg'))
-export const border = borderTokens.map(createMap('border', 'border'))
-export const shadow = shadowTokens.map(createMap('boxShadow', 'shadow'))
+export const background = bgTokens.map(
+  createMap('background', 'bg', colorFormatter)
+)
+export const foreground = fgTokens.map(createMap('color', 'fg', colorFormatter))
+export const border = borderTokens.map(
+  createMap('border', 'border', cssWithColorFormatter)
+)
+export const shadow = shadowTokens.map(
+  createMap('boxShadow', 'shadow', cssWithColorFormatter)
+)
 
 export const text = textTokens.map(
   createMap('text', 'text', (v) => {
