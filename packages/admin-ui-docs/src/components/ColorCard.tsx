@@ -91,7 +91,7 @@ interface ColorCardProps {
 }
 
 function hslaToString(hsla: string) {
-  return hsla.substr(5).split(')')[0]
+  return hsla.replace(/hsla|hsl|\(|\)/g, '')
 }
 
 function isHex(color: string) {
