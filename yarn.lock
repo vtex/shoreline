@@ -7969,10 +7969,10 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
-"@vtex/phosphor-icons@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.0.tgz#a2a35352911b221feda45ae0aef169334c99e1ab"
-  integrity sha512-BO5xF0dX27OeLKOqq1j+mv6THiskDtap9pWQfMRG9BvgPr/4Hxx2k6d2fWUvIzGU4ZJ9OLRNDcrhlt3IU657Cw==
+"@vtex/phosphor-icons@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.2.tgz#3d31ce92d5b977ac83394f8a2002adbde08837d3"
+  integrity sha512-//OET6ezTBOgoRPXCgYrybARhRrrTAgRQoypEle3Gp3FUE8FWtL2lwkUy7AHKJ40kR3WhehA8Y7QkHJiAzbygg==
   dependencies:
     tiny-invariant "^1.1.0"
 

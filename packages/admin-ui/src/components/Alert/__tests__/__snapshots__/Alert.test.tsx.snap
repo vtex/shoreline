@@ -176,7 +176,7 @@ exports[`Alert should match snapshot 1`] = `
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
           />
           <circle
             cx="128"
@@ -186,7 +186,7 @@ exports[`Alert should match snapshot 1`] = `
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
           />
         </svg>
       </div>
@@ -370,7 +370,7 @@ exports[`Alert should match snapshot 1`] = `
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
             x1="128"
             x2="128"
             y1="104"
@@ -382,7 +382,7 @@ exports[`Alert should match snapshot 1`] = `
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
           />
           <circle
             cx="128"
@@ -573,14 +573,14 @@ exports[`Alert should match snapshot 1`] = `
             r="96"
             stroke="currentColor"
             stroke-miterlimit="10"
-            stroke-width="16"
+            stroke-width="18"
           />
           <line
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
             x1="160"
             x2="96"
             y1="96"
@@ -591,7 +591,7 @@ exports[`Alert should match snapshot 1`] = `
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="16"
+            stroke-width="18"
             x1="160"
             x2="96"
             y1="160"
