@@ -13,7 +13,7 @@ const lightTheme = {
     info: colors.lightBlue10,
     inverted: colors.black,
     overlay: colors.grayTransparent50,
-    skeleton: `linear-gradient(90deg, ${colors.gray10}, ${colors.gray05}), ${colors.gray10}`,
+    skeleton: `linear-gradient(90deg, ${colors.gray05}, ${colors.gray20}), ${colors.gray05}`,
     action: {
       neutral: {
         secondary: colors.gray05,
