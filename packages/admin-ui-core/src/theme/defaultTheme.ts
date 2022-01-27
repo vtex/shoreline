@@ -16,6 +16,9 @@ const lightTheme = {
     skeleton: `linear-gradient(90deg, ${colors.gray20}, ${colors.gray10}), ${colors.gray20}`,
     action: {
       neutral: {
+        secondary: colors.gray05,
+        secondaryHover: colors.gray10,
+        secondaryPressed: colors.gray20,
         tertiary: 'transparent',
         tertiaryHover: colors.grayTransparent05,
         tertiaryPressed: colors.grayTransparent10,
@@ -51,18 +54,14 @@ const lightTheme = {
     },
 
     form: {
-      neutral: 'transparent',
-      neutralHover: colors.gray10,
-      neutralPressed: colors.gray30,
-      neutralChecked: colors.black,
-      neutralCheckedHover: colors.gray60,
-      neutralCheckedPressed: colors.gray50,
-      neutralInactive: colors.gray30,
-      neutralInactiveHover: colors.gray50,
-      neutralInactivePressed: colors.gray60,
-      neutralActive: colors.black,
-      neutralActiveHover: colors.gray60,
-      neutralActivePressed: colors.gray50,
+      field: 'transparent',
+      control: 'transparent',
+      controlChecked: colors.blue40,
+      controlCheckedHover: colors.blue50,
+      controlInactive: colors.gray50,
+      controlInactiveHover: colors.gray60,
+      controlActive: colors.green40,
+      controlActiveHover: colors.green50,
     },
   },
   fg: {
@@ -76,10 +75,10 @@ const lightTheme = {
     warning: colors.orange40,
 
     action: {
+      neutral: colors.gray50,
       neutral: {
-        tertiary: colors.black,
-        tertiaryHover: colors.black,
-        tertiaryPressed: colors.black,
+        Hover: colors.gray60,
+        Pressed: colors.black,
       },
       main: {
         primary: colors.white,
@@ -112,8 +111,10 @@ const lightTheme = {
     },
 
     form: {
-      neutral: colors.black,
-      neutralChecked: colors.white,
+      field: colors.black,
+      controlChecked: colors.white,
+      controlActive: colors.white,
+      controlInactive: colors.white,
     },
   },
   border: {
@@ -126,17 +127,17 @@ const lightTheme = {
     disabled: border('gray40'),
 
     form: {
-      neutral: border('gray30'),
-      neutralHover: border('gray50'),
-      neutralFocus: border('gray60'),
-      neutralPressed: border('gray60'),
-      neutralChecked: border('black'),
-      neutralCheckedHover: border('gray60'),
-      neutralCheckedPressed: border('gray50'),
-
-      critical: border('red40'),
-      criticalHover: border('red50'),
-      criticalFocus: border('red60'),
+      control: border('gray30'),
+      controlHover: border('gray50'),
+      controlFocus: border('gray60'),
+      field: border('gray30'),
+      
+      field: {
+        Hover: border('gray50'),
+        Focus: border('gray60'),
+        critical: border('red40'),
+        criticalHover: border('red50'),
+        criticalFocus: border('red60'),
     },
   },
   shadow: {
@@ -144,6 +145,7 @@ const lightTheme = {
       critical: ring('critical'),
       neutral: ring('neutral'),
       main: ring('main'),
+      positive: ring('positive'),
     },
     overlay: {
       center: '0rem 0rem 1rem 0rem rgba(0,0,0,0.10)',
