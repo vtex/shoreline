@@ -38,7 +38,7 @@ By default, the size property has a `regular` value, but you can also set it to 
 
 ### Palettes
 
-By default, the palette property has the `lightBlue` value, but you can also set it to the following values: `red`, `orange`, `green`, `cyan`, `teal`, and `purple`.
+By default, the palette property has the `lightBlue` value, but you can also set it to the following values: `red`, `orange`, `green`, `cyan`, `teal`, `gray` and `purple`.
 
 ```jsx live
 <>
@@ -49,6 +49,7 @@ By default, the palette property has the `lightBlue` value, but you can also set
   <Tag label="Rio de Janeiro" palette="red" />
   <Tag label="Rio de Janeiro" palette="cyan" />
   <Tag label="Rio de Janeiro" palette="teal" />
+  <Tag label="Rio de Janeiro" palette="gray" />
   <Tag label="Rio de Janeiro" palette="purple" />
 </>
 ```
@@ -71,11 +72,11 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 
 ## Props
 
-| Name         | Type                                                              | Description                       | Required | Default     |
-| ------------ | ----------------------------------------------------------------- | --------------------------------- | -------- | ----------- |
-| label        | `string`                                                          | Tag size                          | ✅       | -           |
-| csx          | `StyleObject`                                                     | Custom styles                     | 🚫       | `{}`        |
-| palette      | `'lightBlue', 'green', 'red', 'orange', 'cyan', 'teal', 'purple'` | Tag theme                         | 🚫       | `'blue'`    |
-| size         | `'regular', 'small'`                                              | Tag size                          | 🚫       | `'regular'` |
-| handleDelete | `() => void`                                                      | When defined the tag is deletable | 🚫       | -           |
-| icon         | `ReactNode`                                                       | Tag icon                          | 🚫       | -           |
+| Name         | Type                                                              | Description                       | Required | Default            |
+| ------------ | ----------------------------------------------------------------- | --------------------------------- | -------- | ------------------ |
+| label        | `string`                                                          | Tag size                          | ✅       | -                  |
+| csx          | `StyleObject`                                                     | Custom styles                     | 🚫       | `{}`               |
+| palette      | `'lightBlue', 'green', 'red', 'orange', 'cyan', 'teal', 'purple'` | Tag theme                         | 🚫       | `'blue'`, `'gray'` |
+| size         | `'regular', 'small'`                                              | Tag size                          | 🚫       | `'regular'`        |
+| handleDelete | `() => void`                                                      | When defined the tag is deletable | 🚫       | -                  |
+| icon         | `ReactNode`                                                       | Tag icon                          | 🚫       | -                  |

@@ -37,6 +37,7 @@ export const Tag = jsx('div')(
         purple: palette('purple'),
         teal: palette('teal'),
         red: palette('red'),
+        gray: palette('gray'),
       },
       size: {
         small: {
