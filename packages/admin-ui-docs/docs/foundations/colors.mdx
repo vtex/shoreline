@@ -90,7 +90,14 @@ It informs or guides the user in a calm and non-urgent way.
 
 <SemanticTable
   items={[
-    { semantic: 'actions', main: 'primary', critical: 'destructive' },
+    { semantic: 'actions', main: 'prominent', critical: 'destructive', neutral: 'muted' },
+    {
+      semantic: 'form',
+      main: 'checked',          
+      critical: 'invalid',
+      positive: 'active',               
+      neutral: 'valid/inactive',
+    },               
     {
       semantic: 'messages',
       critical: 'error',
@@ -100,10 +107,10 @@ It informs or guides the user in a calm and non-urgent way.
     },
     {
       semantic: 'status',
-      critical: 'removed',
+      critical: 'cancelled',
       warning: 'pending',
-      positive: 'added',
-      neutral: 'default',
+      positive: 'completed',
+      neutral: 'archived',
     },
     {
       semantic: 'priority',
@@ -113,12 +120,12 @@ It informs or guides the user in a calm and non-urgent way.
       info: 'minor',
     },
     {
-      semantic: 'payments',
-      critical: 'cancelled',
-      warning: 'in progress',
-      positive: 'completed',
-      neutral: 'archived',
-    },
+      semantic: 'update',
+      critical: 'removal',
+      warning: 'change',
+      positive: 'addition',
+      neutral: 'empty',
+    },               
   ]}
 />
 
