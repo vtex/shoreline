@@ -11,7 +11,7 @@ import {
   Set,
   Text,
 } from '@vtex/admin-ui'
-import { replaceHslForHex, RGBAToHexA } from '../utils'
+import { replaceHslForHex, rgbaToHexA } from '../utils'
 
 const colorFormatter = (color: string) => {
   const isHsla = /.*hsl|hsla.*/gi.test(color)
@@ -22,7 +22,7 @@ const colorFormatter = (color: string) => {
     formatted: (
       <Set orientation="vertical">
         <Text>{isHsla && replaceHslForHex(color)}</Text>
-        <Text>{isRgba && RGBAToHexA(color)}</Text>
+        <Text>{isRgba && rgbaToHexA(color)}</Text>
         <Text>{color}</Text>
       </Set>
     ),

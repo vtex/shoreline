@@ -1,4 +1,4 @@
-function getSeparateHSLAValues(hsla: string) {
+function getSeparateHslaValues(hsla: string) {
   const values = hsla.replace(/hsla|hsl|\(|\)|%/g, '').split(',')
 
   return {
@@ -9,7 +9,7 @@ function getSeparateHSLAValues(hsla: string) {
   }
 }
 
-function getSeparateRGBAValues(rgba: string) {
+function getSeparateRgbaValues(rgba: string) {
   const values = rgba.replace(/rgba|rgb|\(|\)/g, '').split(',')
 
   return {
@@ -20,8 +20,8 @@ function getSeparateRGBAValues(rgba: string) {
   }
 }
 
-export function HSLAToHexA(hsla: string) {
-  let { h, s, l, a } = getSeparateHSLAValues(hsla)
+export function hslaToHexA(hsla: string) {
+  let { h, s, l, a } = getSeparateHslaValues(hsla)
 
   s /= 100
   l /= 100
@@ -74,8 +74,8 @@ export function HSLAToHexA(hsla: string) {
   return `#${rHex}${gHex}${bHex}${a !== 1 ? aHex : ''}`.toUpperCase()
 }
 
-export function RGBAToHexA(rgba: string) {
-  const { r, g, b, a } = getSeparateRGBAValues(rgba)
+export function rgbaToHexA(rgba: string) {
+  const { r, g, b, a } = getSeparateRgbaValues(rgba)
 
   let rHex = r.toString(16)
   let gHex = g.toString(16)
@@ -90,7 +90,7 @@ export function RGBAToHexA(rgba: string) {
   return `#${rHex}${gHex}${bHex}${a !== 1 ? aHex : ''}`.toUpperCase()
 }
 
-export function HexToHSLA(hex: string) {
+export function hexToHsla(hex: string) {
   const r = Number(`0x${hex[1]}${hex[2]}`) / 255
   const g = Number(`0x${hex[3]}${hex[4]}`) / 255
   const b = Number(`0x${hex[5]}${hex[6]}`) / 255
@@ -127,7 +127,7 @@ export function replaceHslForHex(
   const hslaRegex = /(hsl)a?\([^)]*\)/gi
 
   const newString = original.replace(hslaRegex, (match) => {
-    return !keepBothValues ? HSLAToHexA(match) : `${match} ${HSLAToHexA(match)}`
+    return !keepBothValues ? hslaToHexA(match) : `${match} ${hslaToHexA(match)}`
   })
 
   return newString

@@ -1,6 +1,6 @@
 import React from 'react'
 import { tag, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
-import { HexToHSLA, HSLAToHexA } from './utils'
+import { hexToHsla, hslaToHexA } from './utils'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
@@ -42,12 +42,12 @@ export function ColorCard(props: ColorCardProps) {
         <CardLabel
           title="HSLA"
           value={
-            isHex(colorValue) ? HexToHSLA(colorValue) : hslaToString(colorValue)
+            isHex(colorValue) ? hexToHsla(colorValue) : hslaToString(colorValue)
           }
         />
         <CardLabel
           title="HEX"
-          value={isHex(colorValue) ? colorValue : HSLAToHexA(colorValue)}
+          value={isHex(colorValue) ? colorValue : hslaToHexA(colorValue)}
         />
       </Flex>
     </Flex>
