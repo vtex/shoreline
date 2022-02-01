@@ -29,9 +29,13 @@ export function Palettes() {
         <Tag label="Rio de Janeiro" palette="cyan" />
         <Tag label="Rio de Janeiro" palette="purple" />
         <Tag label="Rio de Janeiro" palette="green" />
+      </Set>
+      <br />
+      <Set>
         <Tag label="Rio de Janeiro" palette="red" />
         <Tag label="Rio de Janeiro" palette="orange" />
         <Tag label="Rio de Janeiro" palette="teal" />
+        <Tag label="Rio de Janeiro" palette="gray" />
       </Set>
     </>
   )

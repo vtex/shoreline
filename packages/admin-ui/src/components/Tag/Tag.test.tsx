@@ -23,6 +23,7 @@ describe('Tag tests', () => {
         <Tag label="Rio de Janeiro" palette="purple" />
         <Tag label="Rio de Janeiro" palette="orange" />
         <Tag label="Rio de Janeiro" palette="teal" />
+        <Tag label="Rio de Janeiro" palette="gray" />
         <Tag label="tag-1" />
         <Tag label="tag-2" size="regular" />
         <Tag label="tag-3" size="small" />
@@ -44,6 +45,7 @@ describe('Tag tests', () => {
         <Tag label="Rio de Janeiro" palette="purple" />
         <Tag label="Rio de Janeiro" palette="orange" />
         <Tag label="Rio de Janeiro" palette="teal" />
+        <Tag label="Rio de Janeiro" palette="gray" />
         <Tag label="tag-1" />
         <Tag label="tag-2" size="regular" />
         <Tag label="tag-3" size="small" />
