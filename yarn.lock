@@ -7463,6 +7463,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-helmet@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.5.tgz#35f89a6b1646ee2bc342a33a9a6c8777933f9083"
+  integrity sha512-/ICuy7OHZxR0YCAZLNg9r7I9aijWUWvxaPR6uTuyxe8tAj5RL4Sw1+R6NhXUtOsarkGYPmaHdBDvuXh2DIN/uA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-is@^16.7.1":
   version "16.7.2"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-16.7.2.tgz#8c2862013d00d741be189ceb71da8e8d21e8fa7d"
@@ -7858,7 +7865,7 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
-"@vtex/phosphor-icons@^0.2.0":
+"@vtex/phosphor-icons@0.2.0", "@vtex/phosphor-icons@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.0.tgz#a2a35352911b221feda45ae0aef169334c99e1ab"
   integrity sha512-BO5xF0dX27OeLKOqq1j+mv6THiskDtap9pWQfMRG9BvgPr/4Hxx2k6d2fWUvIzGU4ZJ9OLRNDcrhlt3IU657Cw==

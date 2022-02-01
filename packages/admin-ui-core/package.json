@@ -46,7 +46,6 @@
     "csstype": "^3.0.5",
     "deepmerge": "^4.2.2",
     "focus-visible": "^5.1.0",
-    "react-helmet": "6.1.0",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
   }

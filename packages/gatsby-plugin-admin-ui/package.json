@@ -17,7 +17,7 @@
     "@vtex/admin-ui": "^0.117.0"
   },
   "peerDependencies": {
-    "@vtex/admin-ui": "^0.114.4-next.0",
+    "@vtex/admin-ui": ">=0.x",
     "gatsby": "^2.32.3"
   }
 }
