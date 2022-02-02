@@ -22,6 +22,7 @@ function createMap(
 
     return {
       token: `$${extractTokenCall(token)}`,
+      formatedToken,
       description: '',
       value: fotmatValue(get(defaultTheme, formatedToken, '-')),
       type: prop,
