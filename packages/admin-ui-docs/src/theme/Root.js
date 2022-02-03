@@ -1,17 +1,12 @@
 import React from 'react'
-
 import {
   createSystem,
-  theme,
   ToastProvider,
-  unstableCreateAdminUI
 } from '@vtex/admin-ui'
 
 
-const unstableSystem = unstableCreateAdminUI(theme)
 const [ThemeProvider] = createSystem({
   key: 'admin-ui-provider',
-  unstableSystem,
 })
 
 function Root({ children }) {

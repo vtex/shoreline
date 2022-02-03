@@ -1,7 +1,7 @@
 import React from 'react'
 import { isFunction, capitalize } from '@vtex/admin-ui-util'
 
-import { useSystem } from './createSystem'
+import { useSystem } from './context'
 import type { CsxCall, ExtractHTMLAttributes, RenderProp } from './types'
 import type { DOMElements } from './domElements'
 import { domElements } from './domElements'

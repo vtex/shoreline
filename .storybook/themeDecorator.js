@@ -1,13 +1,8 @@
 import React from 'react'
-import { createSystem, unstableCreateAdminUI, defaultTheme } from '@vtex/admin-ui'
-
-const unstableSystem = unstableCreateAdminUI(defaultTheme, {
-  enableModes: true,
-})
+import { createSystem } from '@vtex/admin-ui'
 
 const [ThemeProvider] = createSystem({
-  key: 'storybook',
-  unstableSystem,
+  key: 'storybook'
 })
 
 export function themeDecorator(storyFn) {
