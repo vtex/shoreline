@@ -1,9 +1,9 @@
 import React from 'react'
 
-import type { IllustrationProps } from '../Illustration'
-import { Illustration } from '../Illustration'
+import type { IllustrationProps } from './Illustration'
+import { Illustration } from './Illustration'
 
-export function CollectionError(props: IllustrationProps) {
+export function CollectionNotFound(props: IllustrationProps) {
   const {
     width = 193,
     height = 97,
@@ -47,7 +47,7 @@ export function CollectionError(props: IllustrationProps) {
       />
       <rect x="29" y="21" width="163.692" height="16" rx="2" fill="#DAE3F5" />
       <g filter="url(#filter0_d)">
-        <circle cx="35.6364" cy="27.8182" r="19.6364" fill="white" />
+        <circle cx="35.8182" cy="27.8182" r="19.6364" fill="white" />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -55,11 +55,15 @@ export function CollectionError(props: IllustrationProps) {
           fill="#B6C3E1"
         />
         <path
-          d="M37.5156 27.7273V20.4578C37.5156 19.6531 36.8436 19 36.0156 19C35.1876 19 34.5156 19.6531 34.5156 20.4578V27.7273C34.5156 28.532 35.1876 29.1851 36.0156 29.1851C36.8436 29.1851 37.5156 28.532 37.5156 27.7273Z"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M35.9339 32.7129C36.7353 32.75 37.3653 33.3423 37.3653 34.083C37.3653 34.8401 36.6896 35.4546 35.8572 35.4546C35.0249 35.4546 34.3492 34.8401 34.3492 34.0949C34.341 33.3512 34.9841 32.7426 35.7919 32.7129L35.8556 32.7114L35.9339 32.7129ZM35.8066 34.9366C35.8229 34.938 35.8393 34.938 35.8556 34.938L35.8066 34.9366Z"
           fill="#B6C3E1"
         />
         <path
-          d="M34 34.0621C33.994 32.9814 34.898 32.1126 35.998 32.1126C37.1 32.1126 38 32.9795 38 34.0563C38 35.1292 37.104 36 36 36C34.898 36 34.004 35.1331 34 34.0621Z"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M31.4546 24.1469C31.4546 21.9527 33.4115 20.1819 35.819 20.1819C38.2291 20.1819 40.1819 21.958 40.1819 24.1498C40.1819 25.8778 38.9421 26.7878 38.0876 27.3103L38.086 27.3112C37.3703 27.7474 37.0402 28.0889 37.0402 28.6709V29.0267C37.0402 29.6409 36.4927 30.1388 35.8174 30.1388C35.1421 30.1388 34.5946 29.6409 34.5946 29.0267V28.6709C34.5946 26.9195 35.8484 25.9977 36.7239 25.464C37.076 25.2486 37.3256 25.0598 37.4913 24.8567C37.6369 24.6783 37.7363 24.4672 37.7363 24.1498C37.7363 23.1863 36.8784 22.4061 35.819 22.4061C34.7572 22.4061 33.9001 23.1856 33.9001 24.1469C33.9001 24.7611 33.3527 25.259 32.6774 25.259C32.002 25.259 31.4546 24.7611 31.4546 24.1469Z"
           fill="#B6C3E1"
         />
       </g>

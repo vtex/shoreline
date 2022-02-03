@@ -4,7 +4,7 @@ import {
   CollectionEmpty,
   CollectionError,
   CollectionNotFound,
-} from '@vtex/admin-illustrations'
+} from '../../Illustrations'
 
 import { Flex } from '../../Flex'
 import { Anchor } from '../../Anchor'
