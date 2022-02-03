@@ -14,7 +14,7 @@ import { theme as defaultTheme } from './theme'
  */
 const breakpoints = ['40em', '48em', '64em', '75em']
 
-const TOKEN_PREIFX = '$'
+const TOKEN_PREFIX = '$'
 
 /**
  * Available media queries mapped from the breakpoints
@@ -89,11 +89,10 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
       // handle default entries on rules
       if (value.default) {
         // handle object rules
-        if (typeof value.default === 'object') {
-          cssObject[cssProperty] = styles(value.default)
-        } else {
-          cssObject[cssProperty] = value.default
-        }
+        cssObject[cssProperty] =
+          typeof value.default === 'object'
+            ? styles(value.default)
+            : value.default
       } else {
         // handle object rules
         Object.assign(cssObject, styles(value))
@@ -122,11 +121,9 @@ export function createCsx(emotion: Emotion, theme?: any) {
 }
 
 export function isToken(token: string) {
-  return typeof token === 'string' && token.startsWith(TOKEN_PREIFX)
+  return typeof token === 'string' && token.startsWith(TOKEN_PREFIX)
 }
 
 export function extractTokenCall(token: string) {
-  if (!isToken(token)) return token
-
-  return token.substring(1)
+  return isToken(token) ? token.substring(1) : token
 }

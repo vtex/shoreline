@@ -42,20 +42,20 @@ function reducer(acc: Record<string, any>, curr: string) {
       if (typeof value !== 'number' || value >= 0) {
         if (typeof value === 'string' && value.startsWith('-')) {
           const valueWithoutMinus = value.substring(1)
-          const n = get(rule, valueWithoutMinus, valueWithoutMinus)
+          const valueFromRule = get(rule, valueWithoutMinus, valueWithoutMinus)
 
-          return `-${n}`
+          return `-${valueFromRule}`
         }
 
         return get(rule, value, value)
       }
 
       const absolute = Math.abs(value)
-      const n = get(rule, absolute, absolute)
+      const valueFromRule = get(rule, absolute, absolute)
 
-      if (typeof n === 'string') return `-${n}`
+      if (typeof valueFromRule === 'string') return `-${valueFromRule}`
 
-      return Number(n) * -1
+      return Number(valueFromRule) * -1
     },
   }
 }
