@@ -278,7 +278,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="216"
                 x2="40"
                 y1="128"
@@ -290,7 +290,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
               />
             </svg>
              

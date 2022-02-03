@@ -98,14 +98,14 @@ exports[`Search tests should match snapshot 1`] = `
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="16"
+          stroke-width="18"
         />
         <line
           fill="none"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="16"
+          stroke-width="18"
           x1="175.39356"
           x2="223.99414"
           y1="175.40039"
