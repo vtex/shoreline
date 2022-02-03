@@ -146,7 +146,7 @@ exports[`Select should match the snapshot 1`] = `
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="16"
+          stroke-width="18"
         />
       </svg>
     </div>

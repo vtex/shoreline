@@ -42,7 +42,7 @@
     "@vtex/admin-ui-core": "^0.4.0",
     "polished": "^4.1.2",
     "@types/react-helmet": "^6.1.5",
-    "@vtex/phosphor-icons": "0.2.0"
+    "@vtex/phosphor-icons": "0.2.2"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",

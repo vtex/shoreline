@@ -259,16 +259,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 height="16rem"
                 width="16rem"
               />
-              <line
+              <path
+                d="M40 128.18H216"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
-                x1="40"
-                x2="216"
-                y1="128"
-                y2="128"
+                stroke-width="18"
               />
             </svg>
              
@@ -304,7 +301,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -315,7 +312,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"
@@ -595,16 +592,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 height="16rem"
                 width="16rem"
               />
-              <line
+              <path
+                d="M40 128.18H216"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
-                x1="40"
-                x2="216"
-                y1="128"
-                y2="128"
+                stroke-width="18"
               />
             </svg>
              
@@ -640,7 +634,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -651,7 +645,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"
@@ -932,16 +926,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 height="16rem"
                 width="16rem"
               />
-              <line
+              <path
+                d="M40 128.18H216"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
-                x1="40"
-                x2="216"
-                y1="128"
-                y2="128"
+                stroke-width="18"
               />
             </svg>
              
@@ -980,7 +971,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -991,7 +982,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"
@@ -1271,16 +1262,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 height="16rem"
                 width="16rem"
               />
-              <line
+              <path
+                d="M40 128.18H216"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
-                x1="40"
-                x2="216"
-                y1="128"
-                y2="128"
+                stroke-width="18"
               />
             </svg>
              
@@ -1316,7 +1304,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -1327,7 +1315,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"
@@ -1605,16 +1593,13 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 height="16rem"
                 width="16rem"
               />
-              <line
+              <path
+                d="M40 128.18H216"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
-                x1="40"
-                x2="216"
-                y1="128"
-                y2="128"
+                stroke-width="18"
               />
             </svg>
              
@@ -1650,7 +1635,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="40"
                 x2="216"
                 y1="128"
@@ -1661,7 +1646,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="128"
                 x2="128"
                 y1="40"

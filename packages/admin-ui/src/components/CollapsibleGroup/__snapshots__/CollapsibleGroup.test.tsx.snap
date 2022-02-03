@@ -213,7 +213,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="16"
+                  stroke-width="18"
                 />
               </svg>
                Collapsible Header
@@ -452,7 +452,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="16"
+                  stroke-width="18"
                 />
               </svg>
                Collapsible Header
