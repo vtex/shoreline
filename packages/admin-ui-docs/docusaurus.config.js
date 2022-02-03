@@ -25,7 +25,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl:
-            'https://github.com/vtex/onda/edit/main/packages/admin-ui-docs/',
+            'https://github.com/vtex/admin-ui/edit/main/packages/admin-ui-docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -74,7 +74,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/vtex/onda',
+            href: 'https://github.com/vtex/admin-ui',
             className: 'header-github-link',
             position: 'right',
             'aria-label': 'GitHub repository',

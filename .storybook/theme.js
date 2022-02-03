@@ -32,6 +32,6 @@ export default create({
   inputBorderRadius: '4px',
 
   brandTitle: 'Admin UI',
-  brandUrl: 'https://github.com/vtex/onda',
+  brandUrl: 'https://github.com/vtex/admin-ui',
   brandImage: 'http://brand.vtex.com/static/media/logo.2f3fc60b.svg',
 })

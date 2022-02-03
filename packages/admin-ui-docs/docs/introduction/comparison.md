@@ -10,7 +10,7 @@ Here's a comparison between Admin UI and [Styleguide](https://styleguide.vtex.co
 
 :::info
 
-This comparison strives to be as accurate and unbiased as possible. If you feel this information could be improved, feel free to suggest changes (with notes or evidence of claims) creating an issue on [onda](https://github.com/vtex/onda).
+This comparison strives to be as accurate and unbiased as possible. If you feel this information could be improved, feel free to suggest changes (with notes or evidence of claims) creating an issue on [admin-ui](https://github.com/vtex/admin-ui).
 
 :::
 
