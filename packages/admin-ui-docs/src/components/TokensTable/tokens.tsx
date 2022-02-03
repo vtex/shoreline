@@ -18,13 +18,13 @@ function createMap(
   fotmatValue = (v: any) => v
 ) {
   return function map(token: string) {
-    const formatedToken = `${tokenCall}.${extractTokenCall(token)}`
+    const formattedToken = `${tokenCall}.${extractTokenCall(token)}`
 
     return {
       token: `$${extractTokenCall(token)}`,
-      formatedToken,
+      formattedToken,
       description: '',
-      value: fotmatValue(get(defaultTheme, formatedToken, '-')),
+      value: fotmatValue(get(defaultTheme, formattedToken, '-')),
       type: prop,
       csx: {
         [`${prop}`]: token,

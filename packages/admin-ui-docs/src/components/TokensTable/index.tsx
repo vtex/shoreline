@@ -47,7 +47,7 @@ export function TokensTable(props: TokensTableProps) {
 
       return (
         includesSearchedText(
-          item.formatedToken,
+          item.formattedToken,
           searchLowerCase.replace(/\s|\//g, '.')
         ) ||
         includesSearchedText(item.token, searchLowerCase) ||
@@ -176,7 +176,7 @@ type TextValueProp = {
 interface TokensTableProps {
   items: Array<{
     token: string
-    formatedToken: string
+    formattedToken: string
     description: string
     value: string | TextValueProp
     type: string
