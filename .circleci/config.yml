@@ -41,6 +41,7 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
+      - run: yarn build
       - run: yarn workspace @vtex/admin-ui test
 
       - save_cache:
