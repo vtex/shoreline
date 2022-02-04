@@ -1,6 +1,8 @@
 import React from 'react'
 import { tag, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
-import { hexToHsla, hslaToHexA } from './utils'
+import { hexToHsla, hslaToHex } from './utils'
+import { parseToHsl } from 'polished'
+import type { HslaColor } from 'polished/lib/types/color'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
@@ -42,12 +44,14 @@ export function ColorCard(props: ColorCardProps) {
         <CardLabel
           title="HSLA"
           value={
-            isHex(colorValue) ? hexToHsla(colorValue) : hslaToString(colorValue)
+            isHex(colorValue)
+              ? hexToHslaString(colorValue)
+              : hslaToString(colorValue)
           }
         />
         <CardLabel
           title="HEX"
-          value={isHex(colorValue) ? colorValue : hslaToHexA(colorValue)}
+          value={isHex(colorValue) ? colorValue : hslaToHex(colorValue)}
         />
       </Flex>
     </Flex>
@@ -96,4 +100,10 @@ function hslaToString(hsla: string) {
 
 function isHex(color: string) {
   return color?.includes('#')
+}
+
+function hexToHslaString(hex: string) {
+  const { hue, saturation, lightness } = parseToHsl(hex) as HslaColor
+
+  return `${hue}, ${saturation * 100}%, ${lightness * 100}%, 1`
 }

@@ -21,8 +21,8 @@ const colorFormatter = (color: string) => {
     stringfied: JSON.stringify(color),
     formatted: (
       <Set orientation="vertical">
-        <Text>{isHsla && replaceHslForHex(color)}</Text>
-        <Text>{isRgba && rgbaToHexA(color)}</Text>
+        {isHsla && <Text>{replaceHslForHex(color)}</Text>}
+        {isRgba && <Text>{rgbaToHexA(color)}</Text>}
         <Text>{color}</Text>
       </Set>
     ),

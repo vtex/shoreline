@@ -26,7 +26,8 @@
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^1.2.1",
     "sass": "^1.45.1",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "polished": "^4.1.4"
   },
   "browserslist": {
     "production": [

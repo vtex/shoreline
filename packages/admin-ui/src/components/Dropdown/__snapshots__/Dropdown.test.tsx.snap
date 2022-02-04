@@ -539,7 +539,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 
 .emotion-3:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsl(224, 65%, 97%, 1);
+  background: hsla(224, 65%, 97%, 1);
 }
 
 .emotion-3:active {
