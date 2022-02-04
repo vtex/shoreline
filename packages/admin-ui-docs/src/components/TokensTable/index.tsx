@@ -13,10 +13,29 @@ import {
 } from '@vtex/admin-ui'
 import { FilterDataGrid } from '../FilterDataGrid'
 
+type Item = {
+  token: string
+  formattedToken: string
+}
+
 const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow', 'Text']
 
 const includesSearchedText = (columnText: string, searchedText: string) =>
   columnText.toLowerCase().includes(searchedText)
+
+const includesSearchedTokens = (columnText: string, searchedTokes: string[]) =>
+  searchedTokes.reduce(
+    (acc, current) => acc && columnText.toLowerCase().includes(current),
+    true
+  )
+
+const includesSearchedTextInTokenColumn = (item: Item, searchedText: string) =>
+  includesSearchedText(item.token, searchedText) ||
+  includesSearchedText(
+    item.formattedToken,
+    searchedText.replace(/\s|\//g, '.')
+  ) ||
+  includesSearchedTokens(item.formattedToken, searchedText.split(/\s|\//g))
 
 export function TokensTable(props: TokensTableProps) {
   const dataView = useDataViewState()
@@ -46,7 +65,7 @@ export function TokensTable(props: TokensTableProps) {
           : includesSearchedText(item.value.stringfied, searchLowerCase)
 
       return (
-        includesSearchedText(item.token, searchLowerCase) ||
+        includesSearchedTextInTokenColumn(item, searchLowerCase) ||
         includesSearchedText(item.type, searchLowerCase) ||
         isSearchedTextInValueColumn
       )
@@ -172,6 +191,7 @@ type TextValueProp = {
 interface TokensTableProps {
   items: Array<{
     token: string
+    formattedToken: string
     description: string
     value: string | TextValueProp
     type: string
