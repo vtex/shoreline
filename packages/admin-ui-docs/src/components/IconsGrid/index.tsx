@@ -100,7 +100,7 @@ export function IconsGrid(props: IconsGridProps) {
         <Alert visible csx={{ marginBottom: 4 }}>
           Some icons below are opaque because they still don’t have a use case
           mapped. If you need to use one of them, please{' '}
-          <Anchor href="https://github.com/vtex/onda/issues/new/choose">
+          <Anchor href="https://github.com/vtex/admin-ui/issues/new/choose">
             let us know through a Github issue.
           </Anchor>
         </Alert>

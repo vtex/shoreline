@@ -1,9 +1,8 @@
 {
-  "name": "@vtex/admin-ui-util",
-  "license": "MIT",
-  "version": "0.1.2",
+  "name": "@vtex/admin-illustrations",
+  "version": "0.1.3",
   "main": "dist/index.js",
-  "module": "dist/onda-util.esm.js",
+  "module": "dist/admin-illustrations.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -17,7 +16,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/util",
+    "directory": "packages/illustrations",
     "type": "git",
     "url": "git+https://github.com/vtex/admin-ui.git"
   },
@@ -28,19 +27,12 @@
     "dev": "tsdx watch --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
+    "test": "tsdx test --passWithNoTests",
+    "test:ci": "tsdx test --passWithNoTests --silent"
   },
-  "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6",
-    "@types/lodash.omit": "^4.5.6",
-    "@types/lodash.pick": "^4.4.6"
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
   },
-  "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2",
-    "lodash.omit": "^4.5.0",
-    "lodash.pick": "^4.4.0"
-  }
+  "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }

@@ -12,7 +12,7 @@ VTEX Admin v4 is a collaborative effort. We want to make contributing to this pr
 
 ### Issues: where the conversation happens
 
-We are using [GitHub Issues](https://github.com/vtex/onda/issues) for our public bugs, new features, and discussions. We keep a close eye on this and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think it's relevant to the project. However, before filing a new task, make sure your issue doesn’t already exist.
+We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on this and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think it's relevant to the project. However, before filing a new task, make sure your issue doesn’t already exist.
 
 ### Storybook
 
@@ -31,7 +31,7 @@ Follow the instructions below to get started on development.
 
 ### Getting started
 
-1.  Clone the repository `vtex/onda`.
+1.  Clone the repository `vtex/admin-ui`.
 2.  Run `yarn` to fetch its dependencies.
 3.  Run commands of your choosing.
 4.  Run `yarn test`.

@@ -10,7 +10,7 @@ The theme object is where you define your application's color palette, type scal
 
 Theming with Admin UI is inspired by the [Styled System Theme Specification](https://system-ui.com/theme/).
 
-Our library provides a sensible [default theme](https://github.com/vtex/onda/blob/master/packages/core/src/theme/shape.ts) defined by the design system team.
+Our library provides a sensible default theme defined by the design system team.
 
 ## Colors
 

@@ -18,10 +18,10 @@
   "repository": {
     "directory": "packages/admin-ui",
     "type": "git",
-    "url": "git+https://github.com/vtex/onda.git"
+    "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/vtex/onda/issues"
+    "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
