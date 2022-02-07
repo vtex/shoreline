@@ -4,7 +4,10 @@ import type { ReactElement, PropsWithChildren } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
-import type { Emotion } from '@emotion/css/create-instance'
+import type {
+  Options as CreateEmotionOptions,
+  Emotion,
+} from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
 
@@ -13,42 +16,25 @@ import 'focus-visible/dist/focus-visible'
 import { IconProvider } from './createIcons'
 import { SystemContext } from './context'
 
-export interface SystemSpec {
-  key?: string
-  emotionInstance?: Emotion
-  __theme?: any
-}
-
-export type CreateAdminUIReturn = [
-  (props: PropsWithChildren<{}>) => ReactElement
-]
-
-export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
-  const { key, emotionInstance, __theme } = spec
+export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
+  const {
+    key,
+    experimentalTheme,
+    experimentalDisableGlobalStyles = false,
+    experimentalEmotionOptions = {},
+  } = spec
 
   invariant(
-    key || emotionInstance,
-    'Either "key" or "emotionInstance" must be provided on createSystem function'
+    isKebab(key),
+    '"key" property must be in kebab-case format on createSystem function'
   )
 
-  let emotion: Emotion
+  const emotion = createEmotion({
+    key,
+    ...experimentalEmotionOptions,
+  })
 
-  if (emotionInstance) {
-    emotion = emotionInstance
-  } else {
-    const stringKey = key as string
-
-    invariant(
-      isKebab(stringKey),
-      '"key" property must be in kebab-case format on createSystem function'
-    )
-
-    emotion = createEmotion({
-      key: stringKey,
-    })
-  }
-
-  const csx = createCsx(emotion, __theme)
+  const csx = createCsx(emotion, experimentalTheme)
 
   function SystemProvider(props: PropsWithChildren<{}>) {
     const { children } = props
@@ -73,7 +59,9 @@ export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
                 crossOrigin="anonymous"
               />
             </Helmet>
-            <Global styles={styles(theme.global)} />
+            {!experimentalDisableGlobalStyles && (
+              <Global styles={styles(theme.global)} />
+            )}
             {children}
           </IconProvider>
         </SystemContext.Provider>
@@ -81,5 +69,21 @@ export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
     )
   }
 
-  return [SystemProvider]
+  return [SystemProvider, emotion]
 }
+
+export interface CreateSystemOptions {
+  /** Kebab-case key */
+  key: string
+  /** Custom theme */
+  experimentalTheme?: any
+  /** Options of the created emotion instance */
+  experimentalEmotionOptions?: Omit<CreateEmotionOptions, 'key'>
+  /** Disable global styles */
+  experimentalDisableGlobalStyles?: boolean
+}
+
+export type CreateSystemReturn = [
+  (props: PropsWithChildren<{}>) => ReactElement,
+  Emotion
+]
