@@ -4,8 +4,8 @@ export const global = {
   ...typography.fontFace.vtexTrust,
   body: {
     margin: 0,
-    bg: 'base',
-    color: 'base',
+    bg: '$primary',
+    color: '$primary',
   },
   'html, body': {
     fontFamily: typography.fontStack.sans,

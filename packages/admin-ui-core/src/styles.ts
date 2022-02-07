@@ -9,11 +9,6 @@ import { createTransform } from './transforms'
 import type { StyleObject, StyleProp, ThemeDerivedStyles } from './types'
 import { theme as defaultTheme } from './theme'
 
-/**
- * Available system breakpoints
- */
-const breakpoints = ['40em', '48em', '64em', '75em']
-
 const TOKEN_PREFIX = '$'
 
 /**
@@ -21,7 +16,7 @@ const TOKEN_PREFIX = '$'
  */
 const mediaQueries = [
   null,
-  ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
+  ...defaultTheme.breakpoints.map((n) => `@media screen and (min-width: ${n})`),
 ]
 
 /**
