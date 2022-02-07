@@ -28,6 +28,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
   test:
+    parameters:
+      package:
+        type: string
+        default: 'admin-ui'
     docker:
       - image: circleci/node:16
 
@@ -41,7 +45,7 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
-      - run: yarn test
+      - run: yarn workspace @vtex/<<parameters.package>> test
 
       - save_cache:
           paths:
@@ -54,5 +58,6 @@ workflows:
     jobs:
       - build
       - test:
+          package: 'admin-ui'
           requires:
             - build
