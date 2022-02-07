@@ -61,13 +61,16 @@ workflows:
       - build
       - test:
           package: 'admin-ui'
+          name: '@vtex/admin-ui test'
           requires:
             - build
       - test:
           package: 'admin-ui-core'
+          name: '@vtex/admin-ui-core test'
           requires:
             - build
       - test:
           package: 'admin-ui-react'
+          name: '@vtex/admin-ui-react test'
           requires:
             - build
