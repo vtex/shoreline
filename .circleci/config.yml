@@ -45,6 +45,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
+      - run: yarn install
+      - run: yarn build
       - run: yarn workspace @vtex/<<parameters.package>> test
 
       - save_cache:
@@ -59,5 +61,13 @@ workflows:
       - build
       - test:
           package: 'admin-ui'
+          requires:
+            - build
+      - test:
+          package: 'admin-ui-core'
+          requires:
+            - build
+      - test:
+          package: 'admin-ui-react'
           requires:
             - build
