@@ -6,14 +6,14 @@ const lightCodeTheme = require('prism-react-renderer/themes/github')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Admin UI',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  tagline: '',
+  url: 'https://admin-ui.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'VTEX',
-  projectName: 'onda',
+  projectName: 'admin-ui',
 
   presets: [
     [
@@ -25,7 +25,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl:
-            'https://github.com/vtex/onda/edit/main/packages/admin-ui-docs/',
+            'https://github.com/vtex/admin-ui/edit/main/packages/admin-ui-docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -74,7 +74,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/vtex/onda',
+            href: 'https://github.com/vtex/admin-ui',
             className: 'header-github-link',
             position: 'right',
             'aria-label': 'GitHub repository',
