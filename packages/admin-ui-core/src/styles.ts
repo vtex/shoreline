@@ -33,14 +33,16 @@ const mediaQueries = [
  */
 function resolveResponsiveArray(
   styles: Exclude<StyleProp, ThemeDerivedStyles>
-) {
-  const next: Exclude<StyleProp, ThemeDerivedStyles> = {}
+): Exclude<StyleProp, ThemeDerivedStyles> {
+  const next: any = {}
 
   for (const k in styles) {
     const key = k as keyof typeof styles
     const value = styles[key]
 
-    if (value == null) continue
+    if (value === null) {
+      continue
+    }
 
     if (!Array.isArray(value)) {
       next[key] = value
@@ -56,8 +58,12 @@ function resolveResponsiveArray(
       }
 
       next[media] = next[media] ?? {}
-      if (value[i] == null) continue
-      ;(next[media] as Record<string, unknown>)[key] = value[i]
+
+      if (value[i] == null) {
+        continue
+      }
+
+      next[media][key] = value[i]
     }
   }
 
