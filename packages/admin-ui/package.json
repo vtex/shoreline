@@ -28,7 +28,7 @@
     "build": "tsdx build --tsconfig tsconfig.json",
     "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
     "test": "tsdx test",
-    "test:ci": "tsdx test --maxWorkers=2"
+    "test:ci": "tsdx test"
   },
   "peerDependencies": {
     "react": ">=16",
