@@ -4,7 +4,7 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import type { IconProps } from '@vtex/phosphor-icons'
 import { createIconProvider } from '@vtex/phosphor-icons'
 
-import { useSystem } from './createSystem'
+import { useSystem } from './context'
 
 function useIconProps(props: IconProps) {
   const { csx: containerCsx, size: containerSize } = useIconContainer()

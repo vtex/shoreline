@@ -18,7 +18,7 @@ exports[`PageHeader should match snapshot 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -51,7 +51,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -130,7 +130,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -348,7 +348,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;

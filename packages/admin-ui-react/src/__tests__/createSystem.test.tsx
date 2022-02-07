@@ -2,9 +2,10 @@ import React from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { render } from '@testing-library/react'
 import createEmotion from '@emotion/css/create-instance'
-import { unstableCreateAdminUI, theme } from '@vtex/admin-ui-core'
+import { theme } from '@vtex/admin-ui-core'
 
-import { createSystem, useSystem } from '../createSystem'
+import { createSystem } from '../createSystem'
+import { useSystem } from '../context'
 
 describe('createSystem', () => {
   it('should execute the system', () => {
@@ -66,15 +67,13 @@ describe('createSystem', () => {
   })
 
   it('should be able to create a custom theme', () => {
-    const unstableSystem = unstableCreateAdminUI({
-      space: {
-        xxl: '200px',
-      },
-    })
-
     const [Provider] = createSystem({
       key: 'onda-design-system-tst',
-      unstableSystem,
+      __theme: {
+        space: {
+          xxl: '200px',
+        },
+      },
     })
 
     function Div() {
@@ -100,17 +99,13 @@ describe('createSystem', () => {
   })
 
   it('should be able to create a custom theme using theme as base', () => {
-    const unstableSystem = unstableCreateAdminUI(
-      merge(theme, {
+    const [Provider] = createSystem({
+      key: 'onda-design-system-tst',
+      __theme: merge(theme, {
         space: {
           xxl: '200px',
         },
-      })
-    )
-
-    const [Provider] = createSystem({
-      key: 'onda-design-system-tst',
-      unstableSystem,
+      }),
     })
 
     function Div() {

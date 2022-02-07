@@ -186,10 +186,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -335,10 +331,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -486,10 +478,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -641,10 +629,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -792,10 +776,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
@@ -1037,10 +1017,6 @@ exports[`Input tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  -webkit-align-items: ;
-  -webkit-box-align: ;
-  -ms-flex-align: ;
-  align-items: ;
   padding-top: 0.25rem;
 }
 
