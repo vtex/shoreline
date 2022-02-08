@@ -31,7 +31,7 @@ export function replaceHslForHex(
   const hslaRegex = /(hsl)a?\([^)]*\)/gi
 
   const newString = original.replace(hslaRegex, (match) => {
-    return !keepBothValues ? hslaToHex(match) : `${match} ${hslaToHex(match)}`
+    return keepBothValues ? `${match} ${hslaToHex(match)}` : hslaToHex(match)
   })
 
   return newString
