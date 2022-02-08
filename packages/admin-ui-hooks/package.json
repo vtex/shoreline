@@ -37,7 +37,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.1.2",
+    "@vtex/admin-ui-util": "0.1.2",
     "use-debounce": "^7.0.0"
   }
 }
