@@ -6,7 +6,7 @@ import { fg } from './fg'
 import { global } from './global'
 import { shadow } from './shadow'
 import { sizes } from './sizes'
-import { space } from './space'
+import { space, hspace, vspace } from './space'
 import { text } from './text'
 import { transitions } from './transitions'
 import { zIndices } from './zIndices'
@@ -21,6 +21,8 @@ export const tokens = {
   shadow,
   sizes,
   space,
+  hspace,
+  vspace,
   text,
   transitions,
   zIndices,
