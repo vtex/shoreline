@@ -80,7 +80,7 @@ describe('styles', () => {
           size: 100,
         },
         {
-          space: {
+          hspace: {
             sm: 8,
           },
         }
