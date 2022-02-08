@@ -5,7 +5,7 @@ import theme from './theme'
 
 const [ThemeProvider] = createSystem({
   key: 'gatsby-plugin-admin-ui',
-  __theme: theme,
+  experimentalTheme: theme,
 })
 
 export function wrapRootElement(args) {
