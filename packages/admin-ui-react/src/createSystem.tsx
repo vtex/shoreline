@@ -20,7 +20,7 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
   const {
     key,
     experimentalTheme,
-    experimentalDisableGlobalStyles = false,
+    experimentalDisabledGlobalStyles = false,
     experimentalEmotionOptions = {},
   } = spec
 
@@ -59,7 +59,7 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
                 crossOrigin="anonymous"
               />
             </Helmet>
-            {!experimentalDisableGlobalStyles && (
+            {!experimentalDisabledGlobalStyles && (
               <Global styles={styles(theme.global)} />
             )}
             {children}
@@ -80,7 +80,7 @@ export interface CreateSystemOptions {
   /** Options of the created emotion instance */
   experimentalEmotionOptions?: Omit<CreateEmotionOptions, 'key'>
   /** Disable global styles */
-  experimentalDisableGlobalStyles?: boolean
+  experimentalDisabledGlobalStyles?: boolean
 }
 
 export type CreateSystemReturn = [
