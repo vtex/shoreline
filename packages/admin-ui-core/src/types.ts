@@ -241,12 +241,47 @@ export const colorTokens = asLiterals([
   'grayTransparent90',
 ])
 
+export const spaceTokens = asLiterals([
+  '$xs',
+  '$s',
+  '$m',
+  '$l',
+  '$xl',
+  '$2xl',
+  '$narrow.s',
+  '$narrow.m',
+  '$narrow.l',
+])
+
+export const hspaceTokens = asLiterals([
+  '$xs',
+  '$s',
+  '$m',
+  '$l',
+  '$xl',
+  '$2xl',
+  '$3xl',
+])
+
+export const vspaceTokens = asLiterals([
+  '$xs',
+  '$s',
+  '$m',
+  '$l',
+  '$xl',
+  '$2xl',
+  '$3xl',
+])
+
 export type ColorTokens = typeof colorTokens[number]
 export type FgTokens = typeof fgTokens[number]
 export type BgTokens = typeof bgTokens[number]
 export type BorderTokens = typeof borderTokens[number]
 export type ShadowTokens = typeof shadowTokens[number]
 export type TextTokens = typeof textTokens[number]
+export type SpaceTokens = typeof spaceTokens[number]
+export type HSpaceTokens = typeof hspaceTokens[number]
+export type VSpaceTokens = typeof vspaceTokens[number]
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
@@ -268,29 +303,24 @@ export type CSSPseudoSelectorProps = { [K in CSS.Pseudos]?: StyleProp }
 export interface AliasesCSSProperties {
   /**
    * Shorthand for backgroundColor
-   * @default transparent
    */
-  bg?: BgTokens | StandardCSSProperties['backgroundColor']
+  bg?: BgTokens | CSS.Property.Background
   /**
    * Shorthand for marginLeft & marginRight
-   * @default 0
    */
-  marginX?: StandardCSSProperties['marginLeft']
+  marginX?: HSpaceTokens | CSS.Property.MarginLeft | number
   /**
    * Shorthand for marginTop & marginBottom
-   * @default 0
    */
-  marginY?: StandardCSSProperties['marginTop']
+  marginY?: VSpaceTokens | CSS.Property.MarginTop | number
   /**
    * Shorthand for paddingLeft & paddingRight
-   * @default 0
    */
-  paddingX?: StandardCSSProperties['paddingLeft']
+  paddingX?: HSpaceTokens | CSS.Property.PaddingLeft | number
   /**
    * Shorthand for paddingTop & paddingBottom
-   * @default 0
    */
-  paddingY?: StandardCSSProperties['paddingTop']
+  paddingY?: VSpaceTokens | CSS.Property.PaddingTop | number
   /**
    * Shorthand for width & height
    */
@@ -407,6 +437,46 @@ export interface OverwriteCSSProperties {
    * @default auto
    */
   zIndex?: CSS.Property.ZIndex | string
+  /**
+   * CSS **padding** property
+   */
+  padding?: SpaceTokens | CSS.Property.Padding | number
+  /**
+   * CSS **paddingTop** property
+   */
+  paddingTop?: VSpaceTokens | CSS.Property.PaddingTop | number
+  /**
+   * CSS **paddingBottom** property
+   */
+  paddingBottom?: VSpaceTokens | CSS.Property.PaddingBottom | number
+  /**
+   * CSS **paddingLeft** property
+   */
+  paddingLeft?: HSpaceTokens | CSS.Property.PaddingLeft | number
+  /**
+   * CSS **paddingRight** property
+   */
+  paddingRight?: HSpaceTokens | CSS.Property.PaddingRight | number
+  /**
+   * CSS **margin** property
+   */
+  margin?: SpaceTokens | CSS.Property.Margin | number
+  /**
+   * CSS **marginTop** property
+   */
+  marginTop?: VSpaceTokens | CSS.Property.MarginTop | number
+  /**
+   * CSS **marginBottom** property
+   */
+  marginBottom?: VSpaceTokens | CSS.Property.MarginBottom | number
+  /**
+   * CSS **marginLeft** property
+   */
+  marginLeft?: HSpaceTokens | CSS.Property.MarginLeft | number
+  /**
+   * CSS **marginRight** property
+   */
+  marginRight?: HSpaceTokens | CSS.Property.MarginRight | number
 }
 
 /**
