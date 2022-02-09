@@ -63,7 +63,8 @@
     "reakit-utils": "^0.14.3",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
-    "use-debounce": "^7.0.0"
+    "use-debounce": "^7.0.0",
+    "react-collapsed": "^3.3.0"
   },
   "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }
