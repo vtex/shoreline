@@ -36,7 +36,7 @@ export const ActionsPanel = () => {
   const { toggle, ...props } = useCollapsibleState()
 
   return (
-    <Collapsible state={{ toggle, ...props }}>
+    <Collapsible state={props}>
       <CollapsibleHeader label="Actions Panel">
         <Button variant="secondary">Secondary</Button>
         <Button onClick={toggle}>Toggle Collapsible Content</Button>

@@ -1,8 +1,11 @@
 import React, { useContext, createContext } from 'react'
-import type { DisclosureProps } from 'reakit'
-import invariant from 'tiny-invariant'
 
-const CollapsibleContext = createContext<DisclosureProps | null>(null)
+import invariant from 'tiny-invariant'
+import type { CollapsibleState } from '.'
+
+const CollapsibleContext = createContext<
+  (CollapsibleState & { disabled: boolean }) | null
+>(null)
 
 export function useCollapsibleContext() {
   const context = useContext(CollapsibleContext)
@@ -18,7 +21,7 @@ export function useCollapsibleContext() {
 export function CollapsibleProvider({
   children,
   ...restProps
-}: DisclosureProps) {
+}: CollapsibleState & { disabled: boolean; children: React.ReactNode }) {
   return (
     <CollapsibleContext.Provider value={{ ...restProps }}>
       {children}
