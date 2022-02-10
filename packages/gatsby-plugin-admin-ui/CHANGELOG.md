@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.5.0...@vtex/gatsby-plugin-admin-ui@0.6.0) (2022-02-10)
+
+### Bug Fixes
+
+- **gatsby-plugin:** use the latest admin-ui spec ([c9248d3](https://github.com/vtex/admin-ui/commit/c9248d36aeafe797116b316c7c314b7468fa2870))
+
+### Features
+
+- **react:** add experimentalDisableGlobalStyles prop to createSystem ([a09aca7](https://github.com/vtex/admin-ui/commit/a09aca7eb66a854d51a72e12400371c171aa9701))
+
 # [0.5.0](https://github.com/vtex/onda/compare/@vtex/gatsby-plugin-admin-ui@0.4.1...@vtex/gatsby-plugin-admin-ui@0.5.0) (2022-01-04)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui

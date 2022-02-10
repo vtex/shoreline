@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.0...@vtex/admin-formik@0.4.1) (2022-02-10)
+
+### Bug Fixes
+
+- **deps:** change deps between internal packages to be static instead of dynamic ([0d40913](https://github.com/vtex/admin-ui/commit/0d40913ce928a345079887dd0145df23619f68be))
+
 # [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-formik@0.3.2...@vtex/admin-formik@0.4.0) (2022-01-04)
 
 **Note:** Version bump only for package @vtex/admin-formik

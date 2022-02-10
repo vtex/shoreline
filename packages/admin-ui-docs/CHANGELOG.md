@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.1.0...@vtex/admin-ui-docs@0.2.0) (2022-02-10)
+
+### Bug Fixes
+
+- **tokenstable:** fix the search for $text tokens in design tokens table ([142170f](https://github.com/vtex/admin-ui/commit/142170f619493c0e5ba0453494ce45419a658f57))
+
+### Features
+
+- **core:** simplify core struture ([3ffb7d3](https://github.com/vtex/admin-ui/commit/3ffb7d30be454adf1c2fbbe41ffe4b954cdb67c8))
+- **tag:** add gray variant ([cfeca54](https://github.com/vtex/admin-ui/commit/cfeca54f5b11bc4ca673716ec59e6e75c54f1137))
+
 # [0.1.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-docs@0.0.1...@vtex/admin-ui-docs@0.1.0) (2022-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs

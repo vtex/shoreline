@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.4.0...@vtex/admin-ui-core@0.5.0) (2022-02-10)
+
+### Features
+
+- **core:** add space tokens ([1ac8dd3](https://github.com/vtex/admin-ui/commit/1ac8dd3d3324a80b65c0eb0cbe4a6cf861ccd9f1))
+- **core:** simplify core struture ([3ffb7d3](https://github.com/vtex/admin-ui/commit/3ffb7d30be454adf1c2fbbe41ffe4b954cdb67c8))
+
 # [0.4.0](https://github.com/vtex/onda/compare/@vtex/admin-ui-core@0.3.0...@vtex/admin-ui-core@0.4.0) (2022-01-04)
 
 ### Bug Fixes
