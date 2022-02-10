@@ -177,7 +177,7 @@ exports[`Menu should match snapshot hidden 1`] = `
 
 .emotion-5:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsl(224, 65%, 97%, 1);
+  background: hsla(224, 65%, 97%, 1);
 }
 
 .emotion-5:active {
@@ -490,7 +490,7 @@ exports[`Menu should match snapshot visible 1`] = `
 
 .emotion-5:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsl(224, 65%, 97%, 1);
+  background: hsla(224, 65%, 97%, 1);
 }
 
 .emotion-5:active {

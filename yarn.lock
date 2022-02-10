@@ -2177,6 +2177,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.16.7":
+  version "7.17.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
+  integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4", "@babel/template@^7.12.7", "@babel/template@^7.4.0":
   version "7.12.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.7.tgz#c817233696018e39fbb6c491d2fb684e05ed43bc"
@@ -6549,7 +6556,7 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
-"@vtex/phosphor-icons@0.2.2", "@vtex/phosphor-icons@^0.2.2":
+"@vtex/phosphor-icons@0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.2.tgz#3d31ce92d5b977ac83394f8a2002adbde08837d3"
   integrity sha512-//OET6ezTBOgoRPXCgYrybARhRrrTAgRQoypEle3Gp3FUE8FWtL2lwkUy7AHKJ40kR3WhehA8Y7QkHJiAzbygg==
@@ -17418,6 +17425,13 @@ polished@^4.0.5:
   integrity sha512-BY2+LVtOHQWBQpGN4GPAKpCdsBePOdSdHTpZegRDRCrvGPkRPTx1DEC+vGjIDPhXS7W2qiBxschnwRWTFdMZag==
   dependencies:
     "@babel/runtime" "^7.12.5"
+
+polished@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.1.4.tgz#640293ba834109614961a700fdacbb6599fb12d0"
+  integrity sha512-Nq5Mbza+Auo7N3sQb1QMFaQiDO+4UexWuSGR7Cjb4Sw11SZIJcrrFtiZ+L0jT9MBsUsxDboHVASbCLbE1rnECg==
+  dependencies:
+    "@babel/runtime" "^7.16.7"
 
 popmotion@9.0.0-rc.20:
   version "9.0.0-rc.20"
