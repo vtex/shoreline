@@ -57,7 +57,7 @@
     "build:docs": "yarn --cwd packages/admin-ui-docs build-docs",
     "commit": "cz",
     "build:ci": "lerna run build:fast",
-    "test:ci": "lerna run test:ci",
+    "test:ci": "turbo run test",
     "lint:ci": "yarn lint"
   },
   "devDependencies": {
