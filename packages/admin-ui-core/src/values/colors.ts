@@ -2,7 +2,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
 
-  blue05: 'hsl(224, 65%, 97%, 1)',
+  blue05: 'hsla(224, 65%, 97%, 1)',
   blue10: 'hsla(222, 62%, 92%, 1)',
   blue20: 'hsla(222, 64%, 84%, 1)',
   blue30: 'hsla(222, 78%, 77%, 1)',
@@ -18,7 +18,7 @@ export const colors = {
   lightBlue50: 'hsla(206, 63%, 35%, 1)',
   lightBlue60: 'hsla(207, 64%, 22%, 1)',
 
-  red05: 'hsl(0, 53%, 97%, 1)',
+  red05: 'hsla(0, 53%, 97%, 1)',
   red10: 'hsla(0, 60%, 93%, 1)',
   red20: 'hsla(0, 59%, 83%, 1)',
   red30: 'hsla(0, 81%, 77%, 1)',
