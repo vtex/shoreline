@@ -12,3 +12,10 @@ export * from './themeMode'
 export * from './hooks/useStoredState'
 export * from './context'
 export { IconContainer } from './createIcons'
+export {
+  createComponent,
+  useElement,
+  createHook,
+  Hook,
+  Component,
+} from './system'
