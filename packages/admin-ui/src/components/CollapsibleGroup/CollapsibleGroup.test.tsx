@@ -11,7 +11,7 @@ import {
 } from '../Collapsible'
 
 const StatefulCollapsible = withState(Collapsible, () =>
-  useCollapsibleState({ baseId: 'mocked-id', visible: true })
+  useCollapsibleState({ visible: true })
 )
 
 describe('CollapsibleGroup tests', () => {
