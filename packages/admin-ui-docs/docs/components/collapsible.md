@@ -39,8 +39,6 @@ function Example() {
 
 For convenience, we provide a hook that already implements the state logic for you. It can be very handy if you have a group of collapsible and want to handle the states of each one. You should pass the hook return to the `state` property.
 
-This hook is extracted directly from `reakit/disclosure` with the same props. You can check [Reakit docs](https://reakit.io/docs/disclosure/#usedisclosurestate) for detailed info
-
 ```jsx live
 function Example() {
   const collapsibleState = useCollapsibleState()
@@ -158,13 +156,12 @@ As the name already says, it represents the `content` of the collapsible. It ren
 
 ## Props
 
-| Name      | Type          | Description                                                                                                                                           | Required | Default |
-| --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| state     | `State`       | Component state                                                                                                                                       | ✅       | -       |
-| csx       | `StyleObject` | Custom styles                                                                                                                                         | 🚫       | `{}`    |
-| focusable | `booelan`     | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set | 🚫       | `true`  |
-| disabled  | `boolean`     | Same as the HTML attribute                                                                                                                            | 🚫       | `false` |
-| children  | `ReactNode`   | Collapsible children                                                                                                                                  | 🚫       | -       |
+| Name     | Type          | Description                | Required | Default |
+| -------- | ------------- | -------------------------- | -------- | ------- |
+| state    | `State`       | Component state            | ✅       | -       |
+| csx      | `StyleObject` | Custom styles              | 🚫       | `{}`    |
+| disabled | `boolean`     | Same as the HTML attribute | 🚫       | `false` |
+| children | `ReactNode`   | Collapsible children       | 🚫       | -       |
 
 ### CollapsibleHeader Props
 
@@ -183,14 +180,13 @@ As the name already says, it represents the `content` of the collapsible. It ren
 
 ### State
 
-| Name    | Type         | Description                                        | Default |
-| ------- | ------------ | -------------------------------------------------- | ------- |
-| visible | `booelan`    | Whether the content is visible or not              | -       |
-| baseId  | `string`     | ID that will serve as a base for all the items IDs | -       |
-| toggle  | `() => void` | Toggles the visible state                          | -       |
+| Name    | Type         | Description                           | Default |
+| ------- | ------------ | ------------------------------------- | ------- |
+| visible | `booelan`    | Whether the content is visible or not | -       |
+| toggle  | `() => void` | Toggles the visible state             | -       |
 
 ### useCollapsibleState params
 
-| Name    | Type      | Description        | Required | Default |
-| ------- | --------- | ------------------ | -------- | ------- |
-| visible | `boolean` | Whether is visible | 🚫       | `false` |
+| Name    | Type      | Description                      | Required | Default |
+| ------- | --------- | -------------------------------- | -------- | ------- |
+| visible | `boolean` | Whether it is visible by default | 🚫       | `false` |
