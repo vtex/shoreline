@@ -1,6 +1,5 @@
 import type { ComponentProps } from 'react'
 import React, { createContext, useContext, Fragment } from 'react'
-
 import type { Meta } from '@storybook/react'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import { styleVariants } from '@vtex/admin-ui-core'
@@ -9,17 +8,14 @@ import {
   useTooltipState,
   Tooltip as ReakitTooltip,
   TooltipReference,
-} from 'reakit'
-
-import { createSystem } from '../createSystem'
-import { createComponent, createHook, useElement } from '../system'
-
-import {
   useMenuState,
   Menu as ReakitMenu,
   MenuItem as ReakitMenuItem,
   MenuButton as ReakitMenuButton,
-} from 'reakit/Menu'
+} from 'reakit'
+
+import { createSystem } from '../createSystem'
+import { createComponent, createHook, useElement } from '../system'
 
 const [SystemProvider] = createSystem({
   key: 'admin-ui-react',
@@ -52,6 +48,26 @@ export function Basic() {
   return (
     <Link href="https://admin-ui.com" target="blank">
       Go to admin-ui site
+    </Link>
+  )
+}
+
+export function RenderPropsComposition() {
+  const useLink = createHook<{}, 'a'>((props) => {
+    return props
+  })
+
+  const Link = createComponent<{}, 'a'>((props) => {
+    const linkProps = useLink(props)
+
+    return useElement('a', linkProps)
+  })
+
+  Link.displayName = 'Link'
+
+  return (
+    <Link href="https://admin-ui.com" target="blank">
+      {(props) => <a href={props.href}>Go to admin-ui site</a>}
     </Link>
   )
 }

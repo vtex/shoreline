@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import type { ElementType, HTMLProps, ComponentProps } from 'react'
+import type { ElementType, HTMLProps, ComponentProps, ReactNode } from 'react'
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { hasOwnProperty } from '@vtex/admin-ui-util'
 import type { StyleProp } from '@vtex/admin-ui-core'
@@ -21,7 +21,13 @@ export type Component<
 > = {
   (
     props: T extends ElementType
-      ? Omit<Props<T>, keyof P> & Omit<SystemStyles, 'baseStyle'> & P
+      ? Omit<Props<T>, keyof P | 'children'> &
+          Omit<SystemStyles, 'baseStyle'> &
+          P & {
+            children:
+              | ReactNode
+              | RenderProp<Omit<Props<T>, keyof P | 'ref'> & P>
+          }
       : Omit<SystemStyles, 'baseStyle'> & P
   ): JSX.Element | null
   defaultProps?: T extends ElementType
@@ -116,5 +122,3 @@ export function createHook<
 
   return useComponent as Hook<P, T>
 }
-
-export function createSharedState() {}
