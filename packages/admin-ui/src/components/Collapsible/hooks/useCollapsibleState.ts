@@ -1,6 +1,9 @@
+import { useCallback } from 'react'
 import useCollapse from 'react-collapsed'
 import type {
+  GetCollapsePropsInput,
   GetCollapsePropsOutput,
+  GetTogglePropsInput,
   GetTogglePropsOutput,
 } from 'react-collapsed/dist/types'
 
@@ -13,19 +16,15 @@ export const useCollapsibleState = (
       defaultExpanded: props?.visible,
     })
 
-  const toggleProps = getToggleProps()
-  const { id: baseId } = toggleProps
-
-  const toggle = () => {
+  const toggle = useCallback(() => {
     setExpanded(!isExpanded)
-  }
+  }, [isExpanded])
 
   return {
-    toggleProps,
-    collapseProps: getCollapseProps(),
+    getToggleProps,
+    getCollapseProps,
     visible: isExpanded,
     toggle,
-    baseId,
   }
 }
 
@@ -34,13 +33,15 @@ export interface UseCollapsibleStateParams {
   onCollapseEnd?: () => void
   onExpandStart?: () => void
   onExpandEnd?: () => void
+  /** Weather the content is visible at first or not */
   visible?: boolean
 }
 
 export interface CollapsibleState {
-  toggleProps: GetTogglePropsOutput
-  collapseProps: GetCollapsePropsOutput
+  getToggleProps: (config?: GetTogglePropsInput) => GetTogglePropsOutput
+  getCollapseProps: (config?: GetCollapsePropsInput) => GetCollapsePropsOutput
+  /** Is true if content is currently visible */
   visible: boolean
+  /** Toggle collapsible expansion */
   toggle: () => void
-  baseId: string
 }
