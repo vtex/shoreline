@@ -97,10 +97,10 @@ export const regular = (options: { icon: IconVariant }) => {
   })
 }
 
-export const svg = () =>
-  css({
-    margin: 1,
-  })
+export const svg = css({
+  margin: 1,
+})
+
 export const outerContainer = css({
   display: 'flex',
   height: 'full',
