@@ -40,12 +40,12 @@ export const CollapsibleHeader = jsx('header')(
 )
 
 function Disclosure({ children }: { children: ReactNode }) {
-  const { toggleProps, visible, disabled } = useCollapsibleContext()
+  const { getToggleProps, visible, disabled } = useCollapsibleContext()
 
   return (
     <Button
       variant="adaptative-dark"
-      {...toggleProps}
+      {...getToggleProps()}
       iconPosition="start"
       csx={{
         svg: { height: 20, width: 20, minHeight: 20, maxHeight: 20 },

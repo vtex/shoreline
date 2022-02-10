@@ -8,10 +8,10 @@ export const CollapsibleContent = jsx('div')(
   {
     useOptions(_, props) {
       const { csx, children, ...contentProps } = props
-      const { collapseProps } = useCollapsibleContext()
+      const { getCollapseProps } = useCollapsibleContext()
 
       return {
-        ...collapseProps,
+        ...getCollapseProps(),
         children: (
           <tag.div
             className="__admin-ui-collapsible--content"
