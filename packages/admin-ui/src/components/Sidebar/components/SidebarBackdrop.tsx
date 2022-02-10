@@ -45,9 +45,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
             : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: '$secondary',
-          borderRight: selectedItem?.expandable ? 1 : 0,
-          borderRightColor: 'base',
-          borderRightStyle: 'solid',
+          borderRight: selectedItem?.expandable ? '$neutral' : 'none',
         }}
         onMouseEnter={showToggle}
         onMouseLeave={hideToggle}
@@ -76,16 +74,11 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           transition:
             'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: '$primary',
-          svg: {
-            width: 20,
-            height: 20,
-            minHeight: 20,
-            minWidth: 20,
-          },
         }}
         icon={
           <IconCaretRight
             mirrored={!reduced}
+            size="small"
             csx={{
               display: 'flex',
               justifyContent: 'center',

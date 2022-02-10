@@ -68,10 +68,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-42 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -195,10 +191,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-45 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -246,10 +238,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-48 svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
   margin: 0.25rem;
 }
 
@@ -369,10 +357,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-5 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
   margin: 0.25rem;
 }
 
@@ -516,10 +500,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
   margin: 0.25rem;
 }
 
@@ -549,10 +529,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27 svg {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
   margin: 0.25rem;
 }
 

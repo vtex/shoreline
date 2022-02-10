@@ -2,8 +2,6 @@ import type { ReactElement, Ref } from 'react'
 import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { CompositeGroup } from 'reakit/Composite'
-import { theme } from '@vtex/admin-ui-core'
-import { get } from '@vtex/admin-ui-util'
 
 import type { BoxProps } from '../../Box'
 import { SidebarBackdrop } from './SidebarBackdrop'
@@ -69,7 +67,6 @@ export const Sidebar = forwardRef(function Sidebar(
               ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
               : 'unset',
           ...rootProps.csx,
-          '--admin-ui-fg-action-main-tertiary': get(theme, 'fg.secondary', ''),
         }}
         {...rootProps}
       >

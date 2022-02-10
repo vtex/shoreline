@@ -1,7 +1,6 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
 import { focusVisible } from '@vtex/admin-ui-core'
 
-type Size = 'small' | 'regular'
 type ActionTone = 'main' | 'critical' | 'neutral'
 type ActionVariant = 'primary' | 'secondary' | 'tertiary'
 type IconVariant = 'none' | 'start' | 'end' | 'only'
@@ -98,17 +97,9 @@ export const regular = (options: { icon: IconVariant }) => {
   })
 }
 
-export const svg = (options: { size: Size }) => {
-  const { size } = options
-  const numericSize = size === 'regular' ? 24 : 20
-
-  return css({
-    size: numericSize,
-    minWidth: numericSize,
-    minHeight: numericSize,
-    margin: 1,
-  })
-}
+export const svg = css({
+  margin: 1,
+})
 
 export const outerContainer = css({
   display: 'flex',
