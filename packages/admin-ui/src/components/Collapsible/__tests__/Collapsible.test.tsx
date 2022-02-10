@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 const StatefulCollapsible = withState(Collapsible, () =>
-  useCollapsibleState({ baseId: 'mocked-id', visible: true })
+  useCollapsibleState({ visible: true })
 )
 
 describe('Collapsible', () => {
