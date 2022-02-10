@@ -1,12 +1,13 @@
 import React from 'react'
 import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 import * as ReactIs from 'react-is'
+import type { VariantsCall } from '@vtex/admin-ui-core'
 
 import { useSystem } from './context'
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
 
-import type { VariantsCall, CsxCall } from './types'
+import type { CsxCall } from './types'
 import { useOptionsIdentity, getStylesheet, getOptions } from './util'
 import type { Stylesheet, Sync } from './hooks/useStylesheet'
 import { useStylesheet } from './hooks/useStylesheet'
