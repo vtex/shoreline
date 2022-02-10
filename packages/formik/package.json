@@ -18,10 +18,10 @@
   "repository": {
     "directory": "packages/formik",
     "type": "git",
-    "url": "git+https://github.com/vtex/onda.git"
+    "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/vtex/onda/issues"
+    "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
@@ -37,7 +37,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.117.0",
+    "@vtex/admin-ui": "0.117.0",
     "formik": "^2.2.6",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "react-intl": "^5.8.1",

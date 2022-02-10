@@ -2,7 +2,7 @@ import React from 'react'
 import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 import * as ReactIs from 'react-is'
 
-import { useSystem } from './createSystem'
+import { useSystem } from './context'
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
 

@@ -22,7 +22,7 @@ When publishing a package you must have permission to make `git push` directly o
 
 **Lerna**
 
-We use Lerna to control the operations through all of our packages on onda. Interesting links: [Lerna documentation](https://github.com/lerna/lerna), [Lerna config on Onda](https://github.com/vtex/onda/blob/master/lerna.json).
+We use Lerna to control the operations through all of our packages on onda. Interesting links: [Lerna documentation](https://github.com/lerna/lerna), [Lerna config on Onda](https://github.com/vtex/admin-ui/blob/main/lerna.json).
 
 ## Publish Flow
 

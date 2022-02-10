@@ -50,7 +50,7 @@ exports[`DataViewControls should match snapshot as sticky 1`] = `
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
 }

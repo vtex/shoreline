@@ -20,10 +20,10 @@
   "repository": {
     "directory": "packages/hooks",
     "type": "git",
-    "url": "git+https://github.com/vtex/onda.git"
+    "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/vtex/onda/issues"
+    "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
@@ -37,7 +37,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.1.2",
+    "@vtex/admin-ui-util": "0.1.2",
     "use-debounce": "^7.0.0"
   }
 }

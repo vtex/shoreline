@@ -298,7 +298,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsl(224, 65%, 97%, 1);
+  background: hsla(224, 65%, 97%, 1);
 }
 
 .emotion-2:active {
@@ -634,7 +634,7 @@ exports[`Button tests should match snapshot 1`] = `
 
 .emotion-2:hover {
   color: hsla(0, 58%, 52%, 1);
-  background: hsl(0, 53%, 97%, 1);
+  background: hsla(0, 53%, 97%, 1);
 }
 
 .emotion-2:active {

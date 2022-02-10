@@ -1,99 +1,40 @@
-import React, { Fragment } from 'react'
-import type { StyleProp, UnstableAdminUI } from '@vtex/admin-ui-core'
-import {
-  createAtoms,
-  createClsx,
-  defaultSystemInstance,
-} from '@vtex/admin-ui-core'
+import React from 'react'
+import { createCsx, theme, styles } from '@vtex/admin-ui-core'
 import type { ReactElement, PropsWithChildren } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
 import { Helmet } from 'react-helmet'
-import type { Emotion } from '@emotion/css/create-instance'
+import type {
+  Options as CreateEmotionOptions,
+  Emotion,
+} from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
 import { CacheProvider, Global } from '@emotion/react'
-
-import { ThemeModeProvider } from './themeMode'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
 import { IconProvider } from './createIcons'
+import { SystemContext } from './context'
 
-export interface SystemSpec {
-  key?: string
-  emotionInstance?: Emotion
-  unstableSystem?: UnstableAdminUI
-  mode?: string
-}
-
-export const SystemContext = React.createContext<
-  | ({
-      theme: any
-      cn: (styleProp: StyleProp) => string
-    } & Pick<Emotion, 'cx' | 'keyframes'>)
-  | null
->(null)
-
-export function useSystem() {
-  const ctx = React.useContext(SystemContext)
-
-  invariant(
-    ctx,
-    'Waaaait! Something is wrong, make sure you are using the useSystem() hook under an AdminUI provider.'
-  )
-
-  return ctx
-}
-
-export type CreateAdminUIReturn = [
-  (props: PropsWithChildren<{}>) => ReactElement
-]
-
-export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
+export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
   const {
     key,
-    emotionInstance,
-    unstableSystem = defaultSystemInstance,
-    mode = 'main',
+    experimentalTheme,
+    experimentalDisabledGlobalStyles = false,
+    experimentalEmotionOptions = {},
   } = spec
 
   invariant(
-    key || emotionInstance,
-    'Either "key" or "emotionInstance" must be provided on createSystem function'
+    isKebab(key),
+    '"key" property must be in kebab-case format on createSystem function'
   )
 
-  let emotion: Emotion
+  const emotion = createEmotion({
+    key,
+    ...experimentalEmotionOptions,
+  })
 
-  if (emotionInstance) {
-    emotion = emotionInstance
-  } else {
-    const stringKey = key as string
-
-    invariant(
-      isKebab(stringKey),
-      '"key" property must be in kebab-case format on createSystem function'
-    )
-
-    emotion = createEmotion({
-      key: stringKey,
-    })
-  }
-
-  const clsx = createClsx(emotion)
-  const atoms = createAtoms(unstableSystem.styles, clsx)
-
-  const Wrapper = unstableSystem.themeOptions.enableModes
-    ? function ThemeWrapper(props: PropsWithChildren<{}>) {
-        return (
-          <ThemeModeProvider
-            styleObject={unstableSystem.rootStyleObject}
-            defaultThemeMode={mode}
-          >
-            {props.children}
-          </ThemeModeProvider>
-        )
-      }
-    : Fragment
+  const csx = createCsx(emotion, experimentalTheme)
 
   function SystemProvider(props: PropsWithChildren<{}>) {
     const { children } = props
@@ -102,31 +43,47 @@ export function createSystem(spec: SystemSpec): CreateAdminUIReturn {
       <CacheProvider value={emotion.cache}>
         <SystemContext.Provider
           value={{
-            theme: unstableSystem.theme,
-            cn: atoms,
+            theme,
+            cn: csx,
             cx: emotion.cx,
             keyframes: emotion.keyframes,
           }}
         >
           <IconProvider>
-            <Wrapper>
-              <Helmet>
-                <link
-                  rel="preload"
-                  href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
-                  as="font"
-                  type="font/woff2"
-                  crossOrigin="anonymous"
-                />
-              </Helmet>
-              <Global styles={unstableSystem.globalStyles} />
-              {children}
-            </Wrapper>
+            <Helmet>
+              <link
+                rel="preload"
+                href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-Variable.woff2"
+                as="font"
+                type="font/woff2"
+                crossOrigin="anonymous"
+              />
+            </Helmet>
+            {!experimentalDisabledGlobalStyles && (
+              <Global styles={styles(theme.global)} />
+            )}
+            {children}
           </IconProvider>
         </SystemContext.Provider>
       </CacheProvider>
     )
   }
 
-  return [SystemProvider]
+  return [SystemProvider, emotion]
 }
+
+export interface CreateSystemOptions {
+  /** Kebab-case key */
+  key: string
+  /** Custom theme */
+  experimentalTheme?: any
+  /** Options of the created emotion instance */
+  experimentalEmotionOptions?: Omit<CreateEmotionOptions, 'key'>
+  /** Disable global styles */
+  experimentalDisabledGlobalStyles?: boolean
+}
+
+export type CreateSystemReturn = [
+  (props: PropsWithChildren<{}>) => ReactElement,
+  Emotion
+]

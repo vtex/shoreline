@@ -1,7 +1,8 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import createEmotion from '@emotion/css/create-instance'
-import { createTheme, createRuntime } from '..'
+
+import { createCsx } from '../index'
 
 export default {
   title: 'admin-ui-core/core',
@@ -12,26 +13,13 @@ const emotion = createEmotion({
   key: 'admin-ui-core',
 })
 
-// theme creation
-const { theme } = createTheme({
-  fg: {
-    primary: '#111',
-  },
-  bg: {
-    secondary: '#cecece',
-  },
-  border: {
-    neutral: '1px solid #000',
-  },
-})
-
-// atoms function
-const { atoms } = createRuntime(theme, emotion)
+// join the parser w/ emotion.css
+const csx = createCsx(emotion)
 
 export function FrameworkdAgnostic() {
   return (
     <div
-      className={atoms({
+      className={csx({
         bg: '$secondary',
         color: '$primary',
         border: '$neutral',

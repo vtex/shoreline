@@ -15,11 +15,11 @@ As a first step, it’s always good to explore the content on this website. The 
 
 If you have a bug report, feature request, suggestion, or general feedback, please create a Github issue:
 
-🐞 [Bug report](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=bug_report.md)<br />
+🐞 [Bug report](https://github.com/vtex/admin-ui/issues/new?assignees=&labels=&template=bug_report.md)<br />
 
-💡 [Feature request](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=feature_request.md)<br />
+💡 [Feature request](https://github.com/vtex/admin-ui/issues/new?assignees=&labels=&template=feature_request.md)<br />
 
-💬 [Support or feedbacks](https://github.com/vtex/onda/issues/new?assignees=&labels=&template=support-question.md)
+💬 [Support or feedbacks](https://github.com/vtex/admin-ui/issues/new?assignees=&labels=&template=support-question.md)
 
 ## Slack channels
 

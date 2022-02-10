@@ -1,5 +1,8 @@
 import React from 'react'
-import { tag, Text, Flex, color as getColor } from '@vtex/admin-ui'
+import { tag, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
+import { hexToHsla, hslaToHex } from './utils'
+import { parseToHsl } from 'polished'
+import type { HslaColor } from 'polished/lib/types/color'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
@@ -31,15 +34,24 @@ export function ColorCard(props: ColorCardProps) {
       />
 
       <Flex
+        direction="column"
         csx={{
-          paddingY: 4,
+          padding: 4,
           justifyContent: 'space-around',
         }}
       >
         <CardLabel title="Name" value={name} />
         <CardLabel
-          title={isHex(colorValue) ? 'HEX' : 'HSLA'}
-          value={isHex(colorValue) ? colorValue : hslaToString(colorValue)}
+          title="HSLA"
+          value={
+            isHex(colorValue)
+              ? hexToHslaString(colorValue)
+              : hslaToString(colorValue)
+          }
+        />
+        <CardLabel
+          title="HEX"
+          value={isHex(colorValue) ? colorValue : hslaToHex(colorValue)}
         />
       </Flex>
     </Flex>
@@ -50,7 +62,7 @@ function CardLabel(props: CardLabel) {
   const { title, value } = props
 
   return (
-    <Flex direction="column">
+    <Flex csx={{ width: '100%' }}>
       <Text
         csx={{
           display: 'block',
@@ -59,6 +71,7 @@ function CardLabel(props: CardLabel) {
       >
         {title}
       </Text>
+      <FlexSpacer />
       <Text
         csx={{
           display: 'block',
@@ -82,9 +95,15 @@ interface ColorCardProps {
 }
 
 function hslaToString(hsla: string) {
-  return hsla.substr(5).split(')')[0]
+  return hsla.replace(/hsla|hsl|\(|\)/g, '')
 }
 
 function isHex(color: string) {
   return color?.includes('#')
+}
+
+function hexToHslaString(hex: string) {
+  const { hue, saturation, lightness } = parseToHsl(hex) as HslaColor
+
+  return `${hue}, ${saturation * 100}%, ${lightness * 100}%, 1`
 }

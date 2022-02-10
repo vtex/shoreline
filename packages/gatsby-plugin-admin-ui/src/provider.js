@@ -1,12 +1,11 @@
 import { createElement } from 'react'
-import { createSystem, unstableCreateAdminUI } from '@vtex/admin-ui'
-import theme from './theme'
+import { createSystem } from '@vtex/admin-ui'
 
-const unstableSystem = unstableCreateAdminUI(theme)
+import theme from './theme'
 
 const [ThemeProvider] = createSystem({
   key: 'gatsby-plugin-admin-ui',
-  unstableSystem,
+  experimentalTheme: theme,
 })
 
 export function wrapRootElement(args) {

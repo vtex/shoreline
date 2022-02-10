@@ -18,7 +18,7 @@ exports[`PageHeader should match snapshot 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -51,7 +51,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -130,7 +130,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;
@@ -164,7 +164,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3:hover {
   color: hsla(222, 63%, 43%, 1);
-  background: hsl(224, 65%, 97%, 1);
+  background: hsla(224, 65%, 97%, 1);
 }
 
 .emotion-3:active {
@@ -278,7 +278,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
                 x1="216"
                 x2="40"
                 y1="128"
@@ -290,7 +290,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"
+                stroke-width="18"
               />
             </svg>
              
@@ -348,7 +348,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   align-items: center;
   width: 100%;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  -webkit-position: sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   height: 4.5rem;

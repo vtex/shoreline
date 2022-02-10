@@ -11,7 +11,7 @@
   "repository": {
     "directory": "packages/gatsby-plugin-admin-ui",
     "type": "git",
-    "url": "git+https://github.com/vtex/onda.git"
+    "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "devDependencies": {
     "@vtex/admin-ui": "^0.117.0"

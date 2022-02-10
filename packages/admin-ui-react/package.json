@@ -19,10 +19,10 @@
   "repository": {
     "directory": "packages/react",
     "type": "git",
-    "url": "git+https://github.com/vtex/onda.git"
+    "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/vtex/onda/issues"
+    "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
@@ -39,17 +39,17 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@vtex/admin-ui-core": "^0.4.0",
-    "polished": "^4.1.2",
+    "@vtex/admin-ui-core": "0.4.0",
     "@types/react-helmet": "^6.1.5",
-    "@vtex/phosphor-icons": "0.2.0"
+    "@vtex/phosphor-icons": "0.2.2"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",
-    "@vtex/admin-ui-util": "^0.1.2",
+    "@vtex/admin-ui-util": "0.1.2",
+    "focus-visible": "^5.2.0",
+    "react-helmet": "^6.1.0",
     "react-is": "^17.0.2",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
-    "react-helmet": "^6.1.0"
+    "tiny-warning": "^1.0.3"
   }
 }
