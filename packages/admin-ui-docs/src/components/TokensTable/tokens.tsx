@@ -4,7 +4,7 @@ import {
   fgTokens,
   borderTokens,
   shadowTokens,
-  defaultTheme,
+  theme as defaultTheme,
   get,
   extractTokenCall,
   textTokens,
@@ -81,10 +81,6 @@ export const text = textTokens.map(
     }
   })
 )
-
-console.log({
-  text,
-})
 
 export const tokens = [
   ...background,
