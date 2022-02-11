@@ -9,7 +9,7 @@ import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
 import type { SystemComponentProps } from '../../types'
-import { Button } from '../Button'
+import { Button } from '../button'
 import type { AbstractInputOwnProps } from '../AbstractInput'
 import { Text } from '../Text'
 

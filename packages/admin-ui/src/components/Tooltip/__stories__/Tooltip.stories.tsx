@@ -8,7 +8,7 @@ import { tag } from '@vtex/admin-ui-react'
 import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
 
-import { Button } from '../../Button'
+import { Button } from '../../button'
 import { Tag } from '../../Tag'
 import { Text } from '../../Text'
 import { Set } from '../../Set'

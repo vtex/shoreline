@@ -2,6 +2,10 @@ export * from '@vtex/admin-ui-core'
 export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
+
+export * from './components/button'
+
+// not reviewed
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Menu'
@@ -19,7 +23,6 @@ export * from './components/Paragraph'
 export * from './components/List'
 export * from './components/Heading'
 export * from './components/Card'
-export * from './components/Button'
 export * from './components/Set'
 export * from './components/Text'
 export * from './components/Columns'

@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
 import { PageHeader, PageTitle, PageActions } from '../index'
-import { Button } from '../../Button'
+import { Button } from '../../button'
 
 export default {
   title: 'admin-ui/Page/PageHeader',

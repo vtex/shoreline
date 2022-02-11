@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import type { Story, Meta } from '@storybook/react'
-import { IconSquaresFour, IconPlus } from '@vtex/phosphor-icons'
+import { IconPlus, IconArrowUpRight } from '@vtex/phosphor-icons'
 
-import type { ButtonProps } from './index'
 import { Button } from './index'
 import { Set } from '../Set'
 
@@ -11,7 +10,7 @@ export default {
   component: Button,
 } as Meta
 
-export const Playground: Story<ButtonProps> = (args) => {
+export const Playground = (args: any) => {
   return <Button {...args} />
 }
 
@@ -23,8 +22,8 @@ Playground.args = {
 export const Size: Story = () => {
   return (
     <Set>
-      <Button disabled>Regular Button Disabled</Button>
-      <Button size="small">Small Button</Button>
+      <Button>Normal</Button>
+      <Button size="large">Large</Button>
     </Set>
   )
 }
@@ -32,13 +31,13 @@ export const Size: Story = () => {
 export const Variant: Story = () => {
   return (
     <Set orientation="vertical">
-      <Button>Primary Button</Button>
-      <Button variant="secondary">Secondary Button</Button>
-      <Button variant="tertiary">Tertiary Button</Button>
-      <Button variant="danger">Danger Button</Button>
-      <Button variant="danger-secondary">Danger Secondary Button</Button>
-      <Button variant="danger-tertiary">Danger Tertiary Button</Button>
-      <Button variant="adaptative-dark">Adaptative Dark Button</Button>
+      <Button>Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+      <Button variant="critical">Critical</Button>
+      <Button variant="criticalSecondary">Critical secondary</Button>
+      <Button variant="criticalTertiary">Critical tertiary</Button>
+      <Button variant="neutralTertiary">Neutral tertiary</Button>
     </Set>
   )
 }
@@ -46,11 +45,15 @@ export const Variant: Story = () => {
 export const WithIcon: Story = () => {
   return (
     <Set>
-      <Button icon={<IconSquaresFour />}>Icon Start</Button>
-      <Button icon={<IconSquaresFour />} iconPosition="end" variant="secondary">
+      <Button icon={<IconPlus />}>Icon Start</Button>
+      <Button
+        icon={<IconArrowUpRight />}
+        iconPosition="end"
+        variant="secondary"
+      >
         IconEnd
       </Button>
-      <Button icon={<IconSquaresFour title="Icon only" />} variant="tertiary" />
+      <Button icon={<IconPlus title="Icon only" />} variant="tertiary" />
     </Set>
   )
 }
@@ -70,7 +73,7 @@ export const Loading = () => {
       <Button
         icon={<IconPlus />}
         loading={loading}
-        variant="danger"
+        variant="critical"
         iconPosition="end"
         onClick={() => setLoading(!loading)}
       >
@@ -80,14 +83,14 @@ export const Loading = () => {
         loading={loading}
         variant="secondary"
         onClick={() => setLoading(!loading)}
-        size="small"
+        size="large"
       >
         Loading
       </Button>
       <Button
         icon={<IconPlus />}
         loading={loading}
-        variant="danger-secondary"
+        variant="criticalSecondary"
         onClick={() => setLoading(!loading)}
       />
       <Button
@@ -99,7 +102,7 @@ export const Loading = () => {
       </Button>
       <Button
         loading={loading}
-        variant="danger-tertiary"
+        variant="criticalTertiary"
         onClick={() => setLoading(!loading)}
       >
         Loading

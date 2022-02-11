@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import { IconDotsThreeVertical, IconCaretDown } from '@vtex/phosphor-icons'
 import { MenuButton as ReakitMenuButton } from 'reakit/Menu'
 
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import type { ButtonProps } from '../../button'
+import { Button } from '../../button'
 import { useMenuContext } from './MenuContext'
 
 export const MenuButton = forwardRef(

@@ -1,18 +1,17 @@
-import type { StyleProp } from '@vtex/admin-ui-core'
-import { focusVisible } from '@vtex/admin-ui-core'
+import { focusVisible, style, styleVariants } from '@vtex/admin-ui-core'
 
 type ActionTone = 'main' | 'critical' | 'neutral'
 type ActionVariant = 'primary' | 'secondary' | 'tertiary'
-type IconVariant = 'none' | 'start' | 'end' | 'only'
 
-function css(csx: StyleProp): StyleProp {
-  return csx
+interface ActionOptions {
+  tone: ActionTone
+  variant: ActionVariant
 }
 
-export function action(options: { tone: ActionTone; variant: ActionVariant }) {
+function action(options: ActionOptions) {
   const { tone, variant } = options
 
-  return css({
+  return style({
     color: `action.${tone}.${variant}`,
     bg: `action.${tone}.${variant}`,
     ':hover': {
@@ -23,116 +22,103 @@ export function action(options: { tone: ActionTone; variant: ActionVariant }) {
       color: `action.${tone}.${variant}Pressed`,
       bg: `action.${tone}.${variant}Pressed`,
     },
+    ':disabled': {
+      bg: variant === 'tertiary' ? 'transparent' : '$disabled',
+      color: '$disabled',
+    },
     ...focusVisible(tone),
   })
 }
 
-export const baseline = css({
+export const buttonStyle = style({
   text: '$action1',
   border: 'none',
   borderRadius: 'default',
   cursor: 'pointer',
   position: 'relative',
-  ':disabled': {
-    bg: '$disabled',
-    color: '$disabled',
+})
+
+export const buttonVariants = styleVariants({
+  variant: {
+    primary: action({
+      tone: 'main',
+      variant: 'primary',
+    }),
+    secondary: action({
+      tone: 'main',
+      variant: 'secondary',
+    }),
+    tertiary: action({
+      tone: 'main',
+      variant: 'tertiary',
+    }),
+    critical: action({
+      tone: 'critical',
+      variant: 'primary',
+    }),
+    criticalSecondary: action({
+      tone: 'critical',
+      variant: 'secondary',
+    }),
+    criticalTertiary: action({
+      tone: 'critical',
+      variant: 'tertiary',
+    }),
+    neutralTertiary: action({
+      tone: 'neutral',
+      variant: 'tertiary',
+    }),
+  },
+  size: {
+    normal: {
+      padding: '$narrow.s',
+      height: '2.25rem',
+    },
+    large: {
+      padding: '$narrow.m',
+      height: '2.75rem',
+    },
+  },
+  iconPosition: {
+    start: {
+      svg: {
+        paddingRight: '$s',
+      },
+    },
+    end: {
+      svg: {
+        paddingLeft: '$xs',
+      },
+    },
   },
 })
 
-export const small = (options: { icon: IconVariant }) => {
-  const { icon = 'none' } = options
-
-  const space = {
-    none: {
-      paddingLeft: 3,
-      paddingRight: 3,
-    },
-    start: {
-      paddingLeft: 2,
-      paddingRight: 3,
-    },
-    end: {
-      paddingLeft: 3,
-      paddingRight: 2,
-    },
-    only: {
-      paddingLeft: '2px',
-      paddingRight: '2px',
-    },
-  }[icon]
-
-  return css({
-    height: 32,
-    width: icon !== 'only' ? 'auto' : 32,
-    ...space,
-  })
-}
-
-export const regular = (options: { icon: IconVariant }) => {
-  const { icon = 'none' } = options
-
-  const space = {
-    none: {
-      paddingLeft: 4,
-      paddingRight: 4,
-    },
-    start: {
-      paddingLeft: 2,
-      paddingRight: 3,
-    },
-    end: {
-      paddingLeft: 3,
-      paddingRight: 2,
-    },
-    only: {
-      paddingLeft: 1,
-      paddingRight: 1,
-    },
-  }[icon]
-
-  return css({
-    height: 40,
-    width: icon !== 'only' ? 'auto' : 40,
-    ...space,
-  })
-}
-
-export const svg = css({
-  margin: 1,
-})
-
-export const outerContainer = css({
-  display: 'flex',
-  height: 'full',
-  width: 'full',
-  margin: 'auto',
-  alignItems: 'center',
-  justifyContent: 'center',
+export const innerContainerStyle = style({
   text: '$action1',
 })
 
-export const innerContainer = (options: {
-  loading: boolean
-  iconEnd: boolean
-}) => {
-  const { loading, iconEnd } = options
+export const innerContainerVariants = styleVariants({
+  loading: {
+    true: {
+      visibility: 'hidden',
+    },
+    false: {
+      visibility: 'visible',
+    },
+  },
+  iconPosition: {
+    start: {
+      flexDirection: 'row',
+    },
+    end: {
+      flexDirection: 'row-reverse',
+    },
+  },
+})
 
-  return css({
-    text: '$action1',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    visibility: loading ? 'hidden' : 'visible',
-    flexDirection: iconEnd ? 'row-reverse' : 'row',
-  })
-}
-
-export const spinnerContainer = css({
+export const spinnerContainerStyle = style({
   text: '$action1',
   position: 'absolute',
-  alignItems: 'center',
-  display: 'flex',
-  justifyContent: 'center',
   bottom: 0,
   top: 0,
   left: 0,

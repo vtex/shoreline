@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
 
 import { AbstractInput } from '../AbstractInput'
-import { Button } from '../Button'
+import { Button } from '../button'
 import { Spinner } from '../Spinner'
 import { VisuallyHidden } from '../VisuallyHidden'
 

@@ -7,7 +7,7 @@ import { Page, PageContent, PageHeader, PageTitle, PageActions } from '../index'
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { Search, useSearchState } from '../../Search'
 import { DataGrid, useDataGridState, createColumns } from '../../DataGrid'
-import { Button } from '../../Button'
+import { Button } from '../../button'
 
 export default {
   title: 'admin-ui/Page',

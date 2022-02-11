@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import { render, axe } from '../../test-utils'
 
-import { Button } from './index'
+import { render, axe } from '../../test-utils'
+import { Button } from './button'
 
 describe('Button tests', () => {
   it('should have overridable styles', () => {
@@ -20,9 +20,10 @@ describe('Button tests', () => {
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
         <Button variant="tertiary">Button</Button>
-        <Button variant="danger">Button</Button>
-        <Button variant="danger-secondary">Button</Button>
-        <Button variant="danger-tertiary">Button</Button>
+        <Button variant="critical">Button</Button>
+        <Button variant="criticalSecondary">Button</Button>
+        <Button variant="criticalTertiary">Button</Button>
+        <Button variant="neutralTertiary">Button</Button>
       </Fragment>
     )
 

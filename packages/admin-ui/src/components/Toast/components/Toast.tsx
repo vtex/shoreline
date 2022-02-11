@@ -11,7 +11,7 @@ import { useTimeout } from '@vtex/admin-ui-hooks'
 
 import type { InternalToast } from '../types'
 import { ToastContainer } from './ToastContainer'
-import { Button } from '../../Button'
+import { Button } from '../../button'
 
 interface ToastProps extends InternalToast {
   onClear: (dedupeKey: string, id: string) => void

@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { useSearchState, Search } from '../index'
 import { tag } from '@vtex/admin-ui-react'
-import { Button } from '../../Button'
+import { Button } from '../../button'
 import { useQuerySearchState } from '../hooks/useQuerySearchState'
 import { Set } from '../../Set'
 import { Input } from '../../Input'

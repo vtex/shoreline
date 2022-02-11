@@ -4,7 +4,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import { IconContainer, jsx } from '@vtex/admin-ui-react'
 import { palette } from '@vtex/admin-ui-core'
 
-import { Button } from '../Button'
+import { Button } from '../button'
 
 /**
  * Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.

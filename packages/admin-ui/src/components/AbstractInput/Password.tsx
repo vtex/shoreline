@@ -2,7 +2,7 @@ import type { Ref } from 'react'
 import React, { forwardRef, useState } from 'react'
 import { IconEyeSlash, IconEye } from '@vtex/phosphor-icons'
 
-import { Button } from '../Button'
+import { Button } from '../button'
 import type { AbstractInputProps } from './Text'
 import { AbstractInput } from './Text'
 
@@ -24,11 +24,10 @@ export const AbstractInputPassword = forwardRef(function AbstractInputPassword(
       {...inputProps}
       buttonElements={
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           icon={textVisible ? <IconEyeSlash /> : <IconEye />}
           aria-label={`${textVisible ? 'hide' : 'show'} ${props.id} content`}
           onClick={() => setTextVisible((visible) => !visible)}
-          size="small"
           csx={{
             marginTop: 2,
           }}

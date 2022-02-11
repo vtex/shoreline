@@ -6,7 +6,7 @@ import { IconXCircle } from '@vtex/phosphor-icons'
 import { IconContainer, useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
-import { Button } from '../Button'
+import { Button } from '../button'
 import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(
@@ -116,11 +116,10 @@ export const AbstractInput = forwardRef(function AbstractInput(
         >
           {showClear && (
             <Button
-              variant="adaptative-dark"
+              variant="neutralTertiary"
               icon={<IconXCircle />}
               aria-label={`clear ${inputProps.id} text`}
               onClick={onClear}
-              size="small"
               csx={{
                 marginTop: 2,
                 marginRight: 1,
