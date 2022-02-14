@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.118.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.0...@vtex/admin-ui@0.118.1) (2022-02-14)
+
+### Bug Fixes
+
+- update button icons style ([16b955f](https://github.com/vtex/admin-ui/commit/16b955f91a70dbde6629f4d7939bad6c4fd8af45))
+- update sidebar color tokens ([8d87389](https://github.com/vtex/admin-ui/commit/8d8738947d98113a8e75d06ad662758518e2e7bb))
+
 # [0.118.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.117.0...@vtex/admin-ui@0.118.0) (2022-02-10)
 
 ### Bug Fixes

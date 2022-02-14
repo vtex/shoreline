@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.2.0...@vtex/admin-ui-docs@0.2.1) (2022-02-14)
+
+### Bug Fixes
+
+- **tokens table:** use correct theme to show tokens value in tokens table ([2242084](https://github.com/vtex/admin-ui/commit/22420842e0da6294d9c06a6f65f5921d837a45e1))
+
 # [0.2.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.1.0...@vtex/admin-ui-docs@0.2.0) (2022-02-10)
 
 ### Bug Fixes
