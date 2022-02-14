@@ -1,4 +1,3 @@
-import type { ComponentProps } from 'react'
 import React, { createContext, useContext, Fragment } from 'react'
 import type { Meta } from '@storybook/react'
 import type { VariantProps } from '@vtex/admin-ui-core'
@@ -33,11 +32,11 @@ export default {
 } as Meta
 
 export function Basic() {
-  const useLink = createHook<{}, 'a'>((props) => {
+  const useLink = createHook<'a'>((props) => {
     return props
   })
 
-  const Link = createComponent<{}, 'a'>((props) => {
+  const Link = createComponent<'a'>((props) => {
     const linkProps = useLink(props)
 
     return useElement('a', linkProps)
@@ -52,28 +51,8 @@ export function Basic() {
   )
 }
 
-export function RenderPropsComposition() {
-  const useLink = createHook<{}, 'a'>((props) => {
-    return props
-  })
-
-  const Link = createComponent<{}, 'a'>((props) => {
-    const linkProps = useLink(props)
-
-    return useElement('a', linkProps)
-  })
-
-  Link.displayName = 'Link'
-
-  return (
-    <Link href="https://admin-ui.com" target="blank">
-      {(props) => <a href={props.href}>Go to admin-ui site</a>}
-    </Link>
-  )
-}
-
-export function BaseStyle() {
-  const useCenter = createHook<{}, 'div'>((props) => {
+export function Styled() {
+  const useCenter = createHook<'div'>((props) => {
     return {
       baseStyle: {
         display: 'flex',
@@ -84,7 +63,7 @@ export function BaseStyle() {
     }
   })
 
-  const Center = createComponent<{}, 'div'>((props) => {
+  const Center = createComponent<'div'>((props) => {
     const centerProps = useCenter(props)
 
     return useElement('div', centerProps)
@@ -103,7 +82,7 @@ export function BaseStyle() {
   )
 }
 
-export function Variants() {
+export function StyleVariants() {
   const buttonVariants = styleVariants({
     size: {
       small: {
@@ -117,7 +96,7 @@ export function Variants() {
 
   type ButtonProps = VariantProps<typeof buttonVariants>
 
-  const useButton = createHook<ButtonProps, 'button'>(({ size, ...props }) => {
+  const useButton = createHook<'button', ButtonProps>(({ size, ...props }) => {
     return {
       baseStyle: {
         bg: '$action.critical.primary',
@@ -131,7 +110,7 @@ export function Variants() {
     }
   })
 
-  const Button = createComponent<ButtonProps, 'button'>((props) => {
+  const Button = createComponent<'button', ButtonProps>((props) => {
     const buttonProps = useButton(props)
 
     return useElement('button', buttonProps)
@@ -150,7 +129,7 @@ export function Variants() {
 }
 
 export function ExtendingComponents() {
-  const Box = createComponent<React.ComponentProps<typeof Role>>((props) => {
+  const Box = createComponent<typeof Role>((props) => {
     return useElement(Role, props)
   })
 
@@ -163,22 +142,24 @@ export function InternalState() {
     children: React.FunctionComponentElement<unknown>
   }
 
-  const Tooltip = createComponent<TooltipProps>(({ children, title }) => {
-    const tooltip = useTooltipState()
+  const Tooltip = createComponent<typeof Fragment, TooltipProps>(
+    ({ children, title, ...props }) => {
+      const tooltip = useTooltipState()
 
-    return (
-      <Fragment>
-        <TooltipReference
-          state={tooltip}
-          ref={children.ref}
-          {...children.props}
-        >
-          {(referenceProps) => React.cloneElement(children, referenceProps)}
-        </TooltipReference>
-        <ReakitTooltip state={tooltip}>{title}</ReakitTooltip>
-      </Fragment>
-    )
-  })
+      return (
+        <Fragment {...props}>
+          <TooltipReference
+            state={tooltip}
+            ref={children.ref}
+            {...children.props}
+          >
+            {(referenceProps) => React.cloneElement(children, referenceProps)}
+          </TooltipReference>
+          <ReakitTooltip state={tooltip}>{title}</ReakitTooltip>
+        </Fragment>
+      )
+    }
+  )
 
   return (
     <Tooltip title="Tooltip">
@@ -197,15 +178,17 @@ interface MenuProps {
 const MenuStateContext = createContext<MenuState | null>(null)
 const useMenuContext = () => useContext(MenuStateContext)
 
-const Menu = createComponent<MenuProps>(({ state, children }) => {
-  return (
-    <MenuStateContext.Provider value={state}>
-      {children}
-    </MenuStateContext.Provider>
-  )
-})
+const Menu = createComponent<typeof Fragment, MenuProps>(
+  ({ state, children }) => {
+    return (
+      <MenuStateContext.Provider value={state}>
+        {children}
+      </MenuStateContext.Provider>
+    )
+  }
+)
 
-const MenuBox = createComponent<ComponentProps<typeof ReakitMenu>>((props) => {
+const MenuBox = createComponent<typeof ReakitMenu>((props) => {
   const state = useMenuContext()
 
   return useElement(ReakitMenu, {
@@ -222,21 +205,17 @@ const MenuBox = createComponent<ComponentProps<typeof ReakitMenu>>((props) => {
   })
 })
 
-const MenuButton = createComponent<
-  React.ComponentProps<typeof ReakitMenuButton>
->((props) => {
+const MenuButton = createComponent<typeof ReakitMenuButton>((props) => {
   const state = useMenuContext()
 
   return useElement(ReakitMenuButton, { state, ...props })
 })
 
-const MenuItem = createComponent<React.ComponentProps<typeof ReakitMenuItem>>(
-  (props) => {
-    const state = useMenuContext()
+const MenuItem = createComponent<typeof ReakitMenuItem>((props) => {
+  const state = useMenuContext()
 
-    return useElement(ReakitMenuItem, { state, ...props })
-  }
-)
+  return useElement(ReakitMenuItem, { state, ...props })
+})
 
 export function WithContext() {
   const menu = useMenuState()
