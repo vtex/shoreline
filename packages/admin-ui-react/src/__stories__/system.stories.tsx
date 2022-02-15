@@ -94,36 +94,38 @@ export function StyleVariants() {
     },
   })
 
-  type ButtonProps = VariantProps<typeof buttonVariants>
+  type StyledButtonProps = VariantProps<typeof buttonVariants>
 
-  const useButton = createHook<'button', ButtonProps>(({ size, ...props }) => {
-    return {
-      baseStyle: {
-        bg: '$action.critical.primary',
-        color: '$action.critical.primary',
-        margin: '$narrow.s',
-        ...buttonVariants({
-          size,
-        }),
-      },
-      ...props,
+  const useStyledButton = createHook<'button', StyledButtonProps>(
+    ({ size, ...props }) => {
+      return {
+        baseStyle: {
+          bg: '$action.critical.primary',
+          color: '$action.critical.primary',
+          margin: '$narrow.s',
+          ...buttonVariants({
+            size,
+          }),
+        },
+        ...props,
+      }
     }
-  })
+  )
 
-  const Button = createComponent<'button', ButtonProps>((props) => {
-    const buttonProps = useButton(props)
+  const StyledButton = createComponent<'button', StyledButtonProps>((props) => {
+    const buttonProps = useStyledButton(props)
 
     return useElement('button', buttonProps)
   })
 
-  Button.defaultProps = {
+  StyledButton.defaultProps = {
     size: 'regular',
   }
 
   return (
     <div>
-      <Button size="small">Small button</Button>
-      <Button>Regular button</Button>
+      <StyledButton size="small">Small button</StyledButton>
+      <StyledButton>Regular button</StyledButton>
     </div>
   )
 }
@@ -229,5 +231,32 @@ export function WithContext() {
         <MenuItem>Keyboard shortcuts</MenuItem>
       </MenuBox>
     </Menu>
+  )
+}
+
+const useButton = createHook<'button'>((props) => {
+  return props
+})
+
+const Button = createComponent<'button'>((props) => {
+  const buttonProps = useButton(props)
+
+  return useElement('button', buttonProps)
+})
+
+Button.displayName = 'Button'
+
+export function AsPropComponent() {
+  const menu = useMenuState()
+
+  return (
+    <div>
+      <Button as={ReakitMenuButton} {...menu}>
+        Open Menu
+      </Button>
+      <ReakitMenu state={menu}>
+        <ReakitMenuItem state={menu}>Item 1</ReakitMenuItem>
+      </ReakitMenu>
+    </div>
   )
 }
