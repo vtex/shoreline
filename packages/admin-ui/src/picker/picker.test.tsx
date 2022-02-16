@@ -33,7 +33,7 @@ function BaseComponent(props: PickerInitialState) {
   )
 }
 
-describe('Selector', () => {
+describe('Picker', () => {
   it('should render correctly', () => {
     const { baseElement } = render(<BaseComponent visible />)
 
@@ -43,7 +43,7 @@ describe('Selector', () => {
   it('should open/close properly', () => {
     render(<BaseComponent />)
 
-    const pickerContent = screen.getByTestId('testid-selector-dialog')
+    const pickerContent = screen.getByTestId('testid-picker-dialog')
 
     expect(pickerContent).not.toBeVisible()
     fireEvent.click(screen.getByText('open'))
