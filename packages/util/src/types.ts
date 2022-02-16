@@ -16,3 +16,8 @@ export type FunctionArguments<T extends Function> = T extends (
  * Boolean or boolean strings
  */
 export type LooseBoolean = boolean | 'true' | 'false'
+
+/**
+ * Any function.
+ */
+export type AnyFunction = (...args: any) => any
