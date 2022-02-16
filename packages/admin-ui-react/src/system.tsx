@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 import type { AnyObject } from '@vtex/admin-ui-util'
-import { hasOwnProperty } from '@vtex/admin-ui-util'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
 import { useSystem } from './context'
@@ -242,7 +241,7 @@ export function createHook<As extends React.ElementType, P extends {} = {}>(
     const copy = {} as typeof htmlProps
 
     for (const prop in htmlProps) {
-      if (hasOwnProperty(htmlProps, prop) && htmlProps[prop] !== undefined) {
+      if (htmlProps?.[prop] !== undefined) {
         copy[prop] = htmlProps[prop]
       }
     }

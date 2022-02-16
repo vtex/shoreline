@@ -26,4 +26,18 @@ describe('styleVariants', () => {
       color: 'blue',
     })
   })
+
+  it('should allow boolean variants', () => {
+    const button = styleVariants({
+      bleedY: {
+        true: {
+          margin: '-1rem',
+        },
+      },
+    })
+
+    expect(button({ bleedY: true })).toEqual({
+      margin: '-1rem',
+    })
+  })
 })
