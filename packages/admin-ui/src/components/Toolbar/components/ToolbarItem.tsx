@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import { ToolbarItem as BaseToolbarItem } from 'reakit/Toolbar'
-import type { ExtractHTMLAttributes } from 'reakit-utils/ts'
 
 import { useToolbarContext } from '../context'
 
@@ -28,6 +27,14 @@ export function ToolbarItem(props: ToolbarItemProps) {
     </BaseToolbarItem>
   )
 }
+
+type HTMLAttributesWithRef<T = any> = React.HTMLAttributes<T> &
+  React.RefAttributes<T>
+
+type ExtractHTMLAttributes<P> = Pick<
+  HTMLAttributesWithRef,
+  Extract<keyof HTMLAttributesWithRef, keyof P>
+>
 
 interface ToolbarItemProps {
   children: (itemProps: ExtractHTMLAttributes<any>) => ReactNode

@@ -2,7 +2,6 @@ import type { ReactNode, Ref } from 'react'
 import React, { useEffect, useMemo, forwardRef } from 'react'
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
-import type { HTMLAttributesWithRef } from 'reakit-utils/ts'
 
 import type { SidebarDisclosureProps } from './SidebarDisclosure'
 import { SidebarDisclosure } from './SidebarDisclosure'
@@ -167,6 +166,9 @@ export const SidebarItem = forwardRef(function SidebarItem(
     </CompositeItem>
   )
 })
+
+type HTMLAttributesWithRef<T = any> = React.HTMLAttributes<T> &
+  React.RefAttributes<T>
 
 export interface SidebarItemProps extends SidebarDisclosureProps {
   children?: ReactNode
