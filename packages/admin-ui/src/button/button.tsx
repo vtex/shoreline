@@ -6,7 +6,7 @@ import { createComponent, createHook, useElement } from '@vtex/admin-ui-react'
 
 import { Center } from '../components/Center'
 import { Spinner } from '../components/Spinner'
-import * as style from './Button.style'
+import * as style from './button.style'
 
 /**
  * Button behavior

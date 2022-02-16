@@ -4,7 +4,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Flex } from '../Flex'
-import { Button } from '../button'
+import { Button } from '../../button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 

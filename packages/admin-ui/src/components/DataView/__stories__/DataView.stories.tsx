@@ -9,7 +9,7 @@ import {
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 import { Spinner } from '../../Spinner'
 import {
   Toolbar,

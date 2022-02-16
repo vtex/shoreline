@@ -6,7 +6,7 @@ import { IconXCircle } from '@vtex/phosphor-icons'
 import { IconContainer, useSystem } from '@vtex/admin-ui-react'
 import { Box } from '../Box'
 
-import { Button } from '../button'
+import { Button } from '../../button'
 import type { SystemComponentProps } from '../../types'
 
 export const AbstractInput = forwardRef(function AbstractInput(

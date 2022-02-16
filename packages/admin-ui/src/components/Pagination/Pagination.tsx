@@ -4,7 +4,7 @@ import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Set } from '../Set'
-import { Button } from '../button'
+import { Button } from '../../button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
@@ -49,20 +49,18 @@ export const Pagination = jsx('div')(
             <Set spacing={2}>
               <Tooltip label={prevLabel}>
                 <Button
-                  variant="adaptative-dark"
+                  variant="neutralTertiary"
                   disabled={loading || prevDisabled}
                   onClick={() => paginate({ type: 'prev' })}
-                  size="small"
                   icon={<IconCaretLeft />}
                 />
               </Tooltip>
 
               <Tooltip label={nextLabel}>
                 <Button
-                  variant="adaptative-dark"
+                  variant="neutralTertiary"
                   disabled={loading || nextDisabled}
                   onClick={() => paginate({ type: 'next' })}
-                  size="small"
                   icon={<IconCaretRight />}
                 />
               </Tooltip>

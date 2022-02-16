@@ -1,8 +1,8 @@
 import type { Ref, MouseEvent } from 'react'
 import React, { forwardRef } from 'react'
 
-import type { ButtonProps } from '../../button'
-import { Button } from '../../button'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
 import { useModalContext } from './ModalContext'
 
 /**

@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 import { Set } from '../../Set'
 
 export default {

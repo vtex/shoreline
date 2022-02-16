@@ -7,7 +7,7 @@ import {
   CollapsibleContent,
   useCollapsibleState,
 } from '../index'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 
 export default {
   title: 'admin-ui/Collapsible',

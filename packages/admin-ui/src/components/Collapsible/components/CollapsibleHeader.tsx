@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
 import { Flex } from '../../Flex'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 import { useCollapsibleContext } from '../context'
 
 export const CollapsibleHeader = jsx('header')(

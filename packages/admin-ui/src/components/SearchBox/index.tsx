@@ -11,7 +11,7 @@ import {
 import type { Variants } from 'framer-motion'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 
-import { Button } from '../button'
+import { Button } from '../../button'
 import type { SystemComponent } from '../../types'
 import { useStateContext, StateContext } from './context'
 import * as style from './SearchBox.style'

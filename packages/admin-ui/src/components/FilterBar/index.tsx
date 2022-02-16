@@ -3,7 +3,7 @@ import { IconCopy, IconTrash, IconPlus } from '@vtex/phosphor-icons'
 
 import { Box } from '../Box'
 import { Set } from '../Set'
-import { Button } from '../button'
+import { Button } from '../../button'
 import {
   Content,
   Statement,

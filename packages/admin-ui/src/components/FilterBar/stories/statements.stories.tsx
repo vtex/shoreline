@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import { FilterBar } from '../index'
 import { useFilterBarState } from '../useFilterBarState'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 
 export default {
   title: 'admin-ui/FilterBar/Statements',

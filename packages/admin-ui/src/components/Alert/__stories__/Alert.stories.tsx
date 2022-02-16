@@ -12,7 +12,7 @@ import type { AlertProps } from '../index'
 import { Alert } from '../index'
 import { Box } from '../../Box'
 import { Set } from '../../Set'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 import { Anchor } from '../../Anchor'
 
 export default {

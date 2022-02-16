@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
 import { PageHeader, PageTitle, PageActions } from '../index'
-import { Button } from '../../button'
+import { Button } from '../../../button'
 
 export default {
   title: 'admin-ui/Page/PageHeader',
@@ -43,7 +43,7 @@ export function FullBlown() {
     <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
       <PageTitle>Product</PageTitle>
       <PageActions>
-        <Button variant="danger">Delete Item</Button>
+        <Button variant="critical">Delete Item</Button>
       </PageActions>
     </PageHeader>
   )
