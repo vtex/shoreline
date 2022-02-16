@@ -22,11 +22,7 @@ export type VariantDef<V> = {
   [k in keyof V]: { [b in keyof V[k]]: StyleProp }
 }
 
-export type InferVariant<T> = T extends 'true'
-  ? boolean
-  : T extends 'false'
-  ? boolean
-  : T
+export type InferVariant<T> = T extends 'true' | 'false' ? boolean : T
 
 export type VariantsCall<V extends {}> = {
   [k in keyof V]?: InferVariant<keyof V[k]>
