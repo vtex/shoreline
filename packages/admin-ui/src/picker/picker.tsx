@@ -1,12 +1,11 @@
-import type { KeyboardEvent, MouseEvent } from 'react'
+import type { MouseEvent } from 'react'
 import { useCallback } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit'
-
+import { useOnKeyDown } from '@vtex/admin-ui-hooks'
 import { callAllHandlers, ariaAttr, isTouch } from '@vtex/admin-ui-util'
 
 import type { PickerStateReturn } from './picker-state'
-import { createOnKeyDown } from './create-on-key-down'
 
 export const Picker = createComponent<typeof Role, Options>((props) => {
   const {
@@ -29,14 +28,14 @@ export const Picker = createComponent<typeof Role, Options>((props) => {
     if (isTouch()) show()
   }, [show])
 
-  // Open the popover on alt + arrow down
-  const onKeyDown = createOnKeyDown({
-    onKey: htmlOnKeyDown as (event: KeyboardEvent) => any,
+  const onKeyDown = useOnKeyDown({
+    htmlOnKeyDown,
     preventDefault: true,
     keyMap: (event) => {
       const isAlt = event.altKey
 
       return {
+        // Open the popover on alt + arrow down
         ArrowDown: () => {
           if (isAlt) show()
         },
