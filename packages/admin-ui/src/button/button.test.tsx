@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../test-utils'
 import { Button } from './button'
 
 describe('Button tests', () => {

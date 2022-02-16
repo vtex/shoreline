@@ -3,7 +3,7 @@ import type { Story, Meta } from '@storybook/react'
 import { IconPlus, IconArrowUpRight } from '@vtex/phosphor-icons'
 
 import { Button } from './index'
-import { Set } from '../Set'
+import { Set } from '../components/Set'
 
 export default {
   title: 'admin-ui/Button',

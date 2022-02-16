@@ -4,31 +4,16 @@ import { Button as ReakitButton } from 'reakit/Button'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import { createComponent, createHook, useElement } from '@vtex/admin-ui-react'
 
-import { Center } from '../Center'
-import { Spinner } from '../Spinner'
+import { Center } from '../components/Center'
+import { Spinner } from '../components/Spinner'
 import * as style from './Button.style'
-
-export type ButtonOptions = {
-  /**
-   *  Whether is loading
-   * @default false
-   */
-  loading?: boolean
-  /**
-   * Icon of the button
-   */
-  icon?: ReactNode
-}
-
-export type ButtonProps = ButtonOptions &
-  VariantProps<typeof style.buttonVariants>
 
 /**
  * Button behavior
  * @example
  * const buttonProps = useButton({})
  */
-export const useButton = createHook<ButtonProps, typeof ReakitButton>(
+export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
   ({
     icon,
     size = 'normal',
@@ -78,10 +63,24 @@ export const useButton = createHook<ButtonProps, typeof ReakitButton>(
  * import { Button } from `@vtex/admin-ui`
  * <Button>Default Button</Button>
  */
-export const Button = createComponent<ButtonProps, typeof ReakitButton>(
+export const Button = createComponent<typeof ReakitButton, ButtonOptions>(
   (props) => {
     const elementProps = useButton(props)
 
     return useElement(ReakitButton, elementProps as any)
   }
 )
+
+export type ButtonOptions = VariantProps<typeof style.buttonVariants> & {
+  /**
+   *  Whether is loading
+   * @default false
+   */
+  loading?: boolean
+  /**
+   * Icon of the button
+   */
+  icon?: ReactNode
+}
+
+export type ButtonProps = React.ComponentPropsWithoutRef<typeof Button>

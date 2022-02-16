@@ -3,7 +3,7 @@ export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
 
-export * from './components/button'
+export * from './button'
 
 // not reviewed
 export * from './components/Skeleton'
