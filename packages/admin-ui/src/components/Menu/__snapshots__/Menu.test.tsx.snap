@@ -262,7 +262,7 @@ exports[`Menu should match snapshot hidden 1`] = `
       hidden=""
       id="id"
       role="menu"
-      style="display: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%;"
       tabindex="-1"
     >
       <button
@@ -588,6 +588,7 @@ exports[`Menu should match snapshot visible 1`] = `
       data-testid="menu"
       id="id"
       role="menu"
+      style="position: fixed; left: 100%; top: 100%;"
       tabindex="-1"
     >
       <button
