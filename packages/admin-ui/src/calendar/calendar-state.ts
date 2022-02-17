@@ -26,8 +26,8 @@ export function useCalendarState(
 ): CalendarStateReturn {
   const {
     value: initialValue = toUTCString(new Date()),
-    minValue,
-    maxValue,
+    minValue = -864e13,
+    maxValue = 864e13,
     isDisabled = false,
     isReadOnly = false,
     autoFocus = false,
@@ -36,15 +36,6 @@ export function useCalendarState(
   const [value, setValue] = useState(initialValue)
 
   const date = useMemo(() => new Date(value), [value])
-  const minDateValue = useMemo(
-    () => (minValue ? new Date(minValue) : new Date(-864e13)),
-    [minValue]
-  )
-
-  const maxDateValue = useMemo(
-    () => (maxValue ? new Date(maxValue) : new Date(864e13)),
-    [maxValue]
-  )
 
   const [currentMonth, setCurrentMonth] = useState(date)
   const [focusedDate, setFocusedDate] = useState(date)
@@ -70,12 +61,12 @@ export function useCalendarState(
 
   const isInvalidDateRange = useCallback(
     (value: Date) => {
-      const min = new Date(minDateValue)
-      const max = new Date(maxDateValue)
+      const min = new Date(minValue)
+      const max = new Date(maxValue)
 
       return value < min || value > max
     },
-    [minDateValue, maxDateValue]
+    [minValue, maxValue]
   )
 
   // Sets focus to a specific cell date
@@ -287,15 +278,6 @@ export interface CalendarActions {
   selectDate: (value: Date) => void
 }
 
-interface ValueBase {
-  /** The current date (controlled). */
-  value?: string
-  /** The default date (uncontrolled). */
-  defaultValue?: string
-  /** Handler that is called when the date changes. */
-  onChange?: (value: string) => void
-}
-
 interface RangeValueMinMax {
   /** The lowest date allowed. */
   minValue?: string
@@ -303,18 +285,13 @@ interface RangeValueMinMax {
   maxValue?: string
 }
 
-export interface CalendarInitialState
-  extends ValueBase,
-    RangeValueMinMax,
-    InputState {
-  /**
-   * Whether the element should receive focus on render.
-   */
-  autoFocus?: boolean
-  /**
-   * Id for the calendar grid
-   */
+export interface CalendarInitialState extends RangeValueMinMax, InputState {
+  /** Id for the calendar grid */
   id?: string
+  /** The current date (controlled). */
+  value?: string
+  /** Whether the element should receive focus on render. */
+  autoFocus?: boolean
 }
 
 export type CalendarStateReturn = CalendarState & CalendarActions
