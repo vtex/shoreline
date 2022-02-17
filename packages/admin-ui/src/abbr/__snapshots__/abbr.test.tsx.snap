@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Abbr should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+}
+
+<abbr
+    class="emotion-0"
+    title="full name"
+  >
+    name
+  </abbr>
+</DocumentFragment>
+`;
