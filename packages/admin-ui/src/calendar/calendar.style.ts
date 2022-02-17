@@ -2,7 +2,7 @@ import { style } from '@vtex/admin-ui-core'
 import * as buttonStyle from '../components/Button/Button.style'
 
 export const calendar = style({
-  maxWidth: '18rem',
+  maxWidth: '19.75rem',
   display: 'flex',
   flexDirection: 'column',
   padding: '$l',
@@ -38,7 +38,7 @@ export const calendarButton = style({
 })
 
 export const calendarCell = style({
-  size: '2rem',
+  size: '2.25rem',
 })
 
 export const calendarCellButton = style({
@@ -46,10 +46,11 @@ export const calendarCellButton = style({
     tone: 'neutral',
     variant: 'tertiary',
   }),
+  padding: 0,
   text: '$action1',
   border: 'none',
   cursor: 'pointer',
-  size: '2rem',
+  size: '2.25rem',
   borderRadius: '100%',
   display: 'flex',
   alignItems: 'center',
@@ -66,5 +67,5 @@ export const calendarDayTitle = style({
   color: '$secondary',
   paddingY: 2,
   textAlign: 'center',
-  size: 32,
+  size: '2.25rem',
 })
