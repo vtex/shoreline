@@ -1,42 +1,54 @@
-import type { KeyboardEvent } from 'react'
-import { useCallback } from 'react'
+import type { KeyboardEvent, RefObject, KeyboardEventHandler } from 'react'
 import { isFunction } from '@vtex/admin-ui-util'
-
-import { useEventCallback } from './useEventCallback'
 
 type KeyMap = {
   [key: string]: (event: KeyboardEvent<any>) => any
 }
 
-interface Props {
-  keyMap: (event: KeyboardEvent) => KeyMap
-  htmlOnKeyDown?: (event: any) => any
+interface Props<T extends HTMLElement> {
+  keyMap: (event: KeyboardEvent<T>) => KeyMap
+  onKey?: any
   preventDefault?: boolean
   stopPropagation?: boolean
+  onKeyDown?: KeyboardEventHandler<T> | RefObject<KeyboardEventHandler<T>>
 }
 
-export function useOnKeyDown(props: Props) {
-  const {
-    keyMap,
-    htmlOnKeyDown = () => null,
-    preventDefault = true,
-    stopPropagation = false,
-  } = props
+function isRef<T>(
+  type: KeyboardEventHandler<T> | RefObject<KeyboardEventHandler<T>>
+): type is RefObject<KeyboardEventHandler<T>> {
+  return 'current' in type
+}
 
-  const memoizedHtmlOnKeyDown = useEventCallback(htmlOnKeyDown)
+export function useOnKeyDown<T extends HTMLElement>({
+  keyMap,
+  onKey,
+  stopPropagation,
+  onKeyDown,
+  preventDefault = true,
+}: Props<T>): React.KeyboardEventHandler<T> {
+  return (event) => {
+    if (!keyMap) return
 
-  return useCallback(
-    (event: KeyboardEvent<any>) => {
-      const actions = keyMap(event)
+    const actions = keyMap(event)
+
+    if (event.key in actions) {
       const action = actions[event.key]
 
-      if (!action || !isFunction(action)) return
-      if (preventDefault) event.preventDefault()
-      if (stopPropagation) event.stopPropagation()
+      if (isFunction(action)) {
+        if (preventDefault) event.preventDefault()
+        if (stopPropagation) event.stopPropagation()
+        if (onKey) onKey(event)
+        action(event)
 
-      memoizedHtmlOnKeyDown(event)
-      action(event)
-    },
-    [memoizedHtmlOnKeyDown]
-  )
+        // Prevent onKeyDown from being called twice for the same keys
+        return
+      }
+    }
+
+    if (onKeyDown && isRef(onKeyDown)) {
+      onKeyDown.current?.(event)
+    } else {
+      onKeyDown?.(event)
+    }
+  }
 }

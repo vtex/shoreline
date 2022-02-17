@@ -1,6 +1,8 @@
 import type { PopoverInitialState } from 'reakit'
 import { unstable_useId as useId, usePopoverState } from 'reakit'
 
+import type { InputState } from '../types'
+
 export function usePickerState(props: PickerInitialState = {}) {
   const {
     pickerId: pickerIdProp,
@@ -23,13 +25,6 @@ export function usePickerState(props: PickerInitialState = {}) {
     segmentFocus,
     ...popover,
   }
-}
-
-interface InputState {
-  /** Whether the input is disabled. */
-  isDisabled?: boolean
-  /** Whether the input can be selected but not changed by the user. */
-  isReadOnly?: boolean
 }
 
 interface PickerState {
