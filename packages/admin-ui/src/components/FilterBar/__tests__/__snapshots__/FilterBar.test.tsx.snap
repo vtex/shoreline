@@ -917,7 +917,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
               hidden=""
               id="statement-menu"
               role="menu"
-              style="display: none;"
+              style="display: none; position: fixed; left: 100%; top: 100%;"
               tabindex="-1"
             >
               <button
