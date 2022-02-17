@@ -85,7 +85,7 @@ exports[`Alert should match snapshot 1`] = `
   letter-spacing: 0.0125em;
 }
 
-@media (min-width: 48em) and (max-width: 64em) {
+@media (min-width: 48em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -102,7 +102,7 @@ exports[`Alert should match snapshot 1`] = `
   }
 }
 
-@media (min-width: 64em) and (max-width: 75em) {
+@media (min-width: 64em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -280,7 +280,7 @@ exports[`Alert should match snapshot 1`] = `
   letter-spacing: 0.0125em;
 }
 
-@media (min-width: 48em) and (max-width: 64em) {
+@media (min-width: 48em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -297,7 +297,7 @@ exports[`Alert should match snapshot 1`] = `
   }
 }
 
-@media (min-width: 64em) and (max-width: 75em) {
+@media (min-width: 64em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -481,7 +481,7 @@ exports[`Alert should match snapshot 1`] = `
   letter-spacing: 0.0125em;
 }
 
-@media (min-width: 48em) and (max-width: 64em) {
+@media (min-width: 48em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -498,7 +498,7 @@ exports[`Alert should match snapshot 1`] = `
   }
 }
 
-@media (min-width: 64em) and (max-width: 75em) {
+@media (min-width: 64em) {
   .emotion-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;

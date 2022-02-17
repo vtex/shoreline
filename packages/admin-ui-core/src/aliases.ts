@@ -12,8 +12,10 @@ export const aliases = {
   bg: 'background',
 
   // responsive
-  '@tablet': `@media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop})`,
-  '@desktop': `@media (min-width: ${breakpoints.desktop}) and (max-width: ${breakpoints.widescreen})`,
+  '@tablet': `@media (min-width: ${breakpoints.tablet})`,
+  '@tabletOnly': `@media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop})`,
+  '@desktop': `@media (min-width: ${breakpoints.desktop})`,
+  '@desktopOnly': `@media (min-width: ${breakpoints.desktop}) and (max-width: ${breakpoints.widescreen})`,
   '@widescreen': `@media (min-width: ${breakpoints.widescreen})`,
 }
 
