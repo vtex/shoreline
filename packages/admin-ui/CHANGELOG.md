@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.118.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.1...@vtex/admin-ui@0.118.2) (2022-02-17)
+
+### Bug Fixes
+
+- **core:** responsive aliases values ([06c4b38](https://github.com/vtex/admin-ui/commit/06c4b38bb1a37bd7abeb700ed2b50a93f975f00b))
+
 ## [0.118.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.0...@vtex/admin-ui@0.118.1) (2022-02-14)
 
 ### Bug Fixes
