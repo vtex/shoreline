@@ -2,25 +2,29 @@ import type { ReactNode } from 'react'
 import React from 'react'
 
 import { Button } from '../../Button'
-import { Set } from '../../Set'
+
+import { VisuallyHidden } from '../../VisuallyHidden'
 import type { UseFilterCheckboxReturn } from './FilterCheckbox/useFilterCheckbox'
 import type { PopoverStateReturn } from './Popover'
 import { PopoverFooter, Popover, PopoverDisclosure } from './Popover'
 
 export function Filter(props: FilterProps) {
-  const { state, label, children } = props
-  const { onClear, onApply, popover, selectedValues } = state
+  const { state, children } = props
+  const { onClear, onApply, popover, selectedValues, label, labelProps } = state
 
   const fullLabel = `${label}${
     selectedValues.length ? `: ${selectedValues}` : ''
   }`
 
   return (
-    <Set orientation="vertical">
-      <Button as={PopoverDisclosure} state={popover}>
+    <>
+      <VisuallyHidden>
+        <div {...labelProps}>{label}</div>
+      </VisuallyHidden>
+      <Button as={PopoverDisclosure} state={popover} {...labelProps}>
         {fullLabel}
       </Button>
-      <Popover state={popover}>
+      <Popover state={popover} aria-label={label}>
         {children}
 
         <PopoverFooter>
@@ -32,7 +36,7 @@ export function Filter(props: FilterProps) {
           </Button>
         </PopoverFooter>
       </Popover>
-    </Set>
+    </>
   )
 }
 
@@ -43,13 +47,13 @@ export interface UseFilterStateReturn {
 }
 
 export interface FilterProps {
-  state: UseFilterCheckboxReturn
-  label: string
+  state: UseFilterCheckboxReturn<FilterItem>
+
   children?: ReactNode
 }
 
 export interface FilterItem {
-  id: string
+  id: string | number
   label: string
-  value: string | number
+  value: any
 }

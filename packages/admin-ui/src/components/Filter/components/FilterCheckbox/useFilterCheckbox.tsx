@@ -1,16 +1,17 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react'
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import type { UseFilterStateReturn, FilterItem } from '../Filter'
 import { usePopoverState } from '../Popover'
 import { Item } from '@react-stately/collections'
 
 import { useListBox } from '@react-aria/listbox'
+import type { ListState } from '@react-stately/list'
 import { useListState } from '@react-stately/list'
 
 export function useFilterCheckbox<T extends FilterItem>(
   props: UseFilterCheckboxStateProps<T>
-): UseFilterCheckboxReturn {
-  const { onApply, items } = props
-  const [selectedKeys, setSelectedKeys] = useState<Array<string | number>>([])
+): UseFilterCheckboxReturn<T> {
+  const { onApply, items, label } = props
+  const [selectedKeys, setSelectedKeys] = useState<key[]>([])
   const popover = usePopoverState({ gutter: 0, placement: 'bottom-start' })
 
   const stateProps = {
@@ -21,13 +22,19 @@ export function useFilterCheckbox<T extends FilterItem>(
 
   const ref = useRef(null)
 
-  const listState = useListState<FilterItem>(stateProps)
+  const listState = useListState<T>(stateProps)
 
   const { listBoxProps, labelProps } = useListBox<FilterItem>(
-    stateProps,
+    { ...stateProps, 'aria-label': label },
     listState,
     ref
   )
+
+  useEffect(() => {
+    if (!popover.visible) {
+      listState.selectionManager.setSelectedKeys(selectedKeys)
+    }
+  }, [popover.visible])
 
   const selectedValues = useMemo(
     () => selectedKeys.map((k) => listState.collection.getItem(k).value.label),
@@ -57,20 +64,25 @@ export function useFilterCheckbox<T extends FilterItem>(
     selectedValues,
     ref,
     listBoxProps,
+    label,
     labelProps,
   }
 }
 
-export interface UseFilterCheckboxReturn extends UseFilterStateReturn {
+type key = string | number
+
+export interface UseFilterCheckboxReturn<T extends FilterItem>
+  extends UseFilterStateReturn {
   selectedValues: any[]
-  ref: any
-  listBoxProps: any
-  labelProps: any
-  listState: any
+  ref: React.MutableRefObject<null>
+  listBoxProps: React.HTMLAttributes<HTMLElement>
+  labelProps: React.HTMLAttributes<HTMLElement>
+  listState: ListState<T>
+  label: string
 }
 
 export interface UseFilterCheckboxStateProps<T extends FilterItem> {
-  onApply: ({ selected }: { selected: Array<string | number> }) => void
+  onApply: ({ selected }: { selected: key[] }) => void
   initialState?: T[]
   items: T[]
   label: string

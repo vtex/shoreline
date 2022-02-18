@@ -30,7 +30,7 @@ export function Example() {
 
   return (
     <Set>
-      <Filter label="filtro" state={state}>
+      <Filter state={state}>
         <ChecklistFilterContent state={state} />
       </Filter>
     </Set>
