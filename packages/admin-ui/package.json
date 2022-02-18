@@ -53,7 +53,7 @@
     "@vtex/admin-ui-core": "^0.5.1",
     "@vtex/admin-ui-hooks": "^0.1.4",
     "@vtex/admin-ui-react": "^0.5.1",
-    "@vtex/phosphor-icons": "0.2.2",
+    "@vtex/phosphor-icons": "0.2.3",
     "csstype": "3.0.10",
     "downshift": "^6.0.6",
     "framer-motion": "^2.9.4",
