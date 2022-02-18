@@ -7,22 +7,58 @@ import { VisuallyHidden } from '../../VisuallyHidden'
 import type { UseFilterCheckboxReturn } from './FilterCheckbox/useFilterCheckbox'
 import type { PopoverStateReturn } from './Popover'
 import { PopoverFooter, Popover, PopoverDisclosure } from './Popover'
+import { tag } from '@vtex/admin-ui-react'
+import { IconCaretUp } from '@vtex/phosphor-icons'
 
 export function Filter(props: FilterProps) {
   const { state, children } = props
   const { onClear, onApply, popover, selectedValues, label, labelProps } = state
 
-  const fullLabel = `${label}${
-    selectedValues.length ? `: ${selectedValues}` : ''
-  }`
+  const selectedItemsLabel =
+    selectedValues.length &&
+    `${selectedValues[0]}${
+      selectedValues.length > 1 ? `, +${selectedValues.length - 1}` : ''
+    }`
 
   return (
     <>
       <VisuallyHidden>
         <div {...labelProps}>{label}</div>
       </VisuallyHidden>
-      <Button as={PopoverDisclosure} state={popover} {...labelProps}>
-        {fullLabel}
+      <Button
+        as={PopoverDisclosure}
+        state={popover}
+        csx={{
+          bg: '$secondary',
+          color: '$secondary',
+          ':hover': {
+            // correct color \/
+            // bg: colors.gray10,
+            bg: '$secondary',
+            color: '$secondary',
+          },
+          ':active': {
+            bg: '$disabled',
+            color: '$secondary',
+          },
+        }}
+        {...labelProps}
+      >
+        {label}
+        {!!selectedItemsLabel && (
+          <>
+            :
+            <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
+              {selectedItemsLabel}
+            </tag.span>
+          </>
+        )}
+        <IconCaretUp
+          csx={{
+            transition: 'transform 200ms ease',
+            transform: `rotate(${popover.visible ? 180 : 0}deg)`,
+          }}
+        />
       </Button>
       <Popover state={popover} aria-label={label}>
         {children}

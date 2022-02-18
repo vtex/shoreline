@@ -2,13 +2,10 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Filter } from '../index'
-// import { FilterCheckbox } from '../components/FilterCheckbox'
-// import { useFilterCheckbox } from '../components/FilterCheckbox/useFilterCheckbox'
-import { Set } from '../../Set'
+
 import { useFilterCheckbox } from '../components/FilterCheckbox/useFilterCheckbox'
 import { ChecklistFilterContent } from '../components/FilterCheckbox/ChecklistFilterContent'
-// import { useFilterRadio } from '../components/FilterRadio/useFilterRadio'
-// import { FilterRadio } from '../components/FilterRadio'
+import { Set } from '../../Set'
 
 export default {
   title: 'admin-ui/Filters',
@@ -18,20 +15,35 @@ export default {
 export function Example() {
   const state = useFilterCheckbox({
     items: [
-      { label: 'Item 1', value: 1, id: '#1' },
-      { label: 'Item 2', value: 2, id: '#2' },
-      { label: 'Item 3', value: 3, id: '#3' },
-      { label: 'Item 4', value: 4, id: '#4' },
-      { label: 'Item 5', value: 5, id: '#5' },
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half full', value: 3, id: '#3' },
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Unknown', value: 5, id: '#5' },
     ],
-    onApply: ({ selected }) => console.log(`applied:${selected}`),
+    onApply: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
   })
 
+  const state2 = useFilterCheckbox({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half full', value: 3, id: '#3' },
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Unknown', value: 5, id: '#5' },
+    ],
+    onApply: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Name',
+  })
+
   return (
-    <Set>
+    <Set orientation="horizontal">
       <Filter state={state}>
         <ChecklistFilterContent state={state} />
+      </Filter>
+      <Filter state={state2}>
+        <ChecklistFilterContent state={state2} />
       </Filter>
     </Set>
   )

@@ -11,16 +11,17 @@ export function useFilterCheckbox<T extends FilterItem>(
   props: UseFilterCheckboxStateProps<T>
 ): UseFilterCheckboxReturn<T> {
   const { onApply, items, label } = props
-  const [selectedKeys, setSelectedKeys] = useState<key[]>([])
-  const popover = usePopoverState({ gutter: 0, placement: 'bottom-start' })
-
   const stateProps = {
     items,
     children: (item: FilterItem) => <Item>{item.label}</Item>,
     selectionMode: 'multiple' as const,
   }
 
+  const [selectedKeys, setSelectedKeys] = useState<key[]>([])
+
   const ref = useRef(null)
+
+  const popover = usePopoverState({ gutter: 0, placement: 'bottom-start' })
 
   const listState = useListState<T>(stateProps)
 
@@ -28,17 +29,6 @@ export function useFilterCheckbox<T extends FilterItem>(
     { ...stateProps, 'aria-label': label },
     listState,
     ref
-  )
-
-  useEffect(() => {
-    if (!popover.visible) {
-      listState.selectionManager.setSelectedKeys(selectedKeys)
-    }
-  }, [popover.visible])
-
-  const selectedValues = useMemo(
-    () => selectedKeys.map((k) => listState.collection.getItem(k).value.label),
-    [selectedKeys, listState.collection]
   )
 
   const apply = useCallback(() => {
@@ -55,6 +45,18 @@ export function useFilterCheckbox<T extends FilterItem>(
     onApply?.({ selected: [] })
     popover.hide()
   }, [onApply])
+
+  useEffect(() => {
+    if (!popover.visible) {
+      listState.selectionManager.setSelectedKeys(selectedKeys)
+      listState.selectionManager.setFocusedKey(items[0].id)
+    }
+  }, [popover.visible])
+
+  const selectedValues = useMemo(
+    () => selectedKeys.map((k) => listState.collection.getItem(k).value.label),
+    [selectedKeys, listState.collection]
+  )
 
   return {
     popover,
