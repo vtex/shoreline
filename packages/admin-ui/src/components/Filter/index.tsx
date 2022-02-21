@@ -1,1 +1,1 @@
-export * from './components/Filter'
+export * from './filter'

@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
-import type { UseFilterStateReturn, FilterItem } from '../Filter'
+import type { PopoverStateReturn } from 'reakit/Popover'
 import { usePopoverState } from 'reakit/Popover'
 import { Item } from '@react-stately/collections'
 import { useListBox } from '@react-aria/listbox'
 import type { ListState } from '@react-stately/list'
 import { useListState } from '@react-stately/list'
 
-export function useMultipleFilter<T extends FilterItem>(
+export function useMultipleFilterState<T extends FilterItem>(
   props: UseMultipleFilterStateProps<T>
 ): UseMultipleFilterReturn<T> {
   const { onApply, items, label } = props
@@ -71,6 +71,18 @@ export function useMultipleFilter<T extends FilterItem>(
 }
 
 type key = string | number
+
+export interface FilterItem {
+  id: key
+  label: string
+  value: any
+}
+
+export interface UseFilterStateReturn {
+  popover: PopoverStateReturn
+  onClear: () => void
+  onApply: () => void
+}
 
 export interface UseMultipleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn {

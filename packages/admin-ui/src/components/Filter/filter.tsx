@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import { Button } from '../../Button'
+import { Button } from '../Button'
 
-import { VisuallyHidden } from '../../VisuallyHidden'
-import type { UseMultipleFilterReturn } from './FilterCheckbox/useMultipleFilter'
-import type { PopoverStateReturn } from 'reakit/Popover'
+import { VisuallyHidden } from '../VisuallyHidden'
+import type {
+  FilterItem,
+  UseMultipleFilterReturn,
+} from './useMultipleFilterState'
 import { PopoverDisclosure } from 'reakit/Popover'
-import { PopoverFooter, Popover } from './Popover'
+import { PopoverFooter, Popover } from './popover'
 import { tag } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
@@ -56,7 +58,6 @@ export function Filter(props: FilterProps) {
         )}
         <IconCaretUp
           csx={{
-            transition: 'transform 200ms ease',
             transform: `rotate(${popover.visible ? 180 : 0}deg)`,
           }}
         />
@@ -77,20 +78,7 @@ export function Filter(props: FilterProps) {
   )
 }
 
-export interface UseFilterStateReturn {
-  popover: PopoverStateReturn
-  onClear: () => void
-  onApply: () => void
-}
-
 export interface FilterProps {
   state: UseMultipleFilterReturn<FilterItem>
-
   children?: ReactNode
-}
-
-export interface FilterItem {
-  id: string | number
-  label: string
-  value: any
 }

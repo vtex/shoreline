@@ -1,13 +1,17 @@
+import type { ReactNode } from 'react'
 import React, { useRef } from 'react'
 
-import type { UseMultipleFilterReturn } from './useMultipleFilter'
+import type {
+  FilterItem,
+  UseMultipleFilterReturn,
+} from './useMultipleFilterState'
 
-import { Checkbox } from '../../../Checkbox'
+import { Checkbox } from '../Checkbox'
 import { useOption } from '@react-aria/listbox'
 import { tag } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
-import { Set } from '../../../Set'
-import type { FilterItem } from '../Filter'
+import { Set } from '../Set'
+import type { ListState } from '@react-stately/list'
 
 export function ChecklistFilterContent(props: FilterCheckboxProps) {
   const {
@@ -30,7 +34,13 @@ export function ChecklistFilterContent(props: FilterCheckboxProps) {
   )
 }
 
-function Option({ item, state }: any) {
+function Option({
+  item,
+  state,
+}: {
+  item: { key: string | number; rendered: ReactNode }
+  state: ListState<FilterItem>
+}) {
   const ref = useRef(null)
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
 
