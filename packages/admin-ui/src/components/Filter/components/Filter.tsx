@@ -4,7 +4,7 @@ import React from 'react'
 import { Button } from '../../Button'
 
 import { VisuallyHidden } from '../../VisuallyHidden'
-import type { UseFilterCheckboxReturn } from './FilterCheckbox/useFilterCheckbox'
+import type { UseMultipleFilterReturn } from './FilterCheckbox/useMultipleFilter'
 import type { PopoverStateReturn } from './Popover'
 import { PopoverFooter, Popover, PopoverDisclosure } from './Popover'
 import { tag } from '@vtex/admin-ui-react'
@@ -83,7 +83,7 @@ export interface UseFilterStateReturn {
 }
 
 export interface FilterProps {
-  state: UseFilterCheckboxReturn<FilterItem>
+  state: UseMultipleFilterReturn<FilterItem>
 
   children?: ReactNode
 }

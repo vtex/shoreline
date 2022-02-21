@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { Filter } from '../index'
 
-import { useFilterCheckbox } from '../components/FilterCheckbox/useFilterCheckbox'
+import { useMultipleFilter } from '../components/FilterCheckbox/useMultipleFilter'
 import { ChecklistFilterContent } from '../components/FilterCheckbox/ChecklistFilterContent'
 import { Set } from '../../Set'
 
@@ -13,7 +13,7 @@ export default {
 } as Meta
 
 export function Example() {
-  const state = useFilterCheckbox({
+  const state = useMultipleFilter({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -25,7 +25,7 @@ export function Example() {
     label: 'Status',
   })
 
-  const state2 = useFilterCheckbox({
+  const state2 = useMultipleFilter({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },

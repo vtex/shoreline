@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-import type { UseFilterCheckboxReturn } from './useFilterCheckbox'
+import type { UseMultipleFilterReturn } from './useMultipleFilter'
 
 import { Checkbox } from '../../../Checkbox'
 import { useOption } from '@react-aria/listbox'
@@ -52,5 +52,5 @@ function Option({ item, state }: any) {
 }
 
 export interface FilterCheckboxProps {
-  state: UseFilterCheckboxReturn<FilterItem>
+  state: UseMultipleFilterReturn<FilterItem>
 }

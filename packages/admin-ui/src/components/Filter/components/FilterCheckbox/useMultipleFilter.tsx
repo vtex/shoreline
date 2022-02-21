@@ -1,15 +1,14 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import type { UseFilterStateReturn, FilterItem } from '../Filter'
-import { usePopoverState } from '../Popover'
+import { usePopoverState } from 'reakit/Popover'
 import { Item } from '@react-stately/collections'
-
 import { useListBox } from '@react-aria/listbox'
 import type { ListState } from '@react-stately/list'
 import { useListState } from '@react-stately/list'
 
-export function useFilterCheckbox<T extends FilterItem>(
-  props: UseFilterCheckboxStateProps<T>
-): UseFilterCheckboxReturn<T> {
+export function useMultipleFilter<T extends FilterItem>(
+  props: UseMultipleFilterStateProps<T>
+): UseMultipleFilterReturn<T> {
   const { onApply, items, label } = props
   const stateProps = {
     items,
@@ -73,7 +72,7 @@ export function useFilterCheckbox<T extends FilterItem>(
 
 type key = string | number
 
-export interface UseFilterCheckboxReturn<T extends FilterItem>
+export interface UseMultipleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn {
   selectedValues: any[]
   ref: React.MutableRefObject<null>
@@ -83,7 +82,7 @@ export interface UseFilterCheckboxReturn<T extends FilterItem>
   label: string
 }
 
-export interface UseFilterCheckboxStateProps<T extends FilterItem> {
+export interface UseMultipleFilterStateProps<T extends FilterItem> {
   onApply: ({ selected }: { selected: key[] }) => void
   initialState?: T[]
   items: T[]
