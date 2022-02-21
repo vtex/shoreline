@@ -1,6 +1,7 @@
 import { useMemo, useState, useRef } from 'react'
 import { useCompositeState } from 'reakit'
 import { get } from '@vtex/admin-ui-util'
+import { useControllableState } from '@vtex/admin-ui-hooks'
 
 import { useDateFormatter } from '../i18n'
 import { add, convertValue, getSegmentLimits, setSegment } from './util'
@@ -48,6 +49,10 @@ export interface SegmentInitialState {
    */
   value?: Date
   /**
+   * Callback to fire on value change
+   */
+  onChange?: (value: Date, ...args: any[]) => void
+  /**
    * Sets formmating of date based on Intl.DateFormatOptions
    *
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
@@ -68,7 +73,7 @@ export interface SegmentInitialState {
   placeholderDate?: Date
 }
 
-export function useSegmentState(props: SegmentInitialState) {
+export function useDateFieldState(props: SegmentInitialState) {
   const validSegments = useRef<Record<string, any>>(
     props.value || props.defaultValue ? { ...EDITABLE_SEGMENTS } : {}
   )
@@ -104,11 +109,14 @@ export function useSegmentState(props: SegmentInitialState) {
       new Date(new Date().getFullYear(), 0, 1)
   )
 
-  const [date, setDate] = useState<Date>(
-    props.value === null
-      ? convertValue(placeholderDate)
-      : convertValue(props.value)
-  )
+  const [date, setDate] = useControllableState<Date>({
+    value:
+      props.value === null
+        ? convertValue(placeholderDate)
+        : convertValue(props.value),
+    defaultValue: convertValue(props.defaultValue),
+    onChange: props.onChange,
+  })
 
   // If all segments are valid, use the date from state, otherwise use the placeholder date.
   const value =
@@ -173,4 +181,4 @@ export function useSegmentState(props: SegmentInitialState) {
   }
 }
 
-export type SegmentStateReturn = ReturnType<typeof useSegmentState>
+export type SegmentStateReturn = ReturnType<typeof useDateFieldState>

@@ -3,14 +3,14 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import type { SegmentInitialState } from './index'
-import { DateField, DateFieldSegment, useSegmentState } from './index'
+import { DateField, DateFieldSegment, useDateFieldState } from './index'
 
 export default {
   title: 'admin-ui/DateField',
 } as Meta
 
 const SegmentedInput: React.FC<SegmentInitialState> = (props) => {
-  const state = useSegmentState(props)
+  const state = useDateFieldState(props)
 
   return (
     <div>

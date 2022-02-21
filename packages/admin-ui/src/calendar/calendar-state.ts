@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useMemo, useState, useCallback } from 'react'
 import { unstable_useId as useId } from 'reakit'
+import { useControllableState } from '@vtex/admin-ui-hooks'
 import {
   addDays,
   addMonths,
@@ -25,7 +26,9 @@ export function useCalendarState(
   props: CalendarInitialState = {}
 ): CalendarStateReturn {
   const {
-    value: initialValue = toUTCString(new Date()),
+    value: initialValue,
+    defaultValue = toUTCString(new Date()),
+    onChange,
     minValue = -864e13,
     maxValue = 864e13,
     isDisabled = false,
@@ -33,7 +36,11 @@ export function useCalendarState(
     autoFocus = false,
   } = props
 
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue] = useControllableState({
+    value: initialValue,
+    defaultValue,
+    onChange,
+  })
 
   const date = useMemo(() => new Date(value), [value])
 
@@ -290,6 +297,10 @@ export interface CalendarInitialState extends RangeValueMinMax, InputState {
   id?: string
   /** The current date (controlled). */
   value?: string
+  /** The default date (uncontrolled). */
+  defaultValue?: string
+  /** Handler that is called when the date changes. */
+  onChange?: (value: string) => void
   /** Whether the element should receive focus on render. */
   autoFocus?: boolean
 }
