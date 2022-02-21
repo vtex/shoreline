@@ -5,8 +5,9 @@ import { Button } from '../../Button'
 
 import { VisuallyHidden } from '../../VisuallyHidden'
 import type { UseMultipleFilterReturn } from './FilterCheckbox/useMultipleFilter'
-import type { PopoverStateReturn } from './Popover'
-import { PopoverFooter, Popover, PopoverDisclosure } from './Popover'
+import type { PopoverStateReturn } from 'reakit/Popover'
+import { PopoverDisclosure } from 'reakit/Popover'
+import { PopoverFooter, Popover } from './Popover'
 import { tag } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
