@@ -23,7 +23,7 @@ export function DatePicker(props: DatePickerProps) {
         }}
         aria-invalid={ariaAttr(state.validationState === 'invalid')}
         aria-required={ariaAttr(state.isRequired)}
-        state={state.selectorState}
+        state={state.pickerState}
       >
         <tag.label
           csx={{
@@ -50,18 +50,18 @@ export function DatePicker(props: DatePickerProps) {
           }}
         >
           <DateField
-            state={state.segmentState}
+            state={state.dateFieldState}
             csx={{
               display: 'flex',
               paddingTop: 3,
             }}
           >
-            {state.segmentState.segments.map((segment, i) => (
+            {state.dateFieldState.segments.map((segment, i) => (
               <DatePickerSegment key={i} segment={segment} state={state} />
             ))}
           </DateField>
           <PickerDisclosure
-            state={state.selectorState}
+            state={state.pickerState}
             csx={{
               cursor: 'pointer',
               text: '$body',
@@ -94,9 +94,9 @@ export function DatePicker(props: DatePickerProps) {
           borderRadius: 4,
           width: 296,
         }}
-        state={state.selectorState}
+        state={state.pickerState}
       >
-        <Calendar state={state.calendar} />
+        <Calendar state={state.calendarState} />
       </PickerPopover>
     </>
   )

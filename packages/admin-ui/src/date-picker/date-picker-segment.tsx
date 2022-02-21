@@ -9,7 +9,7 @@ export const DatePickerSegment = createComponent<
   DatePickerSegmentOptions
 >((props) => {
   const {
-    state: { segmentState },
+    state: { dateFieldState },
     segment,
     ...htmlProps
   } = props
@@ -20,7 +20,7 @@ export const DatePickerSegment = createComponent<
     id,
     'aria-labelledby': id,
     segment,
-    state: segmentState,
+    state: dateFieldState,
     ...htmlProps,
   })
 })
