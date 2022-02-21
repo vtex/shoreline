@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react'
 import { Filter } from '../index'
 
 import { useMultipleFilterState } from '../useMultipleFilterState'
-import { ChecklistFilterContent } from '../multiple-select-content'
+
 import { Set } from '../../Set'
 
 export default {
@@ -23,6 +23,7 @@ export function Example() {
     ],
     onApply: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
+    initialSelected: ['#1', '#2'],
   })
 
   const state2 = useMultipleFilterState({
@@ -39,12 +40,9 @@ export function Example() {
 
   return (
     <Set orientation="horizontal">
-      <Filter state={state}>
-        <ChecklistFilterContent state={state} />
-      </Filter>
-      <Filter state={state2}>
-        <ChecklistFilterContent state={state2} />
-      </Filter>
+      <Filter state={state} />
+
+      <Filter state={state2} />
     </Set>
   )
 }

@@ -9,20 +9,23 @@ import { useListState } from '@react-stately/list'
 export function useMultipleFilterState<T extends FilterItem>(
   props: UseMultipleFilterStateProps<T>
 ): UseMultipleFilterReturn<T> {
-  const { onApply, items, label } = props
+  const { onApply, items, label, initialSelected } = props
   const stateProps = {
     items,
-    children: (item: FilterItem) => <Item>{item.label}</Item>,
+    children: (item: FilterItem) => <Item key={item.id}>{item.label}</Item>,
     selectionMode: 'multiple' as const,
   }
 
-  const [selectedKeys, setSelectedKeys] = useState<key[]>([])
+  const [selectedKeys, setSelectedKeys] = useState<key[]>(initialSelected || [])
 
   const ref = useRef(null)
 
   const popover = usePopoverState({ gutter: 0, placement: 'bottom-start' })
 
-  const listState = useListState<T>(stateProps)
+  const listState = useListState<T>({
+    ...stateProps,
+    defaultSelectedKeys: initialSelected,
+  })
 
   const { listBoxProps, labelProps } = useListBox<FilterItem>(
     { ...stateProps, 'aria-label': label },
@@ -41,6 +44,7 @@ export function useMultipleFilterState<T extends FilterItem>(
   const clear = useCallback(() => {
     listState.selectionManager.clearSelection()
     setSelectedKeys([])
+
     onApply?.({ selected: [] })
     popover.hide()
   }, [onApply])
@@ -95,8 +99,11 @@ export interface UseMultipleFilterReturn<T extends FilterItem>
 }
 
 export interface UseMultipleFilterStateProps<T extends FilterItem> {
+  /** Function called when a change is applied. */
   onApply: ({ selected }: { selected: key[] }) => void
-  initialState?: T[]
-  items: T[]
+  /** The initial selected keys. */
+  initialSelected?: key[]
+  /** Filter button label. */
   label: string
+  items: T[]
 }

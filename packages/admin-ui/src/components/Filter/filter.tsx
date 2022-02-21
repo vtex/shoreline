@@ -12,9 +12,10 @@ import { PopoverDisclosure } from 'reakit/Popover'
 import { PopoverFooter, Popover } from './popover'
 import { tag } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
+import { MultipleSelectContent } from './multiple-select-content'
 
 export function Filter(props: FilterProps) {
-  const { state, children } = props
+  const { state } = props
   const { onClear, onApply, popover, selectedValues, label, labelProps } = state
 
   const selectedItemsLabel =
@@ -63,8 +64,7 @@ export function Filter(props: FilterProps) {
         />
       </Button>
       <Popover state={popover} aria-label={label}>
-        {children}
-
+        <MultipleSelectContent state={state} />
         <PopoverFooter>
           <Button size="small" variant="adaptative-dark" onClick={onClear}>
             Clear

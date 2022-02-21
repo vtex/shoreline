@@ -13,7 +13,7 @@ import { focusVisible } from '@vtex/admin-ui-core'
 import { Set } from '../Set'
 import type { ListState } from '@react-stately/list'
 
-export function ChecklistFilterContent(props: FilterCheckboxProps) {
+export function MultipleSelectContent(props: FilterCheckboxProps) {
   const {
     state: { listBoxProps, listState, ref },
   } = props
