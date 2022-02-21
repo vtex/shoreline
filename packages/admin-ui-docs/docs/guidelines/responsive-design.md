@@ -6,66 +6,181 @@ sidebar_position: 3
 
 # Responsive Design
 
-## Breakpoints
+## Responsive aliases
 
-`admin-ui` uses 4 mobile-first breakpoints, which are
+`admin-ui` has 6 responsive aliases that guide you while authoring responsive layouts.
 
-| name       | min-width em | min-width px |
-| ---------- | ------------ | ------------ |
-| mobile     | `40em`       | `640px`      |
-| tablet     | `48em`       | `768px`      |
-| desktop    | `64em`       | `1024px`     |
-| widescreen | `75em`       | `1200px`     |
+| alias          | min-width em | min-width px | max-width em | max-width px |
+| -------------- | ------------ | ------------ | ------------ | ------------ |
+| `@mobile`      | `40em`       | `640px`      | -            | -            |
+| `@tablet`      | `48em`       | `768px`      | -            | -            |
+| `@tabletOnly`  | `48em`       | `768px`      | `64em`       | `1024px`     |
+| `@desktop`     | `64em`       | `1024px`     | -            | -            |
+| `@desktopOnly` | `64em`       | `1024px`     | `75em`       | `1200px`     |
+| `@widescreen`  | `75em`       | `1200px`     | -            | -            |
 
-## Responsive Values
+In the following example, the text content changes to represent the current screen size. You can resize your browser's window to see the result.
 
-A Responsive value accept an array of values. The current value will be the one that matches the breakpoint:
+```jsx live
+<tag.div
+  csx={{
+    ':before': {
+      content: '"Mobile"',
+      '@tablet': { content: '"Tablet"' },
+      '@desktop': { content: '"Desktop"' },
+      '@widescreen': { content: '"Widescreen"' },
+    },
+  }}
+/>
+```
+
+<details>
+  <summary>💡 What happens under the hood?</summary>
+  <div>
+    <p>
+      The responsive alias string will be replaced by a media query.
+      <br />
+      It replaces the pattern <strong>@[alias]</strong> by <strong>@media (min-width: theme.breakpoints.[alias])</strong>.
+      <br />
+      For exemple, <strong>@tablet</strong> will be replaced by <strong>@media (min-width: 48em)</strong>.
+    </p>
+    <br />
+    <p>
+      The same idea applies to the <strong>only</strong> aliases! The diference is that it set the next breakpoint's <strong>min-width</strong> as its <strong>max-width</strong>, creating a interval.
+      <br />
+      For exemple, <strong>@tabletOnly</strong> will be replaced by <strong>@media (min-width: 48em) and (max-width: 64em)</strong>.
+    </p>
+  </div>
+</details>
+
+## Mental model
+
+Our styles have a mobile-first mindset. This means that every style that you write target mobile by default. Each responsive alias targets all the aliases above it so that you can work in optimizing your layout for bigger screens. In other words, **always work optimizing space**.
+
+```jsx
+<tag.div
+  csx={{
+    padding: '$s',
+  }}
+/>
+```
+
+```jsx
+<tag.div
+  csx={{
+    padding: '$s',
+    '@tablet': {
+      padding: '$m',
+    },
+  }}
+/>
+```
+
+```jsx
+<tag.div
+  csx={{
+    padding: '$s',
+    '@tablet': {
+      padding: '$m',
+    },
+    '@desktop': {
+      padding: '$l',
+    },
+  }}
+/>
+```
+
+## Custom media queries
+
+The [responsive aliases](#responsive-aliases) can cover most of the use cases, but custom media queries are allowed if you want to target specific devices on your design. For example:
+
+```js
+// declaration
+const iPhoneXRLandscape = `
+  @media only screen 
+  and (device-width : 414px) 
+  and (device-height : 896px) 
+  and (-webkit-device-pixel-ratio : 2) 
+  and (orientation : landscape)
+`
+
+// usage
+const layout = style({
+  // ... component styles,
+  [iPhoneXRLandscape]: {
+    // ... device specyfic styles
+  },
+})
+```
+
+## Responsive values [deprecated]
+
+A responsive value is a `deprecated` approach in which properties can accept an array of values. Each position of the array correspond to the value on each breakpoint, following the sequence:
 
 ```sh
 [mobile, tablet, desktop, widescreen]
 ```
 
-In the example below, the `<Box>` has full width while on `mobile`, and half on tablet and above.
+To make a `<Box>` to have full width while on `mobile`, and half on tablet and above:
 
 ```jsx live
 <Box
   csx={{
     width: ['full', '1/2'],
     padding: 4,
-    ...palette('teal'),
+    bg: 'grey',
   }}
 />
 ```
 
-### Skipping Breakpoints
-
-If you want to skip a breakpoint, you can use the value `null`. This is useful if you want to set a value for only the largest breakpoint, for example.
+You can use the value `null` to skip breakpoints:
 
 ```jsx live
 <Box
   csx={{
     width: [null, null, 'full'],
     padding: 4,
-    ...palette('purple'),
+    bg: 'grey',
   }}
 />
 ```
 
-### Responsive aliases
+### Why are we deprecating this?
 
-We provide some properties that combine our breakpoints with media queries making it easier to add responsiveness into your layout.
+The main reasons are:
 
-For example, you can use the alias `@tablet` if you want to apply specific styles only to devices with widths similar to a tablet.
+- Multiple responsive styles are harder to write, learn, and understand.
+- Less performant to parse.
+- Library complexity overhead.
 
-```jsx live
-<Box
-  csx={{
-    ...palette('pink'),
-    '@tablet': { ...palette('orange') },
-    '@desktop': { ...palette('teal') },
-    '@widescreen': { ...palette('cyan') },
-  }}
->
-  Box
-</Box>
+To migrate to the aliases, you just need to place the styles in the right category.
+
+```js
+// with responsive values
+const style = {
+  bg: '$primary',
+  color: '$primary',
+  padding: [10, null, null, 20],
+  margin: [5, null, 10, 15],
+}
+
+// with aliases
+const style = {
+  bg: '$primary',
+  color: '$primary',
+  padding: 10,
+  margin: 5,
+  '@desktop': {
+    margin: 10,
+  },
+  '@widescreen': {
+    padding: 20,
+    margin: 15,
+  },
+}
 ```
+
+## Additional resources
+
+- [Learn responsive design](https://web.dev/learn/design/).
+- [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
