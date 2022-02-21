@@ -26,13 +26,17 @@ export function ToastQueue(props: ToastQueueProps) {
         pointerEvents: 'none',
         paddingX: 2,
         bottom: '3rem',
-        right: '2rem',
+        right: '0%',
         textAlign: 'center',
         marginLeft: 'auto',
-        width: '23.375rem',
+        width: '100%',
         listStyle: 'none',
         '> *:not(:last-child)': {
           marginBottom: '0.75rem',
+        },
+        '@tablet': {
+          right: '2rem',
+          width: '23.375rem',
         },
       }}
     >
