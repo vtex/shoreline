@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.118.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.3...@vtex/admin-ui@0.118.4) (2022-02-21)
+
+### Bug Fixes
+
+- **toast component:** fix toast component width and position for mobile devices ([4403234](https://github.com/vtex/admin-ui/commit/44032347e4dbdc6d404079d31ef800664e1c5c33))
+
 ## [0.118.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.2...@vtex/admin-ui@0.118.3) (2022-02-18)
 
 **Note:** Version bump only for package @vtex/admin-ui
