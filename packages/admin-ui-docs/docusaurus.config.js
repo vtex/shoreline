@@ -82,6 +82,12 @@ const config = {
         ],
         hideOnScroll: true,
       },
+      algolia: {
+        appId: 'ZJU0P6KHND',
+        apiKey: '67b1b8272c21027224efed33015e3bc3',
+        indexName: 'admin-ui',
+        debug: false,
+      },
       liveCodeBlock: {
         /**
          * The position of the live playground, above or under the editor
