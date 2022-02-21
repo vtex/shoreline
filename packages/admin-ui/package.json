@@ -52,6 +52,7 @@
     "@emotion/react": "^11.1.5",
     "@vtex/admin-ui-core": "^0.5.1",
     "@react-aria/i18n": "^3.3.5",
+    "@react-aria/spinbutton": "^3.0.3",
     "@vtex/admin-ui-hooks": "^0.1.4",
     "@vtex/admin-ui-react": "^0.5.3",
     "@vtex/phosphor-icons": "0.2.5",

@@ -278,7 +278,7 @@ export interface CalendarActions {
   selectDate: (value: Date) => void
 }
 
-interface RangeValueMinMax {
+export interface RangeValueMinMax {
   /** The lowest date allowed. */
   minValue?: string
   /** The highest date allowed. */
