@@ -34,14 +34,14 @@ export function Filter(props: FilterProps) {
         as={PopoverDisclosure}
         state={popover}
         csx={{
-          bg: '$secondary',
+          bg: '$action.neutral.secondary',
           color: '$secondary',
           ':hover': {
             bg: '$action.neutral.secondaryHover',
             color: '$secondary',
           },
           ':active': {
-            bg: '$disabled',
+            bg: '$action.neutral.secondaryPressed',
             color: '$secondary',
           },
         }}

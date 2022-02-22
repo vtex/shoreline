@@ -16,7 +16,9 @@ export const bg = {
       tertiary: 'transparent',
       tertiaryHover: colors.grayTransparent05,
       tertiaryPressed: colors.grayTransparent10,
+      secondary: colors.gray05,
       secondaryHover: colors.gray10,
+      secondaryPressed: colors.gray20,
     },
     main: {
       primary: colors.blue40,
