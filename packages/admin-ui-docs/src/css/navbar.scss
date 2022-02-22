@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  z-index: 1000;
+  z-index: var(--ifm-z-index-fixed);
 
   .navbar__link,
   .dropdown__link {
