@@ -1,18 +1,10 @@
 import { Composite } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
+import * as style from './date-field.style'
 
 export const DateField = createComponent<typeof Composite>((props) =>
   useElement(Composite, {
-    baseStyle: {
-      width: 296,
-      display: 'flex',
-      justifyContent: 'space-between',
-      marginTop: 1,
-      paddingY: 2,
-      paddingX: 3,
-      border: '$neutral',
-      borderRadius: 4,
-    },
+    baseStyle: style.dateField,
     ...props,
   })
 )

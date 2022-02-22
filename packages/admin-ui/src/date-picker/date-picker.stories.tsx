@@ -9,21 +9,15 @@ export default {
 } as Meta
 
 export const Base = () => {
-  const state = useDatePickerState({
-    placement: 'bottom',
-    unstable_offset: [-118, 12],
-  })
+  const state = useDatePickerState()
 
-  return <DatePicker state={state} />
+  return <DatePicker label="Date" state={state} />
 }
 
 const Localized = () => {
-  const state = useDatePickerState({
-    placement: 'bottom',
-    unstable_offset: [-118, 12],
-  })
+  const state = useDatePickerState()
 
-  return <DatePicker state={state} />
+  return <DatePicker label="Date" state={state} />
 }
 
 export const Internationalized: Story<{ locale: string }> = (args) => {
