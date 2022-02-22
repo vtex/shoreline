@@ -28,9 +28,8 @@ export const Picker = createComponent<typeof Role, Options>((props) => {
     if (isTouch()) show()
   }, [show])
 
-  const onKeyDown = useOnKeyDown({
-    htmlOnKeyDown,
-    preventDefault: true,
+  const onKeyDown = useOnKeyDown<HTMLDivElement>({
+    onKey: htmlOnKeyDown,
     keyMap: (event) => {
       const isAlt = event.altKey
 

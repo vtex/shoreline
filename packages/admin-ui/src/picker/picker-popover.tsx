@@ -2,6 +2,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Popover } from 'reakit/Popover'
 
 import type { PickerStateReturn } from './picker-state'
+import * as style from './picker.style'
 
 export const PickerPopover = createComponent<typeof Popover, Options>(
   (props) => {
@@ -10,6 +11,7 @@ export const PickerPopover = createComponent<typeof Popover, Options>(
     return useElement(Popover, {
       id: state.popoverId,
       state,
+      baseStyle: style.popoverStyle,
       ...popoverProps,
     })
   }
