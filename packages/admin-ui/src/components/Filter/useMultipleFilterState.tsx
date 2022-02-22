@@ -9,7 +9,7 @@ import { useListState } from '@react-stately/list'
 export function useMultipleFilterState<T extends FilterItem>(
   props: UseMultipleFilterStateProps<T>
 ): UseMultipleFilterReturn<T> {
-  const { onApply, items, label, initialSelected } = props
+  const { onChange, items, label, initialSelected } = props
   const stateProps = {
     items,
     children: (item: FilterItem) => <Item key={item.id}>{item.label}</Item>,
@@ -37,17 +37,17 @@ export function useMultipleFilterState<T extends FilterItem>(
     const nextSelected = [...listState.selectionManager.selectedKeys]
 
     setSelectedKeys(nextSelected)
-    onApply?.({ selected: nextSelected })
+    onChange?.({ selected: nextSelected })
     popover.hide()
-  }, [onApply])
+  }, [onChange])
 
   const clear = useCallback(() => {
     listState.selectionManager.clearSelection()
     setSelectedKeys([])
 
-    onApply?.({ selected: [] })
+    onChange?.({ selected: [] })
     popover.hide()
-  }, [onApply])
+  }, [onChange])
 
   useEffect(() => {
     if (!popover.visible) {
@@ -64,7 +64,7 @@ export function useMultipleFilterState<T extends FilterItem>(
   return {
     popover,
     onClear: clear,
-    onApply: apply,
+    onChange: apply,
     listState,
     selectedValues,
     ref,
@@ -85,7 +85,7 @@ export interface FilterItem {
 export interface UseFilterStateReturn {
   popover: PopoverStateReturn
   onClear: () => void
-  onApply: () => void
+  onChange: () => void
 }
 
 export interface UseMultipleFilterReturn<T extends FilterItem>
@@ -100,7 +100,7 @@ export interface UseMultipleFilterReturn<T extends FilterItem>
 
 export interface UseMultipleFilterStateProps<T extends FilterItem> {
   /** Function called when a change is applied. */
-  onApply: ({ selected }: { selected: key[] }) => void
+  onChange: ({ selected }: { selected: key[] }) => void
   /** The initial selected keys. */
   initialSelected?: key[]
   /** Filter button label. */

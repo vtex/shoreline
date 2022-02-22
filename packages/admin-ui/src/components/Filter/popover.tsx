@@ -1,4 +1,4 @@
-import { createComponent, jsx, useElement } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { Popover as ReakitPopover } from 'reakit/Popover'
 import { Role } from 'reakit'

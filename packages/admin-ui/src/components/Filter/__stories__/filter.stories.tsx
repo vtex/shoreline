@@ -21,7 +21,7 @@ export function Example() {
       { label: 'Half empty', value: 4, id: '#4' },
       { label: 'Unknown', value: 5, id: '#5' },
     ],
-    onApply: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
     initialSelected: ['#1', '#2'],
   })
@@ -34,7 +34,7 @@ export function Example() {
       { label: 'Half empty', value: 4, id: '#4' },
       { label: 'Unknown', value: 5, id: '#5' },
     ],
-    onApply: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Name',
   })
 

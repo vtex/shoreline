@@ -16,7 +16,8 @@ import { MultipleSelectContent } from './multiple-select-content'
 
 export function Filter(props: FilterProps) {
   const { state } = props
-  const { onClear, onApply, popover, selectedValues, label, labelProps } = state
+  const { onClear, onChange, popover, selectedValues, label, labelProps } =
+    state
 
   const selectedItemsLabel =
     selectedValues.length &&
@@ -36,9 +37,7 @@ export function Filter(props: FilterProps) {
           bg: '$secondary',
           color: '$secondary',
           ':hover': {
-            // correct color \/
-            // bg: colors.gray10,
-            bg: '$secondary',
+            bg: '$action.neutral.secondaryHover',
             color: '$secondary',
           },
           ':active': {
@@ -69,7 +68,7 @@ export function Filter(props: FilterProps) {
           <Button size="small" variant="adaptative-dark" onClick={onClear}>
             Clear
           </Button>
-          <Button size="small" onClick={onApply}>
+          <Button size="small" onClick={onChange}>
             Apply
           </Button>
         </PopoverFooter>
