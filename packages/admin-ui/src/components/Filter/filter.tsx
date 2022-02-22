@@ -20,10 +20,9 @@ export function Filter(props: FilterProps) {
     state
 
   const selectedItemsLabel =
-    selectedValues.length &&
-    `${selectedValues[0]}${
-      selectedValues.length > 1 ? `, +${selectedValues.length - 1}` : ''
-    }`
+    selectedValues.length > 1
+      ? `${selectedValues[0]}, +${selectedValues.length - 1}`
+      : selectedValues[0]
 
   return (
     <>
@@ -48,7 +47,7 @@ export function Filter(props: FilterProps) {
         {...labelProps}
       >
         {label}
-        {!!selectedItemsLabel && (
+        {!!selectedValues.length && (
           <>
             :
             <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
