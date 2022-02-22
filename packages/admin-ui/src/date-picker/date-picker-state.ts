@@ -49,6 +49,8 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
 
   const pickerState = usePickerState({
     segmentFocus: dateFieldState.first,
+    placement: 'bottom',
+    unstable_offset: [-112, 12],
     ...props,
   })
 
@@ -101,7 +103,6 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     minValue,
     maxValue,
     isRequired,
-    // states
     calendarState,
     validationState,
     pickerState,

@@ -8,6 +8,7 @@ import { mergeProps } from '@react-aria/utils'
 import { useDateFormatter } from '../i18n'
 import { isNumeric, parseNumber } from './util'
 import type { DateSegmentProps, SegmentStateReturn } from './date-field-state'
+import * as style from './date-field.style'
 
 export const DateFieldSegment = createComponent<
   typeof CompositeItem,
@@ -36,7 +37,10 @@ export const DateFieldSegment = createComponent<
     confirmPlaceholder,
   } = state
 
-  const disabled = isDisabled || isReadOnly || segment.type === 'literal'
+  const disabled = useMemo(
+    () => isDisabled || isReadOnly || segment.type === 'literal',
+    [isDisabled, isReadOnly, segment.type]
+  )
 
   const [enteredKeys, setEnteredKeys] = useState('')
   const monthFormatter = useDateFormatter({ month: 'long' })
@@ -47,7 +51,7 @@ export const DateFieldSegment = createComponent<
 
   const { spinButtonProps } = useSpinButton({
     value: segment.value,
-    textValue: getTextValue(segment, state, {
+    textValue: getTextValue(segment, state.fieldValue, {
       month: monthFormatter,
       hour: hourFormatter,
     }),
@@ -66,15 +70,46 @@ export const DateFieldSegment = createComponent<
       setSegment(segment.type, segment.minValue as number),
   })
 
-  const onInput = useCallback(
-    (key: string) =>
-      getInput({
-        key,
-        enteredKeys,
-        setEnteredKeys,
-        state,
-        segment,
-      }),
+  const onNumericKeyDown = useCallback(
+    (key: string) => {
+      const newValue = enteredKeys + key
+
+      if (segment.type === 'dayPeriod') {
+        if (key === 'a') {
+          state.setSegment('dayPeriod', 0)
+        } else if (key === 'p') {
+          state.setSegment('dayPeriod', 12)
+        }
+
+        state.next()
+      } else {
+        if (!isNumeric(newValue)) {
+          return
+        }
+
+        const numberValue = parseNumber(newValue)
+        let segmentValue = numberValue
+
+        if (
+          segment.type === 'hour' &&
+          state.dateFormatter.resolvedOptions().hour12 &&
+          numberValue === 12
+        ) {
+          segmentValue = 0
+        } else if (numberValue > (segment.maxValue as number)) {
+          segmentValue = parseNumber(key)
+        }
+
+        state.setSegment(segment.type, segmentValue)
+
+        if (Number(`${numberValue}0`) > (segment.maxValue as number)) {
+          setEnteredKeys('')
+          state.next()
+        } else {
+          setEnteredKeys(newValue)
+        }
+      }
+    },
     [enteredKeys, next, segment.maxValue, segment.type]
   )
 
@@ -118,13 +153,13 @@ export const DateFieldSegment = createComponent<
           e.preventDefault()
           e.stopPropagation()
           if ((isNumeric(e.key) || /^[ap]$/.test(e.key)) && !isReadOnly) {
-            onInput(e.key)
+            onNumericKeyDown(e.key)
           }
       }
     },
     [
       next,
-      onInput,
+      onNumericKeyDown,
       segment.isPlaceholder,
       segment.minValue,
       segment.text,
@@ -179,33 +214,14 @@ export const DateFieldSegment = createComponent<
   }, [segment, state, disabled])
 
   return useElement(CompositeItem, {
-    baseStyle: {
-      cursor: 'pointer',
-      text: 'body',
-      bg: '$action.neutral.tertiary',
-      color: '$action.neutral.tertiaryPressed',
-      borderRadius: 2,
-      ':hover': {
-        bg: '$action.neutral.tertiaryHover',
-        color: '$action.neutral.tertiaryPressed',
-      },
-      ':active': {
-        bg: '$action.neutral.tertiaryPressed',
-        color: '$action.neutral.tertiaryPressed',
-      },
-      ':focus': {
-        bg: '$inverted',
-        color: '$inverted',
-        outline: 'none',
-      },
-    },
-    ...(elementProps as any),
+    ...elementProps,
+    baseStyle: style.dateFieldSegment,
   })
 })
 
 function getTextValue(
   segment: DateSegmentProps,
-  state: SegmentStateReturn,
+  fieldValue: Date,
   formatters: {
     hour: ReturnType<typeof useDateFormatter>
     month: ReturnType<typeof useDateFormatter>
@@ -213,86 +229,23 @@ function getTextValue(
 ) {
   switch (segment.type) {
     case 'month': {
-      return formatters.month.format(state.fieldValue)
+      return formatters.month.format(fieldValue)
     }
 
     case 'hour': {
-      const hourFormattedValue = formatters.hour.format(state.fieldValue)
+      const hourFormattedValue = formatters.hour.format(fieldValue)
 
       return hourFormattedValue.split(' ')[0]
     }
 
     case 'dayPeriod': {
-      const hourFormattedValue = formatters.hour.format(state.fieldValue)
+      const hourFormattedValue = formatters.hour.format(fieldValue)
 
       return hourFormattedValue.split(' ')[1]
     }
 
     default: {
       return segment.text
-    }
-  }
-}
-
-function getInput(props: {
-  key: string
-  enteredKeys: string
-  setEnteredKeys: (s: string) => void
-  segment: DateSegmentProps
-  state: SegmentStateReturn
-}) {
-  const { key, enteredKeys, setEnteredKeys, segment, state } = props
-  const newValue = enteredKeys + key
-
-  switch (segment.type) {
-    case 'dayPeriod':
-      if (key === 'a') {
-        state.setSegment('dayPeriod', 0)
-      } else if (key === 'p') {
-        state.setSegment('dayPeriod', 12)
-      }
-
-      state.next()
-      break
-
-    case 'day':
-
-    case 'hour':
-
-    case 'minute':
-
-    case 'second':
-
-    case 'month':
-
-    case 'year': {
-      if (!isNumeric(newValue)) {
-        return
-      }
-
-      const numberValue = parseNumber(newValue)
-      let segmentValue = numberValue
-
-      if (
-        segment.type === 'hour' &&
-        state.dateFormatter.resolvedOptions().hour12 &&
-        numberValue === 12
-      ) {
-        segmentValue = 0
-      } else if (numberValue > (segment.maxValue as number)) {
-        segmentValue = parseNumber(key)
-      }
-
-      state.setSegment(segment.type, segmentValue)
-
-      if (Number(`${numberValue}0`) > (segment.maxValue as number)) {
-        setEnteredKeys('')
-        state.next()
-      } else {
-        setEnteredKeys(newValue)
-      }
-
-      break
     }
   }
 }
