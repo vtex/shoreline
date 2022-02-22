@@ -58,22 +58,6 @@ const config = {
         },
         items: [
           {
-            label: 'Current',
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [
-              {
-                to: '/help/release-notes',
-                label: 'All versions',
-              },
-            ],
-            dropdownActiveClassDisabled: true,
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-          {
             href: 'https://github.com/vtex/admin-ui',
             className: 'header-github-link',
             position: 'right',
