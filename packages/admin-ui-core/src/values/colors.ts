@@ -93,3 +93,4 @@ export const colors = {
   grayTransparent80: 'rgba(0, 0, 0, 0.8)',
   grayTransparent90: 'rgba(0, 0, 0, 0.9)',
 }
+
