@@ -11,9 +11,9 @@ export const border = {
 
   form: {
     neutral: borderStyles('gray30'),
-    neutralHover: borderStyles('gray40'),
-    neutralFocus: borderStyles('gray50'),
-    neutralPressed: borderStyles('gray50'),
+    neutralHover: borderStyles('gray50'),
+    neutralFocus: borderStyles('gray60'),
+    neutralPressed: borderStyles('gray60'),
     neutralChecked: borderStyles('black'),
     neutralCheckedHover: borderStyles('gray60'),
     neutralCheckedPressed: borderStyles('gray50'),
