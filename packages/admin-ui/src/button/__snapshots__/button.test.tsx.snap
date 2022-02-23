@@ -808,7 +808,10 @@ exports[`button should match snapshot 1`] = `
 }
 
 <button
+    aria-disabled="true"
     class="emotion-5"
+    disabled=""
+    style="pointer-events: none;"
     type="button"
   >
     <div

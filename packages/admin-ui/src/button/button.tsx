@@ -20,9 +20,9 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
     variant = 'primary',
     iconPosition = 'start',
     loading = false,
+    disabled = false,
     bleedY = false,
     bleedX = false,
-
     children,
     ...props
   }) => {
@@ -68,6 +68,7 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
           ) : null}
         </Center>
       ),
+      disabled: disabled || loading,
       ...props,
     }
   }
