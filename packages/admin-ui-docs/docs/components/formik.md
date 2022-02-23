@@ -456,14 +456,12 @@ function ExampleComplete() {
             Start with:{' '}
           </Text>
           <Button
-            size="small"
             disabled={!startWithSomeone}
             onClick={() => setStartWithSomeone(false)}
           >
             Empty Forms
           </Button>
           <Button
-            size="small"
             disabled={startWithSomeone}
             onClick={() => setStartWithSomeone(true)}
           >

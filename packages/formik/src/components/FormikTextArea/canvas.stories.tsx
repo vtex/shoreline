@@ -56,7 +56,6 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
               <Button
                 variant="secondary"
                 type="reset"
-                size="small"
                 onClick={() => resetForm()}
                 disabled={!dirty}
               >
@@ -69,9 +68,7 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size="small">
-                Save
-              </Button>
+              <Button type="submit">Save</Button>
               <Text
                 variant="detail"
                 tone="secondary"
@@ -81,7 +78,6 @@ export const Playground: Story<FormikTextAreaProps> = (args) => {
               </Text>
               <Button
                 variant="secondary"
-                size="small"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: 'admin-formik' })
                 }

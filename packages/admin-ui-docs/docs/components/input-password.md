@@ -203,9 +203,8 @@ function Example() {
         buttonElements={
           <Flex justify="center" align="center">
             <Button
-              variant="adaptative-dark"
+              variant="neutralTertiary"
               icon={<IconQuestion />}
-              size="small"
             />
           </Flex>
         }

@@ -99,7 +99,6 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   <Button
                     variant="secondary"
                     type="reset"
-                    size="small"
                     onClick={() => resetForm()}
                     disabled={!dirty}
                   >
@@ -121,9 +120,7 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                     maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
                   }}
                 >
-                  <Button type="submit" size="small">
-                    Save
-                  </Button>
+                  <Button type="submit">Save</Button>
                   <Text
                     variant="detail"
                     tone="secondary"
@@ -142,7 +139,6 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                 >
                   <Button
                     variant="secondary"
-                    size="small"
                     onClick={() =>
                       setCurrentInitialValues({ [args.name]: [options[1]] })
                     }

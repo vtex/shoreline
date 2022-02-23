@@ -88,17 +88,11 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #000000;
   background: transparent;
-}
-
-.emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -111,6 +105,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-5:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -121,51 +120,39 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -182,17 +169,10 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-9:hover {
@@ -205,6 +185,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-9:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -213,10 +198,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -382,17 +363,11 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #000000;
   background: transparent;
-}
-
-.emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -405,6 +380,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-5:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -415,51 +395,39 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -476,17 +444,10 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-9:hover {
@@ -499,6 +460,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-9:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -507,10 +473,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -704,17 +666,11 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #000000;
   background: transparent;
-}
-
-.emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -727,6 +683,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-5:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -737,51 +698,39 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -798,17 +747,10 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-9:hover {
@@ -821,6 +763,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-9:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -829,10 +776,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  margin: 0.25rem;
 }
 
 .emotion-6 {
@@ -1026,17 +969,11 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #000000;
   background: transparent;
-}
-
-.emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
+  color: hsla(222, 63%, 43%, 1);
 }
 
 .emotion-5:hover {
@@ -1049,6 +986,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-5:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -1059,51 +1001,39 @@ exports[`Toast should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
-.emotion-5 svg {
-  margin: 0.25rem;
-}
-
 .emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -1120,17 +1050,10 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-9:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-9:hover {
@@ -1143,6 +1066,11 @@ exports[`Toast should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-9:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
+}
+
 .emotion-9:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -1151,10 +1079,6 @@ exports[`Toast should match snapshot 1`] = `
 .emotion-9:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-9 svg {
-  margin: 0.25rem;
 }
 
 .emotion-6 {

@@ -325,7 +325,6 @@ function Example() {
                   csx={{ position: 'absolute', right: 1 }}
                   onClick={() => handleValueChange({ value }, index)}
                   variant="tertiary"
-                  size="small"
                 >
                   Apply
                 </Button>

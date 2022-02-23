@@ -29,7 +29,7 @@ describe('FormikSelect', () => {
       <Formik initialValues={{ value: '' }} onSubmit={handleSubmit}>
         <Form id="form-admin-formik-input">
           <FormikSelect {...sharedProps} />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -57,11 +57,10 @@ describe('FormikSelect', () => {
             <FormikSelect {...sharedProps} />
             <Button
               data-testid="set-button"
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', options[0])}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -101,7 +100,7 @@ describe('FormikSelect', () => {
       >
         <Form id="form-admin-formik-input">
           <FormikSelect {...sharedProps} />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )

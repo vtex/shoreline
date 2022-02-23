@@ -93,7 +93,7 @@ All features of `PageHeader` together.
 <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
   <PageTitle>Product</PageTitle>
   <PageActions>
-    <Button variant="danger">Delete Item</Button>
+    <Button variant="critical">Delete Item</Button>
   </PageActions>
 </PageHeader>
 ```

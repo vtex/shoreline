@@ -30,27 +30,27 @@ The variant defines the appearance and emphasis of the button.
 ```jsx live
 <Set orientation="vertical">
   <Set>
-    <Button variant="adaptative-dark">Apdaptative</Button>
+    <Button variant="neutralTertiary">Apdaptative</Button>
     <Button variant="tertiary">Tertiary</Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="primary">Primary</Button>
   </Set>
   <Set>
-    <Button variant="danger-tertiary">Danger Tertiary</Button>
+    <Button variant="criticalTertiary">Danger Tertiary</Button>
     <Button variant="danger-secodary">Danger Secondary</Button>
-    <Button variant="danger">Danger Primary</Button>
+    <Button variant="critical">Danger Primary</Button>
   </Set>
 </Set>
 ```
 
 ### Size
 
-The button comes in two sizes: `regular` (default) and `small`.
+The button comes in two sizes: `normal` (default) and `large`.
 
 ```jsx live
 <Set>
-  <Button>Regular Button</Button>
-  <Button size="small">Small Button</Button>
+  <Button>Normal Button</Button>
+  <Button size="large">Large Button</Button>
 </Set>
 ```
 

@@ -17,7 +17,7 @@ import {
   MenuSeparator,
 } from './index'
 
-import { Button } from '../Button'
+import { Button } from '../../button'
 import { Set } from '../Set'
 
 export default {

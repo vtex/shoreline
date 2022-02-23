@@ -55,9 +55,9 @@ function Example() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar}>
-          <ToolbarButton variant="adaptative-dark">Button 1</ToolbarButton>
-          <ToolbarButton variant="adaptative-dark">Button 2</ToolbarButton>
-          <ToolbarButton variant="adaptative-dark">Button 3</ToolbarButton>
+          <ToolbarButton variant="neutralTertiary">Button 1</ToolbarButton>
+          <ToolbarButton variant="neutralTertiary">Button 2</ToolbarButton>
+          <ToolbarButton variant="neutralTertiary">Button 3</ToolbarButton>
         </Toolbar>
       </DataViewControls>
     </DataView>
@@ -100,8 +100,8 @@ function RenderingData() {
       <DataViewControls>
         <Toolbar state={toolbar}>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'ready',
@@ -111,8 +111,8 @@ function RenderingData() {
             Ready
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'loading',
@@ -122,8 +122,8 @@ function RenderingData() {
             Loading
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'error',
@@ -134,8 +134,8 @@ function RenderingData() {
             Error
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'not-found',
@@ -146,8 +146,8 @@ function RenderingData() {
             Not found
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'empty',
@@ -226,8 +226,8 @@ function SkeletonCollection() {
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar}>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'ready',
@@ -238,8 +238,8 @@ function SkeletonCollection() {
           </ToolbarButton>
 
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'loading',
@@ -249,8 +249,8 @@ function SkeletonCollection() {
             Loading
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'error',
@@ -261,8 +261,8 @@ function SkeletonCollection() {
             Error
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'not-found',
@@ -273,8 +273,8 @@ function SkeletonCollection() {
             Not found
           </ToolbarButton>
           <ToolbarButton
-            size="small"
-            variant="adaptative-dark"
+            
+            variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'empty',

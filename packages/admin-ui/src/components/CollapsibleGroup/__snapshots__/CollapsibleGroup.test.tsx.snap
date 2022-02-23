@@ -39,17 +39,10 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-3:hover {
@@ -60,6 +53,11 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 .emotion-3:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-3:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -84,42 +82,34 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -283,17 +273,10 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
   color: #000000;
   background: transparent;
-}
-
-.emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  padding: 0.25rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-3:hover {
@@ -304,6 +287,11 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 .emotion-3:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-3:disabled {
+  background: transparent;
+  color: hsla(0, 0%, 43%, 1);
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -328,42 +316,34 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
