@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import { render, axe } from '../test-utils'
 import { Button } from './index'
@@ -16,7 +16,7 @@ describe('button', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <Fragment>
+      <>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
         <Button variant="tertiary">Button</Button>
@@ -28,18 +28,14 @@ describe('button', () => {
         <Button disabled>Button</Button>
         <Button bleedY>Button</Button>
         <Button bleedX>Button</Button>
-      </Fragment>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <Fragment>
-        <Button>Button</Button>
-      </Fragment>
-    )
+    const { container } = render(<Button>Button</Button>)
 
     const results = await axe(container)
 
