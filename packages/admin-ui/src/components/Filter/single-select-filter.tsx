@@ -1,36 +1,38 @@
 import type { ReactNode } from 'react'
 import React, { useRef } from 'react'
 
-import type {
-  FilterItem,
-  UseMultipleFilterReturn,
-} from './useMultipleFilterState'
+import type { FilterItem } from './useFilterState'
 
-import { Checkbox } from '../Checkbox'
 import { useOption } from '@react-aria/listbox'
 import { tag } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
-import { Set } from '../Set'
-import type { ListState } from '@react-stately/list'
 
-export function MultipleSelectContent(props: FilterCheckboxProps) {
+import type { ListState } from '@react-stately/list'
+import { Filter } from './filter'
+import type { UseSingleFilterReturn } from './useSingleFilterState'
+import { StyledRadio } from './styled-radio'
+
+export function SingleSelectFilter(props: FilterCheckboxProps) {
   const {
-    state: { listBoxProps, listState, ref },
+    state: { listState, selectedValue },
+    state,
   } = props
 
+  const selectedValuesLabel = selectedValue && (
+    <>
+      <span>:</span>
+      <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
+        {selectedValue}
+      </tag.span>
+    </>
+  )
+
   return (
-    <Set
-      as="ul"
-      spacing={5}
-      orientation="vertical"
-      ref={ref}
-      csx={{ margin: '$l', paddingY: '$m' }}
-      {...listBoxProps}
-    >
+    <Filter state={state} selectedValuesLabel={selectedValuesLabel}>
       {[...listState.collection].map((item) => {
         return <Option key={item.key} item={item} state={listState} />
       })}
-    </Set>
+    </Filter>
   )
 }
 
@@ -55,12 +57,12 @@ function Option({
         ...focusVisible('main'),
       }}
     >
-      <Checkbox checked={isSelected} />
+      <StyledRadio checked={isSelected} />
       <tag.span csx={{ marginLeft: '$m' }}>{item.rendered}</tag.span>
     </tag.li>
   )
 }
 
 export interface FilterCheckboxProps {
-  state: UseMultipleFilterReturn<FilterItem>
+  state: UseSingleFilterReturn<FilterItem>
 }

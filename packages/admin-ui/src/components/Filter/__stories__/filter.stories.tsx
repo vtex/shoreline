@@ -6,6 +6,9 @@ import { Filter } from '../index'
 import { useMultipleFilterState } from '../useMultipleFilterState'
 
 import { Set } from '../../Set'
+import { useSingleFilterState } from '../useSingleFilterState'
+import { MultiselectFilter } from '../multiselect-filter'
+import { SingleSelectFilter } from '../single-select-filter'
 
 export default {
   title: 'admin-ui/Filters',
@@ -26,7 +29,7 @@ export function Example() {
     initialSelected: ['#1', '#2'],
   })
 
-  const state2 = useMultipleFilterState({
+  const state2 = useSingleFilterState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -36,13 +39,14 @@ export function Example() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Name',
+    initialSelected: '#1',
   })
 
   return (
     <Set orientation="horizontal">
-      <Filter state={state} />
+      <MultiselectFilter state={state} />
 
-      <Filter state={state2} />
+      <SingleSelectFilter state={state2} />
     </Set>
   )
 }

@@ -3,7 +3,7 @@ import { focusVisible } from '@vtex/admin-ui-core'
 import { Popover as ReakitPopover } from 'reakit/Popover'
 import { Role } from 'reakit'
 
-export const Popover = createComponent<typeof ReakitPopover>((props) => {
+export const FilterPopover = createComponent<typeof ReakitPopover>((props) => {
   return useElement(ReakitPopover, {
     baseStyle: {
       boxShadow: '$overlay.bottom',
@@ -21,7 +21,7 @@ export const Popover = createComponent<typeof ReakitPopover>((props) => {
   })
 })
 
-export const PopoverFooter = createComponent<typeof Role>((props) => {
+export const FilterPopoverFooter = createComponent<typeof Role>((props) => {
   return useElement(Role, {
     baseStyle: {
       borderTop: '$neutral',

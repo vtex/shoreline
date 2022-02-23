@@ -4,25 +4,35 @@ import React from 'react'
 import { Button } from '../Button'
 
 import { VisuallyHidden } from '../VisuallyHidden'
-import type {
-  FilterItem,
-  UseMultipleFilterReturn,
-} from './useMultipleFilterState'
+import type { FilterItem, UseFilterStateReturn } from './useFilterState'
+
 import { PopoverDisclosure } from 'reakit/Popover'
-import { PopoverFooter, Popover } from './popover'
-import { tag } from '@vtex/admin-ui-react'
+import { FilterPopoverFooter, FilterPopover } from './popover'
+
 import { IconCaretUp } from '@vtex/phosphor-icons'
-import { MultipleSelectContent } from './multiple-select-content'
+import { Set } from '../Set'
+
+// import {
+//   Picker,
+//   PickerDisclosure,
+//   PickerPopover,
+//   usePickerState,
+// } from '../../picker'
 
 export function Filter(props: FilterProps) {
-  const { state } = props
-  const { onClear, onChange, popover, selectedValues, label, labelProps } =
-    state
+  const { state, children, selectedValuesLabel } = props
+  const {
+    onClear,
+    onChange,
+    popover,
 
-  const selectedItemsLabel =
-    selectedValues.length > 1
-      ? `${selectedValues[0]}, +${selectedValues.length - 1}`
-      : selectedValues[0]
+    label,
+    labelProps,
+    ref,
+    listBoxProps,
+  } = state
+
+  // const pickerState = usePickerState()
 
   return (
     <>
@@ -47,36 +57,39 @@ export function Filter(props: FilterProps) {
         {...labelProps}
       >
         {label}
-        {!!selectedValues.length && (
-          <>
-            :
-            <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
-              {selectedItemsLabel}
-            </tag.span>
-          </>
-        )}
+        {selectedValuesLabel}
         <IconCaretUp
           csx={{
             transform: `rotate(${popover.visible ? 180 : 0}deg)`,
           }}
         />
       </Button>
-      <Popover state={popover} aria-label={label}>
-        <MultipleSelectContent state={state} />
-        <PopoverFooter>
+      <FilterPopover state={popover} aria-label={label}>
+        <Set
+          as="ul"
+          spacing={5}
+          orientation="vertical"
+          ref={ref}
+          csx={{ margin: '$l', paddingY: '$m' }}
+          {...listBoxProps}
+        >
+          {children}
+        </Set>
+        <FilterPopoverFooter>
           <Button size="small" variant="adaptative-dark" onClick={onClear}>
             Clear
           </Button>
           <Button size="small" onClick={onChange}>
             Apply
           </Button>
-        </PopoverFooter>
-      </Popover>
+        </FilterPopoverFooter>
+      </FilterPopover>
     </>
   )
 }
 
 export interface FilterProps {
-  state: UseMultipleFilterReturn<FilterItem>
+  state: UseFilterStateReturn<FilterItem>
   children?: ReactNode
+  selectedValuesLabel?: any
 }
