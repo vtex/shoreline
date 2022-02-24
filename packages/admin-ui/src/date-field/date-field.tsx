@@ -4,10 +4,9 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Label } from '../components/Label'
 import { Flex } from '../components/Flex'
-import type { SegmentStateReturn } from './date-field-state'
 import * as style from './date-field.style'
-import { SegmentList } from './segment-list'
-import { Segment } from './segment'
+import { SegmentList, Segment } from '../segment'
+import type { SegmentStateReturn } from '../segment'
 
 export const DateField = createComponent<'div', DateFieldOptions>((props) => {
   const { state, label, disclosure, ...htmlProps } = props
