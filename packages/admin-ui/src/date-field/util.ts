@@ -14,7 +14,7 @@ import {
   setYear,
 } from 'date-fns'
 
-export function convertValue(value: Date | undefined): Date {
+export function asDate(value: Date | undefined): Date {
   if (!value) {
     return new Date()
   }
