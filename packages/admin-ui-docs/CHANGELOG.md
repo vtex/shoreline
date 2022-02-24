@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.3.0...@vtex/admin-ui-docs@0.3.1) (2022-02-24)
+
+### Bug Fixes
+
+- set z-index for algolia modal search ([61c6ec5](https://github.com/vtex/admin-ui/commit/61c6ec5bc938eb2308848b3c715b592acfc3085e))
+
 # [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.2.3...@vtex/admin-ui-docs@0.3.0) (2022-02-21)
 
 ### Features
