@@ -7,8 +7,8 @@ import { mergeProps } from '@react-aria/utils'
 
 import { useDateFormatter } from '../i18n'
 import { isNumeric, parseNumber } from './util'
-import type { DateSegment, SegmentStateReturn } from './date-field-state'
-import * as style from './date-field.style'
+import type { DateSegment, SegmentStateReturn } from './segment.state'
+import * as style from './segment.style'
 
 export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
   (props) => {

@@ -30,7 +30,7 @@ const TYPO_MAPPING = {
   dayperiod: 'dayPeriod',
 }
 
-export function useDateFieldState(props: DateFieldInitialState = {}) {
+export function useSegmentState(props: SegmentInitialState = {}) {
   const { value, onChange, defaultValue = new Date(), formatOptions } = props
 
   const segmentComposite = useCompositeState({ orientation: 'horizontal' })
@@ -123,7 +123,7 @@ export interface ControllableState<T> {
   onChange?: (value: T, ...args: any[]) => void
 }
 
-export interface DateFieldInitialState extends ControllableState<Date> {
+export interface SegmentInitialState extends ControllableState<Date> {
   /**
    * Sets formmating of date based on Intl.DateFormatOptions
    *
@@ -149,4 +149,4 @@ export interface DateSegment {
   maxValue?: number
 }
 
-export type SegmentStateReturn = ReturnType<typeof useDateFieldState>
+export type SegmentStateReturn = ReturnType<typeof useSegmentState>

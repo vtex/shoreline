@@ -8,7 +8,7 @@ export default {
   title: 'admin-ui/DateField',
 } as Meta
 
-export const Basic = () => {
+export const Uncontrolled = () => {
   const state = useDateFieldState()
 
   return (
@@ -18,16 +18,12 @@ export const Basic = () => {
   )
 }
 
-export const Placeholder = () => {
+export const Controlled = () => {
   const [value, setValue] = useState(new Date(2020, 0, 8))
   const state = useDateFieldState({
     value,
     onChange: (date) => setValue(date),
   })
 
-  return (
-    <div>
-      <DateField label="Date" state={state} />
-    </div>
-  )
+  return <DateField label="Date" state={state} />
 }

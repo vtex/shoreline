@@ -5,7 +5,7 @@ import { ariaAttr } from '@vtex/admin-ui-util'
 import { DateField } from '../date-field'
 import { Picker, PickerDisclosure, PickerPopover } from '../picker'
 import { Calendar } from '../calendar'
-import type { DatePickerStateReturn } from './date-picker-state'
+import type { DatePickerStateReturn } from './date-picker.state'
 import * as style from './date-picker.style'
 
 export function DatePicker(props: DatePickerProps) {
