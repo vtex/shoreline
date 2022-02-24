@@ -8,10 +8,28 @@ export default {
   component: DatePicker,
 } as Meta
 
-export const Base = () => {
-  const state = useDatePickerState()
+export const Base: Story<{
+  validationState: 'valid' | 'invalid'
+  label: string
+}> = (args) => {
+  const { validationState } = args
+
+  const state = useDatePickerState({
+    validationState,
+  })
 
   return <DatePicker label="Date" state={state} />
+}
+
+Base.parameters = {
+  validationState: 'valid',
+}
+
+Base.argTypes = {
+  validationState: {
+    options: ['valid', 'invalid'],
+    control: { type: 'radio' },
+  },
 }
 
 const Localized = () => {
