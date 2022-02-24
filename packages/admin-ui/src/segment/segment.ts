@@ -49,7 +49,7 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
 
     const { spinButtonProps } = useSpinButton({
       value: segment.value,
-      textValue: getTextValue(segment, state.fieldValue, {
+      textValue: getTextValue(segment, state, {
         month: monthFormatter,
         hour: hourFormatter,
       }),
@@ -202,7 +202,10 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
             onKeyDown: callAllHandlers(htmlOnKeyDown, onKeyDown),
             onFocus: callAllHandlers(htmlOnFocus, onFocus),
             onMouseDown: callAllHandlers(htmlOnMouseDown, onMouseDown),
-            children: segment.text,
+            children: getTextValue(segment, state, {
+              month: monthFormatter,
+              hour: hourFormatter,
+            }),
             tabIndex: props ? -1 : 0,
             disabled,
             baseStyle: {
@@ -226,31 +229,30 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
 
 function getTextValue(
   segment: DateSegment,
-  fieldValue: Date,
+  state: SegmentStateReturn,
   formatters: {
     hour: ReturnType<typeof useDateFormatter>
     month: ReturnType<typeof useDateFormatter>
   }
 ) {
   switch (segment.type) {
-    case 'month': {
-      return formatters.month.format(fieldValue)
-    }
-
     case 'hour': {
-      const hourFormattedValue = formatters.hour.format(fieldValue)
+      const hourFormattedValue = formatters.hour.format(state.fieldValue)
 
       return hourFormattedValue.split(' ')[0]
     }
 
     case 'dayPeriod': {
-      const hourFormattedValue = formatters.hour.format(fieldValue)
+      const hourFormattedValue = formatters.hour.format(state.fieldValue)
 
       return hourFormattedValue.split(' ')[1]
     }
 
     default: {
-      return segment.text
+      const displayPlaceholder =
+        state.showPlaceholder.current[segment.type] ?? false
+
+      return displayPlaceholder ? segment.placeholder : segment.text
     }
   }
 }
