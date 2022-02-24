@@ -1,18 +1,13 @@
-import type { ReactNode } from 'react'
-import React, { useRef } from 'react'
+import React from 'react'
+import { tag } from '@vtex/admin-ui-react'
 
 import type { FilterItem } from './useFilterState'
-
-import { useOption } from '@react-aria/listbox'
-import { tag } from '@vtex/admin-ui-react'
-import { focusVisible } from '@vtex/admin-ui-core'
-
-import type { ListState } from '@react-stately/list'
-import { Filter } from './filter'
 import type { UseSingleFilterReturn } from './useSingleFilterState'
+import { Filter } from './filter'
 import { StyledRadio } from './styled-radio'
+import { Option } from './option'
 
-export function SingleSelectFilter(props: FilterCheckboxProps) {
+export function SingleSelectFilter(props: SingleSelectFilterProps) {
   const {
     state: { listState, selectedValue },
     state,
@@ -29,40 +24,20 @@ export function SingleSelectFilter(props: FilterCheckboxProps) {
 
   return (
     <Filter state={state} selectedValuesLabel={selectedValuesLabel}>
-      {[...listState.collection].map((item) => {
-        return <Option key={item.key} item={item} state={listState} />
-      })}
+      {[...listState.collection].map((item) => (
+        <Option
+          key={item.key}
+          item={item}
+          state={listState}
+          inputRenderer={({ isSelected }) => (
+            <StyledRadio checked={isSelected} />
+          )}
+        />
+      ))}
     </Filter>
   )
 }
 
-function Option({
-  item,
-  state,
-}: {
-  item: { key: string | number; rendered: ReactNode }
-  state: ListState<FilterItem>
-}) {
-  const ref = useRef(null)
-  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
-
-  return (
-    <tag.li
-      {...optionProps}
-      ref={ref}
-      csx={{
-        display: 'flex',
-        cursor: 'pointer',
-        paddingY: '$s',
-        ...focusVisible('main'),
-      }}
-    >
-      <StyledRadio checked={isSelected} />
-      <tag.span csx={{ marginLeft: '$m' }}>{item.rendered}</tag.span>
-    </tag.li>
-  )
-}
-
-export interface FilterCheckboxProps {
+export interface SingleSelectFilterProps {
   state: UseSingleFilterReturn<FilterItem>
 }

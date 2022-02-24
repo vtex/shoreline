@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
-import type { PopoverStateReturn } from 'reakit/Popover'
-import { usePopoverState } from 'reakit/Popover'
 import { Item } from '@react-stately/collections'
 import { useListBox } from '@react-aria/listbox'
 import type { ListState } from '@react-stately/list'
 import { useListState } from '@react-stately/list'
+
+import type { PickerStateReturn } from '../../picker'
+import { usePickerState } from '../../picker'
 
 export function useFilterState<T extends FilterItem>(
   props: UseFilterStateProps<T>
@@ -20,7 +21,7 @@ export function useFilterState<T extends FilterItem>(
 
   const ref = useRef(null)
 
-  const popover = usePopoverState({ gutter: 0, placement: 'bottom-start' })
+  const popover = usePickerState({ placement: 'bottom-start' })
 
   const listState = useListState<T>({
     ...stateProps,
@@ -83,7 +84,7 @@ export interface FilterItem {
 }
 
 export interface UseFilterStateReturn<T extends FilterItem> {
-  popover: PopoverStateReturn
+  popover: PickerStateReturn
   onClear: () => void
   onChange: () => void
   ref: React.MutableRefObject<null>

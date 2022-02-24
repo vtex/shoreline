@@ -1,10 +1,11 @@
+import { Role } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
-import { Popover as ReakitPopover } from 'reakit/Popover'
-import { Role } from 'reakit'
 
-export const FilterPopover = createComponent<typeof ReakitPopover>((props) => {
-  return useElement(ReakitPopover, {
+import { PickerPopover } from '../../picker'
+
+export const FilterPopover = createComponent<typeof PickerPopover>((props) => {
+  return useElement(PickerPopover, {
     baseStyle: {
       boxShadow: '$overlay.bottom',
       border: '$neutral',

@@ -12,5 +12,6 @@ export const StyledRadio = ({ checked }: { checked: boolean }) => {
     },
     checked,
     type: 'radio',
+    readOnly: true,
   })
 }

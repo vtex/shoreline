@@ -1,69 +1,34 @@
 import type { ReactNode } from 'react'
 import React from 'react'
+import { IconCaretUp } from '@vtex/phosphor-icons'
 
 import { Button } from '../Button'
-
 import { VisuallyHidden } from '../VisuallyHidden'
-import type { FilterItem, UseFilterStateReturn } from './useFilterState'
-
-import { PopoverDisclosure } from 'reakit/Popover'
-import { FilterPopoverFooter, FilterPopover } from './popover'
-
-import { IconCaretUp } from '@vtex/phosphor-icons'
 import { Set } from '../Set'
-
-// import {
-//   Picker,
-//   PickerDisclosure,
-//   PickerPopover,
-//   usePickerState,
-// } from '../../picker'
+import { FilterPopoverFooter, FilterPopover } from './filter-popover'
+import { FilterDisclosure } from './filter-disclosure'
+import type { FilterItem, UseFilterStateReturn } from './useFilterState'
 
 export function Filter(props: FilterProps) {
   const { state, children, selectedValuesLabel } = props
-  const {
-    onClear,
-    onChange,
-    popover,
-
-    label,
-    labelProps,
-    ref,
-    listBoxProps,
-  } = state
-
-  // const pickerState = usePickerState()
+  const { onClear, onChange, popover, label, labelProps, ref, listBoxProps } =
+    state
 
   return (
     <>
       <VisuallyHidden>
         <div {...labelProps}>{label}</div>
       </VisuallyHidden>
-      <Button
-        as={PopoverDisclosure}
-        state={popover}
-        csx={{
-          bg: '$action.neutral.secondary',
-          color: '$secondary',
-          ':hover': {
-            bg: '$action.neutral.secondaryHover',
-            color: '$secondary',
-          },
-          ':active': {
-            bg: '$action.neutral.secondaryPressed',
-            color: '$secondary',
-          },
-        }}
-        {...labelProps}
-      >
+      <FilterDisclosure state={popover} labelProps={labelProps}>
         {label}
         {selectedValuesLabel}
         <IconCaretUp
           csx={{
             transform: `rotate(${popover.visible ? 180 : 0}deg)`,
+            marginLeft: '$s',
           }}
         />
-      </Button>
+      </FilterDisclosure>
       <FilterPopover state={popover} aria-label={label}>
         <Set
           as="ul"
@@ -91,5 +56,5 @@ export function Filter(props: FilterProps) {
 export interface FilterProps {
   state: UseFilterStateReturn<FilterItem>
   children?: ReactNode
-  selectedValuesLabel?: any
+  selectedValuesLabel?: ReactNode
 }

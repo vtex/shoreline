@@ -1,17 +1,11 @@
-import type { ReactNode } from 'react'
-import React, { useRef } from 'react'
-
+import React from 'react'
+import { tag } from '@vtex/admin-ui-react'
+import { Checkbox } from '../Checkbox'
+import { Filter } from './filter'
+import { Option } from './option'
 import type { FilterItem, UseMultipleFilterReturn } from './useFilterState'
 
-import { Checkbox } from '../Checkbox'
-import { useOption } from '@react-aria/listbox'
-import { tag } from '@vtex/admin-ui-react'
-import { focusVisible } from '@vtex/admin-ui-core'
-
-import type { ListState } from '@react-stately/list'
-import { Filter } from './filter'
-
-export function MultiselectFilter(props: FilterCheckboxProps) {
+export function MultiselectFilter(props: MultiselectFilterProps) {
   const {
     state: { listState, selectedValues },
     state,
@@ -34,40 +28,18 @@ export function MultiselectFilter(props: FilterCheckboxProps) {
 
   return (
     <Filter state={state} selectedValuesLabel={selectedValuesLabel}>
-      {[...listState.collection].map((item) => {
-        return <Option key={item.key} item={item} state={listState} />
-      })}
+      {[...listState.collection].map((item) => (
+        <Option
+          key={item.key}
+          item={item}
+          state={listState}
+          inputRenderer={({ isSelected }) => <Checkbox checked={isSelected} />}
+        />
+      ))}
     </Filter>
   )
 }
 
-function Option({
-  item,
-  state,
-}: {
-  item: { key: string | number; rendered: ReactNode }
-  state: ListState<FilterItem>
-}) {
-  const ref = useRef(null)
-  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
-
-  return (
-    <tag.li
-      {...optionProps}
-      ref={ref}
-      csx={{
-        display: 'flex',
-        cursor: 'pointer',
-        paddingY: '$s',
-        ...focusVisible('main'),
-      }}
-    >
-      <Checkbox checked={isSelected} />
-      <tag.span csx={{ marginLeft: '$m' }}>{item.rendered}</tag.span>
-    </tag.li>
-  )
-}
-
-export interface FilterCheckboxProps {
+export interface MultiselectFilterProps {
   state: UseMultipleFilterReturn<FilterItem>
 }
