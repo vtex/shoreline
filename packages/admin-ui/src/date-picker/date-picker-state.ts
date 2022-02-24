@@ -8,7 +8,7 @@ import type {
 import { useCalendarState } from '../calendar'
 import type { PickerInitialState } from '../picker'
 import { usePickerState } from '../picker'
-import type { SegmentInitialState } from '../date-field'
+import type { DateFieldInitialState } from '../date-field'
 import { useDateFieldState } from '../date-field'
 import { toUTCString } from '../calendar/utils'
 import type { RangeValueMinMax } from '../calendar'
@@ -17,7 +17,7 @@ export type DatePickerInitialState = ValueBase<string> &
   RangeValueMinMax &
   Validation &
   PickerInitialState &
-  Pick<Partial<SegmentInitialState>, 'formatOptions' | 'placeholderDate'> & {
+  Pick<Partial<DateFieldInitialState>, 'formatOptions'> & {
     /**
      * Whether the element should receive focus on render.
      */

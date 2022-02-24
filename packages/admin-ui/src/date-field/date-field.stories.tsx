@@ -1,28 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import type { SegmentInitialState } from './index'
-import { DateField, DateFieldSegment, useDateFieldState } from './index'
+import { DateField, useDateFieldState } from './index'
 
 export default {
   title: 'admin-ui/DateField',
 } as Meta
 
-const SegmentedInput: React.FC<SegmentInitialState> = (props) => {
-  const state = useDateFieldState(props)
+export const Basic = () => {
+  const state = useDateFieldState()
 
   return (
     <div>
-      <DateField state={state}>
-        {state.segments.map((segment, i) => (
-          <DateFieldSegment key={i} segment={segment} state={state} />
-        ))}
-      </DateField>
+      <DateField label="Date" state={state} />
     </div>
   )
 }
 
-export const Basic = () => {
-  return <SegmentedInput />
+export const Placeholder = () => {
+  const [value, setValue] = useState(new Date(2020, 0, 8))
+  const state = useDateFieldState({
+    value,
+    onChange: (date) => setValue(date),
+  })
+
+  return (
+    <div>
+      <DateField label="Date" state={state} />
+    </div>
+  )
 }
