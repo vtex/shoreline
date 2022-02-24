@@ -534,7 +534,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-top: 0.5rem;
 }
 

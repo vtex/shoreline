@@ -298,7 +298,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1043,7 +1043,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1143,7 +1143,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1326,7 +1326,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1606,7 +1606,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2196,7 +2196,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2435,7 +2435,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2734,7 +2734,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   height: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;

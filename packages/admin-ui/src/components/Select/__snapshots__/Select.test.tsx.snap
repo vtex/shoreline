@@ -47,7 +47,7 @@ exports[`Select should match the snapshot 1`] = `
   position: absolute;
   top: 0.5rem;
   padding-left: 0.75rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   z-index: 2;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -61,7 +61,7 @@ exports[`Select should match the snapshot 1`] = `
   position: absolute;
   right: 12px;
   top: 25%;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-3 {
