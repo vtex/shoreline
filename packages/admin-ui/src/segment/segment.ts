@@ -238,7 +238,7 @@ function getTextValue(
   }
 }
 
-export type SegmentOptions = {
+export interface SegmentOptions {
   state: SegmentStateReturn
   segment: DateSegment
   isDisabled?: boolean

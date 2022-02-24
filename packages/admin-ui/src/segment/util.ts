@@ -22,7 +22,6 @@ export function asDate(value: Date | undefined): Date {
   return new Date(value)
 }
 
-// todo, this is not a string type
 export function getSegmentLimits(
   date: Date,
   type: string,
@@ -158,7 +157,8 @@ export function add(
     }
 
     default: {
-      // TODO throw warning
+      console.warn('add: Out of bounds')
+
       return new Date()
     }
   }
@@ -253,7 +253,8 @@ export function setSegment(
       return setYear(value, segmentValue)
 
     default: {
-      // TODO throw warning
+      console.warn('setSegment: Out of bounds')
+
       return new Date()
     }
   }
