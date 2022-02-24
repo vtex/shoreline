@@ -1,34 +1,18 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Filter } from '../index'
+import { MultiselectFilter, SingleSelectFilter } from '../index'
 
 import { useMultipleFilterState } from '../useMultipleFilterState'
 
-import { Set } from '../../Set'
 import { useSingleFilterState } from '../useSingleFilterState'
-import { MultiselectFilter } from '../multiselect-filter'
-import { SingleSelectFilter } from '../single-select-filter'
 
 export default {
   title: 'admin-ui/Filters',
-  component: Filter,
+  component: MultiselectFilter,
 } as Meta
 
-export function Example() {
-  const state = useMultipleFilterState({
-    items: [
-      { label: 'Full', value: 1, id: '#1' },
-      { label: 'Empty', value: 2, id: '#2' },
-      { label: 'Half full', value: 3, id: '#3' },
-      { label: 'Half empty', value: 4, id: '#4' },
-      { label: 'Unknown', value: 5, id: '#5' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'Status',
-    initialSelected: ['#1', '#2'],
-  })
-
+export function Single() {
   const state2 = useSingleFilterState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
@@ -42,11 +26,22 @@ export function Example() {
     initialSelected: '#1',
   })
 
-  return (
-    <Set orientation="horizontal">
-      <MultiselectFilter state={state} />
+  return <SingleSelectFilter state={state2} />
+}
 
-      <SingleSelectFilter state={state2} />
-    </Set>
-  )
+export function Multiple() {
+  const state = useMultipleFilterState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half full', value: 3, id: '#3' },
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Unknown', value: 5, id: '#5' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+    initialSelected: ['#1', '#2'],
+  })
+
+  return <MultiselectFilter state={state} />
 }
