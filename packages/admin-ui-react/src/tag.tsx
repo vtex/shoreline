@@ -22,7 +22,7 @@ import { domElements } from './domElements'
  */
 function _tag<T extends React.ElementType, Props>(
   type: T
-): AdminUIElement<T, Props> {
+): AdminUITagElement<T, Props> {
   function Element(props: ElementPropsWithAs<Props, T>, ref: React.Ref<T>) {
     const {
       as: ElementCall = type,
@@ -47,7 +47,7 @@ function _tag<T extends React.ElementType, Props>(
 
   Element.displayName = capitalize(String(type) ?? 'AdminUI')
 
-  return React.forwardRef(Element) as unknown as AdminUIElement<T, Props>
+  return React.forwardRef(Element) as unknown as AdminUITagElement<T, Props>
 }
 
 /**
@@ -64,14 +64,14 @@ function _tag<T extends React.ElementType, Props>(
  */
 export const tag = _tag as typeof _tag &
   {
-    [Tag in DOMElements]: AdminUIElement<Tag, {}>
+    [Tag in DOMElements]: AdminUITagElement<Tag, {}>
   }
 
 domElements.forEach((t) => {
   tag[t] = _tag(t)
 })
 
-export type AdminUIElement<T extends React.ElementType, Props> = {
+export type AdminUITagElement<T extends React.ElementType, Props> = {
   <TT extends React.ElementType>(
     props: ElementPropsWithAs<Props, TT> & { as: TT }
   ): JSX.Element

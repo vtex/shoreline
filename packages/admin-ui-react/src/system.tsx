@@ -6,7 +6,7 @@ import { useSystem } from './context'
 
 const __as = Symbol('cached type')
 
-interface SystemStyles {
+export interface SystemStyles {
   baseStyle?: StyleProp
   csx?: StyleProp
   css?: any
@@ -88,7 +88,7 @@ export function useElement<T extends React.ElementType>(
   return <Component {...htmlProps} />
 }
 
-interface AdminUIElement<Type, Props extends {}>
+export interface AdminUIElement<Type, Props extends {}>
   extends React.ForwardRefExoticComponent<
     Join<
       MergeLeft<
@@ -138,7 +138,7 @@ interface AdminUIElement<Type, Props extends {}>
   [__as]: Type
 }
 
-interface AdminUIComponent<Type, Props extends {}>
+export interface AdminUIComponent<Type, Props extends {}>
   extends React.ForwardRefExoticComponent<
     Join<
       MergeLeft<

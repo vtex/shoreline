@@ -62,6 +62,8 @@ export * from './components/Grid'
 export * from './components/Field'
 export * from './components/Center'
 export * from './components/Illustrations'
+export * from './date-picker'
+export * from './i18n'
 
 export {
   IconCaretUp,

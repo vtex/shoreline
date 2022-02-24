@@ -1,8 +1,9 @@
 import React from 'react'
-import { IconCalendar } from '@vtex/phosphor-icons'
+import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
 
 import { DateField } from '../date-field'
+import { Center } from '../components/Center'
 import { Picker, PickerDisclosure, PickerPopover } from '../picker'
 import { Calendar } from '../calendar'
 import type { DatePickerStateReturn } from './date-picker.state'
@@ -32,7 +33,9 @@ export function DatePicker(props: DatePickerProps) {
           state={dateFieldState}
           disclosure={
             <PickerDisclosure state={pickerState} csx={style.disclosure}>
-              <IconCalendar />
+              <Center>
+                <IconCalendarBlank />
+              </Center>
             </PickerDisclosure>
           }
         />

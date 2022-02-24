@@ -171,6 +171,12 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
             children: segment.text,
             tabIndex: disabled ? -1 : 0,
             disabled,
+            baseStyle: {
+              ...style.segment,
+              ...style.segmentVariants({
+                literal: true,
+              }),
+            },
             ...htmlProps,
           }
 
@@ -180,6 +186,12 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
             children: segment.text,
             tabIndex: disabled ? -1 : 0,
             disabled,
+            baseStyle: {
+              ...style.segment,
+              ...style.segmentVariants({
+                literal: false,
+              }),
+            },
             ...htmlProps,
           }
 
@@ -193,6 +205,12 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
             children: segment.text,
             tabIndex: props ? -1 : 0,
             disabled,
+            baseStyle: {
+              ...style.segment,
+              ...style.segmentVariants({
+                literal: false,
+              }),
+            },
             ...htmlProps,
           })
       }
@@ -202,7 +220,6 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
       ...elementProps,
       id,
       'aria-labelledby': id,
-      baseStyle: style.segment,
     })
   }
 )
