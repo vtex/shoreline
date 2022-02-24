@@ -136,7 +136,6 @@ export interface SegmentInitialState extends ControllableState<Date> {
    *   day: "2-digit",
    *   weekday: "long",
    * }
-   *
    */
   formatOptions?: Intl.DateTimeFormatOptions
 }

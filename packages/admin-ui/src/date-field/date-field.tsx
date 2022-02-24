@@ -9,11 +9,16 @@ import { SegmentList, Segment } from '../segment'
 import type { SegmentStateReturn } from '../segment'
 
 export const DateField = createComponent<'div', DateFieldOptions>((props) => {
-  const { state, label, disclosure, ...htmlProps } = props
+  const { state, label, disclosure, invalid, ...htmlProps } = props
 
   return useElement('div', {
     ...htmlProps,
-    baseStyle: style.dateField,
+    baseStyle: {
+      ...style.dateField,
+      ...style.variants({
+        invalid,
+      }),
+    },
     children: (
       <>
         <Flex direction="column">
@@ -34,4 +39,5 @@ export interface DateFieldOptions {
   state: SegmentStateReturn
   label: string
   disclosure?: ReactNode
+  invalid?: boolean
 }

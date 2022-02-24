@@ -21,16 +21,19 @@ export function DatePicker(props: DatePickerProps) {
     label,
   } = props
 
+  const invalid = validationState === 'invalid'
+
   return (
     <>
       <Picker
-        aria-invalid={ariaAttr(validationState === 'invalid')}
+        aria-invalid={ariaAttr(invalid)}
         aria-required={ariaAttr(isRequired)}
         state={pickerState}
       >
         <DateField
           label={label}
           state={dateFieldState}
+          invalid={invalid}
           disclosure={
             <PickerDisclosure state={pickerState} csx={style.disclosure}>
               <Center>
