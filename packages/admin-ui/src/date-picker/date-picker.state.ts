@@ -17,7 +17,7 @@ export type DatePickerInitialState = ValueBase<string> &
   RangeValueMinMax &
   Validation &
   PickerInitialState &
-  Pick<Partial<DateFieldInitialState>, 'formatOptions'> & {
+  Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> & {
     /**
      * Whether the element should receive focus on render.
      */
@@ -32,6 +32,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     isRequired,
     autoFocus,
     formatOptions,
+    placeholder,
   } = props
 
   const [value, setValue] = useState(defaultValue)
@@ -45,6 +46,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     value: date,
     onChange: setDate,
     formatOptions,
+    placeholder,
   })
 
   const pickerState = usePickerState({
@@ -57,6 +59,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const selectDate = useCallback(
     (newValue: string) => {
       setValue(newValue)
+      dateFieldState.resetPlaceholder()
       pickerState.hide()
     },
     [pickerState.hide]

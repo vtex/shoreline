@@ -26,16 +26,38 @@ const PAGE_STEP = {
   second: 15,
 }
 
+const RESET_PlACEHOLDER = {
+  day: false,
+  month: false,
+  year: false,
+}
+
+const DISPLAY_PlACEHOLDER = {
+  day: true,
+  month: true,
+  year: true,
+}
+
 const TYPO_MAPPING = {
   dayperiod: 'dayPeriod',
 }
 
 export function useSegmentState(props: SegmentInitialState = {}) {
-  const { value, onChange, defaultValue = new Date(), formatOptions } = props
+  const {
+    value,
+    onChange,
+    defaultValue = new Date(),
+    formatOptions,
+    placeholder,
+  } = props
 
   const segmentComposite = useCompositeState({ orientation: 'horizontal' })
   const validSegments = useRef<AnyObject>(EDITABLE_SEGMENTS)
   const dateFormatter = useDateFormatter(formatOptions)
+
+  const showPlaceholder = useRef<AnyObject>(
+    placeholder ? DISPLAY_PlACEHOLDER : RESET_PlACEHOLDER
+  )
 
   const resolvedOptions = useMemo(
     () => dateFormatter.resolvedOptions(),
@@ -63,10 +85,11 @@ export function useSegmentState(props: SegmentInitialState = {}) {
           ({
             type: get(TYPO_MAPPING, segment.type) || segment.type,
             text: segment.value,
+            placeholder: get(placeholder, segment.type),
             ...getSegmentLimits(date, segment.type, resolvedOptions),
           } as DateSegment)
       ),
-    [resolvedOptions, dateFormatter, date]
+    [resolvedOptions, dateFormatter, placeholder, date]
   )
 
   useEffect(() => {
@@ -80,15 +103,27 @@ export function useSegmentState(props: SegmentInitialState = {}) {
     amount: number
   ) => {
     validSegments.current[type] = true
+    showPlaceholder.current[type] = false
     setDate(add(date, type, amount, resolvedOptions) as Date)
+  }
+
+  const resetPlaceholder = () => {
+    showPlaceholder.current = RESET_PlACEHOLDER
+  }
+
+  const displayPlaceholder = () => {
+    showPlaceholder.current = DISPLAY_PlACEHOLDER
   }
 
   return {
     ...segmentComposite,
+    showPlaceholder,
     fieldValue: date,
     setFieldValue: setDate,
     segments,
     dateFormatter,
+    resetPlaceholder,
+    displayPlaceholder,
     increment(part: Intl.DateTimeFormatPartTypes) {
       adjustSegment(part, 1)
     },
@@ -138,6 +173,11 @@ export interface SegmentInitialState extends ControllableState<Date> {
    * }
    */
   formatOptions?: Intl.DateTimeFormatOptions
+  placeholder?: {
+    year: string
+    month: string
+    day: string
+  }
 }
 
 export interface DateSegment {
@@ -146,6 +186,7 @@ export interface DateSegment {
   value?: number
   minValue?: number
   maxValue?: number
+  placeholder?: string
 }
 
 export type SegmentStateReturn = ReturnType<typeof useSegmentState>
