@@ -48,8 +48,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -183,9 +183,12 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
         class="emotion-5 __admin-ui-collapsible--header"
       >
         <button
-          aria-controls="mocked-id"
+          aria-controls="react-collapsed-panel-3"
           aria-expanded="true"
           class="emotion-3"
+          id="react-collapsed-toggle-3"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <div
@@ -225,8 +228,10 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
         />
       </header>
       <div
+        aria-hidden="false"
         class="emotion-7"
-        id="mocked-id"
+        id="react-collapsed-panel-3"
+        style="box-sizing: border-box;"
       >
         <div
           class="__admin-ui-collapsible--content emotion-6"
@@ -287,8 +292,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -422,9 +427,12 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
         class="emotion-5 __admin-ui-collapsible--header"
       >
         <button
-          aria-controls="mocked-id"
+          aria-controls="react-collapsed-panel-4"
           aria-expanded="true"
           class="emotion-3"
+          id="react-collapsed-toggle-4"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <div
@@ -464,8 +472,10 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
         />
       </header>
       <div
+        aria-hidden="false"
         class="emotion-7"
-        id="mocked-id"
+        id="react-collapsed-panel-4"
+        style="box-sizing: border-box;"
       >
         <div
           class="__admin-ui-collapsible--content emotion-6"

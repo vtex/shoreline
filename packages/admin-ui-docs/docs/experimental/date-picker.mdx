@@ -1,0 +1,150 @@
+---
+title: DatePicker
+path: /date-picker/
+---
+
+# DatePicker
+
+## Usage
+
+```jsx
+import {
+  experimental_DatePicker as DatePicker,
+  experimental_useDatePickerState as useDatePickerState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useDatePickerState()
+  return <DatePicker label="Date" state={state} />
+}
+```
+
+## Examples
+
+### Default value
+
+```jsx noInline live
+const DatePicker = experimental_DatePicker
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState({
+    defaultValue: new Date(2020, 0, 2),
+  })
+
+  return <DatePicker label="Date" state={state} />
+}
+
+render(<Example />)
+```
+
+### Validation
+
+The `validationState` property accepts `valid` or `invalid`. It's up to you to define what is valid or not.
+
+```jsx noInline live
+const DatePicker = experimental_DatePicker
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState({
+    validationState: 'invalid',
+  })
+
+  return <DatePicker label="Date" state={state} />
+}
+
+render(<Example />)
+```
+
+### Format
+
+You can set formmating of date based on [Intl.DateFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) using the `formatOptions` property.
+
+```jsx noInline live
+const DatePicker = experimental_DatePicker
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState({
+    formatOptions: {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+      weekday: 'long',
+    },
+  })
+
+  return <DatePicker label="Date" state={state} />
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The date-picker has default translations. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx noInline live
+const DatePicker = experimental_DatePicker
+const useDatePickerState = experimental_useDatePickerState
+const I18nProvider = experimental_I18nProvider
+
+function DatePickerComponent() {
+  const state = useDatePickerState()
+  return <DatePicker label="Date" state={state} />
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="ko-KO">
+      <DatePickerComponent />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+### Placeholder
+
+Each segment placeholder is defined individually. Placeholders don't have default translation.
+
+```jsx noInline live
+const DatePicker = experimental_DatePicker
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState({
+    placeholder: {
+      day: 'DD',
+      month: 'MM',
+      year: 'YYYY',
+    },
+  })
+
+  return <DatePicker label="Date" state={state} />
+}
+
+render(<Example />)
+```
+
+## TODOs
+
+Features and fixes scheduled for this component:
+
+- [ ] Support min and max dates.
+- [ ] Support typing.
+- [ ] Support helper text.
+- [ ] Support placeholder localization.
+- [ ] Desing: Adjust calendar cels spacing
+- [ ] Design: Add hover and focus states
+- [ ] Design: Bleeding for internal buttons
+
+## Props
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| state | `DatePickerState` | Required state | ✅       | -       |
+| label | `string`          | Required label | ✅       | -       |
+| csx   | `StyleObject`     | Custom styles  | 🚫       | `{}`    |

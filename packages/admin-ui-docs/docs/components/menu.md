@@ -217,6 +217,11 @@ All props of `div` jsx element.
 
 All props of `button` jsx element.
 
+| Name | Type                | Description      | Required | Default   |
+| ---- | ------------------- | ---------------- | -------- | --------- |
+| tone | `regular, critical` | Tone of voice    | 🚫       | `regular` |
+| icon | `ReactNode`         | Icon of the item | 🚫       | -         |
+
 ### Separator
 
 All props of `hr` jsx element.

@@ -2,7 +2,7 @@ import { colors } from '../values'
 
 export const fg = {
   primary: colors.black,
-  secondary: colors.gray40,
+  secondary: colors.gray50,
   disabled: colors.gray40,
   inverted: colors.white,
   positive: colors.green40,

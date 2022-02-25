@@ -24,20 +24,6 @@ export interface CsxCall {
   css?: any
 }
 
-export type InferVariant<T> = T extends 'true'
-  ? boolean
-  : T extends 'false'
-  ? boolean
-  : T
-
-/**
- * Prop call for variants
- * @template Variants Component/Element variants
- */
-export type VariantsCall<Variants extends {}> = {
-  [k in keyof Variants]?: InferVariant<keyof Variants[k]>
-}
-
 /**
  * Render prop type
  * @template P Props

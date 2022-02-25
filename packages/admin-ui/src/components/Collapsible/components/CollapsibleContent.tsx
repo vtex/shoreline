@@ -1,19 +1,18 @@
 import React from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
-import { DisclosureContent } from 'reakit/Disclosure'
 
 import { useCollapsibleContext } from '../context'
 
-export const CollapsibleContent = jsx(DisclosureContent)(
+export const CollapsibleContent = jsx('div')(
   {},
   {
     useOptions(_, props) {
       const { csx, children, ...contentProps } = props
-      const disclosureProps = useCollapsibleContext()
+      const { getCollapseProps } = useCollapsibleContext()
 
       return {
-        ...disclosureProps,
-        children: disclosureProps.visible && (
+        ...getCollapseProps(),
+        children: (
           <tag.div
             className="__admin-ui-collapsible--content"
             csx={{

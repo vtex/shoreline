@@ -43,8 +43,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-42:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-42:hover {
@@ -166,8 +166,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-45:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-45:hover {
@@ -213,8 +213,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-48:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-48:hover {
@@ -332,8 +332,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -475,8 +475,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-27:hover {
@@ -504,8 +504,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-27:hover {
@@ -609,8 +609,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-30:disabled {
-  color: hsla(0, 0%, 43%, 1);
-  background: hsla(0, 0%, 87%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  background: hsla(0, 0%, 90%, 1);
 }
 
 .emotion-29 {
@@ -917,7 +917,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
               hidden=""
               id="statement-menu"
               role="menu"
-              style="display: none;"
+              style="display: none; position: fixed; left: 100%; top: 100%;"
               tabindex="-1"
             >
               <button
