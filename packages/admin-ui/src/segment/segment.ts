@@ -147,7 +147,8 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
             e.preventDefault()
             e.stopPropagation()
             if ((isNumeric(e.key) || /^[ap]$/.test(e.key)) && !isReadOnly) {
-              onNumericKeyDown(e.key)
+              // TODO: fix typing experience
+              // onNumericKeyDown(e.key)
             }
         }
       },

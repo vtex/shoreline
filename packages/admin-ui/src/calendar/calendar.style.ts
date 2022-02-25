@@ -21,6 +21,7 @@ export const calendarHeader = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   width: '100%',
+  marginBottom: '$xl',
 })
 
 export const calendarButton = style({
@@ -47,6 +48,7 @@ export const calendarCellButton = style({
     variant: 'tertiary',
   }),
   padding: 0,
+  marginBottom: '$s',
   text: '$action1',
   border: 'none',
   cursor: 'pointer',

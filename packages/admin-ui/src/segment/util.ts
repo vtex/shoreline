@@ -7,6 +7,7 @@ import {
   getSeconds,
   getYear,
   setDate,
+  setDay,
   setHours,
   setMinutes,
   setMonth,
@@ -209,7 +210,7 @@ export function setSegment(
 ) {
   switch (part) {
     case 'day':
-      return setDate(value, segmentValue)
+      return setDay(value, segmentValue)
 
     case 'dayPeriod': {
       const hours = getHours(value)

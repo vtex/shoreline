@@ -5,7 +5,7 @@ import { get } from '@vtex/admin-ui-util'
 import { useControllableState } from '@vtex/admin-ui-hooks'
 
 import { useDateFormatter } from '../i18n'
-import { add, getSegmentLimits, setSegment } from './util'
+import { add, getSegmentLimits, setSegment as setSegmentValue } from './util'
 
 const EDITABLE_SEGMENTS = {
   year: true,
@@ -138,7 +138,8 @@ export function useSegmentState(props: SegmentInitialState = {}) {
     },
     setSegment(part: Intl.DateTimeFormatPartTypes, v: number) {
       validSegments.current[part] = true
-      setDate(setSegment(date, part, v, resolvedOptions))
+      showPlaceholder.current[part] = false
+      setDate(setSegmentValue(date, part, v, resolvedOptions))
     },
   }
 }

@@ -16,11 +16,6 @@ export const Base: Story<{
 
   const state = useDatePickerState({
     validationState,
-    placeholder: {
-      month: 'MM',
-      day: 'DD',
-      year: 'YYYY',
-    },
   })
 
   return <DatePicker label="Date" state={state} />

@@ -11,10 +11,9 @@ import { usePickerState } from '../picker'
 import type { DateFieldInitialState } from '../date-field'
 import { useDateFieldState } from '../date-field'
 import { toUTCString } from '../calendar/utils'
-import type { RangeValueMinMax } from '../calendar'
+// import type { RangeValueMinMax } from '../calendar'
 
 export type DatePickerInitialState = ValueBase<string> &
-  RangeValueMinMax &
   Validation &
   PickerInitialState &
   Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> & {
@@ -24,11 +23,12 @@ export type DatePickerInitialState = ValueBase<string> &
     autoFocus?: boolean
   }
 
+// TODO: support min-max values
 export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const {
     defaultValue = toUTCString(new Date()),
-    minValue,
-    maxValue,
+    // minValue,
+    // maxValue,
     isRequired,
     autoFocus,
     formatOptions,
@@ -39,8 +39,8 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
 
   const date = new Date(value)
   const setDate = (date: Date) => setValue(toUTCString(date))
-  const minDateValue = minValue ? new Date(minValue) : new Date(-864e13)
-  const maxDateValue = maxValue ? new Date(maxValue) : new Date(864e13)
+  // const minDateValue = minValue ? new Date(minValue) : new Date(-864e13)
+  // const maxDateValue = maxValue ? new Date(maxValue) : new Date(864e13)
 
   const dateFieldState = useDateFieldState({
     value: date,
@@ -52,7 +52,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const pickerState = usePickerState({
     segmentFocus: dateFieldState.first,
     placement: 'bottom',
-    unstable_offset: [-112, 12],
+    unstable_offset: [-106, 12],
     ...props,
   })
 
@@ -68,8 +68,8 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const calendarState = useCalendarState({
     value,
     onChange: selectDate,
-    minValue,
-    maxValue,
+    // minValue,
+    // maxValue,
   })
 
   const validationState: ValidationState =
@@ -93,18 +93,19 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   }, [autoFocus, dateFieldState.first])
 
   function isInvalidDateRange(value: Date) {
-    const min = new Date(minDateValue)
-    const max = new Date(maxDateValue)
+    // const min = new Date(minDateValue)
+    // const max = new Date(maxDateValue)
 
-    return value < min || value > max
+    // return value < min || value > max
+    return !!value
   }
 
   return {
     dateValue: value,
     setDateValue: setValue,
     selectDate,
-    minValue,
-    maxValue,
+    // minValue,
+    // maxValue,
     isRequired,
     calendarState,
     validationState,
