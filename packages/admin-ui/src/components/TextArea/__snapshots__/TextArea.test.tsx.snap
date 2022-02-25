@@ -47,7 +47,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -76,7 +76,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0 {
@@ -103,13 +103,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -191,7 +191,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -220,7 +220,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0 {
@@ -247,13 +247,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -337,7 +337,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -384,9 +384,9 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
@@ -481,7 +481,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -510,7 +510,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0 {
@@ -537,13 +537,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -631,7 +631,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   letter-spacing: -0.0009em;
   left: 12px;
   padding-top: 0.5rem;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
   margin-bottom: 0.75rem;
   position: absolute;
   -webkit-transform: translate(0, 16px) scale(1);
@@ -660,7 +660,7 @@ exports[`TextArea tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 43%, 1);
+  color: hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0 {
@@ -687,9 +687,9 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {

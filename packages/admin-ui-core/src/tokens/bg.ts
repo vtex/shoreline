@@ -3,14 +3,14 @@ import { colors } from '../values'
 export const bg = {
   primary: colors.white,
   secondary: colors.gray05,
-  disabled: colors.gray20,
+  disabled: colors.gray10,
   positive: colors.green10,
   critical: colors.red10,
   warning: colors.orange10,
   info: colors.lightBlue10,
   inverted: colors.black,
   overlay: colors.grayTransparent50,
-  skeleton: `linear-gradient(90deg, ${colors.gray20}, ${colors.gray10}), ${colors.gray20}`,
+  skeleton: `linear-gradient(90deg, ${colors.gray10}, ${colors.gray20}), ${colors.gray10}`,
   action: {
     neutral: {
       tertiary: 'transparent',
@@ -55,8 +55,8 @@ export const bg = {
     neutralCheckedHover: colors.gray60,
     neutralCheckedPressed: colors.gray50,
     neutralInactive: colors.gray30,
-    neutralInactiveHover: colors.gray40,
-    neutralInactivePressed: colors.gray50,
+    neutralInactiveHover: colors.gray50,
+    neutralInactivePressed: colors.gray60,
     neutralActive: colors.black,
     neutralActiveHover: colors.gray60,
     neutralActivePressed: colors.gray50,
