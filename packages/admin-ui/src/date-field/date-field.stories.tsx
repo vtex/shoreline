@@ -22,7 +22,7 @@ export const Controlled = () => {
   const [value, setValue] = useState(new Date(2020, 0, 8))
   const state = useDateFieldState({
     value,
-    onChange: (date) => setValue(date),
+    onChange: setValue,
   })
 
   return <DateField label="Date" state={state} />

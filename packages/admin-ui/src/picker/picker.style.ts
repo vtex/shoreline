@@ -5,5 +5,4 @@ export const popoverStyle = style({
   boxShadow: '$overlay.center',
   border: '$neutral',
   borderRadius: '$default',
-  marginTop: '$m',
 })
