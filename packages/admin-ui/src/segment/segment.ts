@@ -164,40 +164,40 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
     )
 
     const elementProps = useMemo(() => {
+      const baseProps = {
+        state,
+        disabled,
+        tabIndex: disabled ? -1 : 0,
+        children: segment.text,
+        ...htmlProps,
+      }
+
       switch (segment.type) {
         case 'literal':
           return {
-            state,
-            children: segment.text,
-            tabIndex: disabled ? -1 : 0,
-            disabled,
+            ...baseProps,
             baseStyle: {
               ...style.segment,
               ...style.segmentVariants({
                 literal: true,
               }),
             },
-            ...htmlProps,
           }
 
         case 'era':
           return {
-            state,
-            children: segment.text,
-            tabIndex: disabled ? -1 : 0,
-            disabled,
+            ...baseProps,
             baseStyle: {
               ...style.segment,
               ...style.segmentVariants({
                 literal: false,
               }),
             },
-            ...htmlProps,
           }
 
         default:
           return mergeProps(spinButtonProps, {
-            state,
+            ...baseProps,
             'aria-label': segment.type,
             onKeyDown: callAllHandlers(htmlOnKeyDown, onKeyDown),
             onFocus: callAllHandlers(htmlOnFocus, onFocus),
@@ -206,15 +206,12 @@ export const Segment = createComponent<typeof CompositeItem, SegmentOptions>(
               month: monthFormatter,
               hour: hourFormatter,
             }),
-            tabIndex: props ? -1 : 0,
-            disabled,
             baseStyle: {
               ...style.segment,
               ...style.segmentVariants({
                 literal: false,
               }),
             },
-            ...htmlProps,
           })
       }
     }, [segment, state, disabled])

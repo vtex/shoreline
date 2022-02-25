@@ -50,7 +50,7 @@ export function DatePicker(props: DatePickerProps) {
   )
 }
 
-interface DatePickerProps {
+export interface DatePickerProps {
   state: DatePickerStateReturn
   label: string
 }

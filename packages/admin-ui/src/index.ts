@@ -2,6 +2,9 @@ export * from '@vtex/admin-ui-core'
 export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
+
+export * from './experimental'
+
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Menu'
@@ -62,8 +65,6 @@ export * from './components/Grid'
 export * from './components/Field'
 export * from './components/Center'
 export * from './components/Illustrations'
-export * from './date-picker'
-export * from './i18n'
 
 export {
   IconCaretUp,
