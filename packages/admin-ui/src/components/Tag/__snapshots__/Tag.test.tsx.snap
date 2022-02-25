@@ -545,8 +545,8 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -740,8 +740,8 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-4:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover {

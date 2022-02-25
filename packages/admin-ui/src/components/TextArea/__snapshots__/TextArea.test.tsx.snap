@@ -103,13 +103,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -247,13 +247,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -384,9 +384,9 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
@@ -537,13 +537,13 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
@@ -687,9 +687,9 @@ exports[`TextArea tests should match snapshot 1`] = `
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
 }
 
 .emotion-0:not(:focus):hover {
