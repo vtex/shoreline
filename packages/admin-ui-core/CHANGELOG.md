@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.5.1...@vtex/admin-ui-core@0.6.0) (2022-02-25)
+
+### Features
+
+- **colors:** update border values ([ca5304b](https://github.com/vtex/admin-ui/commit/ca5304b5aa8a27c06f3f0ac44b288065530b6f72))
+- **colors:** update cyan05, cyan30 and gray40 ([03cd851](https://github.com/vtex/admin-ui/commit/03cd8515c152f7161c63a10a3d3ae534d242ba03))
+- **colors:** update fg.secondary value ([27654e4](https://github.com/vtex/admin-ui/commit/27654e4fe0261687770dfc1240523cc77d8c8368))
+- **colors:** update foreground values ([7cfadd4](https://github.com/vtex/admin-ui/commit/7cfadd4691b729b69dcf6c8668520f560fd2e0fa))
+- **react:** create the 2.x version of react system ([ebd3a14](https://github.com/vtex/admin-ui/commit/ebd3a14ffd3bf4ff8a8139ae9ce21cc86a3de3fa))
+
 ## [0.5.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.5.0...@vtex/admin-ui-core@0.5.1) (2022-02-17)
 
 ### Bug Fixes

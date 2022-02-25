@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.5.3...@vtex/admin-ui-react@0.6.0) (2022-02-25)
+
+### Bug Fixes
+
+- **react:** allow render props on system ([7a138f3](https://github.com/vtex/admin-ui/commit/7a138f3e169c967957b068380ff1de9ea9532e0d))
+- **react:** get variant types from core ([7a33afd](https://github.com/vtex/admin-ui/commit/7a33afd4303d0e81401f34a3906e346cd73c4c32))
+
+### Features
+
+- **react:** add as prop to system ([d243c3d](https://github.com/vtex/admin-ui/commit/d243c3dfa3b189b90229eb3913de81b83e5bd231))
+- **react:** create the 2.x version of react system ([ebd3a14](https://github.com/vtex/admin-ui/commit/ebd3a14ffd3bf4ff8a8139ae9ce21cc86a3de3fa))
+
 ## [0.5.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.5.2...@vtex/admin-ui-react@0.5.3) (2022-02-24)
 
 **Note:** Version bump only for package @vtex/admin-ui-react

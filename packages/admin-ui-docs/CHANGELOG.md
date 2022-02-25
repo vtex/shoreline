@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.3.1...@vtex/admin-ui-docs@0.4.0) (2022-02-25)
+
+### Features
+
+- **admin-ui:** make datepicker and i18nprovider as experimental ([7648e67](https://github.com/vtex/admin-ui/commit/7648e67c805fce7eb5c6af556619d360f4597b85))
+
 ## [0.3.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.3.0...@vtex/admin-ui-docs@0.3.1) (2022-02-24)
 
 ### Bug Fixes

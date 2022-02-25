@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.119.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.5...@vtex/admin-ui@0.119.0) (2022-02-25)
+
+### Bug Fixes
+
+- **collapsible tests:** fix type error ([134b15e](https://github.com/vtex/admin-ui/commit/134b15ec85aed8c0e38765d9fbd9af1e836ed030))
+- **datepicker:** only allow working behviors ([7c0384b](https://github.com/vtex/admin-ui/commit/7c0384b84cfdd3d683b7ab2538dbc9408b95b54a))
+
+### Features
+
+- **admin-ui:** make datepicker and i18nprovider as experimental ([7648e67](https://github.com/vtex/admin-ui/commit/7648e67c805fce7eb5c6af556619d360f4597b85))
+- **calendar:** create component ([00f6f5a](https://github.com/vtex/admin-ui/commit/00f6f5aa3fada863a8d117dd2991f93eca713bc3))
+- **collapsible:** add expand animation ([035f650](https://github.com/vtex/admin-ui/commit/035f650896ad6b0deb33c26c994e631c1609617b)), closes [#32](https://github.com/vtex/admin-ui/issues/32)
+- **date-picker:** add component ([8069daf](https://github.com/vtex/admin-ui/commit/8069dafc7db45a40d3b94a8291697a3ed2b76e58))
+- **datepicker:** add invalid state ([19ceb7b](https://github.com/vtex/admin-ui/commit/19ceb7bfd30a2349afd963245c7f80cfa1823cde))
+- **datepicker:** implement placeholders ([4183594](https://github.com/vtex/admin-ui/commit/4183594c57c690b513c8cae334837f231bae9eb9))
+- **picker:** create component ([dd514f3](https://github.com/vtex/admin-ui/commit/dd514f33939ee7a9fa21e49696da1f30db0a7678))
+- **picker-calendar:** allow controlled and uncontrolled versions ([f0ffac0](https://github.com/vtex/admin-ui/commit/f0ffac04f3b122dd21a3d7ea71aaed8f692ca25f))
+- **segment:** add component ([386894e](https://github.com/vtex/admin-ui/commit/386894edf4acde4ed47acc7772c483667b3f74d5))
+- **useonkeydown:** create hook ([333d028](https://github.com/vtex/admin-ui/commit/333d0281b989e4bb5493b47cad75dd97443a7d4c))
+
 ## [0.118.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.118.4...@vtex/admin-ui@0.118.5) (2022-02-24)
 
 **Note:** Version bump only for package @vtex/admin-ui
