@@ -117,8 +117,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -321,8 +321,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -525,8 +525,8 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -734,8 +734,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {
@@ -938,8 +938,8 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-3:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-3:hover {

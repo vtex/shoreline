@@ -28,17 +28,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -128,8 +128,8 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-4:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover {
@@ -329,17 +329,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -362,8 +362,8 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -519,17 +519,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -567,17 +567,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -614,8 +614,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover {
@@ -793,17 +793,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5 {
@@ -840,8 +840,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover {
@@ -1017,17 +1017,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-2 {
@@ -1117,17 +1117,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-2 {
@@ -1231,8 +1231,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -1357,17 +1357,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -1511,8 +1511,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -1637,17 +1637,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -1798,17 +1798,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1 {
@@ -1880,17 +1880,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1 {
@@ -1963,8 +1963,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-4:hover {
@@ -2081,17 +2081,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -2241,17 +2241,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -2340,8 +2340,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -2480,17 +2480,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div
@@ -2639,8 +2639,8 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-5:hover {
@@ -2779,17 +2779,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 43%, 1);
+  border: 1px solid hsla(0, 0%, 33%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 <div

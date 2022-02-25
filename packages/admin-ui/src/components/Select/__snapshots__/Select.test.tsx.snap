@@ -92,13 +92,13 @@ exports[`Select should match the snapshot 1`] = `
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 87%, 1);
-  border: 1px solid hsla(0, 0%, 43%, 1);
-  color: hsla(0, 0%, 43%, 1);
+  background: hsla(0, 0%, 90%, 1);
+  border: 1px solid hsla(0, 0%, 45%, 1);
+  color: hsla(0, 0%, 45%, 1);
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid hsla(0, 0%, 23%, 1);
   box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
 }
 
