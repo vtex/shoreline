@@ -23,6 +23,7 @@ export function Filter(props: FilterProps) {
         {label}
         {selectedValuesLabel}
         <IconCaretUp
+          size="small"
           csx={{
             transform: `rotate(${popover.visible ? 180 : 0}deg)`,
             marginLeft: '$s',
@@ -32,16 +33,25 @@ export function Filter(props: FilterProps) {
       <FilterPopover state={popover} aria-label={label}>
         <Set
           as="ul"
-          spacing={5}
+          spacing="$xl"
           orientation="vertical"
           ref={ref}
-          csx={{ margin: '$l', paddingY: '$m' }}
+          csx={{
+            padding: '$l',
+            marginTop: '$m',
+            maxHeight: 312,
+            overflowY: 'auto',
+          }}
           {...listBoxProps}
         >
           {children}
         </Set>
-        <FilterPopoverFooter>
-          <Button size="small" variant="adaptative-dark" onClick={onClear}>
+        <FilterPopoverFooter
+          isContentScrollable={
+            ref?.current?.scrollHeight > ref?.current?.clientHeight
+          }
+        >
+          <Button size="small" variant="tertiary" onClick={onClear}>
             Clear
           </Button>
           <Button size="small" onClick={onChange}>

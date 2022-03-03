@@ -26,7 +26,6 @@ export const Option = ({
       csx={{
         display: 'flex',
         cursor: 'pointer',
-        paddingY: '$s',
         ...focusVisible('main'),
       }}
     >

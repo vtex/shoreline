@@ -87,7 +87,7 @@ export interface UseFilterStateReturn<T extends FilterItem> {
   popover: PickerStateReturn
   onClear: () => void
   onChange: () => void
-  ref: React.MutableRefObject<null>
+  ref: React.MutableRefObject<any>
   listBoxProps: React.HTMLAttributes<HTMLElement>
   labelProps: React.HTMLAttributes<HTMLElement>
   listState: ListState<T>

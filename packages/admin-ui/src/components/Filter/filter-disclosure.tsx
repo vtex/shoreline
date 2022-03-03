@@ -12,14 +12,15 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
       state={state}
       csx={{
         ...style.baseline,
-        ...style.regular({ icon: 'end' }),
+        ...style.small({ icon: 'end' }),
         ...style.svg,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        text: '$action1',
+        text: '$action2',
         bg: '$action.neutral.secondary',
         color: '$secondary',
+        padding: '$s',
         ':hover': {
           bg: '$action.neutral.secondaryHover',
           color: '$secondary',
