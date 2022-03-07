@@ -10,7 +10,7 @@ import { FilterDisclosure } from './filter-disclosure'
 import type { FilterItem, UseFilterStateReturn } from './useFilterState'
 
 export function Filter(props: FilterProps) {
-  const { state, children, selectedValuesLabel } = props
+  const { state, children, appliedValuesLabel } = props
   const { onClear, onChange, popover, label, labelProps, ref, listBoxProps } =
     state
 
@@ -21,11 +21,11 @@ export function Filter(props: FilterProps) {
       </VisuallyHidden>
       <FilterDisclosure state={popover} labelProps={labelProps}>
         {label}
-        {selectedValuesLabel}
+        {appliedValuesLabel}
         <IconCaretUp
           size="small"
           csx={{
-            transform: `rotate(${popover.visible ? 180 : 0}deg)`,
+            transform: `rotate(${popover.visible ? 0 : 180}deg)`,
             marginLeft: '$s',
           }}
         />
@@ -66,5 +66,5 @@ export function Filter(props: FilterProps) {
 export interface FilterProps {
   state: UseFilterStateReturn<FilterItem>
   children?: ReactNode
-  selectedValuesLabel?: ReactNode
+  appliedValuesLabel?: ReactNode
 }

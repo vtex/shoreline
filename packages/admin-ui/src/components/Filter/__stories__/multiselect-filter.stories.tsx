@@ -45,7 +45,7 @@ export function Multiple() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
-    initialSelected: ['#1', '#2'],
+    initialApplied: ['#1', '#2'],
   })
 
   return <MultiselectFilter state={state} />
@@ -90,7 +90,7 @@ export function Mixed() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Preselected',
-    initialSelected: ['#1', '#2'],
+    initialApplied: ['#1', '#2'],
   })
 
   return (

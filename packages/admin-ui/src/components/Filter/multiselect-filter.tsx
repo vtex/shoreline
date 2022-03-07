@@ -7,17 +7,17 @@ import type { FilterItem, UseMultipleFilterReturn } from './useFilterState'
 
 export function MultiselectFilter(props: MultiselectFilterProps) {
   const {
-    state: { listState, selectedValues },
+    state: { listState, appliedValues },
     state,
   } = props
 
   const selectedItemsLabel =
-    selectedValues &&
-    (selectedValues?.length > 1
-      ? `${selectedValues[0]}, +${selectedValues.length - 1}`
-      : selectedValues[0])
+    appliedValues &&
+    (appliedValues?.length > 1
+      ? `${appliedValues[0]}, +${appliedValues.length - 1}`
+      : appliedValues[0])
 
-  const selectedValuesLabel = !!selectedValues?.length && (
+  const appliedValuesLabel = !!appliedValues?.length && (
     <>
       <span>:</span>
       <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
@@ -27,7 +27,7 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
   )
 
   return (
-    <Filter state={state} selectedValuesLabel={selectedValuesLabel}>
+    <Filter state={state} appliedValuesLabel={appliedValuesLabel}>
       {[...listState.collection].map((item) => (
         <Option
           key={item.key}

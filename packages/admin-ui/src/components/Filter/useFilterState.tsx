@@ -10,14 +10,14 @@ import { usePickerState } from '../../picker'
 export function useFilterState<T extends FilterItem>(
   props: UseFilterStateProps<T>
 ): UseMultipleFilterReturn<T> {
-  const { onChange, items, label, initialSelected, selectionMode } = props
+  const { onChange, items, label, initialApplied, selectionMode } = props
   const stateProps = {
     items,
     children: (item: FilterItem) => <Item key={item.id}>{item.label}</Item>,
     selectionMode,
   }
 
-  const [selectedKeys, setSelectedKeys] = useState<key[]>(initialSelected || [])
+  const [appliedKeys, setAppliedKeys] = useState<key[]>(initialApplied || [])
 
   const ref = useRef(null)
 
@@ -25,7 +25,7 @@ export function useFilterState<T extends FilterItem>(
 
   const listState = useListState<T>({
     ...stateProps,
-    defaultSelectedKeys: initialSelected,
+    defaultSelectedKeys: initialApplied,
   })
 
   const { listBoxProps, labelProps } = useListBox<FilterItem>(
@@ -37,14 +37,14 @@ export function useFilterState<T extends FilterItem>(
   const apply = useCallback(() => {
     const nextSelected = [...listState.selectionManager.selectedKeys]
 
-    setSelectedKeys(nextSelected)
+    setAppliedKeys(nextSelected)
     onChange?.({ selected: nextSelected })
     popover.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
     listState.selectionManager.clearSelection()
-    setSelectedKeys([])
+    setAppliedKeys([])
 
     onChange?.({ selected: [] })
     popover.hide()
@@ -52,14 +52,14 @@ export function useFilterState<T extends FilterItem>(
 
   useEffect(() => {
     if (!popover.visible) {
-      listState.selectionManager.setSelectedKeys(selectedKeys)
+      listState.selectionManager.setSelectedKeys(appliedKeys)
       listState.selectionManager.setFocusedKey(items[0].id)
     }
   }, [popover.visible])
 
-  const selectedValues = useMemo(
-    () => selectedKeys.map((k) => listState.collection.getItem(k).value.label),
-    [selectedKeys, listState.collection]
+  const appliedValues = useMemo(
+    () => appliedKeys.map((k) => listState.collection.getItem(k).value.label),
+    [appliedKeys, listState.collection]
   )
 
   return {
@@ -67,7 +67,9 @@ export function useFilterState<T extends FilterItem>(
     onClear: clear,
     onChange: apply,
     listState,
-    selectedValues,
+    appliedValues,
+    appliedKeys,
+    selectedKeys: [...listState.selectionManager.selectedKeys],
     ref,
     listBoxProps,
     label,
@@ -96,14 +98,16 @@ export interface UseFilterStateReturn<T extends FilterItem> {
 
 export interface UseMultipleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn<T> {
-  selectedValues: any[]
+  appliedValues: any[]
+  appliedKeys: key[]
+  selectedKeys: key[]
 }
 
 export interface UseMultipleFilterStateProps<T extends FilterItem> {
   /** Function called when a change is applied. */
   onChange: ({ selected }: { selected: key[] }) => void
   /** The initial selected keys. */
-  initialSelected?: key[]
+  initialApplied?: key[]
   /** Filter button label. */
   label: string
   items: T[]

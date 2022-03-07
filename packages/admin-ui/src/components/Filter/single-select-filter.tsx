@@ -9,21 +9,21 @@ import { Option } from './option'
 
 export function SingleSelectFilter(props: SingleSelectFilterProps) {
   const {
-    state: { listState, selectedValue },
+    state: { listState, appliedValue },
     state,
   } = props
 
-  const selectedValuesLabel = selectedValue && (
+  const appliedValuesLabel = appliedValue && (
     <>
       <span>:</span>
       <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
-        {selectedValue}
+        {appliedValue}
       </tag.span>
     </>
   )
 
   return (
-    <Filter state={state} selectedValuesLabel={selectedValuesLabel}>
+    <Filter state={state} appliedValuesLabel={appliedValuesLabel}>
       {[...listState.collection].map((item) => (
         <Option
           key={item.key}

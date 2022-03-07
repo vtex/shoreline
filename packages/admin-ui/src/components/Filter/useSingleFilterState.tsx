@@ -1,10 +1,11 @@
+import { useEffect } from 'react'
 import type { FilterItem, key, UseFilterStateReturn } from './useFilterState'
 import { useFilterState } from './useFilterState'
 
 export function useSingleFilterState<T extends FilterItem>(
   props: UseSingleFilterStateProps<T>
 ): UseSingleFilterReturn<T> {
-  const { initialSelected, onChange: onChangeCb, ...otherProps } = props
+  const { initialApplied, onChange: onChangeCb, ...otherProps } = props
 
   const onChange = ({ selected }: { selected: key[] }) => {
     onChangeCb({ selected: selected?.length ? selected[0] : null })
@@ -12,29 +13,37 @@ export function useSingleFilterState<T extends FilterItem>(
 
   const filterState = useFilterState({
     ...otherProps,
-    initialSelected: initialSelected ? [initialSelected] : [],
+    initialApplied: initialApplied ? [initialApplied] : [],
     onChange,
     selectionMode: 'single',
   })
 
-  const { selectedValues, ...singleSelectState } = filterState
+  const { appliedValues, appliedKeys, selectedKeys, ...singleSelectState } =
+    filterState
+
+  // forces apply when one item is selected
+  useEffect(() => {
+    filterState.onChange()
+  }, [selectedKeys[0]])
 
   return {
     ...singleSelectState,
-    selectedValue: selectedValues?.length ? selectedValues[0] : null,
+    appliedValue: appliedValues?.length ? appliedValues[0] : null,
+    appliedKey: appliedKeys?.length ? appliedKeys[0] : null,
   }
 }
 
 export interface UseSingleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn<T> {
-  selectedValue: any
+  appliedValue: any
+  appliedKey: any
 }
 
 export interface UseSingleFilterStateProps<T extends FilterItem> {
   /** Function called when a change is applied. */
   onChange: ({ selected }: { selected: key | null }) => void
   /** The initial selected key. */
-  initialSelected?: key
+  initialApplied?: key
   /** Filter button label. */
   label: string
   items: T[]
