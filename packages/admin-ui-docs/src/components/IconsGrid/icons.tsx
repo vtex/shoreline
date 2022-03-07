@@ -87,10 +87,7 @@ export const iconsDoc = [
   'Tag',
   'Megaphone',
   'Layout',
-  'Package',
-  'Gear',
-  'TreeStructure',
-  'CirclesThreePlus',
+  'GearSix',
   'Notebook',
   'Code',
   'Activity',
@@ -127,6 +124,9 @@ export const iconsDoc = [
   'Warning',
   'WarningCircle',
   'CheckCircle',
+  'Cube',
+  'ShareNetwork',
+  'Stack',
 ]
 
 export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
