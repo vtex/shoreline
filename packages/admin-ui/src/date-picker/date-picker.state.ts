@@ -1,9 +1,5 @@
-import React, { useCallback, useState } from 'react'
-import type {
-  Validation,
-  ValidationState,
-  ValueBase,
-} from '@react-types/shared'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type { ValueBase } from '@react-types/shared'
 
 import { useCalendarState } from '../calendar'
 import type { PickerInitialState } from '../picker'
@@ -13,15 +9,30 @@ import { useDateFieldState } from '../date-field'
 import { toUTCString } from '../calendar/utils'
 // import type { RangeValueMinMax } from '../calendar'
 
-export type DatePickerInitialState = ValueBase<string> &
-  Validation &
-  PickerInitialState &
-  Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> & {
-    /**
-     * Whether the element should receive focus on render.
-     */
-    autoFocus?: boolean
-  }
+export type DatePickerInitialState =
+  ValueBase<string> & {} & PickerInitialState &
+    Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> & {
+      /**
+       * Whether should receive focus on render
+       * @default false
+       */
+      autoFocus?: boolean
+      /**
+       * Whether is invalid
+       * @default false
+       */
+      invalid?: boolean
+      /**
+       * Whether is required
+       * @default false
+       */
+      required?: boolean
+      /**
+       * Whether is disabled
+       * @default false
+       */
+      disabled?: boolean
+    }
 
 // TODO: support min-max values
 export const useDatePickerState = (props: DatePickerInitialState = {}) => {
@@ -29,8 +40,10 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     defaultValue = toUTCString(new Date()),
     // minValue,
     // maxValue,
-    isRequired,
-    autoFocus,
+    invalid: invalidProp = false,
+    required = false,
+    autoFocus = false,
+    disabled = false,
     formatOptions,
     placeholder,
   } = props
@@ -53,6 +66,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     segmentFocus: dateFieldState.first,
     placement: 'bottom',
     unstable_offset: [-106, 12],
+    isDisabled: disabled,
     ...props,
   })
 
@@ -72,33 +86,26 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     // maxValue,
   })
 
-  const validationState: ValidationState =
-    props.validationState || (isInvalidDateRange(date) ? 'invalid' : 'valid')
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (pickerState.visible) {
       calendarState.setFocused(true)
       calendarState.focusCell(date)
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pickerState.visible])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (autoFocus) {
       dateFieldState.first()
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoFocus, dateFieldState.first])
 
-  function isInvalidDateRange(value: Date) {
+  const invalid = useMemo(() => {
     // const min = new Date(minDateValue)
     // const max = new Date(maxDateValue)
-
     // return value < min || value > max
-    return !!value
-  }
+
+    return invalidProp
+  }, [invalidProp])
 
   return {
     dateValue: value,
@@ -106,9 +113,10 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     selectDate,
     // minValue,
     // maxValue,
-    isRequired,
+    required,
+    disabled,
     calendarState,
-    validationState,
+    invalid,
     pickerState,
     dateFieldState,
   }

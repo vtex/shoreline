@@ -1,34 +1,52 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { I18nProvider } from '../i18n'
-import { DatePicker, useDatePickerState } from './index'
+import {
+  DatePickerField,
+  DatePickerCalendar,
+  useDatePickerState,
+} from './index'
 
 export default {
   title: 'admin-ui/DatePicker',
-  component: DatePicker,
+  component: DatePickerField,
 } as Meta
 
 export const Base: Story<{
-  validationState: 'valid' | 'invalid'
+  invalid: boolean
+  disabled: boolean
   label: string
 }> = (args) => {
-  const { validationState } = args
+  const { invalid, disabled } = args
 
   const state = useDatePickerState({
-    validationState,
+    invalid,
+    disabled,
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 Base.parameters = {
-  validationState: 'valid',
+  invalid: false,
+  disabled: false,
 }
 
 Base.argTypes = {
-  validationState: {
-    options: ['valid', 'invalid'],
-    control: { type: 'radio' },
+  invalid: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  disabled: {
+    control: {
+      type: 'boolean',
+    },
   },
 }
 
@@ -41,7 +59,12 @@ const Localized = () => {
     },
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 export const Internationalized: Story<{ locale: string }> = (args) => {

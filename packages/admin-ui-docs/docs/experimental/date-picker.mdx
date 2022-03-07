@@ -9,7 +9,8 @@ path: /date-picker/
 
 ```jsx
 import {
-  experimental_DatePicker as DatePicker,
+  experimental_DatePickerField as DatePickerField,
+  experimental_DatePickerCalendar as DatePickerCalendar,
   experimental_useDatePickerState as useDatePickerState,
 } from '@vtex/admin-ui'
 
@@ -24,7 +25,8 @@ function Example() {
 ### Default value
 
 ```jsx noInline live
-const DatePicker = experimental_DatePicker
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
 const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
@@ -32,7 +34,12 @@ function Example() {
     defaultValue: new Date(2020, 0, 2),
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 render(<Example />)
@@ -40,18 +47,24 @@ render(<Example />)
 
 ### Validation
 
-The `validationState` property accepts `valid` or `invalid`. It's up to you to define what is valid or not.
+Use the `invalid` boolean to trigger the invalid state. It's up to you to define what is valid or not.
 
 ```jsx noInline live
-const DatePicker = experimental_DatePicker
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
 const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
   const state = useDatePickerState({
-    validationState: 'invalid',
+    invalid: true,
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 render(<Example />)
@@ -62,7 +75,8 @@ render(<Example />)
 You can set formmating of date based on [Intl.DateFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) using the `formatOptions` property.
 
 ```jsx noInline live
-const DatePicker = experimental_DatePicker
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
 const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
@@ -75,7 +89,12 @@ function Example() {
     },
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 render(<Example />)
@@ -86,13 +105,19 @@ render(<Example />)
 The date-picker has default translations. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
 
 ```jsx noInline live
-const DatePicker = experimental_DatePicker
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
 const useDatePickerState = experimental_useDatePickerState
 const I18nProvider = experimental_I18nProvider
 
 function DatePickerComponent() {
   const state = useDatePickerState()
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 function RootApp() {
@@ -111,7 +136,8 @@ render(<RootApp />)
 Each segment placeholder is defined individually. Placeholders don't have default translation.
 
 ```jsx noInline live
-const DatePicker = experimental_DatePicker
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
 const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
@@ -123,7 +149,12 @@ function Example() {
     },
   })
 
-  return <DatePicker label="Date" state={state} />
+  return (
+    <>
+      <DatePickerField label="Date" state={state} />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 render(<Example />)
@@ -143,8 +174,18 @@ Features and fixes scheduled for this component:
 
 ## Props
 
+### DatePickerField
+
 | Name  | Type              | Description    | Required | Default |
 | ----- | ----------------- | -------------- | -------- | ------- |
 | state | `DatePickerState` | Required state | ✅       | -       |
 | label | `string`          | Required label | ✅       | -       |
+| csx   | `StyleObject`     | Custom styles  | 🚫       | `{}`    |
+
+
+### DatePickerCalendar
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| state | `DatePickerState` | Required state | ✅       | -       |
 | csx   | `StyleObject`     | Custom styles  | 🚫       | `{}`    |

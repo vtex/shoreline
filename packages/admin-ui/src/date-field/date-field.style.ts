@@ -19,6 +19,11 @@ export const variants = styleVariants({
       border: '$form.neutral',
     },
   },
+  disabled: {
+    true: {
+      border: '$disabled',
+    },
+  },
 })
 
 export const label = style({

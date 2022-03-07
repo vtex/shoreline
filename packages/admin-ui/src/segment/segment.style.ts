@@ -10,6 +10,9 @@ export const segment = style({
   paddingY: 0,
   bg: '$action.neutral.tertiary',
   color: '$action.neutral.tertiary',
+  ':disabled': {
+    color: '$disabled',
+  },
 })
 
 export const segmentVariants = styleVariants({
