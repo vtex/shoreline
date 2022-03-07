@@ -130,6 +130,7 @@ export {
   IconLayout,
   IconPackage,
   IconGear,
+  IconGearSix,
   IconTreeStructure,
   IconCirclesThreePlus,
   IconNotebook,
@@ -169,4 +170,7 @@ export {
   IconWarningCircle,
   IconCheckCircle,
   IconProps,
+  IconCube,
+  IconShareNetwork,
+  IconStack,
 } from '@vtex/phosphor-icons'
