@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.4.0...@vtex/admin-ui-docs@0.4.1) (2022-03-07)
+
+### Bug Fixes
+
+- **datepicker:** turn datepicker into a compound component ([3850431](https://github.com/vtex/admin-ui/commit/38504316edc3484186eec156fa8584666435b56a))
+
 # [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.3.1...@vtex/admin-ui-docs@0.4.0) (2022-02-25)
 
 ### Features
