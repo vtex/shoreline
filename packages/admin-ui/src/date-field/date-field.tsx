@@ -32,10 +32,10 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
         <Flex direction="column">
           <Label csx={style.label}>{label}</Label>
           <SegmentList state={state}>
-            {state.segments.map((segment, i) => (
+            {state.segments.map((segment, index) => (
               <Segment
                 isDisabled={disabled}
-                key={i}
+                key={`segment-element-${index}`}
                 segment={segment}
                 state={state}
               />
