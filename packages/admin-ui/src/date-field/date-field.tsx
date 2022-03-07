@@ -9,7 +9,14 @@ import { SegmentList, Segment } from '../segment'
 import type { SegmentStateReturn } from '../segment'
 
 export const DateField = createComponent<'div', DateFieldOptions>((props) => {
-  const { state, label, disclosure, invalid, ...htmlProps } = props
+  const {
+    state,
+    label,
+    disclosure,
+    invalid = false,
+    disabled = false,
+    ...htmlProps
+  } = props
 
   return useElement('div', {
     ...htmlProps,
@@ -17,6 +24,7 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
       ...style.dateField,
       ...style.variants({
         invalid,
+        disabled,
       }),
     },
     children: (
@@ -25,7 +33,12 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
           <Label csx={style.label}>{label}</Label>
           <SegmentList state={state}>
             {state.segments.map((segment, i) => (
-              <Segment key={i} segment={segment} state={state} />
+              <Segment
+                isDisabled={disabled}
+                key={i}
+                segment={segment}
+                state={state}
+              />
             ))}
           </SegmentList>
         </Flex>
@@ -40,4 +53,5 @@ export interface DateFieldOptions {
   label: string
   disclosure?: ReactNode
   invalid?: boolean
+  disabled?: boolean
 }

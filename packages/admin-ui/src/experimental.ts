@@ -1,6 +1,8 @@
 import {
-  DatePicker as experimental_DatePicker,
-  DatePickerProps as experimental_DatePickerProps,
+  DatePickerField as experimental_DatePickerField,
+  DatePickerFieldProps as experimental_DatePickerFieldProps,
+  DatePickerCalendar as experimental_DatePickerCalendar,
+  DatePickerCalendarProps as experimental_DatePickerCalendarProps,
   DatePickerInitialState as experimental_DatePickerInitialState,
   DatePickerStateReturn as experimental_DatePickerStateReturn,
   useDatePickerState as experimental_useDatePickerState,
@@ -11,8 +13,10 @@ import {
 } from './i18n'
 
 export {
-  experimental_DatePicker,
-  experimental_DatePickerProps,
+  experimental_DatePickerField,
+  experimental_DatePickerFieldProps,
+  experimental_DatePickerCalendar,
+  experimental_DatePickerCalendarProps,
   experimental_DatePickerInitialState,
   experimental_DatePickerStateReturn,
   experimental_useDatePickerState,
