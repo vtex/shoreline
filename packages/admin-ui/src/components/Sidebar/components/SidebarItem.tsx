@@ -1,5 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { useEffect, useMemo, forwardRef } from 'react'
+
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
 
@@ -27,6 +28,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
   } = props
 
   const state = useSidebarContext()
+
   const selected = useMemo(
     () => state.isSelected(uniqueKey),
     [uniqueKey, state.isSelected]
@@ -55,6 +57,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
     }
 
     state.setSelectedItem(currItem)
+    state.setSelectedItemFallback(currItem)
   }
 
   const handleExpansion = () => {
@@ -112,6 +115,15 @@ export const SidebarItem = forwardRef(function SidebarItem(
       role="menuitem"
       aria-label={label}
       id={label}
+      onMouseEnter={() => {
+        state.setSelectedItem({
+          uniqueKey,
+          expandable,
+        })
+      }}
+      onMouseLeave={() => {
+        state.setSelectedItem(state.selectedItemFallback)
+      }}
     >
       {(itemProps) => (
         <>
@@ -130,7 +142,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
               height: '100%',
               width: '12.5rem',
-              padding: '1.5rem 0.5rem',
+              padding: '$m',
               outline: 'none',
               overflow: 'auto',
               backgroundColor: 'transparent',
