@@ -4660,6 +4660,11 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
+"@popperjs/core@^2.11.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
+  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
+
 "@popperjs/core@^2.5.4":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
@@ -7493,6 +7498,19 @@ aria-query@^4.2.2:
   dependencies:
     "@babel/runtime" "^7.10.2"
     "@babel/runtime-corejs3" "^7.10.2"
+
+ariakit-utils@^0.17.0-alpha.12:
+  version "0.17.0-alpha.12"
+  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-alpha.12.tgz#3c50bebdc8cd0e2045ae00dc289a336c948aa6bb"
+  integrity sha512-zvLYC2kNCofxdMrlWff4fnEQZO8tiveyLME/YPiWQja/oRxoGigPc/Es33d8/iHePbG3sRJsGZ4diAnB+nE4Nw==
+
+ariakit@2.0.0-alpha.19:
+  version "2.0.0-alpha.19"
+  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-alpha.19.tgz#ccf219319b1cf3046f47c222f32d47a3009cb99c"
+  integrity sha512-4jgcjo3dEjcMphDaYk/neIe0whEHIQTm+RiraeiKo8vp+vV3dHcajMPhJ76N2+bpX2xkAcbwKhVP8La4ssgQHA==
+  dependencies:
+    "@popperjs/core" "^2.11.2"
+    ariakit-utils "^0.17.0-alpha.12"
 
 arr-diff@^4.0.0:
   version "4.0.0"
