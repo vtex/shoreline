@@ -55,7 +55,7 @@ render(<Example />)
 
 ### Async
 
-You can use the `deferredValue` and `setList` to handle search in async environments.
+You can use the `deferredValue` and `setList` to handle searches in async environments.
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -120,11 +120,55 @@ function Example() {
 render(<Example />)
 ```
 
+#### Handling states
+
+The `loading` and `error` states can be toggled programmatically with `setLoading` and `setError`. Use these functions to interact with your data-fetching library.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  const toggleLoading = () => {
+    combobox.setLoading((l) => !l)
+    combobox.setVisible(true)
+  }
+
+  const toggleError = () => {
+    combobox.setError((e) => !e)
+    combobox.setVisible(true)
+  }
+
+  return (
+    <>
+      <Set>
+        <Button size="small" variant="tertiary" onClick={toggleLoading}>
+          toggle loading
+        </Button>
+        <Button size="small" variant="danger-tertiary" onClick={toggleError}>
+          toggle error
+        </Button>
+      </Set>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
 ## TODOs
 
 Features and fixes scheduled for this component:
 
 - [ ] Support to render images and icons in items
+- [ ] Default translations
 
 ## Props
 
@@ -134,6 +178,20 @@ Features and fixes scheduled for this component:
 | --------- | ---------- | ---------------------------- | -------- | ------- |
 | timeoutMs | `number`   | Timeout of the deferredValue | 🚫       | -       |
 | list      | `string[]` | List of items                | 🚫       | -       |
+
+#### ComboboxState
+
+The hooks return the ComboboxState, with props:
+
+| Name          | Type                       | Description                                          |
+| ------------- | -------------------------- | ---------------------------------------------------- |
+| value         | `string`                   | Current input value                                  |
+| setLoading    | `React.SetState<string>`   | Set the value                                        |
+| deferredValue | `string`                   | Current input value delayed by a defined `timeoutMs` |
+| list          | `string[]`                 | List of items                                        |
+| setList       | `React.SetState<string[]>` | Set the list value                                   |
+| setLoading    | `React.SetState<boolean>`  | Set loading state                                    |
+| setError      | `React.SetState<boolean>`  | Set error state                                      |
 
 ### ComboboxField
 
@@ -146,7 +204,8 @@ Features and fixes scheduled for this component:
 
 ### ComboboxPopover
 
-| Name  | Type            | Description    | Required | Default |
-| ----- | --------------- | -------------- | -------- | ------- |
-| state | `ComboboxState` | Required state | ✅       | -       |
-| csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
+| Name    | Type            | Description                    | Required | Default |
+| ------- | --------------- | ------------------------------ | -------- | ------- |
+| state   | `ComboboxState` | Required state                 | ✅       | -       |
+| onRetry | `() => void`    | Function to be called on retry | 🚫       | -       |
+| csx     | `StyleObject`   | Custom styles                  | 🚫       | `{}`    |

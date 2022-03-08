@@ -9,16 +9,20 @@ import { Paragraph } from '../components/Paragraph'
 import { Text } from '../components/Text'
 import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../components/Spinner'
+import { Button } from '../components/Button'
 
 export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
   (props) => {
     const {
       state,
       text = {
+        error: 'Something went wrong',
+        retry: 'Try again',
         noResultsTitle: 'No options match your search',
         noResultsSubtitle: 'Try using different terms',
         searchPlaceholder: 'Start typing to search',
       },
+      onRetry = () => null,
       ...restProps
     } = props
 
@@ -45,7 +49,28 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
         }
 
         case 'error': {
-          return <div>error</div>
+          return (
+            <tag.div
+              csx={{
+                margin: 2,
+              }}
+            >
+              <Text as="h2" variant="title2">
+                {text.error}
+              </Text>
+              <Button
+                csx={{
+                  // bleed
+                  // TODO: remove after the button review
+                  marginLeft: '-4',
+                }}
+                onClick={onRetry}
+                variant="tertiary"
+              >
+                {text.retry}
+              </Button>
+            </tag.div>
+          )
         }
 
         case 'empty-search': {
@@ -100,7 +125,10 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
 
 interface Props {
   state: ComboboxState
+  onRetry?: () => void
   text?: {
+    error?: ReactNode
+    retry?: ReactNode
     searchPlaceholder?: ReactNode
     noResultsTitle?: ReactNode
     noResultsSubtitle?: ReactNode

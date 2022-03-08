@@ -35,16 +35,18 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
             state={state}
           />
           <FloatingLabel htmlFor={id}>{label}</FloatingLabel>
-          <tag.div csx={style.buttonContainer}>
-            <Button
-              variant="adaptative-dark"
-              as={ComboboxCancel as any}
-              state={state}
-              icon={<IconXCircle />}
-              size="small"
-              csx={style.clearButton}
-            />
-          </tag.div>
+          {state.value !== '' && (
+            <tag.div csx={style.buttonContainer}>
+              <Button
+                variant="adaptative-dark"
+                as={ComboboxCancel as any}
+                state={state}
+                icon={<IconXCircle />}
+                size="small"
+                csx={style.clearButton}
+              />
+            </tag.div>
+          )}
         </FieldContainer>
       ),
     })

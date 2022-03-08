@@ -9,14 +9,46 @@ export default {
 } as Meta
 
 export const Basic = () => {
-  const state = useComboboxState({
+  const combobox = useComboboxState({
     list: ['Brazil', 'France', 'Ukraine', 'Australia'],
   })
 
   return (
     <div>
-      <ComboboxField id="basic-combobox" state={state} label="Country" />
-      <ComboboxPopover state={state} />
+      <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
+export const Error = () => {
+  const combobox = useComboboxState()
+
+  useEffect(() => {
+    combobox.setError(true)
+    combobox.setVisible(true)
+  }, [])
+
+  return (
+    <div>
+      <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
+export const Loading = () => {
+  const combobox = useComboboxState()
+
+  useEffect(() => {
+    combobox.setLoading(true)
+    combobox.setVisible(true)
+  }, [])
+
+  return (
+    <div>
+      <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
     </div>
   )
 }
