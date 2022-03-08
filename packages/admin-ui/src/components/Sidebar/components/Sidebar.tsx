@@ -79,7 +79,7 @@ export const Sidebar = forwardRef(function Sidebar(
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingY: '0.625rem',
+            paddingY: '1em',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',

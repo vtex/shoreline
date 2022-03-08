@@ -2,9 +2,9 @@ import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Tabbable } from 'reakit/Tabbable'
 import { useComposite } from 'reakit/Composite'
+import { tag } from '@vtex/admin-ui-react'
 
 import type { SetProps } from '../../Set'
-import { Set } from '../../Set'
 import { Text } from '../../Text'
 import { useItemContext } from './SidebarContext'
 import { SCALES } from '../consts'
@@ -25,34 +25,25 @@ export const SidebarSection = forwardRef(function SidebarSection(
   const compositeProps = useComposite({ ...state, baseId: 'section--' })
 
   return (
-    <Set
+    <tag.div
       as={Tabbable}
-      spacing={0.5}
       orientation="vertical"
       csx={{
         width: SCALES.SIDEBAR_SECTION_WIDTH,
-        paddingBottom: 8,
         zIndex: 'sidebarUl',
+        marginBottom: '$xl',
       }}
       {...compositeProps}
       {...setProps}
       ref={ref}
     >
-      <Text
-        variant="action1"
-        tone="primary"
-        csx={{
-          fontSize: '0.6875rem',
-          paddingBottom: '0.8125rem',
-          paddingX: '0.75rem',
-          fontSettings: 'medium',
-          textTransform: 'uppercase',
-        }}
-      >
-        {title}
-      </Text>
+      <tag.div csx={{ margin: '$s', paddingY: '$l' }}>
+        <Text variant="title1" tone="primary">
+          {title}
+        </Text>
+      </tag.div>
       {children}
-    </Set>
+    </tag.div>
   )
 })
 

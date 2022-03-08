@@ -49,9 +49,8 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
         {
           width: '100%',
           minHeight: 20,
-          paddingY: '0.25rem',
+          padding: '$s',
           height: 'auto',
-          marginY: 1,
           textAlign: 'left',
           bg: '$action.main.tertiary',
           '> div': {
