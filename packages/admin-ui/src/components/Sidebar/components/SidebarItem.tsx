@@ -1,5 +1,11 @@
-import type { ReactNode, Ref } from 'react'
-import React, { useEffect, useMemo, forwardRef } from 'react'
+import type { ReactElement, ReactNode, Ref } from 'react'
+import React, {
+  Children,
+  cloneElement,
+  useEffect,
+  useMemo,
+  forwardRef,
+} from 'react'
 
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
@@ -169,7 +175,12 @@ export const SidebarItem = forwardRef(function SidebarItem(
                   selected,
                 }}
               >
-                {children}
+                {Children.map(children, (child, index) =>
+                  cloneElement(child as ReactElement, {
+                    key: `sidebar-${label}-element-${index}`,
+                    position: index,
+                  })
+                )}
               </ItemProvider>
             </tag.li>
           </tag.ul>

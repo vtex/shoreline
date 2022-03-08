@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 import { Tabbable } from 'reakit/Tabbable'
 import { useComposite } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 import type { SetProps } from '../../Set'
 import { Text } from '../../Text'
@@ -20,9 +21,18 @@ export const SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { title, children, ...setProps } = props
+  const { title, position, children, ...divProps } = props
   const { state } = useItemContext()
   const compositeProps = useComposite({ ...state, baseId: 'section--' })
+
+  const firstSection = position === 0
+
+  const sectionTitleStyle: StyleProp = firstSection
+    ? { text: '$title1' }
+    : {
+        text: '$action1',
+        textTransform: 'uppercase',
+      }
 
   return (
     <tag.div
@@ -34,11 +44,11 @@ export const SidebarSection = forwardRef(function SidebarSection(
         marginBottom: '$xl',
       }}
       {...compositeProps}
-      {...setProps}
+      {...divProps}
       ref={ref}
     >
-      <tag.div csx={{ margin: '$s', paddingY: '$l' }}>
-        <Text variant="title1" tone="primary">
+      <tag.div csx={{ margin: '$s', paddingY: firstSection ? '$l' : '' }}>
+        <Text csx={sectionTitleStyle} tone="primary">
           {title}
         </Text>
       </tag.div>
@@ -52,4 +62,9 @@ export interface SidebarSectionProps extends SetProps {
    * `title` of a section. This is what separates each item's section.
    */
   title: string
+  /**
+   * Section's position
+   * @internal
+   */
+  position?: number
 }
