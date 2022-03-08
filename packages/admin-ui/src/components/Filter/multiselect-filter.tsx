@@ -11,18 +11,27 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
     state,
   } = props
 
-  const selectedItemsLabel =
-    appliedValues &&
-    (appliedValues?.length > 1
-      ? `${appliedValues[0]}, +${appliedValues.length - 1}`
-      : appliedValues[0])
+  const firstSelectedItemLabel =
+    appliedValues?.length > 1 ? `${appliedValues[0]},` : `${appliedValues[0]}`
+
+  const remainingSelectedItemsCount =
+    appliedValues?.length > 1 && `+${appliedValues.length - 1}`
 
   const appliedValuesLabel = !!appliedValues?.length && (
     <>
       <span>:</span>
-      <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
-        {selectedItemsLabel}
+      <tag.span
+        csx={{
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          maxWidth: '300px',
+          marginX: '$s',
+        }}
+      >
+        {firstSelectedItemLabel}
       </tag.span>
+      {remainingSelectedItemsCount}
     </>
   )
 

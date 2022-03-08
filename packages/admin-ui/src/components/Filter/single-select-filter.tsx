@@ -16,7 +16,16 @@ export function SingleSelectFilter(props: SingleSelectFilterProps) {
   const appliedValuesLabel = appliedValue && (
     <>
       <span>:</span>
-      <tag.span csx={{ color: '$primary', marginLeft: '$s' }}>
+      <tag.span
+        csx={{
+          color: '$primary',
+          marginLeft: '$s',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          maxWidth: '300px',
+        }}
+      >
         {appliedValue}
       </tag.span>
     </>

@@ -60,7 +60,7 @@ export function Single() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Name',
-    initialSelected: '#1',
+    initialApplied: '#1',
   })
 
   return (
