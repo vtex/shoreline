@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import type { Meta } from '@storybook/react'
 
@@ -21,44 +21,59 @@ export const Basic = () => {
   )
 }
 
-// const searchItems = (search: string, delay = 500) => {
-//   const items = [
-//     { id: 1, value: 'Brazil', flag: '🇧🇷' },
-//     { id: 2, value: 'France', flag: '🇫🇷' },
-//     { id: 3, value: 'Ukraine', flag: '🇺🇦' },
-//     { id: 4, value: 'Australia', flag: '🇦🇺' },
-//   ]
+// fake request
+const searchItems = (search: string, delay = 1000) => {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
 
-//   console.log({ search })
+  const res = items.filter((item) =>
+    item.value.toLowerCase().startsWith(search.toLowerCase())
+  )
 
-//   const res = items.filter((item) =>
-//     item.value.toLowerCase().startsWith(search.toLowerCase())
-//   )
+  return new Promise<any[]>((resolve) =>
+    setTimeout(resolve, delay, res as any[])
+  )
+}
 
-//   console.log({ res })
+export const Async = () => {
+  const combobox = useComboboxState()
 
-//   return new Promise<any[]>((resolve) =>
-//     setTimeout(resolve, delay, res as any[])
-//   )
-// }
+  useEffect(() => {
+    if (combobox.deferredValue === '') {
+      combobox.setList([])
+    } else {
+      combobox.setLoading(true)
+      searchItems(combobox.deferredValue).then((res) => {
+        combobox.setList(res.map((i) => i.value))
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue, combobox.setList])
 
-// // TODO fake a request
-// export const Async = () => {
-//   const combobox = useComboboxState({})
-
-//   useEffect(() => {
-//     console.log(combobox)
-
-//     if (combobox.value === '') return
-//     searchItems(combobox.value).then((res) => {
-//       combobox.setList(res.map((i) => i.value))
-//     })
-//   }, [combobox.value, combobox.setList])
-
-//   return (
-//     <div>
-//       <ComboboxField state={combobox} label="Countries" />
-//       <ComboboxPopover state={combobox} />
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <ComboboxField id="async-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
+    </div>
+  )
+}

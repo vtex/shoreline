@@ -1,0 +1,152 @@
+---
+title: Combobox
+path: /combobox/
+---
+
+# Combobox
+
+## Usage
+
+```jsx
+import {
+  experimental_ComboboxField as ComboboxField,
+  experimental_ComboboxPopover as ComboboxPopover,
+  experimental_useComboboxState as useComboboxState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const combobox = useComboboxState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxField id="id" label="Label" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+```
+
+## Examples
+
+### Basic
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Async
+
+You can use the `deferredValue` and `setList` to handle search in async environments.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+// just a sample API
+function api(search) {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
+
+  const res = items.filter((item) =>
+    item.value.toLowerCase().startsWith(search.toLowerCase())
+  )
+
+  return new Promise((resolve) => setTimeout(resolve, 1000, res))
+}
+
+function Example() {
+  const combobox = useComboboxState()
+
+  useEffect(() => {
+    if (combobox.deferredValue === '') {
+      combobox.setList([])
+    } else {
+      combobox.setLoading(true)
+      api(combobox.deferredValue).then((res) => {
+        combobox.setList(res.map((i) => i.value))
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue, combobox.setList])
+
+  return (
+    <>
+      <ComboboxField id="async-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+## TODOs
+
+Features and fixes scheduled for this component:
+
+- [ ] Support to render images and icons in items
+
+## Props
+
+### useComboboxState
+
+| Name      | Type       | Description                  | Required | Default |
+| --------- | ---------- | ---------------------------- | -------- | ------- |
+| timeoutMs | `number`   | Timeout of the deferredValue | 🚫       | -       |
+| list      | `string[]` | List of items                | 🚫       | -       |
+
+### ComboboxField
+
+| Name  | Type            | Description    | Required | Default |
+| ----- | --------------- | -------------- | -------- | ------- |
+| state | `ComboboxState` | Required state | ✅       | -       |
+| label | `string`        | Required label | ✅       | -       |
+| id    | `string`        | Required id    | ✅       | -       |
+| csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
+
+### ComboboxPopover
+
+| Name  | Type            | Description    | Required | Default |
+| ----- | --------------- | -------------- | -------- | ------- |
+| state | `ComboboxState` | Required state | ✅       | -       |
+| csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
