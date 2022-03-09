@@ -4,7 +4,6 @@ import { merge } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
-import { Tooltip } from '../../Tooltip'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
@@ -13,47 +12,32 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   const { icon, selected, label, csx = {}, ...buttonProps } = props
 
   return (
-    <Tooltip
-      label={label}
-      placement="bottom-start"
-      csx={{
-        display: 'flex',
-        alignItems: 'center',
-        text: '$body',
-        paddingY: 1,
-        paddingX: 2,
-        borderRadius: 'default',
-        minHeight: 24,
-        zIndex: 'over',
-      }}
-    >
-      <Button
-        ref={ref}
-        variant="tertiary"
-        icon={icon}
-        title={label}
-        name={label}
-        csx={merge(
-          {
-            zIndex: 'sidebarDisclosure',
-            bg: selected
-              ? '$action.neutral.tertiaryHover'
-              : '$action.main.tertiary',
-            color: selected ? '$action.main.tertiarySelected' : '$secondary',
-            ':active': {
-              bg: '$action.neutral.tertiaryPressed',
-              color: '$action.main.tertiaryPressed',
-            },
-            ':hover': {
-              bg: '$action.neutral.tertiaryHover',
-              color: '$action.main.tertiaryHover',
-            },
+    <Button
+      ref={ref}
+      variant="tertiary"
+      icon={icon}
+      title={label}
+      name={label}
+      csx={merge(
+        {
+          zIndex: 'sidebarDisclosure',
+          bg: selected
+            ? '$action.neutral.tertiaryHover'
+            : '$action.main.tertiary',
+          color: selected ? '$action.main.tertiarySelected' : '$secondary',
+          ':active': {
+            bg: '$action.neutral.tertiaryPressed',
+            color: '$action.main.tertiaryPressed',
           },
-          csx
-        )}
-        {...buttonProps}
-      />
-    </Tooltip>
+          ':hover': {
+            bg: '$action.neutral.tertiaryHover',
+            color: '$action.main.tertiaryHover',
+          },
+        },
+        csx
+      )}
+      {...buttonProps}
+    />
   )
 })
 
