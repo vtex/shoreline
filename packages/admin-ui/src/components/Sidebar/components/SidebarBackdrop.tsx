@@ -65,7 +65,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
           position: 'absolute',
           zIndex: 1,
-          top: '4.6875rem',
+          top: '5.125rem',
           cursor: 'pointer',
           borderRadius: '100%',
           border: '$neutral',
@@ -78,15 +78,13 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         icon={
           <IconCaretRight
             mirrored={!reduced}
-            size="small"
+            height="0.875rem"
+            width="0.875rem"
             csx={{
               display: 'flex',
               justifyContent: 'center',
               transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
               color: '$primary',
-              '> path': {
-                strokeWidth: 2,
-              },
             }}
           />
         }

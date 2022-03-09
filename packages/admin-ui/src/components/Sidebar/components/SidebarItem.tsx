@@ -40,6 +40,8 @@ export const SidebarItem = forwardRef(function SidebarItem(
     [uniqueKey, state.isSelected]
   )
 
+  const selectedFallback = state.selectedItemFallback?.uniqueKey === uniqueKey
+
   const compositeState = useCompositeState({
     baseId: 'item--',
     orientation: 'vertical',
@@ -136,7 +138,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
           <SidebarDisclosure
             {...itemProps}
             icon={icon}
-            selected={state.isSelected(uniqueKey)}
+            selected={selected || selectedFallback}
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}

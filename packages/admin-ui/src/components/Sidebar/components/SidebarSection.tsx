@@ -31,6 +31,8 @@ export const SidebarSection = forwardRef(function SidebarSection(
     ? { text: '$title1' }
     : {
         text: '$action1',
+        fontSize: '0.6875rem',
+        fontSettings: 'medium',
         textTransform: 'uppercase',
       }
 

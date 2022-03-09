@@ -51,9 +51,9 @@ const top = [
         title: 'Orders',
         subItems: [
           'All Orders',
-          'Subscriptions Super Long Text',
+          'Subscriptions',
           'Transactions',
-          'Bank Conciliation Super Long Text',
+          'Bank Conciliation',
         ],
       },
     ],
@@ -72,8 +72,8 @@ const top = [
           'Collections',
           'List Types',
           'Inventory',
-          'Custom Fields Supor Long Text',
-          'Import and Export Super Long Text',
+          'Custom Fields',
+          'Import and Export',
           'Reviews',
           'Reports',
         ],
@@ -89,9 +89,9 @@ const top = [
       {
         title: 'Promotions',
         subItems: [
-          'All Promotions',
+          'Promotions',
           'Coupons',
-          'Campaign Audience Super Long Text',
+          'Campaign Audience',
           'Gift Cards',
           'Taxes',
         ],
@@ -119,7 +119,7 @@ const top = [
         subItems: [
           'Shipping Rates',
           'Shipping Simulator',
-          'Pickup Points Super Long Text',
+          'Pickup Points',
           'Shipping Strategy',
         ],
       },
