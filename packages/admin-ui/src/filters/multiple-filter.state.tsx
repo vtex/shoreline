@@ -2,8 +2,8 @@ import type {
   FilterItem,
   UseMultipleFilterReturn,
   UseMultipleFilterStateProps,
-} from './useFilterState'
-import { useFilterState } from './useFilterState'
+} from './filter.state'
+import { useFilterState } from './filter.state'
 
 export function useMultipleFilterState<T extends FilterItem>(
   props: UseMultipleFilterStateProps<T>

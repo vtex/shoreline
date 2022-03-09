@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import type { FilterItem, key, UseFilterStateReturn } from './useFilterState'
-import { useFilterState } from './useFilterState'
+import type { FilterItem, key, UseFilterStateReturn } from './filter.state'
+import { useFilterState } from './filter.state'
 
 export function useSingleFilterState<T extends FilterItem>(
   props: UseSingleFilterStateProps<T>

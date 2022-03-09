@@ -2,12 +2,12 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
-import { Button } from '../Button'
-import { VisuallyHidden } from '../VisuallyHidden'
-import { Set } from '../Set'
+import { Set } from '../components/Set'
+import { Button } from '../components/Button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
-import type { FilterItem, UseFilterStateReturn } from './useFilterState'
+import type { FilterItem, UseFilterStateReturn } from './filter.state'
+import { VisuallyHidden } from '..'
 
 export function Filter(props: FilterProps) {
   const { state, children, appliedValuesLabel } = props

@@ -1,8 +1,8 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
 
-import type { FilterItem } from './useFilterState'
-import type { UseSingleFilterReturn } from './useSingleFilterState'
+import type { FilterItem } from './filter.state'
+import type { UseSingleFilterReturn } from './single-filter.state'
 import { Filter } from './filter'
 import { StyledRadio } from './styled-radio'
 import { Option } from './option'

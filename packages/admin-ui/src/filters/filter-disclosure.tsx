@@ -1,8 +1,8 @@
 import type { HTMLAttributes, ReactNode } from 'react'
 import React from 'react'
-import type { PickerStateReturn } from '../../picker'
-import { PickerDisclosure } from '../../picker'
-import * as style from '../Button/Button.style'
+import type { PickerStateReturn } from '../picker'
+import { PickerDisclosure } from '../picker'
+import * as style from '../components/Button/Button.style'
 
 export const FilterDisclosure = (props: FilterDisclosureProps) => {
   const { state, labelProps, children } = props
@@ -13,7 +13,7 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
       csx={{
         ...style.baseline,
         ...style.small({ icon: 'end' }),
-        ...style.svg,
+        marginRight: '$s',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

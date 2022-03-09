@@ -1,9 +1,9 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import { Checkbox } from '../Checkbox'
+import { Checkbox } from '../components/Checkbox'
 import { Filter } from './filter'
 import { Option } from './option'
-import type { FilterItem, UseMultipleFilterReturn } from './useFilterState'
+import type { FilterItem, UseMultipleFilterReturn } from './filter.state'
 
 export function MultiselectFilter(props: MultiselectFilterProps) {
   const {

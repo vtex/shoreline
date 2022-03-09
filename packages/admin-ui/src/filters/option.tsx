@@ -5,7 +5,7 @@ import React, { useRef } from 'react'
 import { useOption } from '@react-aria/listbox'
 import { tag } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
-import type { FilterItem } from './useFilterState'
+import type { FilterItem } from './filter.state'
 
 export const Option = ({
   item,

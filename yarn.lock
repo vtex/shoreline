@@ -4712,6 +4712,15 @@
     "@react-aria/utils" "^3.11.2"
     "@react-types/shared" "^3.11.1"
 
+"@react-aria/interactions@^3.8.0":
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.8.2.tgz#fa11833915938e2e539391b5db4670668a830e7f"
+  integrity sha512-AyTTwflthmyNcgIfjzHLdrQTcUJpLer9jMtB7IyTJ90c1eYbd+iy40WbyBZYhQhI8Zkq+q9bfeIOQFlEMDWh8A==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.3"
+    "@react-types/shared" "^3.11.2"
+
 "@react-aria/interactions@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.8.1.tgz#d86aa8fcf93b38e2cf61dda7ef04c9e0a0527056"
@@ -4719,27 +4728,6 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
     "@react-aria/utils" "^3.11.2"
-    "@react-types/shared" "^3.11.1"
-
-"@react-aria/live-announcer@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@react-aria/live-announcer/-/live-announcer-3.0.3.tgz#ad550ad298b048a5e1d1231a431369e3ea4e78ab"
-  integrity sha512-YdxxcuAYYMo9D014AnewMss4FDprC1gDZV6pNHFt32X2MNNih6KlcoiqiQQtLUkS0qRearZxj20y40VvWfb8RQ==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/utils" "^3.11.2"
-    "@react-aria/visually-hidden" "^3.2.5"
-
-"@react-aria/spinbutton@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@react-aria/spinbutton/-/spinbutton-3.0.3.tgz#bdf81bd55d03eab1d0a201ce4f1ee2365865989c"
-  integrity sha512-OEIUOYefWe9KbjxWbvKtFme6tn8/ASM5nfAlU0O4aT2CCFfyg3vzddng3LFJTNoJBIP/zml5jV4zNyD5Oiis1g==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/i18n" "^3.3.6"
-    "@react-aria/live-announcer" "^3.0.3"
-    "@react-aria/utils" "^3.11.2"
-    "@react-types/button" "^3.4.3"
     "@react-types/shared" "^3.11.1"
 
 "@react-aria/label@^3.2.2":
@@ -4768,6 +4756,15 @@
     "@react-types/listbox" "^3.2.2"
     "@react-types/shared" "^3.11.0"
 
+"@react-aria/live-announcer@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@react-aria/live-announcer/-/live-announcer-3.0.3.tgz#ad550ad298b048a5e1d1231a431369e3ea4e78ab"
+  integrity sha512-YdxxcuAYYMo9D014AnewMss4FDprC1gDZV6pNHFt32X2MNNih6KlcoiqiQQtLUkS0qRearZxj20y40VvWfb8RQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-aria/visually-hidden" "^3.2.5"
+
 "@react-aria/selection@^3.7.2":
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/@react-aria/selection/-/selection-3.7.2.tgz#f34eba2a34a273b398cefb39f2940a1e36f84da1"
@@ -4781,6 +4778,18 @@
     "@react-stately/collections" "^3.3.5"
     "@react-stately/selection" "^3.9.1"
     "@react-types/shared" "^3.11.0"
+
+"@react-aria/spinbutton@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@react-aria/spinbutton/-/spinbutton-3.0.3.tgz#bdf81bd55d03eab1d0a201ce4f1ee2365865989c"
+  integrity sha512-OEIUOYefWe9KbjxWbvKtFme6tn8/ASM5nfAlU0O4aT2CCFfyg3vzddng3LFJTNoJBIP/zml5jV4zNyD5Oiis1g==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/live-announcer" "^3.0.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/button" "^3.4.3"
+    "@react-types/shared" "^3.11.1"
 
 "@react-aria/ssr@^3.1.1":
   version "3.1.1"
@@ -4818,6 +4827,17 @@
     "@react-types/shared" "^3.11.1"
     clsx "^1.1.1"
 
+"@react-aria/utils@^3.11.3":
+  version "3.11.3"
+  resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.11.3.tgz#fd870e1c4b994967883d5d5dae6b14b4e6da2d16"
+  integrity sha512-EH3SyA3FtbhuOj1cgGveiEYidKe3CgGYkP8D57O46rlTWcgTxhGHUEibGeJw3PFXxmbgm5RIOdBo29YwItvtcQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/ssr" "^3.1.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/shared" "^3.11.2"
+    clsx "^1.1.1"
+
 "@react-aria/visually-hidden@^3.2.5":
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.5.tgz#721a465ae094ddea119ff351c03d6aaf503b15fb"
@@ -4827,7 +4847,7 @@
     "@react-aria/interactions" "^3.8.1"
     "@react-aria/utils" "^3.11.2"
     clsx "^1.1.1"
-    
+
 "@react-stately/collections@^3.3.5":
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.3.5.tgz#0a0f7238d758a10418bf87c87b699fb2c704b376"
@@ -4877,7 +4897,7 @@
   integrity sha512-3rP3Nha16g/PUkSA5R22kHNXOdxPLSdegLss9P4anrt8W8lVjrniQErJVFGf/fqYcucBIg2QVPOTnZHhsz8y4g==
   dependencies:
     "@react-types/shared" "^3.11.1"
-    
+
 "@react-types/label@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@react-types/label/-/label-3.5.1.tgz#59d59748940bb8da8b4a5ecf456c831e60f3b9a0"
@@ -4901,6 +4921,11 @@
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.11.1.tgz#fbe4f28b28f2b22461bbe88c4cce5d1d44d3ae64"
   integrity sha512-2wwUnvLFsWPiNXK5kiKfS3+k6mtWXAtfp76haIow3OyyFLEezWD9F9ZsCtyjNG+R+JlRcmvQRgRjQaGoeUWLKg==
+
+"@react-types/shared@^3.11.2":
+  version "3.11.2"
+  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.11.2.tgz#b269c0cf6223664ac42d980b7add1b67b51b87d4"
+  integrity sha512-MIjjjkFi/DTzMVmeFJJrpc51eS/PLNzLZEv6o/QJPhQ9uOMElYqA790qAcG75u3tR0XGU2Vv9RyeOC7+ppw8/Q==
 
 "@rollup/plugin-commonjs@^11.0.0":
   version "11.1.0"

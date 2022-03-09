@@ -2,7 +2,7 @@ import { Role } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
 
-import { PickerPopover } from '../../picker'
+import { PickerPopover } from '../picker'
 
 export const FilterPopover = createComponent<typeof PickerPopover>((props) => {
   return useElement(PickerPopover, {

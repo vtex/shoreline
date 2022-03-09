@@ -4,8 +4,8 @@ import { useListBox } from '@react-aria/listbox'
 import type { ListState } from '@react-stately/list'
 import { useListState } from '@react-stately/list'
 
-import type { PickerStateReturn } from '../../picker'
-import { usePickerState } from '../../picker'
+import type { PickerStateReturn } from '../picker'
+import { usePickerState } from '../picker'
 
 export function useFilterState<T extends FilterItem>(
   props: UseFilterStateProps<T>
