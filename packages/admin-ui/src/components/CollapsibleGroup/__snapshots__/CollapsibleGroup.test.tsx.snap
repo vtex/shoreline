@@ -33,7 +33,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -98,7 +98,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -106,7 +106,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -127,8 +127,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   -webkit-transition: -webkit-transform 150ms ease;
@@ -277,7 +277,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -342,7 +342,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -350,7 +350,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -371,8 +371,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   -webkit-transition: -webkit-transform 150ms ease;

@@ -28,7 +28,7 @@ exports[`Avatar tests should match snaphot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 

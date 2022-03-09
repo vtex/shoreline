@@ -833,8 +833,8 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
   height: 20px;
+  width: 20px;
   min-height: 20px;
   min-width: 20px;
   color: hsla(0, 0%, 33%, 1);
@@ -1074,8 +1074,8 @@ exports[`Input tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 20px;
   height: 20px;
+  width: 20px;
   min-height: 20px;
   min-width: 20px;
   color: hsla(0, 0%, 33%, 1);

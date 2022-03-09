@@ -51,8 +51,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   color: hsla(206, 63%, 44%, 1);
@@ -82,7 +82,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -144,7 +144,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -152,7 +152,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -176,7 +176,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -220,8 +220,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
 }
@@ -376,7 +376,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -438,7 +438,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -446,7 +446,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -470,7 +470,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -514,8 +514,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
 }
@@ -554,8 +554,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   color: hsla(123, 41%, 37%, 1);
@@ -698,7 +698,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -760,7 +760,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -768,7 +768,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -792,7 +792,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -836,8 +836,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
 }
@@ -876,8 +876,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   color: hsla(30, 100%, 42%, 1);
@@ -1020,7 +1020,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -1082,7 +1082,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
 }
 
@@ -1090,7 +1090,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1114,7 +1114,7 @@ exports[`Toast should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   border: none;
   border-radius: 4px;
@@ -1158,8 +1158,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-6 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
 }
@@ -1198,8 +1198,8 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1.25rem;
   height: 1.25rem;
+  width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
   color: hsla(0, 58%, 52%, 1);
