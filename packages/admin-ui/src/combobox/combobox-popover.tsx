@@ -1,32 +1,24 @@
-import type { ReactNode } from 'react'
 import React from 'react'
 import { ComboboxPopover as BaseComponent } from 'ariakit/combobox'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 
 import * as style from './combobox.style'
+import { messages } from './combobox.i18n'
 import { ComboboxItem } from './combobox-item'
 import { Paragraph } from '../components/Paragraph'
 import { Text } from '../components/Text'
 import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../components/Spinner'
 import { Button } from '../components/Button'
+import { useMessageFormatter } from '../i18n'
 
 export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
   (props) => {
-    const {
-      state,
-      text = {
-        error: 'Something went wrong',
-        retry: 'Try again',
-        noResultsTitle: 'No options match your search',
-        noResultsSubtitle: 'Try using different terms',
-        searchPlaceholder: 'Start typing to search',
-      },
-      onRetry = () => null,
-      ...restProps
-    } = props
+    const { state, onRetry = () => null, ...restProps } = props
 
     const { deferredValue, status, ...comboboxState } = state
+
+    const formatMessage = useMessageFormatter(messages.popover)
 
     const renderChildren = () => {
       switch (status) {
@@ -56,7 +48,7 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
               }}
             >
               <Text as="h2" variant="title2">
-                {text.error}
+                {formatMessage('error')}
               </Text>
               <Button
                 csx={{
@@ -67,7 +59,7 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
                 onClick={onRetry}
                 variant="tertiary"
               >
-                {text.retry}
+                {formatMessage('retry')}
               </Button>
             </tag.div>
           )
@@ -85,7 +77,7 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
                   color: '$secondary',
                 }}
               >
-                {text.searchPlaceholder}
+                {formatMessage('searchPlaceholder')}
               </Paragraph>
             </tag.div>
           )
@@ -99,14 +91,14 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
               }}
             >
               <Text as="h2" variant="title2">
-                {text.noResultsTitle}
+                {formatMessage('noResultsTitle')}
               </Text>
               <Paragraph
                 csx={{
                   color: '$secondary',
                 }}
               >
-                {text.noResultsSubtitle}
+                {formatMessage('noResultsSubtitle')}
               </Paragraph>
             </tag.div>
           )
@@ -126,11 +118,4 @@ export const ComboboxPopover = createComponent<typeof BaseComponent, Props>(
 interface Props {
   state: ComboboxState
   onRetry?: () => void
-  text?: {
-    error?: ReactNode
-    retry?: ReactNode
-    searchPlaceholder?: ReactNode
-    noResultsTitle?: ReactNode
-    noResultsSubtitle?: ReactNode
-  }
 }

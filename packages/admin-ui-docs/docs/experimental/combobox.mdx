@@ -163,12 +163,46 @@ function Example() {
 render(<Example />)
 ```
 
+### I18n
+
+The combobox has default translations for the popover strings. Since the label can vary, you should handle this translation. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+const I18nProvider = experimental_I18nProvider
+
+function ComboboxComponent() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="pt-BR">
+      <ComboboxComponent />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
 ## TODOs
 
 Features and fixes scheduled for this component:
 
 - [ ] Support to render images and icons in items
-- [ ] Default translations
+- [ ] Review translations
 
 ## Props
 

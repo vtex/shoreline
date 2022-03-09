@@ -1,1 +1,5 @@
-export { I18nProvider, useDateFormatter } from '@react-aria/i18n'
+export {
+  I18nProvider,
+  useDateFormatter,
+  useMessageFormatter,
+} from '@react-aria/i18n'

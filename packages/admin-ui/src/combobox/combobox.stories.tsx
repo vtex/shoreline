@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 
-import type { Meta } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
 import { ComboboxField, ComboboxPopover, useComboboxState } from './index'
+import type { Locales } from '../i18n'
+import { I18nProvider, locales } from '../i18n'
 
 export default {
   title: 'admin-ui/Combobox',
 } as Meta
 
-export const Basic = () => {
+function Example() {
   const combobox = useComboboxState({
     list: ['Brazil', 'France', 'Ukraine', 'Australia'],
   })
@@ -19,6 +21,27 @@ export const Basic = () => {
       <ComboboxPopover state={combobox} />
     </div>
   )
+}
+
+export const Basic = () => {
+  return <Example />
+}
+
+export const I18n: Story<{
+  locale: Locales
+}> = ({ locale }) => {
+  return (
+    <I18nProvider locale={locale}>
+      <Example />
+    </I18nProvider>
+  )
+}
+
+I18n.argTypes = {
+  locale: {
+    type: 'select' as any,
+    options: locales,
+  },
 }
 
 export const Error = () => {
