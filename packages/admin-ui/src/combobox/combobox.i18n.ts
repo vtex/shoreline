@@ -7,6 +7,13 @@ export const messages = {
       noResultsSubtitle: 'Try using different terms',
       searchPlaceholder: 'Start typing to search',
     },
+    'es-AR': {
+      error: 'Algo salió mal',
+      retry: 'Intentar otra vez',
+      noResultsTitle: 'Ninguna opción coincide con su búsqueda',
+      noResultsSubtitle: 'Intenta usar términos diferentes',
+      searchPlaceholder: 'Empieza a escribir para buscar',
+    },
     'fr-FR': {
       error: "Quelque chose s'est mal passé",
       retry: 'Réessayer',

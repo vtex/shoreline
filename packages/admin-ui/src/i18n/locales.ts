@@ -1,5 +1,6 @@
 export type Locales =
   | 'en-US'
+  | 'es-AR'
   | 'fr-FR'
   | 'pt-BR'
   | 'ja-JP'
@@ -11,6 +12,7 @@ export type Locales =
 
 export const locales = [
   'en-US',
+  'es-AR',
   'fr-FR',
   'pt-BR',
   'ja-JP',
