@@ -54,14 +54,18 @@ const option = (highlighted: boolean) =>
       border: 'none',
       marginBottom: 2,
     },
-    bg: highlighted ? '$action.main.tertiarySelected' : '$action.main.tertiary',
+    bg: highlighted
+      ? '$action.neutral.tertiaryHover'
+      : '$action.neutral.tertiary',
     color: highlighted
-      ? '$action.main.tertiarySelected'
-      : '$action.main.tertiary',
-    svg: {
-      color: highlighted
-        ? '$action.main.tertiarySelected'
-        : '$action.main.tertiary',
+      ? '$action.neutral.tertiaryHover'
+      : '$action.neutral.tertiary',
+    svg: highlighted
+      ? '$action.neutral.tertiaryHover'
+      : '$action.neutral.tertiary',
+    ':active': {
+      color: '$action.neutral.tertiaryPressed',
+      background: '$action.neutral.tertiaryPressed',
     },
   })
 
