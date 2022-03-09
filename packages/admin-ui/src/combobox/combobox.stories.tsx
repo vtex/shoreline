@@ -6,6 +6,12 @@ import { ComboboxField, ComboboxPopover, useComboboxState } from './index'
 import type { Locales } from '../i18n'
 import { I18nProvider, locales } from '../i18n'
 
+import {
+  ComboboxMultiple,
+  ComboboxMultiplePopover,
+  useComboboxMultipleState,
+} from './combobox-multiple'
+
 export default {
   title: 'admin-ui/Combobox',
 } as Meta
@@ -129,6 +135,64 @@ export const Async = () => {
     <div>
       <ComboboxField id="async-combobox" state={combobox} label="Country" />
       <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
+const list = [
+  'Apple',
+  'Bacon',
+  'Banana',
+  'Broccoli',
+  'Burger',
+  'Cake',
+  'Candy',
+  'Carrot',
+  'Cherry',
+  'Chocolate',
+  'Cookie',
+  'Cucumber',
+  'Donut',
+  'Fish',
+  'Fries',
+  'Grape',
+  'Green apple',
+  'Hot dog',
+  'Ice cream',
+  'Kiwi',
+  'Lemon',
+  'Lollipop',
+  'Onion',
+  'Orange',
+  'Pasta',
+  'Pineapple',
+  'Pizza',
+  'Potato',
+  'Salad',
+  'Sandwich',
+  'Steak',
+  'Strawberry',
+  'Tomato',
+  'Watermelon',
+]
+
+export function Multiple() {
+  const id = 'combobox-multiple'
+
+  const combobox = useComboboxMultipleState({
+    defaultSelected: ['Bacon'],
+    list,
+  })
+
+  return (
+    <div>
+      <label htmlFor={id}>Your favorite food</label>
+      <ComboboxMultiple
+        state={combobox}
+        id={id}
+        placeholder="e.g., Apple, Burger"
+      />
+      <ComboboxMultiplePopover state={combobox} />
     </div>
   )
 }
