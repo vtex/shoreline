@@ -1,8 +1,7 @@
 import { style } from '@vtex/admin-ui-core'
 
-const height = 48
-const width = '346px'
-const paddingX = 3
+const height = '3rem'
+const width = '21.625rem'
 
 export const container = style({
   width,
@@ -10,14 +9,14 @@ export const container = style({
 
 export const input = style({
   width,
-  paddingX,
   height,
+  paddingX: '$3',
   text: '$body',
-  paddingTop: 4,
+  paddingTop: '$4',
   bg: '$form.neutral',
   border: '$form.neutral',
-  borderRadius: 'default',
-  marginY: 1,
+  borderRadius: '$default',
+  marginY: '$1',
   color: '$form.neutral',
   outline: 0,
   transition: 'snap',
@@ -37,16 +36,16 @@ export const input = style({
 export const buttonContainer = style({
   right: 0,
   top: 1,
-  height: 46,
-  paddingRight: 3,
+  height: '2.875rem',
+  paddingRight: '$3',
   position: 'absolute',
   display: 'flex',
   color: '$primary',
 })
 
 export const clearButton = style({
-  marginTop: 2,
-  marginRight: 1,
+  marginTop: '$2',
+  marginRight: '$1',
   color: '$secondary',
 })
 
@@ -57,11 +56,12 @@ export const popover = style({
   boxShadow: '$overlay.center',
   border: '$neutral',
   borderRadius: '$default',
+  zIndex: 9999999,
 })
 
 export const item = style({
   text: '$body',
-  borderRadius: 'default',
+  borderRadius: '$default',
   paddingY: '$2',
   paddingX: '$3',
   '&[data-active-item]': {
