@@ -117,7 +117,7 @@ function Input(props: InputProps) {
       {inputProps?.value !== '' && (
         <Button
           csx={style.inputButton}
-          variant="tertiary"
+          variant="adaptative-dark"
           icon={<IconXCircle />}
           onClick={handleClear}
         />
@@ -154,7 +154,7 @@ function Menu(props: MenuProps) {
       {displaySuggestions && (
         <motion.p className={cn(style.label)} layout>
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Intl id={type === 'search' ? 'adminPages' : 'lastSearches'} />
+            {type !== 'search' && <Intl id="lastSearches" />}
           </motion.span>
         </motion.p>
       )}
