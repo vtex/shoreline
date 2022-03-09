@@ -35,6 +35,7 @@ export const typography = {
     black: "'WGHT' 900",
   },
   lineHeight: {
+    xs: 1.1428571429,
     sm: 1.2,
     md: 1.3333333333,
     lg: 1.4285714286,

@@ -26,14 +26,14 @@ export const text = {
     fontFamily: typography.fontStack.sans,
     fontVariationSettings: typography.fontWeight.medium,
     fontSize: typography.fontSize.md,
-    lineHeight: typography.lineHeight.lg,
+    lineHeight: typography.lineHeight.xs,
     letterSpacing: typography.letterSpacing.xxxl,
   },
   action2: {
     fontFamily: typography.fontStack.sans,
     fontVariationSettings: typography.fontWeight.regular,
     fontSize: typography.fontSize.md,
-    lineHeight: typography.lineHeight.lg,
+    lineHeight: typography.lineHeight.xs,
     letterSpacing: typography.letterSpacing.xxl,
   },
   display: {
