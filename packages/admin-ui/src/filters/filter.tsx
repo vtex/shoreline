@@ -2,12 +2,11 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
-import { Set } from '../components/Set'
 import { Button } from '../components/Button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
 import type { FilterItem, UseFilterStateReturn } from './filter.state'
-import { VisuallyHidden } from '..'
+import { tag, VisuallyHidden } from '..'
 
 export function Filter(props: FilterProps) {
   const { state, children, appliedValuesLabel } = props
@@ -31,21 +30,24 @@ export function Filter(props: FilterProps) {
         />
       </FilterDisclosure>
       <FilterPopover state={popover} aria-label={label}>
-        <Set
+        <tag.div
           as="ul"
-          spacing="$xl"
-          orientation="vertical"
           ref={ref}
           csx={{
+            display: 'flex',
+            flexDirection: 'column',
             padding: '$l',
             marginTop: '$m',
             maxHeight: 312,
             overflowY: 'auto',
+            '> *:not(:last-child)': {
+              marginBottom: '$xl',
+            },
           }}
           {...listBoxProps}
         >
           {children}
-        </Set>
+        </tag.div>
         <FilterPopoverFooter
           isContentScrollable={
             ref?.current?.scrollHeight > ref?.current?.clientHeight
