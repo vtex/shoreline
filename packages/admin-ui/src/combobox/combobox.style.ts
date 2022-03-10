@@ -73,3 +73,11 @@ export const item = style({
     color: '$action.neutral.tertiaryHover',
   },
 })
+
+export const itemMultiple = style({
+  ...item,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  outline: 'none',
+})

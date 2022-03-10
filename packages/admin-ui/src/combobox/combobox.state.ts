@@ -46,7 +46,7 @@ export function useComboboxState(props: Props = {}) {
 
 type Status = 'loading' | 'error' | 'empty-search' | 'no-result' | 'ready'
 
-type Props = Pick<ComboboxStateProps, 'list'> & {
+type Props = Pick<ComboboxStateProps, 'list' | 'virtualFocus'> & {
   timeoutMs?: number
 }
 

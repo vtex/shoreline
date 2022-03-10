@@ -2,15 +2,16 @@ import React, { useEffect } from 'react'
 
 import type { Meta, Story } from '@storybook/react'
 
-import { ComboboxField, ComboboxPopover, useComboboxState } from './index'
-import type { Locales } from '../i18n'
-import { I18nProvider, locales } from '../i18n'
-
 import {
-  ComboboxMultiple,
+  ComboboxField,
+  ComboboxPopover,
+  useComboboxState,
+  ComboboxMultipleField,
   ComboboxMultiplePopover,
   useComboboxMultipleState,
-} from './combobox-multiple'
+} from './index'
+import type { Locales } from '../i18n'
+import { I18nProvider, locales } from '../i18n'
 
 export default {
   title: 'admin-ui/Combobox',
@@ -177,20 +178,35 @@ const list = [
 ]
 
 export function Multiple() {
-  const id = 'combobox-multiple'
-
   const combobox = useComboboxMultipleState({
-    defaultSelected: ['Bacon'],
+    defaultSelected: [],
     list,
   })
 
   return (
     <div>
-      <label htmlFor={id}>Your favorite food</label>
-      <ComboboxMultiple
+      <ComboboxMultipleField
         state={combobox}
-        id={id}
-        placeholder="e.g., Apple, Burger"
+        id="combobox-multiple"
+        label="Foods"
+      />
+      <ComboboxMultiplePopover state={combobox} />
+    </div>
+  )
+}
+
+export function MultipleDefaultSelected() {
+  const combobox = useComboboxMultipleState({
+    defaultSelected: ['Bacon', 'Pasta', 'Tomato'],
+    list,
+  })
+
+  return (
+    <div>
+      <ComboboxMultipleField
+        state={combobox}
+        id="combobox-multiple"
+        label="Foods"
       />
       <ComboboxMultiplePopover state={combobox} />
     </div>
