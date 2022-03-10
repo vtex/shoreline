@@ -72,7 +72,6 @@ export const Sidebar = forwardRef(function Sidebar(
       >
         <tag.nav
           ref={ref}
-          as="nav"
           csx={{
             position: 'absolute',
             display: 'flex',
@@ -84,6 +83,7 @@ export const Sidebar = forwardRef(function Sidebar(
             height: '100%',
             width: '100%',
             overflow: 'initial',
+            overflowY: 'scroll',
           }}
           {...baseProps}
         >
