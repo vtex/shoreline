@@ -21,7 +21,10 @@ export function useFilterState<T extends FilterItem>(
 
   const ref = useRef(null)
 
-  const popover = usePickerState({ placement: 'bottom-start' })
+  const popover = usePickerState({
+    placement: 'bottom-start',
+    baseId: 'filter-picker',
+  })
 
   const listState = useListState<T>({
     ...stateProps,
