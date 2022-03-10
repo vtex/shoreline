@@ -35,9 +35,14 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
     </>
   )
 
+  const { collection } = listState
+  const options = Array.from(collection.getKeys()).map((key) =>
+    collection.getItem(key)
+  )
+
   return (
     <Filter state={state} appliedValuesLabel={appliedValuesLabel}>
-      {[...listState.collection].map((item) => (
+      {options.map((item) => (
         <Option
           key={item.key}
           item={item}

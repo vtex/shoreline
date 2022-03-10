@@ -1,0 +1,75 @@
+---
+title: MultiSelectFilter
+path: /multi-select-filter/
+---
+
+# MultiSelectFilter
+
+## Usage
+
+```jsx
+
+import {
+  experimental_MultiselectFilter as MultiselectFilter,
+  experimental_useMultipleFilterState as useMultipleFilterState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useMultipleFilterState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half empty', value: 4, id: '#3' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+  })
+  return <MultiselectFilter state={state} />
+}
+```
+
+## Examples
+
+### Initial values
+
+```jsx noInline live
+
+const MultiselectFilter = experimental_MultiselectFilter
+const useMultipleFilterState = experimental_useMultipleFilterState
+
+function Example() {
+  const state = useMultipleFilterState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half full', value: 3, id: '#3' },
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Unknown', value: 5, id: '#5' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+    initialApplied: ['#1', '#2'],
+  })
+
+  return <MultiselectFilter state={state} />
+
+  
+}
+
+render(<Example />)
+```
+
+# Props
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| state | `MultipleFilterState` | Required state | ✅       | -       |
+
+## UseMultipeFilterState
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| items | `FilterItem[]` | List of options for the filter, item must include id, value and label | ✅       | -       |
+| onChange | `({selected: string[]}) => void` | Callback called with current selected ids on apply and clear press. | ✅       | -       |
+| label | `string` | Filter button label | ✅       | -       |
+| initialApplied | `string[]` | Array with initially applied options' ids | ✅       | -       |

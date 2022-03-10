@@ -1,0 +1,69 @@
+---
+title: SingleSelectFilter
+path: /single-select-filter/
+---
+
+# SingleSelectFilter
+
+## Usage
+
+```jsx
+import {
+  experimental_SingleSelectFilter as SingleSelectFilter,
+  experimental_useSingleFilterState as useSingleFilterState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useSingleFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <SingleSelectFilter state={state} />
+}
+```
+
+## Examples
+
+### Initial values
+
+```jsx noInline live
+
+const SingleSelectFilter = experimental_SingleSelectFilter
+const useSingleFilterState = experimental_useSingleFilterState
+
+function Example() {
+  const state = useSingleFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+    initialApplied: '#1',
+  })
+  return <SingleSelectFilter state={state} />
+}
+
+render(<Example />)
+```
+
+# Props
+
+## SingleSelectFilter
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| state | `SingleFilterState` | Required state | ✅       | -       |
+
+## UseSingleFilter
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| items | `FilterItem[]` | List of options for the filter, item must include, id, value and label | ✅       | -       |
+| onChange | `({selected: string}) => void` | Callback called with current selected id on apply and clear press. | ✅       | -       |
+| label | `string` | Filter button label | ✅       | -       |
+| initialApplied | `string` | initially applied option id | ✅       | -       |

@@ -1,0 +1,45 @@
+---
+title: FilterGroup
+path: /filter-group/
+---
+
+# FilterGroup
+
+## Usage
+
+```jsx
+import {
+  experimental_SingleSelectFilter as SingleSelectFilter,
+  experimental_useSingleFilterState as useSingleFilterState,
+  experimental_useFilterGroupState as useFilterGroupState,
+  experimental_FilterGroup as FilterGroup,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const filterState = useMultipleFilterState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half empty', value: 4, id: '#3' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+  })
+
+  const state = useFilterGroupState([filterState])
+
+  return (
+    <FilterGroup state={state}>
+        <MultiselectFilter state={state} />
+    </FilterGroup>
+  )
+}
+```
+
+# Props
+
+## FilterGroup
+
+| Name  | Type              | Description    | Required | Default |
+| ----- | ----------------- | -------------- | -------- | ------- |
+| state | `FilterGroupState` | Required state | ✅       | -       |

@@ -35,7 +35,9 @@ export function useFilterState<T extends FilterItem>(
   )
 
   const apply = useCallback(() => {
-    const nextSelected = [...listState.selectionManager.selectedKeys]
+    const nextSelected = Array.from(
+      listState.selectionManager.selectedKeys.values()
+    )
 
     setAppliedKeys(nextSelected)
     onChange?.({ selected: nextSelected })
@@ -69,7 +71,7 @@ export function useFilterState<T extends FilterItem>(
     listState,
     appliedValues,
     appliedKeys,
-    selectedKeys: [...listState.selectionManager.selectedKeys],
+    selectedKeys: Array.from(listState.selectionManager.selectedKeys.values()),
     ref,
     listBoxProps,
     label,
