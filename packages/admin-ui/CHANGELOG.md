@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.119.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.1...@vtex/admin-ui@0.119.2) (2022-03-10)
+
+### Bug Fixes
+
+- **combobox:** add experimental component ([0330d25](https://github.com/vtex/admin-ui/commit/0330d25750eea9e04c3447332515ab4c8593ea24))
+- **combobox:** add missing spanish translation ([133b136](https://github.com/vtex/admin-ui/commit/133b13645c437f3c64c89d38a19bde9dac0093e0))
+- **combobox:** default translations ([3e460e7](https://github.com/vtex/admin-ui/commit/3e460e70acff95d1e5adf456593482f22b5f0577))
+- **combobox:** error state ([b38c1d7](https://github.com/vtex/admin-ui/commit/b38c1d7f24f30353115665bc0809c20bf915ad46))
+- **combobox:** popover states ([14e56da](https://github.com/vtex/admin-ui/commit/14e56daeaaad85d95a16f024b8b4ef0b15c54634))
+- **combobox:** use token styles ([e65454e](https://github.com/vtex/admin-ui/commit/e65454e21e0b06699b76d38a79c4dffe438943cb))
+- add icons to be used in admin shell ([b1f624b](https://github.com/vtex/admin-ui/commit/b1f624b8f21c419873915da9bf7157418cbfec6e))
+
 ## [0.119.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.0...@vtex/admin-ui@0.119.1) (2022-03-07)
 
 ### Bug Fixes
