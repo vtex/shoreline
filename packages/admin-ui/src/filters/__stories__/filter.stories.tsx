@@ -10,6 +10,7 @@ import {
 } from '../index'
 import type { FilterItem, UseMultipleFilterStateProps } from '../filter.state'
 import { useFilterGroupState } from '../filter-group.state'
+import { I18nProvider } from '@react-aria/i18n'
 
 export default {
   title: 'admin-ui/Filters',
@@ -139,5 +140,13 @@ export function BasicFilterGroup() {
       <SingleSelectFilter state={state2} />
       <MultiselectFilter state={state3} />
     </FilterGroup>
+  )
+}
+
+export const Interationalization = () => {
+  return (
+    <I18nProvider locale="pt-BR">
+      <BasicFilterGroup />
+    </I18nProvider>
   )
 }

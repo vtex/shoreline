@@ -6,12 +6,17 @@ import { Button } from '../components/Button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
 import type { FilterItem, UseFilterStateReturn } from './filter.state'
-import { tag, VisuallyHidden } from '..'
+import { VisuallyHidden } from '../components/VisuallyHidden'
+import { tag } from '@vtex/admin-ui-react'
+import { useMessageFormatter } from '../i18n'
+import { messages } from './filter.i18n'
 
 export function Filter(props: FilterProps) {
   const { state, children, appliedValuesLabel } = props
   const { onClear, onChange, popover, label, labelProps, ref, listBoxProps } =
     state
+
+  const formatMessage = useMessageFormatter(messages.actions)
 
   return (
     <>
@@ -54,10 +59,10 @@ export function Filter(props: FilterProps) {
           }
         >
           <Button size="small" variant="tertiary" onClick={onClear}>
-            Clear
+            {formatMessage('clear')}
           </Button>
           <Button size="small" onClick={onChange}>
-            Apply
+            {formatMessage('apply')}
           </Button>
         </FilterPopoverFooter>
       </FilterPopover>

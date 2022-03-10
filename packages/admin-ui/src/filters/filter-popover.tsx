@@ -26,18 +26,20 @@ export const FilterPopoverFooter = createComponent<
   typeof Role,
   FilterPopoverFooterProps
 >((props) => {
+  const { isContentScrollable, ...restProps } = props
+
   return useElement(Role, {
     baseStyle: {
-      borderTop: props.isContentScrollable ? '$neutral' : 'none',
+      borderTop: isContentScrollable ? '$neutral' : 'none',
       padding: 3,
-      paddingTop: props.isContentScrollable ? 3 : 0,
+      paddingTop: isContentScrollable ? 3 : 0,
       display: 'flex',
       justifyContent: 'end',
       'button:not(:first-child)': {
         marginLeft: 2,
       },
     },
-    ...props,
+    ...restProps,
   })
 })
 

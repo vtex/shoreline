@@ -30,6 +30,7 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
           color: '$secondary',
         },
       }}
+      tabIndex={0}
       {...labelProps}
     >
       {children}
