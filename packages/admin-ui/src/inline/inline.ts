@@ -1,8 +1,9 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { HSpaceTokens, VSpaceTokens } from '@vtex/admin-ui-core'
+import { withUnit } from '@vtex/admin-ui-core'
+import type { HSpaceTokens, VSpaceTokens, CSSUnit } from '@vtex/admin-ui-core'
 
 export const Inline = createComponent<'div', InlineProps>((props) => {
-  const { vSpace = '$s', hSpace = '$s', ...htmlProps } = props
+  const { vSpace = '$s', hSpace = '$s', unit = 'rem', ...htmlProps } = props
 
   return useElement('div', {
     ...htmlProps,
@@ -10,8 +11,8 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
       display: 'flex',
       flexWrap: 'wrap',
       '> *': {
-        marginLeft: hSpace,
-        marginTop: vSpace,
+        marginLeft: withUnit(hSpace, unit),
+        marginTop: withUnit(vSpace, unit),
       },
     },
   })
@@ -20,4 +21,5 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
 export interface InlineProps {
   vSpace?: VSpaceTokens | number
   hSpace?: HSpaceTokens | number
+  unit?: CSSUnit
 }
