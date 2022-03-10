@@ -129,9 +129,6 @@ export const SidebarItem = forwardRef(function SidebarItem(
           expandable,
         })
       }}
-      onMouseLeave={() => {
-        state.setSelectedItem(state.selectedItemFallback)
-      }}
     >
       {(itemProps) => (
         <>
@@ -150,7 +147,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
               height: '100%',
               width: '12.5rem',
-              padding: '$m',
+              padding: '$s',
               outline: 'none',
               overflow: 'auto',
               backgroundColor: 'transparent',

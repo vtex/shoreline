@@ -50,7 +50,16 @@ export const Sidebar = forwardRef(function Sidebar(
   } = props
 
   return (
-    <Fragment>
+    <tag.div
+      csx={{ display: 'flex' }}
+      onMouseLeave={() => {
+        const { setSelectedItem, selectedItem, selectedItemFallback } = state
+
+        if (selectedItem?.uniqueKey !== selectedItemFallback?.uniqueKey) {
+          setSelectedItem(selectedItemFallback)
+        }
+      }}
+    >
       <tag.div
         csx={{
           position: 'relative',
@@ -83,7 +92,6 @@ export const Sidebar = forwardRef(function Sidebar(
             height: '100%',
             width: '100%',
             overflow: 'initial',
-            overflowY: 'scroll',
           }}
           {...baseProps}
         >
@@ -131,7 +139,7 @@ export const Sidebar = forwardRef(function Sidebar(
           state.selectedItem?.expandable && loading && !state.layout.reduced
         }
       />
-    </Fragment>
+    </tag.div>
   )
 })
 

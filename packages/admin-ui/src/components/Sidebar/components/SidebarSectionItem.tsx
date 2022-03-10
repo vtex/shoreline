@@ -16,7 +16,13 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   props: SidebarSectionItem,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { children, selected: currentSelected = false, ...buttonProps } = props
+  const {
+    children,
+    selected: currentSelected = false,
+    onClick,
+    ...buttonProps
+  } = props
+
   const rootState = useSidebarContext()
   const { state, id, selected: parentSelected } = useItemContext()
 
@@ -38,6 +44,12 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
         rootState.composite.move(id!)
       }
     }
+  }
+
+  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    rootState.setSelectedItemFallback(rootState.selectedItem)
+
+    onClick?.(event)
   }
 
   return (
@@ -77,6 +89,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
       )}
       {...compositeProps}
       {...buttonProps}
+      onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
     >
       {children}

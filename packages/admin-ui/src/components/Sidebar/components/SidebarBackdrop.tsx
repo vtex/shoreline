@@ -65,7 +65,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
           position: 'absolute',
           zIndex: 1,
-          top: '5.125rem',
+          top: '5rem',
           cursor: 'pointer',
           borderRadius: '100%',
           border: '$neutral',
