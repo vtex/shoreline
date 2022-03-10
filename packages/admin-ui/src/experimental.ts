@@ -11,6 +11,11 @@ import {
   I18nProvider as experimental_I18nProvider,
   useDateFormatter as experimental_useDateFormatter,
 } from './i18n'
+import {
+  ComboboxField as experimental_ComboboxField,
+  ComboboxPopover as experimental_ComboboxPopover,
+  useComboboxState as experimental_useComboboxState,
+} from './combobox'
 
 export {
   experimental_DatePickerField,
@@ -22,4 +27,7 @@ export {
   experimental_useDatePickerState,
   experimental_I18nProvider,
   experimental_useDateFormatter,
+  experimental_ComboboxField,
+  experimental_ComboboxPopover,
+  experimental_useComboboxState,
 }

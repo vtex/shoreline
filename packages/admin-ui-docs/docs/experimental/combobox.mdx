@@ -1,0 +1,245 @@
+---
+title: Combobox
+path: /combobox/
+---
+
+# Combobox
+
+## Usage
+
+```jsx
+import {
+  experimental_ComboboxField as ComboboxField,
+  experimental_ComboboxPopover as ComboboxPopover,
+  experimental_useComboboxState as useComboboxState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const combobox = useComboboxState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxField id="id" label="Label" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+```
+
+## Examples
+
+### Basic
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Async
+
+You can use the `deferredValue` and `setList` to handle searches in async environments.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+// just a sample API
+function api(search) {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
+
+  const res = items.filter((item) =>
+    item.value.toLowerCase().startsWith(search.toLowerCase())
+  )
+
+  return new Promise((resolve) => setTimeout(resolve, 1000, res))
+}
+
+function Example() {
+  const combobox = useComboboxState()
+
+  useEffect(() => {
+    if (combobox.deferredValue === '') {
+      combobox.setList([])
+    } else {
+      combobox.setLoading(true)
+      api(combobox.deferredValue).then((res) => {
+        combobox.setList(res.map((i) => i.value))
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue, combobox.setList])
+
+  return (
+    <>
+      <ComboboxField id="async-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+#### Handling states
+
+The `loading` and `error` states can be toggled programmatically with `setLoading` and `setError`. Use these functions to interact with your data-fetching library.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  const toggleLoading = () => {
+    combobox.setLoading((l) => !l)
+    combobox.setVisible(true)
+  }
+
+  const toggleError = () => {
+    combobox.setError((e) => !e)
+    combobox.setVisible(true)
+  }
+
+  return (
+    <>
+      <Set>
+        <Button size="small" variant="tertiary" onClick={toggleLoading}>
+          toggle loading
+        </Button>
+        <Button size="small" variant="danger-tertiary" onClick={toggleError}>
+          toggle error
+        </Button>
+      </Set>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The combobox has default translations for the popover strings. Since the label can vary, you should handle this translation. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+const I18nProvider = experimental_I18nProvider
+
+function ComboboxComponent() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="pt-BR">
+      <ComboboxComponent />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+## TODOs
+
+Features and fixes scheduled for this component:
+
+- [ ] Support to render images and icons in items
+- [ ] Review translations
+
+## Props
+
+### useComboboxState
+
+| Name      | Type       | Description                  | Required | Default |
+| --------- | ---------- | ---------------------------- | -------- | ------- |
+| timeoutMs | `number`   | Timeout of the deferredValue | 🚫       | -       |
+| list      | `string[]` | List of items                | 🚫       | -       |
+
+#### ComboboxState
+
+The hooks return the ComboboxState, with props:
+
+| Name          | Type                       | Description                                          |
+| ------------- | -------------------------- | ---------------------------------------------------- |
+| value         | `string`                   | Current input value                                  |
+| setLoading    | `React.SetState<string>`   | Set the value                                        |
+| deferredValue | `string`                   | Current input value delayed by a defined `timeoutMs` |
+| list          | `string[]`                 | List of items                                        |
+| setList       | `React.SetState<string[]>` | Set the list value                                   |
+| setLoading    | `React.SetState<boolean>`  | Set loading state                                    |
+| setError      | `React.SetState<boolean>`  | Set error state                                      |
+
+### ComboboxField
+
+| Name  | Type            | Description    | Required | Default |
+| ----- | --------------- | -------------- | -------- | ------- |
+| state | `ComboboxState` | Required state | ✅       | -       |
+| label | `string`        | Required label | ✅       | -       |
+| id    | `string`        | Required id    | ✅       | -       |
+| csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
+
+### ComboboxPopover
+
+| Name    | Type            | Description                    | Required | Default |
+| ------- | --------------- | ------------------------------ | -------- | ------- |
+| state   | `ComboboxState` | Required state                 | ✅       | -       |
+| onRetry | `() => void`    | Function to be called on retry | 🚫       | -       |
+| csx     | `StyleObject`   | Custom styles                  | 🚫       | `{}`    |
