@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.6.0...@vtex/admin-ui-core@0.6.1) (2022-03-11)
+
+### Bug Fixes
+
+- **typography:** change action tokens line-height value to be according with figma specs ([b0d781f](https://github.com/vtex/admin-ui/commit/b0d781fc19e14bcb2a3d4b793905ded8d842491b))
+
 # [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.5.1...@vtex/admin-ui-core@0.6.0) (2022-02-25)
 
 ### Features

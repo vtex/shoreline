@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.119.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.2...@vtex/admin-ui@0.119.3) (2022-03-11)
+
+### Bug Fixes
+
+- **sidebar:** add scroll on the sidebar sections when it has a vertical overflow ([328acd3](https://github.com/vtex/admin-ui/commit/328acd33de4930079e0256e5495db05084e747e9))
+- **sidebar:** apply spacing changes according to design's specification ([051674d](https://github.com/vtex/admin-ui/commit/051674d380bea8fafa2aaa1ab98f73b4d63dbbd0))
+- **sidebar:** apply spacing changes to be according with Figma spec ([fb1016d](https://github.com/vtex/admin-ui/commit/fb1016d5d44eaa7e3d72ab78fb495b5d240a2d49))
+- **sidebar:** change the label style of the first section of each sidebar item ([a9c3419](https://github.com/vtex/admin-ui/commit/a9c34197f7d6c755a62fa301c8cc24ae24a1fcf6))
+- **sidebar:** only reset section preview when leaving the mouse from the top of the sidebar ([b13fe62](https://github.com/vtex/admin-ui/commit/b13fe623c437453dc3b5dec0e0393331034d87cc))
+- **sidebar:** remove Tooltip from section icons ([3865114](https://github.com/vtex/admin-ui/commit/386511446c3a2b4351d3e5ac9180ba51f217dfd6))
+- **sidebar:** show a section items preview when hovering the section icons ([e172f16](https://github.com/vtex/admin-ui/commit/e172f16137003eb64293c3dff484e608c716c895))
+
 ## [0.119.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.1...@vtex/admin-ui@0.119.2) (2022-03-10)
 
 ### Bug Fixes
