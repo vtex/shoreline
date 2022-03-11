@@ -179,7 +179,6 @@ const list = [
 
 export function Multiple() {
   const combobox = useComboboxMultipleState({
-    defaultSelected: [],
     list,
   })
 
@@ -189,6 +188,9 @@ export function Multiple() {
         state={combobox}
         id="combobox-multiple"
         label="Foods"
+        csx={{
+          width: '100%',
+        }}
       />
       <ComboboxMultiplePopover state={combobox} />
     </div>

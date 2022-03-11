@@ -64,6 +64,7 @@ export const item = style({
   borderRadius: '$default',
   paddingY: '$2',
   paddingX: '$3',
+  cursor: 'pointer',
   '&[data-active-item]': {
     bg: '$action.neutral.tertiaryPressed',
     color: '$action.neutral.tertiaryPressed',
@@ -80,4 +81,11 @@ export const itemMultiple = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   outline: 'none',
+})
+
+export const fieldTag = style({
+  bg: '#f4f4f4',
+  text: '$body',
+  padding: '$narrow.s',
+  borderRadius: '$default',
 })
