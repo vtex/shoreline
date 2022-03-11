@@ -60,7 +60,6 @@
     "csstype": "3.0.10",
     "date-fns": "^2.28.0",
     "downshift": "^6.0.6",
-    "framer-motion": "^2.9.4",
     "react-collapsed": "^3.3.0",
     "react-device-detect": "^1.15.0",
     "react-is": "^17.0.1",
