@@ -17,7 +17,7 @@ export function useFilterState<T extends FilterItem>(
     selectionMode,
   }
 
-  const [appliedKeys, setAppliedKeys] = useState<key[]>(initialApplied || [])
+  const [appliedKeys, setAppliedKeys] = useState<Key[]>(initialApplied || [])
 
   const ref = useRef(null)
 
@@ -82,10 +82,10 @@ export function useFilterState<T extends FilterItem>(
   }
 }
 
-export type key = string | number
+export type Key = string | number
 
 export interface FilterItem {
-  id: key
+  id: Key
   label: string
   value: any
 }
@@ -104,15 +104,15 @@ export interface UseFilterStateReturn<T extends FilterItem> {
 export interface UseMultipleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn<T> {
   appliedValues: any[]
-  appliedKeys: key[]
-  selectedKeys: key[]
+  appliedKeys: Key[]
+  selectedKeys: Key[]
 }
 
 export interface UseMultipleFilterStateProps<T extends FilterItem> {
   /** Function called when a change is applied. */
-  onChange: ({ selected }: { selected: key[] }) => void
+  onChange: ({ selected }: { selected: Key[] }) => void
   /** The initial selected keys. */
-  initialApplied?: key[]
+  initialApplied?: Key[]
   /** Filter button label. */
   label: string
   items: T[]

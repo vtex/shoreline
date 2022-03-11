@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { FilterItem, key, UseFilterStateReturn } from './filter.state'
+import type { FilterItem, Key, UseFilterStateReturn } from './filter.state'
 import { useFilterState } from './filter.state'
 
 export function useSingleFilterState<T extends FilterItem>(
@@ -7,7 +7,7 @@ export function useSingleFilterState<T extends FilterItem>(
 ): UseSingleFilterReturn<T> {
   const { initialApplied, onChange: onChangeCb, ...otherProps } = props
 
-  const onChange = ({ selected }: { selected: key[] }) => {
+  const onChange = ({ selected }: { selected: Key[] }) => {
     onChangeCb({ selected: selected?.length ? selected[0] : null })
   }
 
@@ -36,14 +36,14 @@ export function useSingleFilterState<T extends FilterItem>(
 export interface UseSingleFilterReturn<T extends FilterItem>
   extends UseFilterStateReturn<T> {
   appliedValue: any
-  appliedKey: any
+  appliedKey: Key | null
 }
 
 export interface UseSingleFilterStateProps<T extends FilterItem> {
   /** Function called when a change is applied. */
-  onChange: ({ selected }: { selected: key | null }) => void
+  onChange: ({ selected }: { selected: Key | null }) => void
   /** The initial selected key. */
-  initialApplied?: key
+  initialApplied?: Key
   /** Filter button label. */
   label: string
   items: T[]

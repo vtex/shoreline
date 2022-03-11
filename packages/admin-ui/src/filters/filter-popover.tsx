@@ -26,7 +26,7 @@ export const FilterPopoverFooter = createComponent<
   typeof Role,
   FilterPopoverFooterProps
 >((props) => {
-  const { isContentScrollable, ...restProps } = props
+  const { isContentScrollable = false, ...restProps } = props
 
   return useElement(Role, {
     baseStyle: {
