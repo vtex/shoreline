@@ -1,4 +1,4 @@
-import { Tab as ReakitTab } from 'reakit'
+import { Tab as ReakitTab } from 'reakit/Tab'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { useTabsContext } from '../context'

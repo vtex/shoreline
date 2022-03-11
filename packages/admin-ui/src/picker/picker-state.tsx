@@ -1,5 +1,6 @@
-import type { PopoverInitialState } from 'reakit'
-import { unstable_useId as useId, usePopoverState } from 'reakit'
+import type { PopoverInitialState } from 'reakit/Popover'
+import { usePopoverState } from 'reakit/Popover'
+import { unstable_useId as useId } from 'reakit/Id'
 
 import type { InputState } from '../types'
 

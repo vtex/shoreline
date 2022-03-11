@@ -1,4 +1,4 @@
-import { Composite } from 'reakit'
+import { Composite } from 'reakit/Composite'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './segment.style'

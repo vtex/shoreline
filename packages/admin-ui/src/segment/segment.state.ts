@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useCompositeState } from 'reakit'
+import { useCompositeState } from 'reakit/Composite'
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
 import { useControllableState } from '@vtex/admin-ui-hooks'

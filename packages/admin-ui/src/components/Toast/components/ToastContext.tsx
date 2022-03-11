@@ -6,7 +6,7 @@ import React, {
   useCallback,
   Fragment,
 } from 'react'
-import { Portal } from 'reakit'
+import { Portal } from 'reakit/Portal'
 
 import { ToastQueue } from './ToastQueue'
 import type { Toast, InternalToast } from '../types'

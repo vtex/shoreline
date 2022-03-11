@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import { MenuSeparator as ReakitMenuSeparator } from 'reakit'
+import { MenuSeparator as ReakitMenuSeparator } from 'reakit/Menu'
 
 import * as style from '../Menu.style'
 

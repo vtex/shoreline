@@ -1,5 +1,5 @@
-import type { CheckboxProps as ReakitProps } from 'reakit'
-import { Checkbox as ReakitCheckbox } from 'reakit'
+import type { CheckboxProps as ReakitProps } from 'reakit/Checkbox'
+import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { jsx } from '@vtex/admin-ui-react'
 
 import * as style from './Toggle.style'
