@@ -10,9 +10,17 @@ import {
   IconSlidersHorizontal,
   IconPackage,
   IconLayout,
+  IconArrowUp,
+  IconQuestion,
+  IconImage,
+  IconBell,
+  IconArrowUUpLeft,
 } from '@vtex/phosphor-icons'
-
+import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
 import { Box } from '../../Box'
+import { Set } from '../../Set'
+import { Button } from '../../Button'
+import { Text } from '../../Text'
 import {
   Sidebar,
   SidebarGroup,
@@ -21,7 +29,6 @@ import {
   SidebarSectionItem,
   useSidebarState,
 } from '../index'
-import { Paragraph } from '../../Paragraph'
 
 export default {
   title: 'admin-ui/Sidebar',
@@ -44,9 +51,9 @@ const top = [
         title: 'Orders',
         subItems: [
           'All Orders',
-          'Subscriptions Super Long Text',
+          'Subscriptions',
           'Transactions',
-          'Bank Conciliation Super Long Text',
+          'Bank Conciliation',
         ],
       },
     ],
@@ -65,8 +72,8 @@ const top = [
           'Collections',
           'List Types',
           'Inventory',
-          'Custom Fields Supor Long Text',
-          'Import and Export Super Long Text',
+          'Custom Fields',
+          'Import and Export',
           'Reviews',
           'Reports',
         ],
@@ -82,9 +89,9 @@ const top = [
       {
         title: 'Promotions',
         subItems: [
-          'All Promotions',
+          'Promotions',
           'Coupons',
-          'Campaign Audience Super Long Text',
+          'Campaign Audience',
           'Gift Cards',
           'Taxes',
         ],
@@ -112,7 +119,7 @@ const top = [
         subItems: [
           'Shipping Rates',
           'Shipping Simulator',
-          'Pickup Points Super Long Text',
+          'Pickup Points',
           'Shipping Strategy',
         ],
       },
@@ -147,29 +154,41 @@ export const Playground: Story<any> = (args) => {
   return (
     <Box
       csx={{
-        height: '100%',
-        width: '100%',
-        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        maxHeight: '100vh',
       }}
+      data-testid="container-shell"
     >
-      <Box
-        csx={{
-          height: 30,
-          padding: 22,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          border: '4px dashed black',
-          margin: 1,
-        }}
-      >
-        TOP BAR
-      </Box>
+      <Topbar>
+        <TopbarStart>
+          <Set spacing={3}>
+            <Button variant="adaptative-dark" icon={<IconImage />} />
+            <Text variant="action1">dpsppinheiros</Text>
+          </Set>
+        </TopbarStart>
+        <TopbarEnd>
+          <Set spacing={0}>
+            <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
+              Switch to previous version
+            </Button>
+            <Button
+              variant="tertiary"
+              icon={<IconArrowUp csx={{ transform: `rotate(45deg)` }} />}
+            >
+              View Store
+            </Button>
+            <Button variant="tertiary" icon={<IconBell />} />
+            <Button variant="tertiary" icon={<IconQuestion />} />
+          </Set>
+        </TopbarEnd>
+      </Topbar>
       <Box
         csx={{
           display: 'flex',
           flexDirection: 'row',
-          height: 'calc(100vh - 92px)',
+          height: 'auto',
+          minHeight: 'calc(100vh - 3.5rem)',
           overflow: 'hidden',
         }}
       >
@@ -182,6 +201,9 @@ export const Playground: Story<any> = (args) => {
                 icon={item.icon}
                 key={item.label}
                 selected={index === 0}
+                onMouseEnter={() => {
+                  console.log('heyyyyy')
+                }}
               >
                 {item.sections.map((section) => (
                   <SidebarSection title={section.title} key={section.title}>
@@ -200,29 +222,17 @@ export const Playground: Story<any> = (args) => {
           </SidebarGroup>
           <SidebarGroup>
             {bottom.map((item) => (
-              <SidebarItem
-                icon={item.icon}
-                label={item.label}
-                uniqueKey={item.label}
-                key={item.label}
-              />
+              <a href="https://www.google.com.br">
+                <SidebarItem
+                  icon={item.icon}
+                  label={item.label}
+                  uniqueKey={item.label}
+                  key={item.label}
+                />
+              </a>
             ))}
           </SidebarGroup>
         </Sidebar>
-        <Box
-          csx={{
-            width: '100%',
-            height: 'auto',
-            padding: 22,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            border: '4px dashed black',
-            margin: 1,
-          }}
-        >
-          <Paragraph>APPS</Paragraph>
-        </Box>
       </Box>
     </Box>
   )

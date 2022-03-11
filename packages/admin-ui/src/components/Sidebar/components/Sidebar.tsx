@@ -50,7 +50,16 @@ export const Sidebar = forwardRef(function Sidebar(
   } = props
 
   return (
-    <Fragment>
+    <tag.div
+      csx={{ display: 'flex' }}
+      onMouseLeave={() => {
+        const { setSelectedItem, selectedItem, selectedItemFallback } = state
+
+        if (selectedItem?.uniqueKey !== selectedItemFallback?.uniqueKey) {
+          setSelectedItem(selectedItemFallback)
+        }
+      }}
+    >
       <tag.div
         csx={{
           position: 'relative',
@@ -72,14 +81,13 @@ export const Sidebar = forwardRef(function Sidebar(
       >
         <tag.nav
           ref={ref}
-          as="nav"
           csx={{
             position: 'absolute',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingY: '0.625rem',
+            paddingY: '1em',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',
@@ -131,7 +139,7 @@ export const Sidebar = forwardRef(function Sidebar(
           state.selectedItem?.expandable && loading && !state.layout.reduced
         }
       />
-    </Fragment>
+    </tag.div>
   )
 })
 

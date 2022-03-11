@@ -15,6 +15,8 @@ function useIconProps(props: IconProps) {
     size = containerSize,
     children,
     className,
+    width,
+    height,
     ...iconProps
   } = props
 
@@ -23,9 +25,9 @@ function useIconProps(props: IconProps) {
   const sizeValue = size === 'small' ? '1rem' : '1.25rem'
 
   return {
+    width: width ?? sizeValue,
+    height: height ?? sizeValue,
     ...iconProps,
-    width: sizeValue,
-    height: sizeValue,
     children: (
       <>
         {title ? <title>{title}</title> : null}
@@ -35,9 +37,10 @@ function useIconProps(props: IconProps) {
     className: cx(
       className,
       cn({
-        size: sizeValue,
-        minHeight: sizeValue,
-        minWidth: sizeValue,
+        height: height ?? sizeValue,
+        width: width ?? sizeValue,
+        minHeight: height ?? sizeValue,
+        minWidth: width ?? sizeValue,
         ...containerCsx,
         ...csx,
       })

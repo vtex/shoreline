@@ -8,6 +8,10 @@ import { useReducedState } from './useReducedState'
 
 export function useSidebarState(): SidebarState {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
+  const [selectedItemFallback, setSelectedItemFallback] = useState<Item | null>(
+    selectedItem
+  )
+
   const layout = useReducedState()
 
   const composite = useCompositeState({
@@ -53,6 +57,8 @@ export function useSidebarState(): SidebarState {
     layout,
     composite,
     isReduced,
+    selectedItemFallback,
+    setSelectedItemFallback,
   }
 }
 
@@ -82,4 +88,14 @@ export interface SidebarState {
    * This allows accessible navigation through the Sidebar.
    */
   composite: CompositeStateReturn
+  /**
+   * It stores the state of the current selected item, making possible to change the current state on item's hover
+   * @private
+   */
+  selectedItemFallback: Item | null
+  /**
+   * Sets the selected item fallback
+   * @private
+   */
+  setSelectedItemFallback: (newItem: Item | null) => void
 }
