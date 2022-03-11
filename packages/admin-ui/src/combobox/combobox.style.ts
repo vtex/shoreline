@@ -1,4 +1,4 @@
-import { style } from '@vtex/admin-ui-core'
+import { style, styleVariants } from '@vtex/admin-ui-core'
 
 const height = '3rem'
 const width = '21.625rem'
@@ -84,8 +84,49 @@ export const itemMultiple = style({
 })
 
 export const fieldTag = style({
+  // TODO: find a token for this
   bg: '#f4f4f4',
   text: '$body',
-  padding: '$narrow.s',
+  paddingY: '$m',
+  paddingX: '$m',
   borderRadius: '$default',
+})
+
+export const fiedlMultipleContainer = style({
+  width: 500,
+  display: 'flex',
+  cursor: 'text',
+  position: 'relative',
+  border: '$form.neutral',
+  borderRadius: '$default',
+  paddingY: '$l',
+  paddingX: '$l',
+
+  ':hover': {
+    border: '$form.neutralHover',
+  },
+  ':focus-within': {
+    border: '$form.neutralFocus',
+  },
+})
+
+export const label = style({
+  position: 'absolute',
+  text: '$body',
+  zIndex: 2,
+  left: 12,
+  color: '$secondary',
+  transformOrigin: 'top left',
+  transition: 'all 0.2s ease-out;',
+})
+
+export const labelTransition = styleVariants({
+  reduced: {
+    true: {
+      transform: 'translate(1px, 0px) scale(0.875)',
+    },
+    false: {
+      transform: 'translate(0, 9px) scale(1)',
+    },
+  },
 })

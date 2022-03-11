@@ -2,43 +2,54 @@ import React, { forwardRef } from 'react'
 import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
 import { tag, useSystem } from '@vtex/admin-ui-react'
+import type { CompositeItemProps } from 'ariakit/composite'
+import { CompositeItem } from 'ariakit/composite'
 
 import { Paragraph } from '../components/Paragraph'
 import { Flex } from '../components/Flex'
 
 import * as style from './combobox.style'
 
-interface TagProps {
+interface ComboboxMultipleTagProps extends CompositeItemProps {
   value: string
   onDismiss: () => void
 }
 
-export const ComboboxMultipleTag = forwardRef<any, any>((props, ref) => {
+export const ComboboxMultipleTag = forwardRef<
+  HTMLButtonElement,
+  ComboboxMultipleTagProps
+>((props, ref) => {
   const { value, onDismiss, ...htmlProps } = props
   const { cn } = useSystem()
 
   return (
-    <Focusable className={cn(style.fieldTag)} ref={ref} {...htmlProps}>
-      <Flex justify="space-between" align="center">
-        <Paragraph>{value}</Paragraph>
-        <tag.button
-          tabIndex={-1}
-          onClick={onDismiss}
-          csx={{
-            padding: 'none',
-            margin: 'none',
-            bg: 'transparent',
-          }}
-        >
-          <IconX
-            size="small"
-            csx={{
-              // size: 10,
-              color: '$secondary',
-            }}
-          />
-        </tag.button>
-      </Flex>
-    </Focusable>
+    <CompositeItem ref={ref} {...htmlProps}>
+      {(compositeProps) => (
+        <Focusable className={cn(style.fieldTag)} {...compositeProps}>
+          <Flex justify="space-between" align="center">
+            <Paragraph>{value}</Paragraph>
+            <tag.button
+              tabIndex={-1}
+              onClick={onDismiss}
+              csx={{
+                padding: 0,
+                marginLeft: '$m',
+                bg: 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <IconX
+                size="small"
+                csx={{
+                  color: '$secondary',
+                }}
+              />
+            </tag.button>
+          </Flex>
+        </Focusable>
+      )}
+    </CompositeItem>
   )
 })

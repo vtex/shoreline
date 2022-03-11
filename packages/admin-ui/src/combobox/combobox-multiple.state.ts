@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function useComboboxMultipleState(props: Props = {}) {
-  const { defaultSelected = [], list, shouldClearOnSelect = false } = props
+  const { defaultSelected = [], list, shouldClearOnSelect = true } = props
 
   const combobox = useComboboxState({
     // VoiceOver has issues with multi-selectable comboboxes where the DOM focus

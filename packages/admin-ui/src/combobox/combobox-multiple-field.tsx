@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Combobox } from 'ariakit/combobox'
-import { Composite, CompositeItem, useCompositeState } from 'ariakit/composite'
+import { Composite, useCompositeState } from 'ariakit/composite'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
@@ -11,6 +11,8 @@ import { Button } from '../components/Button'
 import { Box } from '../components/Box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
 import { Label } from '../components/Label'
+
+import * as style from './combobox.style'
 
 export type ComboboxMultipleFieldProps = {
   state: any
@@ -49,11 +51,11 @@ export const ComboboxMultipleField = createComponent<
   } = props
 
   const composite = useCompositeState()
-
   const inputRef = useRef<HTMLInputElement>(null)
   const compositeRef = useRef<any>(null)
 
   const [focused, setFocused] = React.useState(false)
+
   const onFocus = () => setFocused(true)
   const onBlur = () => setFocused(false)
 
@@ -105,24 +107,11 @@ export const ComboboxMultipleField = createComponent<
     ref: divRef as any,
     ...htmlProps,
     baseStyle: {
-      width: 500,
-      display: 'flex',
-      cursor: 'text',
-      position: 'relative',
-      border: '$form.neutral',
-      borderRadius: '$default',
-      paddingY: '$l',
-      paddingX: '$l',
+      ...style.fiedlMultipleContainer,
       input: {
         border: 'none',
         outline: 'none',
         paddingY: shouldReduceLabel ? '$m' : 0,
-      },
-      ':hover': {
-        border: '$form.neutralHover',
-      },
-      ':focus-within': {
-        border: '$form.neutralFocus',
       },
     },
     onClick: (e) => {
@@ -140,20 +129,10 @@ export const ComboboxMultipleField = createComponent<
         >
           <Label
             csx={{
-              position: 'absolute',
-              text: '$body',
-              transform: shouldReduceLabel
-                ? 'translate(1px, 0px) scale(0.875)'
-                : 'translate(0, 9px) scale(1)',
-
-              // top: '8px',
-              zIndex: 2,
-              left: 12,
-              color: '$secondary',
-
-              // transform: 'translate(0, 9px) scale(1)',
-              transformOrigin: 'top left',
-              transition: 'all 0.2s ease-out;',
+              ...style.label,
+              ...style.labelTransition({
+                reduced: shouldReduceLabel,
+              }),
             }}
             htmlFor={id}
           >
@@ -162,7 +141,7 @@ export const ComboboxMultipleField = createComponent<
           <Bleed
             left="$m"
             csx={{
-              paddingTop: '12px',
+              paddingTop: '0.75rem',
               bg: 'transparent',
             }}
           >
@@ -170,22 +149,16 @@ export const ComboboxMultipleField = createComponent<
               <Inline hSpace="$m" vSpace="$l">
                 {state.selected.length > 0 &&
                   state.selected.map((itemString: string) => (
-                    <CompositeItem
-                      onKeyDown={(e) => onTagKeyDown(e, itemString)}
+                    <ComboboxMultipleTag
                       key={itemString}
-                    >
-                      {(cpiProps) => (
-                        <ComboboxMultipleTag
-                          {...cpiProps}
-                          value={itemString}
-                          onDismiss={() => {
-                            state?.setSelected((v: string[]) =>
-                              v.filter((vv) => vv !== itemString)
-                            )
-                          }}
-                        />
-                      )}
-                    </CompositeItem>
+                      value={itemString}
+                      onKeyDown={(e) => onTagKeyDown(e, itemString)}
+                      onDismiss={() => {
+                        state?.setSelected((v: string[]) =>
+                          v.filter((vv) => vv !== itemString)
+                        )
+                      }}
+                    />
                   ))}
                 <Combobox
                   ref={inputRef}
