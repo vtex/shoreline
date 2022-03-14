@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.119.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.3...@vtex/admin-ui@0.119.4) (2022-03-14)
+
+### Bug Fixes
+
+- **bundle-size:** fix reakit import by specifying the module which the import belongs ([1382faa](https://github.com/vtex/admin-ui/commit/1382faadbd13f72b6a0a1d88c4af5bab7da1a5e7))
+- **bundle-size:** remove framer-motion dependency to reduce admin-ui bundle size ([6381749](https://github.com/vtex/admin-ui/commit/638174909ced1b5c214b1f99997dd6dd8cf92acc))
+
 ## [0.119.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.2...@vtex/admin-ui@0.119.3) (2022-03-11)
 
 ### Bug Fixes
