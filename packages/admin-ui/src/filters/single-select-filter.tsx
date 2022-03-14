@@ -1,7 +1,6 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
 
-import type { FilterItem } from './filter.state'
 import type { UseSingleFilterReturn } from './single-filter.state'
 import { Filter } from './filter'
 import { StyledRadio } from './styled-radio'
@@ -9,11 +8,11 @@ import { Option } from './option'
 
 export function SingleSelectFilter(props: SingleSelectFilterProps) {
   const {
-    state: { listState, appliedValue },
+    state: { listState, appliedItem },
     state,
   } = props
 
-  const appliedValuesLabel = appliedValue && (
+  const appliedValuesLabel = appliedItem && (
     <>
       <span>:</span>
       <tag.span
@@ -26,7 +25,7 @@ export function SingleSelectFilter(props: SingleSelectFilterProps) {
           maxWidth: '300px',
         }}
       >
-        {appliedValue}
+        {appliedItem.label}
       </tag.span>
     </>
   )
@@ -53,5 +52,5 @@ export function SingleSelectFilter(props: SingleSelectFilterProps) {
 }
 
 export interface SingleSelectFilterProps {
-  state: UseSingleFilterReturn<FilterItem>
+  state: UseSingleFilterReturn
 }

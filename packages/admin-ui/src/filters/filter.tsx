@@ -5,7 +5,7 @@ import { IconCaretUp } from '@vtex/phosphor-icons'
 import { Button } from '../components/Button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
-import type { FilterItem, UseFilterStateReturn } from './filter.state'
+import type { UseFilterStateReturn } from './filter.state'
 import { VisuallyHidden } from '../components/VisuallyHidden'
 import { tag } from '@vtex/admin-ui-react'
 import { useMessageFormatter } from '../i18n'
@@ -71,7 +71,7 @@ export function Filter(props: FilterProps) {
 }
 
 export interface FilterProps {
-  state: UseFilterStateReturn<FilterItem>
+  state: UseFilterStateReturn
   children?: ReactNode
   appliedValuesLabel?: ReactNode
 }

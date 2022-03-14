@@ -260,8 +260,8 @@ export function FilterControls() {
 
   const brandFilterState = useMultipleFilterState({
     items: [
-      { label: 'Mistery brand', value: 'mistery_id', id: 'mistery_id' },
-      { label: 'Cool brand', value: 'cool_id', id: 'cool_id' },
+      { label: 'Mistery brand', id: 'mistery_id' },
+      { label: 'Cool brand', id: 'cool_id' },
     ],
     onChange: ({ selected }) => {
       setBrand(selected)
@@ -271,8 +271,8 @@ export function FilterControls() {
 
   const qualityFilterState = useSingleFilterState({
     items: [
-      { label: 'Normal', value: 'norm', id: 'norm' },
-      { label: 'Premium', value: 'prem', id: 'prem' },
+      { label: 'Normal', id: 'norm' },
+      { label: 'Premium', id: 'prem' },
     ],
     onChange: ({ selected }) => {
       setQuality(selected)
@@ -288,9 +288,6 @@ export function FilterControls() {
   useEffect(() => {
     const filtered = items.filter((item) => {
       if (quality === 'norm' && Number(item.price) > 510) {
-        console.log('returned false, not norm:')
-        console.log({ item })
-
         return false
       }
 

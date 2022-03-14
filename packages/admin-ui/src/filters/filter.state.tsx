@@ -7,9 +7,9 @@ import { useListState } from '@react-stately/list'
 import type { PickerStateReturn } from '../picker'
 import { usePickerState } from '../picker'
 
-export function useFilterState<T extends FilterItem>(
-  props: UseFilterStateProps<T>
-): UseMultipleFilterReturn<T> {
+export function useFilterState(
+  props: UseFilterStateProps
+): UseMultipleFilterReturn {
   const { onChange, items, label, initialApplied, selectionMode } = props
   const stateProps = {
     items,
@@ -26,7 +26,7 @@ export function useFilterState<T extends FilterItem>(
     baseId: 'filter-picker',
   })
 
-  const listState = useListState<T>({
+  const listState = useListState<FilterItem>({
     ...stateProps,
     defaultSelectedKeys: initialApplied,
   })
@@ -62,8 +62,8 @@ export function useFilterState<T extends FilterItem>(
     }
   }, [popover.visible])
 
-  const appliedValues = useMemo(
-    () => appliedKeys.map((k) => listState.collection.getItem(k).value.label),
+  const appliedItems = useMemo(
+    () => appliedKeys.map((k) => listState.collection.getItem(k).value),
     [appliedKeys, listState.collection]
   )
 
@@ -72,7 +72,7 @@ export function useFilterState<T extends FilterItem>(
     onClear: clear,
     onChange: apply,
     listState,
-    appliedValues,
+    appliedItems,
     appliedKeys,
     selectedKeys: Array.from(listState.selectionManager.selectedKeys.values()),
     ref,
@@ -87,39 +87,37 @@ export type Key = string | number
 export interface FilterItem {
   id: Key
   label: string
-  value: any
+  [x: string]: unknown
 }
 
-export interface UseFilterStateReturn<T extends FilterItem> {
+export interface UseFilterStateReturn {
   popover: PickerStateReturn
   onClear: () => void
   onChange: () => void
   ref: React.MutableRefObject<any>
   listBoxProps: React.HTMLAttributes<HTMLElement>
   labelProps: React.HTMLAttributes<HTMLElement>
-  listState: ListState<T>
+  listState: ListState<FilterItem>
   label: string
 }
 
-export interface UseMultipleFilterReturn<T extends FilterItem>
-  extends UseFilterStateReturn<T> {
-  appliedValues: any[]
+export interface UseMultipleFilterReturn extends UseFilterStateReturn {
+  appliedItems: FilterItem[]
   appliedKeys: Key[]
   selectedKeys: Key[]
 }
 
-export interface UseMultipleFilterStateProps<T extends FilterItem> {
+export interface UseMultipleFilterStateProps {
   /** Function called when a change is applied. */
   onChange: ({ selected }: { selected: Key[] }) => void
   /** The initial selected keys. */
   initialApplied?: Key[]
   /** Filter button label. */
   label: string
-  items: T[]
+  items: FilterItem[]
 }
 
-export interface UseFilterStateProps<T extends FilterItem>
-  extends UseMultipleFilterStateProps<T> {
+export interface UseFilterStateProps extends UseMultipleFilterStateProps {
   /** set to multiple if filter is multiselect. */
   selectionMode: 'multiple' | 'single'
 }

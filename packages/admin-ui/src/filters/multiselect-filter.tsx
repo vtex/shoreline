@@ -3,21 +3,23 @@ import { tag } from '@vtex/admin-ui-react'
 import { Checkbox } from '../components/Checkbox'
 import { Filter } from './filter'
 import { Option } from './option'
-import type { FilterItem, UseMultipleFilterReturn } from './filter.state'
+import type { UseMultipleFilterReturn } from './filter.state'
 
 export function MultiselectFilter(props: MultiselectFilterProps) {
   const {
-    state: { listState, appliedValues },
+    state: { listState, appliedItems },
     state,
   } = props
 
   const firstSelectedItemLabel =
-    appliedValues?.length > 1 ? `${appliedValues[0]},` : `${appliedValues[0]}`
+    appliedItems?.length > 1
+      ? `${appliedItems[0].label},`
+      : `${appliedItems[0]?.label}` // no comma in this case
 
   const remainingSelectedItemsCount =
-    appliedValues?.length > 1 && `+${appliedValues.length - 1}`
+    appliedItems?.length > 1 && `+${appliedItems.length - 1}`
 
-  const appliedValuesLabel = !!appliedValues?.length && (
+  const appliedValuesLabel = !!appliedItems?.length && (
     <>
       <span>:</span>
       <tag.span
@@ -55,5 +57,5 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
 }
 
 export interface MultiselectFilterProps {
-  state: UseMultipleFilterReturn<FilterItem>
+  state: UseMultipleFilterReturn
 }

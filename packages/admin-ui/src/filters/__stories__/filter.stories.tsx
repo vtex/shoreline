@@ -25,7 +25,7 @@ export const Playground: Story = (args) => {
   const hookArgs = { ...restArgs, onChange }
 
   const multipleState = useMultipleFilterState(
-    hookArgs as unknown as UseMultipleFilterStateProps<FilterItem>
+    hookArgs as unknown as UseMultipleFilterStateProps
   )
 
   //   const singleState = useSingleFilterState(
@@ -55,11 +55,11 @@ Playground.args = {
 export function Multiple() {
   const state = useMultipleFilterState({
     items: [
-      { label: 'Full', value: 1, id: '#1' },
-      { label: 'Empty', value: 2, id: '#2' },
-      { label: 'Half full', value: 3, id: '#3' },
-      { label: 'Half empty', value: 4, id: '#4' },
-      { label: 'Unknown', value: 5, id: '#5' },
+      { label: 'Full', id: '#1' },
+      { label: 'Empty', id: '#2' },
+      { label: 'Half full', id: '#3' },
+      { label: 'Half empty', id: '#4' },
+      { label: 'Unknown', id: '#5' },
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',

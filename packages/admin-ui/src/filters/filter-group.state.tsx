@@ -1,8 +1,6 @@
-import type { FilterItem, UseFilterStateReturn } from './filter.state'
+import type { UseFilterStateReturn } from './filter.state'
 
-export function useFilterGroupState<T extends FilterItem>(
-  props: Array<UseFilterStateReturn<T>>
-) {
+export function useFilterGroupState(props: UseFilterStateReturn[]) {
   const onClear = () => {
     props?.forEach((state) => state.onClear())
   }
