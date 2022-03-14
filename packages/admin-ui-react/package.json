@@ -41,7 +41,7 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
     "@vtex/admin-ui-core": "^0.6.1",
-    "@vtex/phosphor-icons": "0.2.5"
+    "@vtex/phosphor-icons": "0.2.6"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.0",

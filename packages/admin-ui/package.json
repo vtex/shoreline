@@ -55,7 +55,7 @@
     "@vtex/admin-ui-core": "^0.6.1",
     "@vtex/admin-ui-hooks": "^0.2.0",
     "@vtex/admin-ui-react": "^0.6.1",
-    "@vtex/phosphor-icons": "0.2.5",
+    "@vtex/phosphor-icons": "0.2.6",
     "ariakit": "2.0.0-alpha.19",
     "csstype": "3.0.10",
     "date-fns": "^2.28.0",
