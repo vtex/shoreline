@@ -12,6 +12,14 @@ import { Pagination, useQueryPaginationState } from '../../Pagination'
 import { Set } from '../../Set'
 import { Input } from '../../Input'
 import { FlexSpacer } from '../../Flex'
+import {
+  FilterGroup,
+  MultiselectFilter,
+  SingleSelectFilter,
+  useFilterGroupState,
+  useMultipleFilterState,
+  useSingleFilterState,
+} from '../../../filters'
 
 export default {
   title: 'admin-ui/DataGrid/WithDataView',
@@ -23,6 +31,7 @@ interface Item {
   name: string
   lastSale: string
   price: string
+  brand: string
 }
 
 const items: Item[] = [...Array(20).keys()].map((id) => {
@@ -31,6 +40,7 @@ const items: Item[] = [...Array(20).keys()].map((id) => {
     name: faker.commerce.productName(),
     lastSale: faker.date.past().toDateString(),
     price: faker.commerce.price(),
+    brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
   }
 })
 
@@ -162,6 +172,7 @@ const items2: Item[] = [...Array(50).keys()].map((id) => {
     name: faker.commerce.productName(),
     lastSale: faker.date.past().toDateString(),
     price: faker.commerce.price(),
+    brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
   }
 })
 
@@ -231,5 +242,87 @@ export function QueryState() {
     <QueryStateProvider>
       <Content />
     </QueryStateProvider>
+  )
+}
+
+export function FilterControls() {
+  const [data, setData] = useState(items)
+  const view = useDataViewState()
+
+  const grid = useDataGridState<Item>({
+    view,
+    columns,
+    items: data,
+  })
+
+  const [quality, setQuality] = useState<string | number | null>()
+  const [brand, setBrand] = useState<Array<string | number> | null>()
+
+  const brandFilterState = useMultipleFilterState({
+    items: [
+      { label: 'Mistery brand', value: 'mistery_id', id: 'mistery_id' },
+      { label: 'Cool brand', value: 'cool_id', id: 'cool_id' },
+    ],
+    onChange: ({ selected }) => {
+      setBrand(selected)
+    },
+    label: 'Brand',
+  })
+
+  const qualityFilterState = useSingleFilterState({
+    items: [
+      { label: 'Normal', value: 'norm', id: 'norm' },
+      { label: 'Premium', value: 'prem', id: 'prem' },
+    ],
+    onChange: ({ selected }) => {
+      setQuality(selected)
+    },
+    label: 'Quality',
+  })
+
+  const filterGroupState = useFilterGroupState([
+    qualityFilterState,
+    brandFilterState,
+  ])
+
+  useEffect(() => {
+    const filtered = items.filter((item) => {
+      if (quality === 'norm' && Number(item.price) > 510) {
+        console.log('returned false, not norm:')
+        console.log({ item })
+
+        return false
+      }
+
+      if (quality === 'prem' && Number(item.price) <= 510) {
+        return false
+      }
+
+      if (brand?.length) {
+        if (!brand?.includes('cool_id') && item.brand === 'cool_id') {
+          return false
+        }
+
+        if (!brand?.includes('mistery_id') && item.brand === 'mistery_id') {
+          return false
+        }
+      }
+
+      return true
+    })
+
+    setData(filtered)
+  }, [quality, brand])
+
+  return (
+    <DataView csx={{ width: 500 }} state={view}>
+      <DataViewControls>
+        <FilterGroup state={filterGroupState}>
+          <MultiselectFilter state={brandFilterState} />
+          <SingleSelectFilter state={qualityFilterState} />
+        </FilterGroup>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
   )
 }
