@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.119.4",
+  "version": "0.119.5",
   "main": "dist/index.js",
   "module": "dist/admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -54,7 +54,7 @@
     "@react-aria/spinbutton": "^3.0.3",
     "@vtex/admin-ui-core": "^0.6.1",
     "@vtex/admin-ui-hooks": "^0.2.0",
-    "@vtex/admin-ui-react": "^0.6.2",
+    "@vtex/admin-ui-react": "^0.6.3",
     "@vtex/phosphor-icons": "0.2.6",
     "ariakit": "2.0.0-alpha.19",
     "csstype": "3.0.10",
