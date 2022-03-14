@@ -15,7 +15,7 @@ export const FilterPopover = createComponent<typeof PickerPopover>((props) => {
       flexDirection: 'column',
       justifyContent: 'space-between',
       width: 256,
-      minHeight: 200,
+      zIndex: 999,
       ...focusVisible('neutral'),
     },
     ...props,
@@ -31,12 +31,12 @@ export const FilterPopoverFooter = createComponent<
   return useElement(Role, {
     baseStyle: {
       borderTop: isContentScrollable ? '$neutral' : 'none',
-      padding: 3,
-      paddingTop: isContentScrollable ? 3 : 0,
+      padding: '$l',
+      paddingTop: isContentScrollable ? undefined : 0,
       display: 'flex',
       justifyContent: 'end',
       'button:not(:first-child)': {
-        marginLeft: 2,
+        marginLeft: '$l',
       },
     },
     ...restProps,

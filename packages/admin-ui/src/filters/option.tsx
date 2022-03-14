@@ -30,7 +30,15 @@ export const Option = ({
       }}
     >
       {inputRenderer({ isSelected })}
-      <tag.span csx={{ marginLeft: '$m' }}>{item.rendered}</tag.span>
+      <tag.span
+        csx={{
+          marginLeft: '$m',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+        }}
+      >
+        {item.rendered}
+      </tag.span>
     </tag.li>
   )
 }
