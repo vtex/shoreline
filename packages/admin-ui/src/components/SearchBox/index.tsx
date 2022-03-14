@@ -1,15 +1,12 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { useSystem, IconContainer } from '@vtex/admin-ui-react'
+import { useSystem, IconContainer, tag } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
   IconMagnifyingGlass,
   IconXCircle,
   IconClockCounterClockwise,
 } from '@vtex/phosphor-icons'
-
-import type { Variants } from 'framer-motion'
-import { motion, AnimateSharedLayout } from 'framer-motion'
 
 import { Button } from '../Button'
 import type { SystemComponent } from '../../types'
@@ -23,18 +20,6 @@ import { Paragraph } from '../Paragraph'
 
 export { unstableUseSearchBoxState } from './hooks/useSearchBoxState'
 
-const itemMotion: Variants = {
-  init: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-  },
-  leave: {
-    opacity: 0,
-  },
-}
-
 interface SearchBoxProps {
   state: any
   children?: ReactNode
@@ -43,30 +28,19 @@ interface SearchBoxProps {
 
 function __SearchBox(props: SearchBoxProps) {
   const { children, state, locale = 'en-US' } = props
-  const { cn } = useSystem()
 
   const labelProps = state.combobox.getLabelProps()
 
   return (
     <LocaleProvider value={locale}>
-      <AnimateSharedLayout>
-        <motion.div
-          layout
-          initial={{
-            originY: 'unset',
-          }}
-          className={cn(style.box)}
-        >
-          <VisuallyHidden>
-            <label {...labelProps}>
-              <Intl id="comboboxLabel" />
-            </label>
-          </VisuallyHidden>
-          <StateContext.Provider value={state}>
-            {children}
-          </StateContext.Provider>
-        </motion.div>
-      </AnimateSharedLayout>
+      <tag.div csx={style.box}>
+        <VisuallyHidden>
+          <label {...labelProps}>
+            <Intl id="comboboxLabel" />
+          </label>
+        </VisuallyHidden>
+        <StateContext.Provider value={state}>{children}</StateContext.Provider>
+      </tag.div>
     </LocaleProvider>
   )
 }
@@ -77,7 +51,6 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 
 function Input(props: InputProps) {
   const { onClear, onFocus, ...elementProps } = props
-  const { cn } = useSystem()
   const { intl } = useLocale()
 
   const {
@@ -105,14 +78,14 @@ function Input(props: InputProps) {
   }
 
   return (
-    <motion.div {...comboboxProps} className={cn(style.inputContainer)} layout>
+    <tag.div {...comboboxProps} csx={style.inputContainer}>
       <IconMagnifyingGlass csx={style.inputIcon} />
-      <input
+      <tag.input
         {...inputProps}
         {...elementProps}
         placeholder={intl('placeholder')}
         onFocus={handleFocus}
-        className={cn(style.input(isOpen, type === 'seed'))}
+        csx={style.input(isOpen, type === 'seed')}
       />
       {inputProps?.value !== '' && (
         <Button
@@ -122,7 +95,7 @@ function Input(props: InputProps) {
           onClick={handleClear}
         />
       )}
-    </motion.div>
+    </tag.div>
   )
 }
 
@@ -139,26 +112,25 @@ function Menu(props: MenuProps) {
     collection: { items, type },
   } = useStateContext()
 
-  const { cn } = useSystem()
-
   const menuProps = getMenuProps()
   const seed = type === 'seed'
   const empty = items.length === 0
   const displayScrollBar = !seed && items.length > 10
   const displayEmptyView = !seed && empty && isOpen
   const displaySuggestions = !seed && !empty && isOpen
-  const className = cn(merge(style.menu(displayScrollBar), csx))
 
   return (
     <Label>
       {displaySuggestions && (
-        <motion.p className={cn(style.label)} layout>
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            {type !== 'search' && <Intl id="lastSearches" />}
-          </motion.span>
-        </motion.p>
+        <tag.p csx={style.label}>
+          <tag.span>{type !== 'search' && <Intl id="lastSearches" />}</tag.span>
+        </tag.p>
       )}
-      <motion.ul {...menuProps} {...elementProps} layout className={className}>
+      <tag.ul
+        {...menuProps}
+        {...elementProps}
+        csx={merge(style.menu(displayScrollBar), csx)}
+      >
         {displayEmptyView && <EmptyView />}
         {displaySuggestions &&
           items.map((item: any, index: number) => {
@@ -174,30 +146,33 @@ function Menu(props: MenuProps) {
               </Fragment>
             )
           })}
-      </motion.ul>
+      </tag.ul>
     </Label>
   )
 }
 
 function EmptyView() {
-  const { cn } = useSystem()
+  const { keyframes } = useSystem()
+
+  const fadeIn = keyframes`
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+  `
 
   return (
-    <motion.li
-      layout
-      className={cn(style.emptyContainer)}
-      variants={itemMotion}
-      initial="init"
-      animate="enter"
-      exit="leave"
+    <tag.li
+      csx={{
+        ...style.emptyContainer,
+        animation: `${fadeIn} 0.3s`,
+      }}
     >
-      <motion.p layout className={cn(style.emptyTitle)}>
+      <tag.p csx={style.emptyTitle}>
         <Intl id="emptyTitle" />
-      </motion.p>
-      <motion.p layout className={cn(style.emptySubtitle)}>
+      </tag.p>
+      <tag.p csx={style.emptySubtitle}>
         <Intl id="emptySubtitle" />
-      </motion.p>
-    </motion.li>
+      </tag.p>
+    </tag.li>
   )
 }
 
@@ -229,20 +204,22 @@ function Suggestion(props: SuggestionProps) {
     collection: { type },
   } = useStateContext()
 
-  const { cn } = useSystem()
-  const className = cn(merge(style.option(highlighted), csx))
+  const { keyframes } = useSystem()
   const liProps = getItemProps({ item, index })
 
+  const fadeIn = keyframes`
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+  `
+
   return (
-    <motion.li
+    <tag.li
       {...liProps}
       {...elementProps}
-      layout
-      className={className}
-      variants={itemMotion}
-      initial="init"
-      animate="enter"
-      exit="leave"
+      csx={{
+        animation: `${fadeIn} 0.3s`,
+        ...merge(style.option(highlighted), csx),
+      }}
     >
       <IconContainer size="regular">
         {type === 'storage' && (
@@ -260,7 +237,7 @@ function Suggestion(props: SuggestionProps) {
       >
         {children ? children(item) : item}
       </Paragraph>
-    </motion.li>
+    </tag.li>
   )
 }
 
@@ -272,9 +249,7 @@ type KbdProps = ComponentPropsWithoutRef<'kbd'>
  * <Kbd>enter</Kbd>
  */
 function Kbd(props: KbdProps) {
-  const { cn } = useSystem()
-
-  return <motion.kbd className={cn(style.kbd)} {...(props as any)} layout />
+  return <tag.kbd csx={style.kbd} {...(props as any)} />
 }
 
 /**
@@ -285,39 +260,23 @@ function Kbd(props: KbdProps) {
  * </SearchBox>
  */
 function Footer() {
-  const { cn } = useSystem()
   const {
     combobox: { isOpen },
     collection: { type },
   } = useStateContext()
 
   return type !== 'seed' && isOpen ? (
-    <motion.footer
-      layout
-      variants={itemMotion}
-      initial="init"
-      animate="enter"
-      transition={{
-        enter: {
-          delay: 0.38,
-        },
-        leave: {
-          delay: 0.15,
-        },
-      }}
-      exit="leave"
-      className={cn(style.footer)}
-    >
-      <motion.div layout>
+    <tag.footer csx={style.footer}>
+      <tag.div>
         <Kbd>↓</Kbd> <Kbd>↑</Kbd> <Intl id="toNavigate" />
-      </motion.div>
-      <motion.div layout>
+      </tag.div>
+      <tag.div>
         <Kbd>enter</Kbd> <Intl id="toSelect" />
-      </motion.div>
-      <motion.div layout>
+      </tag.div>
+      <tag.div>
         <Kbd>esc</Kbd> <Intl id="toCancel" />
-      </motion.div>
-    </motion.footer>
+      </tag.div>
+    </tag.footer>
   ) : null
 }
 
