@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import type { CheckboxState } from 'ariakit/checkbox'
 import { Checkbox, CheckboxCheck } from 'ariakit/checkbox'
 import type { ComboboxItemProps } from 'ariakit/combobox'
@@ -11,25 +11,29 @@ export type ComboboxMultipleItemProps = ComboboxItemProps & {
   checkbox: CheckboxState<string[]>
 }
 
-export const ComboboxMultipleItem = forwardRef<
-  HTMLDivElement,
-  ComboboxMultipleItemProps
->(({ value, checkbox, ...props }, ref) => {
+export function ComboboxMultipleItem({
+  value,
+  checkbox,
+  ...props
+}: ComboboxMultipleItemProps) {
   const { cn } = useSystem()
+
+  const styleProps: any = {
+    className: cn(style.itemMultiple),
+  }
 
   return (
     <ComboboxItem
-      ref={ref}
       // All selectable items must have the `aria-selected` attribute set to
       // `true` or `false`.
       aria-selected={!!value && checkbox?.value.includes(value)}
-      className={cn(style.itemMultiple)}
       {...props}
     >
       {(itemProps) => {
         return (
           <Checkbox
             {...itemProps}
+            {...styleProps}
             // Disable `checked` and `aria-checked` attributes so they don't
             // conflict with the `aria-selected` attribute.
             aria-checked={undefined}
@@ -45,4 +49,4 @@ export const ComboboxMultipleItem = forwardRef<
       }}
     </ComboboxItem>
   )
-})
+}

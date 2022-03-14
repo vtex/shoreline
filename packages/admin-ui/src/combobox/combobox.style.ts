@@ -92,6 +92,16 @@ export const fieldTag = style({
   borderRadius: '$default',
 })
 
+export const fieldTagDismiss = style({
+  padding: 0,
+  marginLeft: '$m',
+  bg: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '$secondary',
+})
+
 export const fiedlMultipleContainer = style({
   width: 500,
   display: 'flex',

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Combobox } from 'ariakit/combobox'
 import { Composite, useCompositeState } from 'ariakit/composite'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import { Inline } from '../inline'
@@ -44,7 +44,6 @@ export const ComboboxMultipleField = createComponent<
     value,
     list,
     children,
-    ref: divRef,
     id,
     label,
     ...htmlProps
@@ -52,7 +51,6 @@ export const ComboboxMultipleField = createComponent<
 
   const composite = useCompositeState()
   const inputRef = useRef<HTMLInputElement>(null)
-  const compositeRef = useRef<any>(null)
 
   const [focused, setFocused] = React.useState(false)
 
@@ -104,7 +102,6 @@ export const ComboboxMultipleField = createComponent<
   }
 
   return useElement('div', {
-    ref: divRef as any,
     ...htmlProps,
     baseStyle: {
       ...style.fiedlMultipleContainer,
@@ -145,7 +142,7 @@ export const ComboboxMultipleField = createComponent<
               bg: 'transparent',
             }}
           >
-            <Composite ref={compositeRef} state={composite}>
+            <Composite state={composite}>
               <Inline hSpace="$m" vSpace="$l">
                 {state.selected.length > 0 &&
                   state.selected.map((itemString: string) => (
@@ -160,7 +157,8 @@ export const ComboboxMultipleField = createComponent<
                       }}
                     />
                   ))}
-                <Combobox
+                <tag.input
+                  as={Combobox as any}
                   ref={inputRef}
                   state={state}
                   id={id}

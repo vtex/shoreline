@@ -1,8 +1,7 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
-import { tag, useSystem } from '@vtex/admin-ui-react'
-import type { CompositeItemProps } from 'ariakit/composite'
+import { tag } from '@vtex/admin-ui-react'
 import { CompositeItem } from 'ariakit/composite'
 
 import { Paragraph } from '../components/Paragraph'
@@ -10,46 +9,31 @@ import { Flex } from '../components/Flex'
 
 import * as style from './combobox.style'
 
-interface ComboboxMultipleTagProps extends CompositeItemProps {
+interface ComboboxMultipleTagProps {
   value: string
   onDismiss: () => void
+  onKeyDown: (e: any) => void
 }
 
-export const ComboboxMultipleTag = forwardRef<
-  HTMLButtonElement,
-  ComboboxMultipleTagProps
->((props, ref) => {
+export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
   const { value, onDismiss, ...htmlProps } = props
-  const { cn } = useSystem()
 
   return (
-    <CompositeItem ref={ref} {...htmlProps}>
+    <CompositeItem {...htmlProps}>
       {(compositeProps) => (
-        <Focusable className={cn(style.fieldTag)} {...compositeProps}>
+        <tag.div as={Focusable} csx={style.fieldTag} {...compositeProps}>
           <Flex justify="space-between" align="center">
             <Paragraph>{value}</Paragraph>
             <tag.button
               tabIndex={-1}
               onClick={onDismiss}
-              csx={{
-                padding: 0,
-                marginLeft: '$m',
-                bg: 'transparent',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
+              csx={style.fieldTagDismiss}
             >
-              <IconX
-                size="small"
-                csx={{
-                  color: '$secondary',
-                }}
-              />
+              <IconX size="small" />
             </tag.button>
           </Flex>
-        </Focusable>
+        </tag.div>
       )}
     </CompositeItem>
   )
-})
+}
