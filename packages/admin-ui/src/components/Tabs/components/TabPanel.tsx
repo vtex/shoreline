@@ -1,4 +1,4 @@
-import { TabPanel as ReakitTabPanel } from 'reakit'
+import { TabPanel as ReakitTabPanel } from 'reakit/Tab'
 import { jsx } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
 

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useCallback } from 'react'
-import { Clickable } from 'reakit'
+import { Clickable } from 'reakit/Clickable'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { callAllHandlers, ensureFocus } from '@vtex/admin-ui-util'
 import { useForkRef } from '@vtex/admin-ui-hooks'

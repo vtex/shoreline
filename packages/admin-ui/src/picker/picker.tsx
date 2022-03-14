@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
 import { useCallback } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { Role } from 'reakit'
+import { Role } from 'reakit/Role'
 import { useOnKeyDown } from '@vtex/admin-ui-hooks'
 import { callAllHandlers, ariaAttr, isTouch } from '@vtex/admin-ui-util'
 

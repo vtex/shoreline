@@ -1,6 +1,6 @@
 import type { Ref } from 'react'
 import React, { forwardRef, useEffect, useReducer } from 'react'
-import { Input as ReakitInput } from 'reakit'
+import { Input as ReakitInput } from 'reakit/Input'
 import { IconPlus, IconMinus } from '@vtex/phosphor-icons'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'

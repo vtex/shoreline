@@ -1,4 +1,4 @@
-export { useTabState, TabStateReturn } from 'reakit'
+export { useTabState, TabStateReturn } from 'reakit/Tab'
 
 export * from './components/Tabs'
 export * from './components/TabList'

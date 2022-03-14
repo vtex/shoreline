@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import type { TabStateReturn } from 'reakit'
+import type { TabStateReturn } from 'reakit/Tab'
 
 import { TabsProvider } from '../context'
 
