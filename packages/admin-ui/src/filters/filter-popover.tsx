@@ -7,6 +7,7 @@ import { PickerPopover } from '../picker'
 export const FilterPopover = createComponent<typeof PickerPopover>((props) => {
   return useElement(PickerPopover, {
     baseStyle: {
+      text: '$body',
       boxShadow: '$overlay.bottom',
       border: '$neutral',
       borderRadius: 'default',

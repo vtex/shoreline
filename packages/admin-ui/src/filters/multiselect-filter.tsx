@@ -22,18 +22,20 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
   const appliedValuesLabel = !!appliedItems?.length && (
     <>
       <span>:</span>
-      <tag.span
-        csx={{
-          textOverflow: 'ellipsis',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          maxWidth: '300px',
-          marginX: '$s',
-        }}
-      >
-        {firstSelectedItemLabel}
+      <tag.span csx={{ color: '$primary' }}>
+        <tag.span
+          csx={{
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            maxWidth: '300px',
+            marginX: '$s',
+          }}
+        >
+          {firstSelectedItemLabel}
+        </tag.span>
+        {remainingSelectedItemsCount}
       </tag.span>
-      {remainingSelectedItemsCount}
     </>
   )
 
