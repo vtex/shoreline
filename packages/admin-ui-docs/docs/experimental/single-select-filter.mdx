@@ -51,19 +51,53 @@ function Example() {
 render(<Example />)
 ```
 
+### I18n
+
+The singleselect-filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx
+import {
+  experimental_SingleSelectFilter as SingleSelectFilter,
+  experimental_useSingleFilterState as useSingleFilterState,
+} from '@vtex/admin-ui'
+
+function Filter() {
+  const state = useSingleFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <SingleSelectFilter state={state} />
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="ko-KO">
+      <Filter />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+
 # Props
 
 ## SingleSelectFilter
 
-| Name  | Type              | Description    | Required | Default |
-| ----- | ----------------- | -------------- | -------- | ------- |
+| Name  | Type                | Description    | Required | Default |
+| ----- | ------------------- | -------------- | -------- | ------- |
 | state | `SingleFilterState` | Required state | ✅       | -       |
 
-## UseSingleFilter
+## UseSingleFilterState
 
-| Name  | Type              | Description    | Required | Default |
-| ----- | ----------------- | -------------- | -------- | ------- |
-| items | `FilterItem[]` | List of options for the filter, item must include, id, value and label | ✅       | -       |
-| onChange | `({selected: string}) => void` | Callback called with current selected id on apply and clear press. | ✅       | -       |
-| label | `string` | Filter button label | ✅       | -       |
-| initialApplied | `string` | initially applied option id | 🚫       | -       |
+| Name           | Type                           | Description                                                       | Required | Default |
+| -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
+| items          | `FilterItem[]`                 | List of options for the filter, item must include id and label    | ✅       | -       |
+| onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
+| label          | `string`                       | Filter button label                                               | ✅       | -       |
+| initialApplied | `string`                       | initially applied option id                                       | 🚫       | -       |
