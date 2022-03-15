@@ -1,4 +1,4 @@
-import { dataAttr, ariaAttr } from '../index'
+import { dataAttr, ariaAttr } from '../dom'
 
 describe('attr', () => {
   it('should return data attribute value from boolean', () => {

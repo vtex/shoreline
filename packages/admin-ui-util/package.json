@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.2.0",
   "main": "dist/index.js",
-  "module": "dist/onda-util.esm.js",
+  "module": "dist/admin-ui-util.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -17,7 +17,7 @@
     "node": ">=10"
   },
   "repository": {
-    "directory": "packages/util",
+    "directory": "packages/admin-ui-util",
     "type": "git",
     "url": "git+https://github.com/vtex/admin-ui.git"
   },
@@ -31,16 +31,10 @@
     "test": "tsdx test",
     "test:ci": "tsdx test --silent"
   },
-  "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6",
-    "@types/lodash.omit": "^4.5.6",
-    "@types/lodash.pick": "^4.4.6"
+  "peerDependencies": {
+    "react": ">=16.8"
   },
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2",
-    "lodash.omit": "^4.5.0",
-    "lodash.pick": "^4.4.0"
+    "deepmerge": "4.2.2"
   }
 }

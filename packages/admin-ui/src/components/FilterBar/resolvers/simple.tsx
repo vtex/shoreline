@@ -34,7 +34,7 @@ export function simpleResolver<T>() {
 
         const path = accessor ? `value.${accessor}` : `value`
 
-        const selectedValue = get(item, path, undefined)
+        const selectedValue = get(item as any, path, undefined)
 
         invariant(
           selectedValue && typeof selectedValue !== 'object',
