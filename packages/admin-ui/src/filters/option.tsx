@@ -7,15 +7,9 @@ import { tag } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
 import type { FilterItem } from './filter.state'
 
-export const Option = ({
-  item,
-  state,
-  inputRenderer,
-}: {
-  item: { key: string | number; rendered: ReactNode }
-  state: ListState<FilterItem>
-  inputRenderer: ({ isSelected }: { isSelected: boolean }) => ReactNode
-}) => {
+export const Option = (props: OptionProps) => {
+  const { item, state, inputRenderer } = props
+
   const ref = useRef(null)
   const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
 
@@ -41,4 +35,10 @@ export const Option = ({
       </tag.span>
     </tag.li>
   )
+}
+
+interface OptionProps {
+  item: { key: string | number; rendered: ReactNode }
+  state: ListState<FilterItem>
+  inputRenderer: ({ isSelected }: { isSelected: boolean }) => ReactNode
 }

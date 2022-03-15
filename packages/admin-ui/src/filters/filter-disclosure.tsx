@@ -2,33 +2,18 @@ import type { HTMLAttributes, ReactNode } from 'react'
 import React from 'react'
 import type { PickerStateReturn } from '../picker'
 import { PickerDisclosure } from '../picker'
-import * as style from '../components/Button/Button.style'
+import * as style from './filter-disclosure.style'
 
-export const FilterDisclosure = (props: FilterDisclosureProps) => {
-  const { state, labelProps, children } = props
+export const FilterDisclosure = (
+  props: FilterDisclosureProps & HTMLAttributes<HTMLElement>
+) => {
+  const { state, children, ...labelProps } = props
 
   return (
     <PickerDisclosure
       state={state}
       csx={{
         ...style.baseline,
-        ...style.small({ icon: 'end' }),
-        marginRight: '$s',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        text: '$action2',
-        bg: '$action.neutral.secondary',
-        color: '$secondary',
-        padding: '$s',
-        ':hover': {
-          bg: '$action.neutral.secondaryHover',
-          color: '$secondary',
-        },
-        ':active': {
-          bg: '$action.neutral.secondaryPressed',
-          color: '$secondary',
-        },
       }}
       tabIndex={0}
       {...labelProps}
@@ -40,6 +25,5 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
 
 interface FilterDisclosureProps {
   state: PickerStateReturn
-  labelProps: HTMLAttributes<HTMLElement>
   children: ReactNode
 }

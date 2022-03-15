@@ -23,7 +23,7 @@ export function Filter(props: FilterProps) {
       <VisuallyHidden>
         <div {...labelProps}>{label}</div>
       </VisuallyHidden>
-      <FilterDisclosure state={popover} labelProps={labelProps}>
+      <FilterDisclosure state={popover} {...labelProps}>
         {label}
         {appliedValuesLabel}
         <IconCaretUp
@@ -35,8 +35,7 @@ export function Filter(props: FilterProps) {
         />
       </FilterDisclosure>
       <FilterPopover state={popover} aria-label={label}>
-        <tag.div
-          as="ul"
+        <tag.ul
           ref={ref}
           csx={{
             display: 'flex',
@@ -52,7 +51,7 @@ export function Filter(props: FilterProps) {
           {...listBoxProps}
         >
           {children}
-        </tag.div>
+        </tag.ul>
         <FilterPopoverFooter
           isContentScrollable={
             ref?.current?.scrollHeight > ref?.current?.clientHeight

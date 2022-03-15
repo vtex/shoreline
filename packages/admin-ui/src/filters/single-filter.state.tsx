@@ -18,8 +18,12 @@ export function useSingleFilterState(
     selectionMode: 'single',
   })
 
-  const { appliedItems, appliedKeys, selectedKeys, ...singleSelectState } =
-    filterState
+  const {
+    selectedKeys,
+    appliedKeys = [],
+    appliedItems = [],
+    ...singleSelectState
+  } = filterState
 
   // forces apply when one item is selected
   useEffect(() => {
@@ -28,8 +32,8 @@ export function useSingleFilterState(
 
   return {
     ...singleSelectState,
-    appliedItem: appliedItems?.length ? appliedItems[0] : null,
-    appliedKey: appliedKeys?.length ? appliedKeys[0] : null,
+    appliedItem: appliedItems[0] ?? null,
+    appliedKey: appliedKeys[0] ?? null,
   }
 }
 
