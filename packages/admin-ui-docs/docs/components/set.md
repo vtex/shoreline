@@ -125,7 +125,7 @@ You can use the `csx` property to handle different styles.
 </Set>
 ```
 
-# Props
+## Props
 
 All props of `div` jsx element.
 
