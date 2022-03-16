@@ -1,8 +1,7 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src", "./typings/vtex.phosphor.d.ts"],
+  "include": ["src", "./typings/vtex.phosphor.d.ts"],
   "compilerOptions": {
-    "outDir": "./dist",
-    "resolveJsonModule": true
+    "outDir": "./ts"
   }
 }

@@ -61,7 +61,7 @@ function useValue<T>(values: Values<T>, options: DefaultOptions = {}): T {
   const array = typeof values === 'function' ? values(theme) : values
   const index = useBreakpointIndex(options)
 
-  return array[index >= array.length ? array.length - 1 : index]
+  return array[index >= array.length ? array.length - 1 : index] as any
 }
 
 export function useResponsiveValue<T>(value: ResponsiveValue<T>): T {

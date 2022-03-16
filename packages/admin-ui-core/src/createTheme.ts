@@ -92,9 +92,11 @@ function createRootStylesAsString(cssVariables: CSSVariables) {
   return Object.keys(cssVariables).reduce((stylesheets, mode) => {
     return `${stylesheets} ${
       constants.rootElement
-    }[data-theme='${mode}'] { ${Object.keys(cssVariables[mode]).reduce(
+    }[data-theme='${mode}'] { ${Object.keys(cssVariables?.[mode] ?? []).reduce(
       (variables, variable) => {
-        return `${variables} ${variable}: ${cssVariables[mode][variable]};`
+        return `${variables} ${variable}: ${
+          cssVariables?.[mode]?.[variable] ?? ''
+        };`
       },
       ''
     )} };`

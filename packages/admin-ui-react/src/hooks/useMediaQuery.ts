@@ -39,7 +39,7 @@ export function useMediaQuery(query: string | string[]): boolean[] {
 
     return () => {
       mediaQueryList.forEach((mediaQuery, index) => {
-        mediaQuery.removeEventListener('change', listenerList[index])
+        mediaQuery.removeEventListener('change', listenerList[index] as any)
       })
     }
   }, [query])

@@ -1,8 +1,3 @@
 {
-  "extends": "@vtex/tsconfig",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "allowSyntheticDefaultImports": true,
-  },
-  "exclude": ["node_modules", "dist", "stories", "test"]
+  "extends": "./tsconfig.prod.json",
 }

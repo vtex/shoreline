@@ -1,9 +1,11 @@
 {
   "name": "@vtex/admin-ui",
   "version": "0.119.4",
-  "main": "dist/index.js",
-  "module": "dist/admin-ui.esm.js",
-  "typings": "dist/index.d.ts",
+  "sideEffects": false,
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "ts/index.d.ts",
+  "unpkg": "umd/admin-ui.min.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -25,8 +27,8 @@
   },
   "scripts": {
     "dev": "tsdx watch --verbose --noClean",
-    "build": "tsdx build --tsconfig tsconfig.json",
-    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
+    "build": "node ../../scripts/build",
+    "clean": "node ../../scripts/clean.js",
     "test": "tsdx test --runInBand",
     "test:ci": "tsdx test"
   },
@@ -44,7 +46,8 @@
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "mutationobserver-shim": "^0.3.7",
     "react-beautiful-dnd": "^13.0.0",
-    "react-window": "^1.8.5"
+    "react-window": "^1.8.5",
+    "@vtex/admin-ui-test-utils": "*"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.2.0",

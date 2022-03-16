@@ -48,7 +48,7 @@ export function get(
 
   for (index = 0; index < key.length; index += 1) {
     if (!obj) break
-    obj = (obj as any)[key[index]]
+    obj = (obj as any)[key[index] as any]
   }
 
   return obj === undefined ? fallback : obj

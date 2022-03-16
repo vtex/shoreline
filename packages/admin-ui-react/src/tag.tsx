@@ -40,7 +40,7 @@ function _tag<T extends React.ElementType, Props>(
         className={cx(className, cn(csx))}
         {...(forwardProps as any)}
       >
-        {isFunction(children) ? children(forwardProps) : children}
+        {isFunction(children) ? children(forwardProps as any) : children}
       </ElementCall>
     )
   }
