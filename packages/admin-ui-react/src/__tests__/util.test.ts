@@ -1,5 +1,4 @@
-import { jsx } from '../jsx'
-import { getStylesheet, getOptions } from '../util'
+import { jsx, getStylesheet, getOptions } from '../system-deprecated'
 
 describe('utils', () => {
   it('getStylesheet', () => {

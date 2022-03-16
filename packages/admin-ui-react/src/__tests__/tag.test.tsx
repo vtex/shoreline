@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render } from './setup'
-import { tag, jsx } from '../index'
+import { tag, jsx } from '../system-deprecated'
 
 describe('AdminUI elements', () => {
   it('should create a callable element', () => {

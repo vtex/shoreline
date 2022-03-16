@@ -3,14 +3,15 @@ import { merge, pick, omit, isFunction } from '@vtex/admin-ui-util'
 import * as ReactIs from 'react-is'
 import type { VariantsCall } from '@vtex/admin-ui-core'
 
-import { useSystem } from './context'
+import type { IntrinsicElementsKeys, ComponentInfer } from '../system'
+import { useSystem } from '../system'
 import type { __element } from './symbols'
 import { __options, __stylesheet } from './symbols'
 
 import type { CsxCall } from './types'
 import { useOptionsIdentity, getStylesheet, getOptions } from './util'
-import type { Stylesheet, Sync } from './hooks/useStylesheet'
-import { useStylesheet } from './hooks/useStylesheet'
+import { useStylesheet } from './use-stylesheet'
+import type { Stylesheet, Sync } from './use-stylesheet'
 
 /**
  * Base jsx function
@@ -328,10 +329,3 @@ export interface JsxConfiguration<
   sync?: Array<Sync<Variants>>
   memoize?: boolean
 }
-
-export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements
-export type ComponentInfer<T> = T extends
-  | IntrinsicElementsKeys
-  | React.ComponentType<any>
-  ? T
-  : never

@@ -48,7 +48,9 @@ function useIconProps(props: IconProps) {
   }
 }
 
-export const IconProvider = createIconProvider({ useIconProps })
+export const IconProvider = createIconProvider({
+  useIconProps,
+})
 
 export const IconContainerContext = createContext<IconContext>({
   size: 'regular',
@@ -76,6 +78,7 @@ export function useIconContainer(): UseIconReturn {
 }
 
 export type AvailableSize = 'regular' | 'small'
+
 export interface IconContext {
   size: AvailableSize
   csx?: StyleProp

@@ -1,6 +1,6 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
 import { isObjectEmpty, merge, omit } from '@vtex/admin-ui-util'
-import { useSystem } from '../context'
+import { useSystem } from '../system'
 
 export function useStylesheet<V>(params: UseStyleSheetParams<V>) {
   const { stylesheet, sync, props } = params
