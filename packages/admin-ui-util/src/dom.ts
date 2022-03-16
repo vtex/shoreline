@@ -1,7 +1,36 @@
-// credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
+import type { LooseBoolean } from './types'
+import { get } from './object'
+
+export const dataAttr = (condition: boolean | undefined) =>
+  (condition ? '' : undefined) as LooseBoolean
+
+export const ariaAttr = (condition: boolean | undefined) =>
+  condition ? true : undefined
+
+export function canUseDOM(): boolean {
+  return !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  )
+}
+
+export const isBrowser = canUseDOM()
+
+export function isTouch() {
+  if (!canUseDOM()) return false
+
+  return Boolean(
+    'ontouchstart' in window ||
+      window.navigator.maxTouchPoints > 0 ||
+      // windows 8 + chrome
+      get(window.navigator, 'msMaxTouchPoints', 0) > 0
+  )
+}
 
 /**
  * Returns `element.ownerDocument || document`.
+ * credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
  */
 export function getDocument(node?: Node | null): Document {
   return node ? node.ownerDocument || (node as Document) : document
@@ -9,6 +38,7 @@ export function getDocument(node?: Node | null): Document {
 
 /**
  * Checks whether `element` is a frame element.
+ * credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
  */
 export function isFrame(element: Element): element is HTMLIFrameElement {
   return element.tagName === 'IFRAME'
@@ -16,6 +46,7 @@ export function isFrame(element: Element): element is HTMLIFrameElement {
 
 /**
  * Returns `element.ownerDocument.activeElement`.
+ * credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
  */
 export function getActiveElement(
   node?: Node | null,
@@ -54,8 +85,10 @@ export function getActiveElement(
 /**
  * Checks if `element` has focus. Elements that are referenced by
  * `aria-activedescendant` are also considered.
+ * credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
  * @example
  * hasFocus(document.getElementById("id"));
+ *
  */
 export function hasFocus(element: Element) {
   const activeElement = getActiveElement(element)
@@ -71,6 +104,7 @@ export function hasFocus(element: Element) {
 
 /**
  * Ensures `element` will receive focus if it's not already.
+ * credits to ariakit: https://github.com/ariakit/ariakit/blob/f1168b6603/packages/ariakit-utils/src/focus.ts
  * @example
  * ensureFocus(document.activeElement); // does nothing
  *

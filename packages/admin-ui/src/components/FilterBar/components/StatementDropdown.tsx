@@ -51,7 +51,7 @@ export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
           whiteSpace: 'nowrap',
         }}
       >
-        {get(item, 'label')}
+        {get(item as any, 'label')}
       </Box>
     )
   }
