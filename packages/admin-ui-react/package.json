@@ -44,7 +44,6 @@
     "@vtex/phosphor-icons": "0.2.6"
   },
   "dependencies": {
-    "@emotion/is-prop-valid": "^1.1.0",
     "@vtex/admin-ui-util": "^0.2.2",
     "focus-visible": "^5.2.0",
     "react-helmet": "^6.1.0",
