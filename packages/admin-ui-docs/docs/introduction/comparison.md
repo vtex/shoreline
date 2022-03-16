@@ -80,7 +80,7 @@ Many components do not support accessibility requirements, some of which are ver
 
 **Admin UI**
 
-We always build our components thinking about accessibility first and use two libraries for that: [Reakit Library](http://reakit.io/) and [Downsfhit](https://www.downshift-js.com/).
+We always build our components thinking about accessibility first and use two libraries for that: [Reakit Library](http://reakit.io/) and [Downshift](https://www.downshift-js.com/).
 
 ## Typography
 
