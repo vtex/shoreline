@@ -467,7 +467,7 @@ Hook that manages the state logic of the FilterBar component. It receives two pa
 | statements  | `Statement<T>[]`                | FilterBar initial statements                                             | 🚫       | `[]`    |
 | filters     | `Filter<T>[]`                   | FilterBar filters                                                        | 🚫       | `[]`    |
 
-## Prsops
+## Props
 
 | Name           | Type                             | Description                                              | Required | Default              |
 | -------------- | -------------------------------- | -------------------------------------------------------- | -------- | -------------------- |
