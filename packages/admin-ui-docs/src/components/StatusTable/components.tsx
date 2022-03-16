@@ -391,7 +391,7 @@ const forms = [
   },
   {
     component: 'Combobox',
-    status: 'in development',
+    status: 'experimental',
     notes: '-',
     type: 'forms',
   },
@@ -409,7 +409,7 @@ const forms = [
   },
   {
     component: 'DatePicker',
-    status: 'upcoming',
+    status: 'experimental',
     notes: '-',
     type: 'forms',
   },
