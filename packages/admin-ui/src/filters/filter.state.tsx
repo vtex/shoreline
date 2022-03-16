@@ -1,123 +1,59 @@
-import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
-import { Item } from '@react-stately/collections'
-import { useListBox } from '@react-aria/listbox'
-import type { ListState } from '@react-stately/list'
-import { useListState } from '@react-stately/list'
+import { useEffect } from 'react'
+import type {
+  FilterItem,
+  Key,
+  GenericFilterStateReturn,
+} from './base-filter.state'
+import { useBaseFilterState } from './base-filter.state'
 
-import type { PickerStateReturn } from '../picker'
-import { usePickerState } from '../picker'
+export function useFilterState(props: UseFilterStateProps): UseFilterReturn {
+  const {
+    initialApplied,
+    onChange: onChangeCb = () => {},
+    ...otherProps
+  } = props
 
-export function useFilterState(
-  props: UseFilterStateProps
-): UseMultipleFilterReturn {
-  const { onChange, items, label, initialApplied, selectionMode } = props
-  const stateProps = {
-    items,
-    children: (item: FilterItem) => <Item key={item.id}>{item.label}</Item>,
-    selectionMode,
+  const onChange = ({ selected }: { selected: Key[] }) => {
+    onChangeCb({ selected: selected?.length ? selected[0] : null })
   }
 
-  const [appliedKeys, setAppliedKeys] = useState<Key[]>(initialApplied || [])
-
-  const ref = useRef(null)
-
-  const popover = usePickerState({
-    placement: 'bottom-start',
-    baseId: 'filter-picker',
+  const filterState = useBaseFilterState({
+    ...otherProps,
+    initialApplied: initialApplied ? [initialApplied] : [],
+    onChange,
+    selectionMode: 'single',
   })
 
-  const listState = useListState<FilterItem>({
-    ...stateProps,
-    defaultSelectedKeys: initialApplied,
-  })
+  const {
+    selectedKeys,
+    appliedKeys = [],
+    appliedItems = [],
+    ...singleSelectState
+  } = filterState
 
-  const { listBoxProps, labelProps } = useListBox<FilterItem>(
-    { ...stateProps, 'aria-label': label },
-    listState,
-    ref
-  )
-
-  const apply = useCallback(() => {
-    const nextSelected = Array.from(
-      listState.selectionManager.selectedKeys.values()
-    )
-
-    setAppliedKeys(nextSelected)
-    onChange?.({ selected: nextSelected })
-    popover.hide()
-  }, [onChange])
-
-  const clear = useCallback(() => {
-    listState.selectionManager.clearSelection()
-    setAppliedKeys([])
-
-    onChange?.({ selected: [] })
-    popover.hide()
-  }, [onChange])
-
+  // forces apply when one item is selected
   useEffect(() => {
-    if (!popover.visible) {
-      listState.selectionManager.setSelectedKeys(appliedKeys)
-      listState.selectionManager.setFocusedKey(items[0].id)
-    }
-  }, [popover.visible])
-
-  const appliedItems = useMemo(
-    () => appliedKeys.map((k) => listState.collection.getItem(k).value),
-    [appliedKeys, listState.collection]
-  )
+    filterState.onChange()
+  }, [selectedKeys[0]])
 
   return {
-    popover,
-    onClear: clear,
-    onChange: apply,
-    listState,
-    appliedItems,
-    appliedKeys,
-    selectedKeys: Array.from(listState.selectionManager.selectedKeys.values()),
-    ref,
-    listBoxProps,
-    label,
-    labelProps,
+    ...singleSelectState,
+    appliedItem: appliedItems[0] ?? null,
+    appliedKey: appliedKeys[0] ?? null,
   }
 }
 
-export type Key = string | number
-
-export interface FilterItem {
-  id: Key
-  label: string
-  [x: string]: unknown
+export interface UseFilterReturn extends GenericFilterStateReturn {
+  appliedItem: FilterItem | null
+  appliedKey: Key | null
 }
 
-export interface UseFilterStateReturn {
-  popover: PickerStateReturn
-  onClear: () => void
-  onChange: () => void
-  ref: React.MutableRefObject<any>
-  listBoxProps: React.HTMLAttributes<HTMLElement>
-  labelProps: React.HTMLAttributes<HTMLElement>
-  listState: ListState<FilterItem>
-  label: string
-}
-
-export interface UseMultipleFilterReturn extends UseFilterStateReturn {
-  appliedItems: FilterItem[]
-  appliedKeys: Key[]
-  selectedKeys: Key[]
-}
-
-export interface UseMultipleFilterStateProps {
+export interface UseFilterStateProps {
   /** Function called when a change is applied. */
-  onChange: ({ selected }: { selected: Key[] }) => void
-  /** The initial selected keys. */
-  initialApplied?: Key[]
+  onChange?: ({ selected }: { selected: Key | null }) => void
+  /** The initial selected key. */
+  initialApplied?: Key
   /** Filter button label. */
   label: string
   items: FilterItem[]
-}
-
-export interface UseFilterStateProps extends UseMultipleFilterStateProps {
-  /** set to multiple if filter is multiselect. */
-  selectionMode: 'multiple' | 'single'
 }

@@ -1,14 +1,14 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import type { UseSingleFilterStateProps } from '../index'
+
 import {
   FilterGroup,
-  MultiselectFilter,
-  SingleSelectFilter,
-  useMultipleFilterState,
-  useSingleFilterState,
+  FilterMultiple,
+  Filter,
+  useFilterMultipleState,
+  useFilterState,
 } from '../index'
-import type { FilterItem, UseMultipleFilterStateProps } from '../filter.state'
+import type { UseFilterMultipleStateProps } from '../base-filter.state'
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
 
@@ -24,20 +24,11 @@ export const Playground: Story = (args) => {
 
   const hookArgs = { ...restArgs, onChange }
 
-  const multipleState = useMultipleFilterState(
-    hookArgs as unknown as UseMultipleFilterStateProps
+  const multipleState = useFilterMultipleState(
+    hookArgs as unknown as UseFilterMultipleStateProps
   )
 
-  //   const singleState = useSingleFilterState(
-  //     hookArgs as unknown as UseSingleFilterStateProps<FilterItem>
-  //   )
-
-  //   if (type === 'multiple') {
-  //     return <MultiselectFilter state={multipleState} />
-  //   }
-
-  return <MultiselectFilter state={multipleState} />
-  //    <SingleSelectFilter state={singleState} />
+  return <FilterMultiple state={multipleState} />
 }
 
 Playground.args = {
@@ -48,12 +39,11 @@ Playground.args = {
     { label: 'Half empty', value: 4, id: '#4' },
     { label: 'Unknown', value: 5, id: '#5' },
   ],
-  //   type: 'multiple',
   label: 'Status',
 }
 
 export function Multiple() {
-  const state = useMultipleFilterState({
+  const state = useFilterMultipleState({
     items: [
       { label: 'Full', id: '#1' },
       { label: 'Empty', id: '#2' },
@@ -66,11 +56,11 @@ export function Multiple() {
     initialApplied: ['#1', '#2'],
   })
 
-  return <MultiselectFilter state={state} />
+  return <FilterMultiple state={state} />
 }
 
 export function Single() {
-  const state = useSingleFilterState({
+  const state = useFilterState({
     items: [
       { label: 'Rio de Janeiro', value: 1, id: '#1' },
       { label: 'New York', value: 2, id: '#2' },
@@ -81,11 +71,11 @@ export function Single() {
     label: 'City',
   })
 
-  return <SingleSelectFilter state={state} />
+  return <Filter state={state} />
 }
 
 export function BasicFilterGroup() {
-  const state = useMultipleFilterState({
+  const state = useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -107,7 +97,7 @@ export function BasicFilterGroup() {
     initialApplied: ['#1', '#2'],
   })
 
-  const state2 = useSingleFilterState({
+  const state2 = useFilterState({
     items: [
       { label: 'Rio de Janeiro', value: 1, id: '#1' },
       { label: 'New York', value: 2, id: '#2' },
@@ -119,7 +109,7 @@ export function BasicFilterGroup() {
     initialApplied: '#1',
   })
 
-  const state3 = useMultipleFilterState({
+  const state3 = useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -132,13 +122,15 @@ export function BasicFilterGroup() {
     initialApplied: ['#4', '#2'],
   })
 
-  const filterGroupState = useFilterGroupState([state, state2, state3])
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state, state2, state3],
+  })
 
   return (
     <FilterGroup state={filterGroupState}>
-      <MultiselectFilter state={state} />
-      <SingleSelectFilter state={state2} />
-      <MultiselectFilter state={state3} />
+      <FilterMultiple state={state} />
+      <Filter state={state2} />
+      <FilterMultiple state={state3} />
     </FilterGroup>
   )
 }

@@ -1,21 +1,21 @@
 ---
-title: MultiSelectFilter
-path: /multi-select-filter/
+title: FilterMultiple
+path: /filter-multiple/
 ---
 
-# MultiSelectFilter
+# FilterMultiple
 
 ## Usage
 
 ```jsx
 
 import {
-  experimental_MultiselectFilter as MultiselectFilter,
-  experimental_useMultipleFilterState as useMultipleFilterState,
+  experimental_FilterMultiple as FilterMultiple,
+  experimental_useFilterMultipleState as useFilterMultipleState,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useMultipleFilterState({
+  const state = useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -24,7 +24,7 @@ function Example() {
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
   })
-  return <MultiselectFilter state={state} />
+  return <FilterMultiple state={state} />
 }
 ```
 
@@ -34,11 +34,11 @@ function Example() {
 
 ```jsx noInline live
 
-const MultiselectFilter = experimental_MultiselectFilter
-const useMultipleFilterState = experimental_useMultipleFilterState
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
 
 function Example() {
-  const state = useMultipleFilterState({
+  const state = useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -51,7 +51,7 @@ function Example() {
     initialApplied: ['#1', '#2'],
   })
 
-  return <MultiselectFilter state={state} />
+  return <FilterMultiple state={state} />
 
   
 }
@@ -61,16 +61,16 @@ render(<Example />)
 
 ### I18n
 
-The multiselect-filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+The filter-multiple has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
 
 ```jsx
 import {
-  experimental_MultiselectFilter as MultiselectFilter,
-  experimental_useMultipleFilterState as useMultipleFilterState,
+  experimental_FilterMultiple as FilterMultiple,
+  experimental_useFilterMultipleState as useFilterMultipleState,
 } from '@vtex/admin-ui'
 
 function Filter() {
-  const state = useMultipleFilterState({
+  const state = useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
@@ -79,7 +79,7 @@ function Filter() {
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
   })
-  return <MultiselectFilter state={state} />
+  return <FilterMultiple state={state} />
 }
 
 function RootApp() {
@@ -93,13 +93,13 @@ function RootApp() {
 render(<RootApp />)
 ```
 
-# Props
+## Props
 
 | Name  | Type                  | Description    | Required | Default |
 | ----- | --------------------- | -------------- | -------- | ------- |
-| state | `MultipleFilterState` | Required state | ✅       | -       |
+| state | `FilterMultipleState` | Object that manages the component state logic, you can obtain it calling the useFilterMultipleState hook | ✅       | -       |
 
-## UseMultipeFilterState
+## UseFilterMultipleState
 
 | Name           | Type                             | Description                                                         | Required | Default |
 | -------------- | -------------------------------- | ------------------------------------------------------------------- | -------- | ------- |

@@ -5,9 +5,9 @@ import React, { useRef } from 'react'
 import { useOption } from '@react-aria/listbox'
 import { tag } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
-import type { FilterItem } from './filter.state'
+import type { FilterItem } from './base-filter.state'
 
-export const Option = (props: OptionProps) => {
+export const FilterOption = (props: OptionProps) => {
   const { item, state, inputRenderer } = props
 
   const ref = useRef(null)

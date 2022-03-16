@@ -2,7 +2,7 @@ import { useElement } from '@vtex/admin-ui-react'
 
 import * as style from '../components/Radio/Radio.style'
 
-export const StyledRadio = (props: StyledRadioProps) => {
+export const FilterRadio = (props: FilterRadioProps) => {
   const { checked } = props
 
   return useElement('input', {
@@ -18,6 +18,6 @@ export const StyledRadio = (props: StyledRadioProps) => {
   })
 }
 
-interface StyledRadioProps {
+interface FilterRadioProps {
   checked: boolean
 }

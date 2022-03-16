@@ -14,11 +14,11 @@ import { Input } from '../../Input'
 import { FlexSpacer } from '../../Flex'
 import {
   FilterGroup,
-  MultiselectFilter,
-  SingleSelectFilter,
+  FilterMultiple,
+  Filter,
   useFilterGroupState,
-  useMultipleFilterState,
-  useSingleFilterState,
+  useFilterMultipleState,
+  useFilterState,
 } from '../../../filters'
 
 export default {
@@ -258,7 +258,7 @@ export function FilterControls() {
   const [quality, setQuality] = useState<string | number | null>()
   const [brand, setBrand] = useState<Array<string | number> | null>()
 
-  const brandFilterState = useMultipleFilterState({
+  const brandFilterState = useFilterMultipleState({
     items: [
       { label: 'Mistery brand', id: 'mistery_id' },
       { label: 'Cool brand', id: 'cool_id' },
@@ -269,7 +269,7 @@ export function FilterControls() {
     label: 'Brand',
   })
 
-  const qualityFilterState = useSingleFilterState({
+  const qualityFilterState = useFilterState({
     items: [
       { label: 'Normal', id: 'norm' },
       { label: 'Premium', id: 'prem' },
@@ -280,10 +280,9 @@ export function FilterControls() {
     label: 'Quality',
   })
 
-  const filterGroupState = useFilterGroupState([
-    qualityFilterState,
-    brandFilterState,
-  ])
+  const filterGroupState = useFilterGroupState({
+    filterStates: [qualityFilterState, brandFilterState],
+  })
 
   useEffect(() => {
     const filtered = items.filter((item) => {
@@ -315,8 +314,8 @@ export function FilterControls() {
     <DataView csx={{ width: 500 }} state={view}>
       <DataViewControls>
         <FilterGroup state={filterGroupState}>
-          <MultiselectFilter state={brandFilterState} />
-          <SingleSelectFilter state={qualityFilterState} />
+          <FilterMultiple state={brandFilterState} />
+          <Filter state={qualityFilterState} />
         </FilterGroup>
       </DataViewControls>
       <DataGrid state={grid} />

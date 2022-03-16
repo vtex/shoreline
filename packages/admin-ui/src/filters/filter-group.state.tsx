@@ -1,9 +1,15 @@
-import type { UseFilterStateReturn } from './filter.state'
+import type { GenericFilterStateReturn } from './base-filter.state'
 
-export function useFilterGroupState(props: UseFilterStateReturn[]) {
+export function useFilterGroupState(props: UseFilterGroupStateReturn) {
+  const { filterStates } = props
+
   const onClear = () => {
-    props?.forEach((state) => state.onClear())
+    filterStates.forEach((state) => state.onClear())
   }
 
   return { onClear }
+}
+
+interface UseFilterGroupStateReturn {
+  filterStates: GenericFilterStateReturn[]
 }

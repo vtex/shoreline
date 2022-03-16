@@ -9,10 +9,10 @@ import {
 } from './date-picker'
 
 import {
-  useMultipleFilterState as experimental_useMultipleFilterState,
-  MultiselectFilter as experimental_MultiselectFilter,
-  useSingleFilterState as experimental_useSingleFilterState,
-  SingleSelectFilter as experimental_SingleSelectFilter,
+  useFilterMultipleState as experimental_useFilterMultipleState,
+  FilterMultiple as experimental_FilterMultiple,
+  useFilterState as experimental_useFilterState,
+  Filter as experimental_Filter,
   FilterGroup as experimental_FilterGroup,
   useFilterGroupState as experimental_useFilterGroupState,
 } from './filters'
@@ -41,9 +41,9 @@ export {
   experimental_ComboboxPopover,
   experimental_useComboboxState,
   experimental_FilterGroup,
-  experimental_MultiselectFilter,
-  experimental_SingleSelectFilter,
+  experimental_FilterMultiple,
+  experimental_Filter,
   experimental_useFilterGroupState,
-  experimental_useMultipleFilterState,
-  experimental_useSingleFilterState,
+  experimental_useFilterMultipleState,
+  experimental_useFilterState,
 }

@@ -1,14 +1,13 @@
 import React from 'react'
-import { SingleSelectFilter, useSingleFilterState } from '..'
+import { Filter, useFilterState } from '..'
 import { render, axe, withState } from '../../test-utils'
 
-const FilterWithState = withState(SingleSelectFilter, () =>
-  useSingleFilterState({
+const FilterWithState = withState(Filter, () =>
+  useFilterState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
     ],
-    onChange: () => {},
     label: 'Filter',
   })
 )

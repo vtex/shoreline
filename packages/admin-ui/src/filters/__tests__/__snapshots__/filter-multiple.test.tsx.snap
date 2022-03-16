@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Single select filter tests should match snapshot 1`] = `
+exports[`Multiselect filter tests should match snapshot 1`] = `
 <DocumentFragment>
   <span
     style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
@@ -13,7 +13,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
-  line-height: 1.4285714286;
+  line-height: 1.1428571429;
   letter-spacing: 0.0071em;
   border: none;
   border-radius: 4px;
@@ -57,8 +57,8 @@ exports[`Single select filter tests should match snapshot 1`] = `
 }
 
 .emotion-0 {
-  width: 1rem;
   height: 1rem;
+  width: 1rem;
   min-height: 1rem;
   min-width: 1rem;
   -webkit-transform: rotate(180deg);

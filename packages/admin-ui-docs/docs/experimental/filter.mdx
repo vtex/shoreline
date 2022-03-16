@@ -1,20 +1,20 @@
 ---
-title: SingleSelectFilter
-path: /single-select-filter/
+title: Filter
+path: /filter/
 ---
 
-# SingleSelectFilter
+# Filter
 
 ## Usage
 
 ```jsx
 import {
-  experimental_SingleSelectFilter as SingleSelectFilter,
-  experimental_useSingleFilterState as useSingleFilterState,
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
 } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useSingleFilterState({
+  const state = useFilterState({
     items: [
       { label: 'Available', value: 1, id: '#1' },
       { label: 'Sold out', value: 2, id: '#2' },
@@ -22,7 +22,7 @@ function Example() {
     onChange: () => {},
     label: 'Status',
   })
-  return <SingleSelectFilter state={state} />
+  return <Filter state={state} />
 }
 ```
 
@@ -32,11 +32,11 @@ function Example() {
 
 ```jsx noInline live
 
-const SingleSelectFilter = experimental_SingleSelectFilter
-const useSingleFilterState = experimental_useSingleFilterState
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
 
 function Example() {
-  const state = useSingleFilterState({
+  const state = useFilterState({
     items: [
       { label: 'Available', value: 1, id: '#1' },
       { label: 'Sold out', value: 2, id: '#2' },
@@ -45,7 +45,7 @@ function Example() {
     label: 'Status',
     initialApplied: '#1',
   })
-  return <SingleSelectFilter state={state} />
+  return <Filter state={state} />
 }
 
 render(<Example />)
@@ -53,16 +53,16 @@ render(<Example />)
 
 ### I18n
 
-The singleselect-filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+The filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
 
 ```jsx
 import {
-  experimental_SingleSelectFilter as SingleSelectFilter,
-  experimental_useSingleFilterState as useSingleFilterState,
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
 } from '@vtex/admin-ui'
 
 function Filter() {
-  const state = useSingleFilterState({
+  const state = useFilterState({
     items: [
       { label: 'Available', value: 1, id: '#1' },
       { label: 'Sold out', value: 2, id: '#2' },
@@ -70,7 +70,7 @@ function Filter() {
     onChange: () => {},
     label: 'Status',
   })
-  return <SingleSelectFilter state={state} />
+  return <Filter state={state} />
 }
 
 function RootApp() {
@@ -85,15 +85,15 @@ render(<RootApp />)
 ```
 
 
-# Props
+## Props
 
-## SingleSelectFilter
+## Filter
 
-| Name  | Type                | Description    | Required | Default |
-| ----- | ------------------- | -------------- | -------- | ------- |
-| state | `SingleFilterState` | Required state | ✅       | -       |
+| Name  | Type          | Description    | Required | Default |
+| ----- | ------------- | -------------- | -------- | ------- |
+| state | `FilterState` | Object that manages the component state logic, you can obtain it calling the useFilterState hook | ✅       | -       |
 
-## UseSingleFilterState
+## useFilterState
 
 | Name           | Type                           | Description                                                       | Required | Default |
 | -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |

@@ -1,16 +1,15 @@
 import React from 'react'
-import { useMultipleFilterState } from '..'
+import { useFilterMultipleState } from '..'
 import { render, axe, withState } from '../../test-utils'
 
-import { MultiselectFilter } from '../multiselect-filter'
+import { FilterMultiple } from '../filter-multiple'
 
-const FilterWithState = withState(MultiselectFilter, () =>
-  useMultipleFilterState({
+const FilterWithState = withState(FilterMultiple, () =>
+  useFilterMultipleState({
     items: [
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
     ],
-    onChange: () => {},
     label: 'Filter',
   })
 )

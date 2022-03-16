@@ -1,11 +1,11 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
-import * as style from '../components/Button/Button.style'
+import * as buttonStyle from '../components/Button/Button.style'
 
 const css = (csx: StyleProp) => csx
 
 export const baseline = css({
-  ...style.baseline,
-  ...style.small({ icon: 'end' }),
+  ...buttonStyle.baseline,
+  ...buttonStyle.small({ icon: 'end' }),
   marginRight: '$s',
   display: 'flex',
   alignItems: 'center',

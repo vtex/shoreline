@@ -12,9 +12,7 @@ export const FilterDisclosure = (
   return (
     <PickerDisclosure
       state={state}
-      csx={{
-        ...style.baseline,
-      }}
+      csx={style.baseline}
       tabIndex={0}
       {...labelProps}
     >

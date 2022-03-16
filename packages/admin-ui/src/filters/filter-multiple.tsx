@@ -1,11 +1,11 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { Checkbox } from '../components/Checkbox'
-import { Filter } from './filter'
-import { Option } from './option'
-import type { UseMultipleFilterReturn } from './filter.state'
+import { BaseFilter } from './base-filter'
+import { FilterOption } from './filter-option'
+import type { UseFilterMultipleReturn } from './base-filter.state'
 
-export function MultiselectFilter(props: MultiselectFilterProps) {
+export function FilterMultiple(props: FilterMultipleProps) {
   const {
     state: { listState, appliedItems = [] },
     state,
@@ -45,19 +45,19 @@ export function MultiselectFilter(props: MultiselectFilterProps) {
   )
 
   return (
-    <Filter state={state} appliedValuesLabel={appliedValuesLabel}>
+    <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
       {options.map((item) => (
-        <Option
+        <FilterOption
           key={item.key}
           item={item}
           state={listState}
           inputRenderer={({ isSelected }) => <Checkbox checked={isSelected} />}
         />
       ))}
-    </Filter>
+    </BaseFilter>
   )
 }
 
-export interface MultiselectFilterProps {
-  state: UseMultipleFilterReturn
+export interface FilterMultipleProps {
+  state: UseFilterMultipleReturn
 }

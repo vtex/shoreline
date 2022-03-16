@@ -11,7 +11,7 @@ export const messages = {
       clearAll: 'Tout effacer',
     },
     'pt-BR': {
-      apply: 'Applicar',
+      apply: 'Aplicar',
       clear: 'Limpar',
       clearAll: 'Limpar todos',
     },
