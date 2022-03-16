@@ -3,8 +3,7 @@ import { merge } from '@vtex/admin-ui-util'
 import { render } from '@testing-library/react'
 import { theme } from '@vtex/admin-ui-core'
 
-import { createSystem } from '../createSystem'
-import { useSystem } from '../context'
+import { createSystem, useSystem } from '../system'
 
 describe('createSystem', () => {
   it('should execute the system', () => {

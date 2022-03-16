@@ -1,4 +1,4 @@
-import { collectSyncStyles, extractVariantStyles } from '../index'
+import { collectSyncStyles, extractVariantStyles } from '../system-deprecated'
 
 describe('useStylesheet', () => {
   it('should collect the synced styles', () => {

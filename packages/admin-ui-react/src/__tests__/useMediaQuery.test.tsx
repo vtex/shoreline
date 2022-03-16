@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { useMediaQuery } from '../hooks'
 
 type Matches = boolean | Record<string, boolean>
 
