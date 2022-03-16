@@ -29,7 +29,7 @@ import { Anchor } from '@vtex/admin-ui'
 
 You can use the `csx` property to customize any style.
 
-# Props
+## Props
 
 | Name     | Type        | Description              | Required | Default |
 | -------- | ----------- | ------------------------ | -------- | ------- |
