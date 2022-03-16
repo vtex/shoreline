@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.119.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.5...@vtex/admin-ui@0.119.6) (2022-03-16)
+
+### Bug Fixes
+
+- **util:** replace lodash deps and remove unused utils ([317d7c1](https://github.com/vtex/admin-ui/commit/317d7c102e309460870fc2d8f93e70ead8d176b7))
+
 ## [0.119.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.4...@vtex/admin-ui@0.119.5) (2022-03-14)
 
 **Note:** Version bump only for package @vtex/admin-ui

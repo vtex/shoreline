@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.4.5...@vtex/admin-ui-docs@0.5.0) (2022-03-16)
+
+### Features
+
+- add google analytics to our documentation ([6f0cfe3](https://github.com/vtex/admin-ui/commit/6f0cfe329a3b1dda2d87b74de261ae38df1862dc))
+
 ## [0.4.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.4.4...@vtex/admin-ui-docs@0.4.5) (2022-03-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
