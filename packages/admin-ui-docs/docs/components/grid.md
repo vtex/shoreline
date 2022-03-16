@@ -122,7 +122,7 @@ All props of `as`, which is `div` by default. And also, the props that has the s
 | `templateRows`    | `gridTemplateRows`    |
 | `templateColumns` | `gridTemplateColumns` |
 
-## GridItem
+### GridItem
 
 All props of `as`, which is `div` by default. And also, the props that has the same type of grid styles:
 
