@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-docs",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -19,8 +19,8 @@
     "@docusaurus/theme-live-codeblock": "2.0.0-beta.14",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
-    "@vtex/admin-formik": "^0.4.14",
-    "@vtex/admin-ui": "^0.120.0",
+    "@vtex/admin-formik": "^0.4.15",
+    "@vtex/admin-ui": "^0.120.1",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.1",
     "file-loader": "^6.2.0",

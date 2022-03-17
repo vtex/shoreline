@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.0...@vtex/admin-ui-core@0.7.1) (2022-03-17)
+
+### Bug Fixes
+
+- **admin-ui-core:** custom tokens not parsed by csx while nested ([d2b91cd](https://github.com/vtex/admin-ui/commit/d2b91cdbc98e335fd260de2c37b94a1cd282739f))
+
 # [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.6.2...@vtex/admin-ui-core@0.7.0) (2022-03-17)
 
 ### Features
