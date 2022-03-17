@@ -16,7 +16,11 @@ export function usePickerState(props: PickerInitialState = {}) {
   const { id: pickerId } = useId({ id: pickerIdProp, baseId: 'picker' })
   const { id: popoverId } = useId({ id: popoverIdProp, baseId: 'popover' })
 
-  const popover = usePopoverState({ modal: true, gutter: 0, ...props })
+  const popover = usePopoverState({
+    modal: true,
+    gutter: 4,
+    ...props,
+  })
 
   return {
     pickerId,
