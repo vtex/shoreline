@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.120.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.6...@vtex/admin-ui@0.120.0) (2022-03-17)
+
+### Bug Fixes
+
+- **filter:** font color and size ([c812ca0](https://github.com/vtex/admin-ui/commit/c812ca0d78e2e06874b8d24db7893a539c47dcad))
+- **filter:** style adjustments ([51cba5c](https://github.com/vtex/admin-ui/commit/51cba5c1a25cde0c3c6f517e9fbe77c168377b45))
+- **filters:** fix styling to better match figma ([e8dd13f](https://github.com/vtex/admin-ui/commit/e8dd13f4b36b4f205ee59e6dd4658da0def0ef9b))
+- **picker popover:** fix reakit warning about not using margin to position popover ([3d65b98](https://github.com/vtex/admin-ui/commit/3d65b984984cc241d3c37fc64a23c28bc6c3b3bb))
+
+### Features
+
+- **filter:** add first version of single select filter ([cbbf025](https://github.com/vtex/admin-ui/commit/cbbf025f7ffe8f248bdbf12864192fe4c5f8845c))
+- **filter:** add i18n ([36d7fe4](https://github.com/vtex/admin-ui/commit/36d7fe4fbbbf7487a43b74f89d70a8e8283edb52))
+- **filter:** add popover and improve typing ([a5a3656](https://github.com/vtex/admin-ui/commit/a5a3656a6026102229f290260ace77ec6686d625))
+- **filter:** add support for initial selected items ([e728b5e](https://github.com/vtex/admin-ui/commit/e728b5e4ca9971cab9e40c168891752ea2e4dee4))
+- **filter:** auto apply whenever an option is selected if filter is single select ([0ff0d84](https://github.com/vtex/admin-ui/commit/0ff0d8485b67d154768effdec84f52ed0bfb2f6a))
+- **filter:** improve filter callback name ([86d2235](https://github.com/vtex/admin-ui/commit/86d22351c42fa5ca0c93c471ba739447d054b414))
+- **filter:** improve style and focus behaviour ([b754c68](https://github.com/vtex/admin-ui/commit/b754c686ca5d23bd3d5877ff245f4423ac7cf34e))
+- **filter:** truncate long filter labels ([a0fb266](https://github.com/vtex/admin-ui/commit/a0fb266698d06f4350337eca3e22f624fd126d8d))
+- **filters:** add filter group component ([17a5998](https://github.com/vtex/admin-ui/commit/17a5998ba88fa4561c09134b7b0dd84c58b8ec26))
+- **tokens:** add new semantic color tokens ([9c9dda8](https://github.com/vtex/admin-ui/commit/9c9dda81fb23f9f99ceb47b22477679f42f0b035))
+- add basic version of checkbox filter ([1e25b13](https://github.com/vtex/admin-ui/commit/1e25b1328d36bd8e23f87a074ff7e021a5f8a75c))
+
+### Performance Improvements
+
+- **filter:** use new core element creation ([b11176b](https://github.com/vtex/admin-ui/commit/b11176b55538244b0bbb3b0eb60c9c017cbe8f01))
+
 ## [0.119.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.119.5...@vtex/admin-ui@0.119.6) (2022-03-16)
 
 ### Bug Fixes
