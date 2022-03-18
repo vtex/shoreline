@@ -8,18 +8,17 @@ sidebar_position: 3
 
 ## Responsive aliases
 
-`admin-ui` has 6 responsive aliases that guide you while authoring responsive layouts.
+Admin UI has five responsive aliases that guide you while authoring responsive layouts.
 
 | alias          | min-width em | min-width px | max-width em | max-width px |
 | -------------- | ------------ | ------------ | ------------ | ------------ |
-| `@mobile`      | `40em`       | `640px`      | -            | -            |
 | `@tablet`      | `48em`       | `768px`      | -            | -            |
 | `@tabletOnly`  | `48em`       | `768px`      | `64em`       | `1024px`     |
 | `@desktop`     | `64em`       | `1024px`     | -            | -            |
 | `@desktopOnly` | `64em`       | `1024px`     | `75em`       | `1200px`     |
 | `@widescreen`  | `75em`       | `1200px`     | -            | -            |
 
-In the following example, the text content changes to represent the current screen size. You can resize your browser's window to see the result.
+In the example - the text content changes, representing the current screen size. You can resize your browser window to see the result.
 
 ```jsx live
 <tag.div
@@ -55,15 +54,19 @@ In the following example, the text content changes to represent the current scre
 
 ## Mental model
 
-Our styles have a mobile-first mindset. This means that every style that you write target mobile by default. Each responsive alias targets all the aliases above it so that you can work in optimizing your layout for bigger screens. In other words, **always work optimizing space**.
+Our styles have a mobile-first mindset. It means that every style that you write targets mobile by default. Each responsive alias targets all others above it so that you can work in optimizing your layout for larger screens. In other words, **always work optimizing space**.
+
+The `Box` in the example has the `$s` padding for all screens:
 
 ```jsx
-<tag.div
+<Box
   csx={{
     padding: '$s',
   }}
 />
 ```
+
+If we add the `@tablet` rule, the padding will be `$m` for tablets and above - which means that it will remain `$s` for screens smaller than `@tablet`. The logic is still the same for other breakpoints.
 
 ```jsx
 <tag.div
@@ -71,20 +74,6 @@ Our styles have a mobile-first mindset. This means that every style that you wri
     padding: '$s',
     '@tablet': {
       padding: '$m',
-    },
-  }}
-/>
-```
-
-```jsx
-<tag.div
-  csx={{
-    padding: '$s',
-    '@tablet': {
-      padding: '$m',
-    },
-    '@desktop': {
-      padding: '$l',
     },
   }}
 />
@@ -153,7 +142,7 @@ The main reasons are:
 - Less performant to parse.
 - Library complexity overhead.
 
-To migrate to the aliases, you just need to place the styles in the right category.
+To migrate to the aliases, you need to place the styles in the correct category.
 
 ```js
 // with responsive values
