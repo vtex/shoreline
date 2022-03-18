@@ -7,7 +7,6 @@ import {
   DatePickerStateReturn as experimental_DatePickerStateReturn,
   useDatePickerState as experimental_useDatePickerState,
 } from './date-picker'
-
 import {
   useFilterMultipleState as experimental_useFilterMultipleState,
   FilterMultiple as experimental_FilterMultiple,
@@ -26,6 +25,10 @@ import {
   ComboboxPopover as experimental_ComboboxPopover,
   useComboboxState as experimental_useComboboxState,
 } from './combobox'
+import {
+  Inline as experimental_Inline,
+  InlineProps as experimental_InlineProps,
+} from './inline'
 
 export {
   experimental_DatePickerField,
@@ -46,4 +49,6 @@ export {
   experimental_useFilterGroupState,
   experimental_useFilterMultipleState,
   experimental_useFilterState,
+  experimental_Inline,
+  experimental_InlineProps,
 }

@@ -561,3 +561,18 @@ export interface Theme {
     [k: string]: StyleObject
   }
 }
+
+export type CSSAbsoluteUnit = 'cm' | 'mm' | 'in' | 'px' | 'pt' | 'pc'
+
+export type CSSRelativeUnit =
+  | 'em'
+  | 'rem'
+  | 'ex'
+  | 'ch'
+  | 'vw'
+  | 'vh'
+  | 'vmin'
+  | 'vmax'
+  | '%'
+
+export type CSSUnit = CSSAbsoluteUnit | CSSRelativeUnit
