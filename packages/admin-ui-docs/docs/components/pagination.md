@@ -7,7 +7,7 @@ path: /pagination/
 
 The pagination component allows the user to move back and forth between pages, showing the number of items on the page and in the rest of the collection.
 
-## Installation
+## Import
 
 ```jsx isStatic
 import { Pagination } from '@vtex/admin-ui'
@@ -67,13 +67,13 @@ function Loading() {
 
 ## State objects
 
-The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` is a number and its value is paginations current page, and the `range` is an array that contains two numbers with the beginning and the end of the current page in relation to the current page and the total amount of items in the collection.
+The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` is a number and its value is the current page, and `range` is an array that contains two numbers with the beginning and the end item index of the current page.
 
 ### usePaginationState
 
-For convenience, we also provide a hook that already implements the state logic for you. You should pass the hook return to the `state` property.
+For convenience, we also provide a hook that already implements the state logic for you. You should pass the hook's return to the `state` property.
 
-#### Parameter
+#### Parameters
 
 | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
@@ -86,7 +86,7 @@ For convenience, we also provide a hook that already implements the state logic 
 
 You can persist the pagination state within the browser's query params using the `useQuerySuseQueryPaginationStatetate` hook, instead of `usePaginationState`. Both hooks are used in the same way. The application should be wrapped by `QueryStateProvider`. The application should be wrapped by `QueryStateProvider`.
 
-#### Parameter
+#### Parameters
 
 | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |

@@ -154,9 +154,7 @@ const state = useToolbarState()
 - <kbd>Home</kbd> or <kbd>PageUp</kbd> moves focus to the first `ToolbarItem`.
 - <kbd>End</kbd> or <kbd>PageDown</kbd> moves focus to the last `ToolbarItem`.
 
-## Types
-
-### Toolbar props
+## Props
 
 | Name      | Type           | Description                                                                                                                                           | Required | Default |
 | --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |

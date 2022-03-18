@@ -7,6 +7,12 @@ path: /list/
 
 `<List>` renders a `<ul>` element by default with reset styles.
 
+## Import
+
+```jsx isStatic
+import { List, ListProps } from '@vtex/admin-ui'
+```
+
 ## Behavior
 
 ```jsx live
@@ -19,12 +25,6 @@ path: /list/
   <List.Item>Juice</List.Item>
   <List.Item>Tea</List.Item>
 </List>
-```
-
-## Import
-
-```jsx isStatic
-import { List, ListProps } from '@vtex/admin-ui'
 ```
 
 ## Variation
@@ -65,7 +65,7 @@ You can use the `csx` property to handle different styles.
 
 ### List
 
-All props of `ul` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `ul` JSX element.
 
 | Name  | Type            | Description              | Required | Default |
 | ----- | --------------- | ------------------------ | -------- | ------- |
@@ -74,7 +74,7 @@ All props of `ul` jsx element.
 
 ### List.Item
 
-All props of `li` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `li` JSX element.
 
 | Name | Type        | Description              | Required | Default |
 | ---- | ----------- | ------------------------ | -------- | ------- |

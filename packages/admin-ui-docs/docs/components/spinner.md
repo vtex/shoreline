@@ -48,7 +48,7 @@ function Example() {
 
 ## Props
 
-All props of `svg` jsx element.
+It also accepts all the props of `svg` jsx element.
 
 | Name | Type          | Description        | Required | Default |
 | ---- | ------------- | ------------------ | -------- | ------- |

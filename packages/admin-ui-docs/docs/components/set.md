@@ -5,7 +5,13 @@ path: /set/
 
 # Set
 
-Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, that automatically space out the components.
+Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, it automatically spaces out the components.
+
+## Import
+
+```sh isStatic
+import { Set } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -21,13 +27,7 @@ A `<Set>` can be used to list a set of components. It will automatically space o
 </Set>
 ```
 
-## Import
-
-```sh isStatic
-import { Set } from '@vtex/admin-ui'
-```
-
-## Variation
+## Variations
 
 ### Spacing
 
@@ -61,7 +61,7 @@ Orientation can be either `vertical` or `horizontal` (default). It can be contro
 
 ### Fluid
 
-While on `vertical` orientation, you can alternatively the `fluid` property. This will make the inner children, match the container width.
+While on `vertical` orientation, you can alternatively use the `fluid` property. This will make the inner children, match the container width.
 
 ```jsx live
 <Box csx={{ maxWidth: 320 }}>
@@ -127,7 +127,7 @@ You can use the `csx` property to handle different styles.
 
 ## Props
 
-All props of `div` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `div` JSX element.
 
 | Name        | Type                                           | Description                                              | Required | Default      |
 | ----------- | ---------------------------------------------- | -------------------------------------------------------- | -------- | ------------ |

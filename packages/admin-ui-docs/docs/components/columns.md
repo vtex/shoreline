@@ -25,12 +25,6 @@ To create a basic columned layout, add a `<Columns>` component and then add your
 </Columns>
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
 ## Variation
 
 ### Auto
@@ -112,3 +106,17 @@ You can use the csx property to handle different styles in both `Columns`, and `
 ```
 
 ## Props
+
+### Columns
+
+| Name     | Type          | Description                                   | Required | Default |
+| -------- | ------------- | --------------------------------------------- | -------- | ------- |
+| spacing  | `ResponsiveValue<number>`       | Spacing between columns     | 🚫       | -       |
+
+### Column
+
+| Name     | Type          | Description                                   | Required | Default |
+| -------- | ------------- | --------------------------------------------- | -------- | ------- |
+| units    | `ResponsiveValue<number from 1 to 12>`       | Units of space it takes     | 🚫       | -       |
+| offset    | `ResponsiveValue<'left', 'right', 'both', 'none'>`   | Columns offset     | 🚫       | -       |
+

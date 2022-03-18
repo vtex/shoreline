@@ -25,7 +25,7 @@ function Example() {
 
 ### Centralized
 
-Put any child element inside it, give it any `width` or/and `height`, it'll ensure the child is centered.
+Put any child element inside it, give it any `width` and/or `height`, it'll ensure the child is centered.
 
 ```jsx live
 <Center
@@ -44,4 +44,4 @@ Be sure that you're using the correct semantic element and `aria roles` for the 
 
 ## Props
 
-All props of `as` which is `div` by default.
+You can use all the props accepted by the JSX element you defined with `as`, which is `div` by default.

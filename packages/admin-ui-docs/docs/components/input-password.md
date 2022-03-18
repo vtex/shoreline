@@ -5,7 +5,7 @@ path: /input-password/
 
 # Input Password
 
-The `<InputPassword>` component is used in a form in order to retrieve input from the user. It always has a `label` defined and it renders a `<input>` element with a `type="password"` .
+The `<InputPassword>` component is used in a form in order to retrieve input from the user. It always has a `label` defined and it renders an `<input>` element with `type="password"` .
 
 ## Usage
 
@@ -55,7 +55,7 @@ The `InputPassword` [tone of voice](/foundations/colors/#tones) is either `neutr
 
 ### Icon
 
-You can add one Icon on the left side of the `InputPassword` by defining the `icon` property.
+You can add an Icon on the left side of the `InputPassword` by defining the `icon` property.
 
 ```jsx live
 function Example() {
@@ -166,7 +166,7 @@ function Example() {
 
 ### Overview
 
-Example of the `InputPassword` with all its features.
+Example of `InputPassword` with all its features.
 
 ```jsx live
 function Example() {

@@ -5,13 +5,32 @@ path: /checkbox-group/
 
 # CheckboxGroup
 
-Used to group a set of `Checkbox` components. Has `role="group"` defined.
+CheckboxGroup is used to group a set of `Checkbox` components. It has `role="group"`.
 
-`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `CheckboxGroup` the children should have the `Checkbox` type.
+`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `CheckboxGroup` the children should all have the `Checkbox` type.
 
-`Child Label`: By default, the children labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
+`Child Label`: By default, the childrens' labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
 
-## Behavior
+## Usage
+
+```jsx isStatic
+import { CheckboxGroup } from '@vtex/admin-ui'
+
+function Example() {
+  const checkbox = useCheckboxState({ state: [] })
+
+  return (
+    <CheckboxGroup id="form-group-id" label="Group label!">
+      <Label>
+        <Checkbox state={checkbox} value="checkbox-1" />
+        Checkbox label
+      </Label>
+    </CheckboxGroup>
+  )
+}
+```
+
+## Example
 
 ```jsx live
 function Example() {
@@ -32,17 +51,7 @@ function Example() {
 }
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { CheckboxGroup } from '@vtex/admin-ui'
-```
-
-## Variation
+## Variations
 
 ### Horizontal
 
@@ -54,7 +63,7 @@ function Example() {
 
   return (
     <CheckboxGroup
-      orientation="vertical"
+      orientation="horizontal"
       id="form-group-id"
       label="Group label!"
     >
@@ -100,7 +109,7 @@ function Example() {
 
 ### Label
 
-You can easily add a label to the CheckboxGroup using the `label` property. Just keep in mind that to guarantee accessibility, always that you define this property, you should define the `id` as well.
+You can easily add a label to the CheckboxGroup using the `label` property. Just keep in mind that to guarantee accessibility, whenever you define this property, you should define the `id` as well.
 
 You can also add a custom label!
 
@@ -127,3 +136,10 @@ function Example() {
 ```
 
 ## Props
+
+| Name        | Type                     | Description                                              | Required | Default      |
+| ----------- | ------------------------ | -------------------------------------------------------- | -------- | ------------ |
+| id          | string                   | Element's id, should be set to a value whenever label is | 🚫       | -            |
+| label       | string                   | Group's label                                            | 🚫       | -            |
+| size        | 'regular', 'small'       | Checkbox group's size                                    | 🚫       | 'regular'    |
+| orientation | 'horizontal', 'vertical' | Group rendering orientation                              | 🚫       | 'horizontal' |

@@ -7,6 +7,12 @@ path: /radio/
 
 Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
 
+## Import
+
+```jsx isStatic
+import { Radio } from '@vtex/admin-ui'
+```
+
 ## Behavior
 
 ```jsx live
@@ -17,27 +23,13 @@ function Example() {
 }
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Radio } from '@vtex/admin-ui'
-```
-
 ## State
 
-The `Radio` component is always used in a `RadioGroup` context, so handling the states of each one of them and maintain accessibility can be tricky.
+The `Radio` component is always used in a `RadioGroup` context, so handling the states of each one of them and maintaining accessibility can be tricky.
 
 ### useRadioState hook
 
 For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
-
-### Example
-
-## Variation
 
 ### Standalone
 

@@ -60,7 +60,7 @@ function Example() {
 
 ### Size
 
-There are two size variants: `small`, `regular`. By default, it renders `regular`.
+There are two size variants: `small` and `regular`. By default, it renders `regular`.
 
 ```jsx live
 function Example() {
@@ -181,9 +181,9 @@ const state = useCheckboxState()
 
 ## Props
 
-It also receive all props of `<input type="checkbox" />` JSX element.
-
 ### Checkbox
+
+It also accepts all the props of `<input type="checkbox" />` JSX element.
 
 | Name     | Type                | Description                         | Required | Default   |
 | -------- | ------------------- | ----------------------------------- | -------- | --------- |

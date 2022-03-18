@@ -36,7 +36,7 @@ import { Heading } from '@vtex/admin-ui'
 
 ## Props
 
-All props of `h` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `h` JSX element.
 
 | Name | Type                  | Description       | Required | Default |
 | ---- | --------------------- | ----------------- | -------- | ------- |

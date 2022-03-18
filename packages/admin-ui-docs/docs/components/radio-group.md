@@ -7,9 +7,15 @@ path: /radio-group/
 
 Used to group a set of `Radio` components. Has `role="radiogroup"` defined.
 
-`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `RadioGroup` the children should have the `Radio` type.
+`Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `RadioGroup` the children should all have the `Radio` type.
 
 `Child Label`: By default, the children labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
+
+## Import
+
+```jsx isStatic
+import { RadioGroup } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -38,21 +44,11 @@ function Example() {
 }
 ```
 
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { RadioGroup } from '@vtex/admin-ui'
-```
-
 ## `useRadioState` hook
 
 To guarantee accessibility and keyboard navigation along with the `Radios` inside the `RadioGroup`, we provide a hook that already implements the state logic for you. You should pass the hook return to the `state` property to the `RadioGroup` and all `Radio` children.
 
-## Variation
+## Variations
 
 ### Horizontal
 
@@ -119,7 +115,7 @@ function Example() {
 
 ### Label
 
-You can easily add a label to the RadioGroup using the `label` property. Just keep in mind that to guarantee accessibility, always that you define this property, you should define the `id` as well.
+You can easily add a label to the RadioGroup using the `label` property. Just keep in mind that to guarantee accessibility, whenever you define this property, you should define the `id` as well.
 
 You can also add a custom label!
 
@@ -150,3 +146,12 @@ function Example() {
 ```
 
 ## Props
+
+| Name     | Type        | Description              | Required | Default |
+| -------- | ----------- | ------------------------ | -------- | ------- |
+| children | `ReactNode` | Group's content     | 🚫       | -       |
+| id    | `string`    | Id            | 🚫       | -       |
+| label    | `string`    | Group's label            | 🚫       | -       |
+| size     | `regular`, `small` |  Size | 🚫       | `regular`    |
+| orientation     | `horizontal`, `vertical` | Group's orientation   | 🚫  | `horizontal`    |
+| state     | `radioState` |  State that controls component behaviour | ✅       | -    |

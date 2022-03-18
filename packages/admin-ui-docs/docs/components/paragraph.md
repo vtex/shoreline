@@ -7,6 +7,12 @@ path: /paragraph/
 
 `<Paragraph>` renders a `<p>` element with reset styles.
 
+## Import
+
+```jsx isStatic
+import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
+```
+
 ## Behavior
 
 ```jsx live
@@ -22,16 +28,6 @@ path: /paragraph/
   pellentesque sapien nibh, eget finibus neque ultrices ut. Phasellus fermentum
   urna at ex rhoncus aliquam.
 </Paragraph>
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
 ```
 
 ## Customization

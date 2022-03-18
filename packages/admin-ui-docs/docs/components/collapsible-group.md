@@ -8,10 +8,25 @@ path: /collapsible-group/
 A Component that groups Collapsible components. It's a container that separates its children with an `<hr>` element.
 You may want to check the [Collapsible Documentation](collapsible/) before using the CollapsibleGroup component.
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { CollapsibleGroup, useCollapsibleState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useCollapsibleState()
+
+  return (
+    <CollapsibleGroup csx={{ width: 400 }}>
+      <Collapsible state={steate}>
+        <CollapsibleHeader label="Example" />
+        <CollapsibleContent>
+          <Text variant="action">Lorem ipsum.</Text>
+        </CollapsibleContent>
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+}
 ```
 
 ## Behavior

@@ -113,7 +113,7 @@ function Example() {
 
 ## Props
 
-It also receives all props of `textarea` JSX element.
+It also accepts all props of `textarea` JSX element.
 
 | Name         | Type                                          | Description                                  | Required | Default   |
 | ------------ | --------------------------------------------- | -------------------------------------------- | -------- | --------- |

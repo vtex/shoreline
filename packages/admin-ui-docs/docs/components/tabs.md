@@ -162,7 +162,7 @@ function Example() {
 
 ### Tab
 
-It also receives all props of `button` JSX element.
+It also accepts all props of `button` JSX element.
 
 | Name | Type          | Description   | Required | Default |
 | ---- | ------------- | ------------- | -------- | ------- |
@@ -171,7 +171,7 @@ It also receives all props of `button` JSX element.
 
 ### TabList
 
-It also receives all props of `div` JSX element.
+It also accepts all props of `div` JSX element.
 
 | Name  | Type          | Description                                                 | Required | Default |
 | ----- | ------------- | ----------------------------------------------------------- | -------- | ------- |
@@ -180,7 +180,7 @@ It also receives all props of `div` JSX element.
 
 ### TabPanel
 
-It also receives all props of `div` JSX element.
+It also accepts all props of `div` JSX element.
 
 | Name | Type          | Description                               | Required | Default |
 | ---- | ------------- | ----------------------------------------- | -------- | ------- |

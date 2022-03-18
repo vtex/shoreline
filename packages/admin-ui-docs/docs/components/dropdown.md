@@ -40,7 +40,7 @@ import { Dropdown, useDropdownState } from '@vtex/admin-ui'
 
 ### Variant
 
-In the same way as the [buttons](button/), the `variant` prop represents the appearance of the Dropdown, indicating whether is a `solid` (default), `soft`, or a `text` action.
+In the same way as the [buttons](button/), the `variant` prop represents the appearance of the Dropdown, indicating whether it is a `solid` (default), `soft`, or a `text` action.
 
 ```jsx live
 function Example() {
@@ -217,3 +217,10 @@ function Example() {
 ```
 
 ## Props
+
+| Name       | Type          | Description                | Required                                           | Default |
+| ---------- | ------------- | -------------------------- | -------------------------------------------------- | ------- | -------------- |
+| state      | DropdownState | Return of useDropdownState | ✅                                                 | -       |
+| label      | string        | Label                      | ✅                                                 | -       |
+| items      | T[]           | List of dropdown items     | ✅                                                 | -       |
+| renderItem | (item: T      | null) => ReactNode         | Function that defines whats rendered for each item | 🚫      | (item) => item |

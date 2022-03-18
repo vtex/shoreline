@@ -111,7 +111,7 @@ Example of using grid template rows and applying a gap or space between the rows
 
 ### Grid
 
-All props of `as`, which is `div` by default. And also, the props that has the same type of grid styles:
+All the props accepted by the JSX element you defined with `as`, which is `div` by default. And also, the props that mirror the types of grid styles:
 
 | Name              | Shorthand for         |
 | ----------------- | --------------------- |
@@ -124,7 +124,7 @@ All props of `as`, which is `div` by default. And also, the props that has the s
 
 ### GridItem
 
-All props of `as`, which is `div` by default. And also, the props that has the same type of grid styles:
+All the props accepted by the JSX element you defined with `as`, which is `div` by default. And also, the props that have the same type of grid styles:
 
 | Name   | Shorthand for |
 | ------ | ------------- |

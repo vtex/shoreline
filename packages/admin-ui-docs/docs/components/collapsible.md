@@ -7,15 +7,29 @@ path: /collapsible/
 
 A `Collapsible` component is a container that allows toggling the display of its content.
 
-## Installation
+## Usage
 
 ```jsx isStatic
 import { Collapsible, useCollapsibleState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useCollapsibleState()
+
+  return (s
+    <Collapsible state={state} csx={{ width: 500 }}>
+      <CollapsibleHeader label="Build for Community" />
+      <CollapsibleContent>
+        It’s all about being ready to grow and reach new levels. Have a solid
+        foundation, modular thinking and flexible essence.
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
 ```
 
 ## Behavior
 
-Always when using the `Collapsible`'s you should also use its composites: `CollapsibleHeader` and `CollapsibleContent`
+Always when using `Collapsible` you should also use its composites: `CollapsibleHeader` and `CollapsibleContent`
 
 ```jsx live
 function Example() {
@@ -156,12 +170,12 @@ As the name already says, it represents the `content` of the collapsible. It ren
 
 ## Props
 
-| Name     | Type          | Description                | Required | Default |
-| -------- | ------------- | -------------------------- | -------- | ------- |
-| state    | `State`       | Component state            | ✅       | -       |
-| csx      | `StyleObject` | Custom styles              | 🚫       | `{}`    |
-| disabled | `boolean`     | Same as the HTML attribute | 🚫       | `false` |
-| children | `ReactNode`   | Collapsible children       | 🚫       | -       |
+| Name     | Type          | Description                                   | Required | Default |
+| -------- | ------------- | --------------------------------------------- | -------- | ------- |
+| state    | `State`       | Component state, useCollapsibleState's return | ✅       | -       |
+| csx      | `StyleObject` | Custom styles                                 | 🚫       | `{}`    |
+| disabled | `boolean`     | Same as the HTML attribute                    | 🚫       | `false` |
+| children | `ReactNode`   | Collapsible children                          | 🚫       | -       |
 
 ### CollapsibleHeader Props
 
@@ -182,7 +196,7 @@ As the name already says, it represents the `content` of the collapsible. It ren
 
 | Name    | Type         | Description                           | Default |
 | ------- | ------------ | ------------------------------------- | ------- |
-| visible | `booelan`    | Whether the content is visible or not | -       |
+| visible | `boolean`    | Whether the content is visible or not | -       |
 | toggle  | `() => void` | Toggles the visible state             | -       |
 
 ### useCollapsibleState params

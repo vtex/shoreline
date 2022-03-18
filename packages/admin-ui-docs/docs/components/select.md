@@ -5,7 +5,7 @@ path: /select/
 
 # Select
 
-Select is a component that allow users to select an option, require a click to see options and support only single-selection.
+Select is a component that allows users to select an option, requires a click to see options and supports only single-selection.
 
 ## Usage
 
@@ -98,7 +98,7 @@ function Example() {
 
 ## Props
 
-All props of jsx `select` element.
+Besides the props listed bellow, you can use all the props accepted by the `select` JSX element.
 
 | Name         | Type                | Description               | Required | Default   |
 | ------------ | ------------------- | ------------------------- | -------- | --------- |
