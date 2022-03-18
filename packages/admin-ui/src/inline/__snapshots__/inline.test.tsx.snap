@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inline should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 >* {
+  margin-left: 0.25rem;
+  margin-top: 0.125rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <button>
+      Button 1
+    </button>
+    <button>
+      Button 2
+    </button>
+  </div>
+</DocumentFragment>
+`;

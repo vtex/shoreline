@@ -1,3 +1,5 @@
+import type { ComponentType } from 'react'
+
 /**
  * Any object.
  */
@@ -21,3 +23,12 @@ export type LooseBoolean = boolean | 'true' | 'false'
  * Any function.
  */
 export type AnyFunction = (...args: any) => any
+
+/**
+ * Infer props of a component
+ */
+export type InferProps<T> = T extends ComponentType<infer Props>
+  ? Props extends object
+    ? Props
+    : never
+  : never
