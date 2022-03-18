@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.3...@vtex/admin-ui-docs@0.5.4) (2022-03-18)
+
+### Bug Fixes
+
+- **bleed:** add experimental component ([84fb0d6](https://github.com/vtex/admin-ui/commit/84fb0d6076421732b6a208321c1369bc57320a9f))
+
 ## [0.5.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.2...@vtex/admin-ui-docs@0.5.3) (2022-03-18)
 
 ### Bug Fixes
