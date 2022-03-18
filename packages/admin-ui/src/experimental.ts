@@ -29,6 +29,10 @@ import {
   Inline as experimental_Inline,
   InlineProps as experimental_InlineProps,
 } from './inline'
+import {
+  Bleed as experimental_Bleed,
+  BleedProps as experimental_BleedProps,
+} from './bleed'
 
 export {
   experimental_DatePickerField,
@@ -51,4 +55,6 @@ export {
   experimental_useFilterState,
   experimental_Inline,
   experimental_InlineProps,
+  experimental_Bleed,
+  experimental_BleedProps,
 }
