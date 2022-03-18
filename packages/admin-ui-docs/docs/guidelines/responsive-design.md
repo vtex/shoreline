@@ -110,7 +110,7 @@ A responsive value is a `deprecated` approach in which properties can accept an 
 [mobile, tablet, desktop, widescreen]
 ```
 
-To make a `<Box>` to have full width while on `mobile`, and half on tablet and above:
+To have a `<Box>` full width while on `mobile`, and half on tablet and above:
 
 ```jsx live
 <Box
