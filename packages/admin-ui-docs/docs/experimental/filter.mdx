@@ -5,6 +5,10 @@ path: /filter/
 
 # Filter
 
+Filters are supposed to be used in pages or sections that display some kind of data that can be filtered. The `filter` component is
+ a picker that displays filter options and allows for only one of them to be selected, when one of the options is selected it 
+ should produce a change on the data or content being displayed. It should be filtered accordingly.
+
 ## Usage
 
 ```jsx
@@ -84,20 +88,29 @@ function RootApp() {
 render(<RootApp />)
 ```
 
-
 ## Props
 
-## Filter
+### Filter
 
 | Name  | Type          | Description    | Required | Default |
 | ----- | ------------- | -------------- | -------- | ------- |
 | state | `FilterState` | Object that manages the component state logic, you can obtain it calling the useFilterState hook | ✅       | -       |
 
-## useFilterState
+### useFilterState
 
 | Name           | Type                           | Description                                                       | Required | Default |
 | -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
 | items          | `FilterItem[]`                 | List of options for the filter, item must include id and label    | ✅       | -       |
 | onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
 | label          | `string`                       | Filter button label                                               | ✅       | -       |
-| initialApplied | `string`                       | initially applied option id                                       | 🚫       | -       |
+| initialApplied | `string`                       | Initially applied option id                                       | 🚫       | -       |
+
+## FilterState (return of useFilterState)
+
+| Name           | Type                             | Description                                                         
+| -------------- | -------------------------------- | ------------------------------------------------------------------- 
+| popover        | `PickerStateReturn`              | State that controls the component's picker
+| onClear        | `() => void`                     | Function used by the component when clear is selected
+| onChange       | `() => void`                     | Function used by the component when apply is selected
+| appliedItem   | `FilterItem`                      | Currently applied item
+| appliedKey    | `ID`                              | Currently applied item's id

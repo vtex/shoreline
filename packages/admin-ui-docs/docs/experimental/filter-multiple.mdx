@@ -5,6 +5,10 @@ path: /filter-multiple/
 
 # FilterMultiple
 
+Filters are supposed to be used in pages or sections that display some kind of data that can be filtered. The `filterMultiple` 
+ component is a picker that displays filter options and allows for many of them to be selected, when the options are selected 
+ and the changes applyed it should produce a change on the data or content being displayed. It should be filtered accordingly.
+
 ## Usage
 
 ```jsx
@@ -95,11 +99,13 @@ render(<RootApp />)
 
 ## Props
 
+### FilterMultiple
+
 | Name  | Type                  | Description    | Required | Default |
 | ----- | --------------------- | -------------- | -------- | ------- |
 | state | `FilterMultipleState` | Object that manages the component state logic, you can obtain it calling the useFilterMultipleState hook | ✅       | -       |
 
-## UseFilterMultipleState
+### UseFilterMultipleState
 
 | Name           | Type                             | Description                                                         | Required | Default |
 | -------------- | -------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
@@ -107,3 +113,16 @@ render(<RootApp />)
 | onChange       | `({selected: string[]}) => void` | Callback called with current selected ids on apply and clear press. | ✅       | -       |
 | label          | `string`                         | Filter button label                                                 | ✅       | -       |
 | initialApplied | `string[]`                       | Array with initially applied options' ids                           | 🚫       | -       |
+
+## FilterMultipleState (return of UseFilterMultipleState)
+
+| Name           | Type                             | Description                                                         
+| -------------- | -------------------------------- | ------------------------------------------------------------------- 
+| popover        | `PickerStateReturn`              | State that controls the component's picker
+| onClear        | `() => void`                     | Function used by the component when clear is selected
+| onChange       | `() => void`                     | Function used by the component when apply is selected
+| appliedItems   | `FilterItem[]`                   | List of items that are currently applied
+| appliedKeys    | `ID[]`                           | List of ids that are currently applied
+| selectedKeys   | `ID[]`                           | List of ids that are currently selected
+
+
