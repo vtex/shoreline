@@ -1,6 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
+import { tag, useSystem } from '@vtex/admin-ui-react'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
@@ -9,35 +10,92 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { icon, selected, label, csx = {}, ...buttonProps } = props
+  const {
+    icon,
+    selected,
+    selectedFallback,
+    label,
+    csx = {},
+    expandable,
+    ...buttonProps
+  } = props
+
+  const { keyframes } = useSystem()
+
+  const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+  `
+
+  const bounce = keyframes`
+    0% {
+      transform: translate3d(0,0,0);
+    }
+
+    100% {
+      transform: translate3d(0,1px,0);
+    }
+  `
+
+  const arrowStyle = {
+    ':after': {},
+  }
 
   return (
-    <Button
-      ref={ref}
-      variant="tertiary"
-      icon={icon}
-      title={label}
-      name={label}
-      csx={merge(
-        {
-          zIndex: 'sidebarDisclosure',
-          bg: selected
-            ? '$action.neutral.tertiaryHover'
-            : '$action.main.tertiary',
-          color: selected ? '$action.main.tertiarySelected' : '$secondary',
-          ':active': {
-            bg: '$action.neutral.tertiaryPressed',
-            color: '$action.main.tertiaryPressed',
+    <tag.div csx={{ position: 'relative' }}>
+      <Button
+        ref={ref}
+        variant="tertiary"
+        icon={icon}
+        title={label}
+        name={label}
+        csx={merge(
+          {
+            zIndex: 'sidebarDisclosure',
+            bg: '$action.main.tertiary',
+            transform: 'translate3d(0,0,0)',
+            color: selectedFallback
+              ? '$action.main.tertiarySelected'
+              : '$secondary',
+            ':active': {
+              bg: 'transparent',
+              transform: 'translate(0,1px)',
+              ':after': {
+                transform: 'rotate(45deg)',
+                ...arrowStyle,
+              },
+              color: '$action.main.tertiaryPressed',
+            },
+            ...(expandable && selected && arrowStyle),
+            ':hover': {
+              ...(expandable && arrowStyle),
+              color: '$action.main.tertiaryHover',
+              bg: 'transparent',
+            },
           },
-          ':hover': {
-            bg: '$action.neutral.tertiaryHover',
-            color: '$action.main.tertiaryHover',
-          },
-        },
-        csx
-      )}
-      {...buttonProps}
-    />
+          csx
+        )}
+        {...buttonProps}
+      />
+      {expandable && selected ? (
+        <tag.div
+          csx={{
+            animation: `${fadeIn} 0.4s`,
+            content: '" "',
+            position: 'absolute',
+            top: '15px' /* At the bottom of the tooltip */,
+            right: '-14px',
+            size: '12px',
+            zIndex: 999,
+            bg: '$secondary',
+            border: '$neutral',
+            transform: 'rotate(45deg)',
+            borderTopColor: 'transparent',
+            borderRightColor: 'transparent',
+          }}
+        />
+      ) : null}
+    </tag.div>
   )
 })
 
@@ -59,4 +117,6 @@ export interface SidebarDisclosureProps
    * property.
    */
   selected?: boolean
+  selectedFallback?: boolean
+  expandable?: boolean
 }

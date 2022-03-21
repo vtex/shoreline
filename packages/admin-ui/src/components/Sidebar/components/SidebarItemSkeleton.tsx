@@ -22,7 +22,6 @@ export function SidebarItemSkeleton() {
           spacing={1}
           orientation="vertical"
           csx={{
-            width: SCALES.SIDEBAR_SECTION_WIDTH,
             paddingBottom: 8,
           }}
         >
@@ -45,7 +44,6 @@ export function SidebarItemSkeleton() {
               key={`section-item-${2 + idx}`}
               csx={{
                 height: '1.5rem',
-                width: SCALES.SIDEBAR_SECTION_WIDTH,
               }}
             />
           ))}

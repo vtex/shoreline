@@ -3,7 +3,7 @@ import React from 'react'
 import { Set } from '../../Set'
 import { Skeleton } from '../../Skeleton'
 
-const size = 40
+const size = 20
 
 /**
  * Skeleton component for the sidebar.
@@ -13,7 +13,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
   const { amount = 7 } = props
 
   return (
-    <Set spacing={1} orientation="vertical">
+    <Set spacing={5} csx={{ paddingY: '1rem' }} orientation="vertical">
       {Array.from(new Array(amount)).map(() => (
         <Skeleton
           csx={{

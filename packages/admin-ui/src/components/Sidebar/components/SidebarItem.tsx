@@ -10,6 +10,7 @@ import React, {
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
 
+import { Center } from '../../Center'
 import type { SidebarDisclosureProps } from './SidebarDisclosure'
 import { SidebarDisclosure } from './SidebarDisclosure'
 import { useSidebarContext, ItemProvider } from './SidebarContext'
@@ -135,7 +136,9 @@ export const SidebarItem = forwardRef(function SidebarItem(
           <SidebarDisclosure
             {...itemProps}
             icon={icon}
-            selected={selected || selectedFallback}
+            selected={selected}
+            selectedFallback={selectedFallback}
+            expandable={expandable}
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}

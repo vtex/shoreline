@@ -1,14 +1,14 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 import {
-  IconSquaresFour,
-  IconHouse,
-  IconTreeStructure,
+  IconStack,
+  IconChartBar,
+  IconShareNetwork,
   IconShoppingCartSimple,
   IconTag,
   IconMegaphone,
-  IconSlidersHorizontal,
-  IconPackage,
+  IconGearSix,
+  IconCube,
   IconLayout,
   IconArrowUp,
   IconQuestion,
@@ -37,7 +37,7 @@ export default {
 
 const top = [
   {
-    icon: <IconHouse />,
+    icon: <IconChartBar />,
     onClick: () => console.log('Click me'),
     label: 'Home',
     sections: [],
@@ -110,7 +110,7 @@ const top = [
     ],
   },
   {
-    icon: <IconPackage />,
+    icon: <IconCube />,
     onClick: () => console.log('Click me'),
     label: 'Shipping',
     sections: [
@@ -126,7 +126,7 @@ const top = [
     ],
   },
   {
-    icon: <IconTreeStructure />,
+    icon: <IconShareNetwork />,
     onClick: () => console.log('Click me'),
     label: 'Marketplace',
     sections: [],
@@ -135,13 +135,13 @@ const top = [
 
 const bottom = [
   {
-    icon: <IconSquaresFour />,
+    icon: <IconStack />,
     onClick: () => console.log('Click me'),
     label: 'App Store',
     sections: [],
   },
   {
-    icon: <IconSlidersHorizontal />,
+    icon: <IconGearSix />,
     onClick: () => console.log('Click me'),
     label: 'Settings',
     sections: [],
@@ -150,6 +150,7 @@ const bottom = [
 
 export const Playground: Story<any> = (args) => {
   const state = useSidebarState()
+  const [loading, setLoading] = React.useState(false)
 
   return (
     <Box
@@ -160,7 +161,7 @@ export const Playground: Story<any> = (args) => {
       }}
       data-testid="container-shell"
     >
-      <Topbar>
+      <Topbar loading={loading}>
         <TopbarStart>
           <Set spacing={3}>
             <Button variant="adaptative-dark" icon={<IconImage />} />
@@ -192,7 +193,7 @@ export const Playground: Story<any> = (args) => {
           overflow: 'hidden',
         }}
       >
-        <Sidebar {...args} state={state}>
+        <Sidebar {...args} loading={loading} state={state}>
           <SidebarGroup>
             {top.map((item, index) => (
               <SidebarItem
@@ -201,17 +202,11 @@ export const Playground: Story<any> = (args) => {
                 icon={item.icon}
                 key={item.label}
                 selected={index === 0}
-                onMouseEnter={() => {
-                  console.log('heyyyyy')
-                }}
               >
                 {item.sections.map((section) => (
                   <SidebarSection title={section.title} key={section.title}>
-                    {section.subItems.map((label) => (
-                      <SidebarSectionItem
-                        key={label}
-                        onClick={() => console.log(`hey`)}
-                      >
+                    {section.subItems.map((label, index) => (
+                      <SidebarSectionItem key={label} selected={index === 0}>
                         {label}
                       </SidebarSectionItem>
                     ))}
@@ -233,6 +228,37 @@ export const Playground: Story<any> = (args) => {
             ))}
           </SidebarGroup>
         </Sidebar>
+        <Box
+          csx={{
+            display: 'flex',
+            flexDirection: 'column',
+            overflowY: 'hidden',
+            flex: 1,
+            maxWidth: '100%',
+          }}
+        >
+          <Box
+            as="main"
+            csx={{
+              size: '100%',
+              overflow: 'hidden',
+              '> div': {
+                maxHeight: '100%',
+              },
+              '> iframe': {
+                maxHeight: '100%',
+              },
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            role="main"
+          >
+            <Button onClick={() => setLoading((prev) => !prev)}>
+              Toggle Loading
+            </Button>
+          </Box>
+        </Box>
       </Box>
     </Box>
   )

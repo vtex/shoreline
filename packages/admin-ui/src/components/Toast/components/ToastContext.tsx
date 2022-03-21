@@ -14,13 +14,17 @@ import invariant from 'tiny-invariant'
 
 let cachedCounter = 0
 
-type AddToast = (toast: InternalToast) => void
+type ToastContextProps = {
+  add: (toast: InternalToast) => void
+  clear: () => void
+}
 
-const ToastControllerContext = createContext<AddToast | null>(null)
+const ToastControllerContext = createContext<ToastContextProps | null>(null)
 
 type Actions =
   | { type: 'enqueue'; toast: InternalToast }
   | { type: 'dequeue'; key: string }
+  | { type: 'dismissAll' }
 
 interface ToastState {
   toasts: InternalToast[]
@@ -87,6 +91,13 @@ function reducer(state: ToastState, action: Actions): ToastState {
         toasts,
       }
     }
+
+    case 'dismissAll': {
+      return {
+        toasts: [],
+        queue: {},
+      }
+    }
   }
 }
 
@@ -123,7 +134,9 @@ function InternalToastProvider(props: ToastProviderProps) {
   const queue = useToastQueueState()
 
   return (
-    <ToastControllerContext.Provider value={queue.add}>
+    <ToastControllerContext.Provider
+      value={{ add: queue.add, clear: () => {} }}
+    >
       {children}
       <Portal>
         <ToastQueue toasts={queue.toasts} dequeue={queue.remove} />
@@ -144,21 +157,24 @@ export function ToastProvider(props: ToastProviderProps) {
 }
 
 export function useToast() {
-  const dispatch = useContext(ToastControllerContext)
+  const context = useContext(ToastControllerContext)
 
-  invariant(dispatch, 'No "ToastProvider" configured')
+  invariant(context, 'No "ToastProvider" configured')
 
-  return useCallback(
-    (toast: Toast) => {
-      const id = `${cachedCounter++}`
+  return {
+    showToast: useCallback(
+      (toast: Toast) => {
+        const id = `${cachedCounter++}`
 
-      dispatch({
-        ...toast,
-        id,
-        dedupeKey: toast.key ?? id,
-        shouldRemove: false,
-      })
-    },
-    [dispatch]
-  )
+        context.add({
+          ...toast,
+          id,
+          dedupeKey: toast.key ?? id,
+          shouldRemove: false,
+        })
+      },
+      [context.add]
+    ),
+    dismissAll: context.clear,
+  }
 }

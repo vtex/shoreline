@@ -31,7 +31,7 @@ export const Topbar = jsx('div')(
     gridTemplateColumns: 'repeat(3, 1fr)',
     height: '3.5rem',
     borderBottom: '$neutral',
-    paddingX: 3,
+    paddingX: 2,
     zIndex: 'topbar',
     bg: '$primary',
   },
