@@ -28,7 +28,14 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
   const {
     state: {
       selectedItem,
-      layout: { showToggle, hideToggle, reduced, toggleVisible, toggle },
+      layout: {
+        showToggle,
+        hideToggle,
+        reduced,
+        reducedFallback,
+        toggleVisible,
+        toggle,
+      },
     },
     loading = false,
   } = props
@@ -53,46 +60,53 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         {loading && <SidebarItemSkeleton />}
       </tag.div>
 
-      <Button
-        title="toggle sidebar collapse"
-        name="toggle sidebar collapse"
-        variant="tertiary"
+      <tag.div
         csx={{
+          position: 'absolute',
+          zIndex: 1,
+          top: '5rem',
+          height: '1.5rem',
+          width: '1.5rem',
+          bg: '$primary',
           left:
             selectedItem?.expandable && reduced
               ? distance.reduced
               : distance.expanded,
-          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
-          position: 'absolute',
-          zIndex: 1,
-          top: '5rem',
-          cursor: 'pointer',
           borderRadius: '100%',
-          border: '$neutral',
-          height: '1.5rem',
-          width: '1.5rem',
           transition:
             'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-          bg: '$primary',
+          opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
         }}
-        icon={
-          <IconCaretRight
-            mirrored={!reduced}
-            height="0.875rem"
-            width="0.875rem"
-            csx={{
-              display: 'flex',
-              justifyContent: 'center',
-              transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-              color: '$primary',
-            }}
-          />
-        }
-        disabled={loading || !selectedItem?.expandable}
-        onClick={toggle}
-        onMouseEnter={showToggle}
-        onMouseLeave={hideToggle}
-      />
+      >
+        <Button
+          title="toggle sidebar collapse"
+          name="toggle sidebar collapse"
+          variant="adaptative-dark"
+          csx={{
+            borderRadius: '100%',
+            border: '$neutral',
+            height: '1.5rem',
+            width: '1.5rem',
+          }}
+          icon={
+            <IconCaretRight
+              mirrored={!reducedFallback}
+              height="0.875rem"
+              width="0.875rem"
+              csx={{
+                display: 'flex',
+                justifyContent: 'center',
+                transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+                color: '$primary',
+              }}
+            />
+          }
+          disabled={loading || !selectedItem?.expandable}
+          onClick={toggle}
+          onMouseEnter={showToggle}
+          onMouseLeave={hideToggle}
+        />
+      </tag.div>
     </Fragment>
   )
 })

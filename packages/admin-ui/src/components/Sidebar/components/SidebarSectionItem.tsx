@@ -64,6 +64,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           padding: '$s',
           height: 'auto',
           textAlign: 'left',
+          zIndex: 9999,
           '> div': {
             justifyContent: 'start',
             color: selected ? '$action.main.tertiarySelected' : '$secondary',

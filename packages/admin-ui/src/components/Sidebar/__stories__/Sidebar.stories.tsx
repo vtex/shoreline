@@ -53,7 +53,7 @@ const top = [
           'All Orders',
           'Subscriptions',
           'Transactions',
-          'Bank Conciliation',
+          'Bank Conciliation Long Text',
         ],
       },
     ],
@@ -73,7 +73,7 @@ const top = [
           'List Types',
           'Inventory',
           'Custom Fields',
-          'Import and Export',
+          'Import and Export Long Text',
           'Reviews',
           'Reports',
         ],
@@ -91,7 +91,7 @@ const top = [
         subItems: [
           'Promotions',
           'Coupons',
-          'Campaign Audience',
+          'Campaign Audience Long Text',
           'Gift Cards',
           'Taxes',
         ],
@@ -104,7 +104,13 @@ const top = [
     label: 'Storefront',
     sections: [
       {
-        subItems: ['Layout', 'Site Editor', 'Pages', 'Styles', 'Banners'],
+        subItems: [
+          'Layout',
+          'Site Editor Long Text',
+          'Pages',
+          'Styles',
+          'Banners',
+        ],
         title: 'Intelligent Search',
       },
     ],
@@ -118,7 +124,7 @@ const top = [
         title: 'Shipping',
         subItems: [
           'Shipping Rates',
-          'Shipping Simulator',
+          'Shipping Simulator Long Text',
           'Pickup Points',
           'Shipping Strategy',
         ],

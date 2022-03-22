@@ -150,6 +150,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
             csx={{
               position: 'absolute',
               top: 0,
+              left: '0.5rem',
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
               height: '100%',
               width: '12.5rem',
@@ -160,7 +161,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
               transform: `translateX(${translate})`,
               opacity: selected && !state.layout.reduced ? 1 : 0,
               transition:
-                'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+                'transform 350ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
             {...(baseProps as any)}

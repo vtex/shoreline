@@ -19,7 +19,10 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
       spacing={spacing}
       orientation="vertical"
       role="menubar"
-      csx={csx}
+      csx={{
+        width: '100%',
+        ...csx,
+      }}
     >
       {children}
     </Set>

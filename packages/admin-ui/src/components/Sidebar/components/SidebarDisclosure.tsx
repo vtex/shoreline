@@ -2,8 +2,8 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { tag, useSystem } from '@vtex/admin-ui-react'
-import { color } from '@vtex/admin-ui-core'
 
+import { Center } from '../../Center'
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
 import { useSidebarContext } from './SidebarContext'
@@ -36,20 +36,15 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   }
 
   return (
-    <tag.div csx={{ position: 'relative', zIndex: 9999 }}>
-      {selectedFallback ? (
-        <tag.span
-          csx={{
-            width: '3px',
-            height: '100%',
-            top: '0px' /* At the bottom of the tooltip */,
-            left: '-8px',
-            position: 'absolute',
-            zIndex: 999,
-            bg: color('blue40'),
-          }}
-        />
-      ) : null}
+    <Center
+      csx={{
+        zIndex: 9999,
+        borderLeft: selectedFallback ? '$mainSelected' : 'none',
+        borderLeftWidth: '3px',
+        position: 'relative',
+        width: '100%',
+      }}
+    >
       <Button
         ref={ref}
         variant="tertiary"
@@ -58,24 +53,19 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         name={label}
         csx={merge(
           {
-            bg: '$action.main.tertiary',
+            bg: '$action.neutral.tertiary',
             transform: 'translate3d(0,0,0)',
             color: selectedFallback
               ? '$action.main.tertiarySelected'
-              : '$secondary',
+              : '$action.neutral.tertiary',
             ':active': {
               bg: 'transparent',
-              transform: 'translate(0,1px)',
-              ':after': {
-                transform: 'rotate(45deg)',
-                ...arrowStyle,
-              },
-              color: '$action.main.tertiaryPressed',
+              color: 'currentColor',
             },
             ...(expandable && selected && arrowStyle),
             ':hover': {
               ...(expandable && arrowStyle),
-              color: '$action.main.tertiaryHover',
+              color: '$action.neutral.tertiaryHover',
               bg: 'transparent',
             },
           },
@@ -89,9 +79,9 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
             animation: `${fadeIn} 0.4s`,
             position: 'absolute',
             top: '15px' /* At the bottom of the tooltip */,
-            right: '-14px',
+            right: '-7px',
             size: '12px',
-            zIndex: 999,
+            zIndex: 2,
             bg: '$secondary',
             border: '$neutral',
             transform: 'rotate(45deg)',
@@ -100,7 +90,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
           }}
         />
       ) : null}
-    </tag.div>
+    </Center>
   )
 })
 
