@@ -21,6 +21,11 @@ body {
   line-height: inherit !important;
 }
 
+main {
+  margin-top: -156px;
+  padding-top: 1.5rem;
+}
+
 .row .col {
   --ifm-spacing-horizontal: 3rem;
 }
