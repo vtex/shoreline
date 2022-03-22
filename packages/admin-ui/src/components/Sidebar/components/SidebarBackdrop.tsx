@@ -9,13 +9,12 @@ import { SidebarItemSkeleton } from './SidebarItemSkeleton'
 
 const width = {
   expanded: '12.5rem',
-  reduced: '1rem',
   hidden: '0rem',
 }
 
 const distance = {
   expanded: '15.25rem',
-  reduced: '3.75rem',
+  reduced: '2.75rem',
 }
 
 /**
@@ -28,14 +27,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
   const {
     state: {
       selectedItem,
-      layout: {
-        showToggle,
-        hideToggle,
-        reduced,
-        reducedFallback,
-        toggleVisible,
-        toggle,
-      },
+      layout: { showToggle, hideToggle, reduced, toggleVisible, toggle },
     },
     loading = false,
   } = props
@@ -47,15 +39,14 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         csx={{
           minWidth: selectedItem?.expandable
             ? reduced
-              ? width.reduced
+              ? width.hidden
               : width.expanded
             : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: '$secondary',
-          borderRight: selectedItem?.expandable ? '$neutral' : 'none',
+          borderRight:
+            selectedItem?.expandable && !reduced ? '$neutral' : 'none',
         }}
-        onMouseEnter={showToggle}
-        onMouseLeave={hideToggle}
       >
         {loading && <SidebarItemSkeleton />}
       </tag.div>
@@ -63,7 +54,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
       <tag.div
         csx={{
           position: 'absolute',
-          zIndex: 1,
+          zIndex: 9999,
           top: '5rem',
           height: '1.5rem',
           width: '1.5rem',
@@ -90,7 +81,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           }}
           icon={
             <IconCaretRight
-              mirrored={!reducedFallback}
+              mirrored={!reduced}
               height="0.875rem"
               width="0.875rem"
               csx={{

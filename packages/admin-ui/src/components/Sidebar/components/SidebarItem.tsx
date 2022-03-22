@@ -100,22 +100,6 @@ export const SidebarItem = forwardRef(function SidebarItem(
     }
   }
 
-  const handleShowToggle = (event: React.MouseEvent<any, MouseEvent>) => {
-    state.layout.showToggle()
-
-    if (typeof baseProps.onMouseEnter === 'function') {
-      baseProps.onMouseEnter(event)
-    }
-  }
-
-  const handleHideToggle = (event: React.MouseEvent<any, MouseEvent>) => {
-    state.layout.hideToggle()
-
-    if (typeof baseProps.onMouseLeave === 'function') {
-      baseProps.onMouseLeave(event)
-    }
-  }
-
   return (
     <CompositeItem
       ref={ref}
@@ -124,8 +108,14 @@ export const SidebarItem = forwardRef(function SidebarItem(
       aria-label={label}
       id={label}
       onMouseEnter={() => {
+        if (!expandable) {
+          state.setSelectedItem(state.selectedItemFallback)
+
+          return
+        }
+
         if (state.isReduced()) {
-          state.layout.expand()
+          return
         }
 
         state.setSelectedItem({
@@ -165,8 +155,6 @@ export const SidebarItem = forwardRef(function SidebarItem(
             }}
             data-testid={`${label}-ul`}
             {...(baseProps as any)}
-            onMouseEnter={handleShowToggle}
-            onMouseLeave={handleHideToggle}
           >
             <tag.li
               aria-label={`${label} menu`}

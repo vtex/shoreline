@@ -49,21 +49,21 @@ export const Sidebar = forwardRef(function Sidebar(
     ...baseProps
   } = props
 
+  const { showToggle, hideToggle } = state.layout
+
   return (
     <tag.div
       csx={{ display: 'flex' }}
       onMouseLeave={() => {
-        const { setSelectedItem, selectedItem, selectedItemFallback, layout } =
-          state
-
-        if (layout.reducedFallback) {
-          layout.reduce()
-        }
+        const { setSelectedItem, selectedItem, selectedItemFallback } = state
 
         if (selectedItem?.uniqueKey !== selectedItemFallback?.uniqueKey) {
           setSelectedItem(selectedItemFallback)
         }
+
+        hideToggle()
       }}
+      onMouseEnter={showToggle}
     >
       <tag.div
         csx={{
@@ -133,6 +133,7 @@ export const Sidebar = forwardRef(function Sidebar(
           position: 'fixed',
           maxHeight: '100%',
         }}
+        onMouseEnter={showToggle}
       />
       <SidebarBackdrop
         state={state}
