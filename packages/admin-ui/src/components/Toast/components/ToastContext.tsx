@@ -21,7 +21,6 @@ const ToastControllerContext = createContext<AddToast | null>(null)
 type Actions =
   | { type: 'enqueue'; toast: InternalToast }
   | { type: 'dequeue'; key: string }
-  | { type: 'dismissAll' }
 
 interface ToastState {
   toasts: InternalToast[]
@@ -86,13 +85,6 @@ function reducer(state: ToastState, action: Actions): ToastState {
       return {
         ...state,
         toasts,
-      }
-    }
-
-    case 'dismissAll': {
-      return {
-        toasts: [],
-        queue: {},
       }
     }
   }
