@@ -6,17 +6,17 @@
  */
 
 import * as React from 'react';
-import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live';
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import usePrismTheme from '@theme/hooks/usePrismTheme';
+import { usePrismTheme } from '@docusaurus/theme-common';
 import styles from './styles.module.css';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 
 import { ToggleCodeButton, useCollapsibleCodeBlock } from '../../components/CodeBlockWrapper'
 
-function Header({children}) {
+function Header({ children }) {
   return <div className={clsx(styles.playgroundHeader)}>{children}</div>;
 }
 
@@ -61,18 +61,18 @@ function EditorWithHeader() {
   return (
     <>
       <Header>
-        <ToggleCodeButton onToggleCodeBlock={handleToggleCodeBlock}/>
+        <ToggleCodeButton onToggleCodeBlock={handleToggleCodeBlock} />
       </Header>
       {isCodeVisible && <ThemedLiveEditor />}
     </>
   );
 }
 
-export default function Playground({children, transformCode, ...props}) {
+export default function Playground({ children, transformCode, ...props }) {
   const {
     siteConfig: {
       themeConfig: {
-        liveCodeBlock: {playgroundPosition},
+        liveCodeBlock: { playgroundPosition },
       },
     },
   } = useDocusaurusContext();

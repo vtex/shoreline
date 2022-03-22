@@ -1,6 +1,7 @@
 ---
 title: Contact us
 path: /help/contact-us/
+sidebar_position: 3
 ---
 
 # Contact us

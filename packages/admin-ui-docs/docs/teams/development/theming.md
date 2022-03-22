@@ -1,7 +1,7 @@
 ---
 title: Theming
 path: /guidelines/theming/
-sidebar_position: 2
+sidebar_position: 6
 ---
 
 # Theming
