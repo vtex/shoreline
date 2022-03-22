@@ -5,7 +5,7 @@ path: /set/
 
 # Set
 
-Our design system comes with layout components to help you build common layouts inside your application. `Set` represents a group of components, it automatically spaces out it's child components.
+Our design system comes with layout components to help you build common layouts inside your application. `Set` represents a group of components, it automatically spaces out its child components.
 
 ## Import
 

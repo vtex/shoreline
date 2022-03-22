@@ -12,11 +12,11 @@ VTEX Admin v4 is a collaborative effort. We want to make contributing to this pr
 
 ### Issues: where the conversation happens
 
-We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on this and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think it's relevant to the project. However, before filing a new task, make sure your issue doesn’t already exist.
+We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on this and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think is relevant to the project. However, before filing a new task, make sure your issue doesn’t already exist.
 
 ### Storybook
 
-We use storybook as a canvas to create stories and as a preview of our components features. It's really useful to share with the designers and check if the component has the expected behavior.
+We use storybook as a canvas to create stories and as a preview of our components features. It is really useful to share with the designers and check if the component has the expected behavior.
 
 ### Commit messages
 

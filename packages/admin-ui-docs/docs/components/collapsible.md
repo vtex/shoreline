@@ -158,11 +158,11 @@ As the title says, it represents the `header` of the collapsible. It renders a `
 
 #### Disclosure Button
 
-It represents the `button` that controls the content visibility and it's always located on the left side of the header. Collapsible's `label` property defines the disclosure button label.
+It represents the `button` that controls the content visibility and is always located on the left side of the header. Collapsible's `label` property defines the disclosure button label.
 
 #### Actions Panel
 
-It represents a set of `buttons` and it's always located on the right side of the header. You should pass this set of `buttons` to the `CollapsibleHeader` children, to this panel to be rendered.
+It represents a set of `buttons` and is always located on the right side of the header. You should pass this set of `buttons` to the `CollapsibleHeader` children, to this panel to be rendered.
 
 ### Content
 

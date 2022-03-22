@@ -663,7 +663,7 @@ You can pass an array with one or two sorting directions. If you pass an array w
 
 ##### reducer
 
-Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it is not required and if not provided the default reducer function will be used.
 The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
 
 ##### callback

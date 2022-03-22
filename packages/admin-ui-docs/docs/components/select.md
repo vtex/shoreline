@@ -5,7 +5,7 @@ path: /select/
 
 # Select
 
-Select is a component that allows users to select an option, requires a click to see options and supports only single-selection.
+Select is a component that allows users to select an option from a list. It requires a click to see the options and supports only single-selection.
 
 ## Usage
 
@@ -36,7 +36,7 @@ function Example() {
 
 ### Tone of voice
 
-The `Select` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `Select` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx live
 function Example() {

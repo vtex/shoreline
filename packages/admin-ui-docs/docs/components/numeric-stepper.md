@@ -128,7 +128,7 @@ It means that the user will not be able to add any input value to the NumericSte
 
 ## State
 
-You can use the properties `value`, and `onChange` to handle value changes. You also can control the `tone` property to indicate if it's a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
+You can use the properties `value`, and `onChange` to handle value changes. You also can control the `tone` property to indicate if it is a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
 
 ```jsx live
 function Example() {

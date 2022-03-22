@@ -25,7 +25,7 @@ function Example() {
 
 ### Centralized
 
-Put any child element inside it, give it any `width` and/or `height`, it'll ensure the child is centered.
+Put any child element inside it, give it any `width` and/or `height`, it will ensure the child is centered.
 
 ```jsx live
 <Center

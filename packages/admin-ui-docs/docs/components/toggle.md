@@ -144,7 +144,7 @@ function Example() {
 
 | Name     | Type                 | Description                                                                                                                                       | Required | Default     |
 | -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| checked  | `boolean`            | Checkbox's checked state. If present, it's used instead of state                                                                                  | 🚫       | -           |
+| checked  | `boolean`            | Checkbox's checked state. If present, it is used instead of state                                                                                 | 🚫       | -           |
 | disabled | `boolean`            | Defines if the Checkbox is disabled or not                                                                                                        | 🚫       | -           |
 | value    | `string, number`     | Checkbox's value is going to be used when multiple checkboxes share the same state. Checking a checkbox with value will add it to the state array | 🚫       | -           |
 | state    | `CheckboxState`      | Return of `useCheckboxState` hook. You can also provide these props from your own state logic.                                                    | 🚫       | -           |

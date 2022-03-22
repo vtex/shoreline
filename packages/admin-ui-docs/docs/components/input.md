@@ -34,7 +34,7 @@ function Example() {
 
 ### Tone of voice
 
-The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx live
 <Set spacing={3}>

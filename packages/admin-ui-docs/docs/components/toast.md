@@ -52,7 +52,7 @@ Make sure to call the `useToast` hook on component level below the `<ToastProvid
 
 ### Tone of voice
 
-The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and it's adjustable using the `tone` prop.
+The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and it is adjustable using the `tone` prop.
 
 ```jsx live
 function Example() {

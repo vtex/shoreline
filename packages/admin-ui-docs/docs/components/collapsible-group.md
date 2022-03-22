@@ -5,7 +5,7 @@ path: /collapsible-group/
 
 # CollapsibleGroup
 
-A Component that groups Collapsible components. It's a container that separates its children with an `<hr>` element.
+A Component that groups Collapsible components. It is a container that separates its children with an `<hr>` element.
 You may want to check the [Collapsible Documentation](collapsible/) before using the CollapsibleGroup component.
 
 ## Usage
