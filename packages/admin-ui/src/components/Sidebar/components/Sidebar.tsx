@@ -56,7 +56,7 @@ export const Sidebar = forwardRef(function Sidebar(
         const { setSelectedItem, selectedItem, selectedItemFallback, layout } =
           state
 
-        if (layout.reducedFallback === true) {
+        if (layout.reducedFallback) {
           layout.reduce()
         }
 

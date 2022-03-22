@@ -11,11 +11,10 @@ export default {
 } as Meta
 
 const ToastButton = () => {
-  const { showToast, dismissAll } = useToast()
+  const showToast = useToast()
 
   return (
     <Set>
-      <Button onClick={() => dismissAll()}>Dismiss All</Button>
       <Button
         onClick={() => {
           showToast({

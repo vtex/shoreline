@@ -31,10 +31,6 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   100% { opacity: 1 }
   `
 
-  const arrowStyle = {
-    ':after': {},
-  }
-
   return (
     <Center
       csx={{
@@ -62,9 +58,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
               bg: 'transparent',
               color: 'currentColor',
             },
-            ...(expandable && selected && arrowStyle),
             ':hover': {
-              ...(expandable && arrowStyle),
               color: '$action.neutral.tertiaryHover',
               bg: 'transparent',
             },

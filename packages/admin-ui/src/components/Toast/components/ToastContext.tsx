@@ -14,12 +14,9 @@ import invariant from 'tiny-invariant'
 
 let cachedCounter = 0
 
-type ToastContextProps = {
-  add: (toast: InternalToast) => void
-  clear: () => void
-}
+type AddToast = (toast: InternalToast) => void
 
-const ToastControllerContext = createContext<ToastContextProps | null>(null)
+const ToastControllerContext = createContext<AddToast | null>(null)
 
 type Actions =
   | { type: 'enqueue'; toast: InternalToast }
@@ -134,9 +131,7 @@ function InternalToastProvider(props: ToastProviderProps) {
   const queue = useToastQueueState()
 
   return (
-    <ToastControllerContext.Provider
-      value={{ add: queue.add, clear: () => {} }}
-    >
+    <ToastControllerContext.Provider value={queue.add}>
       {children}
       <Portal>
         <ToastQueue toasts={queue.toasts} dequeue={queue.remove} />
@@ -157,24 +152,21 @@ export function ToastProvider(props: ToastProviderProps) {
 }
 
 export function useToast() {
-  const context = useContext(ToastControllerContext)
+  const dispatch = useContext(ToastControllerContext)
 
-  invariant(context, 'No "ToastProvider" configured')
+  invariant(dispatch, 'No "ToastProvider" configured')
 
-  return {
-    showToast: useCallback(
-      (toast: Toast) => {
-        const id = `${cachedCounter++}`
+  return useCallback(
+    (toast: Toast) => {
+      const id = `${cachedCounter++}`
 
-        context.add({
-          ...toast,
-          id,
-          dedupeKey: toast.key ?? id,
-          shouldRemove: false,
-        })
-      },
-      [context.add]
-    ),
-    dismissAll: context.clear,
-  }
+      dispatch({
+        ...toast,
+        id,
+        dedupeKey: toast.key ?? id,
+        shouldRemove: false,
+      })
+    },
+    [dispatch]
+  )
 }

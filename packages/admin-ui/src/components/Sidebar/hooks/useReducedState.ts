@@ -7,14 +7,12 @@ export function useReducedState(initialState = false): ReducedState {
   const [reducedFallback, setReducedFallback] =
     useState<boolean>(initiallyReduced)
 
-  console.log({ reducedFallback })
   /** keeps track of button appearance */
   const [toggleVisible, setToggleVisible] = useState(false)
 
   const toggle = useCallback(() => {
     const nextReduced = !reducedFallback
 
-    console.log({ nextReduced })
     setReduced(nextReduced)
     setReducedFallback(nextReduced)
   }, [reducedFallback])
