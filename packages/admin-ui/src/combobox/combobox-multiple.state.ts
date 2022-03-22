@@ -1,15 +1,12 @@
 import { useCallback, useEffect } from 'react'
-
 import { useCheckboxState } from 'ariakit/checkbox'
+
+import type { ComboboxStateProps } from './combobox.state'
 import { useComboboxState } from './combobox.state'
 
-type Props = {
-  list?: string[]
-  defaultSelected?: string[]
-  shouldClearOnSelect?: boolean
-}
-
-export function useComboboxMultipleState(props: Props = {}) {
+export function useComboboxMultipleState(
+  props: ComboboxMultipleStateProps = {}
+) {
   const { defaultSelected = [], list, shouldClearOnSelect = true } = props
 
   const combobox = useComboboxState({
@@ -49,4 +46,9 @@ export function useComboboxMultipleState(props: Props = {}) {
     clearSelected,
     ...combobox,
   }
+}
+
+export type ComboboxMultipleStateProps = ComboboxStateProps & {
+  defaultSelected?: string[]
+  shouldClearOnSelect?: boolean
 }

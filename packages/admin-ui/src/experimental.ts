@@ -24,6 +24,9 @@ import {
   ComboboxField as experimental_ComboboxField,
   ComboboxPopover as experimental_ComboboxPopover,
   useComboboxState as experimental_useComboboxState,
+  ComboboxMultipleField as experimental_ComboboxMultipleField,
+  ComboboxMultiplePopover as experimental_ComboboxMultiplePopover,
+  useComboboxMultipleState as experimental_useComboboxMultipleState,
 } from './combobox'
 import {
   Inline as experimental_Inline,
@@ -47,6 +50,9 @@ export {
   experimental_ComboboxField,
   experimental_ComboboxPopover,
   experimental_useComboboxState,
+  experimental_ComboboxMultipleField,
+  experimental_ComboboxMultiplePopover,
+  experimental_useComboboxMultipleState,
   experimental_FilterGroup,
   experimental_FilterMultiple,
   experimental_Filter,

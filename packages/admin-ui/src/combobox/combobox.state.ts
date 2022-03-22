@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
-import type { ComboboxStateProps } from 'ariakit/combobox'
+import type { ComboboxStateProps as AriakitComboboxStateProps } from 'ariakit/combobox'
 import { useComboboxState as useAriakitComboboxState } from 'ariakit/combobox'
 import { useDebounce } from '@vtex/admin-ui-hooks'
 
-export function useComboboxState(props: Props = {}) {
+export function useComboboxState(props: ComboboxStateProps = {}) {
   const { timeoutMs = 250, ...comboboxProps } = props
 
   const state = useAriakitComboboxState({ gutter: 4, ...comboboxProps })
@@ -46,7 +46,10 @@ export function useComboboxState(props: Props = {}) {
 
 type Status = 'loading' | 'error' | 'empty-search' | 'no-result' | 'ready'
 
-type Props = Pick<ComboboxStateProps, 'list' | 'virtualFocus'> & {
+export type ComboboxStateProps = Pick<
+  AriakitComboboxStateProps,
+  'list' | 'virtualFocus'
+> & {
   timeoutMs?: number
 }
 
