@@ -539,7 +539,7 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
   margin-left: 0.25rem;
 }
@@ -550,7 +550,7 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -734,7 +734,7 @@ exports[`Tag tests should match snapshot 1`] = `
   width: 32px;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
   margin-left: 0.25rem;
 }
@@ -745,7 +745,7 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 

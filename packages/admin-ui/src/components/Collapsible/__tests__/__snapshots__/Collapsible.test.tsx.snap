@@ -16,7 +16,7 @@ exports[`Collapsible should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -26,7 +26,7 @@ exports[`Collapsible should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -248,7 +248,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -258,7 +258,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
