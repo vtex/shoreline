@@ -53,7 +53,12 @@ export const Sidebar = forwardRef(function Sidebar(
     <tag.div
       csx={{ display: 'flex' }}
       onMouseLeave={() => {
-        const { setSelectedItem, selectedItem, selectedItemFallback } = state
+        const { setSelectedItem, selectedItem, selectedItemFallback, layout } =
+          state
+
+        if (layout.reducedFallback === true) {
+          layout.reduce()
+        }
 
         if (selectedItem?.uniqueKey !== selectedItemFallback?.uniqueKey) {
           setSelectedItem(selectedItemFallback)
@@ -71,10 +76,6 @@ export const Sidebar = forwardRef(function Sidebar(
           outline: 'none',
           borderRight: '$neutral',
           bg: '$primary',
-          boxShadow:
-            state.selectedItem?.expandable && state.layout.reduced
-              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
-              : 'unset',
           ...rootProps.csx,
         }}
         {...rootProps}

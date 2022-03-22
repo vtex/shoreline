@@ -4,12 +4,20 @@ export function useReducedState(initialState = false): ReducedState {
   const initiallyReduced = useInitalState(initialState)
   /** keeps track of leftnav's reduced state */
   const [reduced, setReduced] = useState<boolean>(initiallyReduced)
+  const [reducedFallback, setReducedFallback] =
+    useState<boolean>(initiallyReduced)
+
+  console.log({ reducedFallback })
   /** keeps track of button appearance */
   const [toggleVisible, setToggleVisible] = useState(false)
 
   const toggle = useCallback(() => {
-    setReduced((r) => !r)
-  }, [])
+    const nextReduced = !reducedFallback
+
+    console.log({ nextReduced })
+    setReduced(nextReduced)
+    setReducedFallback(nextReduced)
+  }, [reducedFallback])
 
   const reduce = useCallback(() => {
     setReduced(true)
@@ -30,6 +38,7 @@ export function useReducedState(initialState = false): ReducedState {
   return {
     reduced,
     reduce,
+    reducedFallback,
     expand,
     toggleVisible,
     toggle,
@@ -53,6 +62,7 @@ export function useInitalState<T>(initialState: InitialState<T>) {
 export interface ReducedState {
   /** If is reduced or not */
   reduced: boolean
+  reducedFallback: boolean
   /** Toggle button visibility */
   toggleVisible: boolean
   /** Toggle reduced state */

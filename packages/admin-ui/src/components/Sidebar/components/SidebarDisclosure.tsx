@@ -2,9 +2,11 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { tag, useSystem } from '@vtex/admin-ui-react'
+import { color } from '@vtex/admin-ui-core'
 
 import type { ButtonProps } from '../../Button'
 import { Button } from '../../Button'
+import { useSidebarContext } from './SidebarContext'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
@@ -20,6 +22,8 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
     ...buttonProps
   } = props
 
+  const state = useSidebarContext()
+
   const { keyframes } = useSystem()
 
   const fadeIn = keyframes`
@@ -27,22 +31,25 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   100% { opacity: 1 }
   `
 
-  const bounce = keyframes`
-    0% {
-      transform: translate3d(0,0,0);
-    }
-
-    100% {
-      transform: translate3d(0,1px,0);
-    }
-  `
-
   const arrowStyle = {
     ':after': {},
   }
 
   return (
-    <tag.div csx={{ position: 'relative' }}>
+    <tag.div csx={{ position: 'relative', zIndex: 9999 }}>
+      {selectedFallback ? (
+        <tag.span
+          csx={{
+            width: '3px',
+            height: '100%',
+            top: '0px' /* At the bottom of the tooltip */,
+            left: '-8px',
+            position: 'absolute',
+            zIndex: 999,
+            bg: color('blue40'),
+          }}
+        />
+      ) : null}
       <Button
         ref={ref}
         variant="tertiary"
@@ -51,7 +58,6 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         name={label}
         csx={merge(
           {
-            zIndex: 'sidebarDisclosure',
             bg: '$action.main.tertiary',
             transform: 'translate3d(0,0,0)',
             color: selectedFallback
@@ -77,11 +83,10 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         )}
         {...buttonProps}
       />
-      {expandable && selected ? (
+      {!state.isReduced() && expandable && selected ? (
         <tag.div
           csx={{
             animation: `${fadeIn} 0.4s`,
-            content: '" "',
             position: 'absolute',
             top: '15px' /* At the bottom of the tooltip */,
             right: '-14px',

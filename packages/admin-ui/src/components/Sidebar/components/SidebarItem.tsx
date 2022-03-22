@@ -10,7 +10,6 @@ import React, {
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
 import { tag } from '@vtex/admin-ui-react'
 
-import { Center } from '../../Center'
 import type { SidebarDisclosureProps } from './SidebarDisclosure'
 import { SidebarDisclosure } from './SidebarDisclosure'
 import { useSidebarContext, ItemProvider } from './SidebarContext'
@@ -125,6 +124,10 @@ export const SidebarItem = forwardRef(function SidebarItem(
       aria-label={label}
       id={label}
       onMouseEnter={() => {
+        if (state.isReduced()) {
+          state.layout.expand()
+        }
+
         state.setSelectedItem({
           uniqueKey,
           expandable,
