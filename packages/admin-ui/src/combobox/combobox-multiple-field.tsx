@@ -4,6 +4,8 @@ import { Composite, useCompositeState } from 'ariakit/composite'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
+import { messages } from './combobox.i18n'
+import { useMessageFormatter } from '../i18n'
 import { Inline } from '../inline'
 import { Bleed } from '../bleed'
 import { Flex } from '../components/Flex'
@@ -51,8 +53,8 @@ export const ComboboxMultipleField = createComponent<
 
   const composite = useCompositeState()
   const inputRef = useRef<HTMLInputElement>(null)
-
   const [focused, setFocused] = React.useState(false)
+  const formatMessage = useMessageFormatter(messages.fieldMultiple)
 
   const onFocus = () => setFocused(true)
   const onBlur = () => setFocused(false)
@@ -96,15 +98,13 @@ export const ComboboxMultipleField = createComponent<
     }
 
     // remove the item from the selected[]
-    state?.setSelected((values: string[]) =>
-      values.filter((currentValue) => currentValue !== value)
-    )
+    state.removeSelected(value)
   }
 
   return useElement('div', {
     ...htmlProps,
     baseStyle: {
-      ...style.fiedlMultipleContainer,
+      ...style.fieldMultipleContainer,
       input: {
         border: 'none',
         outline: 'none',
@@ -151,9 +151,7 @@ export const ComboboxMultipleField = createComponent<
                       value={itemString}
                       onKeyDown={(e) => onTagKeyDown(e, itemString)}
                       onDismiss={() => {
-                        state?.setSelected((v: string[]) =>
-                          v.filter((vv) => vv !== itemString)
-                        )
+                        state.removeSelected(itemString)
                       }}
                     />
                   ))}
@@ -164,7 +162,9 @@ export const ComboboxMultipleField = createComponent<
                   id={id}
                   onFocus={onFocus}
                   onBlur={onBlur}
-                  placeholder={shouldShowPlaceholder ? 'Keep typing ...' : ' '}
+                  placeholder={
+                    shouldShowPlaceholder ? formatMessage('placeholder') : ' '
+                  }
                   onKeyDown={onInputKeyDown}
                 />
               </Inline>

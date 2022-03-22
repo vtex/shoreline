@@ -84,12 +84,18 @@ export const itemMultiple = style({
 })
 
 export const fieldTag = style({
-  // TODO: find a token for this
-  bg: '#f4f4f4',
+  bg: '$action.neutral.secondary',
+  color: '$primary',
   text: '$body',
   paddingY: '$m',
   paddingX: '$m',
   borderRadius: '$default',
+  ':hover': {
+    bg: '$action.neutral.secondaryHover',
+  },
+  ':active': {
+    bg: '$action.neutral.secondaryPressed',
+  },
 })
 
 export const fieldTagDismiss = style({
@@ -102,7 +108,7 @@ export const fieldTagDismiss = style({
   color: '$secondary',
 })
 
-export const fiedlMultipleContainer = style({
+export const fieldMultipleContainer = style({
   width: 500,
   display: 'flex',
   cursor: 'text',

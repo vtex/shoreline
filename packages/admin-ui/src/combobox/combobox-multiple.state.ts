@@ -27,15 +27,25 @@ export function useComboboxMultipleState(props: Props = {}) {
   const clearSelected = useCallback(() => {
     combobox.setValue('')
     checkbox.setValue([])
-  }, [checkbox.value, combobox.setValue])
+  }, [checkbox.setValue, combobox.setValue])
+
+  const removeSelected = useCallback(
+    (value: string) => {
+      checkbox.setValue((values: string[]) =>
+        values.filter((currentValue) => currentValue !== value)
+      )
+    },
+    [checkbox]
+  )
 
   useEffect(() => {
     if (shouldClearOnSelect) combobox.setValue('')
-  }, [checkbox.value, combobox.setValue])
+  }, [checkbox.value, shouldClearOnSelect, combobox.setValue])
 
   return {
     selected: checkbox.value,
     setSelected: checkbox.setValue,
+    removeSelected,
     clearSelected,
     ...combobox,
   }

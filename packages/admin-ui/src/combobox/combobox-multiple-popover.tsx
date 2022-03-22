@@ -17,6 +17,7 @@ export const ComboboxMultiplePopover = createComponent<
     children: props.state.matches.map((value: string) => (
       <ComboboxMultipleItem
         checkbox={{
+          // TODO Fix nested components issues
           value: (props as any).state.selected,
           setValue: (props as any).state.setSelected,
         }}
