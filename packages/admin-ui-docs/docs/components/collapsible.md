@@ -29,7 +29,7 @@ function Example() {
 
 ## Behavior
 
-Always when using `Collapsible` you should also use its composites: `CollapsibleHeader` and `CollapsibleContent`
+When using `Collapsible` you should always use its composites: `CollapsibleHeader` and `CollapsibleContent`
 
 ```jsx live
 function Example() {

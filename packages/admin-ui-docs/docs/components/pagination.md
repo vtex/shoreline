@@ -67,7 +67,7 @@ function Loading() {
 
 ## State objects
 
-The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` is a number and its value is the current page, and `range` is an array that contains two numbers with the beginning and the end item index of the current page.
+The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` is a number and its value is the current page. `range` is an array that contains two numbers with the beginning and the end item index of the current page.
 
 ### usePaginationState
 

@@ -5,7 +5,7 @@ path: /input/
 
 # Input
 
-Is used in a form in order to retrieve input from the user. It always has a `label` defined, and renders an `<input>` html element by default.
+The Input is used in a form in order to retrieve data inputed by the user. It always has a `label` defined, and renders an `<input>` html element by default.
 
 ## Usage
 

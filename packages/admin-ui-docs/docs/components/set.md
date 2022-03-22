@@ -5,7 +5,7 @@ path: /set/
 
 # Set
 
-Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, it automatically spaces out the components.
+Our design system comes with layout components to help you build common layouts inside your application. `Set` represents a group of components, it automatically spaces out it's child components.
 
 ## Import
 
@@ -94,8 +94,9 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 `orientation`, `spacing` and `align` are [`ResponsiveValues`](/guidelines/responsive-design/#responsive-values). It means that you can pass an array to them.
 
 ```jsx live
-<Box csx={{ maxWidth: ['full', 'full', 560] }}> p
-  <Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
+<Box csx={{ maxWidth: ['full', 'full', 560] }}>
+  {' '}
+  p<Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
     <Button>Button 3</Button>

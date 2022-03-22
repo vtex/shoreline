@@ -5,7 +5,7 @@ path: /toggle/
 
 # Toggle
 
-A Toggle is a tool that customize configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once.
+Toggle is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once.
 
 ## Import
 

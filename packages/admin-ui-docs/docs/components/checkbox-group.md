@@ -9,7 +9,7 @@ CheckboxGroup is used to group a set of `Checkbox` components. It has `role="gro
 
 `Children`: Group components should have children of the same type. We don't do this restriction on the code, but you should keep in mind that when using the `CheckboxGroup` the children should all have the `Checkbox` type.
 
-`Child Label`: By default, the childrens' labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
+`Child Label`: By default, the children's labels are customized with `display: 'flex'` and `align-items: 'center'`. You can override these styles if necessary.
 
 ## Usage
 
@@ -109,7 +109,7 @@ function Example() {
 
 ### Label
 
-You can easily add a label to the CheckboxGroup using the `label` property. Just keep in mind that to guarantee accessibility, whenever you define this property, you should define the `id` as well.
+You can easily add a label to the CheckboxGroup using the `label` property. Just keep in mind that in order to guarantee accessibility, whenever you define this property, you should define the `id` as well.
 
 You can also add a custom label!
 

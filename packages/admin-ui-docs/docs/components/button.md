@@ -141,7 +141,7 @@ function Example() {
 ## Accessibility
 
 - `Button` has the role `button`.
-- When `Button` has focus, <kbd>Space</kbd> and <kbd>Enter</kbd> triggers it's action.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> triggers its action.
 - If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
 
 ### Best Practices

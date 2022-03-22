@@ -218,9 +218,9 @@ function Example() {
 
 ## Props
 
-| Name       | Type          | Description                | Required                                           | Default |
-| ---------- | ------------- | -------------------------- | -------------------------------------------------- | ------- | -------------- |
-| state      | DropdownState | Return of useDropdownState | ✅                                                 | -       |
-| label      | string        | Label                      | ✅                                                 | -       |
-| items      | T[]           | List of dropdown items     | ✅                                                 | -       |
-| renderItem | (item: T      | null) => ReactNode         | Function that defines whats rendered for each item | 🚫      | (item) => item |
+| Name       | Type                           | Description                                        | Required | Default        |
+| ---------- | ------------------------------ | -------------------------------------------------- | -------- | -------------- |
+| state      | DropdownState                  | Return of useDropdownState                         | ✅       | -              |
+| label      | string                         | Label                                              | ✅       | -              |
+| items      | T[]                            | List of dropdown items                             | ✅       | -              |
+| renderItem | (item: T or null) => ReactNode | Function that defines whats rendered for each item | 🚫       | (item) => item |

@@ -30,7 +30,7 @@ function Example() {
 
 ### Tone of voice
 
-The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable with the `tone` prop.
+The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable with the `tone` prop.
 
 ```jsx live
 <Set spacing={3}>
@@ -149,18 +149,15 @@ function Example() {
 
 ## Props
 
-| Name         | Type          | Description                     | Required | Default |
-| ------------ | ------------- | ------------------------------- | -------- | ------- |
-| value        | `number`      | Displayed value                 | ✅       | -       |
-| onChange | `({value: number}) => void` | Change handler        | ✅       | -       |
-| label        | `string`      | Input label                     | ✅       | -       |
-| minValue     | `number`      | Min value accepted              | 🚫       | -10e9   |
-| maxValue     | `number`      | Max value accepted              | 🚫       | 10e9    |
-| disabled     | `boolean`     | Whether its disabled or not          | 🚫       | false   |
-| tone         | `neutral`, `critical`| Tone of voice       | 🚫       |  `neutral`    |
-| criticalText | `string`      | Error message       | 🚫       |  -    |
-| helperText | `string`      | Helper text message       | 🚫       |  -    |
-| step | `number`      | Increment and decrement multiplier value       | 🚫       |  `1`    |
-  
-  
-  
+| Name         | Type                        | Description                              | Required | Default   |
+| ------------ | --------------------------- | ---------------------------------------- | -------- | --------- |
+| value        | `number`                    | Displayed value                          | ✅       | -         |
+| onChange     | `({value: number}) => void` | Change handler                           | ✅       | -         |
+| label        | `string`                    | Input label                              | ✅       | -         |
+| minValue     | `number`                    | Min value accepted                       | 🚫       | -10e9     |
+| maxValue     | `number`                    | Max value accepted                       | 🚫       | 10e9      |
+| disabled     | `boolean`                   | Whether its disabled or not              | 🚫       | false     |
+| tone         | `neutral`, `critical`       | Tone of voice                            | 🚫       | `neutral` |
+| criticalText | `string`                    | Error message                            | 🚫       | -         |
+| helperText   | `string`                    | Helper text message                      | 🚫       | -         |
+| step         | `number`                    | Increment and decrement multiplier value | 🚫       | `1`       |
