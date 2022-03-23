@@ -248,4 +248,3 @@ The `useMediaQuery` hook returns an array of booleans, indicating whether the gi
 | type        | description                               |
 | ----------- | ----------------------------------------- |
 | `boolean[]` | An array of matches for each query passed |
-

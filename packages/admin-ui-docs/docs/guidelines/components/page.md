@@ -1,7 +1,6 @@
 ---
 title: Page
 path: /patterns/page/
-sidebar_position: 1
 ---
 
 # Page

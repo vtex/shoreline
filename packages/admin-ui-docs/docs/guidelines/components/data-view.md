@@ -1,7 +1,6 @@
 ---
 title: DataView
 path: /patterns/data-view/
-sidebar_position: 2
 ---
 
 # DataView

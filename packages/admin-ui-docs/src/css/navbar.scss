@@ -5,11 +5,9 @@
   --docsearch-muted-color: #545454 !important;
   --docsearch-searchbox-background: #f4f4f4 !important;
   --ifm-color-emphasis-600: #000000;
-  --ifm-navbar-height: 156px !important;
 }
 
 .navbar {
-
   &.navbar--fixed-top {
     height: fit-content;
   }
@@ -22,12 +20,27 @@
   &__title {
     font-size: 0.875rem;
     font-weight: 600;
+    padding-top: 3px;
   }
 
   .DocSearch-Button {
     border-radius: 4px;
     padding: 8px;
     background-color: unset;
+
+    &:hover {
+      background-color: #e6e6e6;
+      box-shadow: none !important;
+    }
+  }
+
+  .DocSearch-Search-Icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  .DocSearch-Button-Placeholder {
+    padding: 0 12px 0 8px;
   }
 
   @media (min-width: 751px) {
@@ -38,20 +51,23 @@
 
     &__title {
       font-size: 1.25rem;
-      font-weight: 600;
     }
 
     .DocSearch-Button {
       width: 100%;
-      background-color: revert;
+
+      &-Keys,
+      &-Placeholder {
+        display: none;
+      }
     }
   }
 
-  @media (min-width: 997px){
+  @media (min-width: 997px) {
     border-right: 1px solid var(--ifm-toc-border-color);
     width: var(--doc-sidebar-width);
     height: fit-content;
-    padding: 32px 24px 24px 24px;
+    padding: 32px 24px;
 
     &__inner {
       flex-flow: column;
@@ -63,8 +79,8 @@
     }
 
     &__logo {
-      width: 42px;
-      height: 36px;
+      width: 37px;
+      height: 32px;
     }
 
     &__title {
@@ -79,6 +95,32 @@
         padding: 0;
       }
     }
+
+    .DocSearch-Button {
+      background-color: revert;
+
+      &-Keys,
+      &-Placeholder {
+        display: flex;
+      }
+    }
+  }
+}
+
+.navbar .DocSearch-Button {
+  border-radius: 4px;
+  padding: 10px 12px;
+  height: fit-content;
+
+  &-Key:first-child {
+    text-indent: -9999px;
+
+    &:before {
+      content: '';
+      background: url('../../static/img/command.svg') 50%/1rem 1rem;
+      height: 16px;
+      width: 12.6px;
+    }
   }
 }
 
@@ -86,12 +128,12 @@
   &__brand {
     margin-right: 0;
     height: fit-content;
-    padding: 32px 24px 24px 24px;
+    padding: 32px 24px;
   }
 
   .navbar__logo {
-    width: 42px;
-    height: 36px;
+    width: 37px;
+    height: 32px;
   }
 
   .navbar__title {
@@ -101,5 +143,15 @@
   &__close svg {
     width: 12.75px;
     height: 12.75px;
+    stroke-linecap: round;
+    margin-right: 4px;
+
+    g {
+      stroke-width: 1.5;
+    }
+  }
+
+  &__backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
