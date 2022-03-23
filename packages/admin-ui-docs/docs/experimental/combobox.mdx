@@ -12,9 +12,12 @@ import {
   experimental_ComboboxField as ComboboxField,
   experimental_ComboboxPopover as ComboboxPopover,
   experimental_useComboboxState as useComboboxState,
+  experimental_ComboboxMultipleField as ComboboxMultipleField,
+  experimental_ComboboxMultiplePopover as ComboboxMultiplePopover,
+  experimental_useComboboxMultipleState as useComboboxMultipleState,
 } from '@vtex/admin-ui'
 
-function Example() {
+function Single() {
   const combobox = useComboboxState({
     list: [],
   })
@@ -26,11 +29,24 @@ function Example() {
     </>
   )
 }
+
+function Multiple() {
+  const comboboxMultiple = useComboboxMultipleState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxMultipleField id="id" label="Label" state={comboboxMultiple} />
+      <ComboboxMultiplePopover state={comboboxMultiple} />
+    </>
+  )
+}
 ```
 
 ## Examples
 
-### Basic
+### Single
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -46,6 +62,33 @@ function Example() {
     <>
       <ComboboxField id="country-combobox" label="Country" state={combobox} />
       <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Multiple
+
+```jsx noInline live
+const ComboboxMultipleField = experimental_ComboboxMultipleField
+const ComboboxMultiplePopover = experimental_ComboboxMultiplePopover
+const useComboboxMultipleState = experimental_useComboboxMultipleState
+
+function Example() {
+  const comboboxMultiple = useComboboxMultipleState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxMultipleField
+        id="country-combobox"
+        label="Country"
+        state={comboboxMultiple}
+      />
+      <ComboboxMultiplePopover state={comboboxMultiple} />
     </>
   )
 }
@@ -227,7 +270,27 @@ The hooks return the ComboboxState, with props:
 | setLoading    | `React.SetState<boolean>`  | Set loading state                                    |
 | setError      | `React.SetState<boolean>`  | Set error state                                      |
 
-### ComboboxField
+### useComboboxMultipleState
+
+It extends the `useComboboxState` props, and:
+
+| Name                | Type       | Description                                      | Required | Default |
+| ------------------- | ---------- | ------------------------------------------------ | -------- | ------- |
+| shouldClearOnSelect | `boolean`  | If should clear the text input on select an item | 🚫       | -       |
+| defaultSelected     | `string[]` | List of items that are selected by default       | 🚫       | -       |
+
+#### ComboboxMultipleState
+
+The hooks return the `ComboboxMultipleState`, that extends `ComboboxState` and:
+
+| Name           | Type                       | Description             |
+| -------------- | -------------------------- | ----------------------- |
+| selected       | `string[]`                 | List of selected items  |
+| setSelected    | `React.SetState<string[]>` | Set the selected value  |
+| removeSelected | `(item: string) => void`   | Unselect an item        |
+| clearSelected  | `() => void`               | Clear the selected list |
+
+### ComboboxField & ComboboxMultipleField
 
 | Name  | Type            | Description    | Required | Default |
 | ----- | --------------- | -------------- | -------- | ------- |
@@ -236,7 +299,7 @@ The hooks return the ComboboxState, with props:
 | id    | `string`        | Required id    | ✅       | -       |
 | csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
 
-### ComboboxPopover
+### ComboboxPopover & ComboboxMultiplePopover
 
 | Name    | Type            | Description                    | Required | Default |
 | ------- | --------------- | ------------------------------ | -------- | ------- |

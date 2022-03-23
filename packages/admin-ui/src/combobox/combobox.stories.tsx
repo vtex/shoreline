@@ -2,7 +2,14 @@ import React, { useEffect } from 'react'
 
 import type { Meta, Story } from '@storybook/react'
 
-import { ComboboxField, ComboboxPopover, useComboboxState } from './index'
+import {
+  ComboboxField,
+  ComboboxPopover,
+  useComboboxState,
+  ComboboxMultipleField,
+  ComboboxMultiplePopover,
+  useComboboxMultipleState,
+} from './index'
 import type { Locales } from '../i18n'
 import { I18nProvider, locales } from '../i18n'
 
@@ -129,6 +136,81 @@ export const Async = () => {
     <div>
       <ComboboxField id="async-combobox" state={combobox} label="Country" />
       <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
+const list = [
+  'Apple',
+  'Bacon',
+  'Banana',
+  'Broccoli',
+  'Burger',
+  'Cake',
+  'Candy',
+  'Carrot',
+  'Cherry',
+  'Chocolate',
+  'Cookie',
+  'Cucumber',
+  'Donut',
+  'Fish',
+  'Fries',
+  'Grape',
+  'Green apple',
+  'Hot dog',
+  'Ice cream',
+  'Kiwi',
+  'Lemon',
+  'Lollipop',
+  'Onion',
+  'Orange',
+  'Pasta',
+  'Pineapple',
+  'Pizza',
+  'Potato',
+  'Salad',
+  'Sandwich',
+  'Steak',
+  'Strawberry',
+  'Tomato',
+  'Watermelon',
+]
+
+export function Multiple() {
+  const combobox = useComboboxMultipleState({
+    list,
+  })
+
+  return (
+    <div>
+      <ComboboxMultipleField
+        state={combobox}
+        id="combobox-multiple"
+        label="Foods"
+        csx={{
+          width: '100%',
+        }}
+      />
+      <ComboboxMultiplePopover state={combobox} />
+    </div>
+  )
+}
+
+export function MultipleDefaultSelected() {
+  const combobox = useComboboxMultipleState({
+    defaultSelected: ['Bacon', 'Pasta', 'Tomato'],
+    list,
+  })
+
+  return (
+    <div>
+      <ComboboxMultipleField
+        state={combobox}
+        id="combobox-multiple"
+        label="Foods"
+      />
+      <ComboboxMultiplePopover state={combobox} />
     </div>
   )
 }

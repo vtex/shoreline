@@ -1,4 +1,4 @@
-import { style } from '@vtex/admin-ui-core'
+import { style, styleVariants } from '@vtex/admin-ui-core'
 
 const height = '3rem'
 const width = '21.625rem'
@@ -64,6 +64,7 @@ export const item = style({
   borderRadius: '$default',
   paddingY: '$2',
   paddingX: '$3',
+  cursor: 'pointer',
   '&[data-active-item]': {
     bg: '$action.neutral.tertiaryPressed',
     color: '$action.neutral.tertiaryPressed',
@@ -71,5 +72,77 @@ export const item = style({
   ':hover': {
     bg: '$action.neutral.tertiaryHover',
     color: '$action.neutral.tertiaryHover',
+  },
+})
+
+export const itemMultiple = style({
+  ...item,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  outline: 'none',
+})
+
+export const fieldTag = style({
+  bg: '$action.neutral.secondary',
+  color: '$primary',
+  text: '$body',
+  paddingY: '$m',
+  paddingX: '$m',
+  borderRadius: '$default',
+  ':hover': {
+    bg: '$action.neutral.secondaryHover',
+  },
+  ':active': {
+    bg: '$action.neutral.secondaryPressed',
+  },
+})
+
+export const fieldTagDismiss = style({
+  padding: 0,
+  marginLeft: '$m',
+  bg: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '$secondary',
+})
+
+export const fieldMultipleContainer = style({
+  width: 500,
+  display: 'flex',
+  cursor: 'text',
+  position: 'relative',
+  border: '$form.neutral',
+  borderRadius: '$default',
+  paddingY: '$l',
+  paddingX: '$l',
+
+  ':hover': {
+    border: '$form.neutralHover',
+  },
+  ':focus-within': {
+    border: '$form.neutralFocus',
+  },
+})
+
+export const label = style({
+  position: 'absolute',
+  text: '$body',
+  zIndex: 2,
+  left: 12,
+  color: '$secondary',
+  transformOrigin: 'top left',
+  transition: 'all 0.2s ease-out;',
+})
+
+export const labelTransition = styleVariants({
+  reduced: {
+    true: {
+      transform: 'translate(1px, 0px) scale(0.875)',
+    },
+    false: {
+      transform: 'translate(0, 9px) scale(1)',
+    },
   },
 })

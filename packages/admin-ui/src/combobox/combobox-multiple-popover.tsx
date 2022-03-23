@@ -1,0 +1,29 @@
+import React from 'react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+
+import { ComboboxMultipleItem } from './combobox-multiple-item'
+import { ComboboxPopoverBase } from './combobox-popover-base'
+
+const arias: any = {
+  'aria-multiselectable': true,
+}
+
+export const ComboboxMultiplePopover = createComponent<
+  typeof ComboboxPopoverBase
+>((props) => {
+  return useElement(ComboboxPopoverBase, {
+    ...props,
+    ...arias,
+    children: props.state.matches.map((value: string) => (
+      <ComboboxMultipleItem
+        checkbox={{
+          // TODO Fix nested components issues
+          value: (props as any).state.selected,
+          setValue: (props as any).state.setSelected,
+        }}
+        key={value}
+        value={value}
+      />
+    )),
+  })
+})
