@@ -151,7 +151,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
               transform: `translateX(${translate})`,
               opacity: selected && !state.layout.reduced ? 1 : 0,
               transition:
-                'transform 350ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+                'transform 150ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
             {...(baseProps as any)}

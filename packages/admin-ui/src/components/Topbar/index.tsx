@@ -1,6 +1,8 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
+import { Set } from '../Set'
+import { Center } from '../Center'
 
 import { Skeleton } from '../Skeleton'
 
@@ -31,7 +33,7 @@ export const Topbar = jsx('div')(
     gridTemplateColumns: 'repeat(3, 1fr)',
     height: '3.5rem',
     borderBottom: '$neutral',
-    paddingX: 2,
+    padding: '$xs',
     zIndex: 'topbar',
     bg: '$primary',
   },
@@ -56,10 +58,31 @@ function TopbarSkeleton() {
   return (
     <Fragment>
       <TopbarStart>
-        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
+        <Set spacing="$l">
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.5rem' }} />
+          </Center>
+          <Skeleton csx={{ width: '8rem', height: '1rem' }} />
+        </Set>
       </TopbarStart>
+      <TopbarCenter>
+        <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
+      </TopbarCenter>
       <TopbarEnd>
-        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
+        <Set spacing="$m">
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ height: '1.5rem', width: '5.563rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.25rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.25rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.5rem' }} />
+          </Center>
+        </Set>
       </TopbarEnd>
     </Fragment>
   )

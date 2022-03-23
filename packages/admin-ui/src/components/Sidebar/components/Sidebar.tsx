@@ -76,6 +76,11 @@ export const Sidebar = forwardRef(function Sidebar(
           outline: 'none',
           borderRight: '$neutral',
           bg: '$primary',
+          paddingY: '$s',
+          boxShadow:
+            state.selectedItem?.expandable && state.layout.reduced
+              ? '$overlay.center'
+              : 'unset',
           ...rootProps.csx,
         }}
         {...rootProps}
@@ -88,7 +93,7 @@ export const Sidebar = forwardRef(function Sidebar(
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingY: '1em',
+            paddingY: '$xl',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',

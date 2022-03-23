@@ -34,11 +34,13 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   return (
     <Center
       csx={{
-        zIndex: 9999,
-        borderLeft: selectedFallback ? '$mainSelected' : 'none',
+        borderLeft: selectedFallback ? '$mainSelected' : 'solid transparent',
+        borderRight: 'solid transparent 3px',
         borderLeftWidth: '3px',
+        zIndex: 9999,
         position: 'relative',
         width: '100%',
+        paddingX: '$s',
       }}
     >
       <Button
@@ -62,18 +64,22 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
               color: '$action.neutral.tertiaryHover',
               bg: 'transparent',
             },
+            size: '100%',
+            padding: '$s',
+            svg: { margin: 0 },
           },
           csx
         )}
         {...buttonProps}
       />
+
       {!state.isReduced() && expandable && selected ? (
         <tag.div
           csx={{
             animation: `${fadeIn} 0.4s`,
             position: 'absolute',
             top: '15px' /* At the bottom of the tooltip */,
-            right: '-7px',
+            right: '-10px',
             size: '12px',
             zIndex: 2,
             bg: '$secondary',

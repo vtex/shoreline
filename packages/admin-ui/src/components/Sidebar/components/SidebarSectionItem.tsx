@@ -65,6 +65,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           height: 'auto',
           textAlign: 'left',
           zIndex: 9999,
+          bg: 'transparent',
           '> div': {
             justifyContent: 'start',
             color: selected ? '$action.main.tertiarySelected' : '$secondary',
@@ -73,7 +74,15 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
             text: '$action2',
           },
           ':hover': {
-            color: '$primary',
+            '> div': {
+              color: '$action.main.tertiaryHover',
+            },
+          },
+          ':active': {
+            '> div': {
+              color: '$action.main.teriaryPressed',
+            },
+            bg: '$action.neutral.tertiaryHover',
           },
         },
         buttonProps.csx

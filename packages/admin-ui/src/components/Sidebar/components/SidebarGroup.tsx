@@ -11,7 +11,7 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   props: SidebarGroupProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, spacing = 1, csx } = props
+  const { children, spacing = '$l', csx } = props
 
   return (
     <Set

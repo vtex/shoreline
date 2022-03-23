@@ -9,12 +9,13 @@ import { SidebarItemSkeleton } from './SidebarItemSkeleton'
 
 const width = {
   expanded: '12.5rem',
+  reduced: '1.25rem',
   hidden: '0rem',
 }
 
 const distance = {
-  expanded: '15.25rem',
-  reduced: '2.75rem',
+  expanded: '15.1rem',
+  reduced: '3.85rem',
 }
 
 /**
@@ -39,13 +40,12 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         csx={{
           minWidth: selectedItem?.expandable
             ? reduced
-              ? width.hidden
+              ? width.reduced
               : width.expanded
             : width.hidden,
           transition: 'min-width 200ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           bg: '$secondary',
-          borderRight:
-            selectedItem?.expandable && !reduced ? '$neutral' : 'none',
+          borderRight: selectedItem?.expandable ? '$neutral' : 'none',
         }}
       >
         {loading && <SidebarItemSkeleton />}
@@ -55,9 +55,9 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         csx={{
           position: 'absolute',
           zIndex: 9999,
-          top: '5rem',
-          height: '1.5rem',
-          width: '1.5rem',
+          top: '4.85rem',
+          height: '1.75rem',
+          width: '1.75rem',
           bg: '$primary',
           left:
             selectedItem?.expandable && reduced
@@ -65,7 +65,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               : distance.expanded,
           borderRadius: '100%',
           transition:
-            'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 175ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+            'left 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',
           opacity: selectedItem?.expandable && toggleVisible ? 1 : 0,
         }}
       >
@@ -76,14 +76,13 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           csx={{
             borderRadius: '100%',
             border: '$neutral',
-            height: '1.5rem',
-            width: '1.5rem',
+            height: '100%',
+            width: '100%',
           }}
           icon={
             <IconCaretRight
               mirrored={!reduced}
-              height="0.875rem"
-              width="0.875rem"
+              size="small"
               csx={{
                 display: 'flex',
                 justifyContent: 'center',

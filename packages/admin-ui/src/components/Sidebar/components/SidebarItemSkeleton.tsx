@@ -2,8 +2,15 @@ import React from 'react'
 
 import { Box } from '../../Box'
 import { Skeleton } from '../../Skeleton'
-import { Set } from '../../Set'
 import { SCALES } from '../consts'
+
+const skeletonWidth = {
+  0: '8rem',
+  1: '7rem',
+  2: '6.5rem',
+}
+
+type Index = 0 | 1 | 2
 
 /**
  * The SidebaItem loading state
@@ -13,42 +20,33 @@ export function SidebarItemSkeleton() {
     <Box
       csx={{
         width: SCALES.COLLAPSIBLE_AREA_WIDTH,
-        padding: '1.5rem 0.5rem',
+        padding: '$s',
       }}
     >
-      {Array.from(new Array(2)).map((_, index) => (
-        <Set
-          key={`sidebar-section-${index}`}
-          spacing={1}
-          orientation="vertical"
+      <Box csx={{ size: '100%', margin: '$s', paddingY: '$l' }}>
+        <Skeleton
+          key="section-title"
           csx={{
-            paddingBottom: 8,
+            width: '5rem',
+            height: '1.5rem',
           }}
-        >
-          <Box
-            csx={{
-              minHeight: '1rem',
-              width: '6rem',
-              paddingBottom: '0.8125rem',
-            }}
-          >
-            <Skeleton
-              key={`section-title-${index}`}
-              csx={{
-                height: '1rem',
-              }}
-            />
-          </Box>
-          {Array.from(new Array(index % 2 === 0 ? 3 : 5)).map((_, idx) => (
+        />
+      </Box>
+      {Array.from(new Array(7)).map((_, idx) => {
+        const index = idx % 3
+
+        return (
+          <Box csx={{ size: '100%', padding: '$s' }}>
             <Skeleton
               key={`section-item-${2 + idx}`}
               csx={{
-                height: '1.5rem',
+                height: '1rem',
+                width: idx === 6 ? '6rem' : skeletonWidth[index as Index],
               }}
             />
-          ))}
-        </Set>
-      ))}
+          </Box>
+        )
+      })}
     </Box>
   )
 }

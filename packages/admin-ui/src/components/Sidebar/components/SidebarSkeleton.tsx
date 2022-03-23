@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Set } from '../../Set'
 import { Skeleton } from '../../Skeleton'
+import { Center } from '../../Center'
 
 const size = 20
 
@@ -13,17 +14,19 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
   const { amount = 7 } = props
 
   return (
-    <Set spacing={5} csx={{ paddingY: '1rem' }} orientation="vertical">
+    <Set spacing="$l" csx={{ width: '100%' }} orientation="vertical">
       {Array.from(new Array(amount)).map(() => (
-        <Skeleton
-          csx={{
-            zIndex: 999,
-            minHeight: size,
-            maxHeight: size,
-            minWidth: size,
-            maxWidth: size,
-          }}
-        />
+        <Center csx={{ zIndex: 999, paddingX: '$s', width: '100%' }}>
+          <Skeleton
+            csx={{
+              margin: '$s',
+              minHeight: size,
+              maxHeight: size,
+              minWidth: size,
+              maxWidth: size,
+            }}
+          />
+        </Center>
       ))}
     </Set>
   )
