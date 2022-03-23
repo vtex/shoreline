@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
-  "version": "0.6.2",
+  "version": "0.7.2",
   "main": "dist/index.js",
   "module": "dist/admin-ui-core.esm.js",
   "typings": "dist/index.d.ts",
@@ -40,7 +40,7 @@
     "@emotion/css": "11.7.1"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.2.1",
+    "@vtex/admin-ui-util": "^0.2.2",
     "csstype": "3.0.10"
   }
 }

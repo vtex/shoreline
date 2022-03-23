@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.3...@vtex/admin-ui-docs@0.5.4) (2022-03-18)
+
+### Bug Fixes
+
+- **bleed:** add experimental component ([84fb0d6](https://github.com/vtex/admin-ui/commit/84fb0d6076421732b6a208321c1369bc57320a9f))
+
+## [0.5.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.2...@vtex/admin-ui-docs@0.5.3) (2022-03-18)
+
+### Bug Fixes
+
+- **inline:** add experimental component ([31f15b1](https://github.com/vtex/admin-ui/commit/31f15b1bd22cd6b55d69a03ac8331490f8396ba4))
+
+## [0.5.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.1...@vtex/admin-ui-docs@0.5.2) (2022-03-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.5.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.0...@vtex/admin-ui-docs@0.5.1) (2022-03-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
 # [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.4.5...@vtex/admin-ui-docs@0.5.0) (2022-03-16)
 
 ### Features

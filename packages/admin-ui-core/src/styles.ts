@@ -78,7 +78,7 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
     const token = isFunction(mqValue) ? (mqValue as Function)(theme) : mqValue
 
     if (token && typeof token === 'object') {
-      cssObject[cssProperty] = styles(token as StyleObject)
+      cssObject[cssProperty] = styles(token as StyleObject, theme)
       continue
     }
 
@@ -92,11 +92,11 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
         // handle object rules
         cssObject[cssProperty] =
           typeof value.default === 'object'
-            ? styles(value.default)
+            ? styles(value.default, theme)
             : value.default
       } else {
         // handle object rules
-        Object.assign(cssObject, styles(value))
+        Object.assign(cssObject, styles(value, theme))
       }
     } else if (canSplit(cssProperty)) {
       const splitValue = split(cssProperty, value)

@@ -1,0 +1,52 @@
+---
+title: FilterGroup
+path: /filter-group/
+---
+
+# FilterGroup
+
+## Usage
+
+```jsx
+import {
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+  experimental_useFilterGroupState as useFilterGroupState,
+  experimental_FilterGroup as FilterGroup,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const filterState = useFilterMultipleState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half empty', value: 4, id: '#3' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+  })
+
+  const state = useFilterGroupState({filterStates: [filterState]})
+
+  return (
+    <FilterGroup state={state}>
+        <FilterMultiple state={filterState} />
+    </FilterGroup>
+  )
+}
+```
+
+## Props
+
+## FilterGroup
+
+| Name  | Type               | Description    | Required | Default |
+| ----- | -----------------  | -------------- | -------- | ------- |
+| state | `FilterGroupState` | Object that manages the component state logic, you can obtain it calling the useFilterGroupState hook | ✅       | -       |
+| csx   | `StyleObject`      | Custom styles  | 🚫       | `{}`    |
+
+## useFilterGroupState
+
+| Name           | Type                           | Description                                                       | Required | Default |
+| -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
+| filterStates          | `FilterState[]`                | Array of filter states, add the state of each child filter    | ✅       | -       |

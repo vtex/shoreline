@@ -13,6 +13,10 @@ export const bg = {
   skeleton: `linear-gradient(90deg, ${colors.gray10}, ${colors.gray20}), ${colors.gray10}`,
   action: {
     neutral: {
+      secondary: colors.gray05,
+      secondaryHover: colors.gray10,
+      secondaryPressed: colors.gray20,
+
       tertiary: 'transparent',
       tertiaryHover: colors.grayTransparent05,
       tertiaryPressed: colors.grayTransparent10,

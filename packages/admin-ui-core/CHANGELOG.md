@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.1...@vtex/admin-ui-core@0.7.2) (2022-03-18)
+
+### Bug Fixes
+
+- **inline:** add experimental component ([31f15b1](https://github.com/vtex/admin-ui/commit/31f15b1bd22cd6b55d69a03ac8331490f8396ba4))
+
+## [0.7.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.0...@vtex/admin-ui-core@0.7.1) (2022-03-17)
+
+### Bug Fixes
+
+- **admin-ui-core:** custom tokens not parsed by csx while nested ([d2b91cd](https://github.com/vtex/admin-ui/commit/d2b91cdbc98e335fd260de2c37b94a1cd282739f))
+
+# [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.6.2...@vtex/admin-ui-core@0.7.0) (2022-03-17)
+
+### Features
+
+- **filter:** improve filter callback name ([86d2235](https://github.com/vtex/admin-ui/commit/86d22351c42fa5ca0c93c471ba739447d054b414))
+- **tokens:** add new semantic color tokens ([9c9dda8](https://github.com/vtex/admin-ui/commit/9c9dda81fb23f9f99ceb47b22477679f42f0b035))
+
 ## [0.6.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.6.1...@vtex/admin-ui-core@0.6.2) (2022-03-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-core

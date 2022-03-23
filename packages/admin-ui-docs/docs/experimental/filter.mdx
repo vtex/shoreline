@@ -1,0 +1,103 @@
+---
+title: Filter
+path: /filter/
+---
+
+# Filter
+
+## Usage
+
+```jsx
+import {
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <Filter state={state} />
+}
+```
+
+## Examples
+
+### Initial values
+
+```jsx noInline live
+
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+    initialApplied: '#1',
+  })
+  return <Filter state={state} />
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx
+import {
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+} from '@vtex/admin-ui'
+
+function Filter() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <Filter state={state} />
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="ko-KO">
+      <Filter />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+
+## Props
+
+## Filter
+
+| Name  | Type          | Description    | Required | Default |
+| ----- | ------------- | -------------- | -------- | ------- |
+| state | `FilterState` | Object that manages the component state logic, you can obtain it calling the useFilterState hook | ✅       | -       |
+
+## useFilterState
+
+| Name           | Type                           | Description                                                       | Required | Default |
+| -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
+| items          | `FilterItem[]`                 | List of options for the filter, item must include id and label    | ✅       | -       |
+| onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
+| label          | `string`                       | Filter button label                                               | ✅       | -       |
+| initialApplied | `string`                       | initially applied option id                                       | 🚫       | -       |
