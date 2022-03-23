@@ -4,16 +4,16 @@
 
 :root {
   --ifm-font-family-base: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif !important;
-  --ifm-color-primary: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-dark: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-darker: hsla(340, 82%, 39%, 1);
-  --ifm-color-primary-darkest: hsla(340, 82%, 29%, 1);
-  --ifm-color-primary-light: hsla(340, 82%, 71%, 1);
-  --ifm-color-primary-lighter: hsla(340, 82%, 82%, 1);
-  --ifm-color-primary-lightest: hsla(340, 83%, 93%, 1);
+  --ifm-color-primary: #DA3461;
+  --ifm-color-primary-dark: #B1204C;
+  --ifm-color-primary-darker: #870D36;
+  --ifm-color-primary-darkest: #870D36;
+  --ifm-color-primary-light: #F48AAC;
+  --ifm-color-primary-lighter: #F5E0E7;
+  --ifm-color-primary-lightest: #FBF3F6;
   --ifm-code-font-size: 95%;
-  --ifm-pre-background: rgba(255, 255, 255);
-  --ifm-toc-border-color: hsla(0, 0%, 90%, 1);
+  --ifm-pre-background: #FFFFFF;
+  --ifm-toc-border-color: #E6E6E6;
   --ifm-z-index-fixed: 1000;
 }
 
@@ -22,8 +22,10 @@ body {
 }
 
 main {
-  margin-top: -156px;
-  padding-top: 1.5rem;
+  @media (min-width: 997px) {
+    margin-top: -156px;
+    padding-top: 24px;
+  }
 }
 
 .row .col {

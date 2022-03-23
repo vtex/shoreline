@@ -1,19 +1,55 @@
 :root {
   --ifm-navbar-shadow: unset;
+  --ifm-navbar-sidebar-width: var(--doc-sidebar-width);
   --docsearch-text-color: #545454 !important;
   --docsearch-muted-color: #545454 !important;
   --docsearch-searchbox-background: #f4f4f4 !important;
+  --ifm-color-emphasis-600: #000000;
+  --ifm-navbar-height: 156px !important;
 }
 
 .navbar {
+
+  &.navbar--fixed-top {
+    height: fit-content;
+  }
+
+  &__logo {
+    width: 28px;
+    height: 24px;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
   .DocSearch-Button {
     border-radius: 4px;
     padding: 8px;
+    background-color: unset;
   }
 
-  @media (min-width: 996px) {
+  @media (min-width: 751px) {
+    &__logo {
+      width: 32px;
+      height: 28px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .DocSearch-Button {
+      width: 100%;
+      background-color: revert;
+    }
+  }
+
+  @media (min-width: 997px){
     border-right: 1px solid var(--ifm-toc-border-color);
-    width: 256px;
+    width: var(--doc-sidebar-width);
     height: fit-content;
     padding: 32px 24px 24px 24px;
 
@@ -23,7 +59,7 @@
 
     &__brand {
       margin-right: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 24px;
     }
 
     &__logo {
@@ -33,7 +69,6 @@
 
     &__title {
       font-size: 1.5rem;
-      font-weight: 600;
     }
 
     &__items--right {
@@ -43,10 +78,28 @@
         width: 100%;
         padding: 0;
       }
-
-      .DocSearch-Button {
-        width: 100%;
-      }
     }
+  }
+}
+
+.navbar-sidebar {
+  &__brand {
+    margin-right: 0;
+    height: fit-content;
+    padding: 32px 24px 24px 24px;
+  }
+
+  .navbar__logo {
+    width: 42px;
+    height: 36px;
+  }
+
+  .navbar__title {
+    font-size: 1.5rem;
+  }
+
+  &__close svg {
+    width: 12.75px;
+    height: 12.75px;
   }
 }

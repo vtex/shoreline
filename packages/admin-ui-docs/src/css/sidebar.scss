@@ -4,12 +4,11 @@
   --ifm-menu-color-active: #000000 !important;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-menu-link-padding-vertical: 8px;
-  --ifm-navbar-height: 156px;
-  // --ifm-toc-border-color: black !important;
+  --ifm-menu-link-sublist-icon: url('../../static/img/caret-down.svg')
 }
 
 .menu {
-  padding: 0 !important;
+  padding: 0 0 32px 0 !important;
 
   &__list {
     margin: 0 !important;
@@ -19,34 +18,18 @@
   &__list-item {
     margin-top: 0 !important;
   }
-}
 
-.theme-doc-sidebar-item-category {
-  .menu__link {
+  &__link {
     font-size: 1rem;
     font-weight: 400;
     padding: 8px 24px;
     line-height: 1.2;
-    background-color: unset;
 
-    &--active,
-    &:hover {
+    &:hover,
+    &--active {
       font-weight: 600;
+      background-color: unset;
     }
-  }
-}
-
-.theme-doc-sidebar-item-link:not(.theme-doc-sidebar-item-link-level-1):not(.theme-doc-sidebar-item-link-level-2),
-.theme-doc-sidebar-item-category:not(.theme-doc-sidebar-item-category-level-1):not(.theme-doc-sidebar-item-category-level-2) {
- .menu__link,
- .menu__list-item-collapsible {
-    background-color: #f8f8f8;
-    border-radius: 0;
-  }
-
-  .menu__link {
-    padding-left: 40px;
-    border-right: 1px solid var(--ifm-toc-border-color);
   }
 }
 
@@ -75,23 +58,43 @@
   }
 }
 
-:not(.menu__list-item-collapsible) {
-  & > .menu__link {
+.theme-doc-sidebar-item-link {
+  .menu__link {
     &--active {
       position: relative;
+      background-color: unset;
 
       &:before {
-        position: absolute;
         content: '';
+        position: absolute;
         bottom: 0;
         top: 0;
         left: 0px;
-        border-left: 4px solid #da3561;
+        border-left: 4px solid var(--ifm-color-primary);
       }
     }
   }
 }
 
+.theme-doc-sidebar-item-link:not(.theme-doc-sidebar-item-link-level-1):not(.theme-doc-sidebar-item-link-level-2),
+.theme-doc-sidebar-item-category:not(.theme-doc-sidebar-item-category-level-1):not(.theme-doc-sidebar-item-category-level-2) {
+  .menu__link,
+  .menu__list-item-collapsible {
+    background-color: #f8f8f8;
+    border-radius: 0;
+  }
+
+  .menu__link {
+    padding-left: 40px;
+    border-right: 1px solid var(--ifm-toc-border-color);
+  }
+}
+
+.menu__list-item--collapsed .menu__link--sublist:after {
+  transform: rotateZ(360deg);
+}
+
 .menu__link--sublist:after {
   background: var(--ifm-menu-link-sublist-icon) 50%/1.2rem 1.2rem;
+  transform: rotate(180deg);
 }
