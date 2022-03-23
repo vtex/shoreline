@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.120.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.3...@vtex/admin-ui@0.120.4) (2022-03-23)
+
+### Bug Fixes
+
+- **bleed:** add experimental component ([e650feb](https://github.com/vtex/admin-ui/commit/e650feb1f8e6b62c5e0df4fcfcf7fde8efedfb83))
+- **combobox:** build issues ([9840c31](https://github.com/vtex/admin-ui/commit/9840c31e9d4130fc9b67c19a3463e01dfaf1692c))
+- **combobox:** first draft on multiple ([1a0f3af](https://github.com/vtex/admin-ui/commit/1a0f3affec2319c560554ebcc216ce691a176c18))
+- **combobox:** keyboard interactions ([ae133ea](https://github.com/vtex/admin-ui/commit/ae133ea6bc479802ab7a598ddb7d4c55fd7be532))
+- **combobox:** tag styling ([fabb98a](https://github.com/vtex/admin-ui/commit/fabb98a594b6d75e2e42a05a69358cb0d4e7f145))
+- **inline:** add experimental component ([311a67b](https://github.com/vtex/admin-ui/commit/311a67bbac65e99a16d0c0f12c475113f5aa2ff5))
+
 ## [0.120.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.2...@vtex/admin-ui@0.120.3) (2022-03-18)
 
 ### Bug Fixes
