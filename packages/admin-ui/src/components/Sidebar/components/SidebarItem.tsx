@@ -50,7 +50,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
 
   const expandable = state.isExpandable(children)
   const translate =
-    selected && expandable && !state.layout.reduced ? '3rem' : '-13.5rem'
+    selected && expandable && !state.layout.reduced ? '3rem' : '-8.5rem'
 
   useEffect(() => {
     if (currentSelected && !expandable) {
