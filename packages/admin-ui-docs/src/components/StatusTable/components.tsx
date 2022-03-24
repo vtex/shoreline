@@ -26,6 +26,12 @@ const components = [
     notes: '-',
     type: 'components',
   },
+  {
+    component: 'Localization',
+    status: 'experimental',
+    notes: '-',
+    type: 'components',
+  },
 ]
 
 const dataDisplay = [
@@ -69,6 +75,12 @@ const dataDisplay = [
     component: 'DataGrid',
     status: 'supported',
     notes: 'Will be renamed to Table',
+    type: 'dataDisplay',
+  },
+  {
+    component: 'DataView',
+    status: 'supported',
+    notes: '-',
     type: 'dataDisplay',
   },
   {
@@ -127,11 +139,13 @@ const overlay = [
     status: 'supported',
     notes: (
       <Text>
-        Will be deprecated in favor of the List, Heading, Label and Paragraph
-        components that were implemented after it. We have some zIndex issues.{' '}
+        We have some zIndex issues.{' '}
         <Anchor href="https://github.com/vtex/onda/issues/495" target="_blank">
           Issue #495
         </Anchor>
+        <br />
+        Will be deprecated in favor of the List, Heading, Label and Paragraph
+        components.
       </Text>
     ),
     type: 'overlay',
@@ -263,6 +277,24 @@ const layout = [
     notes: '-',
     type: 'layout',
   },
+  {
+    component: 'Center',
+    status: 'supported',
+    notes: '-',
+    type: 'layout',
+  },
+  {
+    component: 'Bleed',
+    status: 'experimental',
+    notes: '-',
+    type: 'layout',
+  },
+  {
+    component: 'Inline',
+    status: 'experimental',
+    notes: '-',
+    type: 'layout',
+  },
 ]
 
 const page = [
@@ -351,8 +383,7 @@ const forms = [
   {
     component: 'Input',
     status: 'supported',
-    notes:
-      'This component will be merged with the TextArea in a new TextField component.',
+    notes: 'Will be merged with the TextArea in a new TextField component.',
     type: 'forms',
   },
   {
@@ -395,6 +426,7 @@ const forms = [
         <Anchor href="https://github.com/vtex/onda/issues/501" target="_blank">
           Issue #501
         </Anchor>
+        <br />
         This component will be merged with the Input in a new TextField
         component.
       </Text>
