@@ -134,7 +134,6 @@ export const Sidebar = forwardRef(function Sidebar(
           width: '3.6775rem',
           top: 0,
           bottom: 0,
-          zIndex: 'sidebarOverlay',
           position: 'fixed',
           maxHeight: '100%',
         }}

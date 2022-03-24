@@ -64,7 +64,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           padding: '$s',
           height: 'auto',
           textAlign: 'left',
-          zIndex: 9999,
+          zIndex: 'sidebarOverlay',
           bg: 'transparent',
           '> div': {
             justifyContent: 'start',
