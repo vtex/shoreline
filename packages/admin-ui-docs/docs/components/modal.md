@@ -45,7 +45,7 @@ function ModalDialog() {
         <ModalHeader title="Publish content" />
         <ModalContent>
           <Text>
-            Are you sure you want to publish this content? These action cannot
+            Are you sure you want to publish this content? This action cannot
             be undone.
           </Text>
         </ModalContent>

@@ -10,18 +10,19 @@ Cards are surfaces that display content and actions on a single topic.
 ## Usage
 
 ```jsx isStatic
-import { Card } from '@vtex/admin-ui'
+import { Card, Set, Heading, Paragraph } from '@vtex/admin-ui'
+
+;<Card>
+  <Set orientation="vertical" spacing={3} fluid>
+    <Heading>Title</Heading>
+    <Paragraph>Content.</Paragraph>
+  </Set>
+</Card>
 ```
 
 ## Alternatives
 
 [Box](box/).
-
-## Composition
-
-| Name | Description |
-| ---- | ----------- |
-|      |             |
 
 ## Examples
 

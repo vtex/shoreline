@@ -26,6 +26,12 @@ const components = [
     notes: '-',
     type: 'components',
   },
+  {
+    component: 'Localization',
+    status: 'experimental',
+    notes: '-',
+    type: 'components',
+  },
 ]
 
 const dataDisplay = [
@@ -56,37 +62,61 @@ const dataDisplay = [
   {
     component: 'CollapsibleGroup',
     status: 'supported',
-    notes: 'We expect to add the animations soon',
+    notes: 'Will be deprecated',
     type: 'dataDisplay',
   },
   {
     component: 'Collapsible',
     status: 'supported',
-    notes: 'We expect to add the animations soon',
+    notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'DataGrid',
     status: 'supported',
+    notes: 'Will be renamed to Table',
+    type: 'dataDisplay',
+  },
+  {
+    component: 'DataView',
+    status: 'supported',
+    notes: '-',
+    type: 'dataDisplay',
+  },
+  {
+    component: 'Filter',
+    status: 'experimental',
+    notes: '-',
+    type: 'dataDisplay',
+  },
+  {
+    component: 'FilterMultiple',
+    status: 'experimental',
+    notes: '-',
+    type: 'dataDisplay',
+  },
+  {
+    component: 'FilterGroup',
+    status: 'experimental',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Toolbar',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Pagination',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'FilterBar',
-    status: 'experimental',
-    notes: '-',
+    status: 'supported',
+    notes: 'Will be deprecated in favor of the new filter components',
     type: 'dataDisplay',
   },
   {
@@ -113,6 +143,9 @@ const overlay = [
         <Anchor href="https://github.com/vtex/onda/issues/495" target="_blank">
           Issue #495
         </Anchor>
+        <br />
+        Will be deprecated in favor of the List, Heading, Label and Paragraph
+        components.
       </Text>
     ),
     type: 'overlay',
@@ -202,7 +235,7 @@ const typography = [
   {
     component: 'Anchor',
     status: 'supported',
-    notes: '-',
+    notes: 'Will be renamed to Link',
     type: 'typography',
   },
   {
@@ -235,11 +268,29 @@ const layout = [
   {
     component: 'Set',
     status: 'supported',
-    notes: 'It will be renamed to Stack',
+    notes: 'Will be renamed to Stack',
     type: 'layout',
   },
   {
     component: 'Columns',
+    status: 'supported',
+    notes: '-',
+    type: 'layout',
+  },
+  {
+    component: 'Center',
+    status: 'supported',
+    notes: '-',
+    type: 'layout',
+  },
+  {
+    component: 'Bleed',
+    status: 'experimental',
+    notes: '-',
+    type: 'layout',
+  },
+  {
+    component: 'Inline',
     status: 'experimental',
     notes: '-',
     type: 'layout',
@@ -254,9 +305,15 @@ const page = [
     type: 'page',
   },
   {
+    component: 'Stats',
+    status: 'upcoming',
+    notes: 'Some teams currently refer to this component as Totalizer',
+    type: 'page',
+  },
+  {
     component: 'Sidebar',
     status: 'experimental',
-    notes: '-',
+    notes: 'Will be renamed to Left Nav',
     type: 'page',
   },
   {
@@ -267,31 +324,31 @@ const page = [
   },
   {
     component: 'PageHeader',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'page',
   },
   {
     component: 'Page',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'page',
   },
   {
     component: 'PageContent',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'page',
   },
   {
     component: 'PageTitle',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'page',
   },
   {
     component: 'PageActions',
-    status: 'experimental',
+    status: 'supported',
     notes: '-',
     type: 'page',
   },
@@ -301,7 +358,7 @@ const forms = [
   {
     component: 'CheckboxGroup',
     status: 'supported',
-    notes: 'Investigating the need for a helper text',
+    notes: 'Will be merged with the RadioGroup in a new ChoiceList component',
     type: 'forms',
   },
   {
@@ -313,19 +370,20 @@ const forms = [
   {
     component: 'Dropdown',
     status: 'supported',
-    notes: 'Design change may coming soon that maybe invalidate this component',
+    notes:
+      'Will be deprecated in favor of a future Inline variant in the Select',
     type: 'forms',
   },
   {
     component: 'InputPassword',
     status: 'supported',
-    notes: '-',
+    notes: 'Will be deprecated for lack of a use case',
     type: 'forms',
   },
   {
     component: 'Input',
     status: 'supported',
-    notes: '-',
+    notes: 'Will be merged with the TextArea in a new TextField component.',
     type: 'forms',
   },
   {
@@ -337,13 +395,14 @@ const forms = [
   {
     component: 'NumericStepper',
     status: 'supported',
-    notes: '-',
+    notes: 'Will be renamed to Number Field',
     type: 'forms',
   },
   {
     component: 'RadioGroup',
     status: 'supported',
-    notes: 'Investigating the need for a helper text',
+    notes:
+      'Will be merged with the CheckboxGroup in a new ChoiceList component',
     type: 'forms',
   },
   {
@@ -355,7 +414,7 @@ const forms = [
   {
     component: 'Select',
     status: 'supported',
-    notes: 'Design change may coming soon that maybe invalidate this component',
+    notes: '-',
     type: 'forms',
   },
   {
@@ -367,6 +426,9 @@ const forms = [
         <Anchor href="https://github.com/vtex/onda/issues/501" target="_blank">
           Issue #501
         </Anchor>
+        <br />
+        This component will be merged with the Input in a new TextField
+        component.
       </Text>
     ),
     type: 'forms',
@@ -374,7 +436,7 @@ const forms = [
   {
     component: 'Toggle',
     status: 'supported',
-    notes: '-',
+    notes: 'Will be renamed to Switch',
     type: 'forms',
   },
   {
@@ -385,8 +447,8 @@ const forms = [
   },
   {
     component: 'Formik library',
-    status: 'experimental',
-    notes: '-',
+    status: 'supported',
+    notes: 'Will be deprecated, it should be a separate library',
     type: 'forms',
   },
   {
@@ -397,8 +459,8 @@ const forms = [
   },
   {
     component: 'SearchBox',
-    status: 'in development',
-    notes: '-',
+    status: 'supported',
+    notes: 'Will be renamed to GlobalSearch',
     type: 'forms',
   },
   {

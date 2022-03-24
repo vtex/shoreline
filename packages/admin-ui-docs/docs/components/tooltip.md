@@ -5,7 +5,7 @@ path: /tooltip/
 
 # Tooltip
 
-Tooltips are a small informative popup that appears when an item is being, hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
+Tooltips are a small informative pop-ups that appear when an item is being hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
 ## Usage
 
@@ -107,7 +107,7 @@ function Example() {
 
 ## Props
 
-It also receive all props of `div` JSX element.
+It also accepts all props of `div` JSX element.
 
 | Name      | Type                                                                                | Description                                                          | Required | Default |
 | --------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |

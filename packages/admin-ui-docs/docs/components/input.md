@@ -5,7 +5,7 @@ path: /input/
 
 # Input
 
-Is used in a form in order to retrieve input from the user. It always has a `label` defined, and renders a `<input>` html element by default.
+The Input is used in a form in order to retrieve data inputted by the user. It always has a `label` defined, and renders an `<input>` html element by default.
 
 ## Usage
 
@@ -34,7 +34,7 @@ function Example() {
 
 ### Tone of voice
 
-The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx live
 <Set spacing={3}>
@@ -51,7 +51,7 @@ The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (def
 
 ### Icon
 
-You can add one Icon on the left side of the `Input` by defining the `icon` property.
+You can add an Icon on the left side of the `Input` by defining the `icon` property.
 
 ```jsx live
 function Example() {
@@ -162,7 +162,7 @@ function Example() {
 
 ### Overview
 
-Example of the `Input` with all its features.
+Example of `Input` with all of its features.
 
 ```jsx live
 function Example() {
@@ -218,7 +218,7 @@ function Example() {
 
 ## Props
 
-All props of `input` JSX element.
+Besides the props listed bellow, you can use all the props accepted by the `input` JSX element.
 
 | Name           | Type                                       | Description                                     | Required | Default   |
 | -------------- | ------------------------------------------ | ----------------------------------------------- | -------- | --------- |

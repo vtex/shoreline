@@ -5,7 +5,7 @@ path: /numeric-stepper/
 
 # NumericStepper
 
-NumericSteppers represents a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
+NumericSteppers represent a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
 
 ## Usage
 
@@ -30,7 +30,7 @@ function Example() {
 
 ### Tone of voice
 
-The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable with the `tone` prop.
 
 ```jsx live
 <Set spacing={3}>
@@ -128,7 +128,7 @@ It means that the user will not be able to add any input value to the NumericSte
 
 ## State
 
-You can use the properties `value`, and `onChange` to handling if the value has changed. You also can control the `tone` property to indicate if it's a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
+You can use the properties `value`, and `onChange` to handle value changes. You also can control the `tone` property to indicate if it is a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
 
 ```jsx live
 function Example() {
@@ -148,3 +148,16 @@ function Example() {
 ```
 
 ## Props
+
+| Name         | Type                        | Description                              | Required | Default   |
+| ------------ | --------------------------- | ---------------------------------------- | -------- | --------- |
+| value        | `number`                    | Displayed value                          | ✅       | -         |
+| onChange     | `({value: number}) => void` | Change handler                           | ✅       | -         |
+| label        | `string`                    | Input label                              | ✅       | -         |
+| minValue     | `number`                    | Min value accepted                       | 🚫       | -10e9     |
+| maxValue     | `number`                    | Max value accepted                       | 🚫       | 10e9      |
+| disabled     | `boolean`                   | Whether its disabled or not              | 🚫       | false     |
+| tone         | `neutral`, `critical`       | Tone of voice                            | 🚫       | `neutral` |
+| criticalText | `string`                    | Error message                            | 🚫       | -         |
+| helperText   | `string`                    | Helper text message                      | 🚫       | -         |
+| step         | `number`                    | Increment and decrement multiplier value | 🚫       | `1`       |

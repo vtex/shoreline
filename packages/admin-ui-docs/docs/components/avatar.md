@@ -5,7 +5,7 @@ path: /avatar/
 
 # Avatar
 
-Showing the first letter capitalized in the center, this component creates a user's avatar from a label.
+This component creates a user's avatar from a label, by showing the label's first letter capitalized in the center.
 
 ## Usage
 
@@ -37,7 +37,7 @@ The `Avatar` can be rendered in multiple palettes, this means that the `color` a
 
 ## Props
 
-It also receive all props of `div` JSX element.
+It also accepts all the props of a `div` JSX element.
 
 | Name    | Type                                                   | Description                                        | Required | Default     |
 | ------- | ------------------------------------------------------ | -------------------------------------------------- | -------- | ----------- |

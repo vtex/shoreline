@@ -5,7 +5,13 @@ path: /set/
 
 # Set
 
-Our design system comes with a set of layout components to help you build common layouts inside your application. `Set` represents a set of components, that automatically space out the components.
+Our design system comes with layout components to help you build common layouts inside your application. `Set` represents a group of components, it automatically spaces out its child components.
+
+## Import
+
+```sh isStatic
+import { Set } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -21,13 +27,7 @@ A `<Set>` can be used to list a set of components. It will automatically space o
 </Set>
 ```
 
-## Import
-
-```sh isStatic
-import { Set } from '@vtex/admin-ui'
-```
-
-## Variation
+## Variations
 
 ### Spacing
 
@@ -61,7 +61,7 @@ Orientation can be either `vertical` or `horizontal` (default). It can be contro
 
 ### Fluid
 
-While on `vertical` orientation, you can alternatively the `fluid` property. This will make the inner children, match the container width.
+While on `vertical` orientation, you can alternatively use the `fluid` property. This will make the inner children, match the container width.
 
 ```jsx live
 <Box csx={{ maxWidth: 320 }}>
@@ -94,8 +94,9 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 `orientation`, `spacing` and `align` are [`ResponsiveValues`](/guidelines/responsive-design/#responsive-values). It means that you can pass an array to them.
 
 ```jsx live
-<Box csx={{ maxWidth: ['full', 'full', 560] }}> p
-  <Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
+<Box csx={{ maxWidth: ['full', 'full', 560] }}>
+  {' '}
+  p<Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
     <Button>Button 3</Button>
@@ -125,9 +126,9 @@ You can use the `csx` property to handle different styles.
 </Set>
 ```
 
-# Props
+## Props
 
-All props of `div` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `div` JSX element.
 
 | Name        | Type                                           | Description                                              | Required | Default      |
 | ----------- | ---------------------------------------------- | -------------------------------------------------------- | -------- | ------------ |

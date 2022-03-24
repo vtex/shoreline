@@ -30,7 +30,7 @@ The variant defines the appearance and emphasis of the button.
 ```jsx live
 <Set orientation="vertical">
   <Set>
-    <Button variant="adaptative-dark">Apdaptative</Button>
+    <Button variant="adaptative-dark">Adaptative</Button>
     <Button variant="tertiary">Tertiary</Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="primary">Primary</Button>
@@ -72,7 +72,7 @@ Display an icon after the text.
 
 ```jsx live
 <Button icon={<IconHeart />} iconPosition="end">
-  Icon start
+  Icon end
 </Button>
 ```
 
@@ -140,13 +140,13 @@ function Example() {
 
 ## Accessibility
 
-- `Button` has role `button`.
-- When `Button` has focus, <kbd>Space</kbd> and <kbd>Enter</kbd> triggers it.
+- `Button` has the role `button`.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> trigger its action.
 - If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
 
 ### Best Practices
 
-- When using an Icon only button, you must set the `aria-label` property.
+- When using an Icon-only button, you must set the `aria-label` property to make it accessible.
 
 ```jsx isStatic
 function Example() {
@@ -161,7 +161,7 @@ function Example() {
 
 ## Props
 
-All props of `button` JSX element.
+Besides the props listed bellow, you can use all the props accepted by the `button` JSX element.
 
 | Name         | Type                                                                                                         | Description                               | Required | Default   |
 | ------------ | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | -------- | --------- |

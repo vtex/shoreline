@@ -5,7 +5,7 @@ path: /label/
 
 # Label
 
-The `<Label>` component renders a `<label>` by default with basic reset styling.
+The `<Label>` component renders a `<label>` by default, with basic reset styling.
 
 ## Behavior
 
@@ -38,4 +38,4 @@ You can use the `csx` property to handle different styles.
 
 ## Props
 
-All props of `label` jsx element.
+You can use all the props accepted by the `label` JSX element

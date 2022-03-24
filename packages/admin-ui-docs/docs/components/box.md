@@ -47,7 +47,7 @@ Be sure that you're using the correct semantic element and `aria roles` for the 
 
 ## Props
 
-All props of `as` which is `div` by default.
+Besides the props listed bellow, you can use all the props accepted by the JSX element you defined with `as`, which is `div` by default.
 
 | Name | Type          | Description   | Required | Default |
 | ---- | ------------- | ------------- | -------- | ------- |

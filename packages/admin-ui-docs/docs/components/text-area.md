@@ -41,7 +41,7 @@ function Example() {
 
 ### Tone of Voice
 
-The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and it's adjustable using the `tone` prop.
+The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx live
 <Set spacing={3}>
@@ -113,7 +113,7 @@ function Example() {
 
 ## Props
 
-It also receives all props of `textarea` JSX element.
+It also accepts all props of `textarea` JSX element.
 
 | Name         | Type                                          | Description                                  | Required | Default   |
 | ------------ | --------------------------------------------- | -------------------------------------------- | -------- | --------- |

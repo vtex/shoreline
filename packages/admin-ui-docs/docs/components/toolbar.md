@@ -5,7 +5,7 @@ path: /toolbar/
 
 # Toolbar
 
-Accessible Toolbar component that follows the [WAI-ARIA Toolbar Pattern](https://www.w3.org/TR/wai-aria-practices/#toolbar). It's a container for grouping a set of controls.
+Accessible Toolbar component that follows the [WAI-ARIA Toolbar Pattern](https://www.w3.org/TR/wai-aria-practices/#toolbar). It is a container for grouping a set of controls.
 
 ## Import
 
@@ -154,9 +154,7 @@ const state = useToolbarState()
 - <kbd>Home</kbd> or <kbd>PageUp</kbd> moves focus to the first `ToolbarItem`.
 - <kbd>End</kbd> or <kbd>PageDown</kbd> moves focus to the last `ToolbarItem`.
 
-## Types
-
-### Toolbar props
+## Props
 
 | Name      | Type           | Description                                                                                                                                           | Required | Default |
 | --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |

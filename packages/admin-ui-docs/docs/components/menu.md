@@ -207,7 +207,7 @@ All props of admin-ui's `Button` component.
 
 ### MenuList
 
-All props of `div` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `div` JSX element.
 
 | Name               | Type      | Description                                                                 | Required | Default |
 | ------------------ | --------- | --------------------------------------------------------------------------- | -------- | ------- |
@@ -215,7 +215,7 @@ All props of `div` jsx element.
 
 ### MenuItem
 
-All props of `button` jsx element.
+Besides the props listed bellow, you can use all the props accepted by the `button` JSX element.
 
 | Name | Type                | Description      | Required | Default   |
 | ---- | ------------------- | ---------------- | -------- | --------- |

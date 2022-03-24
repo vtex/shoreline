@@ -663,7 +663,7 @@ You can pass an array with one or two sorting directions. If you pass an array w
 
 ##### reducer
 
-Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it's not required and if not provided the default reducer function will be used.
+Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it is not required and if not provided the default reducer function will be used.
 The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
 
 ##### callback
@@ -1059,6 +1059,134 @@ render(<StatusExample />)
 ## Examples
 
 This section presents a series of examples that may be useful.
+
+### Filters
+
+Displaying filters and filtering data
+
+```jsx noInline live
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
+const FilterGroup = experimental_FilterGroup
+const useFilterGroupState = experimental_useFilterGroupState
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
+
+const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const items = ids.map((id) => {
+  return {
+    id: `${id}`,
+    name: faker.commerce.productName(),
+    lastSale: faker.date.past().toDateString(),
+    price: faker.commerce.price(),
+    brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
+  }
+})
+
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Product Name',
+  },
+  {
+    id: 'brand',
+    header: 'Brand ID',
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+])
+
+function FilterControls() {
+  const [data, setData] = useState(items)
+  const view = useDataViewState()
+
+  const grid = useDataGridState({
+    view,
+    columns,
+    items: data,
+  })
+
+  const [quality, setQuality] = useState()
+  const [brand, setBrand] = useState()
+
+  const brandFilterState = useFilterMultipleState({
+    items: [
+      { label: 'Mistery brand', id: 'mistery_id' },
+      { label: 'Cool brand', id: 'cool_id' },
+    ],
+    onChange: ({ selected }) => {
+      setBrand(selected)
+    },
+    label: 'Brand',
+  })
+
+  const qualityFilterState = useFilterState({
+    items: [
+      { label: 'Normal', id: 'norm' },
+      { label: 'Premium', id: 'prem' },
+    ],
+    onChange: ({ selected }) => {
+      setQuality(selected)
+    },
+    label: 'Quality',
+  })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [qualityFilterState, brandFilterState],
+  })
+
+  useEffect(() => {
+    const filtered = items.filter((item) => {
+      if (quality === 'norm' && Number(item.price) > 510) {
+        return false
+      }
+
+      if (quality === 'prem' && Number(item.price) <= 510) {
+        return false
+      }
+
+      if (brand && brand.length) {
+        if (!brand.includes('cool_id') && item.brand === 'cool_id') {
+          return false
+        }
+
+        if (!brand.includes('mistery_id') && item.brand === 'mistery_id') {
+          return false
+        }
+      }
+
+      return true
+    })
+
+    setData(filtered)
+  }, [quality, brand])
+
+  return (
+    <DataView csx={{ width: 500 }} state={view}>
+      <DataViewControls>
+        <FilterGroup state={filterGroupState}>
+          <FilterMultiple state={brandFilterState} />
+          <Filter state={qualityFilterState} />
+        </FilterGroup>
+      </DataViewControls>
+      <DataGrid state={grid} />
+    </DataView>
+  )
+}
+
+render(<FilterControls />)
+```
 
 ### Topbar
 

@@ -169,8 +169,8 @@ function Example() {
 | csx       | `StyleObject`                          | Custom styles                                 | 🚫       | `{}`    |
 | icon      | `ReactNode`                            | Icon to display                               | 🚫       | -       |
 | onDismiss | `() => void`                           | Action to dispatch on dismiss                 | 🚫       | -       |
-| visible   | `boolean`                              | Whether it's visible or not                   | 🚫       | `false` |
+| visible   | `boolean`                              | Whether it is visible or not                  | 🚫       | `false` |
 | tone      | `info, positive, warning, or critical` | Tone of voice                                 | 🚫       | `info`  |
 | children  | `ReactNode`                            | Component children                            | 🚫       | -       |
-| sticky    | `boolean`                              | Whether it's sticky or not                    | 🚫       | `false` |
+| sticky    | `boolean`                              | Whether it is sticky or not                   | 🚫       | `false` |
 | fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |

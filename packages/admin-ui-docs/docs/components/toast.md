@@ -46,13 +46,13 @@ function Example() {
 
 <blockquote palette="blue">
 
-Make sure to call the `useToast` hook one component level below the `<ToastProvider>`. This is necessary in order for the Toast work.
+Make sure to call the `useToast` hook on component level below the `<ToastProvider>`. This is necessary in order for the Toast to work.
 
 </blockquote>
 
 ### Tone of voice
 
-The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and it's adjustable using the `tone` prop.
+The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and is adjustable using the `tone` prop.
 
 ```jsx live
 function Example() {

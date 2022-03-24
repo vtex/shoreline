@@ -42,13 +42,16 @@ export function StatusTable(props: StatusTableProps) {
   )
 
   const searchedItems = React.useMemo(() => {
-    return items.filter((item) => {
-      const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
+    return items
+      .filter((item) => {
+        const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
 
-      if (filter !== 'all' && filter !== item.status.toLowerCase()) return false
+        if (filter !== 'all' && filter !== item.status.toLowerCase())
+          return false
 
-      return item.component.toLowerCase().includes(searchLowerCase)
-    })
+        return item.component.toLowerCase().includes(searchLowerCase)
+      })
+      .sort((a, b) => a.component.localeCompare(b.component))
   }, [search])
 
   useEffect(() => {

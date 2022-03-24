@@ -5,7 +5,13 @@ path: /toggle/
 
 # Toggle
 
-A Toggle is a tool that customize configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. Should reflect an action that triggers a state, never both at once.
+Toggle is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once.
+
+## Import
+
+```jsx isStatic
+import { Toggle } from '@vtex/admin-ui'
+```
 
 ## Behavior
 
@@ -23,16 +29,6 @@ function Example() {
     />
   )
 }
-```
-
-## Installation
-
-```sh isStatic
-yarn add @vtex/admin-ui
-```
-
-```jsx isStatic
-import { Toggle } from '@vtex/admin-ui'
 ```
 
 ## State
@@ -148,7 +144,7 @@ function Example() {
 
 | Name     | Type                 | Description                                                                                                                                       | Required | Default     |
 | -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| checked  | `boolean`            | Checkbox's checked state. If present, it's used instead of state                                                                                  | 🚫       | -           |
+| checked  | `boolean`            | Checkbox's checked state. If present, it is used instead of state                                                                                 | 🚫       | -           |
 | disabled | `boolean`            | Defines if the Checkbox is disabled or not                                                                                                        | 🚫       | -           |
 | value    | `string, number`     | Checkbox's value is going to be used when multiple checkboxes share the same state. Checking a checkbox with value will add it to the state array | 🚫       | -           |
 | state    | `CheckboxState`      | Return of `useCheckboxState` hook. You can also provide these props from your own state logic.                                                    | 🚫       | -           |

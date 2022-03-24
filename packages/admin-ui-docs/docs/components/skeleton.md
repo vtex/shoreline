@@ -8,7 +8,7 @@ path: /skeleton/
 `Skeleton` is a versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content. Other use cases include:
 
 - It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
-- It's being used internally by AdminUI to handle the loading state of specific components.
+- It is also used internally by AdminUI to handle the loading state of specific components.
 
 ## Import
 
@@ -26,7 +26,7 @@ By default, the `Skeleton` is fluid, which means that both width and height are 
 </Box>
 ```
 
-## Variation
+## Variations
 
 ### Rectangle
 
