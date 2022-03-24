@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.120.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.5...@vtex/admin-ui@0.120.6) (2022-03-24)
+
+### Bug Fixes
+
+- **sidebar:** add second level scroll when it has a vertical overflow ([44f82bd](https://github.com/vtex/admin-ui/commit/44f82bd1d541ef4423497b7e9a8e3b3594f73735))
+- **sidebar:** adjust zIndices to be consistent ([2e50e07](https://github.com/vtex/admin-ui/commit/2e50e07d785c31637a56322bf1794df929ab4475))
+
 ## [0.120.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.4...@vtex/admin-ui@0.120.5) (2022-03-24)
 
 ### Bug Fixes
