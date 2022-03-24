@@ -42,7 +42,7 @@ export function SidebarItemSkeleton() {
         return (
           <Box csx={{ size: '100%', padding: '$s' }}>
             <Skeleton
-              key={`section-item-${2 + index}`}
+              key={`section-item-${index}`}
               csx={{
                 height: '1rem',
                 width,

@@ -2,68 +2,100 @@
 
 exports[`Topbar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-0 {
+  .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
-  height: 100%;
-  grid-area: start;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  grid-area: start;
+}
+
+.emotion-1 {
+  margin-top: -0rem;
+  margin-left: -0.5rem;
+  margin-bottom: -0rem;
+  margin-right: -0rem;
+}
+
+.emotion-0 {
+  position: relative;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   grid-area: end;
 }
 
-.emotion-2 {
+.emotion-4 {
+  margin-top: -0rem;
+  margin-left: -0rem;
+  margin-bottom: -0rem;
+  margin-right: -0.5rem;
+}
+
+.emotion-6 {
   display: grid;
   grid-template-areas: "start center end";
   grid-template-columns: repeat(3, 1fr);
   height: 3.5rem;
   border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   z-index: 9999;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   background: #FFFFFF;
 }
 
 <div
-    class="emotion-2"
+    class="emotion-6"
   >
     <div
-      class="emotion-0"
+      class="emotion-2"
     >
-      <h1>
-        start
-      </h1>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-0"
+        >
+          <h1>
+            start
+          </h1>
+        </div>
+      </div>
     </div>
     <div
-      class="emotion-1"
+      class="emotion-5"
     >
-      <h2>
-        end
-      </h2>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-0"
+        >
+          <h2>
+            end
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

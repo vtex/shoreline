@@ -56,7 +56,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         {showSidebarItemSkeleton && <SidebarItemSkeleton />}
       </tag.div>
 
-      {!loading ? (
+      {loading ? null : (
         <tag.div
           csx={{
             position: 'absolute',
@@ -103,7 +103,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
             onMouseLeave={hideToggle}
           />
         </tag.div>
-      ) : null}
+      )}
     </Fragment>
   )
 })
