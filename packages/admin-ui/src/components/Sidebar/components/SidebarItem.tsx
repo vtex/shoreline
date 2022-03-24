@@ -50,7 +50,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
 
   const expandable = state.isExpandable(children)
   const translate =
-    selected && expandable && !state.layout.reduced ? '3rem' : '-13.5rem'
+    selected && expandable && !state.layout.reduced ? '3rem' : '-8.5rem'
 
   useEffect(() => {
     if (currentSelected && !expandable) {
@@ -100,22 +100,6 @@ export const SidebarItem = forwardRef(function SidebarItem(
     }
   }
 
-  const handleShowToggle = (event: React.MouseEvent<any, MouseEvent>) => {
-    state.layout.showToggle()
-
-    if (typeof baseProps.onMouseEnter === 'function') {
-      baseProps.onMouseEnter(event)
-    }
-  }
-
-  const handleHideToggle = (event: React.MouseEvent<any, MouseEvent>) => {
-    state.layout.hideToggle()
-
-    if (typeof baseProps.onMouseLeave === 'function') {
-      baseProps.onMouseLeave(event)
-    }
-  }
-
   return (
     <CompositeItem
       ref={ref}
@@ -124,6 +108,16 @@ export const SidebarItem = forwardRef(function SidebarItem(
       aria-label={label}
       id={label}
       onMouseEnter={() => {
+        if (!expandable) {
+          state.setSelectedItem(state.selectedItemFallback)
+
+          return
+        }
+
+        if (state.isReduced()) {
+          return
+        }
+
         state.setSelectedItem({
           uniqueKey,
           expandable,
@@ -135,7 +129,9 @@ export const SidebarItem = forwardRef(function SidebarItem(
           <SidebarDisclosure
             {...itemProps}
             icon={icon}
-            selected={selected || selectedFallback}
+            selected={selected}
+            selectedFallback={selectedFallback}
+            expandable={expandable}
             label={label}
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
@@ -144,9 +140,10 @@ export const SidebarItem = forwardRef(function SidebarItem(
             csx={{
               position: 'absolute',
               top: 0,
+              left: '0.75rem',
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-              height: '100%',
-              width: '12.5rem',
+              height: 'auto',
+              width: SCALES.COLLAPSIBLE_AREA_WIDTH,
               padding: '$s',
               outline: 'none',
               overflow: 'auto',
@@ -154,12 +151,10 @@ export const SidebarItem = forwardRef(function SidebarItem(
               transform: `translateX(${translate})`,
               opacity: selected && !state.layout.reduced ? 1 : 0,
               transition:
-                'transform 200ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
+                'transform 150ms cubic-bezier(0.4, 0.14, 0.3, 1), opacity 150ms cubic-bezier(0.4, 0.14, 0.3, 1)',
             }}
             data-testid={`${label}-ul`}
             {...(baseProps as any)}
-            onMouseEnter={handleShowToggle}
-            onMouseLeave={handleHideToggle}
           >
             <tag.li
               aria-label={`${label} menu`}

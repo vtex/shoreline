@@ -43,7 +43,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -53,7 +53,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -287,7 +287,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   width: auto;
   padding-left: 0.5rem;
   padding-right: 0.75rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -297,7 +297,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 

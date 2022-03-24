@@ -49,16 +49,21 @@ export const Sidebar = forwardRef(function Sidebar(
     ...baseProps
   } = props
 
+  const { showToggle, hideToggle } = state.layout
+
   return (
     <tag.div
-      csx={{ display: 'flex' }}
+      csx={{ display: 'flex', maxWidth: SCALES.MAX_SIDEBAR_WIDTH }}
       onMouseLeave={() => {
         const { setSelectedItem, selectedItem, selectedItemFallback } = state
 
         if (selectedItem?.uniqueKey !== selectedItemFallback?.uniqueKey) {
           setSelectedItem(selectedItemFallback)
         }
+
+        hideToggle()
       }}
+      onMouseEnter={showToggle}
     >
       <tag.div
         csx={{
@@ -71,9 +76,10 @@ export const Sidebar = forwardRef(function Sidebar(
           outline: 'none',
           borderRight: '$neutral',
           bg: '$primary',
+          paddingY: '$s',
           boxShadow:
             state.selectedItem?.expandable && state.layout.reduced
-              ? '1px 0px 6px -2px rgb(0 0 0 / 30%)'
+              ? '$overlay.center'
               : 'unset',
           ...rootProps.csx,
         }}
@@ -87,7 +93,7 @@ export const Sidebar = forwardRef(function Sidebar(
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingY: '1em',
+            paddingY: '$xl',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',
@@ -125,20 +131,16 @@ export const Sidebar = forwardRef(function Sidebar(
       <tag.div
         csx={{
           bg: '$secondary',
-          width: '3.4375rem',
+          width: '3.6775rem',
           top: 0,
           bottom: 0,
           zIndex: 'sidebarOverlay',
           position: 'fixed',
           maxHeight: '100%',
         }}
+        onMouseEnter={showToggle}
       />
-      <SidebarBackdrop
-        state={state}
-        loading={
-          state.selectedItem?.expandable && loading && !state.layout.reduced
-        }
-      />
+      <SidebarBackdrop state={state} loading={loading} />
     </tag.div>
   )
 })

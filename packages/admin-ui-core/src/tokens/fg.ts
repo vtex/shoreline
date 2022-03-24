@@ -12,8 +12,8 @@ export const fg = {
 
   action: {
     neutral: {
-      tertiary: colors.black,
-      tertiaryHover: colors.black,
+      tertiary: colors.gray50,
+      tertiaryHover: colors.gray60,
       tertiaryPressed: colors.black,
     },
     main: {

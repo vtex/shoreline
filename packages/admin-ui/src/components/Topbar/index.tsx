@@ -1,7 +1,9 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-
+import { experimental_Bleed as Bleed } from '../../experimental'
+import { Set } from '../Set'
+import { Center } from '../Center'
 import { Skeleton } from '../Skeleton'
 
 /**
@@ -31,8 +33,8 @@ export const Topbar = jsx('div')(
     gridTemplateColumns: 'repeat(3, 1fr)',
     height: '3.5rem',
     borderBottom: '$neutral',
-    paddingX: 3,
     zIndex: 'topbar',
+    paddingX: '$xl',
     bg: '$primary',
   },
   {
@@ -50,53 +52,97 @@ export const Topbar = jsx('div')(
 )
 
 /**
- * Topbar loading Skeleton
- */
-function TopbarSkeleton() {
-  return (
-    <Fragment>
-      <TopbarStart>
-        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </TopbarStart>
-      <TopbarEnd>
-        <Skeleton csx={{ height: '1.5rem', width: '100%' }} />
-      </TopbarEnd>
-    </Fragment>
-  )
-}
-
-/**
  * Topbar content positioned in the start.
  */
-export const TopbarStart = jsx('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  height: '100%',
-  gridArea: 'start',
-})
+export const TopbarStart = jsx('div')(
+  {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    gridArea: 'start',
+  },
+  {
+    options: [],
+    useOptions(_, props) {
+      const { children, ...htmlProps } = props
+
+      return {
+        ...htmlProps,
+        children: <Bleed left={0.5}>{children}</Bleed>,
+      }
+    },
+  }
+)
 
 /**
  * Topbar content positioned in the center.
  */
 export const TopbarCenter = jsx('div')({
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'center',
-  height: '100%',
+  alignItems: 'center',
   gridArea: 'center',
 })
 
 /**
  * Topbar content positioned in the end.
  */
-export const TopbarEnd = jsx('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  height: '100%',
-  gridArea: 'end',
-})
+export const TopbarEnd = jsx('div')(
+  {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gridArea: 'end',
+  },
+  {
+    options: [],
+    useOptions(_, props) {
+      const { children, ...htmlProps } = props
+
+      return {
+        ...htmlProps,
+        children: <Bleed right={0.5}>{children}</Bleed>,
+      }
+    },
+  }
+)
+
+/**
+ * Topbar loading Skeleton
+ */
+export function TopbarSkeleton() {
+  return (
+    <Fragment>
+      <TopbarStart>
+        <Set spacing="$l">
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.5rem' }} />
+          </Center>
+          <Skeleton csx={{ width: '8rem', height: '1rem' }} />
+        </Set>
+      </TopbarStart>
+      <TopbarCenter>
+        <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
+      </TopbarCenter>
+      <TopbarEnd>
+        <Set spacing="$m">
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.25rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.25rem' }} />
+          </Center>
+          <Center csx={{ padding: '$xs' }}>
+            <Skeleton csx={{ size: '1.5rem' }} />
+          </Center>
+        </Set>
+      </TopbarEnd>
+    </Fragment>
+  )
+}
 
 export interface TopbarOptions {
   /**

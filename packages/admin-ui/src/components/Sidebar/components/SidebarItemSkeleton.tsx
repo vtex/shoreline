@@ -2,8 +2,19 @@ import React from 'react'
 
 import { Box } from '../../Box'
 import { Skeleton } from '../../Skeleton'
-import { Set } from '../../Set'
 import { SCALES } from '../consts'
+
+const skeletonWidth = {
+  0: '8rem',
+  1: '7rem',
+  2: '6.5rem',
+  3: '8rem',
+  4: '7rem',
+  5: '8rem',
+  6: '6rem',
+}
+
+type SkeletonIndex = keyof typeof skeletonWidth
 
 /**
  * The SidebaItem loading state
@@ -13,44 +24,33 @@ export function SidebarItemSkeleton() {
     <Box
       csx={{
         width: SCALES.COLLAPSIBLE_AREA_WIDTH,
-        padding: '1.5rem 0.5rem',
+        padding: '$s',
       }}
     >
-      {Array.from(new Array(2)).map((_, index) => (
-        <Set
-          key={`sidebar-section-${index}`}
-          spacing={1}
-          orientation="vertical"
+      <Box csx={{ size: '100%', margin: '$s', paddingY: '$l' }}>
+        <Skeleton
+          key="section-title"
           csx={{
-            width: SCALES.SIDEBAR_SECTION_WIDTH,
-            paddingBottom: 8,
+            width: '5rem',
+            height: '1.5rem',
           }}
-        >
-          <Box
-            csx={{
-              minHeight: '1rem',
-              width: '6rem',
-              paddingBottom: '0.8125rem',
-            }}
-          >
+        />
+      </Box>
+      {Array.from(new Array(7)).map((_, index) => {
+        const width = skeletonWidth[index as SkeletonIndex]
+
+        return (
+          <Box csx={{ size: '100%', padding: '$s' }}>
             <Skeleton
-              key={`section-title-${index}`}
+              key={`section-item-${index}`}
               csx={{
                 height: '1rem',
+                width,
               }}
             />
           </Box>
-          {Array.from(new Array(index % 2 === 0 ? 3 : 5)).map((_, idx) => (
-            <Skeleton
-              key={`section-item-${2 + idx}`}
-              csx={{
-                height: '1.5rem',
-                width: SCALES.SIDEBAR_SECTION_WIDTH,
-              }}
-            />
-          ))}
-        </Set>
-      ))}
+        )
+      })}
     </Box>
   )
 }

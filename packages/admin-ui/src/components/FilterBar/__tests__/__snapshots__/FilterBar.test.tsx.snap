@@ -161,7 +161,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -171,7 +171,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-45:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -325,7 +325,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 0.75rem;
   padding-right: 0.5rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
   min-width: 150px;
   max-width: 150px;
@@ -337,7 +337,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -470,7 +470,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  color: #000000;
+  color: hsla(0, 0%, 33%, 1);
   background: transparent;
 }
 
@@ -509,7 +509,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-27:hover {
-  color: #000000;
+  color: hsla(0, 0%, 23%, 1);
   background: rgba(0, 0, 0, 0.05);
 }
 
