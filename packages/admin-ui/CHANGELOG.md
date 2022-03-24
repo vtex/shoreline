@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.120.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.4...@vtex/admin-ui@0.120.5) (2022-03-24)
+
+### Bug Fixes
+
+- **sidebar:** apply design review changes ([68bb81c](https://github.com/vtex/admin-ui/commit/68bb81cbca63cfd83510009cfc844efe1b51a383))
+- **sidebar:** apply design updates ([84dfc75](https://github.com/vtex/admin-ui/commit/84dfc7530593e22a77782415e2fa020757ea3200))
+- **sidebar:** apply design updates ([8479400](https://github.com/vtex/admin-ui/commit/8479400a6415e41efb1244c25e42e173488db637))
+- **sidebar:** apply design updates ([9a04614](https://github.com/vtex/admin-ui/commit/9a04614481c19697d40ed6a132db9b396a71167d))
+- **sidebar:** changes the second level transition value to be smoother ([95ff4a0](https://github.com/vtex/admin-ui/commit/95ff4a01dc2d180fb61f6899d538497629fd2ba0))
+- **sidebar:** skeleton styles ([c6a925d](https://github.com/vtex/admin-ui/commit/c6a925d94070a83030b8492756d2904d95ed86e3))
+- **sidebar:** update spacing according to the design specs ([0ad1df2](https://github.com/vtex/admin-ui/commit/0ad1df2cab0c139a399d02b777ccce28d0f251a3))
+- **topbar:** change spacing according to the design specs ([53700d6](https://github.com/vtex/admin-ui/commit/53700d69bd5e43462a519458dcbf84b25156703a))
+- **topbar:** remove circle dependency ([de5f443](https://github.com/vtex/admin-ui/commit/de5f443a6ce8e657583d67e3d82c10cd856e9d8b))
+
 ## [0.120.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.3...@vtex/admin-ui@0.120.4) (2022-03-23)
 
 ### Bug Fixes

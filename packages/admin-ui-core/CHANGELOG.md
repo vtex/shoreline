@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.2...@vtex/admin-ui-core@0.7.3) (2022-03-24)
+
+### Bug Fixes
+
+- **tokens:** change action.neutral tokens values ([5ae5b8b](https://github.com/vtex/admin-ui/commit/5ae5b8bb2c312fad0650303064301c5e9d9f98f5))
+
 ## [0.7.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.1...@vtex/admin-ui-core@0.7.2) (2022-03-18)
 
 ### Bug Fixes
