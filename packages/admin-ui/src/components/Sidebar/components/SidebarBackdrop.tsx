@@ -60,7 +60,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         <tag.div
           csx={{
             position: 'absolute',
-            zIndex: 9999,
+            zIndex: 'sidebarOverlay',
             top: '4.85rem',
             height: '1.75rem',
             width: '1.75rem',

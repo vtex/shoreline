@@ -16,7 +16,9 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
   return (
     <Set spacing="$l" csx={{ width: '100%' }} orientation="vertical">
       {Array.from(new Array(amount)).map(() => (
-        <Center csx={{ zIndex: 999, paddingX: '$s', width: '100%' }}>
+        <Center
+          csx={{ zIndex: 'sidebarOverlay', paddingX: '$s', width: '100%' }}
+        >
           <Skeleton
             csx={{
               margin: '$s',

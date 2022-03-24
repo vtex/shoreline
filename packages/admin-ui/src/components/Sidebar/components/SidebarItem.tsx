@@ -142,7 +142,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
               top: 0,
               left: '0.75rem',
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-              height: 'auto',
+              height: '100%',
               width: SCALES.COLLAPSIBLE_AREA_WIDTH,
               padding: '$s',
               outline: 'none',
