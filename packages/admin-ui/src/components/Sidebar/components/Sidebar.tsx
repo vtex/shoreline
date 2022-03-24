@@ -140,12 +140,7 @@ export const Sidebar = forwardRef(function Sidebar(
         }}
         onMouseEnter={showToggle}
       />
-      <SidebarBackdrop
-        state={state}
-        loading={
-          state.selectedItem?.expandable && loading && !state.layout.reduced
-        }
-      />
+      <SidebarBackdrop state={state} loading={loading} />
     </tag.div>
   )
 })

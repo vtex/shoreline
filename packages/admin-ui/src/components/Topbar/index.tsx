@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { jsx, tag } from '@vtex/admin-ui-react'
+import { jsx } from '@vtex/admin-ui-react'
 import { Set } from '../Set'
 import { Center } from '../Center'
 import { experimental_Bleed as Bleed } from '../../experimental'
@@ -34,7 +34,7 @@ export const Topbar = jsx('div')(
     height: '3.5rem',
     borderBottom: '$neutral',
     zIndex: 'topbar',
-    padding: '$narrow.m',
+    paddingX: '$xl',
     bg: '$primary',
   },
   {
@@ -95,6 +95,7 @@ export const TopbarStart = jsx('div')(
   {
     display: 'flex',
     justifyContent: 'flex-start',
+    alignItems: 'center',
     gridArea: 'start',
   },
   {
@@ -116,6 +117,7 @@ export const TopbarStart = jsx('div')(
 export const TopbarCenter = jsx('div')({
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
   gridArea: 'center',
 })
 
@@ -126,6 +128,7 @@ export const TopbarEnd = jsx('div')(
   {
     display: 'flex',
     justifyContent: 'flex-end',
+    alignItems: 'center',
     gridArea: 'end',
   },
   {
