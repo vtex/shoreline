@@ -40,32 +40,39 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         zIndex: 9999,
         position: 'relative',
         width: '100%',
-        paddingX: '$s',
+        paddingX: '5px',
       }}
     >
       <Button
         ref={ref}
         variant="tertiary"
         icon={icon}
-        title={label}
+        title={state.layout.reduced ? label : undefined}
         name={label}
         csx={merge(
           {
+            cursor: selectedFallback ? 'auto' : 'pointer',
             bg: '$action.neutral.tertiary',
             transform: 'translate3d(0,0,0)',
             color: selectedFallback
               ? '$action.main.tertiarySelected'
               : '$action.neutral.tertiary',
             ':active': {
-              bg: 'transparent',
-              color: 'currentColor',
+              bg: selectedFallback
+                ? 'transparent'
+                : '$action.neutral.tertiaryHover',
+              color: selectedFallback ? 'none' : 'currentColor',
             },
             ':hover': {
-              color: '$action.neutral.tertiaryHover',
-              bg: 'transparent',
+              color: selectedFallback
+                ? 'none'
+                : '$action.neutral.tertiaryHover',
+              bg: selectedFallback
+                ? 'transparent'
+                : '$action.neutral.tertiaryHover',
             },
-            size: '100%',
-            padding: '$s',
+            size: 'auto',
+            padding: '0.5rem',
             svg: { margin: 0 },
           },
           csx

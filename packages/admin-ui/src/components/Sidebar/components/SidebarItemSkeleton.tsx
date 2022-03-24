@@ -8,9 +8,13 @@ const skeletonWidth = {
   0: '8rem',
   1: '7rem',
   2: '6.5rem',
+  3: '8rem',
+  4: '7rem',
+  5: '8rem',
+  6: '6rem',
 }
 
-type Index = 0 | 1 | 2
+type SkeletonIndex = keyof typeof skeletonWidth
 
 /**
  * The SidebaItem loading state
@@ -32,16 +36,16 @@ export function SidebarItemSkeleton() {
           }}
         />
       </Box>
-      {Array.from(new Array(7)).map((_, idx) => {
-        const index = idx % 3
+      {Array.from(new Array(7)).map((_, index) => {
+        const width = skeletonWidth[index as SkeletonIndex]
 
         return (
           <Box csx={{ size: '100%', padding: '$s' }}>
             <Skeleton
-              key={`section-item-${2 + idx}`}
+              key={`section-item-${2 + index}`}
               csx={{
                 height: '1rem',
-                width: idx === 6 ? '6rem' : skeletonWidth[index as Index],
+                width,
               }}
             />
           </Box>

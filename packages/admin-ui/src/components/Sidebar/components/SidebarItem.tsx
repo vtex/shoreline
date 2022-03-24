@@ -140,10 +140,10 @@ export const SidebarItem = forwardRef(function SidebarItem(
             csx={{
               position: 'absolute',
               top: 0,
-              left: '0.5rem',
+              left: '0.75rem',
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
-              height: '100%',
-              width: '12.5rem',
+              height: 'auto',
+              width: '12.25rem',
               padding: '$s',
               outline: 'none',
               overflow: 'auto',

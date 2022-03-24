@@ -12,7 +12,6 @@ import {
   IconLayout,
   IconArrowUp,
   IconQuestion,
-  IconImage,
   IconBell,
   IconArrowUUpLeft,
 } from '@vtex/phosphor-icons'

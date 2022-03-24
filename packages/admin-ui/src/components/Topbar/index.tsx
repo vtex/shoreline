@@ -1,9 +1,9 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { jsx, tag } from '@vtex/admin-ui-react'
 import { Set } from '../Set'
 import { Center } from '../Center'
-
+import { experimental_Bleed as Bleed } from '../../experimental'
 import { Skeleton } from '../Skeleton'
 
 /**
@@ -33,8 +33,8 @@ export const Topbar = jsx('div')(
     gridTemplateColumns: 'repeat(3, 1fr)',
     height: '3.5rem',
     borderBottom: '$neutral',
-    padding: '$xs',
     zIndex: 'topbar',
+    padding: '$narrow.m',
     bg: '$primary',
   },
   {
@@ -71,7 +71,7 @@ function TopbarSkeleton() {
       <TopbarEnd>
         <Set spacing="$m">
           <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ height: '1.5rem', width: '5.563rem' }} />
+            <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
           </Center>
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ size: '1.25rem' }} />
@@ -91,35 +91,55 @@ function TopbarSkeleton() {
 /**
  * Topbar content positioned in the start.
  */
-export const TopbarStart = jsx('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  height: '100%',
-  gridArea: 'start',
-})
+export const TopbarStart = jsx('div')(
+  {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    gridArea: 'start',
+  },
+  {
+    options: [],
+    useOptions(_, props) {
+      const { children, ...htmlProps } = props
+
+      return {
+        ...htmlProps,
+        children: <Bleed left={0.5}>{children}</Bleed>,
+      }
+    },
+  }
+)
 
 /**
  * Topbar content positioned in the center.
  */
 export const TopbarCenter = jsx('div')({
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'center',
-  height: '100%',
   gridArea: 'center',
 })
 
 /**
  * Topbar content positioned in the end.
  */
-export const TopbarEnd = jsx('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  height: '100%',
-  gridArea: 'end',
-})
+export const TopbarEnd = jsx('div')(
+  {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gridArea: 'end',
+  },
+  {
+    options: [],
+    useOptions(_, props) {
+      const { children, ...htmlProps } = props
+
+      return {
+        ...htmlProps,
+        children: <Bleed right={0.5}>{children}</Bleed>,
+      }
+    },
+  }
+)
 
 export interface TopbarOptions {
   /**

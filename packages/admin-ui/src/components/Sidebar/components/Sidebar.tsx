@@ -53,7 +53,7 @@ export const Sidebar = forwardRef(function Sidebar(
 
   return (
     <tag.div
-      csx={{ display: 'flex' }}
+      csx={{ display: 'flex', maxWidth: SCALES.MAX_SIDEBAR_WIDTH }}
       onMouseLeave={() => {
         const { setSelectedItem, selectedItem, selectedItemFallback } = state
 
@@ -131,7 +131,7 @@ export const Sidebar = forwardRef(function Sidebar(
       <tag.div
         csx={{
           bg: '$secondary',
-          width: '3.4375rem',
+          width: '3.6775rem',
           top: 0,
           bottom: 0,
           zIndex: 'sidebarOverlay',

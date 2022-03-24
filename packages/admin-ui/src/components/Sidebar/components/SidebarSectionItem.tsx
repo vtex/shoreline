@@ -75,12 +75,16 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           },
           ':hover': {
             '> div': {
-              color: '$action.main.tertiaryHover',
+              color: selected
+                ? '$action.main.tertiaryHover'
+                : '$action.neutral.tertiaryHover',
             },
           },
           ':active': {
             '> div': {
-              color: '$action.main.teriaryPressed',
+              color: selected
+                ? '$action.main.tertiaryPressed'
+                : '$action.neutral.tertiaryPressed',
             },
             bg: '$action.neutral.tertiaryHover',
           },
