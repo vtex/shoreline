@@ -38,4 +38,4 @@ You can use the `csx` property to handle different styles.
 
 ## Props
 
-All the props accepted by the `label` JSX element
+You can use all the props accepted by the `label` JSX element

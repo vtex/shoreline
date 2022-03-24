@@ -134,7 +134,7 @@ Both should be unique for the Page. This means that if you have two searches, th
 
 ### Search props
 
-All props of `form` JSX element in addition to `state` (useSearchState return).
+You can use all the props accepted by the `form` JSX element in addition to `state` (useSearchState return).
 
 ### useSearchState Params
 
@@ -176,4 +176,4 @@ Configuration params accepted by the state hook
 
 ### useQuerySearchState Return
 
-The object returned from the state hook is the same as useSearchState
+The object returned from the state hook is the same as [useSearchState](#usesearchstate-params)

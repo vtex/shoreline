@@ -183,7 +183,7 @@ const state = useCheckboxState()
 
 ### Checkbox
 
-It also accepts all the props of `<input type="checkbox" />` JSX element.
+It also accepts all the props of the `<input type="checkbox" />` JSX element.
 
 | Name     | Type                | Description                         | Required | Default   |
 | -------- | ------------------- | ----------------------------------- | -------- | --------- |

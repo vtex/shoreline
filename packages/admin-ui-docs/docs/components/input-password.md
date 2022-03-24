@@ -166,7 +166,7 @@ function Example() {
 
 ### Overview
 
-Example of `InputPassword` with all its features.
+Example of `InputPassword` with all of its features.
 
 ```jsx live
 function Example() {

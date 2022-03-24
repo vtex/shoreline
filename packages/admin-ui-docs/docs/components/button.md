@@ -141,12 +141,12 @@ function Example() {
 ## Accessibility
 
 - `Button` has the role `button`.
-- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> triggers its action.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> trigger its action.
 - If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
 
 ### Best Practices
 
-- When using an Icon only button, you must set the `aria-label` property to make it accessible.
+- When using an Icon-only button, you must set the `aria-label` property to make it accessible.
 
 ```jsx isStatic
 function Example() {

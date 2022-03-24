@@ -25,7 +25,7 @@ function Example() {
 
 ## State
 
-The `Radio` component is always used in a `RadioGroup` context, so handling the states of each one of them and maintaining accessibility can be tricky.
+The `Radio` component is always used in a `RadioGroup` context, we provide a hook to handle the state of radio groups and standalone radios.
 
 ### useRadioState hook
 
