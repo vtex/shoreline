@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import { jsx, useResponsiveValue } from '@vtex/admin-ui-react'
-import type { VSpaceTokens } from '@vtex/admin-ui-core'
 
 /**
  * Component used to display a set of components that are spaced evenly.
@@ -68,7 +67,7 @@ export interface SetOptions {
    * space between items
    * @default 0
    */
-  spacing?: ResponsiveValue<number> | VSpaceTokens
+  spacing?: ResponsiveValue<number> | string
   /**
    * items alignment
    * @default start

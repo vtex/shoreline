@@ -1,10 +1,8 @@
 import type { ComponentPropsWithRef } from 'react'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import { Set } from '../Set'
-import { Center } from '../Center'
 import { experimental_Bleed as Bleed } from '../../experimental'
-import { Skeleton } from '../Skeleton'
+import { TopbarSkeleton } from './topbar-skeleton'
 
 /**
  * Topbar component.
@@ -50,43 +48,6 @@ export const Topbar = jsx('div')(
     },
   }
 )
-
-/**
- * Topbar loading Skeleton
- */
-function TopbarSkeleton() {
-  return (
-    <Fragment>
-      <TopbarStart>
-        <Set spacing="$l">
-          <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ size: '1.5rem' }} />
-          </Center>
-          <Skeleton csx={{ width: '8rem', height: '1rem' }} />
-        </Set>
-      </TopbarStart>
-      <TopbarCenter>
-        <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
-      </TopbarCenter>
-      <TopbarEnd>
-        <Set spacing="$m">
-          <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
-          </Center>
-          <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ size: '1.25rem' }} />
-          </Center>
-          <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ size: '1.25rem' }} />
-          </Center>
-          <Center csx={{ padding: '$xs' }}>
-            <Skeleton csx={{ size: '1.5rem' }} />
-          </Center>
-        </Set>
-      </TopbarEnd>
-    </Fragment>
-  )
-}
 
 /**
  * Topbar content positioned in the start.

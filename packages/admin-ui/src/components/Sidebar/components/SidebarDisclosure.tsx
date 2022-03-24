@@ -31,6 +31,19 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   100% { opacity: 1 }
   `
 
+  const selectedStyle = {
+    cursor: 'auto',
+    color: '$action.main.tertiarySelected',
+    ':active': {
+      bg: 'transparent',
+      color: 'none',
+    },
+    ':hover': {
+      color: 'none',
+      bg: 'transparent',
+    },
+  }
+
   return (
     <Center
       csx={{
@@ -51,29 +64,22 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         name={label}
         csx={merge(
           {
-            cursor: selectedFallback ? 'auto' : 'pointer',
+            cursor: 'pointer',
             bg: '$action.neutral.tertiary',
             transform: 'translate3d(0,0,0)',
-            color: selectedFallback
-              ? '$action.main.tertiarySelected'
-              : '$action.neutral.tertiary',
+            color: '$action.neutral.tertiary',
             ':active': {
-              bg: selectedFallback
-                ? 'transparent'
-                : '$action.neutral.tertiaryHover',
-              color: selectedFallback ? 'none' : 'currentColor',
+              bg: '$action.neutral.tertiaryHover',
+              color: 'currentColor',
             },
             ':hover': {
-              color: selectedFallback
-                ? 'none'
-                : '$action.neutral.tertiaryHover',
-              bg: selectedFallback
-                ? 'transparent'
-                : '$action.neutral.tertiaryHover',
+              color: '$action.neutral.tertiaryHover',
+              bg: '$action.neutral.tertiaryHover',
             },
             size: 'auto',
             padding: '0.5rem',
             svg: { margin: 0 },
+            ...(selectedFallback && selectedStyle),
           },
           csx
         )}
