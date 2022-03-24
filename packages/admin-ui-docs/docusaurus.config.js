@@ -45,7 +45,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      hideableSidebar: true,
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
@@ -60,15 +59,6 @@ const config = {
           alt: 'VTEX Logo',
           src: 'img/vtex-logo.svg',
         },
-        items: [
-          {
-            href: 'https://github.com/vtex/admin-ui',
-            className: 'header-github-link',
-            position: 'right',
-            'aria-label': 'GitHub repository',
-          },
-        ],
-        hideOnScroll: true,
       },
       algolia: {
         appId: 'ZJU0P6KHND',

@@ -1,7 +1,7 @@
 ---
 title: Publishing Versions
 path: /contributing/publishing/
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Publishing Versions

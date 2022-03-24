@@ -1,10 +1,10 @@
 ---
-title: Developers
+title: Getting Started
 path: /getting-started/developers/
 sidebar_position: 1
 ---
 
-# Developers
+# Getting Started
 
 AdminUI is an experimental collection of the reusable components within VTEX admin apps. It is available as an npm package of the name `@vtex/admin-ui`.
 

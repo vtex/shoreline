@@ -2,6 +2,7 @@
 title: Release Notes
 path: /help/release-notes/
 hide_table_of_contents: true
+sidebar_position: 2
 ---
 
 import { IconWarning, Set } from '@vtex/admin-ui'
