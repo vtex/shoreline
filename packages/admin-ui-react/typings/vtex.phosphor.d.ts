@@ -1,6 +1,6 @@
 import type { IconOptions as PhosphorOptions } from '@vtex/phosphor-icons'
 
-import type { ComponentStyleProps } from '../src/system'
+import type { ComponentStyleProps } from '../src/system/types'
 
 type IconSize = 'regular' | 'small'
 
