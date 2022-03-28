@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
+import type { UseFilterMultipleStateProps } from '../index'
 import {
   FilterGroup,
   FilterMultiple,
@@ -8,7 +9,7 @@ import {
   useFilterMultipleState,
   useFilterState,
 } from '../index'
-import type { UseFilterMultipleStateProps } from '../base-filter.state'
+
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
 
@@ -28,7 +29,10 @@ export const Playground: Story = (args) => {
     hookArgs as unknown as UseFilterMultipleStateProps
   )
 
-  return <FilterMultiple state={multipleState} />
+  // for the life of me I dont know why this is not working now,
+  // the same code works on the others
+  // return <FilterMultiple state={multipleState} />
+  return <>Under maintenance 🚧</>
 }
 
 Playground.args = {

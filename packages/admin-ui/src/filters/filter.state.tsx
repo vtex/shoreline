@@ -1,51 +1,82 @@
-import { useEffect } from 'react'
-import type {
-  FilterItem,
-  Key,
-  GenericFilterStateReturn,
-} from './base-filter.state'
-import { useBaseFilterState } from './base-filter.state'
+import { useState, useCallback, useEffect } from 'react'
 
-export function useFilterState(props: UseFilterStateProps): UseFilterReturn {
-  const {
-    initialApplied,
-    onChange: onChangeCb = () => {},
-    ...otherProps
-  } = props
+import { useMenuState } from 'ariakit/menu'
+import type { FilterItem, Key } from './filter-multiple.state'
+import { useComboboxState } from 'ariakit'
 
-  const onChange = ({ selected }: { selected: Key[] }) => {
-    onChangeCb({ selected: selected?.length ? selected[0] : null })
-  }
+export function useFilterState(
+  props: UseFilterStateProps
+): UseFilterStateReturn {
+  const { items, label, initialApplied, onChange = () => {} } = props
 
-  const filterState = useBaseFilterState({
-    ...otherProps,
-    initialApplied: initialApplied ? [initialApplied] : [],
-    onChange,
-    selectionMode: 'single',
+  const [selectedKey, setSelectedKey] = useState(initialApplied)
+  const [appliedKey, setAppliedKey] = useState(initialApplied || null)
+
+  const combobox = useComboboxState({
+    virtualFocus: false,
+    value: selectedKey,
+    setValue: (value) => {
+      setSelectedKey(value)
+      // remove below to apply values only when apply button is clicked
+      setAppliedKey(value)
+      onChange({ selected: value })
+      menu.hide()
+    },
   })
 
-  const {
-    selectedKeys,
-    appliedKeys = [],
-    appliedItems = [],
-    ...singleSelectState
-  } = filterState
+  const menu = useMenuState(combobox)
 
-  // forces apply when one item is selected
+  const apply = useCallback(() => {
+    const selected = combobox.value
+
+    setAppliedKey(selected)
+    onChange({ selected })
+    menu.hide()
+  }, [onChange])
+
+  const clear = useCallback(() => {
+    setAppliedKey(null)
+    combobox.setValue('')
+
+    onChange({ selected: null })
+    menu.hide()
+  }, [onChange])
+
   useEffect(() => {
-    filterState.onChange()
-  }, [selectedKeys[0]])
+    // Resets combobox value when menu is closed
+    if (!menu.mounted && combobox.value) {
+      combobox.setValue(appliedKey || '')
+    }
+  }, [menu.mounted])
+
+  // TO DO this won't work for searcheable later
+  const appliedItem = items.find((item) => item.id === appliedKey)
 
   return {
-    ...singleSelectState,
-    appliedItem: appliedItems[0] ?? null,
-    appliedKey: appliedKeys[0] ?? null,
+    menu,
+    combobox,
+    onClear: clear,
+    onChange: apply,
+    items,
+    appliedItem,
+    appliedKey,
+    label,
   }
 }
 
-export interface UseFilterReturn extends GenericFilterStateReturn {
-  appliedItem: FilterItem | null
+export interface GenericFilterStateReturn {
+  menu: any
+  onClear: () => void
+  onChange: () => void
+  label: string
+  items: FilterItem[]
+  combobox: any
+}
+
+export interface UseFilterStateReturn extends GenericFilterStateReturn {
+  appliedItem?: FilterItem | null
   appliedKey: Key | null
+  combobox: any
 }
 
 export interface UseFilterStateProps {

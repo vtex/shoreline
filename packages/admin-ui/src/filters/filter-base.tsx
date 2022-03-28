@@ -1,60 +1,57 @@
 import type { ReactNode } from 'react'
-import React from 'react'
-import { IconCaretUp } from '@vtex/phosphor-icons'
+import React, { useRef } from 'react'
 
 import { Button } from '../button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
-import type { GenericFilterStateReturn } from './base-filter.state'
-import { VisuallyHidden } from '../components/VisuallyHidden'
+
+import type { GenericFilterStateReturn } from './filter.state'
+import { ComboboxList } from 'ariakit'
+
 import { tag } from '@vtex/admin-ui-react'
+
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 
 export function BaseFilter(props: BaseFilterProps) {
   const { state, children, appliedValuesLabel } = props
-  const { onClear, onChange, popover, label, labelProps, ref, listBoxProps } =
-    state
+  const { onClear, onChange, label, menu, combobox } = state
 
   const formatMessage = useMessageFormatter(messages.actions)
 
+  const optionsContainerRef = useRef<HTMLDivElement>(null)
+
   return (
     <>
-      <VisuallyHidden>
-        <div {...labelProps}>{label}</div>
-      </VisuallyHidden>
-      <FilterDisclosure state={popover} {...labelProps}>
+      <FilterDisclosure state={menu}>
         {label}
-        {appliedValuesLabel}
-        <IconCaretUp
-          size="small"
-          csx={{
-            transform: `rotate(${popover.visible ? 0 : 180}deg)`,
-            marginLeft: '$s',
-          }}
-        />
+        {appliedValuesLabel || ''}
       </FilterDisclosure>
-      <FilterPopover state={popover} aria-label={label}>
-        <tag.ul
-          ref={ref}
+
+      <FilterPopover state={menu}>
+        <tag.div
+          as={ComboboxList}
+          ref={optionsContainerRef}
+          state={combobox}
           csx={{
+            marginTop: '$m',
             display: 'flex',
             flexDirection: 'column',
             padding: '$l',
-            marginTop: '$m',
             maxHeight: 312,
             overflowY: 'auto',
             '> *:not(:last-child)': {
               marginBottom: '$xl',
             },
           }}
-          {...listBoxProps}
         >
           {children}
-        </tag.ul>
+        </tag.div>
+
         <FilterPopoverFooter
           isContentScrollable={
-            ref?.current?.scrollHeight > ref?.current?.clientHeight
+            (optionsContainerRef?.current?.scrollHeight || 0) >
+            (optionsContainerRef?.current?.clientHeight || 0)
           }
         >
           <Button variant="tertiary" onClick={onClear}>

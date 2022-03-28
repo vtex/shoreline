@@ -1,14 +1,22 @@
 import React from 'react'
-import { tag } from '@vtex/admin-ui-react'
+import { tag, useSystem } from '@vtex/admin-ui-react'
 
-import type { UseFilterReturn } from './filter.state'
-import { BaseFilter } from './base-filter'
+import { BaseFilter } from './filter-base'
+import { ComboboxItem } from 'ariakit'
+import { focusVisible, style } from '..'
+
+import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
-import { FilterOption } from './filter-option'
+
+export const itemStyle = style({
+  display: 'flex',
+  cursor: 'pointer',
+  ...focusVisible('main'),
+})
 
 export function Filter(props: FilterProps) {
   const {
-    state: { listState, appliedItem },
+    state: { combobox, appliedItem, items },
     state,
   } = props
 
@@ -30,27 +38,32 @@ export function Filter(props: FilterProps) {
     </>
   )
 
-  const { collection } = listState
-  const options = Array.from(collection.getKeys()).map((key) =>
-    collection.getItem(key)
-  )
+  const { cn } = useSystem()
+
+  // TODO: Check the reason that we get a type error if the className is passed directly to Checkbox
+  const styleProps: any = {
+    className: cn(itemStyle),
+  }
 
   return (
     <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
-      {options.map((item) => (
-        <FilterOption
-          key={item.key}
-          item={item}
-          state={listState}
-          inputRenderer={({ isSelected }) => (
-            <FilterRadio checked={isSelected} />
-          )}
-        />
+      {items.map(({ id, label }) => (
+        <ComboboxItem
+          {...styleProps}
+          aria-selected={!!(id && id === combobox.value)}
+          key={id}
+          value={id}
+          focusOnHover
+          hideOnClick={false}
+        >
+          <FilterRadio checked={!!(id && id === combobox.value)} />
+          {label}
+        </ComboboxItem>
       ))}
     </BaseFilter>
   )
 }
 
 export interface FilterProps {
-  state: UseFilterReturn
+  state: UseFilterStateReturn
 }
