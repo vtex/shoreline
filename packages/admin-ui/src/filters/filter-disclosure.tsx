@@ -1,27 +1,29 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import React from 'react'
-import type { PickerStateReturn } from '../picker'
-import { PickerDisclosure } from '../picker'
+import { Button } from '../components/Button'
+import { IconCaretUp } from '@vtex/phosphor-icons'
+import { MenuButton } from 'ariakit'
+
 import * as style from './filter-disclosure.style'
 
-export const FilterDisclosure = (
-  props: FilterDisclosureProps & HTMLAttributes<HTMLElement>
-) => {
-  const { state, children, ...labelProps } = props
+export const FilterDisclosure = (props: FilterDisclosureProps) => {
+  const { state, children } = props
 
   return (
-    <PickerDisclosure
-      state={state}
-      csx={style.baseline}
-      tabIndex={0}
-      {...labelProps}
-    >
+    <Button as={MenuButton as any} state={state} csx={style.baseline}>
       {children}
-    </PickerDisclosure>
+      <IconCaretUp
+        size="small"
+        csx={{
+          transform: `rotate(${state.mounted ? 0 : 180}deg)`,
+          marginLeft: '$s',
+        }}
+      />
+    </Button>
   )
 }
 
 interface FilterDisclosureProps {
-  state: PickerStateReturn
+  state: any
   children: ReactNode
 }
