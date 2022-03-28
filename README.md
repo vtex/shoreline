@@ -30,7 +30,7 @@
 
 ## Getting started
 
-### Comming from 0.114.x
+### Coming from 0.114.x
 
 The 0.115.0 introduced a substantial amount of changes. Use the [0.115.0 release note](https://github.com/vtex/admin-ui/releases/tag/%40vtex/admin-ui%400.115.0) to help you.
 
