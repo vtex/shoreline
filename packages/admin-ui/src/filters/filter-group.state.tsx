@@ -11,5 +11,5 @@ export function useFilterGroupState(props: UseFilterGroupStateReturn) {
 }
 
 interface UseFilterGroupStateReturn {
-  filterStates: GenericFilterStateReturn[]
+  filterStates: Array<GenericFilterStateReturn<any>>
 }

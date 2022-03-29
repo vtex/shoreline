@@ -26,7 +26,7 @@ export const Playground: Story = (args) => {
   const hookArgs = { ...restArgs, onChange }
 
   const multipleState = useFilterMultipleState(
-    hookArgs as unknown as UseFilterMultipleStateProps
+    hookArgs as unknown as UseFilterMultipleStateProps<any>
   )
 
   // for the life of me I dont know why this is not working now,

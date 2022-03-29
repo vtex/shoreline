@@ -1,12 +1,11 @@
 import { useState, useCallback, useEffect } from 'react'
 
 import { useMenuState } from 'ariakit/menu'
-import type { FilterItem, Key } from './filter-multiple.state'
 import { useComboboxState } from 'ariakit'
 
-export function useFilterState(
-  props: UseFilterStateProps
-): UseFilterStateReturn {
+export function useFilterState<T extends FilterItem>(
+  props: UseFilterStateProps<T>
+): UseFilterStateReturn<T> {
   const { items, label, initialApplied, onChange = () => {} } = props
 
   const [selectedKey, setSelectedKey] = useState(initialApplied)
@@ -24,7 +23,7 @@ export function useFilterState(
     },
   })
 
-  const menu = useMenuState(combobox)
+  const menu = useMenuState({ ...combobox, gutter: 4 })
 
   const apply = useCallback(() => {
     const selected = combobox.value
@@ -64,27 +63,32 @@ export function useFilterState(
   }
 }
 
-export interface GenericFilterStateReturn {
+export interface FilterItem {
+  id: string
+  label: string
+}
+
+export interface GenericFilterStateReturn<T> {
   menu: any
   onClear: () => void
   onChange: () => void
   label: string
-  items: FilterItem[]
+  items: T[]
   combobox: any
 }
 
-export interface UseFilterStateReturn extends GenericFilterStateReturn {
-  appliedItem?: FilterItem | null
-  appliedKey: Key | null
+export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
+  appliedItem?: T | null
+  appliedKey: string | null
   combobox: any
 }
 
-export interface UseFilterStateProps {
+export interface UseFilterStateProps<T> {
   /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: Key | null }) => void
+  onChange?: ({ selected }: { selected: string | null }) => void
   /** The initial selected key. */
-  initialApplied?: Key
+  initialApplied?: string
   /** Filter button label. */
   label: string
-  items: FilterItem[]
+  items: T[]
 }
