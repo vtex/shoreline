@@ -1,0 +1,103 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+.footer {
+  position: relative;
+  background: #F4F4F4;
+
+  @media (min-width: 997px) {
+    width: calc(100% - var(--doc-sidebar-width));
+    margin-left: var(--doc-sidebar-width);
+  }
+}
+
+.container {
+  padding: 48px 48px 128px 48px;
+  margin: 0 auto;
+  max-width: var(--ifm-container-width);
+  width: 100%;
+
+  @media (min-width: 997px) {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--ifm-container-width-xl);
+  }
+}
+
+.containerWithoutLinks {
+  @media (min-width: 751px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: 48px;
+
+  @media (min-width: 997px) {
+    margin-bottom: 0;
+  }
+}
+
+.logo {
+  width: 32.67px;
+  height: 28px;
+  margin-right: 8px;
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+.rightContent {
+  @media (min-width: 751px) {
+    display: flex;
+  }
+
+  @media (min-width: 997px) {
+    justify-content: flex-end;
+  }
+}
+
+.linksContainer {
+  @media (min-width: 751px) {
+    display: flex;
+  }
+}
+
+.links {
+  list-style: none;
+  margin-bottom: 32px;
+
+  @media (min-width: 751px) {
+    width: 160px;
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
+}
+
+.link,
+.message {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.link {
+  color: #000000;
+}
+
+.message {
+  max-width: 351px;
+  color: #747474;
+}

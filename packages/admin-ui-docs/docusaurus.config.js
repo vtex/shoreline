@@ -60,6 +60,12 @@ const config = {
           src: 'img/vtex-logo.svg',
         },
       },
+      footer: {
+        style: 'light',
+        logo: {
+          src: 'img/vtex-logo.svg',
+        },
+      },
       algolia: {
         appId: 'ZJU0P6KHND',
         apiKey: '67b1b8272c21027224efed33015e3bc3',
