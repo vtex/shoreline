@@ -27,11 +27,8 @@ body {
   line-height: inherit !important;
 }
 
-main {
-  @media (min-width: 997px) {
-    margin-top: -156px;
-    padding-top: 24px;
-  }
+.container {
+  padding-bottom: 8rem !important;
 }
 
 .row .col {
@@ -46,5 +43,16 @@ main {
 
   html[data-theme='dark'] & {
     background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 997px) {
+  main {
+    margin-top: -156px;
+    padding-top: 24px;
+  }
+
+  aside {
+    height: calc(100% + 376px);
   }
 }
