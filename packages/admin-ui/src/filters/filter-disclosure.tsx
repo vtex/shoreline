@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 import { MenuButton } from 'ariakit'
 

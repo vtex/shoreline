@@ -2,11 +2,11 @@ import { useState, useCallback, useEffect } from 'react'
 
 import { useComboboxMultipleState } from '../combobox'
 import { useMenuState } from 'ariakit/menu'
-import type { GenericFilterStateReturn } from './filter.state'
+import type { GenericFilterStateReturn, FilterItem } from './filter.state'
 
-export function useFilterMultipleState(
-  props: UseFilterMultipleStateProps
-): UseFilterMultipleReturn {
+export function useFilterMultipleState<T extends FilterItem>(
+  props: UseFilterMultipleStateProps<T>
+): UseFilterMultipleReturn<T> {
   const { items, label, initialApplied, onChange = () => {} } = props
 
   const combobox = useComboboxMultipleState({ defaultSelected: initialApplied })
@@ -14,7 +14,7 @@ export function useFilterMultipleState(
 
   const { selected } = combobox
 
-  const [appliedKeys, setAppliedKeys] = useState<Key[]>(initialApplied || [])
+  const [appliedKeys, setAppliedKeys] = useState<string[]>(initialApplied || [])
 
   const apply = useCallback(() => {
     setAppliedKeys(selected)
@@ -41,7 +41,7 @@ export function useFilterMultipleState(
   // TO DO this won't work for searcheable later
   const appliedItems = appliedKeys.map((key) =>
     items.find(({ id }) => id === key)
-  ) as FilterItem[]
+  ) as T[]
 
   return {
     menu,
@@ -62,27 +62,20 @@ export function useFilterMultipleState(
   }
 }
 
-export type Key = string
-
-export interface FilterItem {
-  id: Key
-  label: string
-  [x: string]: unknown
-}
-
-export interface UseFilterMultipleReturn extends GenericFilterStateReturn {
+export interface UseFilterMultipleReturn<T>
+  extends GenericFilterStateReturn<T> {
   checkbox: any
-  appliedItems: FilterItem[]
-  appliedKeys: Key[]
-  selectedKeys: Key[]
+  appliedItems: T[]
+  appliedKeys: string[]
+  selectedKeys: string[]
 }
 
-export interface UseFilterMultipleStateProps {
+export interface UseFilterMultipleStateProps<T> {
   /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: Key[] }) => void
+  onChange?: ({ selected }: { selected: string[] }) => void
   /** The initial selected keys. */
-  initialApplied?: Key[]
+  initialApplied?: string[]
   /** Filter button label. */
   label: string
-  items: FilterItem[]
+  items: T[]
 }

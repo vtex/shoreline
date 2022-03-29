@@ -7,6 +7,7 @@ import { focusVisible, style } from '..'
 
 import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
+import type { FilterItem } from '.'
 
 export const itemStyle = style({
   display: 'flex',
@@ -14,7 +15,7 @@ export const itemStyle = style({
   ...focusVisible('main'),
 })
 
-export function Filter(props: FilterProps) {
+export function Filter<T extends FilterItem>(props: FilterProps<T>) {
   const {
     state: { combobox, appliedItem, items },
     state,
@@ -64,6 +65,6 @@ export function Filter(props: FilterProps) {
   )
 }
 
-export interface FilterProps {
-  state: UseFilterStateReturn
+export interface FilterProps<T> {
+  state: UseFilterStateReturn<T>
 }

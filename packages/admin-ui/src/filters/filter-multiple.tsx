@@ -6,8 +6,11 @@ import { ComboboxItem, Checkbox as AriaCheckbox } from 'ariakit'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
 import { itemStyle } from './filter'
+import type { FilterItem } from '.'
 
-export function FilterMultiple(props: FilterMultipleProps) {
+export function FilterMultiple<T extends FilterItem>(
+  props: FilterMultipleProps<T>
+) {
   const {
     state: { appliedItems, checkbox, items, selectedKeys },
     state,
@@ -82,6 +85,6 @@ export function FilterMultiple(props: FilterMultipleProps) {
   )
 }
 
-export interface FilterMultipleProps {
-  state: UseFilterMultipleReturn
+export interface FilterMultipleProps<T> {
+  state: UseFilterMultipleReturn<T>
 }
