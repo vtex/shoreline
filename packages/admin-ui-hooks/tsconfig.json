@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["./src"],
   "compilerOptions": {
+    "lib": ["es2019", "dom", "dom.iterable"],
     "outDir": "./dist",
     "resolveJsonModule": true
   }
