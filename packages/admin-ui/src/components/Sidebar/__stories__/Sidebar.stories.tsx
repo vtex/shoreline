@@ -15,6 +15,7 @@ import {
   IconBell,
   IconArrowUUpLeft,
 } from '@vtex/phosphor-icons'
+import { tag } from '@vtex/admin-ui-react'
 import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
 import { Box } from '../../Box'
 import { Set } from '../../Set'
@@ -269,14 +270,14 @@ export const Playground: Story<any> = (args) => {
           </SidebarGroup>
           <SidebarGroup>
             {bottom.map((item) => (
-              <a href="https://www.google.com.br">
+              <tag.a href="https://www.google.com.br" csx={{ width: '100%' }}>
                 <SidebarItem
                   icon={item.icon}
                   label={item.label}
                   uniqueKey={item.label}
                   key={item.label}
                 />
-              </a>
+              </tag.a>
             ))}
           </SidebarGroup>
         </Sidebar>
@@ -309,6 +310,8 @@ export const Playground: Story<any> = (args) => {
             <Button onClick={() => setLoading((prev) => !prev)}>
               Toggle Loading
             </Button>
+
+            <a href="https://www.google.com.br">Link to trigger url preview</a>
           </Box>
         </Box>
       </Box>

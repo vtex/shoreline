@@ -91,9 +91,9 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
           csx={{
             animation: `${fadeIn} 0.4s`,
             position: 'absolute',
-            top: '15px' /* At the bottom of the tooltip */,
-            right: '-10px',
-            size: '12px',
+            top: '0.75rem',
+            right: '-0.625rem',
+            size: '0.75rem',
             bg: '$secondary',
             border: '$neutral',
             transform: 'rotate(45deg)',
