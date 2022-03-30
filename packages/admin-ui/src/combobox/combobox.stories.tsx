@@ -51,6 +51,33 @@ I18n.argTypes = {
   },
 }
 
+export const CustomRender = () => {
+  const combobox = useComboboxState({
+    list: [
+      { value: 'Brazil', flag: '🇧🇷' },
+      { value: 'France', flag: '🇫🇷' },
+      { value: 'UK', flag: '🇬🇧' },
+      { value: 'Colombia', flag: '🇨🇴' },
+    ],
+    getOptionValue: (item) => item.value,
+    renderOption: (item) => (
+      <>
+        {item.value}
+        {item.flag}
+      </>
+    ),
+  })
+
+  return (
+    <div>
+      {JSON.stringify(combobox.selectedItem)}
+      {combobox.value}
+      <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
 export const Error = () => {
   const combobox = useComboboxState()
 
@@ -122,15 +149,15 @@ export const Async = () => {
 
   useEffect(() => {
     if (combobox.deferredValue === '') {
-      combobox.setList([])
+      combobox.setMatches([])
     } else {
       combobox.setLoading(true)
       searchItems(combobox.deferredValue).then((res) => {
-        combobox.setList(res.map((i) => i.value))
+        combobox.setMatches(res.map((i) => i.value))
         combobox.setLoading(false)
       })
     }
-  }, [combobox.deferredValue, combobox.setList])
+  }, [combobox.deferredValue])
 
   return (
     <div>
