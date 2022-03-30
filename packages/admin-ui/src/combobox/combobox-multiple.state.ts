@@ -9,7 +9,7 @@ export function useComboboxMultipleState(
 ) {
   const { defaultSelected = [], list, shouldClearOnSelect = true } = props
 
-  const combobox = useComboboxState({
+  const combobox = useComboboxState<string>({
     // VoiceOver has issues with multi-selectable comboboxes where the DOM focus
     // is on the combobox input, so we set `virtualFocus` to `false` to disable
     // this behavior and put DOM focus on the items.
@@ -48,7 +48,7 @@ export function useComboboxMultipleState(
   }
 }
 
-export type ComboboxMultipleStateProps = ComboboxStateProps & {
+export interface ComboboxMultipleStateProps extends ComboboxStateProps<string> {
   defaultSelected?: string[]
   shouldClearOnSelect?: boolean
 }

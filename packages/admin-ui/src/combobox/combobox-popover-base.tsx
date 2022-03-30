@@ -107,13 +107,13 @@ export const ComboboxPopoverBase = createComponent<
 
   return useElement(AriakitComboboxPopover, {
     ...restProps,
-    state: comboboxState,
+    state: { ...comboboxState, matches: [] },
     baseStyle: style.popover,
     children: renderChildren(),
   })
 })
 
 interface Props {
-  state: ComboboxState
+  state: ComboboxState<any>
   onRetry?: () => void
 }
