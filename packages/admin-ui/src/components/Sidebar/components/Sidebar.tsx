@@ -76,7 +76,7 @@ export const Sidebar = forwardRef(function Sidebar(
           outline: 'none',
           borderRight: '$neutral',
           bg: '$primary',
-          paddingY: '$s',
+          paddingY: '$xl',
           boxShadow:
             state.selectedItem?.expandable && state.layout.reduced
               ? '$overlay.center'
@@ -88,12 +88,11 @@ export const Sidebar = forwardRef(function Sidebar(
         <tag.nav
           ref={ref}
           csx={{
-            position: 'absolute',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingY: '$xl',
+            paddingBottom: '$m',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',
