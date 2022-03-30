@@ -5,6 +5,7 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
 
+import { Text } from '../components/Text'
 import { DateField } from '../date-field'
 import { Center } from '../center'
 import { Picker, PickerDisclosure } from '../picker'
@@ -16,7 +17,11 @@ export const DatePickerField = forwardRef(
     const {
       state: { required, invalid, pickerState, dateFieldState, disabled },
       label,
+      helperText,
+      criticalText,
     } = props
+
+    const showCriticalMessage = invalid && criticalText
 
     return (
       <>
@@ -43,6 +48,14 @@ export const DatePickerField = forwardRef(
               </PickerDisclosure>
             }
           />
+          {helperText && !showCriticalMessage && (
+            <Text variant="detail">{helperText}</Text>
+          )}
+          {showCriticalMessage && (
+            <Text variant="detail" tone="critical">
+              {criticalText}
+            </Text>
+          )}
         </Picker>
       </>
     )
@@ -55,4 +68,6 @@ export interface DatePickerFieldProps {
   state: DatePickerStateReturn
   label: string
   csx?: StyleProp
+  helperText?: string
+  criticalText?: string
 }

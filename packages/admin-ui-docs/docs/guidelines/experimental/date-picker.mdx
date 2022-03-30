@@ -29,7 +29,11 @@ const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
   const state = useDatePickerState({
-    defaultValue: new Date(2020, 0, 2),
+    defaultValue: {
+      year: 2020,
+      month: 5,
+      day: 20,
+    },
   })
 
   return (
@@ -43,9 +47,70 @@ function Example() {
 render(<Example />)
 ```
 
+### Helper Text
+
+```jsx noInline live
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState()
+
+  return (
+    <>
+      <DatePickerField
+        label="Date"
+        state={state}
+        helperText="This is a helper text"
+      />
+      <DatePickerCalendar state={state} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Min and Max values
+
+```jsx noInline live
+const DatePickerField = experimental_DatePickerField
+const DatePickerCalendar = experimental_DatePickerCalendar
+const useDatePickerState = experimental_useDatePickerState
+
+function Example() {
+  const state = useDatePickerState({
+    minValue: {
+      year: 2022,
+      month: 0,
+      day: 20,
+    },
+    maxValue: {
+      year: 2024,
+      month: 11,
+      day: 20,
+    },
+  })
+
+  return (
+    <>
+      <DatePickerField
+        label="Date"
+        state={state}
+        criticalText="Date out of bounds"
+      />
+      <DatePickerCalendar state={state} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
 ### Validation
 
-Use the `invalid` boolean to trigger the invalid state. It is up to you to define what is valid or not.
+Use the `invalid` boolean to trigger the invalid state. It is up to you to define what is valid or not. Additionally, you can add a `criticalText` to be displayed whether invalid.
 
 ```jsx noInline live
 const DatePickerField = experimental_DatePickerField
@@ -59,7 +124,11 @@ function Example() {
 
   return (
     <>
-      <DatePickerField label="Date" state={state} />
+      <DatePickerField
+        label="Date"
+        state={state}
+        criticalText="This date is invalid"
+      />
       <DatePickerCalendar state={state} />
     </>
   )
@@ -162,9 +231,7 @@ render(<Example />)
 
 Features and fixes scheduled for this component:
 
-- [ ] Support min and max dates.
 - [ ] Support typing.
-- [ ] Support helper text.
 - [ ] Support placeholder localization.
 - [ ] Desing: Adjust calendar cels spacing
 - [ ] Design: Add hover and focus states
@@ -174,12 +241,13 @@ Features and fixes scheduled for this component:
 
 ### DatePickerField
 
-| Name  | Type              | Description    | Required | Default |
-| ----- | ----------------- | -------------- | -------- | ------- |
-| state | `DatePickerState` | Required state | ✅       | -       |
-| label | `string`          | Required label | ✅       | -       |
-| csx   | `StyleObject`     | Custom styles  | 🚫       | `{}`    |
-
+| Name         | Type              | Description    | Required | Default |
+| ------------ | ----------------- | -------------- | -------- | ------- |
+| state        | `DatePickerState` | Required state | ✅       | -       |
+| label        | `string`          | Required label | ✅       | -       |
+| csx          | `StyleObject`     | Custom styles  | 🚫       | `{}`    |
+| helperText   | `string`          | Helper text    | 🚫       | -       |
+| criticalText | `string`          | Critical text  | 🚫       | -       |
 
 ### DatePickerCalendar
 

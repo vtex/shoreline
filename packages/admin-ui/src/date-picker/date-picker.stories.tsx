@@ -50,6 +50,33 @@ Base.argTypes = {
   },
 }
 
+export const MinMax: Story = () => {
+  const state = useDatePickerState({
+    minValue: {
+      year: 2022,
+      month: 2,
+      day: 29,
+    },
+    maxValue: {
+      year: 2023,
+      month: 11,
+      day: 21,
+    },
+  })
+
+  return (
+    <>
+      <DatePickerField
+        label="Date"
+        state={state}
+        helperText="Release date"
+        criticalText="Date out of Bounds"
+      />
+      <DatePickerCalendar state={state} />
+    </>
+  )
+}
+
 const Localized = () => {
   const state = useDatePickerState({
     placeholder: {

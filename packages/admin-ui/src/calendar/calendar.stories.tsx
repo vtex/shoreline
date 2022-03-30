@@ -20,6 +20,18 @@ export function Basic() {
   return <Calendar state={state} />
 }
 
+export function MinMaxDates() {
+  const state = useCalendarState({
+    minValue: {
+      year: 2022,
+      month: 2,
+      day: 25,
+    },
+  })
+
+  return <Calendar state={state} />
+}
+
 export function PopoverBox() {
   const calendar = useCalendarState()
   const picker = usePickerState()

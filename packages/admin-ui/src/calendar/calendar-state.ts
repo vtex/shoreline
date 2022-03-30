@@ -19,7 +19,14 @@ import {
 } from 'date-fns'
 
 import { useWeekStart } from '../i18n'
-import { useWeekDays, generateDaysInMonthArray, toUTCString } from './utils'
+import type { DateObject } from './utils'
+import {
+  getDateObject,
+  useWeekDays,
+  generateDaysInMonthArray,
+  createDate,
+} from './utils'
+
 import type { InputState } from '../types'
 
 export function useCalendarState(
@@ -27,10 +34,18 @@ export function useCalendarState(
 ): CalendarStateReturn {
   const {
     value: initialValue,
-    defaultValue = toUTCString(new Date()),
+    defaultValue = getDateObject(),
     onChange,
-    minValue = -864e13,
-    maxValue = 864e13,
+    minValue = {
+      year: 1,
+      month: 0,
+      day: 1,
+    },
+    maxValue = {
+      year: 8000,
+      month: 11,
+      day: 31,
+    },
     isDisabled = false,
     isReadOnly = false,
     autoFocus = false,
@@ -42,7 +57,9 @@ export function useCalendarState(
     onChange,
   })
 
-  const date = useMemo(() => new Date(value), [value])
+  const date = useMemo(() => createDate(value), [value])
+  const minDate = useMemo(() => createDate(minValue), [minValue])
+  const maxDate = useMemo(() => createDate(maxValue), [maxValue])
 
   const [currentMonth, setCurrentMonth] = useState(date)
   const [focusedDate, setFocusedDate] = useState(date)
@@ -68,29 +85,28 @@ export function useCalendarState(
 
   const isInvalidDateRange = useCallback(
     (value: Date) => {
-      const min = new Date(minValue)
-      const max = new Date(maxValue)
-
-      return value < min || value > max
+      return value < minDate || value > maxDate
     },
-    [minValue, maxValue]
+    [minDate, maxDate]
   )
 
-  // Sets focus to a specific cell date
-  function focusCell(date: Date) {
-    if (isInvalidDateRange(date)) return
+  const focusCell = useCallback(
+    (date: Date) => {
+      if (isInvalidDateRange(date)) return
 
-    if (!isSameMonth(date, currentMonth)) {
-      setCurrentMonth(startOfMonth(date))
-    }
+      if (!isSameMonth(date, currentMonth)) {
+        setCurrentMonth(startOfMonth(date))
+      }
 
-    setFocusedDate(date)
-  }
+      setFocusedDate(date)
+    },
+    [isInvalidDateRange, currentMonth]
+  )
 
   const setDate = useCallback(
     (value: Date) => {
       if (!isDisabled && !isReadOnly) {
-        setValue(toUTCString(value))
+        setValue(getDateObject(value))
       }
     },
     [isDisabled, isReadOnly, setValue]
@@ -101,6 +117,8 @@ export function useCalendarState(
   return {
     dateValue: date,
     setDateValue: setDate,
+    minDateValue: minDate,
+    maxDateValue: maxDate,
     calendarId,
     month,
     year,
@@ -157,6 +175,9 @@ export function useCalendarState(
 }
 
 export interface CalendarState {
+  minDateValue: Date
+  maxDateValue: Date
+
   /**
    * Id for the Calendar Header
    */
@@ -287,20 +308,20 @@ export interface CalendarActions {
 
 export interface RangeValueMinMax {
   /** The lowest date allowed. */
-  minValue?: string
+  minValue?: DateObject
   /** The highest date allowed. */
-  maxValue?: string
+  maxValue?: DateObject
 }
 
 export interface CalendarInitialState extends RangeValueMinMax, InputState {
   /** Id for the calendar grid */
   id?: string
   /** The current date (controlled). */
-  value?: string
+  value?: DateObject
   /** The default date (uncontrolled). */
-  defaultValue?: string
+  defaultValue?: DateObject
   /** Handler that is called when the date changes. */
-  onChange?: (value: string) => void
+  onChange?: (value: DateObject) => void
   /** Whether the element should receive focus on render. */
   autoFocus?: boolean
 }

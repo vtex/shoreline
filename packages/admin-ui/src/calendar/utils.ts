@@ -1,5 +1,7 @@
+import { setDay, getDate, getMonth, getYear } from 'date-fns'
+import invariant from 'tiny-invariant'
+
 import { useDateFormatter } from '../i18n'
-import { setDay } from 'date-fns'
 
 export interface WeekDay {
   readonly title: string
@@ -18,6 +20,36 @@ export function useWeekDays(weekStart: number): WeekDay[] {
 
     return { title: dayLong, abbr: day } as const
   })
+}
+
+export function createDate(date?: DateObject): Date {
+  if (!date) {
+    return new Date()
+  }
+
+  const { year, month, day } = date
+
+  invariant(year >= 0, 'The year must be greater then 0')
+  invariant(month >= 0 && month <= 11, 'The month must be between from 0 to 11')
+  invariant(day >= 1 && day <= 31, 'The day must be between 0 and 31')
+
+  return new Date(year, month, day)
+}
+
+export function getDateObject(date?: Date): DateObject {
+  const dateToParse = date ?? new Date()
+
+  return {
+    year: getYear(dateToParse),
+    month: getMonth(dateToParse),
+    day: getDate(dateToParse),
+  }
+}
+
+export interface DateObject {
+  year: number
+  month: number
+  day: number
 }
 
 export function toUTCString(date: Date) {
