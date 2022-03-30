@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.7...@vtex/admin-ui-docs@0.6.0) (2022-03-30)
+
+### Features
+
+- add new sidebar style ([4763e24](https://github.com/vtex/admin-ui/commit/4763e241a57020ec118b4f868d59273be151c41a))
+- create documentation footer ([fb4232e](https://github.com/vtex/admin-ui/commit/fb4232ef111e361e0dde6583555a9839457a1b1e))
+
 ## [0.5.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.6...@vtex/admin-ui-docs@0.5.7) (2022-03-24)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs

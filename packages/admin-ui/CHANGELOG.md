@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.120.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.6...@vtex/admin-ui@0.120.7) (2022-03-30)
+
+### Bug Fixes
+
+- **sidebar:** adjust spacing according to design specs ([4997c49](https://github.com/vtex/admin-ui/commit/4997c49c0607508dab3489e8ff6e68171305bcb5))
+
 ## [0.120.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.5...@vtex/admin-ui@0.120.6) (2022-03-24)
 
 ### Bug Fixes
