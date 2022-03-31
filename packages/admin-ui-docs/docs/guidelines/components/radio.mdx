@@ -1,0 +1,137 @@
+---
+title: Radio
+path: /radio/
+---
+
+import { PageHeader } from '@site/src/components/PageHeader'
+
+<PageHeader title="Radio" />
+
+Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
+
+## Import
+
+```jsx isStatic
+import { Radio } from '@vtex/admin-ui'
+```
+
+## Behavior
+
+```jsx live
+function Example() {
+  const state = useRadioState()
+
+  return <Radio state={state} value="Radio" aria-label="radio button" />
+}
+```
+
+## State
+
+The `Radio` component is always used in a `RadioGroup` context, we provide a hook to handle the state of radio groups and standalone radios.
+
+### useRadioState hook
+
+For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
+
+### Standalone
+
+When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
+
+```jsx live
+function Example() {
+  const radio = useRadioState()
+
+  return <Radio aria-label="label" value="Radio" state={radio} />
+}
+```
+
+### Checked States
+
+There are two checked states: `not checked`, and `checked`.
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Set>
+        <Radio aria-label="label-1" />
+        <Radio aria-label="label-disabled-1" disabled />
+      </Set>
+      <br />
+      <Set>
+        <Radio aria-label="label-2" checked />
+        <Radio aria-label="label-disabled-2" checked disabled />
+      </Set>
+    </>
+  )
+}
+```
+
+### Size
+
+There are two size variants: `small`, `regular`. By default, it will render `regular`.
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Set>
+        <Radio aria-label="label-small-1" size="small" />
+        <Radio aria-label="label-1" />
+      </Set>
+      <br />
+      <Set>
+        <Radio aria-label="label-small-2" checked size="small" />
+        <Radio aria-label="label-2" checked />
+      </Set>
+    </>
+  )
+}
+```
+
+### Multiple Radios
+
+As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
+
+```jsx live
+function Example() {
+  const radio = useRadioState()
+
+  return (
+    <>
+      <Heading>Selected Radio: {radio.state}</Heading>
+      <RadioGroup state={radio}>
+        <Label>
+          <Radio state={radio} value="First Radio" />
+          First Radio
+        </Label>
+        <Label>
+          <Radio state={radio} value="Second Radio" />
+          Second Radio
+        </Label>
+        <Label>
+          <Radio state={radio} value="Third Radio" />
+          Third Radio
+        </Label>
+      </RadioGroup>
+    </>
+  )
+}
+```
+
+## Props
+
+| Name     | Type                | Description                                                                          | Required | Default     |
+| -------- | ------------------- | ------------------------------------------------------------------------------------ | -------- | ----------- |
+| state    | `RadioStateReturn`  | Return of useRadio hook. You can also provide these props from your own state logic. | ✅       | -           |
+| size     | `regular, small`    | Radio size                                                                           | 🚫       | `'regular'` |
+| checked  | `boolean`           | Same as the HTML checked attribute                                                   | 🚫       | -           |
+| disabled | `boolean`           | Defines if the Radio is disabled                                                     | 🚫       | -           |
+| value    | `string, number`    | Same as the HTML attribute                                                           | 🚫       | -           |
+| name     | `string`            | Same as the HTML value attribute                                                     | 🚫       | -           |
+| onClick  | `MouseEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| onBlur   | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| onFocus  | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
+| id       | `string`            | Same as the HTML attribute                                                           | 🚫       | -           |
+| children | `ReactNode`         | Radio children                                                                       | 🚫       | -           |
+| csx      | `StyleProp`         | Defines component styles                                                             | 🚫       | `{}`        |

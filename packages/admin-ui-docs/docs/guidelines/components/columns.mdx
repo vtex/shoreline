@@ -1,0 +1,124 @@
+---
+title: Columns
+path: /columns/
+---
+
+import { PageHeader } from '@site/src/components/PageHeader'
+
+<PageHeader title="Columns"/>
+
+Our design system comes with a set of layout components to help you build common layouts inside your application. `Columns` implement a 12 column flexbox based responsive column system. By default, each `<Column>` will have an equal width and you can have up to 12 columns.
+
+To create a basic columned layout, add a `<Columns>` component and then add your `<Column>`.
+
+## Behavior
+
+```jsx live
+<Columns spacing={1}>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+</Columns>
+```
+
+## Variation
+
+### Auto
+
+```jsx live
+<Columns spacing={1}>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+</Columns>
+```
+
+### AutoGapless
+
+```jsx live
+<Columns spacing={0}>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+</Columns>
+```
+
+### Units
+
+```jsx live
+<Columns spacing={1}>
+  <Column units={3}>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+  </Column>
+  <Column units={6}>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column units={3}>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+  </Column>
+</Columns>
+```
+
+### Responsive Units
+
+`spacing`, `units`, and `offset` are [`ResponsiveValues`](/guidelines/responsive-design/#responsive-values)
+
+```jsx live
+<Columns spacing={1}>
+  <Column units={6} offset={['right', 'right', 'none']}>
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column units={3}>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
+  </Column>
+</Columns>
+```
+
+## Customization
+
+You can use the csx property to handle different styles in both `Columns`, and `Column`.
+
+```jsx live
+<Columns spacing={1}>
+  <Column units={6} offset="right">
+    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+  </Column>
+  <Column units={3}>
+    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
+  </Column>
+</Columns>
+```
+
+## Props
+
+### Columns
+
+| Name     | Type          | Description                                   | Required | Default |
+| -------- | ------------- | --------------------------------------------- | -------- | ------- |
+| spacing  | `ResponsiveValue<number>`       | Spacing between columns     | 🚫       | -       |
+
+### Column
+
+| Name     | Type          | Description                                   | Required | Default |
+| -------- | ------------- | --------------------------------------------- | -------- | ------- |
+| units    | `ResponsiveValue<number from 1 to 12>`       | Units of space it takes     | 🚫       | -       |
+| offset    | `ResponsiveValue<'left', 'right', 'both', 'none'>`   | Columns offset     | 🚫       | -       |
+

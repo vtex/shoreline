@@ -3,10 +3,12 @@ title: Filter
 path: /filter/
 ---
 
-# Filter
+import { PageHeader } from '@site/src/components/PageHeader'
+
+<PageHeader title="Filter" />
 
 Filters are supposed to be used in pages or sections that display some kind of data that can be filtered. The `filter` component is
- a picker that displays filter options and allows for only one of them to be selected. When one of the options is selected it 
+ a picker that displays filter options and allows for only one of them to be selected. When one of the options is selected it
  should produce a change on the data or content being displayed, and should be filtered accordingly.
 
 ## Usage
@@ -107,8 +109,8 @@ render(<RootApp />)
 
 ## FilterState (return of useFilterState)
 
-| Name           | Type                             | Description                                                         
-| -------------- | -------------------------------- | ------------------------------------------------------------------- 
+| Name           | Type                             | Description
+| -------------- | -------------------------------- | -------------------------------------------------------------------
 | popover        | `PickerStateReturn`              | State that controls the component's picker
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected

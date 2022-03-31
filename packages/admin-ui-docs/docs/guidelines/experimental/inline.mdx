@@ -3,7 +3,9 @@ title: Inline
 path: /inline/
 ---
 
-# Inline
+import { PageHeader } from '@site/src/components/PageHeader'
+
+<PageHeader title="Inline" />
 
 Render a set of components in a row with equal spacing between them. It also supports wrapping.
 
@@ -73,7 +75,7 @@ render(<Example />)
 
 ### Space
 
-Space is configured using the `vSpace` and `hSpace`, with either token or number values. In the case of a numeric value, the unit is `rem` by default. You can also set the `unit` prop to change it. 
+Space is configured using the `vSpace` and `hSpace`, with either token or number values. In the case of a numeric value, the unit is `rem` by default. You can also set the `unit` prop to change it.
 
 ```jsx noInline live
 const Inline = experimental_Inline
