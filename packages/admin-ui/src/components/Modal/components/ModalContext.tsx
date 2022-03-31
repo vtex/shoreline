@@ -6,7 +6,6 @@ import type { ModalSize } from '../types'
 
 const ModalContext = React.createContext<{
   state: DialogStateReturn
-  handleClose: () => void
   omitCloseButton?: boolean
   hasHeader: boolean
   hasFooter: boolean

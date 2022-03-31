@@ -32,7 +32,7 @@ export const ModalButton = forwardRef(function ModalButton(
     ...buttonProps
   } = props
 
-  const { handleClose } = useModalContext()
+  const { state } = useModalContext()
 
   const handleClick = (
     event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
@@ -40,7 +40,7 @@ export const ModalButton = forwardRef(function ModalButton(
     onClick(event)
 
     if (closeModalOnClick) {
-      handleClose()
+      state.hide()
     }
   }
 

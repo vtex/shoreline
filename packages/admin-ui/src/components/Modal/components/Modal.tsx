@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { useCallback } from 'react'
+import React from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import type { DialogOptions } from 'reakit/Dialog'
 import { Dialog, DialogBackdrop } from 'reakit/Dialog'
@@ -10,6 +10,7 @@ import { ModalProvider } from './ModalContext'
 import type { ModalSize } from '../types'
 import { useComponentsExistence } from '../util'
 import type { SystemComponent } from '../../../types'
+import { useModalStateListener } from '../state.internals'
 
 const widths = {
   mobile: 'calc(100% - 16px)',
@@ -53,10 +54,7 @@ export function Modal(props: ModalProps) {
     ...baseProps
   } = props
 
-  const handleClose = useCallback(() => {
-    state.hide()
-    onClose()
-  }, [onClose, state])
+  useModalStateListener(state, 'close', onClose)
 
   const { hasHeader, hasFooter, scrollStyle } = useComponentsExistence(children)
 
@@ -123,7 +121,6 @@ export function Modal(props: ModalProps) {
             state,
             hasHeader,
             hasFooter,
-            handleClose,
             size,
             omitCloseButton,
           }}
