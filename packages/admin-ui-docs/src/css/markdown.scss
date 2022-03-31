@@ -1,4 +1,6 @@
 .markdown {
+  margin-top: 3rem;
+
   .token-line .token {
     font-family: "MonoLisa","Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Dank Mono","Consolas","Monaco","Menlo",monospace !important;
     line-height: normal;
@@ -18,5 +20,9 @@
     display: table;
     margin-bottom: var(--ifm-leading);
     width: 100%;
+  }
+
+  @media (min-width: 997px) {
+    margin-top: 0;
   }
 }

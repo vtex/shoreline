@@ -1,16 +1,16 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
-import { calendarCell } from 'packages/admin-ui/dist/calendar/calendar.style'
 
 const style: Record<string, StyleProp> = {}
 
 style.container = {
   paddingTop: '1rem',
   paddingBottom: '3rem',
+  paddingX: '3rem',
+  margin: '0 calc(var(--ifm-spacing-horizontal) * -1)',
 
   '@media (min-width: 997px)': {
     paddingTop: '2.5rem',
     paddingBottom: '4rem',
-    maxWidth: '100%',
   },
 }
 
@@ -50,6 +50,8 @@ style.gitHubUrl = {
 }
 
 style.figma = {
+  marginLeft: '1rem',
+
   ':before': {
     ...style.gitHubUrl[':before'],
     background: `url("/img/figma-logo.svg")`,

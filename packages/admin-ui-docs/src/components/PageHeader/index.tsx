@@ -2,11 +2,11 @@ import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { useSidebarBreadcrumbs } from '@docusaurus/theme-common'
 
+import { PAGE_LINK } from './links'
 import styles from './styles'
 
 interface PageHeaderProps {
   title: string
-  componentPath: string
 }
 
 const GITHUB_BASE_URL =
@@ -18,16 +18,17 @@ const FIGMA_URL =
 export function PageHeader(props: PageHeaderProps) {
   const breadcrumbs = useSidebarBreadcrumbs()
   const firstBreadcrumb = breadcrumbs?.[0].label ?? ''
+  const pathGithub = PAGE_LINK?.[props.title]?.github ?? ''
 
   return (
     <tag.header csx={styles.container}>
       <tag.div csx={styles.caption}>
         <tag.p csx={styles.breadcrumb}>{firstBreadcrumb}</tag.p>
-        {props.componentPath && (
+        {pathGithub && (
           <tag.span csx={styles.logosContainer}>
             <tag.a
               csx={styles.gitHubUrl}
-              href={`${GITHUB_BASE_URL}${props.componentPath}`}
+              href={`${GITHUB_BASE_URL}${pathGithub}`}
               target="_blank"
               aria-label="Component url in the GitHub repository"
             />
