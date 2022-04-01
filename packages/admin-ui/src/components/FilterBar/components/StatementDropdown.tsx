@@ -26,7 +26,7 @@ export function StatementDropdown<T>(props: StatementDropdownProps<T>) {
 export function useStatementDropdown<T>(props: StatementDropdownProps<T>) {
   const {
     csx,
-    variant = 'adaptative-dark',
+    variant = 'neutralTertiary',
     items,
     selectedItem,
     handleItemChange,

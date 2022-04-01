@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { useCompositeItem } from 'reakit/Composite'
 
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
 import { useSidebarContext, useItemContext } from './SidebarContext'
 import { ArrowKeys } from '../consts'
 
@@ -55,8 +55,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   return (
     <Button
       ref={ref}
-      variant="adaptative-dark"
-      size="small"
+      variant="neutralTertiary"
       csx={merge(
         {
           width: '100%',

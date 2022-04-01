@@ -8,7 +8,7 @@ import {
   IconClockCounterClockwise,
 } from '@vtex/phosphor-icons'
 
-import { Button } from '../Button'
+import { Button } from '../../button'
 import type { SystemComponent } from '../../types'
 import { useStateContext, StateContext } from './context'
 import * as style from './SearchBox.style'
@@ -90,7 +90,7 @@ function Input(props: InputProps) {
       {inputProps?.value !== '' && (
         <Button
           csx={style.inputButton}
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           icon={<IconXCircle />}
           onClick={handleClear}
         />

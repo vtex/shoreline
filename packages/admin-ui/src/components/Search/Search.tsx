@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
 
 import { AbstractInput } from '../AbstractInput'
-import { Button } from '../Button'
+import { Button } from '../../button'
 import { Spinner } from '../Spinner'
 import { VisuallyHidden } from '../VisuallyHidden'
 
@@ -46,12 +46,11 @@ export const Search = jsx('form')(
 
       const ClearButton = state.showClear ? (
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           aria-label="Clear search"
           csx={style.clearButton}
           icon={<IconXCircle />}
           onClick={state.clear}
-          size="small"
         />
       ) : null
 

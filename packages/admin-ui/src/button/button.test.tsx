@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
-import { render, axe } from '../../test-utils'
+import React from 'react'
 
+import { render, axe } from '../test-utils'
 import { Button } from './index'
 
-describe('Button tests', () => {
+describe('button', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
       <Button data-testid="button" csx={{ bg: 'coral' }}>
@@ -16,25 +16,26 @@ describe('Button tests', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <Fragment>
+      <>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
         <Button variant="tertiary">Button</Button>
-        <Button variant="danger">Button</Button>
-        <Button variant="danger-secondary">Button</Button>
-        <Button variant="danger-tertiary">Button</Button>
-      </Fragment>
+        <Button variant="critical">Button</Button>
+        <Button variant="criticalSecondary">Button</Button>
+        <Button variant="criticalTertiary">Button</Button>
+        <Button variant="neutralTertiary">Button</Button>
+        <Button loading>Button</Button>
+        <Button disabled>Button</Button>
+        <Button bleedY>Button</Button>
+        <Button bleedX>Button</Button>
+      </>
     )
 
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should not have a11y violations', async () => {
-    const { container } = render(
-      <Fragment>
-        <Button>Button</Button>
-      </Fragment>
-    )
+    const { container } = render(<Button>Button</Button>)
 
     const results = await axe(container)
 

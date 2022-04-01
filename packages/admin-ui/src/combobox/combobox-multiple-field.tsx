@@ -9,7 +9,7 @@ import { useMessageFormatter } from '../i18n'
 import { Inline } from '../inline'
 import { Bleed } from '../bleed'
 import { Flex } from '../components/Flex'
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import { Box } from '../components/Box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
 import { Label } from '../components/Label'
@@ -180,8 +180,7 @@ export const ComboboxMultipleField = createComponent<
         >
           {state.selected.length > 0 && (
             <Button
-              size="small"
-              variant="adaptative-dark"
+              variant="neutralTertiary"
               icon={<IconXCircle />}
               onClick={state.clearSelected}
               csx={{

@@ -19,7 +19,7 @@ import { tag } from '@vtex/admin-ui-react'
 import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
 import { Box } from '../../Box'
 import { Set } from '../../Set'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { Text } from '../../Text'
 import {
   Sidebar,
@@ -214,7 +214,7 @@ export const Playground: Story<any> = (args) => {
         <TopbarStart>
           <Set spacing="$l">
             <Button
-              variant="adaptative-dark"
+              variant="neutralTertiary"
               csx={{ padding: '$xs' }}
               icon={<IconVtex />}
             />

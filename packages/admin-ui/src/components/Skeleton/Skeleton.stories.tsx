@@ -4,7 +4,7 @@ import type { Story, Meta } from '@storybook/react'
 import { Box } from '../Box'
 import type { SkeletonProps } from './index'
 import { Skeleton } from './index'
-import { Button } from '../Button'
+import { Button } from '../../button'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 
