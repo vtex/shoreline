@@ -4,8 +4,8 @@ import { merge } from '@vtex/admin-ui-util'
 import { tag, useSystem } from '@vtex/admin-ui-react'
 
 import { Center } from '../../Center'
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
 import { useSidebarContext } from './SidebarContext'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
