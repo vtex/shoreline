@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import type { SystemComponentProps } from '../types'
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import { Flex } from '../components/Flex'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
@@ -14,7 +14,7 @@ export function FilterGroup(props: FilterGroupProps) {
   return (
     <Flex wrap="wrap" role="group" {...rest}>
       {children}
-      <Button onClick={state.onClear} variant="adaptative-dark" size="small">
+      <Button onClick={state.onClear} variant="neutralTertiary">
         {formatMessage('clearAll')}
       </Button>
     </Flex>

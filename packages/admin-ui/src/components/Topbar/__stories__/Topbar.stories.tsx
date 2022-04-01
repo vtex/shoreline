@@ -10,7 +10,7 @@ import {
 
 import { Topbar, TopbarStart, TopbarEnd } from '../index'
 import { Set } from '../../Set'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { Text } from '../../Text'
 
 export default {
@@ -23,7 +23,7 @@ export function Example() {
     <Topbar>
       <TopbarStart>
         <Set spacing={3}>
-          <Button variant="adaptative-dark" icon={<IconImage />} />
+          <Button variant="neutralTertiary" icon={<IconImage />} />
           <Text variant="action1">dpsppinheiros</Text>
         </Set>
       </TopbarStart>
@@ -54,7 +54,7 @@ export function Loading() {
       <Topbar loading={loading}>
         <TopbarStart>
           <Set spacing={3}>
-            <Button variant="adaptative-dark" icon={<IconImage />} />
+            <Button variant="neutralTertiary" icon={<IconImage />} />
             <Text variant="action1">dpsppinheiros</Text>
           </Set>
         </TopbarStart>

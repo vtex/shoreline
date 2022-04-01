@@ -1,5 +1,5 @@
 import { style } from '@vtex/admin-ui-core'
-import * as buttonStyle from '../components/Button/Button.style'
+import * as buttonStyle from '../button/button.style'
 
 export const calendar = style({
   maxWidth: '19.75rem',
@@ -25,13 +25,10 @@ export const calendarHeader = style({
 })
 
 export const calendarButton = style({
-  ...buttonStyle.baseline,
-  ...buttonStyle.small({
-    icon: 'only',
-  }),
-  ...buttonStyle.action({
-    tone: 'neutral',
-    variant: 'tertiary',
+  ...buttonStyle.buttonStyle,
+  ...buttonStyle.variants({
+    size: 'normal',
+    variant: 'neutralTertiary',
   }),
   display: 'flex',
   alignItems: 'center',
@@ -43,9 +40,10 @@ export const calendarCell = style({
 })
 
 export const calendarCellButton = style({
-  ...buttonStyle.action({
-    tone: 'neutral',
-    variant: 'tertiary',
+  ...buttonStyle.buttonStyle,
+  ...buttonStyle.variants({
+    size: 'normal',
+    variant: 'neutralTertiary',
   }),
   padding: 0,
   marginBottom: '$s',

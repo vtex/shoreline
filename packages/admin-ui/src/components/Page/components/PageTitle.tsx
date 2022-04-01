@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
 import { IconArrowLeft } from '@vtex/phosphor-icons'
 
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { usePageHeaderContext } from './PageHeaderContext'
 
 export const PageTitle = jsx('div')(

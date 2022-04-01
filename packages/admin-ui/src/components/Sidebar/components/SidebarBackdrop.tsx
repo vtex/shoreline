@@ -3,7 +3,7 @@ import React, { Fragment, forwardRef } from 'react'
 import { IconCaretRight } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import type { SidebarState } from '../hooks/useSidebarState'
 import { SidebarItemSkeleton } from './SidebarItemSkeleton'
 import { SCALES } from '../consts'
@@ -78,7 +78,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
           <Button
             title="toggle sidebar collapse"
             name="toggle sidebar collapse"
-            variant="adaptative-dark"
+            variant="neutralTertiary"
             csx={{
               borderRadius: '100%',
               border: '$neutral',

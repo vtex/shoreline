@@ -5,7 +5,7 @@ import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { DataGrid, useDataGridState } from '../index'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../Search'
 import { createColumns } from '../createColumns'
 import { Pagination, useQueryPaginationState } from '../../Pagination'

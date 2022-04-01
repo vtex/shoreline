@@ -1,7 +1,7 @@
 import React from 'react'
 import { ToolbarItem as BaseToolbarItem } from 'reakit/Toolbar'
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
 
 import { useToolbarContext } from '../context'
 

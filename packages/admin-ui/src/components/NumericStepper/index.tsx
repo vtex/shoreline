@@ -9,7 +9,7 @@ import invariant from 'tiny-invariant'
 
 import { Box } from '../Box'
 import type { SystemComponentProps } from '../../types'
-import { Button } from '../Button'
+import { Button } from '../../button'
 import type { AbstractInputOwnProps } from '../AbstractInput'
 import { Text } from '../Text'
 
@@ -138,7 +138,6 @@ export const NumericStepper = forwardRef(
           />
 
           <Button
-            size="small"
             variant="tertiary"
             icon={<IconMinus />}
             csx={{
@@ -152,7 +151,6 @@ export const NumericStepper = forwardRef(
           />
 
           <Button
-            size="small"
             variant="tertiary"
             icon={<IconPlus />}
             aria-label={`${label}-increase-button}`}

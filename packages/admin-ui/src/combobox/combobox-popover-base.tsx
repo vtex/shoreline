@@ -8,7 +8,7 @@ import { Paragraph } from '../components/Paragraph'
 import { Text } from '../components/Text'
 import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../components/Spinner'
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
 
 export const ComboboxPopoverBase = createComponent<

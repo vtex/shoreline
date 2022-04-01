@@ -9,7 +9,7 @@ import {
 } from '@vtex/phosphor-icons'
 
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import {
   Menu,
   MenuButton,

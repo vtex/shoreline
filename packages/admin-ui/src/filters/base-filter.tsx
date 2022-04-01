@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 import { FilterDisclosure } from './filter-disclosure'
 import type { GenericFilterStateReturn } from './base-filter.state'
@@ -57,12 +57,10 @@ export function BaseFilter(props: BaseFilterProps) {
             ref?.current?.scrollHeight > ref?.current?.clientHeight
           }
         >
-          <Button size="small" variant="tertiary" onClick={onClear}>
+          <Button variant="tertiary" onClick={onClear}>
             {formatMessage('clear')}
           </Button>
-          <Button size="small" onClick={onChange}>
-            {formatMessage('apply')}
-          </Button>
+          <Button onClick={onChange}>{formatMessage('apply')}</Button>
         </FilterPopoverFooter>
       </FilterPopover>
     </>
