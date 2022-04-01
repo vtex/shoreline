@@ -35,9 +35,9 @@
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8",
-    "react-hook-form": ">=7"
+    "@vtex/admin-ui": "0.x"
   },
-  "devDependencies": {
+  "dependencies": {
     "react-hook-form": "7.29.0"
   }
 }
