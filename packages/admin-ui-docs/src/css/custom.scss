@@ -27,12 +27,16 @@ body {
   line-height: inherit !important;
 }
 
-.container {
-  padding-bottom: 8rem !important;
-}
-
 .row .col {
   --ifm-spacing-horizontal: 3rem;
+}
+
+h1:first-child {
+  display: none;
+}
+
+.theme-doc-breadcrumbs {
+  display: none;
 }
 
 .docusaurus-highlight-code-line {
@@ -48,11 +52,16 @@ body {
 
 @media (min-width: 997px) {
   main {
-    margin-top: -156px;
-    padding-top: 24px;
+    margin-top: -171px;
+    padding-top: 0;
   }
 
   aside {
     height: calc(100% + 376px);
+  }
+
+  .container {
+    padding-top: 0 !important;
+    padding-bottom: 8rem !important;
   }
 }

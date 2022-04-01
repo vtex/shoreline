@@ -26,6 +26,7 @@ const config = {
           routeBasePath: '/',
           editUrl:
             'https://github.com/vtex/admin-ui/edit/main/packages/admin-ui-docs/',
+          breadcrumbs: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
