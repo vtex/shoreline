@@ -93,24 +93,12 @@ export const variants = styleVariants({
   },
   size: {
     normal: {
-      padding: '$narrow.s',
+      padding: '$s',
       height: '2.25rem',
     },
     large: {
-      padding: '$narrow.m',
+      padding: '$m',
       height: '2.75rem',
-    },
-  },
-  iconPosition: {
-    start: {
-      svg: {
-        paddingRight: '$s',
-      },
-    },
-    end: {
-      svg: {
-        paddingLeft: '$xs',
-      },
     },
   },
 })
@@ -131,9 +119,15 @@ export const innerContainerVariants = styleVariants({
   iconPosition: {
     start: {
       flexDirection: 'row',
+      svg: {
+        paddingRight: '$s',
+      },
     },
     end: {
       flexDirection: 'row-reverse',
+      svg: {
+        paddingLeft: '$xs',
+      },
     },
   },
 })
@@ -145,4 +139,7 @@ export const spinnerContainerStyle = style({
   top: 0,
   left: 0,
   right: 0,
+  svg: {
+    size: '1.3rem',
+  },
 })
