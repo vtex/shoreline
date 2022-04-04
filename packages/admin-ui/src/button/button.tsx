@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, ReactElement } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import type { VariantProps } from '@vtex/admin-ui-core'
@@ -38,6 +38,8 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
         })
       : {}
 
+    const iconSize = iconPosition === 'start' ? 'regular' : 'small'
+
     return {
       baseStyle: {
         ...style.buttonStyle,
@@ -59,7 +61,8 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
               }),
             }}
           >
-            {icon} {children}
+            {React.cloneElement(icon as ReactElement, { size: iconSize })}
+            {children}
           </Center>
           {loading ? (
             <Center csx={style.spinnerContainerStyle}>
@@ -98,6 +101,11 @@ export type ButtonOptions = VariantProps<typeof style.variants> & {
    * Icon of the button
    */
   icon?: ReactNode
+  /**
+   * Position of the icon
+   * @default start
+   */
+  iconPosition?: 'start' | 'end'
   /**
    * Vertical bleed
    */
