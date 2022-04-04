@@ -5,7 +5,8 @@ const css = (csx: StyleProp) => csx
 
 export const baseline = css({
   ...buttonStyle.buttonStyle,
-  ...buttonStyle.variants({ size: 'normal', iconPosition: 'end' }),
+  ...buttonStyle.variants({ size: 'normal' }),
+  ...buttonStyle.innerContainerVariants({ iconPosition: 'end' }),
   marginRight: '$s',
   display: 'flex',
   alignItems: 'center',
