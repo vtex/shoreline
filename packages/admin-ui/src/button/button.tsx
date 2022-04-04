@@ -61,7 +61,9 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
               }),
             }}
           >
-            {React.cloneElement(icon as ReactElement, { size: iconSize })}
+            {icon
+              ? React.cloneElement(icon as ReactElement, { size: iconSize })
+              : null}
             {children}
           </Center>
           {loading ? (
