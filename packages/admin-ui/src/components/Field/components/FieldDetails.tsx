@@ -44,7 +44,7 @@ export const FieldDetails = jsx(Role)(
 )
 
 export interface FieldDetailsOptions {
-  message?: string | React.ReactNodeArray
+  message?: string | React.ReactNode
   charLimit?: number
   value?: string | number | readonly string[]
   tone?: 'neutral' | 'critical'

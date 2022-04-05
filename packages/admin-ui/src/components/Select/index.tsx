@@ -1,4 +1,4 @@
-import type { ReactNodeArray, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
 import React from 'react'
 import { forwardRef } from '@vtex/admin-ui-util'
 
@@ -75,7 +75,7 @@ export interface SelectProps
   /**
    * Select helper text
    */
-  helperText?: string | ReactNodeArray
+  helperText?: string | ReactNode
   /**
    * Select's tone of voice
    * @default primary

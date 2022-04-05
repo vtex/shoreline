@@ -1,4 +1,4 @@
-import type { ReactNodeArray, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 
 import type { AbstractInputPasswordProps } from '../AbstractInput'
@@ -61,7 +61,7 @@ export interface InputPasswordProps
   /** unique id of the component */
   id: string
   /** Input helper text */
-  helperText?: string | ReactNodeArray
+  helperText?: string | ReactNode
   /** Input char limit */
   charLimit?: number
   /** Input error message */
