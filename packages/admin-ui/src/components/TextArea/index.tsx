@@ -1,4 +1,4 @@
-import type { ReactNodeArray, Ref } from 'react'
+import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 
@@ -81,7 +81,7 @@ export interface TextAreaProps extends SystemComponentProps<TextAreaOwnProps> {
   /** Unique id of the component */
   id: string
   /** TextArea helper text */
-  helperText?: string | ReactNodeArray
+  helperText?: string | ReactNode
   /** TextArea char limit */
   charLimit?: number
   /** onChange TextArea value event */

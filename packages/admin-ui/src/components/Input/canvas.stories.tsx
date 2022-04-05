@@ -79,7 +79,11 @@ export const HelperTextWithAnchor = () => {
         onClear={() => setValue('')}
         id="textfield"
         label="Label"
-        helperText={['Helper Text with ', <Anchor>link</Anchor>]}
+        helperText={
+          <>
+            Helper Text with <Anchor>link</Anchor>
+          </>
+        }
       />
     </Box>
   )
