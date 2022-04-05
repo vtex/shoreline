@@ -1,8 +1,13 @@
-import type { ReactNode, ReactElement } from 'react'
+import type { ReactNode } from 'react'
 import React from 'react'
 import { Button as ReakitButton } from 'reakit/Button'
 import type { VariantProps } from '@vtex/admin-ui-core'
-import { createComponent, createHook, useElement } from '@vtex/admin-ui-react'
+import {
+  createComponent,
+  createHook,
+  useElement,
+  IconContainer,
+} from '@vtex/admin-ui-react'
 
 import { Center } from '../components/Center'
 import { Spinner } from '../components/Spinner'
@@ -38,8 +43,6 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
         })
       : {}
 
-    const iconSize = iconPosition === 'start' ? 'regular' : 'small'
-
     return {
       baseStyle: {
         ...style.buttonStyle,
@@ -61,9 +64,13 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
               }),
             }}
           >
-            {icon
-              ? React.cloneElement(icon as ReactElement, { size: iconSize })
-              : null}
+            {icon && (
+              <IconContainer
+                size={iconPosition === 'start' ? 'regular' : 'small'}
+              >
+                {icon}
+              </IconContainer>
+            )}
             {children}
           </Center>
           {loading ? (
