@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box } from '@vtex/admin-ui'
+import { Set } from '@vtex/admin-ui'
 
 import { Form, useFormState } from '../form'
 import { Textfield } from './textfield'
@@ -13,23 +13,38 @@ export const Basic = () => {
   const form = useFormState()
 
   return (
-    <Box>
-      <Form onSubmit={(data) => console.log(data)} state={form}>
+    <Form onSubmit={(data) => console.log(data)} state={form}>
+      <Set
+        orientation="vertical"
+        spacing={2}
+        csx={{
+          maxWidth: '22rem',
+        }}
+      >
         <Textfield
-          placeholder="First Name"
-          type="text"
+          label="First Name"
+          placeholder="Ex. Matheus"
           name="firstName"
+          helperMessage="Your first name"
           state={form}
         />
-        <Textfield placeholder="Age" type="number" name="age" state={form} />
         <Textfield
-          placeholder="Favorite Food"
-          type="text"
+          label="Age"
+          placeholder="Ex. 28"
+          type="number"
+          name="age"
+          helperMessage="Years of age"
+          state={form}
+        />
+        <Textfield
+          label="Fav Food"
+          placeholder="Ex. Meat"
           name="favFood"
+          helperMessage="What you like to eat"
           state={form}
         />
         <input type="submit" value="Submit" />
-      </Form>
-    </Box>
+      </Set>
+    </Form>
   )
 }

@@ -38,6 +38,7 @@
     "@vtex/admin-ui": "0.x"
   },
   "dependencies": {
-    "react-hook-form": "7.29.0"
+    "react-hook-form": "7.29.0",
+    "tiny-invariant": "1.2.0"
   }
 }
