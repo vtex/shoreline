@@ -15,26 +15,28 @@ import * as style from './date-picker.style'
 export const DatePickerField = forwardRef(
   (props: DatePickerFieldProps, ref: Ref<HTMLDivElement>) => {
     const {
-      state: { required, invalid, pickerState, dateFieldState, disabled },
+      state: { required, tone, pickerState, dateFieldState, disabled },
       label,
       helperText,
       criticalText,
     } = props
 
-    const showCriticalMessage = invalid && criticalText
+    const isCritical = tone === 'critical'
+    const hasCriticalMessage = tone === 'critical' && criticalText
+    const hasMessage = helperText && !hasCriticalMessage
 
     return (
       <>
         <Picker
           ref={ref}
-          aria-invalid={ariaAttr(invalid)}
+          aria-invalid={ariaAttr(isCritical)}
           aria-required={ariaAttr(required)}
           state={pickerState}
         >
           <DateField
             label={label}
             state={dateFieldState}
-            invalid={invalid}
+            tone={tone}
             disabled={disabled}
             disclosure={
               <PickerDisclosure state={pickerState} csx={style.disclosure}>
@@ -48,10 +50,8 @@ export const DatePickerField = forwardRef(
               </PickerDisclosure>
             }
           />
-          {helperText && !showCriticalMessage && (
-            <Text variant="detail">{helperText}</Text>
-          )}
-          {showCriticalMessage && (
+          {hasMessage && <Text variant="detail">{helperText}</Text>}
+          {hasCriticalMessage && (
             <Text variant="detail" tone="critical">
               {criticalText}
             </Text>

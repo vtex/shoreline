@@ -30,8 +30,8 @@ export function createDate(date?: DateObject): Date {
   const { year, month, day } = date
 
   invariant(year >= 0, 'The year must be greater then 0')
-  invariant(month >= 0 && month <= 11, 'The month must be between from 0 to 11')
-  invariant(day >= 1 && day <= 31, 'The day must be between 0 and 31')
+  invariant(month >= 0 && month <= 11, 'The month must be between 0 and 11')
+  invariant(day >= 1 && day <= 31, 'The day must be between 1 and 31')
 
   return new Date(year, month, day)
 }

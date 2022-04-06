@@ -11,11 +11,11 @@ export const dateField = style({
 })
 
 export const variants = styleVariants({
-  invalid: {
-    true: {
+  tone: {
+    critical: {
       border: '$form.critical',
     },
-    false: {
+    neutral: {
       border: '$form.neutral',
     },
   },

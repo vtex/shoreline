@@ -23,7 +23,7 @@ export type DatePickerInitialState =
        * Whether is invalid
        * @default false
        */
-      invalid?: boolean
+      tone?: 'neutral' | 'critical'
       /**
        * Whether is required
        * @default false
@@ -41,7 +41,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     defaultValue = getDateObject(),
     minValue,
     maxValue,
-    invalid: invalidProp = false,
+    tone: initialTone = 'neutral',
     required = false,
     autoFocus = false,
     disabled = false,
@@ -98,12 +98,21 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     }
   }, [autoFocus, dateFieldState.first])
 
-  const invalid = useMemo(() => {
-    const outOfBounds =
+  const tone = useMemo(() => {
+    const isOutOfBounds =
       date < calendarState.minDateValue || date > calendarState.maxDateValue
 
-    return invalidProp || outOfBounds
-  }, [invalidProp, date])
+    if (isOutOfBounds) {
+      return 'critical'
+    }
+
+    return isOutOfBounds ? 'critical' : initialTone
+  }, [
+    initialTone,
+    date,
+    calendarState.minDateValue,
+    calendarState.maxDateValue,
+  ])
 
   return {
     dateValue: value,
@@ -112,7 +121,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     required,
     disabled,
     calendarState,
-    invalid,
+    tone,
     pickerState,
     dateFieldState,
   }
