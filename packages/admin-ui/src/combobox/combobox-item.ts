@@ -1,21 +1,18 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { ComboboxItemOptions } from 'ariakit/combobox'
-import { useComboboxItem } from 'ariakit/combobox'
-import type { HTMLProps } from 'react'
+import { ComboboxItem as AriakitComboboxItem } from 'ariakit/combobox'
 
 import * as style from './combobox.style'
 
-export const ComboboxItem = createComponent<'div', ComboboxItemOptions>(
+export const ComboboxItem = createComponent<typeof AriakitComboboxItem>(
   (props) => {
-    // weird, the input of the hook should be exactly ComboboxItemOptions
-    const htmlProps = useComboboxItem(props as any) as Omit<
-      HTMLProps<'div'>,
-      never
-    >
+    // TODO: Check the type error that forbids onClick param
+    const { onClick, ...restProps } = props as any
 
-    return useElement('div', {
-      ...htmlProps,
-      children: props.children,
+    const onClickObj: any = { onClick }
+
+    return useElement(AriakitComboboxItem, {
+      ...restProps,
+      ...onClickObj,
       baseStyle: style.item,
     })
   }
