@@ -94,7 +94,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -260,7 +260,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -654,7 +654,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -869,7 +869,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -1249,7 +1249,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1518,7 +1518,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1959,7 +1959,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -2325,7 +2325,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -2613,7 +2613,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {

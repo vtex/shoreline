@@ -117,7 +117,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 }
 
 .emotion-1 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -355,7 +355,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 }
 
 .emotion-1 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-0 {

@@ -106,7 +106,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -407,7 +407,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -723,7 +723,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -1033,7 +1033,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -1349,7 +1349,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-2 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {

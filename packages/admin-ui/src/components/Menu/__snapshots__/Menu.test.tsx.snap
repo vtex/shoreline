@@ -85,7 +85,7 @@ exports[`Menu should match snapshot hidden 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {
@@ -402,7 +402,7 @@ exports[`Menu should match snapshot visible 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {

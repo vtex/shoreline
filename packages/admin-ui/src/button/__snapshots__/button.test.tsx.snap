@@ -42,7 +42,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -140,7 +140,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -238,7 +238,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -336,7 +336,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -434,7 +434,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -532,7 +532,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -630,7 +630,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -795,7 +795,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-3 {
@@ -917,7 +917,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1018,7 +1018,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1118,7 +1118,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-0 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {

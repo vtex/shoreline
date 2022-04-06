@@ -42,7 +42,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-1:hover {
