@@ -97,7 +97,7 @@ render(<Example />)
 ### Custom rendering
 
 You can use objects instead of strings for your combobox's list and define a custom rendering function for each option. For this you must also define a `getOptionValue` function (for converting the object shape into a unique string value),
-a `renderOption` function which should return a ReactNode that represents this object visually. If you don't define these 2 functions and you use objects on your list you will get unexpected behaviour.
+a `renderOption` function which should return a ReactNode that represents this object visually. If you don't define these 2 functions and you use objects on your list you will get an unexpected behavior.
 
 The value obtained by the `getOptionValue` function will be the one considered when performing the search based on the user input.
 
@@ -208,7 +208,7 @@ The value obtained by the `getOptionValue` function will be the one considered w
 
 #### Custom rendering for i18n
 
-  You can use custom item rendering as a means of internationalization for each option.
+  You can use custom item rendering as a way of implementing internationalization for each option.
 
 ```jsx noInline live
   const ComboboxField = experimental_ComboboxField
@@ -443,7 +443,7 @@ It extends the `useComboboxState` props, and:
 
 #### ComboboxMultipleState
 
-The hooks returns `ComboboxMultipleState`, which extends `ComboboxState` and additionally has:
+The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and additionally has:
 
 | Name           | Type                       | Description             |
 | -------------- | -------------------------- | ----------------------- |

@@ -76,10 +76,6 @@ export function useComboboxMultipleState<T>(
     if (shouldClearOnSelect) combobox.setValue('')
   }, [checkbox.value, shouldClearOnSelect, combobox.setValue])
 
-  useEffect(() => {
-    if (shouldClearOnSelect) combobox.setValue('')
-  }, [checkbox.value, combobox.setValue])
-
   return {
     ...combobox,
     checkboxState: checkbox,
