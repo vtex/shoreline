@@ -10,6 +10,7 @@ import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../components/Spinner'
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
+import type { ComboboxMultipleState } from '.'
 
 export const ComboboxPopoverBase = createComponent<
   typeof AriakitComboboxPopover,
@@ -114,6 +115,6 @@ export const ComboboxPopoverBase = createComponent<
 })
 
 interface Props {
-  state: ComboboxState<any>
+  state: ComboboxState<any> | ComboboxMultipleState<any>
   onRetry?: () => void
 }

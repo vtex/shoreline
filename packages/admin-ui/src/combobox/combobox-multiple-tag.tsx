@@ -1,4 +1,4 @@
-import type { KeyboardEventHandler } from 'react'
+import type { KeyboardEventHandler, ReactNode } from 'react'
 import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
@@ -37,7 +37,7 @@ export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
 }
 
 interface ComboboxMultipleTagProps {
-  value: string
+  value: ReactNode
   onDismiss: () => void
   onKeyDown: KeyboardEventHandler<HTMLButtonElement>
 }
