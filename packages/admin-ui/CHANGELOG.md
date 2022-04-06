@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.121.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.7...@vtex/admin-ui@0.121.0) (2022-04-06)
+
+### Features
+
+- **bleed:** promote component ([74cff7c](https://github.com/vtex/admin-ui/commit/74cff7cf86453351f4014e11166827b5f1096a19))
+- **inline:** promote component ([37f9518](https://github.com/vtex/admin-ui/commit/37f95185d2c169f20db9cc5302b2b3a5731c09a8))
+
 ## [0.120.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.6...@vtex/admin-ui@0.120.7) (2022-03-30)
 
 ### Bug Fixes

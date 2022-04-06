@@ -1,7 +1,7 @@
 {
   "name": "@vtex/eslint-plugin-admin-ui",
   "license": "MIT",
-  "version": "0.3.21",
+  "version": "0.3.22",
   "main": "dist/index.js",
   "module": "dist/eslint-plugin-admin-ui.esm.js",
   "typings": "dist/index.d.ts",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/eslint": "^7.28.0",
     "@types/estree": "^0.0.47",
-    "@vtex/admin-ui": "^0.120.7",
+    "@vtex/admin-ui": "^0.121.0",
     "eslint": "^7.30.0"
   }
 }
