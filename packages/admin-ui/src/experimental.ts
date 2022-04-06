@@ -28,10 +28,6 @@ import {
   ComboboxMultiplePopover as experimental_ComboboxMultiplePopover,
   useComboboxMultipleState as experimental_useComboboxMultipleState,
 } from './combobox'
-import {
-  Bleed as experimental_Bleed,
-  BleedProps as experimental_BleedProps,
-} from './bleed'
 
 export {
   experimental_DatePickerField,
@@ -55,6 +51,4 @@ export {
   experimental_useFilterGroupState,
   experimental_useFilterMultipleState,
   experimental_useFilterState,
-  experimental_Bleed,
-  experimental_BleedProps,
 }

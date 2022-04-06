@@ -5,6 +5,7 @@ export * from '@vtex/admin-ui-util'
 
 export * from './experimental'
 export * from './inline'
+export * from './bleed'
 
 export * from './components/Skeleton'
 export * from './components/Label'
