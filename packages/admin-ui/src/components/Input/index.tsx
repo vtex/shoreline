@@ -62,7 +62,7 @@ export interface InputProps extends SystemComponentProps<InputOwnProps> {
   /** unique id of the component */
   id: string
   /** Input helper text */
-  helperText?: string | ReactNode
+  helperText?: ReactNode
   /** Input char limit */
   charLimit?: number
   /** Input error message */
