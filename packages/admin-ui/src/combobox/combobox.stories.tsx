@@ -224,6 +224,42 @@ export function Multiple() {
   )
 }
 
+export const CustomRenderMultiple = () => {
+  const combobox = useComboboxMultipleState({
+    list: [
+      { value: 'Brazil', flag: '🇧🇷' },
+      { value: 'France', flag: '🇫🇷' },
+      { value: 'UK', flag: '🇬🇧' },
+      { value: 'Colombia', flag: '🇨🇴' },
+      { value: 'Germany', flag: '🇩🇪' },
+    ],
+    getOptionValue: (item) => item.value,
+    renderOption: (item) => (
+      <>
+        {item.value}
+        {item.flag}
+      </>
+    ),
+    renderTag: (item) => item.value.substring(0, 2),
+  })
+
+  return (
+    <div>
+      {JSON.stringify(combobox.selectedItems)}
+      {combobox.value}
+      <ComboboxMultipleField
+        state={combobox}
+        id="combobox-multiple"
+        label="Countries"
+        csx={{
+          width: '100%',
+        }}
+      />
+      <ComboboxMultiplePopover state={combobox} />
+    </div>
+  )
+}
+
 export function MultipleDefaultSelected() {
   const combobox = useComboboxMultipleState({
     defaultSelected: ['Bacon', 'Pasta', 'Tomato'],

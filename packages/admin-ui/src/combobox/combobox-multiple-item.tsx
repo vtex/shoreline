@@ -8,7 +8,7 @@ import { useSystem } from '@vtex/admin-ui-react'
 import * as style from './combobox.style'
 
 export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
-  const { value, checkbox, ...restProps } = props
+  const { children, checkbox, value, onItemSelect, ...restProps } = props
 
   const { cn } = useSystem()
 
@@ -17,14 +17,20 @@ export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
     className: cn(style.itemMultiple),
   }
 
+  // TODO: Check the type error that forbids onClick param
+  const onClick: any = { onClick: () => onItemSelect(isSelected) }
+
+  const isSelected = !!value && checkbox?.value.includes(value)
+
   return (
     <ComboboxItem
       // All selectable items must have the `aria-selected` attribute set to
       // `true` or `false`.
-      aria-selected={!!value && checkbox?.value.includes(value)}
+      aria-selected={isSelected}
+      {...onClick}
       {...restProps}
     >
-      {(itemProps) => {
+      {(itemProps: React.HTMLAttributes<any> & React.RefAttributes<any>) => {
         return (
           <Checkbox
             {...itemProps}
@@ -37,7 +43,7 @@ export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
             state={checkbox}
             value={value}
           >
-            {value}
+            {children}
             <CheckboxCheck />
           </Checkbox>
         )
@@ -47,5 +53,6 @@ export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
 }
 
 export type ComboboxMultipleItemProps = ComboboxItemProps & {
+  onItemSelect: (isSelected: boolean) => void
   checkbox: CheckboxState<string[]>
 }
