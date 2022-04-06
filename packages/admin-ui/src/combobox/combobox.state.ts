@@ -21,7 +21,8 @@ export function useComboboxState<T>(
     list,
     getOptionValue = (item: T) =>
       typeof item === 'string' ? item : JSON.stringify(item),
-    renderOption = (item: T) => item,
+    renderOption = (item: T) =>
+      typeof item === 'string' ? item : JSON.stringify(item),
     ...comboboxProps
   } = props
 
