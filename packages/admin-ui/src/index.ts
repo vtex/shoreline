@@ -4,6 +4,7 @@ export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
 
 export * from './experimental'
+export * from './inline'
 
 export * from './components/Skeleton'
 export * from './components/Label'

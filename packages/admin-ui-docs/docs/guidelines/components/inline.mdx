@@ -8,7 +8,7 @@ Render a set of components in a row with equal spacing between them. It also sup
 ## Usage
 
 ```jsx
-import { experimental_Inline as Inline } from '@vtex/admin-ui'
+import { Inline } from '@vtex/admin-ui'
 
 function Example() {
   return (
@@ -27,8 +27,6 @@ function Example() {
 ### Basic
 
 ```jsx noInline live
-const Inline = experimental_Inline
-
 function Example() {
   return (
     <Inline>
@@ -48,8 +46,6 @@ render(<Example />)
 Wrapping is applied automatically.
 
 ```jsx noInline live
-const Inline = experimental_Inline
-
 function Example() {
   return (
     <Box csx={{ width: '18rem' }}>
@@ -74,8 +70,6 @@ render(<Example />)
 Space is configured using the `vSpace` and `hSpace`, with either token or number values. In the case of a numeric value, the unit is `rem` by default. You can also set the `unit` prop to change it.
 
 ```jsx noInline live
-const Inline = experimental_Inline
-
 function Example() {
   return (
     <Box csx={{ width: '18rem' }}>
@@ -97,9 +91,7 @@ render(<Example />)
 
 ## Props
 
-| Name   | Type                     | Description                         | Required | Default |
-| ------ | ------------------------ | ----------------------------------- | -------- | ------- |
-| vSpace | `VSpaceTokens or number` | Vertical space                      | 🚫       | '$s'    |
-| hSpace | `HSpaceTokens or number` | Horizontal space                    | 🚫       | '$s'    |
-| unit   | `CSSUnit`                | Unit used in case of a number value | 🚫       | 'rem'   |
-
+| Name   | Type           | Description      | Required | Default |
+| ------ | -------------- | ---------------- | -------- | ------- |
+| vSpace | `VSpaceTokens` | Vertical space   | 🚫       | '$s'    |
+| hSpace | `HSpaceTokens` | Horizontal space | 🚫       | '$s'    |
