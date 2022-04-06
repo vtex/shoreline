@@ -440,43 +440,43 @@ export interface OverwriteCSSProperties {
   /**
    * CSS **padding** property
    */
-  padding?: SpaceTokens | CSS.Property.Padding | number
+  padding?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingTop** property
    */
-  paddingTop?: VSpaceTokens | CSS.Property.PaddingTop | number
+  paddingTop?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingBottom** property
    */
-  paddingBottom?: VSpaceTokens | CSS.Property.PaddingBottom | number
+  paddingBottom?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingLeft** property
    */
-  paddingLeft?: HSpaceTokens | CSS.Property.PaddingLeft | number
+  paddingLeft?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingRight** property
    */
-  paddingRight?: HSpaceTokens | CSS.Property.PaddingRight | number
+  paddingRight?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
   /**
    * CSS **margin** property
    */
-  margin?: SpaceTokens | CSS.Property.Margin | number
+  margin?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginTop** property
    */
-  marginTop?: VSpaceTokens | CSS.Property.MarginTop | number
+  marginTop?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginBottom** property
    */
-  marginBottom?: VSpaceTokens | CSS.Property.MarginBottom | number
+  marginBottom?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginLeft** property
    */
-  marginLeft?: HSpaceTokens | CSS.Property.MarginLeft | number
+  marginLeft?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginRight** property
    */
-  marginRight?: HSpaceTokens | CSS.Property.MarginRight | number
+  marginRight?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
 }
 
 /**
@@ -576,3 +576,5 @@ export type CSSRelativeUnit =
   | '%'
 
 export type CSSUnit = CSSAbsoluteUnit | CSSRelativeUnit
+
+export type CSSPropAutocomplete<T extends string> = T | (string & {})
