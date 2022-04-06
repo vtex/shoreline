@@ -6,7 +6,7 @@ import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
 
 import { DateField } from '../date-field'
-import { Center } from '../components/Center'
+import { Center } from '../center'
 import { Picker, PickerDisclosure } from '../picker'
 import type { DatePickerStateReturn } from './date-picker.state'
 import * as style from './date-picker.style'

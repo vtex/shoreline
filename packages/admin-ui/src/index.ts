@@ -3,6 +3,7 @@ export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
 
+export * from './center'
 export * from './experimental'
 export * from './inline'
 export * from './bleed'
@@ -65,7 +66,6 @@ export * from './components/Box'
 export * from './components/Flex'
 export * from './components/Grid'
 export * from './components/Field'
-export * from './components/Center'
 export * from './components/Illustrations'
 
 export {

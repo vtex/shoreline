@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 import { Bleed } from '../../bleed'
 import { Set } from '../Set'
-import { Center } from '../Center'
+import { Center } from '../../center'
 import { Skeleton } from '../Skeleton'
 
 /**
