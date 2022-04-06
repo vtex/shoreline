@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import { experimental_Bleed as Bleed } from '../../experimental'
+import { Bleed } from '../../bleed'
 import { Set } from '../Set'
 import { Center } from '../Center'
 import { Skeleton } from '../Skeleton'
@@ -68,7 +68,7 @@ export const TopbarStart = jsx('div')(
 
       return {
         ...htmlProps,
-        children: <Bleed left={0.5}>{children}</Bleed>,
+        children: <Bleed left="0.5rem">{children}</Bleed>,
       }
     },
   }
@@ -101,7 +101,7 @@ export const TopbarEnd = jsx('div')(
 
       return {
         ...htmlProps,
-        children: <Bleed right={0.5}>{children}</Bleed>,
+        children: <Bleed right="0.5rem">{children}</Bleed>,
       }
     },
   }

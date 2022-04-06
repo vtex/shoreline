@@ -22,7 +22,7 @@ export const Basic = () => {
         width: 350,
       }}
     >
-      <Bleed top={1} left={1}>
+      <Bleed top="1rem" left="1rem">
         <img
           src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
           alt="vtex-brand"

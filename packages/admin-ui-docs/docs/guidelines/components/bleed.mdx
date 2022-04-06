@@ -8,8 +8,6 @@ Sometimes a component needs to trespass the parent padding to achieve alignment 
 ## Usage
 
 ```jsx
-import { experimental_Bleed as Bleed } from '@vtex/admin-ui'
-
 function Example() {
   return (
     <Card>
@@ -26,8 +24,6 @@ function Example() {
 ### Basic
 
 ```jsx noInline live
-const Bleed = experimental_Bleed
-
 const containerWidth = '20rem'
 
 function Example() {
@@ -39,7 +35,7 @@ function Example() {
         width: containerWidth,
       }}
     >
-      <Bleed top={1} left={1} right={1}>
+      <Bleed top="1rem" left="1rem" right="1rem">
         <tag.img
           csx={{
             width: containerWidth,
@@ -64,31 +60,22 @@ render(<Example />)
 
 ### With Inline
 
-```jsx noInline live
-const Bleed = experimental_Bleed
-
-function Example() {
-  return (
-    <Bleed top="$xl" left="$xl">
-      <Inline vSpace="$xl" hSpace="$xl">
-        <Tag label="Brazil" />
-        <Tag label="Argentina" />
-        <Tag label="Chile" />
-        <Tag label="Uruguai" />
-      </Inline>
-    </Bleed>
-  )
-}
-
-render(<Example />)
+```jsx live
+<Bleed top="$xl" left="$xl">
+  <Inline vSpace="$xl" hSpace="$xl">
+    <Tag label="Brazil" />
+    <Tag label="Argentina" />
+    <Tag label="Chile" />
+    <Tag label="Uruguai" />
+  </Inline>
+</Bleed>
 ```
 
 ## Props
 
-| Name   | Type                     | Description                         | Required | Default |
-| ------ | ------------------------ | ----------------------------------- | -------- | ------- |
-| top    | `VSpaceTokens or number` | Top bleed                           | 🚫       | 0       |
-| bottom | `VSpaceTokens or number` | Bottom bleed                        | 🚫       | 0       |
-| left   | `HSpaceTokens or number` | Left bleed                          | 🚫       | 0       |
-| right  | `HSpaceTokens or number` | Right bleed                         | 🚫       | 0       |
-| unit   | `CSSUnit`                | Unit used in case of a number value | 🚫       | 'rem'   |
+| Name   | Type                     | Description  | Required | Default |
+| ------ | ------------------------ | ------------ | -------- | ------- |
+| top    | `VSpaceTokens or number` | Top bleed    | 🚫       | '0rem'  |
+| bottom | `VSpaceTokens or number` | Bottom bleed | 🚫       | '0rem'  |
+| left   | `HSpaceTokens or number` | Left bleed   | 🚫       | '0rem'  |
+| right  | `HSpaceTokens or number` | Right bleed  | 🚫       | '0rem'  |
