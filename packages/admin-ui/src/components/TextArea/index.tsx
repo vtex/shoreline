@@ -81,7 +81,7 @@ export interface TextAreaProps extends SystemComponentProps<TextAreaOwnProps> {
   /** Unique id of the component */
   id: string
   /** TextArea helper text */
-  helperText?: string | ReactNode
+  helperText?: ReactNode
   /** TextArea char limit */
   charLimit?: number
   /** onChange TextArea value event */

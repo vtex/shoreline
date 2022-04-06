@@ -75,7 +75,7 @@ export interface SelectProps
   /**
    * Select helper text
    */
-  helperText?: string | ReactNode
+  helperText?: ReactNode
   /**
    * Select's tone of voice
    * @default primary
