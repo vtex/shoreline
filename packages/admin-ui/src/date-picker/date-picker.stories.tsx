@@ -13,14 +13,14 @@ export default {
 } as Meta
 
 export const Base: Story<{
-  invalid: boolean
+  tone: 'neutral' | 'critical'
   disabled: boolean
   label: string
 }> = (args) => {
-  const { invalid, disabled } = args
+  const { tone, disabled } = args
 
   const state = useDatePickerState({
-    invalid,
+    tone,
     disabled,
   })
 
@@ -33,15 +33,14 @@ export const Base: Story<{
 }
 
 Base.parameters = {
-  invalid: false,
+  tone: 'neutral',
   disabled: false,
 }
 
 Base.argTypes = {
-  invalid: {
-    control: {
-      type: 'boolean',
-    },
+  tone: {
+    options: ['critical', 'neutral'],
+    control: { type: 'select' },
   },
   disabled: {
     control: {

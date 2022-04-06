@@ -13,7 +13,7 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
     state,
     label,
     disclosure,
-    invalid = false,
+    tone = 'neutral',
     disabled = false,
     ...htmlProps
   } = props
@@ -23,7 +23,7 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
     baseStyle: {
       ...style.dateField,
       ...style.variants({
-        invalid,
+        tone,
         disabled,
       }),
     },
@@ -52,6 +52,6 @@ export interface DateFieldOptions {
   state: SegmentStateReturn
   label: string
   disclosure?: ReactNode
-  invalid?: boolean
+  tone?: 'neutral' | 'critical'
   disabled?: boolean
 }

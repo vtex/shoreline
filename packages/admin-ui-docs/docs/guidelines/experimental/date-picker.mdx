@@ -108,9 +108,9 @@ function Example() {
 render(<Example />)
 ```
 
-### Validation
+### Tone of voice
 
-Use the `invalid` boolean to trigger the invalid state. It is up to you to define what is valid or not. Additionally, you can add a `criticalText` to be displayed whether invalid.
+Use the `tone` prop to define the [tone of voice](/guidelines/foundations/colors#tones), which is either `neutral` or `critical`. It is up to you to define what triggers it. Additionally, you can add a `criticalText` to be displayed whether `critical`.
 
 ```jsx noInline live
 const DatePickerField = experimental_DatePickerField
@@ -119,7 +119,7 @@ const useDatePickerState = experimental_useDatePickerState
 
 function Example() {
   const state = useDatePickerState({
-    invalid: true,
+    tone: 'critical',
   })
 
   return (
@@ -127,7 +127,7 @@ function Example() {
       <DatePickerField
         label="Date"
         state={state}
-        criticalText="This date is invalid"
+        criticalText="This date is critical"
       />
       <DatePickerCalendar state={state} />
     </>
