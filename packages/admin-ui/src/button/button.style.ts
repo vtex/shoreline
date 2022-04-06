@@ -120,13 +120,13 @@ export const innerContainerVariants = styleVariants({
     start: {
       flexDirection: 'row',
       svg: {
-        paddingRight: '$s',
+        marginRight: '$s',
       },
     },
     end: {
       flexDirection: 'row-reverse',
       svg: {
-        paddingLeft: '$xs',
+        marginLeft: '$xs',
       },
     },
   },

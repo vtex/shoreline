@@ -46,7 +46,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {
@@ -240,7 +240,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {
@@ -434,7 +434,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {
@@ -633,7 +633,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {
@@ -827,7 +827,7 @@ exports[`Dropdown tests should render a Dropdown with a list of string and other
 }
 
 .emotion-1 svg {
-  padding-left: 0.125rem;
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {

@@ -160,7 +160,7 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-9 {
@@ -438,7 +438,7 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-9 {
@@ -744,7 +744,7 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-9 {
@@ -1050,7 +1050,7 @@ exports[`Toast should match snapshot 1`] = `
 }
 
 .emotion-3 svg {
-  padding-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .emotion-9 {
