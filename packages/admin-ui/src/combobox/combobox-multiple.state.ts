@@ -15,10 +15,12 @@ export function useComboboxMultipleState<T>(
     shouldClearOnSelect = true,
     getOptionValue = (item: T) =>
       typeof item === 'string' ? item : JSON.stringify(item),
-    renderOption = (item: T) => item,
-    renderTag = (item: T) =>
+    renderOption = (item: T) =>
       typeof item === 'string' ? item : JSON.stringify(item),
+    renderTag: originalRenderTag,
   } = props
+
+  const renderTag = originalRenderTag || renderOption
 
   const [selectedItems, setSelectedItems] = useState(defaultSelected)
 
