@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { tag, useSystem } from '@vtex/admin-ui-react'
 
-import { Center } from '../../Center'
+import { Center } from '../../../center'
 import type { ButtonProps } from '../../../button'
 import { Button } from '../../../button'
 import { useSidebarContext } from './SidebarContext'

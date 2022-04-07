@@ -2,10 +2,10 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
-import { Center } from '../index'
+import { Center } from './center'
 
 export default {
-  title: 'admin-ui/Center',
+  title: 'admin-ui/center',
   component: Center,
 } as Meta
 
