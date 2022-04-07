@@ -4,8 +4,8 @@ path: /alert/
 hide_table_of_contents: true
 ---
 
-import { Page } from '@site/src/components/Page'
-import { TabPanel } from '@vtex/admin-ui'
+import { Page, Panel } from '@site/src/components/Page'
+
 
 export const tabToc = {
   overview: toc.filter((item) =>
@@ -24,7 +24,7 @@ export const tabToc = {
 }
 
 <Page toc={tabToc} hasTabs>
-  <TabPanel className="page-content" id="overview">
+  <Panel id="overview">
 
 Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
 
@@ -173,10 +173,10 @@ function Example() {
 }
 ```
 
-  </TabPanel>
-  <TabPanel className="page-content" id="designReference">
-  </TabPanel>
-  <TabPanel className="page-content" id="codeReference">
+  </Panel>
+  <Panel id="designReference">
+  </Panel>
+  <Panel id="codeReference">
 
 ## Usage
 
@@ -201,5 +201,5 @@ function Example() {
 | sticky    | `boolean`                              | Whether it is sticky or not                   | 🚫       | `false` |
 | fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |
 
-  </TabPanel>
+  </Panel>
 </Page>
