@@ -58,8 +58,10 @@ export function Page(props: PageProps) {
     </Tabs>
   ) : (
     <div className="page-container">
-      <div className="page-content">{props.children}</div>
+      <div className="panel-content">{props.children}</div>
       <TOC className="toc-container" toc={props.toc} />
     </div>
   )
 }
+
+export { Panel } from './Panel'
