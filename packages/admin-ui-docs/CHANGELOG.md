@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.7.0...@vtex/admin-ui-docs@0.8.0) (2022-04-07)
+
+### Bug Fixes
+
+- **datepicker:** change from invalid to tone ([7b98c8a](https://github.com/vtex/admin-ui/commit/7b98c8abc6d1ec96b219909064026449e4ec45ba))
+- **datepicker:** support min and max values ([b31928d](https://github.com/vtex/admin-ui/commit/b31928d55c8a22c18fc296d5b67717454c612e33))
+
+### Features
+
+- **button:** review component with design specs ([b47fe40](https://github.com/vtex/admin-ui/commit/b47fe40937654c3eca8e6efc0b7e6246f716784c))
+
 # [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.6.0...@vtex/admin-ui-docs@0.7.0) (2022-04-06)
 
 ### Features

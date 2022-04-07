@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.122.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.121.0...@vtex/admin-ui@0.122.0) (2022-04-07)
+
+### Bug Fixes
+
+- **button:** add verification before cloning icon element using react cloneElement ([44956c9](https://github.com/vtex/admin-ui/commit/44956c9e5348032f36a919144d5d48e6e4012cb8))
+- **button:** change spacing to be according to the design specs ([e8c3aaa](https://github.com/vtex/admin-ui/commit/e8c3aaaff3de72e78d78ffe07b14437f140468e1))
+- **button:** change svg styling from padding to margin ([614385b](https://github.com/vtex/admin-ui/commit/614385b963d15f14ae5aa1f43912cf511dfe59f6))
+- **button:** use new center component ([0dafb10](https://github.com/vtex/admin-ui/commit/0dafb105a6cd4a6032c6085d7acc76dcd248952f))
+- **datepicker:** change from invalid to tone ([7b98c8a](https://github.com/vtex/admin-ui/commit/7b98c8abc6d1ec96b219909064026449e4ec45ba))
+- **datepicker:** support min and max values ([b31928d](https://github.com/vtex/admin-ui/commit/b31928d55c8a22c18fc296d5b67717454c612e33))
+
+### Features
+
+- **button:** review component with design specs ([b47fe40](https://github.com/vtex/admin-ui/commit/b47fe40937654c3eca8e6efc0b7e6246f716784c))
+- **center:** review component ([88f707b](https://github.com/vtex/admin-ui/commit/88f707b892265106f054de941054477d19dcde0f))
+
 # [0.121.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.7...@vtex/admin-ui@0.121.0) (2022-04-06)
 
 ### Features
