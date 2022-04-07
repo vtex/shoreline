@@ -3,13 +3,13 @@
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
-.tab-container {
+.page-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.panel {
+.page-content {
   margin-top: 2rem;
   width: 100%;
 
