@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.122.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.0...@vtex/admin-ui@0.122.1) (2022-04-07)
+
+### Bug Fixes
+
+- **filter disclosure:** fix filter diclosure children order ([ac75a37](https://github.com/vtex/admin-ui/commit/ac75a3740ab10df2085fc06cad4373e56eb28fa3))
+
 # [0.122.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.121.0...@vtex/admin-ui@0.122.0) (2022-04-07)
 
 ### Bug Fixes
