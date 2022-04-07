@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-codemod",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/admin-ui-codemod.esm.js",
   "typings": "dist/index.d.ts",
@@ -29,16 +29,16 @@
     "test": "tsdx test"
   },
   "peerDependencies": {
-    "react": ">=16.8",
-    "@vtex/admin-ui": "0.x"
+    "@vtex/admin-ui": "0.x",
+    "react": ">=16.8"
   },
   "dependencies": {
-    "jscodeshift": "0.13.1",
     "chalk": "2.4.1",
     "execa": "3.2.0",
     "globby": "10.0.1",
     "inquirer": "7.0.0",
     "is-git-clean": "1.1.0",
+    "jscodeshift": "0.13.1",
     "meow": "5.0.0"
   },
   "bin": {
