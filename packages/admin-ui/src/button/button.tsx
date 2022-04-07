@@ -9,7 +9,7 @@ import {
   IconContainer,
 } from '@vtex/admin-ui-react'
 
-import { Center } from '../components/Center'
+import { Center } from '../center'
 import { Spinner } from '../components/Spinner'
 import * as style from './button.style'
 
