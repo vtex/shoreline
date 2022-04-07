@@ -5,14 +5,15 @@ import TOC from '@theme/TOC'
 
 import '@site/src/components/Page/styles.scss'
 
-export type TabTocType = {
+export type TocType = {
   overview: String[]
   designReference: String[]
   codeReference: String[]
 }
 
 export interface PageProps {
-  tabToc: TabTocType
+  hasTabs?: boolean
+  toc: TocType
   children: Node
 }
 
@@ -38,22 +39,27 @@ const tabName = {
 export function Page(props: PageProps) {
   const state = useTabState({ selectedId: 'overview' })
 
-  return (
+  return props.hasTabs ? (
     <Tabs state={state}>
       <TabList className="tab-list" aria-label="Component page tabs">
-        {Object.keys(props.tabToc).map((key) => (
+        {Object.keys(props.toc).map((key) => (
           <Tab id={key} csx={getTabColor(state.selectedId as string, key)}>
             {tabName[key as keyof Object]}
           </Tab>
         ))}
       </TabList>
-      <div className="tab-container">
+      <div className="page-container">
         {props.children}
         <TOC
           className="toc-container"
-          toc={props.tabToc[state.selectedId as keyof TabTocType]}
+          toc={props.toc[state.selectedId as keyof TocType]}
         />
       </div>
     </Tabs>
+  ) : (
+    <div className="page-container">
+      <div className="page-content">{props.children}</div>
+      <TOC className="toc-container" toc={props.toc} />
+    </div>
   )
 }

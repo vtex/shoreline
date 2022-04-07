@@ -23,8 +23,8 @@ export const tabToc = {
   codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
 }
 
-<Page tabToc={tabToc}>
-  <TabPanel className="panel" id="overview">
+<Page toc={tabToc} hasTabs>
+  <TabPanel className="page-content" id="overview">
 
 Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
 
@@ -172,10 +172,11 @@ function Example() {
   )
 }
 ```
+
   </TabPanel>
-  <TabPanel className="panel" id="designReference">
+  <TabPanel className="page-content" id="designReference">
   </TabPanel>
-  <TabPanel className="panel" id="codeReference">
+  <TabPanel className="page-content" id="codeReference">
 
 ## Usage
 
