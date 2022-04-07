@@ -6,12 +6,14 @@ import type { PickerInitialState } from '../picker'
 import { usePickerState } from '../picker'
 import type { DateFieldInitialState } from '../date-field'
 import { useDateFieldState } from '../date-field'
-import { toUTCString } from '../calendar/utils'
-// import type { RangeValueMinMax } from '../calendar'
+import type { DateObject } from '../calendar/utils'
+import { getDateObject, createDate } from '../calendar/utils'
+import type { CalendarInitialState } from '../calendar'
 
 export type DatePickerInitialState =
   ValueBase<string> & {} & PickerInitialState &
-    Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> & {
+    Pick<Partial<DateFieldInitialState>, 'formatOptions' | 'placeholder'> &
+    Pick<CalendarInitialState, 'minValue' | 'maxValue' | 'defaultValue'> & {
       /**
        * Whether should receive focus on render
        * @default false
@@ -21,7 +23,7 @@ export type DatePickerInitialState =
        * Whether is invalid
        * @default false
        */
-      invalid?: boolean
+      tone?: 'neutral' | 'critical'
       /**
        * Whether is required
        * @default false
@@ -34,13 +36,12 @@ export type DatePickerInitialState =
       disabled?: boolean
     }
 
-// TODO: support min-max values
 export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const {
-    defaultValue = toUTCString(new Date()),
-    // minValue,
-    // maxValue,
-    invalid: invalidProp = false,
+    defaultValue = getDateObject(),
+    minValue,
+    maxValue,
+    tone: initialTone = 'neutral',
     required = false,
     autoFocus = false,
     disabled = false,
@@ -50,10 +51,8 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
 
   const [value, setValue] = useState(defaultValue)
 
-  const date = new Date(value)
-  const setDate = (date: Date) => setValue(toUTCString(date))
-  // const minDateValue = minValue ? new Date(minValue) : new Date(-864e13)
-  // const maxDateValue = maxValue ? new Date(maxValue) : new Date(864e13)
+  const date = useMemo(() => createDate(value), [value])
+  const setDate = (date: Date) => setValue(getDateObject(date))
 
   const dateFieldState = useDateFieldState({
     value: date,
@@ -71,7 +70,7 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   })
 
   const selectDate = useCallback(
-    (newValue: string) => {
+    (newValue: DateObject) => {
       setValue(newValue)
       dateFieldState.resetPlaceholder()
       pickerState.hide()
@@ -82,8 +81,8 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
   const calendarState = useCalendarState({
     value,
     onChange: selectDate,
-    // minValue,
-    // maxValue,
+    minValue,
+    maxValue,
   })
 
   useEffect(() => {
@@ -99,24 +98,30 @@ export const useDatePickerState = (props: DatePickerInitialState = {}) => {
     }
   }, [autoFocus, dateFieldState.first])
 
-  const invalid = useMemo(() => {
-    // const min = new Date(minDateValue)
-    // const max = new Date(maxDateValue)
-    // return value < min || value > max
+  const tone = useMemo(() => {
+    const isOutOfBounds =
+      date < calendarState.minDateValue || date > calendarState.maxDateValue
 
-    return invalidProp
-  }, [invalidProp])
+    if (isOutOfBounds) {
+      return 'critical'
+    }
+
+    return isOutOfBounds ? 'critical' : initialTone
+  }, [
+    initialTone,
+    date,
+    calendarState.minDateValue,
+    calendarState.maxDateValue,
+  ])
 
   return {
     dateValue: value,
     setDateValue: setValue,
     selectDate,
-    // minValue,
-    // maxValue,
     required,
     disabled,
     calendarState,
-    invalid,
+    tone,
     pickerState,
     dateFieldState,
   }

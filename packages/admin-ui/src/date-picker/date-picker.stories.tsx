@@ -13,14 +13,14 @@ export default {
 } as Meta
 
 export const Base: Story<{
-  invalid: boolean
+  tone: 'neutral' | 'critical'
   disabled: boolean
   label: string
 }> = (args) => {
-  const { invalid, disabled } = args
+  const { tone, disabled } = args
 
   const state = useDatePickerState({
-    invalid,
+    tone,
     disabled,
   })
 
@@ -33,21 +33,47 @@ export const Base: Story<{
 }
 
 Base.parameters = {
-  invalid: false,
+  tone: 'neutral',
   disabled: false,
 }
 
 Base.argTypes = {
-  invalid: {
-    control: {
-      type: 'boolean',
-    },
+  tone: {
+    options: ['critical', 'neutral'],
+    control: { type: 'select' },
   },
   disabled: {
     control: {
       type: 'boolean',
     },
   },
+}
+
+export const MinMax: Story = () => {
+  const state = useDatePickerState({
+    minValue: {
+      year: 2022,
+      month: 2,
+      day: 29,
+    },
+    maxValue: {
+      year: 2023,
+      month: 11,
+      day: 21,
+    },
+  })
+
+  return (
+    <>
+      <DatePickerField
+        label="Date"
+        state={state}
+        helperText="Release date"
+        criticalText="Date out of Bounds"
+      />
+      <DatePickerCalendar state={state} />
+    </>
+  )
 }
 
 const Localized = () => {
