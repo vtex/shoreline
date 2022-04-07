@@ -11,7 +11,7 @@ import { useTimeout } from '@vtex/admin-ui-hooks'
 
 import type { InternalToast } from '../types'
 import { ToastContainer } from './ToastContainer'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 
 interface ToastProps extends InternalToast {
   onClear: (dedupeKey: string, id: string) => void
@@ -77,7 +77,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
             {action && (
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 key={action.label}
                 onClick={() => {
                   remove()
@@ -90,9 +90,8 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             )}
             {dismissible && (
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 icon={<IconX />}
-                size="small"
                 aria-label="Close toast"
                 onClick={remove}
               />

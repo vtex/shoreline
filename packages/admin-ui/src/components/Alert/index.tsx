@@ -4,7 +4,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
 import { Flex } from '../Flex'
-import { Button } from '../Button'
+import { Button } from '../../button'
 import { Set } from '../Set'
 import { Paragraph } from '../Paragraph'
 
@@ -139,8 +139,7 @@ export const Alert = jsx('div')(
 
             {onDismiss && (
               <Button
-                variant="adaptative-dark"
-                size="small"
+                variant="neutralTertiary"
                 icon={<IconX />}
                 onClick={onDismiss}
               />

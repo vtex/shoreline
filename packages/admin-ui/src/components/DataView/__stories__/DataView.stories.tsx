@@ -9,7 +9,7 @@ import {
 
 import { DataView, useDataViewState } from '../index'
 import { DataViewControls } from '../components/DataViewControls'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { Spinner } from '../../Spinner'
 import {
   Toolbar,
@@ -47,8 +47,8 @@ export function Controls() {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <Button variant="adaptative-dark">Export</Button>
-        <Button variant="adaptative-dark">Import</Button>
+        <Button variant="neutralTertiary">Export</Button>
+        <Button variant="neutralTertiary">Import</Button>
       </DataViewControls>
       <p>Data View content</p>
     </DataView>
@@ -64,17 +64,17 @@ export function ToolbarControls() {
     <DataView state={view}>
       <DataViewControls>
         <Toolbar state={toolbar} aria-label="DataView Toolbar">
-          <Button variant="adaptative-dark" as={ToolbarButton}>
+          <Button variant="neutralTertiary" as={ToolbarButton}>
             Export
           </Button>
-          <Button variant="adaptative-dark" as={ToolbarButton}>
+          <Button variant="neutralTertiary" as={ToolbarButton}>
             Import
           </Button>
           <ToolbarItem>
             {(itemProps) => (
               <Menu state={menu}>
                 <Button
-                  variant="adaptative-dark"
+                  variant="neutralTertiary"
                   as={MenuButton}
                   {...itemProps}
                 >
@@ -121,19 +121,19 @@ export function Status() {
     <DataView state={view}>
       <DataViewControls>
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           onClick={() => view.setStatus({ type: 'ready' })}
         >
           Ready
         </Button>
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           onClick={() => view.setStatus({ type: 'loading' })}
         >
           Loading
         </Button>
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           onClick={() =>
             view.setStatus({ type: 'empty', message: 'The view is empty' })
           }
@@ -141,7 +141,7 @@ export function Status() {
           Empty
         </Button>
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           onClick={() =>
             view.setStatus({ type: 'error', message: 'Something went wrong' })
           }
@@ -149,7 +149,7 @@ export function Status() {
           Error
         </Button>
         <Button
-          variant="adaptative-dark"
+          variant="neutralTertiary"
           onClick={() =>
             view.setStatus({
               type: 'not-found',

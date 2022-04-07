@@ -19,10 +19,11 @@ exports[`Single select filter tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
   margin-right: 0.25rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -38,12 +39,10 @@ exports[`Single select filter tests should match snapshot 1`] = `
   justify-content: center;
   background: hsla(0, 0%, 96%, 1);
   color: hsla(0, 0%, 33%, 1);
-  padding: 0.5rem 0.75rem;
 }
 
-.emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+.emotion-1 svg {
+  margin-left: 0.125rem;
 }
 
 .emotion-1:hover {

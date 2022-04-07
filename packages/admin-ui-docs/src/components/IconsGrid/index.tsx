@@ -87,13 +87,13 @@ export function IconsGrid(props: IconsGridProps) {
           label="Sizes"
           state={sizeDropdown}
           items={sizes}
-          variant="adaptative-dark"
+          variant="neutralTertiary"
         />
         <Dropdown
           label="Weight"
           state={weightDropdown}
           items={weights}
-          variant="adaptative-dark"
+          variant="neutralTertiary"
         />
       </DataViewControls>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
