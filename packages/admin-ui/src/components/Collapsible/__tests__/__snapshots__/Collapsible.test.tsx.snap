@@ -50,6 +50,8 @@ exports[`Collapsible should match snapshot 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -112,8 +114,6 @@ exports[`Collapsible should match snapshot 1`] = `
   display: -ms-flexbox;
   display: flex;
 }
-
-
 
 .emotion-8 {
   background: #FFFFFF;
@@ -276,6 +276,8 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -338,8 +340,6 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
   display: -ms-flexbox;
   display: flex;
 }
-
-
 
 .emotion-14 {
   background: #FFFFFF;

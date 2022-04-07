@@ -77,6 +77,8 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -139,8 +141,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   display: -ms-flexbox;
   display: flex;
 }
-
-
 
 .emotion-6 {
   padding-left: 1rem;
@@ -315,6 +315,8 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -377,8 +379,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   display: -ms-flexbox;
   display: flex;
 }
-
-
 
 .emotion-6 {
   padding-left: 1rem;
