@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from 'react'
+import type { MouseEvent } from 'react'
 import {
   IconX,
   IconXOctagon,
@@ -33,9 +34,11 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       onClear,
       dismissible,
       action,
+      csx = {},
       shouldRemove,
       tone = 'info',
       duration = 10000,
+      ...divProps
     } = props
 
     const remove = useCallback(
@@ -62,6 +65,9 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         onMouseEnter={stopTimeout}
         onMouseLeave={startTimeout}
         tone={tone}
+        csx={csx}
+        {...divProps}
+        onClick={divProps?.onClick}
       >
         <tag.div
           csx={{
@@ -79,9 +85,10 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
               <Button
                 variant="neutralTertiary"
                 key={action.label}
-                onClick={() => {
+                onClick={(event: MouseEvent<HTMLButtonElement>) => {
                   remove()
                   action.onClick()
+                  event.stopPropagation()
                 }}
                 csx={{ color: '$action.main.tertiary' }}
               >
@@ -93,7 +100,10 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                 variant="neutralTertiary"
                 icon={<IconX />}
                 aria-label="Close toast"
-                onClick={remove}
+                onClick={(event: MouseEvent<HTMLButtonElement>) => {
+                  remove()
+                  event.stopPropagation()
+                }}
               />
             )}
           </tag.div>
