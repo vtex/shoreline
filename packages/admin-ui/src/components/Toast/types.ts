@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 export interface ToastAction {
   /**
@@ -26,7 +27,7 @@ export interface InternalToast extends Toast {
   shouldRemove: boolean
 }
 
-export interface Toast {
+export interface Toast extends HTMLAttributes<HTMLDivElement> {
   /**
    * Toast's key
    */
@@ -54,4 +55,9 @@ export interface Toast {
    * @default 10000
    */
   duration?: number
+  /**
+   * `csx` properties
+   * @default {}
+   */
+  csx?: StyleProp
 }
