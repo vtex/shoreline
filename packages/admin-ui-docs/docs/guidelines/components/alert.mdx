@@ -1,19 +1,32 @@
 ---
 title: Alert
 path: /alert/
+hide_table_of_contents: true
 ---
 
-Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
 
-```jsx isStatic
-import { Alert } from '@vtex/admin-ui'
-
-function Example() {
-  return <Alert visible>Order successfully placed</Alert>
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Tone of voice',
+      'Visible',
+      'Action',
+      'onDismiss',
+      'Fluid',
+      'Sticky',
+      'With Icon',
+      'Examples',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
 
 ## Examples
 
@@ -160,6 +173,21 @@ function Example() {
 }
 ```
 
+  </Panel>
+  <Panel id="designReference">
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Alert } from '@vtex/admin-ui'
+
+function Example() {
+  return <Alert visible>Order successfully placed</Alert>
+}
+```
+
 ## Props
 
 | Name      | Type                                   | Description                                   | Required | Default |
@@ -172,3 +200,6 @@ function Example() {
 | children  | `ReactNode`                            | Component children                            | 🚫       | -       |
 | sticky    | `boolean`                              | Whether it is sticky or not                   | 🚫       | `false` |
 | fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |
+
+  </Panel>
+</Page>
