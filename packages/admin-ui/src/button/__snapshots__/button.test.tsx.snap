@@ -153,7 +153,7 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #20408C;
+  color: #2953B2;
   background: #DDE5F7;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -165,7 +165,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-2:active {
-  color: #20408C;
+  color: #172F66;
   background: #96B2F2;
 }
 
@@ -258,12 +258,12 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-2:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -447,7 +447,7 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #962828;
+  color: #CC3D3D;
   background: #F8E3E3;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -459,7 +459,7 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-2:active {
-  color: #962828;
+  color: #782020;
   background: #F49494;
 }
 
@@ -552,12 +552,12 @@ exports[`button should match snapshot 1`] = `
 }
 
 .emotion-2:hover {
-  color: #CC3D3D;
+  color: #962828;
   background: #FBF2F2;
 }
 
 .emotion-2:active {
-  color: #CC3D3D;
+  color: #782020;
   background: #F8E3E3;
 }
 

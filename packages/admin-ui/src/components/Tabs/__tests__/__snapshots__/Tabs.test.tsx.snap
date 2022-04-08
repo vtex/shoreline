@@ -46,7 +46,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: #2953B2;
+  color: #20408C;
 }
 
 .emotion-0 {
@@ -87,7 +87,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
 }
 
 <div
@@ -199,7 +199,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: #2953B2;
+  color: #20408C;
 }
 
 .emotion-2 {
@@ -258,7 +258,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
 }
 
 <div
