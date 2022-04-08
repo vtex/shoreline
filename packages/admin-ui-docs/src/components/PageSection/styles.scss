@@ -22,6 +22,10 @@
     line-height: 1.3;
   }
 
+  .action {
+    margin-top: 1rem;
+  }
+
   .explanation {
     font-size: 1rem;
     font-variation-settings: 'WGHT' 400;
@@ -32,6 +36,27 @@
 
   .section-content {
     width: 100%;
+
+    .token-line .token {
+      font-family: "MonoLisa","Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Dank Mono","Consolas","Monaco","Menlo",monospace !important;
+      line-height: normal;
+    }
+
+    & > ul,
+    & > ol {
+      margin: 0 0 var(--ifm-list-margin) !important;
+      padding-left: var(--ifm-list-left-padding) !important;
+    }
+
+    strong {
+      font-variation-settings: 'WGHT' 600 !important;
+    }
+
+    table {
+      display: table;
+      margin-bottom: var(--ifm-leading);
+      width: 100%;
+    }
   }
 
   @media (min-width: 997px) {
@@ -49,8 +74,8 @@
       justify-content: space-between;
     }
 
-    .anchor {
-      margin-top: 1.5rem;
+    .action {
+      margin-top: 0;
     }
   }
 }
