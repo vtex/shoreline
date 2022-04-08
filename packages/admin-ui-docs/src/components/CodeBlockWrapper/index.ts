@@ -1,5 +1,5 @@
-import CodeBlockWrapper from './components/CodeBlockWrapper'
-import ToggleCodeButton from './components/ToggleCodeButton'
-import useCollapsibleCodeBlock from './useCollapsibleCodeBlock'
+import CodeBlockWrapper from './CodeBlockWrapper'
+import { useCollapsibleCodeBlock } from './useCollapsibleCodeBlock'
+import { useCopyCodeBlock } from './useCopyCodeBlock'
 
-export { CodeBlockWrapper, ToggleCodeButton, useCollapsibleCodeBlock }
+export { CodeBlockWrapper, useCollapsibleCodeBlock, useCopyCodeBlock }

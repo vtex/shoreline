@@ -1,10 +1,22 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-export default function useCollapsibleCodeBlock() {
+import { Button, IconCode } from '@vtex/admin-ui'
+
+export function useCollapsibleCodeBlock() {
   const [isCodeVisible, setCodeVisible] = useState(false)
+
+  const handleToggleCodeBlock = () => setCodeVisible((prev: boolean) => !prev)
 
   return {
     isCodeVisible,
-    handleToggleCodeBlock: () => setCodeVisible((prev: boolean) => !prev),
+    ToggleCodeButton: () => (
+      <Button
+        variant="neutralTertiary"
+        icon={<IconCode />}
+        onClick={handleToggleCodeBlock}
+      >
+        {isCodeVisible ? 'Hide' : 'Show'} Code
+      </Button>
+    ),
   }
 }

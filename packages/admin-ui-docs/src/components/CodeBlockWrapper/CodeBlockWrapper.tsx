@@ -3,9 +3,7 @@ import type { MouseEventHandler } from 'react'
 
 import { tag } from '@vtex/admin-ui'
 
-import ToggleCodeButton from './ToggleCodeButton'
-
-import styles from '../styles'
+import styles from './styles'
 
 interface CodeBlockWrapperState {
   isCodeBlockCollapsed: Boolean
@@ -19,17 +17,11 @@ interface CodeBlockWrapperProps {
 }
 
 const CodeBlockWrapper = (props: CodeBlockWrapperProps) => {
-  const { children, onToggleCodeBlock: handleToggleCodeBlock, state } = props
+  const { children, state } = props
 
   return (
     <tag.div csx={styles.container}>
       {children}
-      {state.isCollapsibleModeOn && (
-        <ToggleCodeButton
-          onToggleCodeBlock={handleToggleCodeBlock}
-          csx={styles.toggleCodeButton}
-        />
-      )}
       {state.isCodeBlockCollapsed && <tag.div csx={styles.overlay} />}
     </tag.div>
   )

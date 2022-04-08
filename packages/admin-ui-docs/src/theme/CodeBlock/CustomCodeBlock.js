@@ -1,11 +1,13 @@
 import React from 'react'
+import clsx from 'clsx'
 
 import {
   CodeBlockWrapper,
-  useCollapsibleCodeBlock
+  useCollapsibleCodeBlock,
+  useCopyCodeBlock
 } from '../../components/CodeBlockWrapper'
 
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 const MAX_CODE_TOKENS = 20
 
@@ -19,7 +21,8 @@ const CustomCodeBlock = (props) => {
 
   const isCollapsibleModeOn = children.split(' ').length > MAX_CODE_TOKENS
 
-  const { isCodeVisible, handleToggleCodeBlock } = useCollapsibleCodeBlock()
+  const { CopyCodeButton } = useCopyCodeBlock(children)
+  const { isCodeVisible, ToggleCodeButton } = useCollapsibleCodeBlock()
   const isCodeBlockCollapsed = isCollapsibleModeOn && !isCodeVisible
 
   const updatedClassName = isCodeBlockCollapsed
@@ -27,17 +30,27 @@ const CustomCodeBlock = (props) => {
     : className
 
   return (
-    <CodeBlockWrapper
-      state={{
-        isCollapsibleModeOn,
-        isCodeBlockCollapsed,
-      }}
-      onToggleCodeBlock={handleToggleCodeBlock}
-    >
-      <Component className={updatedClassName} {...remainingProps}>
-        {children}
-      </Component>
-    </CodeBlockWrapper>
+    <>
+      <CodeBlockWrapper
+        state={{
+          isCollapsibleModeOn,
+          isCodeBlockCollapsed,
+        }}
+      >
+        <Component className={
+          clsx(
+            updatedClassName,
+            styles.codeBlock,
+          )}
+          {...remainingProps}>
+          {children}
+        </Component>
+      </CodeBlockWrapper>
+      <div className={styles.codeBlockFooter}>
+        <CopyCodeButton />
+        {isCollapsibleModeOn && <ToggleCodeButton />}
+      </div>
+    </>
   )
 }
 

@@ -1,0 +1,17 @@
+.preview-default-container {
+  padding: 1.5rem;
+  background: white;
+}
+
+.preview-grid-container {
+  display: grid;
+  grid-gap: 1px;
+
+  .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 0;
+    background: white;
+  }
+}

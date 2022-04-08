@@ -1,0 +1,15 @@
+.code-selector {
+  button {
+    padding: 0;
+    width: fit-content;
+    background: #FFFFFF !important;
+
+    &:hover span {
+      color: var(--ifm-color-primary) !important;
+    }
+  }
+}
+
+.children-container {
+  margin-top: 3rem;
+}
