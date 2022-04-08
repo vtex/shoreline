@@ -11,11 +11,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -35,11 +35,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -59,11 +59,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -83,11 +83,11 @@ exports[`Anchor tests should match snapshot 1`] = `
 }
 
 .emotion-0:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-0:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }

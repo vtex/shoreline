@@ -103,11 +103,11 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 }
 
 .emotion-2:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-2:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -518,11 +518,11 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 }
 
 .emotion-2:visited {
-  color: #2953B2;
+  color: #172F66;
 }
 
 .emotion-2:hover {
-  color: #2953B2;
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }

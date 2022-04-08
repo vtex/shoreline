@@ -43,12 +43,12 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-42:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-42:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -570,12 +570,12 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-30:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-30:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 

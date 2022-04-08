@@ -42,12 +42,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -136,12 +136,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -343,12 +343,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -437,12 +437,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -659,12 +659,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -753,12 +753,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -969,12 +969,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -1063,12 +1063,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -1285,12 +1285,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
@@ -1379,12 +1379,12 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-8:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 

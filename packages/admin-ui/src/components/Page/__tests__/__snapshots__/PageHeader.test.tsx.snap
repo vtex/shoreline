@@ -156,12 +156,12 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 }
 
 .emotion-3:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-3:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 

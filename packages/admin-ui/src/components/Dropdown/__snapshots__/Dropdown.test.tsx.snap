@@ -298,7 +298,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: #20408C;
+  color: #2953B2;
   background: #DDE5F7;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -310,7 +310,7 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:active {
-  color: #20408C;
+  color: #172F66;
   background: #96B2F2;
 }
 
@@ -499,12 +499,12 @@ exports[`Dropdown tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: #2953B2;
+  color: #20408C;
   background: #F1F4FC;
 }
 
 .emotion-3:active {
-  color: #2953B2;
+  color: #172F66;
   background: #DDE5F7;
 }
 
