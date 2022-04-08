@@ -3,7 +3,7 @@
 exports[`Heading tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   margin: 0rem;
   border-bottom: 0;
 }
@@ -14,7 +14,7 @@ exports[`Heading tests should match snapshot 1`] = `
     role="separator"
   />
   .emotion-0 {
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   margin: 0rem;
   border-left: 0;
   height: auto;

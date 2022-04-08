@@ -17,7 +17,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -28,17 +28,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -114,7 +114,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -122,7 +122,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-4:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -133,7 +133,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-4:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -143,7 +143,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -283,7 +283,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -303,7 +303,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -314,17 +314,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -337,7 +337,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -345,7 +345,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -356,7 +356,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -366,7 +366,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -486,7 +486,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -497,17 +497,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -534,7 +534,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -545,17 +545,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -581,7 +581,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -590,7 +590,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -601,7 +601,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -611,7 +611,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -749,7 +749,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -760,17 +760,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -796,7 +796,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -805,7 +805,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -816,7 +816,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -826,7 +826,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -962,7 +962,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -973,17 +973,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2 {
@@ -999,7 +999,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1062,7 +1062,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1073,17 +1073,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2 {
@@ -1099,7 +1099,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1176,7 +1176,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -1185,7 +1185,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -1196,7 +1196,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1206,7 +1206,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -1272,7 +1272,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1292,7 +1292,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1303,17 +1303,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -1445,7 +1445,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -1454,7 +1454,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -1465,7 +1465,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1475,7 +1475,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -1541,7 +1541,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1561,7 +1561,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1572,17 +1572,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -1721,7 +1721,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1732,22 +1732,22 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-1 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1803,7 +1803,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1814,22 +1814,22 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-1 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1886,7 +1886,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -1895,7 +1895,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -1906,7 +1906,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -1916,7 +1916,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -1971,7 +1971,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1994,7 +1994,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2005,17 +2005,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2119,7 +2119,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2130,7 +2130,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-2 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2153,7 +2153,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2164,17 +2164,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2252,7 +2252,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -2261,7 +2261,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -2272,7 +2272,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -2282,7 +2282,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -2348,7 +2348,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2359,7 +2359,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-6 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2382,7 +2382,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2393,17 +2393,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2540,7 +2540,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -2549,7 +2549,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -2560,7 +2560,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -2570,7 +2570,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -2636,7 +2636,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2647,7 +2647,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-6 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2670,7 +2670,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2681,17 +2681,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div

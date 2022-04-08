@@ -25,14 +25,14 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(206, 72%, 70%, 1);
+  border: 1px solid #7CBBEA;
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #000000;
   border-radius: 4px;
-  background: hsla(206, 61%, 92%, 1);
+  background: #DEECF7;
 }
 
 .emotion-2 {
@@ -55,7 +55,7 @@ exports[`Toast should match snapshot 1`] = `
   width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
-  color: hsla(206, 63%, 44%, 1);
+  color: #2978B5;
 }
 
 .emotion-1 {
@@ -88,15 +88,15 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -107,7 +107,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -117,7 +117,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -173,14 +173,14 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-9:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -191,7 +191,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -201,7 +201,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-6 {
@@ -366,15 +366,15 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -385,7 +385,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -395,7 +395,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -451,14 +451,14 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-9:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -469,7 +469,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -479,7 +479,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-6 {
@@ -512,14 +512,14 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(123, 46%, 67%, 1);
+  border: 1px solid #83D187;
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #000000;
   border-radius: 4px;
-  background: hsla(123, 39%, 91%, 1);
+  background: #DFF1E0;
 }
 
 .emotion-0 {
@@ -527,7 +527,7 @@ exports[`Toast should match snapshot 1`] = `
   width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
-  color: hsla(123, 41%, 37%, 1);
+  color: #38853C;
 }
 
 <div
@@ -672,15 +672,15 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -691,7 +691,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -701,7 +701,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -757,14 +757,14 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-9:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -775,7 +775,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -785,7 +785,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-6 {
@@ -818,14 +818,14 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(28, 87%, 70%, 1);
+  border: 1px solid #F5AE70;
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #000000;
   border-radius: 4px;
-  background: hsla(30, 100%, 92%, 1);
+  background: #FFEBD7;
 }
 
 .emotion-0 {
@@ -833,7 +833,7 @@ exports[`Toast should match snapshot 1`] = `
   width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
-  color: hsla(30, 100%, 42%, 1);
+  color: #D56A00;
 }
 
 <div
@@ -978,15 +978,15 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-5:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -997,7 +997,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1007,7 +1007,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -1063,14 +1063,14 @@ exports[`Toast should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-9:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -1081,7 +1081,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-9:focus:not([data-focus-visible-added]) {
@@ -1091,7 +1091,7 @@ exports[`Toast should match snapshot 1`] = `
 
 .emotion-9:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-6 {
@@ -1124,14 +1124,14 @@ exports[`Toast should match snapshot 1`] = `
   max-height: 4.5rem;
   padding: 1rem;
   box-shadow: subtle;
-  border: 1px solid hsla(0, 81%, 77%, 1);
+  border: 1px solid #F49494;
   pointer-events: all;
   overflow: hidden;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #000000;
   border-radius: 4px;
-  background: hsla(0, 60%, 93%, 1);
+  background: #F8E3E3;
 }
 
 .emotion-0 {
@@ -1139,7 +1139,7 @@ exports[`Toast should match snapshot 1`] = `
   width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
-  color: hsla(0, 58%, 52%, 1);
+  color: #CC3D3D;
 }
 
 <div
