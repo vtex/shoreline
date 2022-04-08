@@ -9,19 +9,32 @@
   margin-bottom: var(--ifm-leading);
   overflow: hidden;
   border: 1px solid var(--ifm-toc-border-color);
-  border-radius: var(--ifm-global-radius);
 }
 
 .playgroundHeader {
   display: flex;
   justify-content: flex-end;
   letter-spacing: 0.08rem;
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
   text-transform: uppercase;
   font-weight: bold;
-  background: var(--ifm-color-emphasis-200);
+  background: #FFFFFF;
   color: var(--ifm-color-content);
   font-size: var(--ifm-code-font-size);
+  border-top: 1px solid var(--ifm-toc-border-color);
+
+  button {
+    color: #000000 !important;
+
+    &:hover {
+      color: var(--ifm-color-primary) !important;
+      background: #FFFFFF;
+    }
+  }
+
+  button + button {
+    margin-left: 0.5rem;
+  }
 }
 
 .playgroundHeader:first-of-type {
@@ -32,12 +45,15 @@
 .playgroundEditor {
   font: var(--ifm-code-font-size) / var(--ifm-pre-line-height)
     var(--ifm-font-family-monospace) !important;
-  /*rtl:ignore*/
+  border-top: 1px solid var(--ifm-toc-border-color);
   direction: ltr;
+
+  pre, textarea {
+    padding: 1.5rem 2.5rem !important;
+  }
 }
 
 .playgroundPreview {
-  padding: 1.5rem;
-  background-color: var(--ifm-pre-background);
+  background: var(--ifm-toc-border-color);
   line-height: normal;
 }
