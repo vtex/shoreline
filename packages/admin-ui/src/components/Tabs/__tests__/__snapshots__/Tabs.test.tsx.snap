@@ -46,7 +46,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-0 {
@@ -72,8 +72,8 @@ exports[`Tabs should match snapshot 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   background-color: transparent;
-  color: hsla(222, 63%, 43%, 1);
-  border-bottom: 2px solid hsla(222, 63%, 43%, 1);
+  color: #2953B2;
+  border-bottom: 2px solid #2953B2;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -87,7 +87,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 <div
@@ -126,7 +126,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -148,7 +148,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -199,7 +199,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-2 {
@@ -243,8 +243,8 @@ exports[`Tabs should match snapshot 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   background-color: transparent;
-  color: hsla(222, 63%, 43%, 1);
-  border-bottom: 2px solid hsla(222, 63%, 43%, 1);
+  color: #2953B2;
+  border-bottom: 2px solid #2953B2;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -258,7 +258,7 @@ exports[`Tabs should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 <div
@@ -297,7 +297,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -319,7 +319,7 @@ exports[`Tabs should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div

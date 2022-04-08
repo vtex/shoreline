@@ -12,14 +12,14 @@ exports[`Collapsible should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-3:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -30,7 +30,7 @@ exports[`Collapsible should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -40,7 +40,7 @@ exports[`Collapsible should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 svg {
@@ -117,7 +117,7 @@ exports[`Collapsible should match snapshot 1`] = `
 
 .emotion-8 {
   background: #FFFFFF;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   border-width: 1px;
 }
@@ -238,14 +238,14 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-3:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -256,7 +256,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 
 .emotion-3:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -266,7 +266,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 svg {
@@ -343,7 +343,7 @@ exports[`Collapsible should match snapshot with nesting collapsibles 1`] = `
 
 .emotion-14 {
   background: #FFFFFF;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   border-width: 1px;
 }
