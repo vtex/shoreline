@@ -18,8 +18,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(190, 58%, 90%, 1);
-  color: hsla(187, 77%, 15%, 1);
+  background: #D5EFF4;
+  color: #093F46;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -62,8 +62,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(265, 35%, 93%, 1);
-  color: hsla(268, 38%, 28%, 1);
+  background: #EDE8F4;
+  color: #462D63;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -106,8 +106,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(123, 39%, 91%, 1);
-  color: hsla(123, 41%, 19%, 1);
+  background: #DFF1E0;
+  color: #1C431E;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -150,8 +150,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(0, 60%, 93%, 1);
-  color: hsla(0, 58%, 30%, 1);
+  background: #F8E3E3;
+  color: #782020;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -194,8 +194,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(265, 35%, 93%, 1);
-  color: hsla(268, 38%, 28%, 1);
+  background: #EDE8F4;
+  color: #462D63;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -238,8 +238,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(30, 100%, 92%, 1);
-  color: hsla(29, 100%, 18%, 1);
+  background: #FFEBD7;
+  color: #5C2C00;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -282,8 +282,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(166, 52%, 87%, 1);
-  color: hsla(171, 100%, 14%, 1);
+  background: #CDEFE7;
+  color: #00463C;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -326,8 +326,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 23%, 1);
+  background: #E6E6E6;
+  color: #3B3B3B;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -370,8 +370,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(206, 61%, 92%, 1);
-  color: hsla(207, 64%, 22%, 1);
+  background: #DEECF7;
+  color: #143C5C;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -414,8 +414,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(206, 61%, 92%, 1);
-  color: hsla(207, 64%, 22%, 1);
+  background: #DEECF7;
+  color: #143C5C;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -458,8 +458,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(206, 61%, 92%, 1);
-  color: hsla(207, 64%, 22%, 1);
+  background: #DEECF7;
+  color: #143C5C;
   height: 26px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -502,8 +502,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(206, 61%, 92%, 1);
-  color: hsla(207, 64%, 22%, 1);
+  background: #DEECF7;
+  color: #143C5C;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -535,7 +535,7 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -543,7 +543,7 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-3:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -554,7 +554,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -564,7 +564,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-2 {
@@ -686,8 +686,8 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   border: none;
-  background: hsla(206, 61%, 92%, 1);
-  color: hsla(207, 64%, 22%, 1);
+  background: #DEECF7;
+  color: #143C5C;
   height: 40px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -719,7 +719,7 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
@@ -727,7 +727,7 @@ exports[`Tag tests should match snapshot 1`] = `
 }
 
 .emotion-4:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -738,7 +738,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -748,7 +748,7 @@ exports[`Tag tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {

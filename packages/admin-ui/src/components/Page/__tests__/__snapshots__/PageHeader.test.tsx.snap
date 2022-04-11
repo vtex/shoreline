@@ -17,7 +17,7 @@ exports[`PageHeader should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid #DDDDDD;
   position: -webkit-sticky;
   position: sticky;
   top: 0rem;
@@ -50,7 +50,7 @@ exports[`PageHeader should match snapshot with actions 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid #DDDDDD;
   position: -webkit-sticky;
   position: sticky;
   top: 0rem;
@@ -129,7 +129,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid #DDDDDD;
   position: -webkit-sticky;
   position: sticky;
   top: 0rem;
@@ -149,25 +149,25 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-3:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-3:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
 }
 
 .emotion-3:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -177,7 +177,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-2 {
@@ -332,7 +332,7 @@ exports[`PageHeader should match snapshot with title 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
+  border-bottom: 1px solid #DDDDDD;
   position: -webkit-sticky;
   position: sticky;
   top: 0rem;

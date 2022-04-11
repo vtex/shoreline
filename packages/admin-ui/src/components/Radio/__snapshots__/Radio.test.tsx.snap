@@ -4,7 +4,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
 <DocumentFragment>
   .emotion-0 {
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   color: #000000;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -38,24 +38,24 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
   cursor: not-allowed;
 }
 
 .emotion-0:hover {
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  background: #E6E6E6;
+  border: 1px solid #545454;
 }
 
 .emotion-0:active {
-  background: hsla(0, 0%, 73%, 1);
-  border: 1px solid hsla(0, 0%, 23%, 1);
+  background: #B9B9B9;
+  border: 1px solid #3B3B3B;
 }
 
 .emotion-0:after {
@@ -91,23 +91,23 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
   display: block;
   border-radius: 100%;
   top: 0.3rem;
-  background: hsla(0, 0%, 45%, 1);
+  background: #747474;
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
-  background: hsla(0, 0%, 23%, 1);
-  border: 1px solid hsla(0, 0%, 23%, 1);
+  background: #3B3B3B;
+  border: 1px solid #3B3B3B;
 }
 
 .emotion-0:checked:active {
-  background: hsla(0, 0%, 33%, 1);
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  background: #545454;
+  border: 1px solid #545454;
 }
 
 <input
@@ -122,7 +122,7 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
   />
   .emotion-0 {
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   color: #000000;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -156,24 +156,24 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
   cursor: not-allowed;
 }
 
 .emotion-0:hover {
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  background: #E6E6E6;
+  border: 1px solid #545454;
 }
 
 .emotion-0:active {
-  background: hsla(0, 0%, 73%, 1);
-  border: 1px solid hsla(0, 0%, 23%, 1);
+  background: #B9B9B9;
+  border: 1px solid #3B3B3B;
 }
 
 .emotion-0:after {
@@ -209,23 +209,23 @@ exports[`Radio tests should match snapshot with diferent sizes 1`] = `
   display: block;
   border-radius: 100%;
   top: 0.3rem;
-  background: hsla(0, 0%, 45%, 1);
+  background: #747474;
 }
 
 .emotion-0:checked:disabled {
   cursor: not-allowed;
-  background: hsla(0, 0%, 90%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
-  background: hsla(0, 0%, 23%, 1);
-  border: 1px solid hsla(0, 0%, 23%, 1);
+  background: #3B3B3B;
+  border: 1px solid #3B3B3B;
 }
 
 .emotion-0:checked:active {
-  background: hsla(0, 0%, 33%, 1);
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  background: #545454;
+  border: 1px solid #545454;
 }
 
 <input

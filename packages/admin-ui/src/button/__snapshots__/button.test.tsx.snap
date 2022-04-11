@@ -56,24 +56,24 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-2:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -83,7 +83,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -153,25 +153,25 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(222, 63%, 34%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #2953B2;
+  background: #DDE5F7;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
-  color: hsla(222, 63%, 34%, 1);
-  background: hsla(222, 64%, 84%, 1);
+  color: #20408C;
+  background: #BBCBF0;
 }
 
 .emotion-2:active {
-  color: hsla(222, 63%, 34%, 1);
-  background: hsla(222, 78%, 77%, 1);
+  color: #172F66;
+  background: #96B2F2;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -181,7 +181,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -251,25 +251,25 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-2:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
 }
 
 .emotion-2:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -279,7 +279,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -350,24 +350,24 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(0, 58%, 52%, 1);
+  background: #CC3D3D;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
   color: #FFFFFF;
-  background: hsla(0, 58%, 37%, 1);
+  background: #962828;
 }
 
 .emotion-2:active {
   color: #FFFFFF;
-  background: hsla(0, 58%, 30%, 1);
+  background: #782020;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -377,7 +377,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -447,25 +447,25 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 58%, 37%, 1);
-  background: hsla(0, 60%, 93%, 1);
+  color: #CC3D3D;
+  background: #F8E3E3;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
-  color: hsla(0, 58%, 37%, 1);
-  background: hsla(0, 59%, 83%, 1);
+  color: #962828;
+  background: #EDBABA;
 }
 
 .emotion-2:active {
-  color: hsla(0, 58%, 37%, 1);
-  background: hsla(0, 81%, 77%, 1);
+  color: #782020;
+  background: #F49494;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -475,7 +475,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -545,25 +545,25 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 58%, 52%, 1);
+  color: #CC3D3D;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
-  color: hsla(0, 58%, 52%, 1);
-  background: hsla(0, 53%, 97%, 1);
+  color: #962828;
+  background: #FBF2F2;
 }
 
 .emotion-2:active {
-  color: hsla(0, 58%, 52%, 1);
-  background: hsla(0, 60%, 93%, 1);
+  color: #782020;
+  background: #F8E3E3;
 }
 
 .emotion-2:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -573,7 +573,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -643,14 +643,14 @@ exports[`button should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
-  color: hsla(0, 0%, 23%, 1);
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -661,7 +661,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:disabled {
   background: transparent;
-  color: hsla(0, 0%, 45%, 1);
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -671,7 +671,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <button
@@ -740,24 +740,24 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-5:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-5:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
 }
 
 .emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -767,7 +767,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -931,24 +931,24 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
 }
 
 .emotion-2:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-2:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -958,7 +958,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -1032,7 +1032,7 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
   margin-top: -0.5rem;
@@ -1041,17 +1041,17 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-2:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -1061,7 +1061,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -1132,7 +1132,7 @@ exports[`button should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
   margin-left: -0.75rem;
@@ -1141,17 +1141,17 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-2:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2:focus:not([data-focus-visible-added]) {
@@ -1161,7 +1161,7 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button

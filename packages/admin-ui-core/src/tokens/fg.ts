@@ -21,13 +21,13 @@ export const fg = {
       primaryHover: colors.white,
       primaryPressed: colors.white,
 
-      secondary: colors.blue50,
+      secondary: colors.blue40,
       secondaryHover: colors.blue50,
-      secondaryPressed: colors.blue50,
+      secondaryPressed: colors.blue60,
 
       tertiary: colors.blue40,
-      tertiaryHover: colors.blue40,
-      tertiaryPressed: colors.blue40,
+      tertiaryHover: colors.blue50,
+      tertiaryPressed: colors.blue60,
       tertiarySelected: colors.blue40,
     },
     critical: {
@@ -35,13 +35,13 @@ export const fg = {
       primaryHover: colors.white,
       primaryPressed: colors.white,
 
-      secondary: colors.red50,
+      secondary: colors.red40,
       secondaryHover: colors.red50,
-      secondaryPressed: colors.red50,
+      secondaryPressed: colors.red60,
 
       tertiary: colors.red40,
-      tertiaryHover: colors.red40,
-      tertiaryPressed: colors.red40,
+      tertiaryHover: colors.red50,
+      tertiaryPressed: colors.red60,
       tertiarySelected: colors.red40,
     },
   },
