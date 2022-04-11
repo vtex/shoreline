@@ -6,7 +6,6 @@ hide_table_of_contents: true
 
 import { Page, Panel } from '@site/src/components/Page'
 
-
 export const tabToc = {
   overview: toc.filter((item) =>
     [
@@ -21,6 +20,7 @@ export const tabToc = {
     ].includes(item.value)
   ),
   codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Documentation'].includes(item.value)),
 }
 
 <Page toc={tabToc} hasTabs>
@@ -175,6 +175,58 @@ function Example() {
 
   </Panel>
   <Panel id="designReference">
+
+## Documentation
+
+Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not, and may refer to actions performed by other users, accounts, on different moments in time.
+
+**Anatomy**
+
+Follow the anatomy described below. Be sure to include:
+
+1. Alert message
+2. Action button
+3. Dismiss button
+4. Icon
+5. Box
+
+**Do’s**
+
+1. They follow the page's grid, adapting to full 100% width, or centralized over a smaller container, for instance.
+2. They don't overlap with sidebars. They are contextualized within containers.
+3. They can’t be placed over the page's header. They are contextualized within containers.
+4. Provide visible feedback to user actions by using alerts.
+5. In high priority alerts, completing the task is the main focus. Our role is to assure that the user will solve their problem, by providing enough information to do it, through a clear message and action button.
+6. Should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
+7. The user needs to know exactly what happened. Even if we work to assure full SLA, things can fail. There are even some scenarios that are beyond our direct control. Because of this, it’s extremely important that our users understand what is blocking them to finish their tasks.
+8. Errors must be actionable. As users understand what is happening, we need to give them proper following actions.
+9. We should always calm the user, not cause more stress.
+10. Alerts can be stacked.
+
+**Alert types**
+
+**Information**
+
+Use this to give instant feedback about the tasks a user just performed. Its main objective is to ensure task confirmation, or notify about further actions.
+Do not represent alarm or danger, but provide visibility about the system’s operations. Ex. You have 4 new releases to review.
+
+**Warning**
+
+Use this when user needs to know about some important info before taking any decision. Adds a higher note of urgency over situations that may cause problems to the user’s store, but aren’t yet causing trouble.
+Ex. Sorry, this account is inactive. Please check your store’s billing for more information.
+
+**Danger**
+
+Use this when something went wrong after performing an action. Situation should be checked with urgency, since it’s already causing problems to the user’s store, and require manual resolution. This alert isn’t dismissable, and should stay on until the problem is fixed.
+Ex. Sorry, something went wrong. Please, try again, or refresh your page.
+
+**Success**
+
+Use this when the user's action had a successful outcome. You can consider using toasts for this situation.
+Ex. Order successfully placed.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
   </Panel>
   <Panel id="codeReference">
 
