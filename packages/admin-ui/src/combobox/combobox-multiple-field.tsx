@@ -53,16 +53,13 @@ export const ComboboxMultipleField = createComponent<
   } = props
 
   const {
-    checkboxState,
-    value: inputValue,
     selectedItems,
-    unselect,
+    value: inputValue,
+    removeSelectedItem,
     clearSelected,
     getOptionValue,
     renderTag,
   } = state
-
-  const { value: selectedValues } = checkboxState
 
   const composite = useCompositeState()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -73,7 +70,7 @@ export const ComboboxMultipleField = createComponent<
   const onBlur = () => setFocused(false)
 
   const isInputEmpty = inputValue.trim() !== ''
-  const hasSelected = selectedValues.length > 0
+  const hasSelected = selectedItems.length > 0
   const shouldReduceLabel = focused || hasSelected || isInputEmpty
   const shouldShowPlaceholder = focused || hasSelected
 
@@ -87,7 +84,7 @@ export const ComboboxMultipleField = createComponent<
     composite.move(composite.last())
   }
 
-  const onTagKeyDown = (e: any, value: string) => {
+  const onTagKeyDown = (e: any, value: any) => {
     if (pressedNumberOrLetter(e)) {
       inputRef.current?.focus()
 
@@ -98,7 +95,7 @@ export const ComboboxMultipleField = createComponent<
 
     // if there is only one item left
     // we must clear focus on the input
-    if (selectedValues.length === 1) {
+    if (selectedItems.length === 1) {
       inputRef.current?.focus()
     } else {
       // focus on next: if the activeItem is the first
@@ -111,7 +108,7 @@ export const ComboboxMultipleField = createComponent<
     }
 
     // remove the item from the selected[]
-    unselect(value)
+    removeSelectedItem(value)
   }
 
   return useElement('div', {
@@ -162,9 +159,9 @@ export const ComboboxMultipleField = createComponent<
                     <ComboboxMultipleTag
                       key={getOptionValue(item)}
                       value={renderTag(item)}
-                      onKeyDown={(e) => onTagKeyDown(e, getOptionValue(item))}
+                      onKeyDown={(e) => onTagKeyDown(e, item)}
                       onDismiss={() => {
-                        unselect(getOptionValue(item))
+                        removeSelectedItem(getOptionValue(item))
                       }}
                     />
                   ))}
@@ -191,7 +188,7 @@ export const ComboboxMultipleField = createComponent<
             width: 48,
           }}
         >
-          {selectedValues.length > 0 && (
+          {selectedItems.length > 0 && (
             <Button
               variant="neutralTertiary"
               icon={<IconXCircle />}

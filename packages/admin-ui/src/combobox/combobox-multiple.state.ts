@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react'
-import { useCallback, useEffect, useState } from 'react'
-import type { CheckboxState } from 'ariakit/checkbox'
-import { useCheckboxState } from 'ariakit/checkbox'
+import { useCallback, useEffect } from 'react'
 
 import type { ComboboxState, ComboboxStateProps } from './combobox.state'
 import { useComboboxState } from './combobox.state'
+import { useCheckboxObjectState } from './checkbox-object-state'
 
 export function useComboboxMultipleState<T>(
   props: ComboboxMultipleStateProps<T> = {}
@@ -22,13 +21,6 @@ export function useComboboxMultipleState<T>(
 
   const renderTag = originalRenderTag || renderOption
 
-  const [selectedItems, setSelectedItems] = useState(defaultSelected)
-
-  // convert object array into simple array
-  const simplifiedDefaultSelected = defaultSelected.map((item) =>
-    getOptionValue(item)
-  )
-
   const combobox = useComboboxState<T>({
     // VoiceOver has issues with multi-selectable comboboxes where the DOM focus
     // is on the combobox input, so we set `virtualFocus` to `false` to disable
@@ -37,40 +29,19 @@ export function useComboboxMultipleState<T>(
     list,
   })
 
-  const checkbox = useCheckboxState({
-    defaultValue: simplifiedDefaultSelected,
+  const checkbox = useCheckboxObjectState({
+    defaultValue: defaultSelected,
+    getValue: getOptionValue,
   })
 
   const clearSelected = useCallback(() => {
     combobox.setValue('')
-    setSelectedItems([])
     checkbox.setValue([])
   }, [checkbox.setValue, combobox.setValue])
 
-  const unselect = useCallback(
-    (value: string) => {
-      const newVal = selectedItems.filter(
-        (currentValue) => getOptionValue(currentValue) !== value
-      )
+  const addSelectedItem = (newItem: T) => checkbox.onAdd(newItem)
 
-      setSelectedItems(newVal)
-      checkbox.setValue(newVal.map((i) => getOptionValue(i)))
-    },
-    [checkbox]
-  )
-
-  const addSelectedItem = (newItem: T) => {
-    setSelectedItems((oldVal) => [...oldVal, newItem])
-  }
-
-  const removeSelectedItem = (removedItem: T) => {
-    setSelectedItems((oldValues) => {
-      return oldValues.filter(
-        (currentValue) =>
-          getOptionValue(currentValue) !== getOptionValue(removedItem)
-      )
-    })
-  }
+  const removeSelectedItem = (removedItem: T) => checkbox.onRemove(removedItem)
 
   useEffect(() => {
     if (shouldClearOnSelect) combobox.setValue('')
@@ -78,11 +49,11 @@ export function useComboboxMultipleState<T>(
 
   return {
     ...combobox,
-    checkboxState: checkbox,
-    selectedItems,
+    selectedItems: checkbox.value,
     addSelectedItem,
     removeSelectedItem,
-    unselect,
+    onChange: checkbox.onChange,
+    isSelected: checkbox.isSelected,
     clearSelected,
     getOptionValue,
     renderOption,
@@ -99,9 +70,9 @@ export interface ComboboxMultipleStateProps<T> extends ComboboxStateProps<T> {
 export interface ComboboxMultipleState<T> extends ComboboxState<T> {
   renderTag: (item: T) => ReactNode
   selectedItems: T[]
-  checkboxState: CheckboxState<string[]>
-  unselect: (value: string) => void
   clearSelected: () => void
   addSelectedItem: (item: T) => void
   removeSelectedItem: (item: T) => void
+  onChange: (item: T) => void
+  isSelected: (item: T) => boolean
 }
