@@ -19,23 +19,15 @@ export const ComboboxMultiplePopover = createComponent<
     children: props.state.matches.map((item) => {
       const value = props.state.getOptionValue(item)
       const rendered = props.state.renderOption(item)
+      const { isSelected, onChange } = props.state
 
       return (
         <ComboboxMultipleItem
-          checkbox={props.state.checkboxState}
-          onItemSelect={(isSelected: boolean) => {
-            if (isSelected) {
-              // remove
-              props.state.removeSelectedItem(item)
-            } else {
-              // insert
-              props.state.addSelectedItem(item)
-            }
-
-            props.state.setSelectedItem(item)
-          }}
+          item={item}
           key={value}
           value={value}
+          isSelected={isSelected}
+          onChange={onChange}
         >
           {rendered}
         </ComboboxMultipleItem>
