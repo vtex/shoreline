@@ -92,5 +92,5 @@ The fastest way to start is to install [`@vtex/admin-ui`](./packages/admin-ui) -
 
 ## Contributing
 
-AdminUI is a colaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing Guide](https://admin-ui.vercel.app/contributing/overview/) and our
-[Developer Guide](https://admin-ui.vercel.app/contributing/publishing/)!
+AdminUI is a colaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing Guide](https://admin-ui.vercel.app/teams/contributing/onboarding) and our
+[Developer Guide](https://admin-ui.vercel.app/teams/developing/getting-started)!
