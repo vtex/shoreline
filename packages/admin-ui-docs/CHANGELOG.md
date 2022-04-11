@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.8.1...@vtex/admin-ui-docs@0.9.0) (2022-04-11)
+
+### Features
+
+- **page:** create page template and add tabs to it ([903cfb7](https://github.com/vtex/admin-ui/commit/903cfb7c3fb711fe6751efc895705902d199dbaa))
+
 ## [0.8.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.8.0...@vtex/admin-ui-docs@0.8.1) (2022-04-07)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs

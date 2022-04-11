@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.122.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.1...@vtex/admin-ui@0.122.2) (2022-04-11)
+
+### Bug Fixes
+
+- **core:** change action fg colors ([fceec2a](https://github.com/vtex/admin-ui/commit/fceec2a50f16cc5e00a0d6475c4ad4fc93fbb875))
+- **core:** migrate colors from hsla to hex ([97911e7](https://github.com/vtex/admin-ui/commit/97911e73ec8f3c611f1e8c6e71c2560bd18e7de7))
+
 ## [0.122.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.0...@vtex/admin-ui@0.122.1) (2022-04-07)
 
 ### Bug Fixes
