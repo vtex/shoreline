@@ -8,6 +8,7 @@ export * from './experimental'
 export * from './inline'
 export * from './bleed'
 export * from './button'
+export * from './stack'
 
 export * from './components/Skeleton'
 export * from './components/Label'
