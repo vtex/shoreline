@@ -11,6 +11,7 @@ import './styles.scss'
 export interface PageSectionProps {
   actionElement?: ReactNode
   children: ReactNode
+  className: string
   direction?: 'column' | 'row'
   explanation?: string
   id: string
@@ -25,16 +26,20 @@ export function PageSection(props: PageSectionProps) {
 
   return (
     <div
-      className={clsx('page-section', {
-        'page-section--row': isLargeScreen && props.direction === 'row',
-      })}
+      className={clsx(
+        'page-section',
+        {
+          'page-section--row': isLargeScreen && props.direction === 'row',
+        },
+        props.className
+      )}
     >
       <div className="section-info">
         <div className="header">
           <Heading id={props.id} as={headingLevel}>
             {props.title}
           </Heading>
-          <div className="action">{ActionElement}</div>
+          {ActionElement && <div className="action">{ActionElement}</div>}
         </div>
         {props.explanation && (
           <p className="explanation">{props.explanation}</p>

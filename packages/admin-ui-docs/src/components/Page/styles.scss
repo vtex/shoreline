@@ -1,12 +1,25 @@
 .tab-list {
   padding: 0 !important;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+
+  button {
+    font-size: 1.25rem;
+    font-variation-settings: 'WGHT' 500;
+    line-height: 1.3;
+    height: auto;
+    padding: 0 3rem 1rem 3rem;
+  }
 }
 
 .page-container {
   display: flex;
   justify-content: space-between;
+  padding-top: 2rem;
   width: 100%;
+
+  @media (min-width: 997px) {
+    padding-top: 5rem;
+  }
 }
 
 .panel-content {
