@@ -13,8 +13,12 @@
 
   pre {
     border-radius: unset;
-    padding: 1.5rem 2.5rem !important;
+    padding: 1.5rem 2.5rem;
 
+  }
+
+  code {
+    padding: 0;
   }
 
   button {
