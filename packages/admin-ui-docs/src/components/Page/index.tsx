@@ -32,8 +32,8 @@ const getTabColor = (selectedId: string, tabId: string) => {
 
 const tabName = {
   overview: 'Overview',
-  designReference: 'Design Reference',
-  codeReference: 'Code Reference',
+  designReference: 'Design',
+  codeReference: 'Code',
 }
 
 export function Page(props: PageProps) {
