@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Set } from '../Set'
+import { Inline } from '../../inline'
 import type { DropdownProps } from './index'
 import { Dropdown, useDropdownState } from './index'
 import { Card } from '../Card'
@@ -90,7 +90,7 @@ export const Variants = () => {
   })
 
   return (
-    <Set>
+    <Inline>
       <Dropdown items={species} state={speciesState} label="Species" />
       <Dropdown
         variant="secondary"
@@ -104,7 +104,7 @@ export const Variants = () => {
         state={recipesState}
         label="Recipes"
       />
-    </Set>
+    </Inline>
   )
 }
 

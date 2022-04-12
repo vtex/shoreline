@@ -5,7 +5,7 @@ import { Box } from '../../Box'
 import { Tabs, Tab, TabPanel, TabList, useTabState } from '../index'
 import { Card } from '../../Card'
 import { Heading } from '../../Heading'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 
 export default {
   title: 'admin-ui/Tabs',
@@ -69,7 +69,7 @@ export function FluidWidth() {
 function Header() {
   return (
     <Box csx={{ marginTop: 5, borderBottom: '$neutral' }}>
-      <Set orientation="vertical" fluid spacing={5}>
+      <Stack fluid>
         <Box csx={{ marginLeft: 4 }}>
           <Heading>Provider Manager</Heading>
         </Box>
@@ -77,7 +77,7 @@ function Header() {
           <Tab id="pending">Pending</Tab>
           <Tab id="published">Published</Tab>
         </TabList>
-      </Set>
+      </Stack>
     </Box>
   )
 }

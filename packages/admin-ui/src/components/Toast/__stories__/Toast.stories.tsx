@@ -3,8 +3,8 @@ import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
 import { Button } from '../../../button'
-import { Set } from '../../Set'
 import { Text } from '../../Text'
+import { Inline } from '../../../inline'
 
 export default {
   title: 'admin-ui/Toast',
@@ -15,7 +15,7 @@ const ToastButton = () => {
   const showToast = useToast()
 
   return (
-    <Set>
+    <Inline>
       <Button
         onClick={() => {
           showToast({
@@ -111,7 +111,7 @@ const ToastButton = () => {
       >
         Custom
       </Button>
-    </Set>
+    </Inline>
   )
 }
 

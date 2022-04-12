@@ -18,7 +18,7 @@ import {
 import { tag } from '@vtex/admin-ui-react'
 import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
 import { Box } from '../../Box'
-import { Set } from '../../Set'
+import { Inline } from '../../../inline'
 import { Button } from '../../../button'
 import { Text } from '../../Text'
 import {
@@ -212,17 +212,17 @@ export const Playground: Story<any> = (args) => {
     >
       <Topbar loading={loading}>
         <TopbarStart>
-          <Set spacing="$l">
+          <Inline hSpace="$l" align="center" noWrap>
             <Button
               variant="neutralTertiary"
               csx={{ padding: '$xs' }}
               icon={<IconVtex />}
             />
             <Text variant="action1">dpsppinheiros</Text>
-          </Set>
+          </Inline>
         </TopbarStart>
         <TopbarEnd>
-          <Set spacing={0}>
+          <Inline hSpace="0px" noWrap align="center">
             <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
               Switch to previous version
             </Button>
@@ -234,7 +234,7 @@ export const Playground: Story<any> = (args) => {
             </Button>
             <Button variant="tertiary" icon={<IconBell />} />
             <Button variant="tertiary" icon={<IconQuestion />} />
-          </Set>
+          </Inline>
         </TopbarEnd>
       </Topbar>
       <Box

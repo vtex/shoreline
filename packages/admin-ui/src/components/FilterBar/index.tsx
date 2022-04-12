@@ -2,7 +2,7 @@ import React from 'react'
 import { IconCopy, IconTrash, IconPlus } from '@vtex/phosphor-icons'
 
 import { Box } from '../Box'
-import { Set } from '../Set'
+import { Inline } from '../../inline'
 import { Button } from '../../button'
 import {
   Content,
@@ -74,7 +74,7 @@ export function FilterBar<T, V extends { value: T }>(
         {statements.map((statement, index) => {
           return (
             <Statement key={`filter-statement-${index}`}>
-              <Set spacing={2}>
+              <Inline align="center">
                 <Statement.Conjunction
                   label={conjunctionLabel}
                   whereLabel={whereStatementLabel}
@@ -116,7 +116,7 @@ export function FilterBar<T, V extends { value: T }>(
                   index={index}
                   handleValueChange={changeValue}
                 />
-              </Set>
+              </Inline>
               <Statement.Menu>
                 <Button
                   variant="neutralTertiary"
@@ -148,7 +148,7 @@ export function FilterBar<T, V extends { value: T }>(
         <Button variant="tertiary" icon={<IconPlus />} onClick={addStatement}>
           {addFilterLabel}
         </Button>
-        <Set>
+        <Inline align="center">
           <Button
             variant="neutralTertiary"
             disabled={statements.length === 0}
@@ -165,7 +165,7 @@ export function FilterBar<T, V extends { value: T }>(
           >
             {applyFilterLabel}
           </Button>
-        </Set>
+        </Inline>
       </Footer>
     </Box>
   )

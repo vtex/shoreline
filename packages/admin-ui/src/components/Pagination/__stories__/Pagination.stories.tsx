@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react'
 import { Pagination } from '../Pagination'
 import { usePaginationState } from '../hooks/usePaginationState'
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 import { Input } from '../../Input'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
@@ -53,7 +53,7 @@ export function PersistedPaginationWithQuery() {
     })
 
     return (
-      <Set orientation="vertical" spacing={6}>
+      <Stack>
         <Input
           label="Current URL:"
           id="current-url-input"
@@ -70,7 +70,7 @@ export function PersistedPaginationWithQuery() {
           prevLabel="Previous"
           nextLabel="Next"
         />
-      </Set>
+      </Stack>
     )
   }
 

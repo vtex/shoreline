@@ -11,9 +11,9 @@ import {
 import type { AlertProps } from '../index'
 import { Alert } from '../index'
 import { Box } from '../../Box'
-import { Set } from '../../Set'
 import { Button } from '../../../button'
 import { Anchor } from '../../Anchor'
+import { Stack } from '../../../stack'
 
 export default {
   title: 'admin-ui/Alert',
@@ -33,7 +33,7 @@ Playground.args = {
 
 export function Tones() {
   return (
-    <Set orientation="vertical" fluid>
+    <Stack fluid>
       <Alert tone="info" icon={<IconQuestion />} visible>
         Order successfully placed
       </Alert>
@@ -46,13 +46,13 @@ export function Tones() {
       <Alert tone="critical" icon={<IconXOctagon />} visible>
         Somenthing went wrong. Please, try again.
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 
 export function Actions() {
   return (
-    <Set orientation="vertical" fluid>
+    <Stack fluid>
       <Alert tone="positive" visible>
         Order successfully placed <Anchor>See order</Anchor>
       </Alert>
@@ -61,7 +61,7 @@ export function Actions() {
         You’re beta testing the new Order Details{' '}
         <Anchor>Back to the old version</Anchor>
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 
@@ -83,7 +83,7 @@ export function Visible() {
 
 export function Fluid() {
   return (
-    <Box csx={{ width: 300 }}>
+    <Box csx={{ width: 400 }}>
       <Alert
         icon={<IconWarningCircle />}
         visible

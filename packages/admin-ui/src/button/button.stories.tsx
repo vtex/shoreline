@@ -4,7 +4,6 @@ import { IconX } from '@vtex/phosphor-icons'
 
 import type { ButtonProps } from './index'
 import { Button } from './index'
-import { Set } from '../components/Set'
 import { Heading } from '../components/Heading'
 import { Box } from '../components/Box'
 import { Flex } from '../components/Flex'
@@ -74,11 +73,9 @@ export const Bleed: Story<ButtonProps> = (args) => {
       >
         <Flex align="center" justify="space-between">
           <Heading>Heading</Heading>
-          <Set>
-            <Button icon={<IconX />} {...args}>
-              Button with bleed
-            </Button>
-          </Set>
+          <Button icon={<IconX />} {...args}>
+            Button with bleed
+          </Button>
         </Flex>
       </Box>
     </Box>

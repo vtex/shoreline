@@ -5,7 +5,8 @@ import { IconHeart } from '@vtex/phosphor-icons'
 
 import type { TagProps } from './index'
 import { Tag } from './index'
-import { Set } from '../Set'
+import { Stack } from '../../stack'
+import { Inline } from '../../inline'
 
 export default {
   title: 'admin-ui/Tag',
@@ -23,21 +24,20 @@ Playground.args = {
 
 export function Palettes() {
   return (
-    <>
-      <Set>
+    <Stack>
+      <Inline>
         <Tag label="Rio de Janeiro" />
         <Tag label="Rio de Janeiro" palette="cyan" />
         <Tag label="Rio de Janeiro" palette="purple" />
         <Tag label="Rio de Janeiro" palette="green" />
-      </Set>
-      <br />
-      <Set>
+      </Inline>
+      <Inline>
         <Tag label="Rio de Janeiro" palette="red" />
         <Tag label="Rio de Janeiro" palette="orange" />
         <Tag label="Rio de Janeiro" palette="teal" />
         <Tag label="Rio de Janeiro" palette="gray" />
-      </Set>
-    </>
+      </Inline>
+    </Stack>
   )
 }
 
@@ -53,18 +53,16 @@ export function WithIcon() {
 
 export const Variants = () => {
   return (
-    <>
-      <Set>
+    <Stack>
+      <Inline>
         <Tag label="Rio de Janeiro" />
         <Tag size="small" label="Rio de Janeiro" />
-      </Set>
-      <br />
-      <Set>
+      </Inline>
+      <Inline>
         <Tag label="Rio de Janeiro" icon={<IconHeart />} />
         <Tag size="small" label="Rio de Janeiro" icon={<IconHeart />} />
-      </Set>
-      <br />
-      <Set>
+      </Inline>
+      <Inline>
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
@@ -74,9 +72,8 @@ export const Variants = () => {
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
         />
-      </Set>
-      <br />
-      <Set>
+      </Inline>
+      <Inline>
         <Tag
           handleDelete={() => console.log('deleted')}
           label="Rio de Janeiro"
@@ -88,7 +85,7 @@ export const Variants = () => {
           label="Rio de Janeiro"
           icon={<IconHeart />}
         />
-      </Set>
-    </>
+      </Inline>
+    </Stack>
   )
 }
