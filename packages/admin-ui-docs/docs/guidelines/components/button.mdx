@@ -6,11 +6,17 @@ hide_table_of_contents: true
 
 import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 import { CodeSection } from '@site/src/components/CodeSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 
 export const tabToc = {
   overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
     {
       id: 'variants',
       value: 'Variants',
@@ -53,18 +59,27 @@ export const tabToc = {
       value: 'Props',
       level: 2,
     },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
   ],
 }
 
 <Page toc={tabToc} hasTabs>
 <Panel id="overview">
 
-Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions.
+<IntroSection
+   id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions."
+/>
 
 <MultipleCodeSection
   isLive
-  id={tabToc.overview[0].id}
-  title={tabToc.overview[0].value}
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
   layout="grid"
   optionsTitle="Variant"
   options={[
@@ -113,8 +128,8 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
   ]}
 >
 <PageSection
-  id={tabToc.overview[1].id}
-  title={tabToc.overview[1].value}
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
   direction="row"
   level={3}
 >
@@ -128,8 +143,8 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 
 <CodeSection
   isLive
-  id={tabToc.overview[2].id}
-  title={tabToc.overview[2].value}
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
   layout="grid"
   columnsCount="2"
   code={`<>
@@ -144,8 +159,8 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 
 <CodeSection
   isLive
-  id={tabToc.overview[3].id}
-  title={tabToc.overview[3].value}
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
   layout="grid"
   columnsCount="3"
   code={`<>
@@ -165,8 +180,8 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 
 <CodeSection
   isLive
-  id={tabToc.overview[4].id}
-  title={tabToc.overview[4].value}
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
   layout="grid"
   columnsCount="3"
   code={`<>
@@ -188,8 +203,8 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 
 <CodeSection
   isLive
-  id={tabToc.overview[5].id}
-  title={tabToc.overview[5].value}
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
   layout="grid"
   columnsCount="3"
   code={`function Example() {
@@ -238,7 +253,7 @@ export function Example() {
 />
 
 <PageSection
-   id={tabToc.codeReference[1].id}
+  id={tabToc.codeReference[1].id}
   title={tabToc.codeReference[1].value}
 >
 
@@ -255,8 +270,8 @@ export function Example() {
 </PageSection>
 
 <PageSection
-  id="accessibility"
-  title="Accessibility"
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
   direction="row"
 >
 
