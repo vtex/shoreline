@@ -67,7 +67,6 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         tone={tone}
         csx={csx}
         {...divProps}
-        onClick={divProps?.onClick}
       >
         <tag.div
           csx={{
