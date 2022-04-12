@@ -49,10 +49,6 @@ export const Tag = jsx('div')(
             minWidth: 16,
             minHeight: 16,
           },
-          button: {
-            height: 16,
-            width: 16,
-          },
         },
         regular: {
           height: 40,
@@ -62,10 +58,6 @@ export const Tag = jsx('div')(
             minWidth: 20,
             height: 20,
             minHeight: 20,
-          },
-          button: {
-            height: 20,
-            width: 20,
           },
         },
       },
@@ -88,6 +80,8 @@ export const Tag = jsx('div')(
                 icon={<IconX />}
                 aria-label={label}
                 onClick={handleDelete}
+                bleedY
+                bleedX
                 csx={{
                   marginLeft: 1,
                 }}

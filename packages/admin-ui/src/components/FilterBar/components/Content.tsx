@@ -2,7 +2,7 @@ import React from 'react'
 
 import type { BoxProps } from '../../Box'
 import { Box } from '../../Box'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 import { Paragraph } from '../../Paragraph'
 
 export function Content(props: ContentProps) {
@@ -10,13 +10,7 @@ export function Content(props: ContentProps) {
 
   return (
     <Box csx={{ padding: 4, paddingLeft: empty ? 6 : 4 }} {...restProps}>
-      {empty ? (
-        <Paragraph>{label}</Paragraph>
-      ) : (
-        <Set orientation="vertical" spacing={2}>
-          {children}
-        </Set>
-      )}
+      {empty ? <Paragraph>{label}</Paragraph> : <Stack>{children}</Stack>}
     </Box>
   )
 }

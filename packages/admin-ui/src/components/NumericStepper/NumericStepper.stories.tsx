@@ -3,7 +3,6 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { NumericStepperProps } from './index'
 import { NumericStepper } from './index'
-import { Set } from '../Set'
 
 export default {
   title: 'admin-ui/NumericStepper',
@@ -53,14 +52,12 @@ export const Overview = () => {
 
 export const Disabled = () => {
   return (
-    <Set orientation="horizontal">
-      <NumericStepper
-        value={0}
-        onChange={() => {}}
-        disabled
-        label="numeric-stepper"
-      />
-    </Set>
+    <NumericStepper
+      value={0}
+      onChange={() => {}}
+      disabled
+      label="numeric-stepper"
+    />
   )
 }
 

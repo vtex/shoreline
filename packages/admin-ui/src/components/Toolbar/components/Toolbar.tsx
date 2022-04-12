@@ -2,7 +2,7 @@ import React from 'react'
 import { Toolbar as BaseToolbar } from 'reakit/Toolbar'
 import { jsx } from '@vtex/admin-ui-react'
 
-import { Set } from '../../Set'
+import { Inline } from '../../../inline'
 import type { ToolbarState } from '../state'
 import { ToolbarContext } from '../context'
 
@@ -28,11 +28,11 @@ export const Toolbar = jsx(BaseToolbar)(
         ...state,
         ...toolbarProps,
         children: (
-          <Set spacing={3}>
+          <Inline>
             <ToolbarContext.Provider value={state}>
               {children}
             </ToolbarContext.Provider>
-          </Set>
+          </Inline>
         ),
       }
     },

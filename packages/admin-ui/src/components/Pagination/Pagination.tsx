@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
-import { Set } from '../Set'
+import { Inline } from '../../inline'
 import { Button } from '../../button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
@@ -46,7 +46,7 @@ export const Pagination = jsx('div')(
                 {range[0]} — {range[1]} {preposition} {total} {subject}
               </Text>
             )}
-            <Set spacing={2}>
+            <Inline align="center" noWrap>
               <Tooltip label={prevLabel}>
                 <Button
                   variant="neutralTertiary"
@@ -64,7 +64,7 @@ export const Pagination = jsx('div')(
                   icon={<IconCaretRight />}
                 />
               </Tooltip>
-            </Set>
+            </Inline>
           </Fragment>
         ),
       }
