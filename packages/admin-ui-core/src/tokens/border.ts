@@ -21,5 +21,8 @@ export const border = {
     critical: borderStyles('red40'),
     criticalHover: borderStyles('red50'),
     criticalFocus: borderStyles('red60'),
+
+    mainChecked: borderStyles('blue40'),
+    mainCheckedHover: borderStyles('blue50'),
   },
 }
