@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
 import { useCallback, useEffect } from 'react'
 
 import type { ComboboxState, ComboboxStateProps } from './combobox.state'
 import { useComboboxState } from './combobox.state'
-import { useCheckboxObjectState } from './checkbox-object-state'
+import { useCheckboxObjectState } from './selected-multiple.state'
 
 export function useComboboxMultipleState<T>(
   props: ComboboxMultipleStateProps<T> = {}
@@ -31,7 +31,7 @@ export function useComboboxMultipleState<T>(
 
   const checkbox = useCheckboxObjectState({
     defaultValue: defaultSelected,
-    getValue: getOptionValue,
+    compare: (a, b) => getOptionValue(a) === getOptionValue(b),
   })
 
   const clearSelected = useCallback(() => {
@@ -39,9 +39,9 @@ export function useComboboxMultipleState<T>(
     checkbox.setValue([])
   }, [checkbox.setValue, combobox.setValue])
 
-  const addSelectedItem = (newItem: T) => checkbox.onAdd(newItem)
+  const addSelectedItem = (newItem: T) => checkbox.select(newItem)
 
-  const removeSelectedItem = (removedItem: T) => checkbox.onRemove(removedItem)
+  const removeSelectedItem = (removedItem: T) => checkbox.unselect(removedItem)
 
   useEffect(() => {
     if (shouldClearOnSelect) combobox.setValue('')
@@ -50,10 +50,11 @@ export function useComboboxMultipleState<T>(
   return {
     ...combobox,
     selectedItems: checkbox.value,
+    setSelectedItems: checkbox.setValue,
+    onChange: checkbox.toggle,
+    isSelected: checkbox.isSelected,
     addSelectedItem,
     removeSelectedItem,
-    onChange: checkbox.onChange,
-    isSelected: checkbox.isSelected,
     clearSelected,
     getOptionValue,
     renderOption,
@@ -70,6 +71,7 @@ export interface ComboboxMultipleStateProps<T> extends ComboboxStateProps<T> {
 export interface ComboboxMultipleState<T> extends ComboboxState<T> {
   renderTag: (item: T) => ReactNode
   selectedItems: T[]
+  setSelectedItems: Dispatch<SetStateAction<T[]>>
   clearSelected: () => void
   addSelectedItem: (item: T) => void
   removeSelectedItem: (item: T) => void
