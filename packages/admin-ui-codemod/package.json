@@ -1,20 +1,11 @@
 {
   "name": "@vtex/admin-ui-codemod",
-  "license": "MIT",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "module": "dist/admin-ui-codemod.esm.js",
-  "typings": "dist/index.d.ts",
+  "description": "Admin UI codemod scripts",
+  "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
   },
   "repository": {
     "directory": "packages/admin-ui-codemod",
