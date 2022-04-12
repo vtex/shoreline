@@ -13,7 +13,8 @@ import { CacheProvider, Global } from '@emotion/react'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
-import { IconProvider } from './createIcons'
+
+import { IconProvider } from './icons'
 import { SystemContext } from './context'
 
 export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {

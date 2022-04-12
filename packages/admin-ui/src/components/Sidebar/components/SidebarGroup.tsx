@@ -1,5 +1,5 @@
 import type { Ref, ReactNode } from 'react'
-import type { CsxCall } from '@vtex/admin-ui-react'
+import type { ComponentStyleProps } from '@vtex/admin-ui-react'
 import React, { forwardRef } from 'react'
 
 import { Set } from '../../Set'
@@ -29,7 +29,7 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   )
 })
 
-export interface SidebarGroupProps extends CsxCall {
+export interface SidebarGroupProps extends ComponentStyleProps {
   children?: ReactNode
   spacing?: number
 }

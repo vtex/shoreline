@@ -1,10 +1,10 @@
 import React from 'react'
 import { isFunction, capitalize } from '@vtex/admin-ui-util'
 
-import { useSystem } from './context'
+import { useSystem } from '../system'
 import type { CsxCall, ExtractHTMLAttributes, RenderProp } from './types'
-import type { DOMElements } from './domElements'
-import { domElements } from './domElements'
+import type { DOMElements } from './dom-elements'
+import { domElements } from './dom-elements'
 
 /**
  * Creates AdminUI jsx elements

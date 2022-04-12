@@ -1,5 +1,5 @@
 import type { StyleProp } from '@vtex/admin-ui-core'
-import type { CsxCall } from '@vtex/admin-ui-react'
+import type { ComponentStyleProps } from '@vtex/admin-ui-react'
 
 export interface SystemPrimitive {
   /**
@@ -21,7 +21,7 @@ export type OmitNotAllowedProps<T> = Omit<T, 'className' | 'color' | 'style'>
 type IconSize = 'regular' | 'small'
 
 declare module '@vtex/phosphor-icons' {
-  export interface IconOptions extends CsxCall {
+  export interface IconOptions extends ComponentStyleProps {
     size?: IconSize
   }
 }
