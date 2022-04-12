@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('./cli').run()
+require('./cli.js').run()
