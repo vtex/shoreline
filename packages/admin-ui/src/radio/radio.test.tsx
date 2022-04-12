@@ -3,7 +3,9 @@ import React from 'react'
 import { render, axe, withState } from '../test-utils'
 import { Radio, useRadioState } from './radio'
 
-const StatefulRadio = withState(Radio, useRadioState)
+const StatefulRadio = withState(Radio, () =>
+  useRadioState({ baseId: 'radio-test' })
+)
 
 describe('Radio', () => {
   it('should match snapshot', () => {
