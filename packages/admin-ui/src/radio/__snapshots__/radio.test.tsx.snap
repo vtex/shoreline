@@ -1,0 +1,612 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+}
+
+.emotion-1 >span {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.3rem;
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: transparent;
+}
+
+.emotion-0:checked {
+  background: #2953B2;
+  color: #FFFFFF;
+  border: 1px solid #2953B2;
+  position: relative;
+}
+
+.emotion-0:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FFFFFF;
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #747474;
+}
+
+.emotion-0:checked:disabled {
+  cursor: not-allowed;
+  background: #E6E6E6;
+  border: 1px solid #747474;
+}
+
+.emotion-0:checked:hover {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
+<label
+    class="emotion-1"
+  >
+    <input
+      aria-checked="false"
+      class="emotion-0"
+      id="id-1qpqos-1"
+      name="id-1qpqos"
+      tabindex="0"
+      type="radio"
+      value="unchecked"
+    />
+    <span>
+      label
+    </span>
+  </label>
+  .emotion-1 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+}
+
+.emotion-1 >span {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.3rem;
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: transparent;
+}
+
+.emotion-0:checked {
+  background: #2953B2;
+  color: #FFFFFF;
+  border: 1px solid #2953B2;
+  position: relative;
+}
+
+.emotion-0:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FFFFFF;
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #747474;
+}
+
+.emotion-0:checked:disabled {
+  cursor: not-allowed;
+  background: #E6E6E6;
+  border: 1px solid #747474;
+}
+
+.emotion-0:checked:hover {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
+<label
+    class="emotion-1"
+  >
+    <input
+      aria-checked="true"
+      checked=""
+      class="emotion-0"
+      id="id-5osekc-1"
+      name="id-5osekc"
+      tabindex="0"
+      type="radio"
+      value="checked"
+    />
+    <span>
+      label
+    </span>
+  </label>
+  .emotion-1 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+}
+
+.emotion-1 >span {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.3rem;
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: transparent;
+}
+
+.emotion-0:checked {
+  background: #2953B2;
+  color: #FFFFFF;
+  border: 1px solid #2953B2;
+  position: relative;
+}
+
+.emotion-0:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FFFFFF;
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #747474;
+}
+
+.emotion-0:checked:disabled {
+  cursor: not-allowed;
+  background: #E6E6E6;
+  border: 1px solid #747474;
+}
+
+.emotion-0:checked:hover {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
+<label
+    class="emotion-1"
+  >
+    <input
+      aria-checked="false"
+      aria-disabled="true"
+      class="emotion-0"
+      disabled=""
+      id="id-hrgcqn-1"
+      name="id-hrgcqn"
+      style="pointer-events: none;"
+      type="radio"
+      value="unchecked disabled"
+    />
+    <span>
+      label
+    </span>
+  </label>
+  .emotion-1 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: auto;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+}
+
+.emotion-1 >span {
+  margin-left: 0.5rem;
+}
+
+.emotion-0 {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.3rem;
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: transparent;
+}
+
+.emotion-0:checked {
+  background: #2953B2;
+  color: #FFFFFF;
+  border: 1px solid #2953B2;
+  position: relative;
+}
+
+.emotion-0:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FFFFFF;
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  top: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #747474;
+}
+
+.emotion-0:checked:disabled {
+  cursor: not-allowed;
+  background: #E6E6E6;
+  border: 1px solid #747474;
+}
+
+.emotion-0:checked:hover {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
+<label
+    class="emotion-1"
+  >
+    <input
+      aria-checked="true"
+      aria-disabled="true"
+      checked=""
+      class="emotion-0"
+      disabled=""
+      id="id-to64h7-1"
+      name="id-to64h7"
+      style="pointer-events: none;"
+      type="radio"
+      value="checked disabled"
+    />
+    <span>
+      label
+    </span>
+  </label>
+</DocumentFragment>
+`;

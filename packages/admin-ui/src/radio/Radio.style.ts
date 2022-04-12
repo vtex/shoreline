@@ -69,8 +69,17 @@ export const checked = style({
   },
 })
 
-export const radioStyle = style({
+export const radioButtonStyle = style({
   ...baseline,
   ':after': checkmark,
   ':checked': checked,
+})
+
+export const labelStyle = style({
+  cursor: 'pointer',
+  display: 'inline-flex',
+  '> span': { marginLeft: '$m' },
+  margin: 'auto',
+  alignItems: 'center',
+  text: '$body',
 })

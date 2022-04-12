@@ -1,6 +1,7 @@
 import React from 'react'
-import type { Meta } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 
+import type { RadioProps } from './index'
 import { Radio, useRadioState } from './index'
 
 export default {
@@ -8,13 +9,16 @@ export default {
   component: Radio,
 } as Meta
 
-export function Example() {
-  const state = useRadioState({})
+export const Playground: Story<RadioProps> = (args) => {
+  const state = useRadioState()
 
-  return (
-    <>
-      <Radio value="unchecked" aria-label="label" state={state} />
-      <Radio value="checked" state={state} />
-    </>
-  )
+  return <Radio {...args} state={state} />
+}
+
+Playground.args = {
+  value: 'Radio Value',
+  label: 'Radio Label',
+  disabled: false,
+  checked: false,
+  csx: {},
 }
