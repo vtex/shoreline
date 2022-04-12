@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.10...@vtex/admin-ui-react@0.6.11) (2022-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-react
+
 ## [0.6.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.9...@vtex/admin-ui-react@0.6.10) (2022-04-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-react
