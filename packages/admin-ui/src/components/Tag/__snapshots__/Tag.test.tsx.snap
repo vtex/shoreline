@@ -36,11 +36,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -78,11 +73,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-width: 20px;
   height: 20px;
   min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
 }
 
 <div
@@ -124,11 +114,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -166,11 +151,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-width: 20px;
   height: 20px;
   min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
 }
 
 <div
@@ -212,11 +192,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -254,11 +229,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-width: 20px;
   height: 20px;
   min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
 }
 
 <div
@@ -300,11 +270,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -344,11 +309,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -386,11 +346,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-width: 20px;
   height: 20px;
   min-height: 20px;
-}
-
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
 }
 
 <div
@@ -432,11 +387,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-0 button {
-  height: 20px;
-  width: 20px;
-}
-
 <div
     class="emotion-0"
   >
@@ -474,11 +424,6 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 16px;
   min-width: 16px;
   min-height: 16px;
-}
-
-.emotion-0 button {
-  height: 16px;
-  width: 16px;
 }
 
 <div
@@ -520,11 +465,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-4 button {
-  height: 20px;
-  width: 20px;
-}
-
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
@@ -539,6 +479,10 @@ exports[`Tag tests should match snapshot 1`] = `
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
   margin-left: 0.25rem;
 }
 
@@ -704,11 +648,6 @@ exports[`Tag tests should match snapshot 1`] = `
   min-height: 20px;
 }
 
-.emotion-5 button {
-  height: 20px;
-  width: 20px;
-}
-
 .emotion-4 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
@@ -723,6 +662,10 @@ exports[`Tag tests should match snapshot 1`] = `
   background: transparent;
   padding: 0.5rem 0.75rem;
   height: 2.25rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
   margin-left: 0.25rem;
 }
 
