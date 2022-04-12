@@ -447,13 +447,16 @@ The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and addi
 
 | Name           | Type                       | Description             |
 | -------------- | -------------------------- | ----------------------- |
-| selectedItems       | `ItemType[]`                 | List of selected items  |
-| checkboxState   | Ariakit's CheckboxState   | Used internally for managing checkboxes
+| selectedItems  | `ItemType[]`             | List of selected items  |
+| setSelectedItems| `SetStateAction<ItemType[]>` | Setter for selected items |
 | unselect | `(value: string) => void`   | Unselect an item with this value       |
 | clearSelected  | `() => void`               | Clear the selected list |
 | addSelectedItem | `(item: ItemType) => void`   | Adds inputed item to selected list        |
 | removeSelectedItem | `(item: ItemType) => void`   | Removes inputed item from selected list        |
-| renderTag | `(item: T) => ReactNode`   | Same as the one inputed to hook        |
+| renderTag | `(item: ItemType) => ReactNode`   | Same as the one inputed to hook        |
+| onChange | `(item: ItemType) => void`   | Function that toggles if item is selected        |
+| isSelected | `(item: ItemType) => boolean`   | Function which returns selected status for an item        |
+
 
 
 ### ComboboxField & ComboboxMultipleField
