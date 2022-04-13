@@ -9,16 +9,18 @@ import { useMediaQuery } from '@vtex/admin-ui'
 import './styles.scss'
 
 export interface PageSectionProps {
-  id: string
-  title: string
-  explanation?: string
-  direction?: 'column' | 'row'
-  actionElement?: Function
+  actionElement?: ReactNode
   children: ReactNode
+  direction?: 'column' | 'row'
+  explanation?: string
+  id: string
+  level?: number
+  title: string
 }
 
 export function PageSection(props: PageSectionProps) {
   const [isLargeScreen] = useMediaQuery('(min-width: 997px)')
+  const headingLevel = `h${props.level ?? 2}`
   const { actionElement: ActionElement } = props
 
   return (
@@ -29,10 +31,10 @@ export function PageSection(props: PageSectionProps) {
     >
       <div className="section-info">
         <div className="header">
-          <Heading id={props.id} as="h2">
+          <Heading id={props.id} as={headingLevel}>
             {props.title}
           </Heading>
-          {ActionElement && <ActionElement />}
+          <div className="action">{ActionElement}</div>
         </div>
         {props.explanation && (
           <p className="explanation">{props.explanation}</p>

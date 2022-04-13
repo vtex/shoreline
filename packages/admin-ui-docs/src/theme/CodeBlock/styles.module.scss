@@ -1,0 +1,45 @@
+.collapsedCodeBlock pre {
+  height: 10rem;
+  overflow: hidden;
+}
+
+.codeBlock {
+  box-shadow: unset !important;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  border-left: 1px solid var(--ifm-toc-border-color);
+  border-right: 1px solid var(--ifm-toc-border-color);
+  border-radius: unset;
+  margin-bottom: 0;
+
+  pre {
+    border-radius: unset;
+    padding: 1.5rem 2.5rem !important;
+
+  }
+
+  button {
+    display: none !important;
+  }
+}
+
+.codeBlockFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  margin-bottom: 1.5rem;
+
+  button {
+    color: #000000;
+
+    &:hover {
+      color: var(--ifm-color-primary);
+      background: #FFFFFF;
+    }
+  }
+
+  button + button {
+    margin-left: 0.5rem;
+  }
+}
