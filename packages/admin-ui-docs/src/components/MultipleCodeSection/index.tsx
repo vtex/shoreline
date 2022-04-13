@@ -73,7 +73,9 @@ export function MultipleCodeSection(props: MultipleCodeSectionProps) {
             />
           </TabPanel>
         ))}
-        <div className="children-container">{props.children}</div>
+        {props.children && (
+          <div className="children-container">{props.children}</div>
+        )}
       </Tabs>
     </PageSection>
   )
