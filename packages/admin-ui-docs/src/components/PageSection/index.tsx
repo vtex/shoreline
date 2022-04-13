@@ -11,7 +11,7 @@ import './styles.scss'
 export interface PageSectionProps {
   actionElement?: ReactNode
   children: ReactNode
-  className: string
+  className?: string
   direction?: 'column' | 'row'
   explanation?: string
   id: string
