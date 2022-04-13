@@ -1,8 +1,10 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import type { RadioProps, RadioGroupProps } from './index'
+import type { RadioGroupProps, RadioProps } from './index'
 import { Radio, useRadioState, RadioGroup } from './index'
+import { Set } from '../components/Set'
+import { Box } from '../components/Box'
 
 export default {
   title: 'admin-ui-review/radio',
@@ -12,20 +14,12 @@ export default {
       options: ['vertical', 'horizontal'],
       control: { type: 'radio' },
     },
+    tone: {
+      options: ['neutral', 'critical'],
+      control: { type: 'radio' },
+    },
   },
 } as Meta
-
-export const RadioPlayground: Story<RadioProps> = (args) => {
-  return <Radio {...args} />
-}
-
-RadioPlayground.args = {
-  value: 'Radio Value',
-  label: 'Radio Label',
-  disabled: false,
-  checked: false,
-  csx: {},
-}
 
 interface RadioGroupPlaygroundProps extends Omit<RadioGroupProps, 'state'> {
   numberOfRadios: number
@@ -39,15 +33,14 @@ export const RadioGroupPlayground: Story<RadioGroupPlaygroundProps> = (
   const state = useRadioState()
 
   return (
-    <div>
+    <Set spacing="$xl" orientation="vertical">
       <RadioGroup {...restProps} state={state}>
         {[...Array(numberOfRadios)].map((_, index) => (
           <Radio value={`radio-${index}`} label={`Radio ${index}`} />
         ))}
       </RadioGroup>
-      <br />
       <span>Current value: {state.value}</span>
-    </div>
+    </Set>
   )
 }
 
@@ -56,6 +49,40 @@ RadioGroupPlayground.args = {
   label: 'Group Label',
   orientation: 'horizontal',
   helperText: 'Helper Text!',
-  error: false,
-  errorMessage: 'Error Message!',
+  tone: 'neutral',
+  criticalMessage: 'Critical Message!',
+}
+
+export function Example() {
+  const state = useRadioState()
+
+  return (
+    <Box csx={{ margin: '$xl' }}>
+      <RadioGroup state={state} label="Account Type" orientation="vertical">
+        <Radio
+          label="Accounts are disabled"
+          helperText="Customers will only be able to check out as guests."
+          value="disabled"
+        />
+        <Radio
+          label="Accounts are optional"
+          helperText="Customers will be able to check out with a customer account or as a guest."
+          value="optional"
+        />
+      </RadioGroup>
+    </Box>
+  )
+}
+
+export const RadioAppearenceStates: Story<RadioProps> = (args) => {
+  return <Radio {...args} />
+}
+
+RadioAppearenceStates.args = {
+  value: 'Radio Value',
+  label: 'Radio Label',
+  disabled: false,
+  checked: false,
+  helperText: '',
+  csx: {},
 }
