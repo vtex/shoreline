@@ -1,17 +1,23 @@
 ---
 title: Radio
 path: /radio/
+hide_table_of_contents: true
 ---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) => ['Example'].includes(item.value)),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
 Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
 
-## Import
-
-```jsx isStatic
-import { Radio } from '@vtex/admin-ui'
-```
-
-## Behavior
+## Example
 
 ```jsx live
 function Example() {
@@ -19,6 +25,15 @@ function Example() {
 
   return <Radio state={state} value="Radio" aria-label="radio button" />
 }
+```
+
+  </Panel>
+  <Panel id="codeReference">
+
+## Import
+
+```jsx isStatic
+import { Radio } from '@vtex/admin-ui'
 ```
 
 ## State
@@ -131,3 +146,24 @@ function Example() {
 | id       | `string`            | Same as the HTML attribute                                                           | 🚫       | -           |
 | children | `ReactNode`         | Radio children                                                                       | 🚫       | -           |
 | csx      | `StyleProp`         | Defines component styles                                                             | 🚫       | `{}`        |
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Use them for multiple choice options.
+2. There should always be a pre-selected option as default.
+3. Keep the list of options short. More than 6 options might start looking weird.
+4. Don’t be ambiguous, each option should be clear.
+5. Mind the order of the options. Consider ordering them from most to least frequently used, simplest to most complex, or least to most risky.
+6. Use a "None" option if you need an unselected state.
+   7, Consider adding an "Other" option if needed, together with a Text Input to capture the user’s needs.
+7. Use titles to group related controls.
+8. Add descriptions if the control is critical, or complex.
+9. Lists of controls should be vertical for better scannability.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+</Page>
