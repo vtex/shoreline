@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, axe, withState } from '../test-utils'
+import { render, axe, withState, jestMatchMedia } from '../test-utils'
 import { Radio, useRadioState, RadioGroup } from './index'
 
 const StatefulRadioGroup = withState(RadioGroup, () => {
@@ -10,6 +10,8 @@ const StatefulRadioGroup = withState(RadioGroup, () => {
 })
 
 describe('Radio', () => {
+  beforeEach(jestMatchMedia)
+
   it('should match snapshot', () => {
     const { asFragment } = render(
       <StatefulRadioGroup>

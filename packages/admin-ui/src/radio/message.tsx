@@ -18,7 +18,7 @@ export function Message(props: MessageProps) {
         </Text>
       ) : null}
       {isCritical ? (
-        <Text variant="detail" tone={tone}>
+        <Text variant="detail" tone="critical">
           {criticalMessage}
         </Text>
       ) : null}
