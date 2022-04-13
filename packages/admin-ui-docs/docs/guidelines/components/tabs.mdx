@@ -1,36 +1,43 @@
 ---
 title: Tabs
 path: /tabs/
+hide_table_of_contents: true
 ---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Examples',
+      'Fluid',
+      'Default selected tab',
+      'Select a Tab manually',
+      'Manual Activation',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) =>
+    [
+      'Usage',
+      'Accessibility',
+      'Props',
+      'Tabs',
+      'Tab',
+      'TabList',
+      'TabPanel',
+      'useTabState',
+      'TabStateReturn',
+    ].includes(item.value)
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
 Tabs are navigation solutions for alternating between content that is at the same level of the hierarchy.
 
-## Usage
-
-```jsx isStatic
-import { Tabs, Tab, TabList, TabPanel, useTabState } from '@vtex/admin-ui'
-
-function Example() {
-  const state = useTabState()
-
-  return (
-    <Tabs state={state}>
-      <TabList aria-label="Usage Tabs">
-        <Tab id="1">Tab 1</Tab>
-        <Tab id="2">Tab 2</Tab>
-      </TabList>
-      <TabPanel id="1" csx={{ padding: 3 }}>
-        Tab 1
-      </TabPanel>
-      <TabPanel id="2" csx={{ padding: 3 }}>
-        Tab 2
-      </TabPanel>
-    </Tabs>
-  )
-}
-```
-
-## Example
+## Examples
 
 ### Fluid
 
@@ -144,6 +151,34 @@ function Example() {
 }
 ```
 
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Tabs, Tab, TabList, TabPanel, useTabState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useTabState()
+
+  return (
+    <Tabs state={state}>
+      <TabList aria-label="Usage Tabs">
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanel id="1" csx={{ padding: 3 }}>
+        Tab 1
+      </TabPanel>
+      <TabPanel id="2" csx={{ padding: 3 }}>
+        Tab 2
+      </TabPanel>
+    </Tabs>
+  )
+}
+```
+
 ## Accessibility
 
 - Each `TabPanel` should have an `id` correspondent to the id of its `Tab`.
@@ -208,3 +243,20 @@ Properties returned by the `useTabState` hook.
 | last       | `() => void` | Moves focus to the last item           | 🚫       | -       |
 | next       | `() => void` | Moves focus to the next item           | 🚫       | -       |
 | previous   | `() => void` | Moves focus to the previous item       | 🚫       | -       |
+
+</Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Use short labels. Prefer two words maximum.
+2. Use tabs in multiple places of your page hierarchy: as a top-level navigation or inside another component.
+3. Avoid using icons as the single source of information to characterize tabs.
+4. Do not nest tabs, the user should be always aware of where they’re standing.
+5. Avoid using more than five tabs per page, or component.
+6. Avoid forcing the user to alternate back-and-forth between tabs to execute an important task.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
