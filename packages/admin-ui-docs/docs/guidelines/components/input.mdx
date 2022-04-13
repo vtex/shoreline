@@ -22,7 +22,7 @@ export const tabToc = {
     ].includes(item.value)
   ),
   codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
-  designReference: toc.filter((item) => ['Dos'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
 
 <Page toc={tabToc} hasTabs>
@@ -267,7 +267,7 @@ Besides the props listed bellow, you can use all the props accepted by the `inpu
   </Panel>
   <Panel id="designReference">
 
-## Dos
+## Do’s
 
 1. Show the exact values that the field supports.
 2. Use messages, descriptions or tooltips to give more context, if needed.
