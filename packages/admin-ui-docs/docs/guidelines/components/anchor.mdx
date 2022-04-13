@@ -1,17 +1,34 @@
 ---
 title: Anchor
 path: /anchor/
+hide_table_of_contents: true
 ---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) => ['Example'].includes(item.value)),
+  codeReference: toc.filter((item) =>
+    ['Installation', 'Customization', 'Props'].includes(item.value)
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
 Component to create an anchor.
 
-## Behavior
+## Example
 
 ```jsx live
 <Box styles={{ width: 300 }}>
   <Anchor href="anchor/#behavior">Link</Anchor>
 </Box>
 ```
+
+  </Panel>
+  <Panel id="codeReference">
 
 ## Installation
 
@@ -35,3 +52,18 @@ You can use the `csx` property to customize any style.
 | csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
 
 The Anchor component also has all anchor HTML attributes
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Use them for inline, tex links. When user needs to take an action, switch for the Button component.
+2. Use normal and medium weights when outside a paragraph. Designers can choose which one is the best depending on the context and layout.
+3. Link should be added to the word or phrase that reflects the title of the page it will be redirected.
+4. If you are linking a Help Center article, use the same title of the article.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+</Page>
