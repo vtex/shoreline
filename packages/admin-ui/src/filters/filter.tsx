@@ -48,17 +48,18 @@ export function Filter<T extends FilterItem>(props: FilterProps<T>) {
 
   return (
     <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
-      {items.map(({ id, label }) => (
+      {items.map((item) => (
         <ComboboxItem
           {...styleProps}
-          aria-selected={!!(id && id === combobox.value)}
-          key={id}
-          value={id}
+          aria-selected={!!(item.id && item.id === combobox.value)}
+          key={item.id}
+          value={item.id}
           focusOnHover
           hideOnClick={false}
+          onClick={() => combobox.setSelectedItem(item)}
         >
-          <FilterRadio checked={!!(id && id === combobox.value)} />
-          {label}
+          <FilterRadio checked={!!(item.id && item.id === combobox.value)} />
+          {item.label}
         </ComboboxItem>
       ))}
     </BaseFilter>

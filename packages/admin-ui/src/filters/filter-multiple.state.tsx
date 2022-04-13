@@ -9,22 +9,25 @@ export function useFilterMultipleState<T extends FilterItem>(
 ): UseFilterMultipleReturn<T> {
   const { items, label, initialApplied, onChange = () => {} } = props
 
-  const combobox = useComboboxMultipleState({ defaultSelected: initialApplied })
-  const menu = useMenuState(combobox)
+  const comboboxMultiple = useComboboxMultipleState({
+    defaultSelected: initialApplied,
+  })
 
-  const { selected } = combobox
+  const menu = useMenuState(comboboxMultiple)
+
+  const { selectedItems } = comboboxMultiple
 
   const [appliedKeys, setAppliedKeys] = useState<string[]>(initialApplied || [])
 
   const apply = useCallback(() => {
-    setAppliedKeys(selected)
-    onChange({ selected })
+    setAppliedKeys(selectedItems)
+    onChange({ selected: selectedItems })
     menu.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
     setAppliedKeys([])
-    combobox.setSelected([])
+    comboboxMultiple.clearSelected()
 
     onChange({ selected: [] })
     menu.hide()
@@ -32,9 +35,9 @@ export function useFilterMultipleState<T extends FilterItem>(
 
   useEffect(() => {
     // Resets combobox value when menu is closed
-    if (!menu.mounted && (combobox.value || selected?.length)) {
-      combobox.setValue('')
-      combobox.setSelected(appliedKeys)
+    if (!menu.mounted && (comboboxMultiple.value || selectedItems?.length)) {
+      comboboxMultiple.setValue('')
+      comboboxMultiple.setSelectedItems(appliedKeys)
     }
   }, [menu.mounted])
 
@@ -45,12 +48,12 @@ export function useFilterMultipleState<T extends FilterItem>(
 
   return {
     menu,
-    combobox,
+    combobox: comboboxMultiple,
     checkbox: {
       // TODO Fix nested components issues
       // maybe export checkboxstate from hook?
       value: selected,
-      setValue: combobox.setSelected,
+      setValue: comboboxMultiple.setSelected,
     },
     onClear: clear,
     onChange: apply,

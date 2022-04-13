@@ -1,27 +1,29 @@
 import { useState, useCallback, useEffect } from 'react'
 
 import { useMenuState } from 'ariakit/menu'
-import { useComboboxState } from 'ariakit'
+import type { ComboboxState } from '../combobox/combobox.state'
+import { useComboboxState } from '../combobox/combobox.state'
 
 export function useFilterState<T extends FilterItem>(
   props: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
   const { items, label, initialApplied, onChange = () => {} } = props
 
-  const [selectedKey, setSelectedKey] = useState(initialApplied)
   const [appliedKey, setAppliedKey] = useState(initialApplied || null)
+  const [appliedItem, setAppliedItem] = useState<T>()
 
   const combobox = useComboboxState({
     virtualFocus: false,
-    value: selectedKey,
-    setValue: (value) => {
-      setSelectedKey(value)
-      // remove below to apply values only when apply button is clicked
-      setAppliedKey(value)
-      onChange({ selected: value })
-      menu.hide()
-    },
+    list: items,
+    getOptionValue: (item) => item.id,
   })
+
+  useEffect(() => {
+    const initialItem = items.find((it) => it.id === initialApplied)
+
+    combobox.setSelectedItem(initialItem)
+    setAppliedItem(initialItem)
+  }, [])
 
   const menu = useMenuState({ ...combobox, gutter: 4 })
 
@@ -29,8 +31,10 @@ export function useFilterState<T extends FilterItem>(
     const selected = combobox.value
 
     setAppliedKey(selected)
+    setAppliedItem(combobox.selectedItem)
     onChange({ selected })
     menu.hide()
+    console.log({ combo: combobox.selectedItem })
   }, [onChange])
 
   const clear = useCallback(() => {
@@ -42,14 +46,18 @@ export function useFilterState<T extends FilterItem>(
   }, [onChange])
 
   useEffect(() => {
+    // auto applies whenever a new value is selected
+    if (combobox.selectedItem) {
+      apply()
+    }
+  }, [combobox.value])
+
+  useEffect(() => {
     // Resets combobox value when menu is closed
     if (!menu.mounted && combobox.value) {
       combobox.setValue(appliedKey || '')
     }
   }, [menu.mounted])
-
-  // TO DO this won't work for searcheable later
-  const appliedItem = items.find((item) => item.id === appliedKey)
 
   return {
     menu,
@@ -74,13 +82,12 @@ export interface GenericFilterStateReturn<T> {
   onChange: () => void
   label: string
   items: T[]
-  combobox: any
+  combobox: ComboboxState<T>
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
   appliedItem?: T | null
   appliedKey: string | null
-  combobox: any
 }
 
 export interface UseFilterStateProps<T> {
