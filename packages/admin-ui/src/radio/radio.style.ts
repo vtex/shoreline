@@ -75,10 +75,6 @@ export const radioButtonStyle = style({
   ':checked': checked,
 })
 
-export const labelStyle = style({
+export const label = style({
   cursor: 'pointer',
-  display: 'inline-flex',
-  '> span': { marginLeft: '$m' },
-  alignItems: 'center',
-  text: '$body',
 })
