@@ -71,7 +71,7 @@ export const tabToc = {
 <Panel id="overview">
 
 <IntroSection
-   id={tabToc.overview[0].id}
+  id={tabToc.overview[0].id}
   title={tabToc.overview[0].value}
   description="Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions."
 />
@@ -126,12 +126,13 @@ export const tabToc = {
 </>`,
     },
   ]}
->
+/>
+
 <PageSection
   id={tabToc.overview[2].id}
   title={tabToc.overview[2].value}
+  level={tabToc.overview[2].level}
   direction="row"
-  level={3}
 >
 
 - tertiary (low emphasis): Typically used for less important actions.
@@ -139,7 +140,6 @@ export const tabToc = {
 - primary (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
 
 </PageSection>
-</MultipleCodeSection>
 
 <CodeSection
   isLive
