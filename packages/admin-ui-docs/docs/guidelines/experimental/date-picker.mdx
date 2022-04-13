@@ -20,8 +20,12 @@ export const tabToc = {
       'TODOs',
     ].includes(item.value)
   ),
-  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
-  designReference: toc.filter((item) => ['Documentation'].includes(item.value)),
+  codeReference: toc.filter((item) =>
+    ['Usage', 'Props', 'DatePickerField', 'DatePickerCalendar'].includes(
+      item.value
+    )
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
 
 <Page toc={tabToc} hasTabs>
