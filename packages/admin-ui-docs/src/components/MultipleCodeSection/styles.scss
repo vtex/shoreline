@@ -13,3 +13,9 @@
 .children-container {
   margin-top: 3rem;
 }
+
+.__reakit-portal {
+  ul + div {
+    display: none;
+  }
+}
