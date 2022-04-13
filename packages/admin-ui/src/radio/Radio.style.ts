@@ -14,7 +14,7 @@ export const checkmark = style({
 export const baseline = style({
   ...focusVisible('neutral'),
   size: '1.25rem',
-  padding: '0.3rem',
+  padding: '6px',
   bg: '$form.neutral',
   border: '$form.neutral',
   color: '$form.neutral',
@@ -79,7 +79,6 @@ export const labelStyle = style({
   cursor: 'pointer',
   display: 'inline-flex',
   '> span': { marginLeft: '$m' },
-  margin: 'auto',
   alignItems: 'center',
   text: '$body',
 })
