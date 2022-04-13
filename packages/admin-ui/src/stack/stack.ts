@@ -1,10 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { useElement, createHook, createComponent } from '@vtex/admin-ui-react'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
-import { get } from '@vtex/admin-ui-util'
 
-import type { Breakpoint } from './use-breakpoint'
-import { useBreakpoint } from './use-breakpoint'
+import type { ResponsiveProp } from './responsive'
+import { useBreakpoint, getResponsiveValue } from './responsive'
 
 /**
  * Stack behavior
@@ -20,7 +19,7 @@ export const useStack = createHook<'div', StackOptions>((props) => {
     ...htmlProps
   } = props
 
-  const [breakpoint] = useBreakpoint()
+  const { breakpoint } = useBreakpoint()
 
   const responsiveDirection = getResponsiveValue(direction, breakpoint)
   const repsponsiveFluid = getResponsiveValue(fluid, breakpoint)
@@ -64,33 +63,6 @@ export const Stack = createComponent<'div', StackOptions>((props) => {
 
   return useElement('div', stackProps)
 })
-
-/**
- * Get the responsive value for the responsive prop
- * @param prop the responsive prop
- * @param breakpoint desired breakpoint
- * @example
- * const { prop } = props
- * const [breakpoint] = useBreakpoint()
- * const responsiveProp = getResponsiveValue(prop, breakpoint)
- */
-export function getResponsiveValue<T>(
-  prop: ResponsiveProp<T>,
-  breakpoint: Breakpoint
-): T {
-  if (typeof prop !== 'object') return prop
-
-  return get(prop as ResponsiveValue<T>, breakpoint, prop)
-}
-
-export type ResponsiveValue<T> = {
-  mobile: T
-  tablet?: T
-  desktop?: T
-  widescreen?: T
-}
-
-export type ResponsiveProp<T> = T | ResponsiveValue<T>
 
 export interface StackOptions {
   /**

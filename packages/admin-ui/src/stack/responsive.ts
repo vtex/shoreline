@@ -1,16 +1,14 @@
 import { useState, useMemo } from 'react'
-import { isBrowser } from '@vtex/admin-ui-util'
+import { isBrowser, get } from '@vtex/admin-ui-util'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 import { tokens } from '@vtex/admin-ui-core'
 
 const queries = tokens.breakpoints.map((bp) => `(min-width: ${bp})`)
 
-export type Breakpoint = 'mobile' | 'tablet' | 'desktop' | 'widescreen'
-
 /**
  * React hook that tracks state of a CSS media query
  */
-export function useBreakpoint(): [Breakpoint, boolean[]] {
+export function useBreakpoint() {
   const isMatchMediaSupported = isBrowser && 'matchMedia' in window
 
   const [matches, setMatches] = useState(
@@ -44,7 +42,7 @@ export function useBreakpoint(): [Breakpoint, boolean[]] {
     }
   }, [])
 
-  const media = useMemo(() => {
+  const breakpoint = useMemo<Breakpoint>(() => {
     const [mobile, tablet, desktop, widescreen] = matches
 
     if (widescreen) return 'widescreen'
@@ -55,5 +53,37 @@ export function useBreakpoint(): [Breakpoint, boolean[]] {
     return 'mobile'
   }, [matches])
 
-  return [media, matches]
+  return {
+    breakpoint,
+    matches,
+  }
 }
+
+/**
+ * Get the responsive value for the responsive prop
+ * @param prop the responsive prop
+ * @param breakpoint desired breakpoint
+ * @example
+ * const { prop } = props
+ * const [breakpoint] = useBreakpoint()
+ * const responsiveProp = getResponsiveValue(prop, breakpoint)
+ */
+export function getResponsiveValue<T>(
+  prop: ResponsiveProp<T>,
+  breakpoint: Breakpoint
+): T {
+  if (typeof prop !== 'object') return prop
+
+  return get(prop as ResponsiveValue<T>, breakpoint, prop)
+}
+
+export type Breakpoint = 'mobile' | 'tablet' | 'desktop' | 'widescreen'
+
+export type ResponsiveValue<T> = {
+  mobile: T
+  tablet?: T
+  desktop?: T
+  widescreen?: T
+}
+
+export type ResponsiveProp<T> = T | ResponsiveValue<T>
