@@ -3,16 +3,31 @@ import React from 'react'
 import { render, axe, withState } from '../test-utils'
 import { Radio, useRadioState, RadioGroup } from './index'
 
-const StatefulRadioGroup = withState(RadioGroup, () => useRadioState())
+const StatefulRadioGroup = withState(RadioGroup, () => {
+  const state = useRadioState()
+
+  return { ...state, id: 'radio-test' }
+})
 
 describe('Radio', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <StatefulRadioGroup>
-        <Radio value="unchecked" label="label" />
-        <Radio value="checked" label="label" checked />
-        <Radio value="unchecked disabled" label="label" disabled />
-        <Radio value="checked disabled" label="label" disabled checked />
+        <Radio value="unchecked" label="label" id="radio-test" />
+        <Radio value="checked" label="label" checked id="radio-test" />
+        <Radio
+          value="unchecked disabled"
+          label="label"
+          disabled
+          id="radio-test"
+        />
+        <Radio
+          value="checked disabled"
+          label="label"
+          disabled
+          checked
+          id="radio-test"
+        />
       </StatefulRadioGroup>
     )
 
