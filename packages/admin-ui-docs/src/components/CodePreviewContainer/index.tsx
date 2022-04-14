@@ -7,28 +7,49 @@ import './styles.scss'
 
 export interface CodeSectionProps {
   children: ReactNode
-  columnsCount: number
-  layout: 'grid' | null
+  columnsCount?: string
+  rowsCount?: string
+  layout?: 'grid' | null
 }
 
 export function CodePreviewContainer(props: CodeSectionProps) {
   const [isTabletScreen] = useMediaQuery('(min-width: 768px)')
-  const isGridLayout = props.layout === 'grid'
+  const isGridLayout =
+    props?.layout === 'grid' && props?.columnsCount && props?.rowsCount
+
   const className = isGridLayout
     ? 'preview-grid-container'
     : 'preview-default-container'
 
+  const gridTemplateColumns =
+    isGridLayout && isTabletScreen
+      ? `repeat(${props.columnsCount}, 1fr)`
+      : `1fr`
+
   return (
-    <tag.div
-      className={className}
-      csx={{
-        gridTemplateColumns:
-          props?.columnsCount && isTabletScreen
-            ? `repeat(${props.columnsCount}, 1fr)`
-            : `1fr`,
-      }}
-    >
-      {props.children}
-    </tag.div>
+    <div className="wrapper-container">
+      <tag.div
+        className={className}
+        csx={{
+          gridTemplateColumns,
+        }}
+      >
+        {props.children}
+      </tag.div>
+      {isGridLayout && (
+        <tag.div
+          className="background-grid-container"
+          csx={{
+            gridTemplateColumns,
+          }}
+        >
+          {props?.columnsCount &&
+            props?.rowsCount &&
+            Array(Number(props.columnsCount) * Number(props.rowsCount)).fill(
+              <tag.div className="grid-item" />
+            )}
+        </tag.div>
+      )}
+    </div>
   )
 }
