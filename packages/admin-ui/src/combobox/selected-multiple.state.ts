@@ -1,9 +1,9 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
-export function useCheckboxObjectState<T>(
-  props: CheckboxObjectStateProps<T>
-): CheckboxObjectStateReturn<T> {
+export function useMultipleSelectionState<T>(
+  props: MultipleSelectionStateProps<T>
+): MultipleSelectionStateReturn<T> {
   const { compare = (a, b) => a === b, defaultValue = [] } = props
 
   const [value, setValue] = useState(defaultValue)
@@ -34,7 +34,7 @@ export function useCheckboxObjectState<T>(
   }
 }
 
-interface CheckboxObjectStateReturn<T> {
+interface MultipleSelectionStateReturn<T> {
   toggle: (item: T) => void
   select: (item: T) => void
   unselect: (item: T) => void
@@ -43,7 +43,7 @@ interface CheckboxObjectStateReturn<T> {
   setValue: Dispatch<SetStateAction<T[]>>
 }
 
-interface CheckboxObjectStateProps<T> {
+interface MultipleSelectionStateProps<T> {
   defaultValue?: T[]
   referenceList?: T[]
   compare?: (a: T, b: T) => boolean

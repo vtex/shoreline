@@ -55,7 +55,7 @@ export const ComboboxMultipleField = createComponent<
   const {
     selectedItems,
     value: inputValue,
-    removeSelectedItem,
+    unselect,
     clearSelected,
     getOptionValue,
     renderTag,
@@ -108,7 +108,7 @@ export const ComboboxMultipleField = createComponent<
     }
 
     // remove the item from the selected[]
-    removeSelectedItem(value)
+    unselect(value)
   }
 
   return useElement('div', {
@@ -161,7 +161,7 @@ export const ComboboxMultipleField = createComponent<
                       value={renderTag(item)}
                       onKeyDown={(e) => onTagKeyDown(e, item)}
                       onDismiss={() => {
-                        removeSelectedItem(getOptionValue(item))
+                        unselect(getOptionValue(item))
                       }}
                     />
                   ))}

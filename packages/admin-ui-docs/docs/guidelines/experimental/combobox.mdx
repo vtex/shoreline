@@ -451,8 +451,8 @@ The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and addi
 | setSelectedItems| `SetStateAction<ItemType[]>` | Setter for selected items |
 | unselect | `(value: string) => void`   | Unselect an item with this value       |
 | clearSelected  | `() => void`               | Clear the selected list |
-| addSelectedItem | `(item: ItemType) => void`   | Adds inputed item to selected list        |
-| removeSelectedItem | `(item: ItemType) => void`   | Removes inputed item from selected list        |
+| select | `(item: ItemType) => void`   | Adds inputed item to selected list        |
+| unselect | `(item: ItemType) => void`   | Removes inputed item from selected list        |
 | renderTag | `(item: ItemType) => ReactNode`   | Same as the one inputed to hook        |
 | onChange | `(item: ItemType) => void`   | Function that toggles if item is selected        |
 | isSelected | `(item: ItemType) => boolean`   | Function which returns selected status for an item        |
