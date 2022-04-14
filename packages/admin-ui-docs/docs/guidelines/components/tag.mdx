@@ -1,25 +1,23 @@
 ---
 title: Tag
 path: /tag/
+hide_table_of_contents: true
 ---
 
-Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { Tag } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <Tag
-      icon={<IconHeart />}
-      label="Here goes the label!"
-      handleDelete={() => window.alert('Tag deleted')}
-    />
-  )
+export const tabToc = {
+  overview: toc.filter((item) =>
+    ['Examples', 'Sizes', 'Palettes', 'Deletable', 'Icon'].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
 
 ## Examples
 
@@ -68,6 +66,25 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 <Tag icon={<IconHeart />} label="Rio de Janeiro" />
 ```
 
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Tag } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Tag
+      icon={<IconHeart />}
+      label="Here goes the label!"
+      handleDelete={() => window.alert('Tag deleted')}
+    />
+  )
+}
+```
+
 ## Props
 
 | Name         | Type                                                              | Description                       | Required | Default            |
@@ -78,3 +95,17 @@ You can add one Icon on the left side of the `Tag`. Just use the `icon` property
 | size         | `'regular', 'small'`                                              | Tag size                          | 🚫       | `'regular'`        |
 | handleDelete | `() => void`                                                      | When defined the tag is deletable | 🚫       | -                  |
 | icon         | `ReactNode`                                                       | Tag icon                          | 🚫       | -                  |
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Use semantic colors that have a clear and contextualized meaning in your application, such as green for success and red for errors. However, if your application employs a richer palette with unambiguous usage of colors don't hesitate to use your Tags with them.
+2. Do play with contrast to convey the visual prominence more suited to your application. Use high contrast for high prominence, and low contrast for low prominence.
+3. They should always be read-only.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+</Page>
