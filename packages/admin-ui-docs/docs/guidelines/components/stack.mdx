@@ -1,0 +1,125 @@
+---
+title: Stack
+path: /stack/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    ['Space', 'Direction', 'Fluid', 'Align'].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+
+<Panel id="overview">
+
+Stack is a layout component that makes it easy to stack elements together and apply a space between them.
+
+## Examples
+
+### Space
+
+The space between components can be controlled using the `space` property.
+
+```jsx live
+<Stack space="$xl">
+  <Button>Button 1</Button>
+  <Button>Button 2</Button>
+  <Button>Button 3</Button>
+  <Button>Button 4</Button>
+  <Button>Button 5</Button>
+</Stack>
+```
+
+### Direction
+
+The direction can be either `row` or `column` (default). It can be controlled with the `direction` property.
+
+```jsx live
+<Stack direction="row">
+  <Button>Button 1</Button>
+  <Button>Button 2</Button>
+  <Button>Button 3</Button>
+  <Button>Button 4</Button>
+  <Button>Button 5</Button>
+</Stack>
+```
+
+### Fluid
+
+While on `column` direction, you can alternatively use the `fluid` property. This will make the inner children, match the container width.
+
+```jsx live
+<Box csx={{ maxWidth: 320 }}>
+  <Stack fluid>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+    <Button>Button 4</Button>
+    <Button>Button 5</Button>
+  </Stack>
+</Box>
+```
+
+### Align
+
+You can set items alignment (`start` [default], `end`) through the `align` prop.
+
+```jsx live
+<Stack align="end">
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+</Stack>
+```
+
+### Responsive
+
+```jsx live
+<Stack
+  direction={{
+    mobile: 'column',
+    tablet: 'row',
+  }}
+  fluid
+>
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+  <Button>Fourth</Button>
+  <Button>Fith</Button>
+</Stack>
+```
+
+</Panel>
+
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Stack } from '@vtex/admin-ui'
+
+function Example() {
+  return <Stack>{/* Stacked elements */}</Stack>
+}
+```
+
+## Props
+
+_Extends `div` props_
+
+| Name      | Type                                               | Description                                              | Required | Default    |
+| --------- | -------------------------------------------------- | -------------------------------------------------------- | -------- | ---------- |
+| direction | `ResponsiveProp<'row', or 'column'>`               | Direction of items                                       | 🚫       | `'column'` |
+| fluid     | `ResponsiveProp<boolean>`                          | If the items should grow in width to match the container | 🚫       | `false`    |
+| space     | `ResponsiveProp<CSSPropAutocomplete<SpaceTokens>>` | Space between items                                      | 🚫       | `0`        |
+| align     | `ResponsiveProp<'start' or 'end'>`                 | Items alignment                                          | 🚫       | `start`    |
+
+</Panel>
+
+</Page>
