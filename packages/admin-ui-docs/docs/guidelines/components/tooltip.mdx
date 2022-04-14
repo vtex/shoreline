@@ -1,23 +1,32 @@
 ---
 title: Tooltip
 path: /tooltip/
+hide_table_of_contents: true
 ---
 
-Tooltips are a small informative pop-ups that appear when an item is being hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { Tooltip } from '@vtex/admin-ui'
-
-function Example() {
-  return (
-    <Tooltip label="Tooltip Label" placement="right">
-      <Button icon={<IconCopySimple />} aria-label="Example button" />
-    </Tooltip>
-  )
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'String label',
+      'Component Label',
+      'Initially visible',
+      'Placement',
+      'Custom Component',
+      'Examples',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) =>
+    ['Usage', 'Accessibility', 'Props'].includes(item.value)
+  ),
+  designReference: toc.filter((item) => ['Documentation'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+Tooltips are a small informative pop-ups that appear when an item is being hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
 ## Examples
 
@@ -97,6 +106,23 @@ function Example() {
 }
 ```
 
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Tooltip } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Tooltip label="Tooltip Label" placement="right">
+      <Button icon={<IconCopySimple />} aria-label="Example button" />
+    </Tooltip>
+  )
+}
+```
+
 ## Accessibility
 
 - `Tooltip` has `role="tooltip"`.
@@ -116,3 +142,19 @@ It also accepts all props of `div` JSX element.
 | fixed     | `boolean`                                                                           | Whether the tooltip popover should have position set to fixed or not | 🚫       | `false` |
 | baseId    | `string`                                                                            | Tooltip baseId                                                       | 🚫       | -       |
 | csx       | `StyleProps`                                                                        | Custom styles                                                        | 🚫       | `{}`    |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Use tooltips when you want to add a label to an specific icon.
+2. Use tooltips when you want to add an informative text in situations where more clarification may be needed.
+3. Don't use long texts in tooltips, a reasonable character limit is 220.
+4. The position where the tooltip appears can be set and its fallback position too. By default the tooltip appears at the top and follows clockwise.
+5. Prefere using hovers for tooltips to appear, instead of triggering them with clicks.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
