@@ -5,21 +5,21 @@ import { Set } from '../components/Set'
 import { Text } from '../components/Text'
 
 export function Message(props: MessageProps) {
-  const { helperText, criticalMessage, tone } = props
+  const { helpText, criticalText, tone } = props
 
-  const isCritical = tone === 'critical' && criticalMessage
-  const hasMessage = isCritical || helperText
+  const isCritical = tone === 'critical' && criticalText
+  const hasMessage = isCritical || helpText
 
   return hasMessage ? (
     <Set spacing="$xs" orientation="vertical">
-      {helperText ? (
+      {helpText ? (
         <Text variant="detail" tone="secondary">
-          {helperText}
+          {helpText}
         </Text>
       ) : null}
       {isCritical ? (
         <Text variant="detail" tone="critical">
-          {criticalMessage}
+          {criticalText}
         </Text>
       ) : null}
     </Set>
@@ -29,7 +29,7 @@ export function Message(props: MessageProps) {
 }
 
 export interface MessageProps {
-  helperText?: ReactNode
-  criticalMessage?: ReactNode
+  helpText?: ReactNode
+  criticalText?: ReactNode
   tone?: 'critical' | 'neutral'
 }

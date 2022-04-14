@@ -1,133 +1,233 @@
 ---
 title: Radio
 path: /radio/
+hide_table_of_contents: true
 ---
 
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Help Text',
+      'Group Help Text',
+      'Direction',
+      'Disabled',
+      'Tone of Voice',
+      'State',
+    ].includes(item.value)
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+  codeReference: toc.filter((item) =>
+    [
+      'Usage',
+      'State',
+      'Radio Props',
+      'RadioGroup Props',
+      'useRadioState',
+    ].includes(item.value)
+  ),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    
 Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
 
-## Import
+## Examples
 
-```jsx isStatic
-import { Radio } from '@vtex/admin-ui'
+### Help Text
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'disabled' })
+
+  return (
+    <RadioGroup state={state} label="Accounts" direction="column">
+      <Radio
+        label="Accounts are disabled"
+        helpText="Customers will only be able to check out as guests."
+        value="disabled"
+      />
+      <Radio
+        label="Accounts are optional"
+        helpText="Customers will be able to check out with a customer account or as a guest."
+        value="optional"
+      />
+    </RadioGroup>
+  )
+}
 ```
 
-## Behavior
+### Group Help Text
 
 ```jsx live
 function Example() {
   const state = useRadioState()
 
-  return <Radio state={state} value="Radio" aria-label="radio button" />
-}
-```
-
-## State
-
-The `Radio` component is always used in a `RadioGroup` context, we provide a hook to handle the state of radio groups and standalone radios.
-
-### useRadioState hook
-
-For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
-
-### Standalone
-
-When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
-
-```jsx live
-function Example() {
-  const radio = useRadioState()
-
-  return <Radio aria-label="label" value="Radio" state={radio} />
-}
-```
-
-### Checked States
-
-There are two checked states: `not checked`, and `checked`.
-
-```jsx live
-function Example() {
   return (
-    <>
-      <Set>
-        <Radio aria-label="label-1" />
-        <Radio aria-label="label-disabled-1" disabled />
-      </Set>
-      <br />
-      <Set>
-        <Radio aria-label="label-2" checked />
-        <Radio aria-label="label-disabled-2" checked disabled />
-      </Set>
-    </>
+    <RadioGroup
+      state={state}
+      label="Group Label"
+      helpText="Radio Group help text!"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
   )
 }
 ```
 
-### Size
-
-There are two size variants: `small`, `regular`. By default, it will render `regular`.
+### Direction
 
 ```jsx live
 function Example() {
+  const state = useRadioState()
+
   return (
-    <>
-      <Set>
-        <Radio aria-label="label-small-1" size="small" />
-        <Radio aria-label="label-1" />
-      </Set>
-      <br />
-      <Set>
-        <Radio aria-label="label-small-2" checked size="small" />
-        <Radio aria-label="label-2" checked />
-      </Set>
-    </>
+    <RadioGroup
+      state={state}
+      label="Group Label"
+      helpText="Radio Group help text!"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
   )
 }
 ```
 
-### Multiple Radios
-
-As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
+### Disabled
 
 ```jsx live
 function Example() {
-  const radio = useRadioState()
+  const state = useRadioState({ defaultValue: 'radio-1' })
 
   return (
-    <>
-      <Heading>Selected Radio: {radio.state}</Heading>
-      <RadioGroup state={radio}>
-        <Label>
-          <Radio state={radio} value="First Radio" />
-          First Radio
-        </Label>
-        <Label>
-          <Radio state={radio} value="Second Radio" />
-          Second Radio
-        </Label>
-        <Label>
-          <Radio state={radio} value="Third Radio" />
-          Third Radio
-        </Label>
-      </RadioGroup>
-    </>
+    <RadioGroup
+      state={state}
+      label="Group Label"
+      helpText="Radio Group help text!"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" disabled />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
   )
 }
 ```
 
-## Props
+### Tone of Voice
 
-| Name     | Type                | Description                                                                          | Required | Default     |
-| -------- | ------------------- | ------------------------------------------------------------------------------------ | -------- | ----------- |
-| state    | `RadioStateReturn`  | Return of useRadio hook. You can also provide these props from your own state logic. | ✅       | -           |
-| size     | `regular, small`    | Radio size                                                                           | 🚫       | `'regular'` |
-| checked  | `boolean`           | Same as the HTML checked attribute                                                   | 🚫       | -           |
-| disabled | `boolean`           | Defines if the Radio is disabled                                                     | 🚫       | -           |
-| value    | `string, number`    | Same as the HTML attribute                                                           | 🚫       | -           |
-| name     | `string`            | Same as the HTML value attribute                                                     | 🚫       | -           |
-| onClick  | `MouseEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| onBlur   | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| onFocus  | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| id       | `string`            | Same as the HTML attribute                                                           | 🚫       | -           |
-| children | `ReactNode`         | Radio children                                                                       | 🚫       | -           |
-| csx      | `StyleProp`         | Defines component styles                                                             | 🚫       | `{}`        |
+Use the `tone` prop to define the tone of voice, which is either `neutral` or `critical`. It is up to you to define what triggers it. Additionally, you can add a `criticalText` to be displayed whether `critical`.
+
+```jsx live
+function Example() {
+  const state = useRadioState()
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group Label"
+      helpText="Help text!"
+      criticalText="Critical text! "
+      direction="column"
+      tone="critical"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</Panel>
+
+<Panel id="designReference">
+
+## Do’s
+
+1. Use them for single choice options.
+2. There should always be a pre-selected option as default.
+3. For more than 6 options you should use a Select.
+4. Don’t be ambiguous, each option should be clear.
+5. Mind the order of the options. Consider ordering them from most to least frequently used, simplest to most complex, or least to most risky.
+6. Use a "None" option if you need an unselected state.
+7. Consider adding an "Other" option if needed, together with a Text Input to capture the user’s needs.
+8. Use titles to group related controls.
+9. Add descriptions if the control is critical, or complex.
+10. Lists of controls should be vertical for better scannability.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Radio, RadioGroup, useRadioState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useRadioState()
+
+  return (
+    <RadioGroup state={state} label="Group Label">
+      <Radio value="radio-1" label="Label" />
+      <Radio value="radio-2" label="Label" />
+      <Radio value="radio-3" label="Label" />
+    </RadioGroup>
+  )
+}
+```
+
+## Radio Props
+
+| Name     | Type             | Description                                                                                           | Required | Default |
+| -------- | ---------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| value    | `string, number` | The value to be used in the radio button. This is the value that will be returned on form submission. | ✅       | -       |
+| label    | `string`         | Radio label                                                                                           | ✅       | -       |
+| helpText | `ReactNode`      | Help text                                                                                             | 🚫       | -       |
+| checked  | `boolean`        | Same as the HTML checked attribute                                                                    | 🚫       | -       |
+| disabled | `boolean`        | Whether is disabled or not                                                                            | 🚫       | `false` |
+| id       | `string`         | Same as the HTML attribute                                                                            | 🚫       | -       |
+| csx      | `StyleProp`      | Defines component styles                                                                              | 🚫       | `{}`    |
+
+## RadioGroup Props
+
+| Name         | Type                | Description                                | Required | Default   |
+| ------------ | ------------------- | ------------------------------------------ | -------- | --------- |
+| state        | `RadioState`        | Return of `useRadioState` hook             | ✅       | -         |
+| helpText     | `ReactNode`         | Help text                                  | 🚫       | -         |
+| criticalText | `ReactNode`         | Critical text                              | 🚫       | -         |
+| tone         | `neutral, critical` | Tone of voice                              | 🚫       | `neutral` |
+| direction    | `row, column`       | Direction which the children are displayed | 🚫       | `row`     |
+| label        | `string`            | Group label                                | 🚫       | -         |
+| csx          | `StyleProp`         | Defines component styles                   | 🚫       | `{}`      |
+
+## useRadioState
+
+A hook that helps control the RadioGroup state.
+
+### Parameters props
+
+| Name         | Type                                   | Description                                                        | Required | Default |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
+| defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
+| setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
+
+### Return Props
+
+| Name     | Type                            | Description                           | Required | Default |
+| -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
+| value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
+| setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
+
+</Panel>
+</Page>

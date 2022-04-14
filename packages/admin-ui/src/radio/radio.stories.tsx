@@ -47,10 +47,10 @@ export const RadioGroupPlayground: Story<RadioGroupPlaygroundProps> = (
 RadioGroupPlayground.args = {
   numberOfRadios: 4,
   label: 'Group Label',
-  orientation: 'horizontal',
-  helperText: 'Helper Text!',
+  direction: 'row',
+  helpText: 'Helper Text!',
   tone: 'neutral',
-  criticalMessage: 'Critical Message!',
+  criticalText: 'Critical Text!',
 }
 
 export function Example() {
@@ -58,15 +58,15 @@ export function Example() {
 
   return (
     <Box csx={{ margin: '$xl' }}>
-      <RadioGroup state={state} label="Account Type" orientation="vertical">
+      <RadioGroup state={state} label="Account Type" direction="column">
         <Radio
           label="Accounts are disabled"
-          helperText="Customers will only be able to check out as guests."
+          helpText="Customers will only be able to check out as guests."
           value="disabled"
         />
         <Radio
           label="Accounts are optional"
-          helperText="Customers will be able to check out with a customer account or as a guest."
+          helpText="Customers will be able to check out with a customer account or as a guest."
           value="optional"
         />
       </RadioGroup>
@@ -83,6 +83,6 @@ RadioAppearenceStates.args = {
   label: 'Radio Label',
   disabled: false,
   checked: false,
-  helperText: '',
+  helpText: '',
   csx: {},
 }

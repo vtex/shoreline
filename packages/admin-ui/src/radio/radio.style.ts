@@ -11,6 +11,20 @@ export const checkmark = style({
   bg: '$form.neutral',
 })
 
+export const disabled = style({
+  ':disabled': {
+    bg: '$disabled',
+    border: '$disabled',
+    color: '$disabled',
+    cursor: 'not-allowed',
+    '+ div': {
+      label: {
+        cursor: 'not-allowed',
+      },
+    },
+  },
+})
+
 export const baseline = style({
   ...focusVisible('neutral'),
   size: '1.25rem',
@@ -27,17 +41,11 @@ export const baseline = style({
   alignItems: 'center',
   justifyContent: 'center',
 
-  ':disabled': {
-    bg: '$disabled',
-    border: '$disabled',
-    color: '$disabled',
-    cursor: 'not-allowed',
-  },
-
-  ':hover': {
+  ':hover:not(:disabled)': {
     bg: '$form.neutralHover',
     border: '$form.neutralHover',
   },
+  ...disabled,
 })
 
 export const checked = style({
@@ -52,21 +60,17 @@ export const checked = style({
     bg: (theme) => get(theme, 'fg.form.mainChecked', ''),
   },
 
+  ':hover:not(:disabled)': {
+    bg: '$form.mainCheckedHover',
+    border: '$form.mainCheckedHover',
+  },
+
   '&[disabled]:after': {
     ...checkmark,
     bg: (theme) => get(theme, 'fg.disabled', ''),
   },
 
-  ':disabled': {
-    cursor: 'not-allowed',
-    bg: '$disabled',
-    border: '$disabled',
-  },
-
-  ':hover': {
-    bg: '$form.mainCheckedHover',
-    border: '$form.mainCheckedHover',
-  },
+  ...disabled,
 })
 
 export const radioButtonStyle = style({
