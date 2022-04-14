@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react'
 
 import type { ComboboxState, ComboboxStateProps } from './combobox.state'
 import { useComboboxState } from './combobox.state'
-import { useCheckboxObjectState } from './selected-multiple.state'
+import { useMultipleSelectionState } from './selected-multiple.state'
 
 export function useComboboxMultipleState<T>(
   props: ComboboxMultipleStateProps<T> = {}
@@ -29,7 +29,7 @@ export function useComboboxMultipleState<T>(
     list,
   })
 
-  const checkbox = useCheckboxObjectState({
+  const checkbox = useMultipleSelectionState({
     defaultValue: defaultSelected,
     compare: (a, b) => getOptionValue(a) === getOptionValue(b),
   })
@@ -38,10 +38,6 @@ export function useComboboxMultipleState<T>(
     combobox.setValue('')
     checkbox.setValue([])
   }, [checkbox.setValue, combobox.setValue])
-
-  const addSelectedItem = (newItem: T) => checkbox.select(newItem)
-
-  const removeSelectedItem = (removedItem: T) => checkbox.unselect(removedItem)
 
   useEffect(() => {
     if (shouldClearOnSelect) combobox.setValue('')
@@ -53,8 +49,8 @@ export function useComboboxMultipleState<T>(
     setSelectedItems: checkbox.setValue,
     onChange: checkbox.toggle,
     isSelected: checkbox.isSelected,
-    addSelectedItem,
-    removeSelectedItem,
+    select: checkbox.select,
+    unselect: checkbox.unselect,
     clearSelected,
     getOptionValue,
     renderOption,
@@ -73,8 +69,8 @@ export interface ComboboxMultipleState<T> extends ComboboxState<T> {
   selectedItems: T[]
   setSelectedItems: Dispatch<SetStateAction<T[]>>
   clearSelected: () => void
-  addSelectedItem: (item: T) => void
-  removeSelectedItem: (item: T) => void
+  select: (item: T) => void
+  unselect: (item: T) => void
   onChange: (item: T) => void
   isSelected: (item: T) => boolean
 }

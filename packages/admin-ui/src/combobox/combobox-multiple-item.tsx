@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Checkbox, CheckboxCheck } from 'ariakit/checkbox'
+import { CheckboxCheck } from 'ariakit/checkbox'
 import type { ComboboxItemProps } from 'ariakit/combobox'
 import { ComboboxItem } from 'ariakit/combobox'
 import { useSystem } from '@vtex/admin-ui-react'
@@ -11,7 +11,6 @@ import type { AnyObject } from '..'
 export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
   const {
     children,
-    value,
     onChange: onChangeCb,
     item,
     isSelected,
@@ -26,7 +25,9 @@ export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
   }
 
   // TODO: Check the type error that forbids onClick param
-  const onChange: any = { onChange: () => onChangeCb?.(item) }
+  const onChange: any = {
+    onClick: () => onChangeCb?.(item),
+  }
 
   const checked = isSelected(item)
 
@@ -34,24 +35,12 @@ export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
     <ComboboxItem
       // All selectable items must have the `aria-selected` attribute
       aria-selected={checked}
+      {...styleProps}
       {...onChange}
       {...restProps}
     >
-      {(itemProps: React.HTMLAttributes<any> & React.RefAttributes<any>) => (
-        <Checkbox
-          {...itemProps}
-          {...styleProps}
-          // Disable `checked` and `aria-checked` attributes so they don't
-          // conflict with the `aria-selected` attribute.
-          aria-checked={undefined}
-          checked={undefined}
-          value={value}
-          as="div"
-        >
-          {children}
-          <CheckboxCheck checked={checked} />
-        </Checkbox>
-      )}
+      {children}
+      <CheckboxCheck checked={checked} />
     </ComboboxItem>
   )
 }
