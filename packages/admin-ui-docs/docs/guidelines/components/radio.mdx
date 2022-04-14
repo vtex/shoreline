@@ -8,7 +8,18 @@ import { Page, Panel } from '@site/src/components/Page'
 
 export const tabToc = {
   overview: toc.filter((item) => ['Example'].includes(item.value)),
-  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  codeReference: toc.filter((item) =>
+    [
+      'Usage',
+      'State',
+      'Props',
+      'useRadioState',
+      'Standalone',
+      'Checked States',
+      'Size',
+      'Multiple Radios',
+    ].includes(item.value)
+  ),
   designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
 
@@ -30,7 +41,7 @@ function Example() {
   </Panel>
   <Panel id="codeReference">
 
-## Import
+## Usage
 
 ```jsx isStatic
 import { Radio } from '@vtex/admin-ui'
@@ -40,7 +51,9 @@ import { Radio } from '@vtex/admin-ui'
 
 The `Radio` component is always used in a `RadioGroup` context, we provide a hook to handle the state of radio groups and standalone radios.
 
-### useRadioState hook
+### useRadioState
+
+_hook_
 
 For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
 
