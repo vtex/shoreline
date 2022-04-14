@@ -10,8 +10,8 @@ export const tabToc = {
   overview: toc.filter((item) =>
     ['Example', 'Alternatives'].includes(item.value)
   ),
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
   codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
 
 <Page toc={tabToc} hasTabs>
