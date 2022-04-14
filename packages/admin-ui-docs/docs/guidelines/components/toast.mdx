@@ -1,44 +1,29 @@
 ---
 title: Toast
 path: /toast/
+hide_table_of_contents: true
 ---
 
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Tone of voice',
+      'Action',
+      'Action + Dismissible',
+      'Dismissible',
+      'Examples',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
 The toast is used to show alerts on top of an overlay. The toast will close itself when the dismiss button is clicked, or after a timeout. The toast component is used to give feedback to users after an action has taken place.
-
-## Usage
-
-```jsx isStatic
-import { ToastProvider, useToast, createSystem } from '@vtex/admin-ui'
-
-const [SystemProvider] = createSystem({ key: 'app-name' })
-
-// You must always add the ToastProvider in the root of your application
-function Root() {
-  return (
-    <SystemProvider>
-      <ToastProvider>
-        {...}
-      </ToastProvider>
-    </SystemProvider>
-  )
-}
-
-function Example() {
-  const showToast = useToast()
-
-  return (
-    <Button
-      onClick={() =>
-        showToast({
-          message: 'This is the admin-ui toast!',
-        })
-      }
-    >
-      Show Toast
-    </Button>
-  )
-}
-```
 
 ## Examples
 
@@ -178,6 +163,44 @@ function Example() {
 }
 ```
 
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { ToastProvider, useToast, createSystem } from '@vtex/admin-ui'
+
+const [SystemProvider] = createSystem({ key: 'app-name' })
+
+// You must always add the ToastProvider in the root of your application
+function Root() {
+  return (
+    <SystemProvider>
+      <ToastProvider>
+        {...}
+      </ToastProvider>
+    </SystemProvider>
+  )
+}
+
+function Example() {
+  const showToast = useToast()
+
+  return (
+    <Button
+      onClick={() =>
+        showToast({
+          message: 'This is the admin-ui toast!',
+        })
+      }
+    >
+      Show Toast
+    </Button>
+  )
+}
+```
+
 ## Props
 
 Because the way of rendering a Toast on admin-ui is by calling the function returned by the `useToast` hook, these are the properties that you can pass to the function returned params.
@@ -190,3 +213,21 @@ Because the way of rendering a Toast on admin-ui is by calling the function retu
 | dismissible | `boolean`                                | Whether the toast can be dismissed or not.              | 🚫       | `false`     |
 | action      | `{ label: string, onClick: () => void }` | Toast's actions' props.                                 | 🚫       | `undefined` |
 | key         | `string`                                 | Toast's key.                                            | 🚫       | `undefined` |
+
+</Panel>
+
+<Panel id="designReference">
+
+## Do’s
+
+1. Conceptually, a toast is a type of alert, that gives users instant feedback about the tasks they just did. Its main objective is to ensure tasks confirmation and success.
+2. Keep copies short and straight-forward. A single sentence should be enough.
+3. Toasts shouldn’t be used only for neutral or positive feedback. System errors also apply.
+4. Follow the semantics used by icons as described below.
+5. Follow the same lead of Alerts to determine the type.
+6. Animation should pop from the bottom of the screen and rest on the lower right-hand corner.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
