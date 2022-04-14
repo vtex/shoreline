@@ -7,7 +7,6 @@ hide_table_of_contents: true
 import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
-import { CodeSection } from '@site/src/components/CodeSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 
 export const tabToc = {
@@ -77,56 +76,35 @@ export const tabToc = {
 />
 
 <MultipleCodeSection
-  isLive
   id={tabToc.overview[1].id}
   title={tabToc.overview[1].value}
-  layout="grid"
   optionsTitle="Variant"
-  options={[
-    {
-      id: 'primary',
-      label: 'Primary',
-      columnsCount: 2,
-      code: `<>
-  <div className="grid-item">
-    <Button variant="primary">Primary</Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="critical">Critical Primary</Button>
-  </div>
-</>`,
-    },
-    {
-      id: 'secondary',
-      label: 'Secondary',
-      columnsCount: 2,
-      code: `<>
-  <div className="grid-item">
-    <Button variant="secondary">Secondary</Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="criticalSecondary">Critical Secondary</Button>
-  </div>
-</>`,
-    },
-    {
-      id: 'tertiary',
-      label: 'Tertiary',
-      columnsCount: 3,
-      code: `<>
-  <div className="grid-item">
-    <Button variant="tertiary">Tertiary</Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="criticalTertiary">Critical Tertiary</Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="neutralTertiary">Neutral</Button>
-  </div>
-</>`,
-    },
-  ]}
-/>
+  options={['Primary','Secondary','Tertiary']}
+>
+
+```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="primary">Primary</Button>
+  <Button variant="critical">Critical Primary</Button>
+</>
+```
+
+```jsx live optionId=secondary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="criticalSecondary">Critical Secondary</Button>
+</>
+```
+
+```jsx live optionId=tertiary layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button variant="tertiary">Tertiary</Button>
+  <Button variant="criticalTertiary">Critical Tertiary</Button>
+  <Button variant="neutralTertiary">Neutral</Button>
+</>
+```
+
+</MultipleCodeSection>
 
 <PageSection
   id={tabToc.overview[2].id}
@@ -141,116 +119,107 @@ export const tabToc = {
 
 </PageSection>
 
-<CodeSection
-  isLive
+<PageSection
   id={tabToc.overview[3].id}
   title={tabToc.overview[3].value}
-  layout="grid"
-  columnsCount="2"
-  code={`<>
-  <div className="grid-item">
-    <Button>Normal Button</Button>
-  </div>
-  <div className="grid-item">
-    <Button size="large">Large Button</Button>
-  </div>
-</>`}
-/>
+>
 
-<CodeSection
-  isLive
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button>Normal Button</Button>
+  <Button size="large">Large Button</Button>
+</>
+```
+
+</PageSection>
+
+<PageSection
   id={tabToc.overview[4].id}
   title={tabToc.overview[4].value}
-  layout="grid"
-  columnsCount="3"
-  code={`<>
-  <div className="grid-item">
-    <Button icon={<IconHeart />}>Icon start</Button>
-  </div>
-  <div className="grid-item">
-    <Button icon={<IconHeart />} iconPosition="end">
-      Icon end
-    </Button>
-  </div>
-  <div className="grid-item">
-    <Button icon={<IconHeart title="Favorite" />} aria-label="Favorite button" />
-  </div>
-</>`}
-/>
+>
 
-<CodeSection
-  isLive
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button icon={<IconHeart />}>Icon start</Button>
+  <Button icon={<IconHeart />} iconPosition="end">
+    Icon end
+  </Button>
+  <Button icon={<IconHeart title="Favorite" />} aria-label="Favorite button" />
+</>
+```
+
+</PageSection>
+
+<PageSection
   id={tabToc.overview[5].id}
   title={tabToc.overview[5].value}
-  layout="grid"
-  columnsCount="3"
-  code={`<>
-  <div className="grid-item">
-    <Button disabled>Disabled</Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="secondary" disabled>
-      Disabled
-    </Button>
-  </div>
-  <div className="grid-item">
-    <Button variant="tertiary" disabled>
-        Disabled
-      </Button>
-  </div>
-</>`}
-/>
+>
 
-<CodeSection
-  isLive
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button disabled>Disabled</Button>
+  <Button variant="secondary" disabled>
+    Disabled
+  </Button>
+  <Button variant="tertiary" disabled>
+    Disabled
+  </Button>
+</>
+```
+
+</PageSection>
+
+<PageSection
   id={tabToc.overview[6].id}
   title={tabToc.overview[6].value}
-  layout="grid"
-  columnsCount="3"
-  code={`function Example() {
-  const [loading, setLoading] = React.useState(true)\n
+>
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+function Example() {
+  const [loading, setLoading] = React.useState(true)
+
   return (
     <>
-      <div className="grid-item">
-        <Button loading={loading} onClick={() => setLoading(!loading)}>
-          Loading
-        </Button>
-      </div>
-      <div className="grid-item">
-        <Button
-          loading={loading}
-          variant="secondary"
-          onClick={() => setLoading(!loading)}
-        >
-          Loading
-        </Button>
-      </div>
-      <div className="grid-item">
-        <Button
-          variant="tertiary"
-          loading={loading}
-          onClick={() => setLoading(!loading)}
-        >
-          Loading
-        </Button>
-      </div>
+      <Button loading={loading} onClick={() => setLoading(!loading)}>
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="secondary"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        variant="tertiary"
+        loading={loading}
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
     </>
   )
-}`}
-/>
+}
+```
+
+</PageSection>
 </Panel>
 
 <Panel id="codeReference">
-<CodeSection
+<PageSection
   id={tabToc.codeReference[0].id}
   title={tabToc.codeReference[0].value}
-  language="jsx"
-  code={`
-import { Button } from '@vtex/admin-ui'\n
+>
+
+```jsx
+import { Button } from '@vtex/admin-ui'
+
 export function Example() {
   return <Button onClick={() => {}}>Admin UI Button</Button>
-}`}
-/>
+}
+```
+
+</PageSection>
 
 <PageSection
   id={tabToc.codeReference[1].id}
@@ -280,7 +249,7 @@ export function Example() {
 - If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
 - When using an Icon-only button, you must set the `aria-label` property to make it accessible.
 
-```jsx isStatic
+```jsx
 function Example() {
   return (
     <Button

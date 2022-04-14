@@ -5,10 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import Playground from '@theme/Playground'
 import ReactLiveScope from '@theme/ReactLiveScope'
 import CodeBlock from '@theme-init/CodeBlock'
+import { TabPanel } from '@vtex/admin-ui'
+
 import FormikPreview from '../../components/FormikPreview'
 
 import CustomCodeBlock from './CustomCodeBlock'
@@ -24,7 +26,13 @@ const withLiveEditor = (Component) => {
     }
 
     if (props.live) {
-      return <Playground scope={ReactLiveScope} {...props} />
+      const Wrapper = props.optionId ? TabPanel : Fragment
+
+      return (
+        <Wrapper>
+          <Playground scope={ReactLiveScope} {...props} />
+        </Wrapper>
+      )
     }
 
     return <CustomCodeBlock Component={Component} {...props} />
