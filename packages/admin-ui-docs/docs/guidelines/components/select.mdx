@@ -1,34 +1,23 @@
 ---
 title: Select
 path: /select/
+hide_table_of_contents: true
 ---
 
-Select is a component that allows users to select an option from a list. It requires a click to see the options and supports only single-selection.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { useState } from 'react'
-import { Select } from '@vtex/admin-ui'
-
-const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
-
-function Example() {
-  const [value, setValue] = useState('today')
-
-  return (
-    <Select
-      label="Date"
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    >
-      <option value="yesterday">Yesterday</option>
-      <option value="today">Today</option>
-      <option value="tomorrow">Tomorrow</option>
-    </Select>
-  )
+export const tabToc = {
+  overview: toc.filter((item) =>
+    ['Tone of voice', 'Disabled', 'Examples'].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+Select is a component that allows users to select an option from a list. It requires a click to see the options and supports only single-selection.
 
 ## Examples
 
@@ -94,6 +83,34 @@ function Example() {
 }
 ```
 
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { useState } from 'react'
+import { Select } from '@vtex/admin-ui'
+
+const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+
+function Example() {
+  const [value, setValue] = useState('today')
+
+  return (
+    <Select
+      label="Date"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    >
+      <option value="yesterday">Yesterday</option>
+      <option value="today">Today</option>
+      <option value="tomorrow">Tomorrow</option>
+    </Select>
+  )
+}
+```
+
 ## Props
 
 Besides the props listed bellow, you can use all the props accepted by the `select` JSX element.
@@ -105,3 +122,19 @@ Besides the props listed bellow, you can use all the props accepted by the `sele
 | tone         | `neutral, critical` | Select's tone of voice    | 🚫       | `neutral` |
 | criticalText | `string`            | TextArea critical message | 🚫       | -         |
 | csx          | `StyleProp`         | Defines component styles  | 🚫       | `{}`      |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Mind the order of the options, like putting the more probable one to be selected at the top. In doubt, sort them alphanumerically (from A to Z and from 0 to 9).
+2. If there are more than four options listed, consider using a radio button.
+3. Always leave an option from the list selected by default.
+4. Don't offer overlapping options, they should be clearly mutually exclusive.
+5. Indicate the chosen, or default option with a “check” icon.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
