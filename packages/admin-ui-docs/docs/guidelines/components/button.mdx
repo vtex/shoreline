@@ -1,19 +1,35 @@
 ---
 title: Button
 path: /button/
+hide_table_of_contents: true
 ---
 
-Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { Button } from '@vtex/admin-ui'
-
-export function Example() {
-  return <Button onClick={() => {}}>Admin UI Button</Button>
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Variant',
+      'Visible',
+      'Size',
+      'With Icon',
+      'Disabled',
+      'Loading',
+      'Examples',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) =>
+    ['Usage', 'Accessibility', 'Best Practices', 'Props'].includes(item.value)
+  ),
+  designReference: toc.filter((item) =>
+    ['Do’s', 'Types', 'Primary', 'Secondary', 'Tertiary'].includes(item.value)
+  ),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions.
 
 ## Examples
 
@@ -118,6 +134,19 @@ function Example() {
 }
 ```
 
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Button } from '@vtex/admin-ui'
+
+export function Example() {
+  return <Button onClick={() => {}}>Admin UI Button</Button>
+}
+```
+
 ## Accessibility
 
 - `Button` has the role `button`.
@@ -152,3 +181,38 @@ Besides the props listed bellow, you can use all the props accepted by the `butt
 | disabled     | `boolean`                                                                                      | Defines if the Button is disabled         | 🚫       | `false`   |
 | loading      | `boolean`                                                                                      | Defines if the Button is in loading state | 🚫       | `false`   |
 | csx          | `StyleProp`                                                                                    | Defines component styles                  | 🚫       | `{}`      |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Buttons should be completely straight-forward. Absolutely no room for ambiguity.
+2. The behavior they trigger must reflect the exact action that is written.
+3. When using icons as buttons, be mindful of accessibility, always include descriptions in the alt tag.
+4. Pay attention to the icon's use in other screens, be consistent of what action it represents.
+
+## Types
+
+### Primary
+
+1. This option should be used for the single most important action of the page.
+   2; The icon must reinforce the importance of the task.
+2. Use this on topbars and confirmation modals.
+3. Use it only once per page / modal.
+
+### Secondary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for topbars, tables, lists and forms.
+
+### Tertiary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for topbars, tables, lists and forms.
+3. Can be used in tight spaces such as modals, sidebars or cards.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
