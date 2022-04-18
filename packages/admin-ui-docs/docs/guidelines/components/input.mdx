@@ -1,33 +1,34 @@
 ---
 title: Input
 path: /input/
+hide_table_of_contents: true
 ---
 
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Examples',
+      'Tone of voice',
+      'Icon',
+      'Suffix',
+      'Clear',
+      'Helpers',
+      'Disabled',
+      'Overview',
+      'Custom Button',
+      'Alternatives',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
 The Input is used in a form in order to retrieve data inputted by the user. It always has a `label` defined, and renders an `<input>` html element by default.
-
-## Usage
-
-```jsx isStatic
-import { Input } from '@vtex/admin-ui'
-
-function Example() {
-  const [value, setValue] = React.useState('')
-
-  return (
-    <Input
-      label="Meaningful label"
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    />
-  )
-}
-```
-
-## Alternatives
-
-- [InputPassword](input-password/) - For password fields.
-- [Textarea](text-area/) - For long text fields.
 
 ## Examples
 
@@ -215,6 +216,32 @@ function Example() {
 }
 ```
 
+## Alternatives
+
+- [InputPassword](input-password/) For password fields.
+- [Textarea](text-area/) For long text fields.
+
+</Panel>
+    <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Input } from '@vtex/admin-ui'
+
+function Example() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <Input
+      label="Meaningful label"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
+
 ## Props
 
 Besides the props listed bellow, you can use all the props accepted by the `input` JSX element.
@@ -236,3 +263,19 @@ Besides the props listed bellow, you can use all the props accepted by the `inpu
 | disabled       | `boolean`                                  | Whether the input is disabled or not            | 🚫       | `false`   |
 | criticalText   | `string`                                   | Input critical message                          | 🚫       | -         |
 | csx            | `StyleProp`                                | Defines component styles                        | 🚫       | `{}`      |
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Show the exact values that the field supports.
+2. Use messages, descriptions or tooltips to give more context, if needed.
+3. Do use the required/optional flags when necessary, but prefer using one or another.
+4. Use the Helper Text to explain in more details how the input is expected to be filled.
+5. Add data validation to indicate when data hasn’t been inputted correctly.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+</Page>
