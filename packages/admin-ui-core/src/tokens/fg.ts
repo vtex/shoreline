@@ -50,6 +50,6 @@ export const fg = {
     neutral: colors.black,
     neutralChecked: colors.white,
 
-    mainChecked: colors.white,
+    controlChecked: colors.white,
   },
 }

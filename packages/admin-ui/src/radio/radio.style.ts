@@ -8,7 +8,7 @@ export const checkmark = style({
   borderRadius: 'circle',
   top: '0.3rem',
   size: '0.5rem',
-  bg: '$form.neutral',
+  bg: '$form.control',
 })
 
 export const disabled = style({
@@ -29,9 +29,9 @@ export const baseline = style({
   ...focusVisible('neutral'),
   size: '1.25rem',
   padding: '6px',
-  bg: '$form.neutral',
-  border: '$form.neutral',
-  color: '$form.neutral',
+  bg: '$form.control',
+  border: '$form.control',
+  color: '$form.control',
   appearance: 'none',
   position: 'relative',
   borderRadius: 'circle',
@@ -42,27 +42,27 @@ export const baseline = style({
   justifyContent: 'center',
 
   ':hover:not(:disabled)': {
-    bg: '$form.neutralHover',
-    border: '$form.neutralHover',
+    bg: '$form.controlHover',
+    border: '$form.controlHover',
   },
   ...disabled,
 })
 
 export const checked = style({
   ...focusVisible('main'),
-  bg: '$form.mainChecked',
-  color: '$form.mainChecked',
-  border: '$form.mainChecked',
+  bg: '$form.controlChecked',
+  color: '$form.controlChecked',
+  border: '$form.controlChecked',
   position: 'relative',
 
   '&:after': {
     ...checkmark,
-    bg: (theme) => get(theme, 'fg.form.mainChecked', ''),
+    bg: (theme) => get(theme, 'fg.form.controlChecked', ''),
   },
 
   ':hover:not(:disabled)': {
-    bg: '$form.mainCheckedHover',
-    border: '$form.mainCheckedHover',
+    bg: '$form.controlCheckedHover',
+    border: '$form.controlCheckedHover',
   },
 
   '&[disabled]:after': {
