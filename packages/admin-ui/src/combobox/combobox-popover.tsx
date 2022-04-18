@@ -5,6 +5,8 @@ import { ComboboxPopoverBase } from './combobox-popover-base'
 import { ComboboxItem } from './combobox-item'
 import type { ComboboxState } from '.'
 
+import * as style from './combobox.style'
+
 export const ComboboxPopover = createComponent<
   typeof ComboboxPopoverBase,
   { state: ComboboxState<any> }
@@ -22,6 +24,7 @@ export const ComboboxPopover = createComponent<
           onClick={() => {
             props.state.setSelectedItem(item)
           }}
+          style={style.item}
         >
           {rendered}
         </ComboboxItem>
