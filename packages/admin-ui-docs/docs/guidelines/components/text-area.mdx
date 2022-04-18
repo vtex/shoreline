@@ -1,39 +1,29 @@
 ---
 title: TextArea
 path: /text-area/
+hide_table_of_contents: true
 ---
 
-Text Area is the space where longer text is inputted by users. It renders a `<textarea>` by default.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { TextArea } from '@vtex/admin-ui'
-
-function Example() {
-  const [value, setValue] = React.useState('')
-
-  return (
-    <Box csx={{ width: 300 }}>
-      <TextArea
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value)
-        }}
-        id="textarea-1"
-        label="Label"
-        helperText="Helper Text"
-        charLimit={120}
-      />
-    </Box>
-  )
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Examples',
+      'Tone of Voice',
+      'Helpers',
+      'Disabled',
+      'Alternatives',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
-```
 
-## Alternatives
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
-- [Input](input/) - For text fields.
-- [InputPassword](input-password/) - For password fields.
+Text Area is the space where longer text is inputted by users. It renders a `<textarea>` by default.
 
 ## Examples
 
@@ -109,6 +99,39 @@ function Example() {
 }
 ```
 
+## Alternatives
+
+- [Input](input/) - For text fields.
+- [InputPassword](input-password/) - For password fields.
+
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { TextArea } from '@vtex/admin-ui'
+
+function Example() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <Box csx={{ width: 300 }}>
+      <TextArea
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value)
+        }}
+        id="textarea-1"
+        label="Label"
+        helperText="Helper Text"
+        charLimit={120}
+      />
+    </Box>
+  )
+}
+```
+
 ## Props
 
 It also accepts all props of `textarea` JSX element.
@@ -125,3 +148,18 @@ It also accepts all props of `textarea` JSX element.
 | disabled     | `boolean`                                     | Whether the textarea is disabled or not      | 🚫       | `false`   |
 | tone         | `neutral, critical`                           | TextArea's tone of voice                     | 🚫       | `neutral` |
 | csx          | `StyleProp`                                   | Defines component styles                     | 🚫       | `{}`      |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Use the Helper Text to explain in more details how the input is expected to be filled.
+2. Add placeholders to clarify the type of content that must be inserted by the user.
+3. Do use the required/optional flags when necessary, but prefer using one or another.
+4. Add data validation to indicate when data hasn’t been inputted correctly.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
