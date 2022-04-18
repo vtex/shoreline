@@ -1,22 +1,35 @@
 ---
 title: DatePicker
 path: /date-picker/
+hide_table_of_contents: true
 ---
 
-## Usage
+import { Page, Panel } from '@site/src/components/Page'
 
-```jsx
-import {
-  experimental_DatePickerField as DatePickerField,
-  experimental_DatePickerCalendar as DatePickerCalendar,
-  experimental_useDatePickerState as useDatePickerState,
-} from '@vtex/admin-ui'
-
-function Example() {
-  const state = useDatePickerState()
-  return <DatePicker label="Date" state={state} />
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Default value',
+      'Helper Text',
+      'Min and Max values',
+      'Tone of voice',
+      'Format',
+      'I18n',
+      'Placeholder',
+      'Examples',
+      'TODOs',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) =>
+    ['Usage', 'Props', 'DatePickerField', 'DatePickerCalendar'].includes(
+      item.value
+    )
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
 ## Examples
 
@@ -237,6 +250,24 @@ Features and fixes scheduled for this component:
 - [ ] Design: Add hover and focus states
 - [ ] Design: Bleeding for internal buttons
 
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx
+import {
+  experimental_DatePickerField as DatePickerField,
+  experimental_DatePickerCalendar as DatePickerCalendar,
+  experimental_useDatePickerState as useDatePickerState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useDatePickerState()
+  return <DatePicker label="Date" state={state} />
+}
+```
+
 ## Props
 
 ### DatePickerField
@@ -255,3 +286,16 @@ Features and fixes scheduled for this component:
 | ----- | ----------------- | -------------- | -------- | ------- |
 | state | `DatePickerState` | Required state | ✅       | -       |
 | csx   | `StyleObject`     | Custom styles  | 🚫       | `{}`    |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Combine with Dropdowns or other components if you need more input from the user such as choosing a timezone.
+2. Combine with the TimePicker component for specifying a time when choosing a date.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
