@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.123.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.3...@vtex/admin-ui@0.123.0) (2022-04-18)
+
+### Bug Fixes
+
+- fix broken build ([81b0bbd](https://github.com/vtex/admin-ui/commit/81b0bbd2be92b08cbbc6c77c6a022f20d67324de))
+- **combobox:** fix typing error on build ([6ab6cc2](https://github.com/vtex/admin-ui/commit/6ab6cc297fdbf9821e3f62f6d6e409fd2fab6f06))
+
+### Features
+
+- **combobox:** enable custom rendering for basic combobox ([d8dfa23](https://github.com/vtex/admin-ui/commit/d8dfa2399bd5536afd6dbdc08ae4f407b976d0ad))
+- **comboboxmultiple:** add custom item rendering for multiple combobox ([3a802be](https://github.com/vtex/admin-ui/commit/3a802be929deda0fe838de9493f8a57bf41a809d))
+
+### BREAKING CHANGES
+
+- **comboboxmultiple:** - props selected, removeSelected and clearSelected are no longer returned by
+  useComboboxMultiple hook
+
 ## [0.122.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.2...@vtex/admin-ui@0.122.3) (2022-04-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
