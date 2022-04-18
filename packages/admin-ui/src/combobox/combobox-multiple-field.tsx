@@ -15,9 +15,10 @@ import { ComboboxMultipleTag } from './combobox-multiple-tag'
 import { Label } from '../components/Label'
 
 import * as style from './combobox.style'
+import type { ComboboxMultipleState } from '.'
 
 export type ComboboxMultipleFieldProps = {
-  state: any
+  state: ComboboxMultipleState<any>
   label: string
   id: string
 }
@@ -51,6 +52,15 @@ export const ComboboxMultipleField = createComponent<
     ...htmlProps
   } = props
 
+  const {
+    selectedItems,
+    value: inputValue,
+    unselect,
+    clearSelected,
+    getOptionValue,
+    renderTag,
+  } = state
+
   const composite = useCompositeState()
   const inputRef = useRef<HTMLInputElement>(null)
   const [focused, setFocused] = React.useState(false)
@@ -59,22 +69,22 @@ export const ComboboxMultipleField = createComponent<
   const onFocus = () => setFocused(true)
   const onBlur = () => setFocused(false)
 
-  const isInputEmpty = state.value.trim() !== ''
-  const hasSelected = state.selected.length > 0
+  const isInputEmpty = inputValue.trim() !== ''
+  const hasSelected = selectedItems.length > 0
   const shouldReduceLabel = focused || hasSelected || isInputEmpty
   const shouldShowPlaceholder = focused || hasSelected
 
   const onInputKeyDown = (e: any) => {
     const isBackSpace = e.keyCode === 8
 
-    if (state.value.length > 0) return
+    if (inputValue.length > 0) return
     if (!isBackSpace) return
 
     inputRef?.current?.blur()
     composite.move(composite.last())
   }
 
-  const onTagKeyDown = (e: any, value: string) => {
+  const onTagKeyDown = (e: any, value: any) => {
     if (pressedNumberOrLetter(e)) {
       inputRef.current?.focus()
 
@@ -85,7 +95,7 @@ export const ComboboxMultipleField = createComponent<
 
     // if there is only one item left
     // we must clear focus on the input
-    if (state.selected.length === 1) {
+    if (selectedItems.length === 1) {
       inputRef.current?.focus()
     } else {
       // focus on next: if the activeItem is the first
@@ -98,7 +108,7 @@ export const ComboboxMultipleField = createComponent<
     }
 
     // remove the item from the selected[]
-    state.removeSelected(value)
+    unselect(value)
   }
 
   return useElement('div', {
@@ -144,14 +154,14 @@ export const ComboboxMultipleField = createComponent<
           >
             <Composite state={composite}>
               <Inline hSpace="$m" vSpace="$l">
-                {state.selected.length > 0 &&
-                  state.selected.map((itemString: string) => (
+                {selectedItems.length > 0 &&
+                  selectedItems.map((item: any) => (
                     <ComboboxMultipleTag
-                      key={itemString}
-                      value={itemString}
-                      onKeyDown={(e) => onTagKeyDown(e, itemString)}
+                      key={getOptionValue(item)}
+                      value={renderTag(item)}
+                      onKeyDown={(e) => onTagKeyDown(e, item)}
                       onDismiss={() => {
-                        state.removeSelected(itemString)
+                        unselect(getOptionValue(item))
                       }}
                     />
                   ))}
@@ -178,11 +188,11 @@ export const ComboboxMultipleField = createComponent<
             width: 48,
           }}
         >
-          {state.selected.length > 0 && (
+          {selectedItems.length > 0 && (
             <Button
               variant="neutralTertiary"
               icon={<IconXCircle />}
-              onClick={state.clearSelected}
+              onClick={clearSelected}
               csx={{
                 color: '$secondary',
               }}

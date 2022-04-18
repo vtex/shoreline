@@ -54,6 +54,6 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
 
 interface ComboboxFieldProps {
   id: string
-  state: ComboboxState
+  state: ComboboxState<any>
   label: string
 }

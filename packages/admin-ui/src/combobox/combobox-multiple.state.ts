@@ -1,15 +1,27 @@
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
 import { useCallback, useEffect } from 'react'
-import { useCheckboxState } from 'ariakit/checkbox'
 
-import type { ComboboxStateProps } from './combobox.state'
+import type { ComboboxState, ComboboxStateProps } from './combobox.state'
 import { useComboboxState } from './combobox.state'
+import { useMultipleSelectionState } from './selected-multiple.state'
 
-export function useComboboxMultipleState(
-  props: ComboboxMultipleStateProps = {}
-) {
-  const { defaultSelected = [], list, shouldClearOnSelect = true } = props
+export function useComboboxMultipleState<T>(
+  props: ComboboxMultipleStateProps<T> = {}
+): ComboboxMultipleState<T> {
+  const {
+    defaultSelected = [],
+    list,
+    shouldClearOnSelect = true,
+    getOptionValue = (item: T) =>
+      typeof item === 'string' ? item : JSON.stringify(item),
+    renderOption = (item: T) =>
+      typeof item === 'string' ? item : JSON.stringify(item),
+    renderTag: originalRenderTag,
+  } = props
 
-  const combobox = useComboboxState({
+  const renderTag = originalRenderTag || renderOption
+
+  const combobox = useComboboxState<T>({
     // VoiceOver has issues with multi-selectable comboboxes where the DOM focus
     // is on the combobox input, so we set `virtualFocus` to `false` to disable
     // this behavior and put DOM focus on the items.
@@ -17,8 +29,9 @@ export function useComboboxMultipleState(
     list,
   })
 
-  const checkbox = useCheckboxState({
+  const checkbox = useMultipleSelectionState({
     defaultValue: defaultSelected,
+    compare: (a, b) => getOptionValue(a) === getOptionValue(b),
   })
 
   const clearSelected = useCallback(() => {
@@ -26,29 +39,38 @@ export function useComboboxMultipleState(
     checkbox.setValue([])
   }, [checkbox.setValue, combobox.setValue])
 
-  const removeSelected = useCallback(
-    (value: string) => {
-      checkbox.setValue((values: string[]) =>
-        values.filter((currentValue) => currentValue !== value)
-      )
-    },
-    [checkbox]
-  )
-
   useEffect(() => {
     if (shouldClearOnSelect) combobox.setValue('')
   }, [checkbox.value, shouldClearOnSelect, combobox.setValue])
 
   return {
-    selected: checkbox.value,
-    setSelected: checkbox.setValue,
-    removeSelected,
-    clearSelected,
     ...combobox,
+    selectedItems: checkbox.value,
+    setSelectedItems: checkbox.setValue,
+    onChange: checkbox.toggle,
+    isSelected: checkbox.isSelected,
+    select: checkbox.select,
+    unselect: checkbox.unselect,
+    clearSelected,
+    getOptionValue,
+    renderOption,
+    renderTag,
   }
 }
 
-export type ComboboxMultipleStateProps = ComboboxStateProps & {
-  defaultSelected?: string[]
+export interface ComboboxMultipleStateProps<T> extends ComboboxStateProps<T> {
+  defaultSelected?: T[]
+  renderTag?: (item: T) => ReactNode
   shouldClearOnSelect?: boolean
+}
+
+export interface ComboboxMultipleState<T> extends ComboboxState<T> {
+  renderTag: (item: T) => ReactNode
+  selectedItems: T[]
+  setSelectedItems: Dispatch<SetStateAction<T[]>>
+  clearSelected: () => void
+  select: (item: T) => void
+  unselect: (item: T) => void
+  onChange: (item: T) => void
+  isSelected: (item: T) => boolean
 }

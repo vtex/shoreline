@@ -10,6 +10,7 @@ import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../components/Spinner'
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
+import type { ComboboxMultipleState } from '.'
 
 export const ComboboxPopoverBase = createComponent<
   typeof AriakitComboboxPopover,
@@ -107,13 +108,13 @@ export const ComboboxPopoverBase = createComponent<
 
   return useElement(AriakitComboboxPopover, {
     ...restProps,
-    state: comboboxState,
+    state: { ...comboboxState, matches: [] },
     baseStyle: style.popover,
     children: renderChildren(),
   })
 })
 
 interface Props {
-  state: ComboboxState
+  state: ComboboxState<any> | ComboboxMultipleState<any>
   onRetry?: () => void
 }
