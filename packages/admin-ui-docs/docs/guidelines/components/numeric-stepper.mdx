@@ -1,28 +1,32 @@
 ---
 title: NumericStepper
 path: /numeric-stepper/
+hide_table_of_contents: true
 ---
 
-NumericSteppers represent a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
+import { Page, Panel } from '@site/src/components/Page'
 
-## Usage
-
-```jsx isStatic
-import { NumericStepper } from '@vtex/admin-ui'
-
-function Example() {
-  const [value, setValue] = React.useState(0)
-
-  return (
-    <NumericStepper
-      value={value}
-      helperText="Helper Text"
-      label="numeric-stepper"
-      onChange={(event) => setValue(event.value)}
-    />
-  )
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Examples',
+      'Tone of voice',
+      'Step Multiplier',
+      'Minimum and Maximum limits',
+      'Helper Text',
+      'Disabled',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) =>
+    ['Usage', 'State', 'Props'].includes(item.value)
+  ),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
-```
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+NumericSteppers represent a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
 
 ## Examples
 
@@ -124,6 +128,28 @@ It means that the user will not be able to add any input value to the NumericSte
 />
 ```
 
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { NumericStepper } from '@vtex/admin-ui'
+
+function Example() {
+  const [value, setValue] = React.useState(0)
+
+  return (
+    <NumericStepper
+      value={value}
+      helperText="Helper Text"
+      label="numeric-stepper"
+      onChange={(event) => setValue(event.value)}
+    />
+  )
+}
+```
+
 ## State
 
 You can use the properties `value`, and `onChange` to handle value changes. You also can control the `tone` property to indicate if it is a valid input or not. Note that the `onChange` represents a function with an object `{ value: number }` as a parameter. Check the example below.
@@ -159,3 +185,18 @@ function Example() {
 | criticalText | `string`                    | Error message                            | 🚫       | -         |
 | helperText   | `string`                    | Helper text message                      | 🚫       | -         |
 | step         | `number`                    | Increment and decrement multiplier value | 🚫       | `1`       |
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Always use a default value. If you do not know which one to use, pick 1. This way the user is not forced to type something and then click the buttons.
+2. The lean mode is intended to be used on lists, that have a high density of content, and where being able to type the number is not important. It is especially useful in mobile contexts or cramped containers.
+3. Do not use for big numbers. Steppers make more sense for small numbers that might be adjusted with a few clicks.
+4. Add the units, whenever applicable. Ex. kg, m², days, etc.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+  </Page>
