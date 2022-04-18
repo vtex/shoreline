@@ -1,0 +1,22 @@
+---
+title: Writing Guidelines
+path: /foundations/writing/
+---
+
+:::caution
+
+This page is under construction.
+
+:::
+
+Common writing decisions that you must know when developing or designing Admin UI.
+
+## Invalid Messaging
+
+Represented by the [Critical Tone](http://localhost:3000/guidelines/foundations/colors#critical), an invalid message alerts people of a validation problem that has occurred and informs them what to do next.
+
+It appears in Forms fields after someone has taken an action. The message draws the user's attention to what has happened and provides guidance to move forward. Optionally, they can also include why something happened and whether the problem will occur again.
+
+### Usage
+
+You must use the `invalid` property to represent the validation state, and the `invalidText` property to define the message that will be shown when the state is set to `true`.

@@ -14,10 +14,6 @@ export default {
       options: ['vertical', 'horizontal'],
       control: { type: 'radio' },
     },
-    tone: {
-      options: ['neutral', 'critical'],
-      control: { type: 'radio' },
-    },
   },
 } as Meta
 
@@ -48,9 +44,9 @@ RadioGroupPlayground.args = {
   numberOfRadios: 4,
   label: 'Group Label',
   direction: 'row',
-  helpText: 'Helper Text!',
-  tone: 'neutral',
-  criticalText: 'Critical Text!',
+  helpText: 'Help Text!',
+  invalid: false,
+  invalidText: 'Invalid Text!',
 }
 
 export function Example() {

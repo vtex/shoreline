@@ -13,8 +13,7 @@ export const tabToc = {
       'Group Help Text',
       'Direction',
       'Disabled',
-      'Tone of Voice',
-      'State',
+      'Invalid',
     ].includes(item.value)
   ),
   designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
@@ -121,9 +120,9 @@ function Example() {
 }
 ```
 
-### Tone of Voice
+### Invalid
 
-Use the `tone` prop to define the tone of voice, which is either `neutral` or `critical`. It is up to you to define what triggers it. Additionally, you can add a `criticalText` to be displayed whether `critical`.
+Use the `invalid` prop to define whether the user input is invalid or not. It is up to you to define what triggers it. Additionally, you should add a `invalidText` to be displayed.
 
 ```jsx live
 function Example() {
@@ -134,9 +133,9 @@ function Example() {
       state={state}
       label="Group Label"
       helpText="Help text!"
-      criticalText="Critical text! "
+      invalidText="invalidText text! "
       direction="column"
-      tone="critical"
+      invalid
     >
       <Radio value="radio-1" label="Radio 1" />
       <Radio value="radio-2" label="Radio 2" />
@@ -201,15 +200,15 @@ function Example() {
 
 ## RadioGroup Props
 
-| Name         | Type                | Description                                | Required | Default   |
-| ------------ | ------------------- | ------------------------------------------ | -------- | --------- |
-| state        | `RadioState`        | Return of `useRadioState` hook             | ✅       | -         |
-| helpText     | `ReactNode`         | Help text                                  | 🚫       | -         |
-| criticalText | `ReactNode`         | Critical text                              | 🚫       | -         |
-| tone         | `neutral, critical` | Tone of voice                              | 🚫       | `neutral` |
-| direction    | `row, column`       | Direction which the children are displayed | 🚫       | `row`     |
-| label        | `string`            | Group label                                | 🚫       | -         |
-| csx          | `StyleProp`         | Defines component styles                   | 🚫       | `{}`      |
+| Name        | Type          | Description                                | Required | Default |
+| ----------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state       | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| helpText    | `ReactNode`   | Help text                                  | 🚫       | -       |
+| invalidText | `ReactNode`   | Invalid text                               | 🚫       | -       |
+| invalid     | `boolean`     | Whether the filed is invalid or not        | 🚫       | `false` |
+| direction   | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| label       | `string`      | Group label                                | 🚫       | -       |
+| csx         | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
 ## useRadioState
 
