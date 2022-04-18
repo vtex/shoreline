@@ -80,7 +80,7 @@ exports[`Radio should match snapshot 1`] = `
   padding: 6px;
   background: transparent;
   border: 1px solid #B9B9B9;
-  color: #000000;
+  color: form.control;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -113,6 +113,11 @@ exports[`Radio should match snapshot 1`] = `
   box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
+.emotion-1:hover:not(:disabled) {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
 .emotion-1:disabled {
   background: #E6E6E6;
   border: 1px solid #747474;
@@ -120,9 +125,10 @@ exports[`Radio should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.emotion-1:hover {
-  background: #E6E6E6;
-  border: 1px solid #545454;
+
+
+.emotion-1:disabled +div label {
+  cursor: not-allowed;
 }
 
 .emotion-1:after {
@@ -164,6 +170,11 @@ exports[`Radio should match snapshot 1`] = `
   background: #FFFFFF;
 }
 
+.emotion-1:checked:hover:not(:disabled) {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
 .emotion-1:checked[disabled]:after {
   content: "";
   position: absolute;
@@ -176,14 +187,16 @@ exports[`Radio should match snapshot 1`] = `
 }
 
 .emotion-1:checked:disabled {
-  cursor: not-allowed;
   background: #E6E6E6;
   border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
 }
 
-.emotion-1:checked:hover {
-  background: #20408C;
-  border: 1px solid #20408C;
+
+
+.emotion-1:checked:disabled +div label {
+  cursor: not-allowed;
 }
 
 .emotion-3 {

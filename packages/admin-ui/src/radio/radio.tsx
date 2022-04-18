@@ -14,7 +14,7 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
   (props) => {
     const { label, helpText, id, ...radioButtonProps } = props
 
-    const { id: baseId } = useId({ baseId: id })
+    const { id: baseId } = useId({ id })
 
     return useElement('div', {
       children: (
