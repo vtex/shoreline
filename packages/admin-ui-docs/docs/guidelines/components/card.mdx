@@ -1,28 +1,24 @@
 ---
 title: Card
 path: /card/
+hide_table_of_contents: true
 ---
 
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    ['Example', 'Alternatives'].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 Cards are surfaces that display content and actions on a single topic.
 
-## Usage
-
-```jsx isStatic
-import { Card, Set, Heading, Paragraph } from '@vtex/admin-ui'
-
-;<Card>
-  <Set orientation="vertical" spacing={3} fluid>
-    <Heading>Title</Heading>
-    <Paragraph>Content.</Paragraph>
-  </Set>
-</Card>
-```
-
-## Alternatives
-
-[Box](box/).
-
-## Examples
+## Example
 
 ```jsx live
 <Card>
@@ -37,10 +33,38 @@ import { Card, Set, Heading, Paragraph } from '@vtex/admin-ui'
 </Card>
 ```
 
-## Accessibility
+## Alternatives
 
-_Tbd_
+[Box](box/).
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. Avoid nesting cards with more than 3 levels.
+2. Add buttons for interactivity.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Card, Set, Heading, Paragraph } from '@vtex/admin-ui'
+;<Card>
+  <Set orientation="vertical" spacing={3} fluid>
+    <Heading>Title</Heading>
+    <Paragraph>Content.</Paragraph>
+  </Set>
+</Card>
+```
 
 ## Props
 
 Same as [Box](box/).
+
+  </Panel>
+</Page>
