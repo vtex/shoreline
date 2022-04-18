@@ -22,7 +22,10 @@ export const border = {
     criticalHover: borderStyles('red50'),
     criticalFocus: borderStyles('red60'),
 
-    mainChecked: borderStyles('blue40'),
-    mainCheckedHover: borderStyles('blue50'),
+    control: borderStyles('gray30'),
+    controlHover: borderStyles('gray50'),
+    controlChecked: borderStyles('blue40'),
+    controlFocus: borderStyles('gray60'),
+    controlCheckedHover: borderStyles('blue50'),
   },
 }
