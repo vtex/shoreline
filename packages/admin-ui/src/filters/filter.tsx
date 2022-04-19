@@ -2,7 +2,7 @@ import React from 'react'
 import { tag, useSystem } from '@vtex/admin-ui-react'
 
 import { BaseFilter } from './filter-base'
-import { ComboboxItem } from 'ariakit'
+import { ComboboxItem } from '../combobox/combobox-item'
 import { focusVisible, style } from '..'
 
 import type { UseFilterStateReturn } from './filter.state'
@@ -20,6 +20,8 @@ export function Filter<T extends FilterItem>(props: FilterProps<T>) {
     state: { combobox, appliedItem, items },
     state,
   } = props
+
+  const currentSelectedId = combobox.selectedItem?.id
 
   const appliedValuesLabel = appliedItem && (
     <>
@@ -51,14 +53,14 @@ export function Filter<T extends FilterItem>(props: FilterProps<T>) {
       {items.map((item) => (
         <ComboboxItem
           {...styleProps}
-          aria-selected={!!(item.id && item.id === combobox.value)}
+          aria-selected={item.id === currentSelectedId}
           key={item.id}
           value={item.id}
           focusOnHover
           hideOnClick={false}
-          onClick={() => combobox.setSelectedItem(item)}
+          onClick={() => combobox.setSelectedItem(item) as any}
         >
-          <FilterRadio checked={!!(item.id && item.id === combobox.value)} />
+          <FilterRadio checked={item.id === currentSelectedId} />
           {item.label}
         </ComboboxItem>
       ))}

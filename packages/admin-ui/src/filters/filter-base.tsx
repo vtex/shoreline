@@ -29,24 +29,25 @@ export function BaseFilter(props: BaseFilterProps) {
       </FilterDisclosure>
 
       <FilterPopover state={menu}>
-        <tag.div
-          as={ComboboxList}
-          ref={optionsContainerRef}
-          state={combobox}
-          csx={{
-            marginTop: '$m',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '$l',
-            maxHeight: 312,
-            overflowY: 'auto',
-            '> *:not(:last-child)': {
-              marginBottom: '$xl',
-            },
-          }}
-        >
-          {children}
-        </tag.div>
+        <tag.span ref={optionsContainerRef}>
+          <tag.ul
+            as={ComboboxList}
+            state={combobox}
+            csx={{
+              marginTop: '$m',
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '$l',
+              maxHeight: 312,
+              overflowY: 'auto',
+              '> *:not(:last-child)': {
+                marginBottom: '$xl',
+              },
+            }}
+          >
+            {children}
+          </tag.ul>
+        </tag.span>
 
         <FilterPopoverFooter
           isContentScrollable={
@@ -65,7 +66,7 @@ export function BaseFilter(props: BaseFilterProps) {
 }
 
 export interface BaseFilterProps {
-  state: GenericFilterStateReturn
+  state: GenericFilterStateReturn<any>
   children?: ReactNode
   appliedValuesLabel?: ReactNode
 }
