@@ -1,9 +1,9 @@
 import React from 'react'
-import { tag, useSystem } from '@vtex/admin-ui-react'
+import { tag } from '@vtex/admin-ui-react'
 
 import { BaseFilter } from './filter-base'
 import { ComboboxItem } from '../combobox/combobox-item'
-import { focusVisible, style } from '..'
+import { focusVisible, style } from '@vtex/admin-ui-core'
 
 import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
@@ -41,24 +41,17 @@ export function Filter<T extends FilterItem>(props: FilterProps<T>) {
     </>
   )
 
-  const { cn } = useSystem()
-
-  // TODO: Check the reason that we get a type error if the className is passed directly to Checkbox
-  const styleProps: any = {
-    className: cn(itemStyle),
-  }
-
   return (
     <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
       {items.map((item) => (
         <ComboboxItem
-          {...styleProps}
           aria-selected={item.id === currentSelectedId}
           key={item.id}
           value={item.id}
           focusOnHover
           hideOnClick={false}
-          onClick={() => combobox.setSelectedItem(item) as any}
+          onClick={() => combobox.setSelectedItem(item)}
+          style={itemStyle}
         >
           <FilterRadio checked={item.id === currentSelectedId} />
           {item.label}
