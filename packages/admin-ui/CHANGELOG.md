@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.123.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.0...@vtex/admin-ui@0.123.1) (2022-04-19)
+
+### Features
+
+- **fielddetails:** change message type from string or ReactNodeArray to ReactNode only ([dfc28a2](https://github.com/vtex/admin-ui/commit/dfc28a294bd11d77dda491370517403420e0a760))
+- **fielddetails:** change message type from string or ReactNodeArray to string or ReactNode ([8144dc0](https://github.com/vtex/admin-ui/commit/8144dc03efd92363f435a6c4422637d25632f183))
+- **fielddetails:** change message type to acepte string or ReactNodeArray ([d841d03](https://github.com/vtex/admin-ui/commit/d841d037e4cd43998e7b2e0cd70dde6f901ffaf1))
+
 # [0.123.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.3...@vtex/admin-ui@0.123.0) (2022-04-18)
 
 ### Bug Fixes
