@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
-import { Box, Button, Flex, Label, Set, Text } from '@vtex/admin-ui'
+import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { useIntl, IntlProvider } from 'react-intl'
 
@@ -54,45 +54,41 @@ export const Playground: Story<FormikRadioGroupProps> = (args) => {
         <Form id="form-admin-formik-input">
           <Flex direction="row" align="center" justify="start">
             <Flex
-              direction={args.orientation === 'vertical' ? 'row' : 'column'}
+              direction={args.direction}
               justify="center"
               csx={{ marginX: 8 }}
             >
               <Box
                 csx={{
-                  width: args.orientation === 'vertical' ? 200 : 600,
+                  width: args.direction === 'column' ? 200 : 600,
                   marginBottom: 3,
                 }}
               >
                 <FormikRadioGroup {...args}>
                   {options.map((value, key) => {
                     return (
-                      <Label key={key}>
-                        <FormikRadio
-                          value={value}
-                          disabled={value === 'Disabled'}
-                        />
-                        {value}
-                      </Label>
+                      <FormikRadio
+                        value={value}
+                        label={value}
+                        key={key}
+                        disabled={value === 'Disabled'}
+                      />
                     )
                   })}
                 </FormikRadioGroup>
               </Box>
-              <Flex
-                direction={args.orientation === 'vertical' ? 'column' : 'row'}
-              >
+              <Flex direction={args.direction}>
                 <Flex
                   direction="column"
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: args.direction === 'column' ? 'auto' : 150,
                   }}
                 >
                   <Button
                     variant="secondary"
                     type="reset"
-                    size="small"
                     onClick={() => resetForm()}
                     disabled={!dirty}
                   >
@@ -111,12 +107,10 @@ export const Playground: Story<FormikRadioGroupProps> = (args) => {
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: args.direction === 'column' ? 'auto' : 150,
                   }}
                 >
-                  <Button type="submit" size="small">
-                    Save
-                  </Button>
+                  <Button type="submit">Save</Button>
                   <Text
                     variant="detail"
                     tone="secondary"
@@ -130,12 +124,11 @@ export const Playground: Story<FormikRadioGroupProps> = (args) => {
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: args.direction === 'column' ? 'auto' : 150,
                   }}
                 >
                   <Button
                     variant="secondary"
-                    size="small"
                     onClick={() =>
                       setCurrentInitialValues({ [args.name]: options[1] })
                     }
@@ -200,17 +193,16 @@ export const Basic = () => {
               <FormikRadioGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikRadio
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikRadio
+                      label={value}
+                      key={key}
+                      value={value}
+                      disabled={value === 'Disabled'}
+                    />
                   )
                 })}
               </FormikRadioGroup>
@@ -259,13 +251,12 @@ export const Error = () => {
             <FormikRadioGroup name="value" label="Label Title">
               {options.map((value, key) => {
                 return (
-                  <Label key={key}>
-                    <FormikRadio
-                      value={value}
-                      disabled={value === 'Disabled'}
-                    />
-                    {value}
-                  </Label>
+                  <FormikRadio
+                    label={value}
+                    key={key}
+                    value={value}
+                    disabled={value === 'Disabled'}
+                  />
                 )
               })}
             </FormikRadioGroup>
@@ -326,13 +317,12 @@ export const WithIntl = () => {
                 >
                   {options.map((value, key) => {
                     return (
-                      <Label key={key}>
-                        <FormikRadio
-                          value={value}
-                          disabled={value === 'Disabled'}
-                        />
-                        {value}
-                      </Label>
+                      <FormikRadio
+                        label={value}
+                        key={key}
+                        value={value}
+                        disabled={value === 'Disabled'}
+                      />
                     )
                   })}
                 </FormikRadioGroup>
@@ -379,17 +369,16 @@ export const ChangeValueOutside = () => {
               <FormikRadioGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikRadio
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikRadio
+                      value={value}
+                      label={value}
+                      key={key}
+                      disabled={value === 'Disabled'}
+                    />
                   )
                 })}
               </FormikRadioGroup>
@@ -447,17 +436,16 @@ export const ChangeInitialValue = () => {
               <FormikRadioGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikRadio
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikRadio
+                      label={value}
+                      key={key}
+                      value={value}
+                      disabled={value === 'Disabled'}
+                    />
                   )
                 })}
               </FormikRadioGroup>
@@ -522,18 +510,17 @@ export const OnChangeExample = () => {
             <FormikRadioGroup
               name="value"
               label="Label Title"
-              orientation="vertical"
+              direction="column"
               onChange={() => setChanges(changes + 1)}
             >
               {options.map((value, key) => {
                 return (
-                  <Label key={key}>
-                    <FormikRadio
-                      value={value}
-                      disabled={value === 'Disabled'}
-                    />
-                    {value}
-                  </Label>
+                  <FormikRadio
+                    label={value}
+                    key={key}
+                    value={value}
+                    disabled={value === 'Disabled'}
+                  />
                 )
               })}
             </FormikRadioGroup>

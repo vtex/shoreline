@@ -1,13 +1,15 @@
 import React from 'react'
-import { render, screen, waitFor, axe } from '../../test-utils'
+import { render, screen, waitFor, jestMatchMedia } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { Button, Label, Text } from '@vtex/admin-ui'
+import { Button, Text } from '@vtex/admin-ui'
 
 import { FormikRadio, FormikRadioGroup } from './index'
 
 describe('Radio and RadioGroup tests', () => {
+  beforeEach(jestMatchMedia)
+
   it('change value in formik by input component', async () => {
     const handleSubmit = jest.fn()
     const options = ['option 1', 'option 2', 'option 3', 'error']
@@ -21,12 +23,7 @@ describe('Radio and RadioGroup tests', () => {
             aria-label="label-title"
           >
             {options.map((value, key) => {
-              return (
-                <Label key={key}>
-                  <FormikRadio value={value} />
-                  {value}
-                </Label>
-              )
+              return <FormikRadio value={value} label={value} key={key} />
             })}
           </FormikRadioGroup>
           <Button type="submit" children="Submit" />
@@ -61,12 +58,7 @@ describe('Radio and RadioGroup tests', () => {
               aria-label="label-title"
             >
               {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
+                return <FormikRadio value={value} label={value} key={key} />
               })}
             </FormikRadioGroup>
             <Button
@@ -125,12 +117,7 @@ describe('Radio and RadioGroup tests', () => {
             aria-label="label-title"
           >
             {options.map((value, key) => {
-              return (
-                <Label key={key}>
-                  <FormikRadio value={value} />
-                  {value}
-                </Label>
-              )
+              return <FormikRadio value={value} label={value} key={key} />
             })}
           </FormikRadioGroup>
           <Button type="submit" children="Submit" />
@@ -158,12 +145,7 @@ describe('Radio and RadioGroup tests', () => {
             aria-label="label-title"
           >
             {options.map((value, key) => {
-              return (
-                <Label key={key}>
-                  <FormikRadio value={value} />
-                  {value}
-                </Label>
-              )
+              return <FormikRadio value={value} label={value} key={key} />
             })}
           </FormikRadioGroup>
           <Button type="submit" children="Submit" />
@@ -195,12 +177,7 @@ describe('Radio and RadioGroup tests', () => {
               aria-label="label-title"
             >
               {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
+                return <FormikRadio value={value} label={value} key={key} />
               })}
             </FormikRadioGroup>
             <Button children="Reset Form" onClick={() => resetForm()} />
@@ -243,12 +220,7 @@ describe('Radio and RadioGroup tests', () => {
             aria-label="label-title"
           >
             {options.map((value, key) => {
-              return (
-                <Label key={key}>
-                  <FormikRadio value={value} />
-                  {value}
-                </Label>
-              )
+              return <FormikRadio value={value} label={value} key={key} />
             })}
           </FormikRadioGroup>
           <Button type="submit" children="Submit" />
@@ -292,12 +264,7 @@ describe('Radio and RadioGroup tests', () => {
               formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             >
               {options.map((value, key) => {
-                return (
-                  <Label key={key}>
-                    <FormikRadio value={value} />
-                    {value}
-                  </Label>
-                )
+                return <FormikRadio value={value} label={value} key={key} />
               })}
             </FormikRadioGroup>
             <Button type="submit" children="Submit" />
@@ -319,44 +286,5 @@ describe('Radio and RadioGroup tests', () => {
     await waitFor(() => expect(error.getAttribute('aria-checked')).toBe('true'))
 
     expect(await screen.findByText('Error message')).not.toBeNull()
-  })
-
-  it('should not have a11y violations', async () => {
-    const options = ['option 1', 'option 2', 'option 3', 'error']
-
-    const { container } = render(
-      <Formik initialValues={{ value: [] }} onSubmit={() => {}}>
-        <Form id="form-admin-formik-input">
-          <FormikRadioGroup
-            name="value"
-            label="Label Title"
-            aria-label="label-title"
-          >
-            {options.map((value, key) => {
-              return (
-                <Label key={key}>
-                  <FormikRadio value={value} aria-label="Radio" />
-                  {value}
-                </Label>
-              )
-            })}
-          </FormikRadioGroup>
-          <Button type="submit" children="Submit" />
-        </Form>
-      </Formik>
-    )
-
-    const option2 = screen.getByText(options[2])
-
-    userEvent.click(option2)
-    await waitFor(() =>
-      expect(
-        option2.getElementsByTagName('input')[0].getAttribute('aria-checked')
-      ).toBe('true')
-    )
-
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
   })
 })

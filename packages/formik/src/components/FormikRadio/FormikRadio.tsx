@@ -1,22 +1,24 @@
-import type { ComponentPropsWithoutRef, Ref } from 'react'
+import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
+import type { RadioProps } from '@vtex/admin-ui'
 import { Radio } from '@vtex/admin-ui'
 
 import { useRadioGroupContext } from './context'
 
 export const FormikRadio = forwardRef(
   (props: FormikRadioProps, ref: Ref<HTMLInputElement>) => {
-    const { state, setTouched } = useRadioGroupContext()
+    const { setTouched } = useRadioGroupContext()
 
     return (
       <Radio
-        state={state}
         {...(props as any)}
         ref={ref}
-        onBlur={() => setTouched(true)}
+        onBlur={() => {
+          setTouched(true)
+        }}
       />
     )
   }
 )
 
-export type FormikRadioProps = ComponentPropsWithoutRef<'input'>
+export type FormikRadioProps = RadioProps
