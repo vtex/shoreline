@@ -12,7 +12,7 @@ export function FilterMultiple<T extends FilterItem>(
   props: FilterMultipleProps<T>
 ) {
   const {
-    state: { appliedItems, items, selectedKeys, combobox },
+    state: { appliedItems, items, combobox },
     state,
   } = props
 
@@ -48,14 +48,13 @@ export function FilterMultiple<T extends FilterItem>(
     <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
       {items.map((item) => (
         <ComboboxItem
-          aria-selected={!!selectedKeys.find((a) => a === item.id)}
+          aria-selected={combobox.isSelected(item)}
           key={item.id}
           onClick={() => combobox.onChange(item)}
           style={itemStyle}
         >
-          <tag.div
-            as={Checkbox}
-            checked={!!selectedKeys.find((a) => a === item.id)}
+          <Checkbox
+            checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
             readOnly
