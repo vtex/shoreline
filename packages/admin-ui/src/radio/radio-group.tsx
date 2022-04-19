@@ -13,11 +13,11 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
     const {
       label,
       helpText,
-      invalidText,
+      errorText,
       children,
       direction = 'row',
       state,
-      invalid = false,
+      error = false,
       ...restProps
     } = props
 
@@ -39,11 +39,7 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
               {children}
             </Set>
           </AriakitRadioGroup>
-          <Message
-            helpText={helpText}
-            invalidText={invalidText}
-            invalid={invalid}
-          />
+          <Message helpText={helpText} errorText={errorText} error={error} />
         </Set>
       ),
     })
@@ -62,10 +58,10 @@ export interface RadioGroupOptions {
    */
   label: ReactNode
   /**
-   * Whether is a invalid field or not
+   * Whether is a error field or not
    * @default false
    */
-  invalid?: boolean
+  error?: boolean
   /**
    * RadioGroup children direction
    * @default row
@@ -76,9 +72,9 @@ export interface RadioGroupOptions {
    */
   helpText?: ReactNode
   /**
-   * RadioGroup invalid text. It appears when invalid property is set to true.
+   * RadioGroup error text. It appears when error property is set to true.
    */
-  invalidText?: ReactNode
+  errorText?: ReactNode
 }
 
 export { useRadioState, RadioState } from 'ariakit/radio'

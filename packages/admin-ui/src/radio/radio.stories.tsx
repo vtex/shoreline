@@ -45,8 +45,8 @@ RadioGroupPlayground.args = {
   label: 'Group Label',
   direction: 'row',
   helpText: 'Help Text!',
-  invalid: false,
-  invalidText: 'Invalid Text!',
+  error: false,
+  errorText: 'Error Text!',
 }
 
 export function Example() {
