@@ -1,9 +1,7 @@
 import React from 'react'
-import type { RadioStateReturn } from '@vtex/admin-ui'
 import invariant from 'tiny-invariant'
 
 export interface RadioContextProps {
-  state: RadioStateReturn
   setTouched: (value: boolean) => void
 }
 
@@ -13,7 +11,7 @@ export const FormikRadioGroupContext =
 export function useRadioGroupContext() {
   const context = React.useContext(FormikRadioGroupContext)
 
-  invariant(context, 'You must use Radio inside RadioGroup!')
+  invariant(context, 'You must use FormikRadio inside FormikRadioGroup!')
 
   return context
 }
