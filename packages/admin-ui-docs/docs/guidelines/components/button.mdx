@@ -64,6 +64,33 @@ export const tabToc = {
       level: 2,
     },
   ],
+  designReference: [
+    {
+      id: 'dos',
+      value: `Do's`,
+      level: 2,
+    },
+    {
+      id: 'types',
+      value: 'Types',
+      level: 2,
+    },
+    {
+      id: 'primary',
+      value: 'Primary',
+      level: 3,
+    },
+    {
+      id: 'secondary',
+      value: 'Secondary',
+      level: 3,
+    },
+    {
+      id: 'tertiary',
+      value: 'Tertiary',
+      level: 3,
+    },
+  ],
 }
 
 <Page toc={tabToc} hasTabs>
@@ -261,5 +288,38 @@ function Example() {
 ```
 
 </PageSection>
+</Panel>
+
+<Panel id="designReference">
+
+## Do's
+
+1. Buttons should be completely straight-forward. Absolutely no room for ambiguity.
+2. The behavior they trigger must reflect the exact action that is written.
+3. When using icons as buttons, be mindful of accessibility, always include descriptions in the alt tag.
+4. Pay attention to the icon's use in other screens, be consistent of what action it represents.
+
+## Types
+
+### Primary
+
+1. This option should be used for the single most important action of the page.
+2. The icon must reinforce the importance of the task.
+3. Use this on page headers and confirmation modals.
+4. Use it only once per page / modal.
+
+### Secondary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for page headers, lists and forms.
+
+### Tertiary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for page headers, tables, lists and forms.
+3. Can be used in tight spaces such as modals, sidebars or cards.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
 </Panel>
 </Page>
