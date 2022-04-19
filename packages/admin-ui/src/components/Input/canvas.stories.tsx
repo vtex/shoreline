@@ -5,6 +5,7 @@ import { IconPlus } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 import type { InputType, InputProps } from './index'
 import { Input } from './index'
+import { Anchor } from '../Anchor'
 
 export default {
   title: 'admin-ui/Input',
@@ -62,6 +63,27 @@ export const HelperText = () => {
         id="textfield"
         label="Label"
         helperText="Helper Text"
+      />
+    </Box>
+  )
+}
+
+export const HelperTextWithAnchor = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Box csx={{ width: 300 }}>
+      <Input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+        id="textfield"
+        label="Label"
+        helperText={
+          <>
+            Helper Text with <Anchor>link</Anchor>
+          </>
+        }
       />
     </Box>
   )
