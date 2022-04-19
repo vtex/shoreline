@@ -8,13 +8,15 @@
 import * as React from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import clsx from 'clsx';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { usePrismTheme } from '@docusaurus/theme-common';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 
-import { ToggleCodeButton, useCollapsibleCodeBlock } from '../../components/CodeBlockWrapper'
+import { Button, IconArrowsClockwise } from '@vtex/admin-ui'
+
+import { useCollapsibleCodeBlock, useCopyCodeBlock } from '../../components/CodeBlockWrapper'
+import { CodePreviewContainer } from '../../components/CodePreviewContainer'
 
 function Header({ children }) {
   return <div className={clsx(styles.playgroundHeader)}>{children}</div>;
@@ -25,15 +27,20 @@ function LivePreviewLoader() {
   return <div>Loading...</div>;
 }
 
-function ResultWithHeader() {
+function ResultWithHeader(playgroundProps) {
+  const PreviewComponent = (props) => (
+    <CodePreviewContainer {...playgroundProps}>
+      {props.children}
+    </CodePreviewContainer>
+  )
+
   return (
     <>
-      {/* https://github.com/facebook/docusaurus/issues/5747 */}
       <div className={styles.playgroundPreview}>
         <BrowserOnly fallback={<LivePreviewLoader />}>
           {() => (
             <>
-              <LivePreview />
+              <LivePreview Component={PreviewComponent} />
               <LiveError />
             </>
           )}
@@ -55,47 +62,51 @@ function ThemedLiveEditor() {
   );
 }
 
-function EditorWithHeader() {
-  const { isCodeVisible, handleToggleCodeBlock } = useCollapsibleCodeBlock()
+function EditorWithHeader(props) {
+  const { isCodeVisible, ToggleCodeButton } = useCollapsibleCodeBlock()
+  const { CopyCodeButton } = useCopyCodeBlock(props.currentCode)
 
   return (
     <>
-      <Header>
-        <ToggleCodeButton onToggleCodeBlock={handleToggleCodeBlock} />
-      </Header>
       {isCodeVisible && <ThemedLiveEditor />}
+      <Header>
+        {isCodeVisible && <CopyCodeButton code={props.currentCode} />}
+        {isCodeVisible && <Button
+          variant="neutralTertiary"
+          icon={<IconArrowsClockwise />}
+          onClick={props.onRefresh}
+        >
+          Refresh code
+        </ Button>}
+        <ToggleCodeButton />
+      </Header>
     </>
   );
 }
 
-export default function Playground({ children, transformCode, ...props }) {
-  const {
-    siteConfig: {
-      themeConfig: {
-        liveCodeBlock: { playgroundPosition },
-      },
-    },
-  } = useDocusaurusContext();
+export default function Playground({ children, ...props }) {
+  const [currentCode, setCurrentCode] = React.useState(children)
   const prismTheme = usePrismTheme();
+
+  const transformCode = ((code) => {
+    setCurrentCode(code);
+
+    return `${code};`
+  })
+
+  const handleRefresh = () => { setCurrentCode(children) }
 
   return (
     <div className={styles.playgroundContainer}>
       <LiveProvider
-        code={children.replace(/\n$/, '')}
-        transformCode={transformCode || ((code) => `${code};`)}
+        code={currentCode.replace(/\n$/, '')}
+        transformCode={transformCode}
         theme={prismTheme}
         {...props}>
-        {playgroundPosition === 'top' ? (
-          <>
-            <ResultWithHeader />
-            <EditorWithHeader />
-          </>
-        ) : (
-          <>
-            <EditorWithHeader />
-            <ResultWithHeader />
-          </>
-        )}
+        <>
+          <ResultWithHeader {...props} />
+          <EditorWithHeader currentCode={currentCode} onRefresh={handleRefresh} />
+        </>
       </LiveProvider>
     </div>
   );

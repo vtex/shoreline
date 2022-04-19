@@ -1,0 +1,41 @@
+.wrapper-container {
+  position: relative;
+}
+
+.preview-default-container {
+  padding: 1.5rem;
+  background: white;
+}
+
+.preview-grid-container {
+  position: relative;
+  display: grid;
+  grid-gap: 1px;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  background: transparent;
+  z-index: 1;
+
+  > * {
+    margin: 56px 0 !important;
+  }
+}
+
+.background-grid-container {
+  position: absolute;
+  display: grid;
+  grid-gap: 1px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 0;
+    background: white;
+  }
+}
+

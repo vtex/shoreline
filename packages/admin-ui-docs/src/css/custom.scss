@@ -19,8 +19,7 @@
   --ifm-color-primary-lightest: #fbf3f6;
   --ifm-code-font-size: 95%;
   --ifm-pre-background: #ffffff;
-  --ifm-toc-border-color: #e6e6e6;
-  --ifm-z-index-fixed: 1000;
+  --ifm-toc-border-color: #DDDDDD;
 }
 
 body {
@@ -54,6 +53,10 @@ h1:first-child {
   main {
     margin-top: -171px;
     padding-top: 0;
+
+    & > .container {
+      max-width: 1505px;
+    }
   }
 
   aside {
