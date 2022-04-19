@@ -32,6 +32,7 @@ export function useFilterState<T extends FilterItem>(
 
     setAppliedKey(selected)
     setAppliedItem(combobox.selectedItem)
+
     onChange({ selected })
     menu.hide()
   }, [onChange])
@@ -39,7 +40,9 @@ export function useFilterState<T extends FilterItem>(
   const clear = useCallback(() => {
     setAppliedKey(null)
     setAppliedItem(undefined)
+
     combobox.setValue('')
+    combobox.setSelectedItem(undefined)
 
     onChange({ selected: null })
     menu.hide()
