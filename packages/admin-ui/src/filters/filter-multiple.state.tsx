@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 
+import type { ComboboxMultipleState } from '../combobox'
 import { useComboboxMultipleState } from '../combobox'
 import { useMenuState } from 'ariakit/menu'
 import type { GenericFilterStateReturn, FilterItem } from './filter.state'
@@ -9,26 +10,34 @@ export function useFilterMultipleState<T extends FilterItem>(
 ): UseFilterMultipleReturn<T> {
   const { items, label, initialApplied, onChange = () => {} } = props
 
-  const comboboxMultiple = useComboboxMultipleState({
-    defaultSelected: initialApplied,
+  const [appliedItems, setAppliedItems] = useState<T[]>([])
+
+  const comboboxMultiple = useComboboxMultipleState<T>({
+    getOptionValue: (op) => op.id,
   })
+
+  useEffect(() => {
+    const initialItem = items.filter((it) => initialApplied?.includes(it.id))
+
+    comboboxMultiple.setSelectedItems(initialItem)
+    setAppliedItems(initialItem)
+  }, [])
 
   const menu = useMenuState(comboboxMultiple)
 
   const { selectedItems } = comboboxMultiple
 
-  const [appliedKeys, setAppliedKeys] = useState<string[]>(initialApplied || [])
-
   const apply = useCallback(() => {
-    setAppliedKeys(selectedItems)
-    onChange({ selected: selectedItems })
+    setAppliedItems(selectedItems)
+
+    onChange({ selected: selectedItems.map((i) => i.id) })
     menu.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
-    setAppliedKeys([])
     comboboxMultiple.clearSelected()
 
+    setAppliedItems([])
     onChange({ selected: [] })
     menu.hide()
   }, [onChange])
@@ -37,37 +46,26 @@ export function useFilterMultipleState<T extends FilterItem>(
     // Resets combobox value when menu is closed
     if (!menu.mounted && (comboboxMultiple.value || selectedItems?.length)) {
       comboboxMultiple.setValue('')
-      comboboxMultiple.setSelectedItems(appliedKeys)
+      comboboxMultiple.setSelectedItems(appliedItems)
     }
   }, [menu.mounted])
-
-  // TO DO this won't work for searcheable later
-  const appliedItems = appliedKeys.map((key) =>
-    items.find(({ id }) => id === key)
-  ) as T[]
 
   return {
     menu,
     combobox: comboboxMultiple,
-    checkbox: {
-      // TODO Fix nested components issues
-      // maybe export checkboxstate from hook?
-      value: selected,
-      setValue: comboboxMultiple.setSelected,
-    },
     onClear: clear,
     onChange: apply,
     items,
     appliedItems,
-    appliedKeys,
-    selectedKeys: selected || [],
+    appliedKeys: appliedItems.map((i) => i.id),
+    selectedKeys: selectedItems.map((i) => i.id) || [],
     label,
   }
 }
 
 export interface UseFilterMultipleReturn<T>
   extends GenericFilterStateReturn<T> {
-  checkbox: any
+  combobox: ComboboxMultipleState<T>
   appliedItems: T[]
   appliedKeys: string[]
   selectedKeys: string[]

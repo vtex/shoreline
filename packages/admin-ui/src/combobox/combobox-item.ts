@@ -1,7 +1,6 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { ComboboxItemOptions } from 'ariakit/combobox'
 import { useComboboxItem } from 'ariakit/combobox'
-import type { HTMLProps } from 'react'
 import type { AnyObject } from '..'
 
 // TODO this intermediary component is a workaround for typing conflits
@@ -11,10 +10,7 @@ export const ComboboxItem = createComponent<
   'div',
   ComboboxItemOptions & { style: any }
 >((props) => {
-  const htmlProps = useComboboxItem(props as AnyObject) as Omit<
-    HTMLProps<'div'>,
-    never
-  >
+  const htmlProps = useComboboxItem(props as AnyObject) as any
 
   return useElement('div', {
     ...htmlProps,
