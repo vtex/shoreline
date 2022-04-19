@@ -5,7 +5,7 @@ import type { ComboboxItemProps } from 'ariakit/combobox'
 import { ComboboxItem } from './combobox-item'
 
 import * as style from './combobox.style'
-import type { AnyObject } from '..'
+import type { AnyObject } from '@vtex/admin-ui-util'
 
 export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
   const {
