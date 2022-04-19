@@ -1,4 +1,5 @@
 import type { FieldMetaProps } from 'formik'
+import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 
 /**
@@ -8,9 +9,9 @@ import { useEffect } from 'react'
 export function handleErrorMessage<T>(
   meta: FieldMetaProps<T>,
   currentError?: boolean,
-  currentErrorMessage?: string,
+  currentErrorMessage?: ReactNode,
   formatMessage?: (errorCode: string) => string
-): string | null {
+): ReactNode | null {
   // external error
   if (currentError) return currentErrorMessage ?? null
   // formik error
