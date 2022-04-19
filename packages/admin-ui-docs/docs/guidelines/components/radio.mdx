@@ -8,13 +8,9 @@ import { Page, Panel } from '@site/src/components/Page'
 
 export const tabToc = {
   overview: toc.filter((item) =>
-    [
-      'Help Text',
-      'Group Help Text',
-      'Direction',
-      'Disabled',
-      'Invalid',
-    ].includes(item.value)
+    ['Help Text', 'Group Help Text', 'Direction', 'Disabled', 'Error'].includes(
+      item.value
+    )
   ),
   designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
   codeReference: toc.filter((item) =>
@@ -120,9 +116,9 @@ function Example() {
 }
 ```
 
-### Invalid
+### Error
 
-Use the `invalid` prop to define whether the user input is invalid or not. It is up to you to define what triggers it. Additionally, you should add a `invalidText` to be displayed.
+Use the `error` prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a `errorText` to be displayed.
 
 ```jsx live
 function Example() {
@@ -133,9 +129,9 @@ function Example() {
       state={state}
       label="Group Label"
       helpText="Help text!"
-      invalidText="invalidText text! "
+      errorText="Error text! "
       direction="column"
-      invalid
+      error
     >
       <Radio value="radio-1" label="Radio 1" />
       <Radio value="radio-2" label="Radio 2" />
@@ -200,15 +196,15 @@ function Example() {
 
 ## RadioGroup Props
 
-| Name        | Type          | Description                                | Required | Default |
-| ----------- | ------------- | ------------------------------------------ | -------- | ------- |
-| state       | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
-| helpText    | `ReactNode`   | Help text                                  | 🚫       | -       |
-| invalidText | `ReactNode`   | Invalid text                               | 🚫       | -       |
-| invalid     | `boolean`     | Whether the filed is invalid or not        | 🚫       | `false` |
-| direction   | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
-| label       | `string`      | Group label                                | 🚫       | -       |
-| csx         | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| label     | `string`      | Group label                                | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
 ## useRadioState
 
