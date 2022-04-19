@@ -89,12 +89,14 @@ It informs or guides the user in a calm and non-urgent way.
 <SemanticTable
   items={[
     { semantic: 'actions', main: 'primary', critical: 'destructive' },
+    { semantic: 'form fields', critical: 'invalid', neutral: 'valid' },
     {
       semantic: 'messages',
       critical: 'error',
       warning: 'warning',
       positive: 'success',
-      info: 'information',
+      neutral: 'description',
+      info: 'notification',
     },
     {
       semantic: 'status',
