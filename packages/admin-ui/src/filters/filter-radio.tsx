@@ -11,6 +11,7 @@ export const FilterRadio = (props: FilterRadioProps) => {
       ':after': style.checkmark,
       ':checked': style.checked,
       ...style.regular,
+      ariaChecked: undefined,
       marginRight: '$s',
     },
     checked,

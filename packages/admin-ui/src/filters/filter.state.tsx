@@ -50,12 +50,13 @@ export function useFilterState<T extends FilterItem>(
     if (combobox.selectedItem) {
       apply()
     }
-  }, [combobox.value])
+  }, [combobox.selectedItem])
 
   useEffect(() => {
     // Resets combobox value when menu is closed
     if (!menu.mounted && combobox.value) {
-      combobox.setValue(appliedKey || '')
+      combobox.setValue('')
+      combobox.setSelectedItem(appliedItem)
     }
   }, [menu.mounted])
 
