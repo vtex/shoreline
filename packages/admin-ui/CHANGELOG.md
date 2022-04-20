@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.124.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.1...@vtex/admin-ui@0.124.0) (2022-04-20)
+
+### Features
+
+- **stack:** add component ([d109f36](https://github.com/vtex/admin-ui/commit/d109f365d95edd3d399db67e1eba6c7936319d27))
+
 ## [0.123.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.0...@vtex/admin-ui@0.123.1) (2022-04-19)
 
 ### Features

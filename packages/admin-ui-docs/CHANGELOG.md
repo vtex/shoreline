@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.3...@vtex/admin-ui-docs@0.10.0) (2022-04-20)
+
+### Bug Fixes
+
+- **colors:** add form fields semantic ([c867e68](https://github.com/vtex/admin-ui/commit/c867e681fc32555a7a601a8da7f332eb3fac496a))
+- **docs:** improve color semantics ([d0df060](https://github.com/vtex/admin-ui/commit/d0df0601b5798464da8a44f7b59c151e51524ac9))
+
+### Features
+
+- create code and multiple code section ([24f9c99](https://github.com/vtex/admin-ui/commit/24f9c997f44ccacb69546b4c516402509c606e79))
+- create code and multiple code section ([abec2dd](https://github.com/vtex/admin-ui/commit/abec2ddb371e5951a5fb10f41b6c847a07a739b2))
+- create intro section of page components ([1d1ded9](https://github.com/vtex/admin-ui/commit/1d1ded9bb1e03b35adde32441f587e25df5f70c3))
+- **page section:** create base section for the docs page ([43f8ce4](https://github.com/vtex/admin-ui/commit/43f8ce4ec369be64155f7884f111570928afe1b0))
+
 ## [0.9.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.2...@vtex/admin-ui-docs@0.9.3) (2022-04-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
