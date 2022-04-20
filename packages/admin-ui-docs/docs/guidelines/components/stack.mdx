@@ -5,11 +5,43 @@ hide_table_of_contents: true
 ---
 
 import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
 
 export const tabToc = {
-  overview: toc.filter((item) =>
-    ['Space', 'Direction', 'Fluid', 'Align'].includes(item.value)
-  ),
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'space',
+      value: 'Space',
+      level: 2,
+    },
+    {
+      id: 'direction',
+      value: 'Direction',
+      level: 2,
+    },
+    {
+      id: 'fluid',
+      value: 'Fluid',
+      level: 2,
+    },
+    {
+      id: 'align',
+      value: 'Align',
+      level: 2,
+    },
+    {
+      id: 'responsive',
+      value: 'Responsive',
+      level: 2,
+    },
+  ],
   codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
 }
 
@@ -17,67 +49,112 @@ export const tabToc = {
 
 <Panel id="overview">
 
-Stack is a layout component that makes it easy to stack elements together and apply a space between them.
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Stack is a layout component that makes it easy to stack elements together and apply a space between them."
+/>
 
-## Examples
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
-### Space
-
-The space between components can be controlled using the `space` property.
-
-```jsx live
-<Stack space="$xl">
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
-  <Button>Button 3</Button>
-  <Button>Button 4</Button>
-  <Button>Button 5</Button>
-</Stack>
-```
-
-### Direction
-
-The direction can be either `row` or `column` (default). It can be controlled with the `direction` property.
-
-```jsx live
-<Stack direction="row">
-  <Button>Button 1</Button>
-  <Button>Button 2</Button>
-  <Button>Button 3</Button>
-  <Button>Button 4</Button>
-  <Button>Button 5</Button>
-</Stack>
-```
-
-### Fluid
-
-While on `column` direction, you can alternatively use the `fluid` property. This will make the inner children, match the container width.
-
-```jsx live
-<Box csx={{ maxWidth: 320 }}>
-  <Stack fluid>
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Stack>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
     <Button>Button 3</Button>
-    <Button>Button 4</Button>
-    <Button>Button 5</Button>
   </Stack>
-</Box>
+  <Stack space="$xl">
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+</>
 ```
 
-### Align
+</PageSection>
 
-You can set items alignment (`start` [default], `end`) through the `align` prop.
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
-```jsx live
-<Stack align="end">
-  <Button>First</Button>
-  <Button>Second</Button>
-  <Button>Third</Button>
-</Stack>
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Stack>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+  <Stack direction="row">
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+</>
 ```
 
-### Responsive
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Box csx={{ width: 300 }}>
+    <Stack>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+  <Box csx={{ width: 300 }}>
+    <Stack fluid>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Box csx={{ width: 300 }}>
+    <Stack>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+  <Box csx={{ width: 300 }}>
+    <Stack align="end">
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
 
 ```jsx live
 <Stack
@@ -91,9 +168,11 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
   <Button>Second</Button>
   <Button>Third</Button>
   <Button>Fourth</Button>
-  <Button>Fith</Button>
+  <Button>Fifth</Button>
 </Stack>
 ```
+
+</PageSection>
 
 </Panel>
 
