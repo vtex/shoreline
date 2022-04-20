@@ -5,6 +5,7 @@ hide_table_of_contents: true
 ---
 
 import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
 
 export const tabToc = {
   overview: toc.filter((item) =>
@@ -12,16 +13,44 @@ export const tabToc = {
       item.value
     )
   ),
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'radio',
+      value: 'Radio Props',
+      level: 2,
+    },
+    {
+      id: 'radio-group',
+      value: 'RadioGroup Props',
+      level: 2,
+    },
+    {
+      id: 'use-radio',
+      value: 'useRadioState Props',
+      level: 2,
+    },
+    {
+      id: 'return-props',
+      value: 'Params Props',
+      level: 3,
+    },
+    {
+      id: 'params-props',
+      value: 'Parameter Props',
+      level: 3,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
   designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
-  codeReference: toc.filter((item) =>
-    [
-      'Usage',
-      'State',
-      'Radio Props',
-      'RadioGroup Props',
-      'useRadioState',
-    ].includes(item.value)
-  ),
 }
 
 <Page toc={tabToc} hasTabs>
@@ -41,12 +70,12 @@ function Example() {
     <RadioGroup state={state} label="Accounts" direction="column">
       <Radio
         label="Accounts are disabled"
-        helpText="Customers will only be able to check out as guests."
+        helpText="Customers will only be able to check out as guests"
         value="disabled"
       />
       <Radio
         label="Accounts are optional"
-        helpText="Customers will be able to check out with a customer account or as a guest."
+        helpText="Customers will be able to check out with a customer account or as a guest"
         value="optional"
       />
     </RadioGroup>
@@ -64,7 +93,7 @@ function Example() {
     <RadioGroup
       state={state}
       label="Group Label"
-      helpText="Radio Group help text!"
+      helpText="Radio group help text"
     >
       <Radio value="radio-1" label="Radio 1" />
       <Radio value="radio-2" label="Radio 2" />
@@ -78,13 +107,13 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const state = useRadioState()
+  const state = useRadioState({ defaultValue: 'radio-1' })
 
   return (
     <RadioGroup
       state={state}
       label="Group Label"
-      helpText="Radio Group help text!"
+      helpText="Radio group help text"
       direction="column"
     >
       <Radio value="radio-1" label="Radio 1" />
@@ -105,7 +134,7 @@ function Example() {
     <RadioGroup
       state={state}
       label="Group Label"
-      helpText="Radio Group help text!"
+      helpText="Radio group help text"
       direction="column"
     >
       <Radio value="radio-1" label="Radio 1" disabled />
@@ -122,14 +151,14 @@ Use the `error` prop to define whether the user input is with error or not. It i
 
 ```jsx live
 function Example() {
-  const state = useRadioState()
+  const state = useRadioState({ defaultValue: 'radio-1' })
 
   return (
     <RadioGroup
       state={state}
       label="Group Label"
-      helpText="Help text!"
-      errorText="Error text! "
+      helpText="Help text"
+      errorText="Error text "
       direction="column"
       error
     >
@@ -142,25 +171,6 @@ function Example() {
 ```
 
 </Panel>
-
-<Panel id="designReference">
-
-## Do’s
-
-1. Use them for single choice options.
-2. There should always be a pre-selected option as default.
-3. For more than 6 options you should use a Select.
-4. Don’t be ambiguous, each option should be clear.
-5. Mind the order of the options. Consider ordering them from most to least frequently used, simplest to most complex, or least to most risky.
-6. Use a "None" option if you need an unselected state.
-7. Consider adding an "Other" option if needed, together with a Text Input to capture the user’s needs.
-8. Use titles to group related controls.
-9. Add descriptions if the control is critical, or complex.
-10. Lists of controls should be vertical for better scannability.
-
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
-
-  </Panel>
 
 <Panel id="codeReference">
 
@@ -206,23 +216,70 @@ function Example() {
 | label     | `string`      | Group label                                | 🚫       | -       |
 | csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
-## useRadioState
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+  explanation="A hook to help control the RadioGroup state."
+>
 
-A hook that helps control the RadioGroup state.
-
-### Parameters props
+<PageSection
+  id={tabToc.codeReference[5]?.id}
+  title={tabToc.codeReference[5]?.value}
+>
 
 | Name         | Type                                   | Description                                                        | Required | Default |
 | ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
 | defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
 | setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
 
-### Return Props
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[5]?.id}
+  title={tabToc.codeReference[5]?.value}
+>
 
 | Name     | Type                            | Description                           | Required | Default |
 | -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
 | value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
 | setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
 
+</PageSection>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[6]?.id}
+  title={tabToc.codeReference[6]?.value}
+  direction="row"
+>
+
+- `Radio` has the role `radio`.
+- `RadioGroup` has role `radiogroup`.
+- `Radio` has `aria-checked` set to `true` when it's checked. Otherwise, `aria-checked` is set to `false`.
+- Always use `Radio` within a `RadioGroup`.
+
+</PageSection>
+
 </Panel>
+
+<Panel id="designReference">
+
+## Do’s
+
+1. Use them for single choice options.
+2. There should always be a pre-selected option as default.
+3. For more than 6 options you should use a Select.
+4. Don’t be ambiguous, each option should be clear.
+5. Mind the order of the options. Consider ordering them from most to least frequently used, simplest to most complex, or least to most risky.
+6. Use a "None" option if you need an unselected state.
+7. Consider adding an "Other" option if needed, together with a Text Input to capture the user’s needs.
+8. Use titles to group related controls.
+9. Add descriptions if the control is critical, or complex.
+10. Lists of controls should be vertical for better scannability.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+  
 </Page>

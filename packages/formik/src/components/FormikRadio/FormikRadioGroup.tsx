@@ -59,8 +59,9 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
 }
 
 export interface FormikRadioGroupProps
-  extends Omit<RadioGroupProps, 'state' | 'onChange'> {
+  extends Omit<RadioGroupProps, 'state' | 'onChange' | 'errorText'> {
   name: string
+  errorText?: string
   formatMessage?: (errorCode: string) => string
   onChange?: (value: string | number | undefined) => void
 }

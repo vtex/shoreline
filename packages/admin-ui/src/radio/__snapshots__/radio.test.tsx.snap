@@ -80,7 +80,7 @@ exports[`Radio should match snapshot 1`] = `
   padding: 6px;
   background: transparent;
   border: 1px solid #B9B9B9;
-  color: form.control;
+  color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
