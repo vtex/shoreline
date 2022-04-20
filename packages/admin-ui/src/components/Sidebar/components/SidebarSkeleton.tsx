@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 import { Skeleton } from '../../Skeleton'
 import { Center } from '../../../center'
 
@@ -14,7 +14,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
   const { amount = 7 } = props
 
   return (
-    <Set spacing="$l" csx={{ width: '100%' }} orientation="vertical">
+    <Stack space="$l" csx={{ width: '100%' }}>
       {Array.from(new Array(amount)).map(() => (
         <Center
           csx={{ zIndex: 'sidebarOverlay', paddingX: '$s', width: '100%' }}
@@ -30,7 +30,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
           />
         </Center>
       ))}
-    </Set>
+    </Stack>
   )
 }
 

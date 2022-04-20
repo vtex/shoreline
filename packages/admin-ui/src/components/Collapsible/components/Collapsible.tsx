@@ -30,7 +30,7 @@ export const Collapsible = jsx('div')(
   {
     options: ['disabled', 'state'],
     useOptions(options: CollapsibleOptions, props) {
-      const { disabled, state } = options
+      const { disabled = false, state } = options
       const { csx, children, ...collapsibleProps } = props
       const { grouped } = useGroup()
 
@@ -51,7 +51,7 @@ export const Collapsible = jsx('div')(
 )
 
 export interface CollapsibleOptions {
-  disabled: boolean
+  disabled?: boolean
   /** useCollapsibleState hook return */
   state: CollapsibleState
 }

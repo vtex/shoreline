@@ -1,8 +1,9 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
+
 import { Bleed } from '../../bleed'
-import { Set } from '../Set'
+import { Inline } from '../../inline'
 import { Center } from '../../center'
 import { Skeleton } from '../Skeleton'
 
@@ -114,18 +115,18 @@ export function TopbarSkeleton() {
   return (
     <Fragment>
       <TopbarStart>
-        <Set spacing="$l">
+        <Inline hSpace="$l" align="center">
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ size: '1.5rem' }} />
           </Center>
           <Skeleton csx={{ width: '8rem', height: '1rem' }} />
-        </Set>
+        </Inline>
       </TopbarStart>
       <TopbarCenter>
         <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
       </TopbarCenter>
       <TopbarEnd>
-        <Set spacing="$m">
+        <Inline hSpace="$m" align="center">
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
           </Center>
@@ -138,7 +139,7 @@ export function TopbarSkeleton() {
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ size: '1.5rem' }} />
           </Center>
-        </Set>
+        </Inline>
       </TopbarEnd>
     </Fragment>
   )

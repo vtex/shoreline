@@ -5,7 +5,7 @@ import { useSearchState, Search } from '../index'
 import { tag } from '@vtex/admin-ui-react'
 import { Button } from '../../../button'
 import { useQuerySearchState } from '../hooks/useQuerySearchState'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 import { Input } from '../../Input'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
@@ -104,7 +104,7 @@ export const QueryState = () => {
     })
 
     return (
-      <Set orientation="vertical" spacing={6}>
+      <Stack>
         <Input
           label="Current URL:"
           id="current-url-input"
@@ -126,7 +126,7 @@ export const QueryState = () => {
             <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
           </tag.div>
         </tag.div>
-      </Set>
+      </Stack>
     )
   }
 
