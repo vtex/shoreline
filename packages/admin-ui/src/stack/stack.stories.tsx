@@ -67,7 +67,7 @@ export const Responsive = () => {
       <Button>Second</Button>
       <Button>Third</Button>
       <Button>Fourth</Button>
-      <Button>Fith</Button>
+      <Button>Fifth</Button>
     </Stack>
   )
 }

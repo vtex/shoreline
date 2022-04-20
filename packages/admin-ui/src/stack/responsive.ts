@@ -12,8 +12,8 @@ export function useBreakpoint() {
   const isMatchMediaSupported = isBrowser && 'matchMedia' in window
 
   const [matches, setMatches] = useState(
-    queries.map((query) =>
-      isMatchMediaSupported ? window.matchMedia(query).matches : false
+    queries.map(
+      (query) => isMatchMediaSupported && window.matchMedia(query).matches
     )
   )
 
