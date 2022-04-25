@@ -54,15 +54,16 @@ I18n.argTypes = {
 export const CustomRender = () => {
   const combobox = useComboboxState({
     list: [
-      { value: 'Brazil', flag: '🇧🇷' },
-      { value: 'France', flag: '🇫🇷' },
-      { value: 'UK', flag: '🇬🇧' },
-      { value: 'Colombia', flag: '🇨🇴' },
+      { v: 'Brazil', flag: '🇧🇷', id: '#1' },
+      { v: 'France', flag: '🇫🇷', id: '#2' },
+      { v: 'UK', flag: '🇬🇧', id: '#3' },
+      { v: 'Colombia', flag: '🇨🇴', id: '#4' },
+      { v: 'Germany', flag: '🇩🇪', id: '#5' },
     ],
-    getOptionValue: (item) => item.value,
+    getOptionValue: (item) => item.v,
     renderOption: (item) => (
       <>
-        {item.value}
+        {item.v}
         {item.flag}
       </>
     ),
@@ -227,20 +228,20 @@ export function Multiple() {
 export const CustomRenderMultiple = () => {
   const combobox = useComboboxMultipleState({
     list: [
-      { value: 'Brazil', flag: '🇧🇷' },
-      { value: 'France', flag: '🇫🇷' },
-      { value: 'UK', flag: '🇬🇧' },
-      { value: 'Colombia', flag: '🇨🇴' },
-      { value: 'Germany', flag: '🇩🇪' },
+      { v: 'Brazil', flag: '🇧🇷' },
+      { v: 'France', flag: '🇫🇷' },
+      { v: 'UK', flag: '🇬🇧' },
+      { v: 'Colombia', flag: '🇨🇴' },
+      { v: 'Germany', flag: '🇩🇪' },
     ],
-    getOptionValue: (item) => item.value,
+    getOptionValue: (item) => item.v,
     renderOption: (item) => (
       <>
-        {item.value}
+        {item.v}
         {item.flag}
       </>
     ),
-    renderTag: (item) => item.value.substring(0, 2),
+    renderTag: (item) => item.v.substring(0, 2),
   })
 
   return (
