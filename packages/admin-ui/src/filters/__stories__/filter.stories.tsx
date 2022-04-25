@@ -12,6 +12,8 @@ import {
 
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
+import { FilterSearch } from '../filter-search'
+import { FilterMultipleSearch } from '../filter-multiple-search'
 
 export default {
   title: 'admin-ui/Filters',
@@ -57,7 +59,10 @@ export function Multiple() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
-    initialApplied: ['#1', '#2'],
+    initialApplied: [
+      { label: 'Full', id: '#1' },
+      { label: 'Empty', id: '#2' },
+    ],
   })
 
   return <FilterMultiple state={state} />
@@ -98,7 +103,10 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
-    initialApplied: ['#1', '#2'],
+    initialApplied: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ],
   })
 
   const state2 = useFilterState({
@@ -110,7 +118,7 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'City',
-    initialApplied: '#1',
+    initialApplied: { label: 'Rio de Janeiro', value: 1, id: '#1' },
   })
 
   const state3 = useFilterMultipleState({
@@ -123,7 +131,10 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Preselected',
-    initialApplied: ['#4', '#2'],
+    initialApplied: [
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ],
   })
 
   const filterGroupState = useFilterGroupState({

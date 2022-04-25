@@ -10,19 +10,15 @@ export function useFilterMultipleState<T extends FilterItem>(
 ): UseFilterMultipleReturn<T> {
   const { items, label, initialApplied, baseId, onChange = () => {} } = props
 
-  const [appliedItems, setAppliedItems] = useState<T[]>([])
+  const [appliedItems, setAppliedItems] = useState<T[]>(initialApplied || [])
 
   const comboboxMultiple = useComboboxMultipleState<T>({
-    getOptionValue: (option) => option.id,
+    list: items,
+    getOptionValue: (op) => op.label,
   })
 
   useEffect(() => {
-    const initialItem = items.filter((item) =>
-      initialApplied?.includes(item.id)
-    )
-
-    comboboxMultiple.setSelectedItems(initialItem)
-    setAppliedItems(initialItem)
+    comboboxMultiple.setSelectedItems(initialApplied || [])
   }, [])
 
   const menu = useMenuState(comboboxMultiple)
@@ -81,7 +77,7 @@ export interface UseFilterMultipleStateProps<T> {
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: string[] }) => void
   /** The initial selected keys. */
-  initialApplied?: string[]
+  initialApplied?: T[]
   /** Filter button label. */
   label: string
   /** Base for component and it's children id. */

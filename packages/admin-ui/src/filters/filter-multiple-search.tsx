@@ -1,18 +1,20 @@
 import React from 'react'
-import { Checkbox } from '../checkbox'
+
+import { Checkbox } from '../components/Checkbox'
 import { BaseFilter } from './filter-base'
-import { ComboboxItem } from '../combobox/combobox-item'
-import { MultipleItemsLabel } from './MultipleItemsLabel'
-import { itemStyle } from './filter'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
+import { itemStyle } from './filter'
 import type { FilterItem } from '.'
+import { ComboboxItem } from '../combobox/combobox-item'
+import { FilterSeachbox } from './filter-searchbox'
+import { MultipleItemsLabel } from './MultipleItemsLabel'
 
-export function FilterMultiple<T extends FilterItem>(
+export function FilterMultipleSearch<T extends FilterItem>(
   props: FilterMultipleProps<T>
 ) {
   const {
-    state: { appliedItems, items, combobox, baseId },
+    state: { appliedItems, combobox },
     state,
   } = props
 
@@ -21,20 +23,19 @@ export function FilterMultiple<T extends FilterItem>(
       state={state}
       appliedValuesLabel={<MultipleItemsLabel appliedItems={appliedItems} />}
     >
-      {items.map((item) => (
+      <FilterSeachbox state={combobox} id="hdd" />
+      {combobox.matches.map((item) => (
         <ComboboxItem
           aria-selected={combobox.isSelected(item)}
           key={item.id}
           onClick={() => combobox.onChange(item)}
           style={itemStyle}
-          id={`${baseId ?? ''}-item-${item.id}`}
         >
           <Checkbox
-            id={item.id}
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
-            aria-readonly="true"
+            readOnly
           />
           {item.label}
         </ComboboxItem>

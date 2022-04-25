@@ -10,29 +10,26 @@ export function useFilterState<T extends FilterItem>(
 ): UseFilterStateReturn<T> {
   const { items, label, initialApplied, baseId, onChange = () => {} } = props
 
-  const [appliedKey, setAppliedKey] = useState(initialApplied || null)
-  const [appliedItem, setAppliedItem] = useState<T>()
+  const [appliedKey, setAppliedKey] = useState(initialApplied?.id || null)
+  const [appliedItem, setAppliedItem] = useState(initialApplied || null)
 
   const combobox = useComboboxState({
     virtualFocus: false,
     list: items,
-    getOptionValue: (item) => item.id,
+    getOptionValue: (item) => item.label,
   })
 
   useEffect(() => {
-    const initialItem = items.find((item) => item.id === initialApplied)
-
-    combobox.setSelectedItem(initialItem)
-    setAppliedItem(initialItem)
+    combobox.setSelectedItem(initialApplied)
   }, [])
 
   const menu = useMenuState({ ...combobox, gutter: 4 })
 
   const apply = useCallback(() => {
-    const selected = combobox.value
+    const selected = combobox.selectedItem?.id || null
 
     setAppliedKey(selected)
-    setAppliedItem(combobox.selectedItem)
+    setAppliedItem(combobox.selectedItem || null)
 
     onChange({ selected })
     menu.hide()
@@ -40,7 +37,7 @@ export function useFilterState<T extends FilterItem>(
 
   const clear = useCallback(() => {
     setAppliedKey(null)
-    setAppliedItem(undefined)
+    setAppliedItem(null)
 
     combobox.setValue('')
     combobox.setSelectedItem(undefined)
@@ -62,7 +59,7 @@ export function useFilterState<T extends FilterItem>(
     if (isMenuClosed && combobox.value) {
       // resets combobox
       combobox.setValue('')
-      combobox.setSelectedItem(appliedItem)
+      combobox.setSelectedItem(appliedItem || undefined)
     }
   }, [menu.mounted])
 
@@ -103,7 +100,7 @@ export interface UseFilterStateProps<T> {
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: string | null }) => void
   /** The initial selected key. */
-  initialApplied?: string
+  initialApplied?: T
   /** Filter button label. */
   label: string
   /** Base for component and it's children id. */
