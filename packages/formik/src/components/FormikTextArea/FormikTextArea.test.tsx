@@ -20,7 +20,7 @@ describe('TextArea tests', () => {
             label="TextField label"
             id="text-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -53,13 +53,12 @@ describe('TextArea tests', () => {
               id="text-field-1"
             />
             <Button
-              size="small"
               children="Change Value"
               onClick={() =>
                 setFieldValue('value', 'value changed by setFieldValue')
               }
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -100,7 +99,7 @@ describe('TextArea tests', () => {
             label="TextField label"
             id="text-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -131,7 +130,7 @@ describe('TextArea tests', () => {
             label="TextField label"
             id="text-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -152,15 +151,11 @@ describe('TextArea tests', () => {
               label="TextField label"
               id="text-field-1"
             />
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -194,7 +189,7 @@ describe('TextArea tests', () => {
             label="TextField label"
             id="text-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -230,7 +225,7 @@ describe('TextArea tests', () => {
               id="text-field-1"
               formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )

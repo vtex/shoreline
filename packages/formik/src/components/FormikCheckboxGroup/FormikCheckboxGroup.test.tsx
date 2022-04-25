@@ -29,7 +29,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -87,11 +87,10 @@ describe('CheckboxGroup tests', () => {
               })}
             </FormikCheckboxGroup>
             <Button
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', [options[0]])}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -158,7 +157,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -193,7 +192,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -235,15 +234,11 @@ describe('CheckboxGroup tests', () => {
                 )
               })}
             </FormikCheckboxGroup>
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -287,7 +282,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -328,7 +323,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -378,7 +373,7 @@ describe('CheckboxGroup tests', () => {
                 )
               })}
             </FormikCheckboxGroup>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )
@@ -448,7 +443,7 @@ describe('CheckboxGroup tests', () => {
               )
             })}
           </FormikCheckboxGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
