@@ -91,7 +91,7 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 
 .emotion-2 {
   font: inherit;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -103,11 +103,11 @@ exports[`DataViewStatus should match snapshot empty 1`] = `
 }
 
 .emotion-2:visited {
-  color: hsla(222, 63%, 43%, 1);
+  color: #172F66;
 }
 
 .emotion-2:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -506,7 +506,7 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 
 .emotion-2 {
   font: inherit;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -518,11 +518,11 @@ exports[`DataViewStatus should match snapshot error 1`] = `
 }
 
 .emotion-2:visited {
-  color: hsla(222, 63%, 43%, 1);
+  color: #172F66;
 }
 
 .emotion-2:hover {
-  color: hsla(222, 63%, 43%, 1);
+  color: #20408C;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -899,7 +899,7 @@ exports[`DataViewStatus should match snapshot not-found 1`] = `
   font-size: 0.875rem;
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
 }
 
 <div

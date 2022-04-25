@@ -1,0 +1,70 @@
+---
+title: Text
+path: /text/
+---
+
+By default `<Text>` renders a `<span>` or a specific text element, like `<i>`, `<kbd>`, `<strong>`, etc. You can apply all `TextVariants` using the `variant` prop.
+
+## Usage
+
+```jsx isStatic
+import { Text } from '@vtex/admin-ui'
+
+function Example() {
+  return <Text variant="headline">Headline</Text>
+}
+```
+
+## Examples
+
+### Tone of voice
+
+Text tone of voice
+
+```jsx live
+<Box
+  csx={{
+    '> *': {
+      display: 'block',
+    },
+  }}
+>
+  <Text tone="primary">Default text</Text>
+  <Text tone="secondary">Muted text</Text>
+  <Text tone="info">Info text</Text>
+  <Text tone="critical">Critical text</Text>
+  <Text tone="warning">Warning text</Text>
+  <Text tone="positive">Positive text</Text>
+</Box>
+```
+
+### Variant
+
+```jsx live
+<Box
+  csx={{
+    '> *': {
+      display: 'block',
+    },
+  }}
+>
+  <Text variant="pageTitle">PageTitle</Text>
+  <Text variant="title1">Title 1</Text>
+  <Text variant="title2">Title 2</Text>
+  <Text variant="action1">Action 1</Text>
+  <Text variant="action2">Action 2</Text>
+  <Text variant="display">Display</Text>
+  <Text variant="body">Body</Text>
+  <Text variant="detail">Detail</Text>
+</Box>
+```
+
+## Props
+
+All props of `span` jsx element.
+
+| Name    | Type                                                                               | Description                             | Required | Default   |
+| ------- | ---------------------------------------------------------------------------------- | --------------------------------------- | -------- | --------- |
+| as      | `HTMLElementType`                                                                  | Element to render                       | 🚫       | `'span'`  |
+| variant | `pageTitle`, `title1`, `title2`, `action1`, `action2`, `display`, `body`, `detail` | Text variant. Consumes the text pattern | 🚫       | `body`    |
+| tone    | `primary`, `secondary`, `info`, `critical`, `warning`, `positive`                  | Text Tone of voice                      | 🚫       | `primary` |

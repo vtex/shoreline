@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.28](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.27...@vtex/gatsby-plugin-admin-ui@0.6.28) (2022-04-20)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.27](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.26...@vtex/gatsby-plugin-admin-ui@0.6.27) (2022-04-19)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.26](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.25...@vtex/gatsby-plugin-admin-ui@0.6.26) (2022-04-18)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.25](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.24...@vtex/gatsby-plugin-admin-ui@0.6.25) (2022-04-12)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.24](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.23...@vtex/gatsby-plugin-admin-ui@0.6.24) (2022-04-11)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.23](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.22...@vtex/gatsby-plugin-admin-ui@0.6.23) (2022-04-07)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.22](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.21...@vtex/gatsby-plugin-admin-ui@0.6.22) (2022-04-07)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.21](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.20...@vtex/gatsby-plugin-admin-ui@0.6.21) (2022-04-06)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.20](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.19...@vtex/gatsby-plugin-admin-ui@0.6.20) (2022-03-30)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.19](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.18...@vtex/gatsby-plugin-admin-ui@0.6.19) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.18](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.17...@vtex/gatsby-plugin-admin-ui@0.6.18) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.6.17](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.16...@vtex/gatsby-plugin-admin-ui@0.6.17) (2022-03-23)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
 ## [0.6.16](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.6.15...@vtex/gatsby-plugin-admin-ui@0.6.16) (2022-03-18)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui

@@ -3,8 +3,8 @@ import React, { Fragment } from 'react'
 import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
 import { jsx } from '@vtex/admin-ui-react'
 
-import { Set } from '../Set'
-import { Button } from '../Button'
+import { Inline } from '../../inline'
+import { Button } from '../../button'
 import { Text } from '../Text'
 import { Tooltip } from '../Tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
@@ -46,27 +46,25 @@ export const Pagination = jsx('div')(
                 {range[0]} — {range[1]} {preposition} {total} {subject}
               </Text>
             )}
-            <Set spacing={2}>
+            <Inline align="center" noWrap>
               <Tooltip label={prevLabel}>
                 <Button
-                  variant="adaptative-dark"
+                  variant="neutralTertiary"
                   disabled={loading || prevDisabled}
                   onClick={() => paginate({ type: 'prev' })}
-                  size="small"
                   icon={<IconCaretLeft />}
                 />
               </Tooltip>
 
               <Tooltip label={nextLabel}>
                 <Button
-                  variant="adaptative-dark"
+                  variant="neutralTertiary"
                   disabled={loading || nextDisabled}
                   onClick={() => paginate({ type: 'next' })}
-                  size="small"
                   icon={<IconCaretRight />}
                 />
               </Tooltip>
-            </Set>
+            </Inline>
           </Fragment>
         ),
       }

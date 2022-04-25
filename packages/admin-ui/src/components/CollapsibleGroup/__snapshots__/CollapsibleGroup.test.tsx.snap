@@ -4,7 +4,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-8 {
   background: #FFFFFF;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   border-width: 0;
 }
@@ -39,27 +39,25 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
-}
-
-.emotion-3:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-3:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-3:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -69,7 +67,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 svg {
@@ -79,51 +77,49 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-1 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -146,8 +142,6 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
   display: flex;
 }
 
-
-
 .emotion-6 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -168,7 +162,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
 .emotion-9 {
   background: #FFFFFF;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   padding: 0rem;
 }
@@ -219,7 +213,7 @@ exports[`CollapsibleGroup tests should match snapshot 1`] = `
                   stroke-width="18"
                 />
               </svg>
-               Collapsible Header
+              Collapsible Header
             </div>
           </div>
         </button>
@@ -248,7 +242,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 <DocumentFragment>
   .emotion-8 {
   background: #FFFFFF;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   border-width: 0;
 }
@@ -283,27 +277,25 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
-}
-
-.emotion-3:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-3:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-3:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-3:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-3:focus:not([data-focus-visible-added]) {
@@ -313,7 +305,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 svg {
@@ -323,51 +315,49 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   max-height: 20px;
 }
 
+
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-1 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -390,8 +380,6 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
   display: flex;
 }
 
-
-
 .emotion-6 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -412,7 +400,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
 .emotion-9 {
   background: #FFFFFF;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   padding: 0rem;
 }
@@ -463,7 +451,7 @@ exports[`CollapsibleGroup tests should not render invalid children 1`] = `
                   stroke-width="18"
                 />
               </svg>
-               Collapsible Header
+              Collapsible Header
             </div>
           </div>
         </button>

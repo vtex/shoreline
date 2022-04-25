@@ -3,7 +3,7 @@
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
   .emotion-51 {
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   background: coral;
   border-radius: 4px;
 }
@@ -17,12 +17,14 @@ exports[`FilterBar tests should match snapshot 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  border-top: 1px solid hsla(0, 0%, 87%, 1);
+  border-top: 1px solid #DDDDDD;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
   background: container;
 }
+
+
 
 .emotion-42 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -34,27 +36,25 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
   background: transparent;
-}
-
-.emotion-42:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-42:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-42:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-42:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-42:focus:not([data-focus-visible-added]) {
@@ -64,11 +64,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-42:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-42 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-4 {
@@ -76,75 +72,69 @@ exports[`FilterBar tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-23 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
 
-.emotion-1 {
+.emotion-23 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-22 {
   height: 1.25rem;
   width: 1.25rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
 }
 
-.emotion-49 {
+.emotion-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-  justify-content: start;
 }
 
-.emotion-49 >*:not(:first-child) {
+.emotion-21 >* {
   margin-left: 0.25rem;
+  margin-top: 0.125rem;
 }
 
 .emotion-45 {
@@ -157,27 +147,25 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
-}
-
-.emotion-45:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-45:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-45:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-45:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-45:focus:not([data-focus-visible-added]) {
@@ -187,11 +175,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-45:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-45 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-48 {
@@ -204,27 +188,25 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
-}
-
-.emotion-48:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-48:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-48:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
+}
+
+.emotion-48:disabled {
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-48:focus:not([data-focus-visible-added]) {
@@ -234,11 +216,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-48:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-48 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-38 {
@@ -264,8 +242,8 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-37 >*:not(:last-child) {
-  margin-bottom: 0.5rem;
+.emotion-37 >*:not(:first-child) {
+  margin-top: 0.25rem;
 }
 
 .emotion-36 {
@@ -277,28 +255,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-}
-
-.emotion-21 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: start;
-  justify-content: start;
-}
-
-.emotion-21 >*:not(:first-child) {
-  margin-left: 0.5rem;
 }
 
 .emotion-0 {
@@ -321,29 +277,27 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.5rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   min-width: 150px;
   max-width: 150px;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -353,11 +307,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-5 div {
@@ -371,27 +321,38 @@ exports[`FilterBar tests should match snapshot 1`] = `
 }
 
 .emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
   line-height: 1.1428571429;
   letter-spacing: 0.0125em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   visibility: visible;
   -webkit-flex-direction: row-reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.emotion-3 svg {
+  margin-left: 0.125rem;
+}
+
+.emotion-1 {
+  height: 1rem;
+  width: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
 }
 
 .emotion-2 {
@@ -419,7 +380,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: unset;
   visibility: hidden;
   background: #FFFFFF;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
   cursor: pointer;
@@ -435,11 +396,9 @@ exports[`FilterBar tests should match snapshot 1`] = `
   z-index: 999;
 }
 
-.emotion-6 >*:not(:last-child) {
-  margin-bottom: 0.5rem;
+.emotion-6 >*:not(:first-child) {
+  margin-top: 0.25rem;
 }
-
-
 
 .emotion-27 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
@@ -451,12 +410,10 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.75rem;
   color: #FFFFFF;
-  background: hsla(222, 63%, 43%, 1);
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 600;
   font-size: 0.875rem;
@@ -466,27 +423,25 @@ exports[`FilterBar tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
-}
-
-.emotion-27:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
 }
 
 .emotion-27:hover {
   color: #FFFFFF;
-  background: hsla(222, 63%, 34%, 1);
+  background: #20408C;
 }
 
 .emotion-27:active {
   color: #FFFFFF;
-  background: hsla(222, 63%, 25%, 1);
+  background: #172F66;
+}
+
+.emotion-27:disabled {
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-27:focus:not([data-focus-visible-added]) {
@@ -496,20 +451,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-27 svg {
-  margin: 0.25rem;
-}
-
-.emotion-27:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-27:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -518,6 +464,11 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background: rgba(0, 0, 0, 0.1);
 }
 
+.emotion-27:disabled {
+  background: transparent;
+  color: #747474;
+}
+
 .emotion-27:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
@@ -525,11 +476,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-27 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-34 {
@@ -545,7 +492,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   background: #FFFFFF;
   padding: 0.75rem;
   min-width: 18px;
-  border: 1px solid hsla(0, 0%, 87%, 1);
+  border: 1px solid #DDDDDD;
   border-radius: 3px;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0,0,0,0.10);
 }
@@ -568,7 +515,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
   cursor: pointer;
   position: relative;
   background: transparent;
-  color: hsla(222, 63%, 43%, 1);
+  color: #2953B2;
 }
 
 .emotion-30 div {
@@ -595,22 +542,22 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-30:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-30:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-30:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
 }
 
 .emotion-30:disabled {
-  color: hsla(0, 0%, 45%, 1);
-  background: hsla(0, 0%, 90%, 1);
+  color: #747474;
+  background: #E6E6E6;
 }
 
 .emotion-29 {
@@ -626,13 +573,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-}
-
-.emotion-28 {
-  height: 1rem;
-  width: 1rem;
-  min-height: 1rem;
-  min-width: 1rem;
 }
 
 <div
@@ -686,9 +626,9 @@ exports[`FilterBar tests should match snapshot 1`] = `
                     <svg
                       class="emotion-1"
                       fill="currentColor"
-                      height="1.25rem"
+                      height="1rem"
                       viewBox="0 0 256 256"
-                      width="1.25rem"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <rect
@@ -705,7 +645,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke-width="18"
                       />
                     </svg>
-                     
                     <div
                       class="emotion-2"
                     >
@@ -752,9 +691,9 @@ exports[`FilterBar tests should match snapshot 1`] = `
                     <svg
                       class="emotion-1"
                       fill="currentColor"
-                      height="1.25rem"
+                      height="1rem"
                       viewBox="0 0 256 256"
-                      width="1.25rem"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <rect
@@ -771,7 +710,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke-width="18"
                       />
                     </svg>
-                     
                     <div
                       class="emotion-2"
                     >
@@ -818,9 +756,9 @@ exports[`FilterBar tests should match snapshot 1`] = `
                     <svg
                       class="emotion-1"
                       fill="currentColor"
-                      height="1.25rem"
+                      height="1rem"
                       viewBox="0 0 256 256"
-                      width="1.25rem"
+                      width="1rem"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <rect
@@ -837,7 +775,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                         stroke-width="18"
                       />
                     </svg>
-                     item 1
+                    item 1
                   </div>
                 </div>
               </button>
@@ -868,7 +806,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                   class="emotion-23"
                 >
                   <svg
-                    class="emotion-1"
+                    class="emotion-22"
                     fill="currentColor"
                     height="1.25rem"
                     viewBox="0 0 256 256"
@@ -896,15 +834,12 @@ exports[`FilterBar tests should match snapshot 1`] = `
                       r="16"
                     />
                   </svg>
-                   
                   <div
                     class="emotion-4"
                   >
                     <div
                       class="emotion-23"
-                    >
-                       
-                    </div>
+                    />
                   </div>
                 </div>
               </div>
@@ -931,7 +866,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                   class="emotion-29"
                 >
                   <svg
-                    class="emotion-28"
+                    class="emotion-1"
                     fill="currentColor"
                     height="1rem"
                     viewBox="0 0 256 256"
@@ -977,7 +912,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
                   class="emotion-29"
                 >
                   <svg
-                    class="emotion-28"
+                    class="emotion-1"
                     fill="currentColor"
                     height="1rem"
                     viewBox="0 0 256 256"
@@ -1061,7 +996,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
             class="emotion-23"
           >
             <svg
-              class="emotion-1"
+              class="emotion-22"
               fill="currentColor"
               height="1.25rem"
               viewBox="0 0 256 256"
@@ -1096,12 +1031,12 @@ exports[`FilterBar tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             Add Filter
+            Add Filter
           </div>
         </div>
       </button>
       <div
-        class="emotion-49"
+        class="emotion-21"
       >
         <button
           class="emotion-45"
@@ -1113,7 +1048,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
             <div
               class="emotion-23"
             >
-               Clear Filters
+              Clear Filters
             </div>
           </div>
         </button>
@@ -1130,7 +1065,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
             <div
               class="emotion-23"
             >
-               Apply
+              Apply
             </div>
           </div>
         </button>

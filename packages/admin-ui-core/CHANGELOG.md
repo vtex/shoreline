@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.8.0...@vtex/admin-ui-core@0.8.1) (2022-04-11)
+
+### Bug Fixes
+
+- **core:** change action fg colors ([fceec2a](https://github.com/vtex/admin-ui/commit/fceec2a50f16cc5e00a0d6475c4ad4fc93fbb875))
+- **core:** migrate colors from hsla to hex ([97911e7](https://github.com/vtex/admin-ui/commit/97911e73ec8f3c611f1e8c6e71c2560bd18e7de7))
+
+# [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.3...@vtex/admin-ui-core@0.8.0) (2022-04-06)
+
+### Features
+
+- **inline:** promote component ([37f9518](https://github.com/vtex/admin-ui/commit/37f95185d2c169f20db9cc5302b2b3a5731c09a8))
+
+## [0.7.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.2...@vtex/admin-ui-core@0.7.3) (2022-03-24)
+
+### Bug Fixes
+
+- **tokens:** change action.neutral tokens values ([5ae5b8b](https://github.com/vtex/admin-ui/commit/5ae5b8bb2c312fad0650303064301c5e9d9f98f5))
+
 ## [0.7.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.7.1...@vtex/admin-ui-core@0.7.2) (2022-03-18)
 
 ### Bug Fixes

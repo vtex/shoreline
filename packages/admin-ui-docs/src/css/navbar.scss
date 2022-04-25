@@ -1,32 +1,157 @@
 :root {
-  --ifm-navbar-height: 100px;
   --ifm-navbar-shadow: unset;
+  --ifm-navbar-sidebar-width: var(--doc-sidebar-width);
+  --docsearch-text-color: #545454 !important;
+  --docsearch-muted-color: #545454 !important;
+  --docsearch-searchbox-background: #f4f4f4 !important;
+  --ifm-color-emphasis-600: #000000;
 }
 
 .navbar {
-  z-index: 1000;
+  &.navbar--fixed-top {
+    height: fit-content;
+  }
 
-  .navbar__link,
-  .dropdown__link {
-    font-variation-settings: 'WGHT' 600 !important;
+  &__logo {
+    width: 28px;
+    height: 24px;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding-top: 3px;
+  }
+
+  .DocSearch-Button {
+    border-radius: 4px;
+    padding: 8px;
+    background-color: unset;
+
+    &:hover {
+      background-color: #e6e6e6;
+      box-shadow: none !important;
+    }
+  }
+
+  .DocSearch-Search-Icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  .DocSearch-Button-Placeholder {
+    padding: 0 12px 0 8px;
+  }
+
+  @media (min-width: 751px) {
+    &__logo {
+      width: 32px;
+      height: 28px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+
+    .DocSearch-Button {
+      width: 100%;
+
+      &-Keys,
+      &-Placeholder {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 997px) {
+    border-right: 1px solid var(--ifm-toc-border-color);
+    width: var(--doc-sidebar-width);
+    height: fit-content;
+    padding: 32px 24px;
+
+    &__inner {
+      flex-flow: column;
+    }
+
+    &__brand {
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+
+    &__logo {
+      width: 37px;
+      height: 32px;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__items--right {
+      justify-content: left;
+
+      & > div {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    .DocSearch-Button {
+      background-color: revert;
+
+      &-Keys,
+      &-Placeholder {
+        display: flex;
+      }
+    }
   }
 }
 
-aside b,
-.navbar b {
-  font-variation-settings: 'WGHT' 700 !important;
+.navbar .DocSearch-Button {
+  border-radius: 4px;
+  padding: 10px 12px;
+  height: fit-content;
+
+  &-Key:first-child {
+    text-indent: -9999px;
+
+    &:before {
+      content: '';
+      background: url('../../static/img/command.svg') 50%/1rem 1rem;
+      height: 16px;
+      width: 12.6px;
+    }
+  }
 }
 
+.navbar-sidebar {
+  &__brand {
+    margin-right: 0;
+    height: fit-content;
+    padding: 32px 24px;
+  }
 
-aside a,
-.navbar__brand {
-  padding-left: 1rem;
-}
+  .navbar__logo {
+    width: 37px;
+    height: 32px;
+  }
 
-.header-github-link:before {
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") no-repeat;
-  content: "";
-  display: flex;
-  height: 24px;
-  width: 24px;
+  .navbar__title {
+    font-size: 1.5rem;
+  }
+
+  &__close svg {
+    width: 12.75px;
+    height: 12.75px;
+    stroke-linecap: round;
+    margin-right: 4px;
+
+    g {
+      stroke-width: 1.5;
+    }
+  }
+
+  &__backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }

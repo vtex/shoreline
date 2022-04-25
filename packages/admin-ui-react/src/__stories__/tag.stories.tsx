@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import type { Meta } from '@storybook/react'
 import { useMenuState, Menu, MenuItem, MenuButton } from 'reakit/Menu'
 
-import { createSystem } from '../createSystem'
-import { tag } from '../index'
+import { createSystem } from '../system'
+import { tag } from '../system-deprecated'
 
 const [SystemProvider] = createSystem({
   key: 'admin-ui-react',

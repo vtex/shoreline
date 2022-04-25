@@ -1,4 +1,4 @@
-import type { Ref } from 'react'
+import type { Ref, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import type { AbstractInputProps } from '../AbstractInput'
@@ -62,7 +62,7 @@ export interface InputProps extends SystemComponentProps<InputOwnProps> {
   /** unique id of the component */
   id: string
   /** Input helper text */
-  helperText?: string
+  helperText?: ReactNode
   /** Input char limit */
   charLimit?: number
   /** Input error message */

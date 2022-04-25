@@ -5,11 +5,11 @@ import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { DataGrid, useDataGridState } from '../index'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../Search'
 import { createColumns } from '../createColumns'
 import { Pagination, useQueryPaginationState } from '../../Pagination'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 import { Input } from '../../Input'
 import { FlexSpacer } from '../../Flex'
 import {
@@ -211,7 +211,7 @@ export function QueryState() {
     }, [search.debouncedValue])
 
     return (
-      <Set orientation="vertical" spacing={6}>
+      <Stack>
         <Input
           label="Current URL:"
           id="current-url-input"
@@ -234,7 +234,7 @@ export function QueryState() {
           </DataViewControls>
           <DataGrid state={grid} />
         </DataView>
-      </Set>
+      </Stack>
     )
   }
 

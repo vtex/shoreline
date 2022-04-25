@@ -67,7 +67,7 @@ export interface SetOptions {
    * space between items
    * @default 0
    */
-  spacing?: ResponsiveValue<number>
+  spacing?: ResponsiveValue<number> | string
   /**
    * items alignment
    * @default start

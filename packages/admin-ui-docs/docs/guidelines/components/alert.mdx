@@ -1,0 +1,252 @@
+---
+title: Alert
+path: /alert/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    [
+      'Tone of voice',
+      'Visible',
+      'Action',
+      'onDismiss',
+      'Fluid',
+      'Sticky',
+      'With Icon',
+      'Examples',
+    ].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) =>
+    [
+      'Do’s',
+      'Alert types',
+      'Information',
+      'Warning',
+      'Danger',
+      'Success',
+    ].includes(item.value)
+  ),
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not.
+
+## Examples
+
+### Tone of voice
+
+The alert's [tone of voice](/foundations/colors/#tones) is either `info` (default), `warning`, `possitive`, or `critical`.
+
+```jsx live
+function Example() {
+  return (
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert visible tone="info">
+        Info Alert
+      </Alert>
+      <Alert visible tone="warning">
+        Warning Alert
+      </Alert>
+      <Alert visible tone="positive">
+        Positive Alert
+      </Alert>
+      <Alert visible tone="critical">
+        Critical Alert
+      </Alert>
+    </Set>
+  )
+}
+```
+
+### Visible
+
+The Alert can be visible or not. By default, it will render an Alert with the `visible` property set to `false`.
+
+```jsx live
+function Example() {
+  const [visible, setVisible] = React.useState(false)
+
+  const handleDismiss = () => setVisible(false)
+  const handleToggle = () => setVisible((v) => !v)
+
+  return (
+    <Box>
+      <Button onClick={handleToggle}>Toggle</Button>
+      <Alert visible={visible} onDismiss={handleDismiss}>
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    </Box>
+  )
+}
+```
+
+### Action
+
+You can easily add an action into any `Alert` using the `Anchor` component.
+
+```jsx live
+function Example() {
+  const handlePrimaryAction = () => window.alert('primary action!')
+  const handleSecondaryAction = () => window.alert('secondary action!')
+  const handleTertiaryAction = () => window.alert('tertiary action!')
+
+  return (
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert tone="positive" icon={<IconCheckCircle />} visible>
+        Order successfully placed <Anchor>See order.</Anchor>
+      </Alert>
+    </Set>
+  )
+}
+```
+
+### onDismiss
+
+Represents the event of click from the alert dismiss button. To use this feature, define the `onDismiss` property.
+
+```jsx live
+function Example() {
+  const [visible, setVisible] = React.useState(true)
+  return (
+    <Alert
+      visible={visible}
+      onDismiss={() => {
+        window.alert('dismissed!')
+        setVisible(false)
+      }}
+    >
+      This account is inactive. Check your billing for more information.
+    </Alert>
+  )
+}
+```
+
+### Fluid
+
+Represents whether the height is fluid or not on mobile devices. By default its value is `true`. You can change it setting the `fluid` property to be either `true` or `false`.
+
+```jsx live
+function Example() {
+  return (
+    <Box csx={{ width: 300 }}>
+      <Alert visible fluid={false} tone="positive" onDismiss={() => {}}>
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    </Box>
+  )
+}
+```
+
+### Sticky
+
+The Alert can have a sticky border or not. By default, it will render an Alert with the `sticky` property set to `false`.
+
+```jsx live
+function Example() {
+  return (
+    <Alert visible sticky tone="positive" onDismiss={() => {}}>
+      Order successfully placed
+    </Alert>
+  )
+}
+```
+
+### With Icon
+
+You can add an icon on the left side of the `Alert`. Just use the `icon` property.
+
+```jsx live
+function Example() {
+  return (
+    <Set spacing={2} orientation="vertical" fluid>
+      <Alert tone="info" icon={<IconQuestion />} visible>
+        Info Alert
+      </Alert>
+      <Alert tone="positive" icon={<IconCheckCircle />} visible>
+        Positive Alert
+      </Alert>
+      <Alert tone="warning" icon={<IconWarning />} visible>
+        Warning Alert
+      </Alert>
+      <Alert tone="critical" icon={<IconXOctagon />} visible>
+        Critical Alert
+      </Alert>
+    </Set>
+  )
+}
+```
+
+  </Panel>
+  <Panel id="designReference">
+
+## Do’s
+
+1. They follow the page's grid, adapting to full 100% width, or centralized over a smaller container, for instance.
+2. They don't overlap with sidebars. They are contextualized within containers.
+3. They can’t be placed over the page's header. They are contextualized within containers.
+4. Provide visible feedback to user actions by using alerts.
+5. In high priority alerts, completing the task is the main focus. Our role is to assure that the user will solve their problem, by providing enough information to do it, through a clear message and action button.
+6. Should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
+7. The user needs to know exactly what happened. Even if we work to assure full SLA, things can fail. There are even some scenarios that are beyond our direct control. Because of this, it’s extremely important that our users understand what is blocking them to finish their tasks.
+8. Errors must be actionable. As users understand what is happening, we need to give them proper following actions.
+9. We should always calm the user, not cause more stress.
+10. Alerts can be stacked.
+
+## Alert types
+
+### Information
+
+Use this to give instant feedback about the tasks a user just performed. Its main objective is to ensure task confirmation, or notify about further actions.
+Do not represent alarm or danger, but provide visibility about the system’s operations. Ex. You have 4 new releases to review.
+
+### Warning
+
+Use this when user needs to know about some important info before taking any decision. Adds a higher note of urgency over situations that may cause problems to the user’s store, but aren’t yet causing trouble.
+Ex. Sorry, this account is inactive. Please check your store’s billing for more information.
+
+### Danger
+
+Use this when something went wrong after performing an action. Situation should be checked with urgency, since it’s already causing problems to the user’s store, and require manual resolution. This alert isn’t dismissable, and should stay on until the problem is fixed.
+Ex. Sorry, something went wrong. Please, try again, or refresh your page.
+
+### Success
+
+Use this when the user's action had a successful outcome. You can consider using toasts for this situation.
+Ex. Order successfully placed.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Alert } from '@vtex/admin-ui'
+
+function Example() {
+  return <Alert visible>Order successfully placed</Alert>
+}
+```
+
+## Props
+
+| Name      | Type                                   | Description                                   | Required | Default |
+| --------- | -------------------------------------- | --------------------------------------------- | -------- | ------- |
+| csx       | `StyleObject`                          | Custom styles                                 | 🚫       | `{}`    |
+| icon      | `ReactNode`                            | Icon to display                               | 🚫       | -       |
+| onDismiss | `() => void`                           | Action to dispatch on dismiss                 | 🚫       | -       |
+| visible   | `boolean`                              | Whether it is visible or not                  | 🚫       | `false` |
+| tone      | `info, positive, warning, or critical` | Tone of voice                                 | 🚫       | `info`  |
+| children  | `ReactNode`                            | Component children                            | 🚫       | -       |
+| sticky    | `boolean`                              | Whether it is sticky or not                   | 🚫       | `false` |
+| fluid     | `boolean`                              | Whether the height is fluid on mobile devices | 🚫       | `true`  |
+
+  </Panel>
+</Page>

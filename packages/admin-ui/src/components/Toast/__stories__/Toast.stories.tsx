@@ -2,8 +2,9 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
-import { Button } from '../../Button'
-import { Set } from '../../Set'
+import { Button } from '../../../button'
+import { Text } from '../../Text'
+import { Inline } from '../../../inline'
 
 export default {
   title: 'admin-ui/Toast',
@@ -14,13 +15,18 @@ const ToastButton = () => {
   const showToast = useToast()
 
   return (
-    <Set>
+    <Inline>
       <Button
         onClick={() => {
           showToast({
             message: 'Type here a longer message but not much longer than that',
             dismissible: true,
-            action: { label: 'Action', onClick: () => {} },
+            action: {
+              label: 'Action',
+              onClick: () => {
+                alert('Some action!')
+              },
+            },
           })
         }}
       >
@@ -32,11 +38,16 @@ const ToastButton = () => {
             message: 'This is a Toast!',
             dismissible: true,
             tone: 'positive',
-            action: { label: 'Action', onClick: () => {} },
+            action: {
+              label: 'Action',
+              onClick: () => {
+                alert('Some action!')
+              },
+            },
           })
         }}
       >
-        positive
+        Positive
       </Button>
       <Button
         onClick={() => {
@@ -44,11 +55,16 @@ const ToastButton = () => {
             message: 'This is a Toast!',
             dismissible: true,
             tone: 'critical',
-            action: { label: 'Action', onClick: () => {} },
+            action: {
+              label: 'Action',
+              onClick: () => {
+                alert('Some action!')
+              },
+            },
           })
         }}
       >
-        critical
+        Critical
       </Button>
       <Button
         onClick={() => {
@@ -56,13 +72,46 @@ const ToastButton = () => {
             message: 'This is a Toast!',
             dismissible: true,
             tone: 'warning',
-            action: { label: 'Action', onClick: () => {} },
+            action: {
+              label: 'Action',
+              onClick: () => {
+                alert('Some action!')
+              },
+            },
           })
         }}
       >
         Warning
       </Button>
-    </Set>
+      <Button
+        onClick={() => {
+          showToast({
+            message: (
+              <>
+                <Text variant="pageTitle">Hi there!</Text>
+                <br />
+                <Text>
+                  This is a custom Toast with a higher than average height and a
+                  button-like behavior.
+                </Text>
+              </>
+            ),
+            dismissible: true,
+            tone: 'positive',
+            csx: {
+              maxHeight: 'auto',
+              ':hover': {
+                background: '#C0E1D5',
+                cursor: 'pointer',
+              },
+            },
+            onClick: () => alert('Hello world!'),
+          })
+        }}
+      >
+        Custom
+      </Button>
+    </Inline>
   )
 }
 

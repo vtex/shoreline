@@ -1,0 +1,1182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-2:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #2953B2;
+  background: #DDE5F7;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #20408C;
+  background: #BBCBF0;
+}
+
+.emotion-2:active {
+  color: #172F66;
+  background: #96B2F2;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #2953B2;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #20408C;
+  background: #F1F4FC;
+}
+
+.emotion-2:active {
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-2:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #CC3D3D;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #FFFFFF;
+  background: #962828;
+}
+
+.emotion-2:active {
+  color: #FFFFFF;
+  background: #782020;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #CC3D3D;
+  background: #F8E3E3;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #962828;
+  background: #EDBABA;
+}
+
+.emotion-2:active {
+  color: #782020;
+  background: #F49494;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #CC3D3D;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #962828;
+  background: #FBF2F2;
+}
+
+.emotion-2:active {
+  color: #782020;
+  background: #F8E3E3;
+}
+
+.emotion-2:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #545454;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #3B3B3B;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emotion-2:active {
+  color: #000000;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-2:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  @keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-5 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-5:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-5:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-5:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-5:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: hidden;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  position: absolute;
+  bottom: 0rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+}
+
+.emotion-3 svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.emotion-2 {
+  -webkit-animation: animation-0 1.5s linear infinite;
+  animation: animation-0 1.5s linear infinite;
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-1 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  -webkit-animation: animation-1 1s ease-in-out infinite;
+  animation: animation-1 1s ease-in-out infinite;
+}
+
+<button
+    aria-disabled="true"
+    class="emotion-5"
+    disabled=""
+    style="pointer-events: none;"
+    type="button"
+  >
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+      <div
+        class="emotion-3"
+      >
+        <svg
+          class="emotion-2"
+          focusable="false"
+          viewBox="0 0 50 50"
+        >
+          <circle
+            class="emotion-1"
+            cx="25"
+            cy="25"
+            r="20"
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-2:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-2:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    aria-disabled="true"
+    class="emotion-2"
+    disabled=""
+    style="pointer-events: none;"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+}
+
+.emotion-2:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-2:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+  .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.emotion-2:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-2:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-2:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-2:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<button
+    class="emotion-2"
+    type="button"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-0"
+      >
+        Button
+      </div>
+    </div>
+  </button>
+</DocumentFragment>
+`;

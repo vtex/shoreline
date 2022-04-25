@@ -1,8 +1,9 @@
 import type { Ref, ReactNode } from 'react'
-import type { CsxCall } from '@vtex/admin-ui-react'
+import type { ComponentStyleProps } from '@vtex/admin-ui-react'
 import React, { forwardRef } from 'react'
 
-import { Set } from '../../Set'
+import type { StackProps } from '../../../stack'
+import { Stack } from '../../../stack'
 
 /**
  * Groups even-spaced SidebarItem's
@@ -11,22 +12,24 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   props: SidebarGroupProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, spacing = 1, csx } = props
+  const { children, space = '$l', csx } = props
 
   return (
-    <Set
+    <Stack
       ref={ref}
-      spacing={spacing}
-      orientation="vertical"
+      space={space}
       role="menubar"
-      csx={csx}
+      csx={{
+        width: '100%',
+        ...csx,
+      }}
     >
       {children}
-    </Set>
+    </Stack>
   )
 })
 
-export interface SidebarGroupProps extends CsxCall {
+export interface SidebarGroupProps extends ComponentStyleProps {
   children?: ReactNode
-  spacing?: number
+  space?: StackProps['space']
 }

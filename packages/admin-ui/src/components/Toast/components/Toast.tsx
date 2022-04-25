@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from 'react'
+import type { MouseEvent } from 'react'
 import {
   IconX,
   IconXOctagon,
@@ -11,7 +12,7 @@ import { useTimeout } from '@vtex/admin-ui-hooks'
 
 import type { InternalToast } from '../types'
 import { ToastContainer } from './ToastContainer'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 
 interface ToastProps extends InternalToast {
   onClear: (dedupeKey: string, id: string) => void
@@ -33,9 +34,11 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       onClear,
       dismissible,
       action,
+      csx = {},
       shouldRemove,
       tone = 'info',
       duration = 10000,
+      ...divProps
     } = props
 
     const remove = useCallback(
@@ -62,6 +65,8 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         onMouseEnter={stopTimeout}
         onMouseLeave={startTimeout}
         tone={tone}
+        csx={csx}
+        {...divProps}
       >
         <tag.div
           csx={{
@@ -77,11 +82,12 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
             {action && (
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 key={action.label}
-                onClick={() => {
+                onClick={(event: MouseEvent<HTMLButtonElement>) => {
                   remove()
                   action.onClick()
+                  event.stopPropagation()
                 }}
                 csx={{ color: '$action.main.tertiary' }}
               >
@@ -90,11 +96,13 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             )}
             {dismissible && (
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 icon={<IconX />}
-                size="small"
                 aria-label="Close toast"
-                onClick={remove}
+                onClick={(event: MouseEvent<HTMLButtonElement>) => {
+                  remove()
+                  event.stopPropagation()
+                }}
               />
             )}
           </tag.div>

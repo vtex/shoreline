@@ -13,7 +13,7 @@ exports[`Search tests should match snapshot 1`] = `
   padding-left: 2rem;
   padding-right: 2.5rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -27,17 +27,17 @@ exports[`Search tests should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2 {
@@ -171,7 +171,7 @@ exports[`Search tests should match snapshot on loading 1`] = `
   padding-left: 2rem;
   padding-right: 2.5rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -185,17 +185,17 @@ exports[`Search tests should match snapshot on loading 1`] = `
 }
 
 .emotion-2:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-2:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-2:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-3 {

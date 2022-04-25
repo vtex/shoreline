@@ -1,13 +1,24 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { ComboboxItem as AriakitComboboxItem } from 'ariakit/combobox'
+import type { ComboboxItemOptions } from 'ariakit/combobox'
+import { useComboboxItem } from 'ariakit/combobox'
+import type { HTMLProps } from 'react'
+import type { AnyObject } from '..'
 
-import * as style from './combobox.style'
+// TODO this intermediary component is a workaround for typing conflits
+// on ariakit we should investigate the typing issues
 
-export const ComboboxItem = createComponent<typeof AriakitComboboxItem>(
-  (props) => {
-    return useElement(AriakitComboboxItem, {
-      ...props,
-      baseStyle: style.item,
-    })
-  }
-)
+export const ComboboxItem = createComponent<
+  'div',
+  ComboboxItemOptions & { style: any }
+>((props) => {
+  const htmlProps = useComboboxItem(props as AnyObject) as Omit<
+    HTMLProps<'div'>,
+    never
+  >
+
+  return useElement('div', {
+    ...htmlProps,
+    children: props.children,
+    baseStyle: props.style || {},
+  })
+})

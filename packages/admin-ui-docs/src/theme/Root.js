@@ -6,7 +6,8 @@ import {
 
 
 const [ThemeProvider] = createSystem({
-  key: 'admin-ui-provider',
+  key: 'example',
+  experimentalDisabledGlobalStyles: false,
 })
 
 function Root({ children }) {

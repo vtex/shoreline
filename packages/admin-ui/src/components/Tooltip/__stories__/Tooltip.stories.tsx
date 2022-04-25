@@ -8,10 +8,10 @@ import { tag } from '@vtex/admin-ui-react'
 import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
 
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { Tag } from '../../Tag'
 import { Text } from '../../Text'
-import { Set } from '../../Set'
+import { Stack } from '../../../stack'
 
 export default {
   title: 'admin-ui/Tooltip',
@@ -36,14 +36,14 @@ export const ReactNodeLabel = () => {
       visible
       placement="right"
       label={
-        <Set orientation="vertical" spacing={2}>
+        <Stack>
           <Text variant="detail" tone="secondary">
             Previous Order: 102183 (211-213)
           </Text>
           <Tag palette="green" label="Ready for Handling" size="small" />
           <Text variant="detail">João da Silva</Text>
           <Text variant="detail">49,00 BRL</Text>
-        </Set>
+        </Stack>
       }
     >
       <Button icon={<IconCopy />} variant="tertiary" />

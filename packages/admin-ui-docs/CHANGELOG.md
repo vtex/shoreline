@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.3...@vtex/admin-ui-docs@0.10.0) (2022-04-20)
+
+### Bug Fixes
+
+- **colors:** add form fields semantic ([c867e68](https://github.com/vtex/admin-ui/commit/c867e681fc32555a7a601a8da7f332eb3fac496a))
+- **docs:** improve color semantics ([d0df060](https://github.com/vtex/admin-ui/commit/d0df0601b5798464da8a44f7b59c151e51524ac9))
+
+### Features
+
+- create code and multiple code section ([24f9c99](https://github.com/vtex/admin-ui/commit/24f9c997f44ccacb69546b4c516402509c606e79))
+- create code and multiple code section ([abec2dd](https://github.com/vtex/admin-ui/commit/abec2ddb371e5951a5fb10f41b6c847a07a739b2))
+- create intro section of page components ([1d1ded9](https://github.com/vtex/admin-ui/commit/1d1ded9bb1e03b35adde32441f587e25df5f70c3))
+- **page section:** create base section for the docs page ([43f8ce4](https://github.com/vtex/admin-ui/commit/43f8ce4ec369be64155f7884f111570928afe1b0))
+
+## [0.9.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.2...@vtex/admin-ui-docs@0.9.3) (2022-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.9.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.1...@vtex/admin-ui-docs@0.9.2) (2022-04-18)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.9.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.9.0...@vtex/admin-ui-docs@0.9.1) (2022-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+# [0.9.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.8.1...@vtex/admin-ui-docs@0.9.0) (2022-04-11)
+
+### Features
+
+- **page:** create page template and add tabs to it ([903cfb7](https://github.com/vtex/admin-ui/commit/903cfb7c3fb711fe6751efc895705902d199dbaa))
+
+## [0.8.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.8.0...@vtex/admin-ui-docs@0.8.1) (2022-04-07)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+# [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.7.0...@vtex/admin-ui-docs@0.8.0) (2022-04-07)
+
+### Bug Fixes
+
+- **datepicker:** change from invalid to tone ([7b98c8a](https://github.com/vtex/admin-ui/commit/7b98c8abc6d1ec96b219909064026449e4ec45ba))
+- **datepicker:** support min and max values ([b31928d](https://github.com/vtex/admin-ui/commit/b31928d55c8a22c18fc296d5b67717454c612e33))
+
+### Features
+
+- **button:** review component with design specs ([b47fe40](https://github.com/vtex/admin-ui/commit/b47fe40937654c3eca8e6efc0b7e6246f716784c))
+
+# [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.6.0...@vtex/admin-ui-docs@0.7.0) (2022-04-06)
+
+### Features
+
+- **bleed:** promote component ([74cff7c](https://github.com/vtex/admin-ui/commit/74cff7cf86453351f4014e11166827b5f1096a19))
+- **inline:** promote component ([37f9518](https://github.com/vtex/admin-ui/commit/37f95185d2c169f20db9cc5302b2b3a5731c09a8))
+- **pageheader:** create the docs page header ([4f43b71](https://github.com/vtex/admin-ui/commit/4f43b71da604b3a1b71f32f6f2a89a8afc4b79de))
+
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.7...@vtex/admin-ui-docs@0.6.0) (2022-03-30)
+
+### Features
+
+- add new sidebar style ([4763e24](https://github.com/vtex/admin-ui/commit/4763e241a57020ec118b4f868d59273be151c41a))
+- create documentation footer ([fb4232e](https://github.com/vtex/admin-ui/commit/fb4232ef111e361e0dde6583555a9839457a1b1e))
+
+## [0.5.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.6...@vtex/admin-ui-docs@0.5.7) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.5.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.5...@vtex/admin-ui-docs@0.5.6) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.5.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.4...@vtex/admin-ui-docs@0.5.5) (2022-03-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
 ## [0.5.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.5.3...@vtex/admin-ui-docs@0.5.4) (2022-03-18)
 
 ### Bug Fixes

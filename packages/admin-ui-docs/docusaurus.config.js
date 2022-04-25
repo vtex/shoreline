@@ -26,6 +26,7 @@ const config = {
           routeBasePath: '/',
           editUrl:
             'https://github.com/vtex/admin-ui/edit/main/packages/admin-ui-docs/',
+          breadcrumbs: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -45,7 +46,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      hideableSidebar: true,
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
@@ -60,15 +60,12 @@ const config = {
           alt: 'VTEX Logo',
           src: 'img/vtex-logo.svg',
         },
-        items: [
-          {
-            href: 'https://github.com/vtex/admin-ui',
-            className: 'header-github-link',
-            position: 'right',
-            'aria-label': 'GitHub repository',
-          },
-        ],
-        hideOnScroll: true,
+      },
+      footer: {
+        style: 'light',
+        logo: {
+          src: 'img/vtex-logo.svg',
+        },
       },
       algolia: {
         appId: 'ZJU0P6KHND',

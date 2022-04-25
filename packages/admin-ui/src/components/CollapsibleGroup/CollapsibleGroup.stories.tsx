@@ -10,7 +10,7 @@ import {
   useCollapsibleState,
 } from '../Collapsible'
 import { Text } from '../Text'
-import { Set } from '../Set'
+import { Stack } from '../../stack'
 
 export default {
   title: 'admin-ui/CollapsibleGroup',
@@ -35,14 +35,14 @@ export const Basic: Story<CollapsibleGroupProps> = () => {
       <Collapsible state={marketing}>
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
-          <Set orientation="vertical">
+          <Stack>
             <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
             <Text variant="detail" tone="secondary">
               Campaign - Campaing Name
             </Text>
-          </Set>
+          </Stack>
         </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
@@ -73,14 +73,14 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
       <Collapsible state={marketing}>
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
-          <Set orientation="vertical">
+          <Stack>
             <Text variant="detail" tone="secondary">
               Partner - app_ios
             </Text>
             <Text variant="detail" tone="secondary">
               Campaign - Campaing Name
             </Text>
-          </Set>
+          </Stack>
         </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
@@ -93,7 +93,7 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
           <Collapsible state={index ? packageOne : packageTwo} key={index}>
             <CollapsibleHeader label={value} />
             <CollapsibleContent>
-              <Set orientation="vertical" spacing={2}>
+              <Stack>
                 <Text variant="detail" tone="info">
                   N 00025755809
                 </Text>
@@ -104,7 +104,7 @@ export const Nested: Story<CollapsibleGroupProps> = () => {
                   Type - Total Express
                 </Text>
                 <Text tone="info">Tracking - XSDFE231675</Text>
-              </Set>
+              </Stack>
             </CollapsibleContent>
           </Collapsible>
         )

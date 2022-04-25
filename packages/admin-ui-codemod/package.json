@@ -1,0 +1,38 @@
+{
+  "name": "@vtex/admin-ui-codemod",
+  "version": "0.1.1",
+  "description": "Admin UI codemod scripts",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "directory": "packages/admin-ui-codemod",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "scripts": {
+    "jscodeshift": "jscodeshift",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {
+    "@vtex/admin-ui": "0.x",
+    "react": ">=16.8"
+  },
+  "dependencies": {
+    "chalk": "2.4.1",
+    "execa": "3.2.0",
+    "globby": "10.0.1",
+    "inquirer": "7.0.0",
+    "is-git-clean": "1.1.0",
+    "jscodeshift": "0.13.1",
+    "meow": "5.0.0"
+  },
+  "bin": {
+    "admin-ui-codemod": "./bin/admin-ui-codemod.js"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-docs",
-  "version": "0.5.4",
+  "version": "0.10.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -14,13 +14,13 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.14",
-    "@docusaurus/preset-classic": "2.0.0-beta.14",
-    "@docusaurus/theme-live-codeblock": "2.0.0-beta.14",
+    "@docusaurus/core": "2.0.0-beta.17",
+    "@docusaurus/preset-classic": "2.0.0-beta.17",
+    "@docusaurus/theme-live-codeblock": "2.0.0-beta.17",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
-    "@vtex/admin-formik": "^0.4.17",
-    "@vtex/admin-ui": "^0.120.3",
+    "@vtex/admin-formik": "^0.4.29",
+    "@vtex/admin-ui": "^0.124.0",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.1",
     "file-loader": "^6.2.0",

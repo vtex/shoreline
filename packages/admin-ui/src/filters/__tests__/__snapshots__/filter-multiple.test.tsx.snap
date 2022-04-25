@@ -19,10 +19,8 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-right: 0.25rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -36,24 +34,22 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background: hsla(0, 0%, 96%, 1);
-  color: hsla(0, 0%, 33%, 1);
-  padding: 0.5rem 0.75rem;
-}
-
-.emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #F4F4F4;
+  color: #545454;
 }
 
 .emotion-1:hover {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 33%, 1);
+  background: #E6E6E6;
+  color: #545454;
 }
 
 .emotion-1:active {
-  background: hsla(0, 0%, 87%, 1);
-  color: hsla(0, 0%, 33%, 1);
+  background: #DDDDDD;
+  color: #545454;
+}
+
+.emotion-1 svg {
+  margin-left: 0.125rem;
 }
 
 .emotion-0 {

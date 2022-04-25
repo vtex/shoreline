@@ -1,0 +1,70 @@
+---
+title: About
+path: /about/
+---
+
+We believe that progress comes from experimentation. So, recently released components often start as experimental. This helps us evolve the components' APIs using our user's feedback.
+
+## Using experimental features
+
+Experimental features have the `experimental_` prefix. To use them in your code, just change the name in the import.
+
+```js
+import {
+  experimental_Component as Component,
+  experimental_useHook as useHook,
+  experimental_utility as utility,
+} from '@vtex/admin-ui'
+```
+
+## Best practices
+
+Before using experimental features, try to follow the best practices to avoid problems and enhance maintainability.
+
+### Use exact versions
+
+Experimental features can introduce breaking changes on patches and minors. To avoid problems, use the exact version of the library in the `package.json` file.
+
+```json
+{
+  "dependencies": {
+-   "@vtex/admin-ui": "^0.118.0"
++   "@vtex/admin-ui": "0.118.0"
+  }
+}
+```
+
+With yarn
+
+```sh
+yarn add @vtex/admin-ui --exact
+```
+
+### Create abstractions
+
+You can make it easier to update experimental features later by abstracting them into a separate file in your app.
+
+For example, say you're using an experimental_Component. Instead of passing this prop every time you use Component, you can abstract Component into a separate file and define an API that the rest of your app will rely on.
+
+```jsx
+// MyComponent.js
+import React from 'react'
+import { experimental_Component as Component } from '@vtex/admin-ui'
+
+function MyComponent(props, ref) {
+  return <Component unstable_prop={prop} {...props} ref={ref} />
+}
+
+export default React.forwardRef(MyComponent)
+```
+
+```jsx
+// OtherComponent.js
+import MyComponent from './MyComponent'
+
+function OtherComponent() {
+  return <MyComponent />
+}
+```
+
+If something changes on that experimental feature, you can simply update `MyComponent` instead of going through your entire app.

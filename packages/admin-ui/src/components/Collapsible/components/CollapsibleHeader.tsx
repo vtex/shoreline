@@ -4,7 +4,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
 import { Flex } from '../../Flex'
-import { Button } from '../../Button'
+import { Button } from '../../../button'
 import { useCollapsibleContext } from '../context'
 
 export const CollapsibleHeader = jsx('header')(
@@ -44,7 +44,7 @@ function Disclosure({ children }: { children: ReactNode }) {
 
   return (
     <Button
-      variant="adaptative-dark"
+      variant="neutralTertiary"
       {...getToggleProps()}
       iconPosition="start"
       csx={{

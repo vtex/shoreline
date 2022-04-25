@@ -4,7 +4,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import { IconContainer, jsx } from '@vtex/admin-ui-react'
 import { palette } from '@vtex/admin-ui-core'
 
-import { Button } from '../Button'
+import { Button } from '../../button'
 
 /**
  * Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
@@ -49,10 +49,6 @@ export const Tag = jsx('div')(
             minWidth: 16,
             minHeight: 16,
           },
-          button: {
-            height: 16,
-            width: 16,
-          },
         },
         regular: {
           height: 40,
@@ -62,10 +58,6 @@ export const Tag = jsx('div')(
             minWidth: 20,
             height: 20,
             minHeight: 20,
-          },
-          button: {
-            height: 20,
-            width: 20,
           },
         },
       },
@@ -84,11 +76,12 @@ export const Tag = jsx('div')(
             {label}
             {!!handleDelete && (
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 icon={<IconX />}
                 aria-label={label}
                 onClick={handleDelete}
-                size="small"
+                bleedY
+                bleedX
                 csx={{
                   marginLeft: 1,
                 }}

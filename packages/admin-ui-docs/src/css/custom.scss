@@ -1,20 +1,25 @@
-@import "navbar.scss";
-@import "sidebar.scss";
-@import "markdown.scss";
+@import 'navbar.scss';
+@import 'sidebar.scss';
+@import 'markdown.scss';
+
+@font-face {
+  font-family: 'VTEX Trust';
+  src: url('../../static/VTEXTrust-VF.woff2') format('woff2');
+}
 
 :root {
-  --ifm-font-family-base: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif !important;
-  --ifm-color-primary: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-dark: hsla(340, 82%, 50%, 1);
-  --ifm-color-primary-darker: hsla(340, 82%, 39%, 1);
-  --ifm-color-primary-darkest: hsla(340, 82%, 29%, 1);
-  --ifm-color-primary-light: hsla(340, 82%, 71%, 1);
-  --ifm-color-primary-lighter: hsla(340, 82%, 82%, 1);
-  --ifm-color-primary-lightest: hsla(340, 83%, 93%, 1);
+  --ifm-font-family-base: 'VTEX Trust', -apple-system, system-ui,
+    BlinkMacSystemFont, sans-serif !important;
+  --ifm-color-primary: #da3461;
+  --ifm-color-primary-dark: #b1204c;
+  --ifm-color-primary-darker: #870d36;
+  --ifm-color-primary-darkest: #870d36;
+  --ifm-color-primary-light: #f48aac;
+  --ifm-color-primary-lighter: #f5e0e7;
+  --ifm-color-primary-lightest: #fbf3f6;
   --ifm-code-font-size: 95%;
-  --ifm-pre-background: rgba(255, 255, 255);
-  --ifm-toc-border-color: hsla(0, 0%, 90%, 1);
-  --ifm-z-index-fixed: 1000;
+  --ifm-pre-background: #ffffff;
+  --ifm-toc-border-color: #DDDDDD;
 }
 
 body {
@@ -25,6 +30,14 @@ body {
   --ifm-spacing-horizontal: 3rem;
 }
 
+h1:first-child {
+  display: none;
+}
+
+.theme-doc-breadcrumbs {
+  display: none;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -33,5 +46,25 @@ body {
 
   html[data-theme='dark'] & {
     background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 997px) {
+  main {
+    margin-top: -171px;
+    padding-top: 0;
+
+    & > .container {
+      max-width: 1505px;
+    }
+  }
+
+  aside {
+    height: calc(100% + 376px);
+  }
+
+  .container {
+    padding-top: 0 !important;
+    padding-bottom: 8rem !important;
   }
 }

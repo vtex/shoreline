@@ -9,8 +9,8 @@ import {
 } from '@vtex/phosphor-icons'
 
 import { Topbar, TopbarStart, TopbarEnd } from '../index'
-import { Set } from '../../Set'
-import { Button } from '../../Button'
+import { Inline } from '../../../inline'
+import { Button } from '../../../button'
 import { Text } from '../../Text'
 
 export default {
@@ -22,13 +22,13 @@ export function Example() {
   return (
     <Topbar>
       <TopbarStart>
-        <Set spacing={3}>
-          <Button variant="adaptative-dark" icon={<IconImage />} />
+        <Inline align="center" noWrap>
+          <Button variant="neutralTertiary" icon={<IconImage />} />
           <Text variant="action1">dpsppinheiros</Text>
-        </Set>
+        </Inline>
       </TopbarStart>
       <TopbarEnd>
-        <Set spacing={0}>
+        <Inline align="center" noWrap>
           <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
             Switch to previous version
           </Button>
@@ -40,7 +40,7 @@ export function Example() {
           </Button>
           <Button variant="tertiary" icon={<IconBell />} />
           <Button variant="tertiary" icon={<IconQuestion />} />
-        </Set>
+        </Inline>
       </TopbarEnd>
     </Topbar>
   )
@@ -53,13 +53,13 @@ export function Loading() {
     <Fragment>
       <Topbar loading={loading}>
         <TopbarStart>
-          <Set spacing={3}>
-            <Button variant="adaptative-dark" icon={<IconImage />} />
+          <Inline align="center" noWrap>
+            <Button variant="neutralTertiary" icon={<IconImage />} />
             <Text variant="action1">dpsppinheiros</Text>
-          </Set>
+          </Inline>
         </TopbarStart>
         <TopbarEnd>
-          <Set spacing={0}>
+          <Inline align="center" noWrap>
             <Button variant="tertiary" icon={<IconArrowUUpLeft />}>
               Switch to previous version
             </Button>
@@ -71,7 +71,7 @@ export function Loading() {
             </Button>
             <Button variant="tertiary" icon={<IconBell />} />
             <Button variant="tertiary" icon={<IconQuestion />} />
-          </Set>
+          </Inline>
         </TopbarEnd>
       </Topbar>
       <br />

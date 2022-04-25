@@ -10,7 +10,7 @@ import { IconXCircle } from '@vtex/phosphor-icons'
 
 import type { ComboboxState } from './combobox.state'
 import { FieldContainer, FloatingLabel } from '../components/Field'
-import { Button } from '../components/Button'
+import { Button } from '../button'
 import * as style from './combobox.style'
 
 const fixUp: any = {
@@ -38,11 +38,10 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
           {state.value !== '' && (
             <tag.div csx={style.buttonContainer}>
               <Button
-                variant="adaptative-dark"
+                variant="neutralTertiary"
                 as={ComboboxCancel as any}
                 state={state}
                 icon={<IconXCircle />}
-                size="small"
                 csx={style.clearButton}
               />
             </tag.div>
@@ -55,6 +54,6 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
 
 interface ComboboxFieldProps {
   id: string
-  state: ComboboxState
+  state: ComboboxState<any>
   label: string
 }

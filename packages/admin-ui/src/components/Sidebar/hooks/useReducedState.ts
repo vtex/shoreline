@@ -4,6 +4,7 @@ export function useReducedState(initialState = false): ReducedState {
   const initiallyReduced = useInitalState(initialState)
   /** keeps track of leftnav's reduced state */
   const [reduced, setReduced] = useState<boolean>(initiallyReduced)
+
   /** keeps track of button appearance */
   const [toggleVisible, setToggleVisible] = useState(false)
 

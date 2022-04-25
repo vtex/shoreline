@@ -1,0 +1,325 @@
+---
+title: Button
+path: /button/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'how-does-each-variant-work',
+      value: 'How does each variant work?',
+      level: 3,
+    },
+    {
+      id: 'button-sizes',
+      value: 'Button sizes',
+      level: 2,
+    },
+    {
+      id: 'button-with-icon',
+      value: 'Button with icon',
+      level: 2,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 2,
+    },
+    {
+      id: 'loading',
+      value: 'Loading',
+      level: 2,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: `Do's`,
+      level: 2,
+    },
+    {
+      id: 'types',
+      value: 'Types',
+      level: 2,
+    },
+    {
+      id: 'primary',
+      value: 'Primary',
+      level: 3,
+    },
+    {
+      id: 'secondary',
+      value: 'Secondary',
+      level: 3,
+    },
+    {
+      id: 'tertiary',
+      value: 'Tertiary',
+      level: 3,
+    },
+  ],
+}
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions."
+/>
+
+<MultipleCodeSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+  optionsTitle="Variant"
+  options={['Primary','Secondary','Tertiary']}
+>
+
+```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="primary">Primary</Button>
+  <Button variant="critical">Critical Primary</Button>
+</>
+```
+
+```jsx live optionId=secondary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="criticalSecondary">Critical Secondary</Button>
+</>
+```
+
+```jsx live optionId=tertiary layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button variant="tertiary">Tertiary</Button>
+  <Button variant="criticalTertiary">Critical Tertiary</Button>
+  <Button variant="neutralTertiary">Neutral</Button>
+</>
+```
+
+</MultipleCodeSection>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  level={tabToc.overview[2].level}
+  direction="row"
+>
+
+- tertiary (low emphasis): Typically used for less important actions.
+- secondary (medium emphasis): Used for more emphasis than text buttons.
+- primary (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button>Normal Button</Button>
+  <Button size="large">Large Button</Button>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button icon={<IconHeart />}>Icon start</Button>
+  <Button icon={<IconHeart />} iconPosition="end">
+    Icon end
+  </Button>
+  <Button icon={<IconHeart title="Favorite" />} aria-label="Favorite button" />
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button disabled>Disabled</Button>
+  <Button variant="secondary" disabled>
+    Disabled
+  </Button>
+  <Button variant="tertiary" disabled>
+    Disabled
+  </Button>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+>
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+function Example() {
+  const [loading, setLoading] = React.useState(true)
+
+  return (
+    <>
+      <Button loading={loading} onClick={() => setLoading(!loading)}>
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="secondary"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        variant="tertiary"
+        loading={loading}
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+    </>
+  )
+}
+```
+
+</PageSection>
+</Panel>
+
+<Panel id="codeReference">
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx
+import { Button } from '@vtex/admin-ui'
+
+export function Example() {
+  return <Button onClick={() => {}}>Admin UI Button</Button>
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
+
+| Name         | Type                                                                                           | Description                               | Required | Default   |
+| ------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | --------- |
+| size         | `normal, large`                                                                                | Size of the button                        | 🚫       | `normal`  |
+| variant      | `primary, secondary, tertiary, critical, criticalSecondary, criticalTertiary, neutralTertiary` | Button variant                            | 🚫       | `primary` |
+| icon         | `ReactNode`                                                                                    | Icon of the button                        | 🚫       | -         |
+| iconPosition | `start, end`                                                                                   | Position of the icon                      | 🚫       | `start`   |
+| disabled     | `boolean`                                                                                      | Defines if the Button is disabled         | 🚫       | `false`   |
+| loading      | `boolean`                                                                                      | Defines if the Button is in loading state | 🚫       | `false`   |
+| csx          | `StyleProp`                                                                                    | Defines component styles                  | 🚫       | `{}`      |
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  direction="row"
+>
+
+- `Button` has the role `button`.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> trigger its action.
+- If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
+- When using an Icon-only button, you must set the `aria-label` property to make it accessible.
+
+```jsx
+function Example() {
+  return (
+    <Button
+      icon={<IconHeart title="Favorite" />}
+      aria-label="Favorite button"
+    />
+  )
+}
+```
+
+</PageSection>
+</Panel>
+
+<Panel id="designReference">
+
+## Do's
+
+1. Buttons should be completely straight-forward. Absolutely no room for ambiguity.
+2. The behavior they trigger must reflect the exact action that is written.
+3. When using icons as buttons, be mindful of accessibility, always include descriptions in the alt tag.
+4. Pay attention to the icon's use in other screens, be consistent of what action it represents.
+
+## Types
+
+### Primary
+
+1. This option should be used for the single most important action of the page.
+2. The icon must reinforce the importance of the task.
+3. Use this on page headers and confirmation modals.
+4. Use it only once per page / modal.
+
+### Secondary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for page headers, lists and forms.
+
+### Tertiary
+
+1. This option should be used for non-urgent, or optional actions.
+2. Use this option for page headers, tables, lists and forms.
+3. Can be used in tight spaces such as modals, sidebars or cards.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>

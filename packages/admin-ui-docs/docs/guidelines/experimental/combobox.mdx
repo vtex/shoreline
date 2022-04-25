@@ -1,0 +1,477 @@
+---
+title: Combobox
+path: /combobox/
+---
+
+## Usage
+
+```jsx
+import {
+  experimental_ComboboxField as ComboboxField,
+  experimental_ComboboxPopover as ComboboxPopover,
+  experimental_useComboboxState as useComboboxState,
+  experimental_ComboboxMultipleField as ComboboxMultipleField,
+  experimental_ComboboxMultiplePopover as ComboboxMultiplePopover,
+  experimental_useComboboxMultipleState as useComboboxMultipleState,
+} from '@vtex/admin-ui'
+
+function Single() {
+  const combobox = useComboboxState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxField id="id" label="Label" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+function Multiple() {
+  const comboboxMultiple = useComboboxMultipleState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxMultipleField id="id" label="Label" state={comboboxMultiple} />
+      <ComboboxMultiplePopover state={comboboxMultiple} />
+    </>
+  )
+}
+```
+
+## Examples
+
+### Single
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Multiple
+
+```jsx noInline live
+const ComboboxMultipleField = experimental_ComboboxMultipleField
+const ComboboxMultiplePopover = experimental_ComboboxMultiplePopover
+const useComboboxMultipleState = experimental_useComboboxMultipleState
+
+function Example() {
+  const comboboxMultiple = useComboboxMultipleState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxMultipleField
+        id="country-combobox"
+        label="Country"
+        state={comboboxMultiple}
+      />
+      <ComboboxMultiplePopover state={comboboxMultiple} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Custom rendering
+
+You can use objects instead of strings for your combobox's list and define a custom rendering function for each option. For this you must also define a `getOptionValue` function (for converting the object shape into a unique string value),
+a `renderOption` function which should return a ReactNode that represents this object visually. If you don't define these 2 functions and you use objects on your list you will get an unexpected behavior.
+
+The value obtained by the `getOptionValue` function will be the one considered when performing the search based on the user input.
+
+
+#### Input example
+
+```jsx
+  list: [
+    { value: 'Brazil', flag: '🇧🇷' },
+    { value: 'France', flag: '🇫🇷' },
+    { value: 'UK', flag: '🇬🇧' },
+    { value: 'Colombia', flag: '🇨🇴' },
+  ],
+  getOptionValue: (item) => item.value,
+  renderOption: (item) => (
+    <>
+      {item.value}
+      {item.flag}
+    </>
+```
+
+#### Basic custom rendering example
+
+```jsx noInline live
+  const ComboboxField = experimental_ComboboxField
+  const ComboboxPopover = experimental_ComboboxPopover
+  const useComboboxState = experimental_useComboboxState
+
+  const CustomRender = () => {
+    const combobox = useComboboxState({
+      list: [
+        { value: 'Brazil', flag: '🇧🇷' },
+        { value: 'France', flag: '🇫🇷' },
+        { value: 'UK', flag: '🇬🇧' },
+        { value: 'Colombia', flag: '🇨🇴' },
+      ],
+      getOptionValue: (item) => item.value,
+      renderOption: (item) => (
+        <>
+          {item.value}
+          {item.flag}
+        </>
+      ),
+    })
+
+    return (
+      <div>
+        {combobox.selectedItem && 'Selected object: '}
+        {JSON.stringify(combobox.selectedItem)}
+        {combobox.value}
+        <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+        <ComboboxPopover state={combobox} />
+      </div>
+    )
+  }
+
+  render(<CustomRender />)
+```
+
+#### Custom rendering for combobox multiple
+
+  When using comboboxMultiple you can also define a custom rendering function specifically for the tags, if you don't set it, renderOption will be used.
+
+```jsx noInline live
+  const ComboboxMultipleField = experimental_ComboboxMultipleField
+  const ComboboxMultiplePopover = experimental_ComboboxMultiplePopover
+  const useComboboxMultipleState = experimental_useComboboxMultipleState
+
+  const CustomRenderMultiple = () => {
+    const combobox = useComboboxMultipleState({
+      list: [
+        { value: 'Brazil', flag: '🇧🇷' },
+        { value: 'France', flag: '🇫🇷' },
+        { value: 'UK', flag: '🇬🇧' },
+        { value: 'Colombia', flag: '🇨🇴' },
+        { value: 'Germany', flag: '🇩🇪' },
+      ],
+      getOptionValue: (item) => item.value,
+      renderOption: (item) => (
+        <>
+          {item.value}
+          {item.flag}
+        </>
+      ),
+      renderTag: (item) => item.value.substring(0, 2),
+    })
+
+    return (
+      <div>
+        {combobox.selectedItem && 'Selected objects: '}
+        {JSON.stringify(combobox.selectedItems)}
+        
+        <ComboboxMultipleField
+          state={combobox}
+          id="combobox-multiple"
+          label="Countries"
+          csx={{
+            width: '100%',
+          }}
+        />
+        <ComboboxMultiplePopover state={combobox} />
+      </div>
+    )
+  }
+
+  render(<CustomRenderMultiple />)
+```
+
+#### Custom rendering for i18n
+
+  You can use custom item rendering as a way of implementing internationalization for each option.
+
+```jsx noInline live
+  const ComboboxField = experimental_ComboboxField
+  const ComboboxPopover = experimental_ComboboxPopover
+  const useComboboxState = experimental_useComboboxState
+
+  const getIntl = (val) => {
+    const dict = {
+      Brazil: 'Brasil',
+      France: 'França',
+      UK: 'Reino unido',
+      Colombia: 'Colombia',
+    }
+
+    return dict[val]
+  }
+
+  const CustomRender = () => {
+    const combobox = useComboboxState({
+      list: [
+        'Brazil',
+        'France',
+        'UK',
+        'Colombia',
+      ],
+      getOptionValue: (item) => getIntl(item),
+      renderOption: (item) => getIntl(item),
+    })
+
+    return (
+      <div>
+        {combobox.selectedItem && 'Selected object: '}
+        {JSON.stringify(combobox.selectedItem)}
+        <ComboboxField id="basic-combobox" state={combobox} label="Country" />
+        <ComboboxPopover state={combobox} />
+      </div>
+    )
+  }
+
+  render(<CustomRender />)
+```
+
+### Async
+
+You can use the `deferredValue` and `setMatches` to handle searches in async environments.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+// just a sample API
+function api(search) {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
+
+  const res = items.filter((item) =>
+    item.value.toLowerCase().startsWith(search.toLowerCase())
+  )
+
+  return new Promise((resolve) => setTimeout(resolve, 1000, res))
+}
+
+function Example() {
+  const combobox = useComboboxState()
+
+  useEffect(() => {
+    if (combobox.deferredValue === '') {
+      combobox.setMatches([])
+    } else {
+      combobox.setLoading(true)
+      searchItems(combobox.deferredValue).then((res) => {
+        combobox.setMatches(res.map((i) => i.value))
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue])
+
+  return (
+    <div>
+      <ComboboxField id="async-combobox" state={combobox} label="Country" />
+      <ComboboxPopover state={combobox} />
+    </div>
+  )
+}
+
+render(<Example />)
+```
+
+#### Handling states
+
+The `loading` and `error` states can be toggled programmatically with `setLoading` and `setError`. Use these functions to interact with your data-fetching library.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+
+function Example() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  const toggleLoading = () => {
+    combobox.setLoading((l) => !l)
+    combobox.setVisible(true)
+  }
+
+  const toggleError = () => {
+    combobox.setError((e) => !e)
+    combobox.setVisible(true)
+  }
+
+  return (
+    <>
+      <Set>
+        <Button size="small" variant="tertiary" onClick={toggleLoading}>
+          toggle loading
+        </Button>
+        <Button size="small" variant="danger-tertiary" onClick={toggleError}>
+          toggle error
+        </Button>
+      </Set>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The combobox has default translations for the popover strings. Since the label can vary, you should handle this translation. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx noInline live
+const ComboboxField = experimental_ComboboxField
+const ComboboxPopover = experimental_ComboboxPopover
+const useComboboxState = experimental_useComboboxState
+const I18nProvider = experimental_I18nProvider
+
+function ComboboxComponent() {
+  const combobox = useComboboxState({
+    list: ['Brazil', 'Australia', 'France', 'Canada', 'Japan'],
+  })
+
+  return (
+    <>
+      <ComboboxField id="country-combobox" label="Country" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="pt-BR">
+      <ComboboxComponent />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+## TODOs
+
+Features and fixes scheduled for this component:
+
+- [ ] Support to render images and icons in items
+- [ ] Review translations
+
+## Props
+
+### useComboboxState
+
+| Name      | Type       | Description                  | Required | Default |
+| --------- | ---------- | ---------------------------- | -------- | ------- |
+| timeoutMs | `number`   | Timeout of the deferredValue | 🚫       | -       |
+| list      | `ItemType[]` | List of items                | 🚫       | -       |
+| getOptionValue | `(item: ItemType) => string` | Function that transforms item shape into a string value, no need to use it on string[] lists  | 🚫       | by default it returns the item value, stringified if it is not string|
+| renderOption | `(item: ItemType) => string` | Function for transforming item shape into renderable node, no need to use it on string[] lists  | 🚫       | by default it returns the item value, stringified if it is not string|
+
+#### ComboboxState
+
+The hooks return the ComboboxState, with the values:
+
+| Name          | Type                       | Description                                          |
+| ------------- | -------------------------- | ---------------------------------------------------- |
+| value         | `string`                   | Current input value                                  |
+| setLoading    | `React.SetState<string>`   | Set the value                                        |
+| deferredValue | `string`                   | Current input value delayed by a defined `timeoutMs` |
+| matches          | `ItemType[]`                 | List of items that were a match for the current input search |
+| setMatches       | `React.SetState<ItemType[]>` | Set matches value                                   |
+| selectedItem       | `ItemType` | Currently selected item, this props contains the full object, and not just the string value                                  |
+| setSelectedItem       | `(arg: ItemType) => void` | Set selected item value                                   |
+| setLoading    | `React.SetState<boolean>`  | Set loading state                                    |
+| setError      | `React.SetState<boolean>`  | Set error state                                      |
+| getOptionValue| `(item: ItemType) => string`  | Same as the one passed to the hook                                      |
+| renderOption  | `(item: ItemType) => string`  | Same as the one passed to the hook                                      |
+
+### useComboboxMultipleState
+
+It extends the `useComboboxState` props, and:
+
+| Name                | Type       | Description                                      | Required | Default |
+| ------------------- | ---------- | ------------------------------------------------ | -------- | ------- |
+| shouldClearOnSelect | `boolean`  | If should clear the text input on select an item | 🚫       | -       |
+| defaultSelected     | `ItemType[]` | List of items that are selected by default       | 🚫       | -       |
+| renderTag          | `(item: ItemType) => ReactNode` | Function that controls what's rendered inside tag       | 🚫       | copies renderOption prop's value |
+
+#### ComboboxMultipleState
+
+The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and additionally has:
+
+| Name           | Type                       | Description             |
+| -------------- | -------------------------- | ----------------------- |
+| selectedItems  | `ItemType[]`             | List of selected items  |
+| setSelectedItems| `SetStateAction<ItemType[]>` | Setter for selected items |
+| unselect | `(value: string) => void`   | Unselect an item with this value       |
+| clearSelected  | `() => void`               | Clear the selected list |
+| select | `(item: ItemType) => void`   | Adds inputed item to selected list        |
+| unselect | `(item: ItemType) => void`   | Removes inputed item from selected list        |
+| renderTag | `(item: ItemType) => ReactNode`   | Same as the one inputed to hook        |
+| onChange | `(item: ItemType) => void`   | Function that toggles if item is selected        |
+| isSelected | `(item: ItemType) => boolean`   | Function which returns selected status for an item        |
+
+
+
+### ComboboxField & ComboboxMultipleField
+
+| Name  | Type            | Description    | Required | Default |
+| ----- | --------------- | -------------- | -------- | ------- |
+| state | `ComboboxState` or `ComboboxMultipleState` | Required state | ✅       | -       |
+| label | `string`        | Required label | ✅       | -       |
+| id    | `string`        | Required id    | ✅       | -       |
+| csx   | `StyleObject`   | Custom styles  | 🚫       | `{}`    |
+
+### ComboboxPopover & ComboboxMultiplePopover
+
+| Name    | Type            | Description                    | Required | Default |
+| ------- | --------------- | ------------------------------ | -------- | ------- |
+| state   | `ComboboxState` or `ComboboxMultipleState` | Required state                 | ✅       | -       |
+| onRetry | `() => void`    | Function to be called on retry | 🚫       | -       |
+| csx     | `StyleObject`   | Custom styles                  | 🚫       | `{}`    |

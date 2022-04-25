@@ -1,43 +1,108 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
+import { tag, useSystem } from '@vtex/admin-ui-react'
 
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import { Center } from '../../../center'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
+import { useSidebarContext } from './SidebarContext'
 
 export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
   props: SidebarDisclosureProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const { icon, selected, label, csx = {}, ...buttonProps } = props
+  const {
+    icon,
+    selected,
+    selectedFallback,
+    label,
+    csx = {},
+    expandable,
+    ...buttonProps
+  } = props
+
+  const state = useSidebarContext()
+
+  const { keyframes } = useSystem()
+
+  const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+  `
+
+  const selectedStyle = {
+    cursor: 'auto',
+    color: '$action.main.tertiarySelected',
+    ':active': {
+      bg: 'transparent',
+      color: 'none',
+    },
+    ':hover': {
+      color: 'none',
+      bg: 'transparent',
+    },
+  }
 
   return (
-    <Button
-      ref={ref}
-      variant="tertiary"
-      icon={icon}
-      title={label}
-      name={label}
-      csx={merge(
-        {
-          zIndex: 'sidebarDisclosure',
-          bg: selected
-            ? '$action.neutral.tertiaryHover'
-            : '$action.main.tertiary',
-          color: selected ? '$action.main.tertiarySelected' : '$secondary',
-          ':active': {
-            bg: '$action.neutral.tertiaryPressed',
-            color: '$action.main.tertiaryPressed',
+    <Center
+      csx={{
+        borderLeft: selectedFallback ? '$mainSelected' : 'solid transparent',
+        borderRight: 'solid transparent 3px',
+        borderLeftWidth: '3px',
+        zIndex: 99,
+        position: 'relative',
+        width: '100%',
+        paddingX: '5px',
+      }}
+    >
+      <Button
+        ref={ref}
+        variant="tertiary"
+        icon={icon}
+        title={state.layout.reduced ? label : undefined}
+        name={label}
+        csx={merge(
+          {
+            cursor: 'pointer',
+            bg: '$action.neutral.tertiary',
+            transform: 'translate3d(0,0,0)',
+            color: '$action.neutral.tertiary',
+            ':active': {
+              bg: '$action.neutral.tertiaryHover',
+              color: 'currentColor',
+            },
+            ':hover': {
+              color: '$action.neutral.tertiaryHover',
+              bg: '$action.neutral.tertiaryHover',
+            },
+            size: 'auto',
+            padding: '0.5rem',
+            svg: { margin: 0 },
+            ...(selectedFallback && selectedStyle),
           },
-          ':hover': {
-            bg: '$action.neutral.tertiaryHover',
-            color: '$action.main.tertiaryHover',
-          },
-        },
-        csx
-      )}
-      {...buttonProps}
-    />
+          csx
+        )}
+        {...buttonProps}
+      />
+
+      {!state.isReduced() && expandable && selected ? (
+        <tag.div
+          csx={{
+            animation: `${fadeIn} 0.4s`,
+            position: 'absolute',
+            top: '0.75rem',
+            right: '-0.625rem',
+            size: '0.75rem',
+            bg: '$secondary',
+            border: '$neutral',
+            transform: 'rotate(45deg)',
+            borderTopColor: 'transparent',
+            borderRightColor: 'transparent',
+          }}
+        />
+      ) : null}
+    </Center>
   )
 })
 
@@ -59,4 +124,6 @@ export interface SidebarDisclosureProps
    * property.
    */
   selected?: boolean
+  selectedFallback?: boolean
+  expandable?: boolean
 }

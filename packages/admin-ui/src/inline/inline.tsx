@@ -1,18 +1,29 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { withUnit } from '@vtex/admin-ui-core'
-import type { HSpaceTokens, VSpaceTokens, CSSUnit } from '@vtex/admin-ui-core'
+import type {
+  HSpaceTokens,
+  VSpaceTokens,
+  CSSPropAutocomplete,
+} from '@vtex/admin-ui-core'
+import type * as CSS from 'csstype'
 
 export const Inline = createComponent<'div', InlineProps>((props) => {
-  const { vSpace = '$s', hSpace = '$s', unit = 'rem', ...htmlProps } = props
+  const {
+    vSpace = '$s',
+    hSpace = '$s',
+    noWrap = false,
+    align = 'start',
+    ...htmlProps
+  } = props
 
   return useElement('div', {
     ...htmlProps,
     baseStyle: {
       display: 'flex',
-      flexWrap: 'wrap',
+      flexWrap: noWrap ? 'nowrap' : 'wrap',
+      alignItems: align,
       '> *': {
-        marginLeft: withUnit(hSpace, unit),
-        marginTop: withUnit(vSpace, unit),
+        marginLeft: hSpace,
+        marginTop: vSpace,
       },
     },
   })
@@ -23,15 +34,20 @@ export interface InlineProps {
    * Vertical space
    * @default '$s'
    */
-  vSpace?: VSpaceTokens | number
+  vSpace?: CSSPropAutocomplete<VSpaceTokens>
   /**
    * Horizontal space
    * @default '$s'
    */
-  hSpace?: HSpaceTokens | number
+  hSpace?: CSSPropAutocomplete<HSpaceTokens>
   /**
-   * Unit used in case of a number value
-   * @default 'rem'
+   * Disable wrap
+   * @default false
    */
-  unit?: CSSUnit
+  noWrap?: boolean
+  /**
+   * Items vertical alignment
+   * @default 'start'
+   */
+  align?: CSS.Properties['alignItems']
 }

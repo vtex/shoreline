@@ -1,15 +1,20 @@
 import React from 'react'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
-import { withUnit, negative } from '@vtex/admin-ui-core'
-import type { HSpaceTokens, VSpaceTokens, CSSUnit } from '@vtex/admin-ui-core'
+import { negative } from '@vtex/admin-ui-core'
+import type {
+  HSpaceTokens,
+  VSpaceTokens,
+  CSSPropAutocomplete,
+} from '@vtex/admin-ui-core'
+
+const defaultBleed = '0rem'
 
 export const Bleed = createComponent<'div', BleedProps>((props) => {
   const {
-    top = 0,
-    left = 0,
-    bottom = 0,
-    right = 0,
-    unit = 'rem',
+    top = defaultBleed,
+    left = defaultBleed,
+    bottom = defaultBleed,
+    right = defaultBleed,
     children,
     ...htmlProps
   } = props
@@ -26,10 +31,10 @@ export const Bleed = createComponent<'div', BleedProps>((props) => {
       </tag.div>
     ),
     baseStyle: {
-      marginTop: negative(withUnit(top, unit)),
-      marginLeft: negative(withUnit(left, unit)),
-      marginBottom: negative(withUnit(bottom, unit)),
-      marginRight: negative(withUnit(right, unit)),
+      marginTop: negative(top),
+      marginLeft: negative(left),
+      marginBottom: negative(bottom),
+      marginRight: negative(right),
     },
   })
 })
@@ -39,25 +44,20 @@ export interface BleedProps {
    * Top bleed
    * @default 0
    */
-  top?: VSpaceTokens | number
+  top?: CSSPropAutocomplete<VSpaceTokens>
   /**
    * Bottom bleed
    * @default 0
    */
-  bottom?: VSpaceTokens | number
+  bottom?: CSSPropAutocomplete<VSpaceTokens>
   /**
    * Left bleed
    * @default 0
    */
-  left?: HSpaceTokens | number
+  left?: CSSPropAutocomplete<HSpaceTokens>
   /**
    * Right bleed
    * @default 0
    */
-  right?: HSpaceTokens | number
-  /**
-   * Unit used in case of a number value
-   * @default 'rem'
-   */
-  unit?: CSSUnit
+  right?: CSSPropAutocomplete<HSpaceTokens>
 }

@@ -16,9 +16,8 @@ import {
   MenuItem,
   MenuSeparator,
 } from './index'
-
-import { Button } from '../Button'
-import { Set } from '../Set'
+import { Button } from '../../button'
+import { Inline } from '../../inline'
 
 export default {
   title: 'admin-ui/Menu',
@@ -74,7 +73,7 @@ export const WithConstraint = () => {
   })
 
   return (
-    <Set>
+    <Inline>
       <Button onClick={() => setCanDownload((d) => !d)}>
         {canDownload ? 'Cannot' : 'Can'} download
       </Button>
@@ -93,6 +92,6 @@ export const WithConstraint = () => {
           </MenuItem>
         </MenuList>
       </Menu>
-    </Set>
+    </Inline>
   )
 }

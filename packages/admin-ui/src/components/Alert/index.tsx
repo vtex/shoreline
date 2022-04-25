@@ -1,11 +1,10 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import { IconX } from '@vtex/phosphor-icons'
-import { jsx } from '@vtex/admin-ui-react'
+import { jsx, IconContainer } from '@vtex/admin-ui-react'
 
-import { Flex } from '../Flex'
-import { Button } from '../Button'
-import { Set } from '../Set'
+import { Button } from '../../button'
+import { Inline } from '../../inline'
 import { Paragraph } from '../Paragraph'
 
 /**
@@ -18,7 +17,7 @@ export const Alert = jsx('div')(
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 48,
+    minHeight: 48,
     paddingY: 3,
     paddingLeft: 4,
     paddingRight: 3,
@@ -75,29 +74,16 @@ export const Alert = jsx('div')(
           height: '100%',
           '@tablet': {
             alignItems: 'center',
-            height: 48,
-            '> div:first-child': {
-              alignItems: 'center',
-            },
           },
           '@desktop': {
             alignItems: 'center',
-            height: 48,
-            '> div:first-child': {
-              alignItems: 'center',
-            },
           },
           '@widescreen': {
             alignItems: 'center',
-            height: 48,
-            '> div:first-child': {
-              alignItems: 'center',
-            },
           },
         },
         false: {
           alignItems: 'center',
-          height: 48,
         },
       },
     },
@@ -128,19 +114,23 @@ export const Alert = jsx('div')(
         tone,
         children: (
           <Fragment>
-            <Set spacing={2} csx={{ alignItems: 'flex-start', marginRight: 3 }}>
+            <Inline
+              csx={{
+                marginRight: '$m',
+              }}
+              noWrap
+            >
               {icon && (
-                <Flex align="center" csx={iconContainerCsx}>
+                <IconContainer size="regular" csx={iconContainerCsx}>
                   {icon}
-                </Flex>
+                </IconContainer>
               )}
               <Paragraph>{children}</Paragraph>
-            </Set>
+            </Inline>
 
             {onDismiss && (
               <Button
-                variant="adaptative-dark"
-                size="small"
+                variant="neutralTertiary"
                 icon={<IconX />}
                 onClick={onDismiss}
               />

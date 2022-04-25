@@ -31,29 +31,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   left: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -63,11 +63,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-3 {
@@ -75,46 +71,42 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -133,29 +125,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   right: 0.25rem;
 }
 
-.emotion-8:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-8:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -165,11 +157,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -183,7 +171,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-right: 36px;
   text-align: center;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   background: transparent;
 }
@@ -194,18 +182,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
+  border: 1px solid #747474;
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -260,7 +248,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -311,7 +298,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -346,29 +332,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   left: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -378,11 +364,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-3 {
@@ -390,46 +372,42 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -448,29 +426,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   right: 0.25rem;
 }
 
-.emotion-8:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-8:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -480,11 +458,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -498,7 +472,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-right: 36px;
   text-align: center;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   background: transparent;
 }
@@ -509,18 +483,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
+  border: 1px solid #747474;
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -534,7 +508,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   margin-top: 0.5rem;
 }
 
@@ -585,7 +559,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -636,7 +609,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -676,29 +648,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   left: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -708,11 +680,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-3 {
@@ -720,46 +688,42 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -778,29 +742,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   right: 0.25rem;
 }
 
-.emotion-8:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-8:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -810,11 +774,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -828,7 +788,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-right: 36px;
   text-align: center;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   background: transparent;
 }
@@ -839,18 +799,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
+  border: 1px solid #747474;
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -911,7 +871,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -965,7 +924,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1000,29 +958,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   left: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -1032,11 +990,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-3 {
@@ -1044,46 +998,42 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -1102,29 +1052,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   right: 0.25rem;
 }
 
-.emotion-8:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-8:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -1134,11 +1084,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -1152,7 +1098,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-right: 36px;
   text-align: center;
   color: #000000;
-  border: 1px solid hsla(0, 58%, 52%, 1);
+  border: 1px solid #CC3D3D;
   border-radius: 4px;
   background: transparent;
 }
@@ -1163,18 +1109,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 58%, 37%, 1);
+  border: 1px solid #962828;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
+  border: 1px solid #747474;
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 59%, 83%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -1188,7 +1134,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   font-size: 0.75rem;
   line-height: 1.3333333333;
   letter-spacing: 0.001em;
-  color: hsla(0, 58%, 52%, 1);
+  color: #CC3D3D;
   margin-top: 0.5rem;
 }
 
@@ -1239,7 +1185,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1290,7 +1235,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1330,29 +1274,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   left: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-4:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -1362,11 +1306,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-3 {
@@ -1374,46 +1314,42 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -1432,29 +1368,29 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
-  height: 40px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: hsla(222, 63%, 43%, 1);
+  position: relative;
+  color: #2953B2;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  height: 40px;
+  position: absolute;
   right: 0.25rem;
 }
 
-.emotion-8:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-8:hover {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(224, 65%, 97%, 1);
+  color: #20408C;
+  background: #F1F4FC;
 }
 
 .emotion-8:active {
-  color: hsla(222, 63%, 43%, 1);
-  background: hsla(222, 62%, 92%, 1);
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-8:focus:not([data-focus-visible-added]) {
@@ -1464,11 +1400,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(222, 64%, 84%, 1);
-}
-
-.emotion-8 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -1482,7 +1414,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   padding-right: 36px;
   text-align: center;
   color: #000000;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   background: transparent;
 }
@@ -1493,18 +1425,18 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-  border: 1px solid hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
+  border: 1px solid #747474;
 }
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -1562,7 +1494,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1613,7 +1544,6 @@ exports[`NumericStepper tests should match snapshot 1`] = `
                 y2="216"
               />
             </svg>
-             
           </div>
         </div>
       </button>

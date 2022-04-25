@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render } from './setup'
-import { jsx } from '../index'
+import { jsx } from '../system-deprecated'
 
 describe('createComponent', () => {
   describe('short mode', () => {

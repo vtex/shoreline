@@ -17,7 +17,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -28,17 +28,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -59,46 +59,42 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -118,28 +114,26 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -149,11 +143,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -212,7 +202,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -236,46 +225,42 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-3 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -298,7 +283,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -318,7 +303,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -329,17 +314,17 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -352,28 +337,26 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -383,11 +366,7 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <div
@@ -482,7 +461,6 @@ exports[`AbstractInput tests Password should match snaphost 1`] = `
                 stroke-width="18"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -508,7 +486,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -519,17 +497,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -556,7 +534,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -567,17 +545,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -603,29 +581,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -635,11 +611,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -647,46 +619,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -761,7 +729,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -782,7 +749,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -793,17 +760,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-5 {
@@ -829,29 +796,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -861,11 +826,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -873,46 +834,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -989,7 +946,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1006,7 +962,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1017,17 +973,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2 {
@@ -1043,7 +999,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1106,7 +1062,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 1rem;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1117,17 +1073,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-2 {
@@ -1143,7 +1099,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1220,29 +1176,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1252,11 +1206,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -1264,46 +1214,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-3 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1326,7 +1272,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1346,7 +1292,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1357,17 +1303,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -1471,7 +1417,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1500,29 +1445,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -1532,11 +1475,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -1544,46 +1483,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-3 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -1606,7 +1541,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -1626,7 +1561,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 44px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1637,17 +1572,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -1753,7 +1688,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -1787,7 +1721,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1798,22 +1732,22 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-1 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1869,7 +1803,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1880,22 +1814,22 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 .emotion-1 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -1952,29 +1886,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-4:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-4:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-4:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-4:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-4:focus:not([data-focus-visible-added]) {
@@ -1984,11 +1916,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-4 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-3 {
@@ -1996,46 +1924,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-2 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-1 {
@@ -2047,7 +1971,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2070,7 +1994,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 0.75rem;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2081,17 +2005,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-0:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-0:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-0:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2159,7 +2083,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -2196,7 +2119,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2207,7 +2130,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-2 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2230,7 +2153,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 64px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2241,17 +2164,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2329,29 +2252,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -2361,11 +2282,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -2373,46 +2290,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-3 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -2435,7 +2348,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2446,7 +2359,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-6 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2469,7 +2382,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2480,17 +2393,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2594,7 +2507,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>
@@ -2628,29 +2540,27 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  height: 32px;
-  width: 32px;
-  padding-left: 0.125rem;
-  padding-right: 0.125rem;
-  color: #000000;
+  color: #545454;
   background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 }
 
-.emotion-5:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
-}
-
 .emotion-5:hover {
-  color: #000000;
+  color: #3B3B3B;
   background: rgba(0, 0, 0, 0.05);
 }
 
 .emotion-5:active {
   color: #000000;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
 }
 
 .emotion-5:focus:not([data-focus-visible-added]) {
@@ -2660,11 +2570,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
-}
-
-.emotion-5 svg {
-  margin: 0.25rem;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-4 {
@@ -2672,46 +2578,42 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
-  font-size: 0.875rem;
-  line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.emotion-3 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-2 {
@@ -2734,7 +2636,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   width: 20px;
   min-height: 20px;
   min-width: 20px;
-  color: hsla(0, 0%, 33%, 1);
+  color: #545454;
   top: 0.25rem;
   left: 0rem;
   margin-left: 0.75rem;
@@ -2745,7 +2647,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 
 .emotion-6 {
   color: #000000;
-  border-left: 1px solid hsla(0, 0%, 73%, 1);
+  border-left: 1px solid #B9B9B9;
   padding-top: 14px;
   margin-top: 0.0625rem;
   width: 32px;
@@ -2768,7 +2670,7 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
   padding-left: 44px;
   padding-right: 75px;
   background: transparent;
-  border: 1px solid hsla(0, 0%, 73%, 1);
+  border: 1px solid #B9B9B9;
   border-radius: 4px;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -2779,17 +2681,17 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
 }
 
 .emotion-1:hover {
-  border: 1px solid hsla(0, 0%, 33%, 1);
+  border: 1px solid #545454;
 }
 
 .emotion-1:focus {
-  border: 1px solid hsla(0, 0%, 23%, 1);
-  box-shadow: 0rem 0rem 0rem 0.125rem hsla(0, 0%, 87%, 1);
+  border: 1px solid #3B3B3B;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:disabled {
-  background: hsla(0, 0%, 90%, 1);
-  color: hsla(0, 0%, 45%, 1);
+  background: #E6E6E6;
+  color: #747474;
 }
 
 <div
@@ -2895,7 +2797,6 @@ exports[`AbstractInput tests Text should match snapshot 1`] = `
                 y2="96"
               />
             </svg>
-             
           </div>
         </div>
       </button>

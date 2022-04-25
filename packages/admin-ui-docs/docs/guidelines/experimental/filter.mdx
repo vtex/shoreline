@@ -1,0 +1,114 @@
+---
+title: Filter
+path: /filter/
+---
+
+Filters are supposed to be used in pages or sections that display some kind of data that can be filtered. The `filter` component is
+ a picker that displays filter options and allows for only one of them to be selected. When one of the options is selected it
+ should produce a change on the data or content being displayed, and should be filtered accordingly.
+
+## Usage
+
+```jsx
+import {
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <Filter state={state} />
+}
+```
+
+## Examples
+
+### Initial values
+
+```jsx noInline live
+
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Status',
+    initialApplied: '#1',
+  })
+  return <Filter state={state} />
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The filter has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx
+import {
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+} from '@vtex/admin-ui'
+
+function Filter() {
+  const state = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    onChange: () => {},
+    label: 'Status',
+  })
+  return <Filter state={state} />
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="ko-KO">
+      <Filter />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+## Props
+
+### Filter
+
+| Name  | Type          | Description    | Required | Default |
+| ----- | ------------- | -------------- | -------- | ------- |
+| state | `FilterState` | Object that manages the component state logic, you can obtain it calling the useFilterState hook | ✅       | -       |
+
+### useFilterState
+
+| Name           | Type                           | Description                                                       | Required | Default |
+| -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
+| items          | `FilterItem[]`                 | List of options for the filter, item must include id and label    | ✅       | -       |
+| onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
+| label          | `string`                       | Filter button label                                               | ✅       | -       |
+| initialApplied | `string`                       | Initially applied option id                                       | 🚫       | -       |
+
+## FilterState (return of useFilterState)
+
+| Name           | Type                             | Description
+| -------------- | -------------------------------- | -------------------------------------------------------------------
+| popover        | `PickerStateReturn`              | State that controls the component's picker
+| onClear        | `() => void`                     | Function used by the component when clear is selected
+| onChange       | `() => void`                     | Function used by the component when apply is selected
+| appliedItem   | `FilterItem`                      | Currently applied item
+| appliedKey    | `ID`                              | Currently applied item's id

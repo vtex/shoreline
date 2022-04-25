@@ -8,7 +8,6 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import type { SetProps } from '../../Set'
 import { Text } from '../../Text'
 import { useItemContext } from './SidebarContext'
-import { SCALES } from '../consts'
 
 /**
  * Each SidebarSection is responsible for defining the scope of a section within a sidebar item.
@@ -21,7 +20,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
   props: SidebarSectionProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { title, position, children, ...divProps } = props
+  const { title, position, children, csx, ...divProps } = props
   const { state } = useItemContext()
   const compositeProps = useComposite({ ...state, baseId: 'section--' })
 
@@ -41,15 +40,15 @@ export const SidebarSection = forwardRef(function SidebarSection(
       as={Tabbable}
       orientation="vertical"
       csx={{
-        width: SCALES.SIDEBAR_SECTION_WIDTH,
         zIndex: 'sidebarUl',
         marginBottom: '$xl',
+        ...csx,
       }}
       {...compositeProps}
       {...divProps}
       ref={ref}
     >
-      <tag.div csx={{ margin: '$s', paddingY: firstSection ? '$l' : '' }}>
+      <tag.div csx={{ padding: '$s', marginY: firstSection ? '$l' : '' }}>
         <Text csx={sectionTitleStyle} tone="primary">
           {title}
         </Text>

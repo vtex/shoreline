@@ -3,6 +3,115 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.124.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.1...@vtex/admin-ui@0.124.0) (2022-04-20)
+
+### Features
+
+- **stack:** add component ([d109f36](https://github.com/vtex/admin-ui/commit/d109f365d95edd3d399db67e1eba6c7936319d27))
+
+## [0.123.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.0...@vtex/admin-ui@0.123.1) (2022-04-19)
+
+### Features
+
+- **fielddetails:** change message type from string or ReactNodeArray to ReactNode only ([dfc28a2](https://github.com/vtex/admin-ui/commit/dfc28a294bd11d77dda491370517403420e0a760))
+- **fielddetails:** change message type from string or ReactNodeArray to string or ReactNode ([8144dc0](https://github.com/vtex/admin-ui/commit/8144dc03efd92363f435a6c4422637d25632f183))
+- **fielddetails:** change message type to acepte string or ReactNodeArray ([d841d03](https://github.com/vtex/admin-ui/commit/d841d037e4cd43998e7b2e0cd70dde6f901ffaf1))
+
+# [0.123.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.3...@vtex/admin-ui@0.123.0) (2022-04-18)
+
+### Bug Fixes
+
+- fix broken build ([81b0bbd](https://github.com/vtex/admin-ui/commit/81b0bbd2be92b08cbbc6c77c6a022f20d67324de))
+- **combobox:** fix typing error on build ([6ab6cc2](https://github.com/vtex/admin-ui/commit/6ab6cc297fdbf9821e3f62f6d6e409fd2fab6f06))
+
+### Features
+
+- **combobox:** enable custom rendering for basic combobox ([d8dfa23](https://github.com/vtex/admin-ui/commit/d8dfa2399bd5536afd6dbdc08ae4f407b976d0ad))
+- **comboboxmultiple:** add custom item rendering for multiple combobox ([3a802be](https://github.com/vtex/admin-ui/commit/3a802be929deda0fe838de9493f8a57bf41a809d))
+
+### BREAKING CHANGES
+
+- **comboboxmultiple:** - props selected, removeSelected and clearSelected are no longer returned by
+  useComboboxMultiple hook
+
+## [0.122.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.2...@vtex/admin-ui@0.122.3) (2022-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.122.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.1...@vtex/admin-ui@0.122.2) (2022-04-11)
+
+### Bug Fixes
+
+- **core:** change action fg colors ([fceec2a](https://github.com/vtex/admin-ui/commit/fceec2a50f16cc5e00a0d6475c4ad4fc93fbb875))
+- **core:** migrate colors from hsla to hex ([97911e7](https://github.com/vtex/admin-ui/commit/97911e73ec8f3c611f1e8c6e71c2560bd18e7de7))
+
+## [0.122.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.122.0...@vtex/admin-ui@0.122.1) (2022-04-07)
+
+### Bug Fixes
+
+- **filter disclosure:** fix filter diclosure children order ([ac75a37](https://github.com/vtex/admin-ui/commit/ac75a3740ab10df2085fc06cad4373e56eb28fa3))
+
+# [0.122.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.121.0...@vtex/admin-ui@0.122.0) (2022-04-07)
+
+### Bug Fixes
+
+- **button:** add verification before cloning icon element using react cloneElement ([44956c9](https://github.com/vtex/admin-ui/commit/44956c9e5348032f36a919144d5d48e6e4012cb8))
+- **button:** change spacing to be according to the design specs ([e8c3aaa](https://github.com/vtex/admin-ui/commit/e8c3aaaff3de72e78d78ffe07b14437f140468e1))
+- **button:** change svg styling from padding to margin ([614385b](https://github.com/vtex/admin-ui/commit/614385b963d15f14ae5aa1f43912cf511dfe59f6))
+- **button:** use new center component ([0dafb10](https://github.com/vtex/admin-ui/commit/0dafb105a6cd4a6032c6085d7acc76dcd248952f))
+- **datepicker:** change from invalid to tone ([7b98c8a](https://github.com/vtex/admin-ui/commit/7b98c8abc6d1ec96b219909064026449e4ec45ba))
+- **datepicker:** support min and max values ([b31928d](https://github.com/vtex/admin-ui/commit/b31928d55c8a22c18fc296d5b67717454c612e33))
+
+### Features
+
+- **button:** review component with design specs ([b47fe40](https://github.com/vtex/admin-ui/commit/b47fe40937654c3eca8e6efc0b7e6246f716784c))
+- **center:** review component ([88f707b](https://github.com/vtex/admin-ui/commit/88f707b892265106f054de941054477d19dcde0f))
+
+# [0.121.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.7...@vtex/admin-ui@0.121.0) (2022-04-06)
+
+### Features
+
+- **bleed:** promote component ([74cff7c](https://github.com/vtex/admin-ui/commit/74cff7cf86453351f4014e11166827b5f1096a19))
+- **inline:** promote component ([37f9518](https://github.com/vtex/admin-ui/commit/37f95185d2c169f20db9cc5302b2b3a5731c09a8))
+
+## [0.120.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.6...@vtex/admin-ui@0.120.7) (2022-03-30)
+
+### Bug Fixes
+
+- **sidebar:** adjust spacing according to design specs ([4997c49](https://github.com/vtex/admin-ui/commit/4997c49c0607508dab3489e8ff6e68171305bcb5))
+
+## [0.120.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.5...@vtex/admin-ui@0.120.6) (2022-03-24)
+
+### Bug Fixes
+
+- **sidebar:** add second level scroll when it has a vertical overflow ([44f82bd](https://github.com/vtex/admin-ui/commit/44f82bd1d541ef4423497b7e9a8e3b3594f73735))
+- **sidebar:** adjust zIndices to be consistent ([2e50e07](https://github.com/vtex/admin-ui/commit/2e50e07d785c31637a56322bf1794df929ab4475))
+
+## [0.120.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.4...@vtex/admin-ui@0.120.5) (2022-03-24)
+
+### Bug Fixes
+
+- **sidebar:** apply design review changes ([68bb81c](https://github.com/vtex/admin-ui/commit/68bb81cbca63cfd83510009cfc844efe1b51a383))
+- **sidebar:** apply design updates ([84dfc75](https://github.com/vtex/admin-ui/commit/84dfc7530593e22a77782415e2fa020757ea3200))
+- **sidebar:** apply design updates ([8479400](https://github.com/vtex/admin-ui/commit/8479400a6415e41efb1244c25e42e173488db637))
+- **sidebar:** apply design updates ([9a04614](https://github.com/vtex/admin-ui/commit/9a04614481c19697d40ed6a132db9b396a71167d))
+- **sidebar:** changes the second level transition value to be smoother ([95ff4a0](https://github.com/vtex/admin-ui/commit/95ff4a01dc2d180fb61f6899d538497629fd2ba0))
+- **sidebar:** skeleton styles ([c6a925d](https://github.com/vtex/admin-ui/commit/c6a925d94070a83030b8492756d2904d95ed86e3))
+- **sidebar:** update spacing according to the design specs ([0ad1df2](https://github.com/vtex/admin-ui/commit/0ad1df2cab0c139a399d02b777ccce28d0f251a3))
+- **topbar:** change spacing according to the design specs ([53700d6](https://github.com/vtex/admin-ui/commit/53700d69bd5e43462a519458dcbf84b25156703a))
+- **topbar:** remove circle dependency ([de5f443](https://github.com/vtex/admin-ui/commit/de5f443a6ce8e657583d67e3d82c10cd856e9d8b))
+
+## [0.120.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.3...@vtex/admin-ui@0.120.4) (2022-03-23)
+
+### Bug Fixes
+
+- **bleed:** add experimental component ([e650feb](https://github.com/vtex/admin-ui/commit/e650feb1f8e6b62c5e0df4fcfcf7fde8efedfb83))
+- **combobox:** build issues ([9840c31](https://github.com/vtex/admin-ui/commit/9840c31e9d4130fc9b67c19a3463e01dfaf1692c))
+- **combobox:** first draft on multiple ([1a0f3af](https://github.com/vtex/admin-ui/commit/1a0f3affec2319c560554ebcc216ce691a176c18))
+- **combobox:** keyboard interactions ([ae133ea](https://github.com/vtex/admin-ui/commit/ae133ea6bc479802ab7a598ddb7d4c55fd7be532))
+- **combobox:** tag styling ([fabb98a](https://github.com/vtex/admin-ui/commit/fabb98a594b6d75e2e42a05a69358cb0d4e7f145))
+- **inline:** add experimental component ([311a67b](https://github.com/vtex/admin-ui/commit/311a67bbac65e99a16d0c0f12c475113f5aa2ff5))
+
 ## [0.120.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.120.2...@vtex/admin-ui@0.120.3) (2022-03-18)
 
 ### Bug Fixes

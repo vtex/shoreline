@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.29](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.28...@vtex/admin-formik@0.4.29) (2022-04-20)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.28](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.27...@vtex/admin-formik@0.4.28) (2022-04-19)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.27](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.26...@vtex/admin-formik@0.4.27) (2022-04-18)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.26](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.25...@vtex/admin-formik@0.4.26) (2022-04-12)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.24...@vtex/admin-formik@0.4.25) (2022-04-11)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.23...@vtex/admin-formik@0.4.24) (2022-04-07)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.22...@vtex/admin-formik@0.4.23) (2022-04-07)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.22](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.21...@vtex/admin-formik@0.4.22) (2022-04-06)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.20...@vtex/admin-formik@0.4.21) (2022-03-30)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.20](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.19...@vtex/admin-formik@0.4.20) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.19](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.18...@vtex/admin-formik@0.4.19) (2022-03-24)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+## [0.4.18](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.17...@vtex/admin-formik@0.4.18) (2022-03-23)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
 ## [0.4.17](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.16...@vtex/admin-formik@0.4.17) (2022-03-18)
 
 **Note:** Version bump only for package @vtex/admin-formik

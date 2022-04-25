@@ -72,4 +72,68 @@ export const messages = {
       searchPlaceholder: 'Започнете да пишете, за да търсите',
     },
   },
+  tag: {
+    'en-US': {
+      removeLabel: 'Remove item',
+    },
+    'es-AR': {
+      removeLabel: 'Remover el artículo',
+    },
+    'fr-FR': {
+      removeLabel: "Retirer l'objet",
+    },
+    'pt-BR': {
+      removeLabel: 'Remover item',
+    },
+    'ja-JP': {
+      removeLabel: 'アイテムを削除',
+    },
+    'ko-KR': {
+      removeLabel: '항목 제거',
+    },
+    'it-IT': {
+      removeLabel: 'Rimuovi oggetto',
+    },
+    'nl-NL': {
+      removeLabel: 'Verwijder voorwerp',
+    },
+    'ro-RO': {
+      removeLabel: 'Eliminați elementul',
+    },
+    'bg-BG': {
+      removeLabel: 'Премахни артикул',
+    },
+  },
+  fieldMultiple: {
+    'en-US': {
+      placeholder: 'Keep typing...',
+    },
+    'es-AR': {
+      placeholder: 'Sigue escribiendo...',
+    },
+    'fr-FR': {
+      placeholder: 'Continuez à taper...',
+    },
+    'pt-BR': {
+      placeholder: 'Continue digitando...',
+    },
+    'ja-JP': {
+      placeholder: '入力を続けてください...',
+    },
+    'ko-KR': {
+      placeholder: '계속 타자...',
+    },
+    'it-IT': {
+      placeholder: 'Continua a scrivere...',
+    },
+    'nl-NL': {
+      placeholder: 'Blijf typen...',
+    },
+    'ro-RO': {
+      placeholder: 'Continuă să tastezi...',
+    },
+    'bg-BG': {
+      placeholder: 'Продължавайте да пишете...',
+    },
+  },
 }

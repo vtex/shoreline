@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
 import { useCompositeItem } from 'reakit/Composite'
 
-import type { ButtonProps } from '../../Button'
-import { Button } from '../../Button'
+import type { ButtonProps } from '../../../button'
+import { Button } from '../../../button'
 import { useSidebarContext, useItemContext } from './SidebarContext'
 import { ArrowKeys } from '../consts'
 
@@ -55,8 +55,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   return (
     <Button
       ref={ref}
-      variant="tertiary"
-      size="small"
+      variant="neutralTertiary"
       csx={merge(
         {
           width: '100%',
@@ -64,25 +63,29 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
           padding: '$s',
           height: 'auto',
           textAlign: 'left',
-          bg: '$action.main.tertiary',
+          zIndex: 'sidebarOverlay',
+          bg: 'transparent',
           '> div': {
             justifyContent: 'start',
-            color: selected ? '$action.neutral.tertiarySelected' : '$secondary',
+            color: selected ? '$action.main.tertiarySelected' : '$secondary',
           },
           '> div > div': {
             text: '$action2',
           },
-          ':active': {
-            bg: '$action.main.tertiary',
+          ':hover': {
             '> div': {
-              color: '$action.main.tertiaryPressed',
+              color: selected
+                ? '$action.main.tertiaryHover'
+                : '$action.neutral.tertiaryHover',
             },
           },
-          ':hover': {
-            bg: '$action.main.tertiary',
+          ':active': {
             '> div': {
-              color: '$action.main.tertiaryHover',
+              color: selected
+                ? '$action.main.tertiaryPressed'
+                : '$action.neutral.tertiaryPressed',
             },
+            bg: '$action.neutral.tertiaryHover',
           },
         },
         buttonProps.csx

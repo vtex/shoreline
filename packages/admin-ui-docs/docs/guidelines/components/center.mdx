@@ -1,0 +1,41 @@
+---
+title: Center
+path: /center/
+---
+
+Center is a layout component that centers its child within itself.
+
+## Usage
+
+```jsx isStatic
+import { Center } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Center>
+      {/* content */}
+    </Center>
+  )
+}
+```
+
+## Examples
+
+### Centralized
+
+To ensure the child is centered, put any child element inside and give it any `width` and/or `height`.
+
+```jsx live
+<Center
+  csx={{
+    height: 200,
+    bg: '$secondary',
+  }}
+>
+  <Paragraph>This is the center</Paragraph>
+</Center>
+```
+
+## Props
+
+It accepts every prop of `div`

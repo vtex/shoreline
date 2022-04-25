@@ -5,10 +5,10 @@ import { IconCaretDown } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 import { forwardRef } from '@vtex/admin-ui-util'
 
-import type { ButtonProps } from '../Button'
-import { Button } from '../Button'
+import type { ButtonProps } from '../../button'
+import { Button } from '../../button'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { Set } from '../Set'
+import { Stack } from '../../stack'
 import type { SystemComponent } from '../../types'
 import * as style from './Dropdown.style'
 
@@ -18,7 +18,7 @@ export const Dropdown = forwardRef(
       items,
       label,
       variant = 'primary',
-      size = 'regular',
+      size = 'normal',
       state,
       renderItem = (item) => item,
       csx,
@@ -41,10 +41,8 @@ export const Dropdown = forwardRef(
         >
           {renderItem(state.selectedItem)}
         </Button>
-        <Set
+        <Stack
           fluid
-          spacing={2}
-          orientation="vertical"
           {...state.getMenuProps()}
           csx={style.menu({
             visible: state.isOpen,
@@ -62,7 +60,7 @@ export const Dropdown = forwardRef(
                 {renderItem(item)}
               </Box>
             ))}
-        </Set>
+        </Stack>
       </Box>
     )
   }
