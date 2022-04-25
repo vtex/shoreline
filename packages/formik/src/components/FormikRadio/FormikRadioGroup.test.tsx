@@ -29,7 +29,7 @@ describe('Radio and RadioGroup tests', () => {
               )
             })}
           </FormikRadioGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -70,11 +70,10 @@ describe('Radio and RadioGroup tests', () => {
               })}
             </FormikRadioGroup>
             <Button
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', options[0])}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -134,7 +133,7 @@ describe('Radio and RadioGroup tests', () => {
               )
             })}
           </FormikRadioGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -167,7 +166,7 @@ describe('Radio and RadioGroup tests', () => {
               )
             })}
           </FormikRadioGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -204,15 +203,11 @@ describe('Radio and RadioGroup tests', () => {
                 )
               })}
             </FormikRadioGroup>
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -256,7 +251,7 @@ describe('Radio and RadioGroup tests', () => {
               )
             })}
           </FormikRadioGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -305,7 +300,7 @@ describe('Radio and RadioGroup tests', () => {
                 )
               })}
             </FormikRadioGroup>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )
@@ -346,7 +341,7 @@ describe('Radio and RadioGroup tests', () => {
               )
             })}
           </FormikRadioGroup>
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )

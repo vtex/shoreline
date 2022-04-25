@@ -76,11 +76,10 @@ describe('Checkbox tests', () => {
               label="CheckboxField label"
             />
             <Button
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', false)}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -125,7 +124,7 @@ describe('Checkbox tests', () => {
             data-testid="checkbox-field"
             label="CheckboxField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -154,7 +153,7 @@ describe('Checkbox tests', () => {
             data-testid="checkbox-field"
             label="CheckboxField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -176,15 +175,11 @@ describe('Checkbox tests', () => {
               data-testid="checkbox-field"
               label="CheckboxField label"
             />
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -218,7 +213,7 @@ describe('Checkbox tests', () => {
             data-testid="text-field"
             label="TextField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -258,7 +253,7 @@ describe('Checkbox tests', () => {
               label="TextField label"
               formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )
