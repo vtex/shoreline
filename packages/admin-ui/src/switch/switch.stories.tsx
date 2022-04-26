@@ -1,3 +1,5 @@
+// TODO: Does it make sense to rename the
+// `checked` property to `active`?
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
@@ -30,17 +32,47 @@ export function MultipleSwitches() {
       <Text>State: {props.state}</Text>
       <br />
       <Switch state={props} aria-label="label1" value="switch1" />
-      <Switch state={props} aria-label="label2" value="switch2" />
-      <Switch state={props} aria-label="label3" value="switch3" />
+      <Switch
+        state={props}
+        aria-label="label2"
+        value="switch2"
+        // helperText="Help Text"
+      />
+      <Switch
+        state={props}
+        aria-label="label3"
+        value="switch3"
+        // errorText="Error Text"
+      />
     </>
   )
 }
 
-export function Disabled() {
+export function Active() {
+  return (
+    <>
+      <Switch checked aria-label="label1" />
+      <Switch
+        checked
+        aria-label="label2"
+        // helperText="Help Text"
+      />
+      <Switch checked disabled aria-label="label3" />
+    </>
+  )
+}
+
+export function Inactive() {
   return (
     <>
       <Switch disabled aria-label="label1" />
       <Switch checked disabled aria-label="label2" />
+      <Switch
+        checked
+        disabled
+        aria-label="label2"
+        //  helperText="Help Text"
+      />
     </>
   )
 }

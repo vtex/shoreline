@@ -1,10 +1,26 @@
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { colors, StyleProp } from '@vtex/admin-ui-core'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
 const css = (csx: StyleProp) => csx
 
-const thumb = css({
+const green40 = get(colors, 'green40')
+const green50 = get(colors, 'green50')
+const gray40 = get(colors, 'gray40')
+
+// State styles
+const active = css({ bg: green40, border: `1px solid ${green40}` })
+const hoverInactive = css({ bg: gray40, border: `1px solid ${gray40}` })
+const hoverActive = css({
+  bg: green50,
+  border: `1px solid ${green50}`,
+})
+const trackDefault = css({
+  bg: '$form.neutralInactive',
+  border: '$form.neutral',
+})
+
+const thumbDimensions = css({
   '&:after': {
     width: '0.75rem',
     height: '0.75rem',
@@ -18,7 +34,7 @@ const thumb = css({
   },
 })
 
-export const checkmark = css({
+export const thumb = css({
   bg: (theme) => get(theme, 'fg.form.neutralChecked'),
   content: '""',
   display: 'block',
@@ -28,9 +44,7 @@ export const checkmark = css({
 })
 
 export const track = css({
-  ...focusVisible('neutral'),
-  bg: '$form.neutralInactive',
-  border: '$form.neutral',
+  ...trackDefault,
   appearance: 'none',
   position: 'relative',
   cursor: 'pointer',
@@ -47,26 +61,23 @@ export const track = css({
     cursor: 'not-allowed',
   },
 
-  ':hover': {
-    bg: '$form.neutralInactiveHover',
-    border: '$form.neutralHover',
-  },
+  ':hover': hoverInactive,
 
-  ':active': {
-    bg: '$form.neutralInactivePressed',
-    border: '$form.neutralPressed',
-  },
+  ':active': active,
 
-  ...thumb,
+  ...focusVisible('neutral', {
+    focus: { ...hoverInactive, '&:hover': hoverInactive },
+    polyfill: { ...trackDefault, '&:hover': hoverInactive },
+  }),
+
+  ...thumbDimensions,
 })
 
 export const checked = css({
-  bg: '$form.neutralActive',
-  color: '$form.neutralChecked',
-  border: '$form.neutralChecked',
+  ...active,
 
   '&[disabled]:after': {
-    ...checkmark,
+    ...thumb,
     bg: (theme) => get(theme, 'fg.disabled', ''),
   },
 
@@ -76,15 +87,12 @@ export const checked = css({
     border: '$disabled',
   },
 
-  ':hover': {
-    bg: '$form.neutralActiveHover',
-    border: '$form.neutralCheckedHover',
-  },
+  ':hover': hoverActive,
 
-  ':active': {
-    bg: '$form.neutralActivePressed',
-    border: '$form.neutralCheckedPressed',
-  },
+  ...focusVisible('positive', {
+    focus: { ...hoverActive, '&:hover': hoverActive },
+    polyfill: { ...active, '&:hover': hoverActive },
+  }),
 
-  ...thumb,
+  ...thumbDimensions,
 })
