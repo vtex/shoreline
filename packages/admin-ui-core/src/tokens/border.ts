@@ -24,7 +24,9 @@ export const border = {
 
     control: borderStyles('gray30'),
     controlHover: borderStyles('gray50'),
+    controlFocus: borderStyles('gray50'),
     controlChecked: borderStyles('blue40'),
     controlCheckedHover: borderStyles('blue50'),
+    controlCheckedFocus: borderStyles('blue50'),
   },
 }

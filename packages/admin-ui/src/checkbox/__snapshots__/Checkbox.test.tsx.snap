@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox tests should match snapshot with diferent sizes 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0.188rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:active {
+  background: #B9B9B9;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked {
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  position: relative;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked:hover {
+  background: #3B3B3B;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked:active {
+  background: #545454;
+  border: 1px solid #545454;
+}
+
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+
+
+.emotion-0:indeterminate:after {
+  content: "";
+  width: 0.5rem;
+  height: 0;
+  border-width: 0.063rem;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0.188rem;
+  border-color: currentColor;
+}
+
+<input
+    aria-checked="false"
+    aria-label="checkbox"
+    class="emotion-0"
+    data-testid="checkbox"
+    type="checkbox"
+    value="checkbox"
+  />
+  .emotion-0 {
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0.188rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:active {
+  background: #B9B9B9;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked {
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  position: relative;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked:hover {
+  background: #3B3B3B;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked:active {
+  background: #545454;
+  border: 1px solid #545454;
+}
+
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+
+
+.emotion-0:indeterminate:after {
+  content: "";
+  width: 0.5rem;
+  height: 0;
+  border-width: 0.063rem;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0.188rem;
+  border-color: currentColor;
+}
+
+<input
+    aria-checked="false"
+    aria-label="checkbox"
+    class="emotion-0"
+    data-testid="checkbox"
+    type="checkbox"
+    value="checkbox"
+  />
+</DocumentFragment>
+`;
