@@ -10,7 +10,7 @@ import type { ComponentPropsWithRef } from 'react'
 export const Switch = jsx(ReakitCheckbox)(
   {
     ...style.track,
-    ':after': style.checkmark,
+    ':after': style.thumb,
     '&:checked': style.checked,
   },
   {
