@@ -39,7 +39,7 @@ describe('Toggle tests', () => {
             data-testid="text-field"
             label="TextField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -76,11 +76,10 @@ describe('Toggle tests', () => {
               label="TextField label"
             />
             <Button
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', false)}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -125,7 +124,7 @@ describe('Toggle tests', () => {
             data-testid="text-field"
             label="TextField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -154,7 +153,7 @@ describe('Toggle tests', () => {
             data-testid="text-field"
             label="TextField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -176,15 +175,11 @@ describe('Toggle tests', () => {
               data-testid="text-field"
               label="TextField label"
             />
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -218,7 +213,7 @@ describe('Toggle tests', () => {
             data-testid="text-field"
             label="TextField label"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -258,7 +253,7 @@ describe('Toggle tests', () => {
               label="TextField label"
               formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )
