@@ -1,8 +1,15 @@
 function replace(source, j, componentName) {
-  return j(source)
-    .find(j.JSXOpeningElement, { name: { name: componentName } })
+  const importStep = j(source)
+    .find(j.ImportSpecifier, { imported: { name: componentName } })
     .forEach((p) => {
-      const { name, attributes, selfClosing } = p.value
+      p.value.imported.name = 'Stack'
+    })
+    .toSource()
+
+  const usageStep = j(importStep)
+    .find(j.JSXElement, { openingElement: { name: { name: componentName } } })
+    .forEach((p) => {
+      const { name, attributes, selfClosing } = p.value.openingElement
 
       const draftAttrs = attributes
         .map((attribute) => {
@@ -43,9 +50,14 @@ function replace(source, j, componentName) {
       // rename set to stack
       name.name = 'Stack'
 
-      j(p).replaceWith(j.jsxOpeningElement(name, attrs, selfClosing))
+      p.value.openingElement = j.jsxOpeningElement(name, attrs, selfClosing)
+      if (!selfClosing) {
+        p.value.closingElement = j.jsxClosingElement(j.jsxIdentifier('Stack'))
+      }
     })
     .toSource()
+
+  return usageStep
 }
 
 function transformOrientation(value) {
