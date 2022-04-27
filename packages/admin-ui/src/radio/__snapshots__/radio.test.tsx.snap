@@ -81,7 +81,6 @@ exports[`Radio should match snapshot 1`] = `
 .emotion-1 {
   width: 1.25rem;
   height: 1.25rem;
-  padding: 6px;
   background: transparent;
   border: 1px solid #B9B9B9;
   color: transparent;
@@ -118,7 +117,7 @@ exports[`Radio should match snapshot 1`] = `
 }
 
 .emotion-1:hover:not(:disabled) {
-  background: #E6E6E6;
+  background: transparent;
   border: 1px solid #545454;
 }
 
@@ -133,6 +132,7 @@ exports[`Radio should match snapshot 1`] = `
 
 .emotion-1:disabled +div label {
   cursor: not-allowed;
+  color: #747474;
 }
 
 .emotion-1:after {
@@ -140,7 +140,6 @@ exports[`Radio should match snapshot 1`] = `
   position: absolute;
   display: block;
   border-radius: 100%;
-  top: 0.3rem;
   width: 0.5rem;
   height: 0.5rem;
   background: transparent;
@@ -168,7 +167,6 @@ exports[`Radio should match snapshot 1`] = `
   position: absolute;
   display: block;
   border-radius: 100%;
-  top: 0.3rem;
   width: 0.5rem;
   height: 0.5rem;
   background: #FFFFFF;
@@ -184,7 +182,6 @@ exports[`Radio should match snapshot 1`] = `
   position: absolute;
   display: block;
   border-radius: 100%;
-  top: 0.3rem;
   width: 0.5rem;
   height: 0.5rem;
   background: #747474;
@@ -201,6 +198,7 @@ exports[`Radio should match snapshot 1`] = `
 
 .emotion-1:checked:disabled +div label {
   cursor: not-allowed;
+  color: #747474;
 }
 
 .emotion-3 {
