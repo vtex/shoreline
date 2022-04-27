@@ -9,22 +9,20 @@ const green50 = get(colors, 'green50')
 const gray40 = get(colors, 'gray40')
 
 // State styles
-const active = css({ bg: green40, border: `1px solid ${green40}` })
-const hoverInactive = css({ bg: gray40, border: `1px solid ${gray40}` })
+const active = css({ bg: green40 })
+const hoverInactive = css({ bg: gray40 })
 const hoverActive = css({
   bg: green50,
-  border: `1px solid ${green50}`,
 })
 const trackDefault = css({
   bg: '$form.neutralInactive',
-  border: '$form.neutral',
 })
 
 const thumbDimensions = css({
   '&:after': {
     width: '0.75rem',
     height: '0.75rem',
-    margin: '0.20rem',
+    margin: '0.25rem',
   },
 
   '&:checked': {
@@ -33,35 +31,6 @@ const thumbDimensions = css({
     },
   },
 })
-
-// White line between track and custom box shadow
-// const backdrop = css({
-//   '&:before': {
-//     content: '""',
-//     position: 'absolute',
-//     zIndex: '-1',
-//     bg: 'white',
-//     height: 22,
-//     width: 38,
-//     top: -2,
-//     left: -2,
-//     borderRadius: '6.25rem',
-//     borderStyle: 'solid',
-//   },
-// })
-
-// const customBoxShadow = css({
-//   content: '""',
-//   position: 'absolute',
-//   zIndex: '-2',
-//   bg: get(colors, 'green30'),
-//   height: 24,
-//   width: 40,
-//   top: -6,
-//   left: -6,
-//   borderRadius: '6.25rem',
-//   borderStyle: 'solid',
-// })
 
 export const thumb = css({
   bg: (theme) => get(theme, 'fg.form.neutralChecked'),
@@ -77,7 +46,7 @@ export const track = css({
   appearance: 'none',
   position: 'relative',
   cursor: 'pointer',
-  margin: 0,
+  margin: '1px',
   borderRadius: '6.25rem',
   borderStyle: 'solid',
   height: 20,
@@ -98,12 +67,6 @@ export const track = css({
     focus: { ...hoverInactive, '&:hover': hoverInactive },
     polyfill: { ...trackDefault, '&:hover': hoverInactive },
   }),
-
-  // ...backdrop,
-
-  // ':focus-within:after': {
-  //   ...customBoxShadow,
-  // },
 
   ...thumbDimensions,
 })
