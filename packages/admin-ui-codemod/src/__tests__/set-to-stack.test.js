@@ -1,6 +1,32 @@
 const defineInlineTest = require('jscodeshift/dist/testUtils').defineInlineTest
 const transform = require('../set-to-stack')
 
+describe('Modify imports', () => {
+  defineInlineTest(
+    transform,
+    {},
+    'import { Set } from "@vtex/admin-ui"',
+    'import { Stack } from "@vtex/admin-ui"',
+    'single imports'
+  )
+
+  defineInlineTest(
+    transform,
+    {},
+    'import { Set, Button, DataGrid } from "@vtex/admin-ui"',
+    'import { Stack, Button, DataGrid } from "@vtex/admin-ui"',
+    'multiple imports'
+  )
+
+  defineInlineTest(
+    transform,
+    {},
+    'import { Set, Button, DataGrid } from "../"',
+    'import { Stack, Button, DataGrid } from "../"',
+    'local imports'
+  )
+})
+
 describe('Switch for Stack', () => {
   defineInlineTest(
     transform,
@@ -8,6 +34,14 @@ describe('Switch for Stack', () => {
     '<Set />',
     '<Stack direction="row" />',
     'choose stack w/ row'
+  )
+
+  defineInlineTest(
+    transform,
+    {},
+    '<Set></Set>',
+    '<Stack direction="row"></Stack>',
+    'choose stack w/ row w/ closing'
   )
 
   defineInlineTest(
