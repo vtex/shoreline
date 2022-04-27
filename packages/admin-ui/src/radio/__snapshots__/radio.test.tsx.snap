@@ -4,7 +4,7 @@ exports[`Radio should match snapshot 1`] = `
 <DocumentFragment>
   
 
-.emotion-22 {
+.emotion-18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22,7 +22,7 @@ exports[`Radio should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-22 >*:not(:first-child) {
+.emotion-18 >*:not(:first-child) {
   margin-top: 0.5rem;
 }
 
@@ -35,7 +35,7 @@ exports[`Radio should match snapshot 1`] = `
   color: #545454;
 }
 
-.emotion-21 {
+.emotion-17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,7 +55,7 @@ exports[`Radio should match snapshot 1`] = `
   margin-bottom: 0.25rem;
 }
 
-.emotion-21 >*:not(:first-child) {
+.emotion-17 >*:not(:first-child) {
   margin-left: 1.25rem;
 }
 
@@ -233,10 +233,10 @@ exports[`Radio should match snapshot 1`] = `
 }
 
 <fieldset
-    class="emotion-5"
+    class="emotion-19"
   >
     <div
-      class="emotion-22"
+      class="emotion-18"
     >
       <legend
         class="emotion-0"
@@ -245,118 +245,102 @@ exports[`Radio should match snapshot 1`] = `
         role="radiogroup"
       >
         <div
-          class="emotion-21"
+          class="emotion-17"
         >
           <div
-            class="emotion-5"
+            class="emotion-4"
           >
+            <input
+              aria-checked="false"
+              class="emotion-1"
+              data-command=""
+              id="radio-test"
+              type="radio"
+              value="unchecked"
+            />
             <div
-              class="emotion-4"
+              class="emotion-3"
             >
-              <input
-                aria-checked="false"
-                class="emotion-1"
-                data-command=""
-                id="radio-test"
-                type="radio"
-                value="unchecked"
-              />
-              <div
-                class="emotion-3"
+              <label
+                class="emotion-2"
+                for="radio-test"
               >
-                <label
-                  class="emotion-2"
-                  for="radio-test"
-                >
-                  label
-                </label>
-              </div>
+                label
+              </label>
             </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-4"
           >
+            <input
+              aria-checked="true"
+              checked=""
+              class="emotion-1"
+              data-command=""
+              id="radio-test"
+              type="radio"
+              value="checked"
+            />
             <div
-              class="emotion-4"
+              class="emotion-3"
             >
-              <input
-                aria-checked="true"
-                checked=""
-                class="emotion-1"
-                data-command=""
-                id="radio-test"
-                type="radio"
-                value="checked"
-              />
-              <div
-                class="emotion-3"
+              <label
+                class="emotion-2"
+                for="radio-test"
               >
-                <label
-                  class="emotion-2"
-                  for="radio-test"
-                >
-                  label
-                </label>
-              </div>
+                label
+              </label>
             </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-4"
           >
+            <input
+              aria-checked="false"
+              aria-disabled="true"
+              class="emotion-1"
+              data-command=""
+              disabled=""
+              id="radio-test"
+              style="pointer-events: none;"
+              type="radio"
+              value="unchecked disabled"
+            />
             <div
-              class="emotion-4"
+              class="emotion-3"
             >
-              <input
-                aria-checked="false"
-                aria-disabled="true"
-                class="emotion-1"
-                data-command=""
-                disabled=""
-                id="radio-test"
-                style="pointer-events: none;"
-                type="radio"
-                value="unchecked disabled"
-              />
-              <div
-                class="emotion-3"
+              <label
+                class="emotion-2"
+                for="radio-test"
               >
-                <label
-                  class="emotion-2"
-                  for="radio-test"
-                >
-                  label
-                </label>
-              </div>
+                label
+              </label>
             </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-4"
           >
+            <input
+              aria-checked="true"
+              aria-disabled="true"
+              checked=""
+              class="emotion-1"
+              data-command=""
+              disabled=""
+              id="radio-test"
+              style="pointer-events: none;"
+              type="radio"
+              value="checked disabled"
+            />
             <div
-              class="emotion-4"
+              class="emotion-3"
             >
-              <input
-                aria-checked="true"
-                aria-disabled="true"
-                checked=""
-                class="emotion-1"
-                data-command=""
-                disabled=""
-                id="radio-test"
-                style="pointer-events: none;"
-                type="radio"
-                value="checked disabled"
-              />
-              <div
-                class="emotion-3"
+              <label
+                class="emotion-2"
+                for="radio-test"
               >
-                <label
-                  class="emotion-2"
-                  for="radio-test"
-                >
-                  label
-                </label>
-              </div>
+                label
+              </label>
             </div>
           </div>
         </div>
