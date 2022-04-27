@@ -39,8 +39,6 @@ const tabName = {
 export function Page(props: PageProps) {
   const state = useTabState({ selectedId: 'overview' })
 
-  const hasToc = state.currentId !== 'designReference'
-
   return props.hasTabs ? (
     <Tabs state={state}>
       <TabList className="tab-list" aria-label="Component page tabs">
@@ -52,12 +50,10 @@ export function Page(props: PageProps) {
       </TabList>
       <div className="page-container">
         {props.children}
-        {hasToc ? (
-          <TOC
-            className="toc-container"
-            toc={props.toc[state.selectedId as keyof TocType]}
-          />
-        ) : null}
+        <TOC
+          className="toc-container"
+          toc={props.toc[state.selectedId as keyof TocType]}
+        />
       </div>
     </Tabs>
   ) : (
