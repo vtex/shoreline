@@ -6,7 +6,6 @@ export const checkmark = style({
   position: 'absolute',
   display: 'block',
   borderRadius: 'circle',
-  top: '0.3rem',
   size: '0.5rem',
   bg: '$form.control',
 })
@@ -20,6 +19,7 @@ export const disabled = style({
     '+ div': {
       label: {
         cursor: 'not-allowed',
+        color: '$disabled',
       },
     },
   },
@@ -28,7 +28,6 @@ export const disabled = style({
 export const baseline = style({
   ...focusVisible('neutral'),
   size: '1.25rem',
-  padding: '6px',
   bg: '$form.control',
   border: '$form.control',
   color: '$form.control',

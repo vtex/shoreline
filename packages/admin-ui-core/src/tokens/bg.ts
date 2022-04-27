@@ -66,7 +66,7 @@ export const bg = {
     neutralActivePressed: colors.gray50,
 
     control: 'transparent',
-    controlHover: colors.gray10,
+    controlHover: 'transparent',
     controlChecked: colors.blue40,
     controlCheckedHover: colors.blue50,
   },
