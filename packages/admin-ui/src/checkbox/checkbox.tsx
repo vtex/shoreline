@@ -31,8 +31,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
           <Label htmlFor={baseId} csx={style.label}>
             {label}
           </Label>
-          <Message helpText={helpText} />
-          <Message error={error} errorText={errorText} />
+          <Message helpText={helpText} error={error} errorText={errorText} />
         </Set>
       </Inline>
     )
