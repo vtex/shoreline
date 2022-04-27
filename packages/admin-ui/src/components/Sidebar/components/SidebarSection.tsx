@@ -1,11 +1,11 @@
-import type { Ref } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Tabbable } from 'reakit/Tabbable'
 import { useComposite } from 'reakit/Composite'
+import type { ComponentStyleProps } from '@vtex/admin-ui-react'
 import { tag } from '@vtex/admin-ui-react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
-import type { SetProps } from '../../Set'
 import { Text } from '../../Text'
 import { useItemContext } from './SidebarContext'
 
@@ -38,7 +38,6 @@ export const SidebarSection = forwardRef(function SidebarSection(
   return (
     <tag.div
       as={Tabbable}
-      orientation="vertical"
       csx={{
         zIndex: 'sidebarUl',
         marginBottom: '$xl',
@@ -58,7 +57,13 @@ export const SidebarSection = forwardRef(function SidebarSection(
   )
 })
 
-export interface SidebarSectionProps extends SetProps {
+type DivWithCsx = Omit<
+  ComponentPropsWithoutRef<'div'>,
+  keyof ComponentStyleProps
+> &
+  ComponentStyleProps
+
+export interface SidebarSectionProps extends DivWithCsx {
   /**
    * `title` of a section. This is what separates each item's section.
    */

@@ -97,6 +97,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'button-review: Update Button props to the latest specs (0.122.0+)',
     value: 'button-review',
   },
+  {
+    name: 'set-to-stack: Migrate Set to Stack',
+    value: 'set-to-stack',
+  },
 ]
 
 // tsx or jsx
