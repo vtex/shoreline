@@ -1,5 +1,5 @@
-import { colors, StyleProp } from '@vtex/admin-ui-core'
-import { focusVisible } from '@vtex/admin-ui-core'
+import { colors, focusVisible } from '@vtex/admin-ui-core'
+import type { StyleProp } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
 const css = (csx: StyleProp) => csx
@@ -33,6 +33,35 @@ const thumbDimensions = css({
     },
   },
 })
+
+// White line between track and custom box shadow
+// const backdrop = css({
+//   '&:before': {
+//     content: '""',
+//     position: 'absolute',
+//     zIndex: '-1',
+//     bg: 'white',
+//     height: 22,
+//     width: 38,
+//     top: -2,
+//     left: -2,
+//     borderRadius: '6.25rem',
+//     borderStyle: 'solid',
+//   },
+// })
+
+// const customBoxShadow = css({
+//   content: '""',
+//   position: 'absolute',
+//   zIndex: '-2',
+//   bg: get(colors, 'green30'),
+//   height: 24,
+//   width: 40,
+//   top: -6,
+//   left: -6,
+//   borderRadius: '6.25rem',
+//   borderStyle: 'solid',
+// })
 
 export const thumb = css({
   bg: (theme) => get(theme, 'fg.form.neutralChecked'),
@@ -69,6 +98,12 @@ export const track = css({
     focus: { ...hoverInactive, '&:hover': hoverInactive },
     polyfill: { ...trackDefault, '&:hover': hoverInactive },
   }),
+
+  // ...backdrop,
+
+  // ':focus-within:after': {
+  //   ...customBoxShadow,
+  // },
 
   ...thumbDimensions,
 })
