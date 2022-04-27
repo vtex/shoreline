@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { createComponent } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
 import { Label } from '../components/Label'
@@ -16,19 +16,17 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
 
     const { id: baseId } = useId({ id })
 
-    return useElement('div', {
-      children: (
-        <Inline hSpace="$m" vSpace="">
-          <RadioButton {...radioButtonProps} id={baseId} />
-          <Stack space="$s">
-            <Label htmlFor={baseId} csx={style.label}>
-              {label}
-            </Label>
-            <Message helpText={helpText} />
-          </Stack>
-        </Inline>
-      ),
-    })
+    return (
+      <Inline hSpace="$m" vSpace="">
+        <RadioButton {...radioButtonProps} id={baseId} />
+        <Stack space="$s">
+          <Label htmlFor={baseId} csx={style.label}>
+            {label}
+          </Label>
+          <Message helpText={helpText} />
+        </Stack>
+      </Inline>
+    )
   }
 )
 
