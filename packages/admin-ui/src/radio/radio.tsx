@@ -4,7 +4,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
 import { Label } from '../components/Label'
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { RadioButton } from './radio-button'
 import * as style from './radio.style'
@@ -20,12 +20,12 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
       children: (
         <Inline hSpace="$m" vSpace="">
           <RadioButton {...radioButtonProps} id={baseId} />
-          <Set orientation="vertical" spacing="$s">
+          <Stack space="$s">
             <Label htmlFor={baseId} csx={style.label}>
               {label}
             </Label>
             <Message helpText={helpText} />
-          </Set>
+          </Stack>
         </Inline>
       ),
     })
