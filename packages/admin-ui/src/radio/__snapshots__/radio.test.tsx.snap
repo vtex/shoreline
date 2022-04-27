@@ -22,8 +22,8 @@ exports[`Radio should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-22 >*:not(:last-child) {
-  margin-bottom: 0.5rem;
+.emotion-22 >*:not(:first-child) {
+  margin-top: 0.5rem;
 }
 
 .emotion-0 {
@@ -68,6 +68,10 @@ exports[`Radio should match snapshot 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
 }
 
 .emotion-4 >* {
@@ -217,8 +221,8 @@ exports[`Radio should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-3 >*:not(:last-child) {
-  margin-bottom: 0.125rem;
+.emotion-3 >*:not(:first-child) {
+  margin-top: 0.125rem;
 }
 
 .emotion-2 {
