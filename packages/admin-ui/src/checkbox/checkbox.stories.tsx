@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 // import { Label } from '../Label'
-import { Checkbox as CheckboxInput } from './checkbox-input'
 import { Checkbox } from './checkbox'
+import { CheckboxGroup } from './checkbox-group'
 // import { Text } from '../Text'
 
 export default {
   title: 'admin-ui-review/checkbox',
-  component: CheckboxInput,
+  component: Checkbox,
 } as Meta
 
 export const Playground: Story = (args) => {
@@ -115,10 +115,18 @@ export const Disabled = () => {
 
   return (
     <>
-      <CheckboxInput checked />
-      <CheckboxInput ref={ref2} />
-      <CheckboxInput checked disabled />
-      <CheckboxInput ref={ref} disabled />
+      <CheckboxGroup
+        label="Group label"
+        direction="column"
+        helpText="Help Text"
+        errorText="Error Text"
+        error
+      >
+        <Checkbox label="Label" />
+        <Checkbox label="Label" />
+        <Checkbox label="Label" />
+        <Checkbox label="Label" />
+      </CheckboxGroup>
     </>
   )
 }
