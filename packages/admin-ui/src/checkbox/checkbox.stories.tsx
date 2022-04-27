@@ -2,23 +2,83 @@ import React, { useEffect, useRef } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 // import { Label } from '../Label'
-import { Checkbox } from './index'
+import { Checkbox as CheckboxInput } from './checkbox-input'
+import { Checkbox } from './checkbox'
 // import { Text } from '../Text'
 
 export default {
   title: 'admin-ui-review/checkbox',
-  component: Checkbox,
+  component: CheckboxInput,
 } as Meta
 
 export const Playground: Story = (args) => {
-  const [checked, setChecked] = React.useState(true)
+  const ref = useRef<HTMLInputElement>(null)
+  const ref2 = useRef<HTMLInputElement>(null)
+  const ref3 = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (ref?.current) {
+      ref.current.indeterminate = true
+    }
+
+    if (ref2?.current) {
+      ref2.current.indeterminate = true
+    }
+
+    if (ref3?.current) {
+      ref3.current.indeterminate = true
+    }
+  }, [])
 
   return (
-    <Checkbox
-      checked={checked}
-      onChange={() => setChecked(!checked)}
-      {...args}
-    />
+    <>
+      <Checkbox label="Label" helpText="Help text" />
+      <Checkbox ref={ref} label="Label" helpText="Help text" />
+      <Checkbox label="Label" helpText="Help text" checked />
+      <Checkbox
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+      />
+      <Checkbox
+        ref={ref3}
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+      />
+      <Checkbox
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+        checked
+      />
+      <Checkbox
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+        disabled
+      />
+      <Checkbox
+        ref={ref2}
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+        disabled
+      />
+      <Checkbox
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        checked
+        error
+        disabled
+      />
+    </>
   )
 }
 
@@ -55,10 +115,10 @@ export const Disabled = () => {
 
   return (
     <>
-      <Checkbox checked />
-      <Checkbox ref={ref2} />
-      <Checkbox checked disabled />
-      <Checkbox ref={ref} disabled />
+      <CheckboxInput checked />
+      <CheckboxInput ref={ref2} />
+      <CheckboxInput checked disabled />
+      <CheckboxInput ref={ref} disabled />
     </>
   )
 }

@@ -3,21 +3,24 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './checkbox.style'
 
-export interface CheckboxOptions {
-  /** Checkbox Id */
-  id?: string
-}
-
-export const Checkbox = createComponent<
+export const CheckboxInput = createComponent<
   typeof AriakitCheckbox,
-  CheckboxOptions
+  CheckboxInputOptions
 >((props) => {
   return useElement(AriakitCheckbox, {
     ...props,
-    baseStyle: style.checkboxStyle,
+    baseStyle: {
+      ...style.checkboxStyle,
+      ...(props.error ? style.error : {}),
+    },
   })
 })
 
-export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
+export interface CheckboxInputOptions {
+  error?: boolean
+  id?: string
+}
+
+export type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxInput>
 
 export { useCheckboxState } from 'ariakit/Checkbox'

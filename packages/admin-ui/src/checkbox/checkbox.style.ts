@@ -1,12 +1,5 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { focusVisible, style } from '@vtex/admin-ui'
 import { checkmarkSvg, indeterminateSvg } from './utils'
-
-export const disabled = style({
-  ':disabled': {
-    bg: '$disabled',
-    border: '$disabled',
-  },
-})
 
 export const baseline = style({
   ...focusVisible('neutral'),
@@ -23,15 +16,12 @@ export const baseline = style({
   boxSizing: 'border-box',
 
   ':hover:not(:disabled)': {
-    bg: '$form.controlHover',
     border: '$form.controlHover',
   },
 
   ':focus:not(:checked)': {
     border: '$form.controlFocus',
   },
-
-  ...disabled,
 })
 
 export const error = style({
@@ -39,7 +29,6 @@ export const error = style({
   border: '$form.critical',
 
   ':hover:not(:disabled)': {
-    bg: '$form.controlHover',
     border: '$form.criticalHover',
   },
 
@@ -81,7 +70,6 @@ export const checked = style({
   },
 
   ...checkmark,
-  ...disabled,
 })
 
 export const indeterminate = style({
@@ -95,8 +83,24 @@ export const indeterminate = style({
   },
 })
 
+export const disabled = style({
+  ':disabled': {
+    bg: '$disabled',
+    border: '$disabled',
+
+    '& + div label': {
+      color: '$disabled',
+    },
+  },
+})
+
 export const checkboxStyle = style({
   ...baseline,
   ':checked': checked,
   ':indeterminate': indeterminate,
+  ...disabled,
+})
+
+export const label = style({
+  cursor: 'pointer',
 })
