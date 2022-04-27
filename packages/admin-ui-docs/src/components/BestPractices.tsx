@@ -13,9 +13,7 @@ export function BestPractices(props: BestPracticesProps) {
 
   return (
     <Flex
-      justify="space-between"
       csx={{
-        marginTop: '-21px',
         marginBottom: '$xl',
         flexDirection: 'column',
         '@tablet': {
@@ -36,29 +34,35 @@ interface BestPracticesProps {
 }
 
 export function Practice(props: PracticeProps) {
-  const { bad = false, children } = props
+  const { bad = false, label, children } = props
 
   const Icon = bad ? IconXOctagon : IconCheckCircle
 
   const token = bad ? '$critical' : '$positive'
 
   return (
-    <Inline
-      csx={{
-        borderTop: token,
-        borderTopWidth: '2px',
-        paddingY: '$xl',
-        width: '100%',
-        flexWrap: 'nowrap',
-      }}
-    >
-      <Icon weight="fill" csx={{ color: token }} />
-      <Paragraph>{children}</Paragraph>
-    </Inline>
+    <Flex direction="column">
+      <Flex justify="center" csx={{ '> *': { margin: 0 } }}>
+        {children}
+      </Flex>
+      <Inline
+        csx={{
+          borderTop: token,
+          borderTopWidth: '2px',
+          paddingY: '$xl',
+          width: '100%',
+        }}
+        noWrap
+      >
+        <Icon weight="fill" csx={{ color: token }} />
+        <Paragraph>{label}</Paragraph>
+      </Inline>
+    </Flex>
   )
 }
 
 interface PracticeProps {
   bad?: boolean
   children?: ReactNode
+  label: ReactNode
 }

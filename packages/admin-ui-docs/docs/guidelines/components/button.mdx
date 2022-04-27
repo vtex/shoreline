@@ -285,54 +285,52 @@ function Example() {
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
 >
 
-```jsx live previewOnly layout=grid columnsCount=2 rowsCount=1
-<>
-  <Set>
-    <Button>Label</Button>
-  </Set>
-
-  <Set>
-    <Button>Label</Button>
-    <Button>Label</Button>
-  </Set>
-</>
-```
-
 <BestPractices>
 
-<Practice>
-  Button labels should be in sentence case (capitalize the first letter, and
-  apply lowercase for the rest and have no punctuation.
+<Practice
+  label="Button labels should be in sentence case (capitalize the first letter,
+  and apply lowercase for the rest and have no punctuation."
+>
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button>Label</Button>
+```
+
 </Practice>
 
-<Practice bad>
-  The verb used for the label must reflect the exact action that the button
-  triggers. Avoid using "CONFIRM", and use "PUBLISH" instead, for example.
+<Practice
+  bad
+  label="The verb used for the label must reflect the exact action that
+  the button triggers. Avoid using CONFIRM, and use PUBLISH instead, for example."
+>
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Stack direction="row">
+  <Button>Label</Button>
+  <Button>Label</Button>
+</Stack>
+```
+
 </Practice>
 
 </BestPractices>
 
-```jsx live previewOnly layout=grid columnsCount=2 rowsCount=1
-<>
-  <Set>
-    <Button variant="secondary">Label</Button>
-    <Button>Label</Button>
-  </Set>
-
-  <Set>
-    <Button>Label</Button>
-    <Button>Label</Button>
-  </Set>
-</>
-```
-
 <BestPractices>
 
-<Practice>Avoid using more than 3 words for button labels.</Practice>
+<Practice label="Avoid using more than 3 words for button labels.">
 
-<Practice bad>
-  For maximum legibility, a text label should remain on a single line. Find
-  another label if you can’t do it !
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button>Label</Button>
+```
+
+</Practice>
+
+<Practice bad label="For maximum legibility, a text label should remain on a single line. Find another label if you can’t do it!">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button>Label</Button>
+```
+
 </Practice>
 
 </BestPractices>
@@ -346,30 +344,31 @@ function Example() {
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
 >
 
-```jsx live previewOnly layout=grid columnsCount=2 rowsCount=1
-<>
-  <Set>
-    <Button variant="secondary">Label</Button>
-    <Button>Label</Button>
-  </Set>
-
-  <Set>
-    <Button>Label</Button>
-    <Button>Label</Button>
-  </Set>
-</>
-```
-
 <BestPractices>
 
-<Practice>
-  When using multiple buttons, you can place an outlined primary button next to
-  a primary button.
+<Practice label="When using multiple buttons, you can place an outlined primary button next to
+a primary button.">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Set>
+  <Button variant="secondary">Label</Button>
+  <Button>Label</Button>
+</Set>
+```
+
 </Practice>
 
-<Practice bad>
-  Avoid using two primary buttons next to each other. We recommend adding only
-  one primary button per page/modal.
+<Practice bad label="Avoid using two primary buttons next to each other. We recommend adding only
+one primary button per page/modal.
+">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Stack direction="row">
+  <Button>Label</Button>
+  <Button>Label</Button>
+</Stack>
+```
+
 </Practice>
 
 </BestPractices>
