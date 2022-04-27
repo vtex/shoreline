@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { render } from '../../test-utils'
 
-import type { CheckboxStateReturn } from './index'
-import { Checkbox, useCheckboxState } from './index'
+import type { CheckboxStateReturn } from './checkbox-input'
+import { Checkbox, useCheckboxState } from './checkbox-input'
 
 function CheckboxState({
   children,
