@@ -1,4 +1,4 @@
-import { focusVisible, style } from '@vtex/admin-ui'
+import { focusVisible, style } from '@vtex/admin-ui-core'
 import { checkmarkSvg, indeterminateSvg } from './utils'
 
 export const baseline = style({
