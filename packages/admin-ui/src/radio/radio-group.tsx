@@ -5,7 +5,7 @@ import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
 import { Text } from '../components/Text'
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Message } from './message'
 
 export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
@@ -21,26 +21,20 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
       ...restProps
     } = props
 
-    const orientation = direction === 'row' ? 'horizontal' : 'vertical'
-
     return useElement('fieldset', {
       ...restProps,
       children: (
-        <Set spacing="$l" orientation="vertical">
+        <Stack space="$l">
           <Text as="legend" variant="detail" tone="secondary">
             {label}
           </Text>
           <AriakitRadioGroup state={state}>
-            <Set
-              orientation={orientation}
-              spacing="$xl"
-              csx={{ marginY: '$m' }}
-            >
+            <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
               {children}
-            </Set>
+            </Stack>
           </AriakitRadioGroup>
           <Message helpText={helpText} errorText={errorText} error={error} />
-        </Set>
+        </Stack>
       ),
     })
   }

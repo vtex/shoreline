@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Text } from '../components/Text'
 
 export function Message(props: MessageProps) {
@@ -11,7 +11,7 @@ export function Message(props: MessageProps) {
   const hasMessage = hasError || helpText
 
   return hasMessage ? (
-    <Set spacing="$xs" orientation="vertical">
+    <Stack space="$xs">
       {helpText ? (
         <Text variant="detail" tone="secondary">
           {helpText}
@@ -22,7 +22,7 @@ export function Message(props: MessageProps) {
           {errorText}
         </Text>
       ) : null}
-    </Set>
+    </Stack>
   ) : (
     <></>
   )

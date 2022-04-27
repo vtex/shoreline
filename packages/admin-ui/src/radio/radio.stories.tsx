@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { RadioGroupProps, RadioProps } from './index'
 import { Radio, useRadioState, RadioGroup } from './index'
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Box } from '../components/Box'
 
 export default {
@@ -29,14 +29,14 @@ export const RadioGroupPlayground: Story<RadioGroupPlaygroundProps> = (
   const state = useRadioState()
 
   return (
-    <Set spacing="$xl" orientation="vertical">
+    <Stack space="$xl">
       <RadioGroup {...restProps} state={state}>
         {[...Array(numberOfRadios)].map((_, index) => (
           <Radio value={`radio-${index}`} label={`Radio ${index}`} />
         ))}
       </RadioGroup>
       <span>Current value: {state.value}</span>
-    </Set>
+    </Stack>
   )
 }
 
