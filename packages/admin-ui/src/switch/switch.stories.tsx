@@ -6,6 +6,7 @@ import type { Story, Meta } from '@storybook/react'
 import { Text } from '../components/Text'
 import type { SwitchProps } from './types'
 import { Switch, useSwitchState } from './index'
+import { Stack } from '../stack'
 
 export default {
   title: 'admin-ui/Switch',
@@ -30,84 +31,121 @@ Playground.args = {
   helpText,
   errorText,
   error: true,
+  disabled: false,
 }
 
-export function MultipleSwitches() {
+export function Variants() {
   const props = useSwitchState({ state: [] })
 
   return (
-    <>
-      <Text>State: {props.state}</Text>
+    <Stack
+      csx={{
+        margin: '1rem',
+      }}
+    >
+      <Stack>
+        <Text variant="title1">Label only</Text>
+        <Switch
+          state={props}
+          aria-label="label1"
+          label={label}
+          value="switch1"
+        />
+        <Switch
+          state={props}
+          aria-label="label2"
+          value="switch2"
+          label={label}
+          disabled
+        />
+        <Switch aria-label="label2" label={label} disabled checked />
+      </Stack>
+      <Stack>
+        <Text variant="title1">With error text</Text>
+        <Switch
+          state={props}
+          aria-label="label3"
+          value="switch3"
+          label={label}
+          errorText={errorText}
+          error
+        />
+        <Switch
+          state={props}
+          aria-label="label4"
+          value="switch4"
+          label={label}
+          errorText={errorText}
+          disabled
+          error
+        />
+        <Switch
+          aria-label="label2"
+          label={label}
+          disabled
+          checked
+          errorText={errorText}
+          error
+        />
+      </Stack>
+      <Stack>
+        <Text variant="title1">With help text</Text>
+        <Switch
+          state={props}
+          aria-label="label5"
+          label={label}
+          value="switch5"
+          helpText={helpText}
+        />
+        <Switch
+          state={props}
+          aria-label="label6"
+          label={label}
+          value="switch6"
+          helpText={helpText}
+          disabled
+        />
+        <Switch
+          aria-label="label2"
+          label={label}
+          disabled
+          checked
+          helpText={helpText}
+        />
+      </Stack>
+      <Stack>
+        <Text variant="title1">With help and error texts</Text>
+        <Switch
+          state={props}
+          aria-label="label7"
+          label={label}
+          value="switch7"
+          helpText={helpText}
+          errorText={errorText}
+          error
+        />
+        <Switch
+          state={props}
+          aria-label="label8"
+          label={label}
+          value="switch8"
+          helpText={helpText}
+          errorText={errorText}
+          disabled
+          error
+        />
+        <Switch
+          aria-label="label2"
+          label={label}
+          disabled
+          checked
+          helpText={helpText}
+          errorText={errorText}
+          error
+        />
+      </Stack>
       <br />
-      <Switch state={props} aria-label="label1" label={label} value="switch1" />
-      <Switch
-        state={props}
-        aria-label="label1"
-        value="switch3"
-        label={label}
-        helpText={helpText}
-      />
-      <Switch
-        state={props}
-        aria-label="label1"
-        value="switch4"
-        label={label}
-        errorText={errorText}
-      />{' '}
-      <Switch
-        state={props}
-        aria-label="label1"
-        value="switch5"
-        label={label}
-        helpText={helpText}
-        errorText={errorText}
-      />
-      <Switch
-        state={props}
-        aria-label="label3"
-        label={label}
-        value="switch6"
-        helpText={helpText}
-      />
-      <Switch
-        state={props}
-        aria-label="label4"
-        label={label}
-        value="switch7"
-        errorText={errorText}
-      />
-    </>
-  )
-}
-
-export function Active() {
-  return (
-    <>
-      <Switch checked aria-label="label2" helpText={helpText} label={label} />
-      <Switch
-        checked
-        aria-label="label1"
-        label={label}
-        error
-        errorText={errorText}
-      />
-      <Switch checked disabled aria-label="label3" label={label} />
-    </>
-  )
-}
-
-export function Inactive() {
-  return (
-    <>
-      <Switch disabled aria-label="label1" label={label} />
-      <Switch checked disabled aria-label="label2" label={label} />
-      <Switch
-        checked
-        disabled
-        aria-label="label2"
-        helpText={helpText}
-        label={label}
-      />
-    </>
+      <Text>State: {props.state}</Text>
+    </Stack>
   )
 }
