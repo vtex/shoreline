@@ -10,6 +10,10 @@ const gray40 = get(colors, 'gray40')
 
 // State styles
 const active = css({ bg: green40 })
+const inactive = css({
+  height: '1.25rem',
+  width: '2.25rem',
+})
 const hoverInactive = css({ bg: gray40 })
 const hoverActive = css({
   bg: green50,
@@ -30,6 +34,13 @@ const thumbDimensions = css({
       transform: 'translateX(1rem)',
     },
   },
+
+  '&:disabled': {
+    '&:after': {
+      bg: (theme) => get(theme, 'fg.disabled', ''),
+      margin: '0.2rem',
+    },
+  },
 })
 
 export const thumb = css({
@@ -46,17 +57,18 @@ export const track = css({
   appearance: 'none',
   position: 'relative',
   cursor: 'pointer',
-  margin: '1px',
+  margin: 'unset',
   borderRadius: '6.25rem',
-  borderStyle: 'solid',
-  height: 20,
-  width: 36,
+  border: '0.06rem solid white',
+  height: '1.375rem',
+  width: '2.375rem',
 
   ':disabled': {
     bg: '$disabled',
     border: '$disabled',
     color: '$disabled',
     cursor: 'not-allowed',
+    ...inactive,
   },
 
   ':hover': hoverInactive,
@@ -73,11 +85,6 @@ export const track = css({
 
 export const checked = css({
   ...active,
-
-  '&[disabled]:after': {
-    ...thumb,
-    bg: (theme) => get(theme, 'fg.disabled', ''),
-  },
 
   ':disabled': {
     cursor: 'not-allowed',
@@ -96,5 +103,5 @@ export const checked = css({
 })
 
 export const label = css({
-  marginTop: '1px',
+  marginTop: '0.06rem',
 })
