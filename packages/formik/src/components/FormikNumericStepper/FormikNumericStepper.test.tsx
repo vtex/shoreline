@@ -21,12 +21,7 @@ describe('Numeric Stepper tests', () => {
             label="NumericStepper label"
             id="numeric-field-1"
           />
-          <Button
-            type="submit"
-            size="small"
-            children="Submit"
-            data-testid="btn-submit"
-          />
+          <Button type="submit" children="Submit" data-testid="btn-submit" />
         </Form>
       </Formik>
     )
@@ -89,11 +84,10 @@ describe('Numeric Stepper tests', () => {
               id="numeric-field-1"
             />
             <Button
-              size="small"
               children="Change Value"
               onClick={() => setFieldValue('value', 5)}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -132,7 +126,7 @@ describe('Numeric Stepper tests', () => {
             label="NumericField label"
             id="numeric-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -157,7 +151,7 @@ describe('Numeric Stepper tests', () => {
             label="NumericField label"
             id="numeric-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -178,15 +172,11 @@ describe('Numeric Stepper tests', () => {
               label="NumericStepper label"
               id="numeric-field-1"
             />
-            <Button
-              size="small"
-              children="Reset Form"
-              onClick={() => resetForm()}
-            />
+            <Button children="Reset Form" onClick={() => resetForm()} />
             <Text tone="secondary">
               <pre>{JSON.stringify(touched)}</pre>
             </Text>
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         )}
       </Formik>
@@ -241,7 +231,7 @@ describe('Numeric Stepper tests', () => {
             label="NumericField label"
             id="numeric-field-1"
           />
-          <Button type="submit" size="small" children="Submit" />
+          <Button type="submit" children="Submit" />
         </Form>
       </Formik>
     )
@@ -277,7 +267,6 @@ describe('Numeric Stepper tests', () => {
               maxValue={maxValue}
             />
             <Button
-              size="small"
               children="Change Value"
               onClick={() => {
                 setFieldValue('value', maxValue + 2)
@@ -321,7 +310,7 @@ describe('Numeric Stepper tests', () => {
               id="numeric-field-1"
               formatMessage={(errorCode) => formatMessage({ id: errorCode })}
             />
-            <Button type="submit" size="small" children="Submit" />
+            <Button type="submit" children="Submit" />
           </Form>
         </Formik>
       )
