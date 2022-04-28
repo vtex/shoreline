@@ -20,6 +20,7 @@ export function BestPractices(props: BestPracticesProps) {
           flexDirection: 'row',
           '> *': {
             maxWidth: '50%',
+            minWidth: '50%',
           },
         },
       }}
