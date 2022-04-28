@@ -9,6 +9,7 @@ import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 import { BestPractices, Practice } from '@site/src/components/BestPractices'
+import { List, ListItem } from '@site/src/components/List'
 
 export const tabToc = {
   overview: [
@@ -66,6 +67,11 @@ export const tabToc = {
     },
   ],
   designReference: [
+    {
+      id: 'best-practices',
+      value: `Best Practices`,
+      level: 2,
+    },
     {
       id: 'writing-labels',
       value: 'Writing Labels',
@@ -309,8 +315,32 @@ function Example() {
 <Panel id="designReference">
 
 <PageSection
-  id={tabToc.designReference[0].id}
-  title={tabToc.designReference[0].value}
+id={tabToc.designReference[0].id}
+title={tabToc.designReference[0].value}
+direction="row"
+>
+
+<List>
+  <ListItem>
+    Use a primary button to indicate the main action of a group button set.
+  </ListItem>
+  <ListItem>
+    Subtle or secondary buttons should use a less dominant color.
+  </ListItem>
+  <ListItem>
+    Make sure the size of the button is large enough to interact with on the
+    application
+  </ListItem>
+  <ListItem>
+    Use action verbs or phrases to tell the user what will happen next.
+  </ListItem>
+</List>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
   direction="row"
   explanation="The button label should be actionable so users know exactly what
   to expect when clicking. Prefer verbs in the infinitive tense."
@@ -369,8 +399,8 @@ function Example() {
 </PageSection>
 
 <PageSection
-  id={tabToc.designReference[1].id}
-  title={tabToc.designReference[1].value}
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
   direction="row"
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
 >
