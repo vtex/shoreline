@@ -90,6 +90,7 @@ export const disabled = style({
 
     '& + div label': {
       color: '$disabled',
+      cursor: 'default',
     },
   },
 })

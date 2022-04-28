@@ -4,7 +4,7 @@ import { createComponent } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
 import { Label } from '../components/Label'
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
 import { Message } from './message'
@@ -27,12 +27,12 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
     return (
       <Inline hSpace="$m" vSpace="">
         <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
-        <Set orientation="vertical" spacing="$s">
+        <Stack space="$s">
           <Label htmlFor={baseId} csx={style.label}>
             {label}
           </Label>
           <Message helpText={helpText} error={error} errorText={errorText} />
-        </Set>
+        </Stack>
       </Inline>
     )
   }
@@ -59,3 +59,5 @@ export interface CheckboxOptions {
 }
 
 export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
+
+export { useCheckboxState } from 'ariakit/Checkbox'
