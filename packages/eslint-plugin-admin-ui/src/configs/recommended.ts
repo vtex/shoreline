@@ -4,5 +4,6 @@ export const recommended: Linter.BaseConfig = {
   plugins: ['@vtex/admin-ui'],
   rules: {
     '@vtex/admin-ui/create-tag-component-outside-render-phase': 'error',
+    '@vtex/admin-ui/recommend-admin-ui-usage': 'warn',
   },
 }

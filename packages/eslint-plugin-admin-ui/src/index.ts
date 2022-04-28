@@ -1,5 +1,6 @@
 import { recommended } from './configs/recommended'
 import { createTagComponentOutsideRenderPhase } from './rules/create-tag-component-outside-render-phase'
+import { recommendAdminUiUsage } from './rules/recommend-admin-ui-usage'
 
 // tsdx doesn't support we configure our tsconfig.json
 // to target module commonjs, so we need to manually
@@ -15,5 +16,6 @@ module.exports = {
   rules: {
     'create-tag-component-outside-render-phase':
       createTagComponentOutsideRenderPhase,
+    'recommend-admin-ui-usage': recommendAdminUiUsage,
   },
 }
