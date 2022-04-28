@@ -1,185 +1,113 @@
 import React, { useEffect, useRef } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-// import { Label } from '../Label'
 import { Checkbox } from './checkbox'
 import { CheckboxGroup } from './checkbox-group'
-// import { Text } from '../Text'
+import { Box } from '../components/Box'
+
+import type { CheckboxProps } from './checkbox'
+import type { CheckboxGroupProps } from './checkbox-group'
 
 export default {
   title: 'admin-ui-review/checkbox',
   component: Checkbox,
+  argTypes: {
+    direction: {
+      options: ['row', 'column'],
+      control: { type: 'radio' },
+      defaultValue: 'column',
+    },
+  },
 } as Meta
 
-export const Playground: Story = (args) => {
+interface CheckboxPlaygroundProps extends Omit<CheckboxProps, 'state'> {
+  indeterminate: boolean
+}
+
+export const CheckboxPlayground: Story<CheckboxPlaygroundProps> = (args) => {
+  const { indeterminate, ...remaininProps } = args
+
   const ref = useRef<HTMLInputElement>(null)
-  const ref2 = useRef<HTMLInputElement>(null)
-  const ref3 = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (ref?.current) {
-      ref.current.indeterminate = true
+      ref.current.indeterminate = indeterminate
     }
-
-    if (ref2?.current) {
-      ref2.current.indeterminate = true
-    }
-
-    if (ref3?.current) {
-      ref3.current.indeterminate = true
-    }
-  }, [])
+  }, [indeterminate])
 
   return (
-    <>
-      <Checkbox label="Label" helpText="Help text" />
-      <Checkbox ref={ref} label="Label" helpText="Help text" />
-      <Checkbox label="Label" helpText="Help text" checked />
-      <Checkbox
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        error
-      />
-      <Checkbox
-        ref={ref3}
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        error
-      />
-      <Checkbox
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        error
-        checked
-      />
-      <Checkbox
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        error
-        disabled
-      />
-      <Checkbox
-        ref={ref2}
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        error
-        disabled
-      />
-      <Checkbox
-        label="Label"
-        helpText="Help text"
-        errorText="Error text"
-        checked
-        error
-        disabled
-      />
-    </>
+    <Box csx={{ margin: '$xs' }}>
+      <Checkbox ref={ref} {...remaininProps} />
+    </Box>
   )
 }
 
-Playground.args = {
-  'aria-label': 'label',
+CheckboxPlayground.args = {
+  label: 'Label',
+  helpText: 'Help Text',
+  indeterminate: false,
+  disabled: false,
+  error: false,
+  errorText: 'Error Text',
 }
 
-// export const MultipleCheckboxes = () => {
-//   const props = useCheckboxState({ state: [] })
+export const CheckboxExample = () => {
+  return (
+    <Box csx={{ margin: '$xs' }}>
+      <Checkbox
+        label="I agree to the Terms of Service"
+        helpText="You must select this option to use our services"
+      />
+    </Box>
+  )
+}
 
-//   return (
-//     <>
-//       <Text>Checkboxes marked: {props.state}</Text>
-//       <Checkbox state={props} aria-label="label" value="checkbox1" />
-//       <Checkbox state={props} aria-label="label" value="checkbox2" />
-//       <Checkbox state={props} aria-label="label" value="checkbox3" />
-//     </>
-//   )
-// }
+interface CheckboxGroupPlaygroundProps
+  extends Omit<CheckboxGroupProps, 'state'> {
+  checkboxCount: number
+}
 
-export const Disabled = () => {
-  const ref = useRef<HTMLInputElement>(null)
-  const ref2 = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    if (ref?.current) {
-      ref.current.indeterminate = true
-    }
-
-    if (ref2?.current) {
-      ref2.current.indeterminate = true
-    }
-  }, [])
+export const CheckboxGroupPlayground: Story<CheckboxGroupPlaygroundProps> = (
+  args
+) => {
+  const { checkboxCount, ...remainingProps } = args
 
   return (
-    <>
-      <CheckboxGroup
-        label="Group label"
-        direction="column"
-        helpText="Help Text"
-        errorText="Error Text"
-        error
-      >
-        <Checkbox label="Label" />
-        <Checkbox label="Label" />
-        <Checkbox label="Label" />
-        <Checkbox label="Label" />
+    <Box csx={{ margin: '$xs' }}>
+      <CheckboxGroup {...remainingProps}>
+        {[...Array(checkboxCount)].map((_, index) => (
+          <Checkbox label={`Checkbox ${index}`} />
+        ))}
       </CheckboxGroup>
-    </>
+    </Box>
   )
 }
 
-// export const IndeterminateExample = () => {
-//   function useTreeState({ values }: { values: string[] }) {
-//     const { state: group, setState: setGroup } = useCheckboxState({ state: [] })
-//     const { state: items, setState: setItems } = useCheckboxState({ state: [] })
+CheckboxGroupPlayground.args = {
+  label: 'Group Label',
+  helpText: 'Help Text',
+  direction: 'column',
+  error: false,
+  errorText: 'Error Text',
+  checkboxCount: 4,
+}
 
-//     // updates items when group is toggled
-//     React.useEffect(() => {
-//       if (group === true) {
-//         setItems(values)
-//       } else if (group === false) {
-//         setItems([])
-//       }
-//     }, [group, setItems, values])
-
-//     // updates group when items is toggled
-//     React.useEffect(() => {
-//       if (items instanceof Array && items.length === values.length) {
-//         setGroup(true)
-//       } else if (items instanceof Array && items.length) {
-//         setGroup('indeterminate')
-//       } else {
-//         setGroup(false)
-//       }
-//     }, [items, setGroup, values])
-
-//     return { group, items, setItems, setGroup }
-//   }
-
-//   const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
-//   const { group, setGroup, items, setItems } = useTreeState({ values })
-
-//   return (
-//     <>
-//       <Label csx={{ display: 'flex', alignItems: 'center' }}>
-//         <Checkbox state={{ state: group, setState: setGroup }} />
-//         Fruits ( Group Control )
-//       </Label>
-//       <br />
-//       {values.map((fruit, key) => {
-//         return (
-//           <Label key={key} csx={{ display: 'flex', alignItems: 'center' }}>
-//             <Checkbox
-//               state={{ state: items, setState: setItems }}
-//               value={fruit}
-//             />
-//             {fruit}
-//           </Label>
-//         )
-//       })}
-//     </>
-//   )
-// }
+export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
+  args
+) => {
+  return (
+    <Box csx={{ margin: '$xs' }}>
+      <CheckboxGroup label="Contact Info" direction={args.direction}>
+        <Checkbox label="Phone" helpText="All contacts will be made by call" />
+        <Checkbox
+          label="Cell Phone"
+          helpText="All contacts will be  made via SMS"
+        />
+        <Checkbox
+          label="Email"
+          helpText="You will be subscribed to our newsletter"
+        />
+      </CheckboxGroup>
+    </Box>
+  )
+}
