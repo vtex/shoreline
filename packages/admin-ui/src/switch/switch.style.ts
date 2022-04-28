@@ -13,6 +13,9 @@ const active = css({ bg: green40 })
 const inactive = css({
   height: '1.25rem',
   width: '2.25rem',
+  top: '0.06rem',
+  left: '0.06rem',
+  marginRight: '0.125rem',
 })
 const hoverInactive = css({ bg: gray40 })
 const hoverActive = css({

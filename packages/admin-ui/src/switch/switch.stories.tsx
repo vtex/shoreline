@@ -22,8 +22,8 @@ export const Playground: Story<SwitchProps> = (args) => {
 }
 
 const label = 'Label'
-const helpText = 'Help Text'
-const errorText = 'Error Text'
+const helpText = 'Help text'
+const errorText = 'Error text'
 
 Playground.args = {
   'aria-label': 'Switch',
@@ -41,6 +41,9 @@ export function Variants() {
     <Stack
       csx={{
         margin: '1rem',
+        '> div > *:not(:first-child):not(:nth-child(2))': {
+          marginTop: '3.75rem',
+        },
       }}
     >
       <Stack>
