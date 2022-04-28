@@ -60,4 +60,4 @@ export interface CheckboxOptions {
 
 export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
 
-export { useCheckboxState } from 'ariakit/Checkbox'
+export { useCheckboxState, CheckboxState } from 'ariakit/Checkbox'

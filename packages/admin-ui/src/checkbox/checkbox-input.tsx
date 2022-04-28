@@ -7,11 +7,13 @@ export const CheckboxInput = createComponent<
   typeof AriakitCheckbox,
   CheckboxInputOptions
 >((props) => {
+  const { error = false, ...htmlProps } = props
+
   return useElement(AriakitCheckbox, {
-    ...props,
+    ...htmlProps,
     baseStyle: {
       ...style.checkboxStyle,
-      ...(props.error ? style.error : {}),
+      ...(error ? style.error : {}),
     },
   })
 })
@@ -21,4 +23,6 @@ export interface CheckboxInputOptions {
   id?: string
 }
 
-export type CheckboxProps = React.ComponentPropsWithRef<typeof CheckboxInput>
+export type CheckboxInputProps = React.ComponentPropsWithRef<
+  typeof CheckboxInput
+>

@@ -89,6 +89,8 @@ CheckboxGroupPlayground.args = {
   direction: 'column',
   error: false,
   errorText: 'Error Text',
+  optional: false,
+  optionalText: 'optional',
   checkboxCount: 4,
 }
 
@@ -97,7 +99,12 @@ export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
 ) => {
   return (
     <Box csx={{ margin: '$xs' }}>
-      <CheckboxGroup label="Contact Info" direction={args.direction}>
+      <CheckboxGroup
+        label="Contact Info"
+        direction={args.direction}
+        optionalText="optional"
+        optional
+      >
         <Checkbox label="Phone" helpText="All contacts will be made by call" />
         <Checkbox
           label="Cell Phone"
