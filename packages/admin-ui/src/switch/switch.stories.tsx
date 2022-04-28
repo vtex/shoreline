@@ -4,7 +4,7 @@ import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
 import { Text } from '../components/Text'
-import type { SwitchProps } from './index'
+import type { SwitchProps } from './types'
 import { Switch, useSwitchState } from './index'
 
 export default {
@@ -20,8 +20,16 @@ export const Playground: Story<SwitchProps> = (args) => {
   )
 }
 
+const label = 'Label'
+const helpText = 'Help Text'
+const errorText = 'Error Text'
+
 Playground.args = {
   'aria-label': 'Switch',
+  label,
+  helpText,
+  errorText,
+  error: true,
 }
 
 export function MultipleSwitches() {
@@ -31,41 +39,42 @@ export function MultipleSwitches() {
     <>
       <Text>State: {props.state}</Text>
       <br />
-      <Switch state={props} aria-label="label1" value="switch1" />
-      <Switch state={props} aria-label="label1" value="switch2" label="Label" />
+      <Switch state={props} aria-label="label1" label={label} value="switch1" />
       <Switch
         state={props}
         aria-label="label1"
         value="switch3"
-        label="Label"
-        helperText="Help Text"
+        label={label}
+        helpText={helpText}
       />
       <Switch
         state={props}
         aria-label="label1"
         value="switch4"
-        label="Label"
-        errorText="Error Text"
+        label={label}
+        errorText={errorText}
       />{' '}
       <Switch
         state={props}
         aria-label="label1"
         value="switch5"
-        label="Label"
-        helperText="Help Text"
-        errorText="Error Text"
+        label={label}
+        helpText={helpText}
+        errorText={errorText}
       />
       <Switch
         state={props}
         aria-label="label3"
+        label={label}
         value="switch6"
-        helperText="Help Text"
+        helpText={helpText}
       />
       <Switch
         state={props}
         aria-label="label4"
+        label={label}
         value="switch7"
-        errorText="Error Text"
+        errorText={errorText}
       />
     </>
   )
@@ -74,9 +83,15 @@ export function MultipleSwitches() {
 export function Active() {
   return (
     <>
-      <Switch checked aria-label="label1" />
-      <Switch checked aria-label="label2" helperText="Help Text" />
-      <Switch checked disabled aria-label="label3" />
+      <Switch checked aria-label="label2" helpText={helpText} label={label} />
+      <Switch
+        checked
+        aria-label="label1"
+        label={label}
+        error
+        errorText={errorText}
+      />
+      <Switch checked disabled aria-label="label3" label={label} />
     </>
   )
 }
@@ -84,9 +99,15 @@ export function Active() {
 export function Inactive() {
   return (
     <>
-      <Switch disabled aria-label="label1" />
-      <Switch checked disabled aria-label="label2" />
-      <Switch checked disabled aria-label="label2" helperText="Help Text" />
+      <Switch disabled aria-label="label1" label={label} />
+      <Switch checked disabled aria-label="label2" label={label} />
+      <Switch
+        checked
+        disabled
+        aria-label="label2"
+        helpText={helpText}
+        label={label}
+      />
     </>
   )
 }

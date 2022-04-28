@@ -1,40 +1,38 @@
-import type { CheckboxProps as ReakitProps } from 'reakit/Checkbox'
+import React from 'react'
 import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { createComponent } from '@vtex/admin-ui-react'
 
 import * as style from './switch.style'
-import type { CheckboxStateReturn } from '../components/Checkbox'
 import { useCheckboxState } from '../components/Checkbox'
-import type { ComponentPropsWithRef } from 'react'
+import { Inline } from '../inline'
+import { SwitchButton } from './switch-button'
+import { Stack } from '../stack'
+import { Label } from '../components/Label'
+import { Message } from './message'
+import { SwitchOptions } from './types'
 
 export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
   (props) => {
-    const { state, ...htmlProps } = props
+    const { state, helpText, errorText, label, error, ...htmlProps } = props
 
-    return useElement(ReakitCheckbox, {
-      role: 'switch',
-      baseStyle: {
-        ...style.track,
-        ':after': style.thumb,
-        '&:checked': style.checked,
-      },
-      ...state,
-      ...htmlProps,
-    })
+    const hasError = !!(error && errorText)
+    const hasMessage = !!(hasError || helpText)
+
+    return (
+      <Inline hSpace="$m" vSpace="">
+        <SwitchButton state={state} {...htmlProps} />
+        <Stack space="$s">
+          {label && <Label csx={style.label}>{label}</Label>}
+          {hasMessage && (
+            <>
+              {helpText && <Message helpText={helpText} />}
+              {hasError && <Message errorText={errorText} />}
+            </>
+          )}
+        </Stack>
+      </Inline>
+    )
   }
 )
-
-type State = Pick<ReakitProps, 'state' | 'setState'>
-
-export interface SwitchOptions {
-  state?: State
-  label?: string
-  helperText?: string
-  errorText?: string
-}
-
-export type SwitchProps = ComponentPropsWithRef<typeof Switch> & SwitchOptions
-
-export type SwitchStateReturn = CheckboxStateReturn
 
 export { useCheckboxState as useSwitchState }

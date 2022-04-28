@@ -94,3 +94,7 @@ export const checked = css({
 
   ...thumbDimensions,
 })
+
+export const label = css({
+  marginTop: '1px',
+})
