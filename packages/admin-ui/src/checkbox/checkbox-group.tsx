@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
+import { Group as AriaCheckboxGroup } from 'ariakit/group'
 
 import { Text } from '../components/Text'
-import { Set } from '../components/Set'
+import { Stack } from '../stack'
 import { Message } from './message'
 
 export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
@@ -12,30 +13,26 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
       label,
       helpText,
       errorText,
-      children,
-      direction = 'row',
       error = false,
+      direction = 'row',
+      children,
     } = props
 
-    const orientation = direction === 'row' ? 'horizontal' : 'vertical'
-
     return (
-      <Set spacing="$l" orientation="vertical">
+      <Stack space="$l">
         <Text variant="detail" tone="secondary">
           {label}
         </Text>
-        <Set orientation={orientation} spacing="$xl" csx={{ marginY: '$m' }}>
-          {children}
-        </Set>
+        <AriaCheckboxGroup>
+          <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
+            {children}
+          </Stack>
+        </AriaCheckboxGroup>
         <Message helpText={helpText} errorText={errorText} error={error} />
-      </Set>
+      </Stack>
     )
   }
 )
-
-export type CheckboxGroupProps = React.ComponentPropsWithoutRef<
-  typeof CheckboxGroup
->
 
 export interface CheckboxGroupOptions {
   /**
@@ -62,4 +59,8 @@ export interface CheckboxGroupOptions {
   label: ReactNode
 }
 
-export { useRadioState, RadioState } from 'ariakit/radio'
+export type CheckboxGroupProps = React.ComponentPropsWithoutRef<
+  typeof CheckboxGroup
+>
+
+export { useCheckboxState, CheckboxState } from 'ariakit/checkbox'
