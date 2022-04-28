@@ -10,7 +10,7 @@ export * from './bleed'
 export * from './button'
 export * from './stack'
 
-export * from './depreacted-set'
+export * from './deprecated-set'
 
 export * from './components/Skeleton'
 export * from './components/Label'

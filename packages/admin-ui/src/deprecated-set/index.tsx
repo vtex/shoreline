@@ -4,7 +4,7 @@ import { jsx, useResponsiveValue } from '@vtex/admin-ui-react'
 
 /**
  * Component used to display a set of components that are spaced evenly.
- * @deprecated Use Stack insead
+ * @deprecated Use Stack instead
  * @see https://admin-ui.vercel.app/guidelines/components/stack
  */
 export const Set = jsx('div')(
