@@ -279,7 +279,7 @@ function Example() {
 <Panel id="designReference">
 
 <PageSection
-  id={tabToc.designReference[0].value}
+  id={tabToc.designReference[0].id}
   title={tabToc.designReference[0].value}
   direction="row"
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
@@ -305,7 +305,7 @@ function Example() {
 >
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
-<Stack direction="row">
+<Stack direction="row" space="4">
   <Button>Label</Button>
   <Button>Label</Button>
 </Stack>
@@ -328,7 +328,7 @@ function Example() {
 <Practice bad label="For maximum legibility, a text label should remain on a single line. Find another label if you can’t do it!">
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
-<Button>Label</Button>
+<Button csx={{ width: '220px' }}>Label</Button>
 ```
 
 </Practice>
@@ -338,7 +338,7 @@ function Example() {
 </PageSection>
 
 <PageSection
-  id={tabToc.designReference[1].value}
+  id={tabToc.designReference[1].id}
   title={tabToc.designReference[1].value}
   direction="row"
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
@@ -350,10 +350,10 @@ function Example() {
 a primary button.">
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
-<Set>
+<Stack direction="row" space="4">
   <Button variant="secondary">Label</Button>
   <Button>Label</Button>
-</Set>
+</Stack>
 ```
 
 </Practice>
@@ -363,7 +363,7 @@ one primary button per page/modal.
 ">
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
-<Stack direction="row">
+<Stack direction="row" space="4">
   <Button>Label</Button>
   <Button>Label</Button>
 </Stack>

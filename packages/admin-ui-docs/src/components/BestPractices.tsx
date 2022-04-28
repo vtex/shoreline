@@ -2,8 +2,9 @@ import {
   Flex,
   IconCheckCircle,
   IconXOctagon,
-  Inline,
   Paragraph,
+  Stack,
+  style,
 } from '@vtex/admin-ui'
 import type { ReactNode } from 'react'
 import React from 'react'
@@ -12,19 +13,7 @@ export function BestPractices(props: BestPracticesProps) {
   const { children } = props
 
   return (
-    <Flex
-      csx={{
-        marginBottom: '$xl',
-        flexDirection: 'column',
-        '@tablet': {
-          flexDirection: 'row',
-          '> *': {
-            maxWidth: '50%',
-            minWidth: '50%',
-          },
-        },
-      }}
-    >
+    <Flex direction="column" csx={styles.practiceContainer}>
       {children}
     </Flex>
   )
@@ -43,23 +32,42 @@ export function Practice(props: PracticeProps) {
 
   return (
     <Flex direction="column">
-      <Flex justify="center" csx={{ '> *': { margin: 0 } }}>
-        {children}
-      </Flex>
-      <Inline
-        csx={{
-          borderTop: token,
-          borderTopWidth: '2px',
-          paddingY: '$xl',
-          width: '100%',
-        }}
-        noWrap
-      >
+      <Flex csx={styles.previewContainer}>{children}</Flex>
+      <Stack csx={styles.practice(token)} direction="row" space="$m">
         <Icon weight="fill" csx={{ color: token }} />
         <Paragraph>{label}</Paragraph>
-      </Inline>
+      </Stack>
     </Flex>
   )
+}
+
+const styles = {
+  practiceContainer: style({
+    marginBottom: '56px',
+    '@tablet': {
+      flexDirection: 'row',
+      '> *': {
+        maxWidth: '50%',
+        minWidth: '50%',
+      },
+    },
+  }),
+  previewContainer: style({
+    '> *': {
+      margin: 0,
+      '.preview-grid-container': { height: '100%' },
+      '.wrapper-container': { height: '216px' },
+    },
+  }),
+  practice: (token: string) =>
+    style({
+      borderTop: token,
+      borderTopWidth: '2px',
+      paddingY: '$xl',
+      paddingRight: '$m',
+      width: '100%',
+      alignItems: 'flex-start',
+    }),
 }
 
 interface PracticeProps {
