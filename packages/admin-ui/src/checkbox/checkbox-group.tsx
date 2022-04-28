@@ -15,13 +15,15 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
       errorText,
       error = false,
       direction = 'row',
+      optional = false,
+      optionalText,
       children,
     } = props
 
     return (
       <Stack space="$l">
         <Text variant="detail" tone="secondary">
-          {label}
+          {label} {optional ? `(${optionalText})` : ''}
         </Text>
         <AriaCheckboxGroup>
           <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
@@ -54,6 +56,14 @@ export interface CheckboxGroupOptions {
    */
   helpText?: ReactNode
   /**
+   * Whether is a optional field or not
+   */
+  optional?: boolean
+  /**
+   * Optional text. It appears when optional property is set to true.
+   */
+  optionalText?: ReactNode
+  /**
    * CheckboxGroup label
    */
   label: ReactNode
@@ -62,5 +72,3 @@ export interface CheckboxGroupOptions {
 export type CheckboxGroupProps = React.ComponentPropsWithoutRef<
   typeof CheckboxGroup
 >
-
-export { useCheckboxState, CheckboxState } from 'ariakit/checkbox'
