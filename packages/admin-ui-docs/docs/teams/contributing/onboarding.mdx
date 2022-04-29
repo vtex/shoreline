@@ -4,28 +4,30 @@ path: /contributing/onboarding/
 sidebar_position: 1
 ---
 
-The redesigned VTEX Admin is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process. If your questions weren't clarified here, feel free to reach us at #dev-design-system. Follow the steps below to contribute to our redesigned VTEX Admin's development.
+The redesigned VTEX Admin is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process.
+
+If you are a VTEXer, and your questions were not clarified here, feel free to reach us through slack at #dev-design-system. Follow the steps below to contribute to our redesigned VTEX Admin's development.
 
 ## Tools and conventions
 
 ### Issues: where the conversation happens
 
-We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on this and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think is relevant to the project. However, before filing a new task, make sure your issue doesn’t already exist.
+We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on them and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think is relevant to the project. However, before filing a new task, make sure your issue does not already exist.
 
 ### Storybook
 
-We use storybook as a canvas to create stories and as a preview of our components features. It is really useful to share with the designers and check if the component has the expected behavior.
+We use storybook as a canvas to create stories and as a preview of our components' features. It is really useful to share with the designers and check if the component has the expected behavior.
 
 ### Commit messages
 
 It is essential that all commits follow an established convention. We ask you to please take the time to understand semantic versioning before committing.
 
-**Tools:** We use [commitlint](https://commitlint.js.org/#/) and [commitizen](http://commitizen.github.io/cz-cli/) to automate enforcement of [Conventional Commits](https://www.conventionalcommits.org/).
-**Messages:** As a shorthand, we always use the `git cz` command to ensure that we are following our commitlint.
+- **Tools:** we use [commitlint](https://commitlint.js.org/#/) and [commitizen](http://commitizen.github.io/cz-cli/) to automate enforcement of [Conventional Commits](https://www.conventionalcommits.org/).
+- **Messages:** as a shorthand, we always use the `git cz` command to ensure that we are following our commitlint.
 
 ## Development Workflow
 
-Follow the instructions below to get started on development.
+Follow the instructions below to get started on development with Admin UI.
 
 ### Getting started
 
@@ -35,6 +37,7 @@ Follow the instructions below to get started on development.
 4.  Run `yarn test`.
 
 #### Scripts
+Check out the list of scripts available for getting started with Admin UI:
 
 | Command               | Description                                   |
 | --------------------- | --------------------------------------------- |
@@ -51,7 +54,7 @@ Follow the instructions below to get started on development.
 
 To help you get your feet wet and get you familiar with our contribution process, we have a list of good first issues that contain bugs that have a relatively limited scope. This is a great place to get started.
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment, and assign yourself in the issue, stating that you intend to work on it so other people don’t accidentally duplicate your effort.
+If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment, and assign yourself to the issue, stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 
 ### Sending a Pull Request
 
@@ -61,8 +64,8 @@ Before submitting a pull request:, please make sure the following is done:
 
 1.  Clone the repository and create your branch from main.
 2.  Run yarn: in the repository root.
-3.  If you’ve fixed a bug or added code that should be tested, add tests.
-4.  If you've created a new component or added a new feature, add stories in the storybook.
+3.  If you have fixed a bug or added code that should be tested, add tests.
+4.  If you have created a new component or added a new feature, add stories in the storybook.
 5.  Ensure the test suite passes (yarn test).
 6.  Format your code with prettier (yarn prettier).
 7.  Make sure your code lints (yarn lint).
@@ -70,7 +73,7 @@ Before submitting a pull request:, please make sure the following is done:
 
 
 ## Contributing with documentation
-Our Admin UI documentation is constantly updated and improved to support you in your journey with the VTEX Design system. And to make this a collaborative effort, check out how to contribute with our documentation in the sections below.
+Our Admin UI documentation is constantly updated and improved to support you in your journey with the VTEX design system. And to make this a collaborative effort, check out how to contribute with our documentation in the sections below.
 
 ### Editing a page
 Our documentation site is built using [Docusaurus 2](https://docusaurus.io/), a static website generator. All of our documentation is stored in the [/docs folder](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs) of our Github Repository.
