@@ -65,14 +65,14 @@ When using a standalone `Switch` you should provide an `aria-label` property val
 
 ```jsx live
 function Example() {
-  const [toggled, setSwitch] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
       label="Label"
       aria-label="label"
-      checked={toggled}
-      onChange={() => setSwitch(!toggled)}
+      checked={checked}
+      onChange={() => setChecked(!checked)}
     />
   )
 }
@@ -82,15 +82,15 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const [toggled, setSwitch] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
       label="Label"
       aria-label="label"
-      checked={toggled}
+      checked={checked}
       helpText="Help text"
-      onChange={() => setSwitch(!toggled)}
+      onChange={() => setChecked(!checked)}
     />
   )
 }
@@ -100,16 +100,16 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const [toggled, setSwitch] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
       label="Label"
       aria-label="label"
-      checked={toggled}
+      checked={checked}
       error
       errorText="Error text"
-      onChange={() => setSwitch(!toggled)}
+      onChange={() => setChecked(!checked)}
     />
   )
 }
@@ -119,17 +119,17 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const [toggled, setSwitch] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
       label="Label"
       aria-label="label"
-      checked={toggled}
+      checked={checked}
       error
       errorText="Error text"
       helpText="Help text"
-      onChange={() => setSwitch(!toggled)}
+      onChange={() => setChecked(!checked)}
     />
   )
 }
@@ -147,7 +147,7 @@ function Example() {
         error
         errorText="Error text"
         helpText="Help text"
-        onChange={() => setSwitch(!toggled)}
+        onChange={() => setChecked(!checked)}
         disabled
       />
       <Switch
@@ -157,7 +157,7 @@ function Example() {
         checked
         errorText="Error text"
         helpText="Help text"
-        onChange={() => setSwitch(!toggled)}
+        onChange={() => setChecked(!checked)}
         disabled
       />
     </>
@@ -224,12 +224,12 @@ You can use the properties `checked` and `onChange` to handle if the Switch is c
 
 ```jsx live
 function Example() {
-  const [toggled, setSwitch] = React.useState(false)
+  const [checked, setChecked] = React.useState(false)
 
   return (
     <Switch
-      checked={toggled}
-      onChange={() => setSwitch(!toggled)}
+      checked={checked}
+      onChange={() => setChecked(!checked)}
       label="Label"
     />
   )
@@ -242,9 +242,9 @@ For convenience, we also provide a hook that already implements the state logic 
 
 ```jsx live
 function Example() {
-  const toggle = useSwitchState({ state: false })
+  const switchState = useSwitchState({ state: false })
 
-  return <Switch state={toggle} label="Label" />
+  return <Switch state={switchState} label="Label" />
 }
 ```
 
@@ -252,7 +252,7 @@ function Example() {
 
 | Name      | Type             | Description                                                                                                                                   | Required | Default |
 | --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| label     | `string`         | The component's label                                                                                                                         | ✅       | -       |
+| label     | `ReactNode`      | The component's label                                                                                                                         | ✅       | -       |
 | helpText  | `ReactNode`      | Help text                                                                                                                                     | 🚫       | -       |
 | errorText | `ReactNode`      | Error text                                                                                                                                    | 🚫       | -       |
 | error     | `boolean`        | Whether the switch contains an error or not                                                                                                   | 🚫       | -       |
@@ -260,7 +260,6 @@ function Example() {
 | disabled  | `boolean`        | Defines if the Switch is disabled or not                                                                                                      | 🚫       | -       |
 | value     | `string, number` | Switch's value is going to be used when multiple switches share the same state. Checking a switch with a value will add it to the state array | 🚫       | -       |
 | state     | `CheckboxState`  | Return of `useSwitchState` hook. You can also provide these props from your own state logic.                                                  | 🚫       | -       |
-| children  | `ReactNode`      | Switch button children                                                                                                                        | 🚫       | -       |
 | csx       | `StyleProp`      | Defines component styles                                                                                                                      | 🚫       | `{}`    |
 
 </Panel>

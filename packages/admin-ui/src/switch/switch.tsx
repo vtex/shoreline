@@ -8,7 +8,7 @@ import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'
 import { Label } from '../components/Label'
-import { Message } from './message'
+import { SwitchMessage } from './message'
 import type { SwitchOptions } from './types'
 import { Text } from '../components/Text'
 
@@ -35,8 +35,8 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
           )}
           {hasMessage && (
             <>
-              {helpText && <Message helpText={helpText} />}
-              {hasError && <Message errorText={errorText} />}
+              {helpText && <SwitchMessage helpText={helpText} />}
+              {hasError && <SwitchMessage errorText={errorText} />}
             </>
           )}
         </Stack>
