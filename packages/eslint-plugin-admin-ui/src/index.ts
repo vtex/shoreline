@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { recommended } from './configs/recommended'
 import { createTagComponentOutsideRenderPhase } from './rules/create-tag-component-outside-render-phase'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const designTokensUsage = require('./rules/design-tokens-usage.js')
 
 // tsdx doesn't support we configure our tsconfig.json
 // to target module commonjs, so we need to manually
@@ -15,5 +19,6 @@ module.exports = {
   rules: {
     'create-tag-component-outside-render-phase':
       createTagComponentOutsideRenderPhase,
+    'design-tokens-usage': designTokensUsage,
   },
 }
