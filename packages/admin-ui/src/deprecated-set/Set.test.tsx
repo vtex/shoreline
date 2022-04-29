@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, axe, jestMatchMedia } from '../../test-utils'
 
+import { render, axe, jestMatchMedia } from '../test-utils'
 import { Set } from './index'
 
 describe('Set tests', () => {

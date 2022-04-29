@@ -20,3 +20,11 @@ Update `Button` props to the 0.122.0+ specs.
 ```sh
 npx admin-ui-codemod button-review <path>
 ```
+
+#### `set-to-stack`
+
+Migrate from `Set` to `Stack`
+
+```sh
+npx admin-ui-codemod set-to-stack <path>
+```
