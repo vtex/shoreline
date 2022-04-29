@@ -59,7 +59,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 Before submitting a pull request:, please make sure the following is done:
 
-1.  Clone the repository and create your branch from master.
+1.  Clone the repository and create your branch from main.
 2.  Run yarn: in the repository root.
 3.  If you’ve fixed a bug or added code that should be tested, add tests.
 4.  If you've created a new component or added a new feature, add stories in the storybook.
@@ -67,3 +67,39 @@ Before submitting a pull request:, please make sure the following is done:
 6.  Format your code with prettier (yarn prettier).
 7.  Make sure your code lints (yarn lint).
 8.  Run `yarn build`, yarn `build:storybook` or `yarn build:site` to ensure that the builds are still working.
+
+
+## Contributing with documentation
+Our Admin UI documentation is constantly updated and improved to support you in your journey with the VTEX Design system. And to make this a collaborative effort, check out how to contribute with our documentation in the sections below.
+
+### Editing a page
+Our documentation site is built using [Docusaurus 2](https://docusaurus.io/), a static website generator. All of our documentation is stored in the [/docs folder](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs) of our Github Repository.
+
+To edit any page in the [Admin UI website](https://admin-ui.vercel.app/):
+
+1. In the selected page, click on the `Edit this page` button that appears at the bottom.
+You will be redirected to the page on our [Admin UI Github Repository](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs).
+2. In the **Edit file** space, [make the desired changes](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) to our documentation.
+Note that we use [Markdown](https://www.markdownguide.org/) in our files to make editing accessible.
+3. Select the option *Create a new branch for this commit and start a pull request*.
+4. [Add comments to your Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+5. Click on `Propose changes`.
+
+We will review your Pull request and update our documentation accordingly!
+
+> If using Github is not really your thing, you can also contribute to our documentation by [creating an issue in our repository](https://github.com/vtex/admin-ui/issues). Learn more about [how to create an issue on Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue).
+
+### Guidelines for writing documentation
+
+Keep the following recommendations in mind when editing our documentation, so we can create a consistent documentation experience for users all around the world:
+
+
+- Regardless of what you are writing about, you must always aim for the following goals:
+  - Clarity: make sure your content is free from any possible ambiguities.
+  - Precision: stick to the main message you want to communicate and cut everything else.
+- Be concise. Yes, documentation is where you add more context about a project, but be careful when creating docs that are too long to read.
+- Use [Markdown](https://www.markdownguide.org/) formatting to make your documentation scannable when users skim through it. Avoid walls of text.
+- Prefer direct, informative and clear language, written specifically for an identified audience.
+- Be gender neutral. Avoid gender-specific pronouns such as *he* or *she*, and prefer the non-binary pronoun *they* when referring to a singular person.
+- Prefer active voice instead of passive voice. In the active voice, the subject of the sentence performs the action, instead of being acted upon. That's because in documentation it's essential that the reader clearly understands who or what is responsible for each action.
+
