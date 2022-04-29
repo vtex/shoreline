@@ -8,6 +8,7 @@ import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
+import { BestPractices, Practice } from '@site/src/components/BestPractices'
 
 export const tabToc = {
   overview: [
@@ -66,29 +67,14 @@ export const tabToc = {
   ],
   designReference: [
     {
-      id: 'dos',
-      value: `Do's`,
+      id: 'writing-labels',
+      value: 'Writing Labels',
       level: 2,
     },
     {
-      id: 'types',
-      value: 'Types',
+      id: 'combining',
+      value: 'Combining button styles',
       level: 2,
-    },
-    {
-      id: 'primary',
-      value: 'Primary',
-      level: 3,
-    },
-    {
-      id: 'secondary',
-      value: 'Secondary',
-      level: 3,
-    },
-    {
-      id: 'tertiary',
-      value: 'Tertiary',
-      level: 3,
     },
   ],
 }
@@ -292,34 +278,102 @@ function Example() {
 
 <Panel id="designReference">
 
-## Do's
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+  direction="row"
+  explanation="The button text should be actionable so users know exactly what to expect when clicking."
+>
 
-1. Buttons should be completely straight-forward. Absolutely no room for ambiguity.
-2. The behavior they trigger must reflect the exact action that is written.
-3. When using icons as buttons, be mindful of accessibility, always include descriptions in the alt tag.
-4. Pay attention to the icon's use in other screens, be consistent of what action it represents.
+<BestPractices>
 
-## Types
+<Practice
+  label="Button labels should be in sentence case (capitalize the first letter,
+  and apply lowercase for the rest and have no punctuation."
+>
 
-### Primary
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button>Label</Button>
+```
 
-1. This option should be used for the single most important action of the page.
-2. The icon must reinforce the importance of the task.
-3. Use this on page headers and confirmation modals.
-4. Use it only once per page / modal.
+</Practice>
 
-### Secondary
+<Practice
+  type="bad"
+  label="The verb used for the label must reflect the exact action that
+  the button triggers. Avoid using CONFIRM, and use PUBLISH instead, for example."
+>
 
-1. This option should be used for non-urgent, or optional actions.
-2. Use this option for page headers, lists and forms.
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Stack direction="row" space="4">
+  <Button>Label</Button>
+  <Button>Label</Button>
+</Stack>
+```
 
-### Tertiary
+</Practice>
 
-1. This option should be used for non-urgent, or optional actions.
-2. Use this option for page headers, tables, lists and forms.
-3. Can be used in tight spaces such as modals, sidebars or cards.
+</BestPractices>
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+<BestPractices>
+
+<Practice label="Avoid using more than 3 words for button labels.">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button>Label</Button>
+```
+
+</Practice>
+
+<Practice type="bad" label="For maximum legibility, a text label should remain on a single line. Find another label if you can’t do it!">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Button csx={{ width: '220px' }}>Label</Button>
+```
+
+</Practice>
+
+</BestPractices>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+  direction="row"
+  explanation="The button text should be actionable so users know exactly what to expect when clicking."
+>
+
+<BestPractices>
+
+<Practice label="When using multiple buttons, you can place an outlined primary button next to
+a primary button.">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Stack direction="row" space="4">
+  <Button variant="secondary">Label</Button>
+  <Button>Label</Button>
+</Stack>
+```
+
+</Practice>
+
+<Practice type="bad" label="Avoid using two primary buttons next to each other. We recommend adding only
+one primary button per page/modal.
+">
+
+```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
+<Stack direction="row" space="4">
+  <Button>Label</Button>
+  <Button>Label</Button>
+</Stack>
+```
+
+</Practice>
+
+</BestPractices>
+
+</PageSection>
 
 </Panel>
 </Page>
