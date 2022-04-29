@@ -4,11 +4,11 @@ path: /contributing/publishing/
 sidebar_position: 2
 ---
 
-Nowadays, we are publishing our versions manually in the repository, and these are some things that you should be aware of before publishing a package.
+Currently we are publishing our versions manually in the repository. Here we have listed the topics that you should be aware of before publishing a package.
 
 **Conventional commits**
 
-The releases are made based on the commits messages, so when running the publish command, the Lerna will look for the pattern that represents a new release in the commits. You should read [this quick documentation](https://www.conventionalcommits.org/en/v1.0.0/) for detailed info
+The releases are made based on the commits' messages, so when running the `publish` command, the Lerna will look for the pattern that represents a new release in the commits. You should read [this quick documentation](https://www.conventionalcommits.org/en/v1.0.0/) for detailed info
 
 **NPM**
 
@@ -16,18 +16,20 @@ You must be logged in to your account through the terminal and also must be in t
 
 **Repository permissions**
 
-When publishing a package you must have permission to make `git push` directly on the `master` branch, otherwise, it won’t work.
+When publishing a package you must have permission to make `git push` directly on the `main` branch, otherwise, it will not work.
 
 **Lerna**
 
-We use Lerna to control the operations through all of our packages on onda. Interesting links: [Lerna documentation](https://github.com/lerna/lerna), [Lerna config on Onda](https://github.com/vtex/admin-ui/blob/main/lerna.json).
+We use Lerna to control the operations through all of our packages on Admin UI. Know more in:
+- [Lerna documentation](https://github.com/lerna/lerna)
+- [Lerna config on Admin UI](https://github.com/vtex/admin-ui/blob/main/lerna.json).
 
 ## Publish Flow
 
-Once you merge the changes within the `master` branch, you should update your local branch, and then run `yarn publish:main`.
+Once you merge the changes within the `main` branch, you should update your local branch, and then run `yarn publish:main`.
 
 We defined this command to make it easier to release a package, but under the hood, it will run the following commands:
 
 1. `yarn`
-2. `yarn lerna run build` - It builds all the packages from the repository, and without this command, the npm package won't have the current changes when published.
+2. `yarn lerna run build` - It builds all the packages from the repository, and without this command, the *npm* package will not have the current changes when published.
 3. `yarn lerna publish` - It will look for all the packages and publish only the ones that have been changed.
