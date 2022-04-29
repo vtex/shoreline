@@ -1,5 +1,3 @@
-// TODO: Does it make sense to rename the
-// `checked` property to `active`?
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
@@ -9,7 +7,7 @@ import { Switch, useSwitchState } from './index'
 import { Stack } from '../stack'
 
 export default {
-  title: 'admin-ui/Switch',
+  title: 'admin-ui/switch',
   component: Switch,
 } as Meta
 

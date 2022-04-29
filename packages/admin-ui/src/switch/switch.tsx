@@ -1,5 +1,5 @@
 import React from 'react'
-import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { createComponent } from '@vtex/admin-ui-react'
 
 import * as style from './switch.style'
@@ -9,7 +9,7 @@ import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'
 import { Label } from '../components/Label'
 import { Message } from './message'
-import { SwitchOptions } from './types'
+import type { SwitchOptions } from './types'
 import { Text } from '../components/Text'
 
 export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
