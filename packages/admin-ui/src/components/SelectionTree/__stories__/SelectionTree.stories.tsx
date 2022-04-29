@@ -8,7 +8,7 @@ import {
   SelectionTreeRoot,
   SelectionTreeItem,
 } from '../index'
-import { Checkbox } from '../../Checkbox'
+import { Checkbox } from '../../../checkbox'
 import { Label } from '../../Label'
 
 export default {
@@ -48,8 +48,7 @@ export const Basic = () => {
           }}
           key={item.id}
         >
-          <SelectionTreeItem value={item.id} />
-          <tag.p csx={{ paddingLeft: 2 }}>{item.name}</tag.p>
+          <SelectionTreeItem label={item.name} value={item.id} />
         </Label>
       ))}
     </SelectionTree>
@@ -81,8 +80,7 @@ export const InitiallySelected = () => {
           }}
           key={item.id}
         >
-          <SelectionTreeItem value={item.id} />
-          <tag.p csx={{ paddingLeft: 2 }}>{item.name}</tag.p>
+          <SelectionTreeItem label={item.name} value={item.id} />
         </Label>
       ))}
     </SelectionTree>
@@ -112,8 +110,7 @@ export const BareStateHook = () => {
           }}
           key={item.id}
         >
-          <Checkbox value={item.id} state={state.items} />
-          <tag.p csx={{ paddingLeft: 2 }}>{item.name}</tag.p>
+          <Checkbox label={item.name} value={item.id} state={state.items} />
         </Label>
       ))}
     </tag.div>

@@ -12,7 +12,7 @@ import {
   useModalState,
 } from '../index'
 import { Text } from '../../Text'
-import { Checkbox, useCheckboxState } from '../../Checkbox'
+import { Checkbox, useCheckboxState } from '../../../checkbox'
 import { Heading } from '../../Heading'
 import { Paragraph } from '../../Paragraph'
 import { Label } from '../../Label'
@@ -98,7 +98,7 @@ export function Regular() {
   const modal = useModalState()
   const checkbox = useCheckboxState()
 
-  const handleClose = () => checkbox.setState(false)
+  const handleClose = () => checkbox.setValue(false)
 
   return (
     <Box>
@@ -146,12 +146,12 @@ export function Regular() {
               alignItems: 'center',
             }}
           >
-            <Checkbox state={checkbox} />
-            <Text csx={{ paddingLeft: 2 }}>
-              I accept the terms and conditions above
-            </Text>
+            <Checkbox
+              label=" I accept the terms and conditions above"
+              state={checkbox}
+            />
           </Label>
-          <Button disabled={!checkbox.state}>Next</Button>
+          <Button disabled={!checkbox.value}>Next</Button>
         </ModalFooter>
       </Modal>
     </Box>

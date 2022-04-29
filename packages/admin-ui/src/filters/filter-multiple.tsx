@@ -1,6 +1,6 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import { Checkbox } from '../components/Checkbox'
+import { Checkbox } from '../checkbox'
 import { BaseFilter } from './filter-base'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
