@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.125.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.124.0...@vtex/admin-ui@0.125.0) (2022-04-29)
+
+### Features
+
+- **set:** deprecate set & add codemod ([9461a1e](https://github.com/vtex/admin-ui/commit/9461a1ea626d4f0697bf2131a0d2f14d683dd7a5))
+
 # [0.124.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.123.1...@vtex/admin-ui@0.124.0) (2022-04-20)
 
 ### Features
