@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
+
 import { createComponent } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
@@ -25,7 +26,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <Inline hSpace="$m" vSpace="">
+      <Inline hSpace="$m">
         <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
         <Stack space="$s">
           <Label htmlFor={baseId} csx={style.label}>
@@ -53,11 +54,12 @@ export interface CheckboxOptions {
    */
   helpText?: ReactNode
   /**
+  /**
    * Checkbox label
    */
-  label: ReactNode
+  label?: ReactNode
 }
 
 export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
 
-export { useCheckboxState, CheckboxState } from 'ariakit/Checkbox'
+export { useCheckboxState, CheckboxState } from './state'

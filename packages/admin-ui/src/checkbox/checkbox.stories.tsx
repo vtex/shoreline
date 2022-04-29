@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Checkbox } from './checkbox'
+import { Checkbox, useCheckboxState } from './checkbox'
 import { CheckboxGroup } from './checkbox-group'
 import { Box } from '../components/Box'
 
@@ -25,19 +25,18 @@ interface CheckboxPlaygroundProps extends Omit<CheckboxProps, 'state'> {
 }
 
 export const CheckboxPlayground: Story<CheckboxPlaygroundProps> = (args) => {
-  const { indeterminate, ...remaininProps } = args
-
-  const ref = useRef<HTMLInputElement>(null)
+  const { indeterminate, ...remainingProps } = args
+  const checkbox = useCheckboxState({
+    initialValue: indeterminate ? 'indeterminate' : false,
+  })
 
   useEffect(() => {
-    if (ref?.current) {
-      ref.current.indeterminate = indeterminate
-    }
+    checkbox.setValue(indeterminate ? 'indeterminate' : false)
   }, [indeterminate])
 
   return (
     <Box csx={{ margin: '$xs' }}>
-      <Checkbox ref={ref} {...remaininProps} />
+      <Checkbox state={checkbox} {...remainingProps} />
     </Box>
   )
 }
