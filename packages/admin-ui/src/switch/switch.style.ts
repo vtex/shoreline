@@ -17,14 +17,17 @@ const inactive = css({
   left: '0.06rem',
   marginRight: '0.125rem',
 })
+
 const hoverInactive = css({ bg: gray40 })
 const hoverActive = css({
   bg: green50,
 })
+
 const trackDefault = css({
   bg: '$form.neutralInactive',
 })
 
+// Element styles
 const thumbDimensions = css({
   '&:after': {
     width: '0.75rem',

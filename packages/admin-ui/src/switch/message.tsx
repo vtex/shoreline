@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Stack } from '../stack'
 import { Text } from '../components/Text'
-import { SwitchOptions } from './types'
+import type { SwitchOptions } from './types'
 
 export function Message(props: MessageProps) {
   const { helpText, errorText } = props
