@@ -10,9 +10,9 @@ export default {
   title: 'admin-ui-review/radio',
   component: Radio,
   argTypes: {
-    orientation: {
-      options: ['vertical', 'horizontal'],
-      control: { type: 'radio' },
+    direction: {
+      options: ['row', 'column'],
+      control: { type: 'select' },
     },
   },
 } as Meta
@@ -44,9 +44,11 @@ RadioGroupPlayground.args = {
   numberOfRadios: 4,
   label: 'Group Label',
   direction: 'row',
-  helpText: 'Help Text!',
+  helpText: 'Help text',
   error: false,
-  errorText: 'Error Text!',
+  errorText: 'Error text',
+  optional: false,
+  optionalText: 'optional',
 }
 
 export function Example() {
@@ -57,12 +59,12 @@ export function Example() {
       <RadioGroup state={state} label="Account Type" direction="column">
         <Radio
           label="Accounts are disabled"
-          helpText="Customers will only be able to check out as guests."
+          helpText="Customers will only be able to check out as guests"
           value="disabled"
         />
         <Radio
           label="Accounts are optional"
-          helpText="Customers will be able to check out with a customer account or as a guest."
+          helpText="Customers will be able to check out with a customer account or as a guest"
           value="optional"
         />
       </RadioGroup>
