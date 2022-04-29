@@ -4,7 +4,7 @@ import { Stack } from '../stack'
 import { Text } from '../components/Text'
 import type { SwitchOptions } from './types'
 
-export function Message(props: MessageProps) {
+export function SwitchMessage(props: SwitchMessageProps) {
   const { helpText, errorText } = props
 
   const hasMessage = !!(errorText || helpText)
@@ -29,4 +29,4 @@ export function Message(props: MessageProps) {
   )
 }
 
-export type MessageProps = Pick<SwitchOptions, 'errorText' | 'helpText'>
+export type SwitchMessageProps = Pick<SwitchOptions, 'errorText' | 'helpText'>
