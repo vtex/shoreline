@@ -28,9 +28,7 @@ export const disabled = style({
 export const baseline = style({
   ...focusVisible('neutral'),
   size: '1.25rem',
-  bg: '$form.control',
   border: '$form.control',
-  color: '$form.control',
   appearance: 'none',
   position: 'relative',
   borderRadius: 'circle',

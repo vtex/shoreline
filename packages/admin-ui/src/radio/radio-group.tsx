@@ -18,6 +18,8 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
       direction = 'row',
       state,
       error = false,
+      optional = false,
+      optionalText,
       ...restProps
     } = props
 
@@ -26,7 +28,7 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
       children: (
         <Stack space="$l">
           <Text as="legend" variant="detail" tone="secondary">
-            {label}
+            {label} {optional ? `(${optionalText})` : ''}
           </Text>
           <AriakitRadioGroup state={state}>
             <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
@@ -69,6 +71,14 @@ export interface RadioGroupOptions {
    * RadioGroup error text. It appears when error property is set to true.
    */
   errorText?: ReactNode
+  /**
+   * Whether the field is optional or not
+   */
+  optional?: boolean
+  /**
+   * Optional text. It appears when optional property is set to true.
+   */
+  optionalText?: ReactNode
 }
 
 export { useRadioState, RadioState } from 'ariakit/radio'
