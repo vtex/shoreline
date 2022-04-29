@@ -206,15 +206,17 @@ function Example() {
 
 ## RadioGroup Props
 
-| Name      | Type          | Description                                | Required | Default |
-| --------- | ------------- | ------------------------------------------ | -------- | ------- |
-| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
-| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
-| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
-| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
-| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
-| label     | `string`      | Group label                                | 🚫       | -       |
-| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+| Name         | Type          | Description                                                      | Required | Default |
+| ------------ | ------------- | ---------------------------------------------------------------- | -------- | ------- |
+| state        | `RadioState`  | Return of `useRadioState` hook                                   | ✅       | -       |
+| label        | `string`      | Group label                                                      | ✅       | -       |
+| helpText     | `ReactNode`   | Help text                                                        | 🚫       | -       |
+| errorText    | `ReactNode`   | Error text                                                       | 🚫       | -       |
+| error        | `boolean`     | Whether the filed is error or not                                | 🚫       | `false` |
+| direction    | `row, column` | Direction which the children are displayed                       | 🚫       | `row`   |
+| optional     | `ReactNode`   | Whether the field is optional or not                             | 🚫       | -       |
+| optionalText | `ReactNode`   | Optional text. It appears when optional property is set to true. | 🚫       | -       |
+| csx          | `StyleProp`   | Defines component styles                                         | 🚫       | `{}`    |
 
 <PageSection
   id={tabToc.codeReference[3].id}
