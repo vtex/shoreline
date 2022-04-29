@@ -42,6 +42,3 @@ const withLiveEditor = (Component) => {
 }
 
 export default withLiveEditor(CodeBlock)
-
-
-
