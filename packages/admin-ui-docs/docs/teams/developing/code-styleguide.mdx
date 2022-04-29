@@ -4,7 +4,7 @@ path: /contributing/code-styleguide/
 sidebar_position: 4
 ---
 
-Common code style decisions that you must know before becoming a contributor.
+Here you can find common code style decisions that you must know before becoming a contributor.
 
 ## Components
 
@@ -38,7 +38,7 @@ Component
 
 ### Prevent the use of React.FC
 
-The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. [Some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
+The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. Find out [some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
 
 ```tsx isStatic
 // ✅ Good
@@ -141,7 +141,7 @@ function Component(props: Props & SomeTypeA) {
 
 ### Avoid too much nesting
 
-A deep directory nesting can cause a lot of pain points, so you must avoid it as much as you can.[Link](https://reactjs.org/docs/faq-structure.html#avoid-too-much-nesting).
+A deep directory nesting can cause a lot of pain points, so you must avoid it as much as you can.[Learn why here](https://reactjs.org/docs/faq-structure.html#avoid-too-much-nesting).
 
 ### Prefer named exports
 
@@ -280,7 +280,7 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 
 ### Avoid parent styles
 
-While coding an app it doesn't matter, but if you are within a library this is a bad practice! The user will not be able to customize the child's style without the `!important` flag. So, you must avoid it.
+Avoiding parent styles While coding an app does not matter much, but if you are within a library this is a bad practice. The user will not be able to customize the child's style without the `!important` flag. So, you must avoid it.
 
 ```jsx isStatic
 // ✅ Good
