@@ -24,11 +24,18 @@ interface BestPracticesProps {
 }
 
 export function Practice(props: PracticeProps) {
-  const { bad = false, label, children } = props
+  const { type = 'good', label, children } = props
 
-  const Icon = bad ? IconXOctagon : IconCheckCircle
-
-  const token = bad ? '$critical' : '$positive'
+  const { Icon, token } = {
+    bad: {
+      Icon: IconXOctagon,
+      token: '$critical',
+    },
+    good: {
+      Icon: IconCheckCircle,
+      token: '$positive',
+    },
+  }[type]
 
   return (
     <Flex direction="column">
@@ -71,7 +78,7 @@ const styles = {
 }
 
 interface PracticeProps {
-  bad?: boolean
+  type?: 'good' | 'bad'
   children?: ReactNode
   label: ReactNode
 }
