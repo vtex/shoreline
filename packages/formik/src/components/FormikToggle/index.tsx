@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { ToggleProps } from '@vtex/admin-ui'
-import { Label, Set, Text, Toggle, useToggleState } from '@vtex/admin-ui'
+import type { SwitchProps } from '@vtex/admin-ui'
+import { Label, Set, Text, Switch, useSwitchState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 import { handleErrorMessage, useSyncedState } from '../util'
@@ -20,7 +20,7 @@ export const FormikToggle = forwardRef(
     } = props
 
     const [field, meta, helpers] = useField({ name })
-    const toggleState = useToggleState({ state: meta.initialValue })
+    const toggleState = useSwitchState({ state: meta.initialValue })
 
     useSyncedState(
       toggleState.state,
@@ -40,9 +40,10 @@ export const FormikToggle = forwardRef(
     return (
       <Set orientation="vertical" spacing={1}>
         <Set spacing={2}>
-          <Toggle
+          <Switch
             id={id}
             state={toggleState}
+            label={''}
             {...toggleProps}
             ref={ref}
             onBlur={() => helpers.setTouched(true)}
@@ -60,7 +61,10 @@ export const FormikToggle = forwardRef(
 )
 
 export interface FormikToggleProps
-  extends Omit<ToggleProps, 'state' | 'checked' | 'value' | 'onChange'> {
+  extends Omit<
+    SwitchProps,
+    'state' | 'checked' | 'value' | 'onChange' | 'label'
+  > {
   name: string
   label?: string | ReactNode
   error?: boolean
