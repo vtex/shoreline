@@ -56,10 +56,9 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               <Button
                 variant="secondary"
                 type="reset"
-                size="small"
+                size="normal"
                 onClick={() => resetForm()}
-                disabled={!dirty}
-              >
+                disabled={!dirty}>
                 Reset Forms
               </Button>
               <Text
@@ -69,7 +68,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size="small">
+              <Button type="submit" size="normal">
                 Save
               </Button>
               <Text
@@ -81,11 +80,10 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               </Text>
               <Button
                 variant="secondary"
-                size="small"
+                size="normal"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: !values.value })
-                }
-              >
+                }>
                 Set initial values
               </Button>
               <Text
@@ -114,7 +112,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
         </Form>
       )}
     </Formik>
-  )
+  );
 }
 
 Playground.args = {
@@ -275,8 +273,7 @@ export const ChangeValueOutside = () => {
               <FormikToggle name="value" label="Label" />
               <Button
                 onClick={() => setFieldValue('value', !values.value)}
-                csx={{ marginY: 2 }}
-              >
+                csx={{ marginY: 2 }}>
                 Change value
               </Button>
             </Box>
@@ -290,7 +287,7 @@ export const ChangeValueOutside = () => {
         </Form>
       )}
     </Formik>
-  )
+  );
 }
 
 export const ChangeInitialValue = () => {
@@ -323,8 +320,7 @@ export const ChangeInitialValue = () => {
                   onClick={() =>
                     setCurrentInitialValues({ value: !initialValues.value })
                   }
-                  csx={{ marginY: 2 }}
-                >
+                  csx={{ marginY: 2 }}>
                   Change initial value
                 </Button>
                 <Text
@@ -352,7 +348,7 @@ export const ChangeInitialValue = () => {
         </Form>
       )}
     </Formik>
-  )
+  );
 }
 
 export const OnChangeExample = () => {
