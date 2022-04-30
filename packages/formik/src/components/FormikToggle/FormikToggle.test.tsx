@@ -284,7 +284,7 @@ describe('Toggle tests', () => {
         onSubmit={() => {}}
       >
         <Form id="form-admin-formik-input">
-          <FormikToggle name="value" aria-label="toggle" size="regular" />
+          <FormikToggle name="value" aria-label="toggle" />
         </Form>
       </Formik>
     )
