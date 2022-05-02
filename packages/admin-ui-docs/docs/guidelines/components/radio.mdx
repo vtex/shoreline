@@ -6,13 +6,51 @@ hide_table_of_contents: true
 
 import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
 export const tabToc = {
-  overview: toc.filter((item) =>
-    ['Help Text', 'Group Help Text', 'Direction', 'Disabled', 'Error'].includes(
-      item.value
-    )
-  ),
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'help-text',
+      value: 'Help Text',
+      level: 3,
+    },
+    {
+      id: 'group-help-text',
+      value: 'Group Help Text',
+      level: 3,
+    },
+    {
+      id: 'direction',
+      value: 'Direction',
+      level: 3,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 3,
+    },
+    {
+      id: 'error',
+      value: 'Error',
+      level: 3,
+    },
+    {
+      id: 'optional',
+      value: 'Optional',
+      level: 3,
+    },
+  ],
   codeReference: [
     {
       id: 'usage',
@@ -56,11 +94,21 @@ export const tabToc = {
 <Page toc={tabToc} hasTabs>
   <Panel id="overview">
     
-Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context."
+/>
 
-## Examples
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
-### Help Text
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
 ```jsx live
 function Example() {
@@ -83,7 +131,12 @@ function Example() {
 }
 ```
 
-### Group Help Text
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
 
 ```jsx live
 function Example() {
@@ -103,7 +156,12 @@ function Example() {
 }
 ```
 
-### Direction
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
 
 ```jsx live
 function Example() {
@@ -124,7 +182,12 @@ function Example() {
 }
 ```
 
-### Disabled
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
 
 ```jsx live
 function Example() {
@@ -145,9 +208,13 @@ function Example() {
 }
 ```
 
-### Error
+</PageSection>
 
-Use the `error` prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a `errorText` to be displayed.
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+  explanation="Use the error prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a errorText to be displayed."
+>
 
 ```jsx live
 function Example() {
@@ -158,7 +225,7 @@ function Example() {
       state={state}
       label="Group Label"
       helpText="Help text"
-      errorText="Error text "
+      errorText="Error text"
       direction="column"
       error
     >
@@ -169,6 +236,42 @@ function Example() {
   )
 }
 ```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="en-US">
+      <RadioGroup
+        state={state}
+        label="Group Label"
+        helpText="Help text"
+        errorText="Error text"
+        direction="column"
+        optional
+      >
+        <Radio value="radio-1" label="Radio 1" />
+        <Radio value="radio-2" label="Radio 2" />
+        <Radio value="radio-3" label="Radio 3" />
+      </RadioGroup>
+    </I18nProvider>
+  )
+}
+```
+
+</PageSection>
+
+</PageSection>
 
 </Panel>
 
@@ -206,17 +309,16 @@ function Example() {
 
 ## RadioGroup Props
 
-| Name         | Type          | Description                                                      | Required | Default |
-| ------------ | ------------- | ---------------------------------------------------------------- | -------- | ------- |
-| state        | `RadioState`  | Return of `useRadioState` hook                                   | ✅       | -       |
-| label        | `string`      | Group label                                                      | ✅       | -       |
-| helpText     | `ReactNode`   | Help text                                                        | 🚫       | -       |
-| errorText    | `ReactNode`   | Error text                                                       | 🚫       | -       |
-| error        | `boolean`     | Whether the filed is error or not                                | 🚫       | `false` |
-| direction    | `row, column` | Direction which the children are displayed                       | 🚫       | `row`   |
-| optional     | `ReactNode`   | Whether the field is optional or not                             | 🚫       | -       |
-| optionalText | `ReactNode`   | Optional text. It appears when optional property is set to true. | 🚫       | -       |
-| csx          | `StyleProp`   | Defines component styles                                         | 🚫       | `{}`    |
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| label     | `string`      | Group label                                | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| optional  | `ReactNode`   | Whether the field is optional or not       | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
 <PageSection
   id={tabToc.codeReference[3].id}
