@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.125.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.125.0...@vtex/admin-ui@0.125.1) (2022-05-02)
+
+
+### Bug Fixes
+
+* **sidebar:** change sidebar backdrop button icon color ([4c6dfc3](https://github.com/vtex/admin-ui/commit/4c6dfc3a30781da09912bc3418cc8c756d431794))
+
+
+
+
+
 # [0.125.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.124.0...@vtex/admin-ui@0.125.0) (2022-04-29)
 
 ### Features
