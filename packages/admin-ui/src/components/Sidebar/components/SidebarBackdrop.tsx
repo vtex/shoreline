@@ -84,16 +84,14 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               border: '$neutral',
               height: '100%',
               width: '100%',
+              padding: 0,
             }}
             icon={
               <IconCaretRight
                 mirrored={!reduced}
                 size="small"
                 csx={{
-                  display: 'flex',
-                  justifyContent: 'center',
                   transition: '125ms cubic-bezier(0.4, 0.14, 0.3, 1)',
-                  color: '$primary',
                 }}
               />
             }
