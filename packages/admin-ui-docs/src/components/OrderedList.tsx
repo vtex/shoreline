@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, tag } from '@vtex/admin-ui'
 import type { ListItemProps, ListProps, StyleProp } from '@vtex/admin-ui'
 
-export function List(props: ListProps) {
+export function OrderedList(props: ListProps) {
   const { children } = props
 
   return (
@@ -12,7 +12,7 @@ export function List(props: ListProps) {
   )
 }
 
-export function ListItem(props: ListItemProps) {
+export function OrderedListItem(props: ListItemProps) {
   const { children } = props
 
   return <tag.li csx={styles.listItem}>{children}</tag.li>
@@ -22,6 +22,7 @@ const styles: Record<string, StyleProp> = {
   list: {
     listStyle: 'none',
     counterReset: 'li',
+    paddingLeft: 0,
   },
   listItem: {
     text: '$title2',
