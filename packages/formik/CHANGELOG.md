@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.31](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.30...@vtex/admin-formik@0.4.31) (2022-05-02)
+
+**Note:** Version bump only for package @vtex/admin-formik
+
+
+
+
+
 ## [0.4.30](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.29...@vtex/admin-formik@0.4.30) (2022-04-29)
 
 **Note:** Version bump only for package @vtex/admin-formik
