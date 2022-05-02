@@ -48,7 +48,6 @@ RadioGroupPlayground.args = {
   error: false,
   errorText: 'Error text',
   optional: false,
-  optionalText: 'optional',
 }
 
 export function Example() {

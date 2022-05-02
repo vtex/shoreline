@@ -4,9 +4,11 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
+import { messages } from './radio.i18n'
 import { Text } from '../components/Text'
 import { Stack } from '../stack'
 import { Message } from './message'
+import { useMessageFormatter } from '../i18n'
 
 export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
   (props) => {
@@ -19,16 +21,17 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
       state,
       error = false,
       optional = false,
-      optionalText,
       ...restProps
     } = props
+
+    const formatMessage = useMessageFormatter(messages.radioGroup)
 
     return useElement('fieldset', {
       ...restProps,
       children: (
         <Stack space="$l">
           <Text as="legend" variant="detail" tone="secondary">
-            {label} {optional ? `(${optionalText})` : ''}
+            {label} {optional ? `(${formatMessage('optional')})` : ''}
           </Text>
           <AriakitRadioGroup state={state}>
             <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
@@ -75,10 +78,6 @@ export interface RadioGroupOptions {
    * Whether the field is optional or not
    */
   optional?: boolean
-  /**
-   * Optional text. It appears when optional property is set to true.
-   */
-  optionalText?: ReactNode
 }
 
 export { useRadioState, RadioState } from 'ariakit/radio'
