@@ -26,6 +26,8 @@ const styles: Record<string, StyleProp> = {
   listItem: {
     text: '$title2',
     counterIncrement: 'li',
+    position: 'relative',
+    paddingLeft: 48,
     ':before': {
       content: 'counter(li)',
       display: 'inline-block',
@@ -35,7 +37,8 @@ const styles: Record<string, StyleProp> = {
       paddingY: '4px',
       text: '$title2',
       bg: '$secondary',
-      marginRight: '16px',
+      position: 'absolute',
+      left: 0,
     },
   },
 }
