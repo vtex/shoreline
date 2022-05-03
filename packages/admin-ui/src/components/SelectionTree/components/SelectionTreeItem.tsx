@@ -24,4 +24,4 @@ export function SelectionTreeItem(props: Props) {
   return <Checkbox state={state.items} {...props} />
 }
 
-type Props = Omit<CheckboxProps, 'state'>
+type Props = Omit<CheckboxProps & any, 'state'>
