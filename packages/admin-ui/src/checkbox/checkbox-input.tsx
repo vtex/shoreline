@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import type { CheckboxOptions as AriakitCheckboxOptions } from 'ariakit/Checkbox'
 import { Checkbox as AriakitCheckbox } from 'ariakit/Checkbox'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useForkRef } from '@vtex/admin-ui-hooks'
@@ -30,9 +31,19 @@ export const CheckboxInput = createComponent<
   })
 })
 
-export interface CheckboxInputOptions {
+export interface CheckboxInputOptions extends AriakitCheckboxOptions {
+  /**
+   * Whether has a error or not
+   * @default false
+   */
   error?: boolean
+  /**
+   * Checkbox id
+   */
   id?: string
+  /**
+   * Checkbox input ref
+   */
   ref?: React.Ref<HTMLInputElement>
 }
 

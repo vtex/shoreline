@@ -1,6 +1,6 @@
 import React from 'react'
 import type { CheckboxGroupProps } from '@vtex/admin-ui'
-import { Box, CheckboxGroup, Text, useCheckboxState } from '@vtex/admin-ui'
+import { Box, CheckboxGroup, useCheckboxState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 import { FormikCheckboxGroupContext } from './context'
@@ -13,18 +13,18 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
     id = name,
     children,
     error: currentError,
-    errorMessage: currentErrorMessage,
+    errorText: currentErrorText,
     formatMessage,
     onChange,
     ...checkboxGroupProps
   } = props
 
   const [field, meta, helpers] = useField({ name })
-  const checkboxState = useCheckboxState({ state: meta.initialValue })
+  const checkboxState = useCheckboxState({ initialValue: meta.initialValue })
 
   useSyncedState(
-    checkboxState.state,
-    checkboxState.setState,
+    checkboxState.value,
+    checkboxState.setValue,
     field.value,
     helpers.setValue,
     onChange
@@ -33,24 +33,27 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
   const errorMessage = handleErrorMessage(
     meta,
     currentError,
-    currentErrorMessage,
+    currentErrorText,
     formatMessage
   )
 
+  const hasError = currentError ?? !!errorMessage
+
   return (
     <Box csx={{ marginBottom: 6 }}>
-      <CheckboxGroup csx={{ marginBottom: 0 }} {...checkboxGroupProps} id={id}>
+      <CheckboxGroup
+        csx={{ marginBottom: 0 }}
+        error={hasError}
+        errorText={errorMessage}
+        {...checkboxGroupProps}
+        id={id}
+      >
         <FormikCheckboxGroupContext.Provider
           value={{ state: checkboxState, setTouched: helpers.setTouched }}
         >
           {children}
         </FormikCheckboxGroupContext.Provider>
       </CheckboxGroup>
-      {errorMessage && (
-        <Text variant="detail" tone="critical" csx={{ paddingTop: 1 }}>
-          {errorMessage}
-        </Text>
-      )}
     </Box>
   )
 }
@@ -58,10 +61,10 @@ export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
 FormikCheckboxGroup.Item = FormikCheckbox
 
 export interface FormikCheckboxGroupProps
-  extends Omit<CheckboxGroupProps, 'state'> {
+  extends Omit<CheckboxGroupProps, 'state' | 'onChange' | 'errorText'> {
   name: string
   error?: boolean
-  errorMessage?: string
+  errorText?: string
   formatMessage?: (errorCode: string) => string
   onChange?: (value: string[] | number[]) => void
 }

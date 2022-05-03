@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { Form, Formik } from 'formik'
-import { Box, Button, Flex, Label, Set, Text } from '@vtex/admin-ui'
+import { Box, Button, Flex, Set, Text } from '@vtex/admin-ui'
 import * as Yup from 'yup'
 import { IntlProvider, useIntl } from 'react-intl'
 
@@ -60,46 +60,38 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
       {({ resetForm, values, dirty }) => (
         <Form id="form-admin-formik-input">
           <Flex direction="row" align="center" justify="start">
-            <Flex
-              direction={args.orientation === 'vertical' ? 'row' : 'column'}
-              justify="center"
-              csx={{ marginX: 8 }}
-            >
+            <Flex direction="column" justify="center" csx={{ marginX: 8 }}>
               <Box
                 csx={{
-                  width: args.orientation === 'vertical' ? 200 : 600,
+                  width: 600,
                   marginBottom: 3,
                 }}
               >
                 <FormikCheckboxGroup {...args}>
                   {options.map((value, key) => {
                     return (
-                      <Label key={key}>
-                        <FormikCheckboxGroup.Item
-                          value={value}
-                          disabled={value === 'Disabled'}
-                        />
-                        {value}
-                      </Label>
+                      <FormikCheckboxGroup.Item
+                        key={key}
+                        value={value}
+                        disabled={value === 'Disabled'}
+                        label={value}
+                      />
                     )
                   })}
                 </FormikCheckboxGroup>
               </Box>
-              <Flex
-                direction={args.orientation === 'vertical' ? 'column' : 'row'}
-              >
+              <Flex direction="row">
                 <Flex
                   direction="column"
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: 150,
                   }}
                 >
                   <Button
                     variant="secondary"
                     type="reset"
-                    size="small"
                     onClick={() => resetForm()}
                     disabled={!dirty}
                   >
@@ -118,12 +110,10 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: 150,
                   }}
                 >
-                  <Button type="submit" size="small">
-                    Save
-                  </Button>
+                  <Button type="submit">Save</Button>
                   <Text
                     variant="detail"
                     tone="secondary"
@@ -137,12 +127,11 @@ export const Playground: Story<FormikCheckboxGroupProps> = (args) => {
                   justify="center"
                   csx={{
                     marginRight: 4,
-                    maxWidth: args.orientation === 'vertical' ? 'auto' : 150,
+                    maxWidth: 150,
                   }}
                 >
                   <Button
                     variant="secondary"
-                    size="small"
                     onClick={() =>
                       setCurrentInitialValues({ [args.name]: [options[1]] })
                     }
@@ -207,17 +196,16 @@ export const Basic = () => {
               <FormikCheckboxGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikCheckboxGroup.Item
+                      key={key}
+                      value={value}
+                      disabled={value === 'Disabled'}
+                      label={value}
+                    />
                   )
                 })}
               </FormikCheckboxGroup>
@@ -238,7 +226,7 @@ export const Basic = () => {
 export const Error = () => {
   const options = ['error 1', 'error 2', 'error 3', 'error 4']
 
-  type FormValuesInterface = { value: string }
+  type FormValuesInterface = { value: string[] }
 
   const schemaValidationError = Yup.object({
     value: Yup.array().of(Yup.string().notOneOf(options, 'Error message')),
@@ -254,7 +242,7 @@ export const Error = () => {
   return (
     <Formik
       enableReinitialize
-      initialValues={{ value: 'error' }}
+      initialValues={{ value: [] }}
       validationSchema={schemaValidationError}
       onSubmit={handleSubmit}
     >
@@ -264,13 +252,12 @@ export const Error = () => {
             <FormikCheckboxGroup name="value" label="Label Title">
               {options.map((value, key) => {
                 return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item
-                      value={value}
-                      disabled={value === 'Disabled'}
-                    />
-                    {value}
-                  </Label>
+                  <FormikCheckboxGroup.Item
+                    key={key}
+                    label={value}
+                    value={value}
+                    disabled={value === 'Disabled'}
+                  />
                 )
               })}
             </FormikCheckboxGroup>
@@ -297,7 +284,7 @@ export const WithIntl = () => {
 
     const options = ['error 1', 'error 2', 'error 3', 'error 4']
 
-    type FormValuesInterface = { value: string }
+    type FormValuesInterface = { value: string[] }
 
     const schemaValidationError = Yup.object({
       value: Yup.array().of(
@@ -315,7 +302,7 @@ export const WithIntl = () => {
     return (
       <Formik
         enableReinitialize
-        initialValues={{ value: 'error' }}
+        initialValues={{ value: [] }}
         validationSchema={schemaValidationError}
         onSubmit={handleSubmit}
       >
@@ -329,13 +316,12 @@ export const WithIntl = () => {
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikCheckboxGroup.Item
+                      value={value}
+                      disabled={value === 'Disabled'}
+                      key={key}
+                      label={value}
+                    />
                   )
                 })}
               </FormikCheckboxGroup>
@@ -381,17 +367,16 @@ export const ChangeValueOutside = () => {
               <FormikCheckboxGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikCheckboxGroup.Item
+                      value={value}
+                      disabled={value === 'Disabled'}
+                      key={key}
+                      label={value}
+                    />
                   )
                 })}
               </FormikCheckboxGroup>
@@ -448,17 +433,16 @@ export const ChangeInitialValue = () => {
               <FormikCheckboxGroup
                 name="value"
                 label="Label Title"
-                orientation="vertical"
+                direction="column"
               >
                 {options.map((value, key) => {
                   return (
-                    <Label key={key}>
-                      <FormikCheckboxGroup.Item
-                        value={value}
-                        disabled={value === 'Disabled'}
-                      />
-                      {value}
-                    </Label>
+                    <FormikCheckboxGroup.Item
+                      key={key}
+                      value={value}
+                      disabled={value === 'Disabled'}
+                      label={value}
+                    />
                   )
                 })}
               </FormikCheckboxGroup>
@@ -525,18 +509,17 @@ export const OnChangeExample = () => {
             <FormikCheckboxGroup
               name="value"
               label="Label Title"
-              orientation="vertical"
+              direction="column"
               onChange={() => setChanges(changes + 1)}
             >
               {options.map((value, key) => {
                 return (
-                  <Label key={key}>
-                    <FormikCheckboxGroup.Item
-                      value={value}
-                      disabled={value === 'Disabled'}
-                    />
-                    {value}
-                  </Label>
+                  <FormikCheckboxGroup.Item
+                    key={key}
+                    value={value}
+                    disabled={value === 'Disabled'}
+                    label={value}
+                  />
                 )
               })}
             </FormikCheckboxGroup>

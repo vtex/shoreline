@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { CheckboxProps } from '@vtex/admin-ui'
-import { Checkbox, Label, Set, Text, useCheckboxState } from '@vtex/admin-ui'
+import { Checkbox, Set, useCheckboxState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 import { handleErrorMessage, useSyncedState } from '../util'
@@ -11,20 +11,19 @@ export const FormikCheckbox = forwardRef(
     const {
       name,
       id = name,
-      label,
       error: currentError,
-      errorMessage: currentErrorMessage,
+      errorText: currentErrorText,
       formatMessage,
       onChange,
       ...checkboxProps
     } = props
 
     const [field, meta, helpers] = useField({ name })
-    const checkboxState = useCheckboxState({ state: meta.initialValue })
+    const checkboxState = useCheckboxState({ initialValue: meta.initialValue })
 
     useSyncedState(
-      checkboxState.state,
-      checkboxState.setState,
+      checkboxState.value,
+      checkboxState.setValue,
       field.value,
       helpers.setValue,
       onChange
@@ -33,9 +32,11 @@ export const FormikCheckbox = forwardRef(
     const errorMessage = handleErrorMessage(
       meta,
       currentError,
-      currentErrorMessage,
+      currentErrorText,
       formatMessage
     )
+
+    const hasError = currentError ?? !!errorMessage
 
     return (
       <Set orientation="vertical" spacing={1}>
@@ -43,17 +44,13 @@ export const FormikCheckbox = forwardRef(
           <Checkbox
             id={id}
             state={checkboxState}
+            error={hasError}
+            errorText={errorMessage}
             {...checkboxProps}
             ref={ref}
             onBlur={() => helpers.setTouched(true)}
           />
-          <Label htmlFor={id}>{label}</Label>
         </Set>
-        {errorMessage && (
-          <Text variant="detail" tone="critical">
-            {errorMessage}
-          </Text>
-        )}
       </Set>
     )
   }
@@ -64,7 +61,7 @@ export interface FormikCheckboxProps
   name: string
   label: string | ReactNode
   error?: boolean
-  errorMessage?: string
+  errorText?: string
   formatMessage?: (errorCode: string) => string
   onChange?: (value: boolean | 'indeterminate') => void
 }
