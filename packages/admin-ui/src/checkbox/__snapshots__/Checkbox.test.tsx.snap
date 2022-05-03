@@ -36,7 +36,7 @@ exports[`Checkbox should match snapshot 1`] = `
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  background: transparent;
+  background: form.control;
   border: 1px solid #CC3D3D;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -173,8 +173,8 @@ exports[`Checkbox should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-4 >*:not(:last-child) {
-  margin-bottom: 0rem;
+.emotion-4 >*:not(:first-child) {
+  margin-top: 0rem;
 }
 
 .emotion-2 {
@@ -269,7 +269,7 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  background: transparent;
+  background: form.control;
   border: 1px solid #CC3D3D;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -406,8 +406,8 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   justify-content: unset;
 }
 
-.emotion-4 >*:not(:last-child) {
-  margin-bottom: 0rem;
+.emotion-4 >*:not(:first-child) {
+  margin-top: 0rem;
 }
 
 .emotion-0 {
@@ -443,7 +443,7 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  background: transparent;
+  background: form.control;
   border: 1px solid #B9B9B9;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -625,8 +625,7 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
           class="emotion-6"
         >
           <input
-            aria-checked="true"
-            checked=""
+            aria-checked="false"
             class="emotion-1"
             data-command=""
             id="checkbox2"
@@ -699,14 +698,10 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
           class="emotion-6"
         >
           <input
-            aria-checked="true"
-            aria-disabled="true"
-            checked=""
+            aria-checked="false"
             class="emotion-1"
             data-command=""
-            disabled=""
             id="checkbox5"
-            style="pointer-events: none;"
             type="checkbox"
           />
           <div

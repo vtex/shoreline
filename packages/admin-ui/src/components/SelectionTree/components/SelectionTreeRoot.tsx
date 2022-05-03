@@ -20,4 +20,4 @@ export function SelectionTreeRoot(props: Props) {
   return <Checkbox state={state.root} {...props} />
 }
 
-type Props = Omit<CheckboxProps, 'state'>
+type Props = Omit<CheckboxProps & any, 'state'>
