@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio should match snapshot 1`] = `
+<DocumentFragment>
+  
+
+.emotion-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-18 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-0 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: 0.001em;
+  color: #545454;
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-17 >*:not(:first-child) {
+  margin-left: 1.25rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+
+.emotion-4 >* {
+  margin-left: 0.5rem;
+}
+
+.emotion-1 {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid #B9B9B9;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-1:hover:not(:disabled) {
+  background: transparent;
+  border: 1px solid #545454;
+}
+
+.emotion-1:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+
+
+.emotion-1:disabled +div label {
+  cursor: not-allowed;
+  color: #747474;
+}
+
+.emotion-1:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: form.control;
+}
+
+.emotion-1:checked {
+  background: #2953B2;
+  color: #FFFFFF;
+  border: 1px solid #2953B2;
+  position: relative;
+}
+
+.emotion-1:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-1:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-1:checked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #FFFFFF;
+}
+
+.emotion-1:checked:hover:not(:disabled) {
+  background: #20408C;
+  border: 1px solid #20408C;
+}
+
+.emotion-1:checked[disabled]:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #747474;
+}
+
+.emotion-1:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+
+
+.emotion-1:checked:disabled +div label {
+  cursor: not-allowed;
+  color: #747474;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-3 >*:not(:first-child) {
+  margin-top: 0.125rem;
+}
+
+.emotion-2 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+  cursor: pointer;
+}
+
+<fieldset
+    class="emotion-19"
+  >
+    <div
+      class="emotion-18"
+    >
+      <legend
+        class="emotion-0"
+      >
+         
+      </legend>
+      <div
+        role="radiogroup"
+      >
+        <div
+          class="emotion-17"
+        >
+          <div
+            class="emotion-4"
+          >
+            <input
+              aria-checked="false"
+              class="emotion-1"
+              data-command=""
+              id="radio-test"
+              type="radio"
+              value="unchecked"
+            />
+            <div
+              class="emotion-3"
+            >
+              <label
+                class="emotion-2"
+                for="radio-test"
+              >
+                label
+              </label>
+            </div>
+          </div>
+          <div
+            class="emotion-4"
+          >
+            <input
+              aria-checked="true"
+              checked=""
+              class="emotion-1"
+              data-command=""
+              id="radio-test"
+              type="radio"
+              value="checked"
+            />
+            <div
+              class="emotion-3"
+            >
+              <label
+                class="emotion-2"
+                for="radio-test"
+              >
+                label
+              </label>
+            </div>
+          </div>
+          <div
+            class="emotion-4"
+          >
+            <input
+              aria-checked="false"
+              aria-disabled="true"
+              class="emotion-1"
+              data-command=""
+              disabled=""
+              id="radio-test"
+              style="pointer-events: none;"
+              type="radio"
+              value="unchecked disabled"
+            />
+            <div
+              class="emotion-3"
+            >
+              <label
+                class="emotion-2"
+                for="radio-test"
+              >
+                label
+              </label>
+            </div>
+          </div>
+          <div
+            class="emotion-4"
+          >
+            <input
+              aria-checked="true"
+              aria-disabled="true"
+              checked=""
+              class="emotion-1"
+              data-command=""
+              disabled=""
+              id="radio-test"
+              style="pointer-events: none;"
+              type="radio"
+              value="checked disabled"
+            />
+            <div
+              class="emotion-3"
+            >
+              <label
+                class="emotion-2"
+                for="radio-test"
+              >
+                label
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</DocumentFragment>
+`;

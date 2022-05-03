@@ -21,5 +21,10 @@ export const border = {
     critical: borderStyles('red40'),
     criticalHover: borderStyles('red50'),
     criticalFocus: borderStyles('red60'),
+
+    control: borderStyles('gray30'),
+    controlHover: borderStyles('gray50'),
+    controlChecked: borderStyles('blue40'),
+    controlCheckedHover: borderStyles('blue50'),
   },
 }

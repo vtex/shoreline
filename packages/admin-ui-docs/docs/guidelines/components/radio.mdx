@@ -1,133 +1,389 @@
 ---
 title: Radio
 path: /radio/
+hide_table_of_contents: true
 ---
 
-Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
-## Import
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'help-text',
+      value: 'Help Text',
+      level: 3,
+    },
+    {
+      id: 'group-help-text',
+      value: 'Group Help Text',
+      level: 3,
+    },
+    {
+      id: 'direction',
+      value: 'Direction',
+      level: 3,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 3,
+    },
+    {
+      id: 'error',
+      value: 'Error',
+      level: 3,
+    },
+    {
+      id: 'optional',
+      value: 'Optional',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'radio',
+      value: 'Radio Props',
+      level: 2,
+    },
+    {
+      id: 'radio-group',
+      value: 'RadioGroup Props',
+      level: 2,
+    },
+    {
+      id: 'use-radio',
+      value: 'useRadioState Props',
+      level: 2,
+    },
+    {
+      id: 'return-props',
+      value: 'Params Props',
+      level: 3,
+    },
+    {
+      id: 'params-props',
+      value: 'Parameter Props',
+      level: 3,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
 
-```jsx isStatic
-import { Radio } from '@vtex/admin-ui'
-```
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context."
+/>
 
-## Behavior
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
 ```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'disabled' })
+
+  return (
+    <RadioGroup state={state} label="Accounts" direction="column">
+      <Radio
+        label="Accounts are disabled"
+        helpText="Customers will only be able to check out as guests"
+        value="disabled"
+      />
+      <Radio
+        label="Accounts are optional"
+        helpText="Customers will be able to check out with a customer account or as a guest"
+        value="optional"
+      />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-2' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" disabled />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+  explanation="Use the error prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a errorText to be displayed."
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Help text"
+      errorText="Error text"
+      direction="column"
+      error
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="en-US">
+      <RadioGroup
+        state={state}
+        label="Group label"
+        helpText="Help text"
+        errorText="Error text"
+        direction="column"
+        optional
+      >
+        <Radio value="radio-1" label="Radio 1" />
+        <Radio value="radio-2" label="Radio 2" />
+        <Radio value="radio-3" label="Radio 3" />
+      </RadioGroup>
+    </I18nProvider>
+  )
+}
+```
+
+</PageSection>
+
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Radio, RadioGroup, useRadioState } from '@vtex/admin-ui'
+
 function Example() {
   const state = useRadioState()
 
-  return <Radio state={state} value="Radio" aria-label="radio button" />
-}
-```
-
-## State
-
-The `Radio` component is always used in a `RadioGroup` context, we provide a hook to handle the state of radio groups and standalone radios.
-
-### useRadioState hook
-
-For convenience, we provide this hook that already handles the state logic and accessible navigation for both `Radio` and `RadioGroup` components. You should pass the hook return to the `state` property and define a `value` to the `Radio`.
-
-### Standalone
-
-When using a standalone `Radio` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
-
-```jsx live
-function Example() {
-  const radio = useRadioState()
-
-  return <Radio aria-label="label" value="Radio" state={radio} />
-}
-```
-
-### Checked States
-
-There are two checked states: `not checked`, and `checked`.
-
-```jsx live
-function Example() {
   return (
-    <>
-      <Set>
-        <Radio aria-label="label-1" />
-        <Radio aria-label="label-disabled-1" disabled />
-      </Set>
-      <br />
-      <Set>
-        <Radio aria-label="label-2" checked />
-        <Radio aria-label="label-disabled-2" checked disabled />
-      </Set>
-    </>
+    <RadioGroup state={state} label="Group label">
+      <Radio value="radio-1" label="Label" />
+      <Radio value="radio-2" label="Label" />
+      <Radio value="radio-3" label="Label" />
+    </RadioGroup>
   )
 }
 ```
 
-### Size
+## Radio Props
 
-There are two size variants: `small`, `regular`. By default, it will render `regular`.
+| Name     | Type             | Description                                                                                           | Required | Default |
+| -------- | ---------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| value    | `string, number` | The value to be used in the radio button. This is the value that will be returned on form submission. | ✅       | -       |
+| label    | `string`         | Radio label                                                                                           | ✅       | -       |
+| helpText | `ReactNode`      | Help text                                                                                             | 🚫       | -       |
+| checked  | `boolean`        | Same as the HTML checked attribute                                                                    | 🚫       | -       |
+| disabled | `boolean`        | Whether is disabled or not                                                                            | 🚫       | `false` |
+| id       | `string`         | Same as the HTML attribute                                                                            | 🚫       | -       |
+| csx      | `StyleProp`      | Defines component styles                                                                              | 🚫       | `{}`    |
 
-```jsx live
-function Example() {
-  return (
-    <>
-      <Set>
-        <Radio aria-label="label-small-1" size="small" />
-        <Radio aria-label="label-1" />
-      </Set>
-      <br />
-      <Set>
-        <Radio aria-label="label-small-2" checked size="small" />
-        <Radio aria-label="label-2" checked />
-      </Set>
-    </>
-  )
-}
-```
+## RadioGroup Props
 
-### Multiple Radios
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| label     | `string`      | Group label                                | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| optional  | `ReactNode`   | Whether the field is optional or not       | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
-As we always use `Radio` in multiple-choice forms, we also always need to render multiple Radios and store the current checked state. It can be easily done using our `useRadioState` hook, you just need to pass the hook return object to the radios `state` property and define a `value` for each `Radio`.
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+  explanation="A hook to help control the RadioGroup state."
+>
 
-```jsx live
-function Example() {
-  const radio = useRadioState()
+<PageSection
+  id={tabToc.codeReference[5]?.id}
+  title={tabToc.codeReference[5]?.value}
+>
 
-  return (
-    <>
-      <Heading>Selected Radio: {radio.state}</Heading>
-      <RadioGroup state={radio}>
-        <Label>
-          <Radio state={radio} value="First Radio" />
-          First Radio
-        </Label>
-        <Label>
-          <Radio state={radio} value="Second Radio" />
-          Second Radio
-        </Label>
-        <Label>
-          <Radio state={radio} value="Third Radio" />
-          Third Radio
-        </Label>
-      </RadioGroup>
-    </>
-  )
-}
-```
+| Name         | Type                                   | Description                                                        | Required | Default |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
+| defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
+| setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
 
-## Props
+</PageSection>
 
-| Name     | Type                | Description                                                                          | Required | Default     |
-| -------- | ------------------- | ------------------------------------------------------------------------------------ | -------- | ----------- |
-| state    | `RadioStateReturn`  | Return of useRadio hook. You can also provide these props from your own state logic. | ✅       | -           |
-| size     | `regular, small`    | Radio size                                                                           | 🚫       | `'regular'` |
-| checked  | `boolean`           | Same as the HTML checked attribute                                                   | 🚫       | -           |
-| disabled | `boolean`           | Defines if the Radio is disabled                                                     | 🚫       | -           |
-| value    | `string, number`    | Same as the HTML attribute                                                           | 🚫       | -           |
-| name     | `string`            | Same as the HTML value attribute                                                     | 🚫       | -           |
-| onClick  | `MouseEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| onBlur   | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| onFocus  | `FocusEventHandler` | Same as the HTML attribute                                                           | 🚫       | -           |
-| id       | `string`            | Same as the HTML attribute                                                           | 🚫       | -           |
-| children | `ReactNode`         | Radio children                                                                       | 🚫       | -           |
-| csx      | `StyleProp`         | Defines component styles                                                             | 🚫       | `{}`        |
+<PageSection
+  id={tabToc.codeReference[5]?.id}
+  title={tabToc.codeReference[5]?.value}
+>
+
+| Name     | Type                            | Description                           | Required | Default |
+| -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
+| value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
+| setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
+
+</PageSection>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[6]?.id}
+  title={tabToc.codeReference[6]?.value}
+  direction="row"
+>
+
+- `Radio` has the role `radio`.
+- `RadioGroup` has role `radiogroup`.
+- `Radio` has `aria-checked` set to `true` when it's checked. Otherwise, `aria-checked` is set to `false`.
+- Always use `Radio` within a `RadioGroup`.
+
+</PageSection>
+
+</Panel>
+
+<Panel id="designReference">
+
+## Do’s
+
+1. Use them for single choice options.
+2. There should always be a pre-selected option as default.
+3. For more than 6 options you should use a Select.
+4. Don’t be ambiguous, each option should be clear.
+5. Mind the order of the options. Consider ordering them from most to least frequently used, simplest to most complex, or least to most risky.
+6. Use a "None" option if you need an unselected state.
+7. Consider adding an "Other" option if needed, together with a Text Input to capture the user’s needs.
+8. Use titles to group related controls.
+9. Add descriptions if the control is critical, or complex.
+10. Lists of controls should be vertical for better scannability.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+  </Panel>
+  
+</Page>

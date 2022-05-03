@@ -49,5 +49,7 @@ export const fg = {
   form: {
     neutral: colors.black,
     neutralChecked: colors.white,
+
+    controlChecked: colors.white,
   },
 }

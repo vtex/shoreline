@@ -79,6 +79,9 @@ export const bgTokens = asLiterals([
   '$form.neutralActive',
   '$form.neutralActiveHover',
   '$form.neutralActivePressed',
+  '$form.controlHover',
+  '$form.controlChecked',
+  '$form.controlCheckedHover',
 ])
 
 export const fgTokens = asLiterals([
@@ -115,6 +118,7 @@ export const fgTokens = asLiterals([
   '$action.critical.tertiarySelected',
   '$form.neutral',
   '$form.neutralChecked',
+  '$form.controlChecked',
 ])
 
 export const borderTokens = asLiterals([
@@ -135,6 +139,10 @@ export const borderTokens = asLiterals([
   '$form.critical',
   '$form.criticalHover',
   '$form.criticalFocus',
+  '$form.control',
+  '$form.controlHover',
+  '$form.controlChecked',
+  '$form.controlCheckedHover',
 ])
 
 export const shadowTokens = asLiterals([

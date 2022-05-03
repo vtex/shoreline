@@ -1,6 +1,6 @@
 import React from 'react'
 import type { RadioGroupProps } from '@vtex/admin-ui'
-import { Box, RadioGroup, Text, useRadioState } from '@vtex/admin-ui'
+import { Box, RadioGroup, useRadioState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 import { FormikRadioGroupContext } from './context'
@@ -12,18 +12,18 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
     id = name,
     children,
     error: currentError,
-    errorMessage: currentErrorMessage,
+    errorText: currentErrorText,
     formatMessage,
     onChange,
     ...radioGroupProps
   } = props
 
   const [field, meta, helpers] = useField({ name })
-  const radioState = useRadioState({ state: meta.initialValue })
+  const radioState = useRadioState({ defaultValue: meta.initialValue })
 
   useSyncedState(
-    radioState.state,
-    radioState.setState,
+    radioState.value,
+    radioState.setValue,
     field.value,
     helpers.setValue,
     onChange
@@ -32,37 +32,36 @@ export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
   const errorMessage = handleErrorMessage(
     meta,
     currentError,
-    currentErrorMessage,
+    currentErrorText,
     formatMessage
   )
+
+  const hasError = currentError ?? !!errorMessage
 
   return (
     <Box csx={{ marginBottom: 6 }}>
       <RadioGroup
+        {...radioGroupProps}
         state={radioState}
         csx={{ marginBottom: 0 }}
         id={id}
-        {...radioGroupProps}
+        error={hasError}
+        errorText={errorMessage}
       >
         <FormikRadioGroupContext.Provider
-          value={{ state: radioState, setTouched: helpers.setTouched }}
+          value={{ setTouched: helpers.setTouched }}
         >
           {children}
         </FormikRadioGroupContext.Provider>
       </RadioGroup>
-      {errorMessage && (
-        <Text variant="detail" tone="critical" csx={{ paddingTop: 1 }}>
-          {errorMessage}
-        </Text>
-      )}
     </Box>
   )
 }
 
-export interface FormikRadioGroupProps extends Omit<RadioGroupProps, 'state'> {
+export interface FormikRadioGroupProps
+  extends Omit<RadioGroupProps, 'state' | 'onChange' | 'errorText'> {
   name: string
-  error?: boolean
-  errorMessage?: string
+  errorText?: string
   formatMessage?: (errorCode: string) => string
   onChange?: (value: string | number | undefined) => void
 }
