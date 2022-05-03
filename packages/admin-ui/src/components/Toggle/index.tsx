@@ -1,10 +1,11 @@
-import type { CheckboxProps as ReakitProps } from 'reakit/Checkbox'
-import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import type {
+  CheckboxProps as ReakitProps,
+  CheckboxStateReturn,
+} from 'reakit/Checkbox'
+import { Checkbox as ReakitCheckbox, useCheckboxState } from 'reakit/Checkbox'
 import { jsx } from '@vtex/admin-ui-react'
 
 import * as style from './Toggle.style'
-import type { CheckboxState } from '../../checkbox'
-import { useCheckboxState } from '../../checkbox'
 import type { ComponentPropsWithRef } from 'react'
 
 export const Toggle = jsx(ReakitCheckbox)(
@@ -41,6 +42,6 @@ export interface ToggleOptions {
 
 export type ToggleProps = ComponentPropsWithRef<typeof Toggle> & ToggleOptions
 
-export type ToggleStateReturn = CheckboxState
+export type ToggleStateReturn = CheckboxStateReturn
 
 export { useCheckboxState as useToggleState }

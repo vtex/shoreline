@@ -8,6 +8,7 @@ import { Label } from '../components/Label'
 import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
+import type { CheckboxInputOptions } from './checkbox-input'
 import { Message } from '../form-group'
 
 import * as style from './checkbox.style'
@@ -39,12 +40,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
   }
 )
 
-export interface CheckboxOptions {
-  /**
-   * Whether has a error or not
-   * @default false
-   */
-  error?: boolean
+export interface CheckboxOptions extends CheckboxInputOptions {
   /**
    * Checkbox error text. It appears when error property is set to true.
    */
@@ -60,6 +56,6 @@ export interface CheckboxOptions {
   label?: ReactNode
 }
 
-export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox> & any
+export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
 
 export { useCheckboxState, CheckboxState } from './state'

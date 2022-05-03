@@ -1,5 +1,6 @@
-import type { ComponentPropsWithoutRef, Ref } from 'react'
+import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
+import type { CheckboxProps } from '@vtex/admin-ui'
 import { Checkbox } from '@vtex/admin-ui'
 
 import { useCheckboxGroupContext } from './context'
@@ -19,4 +20,4 @@ export const FormikCheckbox = forwardRef(
   }
 )
 
-export type FormikCheckboxProps = ComponentPropsWithoutRef<'input'>
+export type FormikCheckboxProps = CheckboxProps
