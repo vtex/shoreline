@@ -6,7 +6,11 @@ export const FilterRadio = (props: FilterRadioProps) => {
   const { checked } = props
 
   return useElement('input', {
-    baseStyle: style.radioButtonStyle,
+    baseStyle: {
+      ...style.radioButtonStyle,
+      ariaChecked: undefined,
+      marginRight: '$s',
+    },
     checked,
     type: 'radio',
     readOnly: true,

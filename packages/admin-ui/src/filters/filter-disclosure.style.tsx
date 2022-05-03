@@ -26,3 +26,9 @@ export const baseline = css({
     marginLeft: '$xs',
   },
 })
+
+export const caretIcon = (isOpen: boolean) =>
+  css({
+    transform: `rotate(${isOpen ? 0 : 180}deg)`,
+    marginLeft: '$s',
+  })

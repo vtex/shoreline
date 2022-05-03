@@ -13,11 +13,13 @@ export function useFilterMultipleState<T extends FilterItem>(
   const [appliedItems, setAppliedItems] = useState<T[]>([])
 
   const comboboxMultiple = useComboboxMultipleState<T>({
-    getOptionValue: (op) => op.id,
+    getOptionValue: (option) => option.id,
   })
 
   useEffect(() => {
-    const initialItem = items.filter((it) => initialApplied?.includes(it.id))
+    const initialItem = items.filter((item) =>
+      initialApplied?.includes(item.id)
+    )
 
     comboboxMultiple.setSelectedItems(initialItem)
     setAppliedItems(initialItem)
@@ -43,8 +45,11 @@ export function useFilterMultipleState<T extends FilterItem>(
   }, [onChange])
 
   useEffect(() => {
-    // Resets combobox value when menu is closed
-    if (!menu.mounted && (comboboxMultiple.value || selectedItems?.length)) {
+    const isMenuClosed = !menu.mounted
+    const hasSelectedItem = comboboxMultiple.value || selectedItems?.length
+
+    if (isMenuClosed && hasSelectedItem) {
+      // resets combobox
       comboboxMultiple.setValue('')
       comboboxMultiple.setSelectedItems(appliedItems)
     }
@@ -78,5 +83,6 @@ export interface UseFilterMultipleStateProps<T> {
   initialApplied?: string[]
   /** Filter button label. */
   label: string
+  /** List of items to be showed on the list. */
   items: T[]
 }
