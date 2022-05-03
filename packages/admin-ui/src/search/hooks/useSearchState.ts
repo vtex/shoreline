@@ -1,4 +1,4 @@
-import type { FormEvent } from 'react'
+import type { FormEventHandler } from 'react'
 import { useState, useMemo, useCallback } from 'react'
 import { useDebouncedCache } from '@vtex/admin-ui-hooks'
 
@@ -27,7 +27,7 @@ export function useSearchState(
 
   const showClear = useMemo(() => value.toString().length > 0, [value])
 
-  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+  const onSubmit: FormEventHandler<'form'> = useCallback((e) => {
     e.preventDefault()
     baseSubmit?.()
   }, [])
@@ -60,7 +60,7 @@ export interface SearchFormState {
   value: string
   debouncedValue: string
   setValue: (value: string) => void
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void
+  onSubmit: FormEventHandler<'form'>
   showClear: boolean
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
