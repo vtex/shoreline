@@ -115,7 +115,7 @@ exports[`Radio should match snapshot 1`] = `
 }
 
 .emotion-1:hover:not(:disabled) {
-  background: #E6E6E6;
+  background: transparent;
   border: 1px solid #545454;
 }
 

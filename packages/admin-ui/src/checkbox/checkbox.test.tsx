@@ -5,7 +5,7 @@ import { render, withState, jestMatchMedia } from '../test-utils'
 import { Checkbox, useCheckboxState, CheckboxGroup } from './index'
 
 const StatefulCheckbox = withState(Checkbox, () => {
-  const state = useCheckboxState()
+  const state = useCheckboxState({ initialValue: false })
 
   return { ...state, id: 'checkbox-test' }
 })
@@ -71,17 +71,13 @@ describe('Checkbox', () => {
 
   it('should match snapshot to checkbox group', () => {
     const { asFragment } = render(
-      <CheckboxGroup
-        label="checkbox group label"
-        optionalText="optional"
-        optional
-      >
+      <CheckboxGroup label="checkbox group label" optional>
         <StatefulCheckbox
           id="checkbox1"
           label="checkbox1"
           helpText="Hekp Text"
         />
-        <StatefulCheckbox id="checkbox2" label="checkbox2" checked />
+        <StatefulCheckbox id="checkbox2" label="checkbox2" />
         <StatefulCheckbox
           id="checkbox3"
           label="checkbox3"
@@ -90,7 +86,7 @@ describe('Checkbox', () => {
           checked
         />
         <StatefulCheckbox id="checkbox4" label="checkbox4" />
-        <StatefulCheckbox id="checkbox5" label="checkbox5" checked disabled />
+        <StatefulCheckbox id="checkbox5" label="checkbox5" />
       </CheckboxGroup>
     )
 
@@ -99,11 +95,7 @@ describe('Checkbox', () => {
 
   it('should be in an optional checkbox group field', () => {
     const { getByText } = render(
-      <CheckboxGroup
-        label="checkbox group label"
-        optionalText="optional"
-        optional
-      >
+      <CheckboxGroup label="checkbox group label" optional>
         <StatefulCheckbox id="checkbox1" label="checkbox1" />
         <StatefulCheckbox id="checkbox2" label="checkbox2" />
         <StatefulCheckbox id="checkbox3" label="checkbox3" />
