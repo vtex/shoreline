@@ -19,7 +19,7 @@ describe('useSelectionTreeState', () => {
     expect(result.current.selectedItems).toEqual([])
 
     act(() => {
-      result.current.items.setState([2])
+      result.current.items.setValue([2])
     })
 
     expect(result.current.selectedItems).toEqual([items[1]])
@@ -32,13 +32,13 @@ describe('useSelectionTreeState', () => {
       })
     )
 
-    expect(result.current.root.state).toBe(false)
+    expect(result.current.root.value).toBe(false)
 
     act(() => {
-      result.current.items.setState([1])
+      result.current.items.setValue([1])
     })
 
-    expect(result.current.root.state).toEqual('indeterminate')
+    expect(result.current.root.value).toEqual('indeterminate')
   })
 
   it('should change the root to indeterminate by unselecting an item', () => {
@@ -49,15 +49,15 @@ describe('useSelectionTreeState', () => {
       })
     )
 
-    expect(result.current.root.state).toBe(true)
+    expect(result.current.root.value).toBe(true)
     expect(result.current.selectedItems).toEqual(items)
 
     act(() => {
-      result.current.items.setState([1, 2, 3])
+      result.current.items.setValue([1, 2, 3])
     })
 
     expect(result.current.selectedItems).toEqual([items[0], items[1], items[2]])
-    expect(result.current.root.state).toEqual('indeterminate')
+    expect(result.current.root.value).toEqual('indeterminate')
   })
 
   it('should select all items by selecting the root', () => {
@@ -67,14 +67,14 @@ describe('useSelectionTreeState', () => {
       })
     )
 
-    expect(result.current.root.state).toBe(false)
+    expect(result.current.root.value).toBe(false)
     expect(result.current.selectedItems).toEqual([])
 
     act(() => {
-      result.current.root.setState(true)
+      result.current.root.setValue(true)
     })
 
-    expect(result.current.root.state).toEqual(true)
+    expect(result.current.root.value).toEqual(true)
     expect(result.current.selectedItems).toEqual(items)
   })
 })
