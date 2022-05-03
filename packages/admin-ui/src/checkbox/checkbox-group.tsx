@@ -3,35 +3,16 @@ import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
 import { Group as AriaCheckboxGroup } from 'ariakit/group'
 
-import { Text } from '../components/Text'
-import { Stack } from '../stack'
-import { Message } from './message'
+import { FormGroup } from '../form-group'
 
 export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
   (props) => {
-    const {
-      label,
-      helpText,
-      errorText,
-      error = false,
-      direction = 'row',
-      optional = false,
-      optionalText,
-      children,
-    } = props
+    const { children, ...remainingProps } = props
 
     return (
-      <Stack space="$l">
-        <Text variant="detail" tone="secondary">
-          {label} {optional ? `(${optionalText})` : ''}
-        </Text>
-        <AriaCheckboxGroup>
-          <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
-            {children}
-          </Stack>
-        </AriaCheckboxGroup>
-        <Message helpText={helpText} errorText={errorText} error={error} />
-      </Stack>
+      <FormGroup componentGroup={AriaCheckboxGroup} {...remainingProps}>
+        {children}
+      </FormGroup>
     )
   }
 )
@@ -59,10 +40,6 @@ export interface CheckboxGroupOptions {
    * Whether is a optional field or not
    */
   optional?: boolean
-  /**
-   * Optional text. It appears when optional property is set to true.
-   */
-  optionalText?: ReactNode
   /**
    * CheckboxGroup label
    */
