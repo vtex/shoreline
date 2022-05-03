@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.126.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.125.1...@vtex/admin-ui@0.126.0) (2022-05-03)
+
+
+### Bug Fixes
+
+* **radio:** apply design suggestions ([8ff4678](https://github.com/vtex/admin-ui/commit/8ff46785e7e62748c6725e5f5a31adcf1a5b0a01))
+* **radio:** change invalid prefix to error ([a38604a](https://github.com/vtex/admin-ui/commit/a38604a2991d952af8e089ca5ca1764561d1120c))
+
+
+### Features
+
+* **design-tokens:** add form control tokens ([311854c](https://github.com/vtex/admin-ui/commit/311854c5bf08ffdb9b7e35baf9eeb93d59c1f7f2))
+* **radio:** add helperText property ([3f24160](https://github.com/vtex/admin-ui/commit/3f24160968f56e477148129e03c99dec767a260f))
+* **radio:** add message component ([43f26d8](https://github.com/vtex/admin-ui/commit/43f26d88358ed19cd81bf1fca4aaba96763568f2))
+* **radio:** add radio component review ([aac1a17](https://github.com/vtex/admin-ui/commit/aac1a177cca22ace6be3136144524e1172b92106))
+* **radio:** add Radio component review ([7cbbf7b](https://github.com/vtex/admin-ui/commit/7cbbf7b9e79c8cc199a669c6846c4433994becac))
+* **radio-group:** add RadioGroup component review ([c49dead](https://github.com/vtex/admin-ui/commit/c49dead0aa21fec07b9e05daf641643693a43069))
+
+
+
+
+
 ## [0.125.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.125.0...@vtex/admin-ui@0.125.1) (2022-05-02)
 
 
