@@ -4,11 +4,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
-import { messages } from './radio.i18n'
-import { Text } from '../components/Text'
-import { Stack } from '../stack'
-import { Message } from './message'
-import { useMessageFormatter } from '../i18n'
+import { FormGroup } from '../form-group'
 
 export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
   (props) => {
@@ -17,29 +13,29 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
       helpText,
       errorText,
       children,
-      direction = 'row',
+      direction,
       state,
-      error = false,
-      optional = false,
+      error,
+      optional,
       ...restProps
     } = props
-
-    const formatMessage = useMessageFormatter(messages.radioGroup)
 
     return useElement('fieldset', {
       ...restProps,
       children: (
-        <Stack space="$l">
-          <Text as="legend" variant="detail" tone="secondary">
-            {label} {optional ? `(${formatMessage('optional')})` : ''}
-          </Text>
-          <AriakitRadioGroup state={state}>
-            <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
-              {children}
-            </Stack>
-          </AriakitRadioGroup>
-          <Message helpText={helpText} errorText={errorText} error={error} />
-        </Stack>
+        <FormGroup
+          label={label}
+          labelAs="legend"
+          state={state}
+          direction={direction}
+          componentGroup={AriakitRadioGroup}
+          helpText={helpText}
+          error={error}
+          errorText={errorText}
+          optional={optional}
+        >
+          {children}
+        </FormGroup>
       ),
     })
   }

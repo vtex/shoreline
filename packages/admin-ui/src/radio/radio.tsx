@@ -8,7 +8,7 @@ import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { RadioButton } from './radio-button'
 import * as style from './radio.style'
-import { Message } from './message'
+import { Message } from '../form-group'
 
 export const Radio = createComponent<typeof RadioButton, RadioOptions>(
   (props) => {

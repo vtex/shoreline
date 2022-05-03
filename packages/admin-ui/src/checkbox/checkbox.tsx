@@ -8,7 +8,7 @@ import { Label } from '../components/Label'
 import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
-import { Message } from './message'
+import { Message } from '../form-group'
 
 import * as style from './checkbox.style'
 
@@ -26,7 +26,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <Inline hSpace="$m">
+      <Inline hSpace="$m" vSpace="">
         <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
         <Stack space="$s">
           <Label htmlFor={baseId} csx={style.label}>
@@ -60,6 +60,6 @@ export interface CheckboxOptions {
   label?: ReactNode
 }
 
-export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
+export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox> & any
 
 export { useCheckboxState, CheckboxState } from './state'
