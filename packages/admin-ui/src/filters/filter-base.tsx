@@ -29,17 +29,21 @@ export function BaseFilter(props: BaseFilterProps) {
       </FilterDisclosure>
 
       <FilterPopover state={menu}>
-        <tag.span ref={optionsContainerRef}>
+        <tag.span
+          ref={optionsContainerRef}
+          csx={{
+            marginTop: '$m',
+            padding: '$l',
+            maxHeight: 312,
+            overflowY: 'auto',
+          }}
+        >
           <tag.ul
             as={ComboboxList}
             state={combobox}
             csx={{
-              marginTop: '$m',
               display: 'flex',
               flexDirection: 'column',
-              padding: '$l',
-              maxHeight: 312,
-              overflowY: 'auto',
               '> *:not(:last-child)': {
                 marginBottom: '$xl',
               },
