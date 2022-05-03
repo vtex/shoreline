@@ -14,7 +14,7 @@ import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 
 export function BaseFilter(props: BaseFilterProps) {
-  const { state, children, appliedValuesLabel } = props
+  const { state, children, appliedValuesLabel = '' } = props
   const { onClear, onChange, label, menu, combobox } = state
 
   const formatMessage = useMessageFormatter(messages.actions)
@@ -25,7 +25,7 @@ export function BaseFilter(props: BaseFilterProps) {
     <>
       <FilterDisclosure state={menu}>
         {label}
-        {appliedValuesLabel || ''}
+        {appliedValuesLabel}
       </FilterDisclosure>
 
       <FilterPopover state={menu}>
@@ -51,8 +51,8 @@ export function BaseFilter(props: BaseFilterProps) {
 
         <FilterPopoverFooter
           isContentScrollable={
-            (optionsContainerRef?.current?.scrollHeight || 0) >
-            (optionsContainerRef?.current?.clientHeight || 0)
+            (optionsContainerRef?.current?.scrollHeight ?? 0) >
+            (optionsContainerRef?.current?.clientHeight ?? 0)
           }
         >
           <Button variant="tertiary" onClick={onClear}>

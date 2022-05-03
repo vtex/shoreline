@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 
+import type { MenuState } from 'ariakit/menu'
 import { useMenuState } from 'ariakit/menu'
 import type { ComboboxState } from '../combobox/combobox.state'
 import { useComboboxState } from '../combobox/combobox.state'
@@ -19,7 +20,7 @@ export function useFilterState<T extends FilterItem>(
   })
 
   useEffect(() => {
-    const initialItem = items.find((it) => it.id === initialApplied)
+    const initialItem = items.find((item) => item.id === initialApplied)
 
     combobox.setSelectedItem(initialItem)
     setAppliedItem(initialItem)
@@ -56,8 +57,10 @@ export function useFilterState<T extends FilterItem>(
   }, [combobox.selectedItem])
 
   useEffect(() => {
-    // Resets combobox value when menu is closed
-    if (!menu.mounted && combobox.value) {
+    const isMenuClosed = !menu.mounted
+
+    if (isMenuClosed && combobox.value) {
+      // resets combobox
       combobox.setValue('')
       combobox.setSelectedItem(appliedItem)
     }
@@ -81,7 +84,7 @@ export interface FilterItem {
 }
 
 export interface GenericFilterStateReturn<T> {
-  menu: any
+  menu: MenuState<any>
   onClear: () => void
   onChange: () => void
   label: string
