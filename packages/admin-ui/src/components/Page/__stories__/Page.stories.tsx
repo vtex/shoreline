@@ -5,7 +5,7 @@ import faker from 'faker'
 
 import { Page, PageContent, PageHeader, PageTitle, PageActions } from '../index'
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
-import { Search, useSearchState } from '../../Search'
+import { Search, useSearchState } from '../../../search'
 import { DataGrid, useDataGridState, createColumns } from '../../DataGrid'
 import { Button } from '../../../button'
 
@@ -98,12 +98,7 @@ export function WithDataView() {
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
-            <Search
-              state={search}
-              id="search"
-              aria-label="DataGrid Search"
-              placeholder="Search by name"
-            />
+            <Search state={search} />
           </DataViewControls>
           <DataGrid state={grid} />
         </DataView>

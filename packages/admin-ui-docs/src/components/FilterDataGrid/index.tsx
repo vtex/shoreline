@@ -24,7 +24,7 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
   return (
     <DataView state={dataView} csx={style.dataView}>
       <DataViewControls csx={style.dataViewControls}>
-        <Search id="search" placeholder="Search" state={search} />
+        <Search state={search} />
         <Dropdown
           label="Filters"
           state={dropdown}

@@ -1,3 +1,3 @@
-export * from './Search'
+export * from './search'
 export * from './hooks/useSearchState'
 export * from './hooks/useQuerySearchState'
