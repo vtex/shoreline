@@ -11,6 +11,7 @@ const FilterWithState = withState(FilterMultiple, () =>
       { label: 'Empty', value: 2, id: '#2' },
     ],
     label: 'Filter',
+    baseId: 'filterMultipleTest',
   })
 )
 

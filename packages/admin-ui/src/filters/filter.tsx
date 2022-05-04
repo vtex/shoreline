@@ -17,7 +17,7 @@ export const itemStyle = style({
 
 export function Filter<T extends FilterItem>(props: FilterProps<T>) {
   const {
-    state: { combobox, appliedItem, items },
+    state: { combobox, appliedItem, items, baseId },
     state,
   } = props
 
@@ -52,6 +52,7 @@ export function Filter<T extends FilterItem>(props: FilterProps<T>) {
           hideOnClick={false}
           onClick={() => combobox.setSelectedItem(item)}
           style={itemStyle}
+          id={`${baseId ?? ''}-item-${item.id}`}
         >
           <FilterRadio checked={item.id === currentSelectedId} />
           {item.label}

@@ -12,7 +12,7 @@ export function FilterMultiple<T extends FilterItem>(
   props: FilterMultipleProps<T>
 ) {
   const {
-    state: { appliedItems, items, combobox },
+    state: { appliedItems, items, combobox, baseId },
     state,
   } = props
 
@@ -52,6 +52,7 @@ export function FilterMultiple<T extends FilterItem>(
           key={item.id}
           onClick={() => combobox.onChange(item)}
           style={itemStyle}
+          id={`${baseId ?? ''}-item-${item.id}`}
         >
           <Checkbox
             checked={combobox.isSelected(item)}

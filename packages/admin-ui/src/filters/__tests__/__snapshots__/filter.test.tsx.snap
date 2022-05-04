@@ -144,7 +144,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
     class="emotion-3"
     data-command=""
     data-disclosure=""
-    id="id-sez8r6"
+    id="filterTest-disclosure"
     type="button"
   >
     <div
@@ -526,7 +526,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
       class="emotion-13"
       data-dialog=""
       hidden=""
-      id="id-gcolok"
+      id="filterTest-popover"
       role="menu"
       style="position: relative; display: none;"
       tabindex="0"
@@ -537,7 +537,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
         <div
           class="emotion-4"
           hidden=""
-          id="id-9nre5t"
+          id="filterTest-combobox-list"
           role="listbox"
           style="display: none;"
         >
@@ -546,7 +546,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
             class="emotion-1"
             data-command=""
             data-composite-hover=""
-            id="id-qrp2jd"
+            id="filterTest-item-#1"
             style="display: flex; cursor: pointer;"
             tabindex="0"
           >
@@ -562,7 +562,7 @@ exports[`Single select filter tests should match snapshot 1`] = `
             class="emotion-1"
             data-command=""
             data-composite-hover=""
-            id="id-vet9h3"
+            id="filterTest-item-#2"
             style="display: flex; cursor: pointer;"
             tabindex="0"
           >
