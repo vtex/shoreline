@@ -1,11 +1,12 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { I18nProvider } from '../i18n'
+
+import { I18nProvider } from '../../i18n'
 import {
   DatePickerField,
   DatePickerCalendar,
   useDatePickerState,
-} from './index'
+} from '../index'
 
 export default {
   title: 'admin-ui/DatePicker',

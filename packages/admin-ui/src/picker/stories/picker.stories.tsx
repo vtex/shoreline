@@ -1,13 +1,13 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import type { PickerInitialState } from './index'
+import type { PickerInitialState } from '../index'
 import {
   Picker,
   PickerPopover,
   PickerDisclosure,
   usePickerState,
-} from './index'
+} from '../index'
 
 export default {
   title: 'admin-ui/Picker',

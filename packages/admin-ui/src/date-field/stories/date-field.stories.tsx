@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { DateField, useDateFieldState } from './index'
+import { DateField, useDateFieldState } from '../index'
 
 export default {
   title: 'admin-ui/DateField',

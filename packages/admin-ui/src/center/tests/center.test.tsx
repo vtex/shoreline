@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render } from '../test-utils'
-import { Center } from './center'
+import { render } from '../../test-utils'
+import { Center } from '../center'
 
 describe('Center', () => {
   it('should apply csx', () => {

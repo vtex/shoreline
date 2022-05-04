@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Set } from './index'
-import { Button } from '../button'
+import { Set } from '../index'
+import { Button } from '../../button'
 
 export default {
   title: 'admin-ui/Set',

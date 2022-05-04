@@ -2,12 +2,12 @@ import React from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { Inline } from '../inline'
-import { Bleed } from './bleed'
+import { Inline } from '../../inline'
+import { Bleed } from '../bleed'
 
-import { Tag } from '../components/Tag'
-import { Box } from '../components/Box'
-import { Paragraph } from '../components/Paragraph'
+import { Tag } from '../../components/Tag'
+import { Box } from '../../components/Box'
+import { Paragraph } from '../../components/Paragraph'
 
 export default {
   title: 'admin-ui/Bleed',

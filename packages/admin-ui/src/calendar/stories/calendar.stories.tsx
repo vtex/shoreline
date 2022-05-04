@@ -1,14 +1,14 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Calendar, useCalendarState } from './index'
+import { Calendar, useCalendarState } from '../index'
 import {
   Picker,
   PickerDisclosure,
   PickerPopover,
   usePickerState,
-} from '../picker'
-import { I18nProvider } from '../i18n'
+} from '../../picker'
+import { I18nProvider } from '../../i18n'
 
 export default {
   title: 'admin-ui/Calendar',

@@ -1,14 +1,15 @@
 import React from 'react'
 
-import { render, axe } from '../test-utils'
-import { Bleed } from './bleed'
+import { render, axe } from '../../test-utils'
+import { Inline } from '../inline'
 
-describe('Bleed', () => {
+describe('Inline', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
-      <Bleed right="$xl">
+      <Inline>
         <button>Button 1</button>
-      </Bleed>
+        <button>Button 2</button>
+      </Inline>
     )
 
     expect(asFragment()).toMatchSnapshot()
@@ -16,9 +17,10 @@ describe('Bleed', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Bleed right="$xl">
+      <Inline>
         <button>Button 1</button>
-      </Bleed>
+        <button>Button 2</button>
+      </Inline>
     )
 
     const results = await axe(container)

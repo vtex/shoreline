@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render, axe } from '../test-utils'
-import { Button } from './index'
+import { render, axe } from '../../test-utils'
+import { Button } from '../index'
 
 describe('button', () => {
   it('should have overridable styles', () => {

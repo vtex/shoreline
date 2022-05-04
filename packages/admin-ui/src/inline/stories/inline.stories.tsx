@@ -2,9 +2,9 @@ import React from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { Inline } from './inline'
-import { Tag } from '../components/Tag'
-import { Box } from '../components/Box'
+import { Inline } from '../inline'
+import { Tag } from '../../components/Tag'
+import { Box } from '../../components/Box'
 
 export default {
   title: 'admin-ui/Inline',

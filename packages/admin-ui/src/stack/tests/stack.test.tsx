@@ -1,45 +1,45 @@
 import React from 'react'
 
-import { render, axe, jestMatchMedia } from '../test-utils'
-import { Set } from './index'
+import { render, axe, jestMatchMedia } from '../../test-utils'
+import { Stack } from '../index'
 
-describe('Set tests', () => {
+describe('Stack', () => {
   beforeEach(jestMatchMedia)
 
   it('should have overridable styles', () => {
     const { getByTestId } = render(
-      <Set data-testid="set" csx={{ bg: 'coral' }}>
+      <Stack data-testid="stack" csx={{ bg: 'coral' }}>
         <button>element 1</button>
         <button>element 2</button>
-      </Set>
+      </Stack>
     )
 
-    expect(getByTestId('set')).toHaveStyleRule('background', 'coral')
+    expect(getByTestId('stack')).toHaveStyleRule('background', 'coral')
   })
 
   it('should match snapshot', () => {
     const { asFragment } = render(
       <>
-        <Set>
+        <Stack>
           <button>element 1</button>
           <button>element 2</button>
-        </Set>
-        <Set align="end">
+        </Stack>
+        <Stack align="end">
           <button>element 1</button>
           <button>element 2</button>
-        </Set>
-        <Set orientation="vertical">
+        </Stack>
+        <Stack direction="row">
           <button>element 1</button>
           <button>element 2</button>
-        </Set>
-        <Set orientation="vertical" fluid>
+        </Stack>
+        <Stack direction="row" fluid>
           <button>element 1</button>
           <button>element 2</button>
-        </Set>
-        <Set orientation="vertical" fluid align="end">
+        </Stack>
+        <Stack direction="row" fluid align="end">
           <button>element 1</button>
           <button>element 2</button>
-        </Set>
+        </Stack>
       </>
     )
 
@@ -48,10 +48,10 @@ describe('Set tests', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Set>
+      <Stack>
         <button>element 1</button>
         <button>element 2</button>
-      </Set>
+      </Stack>
     )
 
     const results = await axe(container)

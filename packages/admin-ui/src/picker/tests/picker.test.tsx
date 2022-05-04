@@ -1,13 +1,13 @@
 import React from 'react'
-import { axe, fireEvent, render, screen } from '../test-utils'
 
-import type { PickerInitialState } from './index'
+import { axe, fireEvent, render, screen } from '../../test-utils'
+import type { PickerInitialState } from '../index'
 import {
   Picker,
   PickerPopover,
   PickerDisclosure,
   usePickerState,
-} from './index'
+} from '../index'
 
 function BaseComponent(props: PickerInitialState) {
   const state = usePickerState({

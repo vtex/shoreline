@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, axe } from '../test-utils'
+import { render, axe } from '../../test-utils'
 
-import { Abbr } from './abbr'
+import { Abbr } from '../abbr'
 
 describe('Abbr', () => {
   it('should match snapshot', () => {

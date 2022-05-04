@@ -1,4 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
+import * as style from './abbr.style'
 
 /**
  * Abbreviation component
@@ -7,10 +8,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
  */
 export const Abbr = createComponent<'abbr'>((props) => {
   return useElement('abbr', {
-    baseStyle: {
-      textDecoration: 'none',
-      text: '$body',
-    },
+    baseStyle: style.base,
     ...props,
   })
 })

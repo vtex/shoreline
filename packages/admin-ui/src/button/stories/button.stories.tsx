@@ -2,11 +2,11 @@ import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 import { IconX } from '@vtex/phosphor-icons'
 
-import type { ButtonProps } from './index'
-import { Button } from './index'
-import { Heading } from '../components/Heading'
-import { Box } from '../components/Box'
-import { Flex } from '../components/Flex'
+import type { ButtonProps } from '../index'
+import { Button } from '../index'
+import { Heading } from '../../components/Heading'
+import { Box } from '../../components/Box'
+import { Flex } from '../../components/Flex'
 
 export default {
   title: 'admin-ui-review/button',

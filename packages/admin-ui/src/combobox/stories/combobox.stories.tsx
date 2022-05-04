@@ -9,9 +9,9 @@ import {
   ComboboxMultipleField,
   ComboboxMultiplePopover,
   useComboboxMultipleState,
-} from './index'
-import type { Locales } from '../i18n'
-import { I18nProvider, locales } from '../i18n'
+} from '../index'
+import type { Locales } from '../../i18n'
+import { I18nProvider, locales } from '../../i18n'
 
 export default {
   title: 'admin-ui/Combobox',
