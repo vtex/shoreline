@@ -200,9 +200,12 @@ exports[`Checkbox should match snapshot 1`] = `
   >
     <input
       aria-checked="false"
+      aria-disabled="true"
       class="emotion-0"
       data-command=""
+      disabled=""
       id="checkbox"
+      style="pointer-events: none;"
       type="checkbox"
     />
     <div

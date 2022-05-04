@@ -21,6 +21,7 @@ describe('Checkbox', () => {
         helpText="Help Text"
         errorText="Error text"
         error
+        disabled
       />
     )
 
