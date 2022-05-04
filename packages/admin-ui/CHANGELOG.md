@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.126.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.126.0...@vtex/admin-ui@0.126.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* **button:** adjust spacing when it has only an icon as children ([5e2bbef](https://github.com/vtex/admin-ui/commit/5e2bbef9027b40f7979455dcbf129a8333eb9b3a))
+
+
+
+
+
 # [0.126.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.125.1...@vtex/admin-ui@0.126.0) (2022-05-03)
 
 
