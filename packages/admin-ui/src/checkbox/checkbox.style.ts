@@ -1,6 +1,20 @@
 import { focusVisible, style } from '@vtex/admin-ui-core'
 import { checkmarkSvg, indeterminateSvg } from './utils'
 
+export const disabled = style({
+  ':disabled': {
+    bg: '$disabled',
+    border: '$disabled',
+    color: '$disabled',
+    cursor: 'not-allowed',
+
+    '+ div label': {
+      color: '$disabled',
+      cursor: 'not-allowed',
+    },
+  },
+})
+
 export const baseline = style({
   ...focusVisible('neutral'),
   display: 'flex',
@@ -22,6 +36,8 @@ export const baseline = style({
   ':focus:not(:checked)': {
     border: '$form.controlFocus',
   },
+
+  ...disabled,
 })
 
 export const error = style({
@@ -35,6 +51,8 @@ export const error = style({
   ':focus:not(:checked)': {
     border: '$form.criticalFocus',
   },
+
+  ...disabled,
 })
 
 export const icon = style({
@@ -70,6 +88,8 @@ export const checked = style({
   },
 
   ...checkmark,
+
+  ...disabled,
 })
 
 export const indeterminate = style({
@@ -83,23 +103,10 @@ export const indeterminate = style({
   },
 })
 
-export const disabled = style({
-  ':disabled': {
-    bg: '$disabled',
-    border: '$disabled',
-
-    '& + div label': {
-      color: '$disabled',
-      cursor: 'default',
-    },
-  },
-})
-
 export const checkboxStyle = style({
   ...baseline,
   ':checked': checked,
   ':indeterminate': indeterminate,
-  ...disabled,
 })
 
 export const label = style({

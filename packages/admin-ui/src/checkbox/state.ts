@@ -1,23 +1,21 @@
 import { useState } from 'react'
 
-type CheckboxStateType = {
-  initialValue?: CheckboxState
-}
-
-export function useCheckboxState(state?: CheckboxStateType) {
+export function useCheckboxState(state?: CheckboxStateProps) {
   const [value, setValue] = useState(state?.initialValue ?? false)
 
   return {
     value,
     setValue,
-  } as CheckboxStateReturn
+  }
 }
 
-export type CheckboxState = boolean | 'indeterminate' | any[] | undefined
+export type CheckboxState = boolean | 'indeterminate' | any[]
+
+export type CheckboxStateProps = {
+  initialValue?: CheckboxState
+}
 
 export type CheckboxStateReturn = {
-  value: boolean | any[] | 'indeterminate'
-  setValue: React.Dispatch<
-    React.SetStateAction<boolean | any[] | 'indeterminate'>
-  >
+  value: CheckboxState
+  setValue: React.Dispatch<React.SetStateAction<CheckboxState>>
 }
