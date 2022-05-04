@@ -129,6 +129,7 @@ export const innerContainerVariants = styleVariants({
         marginLeft: '$xs',
       },
     },
+    center: {},
   },
 })
 
