@@ -101,6 +101,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'set-to-stack: Migrate Set to Stack',
     value: 'set-to-stack',
   },
+  {
+    name: 'radio-review: Update Radio & RadioGroup props to the latest specs (0.126.0+)',
+    value: 'radio-review',
+  },
 ]
 
 // tsx or jsx
