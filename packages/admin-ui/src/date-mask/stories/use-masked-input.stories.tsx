@@ -20,7 +20,7 @@ export function CPFMask() {
   const inputProps = useMaskedInput({
     value,
     onChange: setValue,
-    format: cpfFormatter,
+    formatter: cpfFormatter,
   })
 
   return (
@@ -45,7 +45,7 @@ export function PhoneMask() {
   const inputProps = useMaskedInput({
     value,
     onChange: setValue,
-    format: phoneFormatter,
+    formatter: phoneFormatter,
   })
 
   return (
@@ -76,7 +76,7 @@ export function DateMask() {
   const inputProps = useMaskedInput({
     value,
     onChange: setValue,
-    format: dateFormatter,
+    formatter: dateFormatter,
   })
 
   return (
@@ -101,7 +101,7 @@ export function DateTimeMask() {
   const inputProps = useMaskedInput({
     value,
     onChange: setValue,
-    format: dateTimeFormatter,
+    formatter: dateTimeFormatter,
   })
 
   return (
