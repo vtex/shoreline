@@ -1,10 +1,12 @@
-import type { ComponentPropsWithRef } from 'react'
-import { useRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import { useState, useMemo } from 'react'
 import type { DateObject } from '../calendar'
+import { maskedDateFormatter } from './date-mask-utils'
+import { useInput } from './use-input'
 
 const propsByLocale: Record<string, I18nProps> = {
   'pt-BR': {
-    placeholder: 'dd/MM/aaaa',
+    placeholder: ' ',
     order: {
       day: 0,
       month: 1,
@@ -14,59 +16,61 @@ const propsByLocale: Record<string, I18nProps> = {
   },
 }
 
+const mask = '__/__/____'
+
 /**
  * @example
  * const { getInputProps } = useDateMask()
  * <input {...getInputProps()} />
  */
 export function useDateMask() {
-  const ref = useRef<HTMLInputElement>(null)
+  const [inputValue, setInputValue] = useState('')
+  const formatter = useMemo(() => {
+    return maskedDateFormatter(mask, /[\d]/gi)
+  }, [])
 
-  const onKeyUp = () => {
-    if (!ref.current) return
+  const handleChange = (text: string) => {
+    const finalString = text === '' || text === mask ? '' : text
 
-    let value = ref.current.value
-
-    if (value.match(/^(\d{2}).(\d{2}).(\d{4})$/)) return
-
-    value = value.replace(/\D/g, '')
-    value = value.replace(/(\d{2})(\d)/, `$1${defaultProps.divider}$2`)
-    value = value.replace(/(\d{2})(\d)/, `$1${defaultProps.divider}$2`)
-    value = value.replace(/(\d{2})(\d{4})$/, `$1${defaultProps.divider}$2`)
-
-    ref.current.value = value
+    setInputValue(finalString)
   }
 
-  function getInputProps(
-    customProps?: InputProps
-  ): ComponentPropsWithRef<'input'> {
+  const inputProps = useInput({
+    value: inputValue,
+    onChange: handleChange,
+    format: formatter,
+  })
+
+  function getInputProps(customProps?: InputProps): ReturnedInputProps {
     return {
-      onKeyUp,
-      maxLength: 10,
-      ref,
       placeholder: defaultProps.placeholder,
+      ...inputProps,
       ...customProps,
+      type: 'text',
     }
   }
 
   function getDateObject(): DateObject {
-    if (!ref.current)
+    if (!inputValue)
       return {
         day: 0,
         month: 0,
         year: 0,
       }
 
-    const value = ref.current.value
-    const parts = value.split('/')
+    const parts = inputValue.split('/')
 
     const {
       order: { day, month, year },
     } = defaultProps
 
+    const typedMonth = Number(parts?.[month])
+    const monthValue = global.isNaN(typedMonth) ? 0 : typedMonth
+
     return {
       day: Number(parts?.[day] ?? 0) ?? 0,
-      month: Number(parts?.[month] ?? 1) - 1,
+      // month: Number(parts?.[month] ?? 1) - 1,
+      month: monthValue,
       year: Number(parts?.[year] ?? 0),
     }
   }
@@ -87,4 +91,7 @@ interface I18nProps {
 
 const defaultProps = propsByLocale['pt-BR']
 
-type InputProps = ComponentPropsWithRef<'input'>
+type InputProps = Omit<ComponentPropsWithoutRef<'input'>, 'type'>
+type ReturnedInputProps = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
+  type: 'text'
+}
