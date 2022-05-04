@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
+import React from 'react'
 import type { Meta } from '@storybook/react'
 
+import { Input } from '../components/Input'
+
 import { useDateMask } from './use-input-mask'
+import { Box } from '../components/Box'
 
 export default {
   title: 'admin-ui/InputMask',
 } as Meta
 
 export function Test() {
-  const [value, setValue] = useState('')
   const { getInputProps, getDateObject } = useDateMask()
 
   const dateObject = getDateObject()
 
   return (
-    <div>
-      <input
-        {...getInputProps({
-          value,
-          onChange: (e) => setValue(e.currentTarget.value),
-        })}
-      />
-      value: {value}
+    <Box
+      csx={{
+        width: 256,
+      }}
+    >
+      <Input id="date" label="Date" {...getInputProps()} />
       <div>
         day: {dateObject.day}, month: {dateObject.month}, year:{' '}
         {dateObject.year}
       </div>
-    </div>
+    </Box>
   )
 }
