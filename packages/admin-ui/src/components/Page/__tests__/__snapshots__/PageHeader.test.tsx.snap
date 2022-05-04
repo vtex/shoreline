@@ -214,13 +214,6 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 svg {
-  margin-right: 0.25rem;
 }
 
 .emotion-0 {
