@@ -1,5 +1,8 @@
-import React, { useMemo, useReducer } from 'react'
+import React, { useMemo } from 'react'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
+
+import { useDeleteKeyPressed } from './use-delete-key-pressed'
+import { useRerender } from './use-rerender'
 
 interface Props {
   value: string
@@ -21,12 +24,12 @@ interface ValueRef {
   isNoOperation: boolean
 }
 
-export function useInput(props: Props): RenderArgs {
+export function useMaskedInput(props: Props): RenderArgs {
   const { format, value, onChange, accept = /\d/g } = props
 
   const valueRef = React.useRef<ValueRef | null>(null)
   const userValue = useMemo(() => format(value), [format, value])
-  const { isDeleteKeyPressed } = useDeleteKey()
+  const isDeleteKeyPressed = useDeleteKeyPressed()
   const rerender = useRerender()
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +58,6 @@ export function useInput(props: Props): RenderArgs {
       input,
       isSizeIncreaseOperation,
       isDeleleteButtonDown,
-      // No operation means that value itself hasn't been changed, BTW cursor, selection etc can be changed
       isNoOperation,
     } = valueRef.current
 
@@ -155,51 +157,4 @@ export function useInput(props: Props): RenderArgs {
 // Create string from only accepted symbols
 function clean(str: string, accept: RegExp) {
   return (str.match(accept) || []).join('')
-}
-
-/**
- * Watches for backspace/delete key press event.
- */
-function useDeleteKey() {
-  const deleteKeyRef = React.useRef(false)
-
-  const isDeleteKeyPressed = () => {
-    return deleteKeyRef.current
-  }
-
-  useSafeLayoutEffect(() => {
-    const handleKeyDown = (evt: KeyboardEvent) => {
-      if (evt.code === 'Delete') {
-        deleteKeyRef.current = true
-      }
-    }
-
-    const handleKeyUp = (evt: KeyboardEvent) => {
-      if (evt.code === 'Delete') {
-        deleteKeyRef.current = false
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    document.addEventListener('keyup', handleKeyUp)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-      document.removeEventListener('keyup', handleKeyUp)
-    }
-  }, [])
-
-  return {
-    isDeleteKeyPressed,
-    deleteKeyRef,
-  }
-}
-
-/**
- * Forces a component update
- */
-function useRerender() {
-  const [, rerender] = useReducer((c: number) => c + 1, 0)
-
-  return rerender
 }
