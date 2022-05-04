@@ -271,10 +271,18 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
 }
 
-.emotion-4 >*:not(:last-child) {
-  margin-bottom: 1rem;
+.emotion-4 >*:not(:first-child) {
+  margin-top: 1rem;
 }
 
 .emotion-1 {
