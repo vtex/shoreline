@@ -23,7 +23,7 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
     icon,
     size = 'normal',
     variant = 'primary',
-    iconPosition: defaultIconPosition = 'start',
+    iconPosition = 'start',
     loading = false,
     disabled = false,
     bleedY = false,
@@ -31,10 +31,6 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
     children,
     ...props
   }) => {
-    const iconOnly = icon && !children
-
-    const iconPosition = iconOnly ? 'center' : defaultIconPosition
-
     const bleedYStyle = bleedY
       ? style.bleedY({
           size,
