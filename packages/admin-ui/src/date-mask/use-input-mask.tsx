@@ -12,11 +12,20 @@ const propsByLocale: Record<string, I18nProps> = {
       month: 1,
       year: 2,
     },
-    divider: '/',
+    mask: '__/__/____',
+  },
+  'en-US': {
+    placeholder: ' ',
+    order: {
+      month: 0,
+      day: 1,
+      year: 2,
+    },
+    mask: '__/__/____',
   },
 }
 
-const mask = '__/__/____'
+const defaultProps = propsByLocale['pt-BR']
 
 /**
  * @example
@@ -26,11 +35,11 @@ const mask = '__/__/____'
 export function useDateMask() {
   const [inputValue, setInputValue] = useState('')
   const formatter = useMemo(() => {
-    return maskedDateFormatter(mask, /[\d]/gi)
+    return maskedDateFormatter(defaultProps.mask, /[\d]/gi)
   }, [])
 
   const handleChange = (text: string) => {
-    const finalString = text === '' || text === mask ? '' : text
+    const finalString = text === '' || text === defaultProps.mask ? '' : text
 
     setInputValue(finalString)
   }
@@ -61,17 +70,22 @@ export function useDateMask() {
     const parts = inputValue.split('/')
 
     const {
-      order: { day, month, year },
+      order: { day: dayIndex, month: monthIndex, year: yearIndex },
     } = defaultProps
 
-    const typedMonth = Number(parts?.[month])
-    const monthValue = global.isNaN(typedMonth) ? 0 : typedMonth
+    const typedDay = Number(parts?.[dayIndex])
+    const day = global.isNaN(typedDay) ? 0 : typedDay
+
+    const typedMonth = Number(parts?.[monthIndex])
+    const month = Math.max(global.isNaN(typedMonth) ? 0 : typedMonth - 1, 0)
+
+    const typedYear = Number(parts?.[yearIndex])
+    const year = global.isNaN(typedYear) ? 0 : typedYear
 
     return {
-      day: Number(parts?.[day] ?? 0) ?? 0,
-      // month: Number(parts?.[month] ?? 1) - 1,
-      month: monthValue,
-      year: Number(parts?.[year] ?? 0),
+      day,
+      month,
+      year,
     }
   }
 
@@ -86,10 +100,8 @@ type DatePart = 'day' | 'month' | 'year'
 interface I18nProps {
   placeholder: string
   order: Record<DatePart, number>
-  divider: string
+  mask: string
 }
-
-const defaultProps = propsByLocale['pt-BR']
 
 type InputProps = Omit<ComponentPropsWithoutRef<'input'>, 'type'>
 type ReturnedInputProps = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {

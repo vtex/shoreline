@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useMemo, useReducer } from 'react'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
-interface Args {
+interface Props {
   value: string
   onChange: (str: string) => void
   format: (str: string) => string
-  mask?: boolean
   accept?: RegExp
 }
 
@@ -22,30 +21,30 @@ interface ValueRef {
   isNoOperation: boolean
 }
 
-export function useInput(props: Args): RenderArgs {
-  const [, refresh] = React.useReducer((c) => Number(c) + 1, 0)
+export function useInput(props: Props): RenderArgs {
+  const { format, value, onChange, accept = /\d/g } = props
+
   const valueRef = React.useRef<ValueRef | null>(null)
-  const userValue = props.format(props.value)
+  const userValue = useMemo(() => format(value), [format, value])
+  const { isDeleteKeyPressed } = useDeleteKey()
+  const rerender = useRerender()
 
-  // state of delete button see comments below about inputType support
-  const isDeleleteButtonDownRef = React.useRef(false)
-
-  const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const eventValue = evt.target.value
 
     valueRef.current = {
       eventValue, // eventValue
       input: evt.target, // input
       isSizeIncreaseOperation: eventValue.length > userValue.length, // isSizeIncreaseOperation
-      isDeleleteButtonDown: isDeleleteButtonDownRef.current, // isDeleleteButtonDown
-      isNoOperation: userValue === props.format(eventValue), // isNoOperation
+      isDeleleteButtonDown: isDeleteKeyPressed(), // isDeleleteButtonDown
+      isNoOperation: userValue === format(eventValue), // isNoOperation
     }
 
     // The main trick is to update underlying input with non formatted value (= eventValue)
     // that allows us to calculate right cursor position after formatting (see getCursorPosition)
     // then we format new value and call props.onChange with masked/formatted value
     // and finally we are able to set cursor position into right place
-    refresh()
+    rerender()
   }
 
   useSafeLayoutEffect(() => {
@@ -70,19 +69,14 @@ export function useInput(props: Args): RenderArgs {
       input?.selectionStart ?? undefined
     )
 
-    const acceptedCharIndexAfterDelete = valueAfterSelectionStart.search(
-      props.accept || /\d/g
-    )
+    const acceptedCharIndexAfterDelete = valueAfterSelectionStart.search(accept)
 
     const charsToSkipAfterDelete =
       acceptedCharIndexAfterDelete !== -1 ? acceptedCharIndexAfterDelete : 0
 
-    // Create string from only accepted symbols
-    const clean = (str: string) =>
-      (str.match(props.accept || /\d/g) || []).join('')
-
     const valueBeforeSelectionStart = clean(
-      eventValue.substring(0, input?.selectionStart ?? undefined)
+      eventValue.substring(0, input?.selectionStart ?? undefined),
+      accept
     )
 
     // trying to find cursor position in formatted value having knowledge about valueBeforeSelectionStart
@@ -101,7 +95,7 @@ export function useInput(props: Args): RenderArgs {
         let newPos = val.indexOf(valueBeforeSelectionStart[i], start) + 1
 
         let newCleanPos =
-          clean(val).indexOf(valueBeforeSelectionStart[i], cleanPos) + 1
+          clean(val, accept).indexOf(valueBeforeSelectionStart[i], cleanPos) + 1
 
         // this skips position change if accepted symbols order was broken
         // For example fixes edge case with fixed point numbers:
@@ -120,13 +114,13 @@ export function useInput(props: Args): RenderArgs {
       return start
     }
 
-    const formattedValue = props.format(eventValue)
+    const formattedValue = format(eventValue)
 
     if (userValue === formattedValue) {
       // if nothing changed for formatted value, just refresh so userValue will be used at render
-      refresh()
+      rerender()
     } else {
-      props.onChange(formattedValue)
+      onChange(formattedValue)
     }
 
     return () => {
@@ -137,7 +131,10 @@ export function useInput(props: Args): RenderArgs {
       // as an example date mask: was "5|1-24-3" then user pressed "6"
       // it becomes "56-|12-43" with this code, and "56|-12-43" without
       if (isSizeIncreaseOperation || (isDeleleteButtonDown && !deleteWasNoOp)) {
-        while (formattedValue[start] && clean(formattedValue[start]) === '') {
+        while (
+          formattedValue[start] &&
+          clean(formattedValue[start], accept) === ''
+        ) {
           start += 1
         }
       }
@@ -149,21 +146,37 @@ export function useInput(props: Args): RenderArgs {
     }
   })
 
+  return {
+    value: valueRef.current !== null ? valueRef.current.eventValue : userValue,
+    onChange: handleChange,
+  }
+}
+
+// Create string from only accepted symbols
+function clean(str: string, accept: RegExp) {
+  return (str.match(accept) || []).join('')
+}
+
+/**
+ * Watches for backspace/delete key press event.
+ */
+function useDeleteKey() {
+  const deleteKeyRef = React.useRef(false)
+
+  const isDeleteKeyPressed = () => {
+    return deleteKeyRef.current
+  }
+
   useSafeLayoutEffect(() => {
-    // until https://developer.mozilla.org/en-US/docs/Web/API/InputEvent/inputType will be supported
-    // by all major browsers (now supported by: +chrome, +safari, ?edge, !firefox)
-    // there is no way I found to distinguish in onChange
-    // backspace or delete was called in some situations
-    // firefox track https://bugzilla.mozilla.org/show_bug.cgi?id=1447239
     const handleKeyDown = (evt: KeyboardEvent) => {
       if (evt.code === 'Delete') {
-        isDeleleteButtonDownRef.current = true
+        deleteKeyRef.current = true
       }
     }
 
     const handleKeyUp = (evt: KeyboardEvent) => {
       if (evt.code === 'Delete') {
-        isDeleleteButtonDownRef.current = false
+        deleteKeyRef.current = false
       }
     }
 
@@ -177,7 +190,16 @@ export function useInput(props: Args): RenderArgs {
   }, [])
 
   return {
-    value: valueRef.current !== null ? valueRef.current.eventValue : userValue,
-    onChange,
+    isDeleteKeyPressed,
+    deleteKeyRef,
   }
+}
+
+/**
+ * Forces a component update
+ */
+function useRerender() {
+  const [, rerender] = useReducer((c: number) => c + 1, 0)
+
+  return rerender
 }
