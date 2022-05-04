@@ -4,6 +4,20 @@ import { get } from '@vtex/admin-ui-util'
 
 const css = (csx: StyleProp) => csx
 
+const thumb = css({
+  '&:after': {
+    width: '0.75rem',
+    height: '0.75rem',
+    margin: '0.20rem',
+  },
+
+  '&:checked': {
+    '&:after': {
+      transform: 'translateX(1rem)',
+    },
+  },
+})
+
 export const checkmark = css({
   bg: (theme) => get(theme, 'fg.form.neutralChecked'),
   content: '""',
@@ -13,7 +27,7 @@ export const checkmark = css({
   transition: 'transform .25s ease',
 })
 
-export const baseline = css({
+export const track = css({
   ...focusVisible('neutral'),
   bg: '$form.neutralInactive',
   border: '$form.neutral',
@@ -23,7 +37,8 @@ export const baseline = css({
   margin: 0,
   borderRadius: '6.25rem',
   borderStyle: 'solid',
-  borderWidth: 1,
+  height: 20,
+  width: 36,
 
   ':disabled': {
     bg: '$disabled',
@@ -41,6 +56,8 @@ export const baseline = css({
     bg: '$form.neutralInactivePressed',
     border: '$form.neutralPressed',
   },
+
+  ...thumb,
 })
 
 export const checked = css({
@@ -68,32 +85,6 @@ export const checked = css({
     bg: '$form.neutralActivePressed',
     border: '$form.neutralCheckedPressed',
   },
-})
 
-export const regular = css({
-  height: 20,
-  width: 36,
-  '&:after': {
-    width: 18,
-    height: 18,
-  },
-  '&:checked': {
-    '&:after': {
-      transform: 'translateX(1rem)',
-    },
-  },
-})
-
-export const small = css({
-  height: 16,
-  width: 28,
-  '&:after': {
-    width: 14,
-    height: 14,
-  },
-  '&:checked': {
-    '&:after': {
-      transform: 'translateX(12px)',
-    },
-  },
+  ...thumb,
 })
