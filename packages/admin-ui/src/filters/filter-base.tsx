@@ -12,7 +12,8 @@ import { tag } from '@vtex/admin-ui-react'
 
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
-import { style } from '@vtex/admin-ui-core'
+
+import { Stack } from '../stack'
 
 export function BaseFilter(props: BaseFilterProps) {
   const { state, children, appliedValuesLabel = '' } = props
@@ -29,6 +30,9 @@ export function BaseFilter(props: BaseFilterProps) {
   const comboboxListId = {
     id: baseId ? `${baseId}-combobox-list` : undefined,
   } as any
+
+  const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
+  const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
 
   return (
     <>
@@ -47,28 +51,18 @@ export function BaseFilter(props: BaseFilterProps) {
             overflowY: 'auto',
           }}
         >
-          <ComboboxList
+          <Stack
+            as={ComboboxList}
             state={combobox}
-            style={
-              style({
-                display: 'flex',
-                flexDirection: 'column',
-                '> *:not(:last-child)': {
-                  marginBottom: '$xl',
-                },
-              }) as any
-            }
+            space="$xl"
             {...comboboxListId}
           >
             {children}
-          </ComboboxList>
+          </Stack>
         </tag.span>
 
         <FilterPopoverFooter
-          isContentScrollable={
-            (optionsContainerRef?.current?.scrollHeight ?? 0) >
-            (optionsContainerRef?.current?.clientHeight ?? 0)
-          }
+          isContentScrollable={scrollHeight > containerHeight}
         >
           <Button variant="tertiary" onClick={onClear}>
             {formatMessage('clear')}
