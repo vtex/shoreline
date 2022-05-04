@@ -8,10 +8,10 @@ import { MenuButton } from 'ariakit'
 import * as style from './filter-disclosure.style'
 
 export const FilterDisclosure = (props: FilterDisclosureProps) => {
-  const { state, children } = props
+  const { state, children, id } = props
 
   return (
-    <Button as={MenuButton as any} state={state} csx={style.baseline}>
+    <Button as={MenuButton as any} state={state} csx={style.baseline} id={id}>
       {children}
       <IconCaretUp size="small" csx={style.caretIcon(state.mounted)} />
     </Button>
@@ -21,4 +21,5 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
 interface FilterDisclosureProps {
   state: MenuState<any>
   children: ReactNode
+  id?: string
 }

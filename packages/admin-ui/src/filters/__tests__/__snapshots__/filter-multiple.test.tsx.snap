@@ -144,7 +144,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
     class="emotion-3"
     data-command=""
     data-disclosure=""
-    id="id-94ienp"
+    id="filterMultipleTest-disclosure"
     type="button"
   >
     <div
@@ -533,7 +533,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
       class="emotion-13"
       data-dialog=""
       hidden=""
-      id="id-0wb1a3"
+      id="filterMultipleTest-popover"
       role="menu"
       style="position: relative; display: none;"
       tabindex="0"
@@ -544,7 +544,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
         <div
           class="emotion-4"
           hidden=""
-          id="id-9fd10p"
+          id="filterMultipleTest-combobox-list"
           role="listbox"
           style="display: none;"
         >
@@ -553,7 +553,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
             class="emotion-1"
             data-command=""
             data-composite-hover=""
-            id="id-kkzgx4"
+            id="filterMultipleTest-item-#1"
             style="display: flex; cursor: pointer;"
             tabindex="0"
           >
@@ -569,7 +569,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
             class="emotion-1"
             data-command=""
             data-composite-hover=""
-            id="id-1ww1rn"
+            id="filterMultipleTest-item-#2"
             style="display: flex; cursor: pointer;"
             tabindex="0"
           >

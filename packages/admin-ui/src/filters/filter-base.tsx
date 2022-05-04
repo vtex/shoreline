@@ -15,20 +15,24 @@ import { messages } from './filter.i18n'
 
 export function BaseFilter(props: BaseFilterProps) {
   const { state, children, appliedValuesLabel = '' } = props
-  const { onClear, onChange, label, menu, combobox } = state
+  const { onClear, onChange, label, menu, combobox, baseId } = state
 
   const formatMessage = useMessageFormatter(messages.actions)
 
   const optionsContainerRef = useRef<HTMLDivElement>(null)
 
+  const popoverId = baseId ? `${baseId}-popover` : undefined
+  const disclosureId = baseId ? `${baseId}-disclosure` : undefined
+  const comboboxListId = baseId ? `${baseId}-combobox-list` : undefined
+
   return (
     <>
-      <FilterDisclosure state={menu}>
+      <FilterDisclosure state={menu} id={disclosureId}>
         {label}
         {appliedValuesLabel}
       </FilterDisclosure>
 
-      <FilterPopover state={menu}>
+      <FilterPopover state={menu} id={popoverId}>
         <tag.span
           ref={optionsContainerRef}
           csx={{
@@ -48,6 +52,7 @@ export function BaseFilter(props: BaseFilterProps) {
                 marginBottom: '$xl',
               },
             }}
+            id={comboboxListId}
           >
             {children}
           </tag.ul>

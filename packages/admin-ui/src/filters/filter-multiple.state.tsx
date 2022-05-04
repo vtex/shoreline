@@ -8,7 +8,7 @@ import type { GenericFilterStateReturn, FilterItem } from './filter.state'
 export function useFilterMultipleState<T extends FilterItem>(
   props: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const { items, label, initialApplied, onChange = () => {} } = props
+  const { items, label, initialApplied, baseId, onChange = () => {} } = props
 
   const [appliedItems, setAppliedItems] = useState<T[]>([])
 
@@ -65,6 +65,7 @@ export function useFilterMultipleState<T extends FilterItem>(
     appliedKeys: appliedItems.map((i) => i.id),
     selectedKeys: selectedItems.map((i) => i.id) || [],
     label,
+    baseId,
   }
 }
 
@@ -83,6 +84,8 @@ export interface UseFilterMultipleStateProps<T> {
   initialApplied?: string[]
   /** Filter button label. */
   label: string
+  /** Base for component and it's children id. */
+  baseId?: string
   /** List of items to be showed on the list. */
   items: T[]
 }

@@ -8,7 +8,7 @@ import { useComboboxState } from '../combobox/combobox.state'
 export function useFilterState<T extends FilterItem>(
   props: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
-  const { items, label, initialApplied, onChange = () => {} } = props
+  const { items, label, initialApplied, baseId, onChange = () => {} } = props
 
   const [appliedKey, setAppliedKey] = useState(initialApplied || null)
   const [appliedItem, setAppliedItem] = useState<T>()
@@ -75,6 +75,7 @@ export function useFilterState<T extends FilterItem>(
     appliedItem,
     appliedKey,
     label,
+    baseId,
   }
 }
 
@@ -90,6 +91,7 @@ export interface GenericFilterStateReturn<T> {
   label: string
   items: T[]
   combobox: ComboboxState<T>
+  baseId?: string
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
@@ -104,5 +106,8 @@ export interface UseFilterStateProps<T> {
   initialApplied?: string
   /** Filter button label. */
   label: string
+  /** Base for component and it's children id. */
+  baseId?: string
+  /** List of items to be showed on the list. */
   items: T[]
 }
