@@ -12,6 +12,7 @@ import { tag } from '@vtex/admin-ui-react'
 
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
+import { style } from '@vtex/admin-ui-core'
 
 export function BaseFilter(props: BaseFilterProps) {
   const { state, children, appliedValuesLabel = '' } = props
@@ -23,7 +24,11 @@ export function BaseFilter(props: BaseFilterProps) {
 
   const popoverId = baseId ? `${baseId}-popover` : undefined
   const disclosureId = baseId ? `${baseId}-disclosure` : undefined
-  const comboboxListId = baseId ? `${baseId}-combobox-list` : undefined
+
+  // TODO investigate arikit buggy typing
+  const comboboxListId = {
+    id: baseId ? `${baseId}-combobox-list` : undefined,
+  } as any
 
   return (
     <>
@@ -42,20 +47,21 @@ export function BaseFilter(props: BaseFilterProps) {
             overflowY: 'auto',
           }}
         >
-          <tag.ul
-            as={ComboboxList}
+          <ComboboxList
             state={combobox}
-            csx={{
-              display: 'flex',
-              flexDirection: 'column',
-              '> *:not(:last-child)': {
-                marginBottom: '$xl',
-              },
-            }}
-            id={comboboxListId}
+            style={
+              style({
+                display: 'flex',
+                flexDirection: 'column',
+                '> *:not(:last-child)': {
+                  marginBottom: '$xl',
+                },
+              }) as any
+            }
+            {...comboboxListId}
           >
             {children}
-          </tag.ul>
+          </ComboboxList>
         </tag.span>
 
         <FilterPopoverFooter

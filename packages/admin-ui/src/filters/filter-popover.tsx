@@ -4,7 +4,8 @@ import { focusVisible } from '@vtex/admin-ui-core'
 
 import { Menu } from 'ariakit'
 
-export const FilterPopover = createComponent<typeof Menu>((props) => {
+// TODO investigate arikit buggy typing
+export const FilterPopover = createComponent<typeof Menu, any>((props) => {
   return useElement(Menu, {
     baseStyle: {
       text: '$body',
