@@ -7,7 +7,7 @@ export function OrderedList(props: ListProps) {
 
   return (
     <tag.ol csx={styles.list}>
-      <Stack space="$2xl">{children}</Stack>
+      <Stack space="2rem">{children}</Stack>
     </tag.ol>
   )
 }
@@ -29,6 +29,7 @@ const styles: Record<string, StyleProp> = {
     counterIncrement: 'li',
     position: 'relative',
     paddingLeft: 48,
+    height: '100%',
     ':before': {
       content: 'counter(li)',
       display: 'inline-block',
