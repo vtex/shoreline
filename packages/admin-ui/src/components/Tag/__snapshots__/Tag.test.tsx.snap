@@ -545,13 +545,6 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-1 svg {
-  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -728,13 +721,6 @@ exports[`Tag tests should match snapshot 1`] = `
   line-height: 1.1428571429;
   letter-spacing: 0.0125em;
   visibility: visible;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-2 svg {
-  margin-right: 0.25rem;
 }
 
 .emotion-1 {
