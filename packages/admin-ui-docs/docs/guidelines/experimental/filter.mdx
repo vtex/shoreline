@@ -102,13 +102,16 @@ render(<RootApp />)
 | onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
 | label          | `string`                       | Filter button label                                               | ✅       | -       |
 | initialApplied | `string`                       | Initially applied option id                                       | 🚫       | -       |
+| baseId         | `string`                       | Optional baseId for controling the components and its childrens id| 🚫       | -       |
 
 ## FilterState (return of useFilterState)
 
 | Name           | Type                             | Description
 | -------------- | -------------------------------- | -------------------------------------------------------------------
-| popover        | `PickerStateReturn`              | State that controls the component's picker
+| menu           | `MenuState`                      | State that controls the component's popover menu
+| combobox       | `ComboboxState`                  | State that controls the component's option list
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected
-| appliedItem   | `FilterItem`                      | Currently applied item
-| appliedKey    | `ID`                              | Currently applied item's id
+| appliedItem    | `FilterItem`                     | Currently applied item
+| appliedKey     | `ID`                             | Currently applied item's id
+| items          | `FilterItem[]`                   | List of options for the filter
