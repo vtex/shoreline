@@ -62,7 +62,8 @@ exports[`Checkbox should match snapshot 1`] = `
   border: 1px solid #962828;
 }
 
-.emotion-0:focus:not(:checked) {
+.emotion-0:focus-visible {
+  outline: none;
   border: 1px solid #782020;
 }
 
@@ -99,7 +100,8 @@ exports[`Checkbox should match snapshot 1`] = `
   border: 1px solid #20408C;
 }
 
-.emotion-0:checked:focus:checked {
+.emotion-0:checked:focus-visible {
+  outline: none;
   background: #20408C;
   border: 1px solid #20408C;
 }
@@ -312,7 +314,8 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   border: 1px solid #962828;
 }
 
-.emotion-11:focus:not(:checked) {
+.emotion-11:focus-visible {
+  outline: none;
   border: 1px solid #782020;
 }
 
@@ -349,7 +352,8 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   border: 1px solid #20408C;
 }
 
-.emotion-11:checked:focus:checked {
+.emotion-11:checked:focus-visible {
+  outline: none;
   background: #20408C;
   border: 1px solid #20408C;
 }
@@ -500,7 +504,8 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   border: 1px solid #545454;
 }
 
-.emotion-1:focus:not(:checked) {
+.emotion-1:focus-visible {
+  outline: none;
   border: 1px solid #545454;
 }
 
@@ -537,7 +542,8 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
   border: 1px solid #20408C;
 }
 
-.emotion-1:checked:focus:checked {
+.emotion-1:checked:focus-visible {
+  outline: none;
   background: #20408C;
   border: 1px solid #20408C;
 }
