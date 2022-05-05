@@ -61,6 +61,10 @@
 
   }
 
+  .section-content > :not(:last-child) {
+    margin-bottom: 3.5rem,
+  }
+
   @media (min-width: 997px) {
 
     & + & {
