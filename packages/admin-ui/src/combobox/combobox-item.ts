@@ -2,7 +2,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { ComboboxItemOptions } from 'ariakit/combobox'
 import { useComboboxItem } from 'ariakit/combobox'
 import type { HTMLProps } from 'react'
-import type { AnyObject } from '..'
+import type { AnyObject } from '@vtex/admin-ui-util'
 
 // TODO this intermediary component is a workaround for typing conflits
 // on ariakit we should investigate the typing issues

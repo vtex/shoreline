@@ -2,14 +2,20 @@
 
 exports[`Multiselect filter tests should match snapshot 1`] = `
 <DocumentFragment>
-  <span
-    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"
-  >
-    <div>
-      Filter
-    </div>
-  </span>
-  .emotion-1 {
+  .emotion-3 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 475;
   font-size: 0.875rem;
@@ -38,18 +44,86 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   color: #545454;
 }
 
-.emotion-1:hover {
+.emotion-3:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-3:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-3:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-3:hover {
   background: #E6E6E6;
   color: #545454;
 }
 
-.emotion-1:active {
+.emotion-3:active {
   background: #DDDDDD;
   color: #545454;
 }
 
-.emotion-1 svg {
+.emotion-3 svg {
   margin-left: 0.125rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-1 svg {
+  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -65,36 +139,490 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
 }
 
 <button
-    aria-controls="filter-picker"
     aria-expanded="false"
-    aria-haspopup="dialog"
-    class="emotion-1"
-    tabindex="0"
+    aria-haspopup="menu"
+    class="emotion-3"
+    data-command=""
+    data-disclosure=""
+    id="filterMultipleTest-disclosure"
     type="button"
   >
-    Filter
-    <svg
-      class="emotion-0"
-      fill="currentColor"
-      height="1rem"
-      viewBox="0 0 256 256"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="emotion-2"
     >
-      <rect
-        fill="none"
-        height="16rem"
-        width="16rem"
-      />
-      <polyline
-        fill="none"
-        points="48 160 128 80 208 160"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="18"
-      />
-    </svg>
+      <div
+        class="emotion-1"
+      >
+        Filter
+        <svg
+          class="emotion-0"
+          fill="currentColor"
+          height="1rem"
+          viewBox="0 0 256 256"
+          width="1rem"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="none"
+            height="16rem"
+            width="16rem"
+          />
+          <polyline
+            fill="none"
+            points="48 160 128 80 208 160"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="18"
+          />
+        </svg>
+      </div>
+    </div>
   </button>
+  .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  visibility: visible;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-6 svg {
+  margin-right: 0.25rem;
+}
+
+.emotion-13 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 475;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: -0.0009em;
+  box-shadow: 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05);
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  background: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 256px;
+  z-index: 999;
+}
+
+.emotion-13:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-13:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-5 {
+  margin-top: 0.25rem;
+  padding: 1rem 1.25rem;
+  max-height: 312px;
+  overflow-y: auto;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-4 >*:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.emotion-1:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-0 {
+  background: transparent;
+  border: 1px solid #B9B9B9;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0.188rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+.emotion-0:hover {
+  background: #E6E6E6;
+  border: 1px solid #545454;
+}
+
+.emotion-0:active {
+  background: #B9B9B9;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked {
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  position: relative;
+}
+
+.emotion-0:checked:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked[disabled]:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 3px;
+  top: -1px;
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  transform-origin: bottom left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-0:checked:hover {
+  background: #3B3B3B;
+  border: 1px solid #3B3B3B;
+}
+
+.emotion-0:checked:active {
+  background: #545454;
+  border: 1px solid #545454;
+}
+
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+}
+
+
+
+.emotion-0:indeterminate:after {
+  content: "";
+  width: 0.5rem;
+  height: 0;
+  border-width: 0.063rem;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0.188rem;
+  border-color: currentColor;
+}
+
+.emotion-12 {
+  border-top: none;
+  padding: 1rem 1.25rem;
+  padding-top: 0rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: end;
+  justify-content: end;
+}
+
+.emotion-12 button:not(:first-child) {
+  margin-left: 0.75rem;
+}
+
+.emotion-8 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #2953B2;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-8:hover {
+  color: #20408C;
+  background: #F1F4FC;
+}
+
+.emotion-8:active {
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-8:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-8:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+.emotion-11 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 600;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.0125em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF;
+  background: #2953B2;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+}
+
+.emotion-11:hover {
+  color: #FFFFFF;
+  background: #20408C;
+}
+
+.emotion-11:active {
+  color: #FFFFFF;
+  background: #172F66;
+}
+
+.emotion-11:disabled {
+  background: #E6E6E6;
+  color: #747474;
+}
+
+.emotion-11:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-11:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+}
+
+<div
+    role="presentation"
+    style="position: absolute; left: 0px; top: 0px; margin: 0px;"
+  >
+    <div
+      aria-orientation="vertical"
+      class="emotion-13"
+      data-dialog=""
+      hidden=""
+      id="filterMultipleTest-popover"
+      role="menu"
+      style="position: relative; display: none;"
+      tabindex="0"
+    >
+      <span
+        class="emotion-5"
+      >
+        <div
+          class="emotion-4"
+          hidden=""
+          id="filterMultipleTest-combobox-list"
+          role="listbox"
+          style="display: none;"
+        >
+          <div
+            aria-selected="false"
+            class="emotion-1"
+            data-command=""
+            data-composite-hover=""
+            id="filterMultipleTest-item-#1"
+            style="display: flex; cursor: pointer;"
+            tabindex="0"
+          >
+            <input
+              class="emotion-0"
+              readonly=""
+              type="checkbox"
+            />
+            Full
+          </div>
+          <div
+            aria-selected="false"
+            class="emotion-1"
+            data-command=""
+            data-composite-hover=""
+            id="filterMultipleTest-item-#2"
+            style="display: flex; cursor: pointer;"
+            tabindex="0"
+          >
+            <input
+              class="emotion-0"
+              readonly=""
+              type="checkbox"
+            />
+            Empty
+          </div>
+        </div>
+      </span>
+      <div
+        class="emotion-12"
+      >
+        <button
+          class="emotion-8"
+          type="button"
+        >
+          <div
+            class="emotion-7"
+          >
+            <div
+              class="emotion-6"
+            >
+              Clear
+            </div>
+          </div>
+        </button>
+        <button
+          class="emotion-11"
+          type="button"
+        >
+          <div
+            class="emotion-7"
+          >
+            <div
+              class="emotion-6"
+            >
+              Apply
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

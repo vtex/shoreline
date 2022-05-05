@@ -1,13 +1,18 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { Checkbox } from '../components/Checkbox'
-import { BaseFilter } from './base-filter'
-import { FilterOption } from './filter-option'
-import type { UseFilterMultipleReturn } from './base-filter.state'
+import { BaseFilter } from './filter-base'
 
-export function FilterMultiple(props: FilterMultipleProps) {
+import type { UseFilterMultipleReturn } from './filter-multiple.state'
+import { itemStyle } from './filter'
+import type { FilterItem } from '.'
+import { ComboboxItem } from '../combobox/combobox-item'
+
+export function FilterMultiple<T extends FilterItem>(
+  props: FilterMultipleProps<T>
+) {
   const {
-    state: { listState, appliedItems = [] },
+    state: { appliedItems, items, combobox, baseId },
     state,
   } = props
 
@@ -39,25 +44,29 @@ export function FilterMultiple(props: FilterMultipleProps) {
     </>
   )
 
-  const { collection } = listState
-  const options = Array.from(collection.getKeys()).map((key) =>
-    collection.getItem(key)
-  )
-
   return (
     <BaseFilter state={state} appliedValuesLabel={appliedValuesLabel}>
-      {options.map((item) => (
-        <FilterOption
-          key={item.key}
-          item={item}
-          state={listState}
-          inputRenderer={({ isSelected }) => <Checkbox checked={isSelected} />}
-        />
+      {items.map((item) => (
+        <ComboboxItem
+          aria-selected={combobox.isSelected(item)}
+          key={item.id}
+          onClick={() => combobox.onChange(item)}
+          style={itemStyle}
+          id={`${baseId ?? ''}-item-${item.id}`}
+        >
+          <Checkbox
+            checked={combobox.isSelected(item)}
+            aria-checked={undefined}
+            csx={{ marginRight: '$s' }}
+            readOnly
+          />
+          {item.label}
+        </ComboboxItem>
       ))}
     </BaseFilter>
   )
 }
 
-export interface FilterMultipleProps {
-  state: UseFilterMultipleReturn
+export interface FilterMultipleProps<T> {
+  state: UseFilterMultipleReturn<T>
 }
