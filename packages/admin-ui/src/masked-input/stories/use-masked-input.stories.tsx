@@ -14,7 +14,6 @@ export function CPFMask() {
 
   const cpfFormatter = useFormatter({
     mask: '___.___.___-__',
-    accept: /[\d]/gi,
   })
 
   const inputProps = useMaskedInput({
@@ -39,7 +38,6 @@ export function PhoneMask() {
 
   const phoneFormatter = useFormatter({
     mask: '+__ (___) _____-____',
-    accept: /[\d]/gi,
   })
 
   const inputProps = useMaskedInput({
@@ -70,7 +68,6 @@ export function DateMask() {
 
   const dateFormatter = useFormatter({
     mask: '__/__/____',
-    accept: /[\d]/gi,
   })
 
   const inputProps = useMaskedInput({
@@ -95,7 +92,6 @@ export function DateTimeMask() {
 
   const dateTimeFormatter = useFormatter({
     mask: '__/__/____ : __:__:__',
-    accept: /[\d]/gi,
   })
 
   const inputProps = useMaskedInput({

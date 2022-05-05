@@ -2,22 +2,22 @@ import React, { useMemo } from 'react'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
 import { useDeleteKeyPressed } from './use-delete-key-pressed'
-import { useRerender } from './use-rerender'
+import { useForceUpdate } from './use-force-update'
 
 /**
  * React hook that handles masking of any input given a value and formatter.
  * @example
- * const [value, setValue] = React.useState('')
+ * const [value, onChange] = React.useState('')
  *
  * const formatter = useFormatter({
- *  mask: '__/__/___',
+ *  mask: '__/__/____',
  *  accept: /[\d]/gi
  * })
  *
  * const inputProps = useMaskedInput({
  *  value,
  *  formatter,
- *  onChange: setValue,
+ *  onChange,
  * })
  *
  * <input {...inputProps} />
@@ -30,9 +30,9 @@ export function useMaskedInput(
   const valueRef = React.useRef<ValueRef | null>(null)
   const userValue = useMemo(() => formatter(value), [formatter, value])
   const isDeleteKeyPressed = useDeleteKeyPressed()
-  const rerender = useRerender()
+  const forceUpdate = useForceUpdate()
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const forwardedOnChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const eventValue = evt.target.value
 
     valueRef.current = {
@@ -43,11 +43,11 @@ export function useMaskedInput(
       hasNoChanges: userValue === formatter(eventValue),
     }
 
-    rerender()
+    forceUpdate()
   }
 
   useSafeLayoutEffect(() => {
-    if (valueRef.current == null) return
+    if (valueRef.current === null) return
 
     const { eventValue, input, hasSizeIncrease, pressedDelete, hasNoChanges } =
       valueRef.current
@@ -71,7 +71,7 @@ export function useMaskedInput(
     const formattedValue = formatter(eventValue)
 
     if (userValue === formattedValue) {
-      rerender()
+      forceUpdate()
     } else {
       onChange(formattedValue)
     }
@@ -102,7 +102,7 @@ export function useMaskedInput(
 
   return {
     value: valueRef.current !== null ? valueRef.current.eventValue : userValue,
-    onChange: handleChange,
+    onChange: forwardedOnChange,
   }
 }
 
