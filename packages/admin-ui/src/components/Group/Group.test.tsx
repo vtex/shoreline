@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { render } from '../../test-utils'
-import type { BoxProps } from '../Box'
-import { Box } from '../Box'
+import type { BoxProps } from '../../box'
+import { Box } from '../../box'
 
 import { Group, useGroup } from '.'
 

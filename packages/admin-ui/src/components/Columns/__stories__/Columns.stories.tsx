@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { palette } from '@vtex/admin-ui-core'
 
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { Columns, Column } from '../index'
 
 export default {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Story, Meta } from '@storybook/react'
 import { IconPlus, IconLock } from '@vtex/phosphor-icons'
-import { Box } from '../Box'
+import { Box } from '../../box'
 
 import { AbstractInput, AbstractInputPassword } from './index'
 

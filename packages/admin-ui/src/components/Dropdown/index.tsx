@@ -3,7 +3,7 @@ import React from 'react'
 import type { UseSelectReturnValue } from 'downshift'
 import { useSelect } from 'downshift'
 import { IconCaretDown } from '@vtex/phosphor-icons'
-import { Box } from '../Box'
+import { Box } from '../../box'
 import { forwardRef } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../../button'

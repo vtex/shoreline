@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconCopy, IconTrash, IconPlus } from '@vtex/phosphor-icons'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import { Inline } from '../../inline'
 import { Button } from '../../button'
 import type { StatementDropdownProps } from './components'

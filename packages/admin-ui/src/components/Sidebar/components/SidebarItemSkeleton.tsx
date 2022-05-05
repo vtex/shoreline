@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { Skeleton } from '../../Skeleton'
 import { SCALES } from '../consts'
 

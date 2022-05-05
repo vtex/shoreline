@@ -10,7 +10,7 @@ import { Inline } from '../inline'
 import { Bleed } from '../bleed'
 import { Flex } from '../components/Flex'
 import { Button } from '../button'
-import { Box } from '../components/Box'
+import { Box } from '../box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
 import { Label } from '../components/Label'
 

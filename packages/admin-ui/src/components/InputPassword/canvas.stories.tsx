@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { IconLock } from '@vtex/phosphor-icons'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import type { InputPasswordProps } from './index'
 import { InputPassword } from './index'
 

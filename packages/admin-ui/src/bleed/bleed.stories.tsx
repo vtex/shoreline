@@ -6,7 +6,7 @@ import { Inline } from '../inline'
 import { Bleed } from './bleed'
 
 import { Tag } from '../components/Tag'
-import { Box } from '../components/Box'
+import { Box } from '../box'
 import { Paragraph } from '../components/Paragraph'
 
 export default {

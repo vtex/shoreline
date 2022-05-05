@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import type { TextAreaProps } from './index'
 import { TextArea } from './index'
 

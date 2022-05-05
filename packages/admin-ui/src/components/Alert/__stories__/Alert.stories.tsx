@@ -10,7 +10,7 @@ import {
 
 import type { AlertProps } from '../index'
 import { Alert } from '../index'
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { Button } from '../../../button'
 import { Anchor } from '../../Anchor'
 import { Stack } from '../../../stack'

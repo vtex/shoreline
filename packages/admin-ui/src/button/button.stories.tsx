@@ -5,7 +5,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import type { ButtonProps } from './index'
 import { Button } from './index'
 import { Heading } from '../components/Heading'
-import { Box } from '../components/Box'
+import { Box } from '../box'
 import { Flex } from '../components/Flex'
 
 export default {
