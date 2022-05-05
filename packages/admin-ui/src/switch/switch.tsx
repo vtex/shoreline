@@ -2,7 +2,6 @@ import React from 'react'
 import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { createComponent } from '@vtex/admin-ui-react'
 
-import * as style from './switch.style'
 import { useCheckboxState } from '../components/Checkbox'
 import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
@@ -25,11 +24,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
         <SwitchButton state={state} disabled={disabled} {...htmlProps} />
         <Stack space="$xs">
           {label && (
-            <Text
-              as={Label}
-              csx={style.label}
-              tone={disabled ? 'secondary' : 'primary'}
-            >
+            <Text as={Label} tone={disabled ? 'secondary' : 'primary'}>
               {label}
             </Text>
           )}

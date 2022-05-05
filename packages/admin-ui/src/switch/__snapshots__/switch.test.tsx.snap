@@ -53,9 +53,8 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   cursor: pointer;
   margin: unset;
   border-radius: 6.25rem;
-  border: 0.06rem solid white;
-  height: 1.375rem;
-  width: 2.375rem;
+  height: 1.25rem;
+  width: 2.25rem;
 }
 
 .emotion-0:disabled {
@@ -63,11 +62,6 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   border: 1px solid #747474;
   color: #747474;
   cursor: not-allowed;
-  height: 1.25rem;
-  width: 2.25rem;
-  top: 0.06rem;
-  left: 0.06rem;
-  margin-right: 0.125rem;
 }
 
 .emotion-0:hover {
@@ -120,7 +114,7 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #83D187;
+  box-shadow: 0rem 0rem 0rem 0.125rem #AEDDB0;
   background: #285F2B;
 }
 
@@ -189,7 +183,6 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   color: #545454;
-  margin-top: 0.06rem;
 }
 
 <div
@@ -273,7 +266,6 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   color: #000000;
-  margin-top: 0.06rem;
 }
 
 .emotion-0 {
@@ -286,9 +278,8 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   cursor: pointer;
   margin: unset;
   border-radius: 6.25rem;
-  border: 0.06rem solid white;
-  height: 1.375rem;
-  width: 2.375rem;
+  height: 1.25rem;
+  width: 2.25rem;
 }
 
 .emotion-0:disabled {
@@ -296,11 +287,6 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   border: 1px solid #747474;
   color: #747474;
   cursor: not-allowed;
-  height: 1.25rem;
-  width: 2.25rem;
-  top: 0.06rem;
-  left: 0.06rem;
-  margin-right: 0.125rem;
 }
 
 .emotion-0:hover {
@@ -353,7 +339,7 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #83D187;
+  box-shadow: 0rem 0rem 0rem 0.125rem #AEDDB0;
   background: #285F2B;
 }
 
@@ -489,7 +475,6 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   color: #000000;
-  margin-top: 0.06rem;
 }
 
 .emotion-0 {
@@ -502,9 +487,8 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   cursor: pointer;
   margin: unset;
   border-radius: 6.25rem;
-  border: 0.06rem solid white;
-  height: 1.375rem;
-  width: 2.375rem;
+  height: 1.25rem;
+  width: 2.25rem;
 }
 
 .emotion-0:disabled {
@@ -512,11 +496,6 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   border: 1px solid #747474;
   color: #747474;
   cursor: not-allowed;
-  height: 1.25rem;
-  width: 2.25rem;
-  top: 0.06rem;
-  left: 0.06rem;
-  margin-right: 0.125rem;
 }
 
 .emotion-0:hover {
@@ -569,7 +548,7 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #83D187;
+  box-shadow: 0rem 0rem 0rem 0.125rem #AEDDB0;
   background: #285F2B;
 }
 
@@ -723,7 +702,6 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   color: #000000;
-  margin-top: 0.06rem;
 }
 
 .emotion-0 {
@@ -736,9 +714,8 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   cursor: pointer;
   margin: unset;
   border-radius: 6.25rem;
-  border: 0.06rem solid white;
-  height: 1.375rem;
-  width: 2.375rem;
+  height: 1.25rem;
+  width: 2.25rem;
 }
 
 .emotion-0:disabled {
@@ -746,11 +723,6 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   border: 1px solid #747474;
   color: #747474;
   cursor: not-allowed;
-  height: 1.25rem;
-  width: 2.25rem;
-  top: 0.06rem;
-  left: 0.06rem;
-  margin-right: 0.125rem;
 }
 
 .emotion-0:hover {
@@ -803,7 +775,7 @@ exports[`Switch tests all variants should match snapshot with help and error tex
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #83D187;
+  box-shadow: 0rem 0rem 0rem 0.125rem #AEDDB0;
   background: #285F2B;
 }
 
@@ -975,7 +947,6 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   line-height: 1.4285714286;
   letter-spacing: -0.0009em;
   color: #000000;
-  margin-top: 0.06rem;
 }
 
 .emotion-0 {
@@ -988,9 +959,8 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   cursor: pointer;
   margin: unset;
   border-radius: 6.25rem;
-  border: 0.06rem solid white;
-  height: 1.375rem;
-  width: 2.375rem;
+  height: 1.25rem;
+  width: 2.25rem;
 }
 
 .emotion-0:disabled {
@@ -998,11 +968,6 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   border: 1px solid #747474;
   color: #747474;
   cursor: not-allowed;
-  height: 1.25rem;
-  width: 2.25rem;
-  top: 0.06rem;
-  left: 0.06rem;
-  margin-right: 0.125rem;
 }
 
 .emotion-0:hover {
@@ -1055,7 +1020,7 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #83D187;
+  box-shadow: 0rem 0rem 0rem 0.125rem #AEDDB0;
   background: #285F2B;
 }
 

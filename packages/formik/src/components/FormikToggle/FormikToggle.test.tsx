@@ -75,7 +75,10 @@ describe('Toggle tests', () => {
               data-testid="text-field"
               label="TextField label"
             />
-            <Button children="Change Value" onClick={() => setFieldValue('value', false)} />
+            <Button
+              children="Change Value"
+              onClick={() => setFieldValue('value', false)}
+            />
             <Button type="submit" children="Submit" />
           </Form>
         )}
@@ -253,7 +256,7 @@ describe('Toggle tests', () => {
             <Button type="submit" children="Submit" />
           </Form>
         </Formik>
-      );
+      )
     }
 
     render(

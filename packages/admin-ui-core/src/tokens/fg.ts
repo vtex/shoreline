@@ -51,5 +51,7 @@ export const fg = {
     neutralChecked: colors.white,
 
     controlChecked: colors.white,
+
+    control: colors.white,
   },
 }
