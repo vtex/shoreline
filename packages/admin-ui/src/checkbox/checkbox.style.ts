@@ -33,7 +33,8 @@ export const baseline = style({
     border: '$form.controlHover',
   },
 
-  ':focus:not(:checked)': {
+  ':focus-visible': {
+    outline: 'none',
     border: '$form.controlFocus',
   },
 
@@ -48,7 +49,8 @@ export const error = style({
     border: '$form.criticalHover',
   },
 
-  ':focus:not(:checked)': {
+  ':focus-visible': {
+    outline: 'none',
     border: '$form.criticalFocus',
   },
 
@@ -82,7 +84,8 @@ export const checked = style({
     border: '$form.controlCheckedHover',
   },
 
-  ':focus:checked': {
+  ':focus-visible': {
+    outline: 'none',
     bg: '$form.controlCheckedFocus',
     border: '$form.controlCheckedFocus',
   },
