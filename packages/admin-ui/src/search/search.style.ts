@@ -51,9 +51,10 @@ export const innerContainer = (position: string) => {
   })
 }
 
-export const icon = style({
-  color: '$secondary',
-})
+export const icon = (disabled: boolean) =>
+  style({
+    color: disabled ? '$disabled' : '$secondary',
+  })
 
 export const clearButton = style({
   padding: 0,
