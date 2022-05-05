@@ -4,11 +4,11 @@ const MASK_INPUT_SYMBOL = '_'
 
 export interface UseFormatterProps {
   mask: string
-  accept: RegExp
+  accept?: RegExp
 }
 
 export function useFormatter(props: UseFormatterProps) {
-  const { mask, accept } = props
+  const { mask, accept = /\d/g } = props
   const formatter = useMemo(
     () =>
       createFormatter({
@@ -22,7 +22,7 @@ export function useFormatter(props: UseFormatterProps) {
 }
 
 function createFormatter(props: UseFormatterProps) {
-  const { mask, accept } = props
+  const { mask, accept = /\d/g } = props
 
   function formatter(value: string) {
     return value
@@ -30,7 +30,7 @@ function createFormatter(props: UseFormatterProps) {
       .map((char, i) => {
         accept.lastIndex = 0
 
-        if (i > mask.length - 1) {
+        if (i >= mask.length) {
           return ''
         }
 
@@ -38,16 +38,14 @@ function createFormatter(props: UseFormatterProps) {
         const nextMaskChar = mask[i + 1]
 
         const acceptedChar = accept.test(char) ? char : ''
-        const formattedChar =
-          maskChar === MASK_INPUT_SYMBOL
-            ? acceptedChar
-            : maskChar + acceptedChar
+        const formattedChar = isMaskSymbol(maskChar)
+          ? acceptedChar
+          : maskChar + acceptedChar
 
-        if (
-          i === value.length - 1 &&
-          nextMaskChar &&
-          nextMaskChar !== MASK_INPUT_SYMBOL
-        ) {
+        const shouldPreRenderNextSymbol =
+          i === value.length - 1 && nextMaskChar && !isMaskSymbol(nextMaskChar)
+
+        if (shouldPreRenderNextSymbol) {
           // when cursor at the end of mask part (e.g. month) prerender next symbol "21" -> "21/"
           return formattedChar ? formattedChar + nextMaskChar : ''
         }
@@ -58,4 +56,8 @@ function createFormatter(props: UseFormatterProps) {
   }
 
   return formatter
+}
+
+function isMaskSymbol(str: string) {
+  return str === MASK_INPUT_SYMBOL
 }

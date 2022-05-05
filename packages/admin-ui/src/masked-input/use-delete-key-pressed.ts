@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
+const DELETE_KEY = 'Delete'
+
 /**
  * Watches for backspace/delete key press event.
  */
@@ -13,13 +15,13 @@ export function useDeleteKeyPressed() {
 
   useSafeLayoutEffect(() => {
     const handleKeyDown = (evt: KeyboardEvent) => {
-      if (evt.code === 'Delete') {
+      if (evt.code === DELETE_KEY) {
         deleteKeyRef.current = true
       }
     }
 
     const handleKeyUp = (evt: KeyboardEvent) => {
-      if (evt.code === 'Delete') {
+      if (evt.code === DELETE_KEY) {
         deleteKeyRef.current = false
       }
     }
