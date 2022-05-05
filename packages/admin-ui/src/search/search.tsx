@@ -11,11 +11,6 @@ import { VisuallyHidden } from '../components/VisuallyHidden'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './search.i18n'
 
-const iconByName = {
-  search: <IconMagnifyingGlass size="small" csx={styles.icon} />,
-  spinner: <Spinner size={16} csx={styles.icon} />,
-}
-
 export const Search = createComponent<'form', SearchOptions>((props) => {
   const formatMessage = useMessageFormatter(messages)
 
@@ -29,8 +24,11 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     ...formProps
   } = props
 
-  const iconName = state.loading ? 'spinner' : 'search'
-  const icon = iconByName[iconName]
+  const icon = state.loading ? (
+    <Spinner size={16} csx={styles.icon(disabled)} />
+  ) : (
+    <IconMagnifyingGlass size="small" csx={styles.icon(disabled)} />
+  )
 
   const hasClearButton = state.showClear && !disabled
 
