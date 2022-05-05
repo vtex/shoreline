@@ -54,7 +54,7 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
             <Helmet>
               <link
                 rel="preload"
-                href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF.woff2"
+                href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF-May-5-2022.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
