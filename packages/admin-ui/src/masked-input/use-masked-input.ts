@@ -68,29 +68,6 @@ export function useMaskedInput(
       accept
     )
 
-    // adjust the cursor based on the formatted value
-    const getCursorPosition = (val: string) => {
-      let start = 0
-      let cleanPos = 0
-
-      for (let i = 0; i !== valueBeforeSelectionStart.length; ++i) {
-        let newPos = val.indexOf(valueBeforeSelectionStart[i], start) + 1
-
-        let newCleanPos =
-          clean(val, accept).indexOf(valueBeforeSelectionStart[i], cleanPos) + 1
-
-        if (newCleanPos - cleanPos > 1) {
-          newPos = start
-          newCleanPos = cleanPos
-        }
-
-        cleanPos = Math.max(newCleanPos, cleanPos)
-        start = Math.max(start, newPos)
-      }
-
-      return start
-    }
-
     const formattedValue = formatter(eventValue)
 
     if (userValue === formattedValue) {
@@ -100,7 +77,11 @@ export function useMaskedInput(
     }
 
     return () => {
-      let start = getCursorPosition(formattedValue)
+      let start = getCursorPosition({
+        formattedValue,
+        valueBeforeSelectionStart,
+        accept,
+      })
 
       if (hasSizeIncrease || (pressedDelete && !deleteCausesNoChanges)) {
         while (
@@ -111,10 +92,11 @@ export function useMaskedInput(
         }
       }
 
-      input.selectionEnd =
+      const positionShift =
         start + (deleteCausesNoChanges ? 1 + charsToSkipAfterDelete : 0)
-      input.selectionStart =
-        start + (deleteCausesNoChanges ? 1 + charsToSkipAfterDelete : 0)
+
+      input.selectionEnd = positionShift
+      input.selectionStart = positionShift
     }
   })
 
@@ -129,6 +111,45 @@ export function useMaskedInput(
  */
 function clean(str: string, accept: RegExp) {
   return (str.match(accept) || []).join('')
+}
+
+/**
+ * Finds the correct current start based on the formatted value
+ */
+function getCursorPosition(cursor: Cursor) {
+  const { formattedValue, valueBeforeSelectionStart, accept } = cursor
+
+  let start = 0
+  let cleanPos = 0
+
+  for (let i = 0; i !== valueBeforeSelectionStart.length; ++i) {
+    let newPos = formattedValue.indexOf(valueBeforeSelectionStart[i], start) + 1
+
+    let newCleanPos =
+      clean(formattedValue, accept).indexOf(
+        valueBeforeSelectionStart[i],
+        cleanPos
+      ) + 1
+
+    if (newCleanPos - cleanPos > 1) {
+      newPos = start
+      newCleanPos = cleanPos
+    }
+
+    cleanPos = Math.max(newCleanPos, cleanPos)
+    start = Math.max(start, newPos)
+  }
+
+  return start
+}
+
+interface Cursor {
+  /** current formatted value */
+  formattedValue: string
+  /** previous value of the start cursor */
+  valueBeforeSelectionStart: string
+  /** accept regex */
+  accept: RegExp
 }
 
 interface ValueRef {
