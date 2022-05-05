@@ -1,7 +1,7 @@
 import React from 'react'
 
-import type { BoxProps } from '../../Box'
-import { Box } from '../../Box'
+import type { BoxProps } from '../../../box'
+import { Box } from '../../../box'
 import { Stack } from '../../../stack'
 import { Paragraph } from '../../Paragraph'
 

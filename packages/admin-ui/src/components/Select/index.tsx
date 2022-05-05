@@ -2,7 +2,7 @@ import type { ReactNode, Ref } from 'react'
 import React from 'react'
 import { forwardRef } from '@vtex/admin-ui-util'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import type { SystemComponent } from '../../types'
 import { FieldContainer, FieldDetails } from '../Field'
 

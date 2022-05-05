@@ -2,7 +2,9 @@
 
 exports[`FilterBar tests should match snapshot 1`] = `
 <DocumentFragment>
-  .emotion-51 {
+  
+
+.emotion-51 {
   border: 1px solid #DDDDDD;
   background: coral;
   border-radius: 4px;
@@ -23,8 +25,6 @@ exports[`FilterBar tests should match snapshot 1`] = `
   justify-content: space-between;
   background: container;
 }
-
-
 
 .emotion-42 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;

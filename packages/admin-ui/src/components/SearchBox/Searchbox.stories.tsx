@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import { Button } from '../../button'
 import {
   unstableSearchBox as SearchBox,

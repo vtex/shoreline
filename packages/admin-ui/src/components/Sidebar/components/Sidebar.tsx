@@ -3,7 +3,7 @@ import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
 import { tag } from '@vtex/admin-ui-react'
 import { CompositeGroup } from 'reakit/Composite'
 
-import type { BoxProps } from '../../Box'
+import type { BoxProps } from '../../../box'
 import { SidebarBackdrop } from './SidebarBackdrop'
 import { SidebarSkeleton } from './SidebarSkeleton'
 import type { SidebarState } from '../hooks/useSidebarState'

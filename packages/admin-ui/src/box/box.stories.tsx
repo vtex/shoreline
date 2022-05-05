@@ -4,7 +4,7 @@ import type { Story, Meta } from '@storybook/react'
 import { Box } from './index'
 
 export default {
-  title: 'admin-ui/Box',
+  title: 'admin-ui/box',
 } as Meta
 
 export const Basic: Story = () => {

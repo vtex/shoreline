@@ -7,7 +7,7 @@ import { useSystem } from '@vtex/admin-ui-react'
 
 import invariant from 'tiny-invariant'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import type { SystemComponentProps } from '../../types'
 import { Button } from '../../button'
 import type { AbstractInputOwnProps } from '../AbstractInput'

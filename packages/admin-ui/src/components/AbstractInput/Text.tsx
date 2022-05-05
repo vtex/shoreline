@@ -4,7 +4,7 @@ import type { InputProps as ReakitInputProps } from 'reakit/Input'
 import { Input as ReakitInput } from 'reakit/Input'
 import { IconXCircle } from '@vtex/phosphor-icons'
 import { IconContainer, useSystem } from '@vtex/admin-ui-react'
-import { Box } from '../Box'
+import { Box } from '../../box'
 
 import { Button } from '../../button'
 import type { SystemComponentProps } from '../../types'
