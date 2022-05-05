@@ -263,9 +263,9 @@ export function Example() {
 >
 
 - `Button` has the role `button`.
-- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> trigger its action.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> triggers its action.
 - If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
-- When using an Icon-only button, you must set the `aria-label` property to make it accessible.
+- When using an Icon-only button, you must set the `aria-label` property to make it accessible. Check Design recommendations for more practices around Icon usage in buttons.
 
 ```jsx
 function Example() {
@@ -287,14 +287,15 @@ function Example() {
   id={tabToc.designReference[0].id}
   title={tabToc.designReference[0].value}
   direction="row"
-  explanation="The button text should be actionable so users know exactly what to expect when clicking."
+  explanation="The button label should be actionable so users know exactly what
+  to expect when clicking. Prefer verbs in the infinitive tense."
 >
 
 <BestPractices>
 
 <Practice
   label="Button labels should be in sentence case (capitalize the first letter,
-  and apply lowercase for the rest and have no punctuation."
+  and apply lowercase for the rest) and have no punctuation."
 >
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
@@ -322,7 +323,7 @@ function Example() {
 
 <BestPractices>
 
-<Practice label="Avoid using more than 3 words for button labels.">
+<Practice label="Avoid using more than 3 words for button labels. Make it straight-forward.">
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
 <Button>Label</Button>
@@ -330,7 +331,7 @@ function Example() {
 
 </Practice>
 
-<Practice type="bad" label="For maximum legibility, a text label should remain on a single line. Find another label if you can’t do it!">
+<Practice type="bad" label="For maximum legibility, a text label should remain on a single line. Think of another label if you can’t do it.">
 
 ```jsx live previewOnly layout=grid columnsCount=1 rowsCount=1
 <Button csx={{ width: '220px' }}>Label</Button>
@@ -485,6 +486,17 @@ Choose the button component when it makes sense to place the action in a *group 
 **When should an action component use an *icon*?**
  - When the action label is hidden according to our recommendations.
  - When the actions are within the dropdown of the menu component.
+
+**What are the most frequently used labels?**
+So we have consistency throughout the actions that buttons represent, we suggest that you use the following verbs when crafting buttons.
+
+| EN     | PT      | ES      |
+|--------|---------|---------|
+| Create | Criar   | Crear   |
+| Edit   | Editar  | Editar  |
+| Search | Buscar  | Buscar  |
+| Save   | Salvar  | Guardar |
+| Delete | Excluir | Excluir |
 
 >
 
