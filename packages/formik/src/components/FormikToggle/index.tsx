@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { SwitchProps } from '@vtex/admin-ui'
-import { Label, Set, Text, Switch, useSwitchState } from '@vtex/admin-ui'
+import { Set, Text, Switch, useSwitchState } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
 import { handleErrorMessage, useSyncedState } from '../util'
@@ -43,12 +43,11 @@ export const FormikToggle = forwardRef(
           <Switch
             id={id}
             state={toggleState}
-            label={''}
+            label={label}
             {...toggleProps}
             ref={ref}
             onBlur={() => helpers.setTouched(true)}
           />
-          {label && <Label htmlFor={id}>{label}</Label>}
         </Set>
         {errorMessage && (
           <Text variant="detail" tone="critical">

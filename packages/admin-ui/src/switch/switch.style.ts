@@ -1,33 +1,22 @@
-import { colors, focusVisible } from '@vtex/admin-ui-core'
+import { focusVisible } from '@vtex/admin-ui-core'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
 const css = (csx: StyleProp) => csx
 
-const green40 = get(colors, 'green40')
-const green50 = get(colors, 'green50')
-const gray40 = get(colors, 'gray40')
-
 // State styles
-const active = css({ bg: green40 })
-const inactive = css({
-  height: '1.25rem',
-  width: '2.25rem',
-  top: '0.06rem',
-  left: '0.06rem',
-  marginRight: '0.125rem',
-})
+const active = css({ bg: '$form.controlActive' })
 
-const hoverInactive = css({ bg: gray40 })
+const hoverInactive = css({ bg: '$form.controlInactiveHover' })
 const hoverActive = css({
-  bg: green50,
+  bg: '$form.controlActiveHover',
 })
 
+// Element styles
 const trackDefault = css({
   bg: '$form.neutralInactive',
 })
 
-// Element styles
 const thumbDimensions = css({
   '&:after': {
     width: '0.75rem',
@@ -65,16 +54,14 @@ export const track = css({
   cursor: 'pointer',
   margin: 'unset',
   borderRadius: '6.25rem',
-  border: '0.06rem solid white',
-  height: '1.375rem',
-  width: '2.375rem',
+  height: '1.25rem',
+  width: '2.25rem',
 
   ':disabled': {
     bg: '$disabled',
     border: '$disabled',
     color: '$disabled',
     cursor: 'not-allowed',
-    ...inactive,
   },
 
   ':hover': hoverInactive,
@@ -106,8 +93,4 @@ export const checked = css({
   }),
 
   ...thumbDimensions,
-})
-
-export const label = css({
-  marginTop: '0.06rem',
 })
