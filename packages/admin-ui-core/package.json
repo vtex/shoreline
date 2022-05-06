@@ -37,7 +37,8 @@
     "react-dom": ">=16.8"
   },
   "devDependencies": {
-    "@emotion/css": "11.7.1"
+    "@emotion/css": "11.7.1",
+    "@stitches/react": "^1.2.8"
   },
   "dependencies": {
     "@vtex/admin-ui-util": "^0.2.2",

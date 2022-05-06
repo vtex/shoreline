@@ -20,11 +20,9 @@ export const space = {
   l: '1rem 1.25rem',
   xl: '1.5rem 1.75rem',
   '2xl': '2.5rem 2.75rem',
-  narrow: {
-    s: '0.25rem 0.75rem',
-    m: '0.75rem 1.25rem',
-    l: '1rem 1.75rem',
-  },
+  'narrow-s': '0.25rem 0.75rem',
+  'narrow-m': '0.75rem 1.25rem',
+  'narrow-l': '1rem 1.75rem',
 }
 
 export const hspace = {
