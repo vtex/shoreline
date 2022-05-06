@@ -105,6 +105,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'radio-review: Update Radio & RadioGroup props to the latest specs (0.126.0+)',
     value: 'radio-review',
   },
+  {
+    name: 'toggle-to-switch: Migrate Toggle to Switch. Update Switch props to the latest specs (0.128.0+)',
+    value: 'toggle-to-switch',
+  },
 ]
 
 // tsx or jsx
