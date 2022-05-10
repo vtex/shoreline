@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from './setup'
+import { render } from '../test-utils'
 import { jsx } from '../system-deprecated'
 
 describe('createComponent', () => {
