@@ -2,18 +2,18 @@ import React, { useLayoutEffect, useRef, useState } from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Stack } from '../../stack'
-import { Textfield } from '../textfield'
+import { TextInput } from '../text-input'
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { Button } from '../../button'
 
 export default {
-  title: 'admin-ui-review/textfield',
+  title: 'admin-ui-review/text-input',
 } as Meta
 
 export const Uncontrolled = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <Textfield />
+      <TextInput />
     </Stack>
   )
 }
@@ -23,7 +23,7 @@ export const Controlled = () => {
 
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <Textfield value={value} onChange={(e) => setValue(e.target.value)} />
+      <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
       state: {value}
     </Stack>
   )
@@ -32,11 +32,11 @@ export const Controlled = () => {
 export const Terms = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <Textfield prefix="https://" />
-      <Textfield suffix=".com.br" />
-      <Textfield prefix="https://" suffix=".com.br" />
-      <Textfield prefix={<IconCalendarBlank />} />
-      <Textfield
+      <TextInput prefix="https://" />
+      <TextInput suffix=".com.br" />
+      <TextInput prefix="https://" suffix=".com.br" />
+      <TextInput prefix={<IconCalendarBlank />} />
+      <TextInput
         suffix={
           <Button variant="tertiary" bleedY bleedX>
             Action
@@ -50,9 +50,9 @@ export const Terms = () => {
 export const UIStates = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <Textfield />
-      <Textfield error />
-      <Textfield disabled />
+      <TextInput />
+      <TextInput error />
+      <TextInput disabled />
     </Stack>
   )
 }
@@ -69,7 +69,7 @@ export const ForwardRef = () => {
 
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <Textfield ref={ref} />
+      <TextInput ref={ref} />
     </Stack>
   )
 }

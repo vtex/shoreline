@@ -1,11 +1,11 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
 
-import * as style from './textfield.style'
+import * as style from './text-input.style'
 
-export const TextfieldContainer = createComponent<
+export const TextInputContainer = createComponent<
   'div',
-  TextfieldContainerOptions
+  TextInputContainerOptions
 >((props) => {
   const { error = false, disabled = false, ...divProps } = props
 
@@ -21,6 +21,6 @@ export const TextfieldContainer = createComponent<
   })
 })
 
-export type TextfieldContainerOptions = VariantProps<
+export type TextInputContainerOptions = VariantProps<
   typeof style.containerVariants
 >
