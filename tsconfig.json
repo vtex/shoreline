@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "incremental": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "noEmit": true
   },
   "exclude": ["node_modules"]
 }
