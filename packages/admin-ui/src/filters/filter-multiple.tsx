@@ -55,6 +55,7 @@ export function FilterMultiple<T extends FilterItem>(
           id={`${baseId ?? ''}-item-${item.id}`}
         >
           <Checkbox
+            id={item.id}
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
