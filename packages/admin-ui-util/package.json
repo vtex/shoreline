@@ -13,7 +13,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=10"
   },
   "repository": {
     "directory": "packages/admin-ui-util",
@@ -22,6 +22,10 @@
   },
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "scripts": {
+    "test": "tsdx test",
+    "test:ci": "tsdx test --silent"
   },
   "peerDependencies": {
     "react": ">=16.8"

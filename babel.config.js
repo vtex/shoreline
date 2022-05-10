@@ -4,7 +4,7 @@ const cjs = BABEL_ENV !== undefined && BABEL_ENV === 'cjs'
 module.exports = {
   presets: [
     '@babel/preset-typescript',
-    ['@babel/preset-react', { runtime: 'automatic' }],
+    '@babel/preset-react',
     [
       '@babel/preset-env',
       {
