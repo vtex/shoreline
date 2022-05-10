@@ -3,14 +3,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "stripInternal": true,
+    "isolatedModules": true,
     "declaration": true,
     "strict": true,
-    "isolatedModules": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "incremental": true,
     "declarationMap": true,
     "noEmit": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", "stories", "test"]
 }
