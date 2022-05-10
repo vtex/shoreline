@@ -85,10 +85,10 @@ export const bgTokens = asLiterals([
   '$form.controlHover',
   '$form.controlChecked',
   '$form.controlCheckedHover',
-  '$controlActive',
-  '$controlActiveHover',
-  '$controlInactive',
-  '$controlInactiveHover',
+  '$form.controlActive',
+  '$form.controlActiveHover',
+  '$form.controlInactive',
+  '$form.controlInactiveHover',
 ])
 
 export const fgTokens = asLiterals([
