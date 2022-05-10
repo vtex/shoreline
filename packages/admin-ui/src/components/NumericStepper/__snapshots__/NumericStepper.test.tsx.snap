@@ -63,7 +63,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-3 {
@@ -150,7 +150,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0 {
@@ -186,7 +186,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -357,7 +357,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-3 {
@@ -444,7 +444,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0 {
@@ -480,7 +480,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -666,7 +666,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-3 {
@@ -753,7 +753,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0 {
@@ -789,7 +789,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -969,7 +969,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-3 {
@@ -1056,7 +1056,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0 {
@@ -1092,7 +1092,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #FBF2F2,0rem 0rem 0rem 0.1875rem #F49494;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
@@ -1278,7 +1278,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-4:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-3 {
@@ -1365,7 +1365,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-8:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0 {
@@ -1401,7 +1401,7 @@ exports[`NumericStepper tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:focus:not([data-focus-visible-added]) {
