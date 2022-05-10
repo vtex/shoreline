@@ -3,23 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.9.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.8.1...@vtex/admin-ui-core@0.9.0) (2022-05-03)
-
+## [0.9.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.9.0...@vtex/admin-ui-core@0.9.1) (2022-05-10)
 
 ### Bug Fixes
 
-* **radio:** apply design suggestions ([8ff4678](https://github.com/vtex/admin-ui/commit/8ff46785e7e62748c6725e5f5a31adcf1a5b0a01))
-* **radio:** change invalid prefix to error ([a38604a](https://github.com/vtex/admin-ui/commit/a38604a2991d952af8e089ca5ca1764561d1120c))
+- **admin-ui:** update focus-ring to the latest specs ([244939c](https://github.com/vtex/admin-ui/commit/244939c280ba252bd079dfc25d122fcff049e37c))
+- **font:** update VTEX Trust version ([bc139ad](https://github.com/vtex/admin-ui/commit/bc139ad0919106a28079588e09be6fa813dfac30))
 
+# [0.9.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.8.1...@vtex/admin-ui-core@0.9.0) (2022-05-03)
+
+### Bug Fixes
+
+- **radio:** apply design suggestions ([8ff4678](https://github.com/vtex/admin-ui/commit/8ff46785e7e62748c6725e5f5a31adcf1a5b0a01))
+- **radio:** change invalid prefix to error ([a38604a](https://github.com/vtex/admin-ui/commit/a38604a2991d952af8e089ca5ca1764561d1120c))
 
 ### Features
 
-* **design-tokens:** add form control tokens ([311854c](https://github.com/vtex/admin-ui/commit/311854c5bf08ffdb9b7e35baf9eeb93d59c1f7f2))
-* **radio:** add Radio component review ([7cbbf7b](https://github.com/vtex/admin-ui/commit/7cbbf7b9e79c8cc199a669c6846c4433994becac))
-
-
-
-
+- **design-tokens:** add form control tokens ([311854c](https://github.com/vtex/admin-ui/commit/311854c5bf08ffdb9b7e35baf9eeb93d59c1f7f2))
+- **radio:** add Radio component review ([7cbbf7b](https://github.com/vtex/admin-ui/commit/7cbbf7b9e79c8cc199a669c6846c4433994becac))
 
 ## [0.8.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.8.0...@vtex/admin-ui-core@0.8.1) (2022-04-11)
 

@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.12...@vtex/admin-ui-react@0.6.13) (2022-05-10)
+
+### Bug Fixes
+
+- **font:** update VTEX Trust version ([bc139ad](https://github.com/vtex/admin-ui/commit/bc139ad0919106a28079588e09be6fa813dfac30))
+
 ## [0.6.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.11...@vtex/admin-ui-react@0.6.12) (2022-05-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-react
-
-
-
-
 
 ## [0.6.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.10...@vtex/admin-ui-react@0.6.11) (2022-04-12)
 
