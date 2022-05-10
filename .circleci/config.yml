@@ -5,7 +5,7 @@
 version: 2.1
 
 jobs:
-  chromatic-deployment: 
+  chromatic-deployment:
     docker:
       - image: circleci/node:16
 
@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - checkout
-        
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -44,12 +44,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-    
+
   test:
-    parameters:
-      package:
-        type: string
-        default: 'admin-ui'
     docker:
       - image: circleci/node:16
 
@@ -65,7 +61,7 @@ jobs:
 
       - run: yarn install
       - run: yarn build
-      - run: yarn workspace @vtex/<<parameters.package>> test
+      - run: yarn test:ci
 
 workflows:
   version: 2
@@ -73,22 +69,12 @@ workflows:
   chromatic-deploy:
     jobs:
       - chromatic-deployment
-  
+
   build_and_test:
     jobs:
       - build
       - test:
           package: 'admin-ui'
           name: '@vtex/admin-ui test'
-          requires:
-            - build
-      - test:
-          package: 'admin-ui-core'
-          name: '@vtex/admin-ui-core test'
-          requires:
-            - build
-      - test:
-          package: 'admin-ui-react'
-          name: '@vtex/admin-ui-react test'
           requires:
             - build
