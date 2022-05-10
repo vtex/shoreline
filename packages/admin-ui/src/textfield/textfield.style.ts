@@ -2,6 +2,7 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export const container = style({
   display: 'flex',
+  alignItems: 'center',
   text: '$body',
   border: '$form.neutral',
   borderRadius: '$default',
@@ -55,6 +56,8 @@ export const input = style({
 export const term = style({
   padding: '$m',
   color: '$secondary',
+  display: 'flex',
+  alignItems: 'center',
 })
 
 export const termVariants = styleVariants({

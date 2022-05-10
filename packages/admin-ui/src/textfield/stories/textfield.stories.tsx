@@ -3,6 +3,8 @@ import type { Meta } from '@storybook/react'
 
 import { Stack } from '../../stack'
 import { Textfield } from '../textfield'
+import { IconCalendarBlank } from '@vtex/phosphor-icons'
+import { Button } from '../../button'
 
 export default {
   title: 'admin-ui-review/textfield',
@@ -33,6 +35,14 @@ export const Terms = () => {
       <Textfield prefix="https://" />
       <Textfield suffix=".com.br" />
       <Textfield prefix="https://" suffix=".com.br" />
+      <Textfield prefix={<IconCalendarBlank />} />
+      <Textfield
+        suffix={
+          <Button variant="tertiary" bleedY bleedX>
+            Action
+          </Button>
+        }
+      />
     </Stack>
   )
 }
