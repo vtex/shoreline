@@ -64,7 +64,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-42:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-4 {
@@ -175,7 +175,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-45:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-48 {
@@ -216,7 +216,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-48:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-38 {
@@ -307,7 +307,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-5:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-5 div {
@@ -451,7 +451,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-27:hover {
@@ -476,7 +476,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-27:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-34 {
@@ -542,7 +542,7 @@ exports[`FilterBar tests should match snapshot 1`] = `
 
 .emotion-30:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-30:hover {

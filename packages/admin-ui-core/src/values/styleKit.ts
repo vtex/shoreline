@@ -5,7 +5,13 @@ import type { Palette, Tone, ColorTokens, StyleProp, CSSUnit } from '../types'
 import { colors } from './colors'
 
 export function ring(tone: Tone) {
-  return `0rem 0rem 0rem 0.125rem ${get(colors, `${paletteMap[tone]}20`)}`
+  const lighterColor = get(colors, `${paletteMap[tone]}05`)
+  const darkerColor = get(colors, `${paletteMap[tone]}30`)
+
+  const innerRing = `0rem 0rem 0rem 0.0625rem ${lighterColor}`
+  const outerRing = `0rem 0rem 0rem 0.1875rem ${darkerColor}`
+
+  return `${innerRing}, ${outerRing}`
 }
 
 export function palette(color: Palette): StyleProp {
