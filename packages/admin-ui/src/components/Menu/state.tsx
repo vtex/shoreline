@@ -10,4 +10,5 @@ function useMenuState(initialState?: MenuInitialState | undefined) {
   return menuState
 }
 
-export { useMenuState, MenuStateReturn }
+export { useMenuState }
+export type { MenuStateReturn }

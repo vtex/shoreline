@@ -44,4 +44,4 @@ export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox> &
   CheckboxOptions
 
 export { useCheckboxState }
-export { CheckboxStateReturn }
+export type { CheckboxStateReturn }

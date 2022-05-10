@@ -171,9 +171,8 @@ export function FilterBar<T, V extends { value: T }>(
   )
 }
 
-export {
-  useFilterBarState,
-  StatementDropdown,
+export { useFilterBarState, StatementDropdown }
+export type {
   StatementDropdownProps,
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
