@@ -40,7 +40,8 @@
   "scripts": {
     "lerna": "lerna",
     "turbo": "turbo",
-    "build": "turbo run build",
+    "build": "preconstruct build",
+    "postinstall": "preconstruct dev",
     "test": "turbo run test --parallel",
     "dev": "turbo run dev --parallel --no-cache",
     "version": "lerna run version",
@@ -61,18 +62,23 @@
     "test:ci": "turbo run test",
     "lint:ci": "yarn lint"
   },
+  "dependencies": {
+    "@babel/runtime": "^7.16.0",
+    "@babel/core": "^7.17.10"
+  },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/cli": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/prompt": "^9.1.2",
-    "@rollup/plugin-url": "^5.0.1",
+    "@preconstruct/cli": "^2.1.5",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
@@ -93,8 +99,6 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-macros": "^2.8.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "babel-plugin-typescript-to-proptypes": "^1.4.1",
-    "babel-preset-gatsby": "0.5.10",
     "chromatic": "^6.4.3",
     "commitizen": "^4.2.0",
     "eslint": "^7.19.0",
@@ -139,5 +143,17 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/admin-ui-util",
+      "packages/admin-ui-core",
+      "packages/admin-ui-hooks",
+      "packages/admin-ui-react",
+      "packages/admin-ui",
+      "packages/babel-plugin-admin-ui-react",
+      "packages/eslint-plugin-admin-ui",
+      "packages/formik"
+    ]
   }
 }

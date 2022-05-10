@@ -2,9 +2,9 @@
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
   "version": "0.6.13",
-  "main": "dist/index.js",
-  "module": "dist/admin-ui-react.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/vtex-admin-ui-react.cjs.js",
+  "module": "dist/vtex-admin-ui-react.esm.js",
+  "types": "dist/vtex-admin-ui-react.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -35,6 +35,7 @@
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",
     "@vtex/phosphor-icons": ">=0.x",
+    "@vtex/admin-ui-core": ">=0.x",
     "react": ">=16",
     "react-dom": ">=16"
   },

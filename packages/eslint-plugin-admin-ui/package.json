@@ -2,9 +2,9 @@
   "name": "@vtex/eslint-plugin-admin-ui",
   "license": "MIT",
   "version": "0.3.35",
-  "main": "dist/index.js",
-  "module": "dist/eslint-plugin-admin-ui.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/vtex-eslint-plugin-admin-ui.cjs.js",
+  "module": "dist/vtex-eslint-plugin-admin-ui.esm.js",
+  "types": "dist/vtex-eslint-plugin-admin-ui.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

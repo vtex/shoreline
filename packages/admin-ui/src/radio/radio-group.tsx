@@ -77,4 +77,5 @@ export interface RadioGroupOptions {
   optional?: boolean
 }
 
-export { useRadioState, RadioState } from 'ariakit/radio'
+export { useRadioState } from 'ariakit/radio'
+export type { RadioState } from 'ariakit/radio'

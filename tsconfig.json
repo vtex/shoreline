@@ -2,7 +2,14 @@
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
     "baseUrl": "./",
-    "allowSyntheticDefaultImports": true,
+    "stripInternal": true,
+    "declaration": true,
+    "strict": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "incremental": true,
+    "declarationMap": true
   },
-  "exclude": ["node_modules", "dist", "stories", "test"]
+  "exclude": ["node_modules"]
 }
