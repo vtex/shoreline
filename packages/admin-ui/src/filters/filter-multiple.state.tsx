@@ -87,8 +87,7 @@ export interface UseFilterMultipleReturn<T>
 export interface UseFilterMultipleStateProps<T> {
   /** Function for getting a label from the option object. */
   getOptionLabel?: (option: T) => string
-  /** Function for getting an id from the option object, this is only
-   * needed if you have duplicated labels and want to prevent unexpected behaviour. */
+  /** Function for getting an id from the option object. */
   getOptionId?: (option: T) => string
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: T[] }) => void

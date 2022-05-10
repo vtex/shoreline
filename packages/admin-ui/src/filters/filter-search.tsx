@@ -9,8 +9,12 @@ import { FilterRadio } from './filter-radio'
 import * as style from './filter.style'
 import { FilterSeachbox } from './filter-searchbox'
 import { SingleItemLabel } from './SingleItemLabel'
+import { Box } from '..'
+import { useMessageFormatter } from '../i18n'
+import { messages } from './filter.i18n'
 
 export function FilterSearch<T>(props: FilterProps<T>) {
+  const formatMessage = useMessageFormatter(messages.searchBox)
   const {
     state: { combobox, appliedItem, baseId, getOptionId, getOptionLabel },
     state,
@@ -20,6 +24,8 @@ export function FilterSearch<T>(props: FilterProps<T>) {
     ? getOptionId(combobox.selectedItem)
     : null
 
+  const isEmpty = !combobox.matches.length
+
   return (
     <BaseFilter
       state={state}
@@ -28,6 +34,7 @@ export function FilterSearch<T>(props: FilterProps<T>) {
       }
     >
       {<FilterSeachbox state={combobox} id={`${baseId ?? ''}-search`} />}
+      {isEmpty && <Box>{formatMessage('noResultsTitle')}</Box>}
       {combobox.matches.map((item) => {
         const itemId = getOptionId(item)
 

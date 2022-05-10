@@ -98,6 +98,7 @@ export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
 }
 
 export interface UseFilterStateProps<T> {
+  /** Function for getting an id from the option object. */
   getOptionId?: (option: T) => string
   /** Function for getting a label from the option object. */
   getOptionLabel?: (option: T) => string

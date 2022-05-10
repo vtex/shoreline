@@ -9,12 +9,18 @@ import * as style from './filter.style'
 import { ComboboxItem } from '../combobox/combobox-item'
 import { FilterSeachbox } from './filter-searchbox'
 import { MultipleItemsLabel } from './MultipleItemsLabel'
+import { Box } from '..'
+import { useMessageFormatter } from '../i18n'
+import { messages } from './filter.i18n'
 
 export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
+  const formatMessage = useMessageFormatter(messages.searchBox)
   const {
     state: { appliedItems, combobox, baseId, getOptionId, getOptionLabel },
     state,
   } = props
+
+  const isEmpty = !combobox.matches.length
 
   return (
     <BaseFilter
@@ -22,6 +28,7 @@ export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
       appliedValuesLabel={<MultipleItemsLabel appliedItems={appliedItems} />}
     >
       <FilterSeachbox state={combobox} id={`${baseId ?? ''}-search`} />
+      {isEmpty && <Box>{formatMessage('noResultsTitle')}</Box>}
       {combobox.matches.map((item) => (
         <ComboboxItem
           aria-selected={combobox.isSelected(item)}
