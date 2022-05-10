@@ -9,8 +9,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=14"
