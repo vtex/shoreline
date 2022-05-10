@@ -29,10 +29,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
             </Text>
           )}
           {hasMessage && (
-            <>
-              {helpText && <SwitchMessage helpText={helpText} />}
-              {hasError && <SwitchMessage errorText={errorText} />}
-            </>
+            <SwitchMessage helpText={helpText} errorText={errorText} />
           )}
         </Stack>
       </Inline>
