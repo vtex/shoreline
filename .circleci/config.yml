@@ -74,7 +74,6 @@ workflows:
     jobs:
       - build
       - test:
-          package: 'admin-ui'
           name: '@vtex/admin-ui test'
           requires:
             - build
