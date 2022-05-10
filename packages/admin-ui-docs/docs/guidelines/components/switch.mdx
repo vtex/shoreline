@@ -5,61 +5,111 @@ hide_table_of_contents: true
 ---
 
 import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
 export const tabToc = {
-  overview: toc.filter((item) =>
-    [
-      'Multiple Switch',
-      'Size',
-      'Checked States',
-      'Standalone',
-      'With help text',
-      'With error text',
-      'With help and error texts',
-      'Disabled',
-      'Variations',
-      'Example',
-    ].includes(item.value)
-  ),
-  codeReference: toc.filter((item) =>
-    [
-      'Usage',
-      'State',
-      'checked and onChange',
-      'useSwitchState',
-      'Props',
-    ].includes(item.value)
-  ),
-  designReference: toc.filter((item) => ["Do's"].includes(item.value)),
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'standalone',
+      value: 'Standalone',
+      level: 3,
+    },
+    {
+      id: 'with-help-text',
+      value: 'With help text',
+      level: 3,
+    },
+    {
+      id: 'with-error-text',
+      value: 'With error text',
+      level: 3,
+    },
+    {
+      id: 'with-help-and-error-texts',
+      value: 'With help and error texts',
+      level: 3,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 3,
+    },
+    {
+      id: 'checked-states',
+      value: 'Checked States',
+      level: 3,
+    },
+    {
+      id: 'multiple-switches',
+      value: 'Multiple Switches',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'state',
+      value: 'State',
+      level: 2,
+    },
+    {
+      id: 'checked-and-onchange',
+      value: 'checked and onChange',
+      level: 3,
+    },
+    {
+      id: 'useswitchstate',
+      value: 'useSwitchState',
+      level: 3,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: "Do's",
+      level: 2,
+    },
+  ],
 }
 
 <Page toc={tabToc} hasTabs>
   <Panel id="overview">
 
-Switch is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once.
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Switch is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once."
+/>
 
-## Example
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
-```jsx live
-function Example() {
-  const [checked, setChecked] = React.useState(false)
-
-  return (
-    <Switch
-      label="Label"
-      ariaLabel="label"
-      state={{
-        checked,
-        onChange: () => setChecked(!checked),
-      }}
-    />
-  )
-}
-```
-
-## Variations
-
-### Standalone
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
 When using a standalone `Switch` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
 
@@ -78,7 +128,10 @@ function Example() {
 }
 ```
 
-### With help text
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
 
 ```jsx live
 function Example() {
@@ -96,7 +149,12 @@ function Example() {
 }
 ```
 
-### With error text
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
 
 ```jsx live
 function Example() {
@@ -115,7 +173,12 @@ function Example() {
 }
 ```
 
-### With help and error texts
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
 
 ```jsx live
 function Example() {
@@ -135,7 +198,12 @@ function Example() {
 }
 ```
 
-### Disabled
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+>
 
 ```jsx live
 function Example() {
@@ -165,9 +233,13 @@ function Example() {
 }
 ```
 
-### Checked States
+</PageSection>
 
-There are two checked states: `checked`, and `not checked`.
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+  explanation="There are two checked states: `checked`, and `not checked`."
+>
 
 ```jsx live
 function Example() {
@@ -186,9 +258,13 @@ function Example() {
 }
 ```
 
-### Multiple Switches
+</PageSection>
 
-Oftentimes we need to render multiple switches and store the checked values in an array. It can be easily done using our `useSwitchState` hook, you just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`.
+<PageSection
+  id={tabToc.overview[8].id}
+  title={tabToc.overview[8].value}
+  explanation="Oftentimes we need to render multiple switches and store the checked values in an array. It can be easily done using our `useSwitchState` hook, you just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`."
+>
 
 ```jsx live
 function Example() {
@@ -205,22 +281,35 @@ function Example() {
 }
 ```
 
+</PageSection>
+</PageSection>
+</PageSection>
+
 </Panel>
 <Panel id="codeReference">
 
-## Usage
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
 
 ```jsx isStatic
 import { Switch } from '@vtex/admin-ui'
 ```
 
-## State
+</PageSection >
 
-There are two ways of handling the state in the `Switch`.
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+  explanation="There are two ways of handling the state in the Switch."
+>
 
-### checked and onChange
-
-You can use the properties `checked` and `onChange` to handle if the Switch is checked and its values have changed.
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  explanation="You can use the properties checked and onChange to handle if the Switch is checked and its values have changed."
+>
 
 ```jsx live
 function Example() {
@@ -236,9 +325,11 @@ function Example() {
 }
 ```
 
-### useSwitchState
-
-For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the `state` property and also define a `value` for each `Switch`.
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+  explanation="For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the state property and also define a value for each Switch."
+>
 
 ```jsx live
 function Example() {
@@ -248,7 +339,13 @@ function Example() {
 }
 ```
 
-## Props
+</PageSection >
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[4].id}
+  title={tabToc.codeReference[4].value}
+>
 
 | Name      | Type             | Description                                                                                                                                   | Required | Default |
 | --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -264,10 +361,15 @@ function Example() {
 
 > The Switch component also supports all HTML props from the `<input />` HTML tag.
 
+</PageSection >
+</PageSection >
 </Panel>
 <Panel id="designReference">
 
-## Do's
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
 1. Instant response that triggers a state, and require no further confirmation.
 2. List of independent items that represent different features or behaviors.
@@ -280,5 +382,6 @@ function Example() {
 
 👉 For UX Writing guidelines, access https://uxwriting.vtex.com
 
+</PageSection>
 </Panel>
 </Page>
