@@ -12,8 +12,6 @@ import {
 
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
-import { FilterSearch } from '../filter-search'
-import { FilterMultipleSearch } from '../filter-multiple-search'
 
 export default {
   title: 'admin-ui/Filters',

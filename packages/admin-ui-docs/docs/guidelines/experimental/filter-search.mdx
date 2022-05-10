@@ -1,0 +1,53 @@
+---
+title: FilterSearch
+path: /filter-search/
+---
+
+FilterSearch serves the same function as Filter, but allows the user to 
+search among the options. 
+
+## Usage
+
+FilterSearch use the same state and hooks as Filter.
+
+```jsx
+import {
+  experimental_FilterSearch as FilterSearch,
+  experimental_useFilterState as useFilterState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Rio de Janeiro', id: '#1' },
+      { label: 'New York', id: '#2' },
+      { label: 'Paris', id: '#3' },
+      { label: 'Tokyo', id: '#4' },
+      { label: 'São Paulo', id: '#5' },
+      { label: 'Berlin', id: '#7' },
+      { label: 'Washington', id: '#8' },
+      { label: 'Lisboa', id: '#9' },
+      { label: 'Porto', id: '#10' },
+      { label: 'João Pessoa', id: '#11' },
+      { label: 'Salvador', id: '#12' },
+      { label: 'Barcelona', id: '#13' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected.label}`),
+    label: 'City',
+  })
+
+  return <FilterSearch state={state} />
+}
+```
+
+## Props
+
+### FilterSearch
+
+| Name  | Type          | Description    | Required | Default |
+| ----- | ------------- | -------------- | -------- | ------- |
+| state | `FilterState` | Object that manages the component state logic, you can obtain it calling the useFilterState hook | ✅       | -       |
+
+### State
+
+You can see the detailed state props on `Filter`.

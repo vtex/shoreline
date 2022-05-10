@@ -2,16 +2,15 @@ import React from 'react'
 
 import { Checkbox } from '../components/Checkbox'
 import { BaseFilter } from './filter-base'
-
-import type { UseFilterMultipleReturn } from './filter-multiple.state'
-import * as style from './filter.style'
-
 import { ComboboxItem } from '../combobox/combobox-item'
 import { FilterSeachbox } from './filter-searchbox'
 import { MultipleItemsLabel } from './MultipleItemsLabel'
 import { Box } from '..'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
+import type { FilterMultipleProps } from '.'
+
+import * as style from './filter.style'
 
 export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
   const formatMessage = useMessageFormatter(messages.searchBox)
@@ -48,8 +47,4 @@ export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
       ))}
     </BaseFilter>
   )
-}
-
-export interface FilterMultipleProps<T> {
-  state: UseFilterMultipleReturn<T>
 }

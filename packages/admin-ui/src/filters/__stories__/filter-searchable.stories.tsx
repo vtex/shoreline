@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import type { Meta } from '@storybook/react'
 
-import { useFilterMultipleState, useFilterState } from '../index'
-
-import { FilterSearch } from '../filter-search'
-import { FilterMultipleSearch } from '../filter-multiple-search'
+import {
+  useFilterMultipleState,
+  useFilterState,
+  FilterSearch,
+  FilterMultipleSearch,
+} from '../index'
 
 export default {
   title: 'admin-ui/FiltersSearch',
@@ -16,7 +18,6 @@ export function Search() {
     items: [
       { label: 'Rio de Janeiro', id: '#1' },
       { label: 'Rio de Janeiro', id: '#01' },
-
       { label: 'New York', id: '#2' },
       { label: 'Paris', id: '#3' },
       { label: 'Tokyo', id: '#4' },
