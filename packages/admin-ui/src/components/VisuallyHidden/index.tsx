@@ -1,2 +1,2 @@
 export { VisuallyHidden } from 'reakit/VisuallyHidden'
-export type { ToolbarStateReturn as ToolbarState } from 'reakit/Toolbar'
+export type { VisuallyHiddenProps } from 'reakit/VisuallyHidden'
