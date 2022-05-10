@@ -22,7 +22,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
     return (
       <Inline hSpace="$m" vSpace="">
         <SwitchButton state={state} disabled={disabled} {...htmlProps} />
-        <Stack space="$xs">
+        <Stack space="$s">
           {label && (
             <Text as={Label} tone={disabled ? 'secondary' : 'primary'}>
               {label}
