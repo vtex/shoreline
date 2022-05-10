@@ -58,7 +58,7 @@ export function FilterMultiple<T extends FilterItem>(
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
-            readOnly
+            aria-readonly="true"
           />
           {item.label}
         </ComboboxItem>

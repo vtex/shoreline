@@ -164,10 +164,10 @@ exports[`Checkbox should match snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  letter-spacing: -0.0009em;
+  letter-spacing: 0.002em;
   cursor: pointer;
 }
 
@@ -195,19 +195,19 @@ exports[`Checkbox should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   color: #545454;
 }
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   color: #CC3D3D;
 }
 
@@ -416,10 +416,10 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  letter-spacing: -0.0009em;
+  letter-spacing: 0.002em;
   cursor: pointer;
 }
 
@@ -447,19 +447,19 @@ exports[`Checkbox should match snapshot to checkbox group 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   color: #545454;
 }
 
 .emotion-13 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   color: #CC3D3D;
 }
 
