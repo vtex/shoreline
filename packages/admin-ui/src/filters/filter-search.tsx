@@ -5,19 +5,20 @@ import { ComboboxItem } from '../combobox/combobox-item'
 
 import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
-import type { FilterItem } from '.'
-import { itemStyle } from '.'
 
+import * as style from './filter.style'
 import { FilterSeachbox } from './filter-searchbox'
 import { SingleItemLabel } from './SingleItemLabel'
 
-export function FilterSearch<T extends FilterItem>(props: FilterProps<T>) {
+export function FilterSearch<T>(props: FilterProps<T>) {
   const {
-    state: { combobox, appliedItem },
+    state: { combobox, appliedItem, baseId, getOptionId, getOptionLabel },
     state,
   } = props
 
-  const currentSelectedId = combobox.selectedItem?.id
+  const currentSelectedId = combobox.selectedItem
+    ? getOptionId(combobox.selectedItem)
+    : null
 
   return (
     <BaseFilter
@@ -26,22 +27,26 @@ export function FilterSearch<T extends FilterItem>(props: FilterProps<T>) {
         appliedItem && <SingleItemLabel appliedItem={appliedItem} />
       }
     >
-      {<FilterSeachbox state={combobox} id="hdd" />}
-      {combobox.matches.map((item) => (
-        <ComboboxItem
-          aria-selected={item.id === currentSelectedId}
-          key={item.id}
-          focusOnHover
-          hideOnClick={false}
-          onClick={() => combobox.setSelectedItem(item)}
-          style={itemStyle}
-        >
-          <FilterRadio
-            checked={!!(item.id && item.id === combobox.selectedItem?.id)}
-          />
-          {item.label}
-        </ComboboxItem>
-      ))}
+      {<FilterSeachbox state={combobox} id={`${baseId ?? ''}-search`} />}
+      {combobox.matches.map((item) => {
+        const itemId = getOptionId(item)
+
+        return (
+          <ComboboxItem
+            aria-selected={itemId === currentSelectedId}
+            key={itemId}
+            value={itemId}
+            focusOnHover
+            hideOnClick={false}
+            onClick={() => combobox.setSelectedItem(item)}
+            style={style.option}
+            id={`${baseId ?? ''}-item-${itemId}`}
+          >
+            <FilterRadio checked={itemId === currentSelectedId} />
+            {getOptionLabel(item)}
+          </ComboboxItem>
+        )
+      })}
     </BaseFilter>
   )
 }

@@ -3,16 +3,21 @@ import { Checkbox } from '../checkbox'
 import { BaseFilter } from './filter-base'
 import { ComboboxItem } from '../combobox/combobox-item'
 import { MultipleItemsLabel } from './MultipleItemsLabel'
-import { itemStyle } from './filter'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
-import type { FilterItem } from '.'
 
-export function FilterMultiple<T extends FilterItem>(
-  props: FilterMultipleProps<T>
-) {
+import * as style from './filter.style'
+
+export function FilterMultiple<T>(props: FilterMultipleProps<T>) {
   const {
-    state: { appliedItems, items, combobox, baseId },
+    state: {
+      appliedItems,
+      items,
+      combobox,
+      baseId,
+      getOptionId,
+      getOptionLabel,
+    },
     state,
   } = props
 
@@ -24,10 +29,10 @@ export function FilterMultiple<T extends FilterItem>(
       {items.map((item) => (
         <ComboboxItem
           aria-selected={combobox.isSelected(item)}
-          key={item.id}
+          key={getOptionId(item)}
           onClick={() => combobox.onChange(item)}
-          style={itemStyle}
-          id={`${baseId ?? ''}-item-${item.id}`}
+          style={style.option}
+          id={`${baseId ?? ''}-item-${getOptionId(item)}`}
         >
           <Checkbox
             id={item.id}
@@ -36,7 +41,7 @@ export function FilterMultiple<T extends FilterItem>(
             csx={{ marginRight: '$s' }}
             aria-readonly="true"
           />
-          {item.label}
+          {getOptionLabel(item)}
         </ComboboxItem>
       ))}
     </BaseFilter>

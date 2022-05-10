@@ -39,7 +39,7 @@ export function useComboboxState<T>(
 
   // filters matches when input changes
   useEffect(() => {
-    if (!list) return
+    if (!list || list.length === 0) return
 
     const sanitizedValue = state.value.toLocaleLowerCase()
 

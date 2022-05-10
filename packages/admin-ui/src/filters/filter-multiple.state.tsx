@@ -3,18 +3,29 @@ import { useState, useCallback, useEffect } from 'react'
 import type { ComboboxMultipleState } from '../combobox'
 import { useComboboxMultipleState } from '../combobox'
 import { useMenuState } from 'ariakit/menu'
-import type { GenericFilterStateReturn, FilterItem } from './filter.state'
+import type { GenericFilterStateReturn } from './filter.state'
+import type { AnyObject } from 'packages/admin-ui-util'
 
-export function useFilterMultipleState<T extends FilterItem>(
+export function useFilterMultipleState<T extends AnyObject>(
   props: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const { items, label, initialApplied, baseId, onChange = () => {} } = props
+  const {
+    items,
+    label,
+    initialApplied,
+    baseId,
+    onChange = () => {},
+    getOptionLabel = (option) => option.label,
+    getOptionId = (option) => option.id,
+  } = props
 
   const [appliedItems, setAppliedItems] = useState<T[]>(initialApplied || [])
 
   const comboboxMultiple = useComboboxMultipleState<T>({
     list: items,
-    getOptionValue: (op) => op.label,
+    getOptionValue: getOptionLabel,
+    compare: (optionA, optionB) =>
+      getOptionId(optionA) === getOptionId(optionB),
   })
 
   useEffect(() => {
@@ -28,7 +39,7 @@ export function useFilterMultipleState<T extends FilterItem>(
   const apply = useCallback(() => {
     setAppliedItems(selectedItems)
 
-    onChange({ selected: selectedItems.map((i) => i.id) })
+    onChange({ selected: selectedItems })
     menu.hide()
   }, [onChange])
 
@@ -58,10 +69,11 @@ export function useFilterMultipleState<T extends FilterItem>(
     onChange: apply,
     items,
     appliedItems,
-    appliedKeys: appliedItems.map((i) => i.id),
-    selectedKeys: selectedItems.map((i) => i.id) || [],
+    selectedItems,
     label,
     baseId,
+    getOptionId,
+    getOptionLabel,
   }
 }
 
@@ -69,13 +81,17 @@ export interface UseFilterMultipleReturn<T>
   extends GenericFilterStateReturn<T> {
   combobox: ComboboxMultipleState<T>
   appliedItems: T[]
-  appliedKeys: string[]
-  selectedKeys: string[]
+  selectedItems: T[]
 }
 
 export interface UseFilterMultipleStateProps<T> {
+  /** Function for getting a label from the option object. */
+  getOptionLabel?: (option: T) => string
+  /** Function for getting an id from the option object, this is only
+   * needed if you have duplicated labels and want to prevent unexpected behaviour. */
+  getOptionId?: (option: T) => string
   /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: string[] }) => void
+  onChange?: ({ selected }: { selected: T[] }) => void
   /** The initial selected keys. */
   initialApplied?: T[]
   /** Filter button label. */
