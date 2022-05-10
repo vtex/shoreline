@@ -394,7 +394,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
 
 .emotion-0:checked:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-0:checked:hover {
@@ -613,7 +613,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
                 aria-readonly="true"
                 class="emotion-0"
                 data-command=""
-                id="id-g3782m"
+                id="#1"
                 type="checkbox"
               />
               <div
@@ -621,7 +621,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
               >
                 <label
                   class="emotion-1"
-                  for="id-g3782m"
+                  for="#1"
                 />
               </div>
             </div>
@@ -643,7 +643,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
                 aria-readonly="true"
                 class="emotion-0"
                 data-command=""
-                id="id-31a4hu"
+                id="#2"
                 type="checkbox"
               />
               <div
@@ -651,7 +651,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
               >
                 <label
                   class="emotion-1"
-                  for="id-31a4hu"
+                  for="#2"
                 />
               </div>
             </div>
