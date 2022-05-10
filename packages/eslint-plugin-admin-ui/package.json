@@ -25,11 +25,8 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
-    "dev": "tsdx watch",
-    "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "test:ci": "tsdx test --silent"
   },
   "devDependencies": {
