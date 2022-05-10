@@ -1,9 +1,9 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
 
-import * as style from './textfield.style'
+import * as style from './text-input.style'
 
-export const TextfieldTerm = createComponent<'div', TextfieldTermProps>(
+export const TextInputTerm = createComponent<'div', TextInputTermProps>(
   (props) => {
     const { type, ...divProps } = props
 
@@ -19,4 +19,4 @@ export const TextfieldTerm = createComponent<'div', TextfieldTermProps>(
   }
 )
 
-export type TextfieldTermProps = VariantProps<typeof style.termVariants>
+export type TextInputTermProps = VariantProps<typeof style.termVariants>

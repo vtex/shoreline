@@ -1,7 +1,7 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import * as style from './textfield.style'
+import * as style from './text-input.style'
 
-export const TextfieldInput = createComponent<'input'>((props) => {
+export const TextInputElement = createComponent<'input'>((props) => {
   return useElement('input', {
     baseStyle: style.input,
     ...props,
