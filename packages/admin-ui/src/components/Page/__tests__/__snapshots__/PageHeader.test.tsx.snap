@@ -177,7 +177,7 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3:focus {
   outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
 .emotion-2 {

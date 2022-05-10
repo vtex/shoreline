@@ -90,7 +90,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:disabled {
@@ -226,7 +226,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:disabled {
@@ -371,7 +371,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:disabled {
@@ -518,7 +518,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:disabled {
@@ -669,7 +669,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-0:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-0:disabled {
@@ -816,7 +816,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-1:disabled {
@@ -1057,7 +1057,7 @@ exports[`Input tests should match snapshot 1`] = `
 
 .emotion-1:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 .emotion-1:disabled {
