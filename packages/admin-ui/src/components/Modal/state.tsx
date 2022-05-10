@@ -15,8 +15,8 @@ function useModalState(
   return dialogState
 }
 
-export {
-  useModalState,
+export { useModalState }
+export type {
   DialogStateReturn as ModalStateReturn,
   DialogInitialState as ModalInitialState,
 }

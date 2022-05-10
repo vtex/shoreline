@@ -31,11 +31,7 @@ import {
 
 export {
   experimental_DatePickerField,
-  experimental_DatePickerFieldProps,
   experimental_DatePickerCalendar,
-  experimental_DatePickerCalendarProps,
-  experimental_DatePickerInitialState,
-  experimental_DatePickerStateReturn,
   experimental_useDatePickerState,
   experimental_I18nProvider,
   experimental_useDateFormatter,
@@ -51,4 +47,11 @@ export {
   experimental_useFilterGroupState,
   experimental_useFilterMultipleState,
   experimental_useFilterState,
+}
+
+export type {
+  experimental_DatePickerFieldProps,
+  experimental_DatePickerCalendarProps,
+  experimental_DatePickerInitialState,
+  experimental_DatePickerStateReturn,
 }

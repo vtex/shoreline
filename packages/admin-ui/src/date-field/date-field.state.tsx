@@ -4,4 +4,5 @@ import {
   SegmentStateReturn as DateFieldStateReturn,
 } from '../segment'
 
-export { useDateFieldState, DateFieldInitialState, DateFieldStateReturn }
+export { useDateFieldState }
+export type { DateFieldInitialState, DateFieldStateReturn }

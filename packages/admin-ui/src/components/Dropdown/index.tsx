@@ -67,7 +67,7 @@ export const Dropdown = forwardRef(
 )
 
 export { useSelect as useDropdownState }
-export { UseSelectReturnValue as UseDropdownReturnValue }
+export type { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
   extends SystemComponent,
