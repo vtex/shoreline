@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.127.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.127.0...@vtex/admin-ui@0.127.1) (2022-05-10)
+
+### Bug Fixes
+
+- **admin-ui:** update focus-ring to the latest specs ([244939c](https://github.com/vtex/admin-ui/commit/244939c280ba252bd079dfc25d122fcff049e37c))
+- **font:** update VTEX Trust version ([bc139ad](https://github.com/vtex/admin-ui/commit/bc139ad0919106a28079588e09be6fa813dfac30))
+
 # [0.127.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.126.1...@vtex/admin-ui@0.127.0) (2022-05-05)
 
 ### Bug Fixes

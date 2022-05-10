@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.11.2...@vtex/admin-ui-docs@0.11.3) (2022-05-10)
+
+### Bug Fixes
+
+- **docs:** add font-file to documentation site ([9bdd4e4](https://github.com/vtex/admin-ui/commit/9bdd4e46a95f503bd5fa9a31f0ebf2cc3c24a895))
+
 ## [0.11.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.11.1...@vtex/admin-ui-docs@0.11.2) (2022-05-05)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
