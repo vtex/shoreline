@@ -4,8 +4,12 @@ import React from 'react'
 import { Stack } from '../stack'
 import { Text } from '../components/Text'
 
-export function Message(props: MessageProps) {
-  const { helpText, errorText, error } = props
+import { useFormControlContext } from './context'
+
+export function FormControlMessage(props: FormControlMessageProps) {
+  const { helpText, errorText } = props
+
+  const { error } = useFormControlContext()
 
   const hasError = error && errorText
   const hasMessage = hasError || helpText
@@ -28,8 +32,7 @@ export function Message(props: MessageProps) {
   )
 }
 
-export interface MessageProps {
+export interface FormControlMessageProps {
   helpText?: ReactNode
   errorText?: ReactNode
-  error?: boolean
 }

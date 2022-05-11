@@ -9,7 +9,7 @@ import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
 import type { CheckboxInputOptions } from './checkbox-input'
-import { Message } from '../form-group'
+import { FormControl, FormControlMessage } from '../form-control'
 
 import * as style from './checkbox.style'
 
@@ -27,15 +27,17 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <Inline hSpace="$m" vSpace="">
-        <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
-        <Stack space="$s">
-          <Label htmlFor={baseId} csx={style.label}>
-            {label}
-          </Label>
-          <Message helpText={helpText} error={error} errorText={errorText} />
-        </Stack>
-      </Inline>
+      <FormControl error={error}>
+        <Inline hSpace="$m" vSpace="">
+          <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
+          <Stack space="$s">
+            <Label htmlFor={baseId} csx={style.label}>
+              {label}
+            </Label>
+            <FormControlMessage helpText={helpText} errorText={errorText} />
+          </Stack>
+        </Inline>
+      </FormControl>
     )
   }
 )
