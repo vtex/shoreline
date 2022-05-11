@@ -1,5 +1,5 @@
 export const messages = {
-  radioGroup: {
+  formGroup: {
     'en-US': { optional: 'optional' },
     'es-AR': { optional: 'optional' },
     'fr-FR': { optional: 'optional' },

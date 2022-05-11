@@ -1,12 +1,15 @@
 import type * as CSS from 'csstype'
 
-export type Tone =
-  | 'main'
-  | 'critical'
-  | 'warning'
-  | 'positive'
-  | 'neutral'
-  | 'info'
+export const tones = asLiterals([
+  'main',
+  'critical',
+  'info',
+  'warning',
+  'positive',
+  'neutral',
+])
+
+export type Tone = typeof tones[number]
 
 export type Palette =
   | 'blue'
@@ -82,6 +85,10 @@ export const bgTokens = asLiterals([
   '$form.controlHover',
   '$form.controlChecked',
   '$form.controlCheckedHover',
+  '$form.controlActive',
+  '$form.controlActiveHover',
+  '$form.controlInactive',
+  '$form.controlInactiveHover',
 ])
 
 export const fgTokens = asLiterals([

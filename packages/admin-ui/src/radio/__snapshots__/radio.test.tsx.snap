@@ -28,10 +28,10 @@ exports[`Radio should match snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   color: #545454;
 }
 
@@ -104,14 +104,14 @@ exports[`Radio should match snapshot 1`] = `
   justify-content: center;
 }
 
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
+}
+
 .emotion-1:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 .emotion-1:hover:not(:disabled) {
@@ -150,14 +150,14 @@ exports[`Radio should match snapshot 1`] = `
   position: relative;
 }
 
+.emotion-1:checked:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-1:checked:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-1:checked:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-1:checked:after {
@@ -223,10 +223,10 @@ exports[`Radio should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  letter-spacing: -0.0009em;
+  letter-spacing: 0.002em;
   cursor: pointer;
 }
 

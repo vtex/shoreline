@@ -40,10 +40,10 @@ exports[`Select should match the snapshot 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.5;
-  letter-spacing: 0.001em;
+  letter-spacing: -0.004em;
   position: absolute;
   top: 0.5rem;
   padding-left: 0.75rem;
@@ -72,10 +72,10 @@ exports[`Select should match the snapshot 1`] = `
 
 .emotion-1 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  letter-spacing: -0.0009em;
+  letter-spacing: 0.002em;
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -99,7 +99,7 @@ exports[`Select should match the snapshot 1`] = `
 
 .emotion-1:focus {
   border: 1px solid #3B3B3B;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
 <div

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 
-import { useCheckboxState } from '../Checkbox'
+import { useCheckboxState } from '../../checkbox'
 
 /**
  * SelectionTree state
@@ -58,13 +58,13 @@ export function useSelectionTreeState<T>(
     [selected, ids]
   )
 
-  const { state: rootState, setState: setRootState } = useCheckboxState({
-    state: rootInitialState,
+  const { value: rootState, setValue: setRootState } = useCheckboxState({
+    initialValue: rootInitialState,
   })
 
-  const { state: selectedItems, setState: setSelectedItems } = useCheckboxState(
+  const { value: selectedItems, setValue: setSelectedItems } = useCheckboxState(
     {
-      state: selected,
+      initialValue: selected,
     }
   )
 
@@ -106,12 +106,12 @@ export function useSelectionTreeState<T>(
   return {
     selectedItems: currentSelected,
     root: {
-      state: rootState,
-      setState: setRootState,
+      value: rootState,
+      setValue: setRootState,
     },
     items: {
-      state: selectedItems,
-      setState: setSelectedItems,
+      value: selectedItems,
+      setValue: setSelectedItems,
     },
   }
 }

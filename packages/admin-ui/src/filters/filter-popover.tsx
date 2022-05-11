@@ -2,10 +2,11 @@ import { Role } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { focusVisible } from '@vtex/admin-ui-core'
 
-import { PickerPopover } from '../picker'
+import { Menu } from 'ariakit'
 
-export const FilterPopover = createComponent<typeof PickerPopover>((props) => {
-  return useElement(PickerPopover, {
+// TODO investigate arikit buggy typing
+export const FilterPopover = createComponent<typeof Menu, any>((props) => {
+  return useElement(Menu, {
     baseStyle: {
       text: '$body',
       boxShadow: '$overlay.bottom',

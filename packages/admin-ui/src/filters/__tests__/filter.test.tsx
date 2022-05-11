@@ -9,6 +9,7 @@ const FilterWithState = withState(Filter, () =>
       { label: 'Empty', value: 2, id: '#2' },
     ],
     label: 'Filter',
+    baseId: 'filterTest',
   })
 )
 

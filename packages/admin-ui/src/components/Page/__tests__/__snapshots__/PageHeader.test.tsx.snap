@@ -108,10 +108,10 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-4 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 1.25rem;
   line-height: 1.2;
-  letter-spacing: -0.0067em;
+  letter-spacing: -0.004em;
 }
 
 .emotion-6 {
@@ -141,10 +141,10 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
 
 .emotion-3 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -170,14 +170,14 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   color: #747474;
 }
 
+.emotion-3:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-3:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-3:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-2 {
@@ -209,10 +209,10 @@ exports[`PageHeader should match snapshot with backlink 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
 }
 
@@ -304,10 +304,10 @@ exports[`PageHeader should match snapshot with title 1`] = `
 
 .emotion-0 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 1.25rem;
   line-height: 1.2;
-  letter-spacing: -0.0067em;
+  letter-spacing: -0.004em;
 }
 
 .emotion-2 {

@@ -31,10 +31,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -47,10 +47,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -76,14 +76,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -129,10 +129,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -145,10 +145,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -174,14 +174,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -227,10 +227,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -243,10 +243,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -272,14 +272,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -325,10 +325,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -341,10 +341,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -370,14 +370,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #FBF2F2,0rem 0rem 0rem 0.1875rem #F49494;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -423,10 +423,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -439,10 +439,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -468,14 +468,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #FBF2F2,0rem 0rem 0rem 0.1875rem #F49494;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -521,10 +521,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -537,10 +537,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -566,14 +566,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #FBF2F2,0rem 0rem 0rem 0.1875rem #F49494;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #EDBABA;
 }
 
 <button
@@ -619,10 +619,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -635,10 +635,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -664,14 +664,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #DDDDDD;
 }
 
 <button
@@ -731,10 +731,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-5 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -760,14 +760,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-5:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-5:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 .emotion-0 {
@@ -784,10 +784,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: hidden;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -812,10 +812,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   position: absolute;
   bottom: 0rem;
   top: 0rem;
@@ -906,10 +906,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -922,10 +922,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -951,14 +951,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -1007,10 +1007,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -1023,10 +1023,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1054,14 +1054,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button
@@ -1107,10 +1107,10 @@ exports[`button should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   visibility: visible;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -1123,10 +1123,10 @@ exports[`button should match snapshot 1`] = `
 
 .emotion-2 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 600;
+  font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
   line-height: 1.1428571429;
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.01em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -1154,14 +1154,14 @@ exports[`button should match snapshot 1`] = `
   color: #747474;
 }
 
+.emotion-2:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
 .emotion-2:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
-}
-
-.emotion-2:focus {
-  outline: none;
-  box-shadow: 0rem 0rem 0rem 0.125rem #BBCBF0;
 }
 
 <button

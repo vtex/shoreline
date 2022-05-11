@@ -3,37 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.11.2...@vtex/admin-ui-docs@0.11.3) (2022-05-10)
+
+### Bug Fixes
+
+- **docs:** add font-file to documentation site ([9bdd4e4](https://github.com/vtex/admin-ui/commit/9bdd4e46a95f503bd5fa9a31f0ebf2cc3c24a895))
+
+## [0.11.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.11.1...@vtex/admin-ui-docs@0.11.2) (2022-05-05)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
 ## [0.11.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.11.0...@vtex/admin-ui-docs@0.11.1) (2022-05-04)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 # [0.11.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.10.2...@vtex/admin-ui-docs@0.11.0) (2022-05-03)
-
 
 ### Bug Fixes
 
-* **radio:** change invalid prefix to error ([a38604a](https://github.com/vtex/admin-ui/commit/a38604a2991d952af8e089ca5ca1764561d1120c))
-
+- **radio:** change invalid prefix to error ([a38604a](https://github.com/vtex/admin-ui/commit/a38604a2991d952af8e089ca5ca1764561d1120c))
 
 ### Features
 
-* **design-tokens:** add form control tokens ([311854c](https://github.com/vtex/admin-ui/commit/311854c5bf08ffdb9b7e35baf9eeb93d59c1f7f2))
-
-
-
-
+- **design-tokens:** add form control tokens ([311854c](https://github.com/vtex/admin-ui/commit/311854c5bf08ffdb9b7e35baf9eeb93d59c1f7f2))
 
 ## [0.10.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.10.1...@vtex/admin-ui-docs@0.10.2) (2022-05-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.10.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.10.0...@vtex/admin-ui-docs@0.10.1) (2022-04-29)
 

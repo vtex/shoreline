@@ -5,128 +5,372 @@ hide_table_of_contents: true
 ---
 
 import { Page, Panel } from '@site/src/components/Page'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { PageSection } from '@site/src/components/PageSection'
 
 export const tabToc = {
-  overview: toc.filter((item) =>
-    [
-      'Examples',
-      'Checked States',
-      'Size',
-      'Multiple Checkboxes',
-      'Indeterminate State',
-    ].includes(item.value)
-  ),
-  codeReference: toc.filter((item) =>
-    [
-      'Usage',
-      'Accessibility',
-      'Best Practices',
-      'Props',
-      'Checkbox',
-      'useCheckboxState',
-      'useCheckboxState',
-    ].includes(item.value)
-  ),
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'states',
+      value: 'States',
+      level: 2,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 2,
+    },
+    {
+      id: 'help-text',
+      value: 'Help text',
+      level: 2,
+    },
+    {
+      id: 'error',
+      value: 'Error',
+      level: 2,
+    },
+    {
+      id: 'group',
+      value: 'Group',
+      level: 2,
+    },
+    {
+      id: 'direction',
+      value: 'Direction',
+      level: 2,
+    },
+    {
+      id: 'group-help-text',
+      value: 'Group help text',
+      level: 2,
+    },
+    {
+      id: 'group-error',
+      value: 'Group error',
+      level: 2,
+    },
+    {
+      id: 'optional',
+      value: 'Optional',
+      level: 2,
+    },
+    {
+      id: 'group-state',
+      value: 'Group state',
+      level: 2,
+    },
+    {
+      id: 'group-indeterminate-state',
+      value: 'Group indeterminate state',
+      level: 2,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'checkbox-props',
+      value: 'Checkbox props',
+      level: 2,
+    },
+    {
+      id: 'checkbox-group-props',
+      value: 'CheckboxGroup props',
+      level: 2,
+    },
+    {
+      id: 'use-checkbox-state',
+      value: 'useCheckboxState',
+      level: 2,
+    },
+    {
+      id: 'params-props',
+      value: 'Params props',
+      level: 3,
+    },
+    {
+      id: 'return-props',
+      value: 'Return props',
+      level: 3,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
   designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
 }
 
 <Page toc={tabToc} hasTabs>
   <Panel id="overview">
 
-Checkboxes are tools that customize configurations. This control has three states: unselected, selected, and undetermined. They reflect the selection of an option and its execution usually requires another control, or confirmation. By default, it renders the native `<input type="checkbox">`. It implements [WAI-ARIA Checkbox pattern](https://www.w3.org/TR/wai-aria-practices/#checkbox).
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Checkboxes are tools that customize configurations. This control has three states: checked, unchecked and indeterminate. They reflect the selection of an option and its execution usually requires another control, or confirmation."
+/>
 
-## Examples
-
-### Checked States
-
-There are three checked states: `not checked`, `checked`, and `partially checked`.
-
-```jsx live
-function Example() {
-  return (
-    <>
-      <Set>
-        <Checkbox aria-label="label-1" state={{ state: false }} />
-        <Checkbox
-          aria-label="label-disabled-1"
-          state={{ state: false }}
-          disabled
-        />
-      </Set>
-      <Set>
-        <Checkbox aria-label="label-2" state={{ state: true }} />
-        <Checkbox
-          aria-label="label-disabled-2"
-          state={{ state: true }}
-          disabled
-        />
-      </Set>
-      <Set>
-        <Checkbox aria-label="label-3" state={{ state: 'indeterminate' }} />
-        <Checkbox
-          aria-label="label-disabled-3"
-          state={{ state: 'indeterminate' }}
-          disabled
-        />
-      </Set>
-    </>
-  )
-}
-```
-
-### Size
-
-There are two size variants: `small` and `regular`. By default, it renders `regular`.
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
 ```jsx live
 function Example() {
   return (
     <>
-      <Set>
-        <Checkbox aria-label="label-small-1" size="small" />
-        <Checkbox aria-label="label-1" />
-      </Set>
-      <Set>
-        <Checkbox
-          aria-label="label-small-2"
-          state={{ state: true }}
-          size="small"
-        />
-        <Checkbox aria-label="label-2" state={{ state: true }} />
-      </Set>
+      <Inline>
+        <Checkbox label="Unchecked " state={{ value: false }} />
+      </Inline>
+      <Inline>
+        <Checkbox label="Checked" state={{ value: true }} />
+      </Inline>
+      <Inline>
+        <Checkbox label="Indeterminate" state={{ value: 'indeterminate' }} />
+      </Inline>
     </>
   )
 }
 ```
 
-### Multiple Checkboxes
+</PageSection>
 
-To render multiple checkboxes and store the checked values in an array, you just need to pass the hook return object to the checkboxes `state` property and define a unique `value` for each `Checkbox`.
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
 ```jsx live
 function Example() {
-  const state = useCheckboxState({ state: [] })
-
   return (
     <>
-      <Heading>Selected Checkboxes: {state.state.join(', ')}</Heading>
-      <Checkbox state={state} value="checkbox1" />
-      <Checkbox state={state} value="checkbox2" />
-      <Checkbox state={state} value="checkbox3" />
+      <Inline>
+        <Checkbox label="Unchecked " state={{ value: false }} disabled />
+      </Inline>
+      <Inline>
+        <Checkbox label="Checked" state={{ value: true }} disabled />
+      </Inline>
+      <Inline>
+        <Checkbox
+          label="Indeterminate"
+          state={{ value: 'indeterminate' }}
+          disabled
+        />
+      </Inline>
     </>
   )
 }
 ```
 
-### Indeterminate State
+</PageSection>
 
-To implement a `Checkbox` that controls the state of a set of Checkboxes you'll need to combine the Checkbox tri-state: `checked`, `not checked`, and `indeterminate`.
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Checkbox label="Checkbox" helpText="Help text" />
+    </>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live
+function Example() {
+  return (
+    <Checkbox
+      label="Checkbox"
+      helpText="Help text"
+      errorText="Error text"
+      error
+    />
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live
+function Example() {
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+
+  return (
+    <CheckboxGroup label="Fruits" id="fruits-checkbox-group">
+      {values.map((fruit, key) => (
+        <Checkbox value={fruit} label={fruit} />
+      ))}
+    </CheckboxGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+>
+
+```jsx live
+function Example() {
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+
+  return (
+    <CheckboxGroup label="Fruits" id="fruits-checkbox-group" direction="column">
+      {values.map((fruit, key) => (
+        <Checkbox value={fruit} label={fruit} />
+      ))}
+    </CheckboxGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+>
+
+```jsx live
+function Example() {
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+
+  return (
+    <CheckboxGroup
+      label="Fruits"
+      id="fruits-checkbox-group"
+      helpText="Group help text"
+    >
+      {values.map((fruit, key) => (
+        <Checkbox value={fruit} label={fruit} />
+      ))}
+    </CheckboxGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[8].id}
+  title={tabToc.overview[8].value}
+>
+
+```jsx live
+function Example() {
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+
+  return (
+    <CheckboxGroup
+      label="Fruits"
+      id="fruits-checkbox-group"
+      errorText="Group error text"
+      error
+    >
+      {values.map((fruit, key) => (
+        <Checkbox value={fruit} label={fruit} />
+      ))}
+    </CheckboxGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[9].id}
+  title={tabToc.overview[9].value}
+>
+
+```jsx live
+function Example() {
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="en-US">
+      <CheckboxGroup label="Fruits" id="fruits-checkbox-group" optional>
+        {values.map((fruit, key) => (
+          <Checkbox value={fruit} label={fruit} />
+        ))}
+      </CheckboxGroup>
+    </I18nProvider>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[10].id}
+  title={tabToc.overview[10].value}
+  explanation="To render multiple checkboxes and store the checked values in an array, you just need to pass the hook return object to the checkboxes state property and define a unique value for each Checkbox."
+>
+
+```jsx live
+function Example() {
+  const state = useCheckboxState({ initialValue: [] })
+  const values = React.useMemo(() => ['Apple', 'Orange', 'Watermelon'], [])
+
+  return (
+    <CheckboxGroup
+      label="Fruits"
+      id="fruits-checkbox-group"
+      direction="column"
+      helpText={`Selected checkboxes: ${state.value.join(', ')}`}
+    >
+      {values.map((fruit, key) => (
+        <Checkbox state={state} value={fruit} label={fruit} />
+      ))}
+    </CheckboxGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[11].id}
+  title={tabToc.overview[11].value}
+  explanation="To implement a checkbox that controls the state of a set of checkboxes you'll need to combine the checkbox tri-state: checked, not checked, and indeterminate."
+>
 
 ```jsx live
 function Example() {
   function useTreeState({ values }) {
-    const { state: group, setState: setGroup } = useCheckboxState({ state: [] })
-    const { state: items, setState: setItems } = useCheckboxState({ state: [] })
+    const { value: group, setValue: setGroup } = useCheckboxState({
+      initialValue: [],
+    })
+    const { value: items, setValue: setItems } = useCheckboxState({
+      initialValue: [],
+    })
 
     // updates items when group is toggled
     React.useEffect(() => {
@@ -155,91 +399,134 @@ function Example() {
   const { group, setGroup, items, setItems } = useTreeState({ values })
 
   return (
-    <CheckboxGroup
-      label="Fruits"
-      id="fruits-checkbox-group"
-      orientation="vertical"
-    >
-      <Label>
-        <Checkbox state={{ state: group, setState: setGroup }} />
-        Select All (Group Control)
-      </Label>
+    <CheckboxGroup label="Fruits" id="fruits-checkbox-group" direction="column">
+      <Checkbox
+        label="Select All (Group Control)"
+        state={{ value: group, setValue: setGroup }}
+      />
       {values.map((fruit, key) => (
-        <Label key={key}>
-          <Checkbox
-            state={{ state: items, setState: setItems }}
-            value={fruit}
-          />
-          {fruit}
-        </Label>
+        <Checkbox
+          state={{ value: items, setValue: setItems }}
+          value={fruit}
+          label={fruit}
+        />
       ))}
     </CheckboxGroup>
   )
 }
 ```
 
+</PageSection>
+
   </Panel>
     <Panel id="codeReference">
 
-## Usage
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
 
-```jsx isStatic
-import { Checkbox, useCheckboxState } from '@vtex/admin-ui'
+```jsx
+import { Checkbox, CheckboxGroup, useCheckboxState } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useCheckboxState({ state: false })
+  const state = useCheckboxState({ initialValue: [] })
 
-  return <Checkbox aria-label="label" state={state} />
+  return (
+    <CheckboxGroup label="Group label">
+      <Checkbox label="Label" value="checkbox 1" state={state} />
+      <Checkbox label="Label" value="checkbox 2" state={state} />
+      <Checkbox label="Label" value="checkbox 3" state={state} />
+    </CheckboxGroup>
+  )
 }
 ```
 
-## Accessibility
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
+
+| Name      | Type                | Description                         | Required | Default |
+| --------- | ------------------- | ----------------------------------- | -------- | ------- |
+| id        | `string`            | Same as the HTML attribute          | 🚫       | -       |
+| label     | `string`            | Checkbox label                      | ✅       | -       |
+| value     | `string, or number` | Checkbox value                      | ✅       | -       |
+| disabled  | `boolean`           | Whether Checkbox is disabled or not | 🚫       | `false` |
+| checked   | `boolean`           | Same as the HTML checked attribute  | 🚫       | -       |
+| helpText  | `ReactNode`         | Help text                           | 🚫       | -       |
+| errorText | `ReactNode`         | Error text                          | 🚫       | -       |
+| error     | `boolean`           | Whether the filed is error or not   | 🚫       | `false` |
+| state     | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -       |
+| csx       | `StyleProp`         | Defines component styles            | 🚫       | `{}`    |
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+>
+
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| label     | `string`      | Group label                                | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| optional  | `boolean`     | Whether the field is optional or not       | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+>
+
+<PageSection
+  id={tabToc.codeReference[4].id}
+  title={tabToc.codeReference[4].value}
+  level="3"
+>
+
+| Name         | Type                              | Description                                                                                                           | Required | Default |
+| ------------ | ----------------------------------| ----------------------------------------------------------------------------------------------------------------------| -------- | ------- |
+| initialValue | `boolean, "indeterminate", any[]` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | ✅       | -       |
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[5].id}
+  title={tabToc.codeReference[5].value}
+  level="3"
+>
+
+| Name     | Type                              | Description                                                                                                           | Required | Default |
+| -------- | ----------------------------------| --------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| value    | `boolean, "indeterminate", any[]` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | -        | -       |
+| setValue | `SetStateAction< CheckboxState["value"] >`| Sets state                                                                                                            | -        | -       |
+
+
+</PageSection>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[6]?.id}
+  title={tabToc.codeReference[6]?.value}
+  direction="row"
+>
 
 - Checkbox has role `checkbox`.
 - When checked, Checkbox has `aria-checked` set to `true`.
 - When not checked, Checkbox has `aria-checked` set to `false`.
 - When partially checked, Checkbox has `aria-checked` set to `mixed`.
 
-### Best Practices
-
-- When using a standalone Checkbox you must provide `aria-label` to it:
-
-```jsx isStatic
-const state = useCheckboxState()
-
-<Checkbox state={state} aria-label="Meaningful label for Checkbox" />
-```
-
-## Props
-
-### Checkbox
-
-It also accepts all the props of the `<input type="checkbox" />` JSX element.
-
-| Name     | Type                | Description                         | Required | Default   |
-| -------- | ------------------- | ----------------------------------- | -------- | --------- |
-| disabled | `boolean`           | Whether Checkbox is disabled or not | 🚫       | `false`   |
-| value    | `string, or number` | Checkbox value                      | 🚫       | -         |
-| state    | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -         |
-| size     | `regular, or small` | Checkbox Size                       | 🚫       | `regular` |
-| csx      | `StyleProp`         | Defines component styles            | 🚫       | `{}`      |
-
-### useCheckboxState
-
-_params_
-
-| Name  | Type     | Description     | Required | Default    |
-| ----- | -------- | --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| state | `boolean | "indeterminate" | (string  | number)[]` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | ✅  | -   |
-
-### useCheckboxState
-
-_return_
-
-| Name     | Type                                                 | Description                                                                                                           | Required | Default |
-| -------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| state    | `boolean, "indeterminate", Array<string, or number>` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | -        | -       |
-| setState | `(value: SetStateAction<CheckboxState>) => void`     | Sets state                                                                                                            | -        | -       |
+</PageSection>
 
   </Panel>
     <Panel id="designReference">

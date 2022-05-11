@@ -1,59 +1,113 @@
-import { useEffect } from 'react'
-import type {
-  FilterItem,
-  Key,
-  GenericFilterStateReturn,
-} from './base-filter.state'
-import { useBaseFilterState } from './base-filter.state'
+import { useState, useCallback, useEffect } from 'react'
 
-export function useFilterState(props: UseFilterStateProps): UseFilterReturn {
-  const {
-    initialApplied,
-    onChange: onChangeCb = () => {},
-    ...otherProps
-  } = props
+import type { MenuState } from 'ariakit/menu'
+import { useMenuState } from 'ariakit/menu'
+import type { ComboboxState } from '../combobox/combobox.state'
+import { useComboboxState } from '../combobox/combobox.state'
 
-  const onChange = ({ selected }: { selected: Key[] }) => {
-    onChangeCb({ selected: selected?.length ? selected[0] : null })
-  }
+export function useFilterState<T extends FilterItem>(
+  props: UseFilterStateProps<T>
+): UseFilterStateReturn<T> {
+  const { items, label, initialApplied, baseId, onChange = () => {} } = props
 
-  const filterState = useBaseFilterState({
-    ...otherProps,
-    initialApplied: initialApplied ? [initialApplied] : [],
-    onChange,
-    selectionMode: 'single',
+  const [appliedKey, setAppliedKey] = useState(initialApplied || null)
+  const [appliedItem, setAppliedItem] = useState<T>()
+
+  const combobox = useComboboxState({
+    virtualFocus: false,
+    list: items,
+    getOptionValue: (item) => item.id,
   })
 
-  const {
-    selectedKeys,
-    appliedKeys = [],
-    appliedItems = [],
-    ...singleSelectState
-  } = filterState
-
-  // forces apply when one item is selected
   useEffect(() => {
-    filterState.onChange()
-  }, [selectedKeys[0]])
+    const initialItem = items.find((item) => item.id === initialApplied)
+
+    combobox.setSelectedItem(initialItem)
+    setAppliedItem(initialItem)
+  }, [])
+
+  const menu = useMenuState({ ...combobox, gutter: 4 })
+
+  const apply = useCallback(() => {
+    const selected = combobox.value
+
+    setAppliedKey(selected)
+    setAppliedItem(combobox.selectedItem)
+
+    onChange({ selected })
+    menu.hide()
+  }, [onChange])
+
+  const clear = useCallback(() => {
+    setAppliedKey(null)
+    setAppliedItem(undefined)
+
+    combobox.setValue('')
+    combobox.setSelectedItem(undefined)
+
+    onChange({ selected: null })
+    menu.hide()
+  }, [onChange])
+
+  useEffect(() => {
+    // auto applies whenever a new value is selected
+    if (combobox.selectedItem) {
+      apply()
+    }
+  }, [combobox.selectedItem])
+
+  useEffect(() => {
+    const isMenuClosed = !menu.mounted
+
+    if (isMenuClosed && combobox.value) {
+      // resets combobox
+      combobox.setValue('')
+      combobox.setSelectedItem(appliedItem)
+    }
+  }, [menu.mounted])
 
   return {
-    ...singleSelectState,
-    appliedItem: appliedItems[0] ?? null,
-    appliedKey: appliedKeys[0] ?? null,
+    menu,
+    combobox,
+    onClear: clear,
+    onChange: apply,
+    items,
+    appliedItem,
+    appliedKey,
+    label,
+    baseId,
   }
 }
 
-export interface UseFilterReturn extends GenericFilterStateReturn {
-  appliedItem: FilterItem | null
-  appliedKey: Key | null
+export interface FilterItem {
+  id: string
+  label: string
 }
 
-export interface UseFilterStateProps {
+export interface GenericFilterStateReturn<T> {
+  menu: MenuState<any>
+  onClear: () => void
+  onChange: () => void
+  label: string
+  items: T[]
+  combobox: ComboboxState<T>
+  baseId?: string
+}
+
+export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
+  appliedItem?: T | null
+  appliedKey: string | null
+}
+
+export interface UseFilterStateProps<T> {
   /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: Key | null }) => void
+  onChange?: ({ selected }: { selected: string | null }) => void
   /** The initial selected key. */
-  initialApplied?: Key
+  initialApplied?: string
   /** Filter button label. */
   label: string
-  items: FilterItem[]
+  /** Base for component and it's children id. */
+  baseId?: string
+  /** List of items to be showed on the list. */
+  items: T[]
 }

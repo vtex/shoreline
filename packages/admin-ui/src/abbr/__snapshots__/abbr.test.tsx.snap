@@ -6,10 +6,10 @@ exports[`Abbr should match snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 475;
+  font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
   line-height: 1.4285714286;
-  letter-spacing: -0.0009em;
+  letter-spacing: 0.002em;
 }
 
 <abbr
