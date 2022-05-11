@@ -74,7 +74,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
     state.layout.expand()
   }
 
-  const handleOnClick = (event: React.MouseEvent<any, MouseEvent>) => {
+  const handleOnClick = (event: React.MouseEvent<any>) => {
     handleSelection()
     handleExpansion()
     onClick?.(event)

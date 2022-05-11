@@ -34,9 +34,7 @@ export const ModalButton = forwardRef(function ModalButton(
 
   const { handleClose } = useModalContext()
 
-  const handleClick = (
-    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick(event)
 
     if (closeModalOnClick) {
