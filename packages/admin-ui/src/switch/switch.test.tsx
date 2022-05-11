@@ -24,6 +24,7 @@ describe('Switch tests', () => {
       <SwitchState>
         {(state) => (
           <Switch
+            id="switch"
             state={state}
             data-testid="switch"
             value="switch"
@@ -43,6 +44,7 @@ describe('Switch tests', () => {
       <SwitchState>
         {(state) => (
           <Switch
+            id="switch"
             state={state}
             value="toggle"
             aria-label="toggle"
@@ -63,6 +65,7 @@ describe('Switch tests', () => {
         <SwitchState>
           {(state) => (
             <Switch
+              id="switch"
               state={state}
               value="toggle"
               aria-label="toggle"
@@ -80,6 +83,7 @@ describe('Switch tests', () => {
         <SwitchState>
           {(state) => (
             <Switch
+              id="switch"
               state={state}
               aria-label="label3"
               value="switch3"
@@ -99,6 +103,7 @@ describe('Switch tests', () => {
         <SwitchState>
           {(state) => (
             <Switch
+              id="switch"
               state={state}
               aria-label="label3"
               value="switch3"
@@ -117,6 +122,7 @@ describe('Switch tests', () => {
         <SwitchState>
           {(state) => (
             <Switch
+              id="switch"
               state={state}
               aria-label="label2"
               label={label}
@@ -136,7 +142,13 @@ describe('Switch tests', () => {
       const { asFragment } = render(
         <SwitchState>
           {(state) => (
-            <Switch state={state} aria-label="label2" label={label} disabled />
+            <Switch
+              id="switch"
+              state={state}
+              aria-label="label2"
+              label={label}
+              disabled
+            />
           )}
         </SwitchState>
       )
