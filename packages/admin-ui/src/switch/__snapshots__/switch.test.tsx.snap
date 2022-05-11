@@ -2,7 +2,29 @@
 
 exports[`Switch tests all variants should match snapshot disabled 1`] = `
 <DocumentFragment>
-  .emotion-3 {
+  .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-4 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43,6 +65,15 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   margin-top: 0.125rem;
 }
 
+.emotion-1 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  cursor: pointer;
+}
+
 .emotion-0 {
   background: #B9B9B9;
   -webkit-appearance: none;
@@ -55,13 +86,6 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   border-radius: 6.25rem;
   height: 1.25rem;
   width: 2.25rem;
-}
-
-.emotion-0:disabled {
-  background: #E6E6E6;
-  border: 1px solid #747474;
-  color: #747474;
-  cursor: not-allowed;
 }
 
 .emotion-0:hover {
@@ -100,12 +124,6 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
 
 .emotion-0:checked {
   background: #38853C;
-}
-
-.emotion-0:checked:disabled {
-  cursor: not-allowed;
-  background: #E6E6E6;
-  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
@@ -154,11 +172,35 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   margin: 0.2rem;
 }
 
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:checked:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
+}
+
 
 
 .emotion-0:disabled:after {
   background: #747474;
   margin: 0.2rem;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
 }
 
 .emotion-0:after {
@@ -171,41 +213,33 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
   transition: transform .25s ease;
 }
 
-.emotion-1 {
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  color: #545454;
-}
-
 <div
-    class="emotion-3"
+    class="emotion-4"
   >
-    <input
-      aria-checked="false"
-      aria-disabled="true"
-      aria-label="label2"
-      class="emotion-0"
-      disabled=""
-      role="switch"
-      style="pointer-events: none;"
-      type="checkbox"
-    />
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
-      <label
-        class="emotion-1"
+      <input
+        aria-checked="false"
+        aria-disabled="true"
+        aria-label="label2"
+        class="emotion-0"
+        disabled=""
+        id="switch"
+        role="switch"
+        style="pointer-events: none;"
+        type="checkbox"
+      />
+      <div
+        class="emotion-2"
       >
-        Label
-      </label>
+        <label
+          class="emotion-1"
+          for="switch"
+        >
+          Label
+        </label>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -213,7 +247,29 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
 
 exports[`Switch tests all variants should match snapshot label only 1`] = `
 <DocumentFragment>
-  .emotion-3 {
+  .emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-4 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -260,12 +316,7 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   font-size: 0.875rem;
   line-height: 1.4285714286;
   letter-spacing: 0.002em;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  color: #000000;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -280,13 +331,6 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   border-radius: 6.25rem;
   height: 1.25rem;
   width: 2.25rem;
-}
-
-.emotion-0:disabled {
-  background: #E6E6E6;
-  border: 1px solid #747474;
-  color: #747474;
-  cursor: not-allowed;
 }
 
 .emotion-0:hover {
@@ -325,12 +369,6 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
 
 .emotion-0:checked {
   background: #38853C;
-}
-
-.emotion-0:checked:disabled {
-  cursor: not-allowed;
-  background: #E6E6E6;
-  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
@@ -379,11 +417,35 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
   margin: 0.2rem;
 }
 
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:checked:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
+}
+
 
 
 .emotion-0:disabled:after {
   background: #747474;
   margin: 0.2rem;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
 }
 
 .emotion-0:after {
@@ -397,24 +459,30 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
 }
 
 <div
-    class="emotion-3"
+    class="emotion-4"
   >
-    <input
-      aria-checked="false"
-      aria-label="toggle"
-      class="emotion-0"
-      role="switch"
-      type="checkbox"
-      value="toggle"
-    />
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
-      <label
-        class="emotion-1"
+      <input
+        aria-checked="false"
+        aria-label="toggle"
+        class="emotion-0"
+        id="switch"
+        role="switch"
+        type="checkbox"
+        value="toggle"
+      />
+      <div
+        class="emotion-2"
       >
-        Label
-      </label>
+        <label
+          class="emotion-1"
+          for="switch"
+        >
+          Label
+        </label>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -422,7 +490,29 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
 
 exports[`Switch tests all variants should match snapshot with error text 1`] = `
 <DocumentFragment>
-  .emotion-5 {
+  .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-6 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -469,12 +559,7 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   font-size: 0.875rem;
   line-height: 1.4285714286;
   letter-spacing: 0.002em;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  color: #000000;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -489,13 +574,6 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   border-radius: 6.25rem;
   height: 1.25rem;
   width: 2.25rem;
-}
-
-.emotion-0:disabled {
-  background: #E6E6E6;
-  border: 1px solid #747474;
-  color: #747474;
-  cursor: not-allowed;
 }
 
 .emotion-0:hover {
@@ -534,12 +612,6 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
 
 .emotion-0:checked {
   background: #38853C;
-}
-
-.emotion-0:checked:disabled {
-  cursor: not-allowed;
-  background: #E6E6E6;
-  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
@@ -588,11 +660,35 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
   margin: 0.2rem;
 }
 
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:checked:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
+}
+
 
 
 .emotion-0:disabled:after {
   background: #747474;
   margin: 0.2rem;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
 }
 
 .emotion-0:after {
@@ -637,32 +733,38 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-6"
   >
-    <input
-      aria-checked="false"
-      aria-label="label3"
-      class="emotion-0"
-      role="switch"
-      type="checkbox"
-      value="switch3"
-    />
     <div
-      class="emotion-4"
+      class="emotion-5"
     >
-      <label
-        class="emotion-1"
-      >
-        Label
-      </label>
+      <input
+        aria-checked="false"
+        aria-label="label3"
+        class="emotion-0"
+        id="switch"
+        role="switch"
+        type="checkbox"
+        value="switch3"
+      />
       <div
-        class="emotion-3"
+        class="emotion-4"
       >
-        <span
-          class="emotion-2"
+        <label
+          class="emotion-1"
+          for="switch"
         >
-          Error text
-        </span>
+          Label
+        </label>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-2"
+          >
+            Error text
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -671,7 +773,29 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
 
 exports[`Switch tests all variants should match snapshot with help and error texts 1`] = `
 <DocumentFragment>
-  .emotion-6 {
+  .emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-7 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -718,12 +842,7 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   font-size: 0.875rem;
   line-height: 1.4285714286;
   letter-spacing: 0.002em;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  color: #000000;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -738,13 +857,6 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   border-radius: 6.25rem;
   height: 1.25rem;
   width: 2.25rem;
-}
-
-.emotion-0:disabled {
-  background: #E6E6E6;
-  border: 1px solid #747474;
-  color: #747474;
-  cursor: not-allowed;
 }
 
 .emotion-0:hover {
@@ -783,12 +895,6 @@ exports[`Switch tests all variants should match snapshot with help and error tex
 
 .emotion-0:checked {
   background: #38853C;
-}
-
-.emotion-0:checked:disabled {
-  cursor: not-allowed;
-  background: #E6E6E6;
-  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
@@ -837,11 +943,35 @@ exports[`Switch tests all variants should match snapshot with help and error tex
   margin: 0.2rem;
 }
 
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:checked:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
+}
+
 
 
 .emotion-0:disabled:after {
   background: #747474;
   margin: 0.2rem;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
 }
 
 .emotion-0:after {
@@ -895,37 +1025,43 @@ exports[`Switch tests all variants should match snapshot with help and error tex
 }
 
 <div
-    class="emotion-6"
+    class="emotion-7"
   >
-    <input
-      aria-checked="true"
-      aria-label="label2"
-      checked=""
-      class="emotion-0"
-      role="switch"
-      type="checkbox"
-    />
     <div
-      class="emotion-5"
+      class="emotion-6"
     >
-      <label
-        class="emotion-1"
-      >
-        Label
-      </label>
+      <input
+        aria-checked="true"
+        aria-label="label2"
+        checked=""
+        class="emotion-0"
+        id="switch"
+        role="switch"
+        type="checkbox"
+      />
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
-        <span
-          class="emotion-2"
+        <label
+          class="emotion-1"
+          for="switch"
         >
-          Help text
-        </span>
-        <span
-          class="emotion-3"
+          Label
+        </label>
+        <div
+          class="emotion-4"
         >
-          Error text
-        </span>
+          <span
+            class="emotion-2"
+          >
+            Help text
+          </span>
+          <span
+            class="emotion-3"
+          >
+            Error text
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -934,7 +1070,29 @@ exports[`Switch tests all variants should match snapshot with help and error tex
 
 exports[`Switch tests all variants should match snapshot with help text 1`] = `
 <DocumentFragment>
-  .emotion-5 {
+  .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-6 >*:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -981,12 +1139,7 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   font-size: 0.875rem;
   line-height: 1.4285714286;
   letter-spacing: 0.002em;
-  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
-  font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
-  color: #000000;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -1001,13 +1154,6 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   border-radius: 6.25rem;
   height: 1.25rem;
   width: 2.25rem;
-}
-
-.emotion-0:disabled {
-  background: #E6E6E6;
-  border: 1px solid #747474;
-  color: #747474;
-  cursor: not-allowed;
 }
 
 .emotion-0:hover {
@@ -1046,12 +1192,6 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
 
 .emotion-0:checked {
   background: #38853C;
-}
-
-.emotion-0:checked:disabled {
-  cursor: not-allowed;
-  background: #E6E6E6;
-  border: 1px solid #747474;
 }
 
 .emotion-0:checked:hover {
@@ -1100,11 +1240,35 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
   margin: 0.2rem;
 }
 
+.emotion-0:checked:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:checked:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
+}
+
 
 
 .emotion-0:disabled:after {
   background: #747474;
   margin: 0.2rem;
+}
+
+.emotion-0:disabled {
+  background: #E6E6E6;
+  border: 1px solid #747474;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.emotion-0:disabled +div label {
+  color: #747474;
+  cursor: not-allowed;
 }
 
 .emotion-0:after {
@@ -1149,32 +1313,38 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
 }
 
 <div
-    class="emotion-5"
+    class="emotion-6"
   >
-    <input
-      aria-checked="false"
-      aria-label="label3"
-      class="emotion-0"
-      role="switch"
-      type="checkbox"
-      value="switch3"
-    />
     <div
-      class="emotion-4"
+      class="emotion-5"
     >
-      <label
-        class="emotion-1"
-      >
-        Label
-      </label>
+      <input
+        aria-checked="false"
+        aria-label="label3"
+        class="emotion-0"
+        id="switch"
+        role="switch"
+        type="checkbox"
+        value="switch3"
+      />
       <div
-        class="emotion-3"
+        class="emotion-4"
       >
-        <span
-          class="emotion-2"
+        <label
+          class="emotion-1"
+          for="switch"
         >
-          Help text
-        </span>
+          Label
+        </label>
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-2"
+          >
+            Help text
+          </span>
+        </div>
       </div>
     </div>
   </div>

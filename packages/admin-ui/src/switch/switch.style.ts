@@ -1,23 +1,20 @@
-import { focusVisible } from '@vtex/admin-ui-core'
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { focusVisible, style } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
-const css = (csx: StyleProp) => csx
-
 // State styles
-const active = css({ bg: '$form.controlActive' })
+const active = style({ bg: '$form.controlActive' })
 
-const hoverInactive = css({ bg: '$form.controlInactiveHover' })
-const hoverActive = css({
+const hoverInactive = style({ bg: '$form.controlInactiveHover' })
+const hoverActive = style({
   bg: '$form.controlActiveHover',
 })
 
 // Element styles
-const trackDefault = css({
+const trackDefault = style({
   bg: '$form.neutralInactive',
 })
 
-const thumbDimensions = css({
+const thumbDimensions = style({
   '&:after': {
     width: '0.75rem',
     height: '0.75rem',
@@ -38,7 +35,7 @@ const thumbDimensions = css({
   },
 })
 
-export const thumb = css({
+export const thumb = style({
   bg: (theme) => get(theme, 'fg.form.neutralChecked'),
   content: '""',
   display: 'block',
@@ -47,7 +44,21 @@ export const thumb = css({
   transition: 'transform .25s ease',
 })
 
-export const track = css({
+const disabled = style({
+  ':disabled': {
+    bg: '$disabled',
+    border: '$disabled',
+    color: '$disabled',
+    cursor: 'not-allowed',
+
+    '+ div label': {
+      color: '$disabled',
+      cursor: 'not-allowed',
+    },
+  },
+})
+
+export const track = style({
   ...trackDefault,
   appearance: 'none',
   position: 'relative',
@@ -56,13 +67,6 @@ export const track = css({
   borderRadius: '6.25rem',
   height: '1.25rem',
   width: '2.25rem',
-
-  ':disabled': {
-    bg: '$disabled',
-    border: '$disabled',
-    color: '$disabled',
-    cursor: 'not-allowed',
-  },
 
   ':hover': hoverInactive,
 
@@ -74,16 +78,12 @@ export const track = css({
   }),
 
   ...thumbDimensions,
+
+  ...disabled,
 })
 
-export const checked = css({
+export const checked = style({
   ...active,
-
-  ':disabled': {
-    cursor: 'not-allowed',
-    bg: '$disabled',
-    border: '$disabled',
-  },
 
   ':hover': hoverActive,
 
@@ -93,4 +93,10 @@ export const checked = css({
   }),
 
   ...thumbDimensions,
+
+  ...disabled,
+})
+
+export const label = style({
+  cursor: 'pointer',
 })

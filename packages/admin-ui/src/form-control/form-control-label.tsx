@@ -5,7 +5,7 @@ import { useFormControlContext } from './context'
 import { useMessageFormatter } from '../i18n'
 
 import { messages } from './form-control.i18n'
-import { createComponent, useElement } from '..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 export const FormControlLabel = createComponent<
   'label',
