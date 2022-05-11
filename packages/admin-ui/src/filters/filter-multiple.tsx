@@ -1,6 +1,6 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import { Checkbox } from '../components/Checkbox'
+import { Checkbox } from '../checkbox'
 import { BaseFilter } from './filter-base'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
@@ -55,10 +55,11 @@ export function FilterMultiple<T extends FilterItem>(
           id={`${baseId ?? ''}-item-${item.id}`}
         >
           <Checkbox
+            id={item.id}
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
-            readOnly
+            aria-readonly="true"
           />
           {item.label}
         </ComboboxItem>

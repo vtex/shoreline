@@ -334,7 +334,7 @@ describe('CheckboxGroup tests', () => {
     await waitFor(() =>
       expect(
         error.getElementsByTagName('input')[0].getAttribute('aria-checked')
-      ).toBe('false')
+      ).toBe('true')
     )
 
     expect(await screen.findByText('Error message')).not.toBeNull()
@@ -414,7 +414,7 @@ describe('CheckboxGroup tests', () => {
     await waitFor(() =>
       expect(
         error.getElementsByTagName('input')[0].getAttribute('aria-checked')
-      ).toBe('false')
+      ).toBe('true')
     )
 
     expect(await screen.findByText('Error message')).not.toBeNull()
