@@ -59,14 +59,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-3:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3:hover {
@@ -246,14 +246,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   z-index: 999;
 }
 
-.emotion-19:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-19:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
+}
+
+.emotion-19:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-11 {
@@ -293,14 +293,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -350,14 +350,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-.emotion-0:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-0:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
+}
+
+.emotion-0:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0:hover:not(:disabled) {
@@ -387,14 +387,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   position: relative;
 }
 
-.emotion-0:checked:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-0:checked:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-0:checked:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0:checked:hover {
@@ -522,14 +522,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-14:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-14:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-14:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-17 {
@@ -563,14 +563,14 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-17:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-17:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-17:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 <div

@@ -56,14 +56,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -143,14 +143,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-8:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0 {
@@ -350,14 +350,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -437,14 +437,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-8:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0 {
@@ -659,14 +659,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -746,14 +746,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-8:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0 {
@@ -962,14 +962,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -1049,14 +1049,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-8:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0 {
@@ -1271,14 +1271,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-4:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-4:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-3 {
@@ -1358,14 +1358,14 @@ exports[`NumericStepper tests should match snapshot 1`] = `
   color: #747474;
 }
 
-.emotion-8:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-8:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-8:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-0 {
