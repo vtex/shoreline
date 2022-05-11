@@ -379,11 +379,14 @@ one primary button per page/modal.
 
 </BestPractices>
 
-<BestPractices>
+</PageSection>
 
-<Practice
-## Recommendations
-Follow the set of recommendations below to make the best decisions when designing sleek, clear pages.
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+  explanation="Follow the set of recommendations below to make the best decisions when designing sleek, clear pages."
+>
+
 
 ### Components
 **When should I use the *link* component instead of the *button*?**
@@ -391,7 +394,7 @@ Follow the set of recommendations below to make the best decisions when designin
  - When the action only changes the address of the page.
 
  **Every rule has its exception:**
-Choose the button component when it makes sense to place the action in a *group of buttons* or in a context where a button is typically used - such as in the Page Header component.
+ Choose the button component when it makes sense to place the action in a *group of buttons* or in a context where a button is typically used - such as in the Page Header component.
 
 **When should I use the *menu* component instead of a *group of buttons*?**
  - When the actions are rarely used, yet need to be available.
@@ -424,7 +427,7 @@ Choose the button component when it makes sense to place the action in a *group 
  - **Normal:** all tertiary actions and most secondary actions should be normal sized. Apply it to actions that are repeated multiple times on a screen or that are not frequently used.
  - **Large:** most primary actions should be large sized. Apply it to actions that should have the most prominence on a screen, such as those in the Page Header component.
 
- ### Position
+### Position
 
 **Where should an action component be *positioned*, when next to other actions?**
  Considering left-to-right interfaces, there are three common guidelines related to how actions should be positioned:
@@ -497,12 +500,6 @@ So we have consistency throughout the actions that buttons represent, we suggest
 | Search | Buscar  | Buscar  |
 | Save   | Salvar  | Guardar |
 | Delete | Excluir | Excluir |
-
->
-
-</Practice>
-
-</BestPractices>
 
 
 </PageSection>
