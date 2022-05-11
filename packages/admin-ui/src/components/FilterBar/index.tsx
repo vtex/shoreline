@@ -4,14 +4,9 @@ import { IconCopy, IconTrash, IconPlus } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 import { Inline } from '../../inline'
 import { Button } from '../../button'
-import {
-  Content,
-  Statement,
-  Footer,
-  StatementDropdown,
-  StatementDropdownProps,
-} from './components'
-import {
+import type { StatementDropdownProps } from './components'
+import { Content, Statement, Footer, StatementDropdown } from './components'
+import type {
   FilterBarProps,
   UseFilterBarStateParams,
   UseFilterBarStateReturn,

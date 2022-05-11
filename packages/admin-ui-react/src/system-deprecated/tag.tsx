@@ -62,10 +62,9 @@ function _tag<T extends React.ElementType, Props>(
  * // polymorphism
  * <tag.button as={ExternalLibButton} csx={{ bg: 'pink' }} >🦄 this is magic</tag.button>
  */
-export const tag = _tag as typeof _tag &
-  {
-    [Tag in DOMElements]: AdminUITagElement<Tag, {}>
-  }
+export const tag = _tag as typeof _tag & {
+  [Tag in DOMElements]: AdminUITagElement<Tag, {}>
+}
 
 domElements.forEach((t) => {
   tag[t] = _tag(t)

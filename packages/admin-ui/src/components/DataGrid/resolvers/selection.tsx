@@ -11,7 +11,7 @@ export function selectionResolver<T>() {
       return (
         <SelectionTreeRoot
           disabled={context.status === 'loading'}
-          onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
+          onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }
         />
@@ -24,7 +24,7 @@ export function selectionResolver<T>() {
         <SelectionTreeItem
           value={resolver?.mapId(item)}
           disabled={context.status === 'loading'}
-          onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
+          onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }
         />
