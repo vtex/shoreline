@@ -16,8 +16,7 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "scripts": {
-    "jscodeshift": "jscodeshift",
-    "test": "tsdx test"
+    "jscodeshift": "jscodeshift"
   },
   "peerDependencies": {
     "@vtex/admin-ui": "0.x",
