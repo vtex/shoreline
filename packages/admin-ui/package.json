@@ -22,10 +22,6 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "test": "tsdx test --runInBand",
-    "test:ci": "tsdx test"
-  },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
@@ -69,7 +65,9 @@
     "use-debounce": "^7.0.0"
   },
   "preconstruct": {
-    "entrypoints": ["index.ts"]
+    "entrypoints": [
+      "index.ts"
+    ]
   },
   "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }

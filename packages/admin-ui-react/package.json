@@ -24,10 +24,6 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
-  },
   "peerDependencies": {
     "@emotion/css": ">=11",
     "@emotion/react": ">=11",

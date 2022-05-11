@@ -25,10 +25,6 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
-  },
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8"
