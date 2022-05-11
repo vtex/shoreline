@@ -1,9 +1,8 @@
-import type { CheckboxProps as ReakitProps } from 'reakit/Checkbox'
-import {
-  Checkbox as ReakitCheckbox,
+import type {
+  CheckboxProps as ReakitProps,
   CheckboxStateReturn,
-  useCheckboxState,
 } from 'reakit/Checkbox'
+import { Checkbox as ReakitCheckbox, useCheckboxState } from 'reakit/Checkbox'
 import { jsx } from '@vtex/admin-ui-react'
 
 import * as style from './Checkbox.style'

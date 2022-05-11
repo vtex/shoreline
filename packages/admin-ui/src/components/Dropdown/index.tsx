@@ -1,6 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React from 'react'
-import { useSelect, UseSelectReturnValue } from 'downshift'
+import type { UseSelectReturnValue } from 'downshift'
+import { useSelect } from 'downshift'
 import { IconCaretDown } from '@vtex/phosphor-icons'
 import { Box } from '../Box'
 import { forwardRef } from '@vtex/admin-ui-util'
