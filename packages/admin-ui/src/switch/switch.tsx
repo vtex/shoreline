@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import { useCheckboxState } from 'reakit/Checkbox'
 import { createComponent } from '@vtex/admin-ui-react'
 
-import { useCheckboxState } from '../components/Checkbox'
 import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'

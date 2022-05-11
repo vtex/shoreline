@@ -35,14 +35,14 @@ exports[`Menu should match snapshot hidden 1`] = `
   color: #747474;
 }
 
-.emotion-3:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-2 {
@@ -151,14 +151,14 @@ exports[`Menu should match snapshot hidden 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-5:hover {
@@ -352,14 +352,14 @@ exports[`Menu should match snapshot visible 1`] = `
   color: #747474;
 }
 
-.emotion-3:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-3:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-3:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-2 {
@@ -450,14 +450,14 @@ exports[`Menu should match snapshot visible 1`] = `
   margin-right: 0.5rem;
 }
 
-.emotion-5:focus:not([data-focus-visible-added]) {
-  outline: none;
-  box-shadow: none;
-}
-
 .emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
 }
 
 .emotion-5:hover {
