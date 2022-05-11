@@ -40,15 +40,23 @@ export function listBoxItem(tone: 'main' | 'critical', selected = false) {
   }
 }
 
-export function focusVisible(tone: Tone): StyleProp {
+export function focusVisible(
+  tone: Tone,
+  styleProps?: {
+    focus?: StyleProp
+    polyfill?: StyleProp
+  }
+): StyleProp {
   return {
+    ':focus': {
+      outline: 'none',
+      boxShadow: ring(tone),
+      ...styleProps?.focus,
+    },
     ':focus:not([data-focus-visible-added])': {
       outline: 'none',
       boxShadow: 'none',
-    },
-    ':focus': {
-      outline: 'none',
-      boxShadow: `ring.${tone}`,
+      ...styleProps?.polyfill,
     },
   }
 }

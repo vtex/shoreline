@@ -56,7 +56,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               <Button
                 variant="secondary"
                 type="reset"
-                size="small"
+                size="normal"
                 onClick={() => resetForm()}
                 disabled={!dirty}
               >
@@ -69,7 +69,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size="small">
+              <Button type="submit" size="normal">
                 Save
               </Button>
               <Text
@@ -81,7 +81,7 @@ export const Playground: Story<FormikToggleProps> = (args) => {
               </Text>
               <Button
                 variant="secondary"
-                size="small"
+                size="normal"
                 onClick={() =>
                   setCurrentInitialValues({ [args.name]: !values.value })
                 }

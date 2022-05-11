@@ -1,0 +1,387 @@
+---
+title: Switch
+path: /switch/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'standalone',
+      value: 'Standalone',
+      level: 3,
+    },
+    {
+      id: 'with-help-text',
+      value: 'With help text',
+      level: 3,
+    },
+    {
+      id: 'with-error-text',
+      value: 'With error text',
+      level: 3,
+    },
+    {
+      id: 'with-help-and-error-texts',
+      value: 'With help and error texts',
+      level: 3,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 3,
+    },
+    {
+      id: 'checked-states',
+      value: 'Checked States',
+      level: 3,
+    },
+    {
+      id: 'multiple-switches',
+      value: 'Multiple Switches',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'state',
+      value: 'State',
+      level: 2,
+    },
+    {
+      id: 'checked-and-onchange',
+      value: 'checked and onChange',
+      level: 3,
+    },
+    {
+      id: 'useswitchstate',
+      value: 'useSwitchState',
+      level: 3,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: "Do's",
+      level: 2,
+    },
+  ],
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Switch is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once."
+/>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
+
+When using a standalone `Switch` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      helpText="Help text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      error
+      errorText="Error text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      error
+      errorText="Error text"
+      helpText="Help text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+>
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Switch
+        label="Label"
+        aria-label="label"
+        error
+        errorText="Error text"
+        helpText="Help text"
+        onChange={() => setChecked(!checked)}
+        disabled
+      />
+      <Switch
+        label="Label"
+        aria-label="label"
+        error
+        checked
+        errorText="Error text"
+        helpText="Help text"
+        onChange={() => setChecked(!checked)}
+        disabled
+      />
+    </>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+  explanation="There are two checked states: `checked`, and `not checked`."
+>
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Set>
+        <Switch aria-label="label-1" label="Label" />
+        <Switch aria-label="label-disabled-1" disabled label="Label" />
+      </Set>
+      <Set>
+        <Switch aria-label="label-2" checked label="Label" />
+        <Switch aria-label="label-disabled-2" checked disabled label="Label" />
+      </Set>
+    </>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[8].id}
+  title={tabToc.overview[8].value}
+  explanation="Oftentimes we need to render multiple switches and store the checked values in an array. It can be easily done using our `useSwitchState` hook, you just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`."
+>
+
+```jsx live
+function Example() {
+  const switchState = useSwitchState({ state: [] })
+
+  return (
+    <>
+      <Text>Selected switches: {switchState.state.join(', ')}</Text>
+      <Switch state={switchState} value="switch1" label="Label" />
+      <Switch state={switchState} value="switch2" label="Label" />
+      <Switch state={switchState} value="switch3" label="Label" />
+    </>
+  )
+}
+```
+
+</PageSection>
+</PageSection>
+</PageSection>
+
+</Panel>
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx isStatic
+import { Switch } from '@vtex/admin-ui'
+```
+
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+  explanation="There are two ways of handling the state in the Switch."
+>
+
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  explanation="You can use the properties checked and onChange to handle if the Switch is checked and its values have changed."
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+      label="Label"
+    />
+  )
+}
+```
+
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+  explanation="For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the state property and also define a value for each Switch."
+>
+
+```jsx live
+function Example() {
+  const switchState = useSwitchState({ state: false })
+
+  return <Switch state={switchState} label="Label" />
+}
+```
+
+</PageSection >
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[4].id}
+  title={tabToc.codeReference[4].value}
+>
+
+| Name      | Type             | Description                                                                                                                                   | Required | Default |
+| --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| label     | `ReactNode`      | The component's label                                                                                                                         | ✅       | -       |
+| helpText  | `ReactNode`      | Help text                                                                                                                                     | 🚫       | -       |
+| errorText | `ReactNode`      | Error text                                                                                                                                    | 🚫       | -       |
+| error     | `boolean`        | Whether the switch contains an error or not                                                                                                   | 🚫       | -       |
+| checked   | `boolean`        | Switch's checked state. If present, it is used instead of state                                                                               | 🚫       | -       |
+| disabled  | `boolean`        | Defines if the Switch is disabled or not                                                                                                      | 🚫       | -       |
+| value     | `string, number` | Switch's value is going to be used when multiple switches share the same state. Checking a switch with a value will add it to the state array | 🚫       | -       |
+| state     | `SwtichState`    | Return of `useSwitchState` hook. You can also provide these props from your own state logic.                                                  | 🚫       | -       |
+| csx       | `StyleProp`      | Defines component styles                                                                                                                      | 🚫       | `{}`    |
+
+> The Switch component also supports all HTML props from the `<input />` HTML tag.
+
+</PageSection >
+</PageSection >
+</Panel>
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+1. Instant response that triggers a state, and require no further confirmation.
+2. List of independent items that represent different features or behaviors.
+3. Multually exclusive states, usually on/off type of decision.
+4. Use titles to group related controls.
+5. Choose words that are aligned with our ecommerce vocabulary.
+6. Write the current state of the control, to improve accessibility.
+7. Add descriptions if the control is critical, or complex.
+8. Lists of controls should be vertical for better scannability.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</PageSection>
+</Panel>
+</Page>
