@@ -8,7 +8,7 @@ import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { RadioButton } from './radio-button'
 import * as style from './radio.style'
-import { Message } from '../form-group'
+import { FormControl, FormControlMessage } from '../form-control'
 
 export const Radio = createComponent<typeof RadioButton, RadioOptions>(
   (props) => {
@@ -17,15 +17,17 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <Inline hSpace="$m" vSpace="">
-        <RadioButton {...radioButtonProps} id={baseId} />
-        <Stack space="$s">
-          <Label htmlFor={baseId} csx={style.label}>
-            {label}
-          </Label>
-          <Message helpText={helpText} />
-        </Stack>
-      </Inline>
+      <FormControl>
+        <Inline hSpace="$m" vSpace="">
+          <RadioButton {...radioButtonProps} id={baseId} />
+          <Stack space="$s">
+            <Label htmlFor={baseId} csx={style.label}>
+              {label}
+            </Label>
+            <FormControlMessage helpText={helpText} />
+          </Stack>
+        </Inline>
+      </FormControl>
     )
   }
 )
