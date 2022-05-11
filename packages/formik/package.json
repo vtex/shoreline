@@ -23,10 +23,6 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
-  },
   "peerDependencies": {
     "@vtex/admin-ui": ">=0",
     "formik": ">=2",
@@ -39,7 +35,6 @@
   "devDependencies": {
     "@vtex/admin-ui": "^0.127.1",
     "formik": "^2.2.6",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
     "react-intl": "^5.8.1",
     "yup": "^0.32.8"
   }
