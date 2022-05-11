@@ -1,6 +1,6 @@
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { Combobox } from 'ariakit/combobox'
+import { useCombobox } from 'ariakit/combobox'
 import type { ComboboxState } from '../combobox'
 import { Search } from '..'
 import { messages } from './filter.i18n'
@@ -11,24 +11,29 @@ export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
     const { state, id, ...htmlProps } = props
     const formatMessage = useMessageFormatter(messages.searchBox)
 
+    // it seems like search doesnt currently accept html props
+    const comboboxProps: any = useCombobox({
+      state,
+      id,
+    } as any)
+
     return useElement('div', {
       ...htmlProps,
       children: (
-        <Combobox id={id} state={state}>
-          {() => (
-            <Search
-              state={{
-                value: state.value,
-                debouncedValue: state.deferredValue,
-                setValue: state.setValue,
-                loading: state.status === 'loading',
-                showClear: state.value !== '',
-                clear: () => state.setValue(''),
-              }}
-              placeholder={formatMessage('searchPlaceholder')}
-            />
-          )}
-        </Combobox>
+        <Search
+          {...comboboxProps}
+          placeholder={formatMessage('searchPlaceholder')}
+          state={{
+            value: state.value,
+            debouncedValue: state.deferredValue,
+            setValue: state.setValue,
+            loading: state.status === 'loading',
+            showClear: state.value !== '',
+            clear: () => state.setValue(''),
+            // test
+            onSubmit: () => {},
+          }}
+        />
       ),
     })
   }
