@@ -32,21 +32,48 @@ Every form you build will have the same initial structure. All components of thi
 :::info
 You must always set the initial value of the fields that the form will contain for the correct functioning of the package and as recommended by the formik.
 :::
+
 ## Common Props
 
 The props of all components of `@vtex/admin-ui` are extended, except for the field's value controls, such as `value` and `state` since they will be controlled by formik. Some properties are added which are common to every component of `@vtex/admin-formik`. These are presented below.
 
 ### name
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> name</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> string</code>
-<span style={{fontSize: '14.4px', color: '#BF2600'}}> required</span>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  name
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  string
+</code>
+<span style={{ fontSize: '14.4px', color: '#BF2600' }}> required</span>
 
 ---
 
 All components of this package have a mandatory property called `name` in their API. This property receives a string that corresponds to the field name of the form that is controlled by this component. This attribute is used by the formik to figure out which field to update (more details in the [Formik documentation](https://formik.org/docs/overview#the-gist)).
 
-<br/>
+<br />
 
 **Example**
 
@@ -78,8 +105,34 @@ function Example() {
 
 ### id
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> id</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> string</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  id
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  string
+</code>
 
 ---
 
@@ -87,8 +140,34 @@ All components of this package can receive a property called `id` in their API. 
 
 ### label
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> label</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> string</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  label
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  string
+</code>
 
 ---
 
@@ -96,8 +175,34 @@ All components of this package can receive a property called `label` in their AP
 
 ### error
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> error</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> boolean</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  error
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  boolean
+</code>
 
 ---
 
@@ -111,8 +216,34 @@ Components of the `admin-ui` that already had the `error` property continue to h
 
 ### errorMessage
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> errorMessage</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}> string</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  errorMessage
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  {' '}
+  string
+</code>
 
 ---
 
@@ -120,14 +251,38 @@ All components of this package can receive a property called `errorMessage` in t
 
 ### formatMessage
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}>formatMessage</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}>function</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  formatMessage
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  function
+</code>
 
 ---
 
 All components of this package can receive a property called `formatMessage` in their API. This property allows you to format your error messages, either by your own functions or using libraries like [react-intl](https://formatjs.io/docs/getting-started/installation/). That way you can format your messages dynamically. A very common use case is for text localization. More details on this case are given in the section [Localization of error messages](#localization-of-error-messages).
 
-<br/>
+<br />
 
 **Example**
 
@@ -200,14 +355,38 @@ function Example() {
 
 ### onChange
 
-<code style={{fontSize: '14.4px', color: '#0747A6', backgroundColor: '#DEEBFF', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}>onChange</code>
-<code style={{fontSize: '14.4px', color: '#5E6C84', backgroundColor: '#F4F5F7', borderRadius: '3px', display: 'inline-block', marginRight: '0.8em', padding: '0 0.2em'}}>function</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#0747A6',
+    backgroundColor: '#DEEBFF',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  onChange
+</code>
+<code
+  style={{
+    fontSize: '14.4px',
+    color: '#5E6C84',
+    backgroundColor: '#F4F5F7',
+    borderRadius: '3px',
+    display: 'inline-block',
+    marginRight: '0.8em',
+    padding: '0 0.2em',
+  }}
+>
+  function
+</code>
 
 ---
 
 All components of this package can receive a property called `onChange` in their API. Components of the `admin-ui` that already had the `onChange` property as mandatory, now have it as an option. Those who did not have it, now have it. This property is not to be used to control the present value in the formik, but only to enable actions to take place in changing the value, whether the field originates from the component or is made externally to it, by the formik.
 
-<br/>
+<br />
 
 **Example**
 
@@ -585,7 +764,44 @@ function ExampleComplete() {
 ### FormikNumericStepper
 
 ```jsx isFormik
-<FormikNumericStepper name="numericStepperValue" label="Label" />
+function Example() {
+  const schemaValidationError = Yup.object({
+    value: Yup.number()
+      .equals([2], 'This field must have a value of 2')
+      .required('This field is required.'),
+  })
+
+  const handleSubmit = (_values, { setSubmitting }) => {
+    setSubmitting(false) // Lock the form to not be modified
+  }
+
+  return (
+    <Formik
+      enableReinitialize
+      initialValues={{ value: 2 }}
+      validationSchema={schemaValidationError}
+      onSubmit={handleSubmit}
+    >
+      {({ values }) => (
+        <Form id="form-admin-formik-input">
+          <Box csx={{ width: 300 }}>
+            <FormikNumericStepper
+              name="value"
+              label="Label"
+              helperText="Change de value to different of 2 to appear the error"
+            />
+          </Box>
+          <Set>
+            <Text variant="title2">Current value in formik :</Text>
+            <Text tone="secondary">
+              <pre>{JSON.stringify(values)}</pre>
+            </Text>
+          </Set>
+        </Form>
+      )}
+    </Formik>
+  )
+}
 ```
 
 ### FormikToggle

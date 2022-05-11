@@ -243,8 +243,7 @@ describe('Numeric Stepper tests', () => {
     expect(await screen.findByText('Error message')).not.toBeNull()
   })
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('error limit in forms', async () => {
+  it('error limit in forms', async () => {
     const handleSubmit = jest.fn()
 
     const maxValue = 5
@@ -254,11 +253,11 @@ describe('Numeric Stepper tests', () => {
 
     render(
       <Formik
-        initialValues={{ value: 0 }}
+        initialValues={{ value: 6 }}
         validationSchema={schemaValidationError}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, setFieldTouched }) => (
+        {() => (
           <Form id="form-admin-formik-input">
             <FormikNumericStepper
               name="value"
@@ -267,24 +266,12 @@ describe('Numeric Stepper tests', () => {
               id="numeric-field-1"
               maxValue={maxValue}
             />
-            <Button
-              children="Change Value"
-              onClick={() => {
-                setFieldValue('value', maxValue + 2)
-                setFieldTouched('value', true)
-              }}
-            />
           </Form>
         )}
       </Formik>
     )
 
-    const input = screen.getByTestId('numeric-field')
-
-    userEvent.click(screen.getByRole('button', { name: 'Change Value' }))
-    expect(input).toHaveValue(maxValue)
-
-    expect(await screen.findByText('Error message')).not.toBeNull()
+    expect(screen.findByText('Error message')).not.toBeNull()
   })
 
   it('error message in forms with intl', async () => {
