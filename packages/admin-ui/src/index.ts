@@ -171,8 +171,9 @@ export {
   IconWarning,
   IconWarningCircle,
   IconCheckCircle,
-  IconProps,
   IconCube,
   IconShareNetwork,
   IconStack,
 } from '@vtex/phosphor-icons'
+
+export type { IconProps } from '@vtex/phosphor-icons'

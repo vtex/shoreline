@@ -3,16 +3,29 @@ import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
 import { Group as AriaCheckboxGroup } from 'ariakit/group'
 
-import { FormGroup } from '../form-group'
+import { Stack } from '../stack'
+
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlMessage,
+} from '../form-control'
 
 export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
   (props) => {
-    const { children, ...remainingProps } = props
+    const { children, label, helpText, errorText, error, optional, direction } =
+      props
 
     return (
-      <FormGroup componentGroup={AriaCheckboxGroup} {...remainingProps}>
-        {children}
-      </FormGroup>
+      <FormControl error={error} optional={optional}>
+        <FormControlLabel as="span">{label}</FormControlLabel>
+        <AriaCheckboxGroup>
+          <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
+            {children}
+          </Stack>
+        </AriaCheckboxGroup>
+        <FormControlMessage helpText={helpText} errorText={errorText} />
+      </FormControl>
     )
   }
 )

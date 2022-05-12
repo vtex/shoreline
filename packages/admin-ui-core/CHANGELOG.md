@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.9.1...@vtex/admin-ui-core@0.10.0) (2022-05-12)
+
+### Bug Fixes
+
+- **switch:** design tokens docs ([f6503d7](https://github.com/vtex/admin-ui/commit/f6503d79c055c4039f861beaa488f19dac842e44))
+
+### Features
+
+- **checkbox:** create new checkbox declaration structure and style ([c62542c](https://github.com/vtex/admin-ui/commit/c62542cd318b83ddc9bcac6510d264f1af745b47))
+- **checkbox:** create the new checkbox ([32dd999](https://github.com/vtex/admin-ui/commit/32dd999200cfaecedfb7505f047d024f9e9eb2f6))
+- **switch:** new colors ([b3b92a8](https://github.com/vtex/admin-ui/commit/b3b92a8fb48127857d5637aa44d587cb67127bd1))
+
 ## [0.9.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.9.0...@vtex/admin-ui-core@0.9.1) (2022-05-10)
 
 ### Bug Fixes

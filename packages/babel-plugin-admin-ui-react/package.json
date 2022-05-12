@@ -1,10 +1,10 @@
 {
   "name": "@vtex/babel-plugin-admin-ui-react",
   "license": "MIT",
-  "version": "0.1.2",
-  "main": "dist/index.js",
-  "module": "dist/babel-plugin-admin-ui-react.esm.js",
-  "typings": "dist/index.d.ts",
+  "version": "0.2.0",
+  "main": "dist/vtex-babel-plugin-admin-ui-react.cjs.js",
+  "module": "dist/vtex-babel-plugin-admin-ui-react.esm.js",
+  "types": "dist/vtex-babel-plugin-admin-ui-react.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -23,13 +23,6 @@
   },
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
-  },
-  "scripts": {
-    "dev": "tsdx watch --verbose --noClean",
-    "build": "tsdx build --tsconfig tsconfig.json",
-    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
   },
   "devDependencies": {
     "babel-plugin-tester": "^10.1.0",

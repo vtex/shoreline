@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.128.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.127.1...@vtex/admin-ui@0.128.0) (2022-05-12)
+
+### Bug Fixes
+
+- **switch:** spacing between label and help/error texts ([740ab27](https://github.com/vtex/admin-ui/commit/740ab27f3c744e1050fc48f47b7fb2bedd8ce8ec))
+
+### Features
+
+- create form control component and its inner components ([d9d6a62](https://github.com/vtex/admin-ui/commit/d9d6a625cb4db5fe88db575f971f3d81baef2f24))
+- **checkbox:** create new checkbox declaration structure and style ([c62542c](https://github.com/vtex/admin-ui/commit/c62542cd318b83ddc9bcac6510d264f1af745b47))
+- **checkbox:** create the new checkbox ([32dd999](https://github.com/vtex/admin-ui/commit/32dd999200cfaecedfb7505f047d024f9e9eb2f6))
+- **checkbox-group:** create the checkbox-group container ([5733842](https://github.com/vtex/admin-ui/commit/5733842ae1ecf3255be842faae29533ad8e3ae8e))
+- **radio-group:** add RadioGroup component review ([cf7f09c](https://github.com/vtex/admin-ui/commit/cf7f09cc3f8dd4daf16e16f4d3d343124e6b69a5))
+- **switch:** add messages ([4692280](https://github.com/vtex/admin-ui/commit/4692280a8b019ec824e045e3941d37ce18e85056))
+- **switch:** custom focus ring ([e6ab78b](https://github.com/vtex/admin-ui/commit/e6ab78bfab365d48f6adcf20aab3e21b3fb88f9d))
+- **switch:** inactive styles ([70e5510](https://github.com/vtex/admin-ui/commit/70e55108487b402b248303dc4bcc1ff40f6257e2))
+- **switch:** new colors ([b3b92a8](https://github.com/vtex/admin-ui/commit/b3b92a8fb48127857d5637aa44d587cb67127bd1))
+
+### Reverts
+
+- **preconstruct:** rollback to the previous admin-ui version ([efe5139](https://github.com/vtex/admin-ui/commit/efe5139a262fb4074ef6148c4185f5e9e718e2f4))
+
 ## [0.127.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.127.0...@vtex/admin-ui@0.127.1) (2022-05-10)
 
 ### Bug Fixes

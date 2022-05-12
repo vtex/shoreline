@@ -179,7 +179,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
       </div>
     </div>
   </button>
-  .emotion-13 {
+  .emotion-15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -194,7 +194,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   align-items: center;
 }
 
-.emotion-12 {
+.emotion-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -218,11 +218,11 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.emotion-12 svg {
+.emotion-14 svg {
   margin-right: 0.25rem;
 }
 
-.emotion-19 {
+.emotion-21 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
   font-size: 0.875rem;
@@ -246,24 +246,24 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   z-index: 999;
 }
 
-.emotion-19:focus {
+.emotion-21:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F4F4F4,0rem 0rem 0rem 0.1875rem #B9B9B9;
 }
 
-.emotion-19:focus:not([data-focus-visible-added]) {
+.emotion-21:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-11 {
+.emotion-13 {
   margin-top: 0.25rem;
   padding: 1rem 1.25rem;
   max-height: 312px;
   overflow-y: auto;
 }
 
-.emotion-10 {
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -281,11 +281,11 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   justify-content: unset;
 }
 
-.emotion-10 >*:not(:first-child) {
+.emotion-12 >*:not(:first-child) {
   margin-top: 1rem;
 }
 
-.emotion-4 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -293,14 +293,36 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.emotion-4:focus {
+.emotion-5:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
-.emotion-4:focus:not([data-focus-visible-added]) {
+.emotion-5:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-4 >*:not(:first-child) {
+  margin-top: 0.5rem;
 }
 
 .emotion-3 {
@@ -473,7 +495,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.emotion-18 {
+.emotion-20 {
   border-top: none;
   padding: 1rem 1.25rem;
   padding-top: 0rem;
@@ -487,11 +509,11 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   justify-content: end;
 }
 
-.emotion-18 button:not(:first-child) {
+.emotion-20 button:not(:first-child) {
   margin-left: 0.75rem;
 }
 
-.emotion-14 {
+.emotion-16 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
@@ -507,32 +529,32 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   height: 2.25rem;
 }
 
-.emotion-14:hover {
+.emotion-16:hover {
   color: #20408C;
   background: #F1F4FC;
 }
 
-.emotion-14:active {
+.emotion-16:active {
   color: #172F66;
   background: #DDE5F7;
 }
 
-.emotion-14:disabled {
+.emotion-16:disabled {
   background: transparent;
   color: #747474;
 }
 
-.emotion-14:focus {
+.emotion-16:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
-.emotion-14:focus:not([data-focus-visible-added]) {
+.emotion-16:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
-.emotion-17 {
+.emotion-19 {
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 500;
   font-size: 0.875rem;
@@ -548,38 +570,38 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
   height: 2.25rem;
 }
 
-.emotion-17:hover {
+.emotion-19:hover {
   color: #FFFFFF;
   background: #20408C;
 }
 
-.emotion-17:active {
+.emotion-19:active {
   color: #FFFFFF;
   background: #172F66;
 }
 
-.emotion-17:disabled {
+.emotion-19:disabled {
   background: #E6E6E6;
   color: #747474;
 }
 
-.emotion-17:focus {
+.emotion-19:focus {
   outline: none;
   box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
 }
 
-.emotion-17:focus:not([data-focus-visible-added]) {
+.emotion-19:focus:not([data-focus-visible-added]) {
   outline: none;
   box-shadow: none;
 }
 
 <div
     role="presentation"
-    style="position: absolute; left: 0px; top: 0px; margin: 0px;"
+    style="position: fixed; --popover-overflow-padding: 8px;"
   >
     <div
       aria-orientation="vertical"
-      class="emotion-19"
+      class="emotion-21"
       data-dialog=""
       hidden=""
       id="filterMultipleTest-popover"
@@ -588,10 +610,10 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
       tabindex="0"
     >
       <span
-        class="emotion-11"
+        class="emotion-13"
       >
         <div
-          class="emotion-10"
+          class="emotion-12"
           hidden=""
           id="filterMultipleTest-combobox-list"
           role="listbox"
@@ -599,7 +621,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
         >
           <div
             aria-selected="false"
-            class="emotion-4"
+            class="emotion-5"
             data-command=""
             data-composite-hover=""
             id="filterMultipleTest-item-#1"
@@ -607,29 +629,33 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
             tabindex="0"
           >
             <div
-              class="emotion-3"
+              class="emotion-4"
             >
-              <input
-                aria-readonly="true"
-                class="emotion-0"
-                data-command=""
-                id="#1"
-                type="checkbox"
-              />
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
-                <label
-                  class="emotion-1"
-                  for="#1"
+                <input
+                  aria-readonly="true"
+                  class="emotion-0"
+                  data-command=""
+                  id="#1"
+                  type="checkbox"
                 />
+                <div
+                  class="emotion-2"
+                >
+                  <label
+                    class="emotion-1"
+                    for="#1"
+                  />
+                </div>
               </div>
             </div>
             Full
           </div>
           <div
             aria-selected="false"
-            class="emotion-4"
+            class="emotion-5"
             data-command=""
             data-composite-hover=""
             id="filterMultipleTest-item-#2"
@@ -637,22 +663,26 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
             tabindex="0"
           >
             <div
-              class="emotion-3"
+              class="emotion-4"
             >
-              <input
-                aria-readonly="true"
-                class="emotion-0"
-                data-command=""
-                id="#2"
-                type="checkbox"
-              />
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
-                <label
-                  class="emotion-1"
-                  for="#2"
+                <input
+                  aria-readonly="true"
+                  class="emotion-0"
+                  data-command=""
+                  id="#2"
+                  type="checkbox"
                 />
+                <div
+                  class="emotion-2"
+                >
+                  <label
+                    class="emotion-1"
+                    for="#2"
+                  />
+                </div>
               </div>
             </div>
             Empty
@@ -660,31 +690,31 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
         </div>
       </span>
       <div
-        class="emotion-18"
+        class="emotion-20"
       >
         <button
-          class="emotion-14"
+          class="emotion-16"
           type="button"
         >
           <div
-            class="emotion-13"
+            class="emotion-15"
           >
             <div
-              class="emotion-12"
+              class="emotion-14"
             >
               Clear
             </div>
           </div>
         </button>
         <button
-          class="emotion-17"
+          class="emotion-19"
           type="button"
         >
           <div
-            class="emotion-13"
+            class="emotion-15"
           >
             <div
-              class="emotion-12"
+              class="emotion-14"
             >
               Apply
             </div>

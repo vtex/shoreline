@@ -1,0 +1,37 @@
+{
+  "name": "@vtex/admin-ui-form",
+  "description": "Admin UI form library",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "dist/vtex-admin-ui-form.cjs.js",
+  "module": "dist/vtex-admin-ui-form.esm.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "directory": "packages/admin-ui-form",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "peerDependencies": {
+    "@vtex/admin-ui": "0.x",
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
+  },
+  "dependencies": {
+    "react-hook-form": "7.31.1",
+    "tiny-invariant": "1.2.0"
+  }
+}

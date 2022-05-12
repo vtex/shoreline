@@ -1,5 +1,5 @@
-import type { MenuInitialState } from 'reakit/Menu'
-import { useMenuState as useReakitMenu, MenuStateReturn } from 'reakit/Menu'
+import type { MenuInitialState, MenuStateReturn } from 'reakit/Menu'
+import { useMenuState as useReakitMenu } from 'reakit/Menu'
 
 function useMenuState(initialState?: MenuInitialState | undefined) {
   const menuState = useReakitMenu({
@@ -10,4 +10,5 @@ function useMenuState(initialState?: MenuInitialState | undefined) {
   return menuState
 }
 
-export { useMenuState, MenuStateReturn }
+export { useMenuState }
+export type { MenuStateReturn }

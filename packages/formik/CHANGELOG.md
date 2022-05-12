@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.35...@vtex/admin-formik@0.5.0) (2022-05-12)
+
+### Bug Fixes
+
+- **radio:** update formik with radio changes ([d6aff04](https://github.com/vtex/admin-ui/commit/d6aff04d683e8fee3418d3cf9ad3c8796eb699ba))
+
 ## [0.4.35](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.4.34...@vtex/admin-formik@0.4.35) (2022-05-10)
 
 **Note:** Version bump only for package @vtex/admin-formik

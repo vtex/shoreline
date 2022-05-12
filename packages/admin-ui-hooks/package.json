@@ -2,10 +2,10 @@
   "name": "@vtex/admin-ui-hooks",
   "description": "admin-ui shared hooks",
   "license": "MIT",
-  "version": "0.2.2",
-  "main": "dist/index.js",
-  "module": "dist/admin-ui-hooks.esm.js",
-  "typings": "dist/index.d.ts",
+  "version": "0.3.0",
+  "main": "dist/vtex-admin-ui-hooks.cjs.js",
+  "module": "dist/vtex-admin-ui-hooks.esm.js",
+  "types": "dist/vtex-admin-ui-hooks.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -25,19 +25,13 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "dev": "tsdx watch --verbose --noClean",
-    "build": "tsdx build --tsconfig tsconfig.json",
-    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
-  },
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.2.2",
+    "@vtex/admin-ui-util": "^0.3.0",
+    "tiny-invariant": "^1.2.0",
     "use-debounce": "^7.0.0"
   }
 }

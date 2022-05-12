@@ -4,7 +4,12 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
-import { FormGroup } from '../form-group'
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlMessage,
+} from '../form-control'
+import { Stack } from '../stack'
 
 export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
   (props) => {
@@ -23,19 +28,15 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
     return useElement('fieldset', {
       ...restProps,
       children: (
-        <FormGroup
-          label={label}
-          labelAs="legend"
-          state={state}
-          direction={direction}
-          componentGroup={AriakitRadioGroup}
-          helpText={helpText}
-          error={error}
-          errorText={errorText}
-          optional={optional}
-        >
-          {children}
-        </FormGroup>
+        <FormControl error={error} optional={optional}>
+          <FormControlLabel as="legend">{label}</FormControlLabel>
+          <AriakitRadioGroup state={state}>
+            <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
+              {children}
+            </Stack>
+          </AriakitRadioGroup>
+          <FormControlMessage helpText={helpText} errorText={errorText} />
+        </FormControl>
       ),
     })
   }
@@ -76,4 +77,5 @@ export interface RadioGroupOptions {
   optional?: boolean
 }
 
-export { useRadioState, RadioState } from 'ariakit/radio'
+export { useRadioState } from 'ariakit/radio'
+export type { RadioState } from 'ariakit/radio'

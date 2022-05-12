@@ -1,10 +1,10 @@
 {
   "name": "@vtex/eslint-plugin-admin-ui",
   "license": "MIT",
-  "version": "0.3.35",
-  "main": "dist/index.js",
-  "module": "dist/eslint-plugin-admin-ui.esm.js",
-  "typings": "dist/index.d.ts",
+  "version": "0.4.0",
+  "main": "dist/vtex-eslint-plugin-admin-ui.cjs.js",
+  "module": "dist/vtex-eslint-plugin-admin-ui.esm.js",
+  "types": "dist/vtex-eslint-plugin-admin-ui.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -24,18 +24,10 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "dev": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "test:ci": "tsdx test --silent"
-  },
   "devDependencies": {
     "@types/eslint": "^7.28.0",
     "@types/estree": "^0.0.47",
-    "@vtex/admin-ui": "^0.127.1",
+    "@vtex/admin-ui": "^0.128.0",
     "eslint": "^7.30.0"
   }
 }
