@@ -2,7 +2,12 @@ import '@testing-library/jest-dom/extend-expect'
 import React, { useRef } from 'react'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import type { RenderOptions } from '@testing-library/react'
-import { render as baseRender } from '@testing-library/react'
+import {
+  render as baseRender,
+  waitFor,
+  screen,
+  fireEvent,
+} from '@testing-library/react'
 import { createSystem } from '@vtex/admin-ui-react'
 import type { ReactElement } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
@@ -59,5 +64,14 @@ function jestMatchMedia() {
   })
 }
 
-export * from '@testing-library/react'
-export { render, withState, axe, jestMatchMedia, renderHook, act }
+export {
+  render,
+  withState,
+  axe,
+  jestMatchMedia,
+  renderHook,
+  act,
+  waitFor,
+  screen,
+  fireEvent,
+}

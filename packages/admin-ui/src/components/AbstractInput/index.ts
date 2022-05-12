@@ -1,6 +1,4 @@
 export * from './Password'
-export {
-  AbstractInput,
-  AbstractInputProps,
-  AbstractInputOwnProps,
-} from './Text'
+export { AbstractInput } from './Text'
+
+export type { AbstractInputProps, AbstractInputOwnProps } from './Text'

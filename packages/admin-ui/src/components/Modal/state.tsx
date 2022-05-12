@@ -1,8 +1,5 @@
-import {
-  useDialogState,
-  DialogStateReturn,
-  DialogInitialState,
-} from 'reakit/Dialog'
+import type { DialogStateReturn, DialogInitialState } from 'reakit/Dialog'
+import { useDialogState } from 'reakit/Dialog'
 
 function useModalState(
   initialState?: Omit<DialogInitialState, 'animated'> | undefined
@@ -15,8 +12,8 @@ function useModalState(
   return dialogState
 }
 
-export {
-  useModalState,
+export { useModalState }
+export type {
   DialogStateReturn as ModalStateReturn,
   DialogInitialState as ModalInitialState,
 }

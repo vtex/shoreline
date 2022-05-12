@@ -2,9 +2,9 @@
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
   "version": "0.9.1",
-  "main": "dist/index.js",
-  "module": "dist/admin-ui-core.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/vtex-admin-ui-core.cjs.js",
+  "module": "dist/vtex-admin-ui-core.esm.js",
+  "types": "dist/vtex-admin-ui-core.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -23,13 +23,6 @@
   },
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
-  },
-  "scripts": {
-    "dev": "tsdx watch --verbose --noClean",
-    "build": "tsdx build --tsconfig tsconfig.json",
-    "build:fast": "tsdx build --tsconfig tsconfig.json --transpileOnly --format esm,cjs",
-    "test": "tsdx test",
-    "test:ci": "tsdx test --silent"
   },
   "peerDependencies": {
     "@emotion/css": ">=11",

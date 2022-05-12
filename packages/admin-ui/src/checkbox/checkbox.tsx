@@ -60,4 +60,5 @@ export interface CheckboxOptions extends CheckboxInputOptions {
 
 export type CheckboxProps = React.ComponentPropsWithRef<typeof Checkbox>
 
-export { useCheckboxState, CheckboxState, CheckboxStateReturn } from './state'
+export { useCheckboxState } from './state'
+export type { CheckboxState, CheckboxStateReturn } from './state'
