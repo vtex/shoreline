@@ -17,7 +17,7 @@ export const FormControlLabel = createComponent<
   const formatMessage = useMessageFormatter(messages.formControl)
 
   return useElement('label', {
-    baseStyle: { color: '$secondary', text: '$detail' },
+    baseStyle: { color: '$secondary', text: '$body' },
     children: (
       <>
         {children} {optional ? `(${formatMessage('optional')})` : ''}

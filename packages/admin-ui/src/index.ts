@@ -12,6 +12,7 @@ export * from './stack'
 export * from './radio'
 export * from './switch'
 export * from './checkbox'
+export * from './text-input'
 
 export * from './deprecated-set'
 
