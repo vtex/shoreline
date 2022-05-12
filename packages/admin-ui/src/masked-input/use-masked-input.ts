@@ -92,11 +92,14 @@ export function useMaskedInput(
         }
       }
 
-      const positionShift =
-        start + (deleteCausesNoChanges ? 1 + charsToSkipAfterDelete : 0)
+      const positionsToAdd = deleteCausesNoChanges
+        ? charsToSkipAfterDelete + 1
+        : 0
 
-      input.selectionEnd = positionShift
-      input.selectionStart = positionShift
+      const cursorPosition = start + positionsToAdd
+
+      input.selectionEnd = cursorPosition
+      input.selectionStart = cursorPosition
     }
   })
 
