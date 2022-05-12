@@ -91,6 +91,11 @@ export const tabToc = {
       value: 'Variants',
       level: 4,
     },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 5,
+    },
   ],
 }
 
@@ -401,6 +406,7 @@ one primary button per page/modal.
 <PageSection
   id={tabToc.designReference[3].id}
   title={tabToc.designReference[3].value}
+  explanation="Learn more about how to choose between different action components."
 >
 
 **When should I use the *link* component instead of the *button*?**
@@ -417,8 +423,11 @@ one primary button per page/modal.
 
 </PageSection>
 
-
-### Variants
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+  explanation="Learn more about the different variants of action components."
+>
 
 **When should an action component have a *primary*, *secondary*, or *tertiary* prominence?**
  The prominence of an action component should vary depending on how frequently it is used, so this answer depends on research applied to your design’s context. Even so, there are patterns you can follow:
@@ -444,7 +453,13 @@ one primary button per page/modal.
  - **Normal:** all tertiary actions and most secondary actions should be normal sized. Apply it to actions that are repeated multiple times on a screen or that are not frequently used.
  - **Large:** most primary actions should be large sized. Apply it to actions that should have the most prominence on a screen, such as those in the Page Header component.
 
-### Position
+ </PageSection>
+
+ <PageSection
+  id={tabToc.designReference[5].id}
+  title={tabToc.designReference[5].value}
+  explanation="Learn more about the different positions of action components within a page."
+>
 
 **Where should an action component be *positioned*, when next to other actions?**
  Considering left-to-right interfaces, there are three common guidelines related to how actions should be positioned:
@@ -465,6 +480,7 @@ one primary button per page/modal.
  - **Right-aligned:** when the action is at the end of the form and will submit the content.
  - **Left-aligned:** when the action will only modify part of the form’s content.
 
+ </PageSection>
 
 ### Behavior
 
