@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.128.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.0...@vtex/admin-ui@0.128.1) (2022-05-12)
+
+### Features
+
+- **date-field:** improve the mask ux ([a1de066](https://github.com/vtex/admin-ui/commit/a1de06682e5040f19f0fec97eb1ee4a32852a62d))
+- **date-mask:** implement mask hook ([72bd581](https://github.com/vtex/admin-ui/commit/72bd581a5de9ce3c0955d072e65f4331eeb69158))
+
 # [0.128.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.127.1...@vtex/admin-ui@0.128.0) (2022-05-12)
 
 ### Bug Fixes
