@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { Checkbox } from '../components/Checkbox'
 import { BaseFilter } from './filter-base'
 import { ComboboxItem } from '../combobox/combobox-item'
 import { FilterSeachbox } from './filter-searchbox'
 import { MultipleItemsLabel } from './MultipleItemsLabel'
-import { Box } from '..'
+import { Box, Checkbox } from '..'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 import type { FilterMultipleProps } from '.'

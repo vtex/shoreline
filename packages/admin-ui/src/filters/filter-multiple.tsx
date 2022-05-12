@@ -35,7 +35,7 @@ export function FilterMultiple<T>(props: FilterMultipleProps<T>) {
           id={`${baseId ?? ''}-item-${getOptionId(item)}`}
         >
           <Checkbox
-            id={item.id}
+            id={getOptionId(item)}
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
             csx={{ marginRight: '$s' }}
