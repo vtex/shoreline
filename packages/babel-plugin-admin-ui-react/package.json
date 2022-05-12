@@ -1,7 +1,7 @@
 {
   "name": "@vtex/babel-plugin-admin-ui-react",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/vtex-babel-plugin-admin-ui-react.cjs.js",
   "module": "dist/vtex-babel-plugin-admin-ui-react.esm.js",
   "types": "dist/vtex-babel-plugin-admin-ui-react.cjs.d.ts",
