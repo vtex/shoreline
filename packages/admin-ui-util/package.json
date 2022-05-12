@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-util",
   "license": "MIT",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "main": "dist/vtex-admin-ui-util.cjs.js",
   "module": "dist/vtex-admin-ui-util.esm.js",
   "types": "dist/vtex-admin-ui-util.cjs.d.ts",

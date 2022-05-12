@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-formik",
-  "version": "0.4.35",
+  "version": "0.5.0",
   "main": "dist/vtex-admin-formik.cjs.js",
   "module": "dist/vtex-admin-formik.esm.js",
   "types": "dist/vtex-admin-formik.cjs.d.ts",
@@ -33,7 +33,7 @@
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.127.1",
+    "@vtex/admin-ui": "^0.128.0",
     "formik": "^2.2.6",
     "react-intl": "^5.8.1",
     "yup": "^0.32.8"
