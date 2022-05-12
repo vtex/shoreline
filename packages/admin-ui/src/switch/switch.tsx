@@ -2,37 +2,49 @@ import React from 'react'
 import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
 import { useCheckboxState } from 'reakit/Checkbox'
 import { createComponent } from '@vtex/admin-ui-react'
+import { unstable_useId as useId } from 'reakit/Id'
 
 import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'
 import { Label } from '../components/Label'
-import { SwitchMessage } from './message'
 import type { SwitchOptions } from './types'
-import { Text } from '../components/Text'
+import { FormControl, FormControlMessage } from '../form-control'
+
+import * as style from './switch.style'
 
 export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
   (props) => {
-    const { state, helpText, errorText, label, error, disabled, ...htmlProps } =
-      props
+    const {
+      id,
+      state,
+      helpText,
+      errorText,
+      label,
+      error,
+      disabled,
+      ...htmlProps
+    } = props
 
-    const hasError = !!(error && errorText)
-    const hasMessage = !!(hasError || helpText)
+    const { id: baseId } = useId({ id })
 
     return (
-      <Inline hSpace="$m" vSpace="">
-        <SwitchButton state={state} disabled={disabled} {...htmlProps} />
-        <Stack space="$s">
-          {label && (
-            <Text as={Label} tone={disabled ? 'secondary' : 'primary'}>
+      <FormControl error={error}>
+        <Inline hSpace="$m" vSpace="">
+          <SwitchButton
+            id={baseId}
+            state={state}
+            disabled={disabled}
+            {...htmlProps}
+          />
+          <Stack space="$s">
+            <Label htmlFor={baseId} csx={style.label}>
               {label}
-            </Text>
-          )}
-          {hasMessage && (
-            <SwitchMessage helpText={helpText} errorText={errorText} />
-          )}
-        </Stack>
-      </Inline>
+            </Label>
+            <FormControlMessage helpText={helpText} errorText={errorText} />
+          </Stack>
+        </Inline>
+      </FormControl>
     )
   }
 )
