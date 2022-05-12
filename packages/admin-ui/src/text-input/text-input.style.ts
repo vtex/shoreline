@@ -2,6 +2,7 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export const container = style({
   display: 'flex',
+  width: '100%',
   alignItems: 'center',
   text: '$body',
   border: '$form.neutral',

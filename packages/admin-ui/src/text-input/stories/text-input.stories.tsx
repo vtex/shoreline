@@ -13,7 +13,7 @@ export default {
 export const Uncontrolled = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <TextInput />
+      <TextInput label="Uncontrolled" />
     </Stack>
   )
 }
@@ -23,8 +23,12 @@ export const Controlled = () => {
 
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
-      state: {value}
+      <TextInput
+        label="Controlled"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        helpText={<>State: {value}</>}
+      />
     </Stack>
   )
 }
@@ -32,11 +36,12 @@ export const Controlled = () => {
 export const Terms = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <TextInput prefix="https://" />
-      <TextInput suffix=".com.br" />
-      <TextInput prefix="https://" suffix=".com.br" />
-      <TextInput prefix={<IconCalendarBlank />} />
+      <TextInput label="URL" prefix="https://" />
+      <TextInput label="URL" suffix=".com.br" />
+      <TextInput label="URL" prefix="https://" suffix=".com.br" />
+      <TextInput label="Date" prefix={<IconCalendarBlank />} />
       <TextInput
+        label="With action"
         suffix={
           <Button variant="tertiary" bleedY bleedX>
             Action
@@ -50,9 +55,15 @@ export const Terms = () => {
 export const UIStates = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
-      <TextInput />
-      <TextInput error />
-      <TextInput disabled />
+      <TextInput label="Without error" />
+      <TextInput
+        label="With Error"
+        id="error-input"
+        errorText="Error text"
+        helpText="help text"
+        error
+      />
+      <TextInput label="disabled" disabled />
     </Stack>
   )
 }
