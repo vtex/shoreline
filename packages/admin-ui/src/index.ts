@@ -3,8 +3,10 @@ export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
 
-export * from './center'
+export * from './next'
 export * from './experimental'
+
+export * from './center'
 export * from './inline'
 export * from './bleed'
 export * from './button'
@@ -12,7 +14,6 @@ export * from './stack'
 export * from './radio'
 export * from './switch'
 export * from './checkbox'
-export * from './text-input'
 
 export * from './deprecated-set'
 
