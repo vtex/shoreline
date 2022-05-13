@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.128.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.1...@vtex/admin-ui@0.128.2) (2022-05-13)
+
+### Features
+
+- **text-input:** use with form-control ([33a2acb](https://github.com/vtex/admin-ui/commit/33a2acbcfb4d53507e73db89107769ffc4657acb))
+- **textfield:** review component ([1d4eaca](https://github.com/vtex/admin-ui/commit/1d4eacabcab26d9eb265ed834dd1c9bb37c19993))
+
 ## [0.128.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.0...@vtex/admin-ui@0.128.1) (2022-05-12)
 
 ### Features

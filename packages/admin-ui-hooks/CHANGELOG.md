@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.3.0...@vtex/admin-ui-hooks@0.3.1) (2022-05-13)
+
+### Features
+
+- **text-input:** use with form-control ([33a2acb](https://github.com/vtex/admin-ui/commit/33a2acbcfb4d53507e73db89107769ffc4657acb))
+
 # [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.2.2...@vtex/admin-ui-hooks@0.3.0) (2022-05-12)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks
