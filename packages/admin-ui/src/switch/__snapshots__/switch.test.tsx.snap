@@ -21,7 +21,7 @@ exports[`Switch tests all variants should match snapshot disabled 1`] = `
 }
 
 .emotion-4 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-3 {
@@ -266,7 +266,7 @@ exports[`Switch tests all variants should match snapshot label only 1`] = `
 }
 
 .emotion-4 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-3 {
@@ -509,7 +509,7 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
 }
 
 .emotion-6 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-5 {
@@ -761,6 +761,7 @@ exports[`Switch tests all variants should match snapshot with error text 1`] = `
         >
           <span
             class="emotion-2"
+            role="alert"
           >
             Error text
           </span>
@@ -792,7 +793,7 @@ exports[`Switch tests all variants should match snapshot with help and error tex
 }
 
 .emotion-7 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-6 {
@@ -1058,6 +1059,7 @@ exports[`Switch tests all variants should match snapshot with help and error tex
           </span>
           <span
             class="emotion-3"
+            role="alert"
           >
             Error text
           </span>
@@ -1089,7 +1091,7 @@ exports[`Switch tests all variants should match snapshot with help text 1`] = `
 }
 
 .emotion-6 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-5 {

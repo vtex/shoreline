@@ -22,7 +22,7 @@ export function FormControlMessage(props: FormControlMessageProps) {
         </Text>
       ) : null}
       {hasError ? (
-        <Text variant="detail" tone="critical">
+        <Text variant="detail" tone="critical" role="alert">
           {errorText}
         </Text>
       ) : null}

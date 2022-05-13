@@ -21,7 +21,7 @@ exports[`FormControl should match snapshot 1`] = `
 }
 
 .emotion-5 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-0 {
@@ -310,6 +310,7 @@ exports[`FormControl should match snapshot 1`] = `
       </span>
       <span
         class="emotion-12"
+        role="alert"
       >
         Error Text
       </span>
