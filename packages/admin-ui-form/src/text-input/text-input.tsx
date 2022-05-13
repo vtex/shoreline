@@ -1,33 +1,61 @@
 import React from 'react'
-import type { TextInputProps as InputProps } from '@vtex/admin-ui'
-import { TextInput as Input } from '@vtex/admin-ui'
+import type { TextInputProps as AdminUIInputProps } from '@vtex/admin-ui'
+import { TextInput as AdminUIInput } from '@vtex/admin-ui'
 
 import type { FormState, RegisterOptions } from '../form'
+import { hasError, getErrorText, useFieldDx } from '../util'
 
+/**
+ * Admin UI TextInput controlled by useFormState
+ * @example
+ * const form = useFormState()
+ *
+ * <TextInput name="required-name" state={form} />
+ */
 export function TextInput(props: TextInputProps) {
   const { state, name = '', validation, ...rest } = props
+  const { register } = state
 
-  const {
-    register,
-    formState: { errors },
-  } = state
-
-  const hasError = !!errors[name]
-  const errorText = errors?.[name]?.message
+  useFieldDx(props)
 
   return (
-    <Input
-      error={hasError}
-      errorText={errorText}
+    <AdminUIInput
+      error={hasError(state, name)}
+      errorText={getErrorText(state, name)}
       {...register(name, validation)}
       {...rest}
     />
   )
 }
 
-interface TextInputProps
-  extends Omit<InputProps, 'name' | 'error' | 'errorText' | 'required'> {
+type InputHiddenProps =
+  | 'name'
+  | 'error'
+  | 'errorText'
+  | 'required'
+  | 'onChange'
+  | 'onBlur'
+  | 'maxLength'
+  | 'minLength'
+  | 'max'
+  | 'min'
+  | 'pattern'
+  | 'disabled'
+  | 'value'
+
+type InheritedProps = Omit<AdminUIInputProps, InputHiddenProps>
+
+export interface TextInputProps extends InheritedProps {
+  /**
+   * Input required state
+   */
   name: string
+  /**
+   * Form state
+   */
   state: FormState
+  /**
+   * Field validation
+   */
   validation?: RegisterOptions
 }
