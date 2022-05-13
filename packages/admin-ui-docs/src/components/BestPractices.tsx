@@ -50,7 +50,6 @@ export function Practice(props: PracticeProps) {
 
 const styles = {
   practiceContainer: style({
-    marginBottom: '56px',
     '@tablet': {
       flexDirection: 'row',
       '> *': {

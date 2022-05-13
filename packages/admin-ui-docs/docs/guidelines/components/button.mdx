@@ -9,6 +9,7 @@ import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 import { BestPractices, Practice } from '@site/src/components/BestPractices'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
 export const tabToc = {
   overview: [
@@ -67,6 +68,11 @@ export const tabToc = {
   ],
   designReference: [
     {
+      id: 'best-practices',
+      value: `Best Practices`,
+      level: 2,
+    },
+    {
       id: 'writing-labels',
       value: 'Writing Labels',
       level: 2,
@@ -81,7 +87,7 @@ export const tabToc = {
       value: 'Recommendations',
       level: 2,
     },
-     {
+    {
       id: 'components',
       value: 'Components',
       level: 3,
@@ -89,22 +95,22 @@ export const tabToc = {
     {
       id: 'variants',
       value: 'Variants',
-      level: 4,
+      level: 3,
     },
     {
       id: 'position',
       value: 'Position',
-      level: 5,
+      level: 3,
     },
     {
       id: 'behavior',
       value: 'Behavior',
-      level: 6,
+      level: 3,
     },
     {
       id: 'content',
       value: 'Content',
-      level: 7,
+      level: 3,
     },
   ],
 }
@@ -309,8 +315,32 @@ function Example() {
 <Panel id="designReference">
 
 <PageSection
-  id={tabToc.designReference[0].id}
-  title={tabToc.designReference[0].value}
+id={tabToc.designReference[0].id}
+title={tabToc.designReference[0].value}
+direction="row"
+>
+
+<OrderedList>
+  <OrderedListItem>
+    Use a primary button to indicate the main action of a group button set.
+  </OrderedListItem>
+  <OrderedListItem>
+    Subtle or secondary buttons should use a less dominant color.
+  </OrderedListItem>
+  <OrderedListItem>
+    Make sure the size of the button is large enough to interact with on the
+    application
+  </OrderedListItem>
+  <OrderedListItem>
+    Use action verbs or phrases to tell the user what will happen next.
+  </OrderedListItem>
+</OrderedList>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
   direction="row"
   explanation="The button label should be actionable so users know exactly what
   to expect when clicking. Prefer verbs in the infinitive tense."
@@ -369,8 +399,8 @@ function Example() {
 </PageSection>
 
 <PageSection
-  id={tabToc.designReference[1].id}
-  title={tabToc.designReference[1].value}
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
   direction="row"
   explanation="The button text should be actionable so users know exactly what to expect when clicking."
 >
@@ -414,24 +444,25 @@ one primary button per page/modal.
 
 </PageSection>
 
-
 <PageSection
   id={tabToc.designReference[3].id}
   title={tabToc.designReference[3].value}
   explanation="Learn more about how to choose between different action components."
 >
 
-**When should I use the *link* component instead of the *button*?**
- - When the action only opens a new tab.
- - When the action only changes the address of the page.
+**When should I use the _link_ component instead of the _button_?**
 
- **Every rule has its exception:**
- Choose the button component when it makes sense to place the action in a *group of buttons* or in a context where a button is typically used - such as in the Page Header component.
+- When the action only opens a new tab.
+- When the action only changes the address of the page.
 
-**When should I use the *menu* component instead of a *group of buttons*?**
- - When the actions are rarely used, yet need to be available.
- - When the actions will be repeated multiple times for each list item.
- - When there are already many actions shown on the screen at a time.
+**Every rule has its exception:**
+Choose the button component when it makes sense to place the action in a _group of buttons_ or in a context where a button is typically used - such as in the Page Header component.
+
+**When should I use the _menu_ component instead of a _group of buttons_?**
+
+- When the actions are rarely used, yet need to be available.
+- When the actions will be repeated multiple times for each list item.
+- When there are already many actions shown on the screen at a time.
 
 </PageSection>
 
@@ -441,31 +472,31 @@ one primary button per page/modal.
   explanation="Learn more about the different variants of action components."
 >
 
-**When should an action component have a *primary*, *secondary*, or *tertiary* prominence?**
- The prominence of an action component should vary depending on how frequently it is used, so this answer depends on research applied to your design’s context. Even so, there are patterns you can follow:
-  - **Primary:** there should be only one primary action visible on a screen at a time, and if a screen has only one action it should be a primary one.
-  - **Secondary:** there can be a few secondary actions on a screen, but only one per group. In a group, it is usually next to a single primary action or to one or more tertiary actions.
-  - **Tertiary:** there can be numerous tertiary actions on a screen. If an action is repeated multiple times, such as for each list item, this is the correct prominence.
+**When should an action component have a _primary_, _secondary_, or _tertiary_ prominence?**
+The prominence of an action component should vary depending on how frequently it is used, so this answer depends on research applied to your design’s context. Even so, there are patterns you can follow:
 
+- **Primary:** there should be only one primary action visible on a screen at a time, and if a screen has only one action it should be a primary one.
+- **Secondary:** there can be a few secondary actions on a screen, but only one per group. In a group, it is usually next to a single primary action or to one or more tertiary actions.
+- **Tertiary:** there can be numerous tertiary actions on a screen. If an action is repeated multiple times, such as for each list item, this is the correct prominence.
 
-**When should an action component use *neutral colors*?**
- - When the action’s background uses the secondary color ($bg.secondary).
- - When the same action is repeated multiple times on a screen, such as for each list item.
- - When the action is part of a group of buttons composed of only tertiary actions.
+**When should an action component use _neutral colors_?**
 
+- When the action’s background uses the secondary color ($bg.secondary).
+- When the same action is repeated multiple times on a screen, such as for each list item.
+- When the action is part of a group of buttons composed of only tertiary actions.
 
-**When should an action component use *critical colors*?**
- - **Destructive actions:** the critical color must be used when the action is destructive and can’t be undone.
- - **When not to use:**  Delete actions with a “restore” interaction: The critical colors should not be used in situations where the content can be restored from a trash can.
-💡Actions should be reversible whenever possible and not require the critical color.
+**When should an action component use _critical colors_?**
 
+- **Destructive actions:** the critical color must be used when the action is destructive and can’t be undone.
+- **When not to use:** Delete actions with a “restore” interaction: The critical colors should not be used in situations where the content can be restored from a trash can.
+  💡Actions should be reversible whenever possible and not require the critical color.
 
-**What *size* should be used in an action component?**
- - **Normal:** all tertiary actions and most secondary actions should be normal sized. Apply it to actions that are repeated multiple times on a screen or that are not frequently used.
- - **Large:** most primary actions should be large sized. Apply it to actions that should have the most prominence on a screen, such as those in the Page Header component.
+**What _size_ should be used in an action component?**
+
+- **Normal:** all tertiary actions and most secondary actions should be normal sized. Apply it to actions that are repeated multiple times on a screen or that are not frequently used.
+- **Large:** most primary actions should be large sized. Apply it to actions that should have the most prominence on a screen, such as those in the Page Header component.
 
 </PageSection>
-
 
 <PageSection
   id={tabToc.designReference[5].id}
@@ -473,25 +504,25 @@ one primary button per page/modal.
   explanation="Learn more about the different positions of action components within a page."
 >
 
-**Where should an action component be *positioned*, when next to other actions?**
- Considering left-to-right interfaces, there are three common guidelines related to how actions should be positioned:
- - Actions should be ordered based on prominence from right to left, or from top to bottom.
-   For example, a secondary button should be to the left of a primary button.
- - When a menu is in a horizontal group of buttons, it should be the first one from right to left.
-   For example, when a menu exists in a card header it should be on the top-right.
- - When sensitive actions are inside a menu, they should be last and visually separated from the other actions.
-   For example, a “Delete” action in a menu should be the last one and there should be a divider above it.
+**Where should an action component be _positioned_, when next to other actions?**
+Considering left-to-right interfaces, there are three common guidelines related to how actions should be positioned:
 
-**What should be the *alignment* of a tertiary action, when next to other content?**
- Tertiary actions should be vertically or horizontally aligned based on their content, and not based on the button's overall size.
+- Actions should be ordered based on prominence from right to left, or from top to bottom.
+  For example, a secondary button should be to the left of a primary button.
+- When a menu is in a horizontal group of buttons, it should be the first one from right to left.
+  For example, when a menu exists in a card header it should be on the top-right.
+- When sensitive actions are inside a menu, they should be last and visually separated from the other actions.
+  For example, a “Delete” action in a menu should be the last one and there should be a divider above it.
 
- > 💡Whenever needed, the bleed prop in the button component should be used to guarantee this alignment.
+**What should be the _alignment_ of a tertiary action, when next to other content?**
+Tertiary actions should be vertically or horizontally aligned based on their content, and not based on the button's overall size.
 
+> 💡Whenever needed, the bleed prop in the button component should be used to guarantee this alignment.
 
-**What should be the *alignment* of an action component in a form?**
- - **Right-aligned:** when the action is at the end of the form and will submit the content.
- - **Left-aligned:** when the action will only modify part of the form's content.
+**What should be the _alignment_ of an action component in a form?**
 
+- **Right-aligned:** when the action is at the end of the form and will submit the content.
+- **Left-aligned:** when the action will only modify part of the form's content.
 
 </PageSection>
 
@@ -501,21 +532,21 @@ one primary button per page/modal.
   explanation="Learn more about the different behaviors of action components within a page."
 >
 
-
-**When should an action component be *disabled* and how?**
- This state should be avoided since it is not visually pleasant and its visual appearance can be mistaken for a neutral action. However, it can be used in rare scenarios where the reason behind the button being disabled is very intuitive for users.
- For example, a save button can be disabled when no changes have been made.
+**When should an action component be _disabled_ and how?**
+This state should be avoided since it is not visually pleasant and its visual appearance can be mistaken for a neutral action. However, it can be used in rare scenarios where the reason behind the button being disabled is very intuitive for users.
+For example, a save button can be disabled when no changes have been made.
 
 **What to avoid:**
- - **Don't display a tooltip when hovering a disabled button.** Maintain the button enabled so when it is clicked you can explain why the action is not possible at the moment.
- - **Don't include an interactive element that is always disabled.** Review the information architecture and reconsider using the component to communicate this context.
+
+- **Don't display a tooltip when hovering a disabled button.** Maintain the button enabled so when it is clicked you can explain why the action is not possible at the moment.
+- **Don't include an interactive element that is always disabled.** Review the information architecture and reconsider using the component to communicate this context.
 
 **When should an action component trigger a confirmation modal?**
- - When the action is irreversible. For example, a delete action where the content cannot be restored from the trash.
- - When the action would take considerable time to undo. For example, a publish action where the publication cannot be canceled while in progress.
+
+- When the action is irreversible. For example, a delete action where the content cannot be restored from the trash.
+- When the action would take considerable time to undo. For example, a publish action where the publication cannot be canceled while in progress.
 
 </PageSection>
-
 
 <PageSection
   id={tabToc.designReference[7].id}
@@ -523,43 +554,43 @@ one primary button per page/modal.
   explanation="Learn more about how to craft precise labels to improve button's UX writing."
 >
 
-**What *labels* and *icons* should be applied to an action component?**
- Whenever possible, the labels and icons listed below should be adopted. If you need a new label and/or icon please open a request explaining your use case.
+**What _labels_ and _icons_ should be applied to an action component?**
+Whenever possible, the labels and icons listed below should be adopted. If you need a new label and/or icon please open a request explaining your use case.
 
- | Icon | Label | Use case |
- | --- | --- | --- |
- | DotsThreeVertical | Actions | Menu with all actions related to the context where it is at. |
- | DotsThreeVertical | More | Menu after a group of buttons. |
- | PlusCircle | Create new | Button for creating new entities in a database. |
- | ... | ... | ... |
+| Icon              | Label      | Use case                                                     |
+| ----------------- | ---------- | ------------------------------------------------------------ |
+| DotsThreeVertical | Actions    | Menu with all actions related to the context where it is at. |
+| DotsThreeVertical | More       | Menu after a group of buttons.                               |
+| PlusCircle        | Create new | Button for creating new entities in a database.              |
+| ...               | ...        | ...                                                          |
 
+**When should the _label_ in an action component be hidden?**
 
-**When should the *label* in an action component be hidden?**
- - When the same button is repeated multiple times on a screen, usually on lists. An example of this can be found in the Table component, where the “Actions” button is repeated in all rows.
- - When an action is common to a degree where the icon is easily understood by itself. Examples of this include the "Close” button in the Alert component and the "Forward" and "Back” buttons in the Pagination component.
+- When the same button is repeated multiple times on a screen, usually on lists. An example of this can be found in the Table component, where the “Actions” button is repeated in all rows.
+- When an action is common to a degree where the icon is easily understood by itself. Examples of this include the "Close” button in the Alert component and the "Forward" and "Back” buttons in the Pagination component.
 
 **What to avoid:**
- - Including actions that are not always easily understood inside space-constrained elements.
- - Using a tooltip to display their label.
 
- > 💡All actions must have labels to be accessible, even if they are not visible in the interface. The label can be added in the aria-label HTML attribute, so remember to specify what this value should be.
+- Including actions that are not always easily understood inside space-constrained elements.
+- Using a tooltip to display their label.
 
+> 💡All actions must have labels to be accessible, even if they are not visible in the interface. The label can be added in the aria-label HTML attribute, so remember to specify what this value should be.
 
-**When should an action component use an *icon*?**
- - When the action label is hidden according to our recommendations.
- - When the actions are within the dropdown of the menu component.
+**When should an action component use an _icon_?**
+
+- When the action label is hidden according to our recommendations.
+- When the actions are within the dropdown of the menu component.
 
 **What are the most frequently used labels?**
 So we have consistency throughout the actions that buttons represent, we suggest that you use the following verbs when crafting buttons.
 
 | EN     | PT      | ES      |
-|--------|---------|---------|
+| ------ | ------- | ------- |
 | Create | Criar   | Crear   |
 | Edit   | Editar  | Editar  |
 | Search | Buscar  | Buscar  |
 | Save   | Salvar  | Guardar |
 | Delete | Excluir | Excluir |
-
 
 </PageSection>
 
