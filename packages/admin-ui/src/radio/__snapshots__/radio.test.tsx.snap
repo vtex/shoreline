@@ -30,9 +30,9 @@ exports[`Radio should match snapshot 1`] = `
   color: #545454;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.75rem;
-  line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
 }
 
 .emotion-21 {
