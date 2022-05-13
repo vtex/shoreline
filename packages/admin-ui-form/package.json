@@ -30,8 +30,12 @@
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },
+  "devDependencies": {
+    "yup": "0.32.11"
+  },
   "dependencies": {
     "react-hook-form": "7.31.1",
-    "tiny-invariant": "1.2.0"
+    "tiny-invariant": "1.2.0",
+    "@hookform/resolvers": "2.8.8"
   }
 }

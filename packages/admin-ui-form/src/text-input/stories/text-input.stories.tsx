@@ -55,15 +55,8 @@ export const Validation = () => {
               value: 20,
               message: 'A comment must be short, like tweet',
             },
-            validate: {
-              isEmail: (v) =>
-                v.matches(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i),
-            },
           }}
         />
-        {form.formState?.errors?.comment?.type === 'isEmail' &&
-          'must be a valid email'}
-
         <input type="submit" value="Submit" />
       </Form>
     </Box>
