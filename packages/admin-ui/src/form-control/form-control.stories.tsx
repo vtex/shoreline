@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import { Checkbox } from '../checkbox'
-import { Box } from '../components/Box'
+import { Box } from '../box'
 
 import { FormControl, FormControlLabel, FormControlMessage } from './index'
 import type { FormControlProps } from './index'
