@@ -103,13 +103,16 @@ export const tabToc = {
 
 ```jsx live
 function Example() {
-  const state = useSearchState({
-    initiallyLoading: true,
-  })
+  const [value, setValue] = useState('')
 
   return (
     <Box csx={{ width: 400 }}>
-      <Search state={state} />
+      <Search
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+        loading
+      />
     </Box>
   )
 }
@@ -124,11 +127,16 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const state = useSearchState()
+  const [value, setValue] = useState('')
 
   return (
     <Box csx={{ width: 400 }}>
-      <Search state={state} disabled />
+      <Search
+        disabled
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+      />
     </Box>
   )
 }
@@ -143,14 +151,19 @@ function Example() {
 
 ```jsx live
 function Example() {
-  const state = useSearchState()
+  const [value, setValue] = useState('')
 
   const I18nProvider = experimental_I18nProvider
 
   return (
     <I18nProvider locale="pt-BR">
       <Box csx={{ width: 400 }}>
-        <Search state={state} />
+        <Search
+          disabled
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onClear={() => setValue('')}
+        />
       </Box>
     </I18nProvider>
   )
@@ -162,22 +175,22 @@ function Example() {
 <PageSection
   id={tabToc.overview[4].id}
   title={tabToc.overview[4].value}
-  explanation="A common UX pattern is to filter the collections (or make a query) while the user types the input. To do that performatively, we often use debounced values. The good thing here, it that useSearchState stores a debounced value for you!"
+  explanation="A common UX pattern is to filter the collections (or make a query) while the user types the input. To do that performatively, we often use debounced values. You can use the useSearchState hook which stores a debounced value for you!"
 >
 
 ```jsx live
 function Example() {
-  const state = useSearchState({
+  const { getInputProps, value, debouncedValue } = useSearchState({
     // controls the debounce timeout
     timeoutMs: 500,
   })
 
   return (
     <tag.div csx={{ width: 400 }}>
-      <Search state={state} />
+      <Search {...getInputProps()} />
       <tag.div csx={{ marginTop: 4 }}>
-        <tag.p>Value: {state.value}</tag.p>
-        <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+        <tag.p>Value: {value}</tag.p>
+        <tag.p>DebouncedValue: {debouncedValue}</tag.p>
       </tag.div>
     </tag.div>
   )
@@ -195,18 +208,14 @@ function Example() {
 ```jsx live
 function Example() {
   const Content = () => {
-    const state = useQuerySearchState()
+    const { getInputProps, value, debouncedValue } = useQuerySearchState()
 
     return (
       <tag.div csx={{ width: 500 }}>
-        <Search
-          id="search"
-          state={state}
-          placeholder="Search for a product, category or brand"
-        />
+        <Search {...getInputProps()} />
         <tag.div csx={{ marginTop: 4 }}>
-          <tag.p>Value: {state.value}</tag.p>
-          <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+          <tag.p>Value: {value}</tag.p>
+          <tag.p>DebouncedValue: {debouncedValue}</tag.p>
         </tag.div>
       </tag.div>
     )
@@ -229,15 +238,24 @@ function Example() {
 <PageSection
   id={tabToc.codeReference[0].id}
   title={tabToc.codeReference[0].value}
+  explanation="Remember that you can use the useSearchState or useSearchQueryState hooks to help you managing the Search state."
 >
 
 ```jsx
 import { Search, useSearchState } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useSearchState()
+  const [value, setValue] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  return <Search state={state} />
+  return (
+    <Search
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onClear={() => setValue('')}
+      loading={loading}
+    />
+  )
 }
 ```
 
@@ -255,9 +273,12 @@ function Example() {
   explanation="You can use all the props accepted by the `form` JSX element."
 >
 
-| Name  | Type              | Description                           | Required | Default |
-| ----- | ----------------- | ------------------------------------- | -------- | ------- |
-| state | `SearchFormState` | Value returned by useSearchState hook | ✅       | `''`    |
+| Name     | Type                                   | Description                              | Required | Default |
+| -------- | -------------------------------------- | ---------------------------------------- | -------- | ------- |
+| onClear  | `() => void`                           | Clears the input value                   | ✅       | -       |
+| value    | `string`                               | Input value                              | 🚫       | `''`    |
+| onChange | `ChangeEventHandler<HTMLInputElement>` | Event triggered when input value changes | 🚫       | -       |
+| loading  | `boolean`                              | Whether the search is loading or not     | 🚫       | `false` |
 
 </PageSection>
 
@@ -266,13 +287,11 @@ function Example() {
   title={tabToc.codeReference[3].value}
 >
 
-| Name             | Type                       | Description                       | Required | Default |
-| ---------------- | -------------------------- | --------------------------------- | -------- | ------- |
-| initialValue     | `string`                   | Initial input value               | 🚫       | `''`    |
-| defaultValue     | `string`                   | Value set in the clean action     | 🚫       | `''`    |
-| initiallyLoading | `boolean`                  | If is initially loading           | 🚫       | `false` |
-| onSubmit         | `FormEventHandler<'form'>` | Action to take on form submission | 🚫       | -       |
-| timeoutMs        | `number`                   | Debounce timeout in ms            | 🚫       | `250`   |
+| Name         | Type     | Description                   | Required | Default |
+| ------------ | -------- | ----------------------------- | -------- | ------- |
+| initialValue | `string` | Initial input value           | 🚫       | `''`    |
+| defaultValue | `string` | Value set in the clean action | 🚫       | `''`    |
+| timeoutMs    | `number` | Debounce timeout in ms        | 🚫       | `250`   |
 
 </PageSection>
 
@@ -281,16 +300,14 @@ function Example() {
   title={tabToc.codeReference[4].value}
 >
 
-| Name           | Type                                            | Description                                 |
-| -------------- | ----------------------------------------------- | ------------------------------------------- |
-| value          | `string`                                        | Input value                                 |
-| debouncedValue | `string`                                        | Input value with debouce                    |
-| setValue       | `(value: string) => void`                       | Sets the value state                        |
-| onSubmit       | `FormEventHandler<'form'>                       | Action to take on form submission           |
-| clear          | `() => void`                                    | Clears the input value                      |
-| showClear      | `boolean`                                       | Whether should show the clear option or not |
-| loading        | `boolean`                                       | Whether is loading or not                   |
-| setLoading     | `React.Dispatch<React.SetStateAction<boolean>>` | Sets the loading state                      |
+| Name           | Type                                   | Description                                             |
+| -------------- | -------------------------------------- | ------------------------------------------------------- |
+| debouncedValue | `string`                               | Input value with debouce                                |
+| setValue       | `(value: string) => void`              | Sets the value state                                    |
+| onClear        | `() => void`                           | Clears the input value                                  |
+| value          | `string`                               | Input value                                             |
+| onChange       | `ChangeEventHandler<HTMLInputElement>` | Event triggered when input value changes                |
+| getInputProps  | `() => { value, onClear, onChange }`   | It returns the necessary properties to the Search works |
 
 </PageSection>
 
@@ -299,12 +316,11 @@ function Example() {
   title={tabToc.codeReference[5].value}
 >
 
-| Name             | Type                       | Description                       | Required | Default |
-| ---------------- | -------------------------- | --------------------------------- | -------- | ------- |
-| defaultValue     | `string`                   | Value set in the clean action     | 🚫       | `''`    |
-| initiallyLoading | `boolean`                  | If is initially loading           | 🚫       | `false` |
-| onSubmit         | `FormEventHandler<'form'>` | Action to take on form submission | 🚫       | -       |
-| timeoutMs        | `number`                   | Debounce timeout in ms            | 🚫       | `250`   |
+| Name             | Type      | Description                   | Required | Default |
+| ---------------- | --------- | ----------------------------- | -------- | ------- |
+| defaultValue     | `string`  | Value set in the clean action | 🚫       | `''`    |
+| initiallyLoading | `boolean` | If is initially loading       | 🚫       | `false` |
+| timeoutMs        | `number`  | Debounce timeout in ms        | 🚫       | `250`   |
 
 </PageSection>
 
@@ -324,13 +340,16 @@ function Example() {
 import { Search, useSearchState } from '@vtex/admin-ui'
 
 function Example() {
-  const state = useSearchState()
+  const { getInputProps } = useSearchState()
 
   return (
     <Page>
-      <Search state={state} aria-label="Unique and meaningful label" />
+      <Search {...getInputProps()} aria-label="Unique and meaningful label" />
       ...
-      <Search state={state} aria-label="Another unique and meaningful label" />
+      <Search
+        {...getInputProps()}
+        aria-label="Another unique and meaningful label"
+      />
     </Page>
   )
 }

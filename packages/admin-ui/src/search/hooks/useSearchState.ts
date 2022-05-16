@@ -1,5 +1,5 @@
-import type { FormEventHandler } from 'react'
-import { useState, useMemo, useCallback } from 'react'
+import type { ChangeEventHandler } from 'react'
+import { useCallback } from 'react'
 import { useDebouncedCache } from '@vtex/admin-ui-hooks'
 
 const DEFAULT_TIMEOUT_MS = 250
@@ -9,12 +9,10 @@ export function useSearchState(
     initialValue: '',
     timeoutMs: DEFAULT_TIMEOUT_MS,
   }
-): SearchFormState {
+): SearchFormStateReturn {
   const {
     initialValue = '',
     defaultValue = '',
-    initiallyLoading = false,
-    onSubmit: baseSubmit,
     timeoutMs = DEFAULT_TIMEOUT_MS,
   } = params
 
@@ -23,46 +21,53 @@ export function useSearchState(
     timeoutMs,
   })
 
-  const [loading, setLoading] = useState(initiallyLoading)
-
-  const showClear = useMemo(() => value.toString().length > 0, [value])
-
-  const onSubmit: FormEventHandler<'form'> = useCallback((e) => {
-    e.preventDefault()
-    baseSubmit?.()
-  }, [])
-
-  const clear = useCallback(() => {
+  const onClear = useCallback(() => {
     setValue(defaultValue)
   }, [value])
 
+  const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      setValue(event.target.value)
+    },
+    []
+  )
+
+  const getInputProps = useCallback(() => {
+    return {
+      value,
+      onChange,
+      onClear,
+    }
+  }, [value, onChange])
+
   return {
-    value,
+    getInputProps,
     debouncedValue,
     setValue,
-    loading,
-    setLoading,
-    showClear,
-    onSubmit,
-    clear,
+    value,
+    onChange,
+    onClear,
   }
+}
+
+export interface GetInputPropsReturn {
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
+  onClear: () => void
 }
 
 export interface UseSearchStateParams {
   initialValue?: string
   defaultValue?: string
-  initiallyLoading?: boolean
-  onSubmit?: () => void
   timeoutMs?: number
+  onChange?: ChangeEventHandler
 }
 
-export interface SearchFormState {
-  value: string
+export interface SearchFormStateReturn {
+  getInputProps: () => GetInputPropsReturn
   debouncedValue: string
   setValue: (value: string) => void
-  onSubmit: FormEventHandler<'form'>
-  showClear: boolean
-  loading: boolean
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  clear: () => void
+  value: string
+  onClear: () => void
+  onChange: ChangeEventHandler<HTMLInputElement>
 }
