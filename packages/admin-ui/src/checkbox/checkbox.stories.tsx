@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckboxState } from './checkbox'
 import { CheckboxGroup } from './checkbox-group'
-import { Box } from '../components/Box'
+import { Box } from '../box'
 
 import type { CheckboxProps } from './checkbox'
 import type { CheckboxGroupProps } from './checkbox-group'

@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { useMaskedInput, useFormatter } from '../index'
 import { Input } from '../../components/Input'
-import { Box } from '../../components/Box'
+import { Box } from '../../box'
 
 export default {
   title: 'admin-ui/use-masked-input',
