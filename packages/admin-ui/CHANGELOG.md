@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.128.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.2...@vtex/admin-ui@0.128.3) (2022-05-16)
+
+### Bug Fixes
+
+- **text-input:** a11y, spaces, and next terminology ([4dd9220](https://github.com/vtex/admin-ui/commit/4dd92202d972e6aa1e22d44a3080623fd585d534))
+
 ## [0.128.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.1...@vtex/admin-ui@0.128.2) (2022-05-13)
 
 ### Features
