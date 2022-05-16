@@ -1,5 +1,5 @@
 import type { ReactNode, ComponentPropsWithoutRef, Ref } from 'react'
-import React, { useRef, useState, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { useId } from '@vtex/admin-ui-hooks'
 
 import { TextAreaContainer } from './text-area-container'
@@ -12,98 +12,34 @@ import {
   FormControlMessage,
 } from '../form-control'
 import { Flex, FlexSpacer } from '..'
-import { MAX_HEIGHT } from './text-area.style'
+
+import { useTextarea } from './useTextArea'
 
 export const TextArea = forwardRef(
   (props: TextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
     const {
       error,
-      disabled,
       errorText,
       helpText,
       label,
       charLimit,
       id: defaultId,
-      onChange,
       ...inputProps
     } = props
 
     const id = useId(defaultId)
-    const containerRef = useRef<any>(null)
 
-    const [charCount, setCharCount] = useState(0)
-    const [lineHeight, setLineHeight] = useState<number>(0)
-    const [minScrollHeight, setMinScrollHeight] = useState<number>(0)
-
-    const getLineHeight = (elm: HTMLTextAreaElement) => {
-      const savedRows = elm.rows
-      const savedValue = elm.value
-
-      elm.value = ''
-      elm.rows = 1
-      const base1 = elm.scrollHeight
-
-      elm.rows = 2
-      const base2 = elm.scrollHeight
-
-      elm.rows = savedRows
-      elm.value = savedValue
-
-      const calculatedHeight = base2 - base1
-
-      setLineHeight(calculatedHeight)
-
-      return calculatedHeight
-    }
-
-    const getScrollHeight = (elm: HTMLTextAreaElement) => {
-      const savedValue = elm.value
-
-      elm.value = ''
-
-      const baseScrollHeight = elm.scrollHeight
-
-      elm.value = savedValue
-
-      setMinScrollHeight(baseScrollHeight)
-
-      return baseScrollHeight
-    }
-
-    const onExpandableTextareaInput = (
-      e: React.FormEvent<HTMLTextAreaElement>
-    ) => {
-      const elm = e.target as HTMLTextAreaElement
-      const baseRows = 2
-
-      lineHeight || getLineHeight(elm)
-      minScrollHeight || getScrollHeight(elm)
-
-      elm.rows = baseRows
-      const newHeight = Math.min(elm.scrollHeight, MAX_HEIGHT - lineHeight)
-
-      const extraRows: number = Math.ceil(
-        (newHeight - minScrollHeight) / lineHeight
-      )
-
-      elm.rows = baseRows + extraRows
-    }
+    const { getTextareaProps, charCount } = useTextarea()
 
     return (
       <FormControl error={error}>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
-        <TextAreaContainer error={error} disabled={disabled} ref={containerRef}>
+        <TextAreaContainer error={error} disabled={inputProps.disabled}>
           <TextAreaElement
             ref={ref}
-            disabled={disabled}
             id={id}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-              setCharCount(e.currentTarget.value.toString().length)
-              onChange?.(e)
-            }}
-            onInput={onExpandableTextareaInput}
             maxLength={charLimit}
-            {...inputProps}
+            {...getTextareaProps(inputProps)}
           />
         </TextAreaContainer>
         <Flex csx={{ width: '100%' }}>
