@@ -1,9 +1,9 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import type { UseFilterMultipleReturn } from '.'
-import type { AnyObject } from '..'
+import type { UseFilterMultipleReturn } from '..'
+import type { AnyObject } from '../..'
 
-import * as style from './filter.style'
+import * as style from '../filter.style'
 
 export const MultipleItemsLabel = (props: {
   appliedItems: AnyObject[]

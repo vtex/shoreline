@@ -1,12 +1,12 @@
 import React from 'react'
-import { Checkbox } from '../checkbox'
-import { BaseFilter } from './filter-base'
-import { ComboboxItem } from '../combobox/combobox-item'
-import { MultipleItemsLabel } from './MultipleItemsLabel'
+import { Checkbox } from '../../checkbox'
+import { BaseFilter } from '../filter-base'
+import { ComboboxItem } from '../../combobox/combobox-item'
+import { MultipleItemsLabel } from './filter-multiple-items-label'
 
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
 
-import * as style from './filter.style'
+import * as style from '../filter.style'
 
 export function FilterMultiple<T>(props: FilterMultipleProps<T>) {
   const {

@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { BaseFilter } from './filter-base'
-import { ComboboxItem } from '../combobox/combobox-item'
+import { BaseFilter } from '../filter-base'
+import { ComboboxItem } from '../../combobox/combobox-item'
 import { FilterRadio } from './filter-radio'
-import { FilterSeachbox } from './filter-searchbox'
-import { SingleItemLabel } from './SingleItemLabel'
-import { Box } from '..'
-import { useMessageFormatter } from '../i18n'
-import type { FilterProps } from '.'
+import { FilterSeachbox } from '../filter-searchbox'
+import { SingleItemLabel } from './filter-item-label'
+import { Box } from '../..'
+import { useMessageFormatter } from '../../i18n'
+import type { FilterProps } from '..'
 
-import { messages } from './filter.i18n'
-import * as style from './filter.style'
+import { messages } from '../filter.i18n'
+import * as style from '../filter.style'
 
 export function FilterSearch<T>(props: FilterProps<T>) {
   const formatMessage = useMessageFormatter(messages.searchBox)

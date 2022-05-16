@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { BaseFilter } from './filter-base'
-import { ComboboxItem } from '../combobox/combobox-item'
+import { BaseFilter } from '../filter-base'
+import { ComboboxItem } from '../../combobox/combobox-item'
 
 import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
 
-import { SingleItemLabel } from './SingleItemLabel'
-import * as style from './filter.style'
+import { SingleItemLabel } from './filter-item-label'
+import * as style from '../filter.style'
 
 export function Filter<T>(props: FilterProps<T>) {
   const {

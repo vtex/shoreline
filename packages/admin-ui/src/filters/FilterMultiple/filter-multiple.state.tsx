@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
 
-import type { ComboboxMultipleState } from '../combobox'
-import { useComboboxMultipleState } from '../combobox'
+import type { ComboboxMultipleState } from '../../combobox'
+import { useComboboxMultipleState } from '../../combobox'
 import { useMenuState } from 'ariakit/menu'
-import type { GenericFilterStateReturn } from './filter.state'
+import type { GenericFilterStateReturn } from '../Filter/filter.state'
 import type { AnyObject } from 'packages/admin-ui-util'
 
 export function useFilterMultipleState<T extends AnyObject>(

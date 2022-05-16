@@ -1,4 +1,4 @@
-import type { GenericFilterStateReturn } from './filter.state'
+import type { GenericFilterStateReturn } from './Filter/filter.state'
 
 export function useFilterGroupState(props: UseFilterGroupStateReturn) {
   const { filterStates } = props

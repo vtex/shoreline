@@ -1,8 +1,8 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import type { UseFilterStateReturn } from '.'
-import type { AnyObject } from '..'
-import * as style from './filter.style'
+import type { UseFilterStateReturn } from '..'
+import type { AnyObject } from '../..'
+import * as style from '../filter.style'
 
 export const SingleItemLabel = (props: {
   appliedItem?: AnyObject | null
