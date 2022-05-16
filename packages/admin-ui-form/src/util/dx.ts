@@ -1,15 +1,35 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 
+/**
+ * React hook that improves the field's developer experience
+ * @example
+ * function Field(props) {
+ *  useFieldDx(props)
+ *  // ... rest
+ * }
+ */
 export function useFieldDx(props: AnyObject) {
   if (isDevMode()) {
     registerChecks(props)
   }
 }
 
+/**
+ * Wether is dev mode
+ */
 function isDevMode() {
   return process.env.NODE_ENV !== 'production'
 }
 
+/**
+ * Displays a message to the developer with an appropriate tone
+ * @param message dev message
+ * @example
+ * developerMessage({
+ *  text: 'Text content',
+ *  tone: 'error' | 'warning' | 'neutral'
+ * })
+ */
 function developerMessage(message: DeveloperMessage) {
   switch (message.tone) {
     case 'error': {
@@ -28,6 +48,9 @@ function developerMessage(message: DeveloperMessage) {
   }
 }
 
+/**
+ * Validations for the field registeration proccess
+ */
 function registerChecks(props: AnyObject) {
   if (!props.name) {
     developerMessage({
@@ -47,6 +70,8 @@ function registerChecks(props: AnyObject) {
 type DeveloperMessageTone = 'error' | 'warning' | 'neutral'
 
 interface DeveloperMessage {
+  /** text content */
   text: string
+  /** message tone */
   tone: DeveloperMessageTone
 }
