@@ -1,21 +1,20 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
+import type { UseFilterStateReturn } from '.'
+import type { AnyObject } from '..'
+import * as style from './filter.style'
 
-export const SingleItemLabel = (props: { appliedItem: any }) => {
+export const SingleItemLabel = (props: {
+  appliedItem: AnyObject
+  state: UseFilterStateReturn<any>
+}) => {
+  const { state, appliedItem } = props
+
   return props.appliedItem ? (
     <>
       <span>:</span>
-      <tag.span
-        csx={{
-          color: '$primary',
-          marginLeft: '$s',
-          textOverflow: 'ellipsis',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          maxWidth: '300px',
-        }}
-      >
-        {props.appliedItem.label}
+      <tag.span csx={style.disclosureStatusLabel}>
+        {state.getOptionLabel(appliedItem)}
       </tag.span>
     </>
   ) : null

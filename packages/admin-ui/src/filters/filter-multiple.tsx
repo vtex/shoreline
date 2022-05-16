@@ -24,7 +24,9 @@ export function FilterMultiple<T>(props: FilterMultipleProps<T>) {
   return (
     <BaseFilter
       state={state}
-      appliedValuesLabel={<MultipleItemsLabel appliedItems={appliedItems} />}
+      appliedValuesLabel={
+        <MultipleItemsLabel appliedItems={appliedItems} state={state} />
+      }
     >
       {items.map((item) => (
         <ComboboxItem

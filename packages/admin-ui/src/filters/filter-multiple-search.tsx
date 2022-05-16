@@ -23,7 +23,9 @@ export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
   return (
     <BaseFilter
       state={state}
-      appliedValuesLabel={<MultipleItemsLabel appliedItems={appliedItems} />}
+      appliedValuesLabel={
+        <MultipleItemsLabel appliedItems={appliedItems} state={state} />
+      }
     >
       <FilterSeachbox state={combobox} id={`${baseId ?? ''}-search`} />
       {isEmpty && <Box>{formatMessage('noResultsTitle')}</Box>}

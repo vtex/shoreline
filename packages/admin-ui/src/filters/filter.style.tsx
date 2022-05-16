@@ -44,3 +44,12 @@ export const scrollableContainer = style({
   maxHeight: 312,
   overflowY: 'auto',
 })
+
+export const disclosureStatusLabel = style({
+  color: '$primary',
+  marginLeft: '$s',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  maxWidth: '300px',
+})

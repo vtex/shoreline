@@ -29,7 +29,9 @@ export function Filter<T>(props: FilterProps<T>) {
   return (
     <BaseFilter
       state={state}
-      appliedValuesLabel={<SingleItemLabel appliedItem={appliedItem} />}
+      appliedValuesLabel={
+        <SingleItemLabel appliedItem={appliedItem} state={state} />
+      }
     >
       {items.map((item) => {
         const itemId = getOptionId(item)

@@ -29,7 +29,9 @@ export function FilterSearch<T>(props: FilterProps<T>) {
     <BaseFilter
       state={state}
       appliedValuesLabel={
-        appliedItem && <SingleItemLabel appliedItem={appliedItem} />
+        appliedItem && (
+          <SingleItemLabel appliedItem={appliedItem} state={state} />
+        )
       }
     >
       {<FilterSeachbox state={combobox} id={`${baseId ?? ''}-search`} />}
