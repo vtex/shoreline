@@ -14,6 +14,7 @@ export const Uncontrolled = () => {
   return (
     <Stack space="$l" csx={{ padding: '$s' }} fluid>
       <TextArea label="Uncontrolled" charLimit={120} ref={ref} />
+      <TextArea label="Error text" errorText="Error text" error />
     </Stack>
   )
 }
@@ -31,13 +32,6 @@ export const Controlled = () => {
         errorText="Error text"
         error
         charLimit={120}
-      />
-      <TextArea
-        label="Controlled"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        errorText="Error text"
-        error
       />
     </Stack>
   )
