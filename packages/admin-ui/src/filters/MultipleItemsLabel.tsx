@@ -26,7 +26,7 @@ export const MultipleItemsLabel = (props: {
     <>
       <span>:</span>
       <tag.span csx={{ color: '$primary' }}>
-        <tag.span csx={style.disclosureStatusLabel}>
+        <tag.span csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
           {firstSelectedItemLabel}
         </tag.span>
         {remainingSelectedItemsCount}

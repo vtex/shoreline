@@ -5,7 +5,7 @@ import type { AnyObject } from '..'
 import * as style from './filter.style'
 
 export const SingleItemLabel = (props: {
-  appliedItem: AnyObject
+  appliedItem?: AnyObject | null
   state: UseFilterStateReturn<any>
 }) => {
   const { state, appliedItem } = props

@@ -19,9 +19,8 @@ export function FilterSearch<T>(props: FilterProps<T>) {
     state,
   } = props
 
-  const currentSelectedId = combobox.selectedItem
-    ? getOptionId(combobox.selectedItem)
-    : null
+  const currentSelectedId =
+    combobox.selectedItem && getOptionId(combobox.selectedItem)
 
   const isEmpty = !combobox.matches.length
 

@@ -22,9 +22,8 @@ export function Filter<T>(props: FilterProps<T>) {
     state,
   } = props
 
-  const currentSelectedId = combobox.selectedItem
-    ? getOptionId(combobox.selectedItem)
-    : null
+  const currentSelectedId =
+    combobox.selectedItem && getOptionId(combobox.selectedItem)
 
   return (
     <BaseFilter
