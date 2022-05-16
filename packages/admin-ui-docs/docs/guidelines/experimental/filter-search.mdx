@@ -3,12 +3,12 @@ title: FilterSearch
 path: /filter-search/
 ---
 
-FilterSearch serves the same function as Filter, but allows the user to 
+FilterSearch serves the same function as [Filter](/filter/), but allows the user to 
 search among the options. 
 
 ## Usage
 
-FilterSearch use the same state and hooks as Filter.
+FilterSearch uses the same state and hooks as [Filter](/filter/).
 
 ```jsx
 import {
@@ -40,6 +40,164 @@ function Example() {
 }
 ```
 
+## Examples
+
+### Uncontrolled
+
+For an uncontrolled behaviour you can use the state just like you did with [Filter](/filter/). If you want to check the values
+on the search input you can use `state.combobox.deferredValue` or `state.combobox.value`. The combobox state works like on the 
+[Combobox](/combobox/) component.
+
+
+```jsx noInline live
+const FilterSearch = experimental_FilterSearch
+const useFilterState = experimental_useFilterState
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { label: 'Rio de Janeiro', id: '#1' },
+      { label: 'New York', id: '#2' },
+      { label: 'Paris', id: '#3' },
+      { label: 'Tokyo', id: '#4' },
+      { label: 'São Paulo', id: '#5' },
+      { label: 'Berlin', id: '#7' },
+      { label: 'Washington', id: '#8' },
+      { label: 'Lisboa', id: '#9' },
+      { label: 'Porto', id: '#10' },
+      { label: 'João Pessoa', id: '#11' },
+      { label: 'Salvador', id: '#12' },
+      { label: 'Barcelona', id: '#13' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected.label}`),
+    label: 'City',
+  })
+
+  return <div>
+      Search value: {state.combobox.value}
+      <FilterSearch state={state} />
+    </div>
+}
+
+render(<Example />)
+```
+
+### Controlled
+
+For a controlled behaviour you can use the state props `combobox.deferredValue` and `combobox.setMatches` to manipulate the option list. 
+The option list control work like on the [Combobox](/combobox/) component.
+
+
+```jsx noInline live
+const FilterSearch = experimental_FilterSearch
+const useFilterState = experimental_useFilterState
+
+const searchItems = (search, delay = 1000) => {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
+
+  const res = !search
+    ? items
+    : items.filter((item) =>
+        item.value.toLowerCase().includes(search.toLowerCase())
+      )
+
+  return new Promise((resolve) =>
+    setTimeout(resolve, delay, res)
+  )
+}
+
+
+function Async() {
+  const state = useFilterState({
+    items: [],
+    label: 'City',
+    getOptionId: (option) => option.value,
+    getOptionLabel: (option) => option.value,
+  })
+
+  const { combobox } = state
+
+  useEffect(() => {
+    if (state.combobox.deferredValue === '') {
+      combobox.setLoading(true)
+      searchItems('').then((res) => {
+        combobox.setMatches(res)
+        state.combobox.setLoading(false)
+      })
+    } else {
+      state.combobox.setLoading(true)
+      searchItems(state.combobox.deferredValue).then((res) => {
+        combobox.setMatches(res)
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue])
+
+  return <FilterSearch state={state} />
+}
+
+render(<Async />)
+```
+
+### InitialValue
+
+```jsx noInline live
+const FilterSearch = experimental_FilterSearch
+const useFilterState = experimental_useFilterState
+
+
+
+function InitialSelected() {
+  const state = useFilterState({
+    items: [
+      { name: 'Rio de Janeiro', uniqueId: '#1' },
+      { name: 'New York', uniqueId: '#2' },
+      { name: 'Paris', uniqueId: '#3' },
+      { name: 'Tokyo', uniqueId: '#4' },
+      { name: 'São Paulo', uniqueId: '#5' },
+      { name: 'Berlin', uniqueId: '#7' },
+      { name: 'Washington', uniqueId: '#8' },
+      { name: 'Lisboa', uniqueId: '#9' },
+      { name: 'Porto', uniqueId: '#10' },
+      { name: 'João Pessoa', uniqueId: '#11' },
+      { name: 'Salvador', uniqueId: '#12' },
+      { name: 'Barcelona', uniqueId: '#13' }
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected.name}`),
+    label: 'Simple',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+    initialApplied: { name: 'Lisboa', uniqueId: '#9' },
+  })
+
+  return <FilterSearch state={state} />
+}
+
+render(<InitialSelected />)
+```
+
+
 ## Props
 
 ### FilterSearch
@@ -50,4 +208,4 @@ function Example() {
 
 ### State
 
-You can see the detailed state props on `Filter`.
+You can see the detailed state props on [Filter](/filter/).

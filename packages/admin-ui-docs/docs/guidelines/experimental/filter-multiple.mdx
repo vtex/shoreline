@@ -23,7 +23,7 @@ function Example() {
       { label: 'Empty', value: 2, id: '#2' },
       { label: 'Half empty', value: 4, id: '#3' },
     ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log({applied: selected}),
     label: 'Status',
   })
   return <FilterMultiple state={state} />
@@ -48,9 +48,43 @@ function Example() {
       { label: 'Half empty', value: 4, id: '#4' },
       { label: 'Unknown', value: 5, id: '#5' },
     ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log({applied: selected}),
     label: 'Status',
-    initialApplied: ['#1', '#2'],
+    initialApplied: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ],
+  })
+
+  return <FilterMultiple state={state} />
+
+
+}
+
+render(<Example />)
+```
+
+### Custom shaped object
+
+```jsx noInline live
+
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+function Example() {
+  const state = useFilterMultipleState({
+    items: [
+      { name: 'Full', value: 1, Id: '#1' },
+      { name: 'Empty', value: 2, Id: '#2' },
+      { name: 'Half full', value: 3, Id: '#3' },
+      { name: 'Half empty', value: 4, Id: '#4' },
+      { name: 'Unknown', value: 5, Id: '#5' },
+    ],
+    onChange: ({ selected }) => console.log({applied: selected}),
+    label: 'Status',
+    getOptionId: (option) => option.Id,
+    getOptionLabel: (option) => option.name,
+    
   })
 
   return <FilterMultiple state={state} />
@@ -78,7 +112,7 @@ function Filter() {
       { label: 'Empty', value: 2, id: '#2' },
       { label: 'Half empty', value: 4, id: '#3' },
     ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log({applied: selected}),
     label: 'Status',
   })
   return <FilterMultiple state={state} />
@@ -107,10 +141,10 @@ render(<RootApp />)
 
 | Name           | Type                             | Description                                                         | Required | Default |
 | -------------- | -------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
-| items          | `FilterItem[]`                   | List of options for the filter, item must include id and label      | ✅       | -       |
-| onChange       | `({selected: string[]}) => void` | Callback called with current selected ids on apply and clear press. | ✅       | -       |
+| items          | `T[]`                            | List of options for the filter                             | ✅       | -       |
+| onChange       | `({selected: T[]}) => void` | Callback called with current selected items on apply and clear press. | ✅       | -       |
 | label          | `string`                         | Filter button label                                                 | ✅       | -       |
-| initialApplied | `string[]`                       | Array with initially applied options' ids                           | 🚫       | -       |
+| initialApplied | `T[]`                       | Array with initially applied options                           | 🚫       | -       |
 | baseId         | `string`                         | Optional baseId for controling the components and its childrens id  | 🚫       | -       |
 
 ## FilterMultipleState (return of UseFilterMultipleState)
@@ -121,9 +155,8 @@ render(<RootApp />)
 | combobox       | `ComboboxState`                  | State that controls the component's option list
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected
-| appliedItems   | `FilterItem[]`                   | List of items that are currently applied
-| appliedKeys    | `ID[]`                           | List of ids that are currently applied
-| selectedKeys   | `ID[]`                           | List of ids that are currently selected
-| items          | `FilterItem[]`                   | List of options for the filter
+| appliedItems   | `T[]`                   | List of items that are currently applied
+| selectedItems   | `T[]`                           | List of items that are currently selected
+| items          | `T[]`                   | List of options for the filter
 
 

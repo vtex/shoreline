@@ -12,8 +12,10 @@ import {
 import {
   useFilterMultipleState as experimental_useFilterMultipleState,
   FilterMultiple as experimental_FilterMultiple,
+  FilterMultipleSearch as experimental_FilterMultipleSearch,
   useFilterState as experimental_useFilterState,
   Filter as experimental_Filter,
+  FilterSearch as experimental_FilterSearch,
   FilterGroup as experimental_FilterGroup,
   useFilterGroupState as experimental_useFilterGroupState,
 } from './filters'
@@ -46,6 +48,8 @@ export {
   experimental_FilterGroup,
   experimental_FilterMultiple,
   experimental_Filter,
+  experimental_FilterSearch,
+  experimental_FilterMultipleSearch,
   experimental_useFilterGroupState,
   experimental_useFilterMultipleState,
   experimental_useFilterState,

@@ -6,6 +6,8 @@ import {
   useFilterState,
   FilterSearch,
   FilterMultipleSearch,
+  useFilterGroupState,
+  FilterGroup,
 } from '../index'
 
 export default {
@@ -13,7 +15,7 @@ export default {
   component: FilterSearch,
 } as Meta
 
-export function Search() {
+export function MultipleSearch() {
   const state = useFilterMultipleState({
     items: [
       { label: 'Rio de Janeiro', id: '#1' },
@@ -30,7 +32,7 @@ export function Search() {
       { label: 'Salvador', id: '#12' },
       { label: 'Barcelona', id: '#13' },
     ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log({ selected }),
     label: 'City',
   })
 
@@ -100,9 +102,38 @@ const searchItems = (search: string, delay = 1000) => {
 }
 
 export const Async = () => {
+  const state = useFilterState<{ value: string }>({
+    items: [],
+    label: 'City',
+    getOptionId: (option) => option.value,
+    getOptionLabel: (option) => option.value,
+  })
+
+  const { combobox } = state
+
+  useEffect(() => {
+    if (state.combobox.deferredValue === '') {
+      combobox.setLoading(true)
+      searchItems('').then((res) => {
+        combobox.setMatches(res)
+        state.combobox.setLoading(false)
+      })
+    } else {
+      state.combobox.setLoading(true)
+      searchItems(state.combobox.deferredValue).then((res) => {
+        combobox.setMatches(res)
+        combobox.setLoading(false)
+      })
+    }
+  }, [combobox.deferredValue])
+
+  return <FilterSearch state={state} />
+}
+
+export const AsyncMultiple = () => {
   const state = useFilterMultipleState<{ label: string; id: string }>({
     items: [],
-    label: 'teste',
+    label: 'Async city',
   })
 
   useEffect(() => {
@@ -125,4 +156,68 @@ export const Async = () => {
   }, [state.combobox.deferredValue])
 
   return <FilterMultipleSearch state={state} />
+}
+
+export const Group = () => {
+  const fullList = [
+    { name: 'Rio de Janeiro', uniqueId: '#1' },
+    { name: 'New York', uniqueId: '#2' },
+    { name: 'Paris', uniqueId: '#3' },
+    { name: 'Tokyo', uniqueId: '#4' },
+    { name: 'São Paulo', uniqueId: '#5' },
+    { name: 'Berlin', uniqueId: '#7' },
+    { name: 'Washington', uniqueId: '#8' },
+    { name: 'Lisboa', uniqueId: '#9' },
+    { name: 'Porto', uniqueId: '#10' },
+    { name: 'João Pessoa', uniqueId: '#11' },
+    { name: 'Salvador', uniqueId: '#12' },
+    { name: 'Barcelona', uniqueId: '#13' },
+  ]
+
+  const state = useFilterMultipleState({
+    items: fullList,
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Multiple',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+  })
+
+  const state2 = useFilterState({
+    items: fullList,
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Simple',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+  })
+
+  const state3 = useFilterMultipleState({
+    items: fullList,
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Multiple with initial',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+    initialApplied: [fullList[0], fullList[3]],
+  })
+
+  const state4 = useFilterState({
+    items: fullList,
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Simple with initial',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+    initialApplied: fullList[2],
+  })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state, state2, state3, state4],
+  })
+
+  return (
+    <FilterGroup state={filterGroupState}>
+      <FilterMultipleSearch state={state} />
+      <FilterSearch state={state2} />
+      <FilterMultipleSearch state={state3} />
+      <FilterSearch state={state4} />
+    </FilterGroup>
+  )
 }

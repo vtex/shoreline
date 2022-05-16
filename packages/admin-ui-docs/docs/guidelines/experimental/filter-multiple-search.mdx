@@ -4,7 +4,7 @@ path: /filter-multiple-search/
 ---
 
 [Filters](/filter/) are supposed to be used in pages or sections that display some kind of data that can be filtered. 
-`FilterSearch` serves the same function as FilterMultiple, but allows the user to search among the options.
+`FilterSearch` serves the same function as [FilterMultiple](/filter-multiple/), but allows the user to search among the options.
 
 ## Usage
 
@@ -39,6 +39,163 @@ function Example() {
 }
 ```
 
+## Examples
+
+### Uncontrolled
+
+For an uncontrolled behaviour you can use the state just like you did with [FilterMultiple](/filter-multiple/). If you want to check the values
+on the search input you can use `state.combobox.deferredValue` or `state.combobox.value`. The combobox state works like on the 
+[ComboboxMultiple](/combobox/) component.
+
+
+```jsx noInline live
+const FilterMultipleSearch = experimental_FilterMultipleSearch
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+function Example() {
+  const state = useFilterMultipleState({
+    items: [
+      { label: 'Rio de Janeiro', id: '#1' },
+      { label: 'New York', id: '#2' },
+      { label: 'Paris', id: '#3' },
+      { label: 'Tokyo', id: '#4' },
+      { label: 'São Paulo', id: '#5' },
+      { label: 'Berlin', id: '#7' },
+      { label: 'Washington', id: '#8' },
+      { label: 'Lisboa', id: '#9' },
+      { label: 'Porto', id: '#10' },
+      { label: 'João Pessoa', id: '#11' },
+      { label: 'Salvador', id: '#12' },
+      { label: 'Barcelona', id: '#13' },
+    ],
+    onChange: ({ selected }) => console.log({selected}),
+    label: 'City',
+  })
+
+  return <div>
+      Search value: {state.combobox.value}
+      <FilterMultipleSearch state={state} />
+    </div>
+}
+
+render(<Example />)
+```
+
+### Controlled
+
+For a controlled behaviour you can use the state props `combobox.deferredValue` and `combobox.setMatches` to manipulate the option list. 
+The option list control work like on the [Combobox](/combobox/) component.
+
+
+```jsx noInline live
+const FilterMultipleSearch = experimental_FilterMultipleSearch
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+const searchItems = (search, delay = 1000) => {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+    { value: 'Algeria' },
+    { value: 'American Samoa' },
+    { value: 'Andorra' },
+    { value: 'Angola' },
+    { value: 'Anguilla' },
+    { value: 'Antarctica' },
+    { value: 'Antigua and Barbuda' },
+    { value: 'Argentina' },
+    { value: 'Armenia' },
+    { value: 'Aruba' },
+    { value: 'Austria' },
+    { value: 'Azerbaijan' },
+  ]
+
+  const res = !search
+    ? items
+    : items.filter((item) =>
+        item.value.toLowerCase().includes(search.toLowerCase())
+      )
+
+  return new Promise((resolve) =>
+    setTimeout(resolve, delay, res)
+  )
+}
+
+
+function Async() {
+  const state = useFilterMultipleState({
+    items: [],
+    label: 'City',
+    getOptionId: (option) => option.value,
+    getOptionLabel: (option) => option.value,
+  })
+
+  useEffect(() => {
+    if (state.combobox.deferredValue === '') {
+      state.combobox.setLoading(true)
+      searchItems('').then((res) => {
+        state.combobox.setMatches(
+          res
+        )
+        state.combobox.setLoading(false)
+      })
+    } else {
+      state.combobox.setLoading(true)
+      searchItems(state.combobox.deferredValue).then((res) => {
+        state.combobox.setMatches(
+          res
+        )
+        state.combobox.setLoading(false)
+      })
+    }
+  }, [state.combobox.deferredValue])
+
+  return <FilterMultipleSearch state={state} />
+}
+
+render(<Async />)
+```
+
+### InitialValue
+
+```jsx noInline live
+const FilterMultipleSearch = experimental_FilterMultipleSearch
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+function InitialSelected() {
+  const state = useFilterMultipleState({
+    items: [
+      { name: 'Rio de Janeiro', uniqueId: '#1' },
+      { name: 'New York', uniqueId: '#2' },
+      { name: 'Paris', uniqueId: '#3' },
+      { name: 'Tokyo', uniqueId: '#4' },
+      { name: 'São Paulo', uniqueId: '#5' },
+      { name: 'Berlin', uniqueId: '#7' },
+      { name: 'Washington', uniqueId: '#8' },
+      { name: 'Lisboa', uniqueId: '#9' },
+      { name: 'Porto', uniqueId: '#10' },
+      { name: 'João Pessoa', uniqueId: '#11' },
+      { name: 'Salvador', uniqueId: '#12' },
+      { name: 'Barcelona', uniqueId: '#13' }
+    ],
+    onChange: ({ selected }) => console.log({selected}),
+    label: 'Cities',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
+    initialApplied: [{ name: 'São Paulo', uniqueId: '#5' }, { name: 'Lisboa', uniqueId: '#9' }],
+  })
+
+  return <FilterMultipleSearch state={state} />
+}
+
+render(<InitialSelected />)
+```
+
 ## Props
 
 ### FilterMultiple
@@ -49,4 +206,4 @@ function Example() {
 
 ### State
 
-You can see the detailed state props on `FilterMultiple`.
+You can see the detailed state props on [FilterMultiple](/filter-multiple/).
