@@ -2,7 +2,7 @@ import { get } from '@vtex/admin-ui'
 import type { FormState } from '../form'
 
 /**
- * Gets whether the field has an error
+ * Gets wether the field has an error
  * @param state form state
  * @param name field name
  */

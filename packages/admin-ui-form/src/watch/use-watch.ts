@@ -33,11 +33,6 @@ export interface UseWatchProps {
    * @default false
    * */
   disabled?: boolean
-  /**
-   * Enables an exact match for input name subscriptions
-   * @default false
-   */
-  exact?: boolean
 }
 
 export type WatchState = ReturnType<typeof useWatch>
