@@ -1,6 +1,9 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
 
+const height = '2.75rem'
+
 export const container = style({
+  height,
   display: 'flex',
   width: '100%',
   alignItems: 'center',
@@ -8,6 +11,7 @@ export const container = style({
   border: '$form.neutral',
   borderRadius: '$default',
   bg: '$form.neutral',
+  cursor: 'text',
   ':hover': {
     border: '$form.neutralHover',
   },
@@ -45,6 +49,7 @@ export const containerVariants = styleVariants({
 })
 
 export const input = style({
+  height,
   padding: '$m',
   width: '100%',
   borderRadius: '$default',

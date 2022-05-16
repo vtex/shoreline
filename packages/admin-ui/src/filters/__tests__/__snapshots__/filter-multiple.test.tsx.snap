@@ -322,7 +322,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
 }
 
 .emotion-4 >*:not(:first-child) {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .emotion-3 {

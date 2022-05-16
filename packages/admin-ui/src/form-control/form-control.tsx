@@ -10,7 +10,7 @@ export function FormControl(props: FormGroupOptions) {
 
   return (
     <FormControlProvider {...remainingProps}>
-      <Stack space="$l">{children}</Stack>
+      <Stack space="$m">{children}</Stack>
     </FormControlProvider>
   )
 }
