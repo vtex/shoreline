@@ -1,5 +1,6 @@
 import { jsx } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
+import { keyframes } from '@stitches/core'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -39,17 +40,13 @@ export const Skeleton = jsx('div')(
     },
   },
   {
-    useOptions: (_, props, { keyframes }) => {
+    useOptions: (_, props) => {
       const { csx, ...restProps } = props
 
-      const load = keyframes`
-        0% {
-          background-position: -200px 0;
-        }
-        100% {
-          background-position: calc(200px + 100%) 0;
-        }
-      `
+      const load = keyframes({
+        '0%': { backgroundPosition: '-200px 0' },
+        '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
+      })
 
       return {
         ...restProps,

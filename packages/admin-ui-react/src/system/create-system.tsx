@@ -1,5 +1,5 @@
 import React from 'react'
-import { createCsx, theme, styles } from '@vtex/admin-ui-core'
+import { createCsx, styles, theme } from '@vtex/admin-ui-core'
 import type { ReactElement, PropsWithChildren } from 'react'
 import { isKebab } from '@vtex/admin-ui-util'
 import invariant from 'tiny-invariant'
@@ -9,7 +9,8 @@ import type {
   Emotion,
 } from '@emotion/css/create-instance'
 import createEmotion from '@emotion/css/create-instance'
-import { CacheProvider, Global } from '@emotion/react'
+import { CacheProvider } from '@emotion/react'
+import { globalCss } from '@stitches/core'
 
 /** focus-visible polyfill  */
 import 'focus-visible/dist/focus-visible'
@@ -35,7 +36,12 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
     ...experimentalEmotionOptions,
   })
 
-  const csx = createCsx(emotion, experimentalTheme)
+  const csx = createCsx(experimentalTheme)
+
+  const cx = (...args: string[]) => args.join(' ')
+  const global = experimentalDisabledGlobalStyles ? {} : theme.global
+
+  globalCss(styles(global) as any)
 
   function SystemProvider(props: PropsWithChildren<{}>) {
     const { children } = props
@@ -46,8 +52,7 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
           value={{
             theme,
             cn: csx,
-            cx: emotion.cx,
-            keyframes: emotion.keyframes,
+            cx,
           }}
         >
           <IconProvider>
@@ -60,9 +65,6 @@ export function createSystem(spec: CreateSystemOptions): CreateSystemReturn {
                 crossOrigin="anonymous"
               />
             </Helmet>
-            {!experimentalDisabledGlobalStyles && (
-              <Global styles={styles(theme.global)} />
-            )}
             {children}
           </IconProvider>
         </SystemContext.Provider>

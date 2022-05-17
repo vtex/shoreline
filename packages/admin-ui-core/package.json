@@ -26,11 +26,11 @@
   },
   "peerDependencies": {
     "react": ">=16.8",
-    "react-dom": ">=16.8"
+    "react-dom": ">=16.8",
+    "@stitches/core": ">=1.x"
   },
   "dependencies": {
     "@vtex/admin-ui-util": "^0.3.0",
-    "csstype": "3.0.10",
-    "@stitches/core": "1.2.8"
+    "csstype": "3.0.10"
   }
 }
