@@ -43,9 +43,37 @@ function Example() {
       { label: 'Available', value: 1, id: '#1' },
       { label: 'Sold out', value: 2, id: '#2' },
     ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    onChange: ({ selected }) => console.log(`applied: ${selected.label}`),
     label: 'Status',
-    initialApplied: '#1',
+    initialApplied: { label: 'Available', value: 1, id: '#1' },
+  })
+  return <Filter state={state} />
+}
+
+useEffect(() => {
+    state.setAppliedItem({ label: 'Available', value: 1, id: '#1' })
+  }, [])
+
+render(<Example />)
+```
+
+### Custom shaped object
+
+```jsx noInline live
+
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
+
+function Example() {
+  const state = useFilterState({
+    items: [
+      { name: 'Available', value: 1, uniqueId: '#1' },
+      { name: 'Sold out', value: 2, uniqueId: '#2' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected.name}`),
+    label: 'Status',
+    getOptionId: (option) => option.uniqueId,
+    getOptionLabel: (option) => option.name,
   })
   return <Filter state={state} />
 }
@@ -69,7 +97,7 @@ function Filter() {
       { label: 'Available', value: 1, id: '#1' },
       { label: 'Sold out', value: 2, id: '#2' },
     ],
-    onChange: () => {},
+    onChange: ({selected}) => console.log(selected.label),
     label: 'Status',
   })
   return <Filter state={state} />
@@ -96,13 +124,14 @@ render(<RootApp />)
 
 ### useFilterState
 
-| Name           | Type                           | Description                                                       | Required | Default |
-| -------------- | ------------------------------ | ----------------------------------------------------------------- | -------- | ------- |
-| items          | `FilterItem[]`                 | List of options for the filter, item must include id and label    | ✅       | -       |
-| onChange       | `({selected: string}) => void` | Callback called with current selected id on apply or clear press. | ✅       | -       |
-| label          | `string`                       | Filter button label                                               | ✅       | -       |
-| initialApplied | `string`                       | Initially applied option id                                       | 🚫       | -       |
-| baseId         | `string`                       | Optional baseId for controling the components and its childrens id| 🚫       | -       |
+| Name           | Type                           | Description                                                                                                              | Required | Default |
+| -------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | -------- | ------- |
+| items          | `T[]`                          | List of options for the filter, if you don't set getters for label and id then the fields `label` and `id` by default    | ✅       | -       |
+| label          | `string`                       | Filter button label                                                                                                      | ✅       | -       |
+| onChange       | `({selected: T}) => void`      | Callback called with current selected item on apply or clear press.                                                      | 🚫       | -       |
+| baseId         | `string`                       | Optional baseId for controling the components and its childrens id                                                       | 🚫       | -       |
+| getOptionId    | `(item: T) => string`          | Optional function to get the id from custom objects                                                                      | 🚫       | (option) => option.id       |
+| getOptionLabel | `(item: T) => string`          | Optional function to get the id from custom objects                                                                      | 🚫       | (option) => option.label    |
 
 ## FilterState (return of useFilterState)
 
@@ -112,6 +141,6 @@ render(<RootApp />)
 | combobox       | `ComboboxState`                  | State that controls the component's option list
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected
-| appliedItem    | `FilterItem`                     | Currently applied item
-| appliedKey     | `ID`                             | Currently applied item's id
-| items          | `FilterItem[]`                   | List of options for the filter
+| appliedItem    | `T`                              | Currently applied item
+| setAppliedItem | `(item: T) => void`              | Function that sets the current applied item
+| items          | `T[]`                            | List of options for the filter
