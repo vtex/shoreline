@@ -2,7 +2,7 @@ import React from 'react'
 import { useFilterMultipleState } from '..'
 import { render, axe, withState } from '../../test-utils'
 
-import { FilterMultiple } from '../filter-multiple'
+import { FilterMultiple } from '../filter-multiple/filter-multiple'
 
 const FilterWithState = withState(FilterMultiple, () =>
   useFilterMultipleState({
