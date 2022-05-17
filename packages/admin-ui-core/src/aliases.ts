@@ -7,6 +7,18 @@ const breakpoints = {
   widescreen: '75em',
 }
 
+export function convertChainedSelectors(key: string) {
+  if (key.startsWith(':')) {
+    return `&${key}`
+  }
+
+  if (key.startsWith('.')) {
+    return `& ${key}`
+  }
+
+  return key
+}
+
 export const aliases = {
   // color
   bg: 'background',
@@ -20,5 +32,7 @@ export const aliases = {
 }
 
 export function alias(prop: string) {
-  return get(aliases, prop, prop)
+  const converted = convertChainedSelectors(prop)
+
+  return get(aliases, converted, converted)
 }
