@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.12.3...@vtex/admin-ui-docs@0.13.0) (2022-05-17)
+
+### Features
+
+- **box:** add box component review ([b5f0b45](https://github.com/vtex/admin-ui/commit/b5f0b4542b8ea6f2c54689666098eadafe08ba8f))
+
 ## [0.12.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.12.2...@vtex/admin-ui-docs@0.12.3) (2022-05-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
