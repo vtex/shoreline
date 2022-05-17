@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import createEmotion from '@emotion/css/create-instance'
 
 import { createCsx } from '../index'
 
@@ -8,28 +7,26 @@ export default {
   title: 'admin-ui-core/core',
 } as Meta
 
-// create a emotion instance
-const emotion = createEmotion({
-  key: 'admin-ui-core',
-})
-
 // join the parser w/ emotion.css
-const csx = createCsx(emotion)
+const csx = createCsx()
 
 export function FrameworkdAgnostic() {
   return (
     <div
       className={csx({
-        bg: '$secondary',
+        bg: '$action.neutral.tertiary',
         color: '$primary',
         border: '$neutral',
+        ':hover': {
+          bg: '$action.neutral.tertiaryHover',
+        },
         padding: 1,
         marginY: 2,
         size: 150,
         borderRadius: 4,
       })}
     >
-      Framework Agnostic Box
+      <div className="test">Framework Agnostic Box</div>
     </div>
   )
 }
