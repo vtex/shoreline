@@ -2,6 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import createEmotion from '@emotion/css/create-instance'
 
+import { css } from '../stitches'
 import { createCsx } from '../index'
 
 export default {
@@ -28,6 +29,26 @@ export function FrameworkdAgnostic() {
         size: 150,
         borderRadius: 4,
       })}
+    >
+      Framework Agnostic Box
+    </div>
+  )
+}
+
+export function Stitches() {
+  return (
+    <div
+      className={css({
+        backgroundColor: '$bg-secondary',
+        color: '$fg-primary',
+        border: '1px solid $bc-neutral',
+        padding: '$1',
+        marginY: '$2',
+        height: 150,
+        width: 150,
+        borderRadius: 4,
+        text: '$body',
+      })()}
     >
       Framework Agnostic Box
     </div>
