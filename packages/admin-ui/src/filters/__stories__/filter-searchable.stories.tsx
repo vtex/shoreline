@@ -196,7 +196,6 @@ export const Group = () => {
     label: 'Multiple with initial',
     getOptionId: (option) => option.uniqueId,
     getOptionLabel: (option) => option.name,
-    initialApplied: [fullList[0], fullList[3]],
   })
 
   const state4 = useFilterState({
@@ -205,12 +204,16 @@ export const Group = () => {
     label: 'Simple with initial',
     getOptionId: (option) => option.uniqueId,
     getOptionLabel: (option) => option.name,
-    initialApplied: fullList[2],
   })
 
   const filterGroupState = useFilterGroupState({
     filterStates: [state, state2, state3, state4],
   })
+
+  useEffect(() => {
+    state3.setAppliedItems([fullList[0], fullList[3]])
+    state4.setAppliedItem(fullList[2])
+  }, [])
 
   return (
     <FilterGroup state={filterGroupState}>

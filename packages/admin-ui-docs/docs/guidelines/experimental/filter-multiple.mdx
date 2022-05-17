@@ -50,11 +50,15 @@ function Example() {
     ],
     onChange: ({ selected }) => console.log({applied: selected}),
     label: 'Status',
-    initialApplied: [
+  })
+
+  useEffect(() => {
+    state.setAppliedItems([
+      
       { label: 'Full', value: 1, id: '#1' },
       { label: 'Empty', value: 2, id: '#2' },
-    ],
-  })
+    ])
+  }, [])
 
   return <FilterMultiple state={state} />
 
@@ -139,13 +143,15 @@ render(<RootApp />)
 
 ### UseFilterMultipleState
 
-| Name           | Type                             | Description                                                         | Required | Default |
-| -------------- | -------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
-| items          | `T[]`                            | List of options for the filter                             | ✅       | -       |
-| onChange       | `({selected: T[]}) => void` | Callback called with current selected items on apply and clear press. | ✅       | -       |
-| label          | `string`                         | Filter button label                                                 | ✅       | -       |
-| initialApplied | `T[]`                       | Array with initially applied options                           | 🚫       | -       |
-| baseId         | `string`                         | Optional baseId for controling the components and its childrens id  | 🚫       | -       |
+| Name           | Type                             | Description                                                            | Required | Default |
+| -------------- | -------------------------------- | ---------------------------------------------------------------------- | -------- | ------- |
+| label          | `string`                         | Filter button label                                                    | ✅       | -       |
+| items          | `T[]`                            | List of options for the filter                                         | 🚫       | []      |
+| onChange       | `({selected: T[]}) => void`      | Callback called with current selected items on apply and clear press.  | 🚫       | -       |
+| baseId         | `string`                         | Optional baseId for controling the components and its childrens id     | 🚫       | -       |
+| getOptionId    | `(item: T) => string`            | Optional function to get the id from custom objects                    | 🚫       | (option) => option.id       |
+| getOptionLabel | `(item: T) => string`            | Optional function to get the id from custom objects                    | 🚫       | (option) => option.label    |
+
 
 ## FilterMultipleState (return of UseFilterMultipleState)
 
@@ -155,8 +161,10 @@ render(<RootApp />)
 | combobox       | `ComboboxState`                  | State that controls the component's option list
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected
-| appliedItems   | `T[]`                   | List of items that are currently applied
-| selectedItems   | `T[]`                           | List of items that are currently selected
-| items          | `T[]`                   | List of options for the filter
+| appliedItems   | `T[]`                            | List of items that are currently applied
+| setAppliedItems| `(items: T[]) => void`           | Function for changing the current applied values 
+| selectedItems  | `T[]`                            | List of items that are currently selected
+| items          | `T[]`                            | List of options for the filter
+
 
 

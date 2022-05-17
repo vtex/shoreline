@@ -12,24 +12,23 @@ export function useFilterMultipleState<T extends AnyObject>(
   const {
     items,
     label,
-    initialApplied,
     baseId,
     onChange = () => {},
     getOptionLabel = (option) => option.label,
     getOptionId = (option) => option.id,
   } = props
 
-  const [appliedItems, setAppliedItems] = useState<T[]>(initialApplied || [])
+  const [appliedItems, setAppliedItems] = useState<T[]>([])
 
   const comboboxMultiple = useComboboxMultipleState<T>({
-    list: items,
+    list: items || [],
     getOptionValue: getOptionLabel,
     compare: (optionA, optionB) =>
       getOptionId(optionA) === getOptionId(optionB),
   })
 
   useEffect(() => {
-    comboboxMultiple.setSelectedItems(initialApplied || [])
+    comboboxMultiple.setSelectedItems([])
   }, [])
 
   const menu = useMenuState(comboboxMultiple)
@@ -67,8 +66,9 @@ export function useFilterMultipleState<T extends AnyObject>(
     combobox: comboboxMultiple,
     onClear: clear,
     onChange: apply,
-    items,
+    items: items ?? [],
     appliedItems,
+    setAppliedItems,
     selectedItems,
     label,
     baseId,
@@ -82,6 +82,7 @@ export interface UseFilterMultipleReturn<T>
   combobox: ComboboxMultipleState<T>
   appliedItems: T[]
   selectedItems: T[]
+  setAppliedItems: (items: T[]) => void
 }
 
 export interface UseFilterMultipleStateProps<T> {
@@ -91,12 +92,10 @@ export interface UseFilterMultipleStateProps<T> {
   getOptionId?: (option: T) => string
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: T[] }) => void
-  /** The initial selected keys. */
-  initialApplied?: T[]
   /** Filter button label. */
   label: string
   /** Base for component and it's children id. */
   baseId?: string
   /** List of items to be showed on the list. */
-  items: T[]
+  items?: T[]
 }

@@ -50,6 +50,10 @@ function Example() {
   return <Filter state={state} />
 }
 
+useEffect(() => {
+    state.setAppliedItem({ label: 'Available', value: 1, id: '#1' })
+  }, [])
+
 render(<Example />)
 ```
 
@@ -123,10 +127,11 @@ render(<RootApp />)
 | Name           | Type                           | Description                                                                                                              | Required | Default |
 | -------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | -------- | ------- |
 | items          | `T[]`                          | List of options for the filter, if you don't set getters for label and id then the fields `label` and `id` by default    | ✅       | -       |
-| onChange       | `({selected: T}) => void`      | Callback called with current selected item on apply or clear press.                                                      | ✅       | -       |
 | label          | `string`                       | Filter button label                                                                                                      | ✅       | -       |
-| initialApplied | `T`                            | Initially applied option                                                                                                 | 🚫       | -       |
+| onChange       | `({selected: T}) => void`      | Callback called with current selected item on apply or clear press.                                                      | 🚫       | -       |
 | baseId         | `string`                       | Optional baseId for controling the components and its childrens id                                                       | 🚫       | -       |
+| getOptionId    | `(item: T) => string`          | Optional function to get the id from custom objects                                                                      | 🚫       | (option) => option.id       |
+| getOptionLabel | `(item: T) => string`          | Optional function to get the id from custom objects                                                                      | 🚫       | (option) => option.label    |
 
 ## FilterState (return of useFilterState)
 
@@ -137,4 +142,6 @@ render(<RootApp />)
 | onClear        | `() => void`                     | Function used by the component when clear is selected
 | onChange       | `() => void`                     | Function used by the component when apply is selected
 | appliedItem    | `T`                              | Currently applied item
+| setAppliedItem | `(item: T) => void`              | Function that sets the current applied item
 | items          | `T[]`                            | List of options for the filter
+

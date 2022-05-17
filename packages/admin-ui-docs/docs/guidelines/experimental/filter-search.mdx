@@ -188,8 +188,11 @@ function InitialSelected() {
     label: 'Simple',
     getOptionId: (option) => option.uniqueId,
     getOptionLabel: (option) => option.name,
-    initialApplied: { name: 'Lisboa', uniqueId: '#9' },
   })
+
+  useEffect(() => {
+    state.setAppliedItem({ name: 'Lisboa', uniqueId: '#9' })
+  }, [])
 
   return <FilterSearch state={state} />
 }

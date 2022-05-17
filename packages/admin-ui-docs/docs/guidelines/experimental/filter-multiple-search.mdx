@@ -187,8 +187,14 @@ function InitialSelected() {
     label: 'Cities',
     getOptionId: (option) => option.uniqueId,
     getOptionLabel: (option) => option.name,
-    initialApplied: [{ name: 'São Paulo', uniqueId: '#5' }, { name: 'Lisboa', uniqueId: '#9' }],
   })
+
+  useEffect(() => {
+    state.setAppliedItems([
+      { name: 'São Paulo', uniqueId: '#5' },
+      { name: 'Lisboa', uniqueId: '#9' }
+    ])
+  }, [])
 
   return <FilterMultipleSearch state={state} />
 }

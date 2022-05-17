@@ -4,7 +4,7 @@ import type { MenuState } from 'ariakit/menu'
 import { useMenuState } from 'ariakit/menu'
 import type { ComboboxState } from '../../combobox/combobox.state'
 import { useComboboxState } from '../../combobox/combobox.state'
-import type { AnyObject } from 'packages/admin-ui-util/dist'
+import type { AnyObject } from 'packages/admin-ui-util'
 
 export function useFilterState<T extends AnyObject>(
   props: UseFilterStateProps<T>
@@ -12,36 +12,31 @@ export function useFilterState<T extends AnyObject>(
   const {
     items,
     label,
-    initialApplied,
     baseId,
     getOptionLabel = (option) => option.label,
     getOptionId = (option) => option.id,
     onChange = () => {},
   } = props
 
-  const [appliedItem, setAppliedItem] = useState(initialApplied || null)
+  const [appliedItem, setAppliedItem] = useState<T>()
 
   const combobox = useComboboxState({
     virtualFocus: false,
-    list: items,
+    list: items || [],
     getOptionValue: getOptionLabel,
   })
-
-  useEffect(() => {
-    combobox.setSelectedItem(initialApplied)
-  }, [])
 
   const menu = useMenuState({ ...combobox, gutter: 4 })
 
   const apply = useCallback(() => {
-    setAppliedItem(combobox.selectedItem || null)
+    setAppliedItem(combobox.selectedItem)
 
     onChange({ selected: combobox.selectedItem || null })
     menu.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
-    setAppliedItem(null)
+    setAppliedItem(undefined)
 
     combobox.setValue('')
     combobox.setSelectedItem(undefined)
@@ -72,8 +67,9 @@ export function useFilterState<T extends AnyObject>(
     combobox,
     onClear: clear,
     onChange: apply,
-    items,
+    items: items || [],
     appliedItem,
+    setAppliedItem,
     label,
     baseId,
     getOptionLabel,
@@ -95,6 +91,7 @@ export interface GenericFilterStateReturn<T> {
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
   appliedItem?: T | null
+  setAppliedItem: (option: T) => void
 }
 
 export interface UseFilterStateProps<T> {
@@ -104,12 +101,10 @@ export interface UseFilterStateProps<T> {
   getOptionLabel?: (option: T) => string
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: T | null }) => void
-  /** The initial selected item. */
-  initialApplied?: T
   /** Filter button label. */
   label: string
   /** Base for component and it's children id. */
   baseId?: string
   /** List of items to be showed on the list. */
-  items: T[]
+  items?: T[]
 }
