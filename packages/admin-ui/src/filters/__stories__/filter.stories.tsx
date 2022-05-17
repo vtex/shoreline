@@ -1,7 +1,6 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import type { UseFilterMultipleStateProps } from '../index'
 import {
   FilterGroup,
   FilterMultiple,
@@ -12,27 +11,21 @@ import {
 
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
+import { useEffect } from '@storybook/addons'
 
 export default {
   title: 'admin-ui/Filters',
   component: FilterGroup,
 } as Meta
 
+function PlaygroundExample({ args }: any) {
+  const state = useFilterMultipleState(args)
+
+  return <FilterMultiple state={state} />
+}
+
 export const Playground: Story = (args) => {
-  const { type, ...restArgs } = args
-
-  const onChange = () => {}
-
-  const hookArgs = { ...restArgs, onChange }
-
-  const multipleState = useFilterMultipleState(
-    hookArgs as unknown as UseFilterMultipleStateProps<any>
-  )
-
-  // for the life of me I dont know why this is not working now,
-  // the same code works on the others
-  // return <FilterMultiple state={multipleState} />
-  return <>Under maintenance 🚧</>
+  return <PlaygroundExample args={args} />
 }
 
 Playground.args = {
@@ -57,8 +50,14 @@ export function Multiple() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
-    initialApplied: ['#1', '#2'],
   })
+
+  useEffect(() => {
+    state.setAppliedItems([
+      { label: 'Full', id: '#1' },
+      { label: 'Empty', id: '#2' },
+    ])
+  }, [])
 
   return <FilterMultiple state={state} />
 }
@@ -98,7 +97,6 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Status',
-    initialApplied: ['#1', '#2'],
   })
 
   const state2 = useFilterState({
@@ -110,7 +108,6 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'City',
-    initialApplied: '#1',
   })
 
   const state3 = useFilterMultipleState({
@@ -123,8 +120,19 @@ export function BasicFilterGroup() {
     ],
     onChange: ({ selected }) => console.log(`applied: ${selected}`),
     label: 'Preselected',
-    initialApplied: ['#4', '#2'],
   })
+
+  useEffect(() => {
+    state2.setAppliedItem({ label: 'Rio de Janeiro', value: 1, id: '#1' })
+    state.setAppliedItems([
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ])
+    state3.setAppliedItems([
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ])
+  }, [])
 
   const filterGroupState = useFilterGroupState({
     filterStates: [state, state2, state3],
