@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { IconPlus } from '@vtex/phosphor-icons'
 
-import { Box } from '../Box'
+import { Box } from '../../box'
 import type { InputType, InputProps } from './index'
 import { Input } from './index'
 import { Anchor } from '../Anchor'

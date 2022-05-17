@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { Tabs, Tab, TabPanel, TabList, useTabState } from '../index'
 import { Card } from '../../Card'
 import { Heading } from '../../Heading'

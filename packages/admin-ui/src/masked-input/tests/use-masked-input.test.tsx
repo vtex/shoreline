@@ -62,7 +62,7 @@ describe('use-masked-input', () => {
   it('should complete the mask', () => {
     const { input } = setup()
 
-    userEvent.type(input,'22032020')
+    userEvent.type(input, '22032020')
     expect(input.value).toBe('22/03/2020')
   })
 })

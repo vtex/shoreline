@@ -17,7 +17,7 @@ import {
 } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { Inline } from '../../../inline'
 import { Button } from '../../../button'
 import { Text } from '../../Text'

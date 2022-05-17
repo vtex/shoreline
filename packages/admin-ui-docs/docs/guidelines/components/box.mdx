@@ -1,13 +1,94 @@
 ---
 title: Box
 path: /box/
+hide_table_of_contents: true
 ---
 
-`Box` is the base component to be used for most of your html elements. It has no defined style or shape.
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
-## Usage
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'styling',
+      value: 'Styling',
+      level: 2,
+    },
+    {
+      id: 'semantic-elements',
+      value: 'Semantic Elements',
+      level: 2,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
+}
 
-```jsx isStatic
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Box is the base component to be used for most of your html elements. It has no defined style or shape."
+/>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+```jsx live
+<Box csx={{ border: '$neutral', padding: '$m' }}>Box with padding</Box>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  explanation="Using the dev tools you can see that is rendered as an anchor html element."
+>
+
+```jsx live
+<Box as="a" href="/guidelines/components/box#semantic-elements">
+  Box as a anchor
+</Box>
+```
+
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx
 import { Box } from '@vtex/admin-ui'
 
 function Example() {
@@ -15,38 +96,26 @@ function Example() {
 }
 ```
 
-## Examples
+</PageSection>
 
-### Styling
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+  explanation="Besides the props listed bellow, you can use all the props accepted by the JSX element you defined using `as` property."
+>
 
-Use the `csx` property to [add styles](/guidelines/styling/).
+| Name | Type          | Description                            | Required | Default |
+| ---- | ------------- | -------------------------------------- | -------- | ------- |
+| csx  | `StyleObject` | Layout styles                          | 🚫       | -       |
+| as   | `HTMLElement` | A valid HTMLElement in a string format | 🚫       | `div`   |
 
-```jsx isStatic
-<Box csx={{ padding: 1 }}>...</Box>
-```
+</PageSection>
 
-### Semantic elements
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  explanation="Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the WAI-ARIA Practices to help you."
+/>
 
-By default, `Box` renders a div element. You can customize it using the `as` prop.
-
-```jsx isStatic
-<Box as="section">
-  ...
-</Box>
-
-<Box as="span" aria-hidden>
-  ...
-</Box>
-```
-
-## Accessibility
-
-Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the [WAI-ARIA Practices](https://www.w3.org/TR/wai-aria-practices/) to help you.
-
-## Props
-
-Besides the props listed bellow, you can use all the props accepted by the JSX element you defined with `as`, which is `div` by default.
-
-| Name | Type          | Description   | Required | Default |
-| ---- | ------------- | ------------- | -------- | ------- |
-| csx  | `StyleObject` | Layout styles | 🚫       | -       |
+</Panel>
+</Page>

@@ -4,7 +4,7 @@ import type { StyleProp } from '@vtex/admin-ui-core'
 import { IconX } from '@vtex/phosphor-icons'
 import { tag, jsx } from '@vtex/admin-ui-react'
 
-import { Box } from '../../Box'
+import { Box } from '../../../box'
 import { useModalContext } from './ModalContext'
 import { ModalButton } from './ModalButton'
 import { Button } from '../../../button'
