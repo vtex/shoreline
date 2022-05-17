@@ -16,6 +16,7 @@ export function useComboboxMultipleState<T>(
       typeof item === 'string' ? item : JSON.stringify(item),
     renderOption = (item: T) =>
       typeof item === 'string' ? item : JSON.stringify(item),
+    compare,
     renderTag: originalRenderTag,
   } = props
 
@@ -31,7 +32,7 @@ export function useComboboxMultipleState<T>(
 
   const checkbox = useMultipleSelectionState({
     defaultValue: defaultSelected,
-    compare: (a, b) => getOptionValue(a) === getOptionValue(b),
+    compare: compare ?? ((a, b) => getOptionValue(a) === getOptionValue(b)),
   })
 
   const clearSelected = useCallback(() => {
@@ -59,6 +60,7 @@ export function useComboboxMultipleState<T>(
 }
 
 export interface ComboboxMultipleStateProps<T> extends ComboboxStateProps<T> {
+  compare?: (itemA: T, itemB: T) => boolean
   defaultSelected?: T[]
   renderTag?: (item: T) => ReactNode
   shouldClearOnSelect?: boolean

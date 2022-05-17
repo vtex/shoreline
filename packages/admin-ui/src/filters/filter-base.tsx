@@ -14,6 +14,7 @@ import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 
 import { Stack } from '../stack'
+import * as style from './filter.style'
 
 export function BaseFilter(props: BaseFilterProps) {
   const { state, children, appliedValuesLabel = '' } = props
@@ -42,15 +43,7 @@ export function BaseFilter(props: BaseFilterProps) {
       </FilterDisclosure>
 
       <FilterPopover state={menu} id={popoverId}>
-        <tag.span
-          ref={optionsContainerRef}
-          csx={{
-            marginTop: '$m',
-            padding: '$l',
-            maxHeight: 312,
-            overflowY: 'auto',
-          }}
-        >
+        <tag.span ref={optionsContainerRef} csx={style.scrollableContainer}>
           <Stack
             as={ComboboxList}
             state={combobox}
