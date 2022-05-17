@@ -61,10 +61,15 @@ TextArea.displayName = 'TextArea'
 type JSXTextAreaProps = ComponentPropsWithoutRef<'textarea'>
 
 interface TextAreaOptions {
+  /** Optional limit for char ammount allowed. */
   charLimit?: number
+  /** Wheter there's an error. */
   error?: boolean
+  /** Error message. */
   errorText?: ReactNode
+  /** Help text that will be rendered bellow input. */
   helpText?: ReactNode
+  /** Inputs label. */
   label?: ReactNode
 }
 
