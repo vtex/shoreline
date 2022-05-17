@@ -1,9 +1,8 @@
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { focusVisible, style } from '@vtex/admin-ui-core'
+
 import * as buttonStyle from '../button/button.style'
 
-const css = (csx: StyleProp) => csx
-
-export const baseline = css({
+export const disclosure = style({
   ...buttonStyle.buttonStyle,
   ...buttonStyle.variants({ size: 'normal' }),
   marginRight: '$s',
@@ -28,7 +27,29 @@ export const baseline = css({
 })
 
 export const caretIcon = (isOpen: boolean) =>
-  css({
+  style({
     transform: `rotate(${isOpen ? 0 : 180}deg)`,
     marginLeft: '$s',
   })
+
+export const option = style({
+  display: 'flex',
+  cursor: 'pointer',
+  ...focusVisible('main'),
+})
+
+export const scrollableContainer = style({
+  marginTop: '$m',
+  padding: '$l',
+  maxHeight: 312,
+  overflowY: 'auto',
+})
+
+export const disclosureStatusLabel = style({
+  color: '$primary',
+  marginLeft: '$s',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  maxWidth: '300px',
+})
