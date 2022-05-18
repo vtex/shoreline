@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.7.0...@vtex/admin-ui-react@0.7.1-experimental.0) (2022-05-18)
+
+### Bug Fixes
+
+- **stitches:** createSystem experimental theme overriding the default theme ([b3f4200](https://github.com/vtex/admin-ui/commit/b3f420008dd864c71123758d81719fdd835fc5d0))
+
+### Features
+
+- **stitches:** remove emotion dependency from the project ([e3cd2ee](https://github.com/vtex/admin-ui/commit/e3cd2eec52398a6f11721fb502926ebe0793afc1))
+
 # [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.6.13...@vtex/admin-ui-react@0.7.0) (2022-05-12)
 
 **Note:** Version bump only for package @vtex/admin-ui-react

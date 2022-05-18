@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.0...@vtex/admin-ui-core@0.10.1-experimental.0) (2022-05-18)
+
+### Bug Fixes
+
+- **stitches:** improve chained selector alias ([21f06de](https://github.com/vtex/admin-ui/commit/21f06dec3dd6da9aefd002ade4b9fd256c05df2f))
+
+### Features
+
+- **stitches:** remove emotion dependency from the project ([e3cd2ee](https://github.com/vtex/admin-ui/commit/e3cd2eec52398a6f11721fb502926ebe0793afc1))
+- **stitches:** replace css emotion function with the stitches one in the admin-ui-core ([d6464d4](https://github.com/vtex/admin-ui/commit/d6464d49b1f773e9554b15bbf8b5087c72bd19bf))
+
 # [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.9.1...@vtex/admin-ui-core@0.10.0) (2022-05-12)
 
 ### Bug Fixes
