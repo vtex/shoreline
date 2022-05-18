@@ -5,7 +5,6 @@ import { useId } from '@vtex/admin-ui-hooks'
 import { TextAreaContainer } from './text-area-container'
 import { TextAreaElement } from './text-area-element'
 import { Text } from '../components/Text'
-
 import {
   FormControl,
   FormControlLabel,
