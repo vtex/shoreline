@@ -35,6 +35,16 @@ export function useFilterMultipleState<T extends AnyObject>(
 
   const { selectedItems } = comboboxMultiple
 
+  const updateApplied = useCallback(
+    (items: T[]) => {
+      comboboxMultiple.setSelectedItems(items)
+      setAppliedItems(items)
+
+      onChange({ selected: items })
+    },
+    [onChange]
+  )
+
   const apply = useCallback(() => {
     setAppliedItems(selectedItems)
 
@@ -68,7 +78,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     onChange: apply,
     items: items ?? [],
     appliedItems,
-    setAppliedItems,
+    setAppliedItems: updateApplied,
     selectedItems,
     label,
     baseId,

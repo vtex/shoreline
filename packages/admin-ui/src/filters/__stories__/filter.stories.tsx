@@ -147,10 +147,27 @@ export function BasicFilterGroup() {
   )
 }
 
-export const Interationalization = () => {
+export function Interationalization() {
+  const state = useFilterState({
+    items: [
+      { label: 'Rio de Janeiro', value: 1, id: '#1' },
+      { label: 'New York', value: 2, id: '#2' },
+      { label: 'Paris', value: 3, id: '#3' },
+      { label: 'Tokyo', value: 4, id: '#4' },
+    ],
+    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    label: 'Cidade',
+  })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state],
+  })
+
   return (
     <I18nProvider locale="pt-BR">
-      <BasicFilterGroup />
+      <FilterGroup state={filterGroupState}>
+        <Filter state={state} />
+      </FilterGroup>
     </I18nProvider>
   )
 }
