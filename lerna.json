@@ -1,7 +1,5 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
@@ -9,7 +7,7 @@
   "loglevel": "success",
   "command": {
     "publish": {
-      "allowBranch": ["main", "dev"],
+      "allowBranch": ["main", "dev", "feat/stitches-experimental-release"],
       "conventionalCommits": true,
       "message": "chore(release): publish [skip ci]"
     }
