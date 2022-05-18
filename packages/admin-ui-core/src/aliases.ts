@@ -7,6 +7,21 @@ const breakpoints = {
   widescreen: '75em',
 }
 
+export function convertChainedSelectors(key: string) {
+  const joinedSelectors = ['[', ':']
+  const spacedSelectors = ['.', '+']
+
+  const isJoined = joinedSelectors.find((selector) => key.startsWith(selector))
+  const isSpaced = spacedSelectors.find((selector) => key.startsWith(selector))
+
+  const joinedSelector = isJoined && `&${key}`
+  const spacedSelector = isSpaced && `& ${key}`
+
+  const converted = joinedSelector ?? spacedSelector ?? key
+
+  return converted
+}
+
 export const aliases = {
   // color
   bg: 'background',
@@ -20,5 +35,7 @@ export const aliases = {
 }
 
 export function alias(prop: string) {
-  return get(aliases, prop, prop)
+  const converted = convertChainedSelectors(prop)
+
+  return get(aliases, converted, converted)
 }
