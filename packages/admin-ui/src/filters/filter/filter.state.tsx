@@ -28,6 +28,16 @@ export function useFilterState<T extends AnyObject>(
 
   const menu = useMenuState({ ...combobox, gutter: 4 })
 
+  const updateApplied = useCallback(
+    (item: T) => {
+      combobox.setSelectedItem(item)
+      setAppliedItem(item)
+
+      onChange({ selected: item })
+    },
+    [onChange]
+  )
+
   const apply = useCallback(() => {
     setAppliedItem(combobox.selectedItem)
 
@@ -47,7 +57,7 @@ export function useFilterState<T extends AnyObject>(
 
   useEffect(() => {
     // auto applies whenever a new value is selected
-    if (combobox.selectedItem) {
+    if (combobox.selectedItem && combobox.selectedItem !== appliedItem) {
       apply()
     }
   }, [combobox.selectedItem])
@@ -69,7 +79,7 @@ export function useFilterState<T extends AnyObject>(
     onChange: apply,
     items: items || [],
     appliedItem,
-    setAppliedItem,
+    setAppliedItem: updateApplied,
     label,
     baseId,
     getOptionLabel,
