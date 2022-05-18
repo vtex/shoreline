@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import invariant from 'tiny-invariant'
-import type { Emotion } from '@emotion/css/types/create-instance'
 
-export interface SystemContextType extends Pick<Emotion, 'cx' | 'keyframes'> {
+export interface SystemContextType {
   theme: any
   cn: (styleProp: StyleProp) => string
+  cx: (...args: string[]) => string
 }
 
 export const SystemContext = createContext<SystemContextType | null>(null)
