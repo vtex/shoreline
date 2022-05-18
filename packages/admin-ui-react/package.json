@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.7.0",
+  "version": "0.7.1-experimental.0",
   "main": "dist/vtex-admin-ui-react.cjs.js",
   "module": "dist/vtex-admin-ui-react.esm.js",
   "types": "dist/vtex-admin-ui-react.cjs.d.ts",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
-    "@vtex/admin-ui-core": "^0.10.0",
+    "@vtex/admin-ui-core": "^0.10.1-experimental.0",
     "@vtex/phosphor-icons": "0.2.6"
   },
   "dependencies": {
