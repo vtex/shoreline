@@ -1,7 +1,8 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
-import { tag, useSystem } from '@vtex/admin-ui-react'
+import { tag } from '@vtex/admin-ui-react'
+import { keyframes } from '@vtex/admin-ui-core'
 
 import { Center } from '../../../center'
 import type { ButtonProps } from '../../../button'
@@ -24,12 +25,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
 
   const state = useSidebarContext()
 
-  const { keyframes } = useSystem()
-
-  const fadeIn = keyframes`
-  0% { opacity: 0 }
-  100% { opacity: 1 }
-  `
+  const fadeIn = keyframes({ '0%': { opacity: 0 }, '100%': { opacity: 1 } })
 
   const selectedStyle = {
     cursor: 'auto',
