@@ -15,12 +15,6 @@ const trackDefault = style({
 })
 
 const thumbDimensions = style({
-  '&:after': {
-    width: '0.75rem',
-    height: '0.75rem',
-    margin: '0.25rem',
-  },
-
   '&:checked': {
     '&:after': {
       transform: 'translateX(1rem)',
@@ -42,10 +36,15 @@ export const thumb = style({
   position: 'absolute',
   borderRadius: '1.25rem',
   transition: 'transform .25s ease',
+  width: '0.75rem',
+  height: '0.75rem',
+  margin: 'auto 0.25rem',
+  bottom: 0,
+  top: 0,
 })
 
 const disabled = style({
-  ':disabled': {
+  '&:disabled': {
     bg: '$disabled',
     border: '$disabled',
     color: '$disabled',
@@ -54,6 +53,10 @@ const disabled = style({
     '+ div label': {
       color: '$disabled',
       cursor: 'not-allowed',
+    },
+
+    ':after': {
+      bg: (theme) => get(theme, 'fg.disabled'),
     },
   },
 })
