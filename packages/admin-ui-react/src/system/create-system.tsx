@@ -10,7 +10,7 @@ import { IconProvider } from './icons'
 import { SystemContext } from './context'
 
 export function createSystem(spec?: CreateSystemOptions): CreateSystemReturn {
-  const { experimentalTheme = {}, experimentalDisabledGlobalStyles = false } =
+  const { experimentalTheme, experimentalDisabledGlobalStyles = false } =
     spec ?? {}
 
   const csx = createCsx(experimentalTheme)
