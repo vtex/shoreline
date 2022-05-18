@@ -25,8 +25,6 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "peerDependencies": {
-    "@emotion/css": ">=11",
-    "@emotion/react": ">=11",
     "@vtex/admin-ui-core": ">=0.x",
     "@vtex/phosphor-icons": ">=0.x",
     "react": ">=16",

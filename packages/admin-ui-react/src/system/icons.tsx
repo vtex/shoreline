@@ -14,7 +14,7 @@ function useIconProps(props: IconProps) {
     title,
     size = containerSize,
     children,
-    className,
+    className = '',
     width,
     height,
     ...iconProps
