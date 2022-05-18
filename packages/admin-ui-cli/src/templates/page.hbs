@@ -1,0 +1,114 @@
+import * as React from 'react'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  DataGrid,
+  useDataGridState,
+  createColumns,
+  useDataViewState,
+  DataView,
+  {{#if hasSearch}}
+  useSearchState,
+  Search,
+  DataViewControls,
+  {{/if}}
+  {{#if hasFilter}}
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+  {{/if}}
+} from '@vtex/admin-ui'
+
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    condition: 'Good',
+    price: 100,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    condition: 'Average',
+    price: 30,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    condition: 'Mint',
+    price: 10,
+  },
+]
+
+const columns = createColumns<Item>([
+  {
+    id: 'id',
+    header: 'Id',
+  },
+  {
+    id: 'productName',
+    header: 'Product Name',
+  },
+  {
+    id: 'condition',
+    header: 'Condition',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+])
+
+export function {{pascalCase name}}Page(props: {{pascalCase name}}PageProps) {
+  const view = useDataViewState()
+  {{#if hasSearch}}
+  const search = useSearchState()
+  {{/if}}
+  {{#if hasFilter}}
+  const filter = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    label: 'Status'
+  })
+  {{/if}}
+  const grid = useDataGridState<Item>({
+    view,
+    columns,
+    items,
+  })
+
+  return (
+    <Page>
+      <PageHeader>
+        <PageTitle>{{pascalCase name}}</PageTitle>
+      </PageHeader>
+      <PageContent>
+        {{#if hasSearch}}
+        <DataViewControls>
+          <Search id="search" placeholder="Search" state={search} />
+        </DataViewControls>
+        {{/if}}
+        {{#if hasFilter}}
+        <Filter state={filter} />
+        {{/if}}
+        <DataView state={view}>
+          <DataGrid state={grid} />
+        </DataView>
+      </PageContent>
+    </Page>
+  )
+}
+
+interface Item {
+  id: number
+  productName: string
+  condition: string
+  price: number
+}
+
+interface {{pascalCase name}}PageProps {
+  children?: React.ReactNode
+}

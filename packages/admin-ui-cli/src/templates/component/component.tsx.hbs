@@ -1,0 +1,18 @@
+import * as React from 'react'
+import type { StyleProp } from '@vtex/admin-ui'
+import { Box } from '@vtex/admin-ui'
+
+import * as style from './{{camelCase name}}.style'
+
+export function {{pascalCase name}}(props: {{pascalCase name}}Props) {
+  return (
+    <Box csx={[style.{{camelCase name}}, props.csx]}>
+      {{pascalCase name}}
+    </Box>
+  )
+}
+
+interface {{pascalCase name}}Props {
+  /** ... props */
+  csx?: StyleProp
+}
