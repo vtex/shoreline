@@ -1,4 +1,4 @@
-import { styles } from '../styles'
+import { cx, styles } from '../styles'
 
 describe('styles', () => {
   describe('edge cases', () => {
@@ -188,6 +188,53 @@ describe('styles', () => {
         'paddingTop',
         'paddingBottom',
       ])
+    })
+  })
+
+  describe('chained selectors alias', () => {
+    it('returns CSS selectors correct syntax', () => {
+      const result = styles({
+        ':hover': { color: 'blue' },
+        '::before': { color: 'blue' },
+        '[data]': { color: 'blue' },
+        '+ button': { color: 'blue' },
+        '.class-test': { color: 'blue' },
+      })
+
+      const keys = Object.keys(result)
+
+      expect(keys).toEqual([
+        '&:hover',
+        '&::before',
+        '&[data]',
+        '& + button',
+        '& .class-test',
+      ])
+
+      expect(result).toEqual({
+        '&:hover': { color: 'blue' },
+        '&::before': { color: 'blue' },
+        '&[data]': { color: 'blue' },
+        '& + button': { color: 'blue' },
+        '& .class-test': { color: 'blue' },
+      })
+    })
+  })
+
+  describe('cx function', () => {
+    it('joins two or more classnames with a blank space separating', () => {
+      const result = cx('cls-1', 'cls-2', 'cls-3')
+
+      expect(result).toEqual('cls-1 cls-2 cls-3')
+    })
+
+    it('joins two strings created using cx', () => {
+      const cls1 = cx('cls-1', 'cls-2')
+      const cls2 = cx('cls-3', 'cls-4')
+
+      const result = cx(cls1, cls2)
+
+      expect(result).toEqual('cls-1 cls-2 cls-3 cls-4')
     })
   })
 })
