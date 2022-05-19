@@ -1,5 +1,5 @@
 import React from 'react'
-import { createCsx, theme, styles, globalCss } from '@vtex/admin-ui-core'
+import { createCsx, theme, styles, globalCss, cx } from '@vtex/admin-ui-core'
 import type { ReactElement, PropsWithChildren } from 'react'
 import { Helmet } from 'react-helmet'
 
@@ -15,7 +15,6 @@ export function createSystem(spec?: CreateSystemOptions): CreateSystemReturn {
 
   const csx = createCsx(experimentalTheme)
 
-  const cx = (...args: string[]) => args.join(' ')
   const global = experimentalDisabledGlobalStyles ? {} : theme.global
 
   globalCss(styles(global) as any)()
