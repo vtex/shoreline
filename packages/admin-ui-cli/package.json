@@ -3,6 +3,7 @@
   "description": "Admin UI cli",
   "license": "MIT",
   "version": "0.0.0",
+  "type": "module",
   "main": "dist/vtex-admin-ui-cli.cjs.js",
   "module": "dist/vtex-admin-ui-cli.esm.js",
   "typings": "dist/index.d.ts",
@@ -25,16 +26,14 @@
   "bugs": {
     "url": "https://github.com/vtex/admin-ui/issues"
   },
-  "scripts": {
-    "gen": "plop"
+  "bin": {
+    "aui": "./src/index.js"
   },
-  "peerDependencies": {
-    "@vtex/admin-ui": "0.x",
-    "react": ">=16.8",
-    "react-dom": ">=16.8"
+  "dependencies": {
+    "plop": "3.1.0",
+    "minimist": "1.2.6"
   },
   "devDependencies": {
-    "plop": "3.1.0",
     "@vtex/admin-ui": "0.129.0",
     "@vtex/admin-ui-form": "0.2.0",
     "yup": "0.32.11"

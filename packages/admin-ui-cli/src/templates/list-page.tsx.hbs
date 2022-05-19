@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  createSystem,
   Page,
   PageHeader,
   PageTitle,
@@ -23,6 +24,10 @@ import {
   Button,
   {{/if}}
 } from '@vtex/admin-ui'
+
+const [Provider] = createSystem({
+  key: '{{kebabCase name}}-page'
+})
 
 const items = [
   {
@@ -91,35 +96,37 @@ export default function {{pascalCase name}}Page() {
   {{/if}}
 
   return (
-    <Page>
-      <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
-        <PageTitle>{{pascalCase name}}</PageTitle>
-        {{#if hasActions}}
-        <PageActions>
-          <Button variant="tertiary">
-            Secondary
-          </Button>
-          <Button variant="secondary">
-            Secondary
-          </Button>
-          <Button>Primary</Button>
-        </PageActions>
-        {{/if}}
-      </PageHeader>
-      <PageContent>
-        {{#if hasSearch}}
-        <DataViewControls>
-          <Search id="search" placeholder="Search" state={search} />
-        </DataViewControls>
-        {{/if}}
-        {{#if hasFilter}}
-        <Filter state={filter} />
-        {{/if}}
-        <DataView state={view}>
-          <DataGrid state={grid} />
-        </DataView>
-      </PageContent>
-    </Page>
+    <Provider>
+      <Page>
+        <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
+          <PageTitle>{{pascalCase name}}</PageTitle>
+          {{#if hasActions}}
+          <PageActions>
+            <Button variant="tertiary">
+              Secondary
+            </Button>
+            <Button variant="secondary">
+              Secondary
+            </Button>
+            <Button>Primary</Button>
+          </PageActions>
+          {{/if}}
+        </PageHeader>
+        <PageContent>
+          {{#if hasSearch}}
+          <DataViewControls>
+            <Search id="search" placeholder="Search" state={search} />
+          </DataViewControls>
+          {{/if}}
+          {{#if hasFilter}}
+          <Filter state={filter} />
+          {{/if}}
+          <DataView state={view}>
+            <DataGrid state={grid} />
+          </DataView>
+        </PageContent>
+      </Page>
+    </Provider>
   )
 }
 

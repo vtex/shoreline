@@ -4,7 +4,7 @@ const addNavigation = [
   {
     type: 'add',
     path: 'admin/routes.json',
-    templateFile: 'src/templates/admin/routes.json.hbs',
+    templateFile: 'templates/admin/routes.json.hbs',
     skipIfExists: true,
   },
   {
@@ -12,7 +12,7 @@ const addNavigation = [
     path: 'admin/routes.json',
     pattern: `{`,
     template: `
-  "{{dotCase name}}": {
+  "admin.app.{{camelCase name}}": {
     "component": "{{kebabCase name}}-page",
     "path": "/admin/app/{{kebabCase name}}" 
   },
@@ -20,7 +20,7 @@ const addNavigation = [
   },
 ]
 
-module.exports = (plop) => {
+export default function (plop) {
   plop.setGenerator('list-page', {
     description: 'Page that lists items',
     prompts: [
@@ -54,7 +54,7 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: 'react/{{kebabCase name}}-page.tsx',
-        templateFile: 'src/templates/list-page.tsx.hbs',
+        templateFile: 'templates/list-page.tsx.hbs',
       },
       ...addNavigation,
     ],
@@ -88,7 +88,7 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: 'react/{{kebabCase name}}-page.tsx',
-        templateFile: 'src/templates/form-page.tsx.hbs',
+        templateFile: 'templates/form-page.tsx.hbs',
       },
       ...addNavigation,
     ],
@@ -117,7 +117,7 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: 'react/{{kebabCase name}}-page.tsx',
-        templateFile: 'src/templates/blank-page.tsx.hbs',
+        templateFile: 'templates/blank-page.tsx.hbs',
       },
       ...addNavigation,
     ],
@@ -136,22 +136,22 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: `react/components/${fileName}/${fileName}.tsx`,
-        templateFile: 'src/templates/component/component.tsx.hbs',
+        templateFile: 'templates/component/component.tsx.hbs',
       },
       {
         type: 'add',
         path: 'react/components/{{kebabCase name}}/{{kebabCase name}}.style.ts',
-        templateFile: 'src/templates/component/component.style.ts.hbs',
+        templateFile: 'templates/component/component.style.ts.hbs',
       },
       {
         type: 'add',
         path: 'react/components/{{kebabCase name}}/index.ts',
-        templateFile: 'src/templates/component/index.ts.hbs',
+        templateFile: 'templates/component/index.ts.hbs',
       },
       {
         type: 'add',
         path: 'react/components/index.ts',
-        templateFile: 'src/templates/injectable-index.ts.hbs',
+        templateFile: 'templates/injectable-index.ts.hbs',
         skipIfExists: true,
       },
       {

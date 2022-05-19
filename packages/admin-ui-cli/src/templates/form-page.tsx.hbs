@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Form, useFormState, TextInput, {{#if hasValidation}}yupResolver,{{/if}} } from '@vtex/admin-ui-form'
 import type { AnyObject } from '@vtex/admin-ui'
 import {
+  createSystem,
   Page,
   PageHeader,
   PageTitle,
@@ -13,6 +14,10 @@ import {
 {{#if hasValidation}}
 import * as yup from 'yup'
 {{/if}}
+
+const [Provider] = createSystem({
+  key: '{{kebabCase name}}-page'
+})
 
 const style = {
   content: {
@@ -46,27 +51,29 @@ export default function {{pascalCase name}}Page() {
   }
 
   return (
-    <Form state={form} onSubmit={onSubmit}>
-      <Page>
-        <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
-          <PageTitle>{{pascalCase name}}</PageTitle>
-          <PageActions>
-            {{#if hasResetButton}}
-            <Button variant="secondary" type="reset">
-              Reset
-            </Button>
-            {{/if}}
-            <Button type="submit">Submit</Button>
-          </PageActions>
-        </PageHeader>
-        <PageContent csx={style.content}>
-          <Stack space="$xl" fluid>
-            <TextInput label="Product name" name="product-name" state={form} />
-            <TextInput label="Price" name="price" state={form} />
-            <TextInput label="Category" name="category" state={form} />
-          </Stack>
-        </PageContent>
-      </Page>
-    </Form>
+    <Provider>
+      <Form state={form} onSubmit={onSubmit}>
+        <Page>
+          <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
+            <PageTitle>{{pascalCase name}}</PageTitle>
+            <PageActions>
+              {{#if hasResetButton}}
+              <Button variant="secondary" type="reset">
+                Reset
+              </Button>
+              {{/if}}
+              <Button type="submit">Submit</Button>
+            </PageActions>
+          </PageHeader>
+          <PageContent csx={style.content}>
+            <Stack space="$xl" fluid>
+              <TextInput label="Product name" name="product-name" state={form} />
+              <TextInput label="Price" name="price" state={form} />
+              <TextInput label="Category" name="category" state={form} />
+            </Stack>
+          </PageContent>
+        </Page>
+      </Form>
+    </Provider>
   )
 }
