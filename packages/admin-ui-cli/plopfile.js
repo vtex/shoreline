@@ -1,5 +1,25 @@
 const fileName = '{{kebabCase name}}'
 
+const addNavigation = [
+  {
+    type: 'add',
+    path: 'admin/routes.json',
+    templateFile: 'src/templates/admin/routes.json.hbs',
+    skipIfExists: true,
+  },
+  {
+    type: 'append',
+    path: 'admin/routes.json',
+    pattern: `{`,
+    template: `
+  "{{dotCase name}}": {
+    "component": "{{kebabCase name}}-page",
+    "path": "/admin/app/{{kebabCase name}}" 
+  },
+`,
+  },
+]
+
 module.exports = (plop) => {
   plop.setGenerator('list-page', {
     description: 'Page that lists items',
@@ -36,6 +56,7 @@ module.exports = (plop) => {
         path: 'react/{{kebabCase name}}-page.tsx',
         templateFile: 'src/templates/list-page.tsx.hbs',
       },
+      ...addNavigation,
     ],
   })
 
@@ -69,6 +90,7 @@ module.exports = (plop) => {
         path: 'react/{{kebabCase name}}-page.tsx',
         templateFile: 'src/templates/form-page.tsx.hbs',
       },
+      ...addNavigation,
     ],
   })
 
@@ -97,6 +119,7 @@ module.exports = (plop) => {
         path: 'react/{{kebabCase name}}-page.tsx',
         templateFile: 'src/templates/blank-page.tsx.hbs',
       },
+      ...addNavigation,
     ],
   })
 
