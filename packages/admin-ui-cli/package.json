@@ -29,6 +29,9 @@
   "bin": {
     "aui": "./src/index.js"
   },
+  "scripts": {
+    "run-aui": "./src/index.js"
+  },
   "dependencies": {
     "plop": "3.1.0",
     "minimist": "1.2.6"

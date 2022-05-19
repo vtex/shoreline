@@ -12,7 +12,7 @@ const addNavigation = [
     path: 'admin/routes.json',
     pattern: `{`,
     template: `
-  "admin.app.{{camelCase name}}": {
+  "admin.app.{{kebabCase name}}": {
     "component": "{{kebabCase name}}-page",
     "path": "/admin/app/{{kebabCase name}}" 
   },
@@ -20,30 +20,63 @@ const addNavigation = [
   },
 ]
 
+const nameQuestion = {
+  type: 'input',
+  name: 'name',
+  message: 'What is your page name?',
+}
+
+const referenceQuestions = [
+  {
+    type: 'confirm',
+    name: 'hasBackButton',
+    message: 'With a back button?',
+  },
+  {
+    type: 'input',
+    name: 'reference',
+    message: 'Backlink reference?',
+    when(data) {
+      return !!data.hasBackButton
+    },
+  },
+]
+
+const actionQuestion = {
+  type: 'checkbox',
+  name: 'actions',
+  message: 'With actions?',
+  choices: [
+    { name: 'primary', value: 'primary' },
+    { name: 'secondary', value: 'secondary' },
+    { name: 'tertiary', value: 'tertiary' },
+  ],
+  filter(data) {
+    const arr = data
+
+    console.log({ arr })
+
+    return {
+      hasActions: true,
+      hasPrimaryAction: arr.includes('primary'),
+      hasSecondaryAction: arr.includes('secondary'),
+      hasTertiaryAction: arr.includes('tertiary'),
+    }
+  },
+}
+
 export default function (plop) {
   plop.setGenerator('list-page', {
     description: 'Page that lists items',
     prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your page name?',
-      },
+      nameQuestion,
       {
         type: 'confirm',
         name: 'hasSearch',
         message: 'With search?',
       },
-      {
-        type: 'confirm',
-        name: 'hasBackButton',
-        message: 'With a back button?',
-      },
-      {
-        type: 'confirm',
-        name: 'hasActions',
-        message: 'With actions?',
-      },
+      ...referenceQuestions,
+      actionQuestion,
       {
         type: 'confirm',
         name: 'hasFilter',
@@ -63,16 +96,8 @@ export default function (plop) {
   plop.setGenerator('form-page', {
     description: 'Page that submits a form',
     prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your page name?',
-      },
-      {
-        type: 'confirm',
-        name: 'hasBackButton',
-        message: 'With a back button?',
-      },
+      nameQuestion,
+      ...referenceQuestions,
       {
         type: 'confirm',
         name: 'hasResetButton',
@@ -96,23 +121,7 @@ export default function (plop) {
 
   plop.setGenerator('blank-page', {
     description: 'Page with the blank layout',
-    prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your page name?',
-      },
-      {
-        type: 'confirm',
-        name: 'hasBackButton',
-        message: 'With a back button?',
-      },
-      {
-        type: 'confirm',
-        name: 'hasActions',
-        message: 'With actions?',
-      },
-    ],
+    prompts: [nameQuestion, ...referenceQuestions, actionQuestion],
     actions: [
       {
         type: 'add',

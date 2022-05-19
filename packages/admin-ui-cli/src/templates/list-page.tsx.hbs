@@ -19,11 +19,12 @@ import {
   experimental_Filter as Filter,
   experimental_useFilterState as useFilterState,
   {{/if}}
-  {{#if hasActions}}
+  {{#if actions.hasActions}}
   PageActions,
   Button,
   {{/if}}
 } from '@vtex/admin-ui'
+import { useRuntime } from 'vtex.render-runtime'
 
 const [Provider] = createSystem({
   key: '{{kebabCase name}}-page'
@@ -70,6 +71,7 @@ const columns = createColumns<Item>([
 ])
 
 export default function {{pascalCase name}}Page() {
+  const { navigate } = useRuntime()
   const view = useDataViewState()
   {{#if hasSearch}}
   const search = useSearchState()
@@ -91,7 +93,9 @@ export default function {{pascalCase name}}Page() {
 
   {{#if hasBackButton}}
   const onPopNavigation = () => {
-    alert('should go back')
+    navigate({
+      page: 'admin.app.{{kebabCase reference}}'
+    })
   }
   {{/if}}
 
@@ -100,15 +104,21 @@ export default function {{pascalCase name}}Page() {
       <Page>
         <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
           <PageTitle>{{pascalCase name}}</PageTitle>
-          {{#if hasActions}}
+          {{#if actions.hasActions}}
           <PageActions>
+            {{#if actions.hasTertiaryAction}}
             <Button variant="tertiary">
-              Secondary
+              tertiary
             </Button>
+            {{/if}}
+            {{#if actions.hasSecondaryAction}}
             <Button variant="secondary">
               Secondary
             </Button>
+            {{/if}}
+            {{#if actions.hasPrimaryAction}}
             <Button>Primary</Button>
+            {{/if}}
           </PageActions>
           {{/if}}
         </PageHeader>

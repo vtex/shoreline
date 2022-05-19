@@ -5,20 +5,25 @@ import {
   PageHeader,
   PageTitle,
   PageContent,
-  {{#if hasActions}}
+  {{#if actions.hasActions}}
   PageActions,
   Button,
   {{/if}}
 } from '@vtex/admin-ui'
+import { useRuntime } from 'vtex.render-runtime'
 
 const [Provider] = createSystem({
   key: '{{kebabCase name}}-page'
 })
 
 export default function {{pascalCase name}}Page() {
+  const { navigate } = useRuntime()
+
   {{#if hasBackButton}}
   const onPopNavigation = () => {
-    alert('should go back')
+    navigate({
+      page: 'admin.app.{{kebabCase reference}}'
+    })
   }
   {{/if}}
 
@@ -27,15 +32,21 @@ export default function {{pascalCase name}}Page() {
       <Page>
         <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
           <PageTitle>{{pascalCase name}}</PageTitle>
-          {{#if hasActions}}
+          {{#if actions.hasActions}}
           <PageActions>
+            {{#if actions.hasTertiaryAction}}
             <Button variant="tertiary">
-              Secondary
+              tertiary
             </Button>
+            {{/if}}
+            {{#if actions.hasSecondaryAction}}
             <Button variant="secondary">
               Secondary
             </Button>
+            {{/if}}
+            {{#if actions.hasPrimaryAction}}
             <Button>Primary</Button>
+            {{/if}}
           </PageActions>
           {{/if}}
         </PageHeader>

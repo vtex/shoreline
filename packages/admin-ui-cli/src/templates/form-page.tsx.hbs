@@ -14,6 +14,7 @@ import {
 {{#if hasValidation}}
 import * as yup from 'yup'
 {{/if}}
+import { useRuntime } from 'vtex.render-runtime'
 
 const [Provider] = createSystem({
   key: '{{kebabCase name}}-page'
@@ -36,13 +37,16 @@ const schema = yup.object({
 {{/if}}
 
 export default function {{pascalCase name}}Page() {
+  const { navigate } = useRuntime()
   const form = useFormState({{#if hasValidation}}{
     resolver: yupResolver(schema)
   }{{/if}})
 
   {{#if hasBackButton}}
   const onPopNavigation = () => {
-    alert('should go back')
+    navigate({
+      page: 'admin.app.{{kebabCase reference}}'
+    })
   }
   {{/if}}
 
