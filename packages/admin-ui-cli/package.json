@@ -34,6 +34,9 @@
     "react-dom": ">=16.8"
   },
   "devDependencies": {
-    "plop": "3.1.0"
+    "plop": "3.1.0",
+    "@vtex/admin-ui": "0.129.0",
+    "@vtex/admin-ui-form": "0.2.0",
+    "yup": "0.32.11"
   }
 }

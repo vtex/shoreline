@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "main": "dist/vtex-admin-ui-form.cjs.js",
   "module": "dist/vtex-admin-ui-form.esm.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/vtex-admin-ui-form.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

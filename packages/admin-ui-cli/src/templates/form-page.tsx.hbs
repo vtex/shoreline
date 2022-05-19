@@ -1,0 +1,72 @@
+import * as React from 'react'
+import { Form, useFormState, TextInput, {{#if hasValidation}}yupResolver,{{/if}} } from '@vtex/admin-ui-form'
+import type { AnyObject } from '@vtex/admin-ui'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  PageActions,
+  Button,
+  Stack,
+} from '@vtex/admin-ui'
+{{#if hasValidation}}
+import * as yup from 'yup'
+{{/if}}
+
+const style = {
+  content: {
+    maxWidth: '46.25rem',
+    margin: 'auto',
+    paddingY: '4rem',
+  },
+}
+
+{{#if hasValidation}}
+const schema = yup.object({
+  productName: yup.string().required(),
+  price: yup.number().required(),
+  category: yup.string().required(),
+})
+{{/if}}
+
+export default function {{pascalCase name}}Page() {
+  const form = useFormState({{#if hasValidation}}{
+    resolver: yupResolver(schema)
+  }{{/if}})
+
+  {{#if hasBackButton}}
+  const onPopNavigation = () => {
+    alert('should go back')
+  }
+  {{/if}}
+
+  const onSubmit = (value: AnyObject) => {
+    console.log(value)
+  }
+
+  return (
+    <Form state={form} onSubmit={onSubmit}>
+      <Page>
+        <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
+          <PageTitle>{{pascalCase name}}</PageTitle>
+          <PageActions>
+            {{#if hasResetButton}}
+            <Button variant="secondary" type="reset">
+              Reset
+            </Button>
+            {{/if}}
+            <Button type="submit">Submit</Button>
+          </PageActions>
+        </PageHeader>
+        <PageContent csx={style.content}>
+          <Stack space="$xl" fluid>
+            <TextInput label="Product name" name="product-name" state={form} />
+            <TextInput label="Price" name="price" state={form} />
+            <TextInput label="Category" name="category" state={form} />
+          </Stack>
+        </PageContent>
+      </Page>
+    </Form>
+  )
+}

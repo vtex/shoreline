@@ -18,6 +18,10 @@ import {
   experimental_Filter as Filter,
   experimental_useFilterState as useFilterState,
   {{/if}}
+  {{#if hasActions}}
+  PageActions,
+  Button,
+  {{/if}}
 } from '@vtex/admin-ui'
 
 const items = [
@@ -60,7 +64,7 @@ const columns = createColumns<Item>([
   },
 ])
 
-export function {{pascalCase name}}Page(props: {{pascalCase name}}PageProps) {
+export default function {{pascalCase name}}Page() {
   const view = useDataViewState()
   {{#if hasSearch}}
   const search = useSearchState()
@@ -80,10 +84,27 @@ export function {{pascalCase name}}Page(props: {{pascalCase name}}PageProps) {
     items,
   })
 
+  {{#if hasBackButton}}
+  const onPopNavigation = () => {
+    alert('should go back')
+  }
+  {{/if}}
+
   return (
     <Page>
-      <PageHeader>
+      <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
         <PageTitle>{{pascalCase name}}</PageTitle>
+        {{#if hasActions}}
+        <PageActions>
+          <Button variant="tertiary">
+            Secondary
+          </Button>
+          <Button variant="secondary">
+            Secondary
+          </Button>
+          <Button>Primary</Button>
+        </PageActions>
+        {{/if}}
       </PageHeader>
       <PageContent>
         {{#if hasSearch}}
@@ -107,8 +128,4 @@ interface Item {
   productName: string
   condition: string
   price: number
-}
-
-interface {{pascalCase name}}PageProps {
-  children?: React.ReactNode
 }

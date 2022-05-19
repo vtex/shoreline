@@ -1,0 +1,41 @@
+import * as React from 'react'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  {{#if hasActions}}
+  PageActions,
+  Button,
+  {{/if}}
+} from '@vtex/admin-ui'
+
+export default function {{pascalCase name}}Page() {
+  {{#if hasBackButton}}
+  const onPopNavigation = () => {
+    alert('should go back')
+  }
+  {{/if}}
+
+  return (
+    <Page>
+      <PageHeader {{#if hasBackButton}}onPopNavigation={onPopNavigation}{{/if}}>
+        <PageTitle>{{pascalCase name}}</PageTitle>
+        {{#if hasActions}}
+        <PageActions>
+          <Button variant="tertiary">
+            Secondary
+          </Button>
+          <Button variant="secondary">
+            Secondary
+          </Button>
+          <Button>Primary</Button>
+        </PageActions>
+        {{/if}}
+      </PageHeader>
+      <PageContent>
+        Content
+      </PageContent>
+    </Page>
+  )
+}
