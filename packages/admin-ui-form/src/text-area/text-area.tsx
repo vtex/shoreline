@@ -12,7 +12,7 @@ import { hasError, getErrorText, useFieldDx } from '../util'
  *
  * <TextArea name="required-name" state={form} />
  */
-export function TextArea(props: TextInputProps) {
+export function TextArea(props: TextAreaProps) {
   const { state, name = '', validation, ...rest } = props
   const { register } = state
 
@@ -28,7 +28,7 @@ export function TextArea(props: TextInputProps) {
   )
 }
 
-type InputHiddenProps =
+type TextAreaHiddenProps =
   | 'name'
   | 'error'
   | 'errorText'
@@ -42,9 +42,9 @@ type InputHiddenProps =
   | 'disabled'
   | 'value'
 
-type InheritedProps = Omit<AdminUITextAreaProps, InputHiddenProps>
+type InheritedProps = Omit<AdminUITextAreaProps, TextAreaHiddenProps>
 
-export interface TextInputProps extends InheritedProps {
+export interface TextAreaProps extends InheritedProps {
   /**
    * Input required state
    */
