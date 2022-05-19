@@ -49,7 +49,7 @@ function developerMessage(message: DeveloperMessage) {
 }
 
 /**
- * Validations for the field registeration proccess
+ * Validations for the field registration proccess
  */
 function registerChecks(props: AnyObject) {
   if (!props.name) {
