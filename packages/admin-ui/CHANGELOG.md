@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.130.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.129.0...@vtex/admin-ui@0.130.0) (2022-05-19)
+
+### Features
+
+- **nexttextarea:** change charlimit name to the same accepted by native text area ([39297a0](https://github.com/vtex/admin-ui/commit/39297a0c85cae203b61f954ab0bc1a8e07bd1f73))
+- **textarea:** add autoresize and charlimit counter ([d32ad0b](https://github.com/vtex/admin-ui/commit/d32ad0bdb3d398386e42e04695da2b7d162ef2a3))
+- **textarea:** add reviewed text area component ([cbf9a5c](https://github.com/vtex/admin-ui/commit/cbf9a5ce1c37f60cd26da6ee5e5d365ee24009f8))
+
 # [0.129.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.128.3...@vtex/admin-ui@0.129.0) (2022-05-17)
 
 ### Features
