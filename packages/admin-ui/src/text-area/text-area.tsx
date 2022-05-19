@@ -12,7 +12,7 @@ import {
 } from '../form-control'
 import { Flex, FlexSpacer } from '..'
 
-import { useTextarea } from './useTextArea'
+import { useTextarea } from './use-text-area'
 
 export const TextArea = forwardRef(
   (props: TextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
@@ -21,7 +21,7 @@ export const TextArea = forwardRef(
       errorText,
       helpText,
       label,
-      charLimit,
+      maxLength,
       id: defaultId,
       ...inputProps
     } = props
@@ -37,16 +37,16 @@ export const TextArea = forwardRef(
           <TextAreaElement
             ref={ref}
             id={id}
-            maxLength={charLimit}
+            maxLength={maxLength}
             {...getTextareaProps(inputProps)}
           />
         </TextAreaContainer>
         <Flex csx={{ width: '100%' }}>
           <FormControlMessage helpText={helpText} errorText={errorText} />
           <FlexSpacer />
-          {charLimit && (
+          {maxLength && (
             <Text variant="detail" tone="secondary">
-              {charCount} / {charLimit}
+              {charCount} / {maxLength}
             </Text>
           )}
         </Flex>
@@ -61,7 +61,7 @@ type JSXTextAreaProps = ComponentPropsWithoutRef<'textarea'>
 
 interface TextAreaOptions {
   /** Optional limit for char ammount allowed. */
-  charLimit?: number
+  maxLength?: number
   /** Wheter there's an error. */
   error?: boolean
   /** Error message. */

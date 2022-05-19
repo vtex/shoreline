@@ -18,6 +18,8 @@ export const containerVariants = inputStyle.containerVariants
 
 export const input = style({
   ...inputStyle.input,
+  display: 'block',
+  text: '$body',
   resize: 'none',
   transition: 'snap',
 })
