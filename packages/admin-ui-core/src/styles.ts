@@ -128,3 +128,5 @@ export function isToken(token: string) {
 export function extractTokenCall(token: string) {
   return isToken(token) ? token.substring(1) : token
 }
+
+export const cx = (...args: string[]) => args.join(' ')
