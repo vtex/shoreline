@@ -2,8 +2,8 @@ import { useState } from 'react'
 import {
   LINE_HEIGHT,
   MIN_TEXT_AREA_HEIGHT,
-  MIN_AREA_ROWS,
   MAX_TEXT_AREA_HEIGHT,
+  MIN_TEXT_AREA_CONTENT_HEIGHT,
 } from './text-area-constants'
 
 export function useTextarea() {
@@ -15,7 +15,10 @@ export function useTextarea() {
     const lineHeight = LINE_HEIGHT
     const minScrollHeight = MIN_TEXT_AREA_HEIGHT
 
-    elm.rows = MIN_AREA_ROWS
+    const minRows = Math.floor(MIN_TEXT_AREA_CONTENT_HEIGHT / lineHeight)
+
+    elm.rows = minRows
+
     const newHeight = Math.min(
       elm.scrollHeight,
       MAX_TEXT_AREA_HEIGHT - lineHeight
@@ -25,7 +28,7 @@ export function useTextarea() {
       (newHeight - minScrollHeight) / lineHeight
     )
 
-    elm.rows = MIN_AREA_ROWS + extraRows
+    elm.rows = minRows + extraRows
   }
 
   const getTextareaProps = (

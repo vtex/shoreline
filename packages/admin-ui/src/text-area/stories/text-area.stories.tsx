@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { Stack } from '../../stack'
 import { TextArea } from '../text-area'
-import { Box } from '../../components/Box'
+import { Box } from '../..'
 
 export default {
   title: 'admin-ui-review/text-area',
@@ -49,14 +49,14 @@ export const States = () => {
         label="With Help text and counter"
         id="help-input"
         helpText="help text"
-        charLimit={120}
+        maxLength={120}
       />
       <TextArea
         label="With Error, help and counter"
         id="error-counter-input"
         errorText="Error text"
         helpText="help text"
-        charLimit={120}
+        maxLength={120}
         error
       />
       <TextArea label="disabled" disabled />
