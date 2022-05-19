@@ -26,6 +26,7 @@ export function useElement<T extends React.ElementType>(
   } = props
 
   const { cn, cx } = useSystem()
+
   const className = cx(cn(baseStyle), cn(customStyle), htmlClassName)
 
   const htmlProps = {
