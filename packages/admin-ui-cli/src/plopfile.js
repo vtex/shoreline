@@ -119,6 +119,66 @@ export default function (plop) {
     ],
   })
 
+  plop.setGenerator('wire', {
+    description: 'Connects pages with the admin shell',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name:',
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'messages/en.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/en.json',
+        pattern: `{`,
+        template: `"admin.app.page.{{kebabCase name}}.labelId": "{{pascalCase name}}",`,
+      },
+      {
+        type: 'add',
+        path: 'messages/es.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/es.json',
+        pattern: `{`,
+        template: `"admin.app.page.{{kebabCase name}}.labelId": "{{pascalCase name}}",`,
+      },
+      {
+        type: 'add',
+        path: 'messages/pt.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/pt.json',
+        pattern: `{`,
+        template: `"admin.app.page.{{kebabCase name}}.labelId": "{{pascalCase name}}",`,
+      },
+      {
+        type: 'append',
+        path: 'admin/navigation.json',
+        pattern: `"subSectionItems": [`,
+        template: `
+        {
+          "labelId": "admin.app.page.{{kebabCase name}}.labelId",
+          "path": "/admin/{{kebabCase name}}"
+        },
+    `,
+      },
+    ],
+  })
+
   plop.setGenerator('blank-page', {
     description: 'Page with the blank layout',
     prompts: [nameQuestion, ...referenceQuestions, actionQuestion],
@@ -266,7 +326,7 @@ export default function (plop) {
         {
           "labelId": "admin.app.context.{{kebabCase subject}}.labelId",
           "path": "/admin/{{kebabCase subject}}-list"
-        }
+        },
     `,
       },
     ],
