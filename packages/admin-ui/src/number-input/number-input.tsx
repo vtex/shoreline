@@ -1,6 +1,6 @@
 import type { ReactNode, ComponentPropsWithoutRef, Ref } from 'react'
-import React, { forwardRef } from 'react'
-import { useId } from '@vtex/admin-ui-hooks'
+import React, { useRef, forwardRef } from 'react'
+import { useForkRef, useId } from '@vtex/admin-ui-hooks'
 
 import { Button, IconCaretDown, IconCaretUp } from '@vtex/admin-ui'
 import { TextInputContainer as InputContainer } from '../text-input/text-input-container'
@@ -56,10 +56,30 @@ export const NumberInput = forwardRef(
     const optionalPlaceholder =
       !label && optional ? formatMessage('optional') : ''
 
+    const inputRef = useRef<HTMLInputElement>(null)
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = () => {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
+
+    // Avoid losing input focus when the spin button is disabled
+    const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (
+      event
+    ) => {
+      event.preventDefault()
+    }
+
     return (
       <FormControl error={error} optional={optional}>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
-        <InputContainer error={error} disabled={disabled} csx={style.container}>
+        <InputContainer
+          onClick={handleClick}
+          onMouseDown={handleMouseDown}
+          error={error}
+          disabled={disabled}
+          csx={style.container}
+        >
           {prefix && <InputTerm type="prefix">{prefix}</InputTerm>}
           <InputElement
             {...getInputProps({
@@ -68,7 +88,7 @@ export const NumberInput = forwardRef(
               disabled,
               ...inputProps,
             })}
-            ref={ref}
+            ref={useForkRef(inputRef, ref)}
             csx={style.input}
           />
           <Button
