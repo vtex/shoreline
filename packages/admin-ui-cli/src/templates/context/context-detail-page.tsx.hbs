@@ -1,0 +1,43 @@
+import * as React from 'react'
+import {
+  createSystem,
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+} from '@vtex/admin-ui'
+import { useRuntime } from 'vtex.render-runtime'
+
+const [Provider] = createSystem({
+  key: '{{kebabCase subject}}-detail-page'
+})
+
+export default function {{pascalCase subject}}DetailPage(props: Props) {
+  const { params: { id } } = props
+  const { navigate } = useRuntime()
+
+  const onPopNavigation = () => {
+    navigate({
+      page: 'admin.app.{{kebabCase subject}}-list'
+    })
+  }
+
+  return (
+    <Provider>
+      <Page>
+        <PageHeader onPopNavigation={onPopNavigation}>
+          <PageTitle>{{pascalCase subject}} Detail</PageTitle>
+        </PageHeader>
+        <PageContent>
+          Details for: {id}
+        </PageContent>
+      </Page>
+    </Provider>
+  )
+}
+
+interface Props {
+  params: {
+    id: string
+  }
+}

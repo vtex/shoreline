@@ -1,0 +1,125 @@
+import * as React from 'react'
+import {
+  createSystem,
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  DataGrid,
+  useDataGridState,
+  createColumns,
+  useDataViewState,
+  DataView,
+  useSearchState,
+  Search,
+  DataViewControls,
+  experimental_Filter as Filter,
+  experimental_useFilterState as useFilterState,
+  PageActions,
+  Button,
+} from '@vtex/admin-ui'
+import { useRuntime } from 'vtex.render-runtime'
+
+const [Provider] = createSystem({
+  key: '{{kebabCase subject}}-page'
+})
+
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    condition: 'Good',
+    price: 100,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    condition: 'Average',
+    price: 30,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    condition: 'Mint',
+    price: 10,
+  },
+]
+
+const columns = createColumns<Item>([
+  {
+    id: 'id',
+    header: 'Id',
+  },
+  {
+    id: 'productName',
+    header: 'Product Name',
+  },
+  {
+    id: 'condition',
+    header: 'Condition',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  
+])
+
+export default function {{pascalCase subject}}ListPage() {
+  const { navigate } = useRuntime()
+  const view = useDataViewState()
+  const search = useSearchState()
+  const filter = useFilterState({
+    items: [
+      { label: 'Available', value: 1, id: '#1' },
+      { label: 'Sold out', value: 2, id: '#2' },
+    ],
+    label: 'Status'
+  })
+  const grid = useDataGridState<Item>({
+    view,
+    columns,
+    items,
+    onRowClick: (item: Item) => {
+      navigate({
+        page: 'admin.app.{{kebabCase subject}}-detail',
+        params: { id: item.id },
+      })
+    },
+  })
+
+  const onCreate = () => {
+    navigate({
+      page: 'admin.app.{{kebabCase subject}}-create'
+    })
+  } 
+
+  return (
+    <Provider>
+      <Page>
+        <PageHeader>
+          <PageTitle>{{pascalCase subject}}</PageTitle>
+          <PageActions>
+            <Button onClick={onCreate}>Create {{pascalCase subject}}</Button>
+          </PageActions>
+        </PageHeader>
+        <PageContent>
+          <DataViewControls>
+            <Search id="search" placeholder="Search" state={search} />
+          </DataViewControls>
+          <Filter state={filter} />
+          <DataView state={view}>
+            <DataGrid state={grid} />
+          </DataView>
+        </PageContent>
+      </Page>
+    </Provider>
+  )
+}
+
+interface Item {
+  id: number
+  productName: string
+  condition: string
+  price: number
+}

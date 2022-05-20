@@ -1,0 +1,75 @@
+import * as React from 'react'
+import { Form, useFormState, TextInput, yupResolver } from '@vtex/admin-ui-form'
+import type { AnyObject } from '@vtex/admin-ui'
+import {
+  createSystem,
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  PageActions,
+  Button,
+  Stack,
+} from '@vtex/admin-ui'
+import * as yup from 'yup'
+import { useRuntime } from 'vtex.render-runtime'
+
+const [Provider] = createSystem({
+  key: '{{kebabCase subject}}-create-page'
+})
+
+const style = {
+  content: {
+    maxWidth: '46.25rem',
+    margin: 'auto',
+    paddingY: '4rem',
+  },
+}
+
+const schema = yup.object({
+  productName: yup.string().required(),
+  price: yup.number().required(),
+  category: yup.string().required(),
+})
+
+export default function {{pascalCase subject}}CreatePage() {
+  const { navigate } = useRuntime()
+  const form = useFormState({
+    resolver: yupResolver(schema)
+  })
+
+  const onPopNavigation = () => {
+    navigate({
+      page: 'admin.app.{{kebabCase subject}}-list'
+    })
+  }
+
+  const onSubmit = (value: AnyObject) => {
+    alert(value)
+  }
+
+  return (
+    <Provider>
+      <Form state={form} onSubmit={onSubmit}>
+        <Page>
+          <PageHeader onPopNavigation={onPopNavigation}>
+            <PageTitle>Create {{pascalCase subject}}</PageTitle>
+            <PageActions>
+              <Button variant="secondary" type="reset">
+                Reset
+              </Button>
+              <Button type="submit">Submit</Button>
+            </PageActions>
+          </PageHeader>
+          <PageContent csx={style.content}>
+            <Stack space="$xl" fluid>
+              <TextInput label="Product name" name="product-name" state={form} />
+              <TextInput label="Price" name="price" state={form} />
+              <TextInput label="Category" name="category" state={form} />
+            </Stack>
+          </PageContent>
+        </Page>
+      </Form>
+    </Provider>
+  )
+}

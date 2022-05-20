@@ -171,4 +171,104 @@ export default function (plop) {
       },
     ],
   })
+
+  plop.setGenerator('context', {
+    description: 'Create a context',
+    prompts: [
+      {
+        type: 'input',
+        name: 'subject',
+        message: 'Subject:',
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: `react/{{kebabCase subject}}-list-page.tsx`,
+        templateFile: 'templates/context/context-list-page.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: `react/{{kebabCase subject}}-detail-page.tsx`,
+        templateFile: 'templates/context/context-detail-page.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: `react/{{kebabCase subject}}-create-page.tsx`,
+        templateFile: 'templates/context/context-create-page.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: 'admin/routes.json',
+        templateFile: 'templates/admin/routes.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'admin/routes.json',
+        pattern: `{`,
+        template: `
+      "admin.app.{{kebabCase subject}}-list": {
+        "component": "{{kebabCase subject}}-list-page",
+        "path": "/admin/app/{{kebabCase subject}}-list" 
+      },
+      "admin.app.{{kebabCase subject}}-detail": {
+        "component": "{{kebabCase subject}}-detail-page",
+        "path": "/admin/app/{{kebabCase subject}}-detail/:id" 
+      },
+      "admin.app.{{kebabCase subject}}-create": {
+        "component": "{{kebabCase subject}}-create-page",
+        "path": "/admin/app/{{kebabCase subject}}-create" 
+      },
+    `,
+      },
+      {
+        type: 'add',
+        path: 'messages/en.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/en.json',
+        pattern: `{`,
+        template: `"admin.app.context.{{kebabCase subject}}.labelId": "{{pascalCase subject}}",`,
+      },
+      {
+        type: 'add',
+        path: 'messages/es.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/es.json',
+        pattern: `{`,
+        template: `"admin.app.context.{{kebabCase subject}}.labelId": "{{pascalCase subject}}",`,
+      },
+      {
+        type: 'add',
+        path: 'messages/pt.json',
+        templateFile: 'templates/messages/lang.json.hbs',
+        skipIfExists: true,
+      },
+      {
+        type: 'append',
+        path: 'messages/pt.json',
+        pattern: `{`,
+        template: `"admin.app.context.{{kebabCase subject}}.labelId": "{{pascalCase subject}}",`,
+      },
+      {
+        type: 'append',
+        path: 'admin/navigation.json',
+        pattern: `"subSectionItems": [`,
+        template: `
+        {
+          "labelId": "admin.app.context.{{kebabCase subject}}.labelId",
+          "path": "/admin/{{kebabCase subject}}-list"
+        }
+    `,
+      },
+    ],
+  })
 }
