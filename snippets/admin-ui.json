@@ -1,0 +1,1962 @@
+{
+  "margin 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-0",
+    "body": "margin: '0'"
+  },
+  "margin 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-1",
+    "body": "margin: '1'"
+  },
+  "margin 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-2",
+    "body": "margin: '2'"
+  },
+  "margin 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-3",
+    "body": "margin: '3'"
+  },
+  "margin 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-4",
+    "body": "margin: '4'"
+  },
+  "margin 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-5",
+    "body": "margin: '5'"
+  },
+  "margin 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-6",
+    "body": "margin: '6'"
+  },
+  "margin 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-7",
+    "body": "margin: '7'"
+  },
+  "margin 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-8",
+    "body": "margin: '8'"
+  },
+  "margin 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-px",
+    "body": "margin: 'px'"
+  },
+  "margin 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-2px",
+    "body": "margin: '2px'"
+  },
+  "margin 0.25rem 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-xs",
+    "body": "margin: '$$xs'"
+  },
+  "margin 0.5rem 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-s",
+    "body": "margin: '$$s'"
+  },
+  "margin 0.75rem 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-m",
+    "body": "margin: '$$m'"
+  },
+  "margin 1rem 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-l",
+    "body": "margin: '$$l'"
+  },
+  "margin 1.5rem 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-xl",
+    "body": "margin: '$$xl'"
+  },
+  "margin 2.5rem 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-2xl",
+    "body": "margin: '$$2xl'"
+  },
+  "margin 0.25rem 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-narrow-s",
+    "body": "margin: '$$narrow.s'"
+  },
+  "margin 0.75rem 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-narrow-m",
+    "body": "margin: '$$narrow.m'"
+  },
+  "margin 1rem 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "m-narrow-l",
+    "body": "margin: '$$narrow.l'"
+  },
+  "padding 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-0",
+    "body": "padding: '0'"
+  },
+  "padding 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-1",
+    "body": "padding: '1'"
+  },
+  "padding 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-2",
+    "body": "padding: '2'"
+  },
+  "padding 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-3",
+    "body": "padding: '3'"
+  },
+  "padding 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-4",
+    "body": "padding: '4'"
+  },
+  "padding 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-5",
+    "body": "padding: '5'"
+  },
+  "padding 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-6",
+    "body": "padding: '6'"
+  },
+  "padding 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-7",
+    "body": "padding: '7'"
+  },
+  "padding 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-8",
+    "body": "padding: '8'"
+  },
+  "padding 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-px",
+    "body": "padding: 'px'"
+  },
+  "padding 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-2px",
+    "body": "padding: '2px'"
+  },
+  "padding 0.25rem 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-xs",
+    "body": "padding: '$$xs'"
+  },
+  "padding 0.5rem 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-s",
+    "body": "padding: '$$s'"
+  },
+  "padding 0.75rem 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-m",
+    "body": "padding: '$$m'"
+  },
+  "padding 1rem 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-l",
+    "body": "padding: '$$l'"
+  },
+  "padding 1.5rem 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-xl",
+    "body": "padding: '$$xl'"
+  },
+  "padding 2.5rem 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-2xl",
+    "body": "padding: '$$2xl'"
+  },
+  "padding 0.25rem 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-narrow-s",
+    "body": "padding: '$$narrow.s'"
+  },
+  "padding 0.75rem 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-narrow-m",
+    "body": "padding: '$$narrow.m'"
+  },
+  "padding 1rem 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "p-narrow-l",
+    "body": "padding: '$$narrow.l'"
+  },
+  "marginX 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-0",
+    "body": "marginX: '0'"
+  },
+  "marginX 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-s",
+    "body": "marginX: '$$s'"
+  },
+  "marginX 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-m",
+    "body": "marginX: '$$m'"
+  },
+  "marginX 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-l",
+    "body": "marginX: '$$l'"
+  },
+  "marginX 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-4",
+    "body": "marginX: '4'"
+  },
+  "marginX 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-xl",
+    "body": "marginX: '$$xl'"
+  },
+  "marginX 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-6",
+    "body": "marginX: '6'"
+  },
+  "marginX 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-2xl",
+    "body": "marginX: '$$2xl'"
+  },
+  "marginX 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-8",
+    "body": "marginX: '8'"
+  },
+  "marginX 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-px",
+    "body": "marginX: 'px'"
+  },
+  "marginX 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-xs",
+    "body": "marginX: '$$xs'"
+  },
+  "marginX 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-3xl",
+    "body": "marginX: '$$3xl'"
+  },
+  "marginY 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-xs",
+    "body": "marginY: '$$xs'"
+  },
+  "marginY 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-m",
+    "body": "marginY: '$$m'"
+  },
+  "marginY 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-l",
+    "body": "marginY: '$$l'"
+  },
+  "marginY 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-3",
+    "body": "marginY: '3'"
+  },
+  "marginY 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-xl",
+    "body": "marginY: '$$xl'"
+  },
+  "marginY 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-5",
+    "body": "marginY: '5'"
+  },
+  "marginY 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-2xl",
+    "body": "marginY: '$$2xl'"
+  },
+  "marginY 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-7",
+    "body": "marginY: '7'"
+  },
+  "marginY 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-8",
+    "body": "marginY: '8'"
+  },
+  "marginY 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-px",
+    "body": "marginY: 'px'"
+  },
+  "marginY 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-s",
+    "body": "marginY: '$$s'"
+  },
+  "marginY 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-3xl",
+    "body": "marginY: '$$3xl'"
+  },
+  "marginLeft 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-0",
+    "body": "marginLeft: '0'"
+  },
+  "marginLeft 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-s",
+    "body": "marginLeft: '$$s'"
+  },
+  "marginLeft 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-m",
+    "body": "marginLeft: '$$m'"
+  },
+  "marginLeft 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-l",
+    "body": "marginLeft: '$$l'"
+  },
+  "marginLeft 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-4",
+    "body": "marginLeft: '4'"
+  },
+  "marginLeft 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-xl",
+    "body": "marginLeft: '$$xl'"
+  },
+  "marginLeft 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-6",
+    "body": "marginLeft: '6'"
+  },
+  "marginLeft 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-2xl",
+    "body": "marginLeft: '$$2xl'"
+  },
+  "marginLeft 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-8",
+    "body": "marginLeft: '8'"
+  },
+  "marginLeft 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-px",
+    "body": "marginLeft: 'px'"
+  },
+  "marginLeft 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-xs",
+    "body": "marginLeft: '$$xs'"
+  },
+  "marginLeft 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-3xl",
+    "body": "marginLeft: '$$3xl'"
+  },
+  "marginRight 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-0",
+    "body": "marginRight: '0'"
+  },
+  "marginRight 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-s",
+    "body": "marginRight: '$$s'"
+  },
+  "marginRight 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-m",
+    "body": "marginRight: '$$m'"
+  },
+  "marginRight 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-l",
+    "body": "marginRight: '$$l'"
+  },
+  "marginRight 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-4",
+    "body": "marginRight: '4'"
+  },
+  "marginRight 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-xl",
+    "body": "marginRight: '$$xl'"
+  },
+  "marginRight 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-6",
+    "body": "marginRight: '6'"
+  },
+  "marginRight 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-2xl",
+    "body": "marginRight: '$$2xl'"
+  },
+  "marginRight 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-8",
+    "body": "marginRight: '8'"
+  },
+  "marginRight 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-px",
+    "body": "marginRight: 'px'"
+  },
+  "marginRight 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-xs",
+    "body": "marginRight: '$$xs'"
+  },
+  "marginRight 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-3xl",
+    "body": "marginRight: '$$3xl'"
+  },
+  "marginTop 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-xs",
+    "body": "marginTop: '$$xs'"
+  },
+  "marginTop 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-m",
+    "body": "marginTop: '$$m'"
+  },
+  "marginTop 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-l",
+    "body": "marginTop: '$$l'"
+  },
+  "marginTop 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-3",
+    "body": "marginTop: '3'"
+  },
+  "marginTop 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-xl",
+    "body": "marginTop: '$$xl'"
+  },
+  "marginTop 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-5",
+    "body": "marginTop: '5'"
+  },
+  "marginTop 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-2xl",
+    "body": "marginTop: '$$2xl'"
+  },
+  "marginTop 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-7",
+    "body": "marginTop: '7'"
+  },
+  "marginTop 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-8",
+    "body": "marginTop: '8'"
+  },
+  "marginTop 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-px",
+    "body": "marginTop: 'px'"
+  },
+  "marginTop 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-s",
+    "body": "marginTop: '$$s'"
+  },
+  "marginTop 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-3xl",
+    "body": "marginTop: '$$3xl'"
+  },
+  "marginBottom 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-xs",
+    "body": "marginBottom: '$$xs'"
+  },
+  "marginBottom 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-m",
+    "body": "marginBottom: '$$m'"
+  },
+  "marginBottom 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-l",
+    "body": "marginBottom: '$$l'"
+  },
+  "marginBottom 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-3",
+    "body": "marginBottom: '3'"
+  },
+  "marginBottom 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-xl",
+    "body": "marginBottom: '$$xl'"
+  },
+  "marginBottom 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-5",
+    "body": "marginBottom: '5'"
+  },
+  "marginBottom 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-2xl",
+    "body": "marginBottom: '$$2xl'"
+  },
+  "marginBottom 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-7",
+    "body": "marginBottom: '7'"
+  },
+  "marginBottom 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-8",
+    "body": "marginBottom: '8'"
+  },
+  "marginBottom 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-px",
+    "body": "marginBottom: 'px'"
+  },
+  "marginBottom 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-s",
+    "body": "marginBottom: '$$s'"
+  },
+  "marginBottom 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-3xl",
+    "body": "marginBottom: '$$3xl'"
+  },
+  "paddingX 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-0",
+    "body": "paddingX: '0'"
+  },
+  "paddingX 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-s",
+    "body": "paddingX: '$$s'"
+  },
+  "paddingX 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-m",
+    "body": "paddingX: '$$m'"
+  },
+  "paddingX 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-l",
+    "body": "paddingX: '$$l'"
+  },
+  "paddingX 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-4",
+    "body": "paddingX: '4'"
+  },
+  "paddingX 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-xl",
+    "body": "paddingX: '$$xl'"
+  },
+  "paddingX 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-6",
+    "body": "paddingX: '6'"
+  },
+  "paddingX 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-2xl",
+    "body": "paddingX: '$$2xl'"
+  },
+  "paddingX 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-8",
+    "body": "paddingX: '8'"
+  },
+  "paddingX 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-px",
+    "body": "paddingX: 'px'"
+  },
+  "paddingX 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-xs",
+    "body": "paddingX: '$$xs'"
+  },
+  "paddingX 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-3xl",
+    "body": "paddingX: '$$3xl'"
+  },
+  "paddingY 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-xs",
+    "body": "paddingY: '$$xs'"
+  },
+  "paddingY 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-m",
+    "body": "paddingY: '$$m'"
+  },
+  "paddingY 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-l",
+    "body": "paddingY: '$$l'"
+  },
+  "paddingY 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-3",
+    "body": "paddingY: '3'"
+  },
+  "paddingY 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-xl",
+    "body": "paddingY: '$$xl'"
+  },
+  "paddingY 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-5",
+    "body": "paddingY: '5'"
+  },
+  "paddingY 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-2xl",
+    "body": "paddingY: '$$2xl'"
+  },
+  "paddingY 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-7",
+    "body": "paddingY: '7'"
+  },
+  "paddingY 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-8",
+    "body": "paddingY: '8'"
+  },
+  "paddingY 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-px",
+    "body": "paddingY: 'px'"
+  },
+  "paddingY 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-s",
+    "body": "paddingY: '$$s'"
+  },
+  "paddingY 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-3xl",
+    "body": "paddingY: '$$3xl'"
+  },
+  "paddingLeft 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-0",
+    "body": "paddingLeft: '0'"
+  },
+  "paddingLeft 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-s",
+    "body": "paddingLeft: '$$s'"
+  },
+  "paddingLeft 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-m",
+    "body": "paddingLeft: '$$m'"
+  },
+  "paddingLeft 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-l",
+    "body": "paddingLeft: '$$l'"
+  },
+  "paddingLeft 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-4",
+    "body": "paddingLeft: '4'"
+  },
+  "paddingLeft 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-xl",
+    "body": "paddingLeft: '$$xl'"
+  },
+  "paddingLeft 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-6",
+    "body": "paddingLeft: '6'"
+  },
+  "paddingLeft 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-2xl",
+    "body": "paddingLeft: '$$2xl'"
+  },
+  "paddingLeft 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-8",
+    "body": "paddingLeft: '8'"
+  },
+  "paddingLeft 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-px",
+    "body": "paddingLeft: 'px'"
+  },
+  "paddingLeft 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-xs",
+    "body": "paddingLeft: '$$xs'"
+  },
+  "paddingLeft 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-3xl",
+    "body": "paddingLeft: '$$3xl'"
+  },
+  "paddingRight 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-0",
+    "body": "paddingRight: '0'"
+  },
+  "paddingRight 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-s",
+    "body": "paddingRight: '$$s'"
+  },
+  "paddingRight 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-m",
+    "body": "paddingRight: '$$m'"
+  },
+  "paddingRight 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-l",
+    "body": "paddingRight: '$$l'"
+  },
+  "paddingRight 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-4",
+    "body": "paddingRight: '4'"
+  },
+  "paddingRight 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-xl",
+    "body": "paddingRight: '$$xl'"
+  },
+  "paddingRight 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-6",
+    "body": "paddingRight: '6'"
+  },
+  "paddingRight 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-2xl",
+    "body": "paddingRight: '$$2xl'"
+  },
+  "paddingRight 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-8",
+    "body": "paddingRight: '8'"
+  },
+  "paddingRight 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-px",
+    "body": "paddingRight: 'px'"
+  },
+  "paddingRight 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-xs",
+    "body": "paddingRight: '$$xs'"
+  },
+  "paddingRight 2.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-3xl",
+    "body": "paddingRight: '$$3xl'"
+  },
+  "paddingTop 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-xs",
+    "body": "paddingTop: '$$xs'"
+  },
+  "paddingTop 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-m",
+    "body": "paddingTop: '$$m'"
+  },
+  "paddingTop 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-l",
+    "body": "paddingTop: '$$l'"
+  },
+  "paddingTop 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-3",
+    "body": "paddingTop: '3'"
+  },
+  "paddingTop 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-xl",
+    "body": "paddingTop: '$$xl'"
+  },
+  "paddingTop 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-5",
+    "body": "paddingTop: '5'"
+  },
+  "paddingTop 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-2xl",
+    "body": "paddingTop: '$$2xl'"
+  },
+  "paddingTop 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-7",
+    "body": "paddingTop: '7'"
+  },
+  "paddingTop 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-8",
+    "body": "paddingTop: '8'"
+  },
+  "paddingTop 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-px",
+    "body": "paddingTop: 'px'"
+  },
+  "paddingTop 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-s",
+    "body": "paddingTop: '$$s'"
+  },
+  "paddingTop 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-3xl",
+    "body": "paddingTop: '$$3xl'"
+  },
+  "paddingBottom 0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-xs",
+    "body": "paddingBottom: '$$xs'"
+  },
+  "paddingBottom 0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-m",
+    "body": "paddingBottom: '$$m'"
+  },
+  "paddingBottom 0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-l",
+    "body": "paddingBottom: '$$l'"
+  },
+  "paddingBottom 0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-3",
+    "body": "paddingBottom: '3'"
+  },
+  "paddingBottom 1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-xl",
+    "body": "paddingBottom: '$$xl'"
+  },
+  "paddingBottom 1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-5",
+    "body": "paddingBottom: '5'"
+  },
+  "paddingBottom 1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-2xl",
+    "body": "paddingBottom: '$$2xl'"
+  },
+  "paddingBottom 1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-7",
+    "body": "paddingBottom: '7'"
+  },
+  "paddingBottom 2rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-8",
+    "body": "paddingBottom: '8'"
+  },
+  "paddingBottom 0.0625rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-px",
+    "body": "paddingBottom: 'px'"
+  },
+  "paddingBottom 0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-s",
+    "body": "paddingBottom: '$$s'"
+  },
+  "paddingBottom 3rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-3xl",
+    "body": "paddingBottom: '$$3xl'"
+  },
+  "bg #FFFFFF": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-primary",
+    "body": "bg: '$$primary'"
+  },
+  "bg #F4F4F4": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-secondary",
+    "body": "bg: '$$action.neutral.secondary'"
+  },
+  "bg #E6E6E6": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralHover",
+    "body": "bg: '$$form.neutralHover'"
+  },
+  "bg #DFF1E0": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-positive",
+    "body": "bg: '$$positive'"
+  },
+  "bg #F8E3E3": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-tertiaryPressed",
+    "body": "bg: '$$action.critical.tertiaryPressed'"
+  },
+  "bg #FFEBD7": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-warning",
+    "body": "bg: '$$warning'"
+  },
+  "bg #DEECF7": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-info",
+    "body": "bg: '$$info'"
+  },
+  "bg #000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralActive",
+    "body": "bg: '$$form.neutralActive'"
+  },
+  "bg rgba(0, 0, 0, 0.5)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-overlay",
+    "body": "bg: '$$overlay'"
+  },
+  "bg linear-gradient(90deg, #E6E6E6, #DDDDDD), #E6E6E6": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-skeleton",
+    "body": "bg: '$$skeleton'"
+  },
+  "bg #DDDDDD": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-secondaryPressed",
+    "body": "bg: '$$action.neutral.secondaryPressed'"
+  },
+  "bg transparent": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlHover",
+    "body": "bg: '$$form.controlHover'"
+  },
+  "bg rgba(0, 0, 0, 0.05)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-tertiaryHover",
+    "body": "bg: '$$action.neutral.tertiaryHover'"
+  },
+  "bg rgba(0, 0, 0, 0.1)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-tertiaryPressed",
+    "body": "bg: '$$action.neutral.tertiaryPressed'"
+  },
+  "bg #2953B2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlChecked",
+    "body": "bg: '$$form.controlChecked'"
+  },
+  "bg #20408C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlCheckedFocus",
+    "body": "bg: '$$form.controlCheckedFocus'"
+  },
+  "bg #172F66": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-main-primaryPressed",
+    "body": "bg: '$$action.main.primaryPressed'"
+  },
+  "bg #DDE5F7": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-main-tertiaryPressed",
+    "body": "bg: '$$action.main.tertiaryPressed'"
+  },
+  "bg #BBCBF0": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-main-secondaryHover",
+    "body": "bg: '$$action.main.secondaryHover'"
+  },
+  "bg #96B2F2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-main-secondaryPressed",
+    "body": "bg: '$$action.main.secondaryPressed'"
+  },
+  "bg #F1F4FC": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-main-tertiarySelected",
+    "body": "bg: '$$action.main.tertiarySelected'"
+  },
+  "bg #CC3D3D": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-primary",
+    "body": "bg: '$$action.critical.primary'"
+  },
+  "bg #962828": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-primaryHover",
+    "body": "bg: '$$action.critical.primaryHover'"
+  },
+  "bg #782020": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-primaryPressed",
+    "body": "bg: '$$action.critical.primaryPressed'"
+  },
+  "bg #EDBABA": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-secondaryHover",
+    "body": "bg: '$$action.critical.secondaryHover'"
+  },
+  "bg #F49494": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-secondaryPressed",
+    "body": "bg: '$$action.critical.secondaryPressed'"
+  },
+  "bg #FBF2F2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-tertiarySelected",
+    "body": "bg: '$$action.critical.tertiarySelected'"
+  },
+  "bg #B9B9B9": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlInactive",
+    "body": "bg: '$$form.controlInactive'"
+  },
+  "bg #3B3B3B": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralActiveHover",
+    "body": "bg: '$$form.neutralActiveHover'"
+  },
+  "bg #545454": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralActivePressed",
+    "body": "bg: '$$form.neutralActivePressed'"
+  },
+  "bg #38853C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlActive",
+    "body": "bg: '$$form.controlActive'"
+  },
+  "bg #285F2B": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlActiveHover",
+    "body": "bg: '$$form.controlActiveHover'"
+  },
+  "bg #747474": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlInactiveHover",
+    "body": "bg: '$$form.controlInactiveHover'"
+  },
+  "color #000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-form-controlNeutral",
+    "body": "color: '$$form.controlNeutral'"
+  },
+  "color #545454": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-neutral-tertiary",
+    "body": "color: '$$action.neutral.tertiary'"
+  },
+  "color #747474": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-disabled",
+    "body": "color: '$$disabled'"
+  },
+  "color #FFFFFF": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-form-control",
+    "body": "color: '$$form.control'"
+  },
+  "color #38853C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-positive",
+    "body": "color: '$$positive'"
+  },
+  "color #2978B5": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-info",
+    "body": "color: '$$info'"
+  },
+  "color #CC3D3D": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-critical-tertiarySelected",
+    "body": "color: '$$action.critical.tertiarySelected'"
+  },
+  "color #D56A00": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-warning",
+    "body": "color: '$$warning'"
+  },
+  "color #3B3B3B": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-neutral-tertiaryHover",
+    "body": "color: '$$action.neutral.tertiaryHover'"
+  },
+  "color #2953B2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-main-tertiarySelected",
+    "body": "color: '$$action.main.tertiarySelected'"
+  },
+  "color #20408C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-main-tertiaryHover",
+    "body": "color: '$$action.main.tertiaryHover'"
+  },
+  "color #172F66": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-main-tertiaryPressed",
+    "body": "color: '$$action.main.tertiaryPressed'"
+  },
+  "color #962828": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-critical-tertiaryHover",
+    "body": "color: '$$action.critical.tertiaryHover'"
+  },
+  "color #782020": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-critical-tertiaryPressed",
+    "body": "color: '$$action.critical.tertiaryPressed'"
+  },
+  "width 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-sm",
+    "body": "width: '$$sm'"
+  },
+  "width 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-md",
+    "body": "width: '$$md'"
+  },
+  "width 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-lg",
+    "body": "width: '$$lg'"
+  },
+  "width 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-xl",
+    "body": "width: '$$xl'"
+  },
+  "width 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-6/12",
+    "body": "width: '6/12'"
+  },
+  "width 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-3/12",
+    "body": "width: '3/12'"
+  },
+  "width 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-9/12",
+    "body": "width: '9/12'"
+  },
+  "width 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-1/8",
+    "body": "width: '1/8'"
+  },
+  "width 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-3/8",
+    "body": "width: '3/8'"
+  },
+  "width 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-5/8",
+    "body": "width: '5/8'"
+  },
+  "width 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-7/8",
+    "body": "width: '7/8'"
+  },
+  "width 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-1/12",
+    "body": "width: '1/12'"
+  },
+  "width 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-2/12",
+    "body": "width: '2/12'"
+  },
+  "width 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-4/12",
+    "body": "width: '4/12'"
+  },
+  "width 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-5/12",
+    "body": "width: '5/12'"
+  },
+  "width 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-7/12",
+    "body": "width: '7/12'"
+  },
+  "width 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-8/12",
+    "body": "width: '8/12'"
+  },
+  "width 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-10/12",
+    "body": "width: '10/12'"
+  },
+  "width 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-11/12",
+    "body": "width: '11/12'"
+  },
+  "width 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-full",
+    "body": "width: '$$full'"
+  },
+  "width 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-screenHeight",
+    "body": "width: '$$screenHeight'"
+  },
+  "width 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-screenWidth",
+    "body": "width: '$$screenWidth'"
+  },
+  "height 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-sm",
+    "body": "height: '$$sm'"
+  },
+  "height 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-md",
+    "body": "height: '$$md'"
+  },
+  "height 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-lg",
+    "body": "height: '$$lg'"
+  },
+  "height 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-xl",
+    "body": "height: '$$xl'"
+  },
+  "height 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-6/12",
+    "body": "height: '6/12'"
+  },
+  "height 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-3/12",
+    "body": "height: '3/12'"
+  },
+  "height 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-9/12",
+    "body": "height: '9/12'"
+  },
+  "height 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-1/8",
+    "body": "height: '1/8'"
+  },
+  "height 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-3/8",
+    "body": "height: '3/8'"
+  },
+  "height 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-5/8",
+    "body": "height: '5/8'"
+  },
+  "height 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-7/8",
+    "body": "height: '7/8'"
+  },
+  "height 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-1/12",
+    "body": "height: '1/12'"
+  },
+  "height 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-2/12",
+    "body": "height: '2/12'"
+  },
+  "height 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-4/12",
+    "body": "height: '4/12'"
+  },
+  "height 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-5/12",
+    "body": "height: '5/12'"
+  },
+  "height 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-7/12",
+    "body": "height: '7/12'"
+  },
+  "height 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-8/12",
+    "body": "height: '8/12'"
+  },
+  "height 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-10/12",
+    "body": "height: '10/12'"
+  },
+  "height 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-11/12",
+    "body": "height: '11/12'"
+  },
+  "height 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-full",
+    "body": "height: '$$full'"
+  },
+  "height 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-screenHeight",
+    "body": "height: '$$screenHeight'"
+  },
+  "height 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-screenWidth",
+    "body": "height: '$$screenWidth'"
+  },
+  "minHeight 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-sm",
+    "body": "minHeight: '$$sm'"
+  },
+  "minHeight 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-md",
+    "body": "minHeight: '$$md'"
+  },
+  "minHeight 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-lg",
+    "body": "minHeight: '$$lg'"
+  },
+  "minHeight 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-xl",
+    "body": "minHeight: '$$xl'"
+  },
+  "minHeight 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-6/12",
+    "body": "minHeight: '6/12'"
+  },
+  "minHeight 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-3/12",
+    "body": "minHeight: '3/12'"
+  },
+  "minHeight 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-9/12",
+    "body": "minHeight: '9/12'"
+  },
+  "minHeight 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-1/8",
+    "body": "minHeight: '1/8'"
+  },
+  "minHeight 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-3/8",
+    "body": "minHeight: '3/8'"
+  },
+  "minHeight 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-5/8",
+    "body": "minHeight: '5/8'"
+  },
+  "minHeight 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-7/8",
+    "body": "minHeight: '7/8'"
+  },
+  "minHeight 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-1/12",
+    "body": "minHeight: '1/12'"
+  },
+  "minHeight 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-2/12",
+    "body": "minHeight: '2/12'"
+  },
+  "minHeight 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-4/12",
+    "body": "minHeight: '4/12'"
+  },
+  "minHeight 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-5/12",
+    "body": "minHeight: '5/12'"
+  },
+  "minHeight 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-7/12",
+    "body": "minHeight: '7/12'"
+  },
+  "minHeight 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-8/12",
+    "body": "minHeight: '8/12'"
+  },
+  "minHeight 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-10/12",
+    "body": "minHeight: '10/12'"
+  },
+  "minHeight 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-11/12",
+    "body": "minHeight: '11/12'"
+  },
+  "minHeight 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-full",
+    "body": "minHeight: '$$full'"
+  },
+  "minHeight 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-screenHeight",
+    "body": "minHeight: '$$screenHeight'"
+  },
+  "minHeight 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-screenWidth",
+    "body": "minHeight: '$$screenWidth'"
+  },
+  "maxHeight 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-sm",
+    "body": "maxHeight: '$$sm'"
+  },
+  "maxHeight 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-md",
+    "body": "maxHeight: '$$md'"
+  },
+  "maxHeight 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-lg",
+    "body": "maxHeight: '$$lg'"
+  },
+  "maxHeight 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-xl",
+    "body": "maxHeight: '$$xl'"
+  },
+  "maxHeight 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-6/12",
+    "body": "maxHeight: '6/12'"
+  },
+  "maxHeight 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-3/12",
+    "body": "maxHeight: '3/12'"
+  },
+  "maxHeight 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-9/12",
+    "body": "maxHeight: '9/12'"
+  },
+  "maxHeight 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-1/8",
+    "body": "maxHeight: '1/8'"
+  },
+  "maxHeight 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-3/8",
+    "body": "maxHeight: '3/8'"
+  },
+  "maxHeight 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-5/8",
+    "body": "maxHeight: '5/8'"
+  },
+  "maxHeight 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-7/8",
+    "body": "maxHeight: '7/8'"
+  },
+  "maxHeight 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-1/12",
+    "body": "maxHeight: '1/12'"
+  },
+  "maxHeight 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-2/12",
+    "body": "maxHeight: '2/12'"
+  },
+  "maxHeight 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-4/12",
+    "body": "maxHeight: '4/12'"
+  },
+  "maxHeight 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-5/12",
+    "body": "maxHeight: '5/12'"
+  },
+  "maxHeight 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-7/12",
+    "body": "maxHeight: '7/12'"
+  },
+  "maxHeight 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-8/12",
+    "body": "maxHeight: '8/12'"
+  },
+  "maxHeight 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-10/12",
+    "body": "maxHeight: '10/12'"
+  },
+  "maxHeight 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-11/12",
+    "body": "maxHeight: '11/12'"
+  },
+  "maxHeight 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-full",
+    "body": "maxHeight: '$$full'"
+  },
+  "maxHeight 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-screenHeight",
+    "body": "maxHeight: '$$screenHeight'"
+  },
+  "maxHeight 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-screenWidth",
+    "body": "maxHeight: '$$screenWidth'"
+  },
+  "minWidth 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-sm",
+    "body": "minWidth: '$$sm'"
+  },
+  "minWidth 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-md",
+    "body": "minWidth: '$$md'"
+  },
+  "minWidth 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-lg",
+    "body": "minWidth: '$$lg'"
+  },
+  "minWidth 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-xl",
+    "body": "minWidth: '$$xl'"
+  },
+  "minWidth 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-6/12",
+    "body": "minWidth: '6/12'"
+  },
+  "minWidth 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-3/12",
+    "body": "minWidth: '3/12'"
+  },
+  "minWidth 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-9/12",
+    "body": "minWidth: '9/12'"
+  },
+  "minWidth 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-1/8",
+    "body": "minWidth: '1/8'"
+  },
+  "minWidth 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-3/8",
+    "body": "minWidth: '3/8'"
+  },
+  "minWidth 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-5/8",
+    "body": "minWidth: '5/8'"
+  },
+  "minWidth 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-7/8",
+    "body": "minWidth: '7/8'"
+  },
+  "minWidth 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-1/12",
+    "body": "minWidth: '1/12'"
+  },
+  "minWidth 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-2/12",
+    "body": "minWidth: '2/12'"
+  },
+  "minWidth 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-4/12",
+    "body": "minWidth: '4/12'"
+  },
+  "minWidth 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-5/12",
+    "body": "minWidth: '5/12'"
+  },
+  "minWidth 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-7/12",
+    "body": "minWidth: '7/12'"
+  },
+  "minWidth 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-8/12",
+    "body": "minWidth: '8/12'"
+  },
+  "minWidth 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-10/12",
+    "body": "minWidth: '10/12'"
+  },
+  "minWidth 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-11/12",
+    "body": "minWidth: '11/12'"
+  },
+  "minWidth 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-full",
+    "body": "minWidth: '$$full'"
+  },
+  "minWidth 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-screenHeight",
+    "body": "minWidth: '$$screenHeight'"
+  },
+  "minWidth 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-screenWidth",
+    "body": "minWidth: '$$screenWidth'"
+  },
+  "maxWidth 20rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-sm",
+    "body": "maxWidth: '$$sm'"
+  },
+  "maxWidth 48rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-md",
+    "body": "maxWidth: '$$md'"
+  },
+  "maxWidth 56rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-lg",
+    "body": "maxWidth: '$$lg'"
+  },
+  "maxWidth 64rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-xl",
+    "body": "maxWidth: '$$xl'"
+  },
+  "maxWidth 50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-6/12",
+    "body": "maxWidth: '6/12'"
+  },
+  "maxWidth 25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-3/12",
+    "body": "maxWidth: '3/12'"
+  },
+  "maxWidth 75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-9/12",
+    "body": "maxWidth: '9/12'"
+  },
+  "maxWidth 12.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-1/8",
+    "body": "maxWidth: '1/8'"
+  },
+  "maxWidth 37.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-3/8",
+    "body": "maxWidth: '3/8'"
+  },
+  "maxWidth 62.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-5/8",
+    "body": "maxWidth: '5/8'"
+  },
+  "maxWidth 87.5%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-7/8",
+    "body": "maxWidth: '7/8'"
+  },
+  "maxWidth 8.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-1/12",
+    "body": "maxWidth: '1/12'"
+  },
+  "maxWidth 16.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-2/12",
+    "body": "maxWidth: '2/12'"
+  },
+  "maxWidth 33.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-4/12",
+    "body": "maxWidth: '4/12'"
+  },
+  "maxWidth 41.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-5/12",
+    "body": "maxWidth: '5/12'"
+  },
+  "maxWidth 58.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-7/12",
+    "body": "maxWidth: '7/12'"
+  },
+  "maxWidth 66.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-8/12",
+    "body": "maxWidth: '8/12'"
+  },
+  "maxWidth 83.333333%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-10/12",
+    "body": "maxWidth: '10/12'"
+  },
+  "maxWidth 91.666667%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-11/12",
+    "body": "maxWidth: '11/12'"
+  },
+  "maxWidth 100%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-full",
+    "body": "maxWidth: '$$full'"
+  },
+  "maxWidth 100vh": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-screenHeight",
+    "body": "maxWidth: '$$screenHeight'"
+  },
+  "maxWidth 100vw": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-screenWidth",
+    "body": "maxWidth: '$$screenWidth'"
+  },
+  "text pageTitle": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-pageTitle",
+    "body": "text: '$$pageTitle'"
+  },
+  "text title1": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-title1",
+    "body": "text: '$$title1'"
+  },
+  "text title2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-title2",
+    "body": "text: '$$title2'"
+  },
+  "text action1": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-action1",
+    "body": "text: '$$action1'"
+  },
+  "text action2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-action2",
+    "body": "text: '$$action2'"
+  },
+  "text display": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-display",
+    "body": "text: '$$display'"
+  },
+  "text body": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-body",
+    "body": "text: '$$body'"
+  },
+  "text detail": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "text-detail",
+    "body": "text: '$$detail'"
+  },
+  "border 1px solid #DDDDDD": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-neutral",
+    "body": "border: '$$neutral'"
+  },
+  "border 2px solid #2953B2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-mainSelected",
+    "body": "border: '$$mainSelected'"
+  },
+  "border 1px solid #83D187": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-positive",
+    "body": "border: '$$positive'"
+  },
+  "border 1px solid #7CBBEA": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-info",
+    "body": "border: '$$info'"
+  },
+  "border 1px solid #F49494": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-critical",
+    "body": "border: '$$critical'"
+  },
+  "border 1px solid #F5AE70": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-warning",
+    "body": "border: '$$warning'"
+  },
+  "border 1px solid #747474": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-disabled",
+    "body": "border: '$$disabled'"
+  },
+  "border 1px solid #B9B9B9": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-control",
+    "body": "border: '$$form.control'"
+  },
+  "border 1px solid #545454": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-controlFocus",
+    "body": "border: '$$form.controlFocus'"
+  },
+  "border 1px solid #3B3B3B": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-neutralCheckedHover",
+    "body": "border: '$$form.neutralCheckedHover'"
+  },
+  "border 1px solid #000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-neutralChecked",
+    "body": "border: '$$form.neutralChecked'"
+  },
+  "border 1px solid #CC3D3D": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-critical",
+    "body": "border: '$$form.critical'"
+  },
+  "border 1px solid #962828": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-criticalHover",
+    "body": "border: '$$form.criticalHover'"
+  },
+  "border 1px solid #782020": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-criticalFocus",
+    "body": "border: '$$form.criticalFocus'"
+  },
+  "border 1px solid #2953B2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-controlChecked",
+    "body": "border: '$$form.controlChecked'"
+  },
+  "border 1px solid #20408C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "b-form-controlCheckedFocus",
+    "body": "border: '$$form.controlCheckedFocus'"
+  },
+  "shadow 0rem 0rem 0rem 0.0625rem #FBF2F2, 0rem 0rem 0rem 0.1875rem #F49494": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "shadow-ring-critical",
+    "body": "shadow: '$$ring.critical'"
+  },
+  "shadow 0rem 0rem 0rem 0.0625rem #F4F4F4, 0rem 0rem 0rem 0.1875rem #B9B9B9": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "shadow-ring-neutral",
+    "body": "shadow: '$$ring.neutral'"
+  },
+  "shadow 0rem 0rem 0rem 0.0625rem #F1F4FC, 0rem 0rem 0rem 0.1875rem #96B2F2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "shadow-ring-main",
+    "body": "shadow: '$$ring.main'"
+  },
+  "shadow 0rem 0rem 1rem 0rem rgba(0,0,0,0.10)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "shadow-overlay-center",
+    "body": "shadow: '$$overlay.center'"
+  },
+  "shadow 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "shadow-overlay-bottom",
+    "body": "shadow: '$$overlay.bottom'"
+  }
+}
