@@ -1,1962 +1,2602 @@
 {
-  "margin 0rem": {
+  "0 margin:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-0",
-    "body": "margin: '0'"
+    "body": "margin: '0'$0"
   },
-  "margin 0.25rem": {
+  "1 margin:0.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-1",
-    "body": "margin: '1'"
+    "body": "margin: '1'$0"
   },
-  "margin 0.5rem": {
+  "2 margin:0.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-2",
-    "body": "margin: '2'"
+    "body": "margin: '2'$0"
   },
-  "margin 0.75rem": {
+  "3 margin:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-3",
-    "body": "margin: '3'"
+    "body": "margin: '3'$0"
   },
-  "margin 1rem": {
+  "4 margin:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-4",
-    "body": "margin: '4'"
+    "body": "margin: '4'$0"
   },
-  "margin 1.25rem": {
+  "5 margin:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-5",
-    "body": "margin: '5'"
+    "body": "margin: '5'$0"
   },
-  "margin 1.5rem": {
+  "6 margin:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-6",
-    "body": "margin: '6'"
+    "body": "margin: '6'$0"
   },
-  "margin 1.75rem": {
+  "7 margin:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-7",
-    "body": "margin: '7'"
+    "body": "margin: '7'$0"
   },
-  "margin 2rem": {
+  "8 margin:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-8",
-    "body": "margin: '8'"
+    "body": "margin: '8'$0"
   },
-  "margin 0.0625rem": {
+  "px margin:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-px",
-    "body": "margin: 'px'"
+    "body": "margin: 'px'$0"
   },
-  "margin 0.125rem": {
+  "2px margin:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-2px",
-    "body": "margin: '2px'"
+    "body": "margin: '2px'$0"
   },
-  "margin 0.25rem 0.5rem": {
+  "xs margin:0.25rem 0.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-xs",
-    "body": "margin: '$$xs'"
+    "body": "margin: '\\$xs'$0"
   },
-  "margin 0.5rem 0.75rem": {
+  "s margin:0.5rem 0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-s",
-    "body": "margin: '$$s'"
+    "body": "margin: '\\$s'$0"
   },
-  "margin 0.75rem 1rem": {
+  "m margin:0.75rem 1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-m",
-    "body": "margin: '$$m'"
+    "body": "margin: '\\$m'$0"
   },
-  "margin 1rem 1.25rem": {
+  "l margin:1rem 1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-l",
-    "body": "margin: '$$l'"
+    "body": "margin: '\\$l'$0"
   },
-  "margin 1.5rem 1.75rem": {
+  "xl margin:1.5rem 1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-xl",
-    "body": "margin: '$$xl'"
+    "body": "margin: '\\$xl'$0"
   },
-  "margin 2.5rem 2.75rem": {
+  "2xl margin:2.5rem 2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-2xl",
-    "body": "margin: '$$2xl'"
+    "body": "margin: '\\$2xl'$0"
   },
-  "margin 0.25rem 0.75rem": {
+  "nar... margin:0.25rem 0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-narrow-s",
-    "body": "margin: '$$narrow.s'"
+    "body": "margin: '\\$narrow.s'$0"
   },
-  "margin 0.75rem 1.25rem": {
+  "nar... margin:0.75rem 1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-narrow-m",
-    "body": "margin: '$$narrow.m'"
+    "body": "margin: '\\$narrow.m'$0"
   },
-  "margin 1rem 1.75rem": {
+  "nar... margin:1rem 1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "m-narrow-l",
-    "body": "margin: '$$narrow.l'"
+    "body": "margin: '\\$narrow.l'$0"
   },
-  "padding 0rem": {
+  "0 padding:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-0",
-    "body": "padding: '0'"
+    "body": "padding: '0'$0"
   },
-  "padding 0.25rem": {
+  "1 padding:0.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-1",
-    "body": "padding: '1'"
+    "body": "padding: '1'$0"
   },
-  "padding 0.5rem": {
+  "2 padding:0.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-2",
-    "body": "padding: '2'"
+    "body": "padding: '2'$0"
   },
-  "padding 0.75rem": {
+  "3 padding:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-3",
-    "body": "padding: '3'"
+    "body": "padding: '3'$0"
   },
-  "padding 1rem": {
+  "4 padding:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-4",
-    "body": "padding: '4'"
+    "body": "padding: '4'$0"
   },
-  "padding 1.25rem": {
+  "5 padding:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-5",
-    "body": "padding: '5'"
+    "body": "padding: '5'$0"
   },
-  "padding 1.5rem": {
+  "6 padding:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-6",
-    "body": "padding: '6'"
+    "body": "padding: '6'$0"
   },
-  "padding 1.75rem": {
+  "7 padding:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-7",
-    "body": "padding: '7'"
+    "body": "padding: '7'$0"
   },
-  "padding 2rem": {
+  "8 padding:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-8",
-    "body": "padding: '8'"
+    "body": "padding: '8'$0"
   },
-  "padding 0.0625rem": {
+  "px padding:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-px",
-    "body": "padding: 'px'"
+    "body": "padding: 'px'$0"
   },
-  "padding 0.125rem": {
+  "2px padding:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-2px",
-    "body": "padding: '2px'"
+    "body": "padding: '2px'$0"
   },
-  "padding 0.25rem 0.5rem": {
+  "xs padding:0.25rem 0.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-xs",
-    "body": "padding: '$$xs'"
+    "body": "padding: '\\$xs'$0"
   },
-  "padding 0.5rem 0.75rem": {
+  "s padding:0.5rem 0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-s",
-    "body": "padding: '$$s'"
+    "body": "padding: '\\$s'$0"
   },
-  "padding 0.75rem 1rem": {
+  "m padding:0.75rem 1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-m",
-    "body": "padding: '$$m'"
+    "body": "padding: '\\$m'$0"
   },
-  "padding 1rem 1.25rem": {
+  "l padding:1rem 1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-l",
-    "body": "padding: '$$l'"
+    "body": "padding: '\\$l'$0"
   },
-  "padding 1.5rem 1.75rem": {
+  "xl padding:1.5rem 1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-xl",
-    "body": "padding: '$$xl'"
+    "body": "padding: '\\$xl'$0"
   },
-  "padding 2.5rem 2.75rem": {
+  "2xl padding:2.5rem 2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-2xl",
-    "body": "padding: '$$2xl'"
+    "body": "padding: '\\$2xl'$0"
   },
-  "padding 0.25rem 0.75rem": {
+  "nar... padding:0.25rem 0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-narrow-s",
-    "body": "padding: '$$narrow.s'"
+    "body": "padding: '\\$narrow.s'$0"
   },
-  "padding 0.75rem 1.25rem": {
+  "nar... padding:0.75rem 1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-narrow-m",
-    "body": "padding: '$$narrow.m'"
+    "body": "padding: '\\$narrow.m'$0"
   },
-  "padding 1rem 1.75rem": {
+  "nar... padding:1rem 1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "p-narrow-l",
-    "body": "padding: '$$narrow.l'"
+    "body": "padding: '\\$narrow.l'$0"
   },
-  "marginX 0rem": {
+  "0 marginX:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-0",
-    "body": "marginX: '0'"
+    "body": "marginX: '0'$0"
   },
-  "marginX 0.25rem": {
+  "1 marginX:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mx-s",
-    "body": "marginX: '$$s'"
+    "prefix": "mx-1",
+    "body": "marginX: '1'$0"
   },
-  "marginX 0.5rem": {
+  "2 marginX:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mx-m",
-    "body": "marginX: '$$m'"
+    "prefix": "mx-2",
+    "body": "marginX: '2'$0"
   },
-  "marginX 0.75rem": {
+  "3 marginX:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mx-l",
-    "body": "marginX: '$$l'"
+    "prefix": "mx-3",
+    "body": "marginX: '3'$0"
   },
-  "marginX 1rem": {
+  "4 marginX:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-4",
-    "body": "marginX: '4'"
+    "body": "marginX: '4'$0"
   },
-  "marginX 1.25rem": {
+  "5 marginX:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mx-xl",
-    "body": "marginX: '$$xl'"
+    "prefix": "mx-5",
+    "body": "marginX: '5'$0"
   },
-  "marginX 1.5rem": {
+  "6 marginX:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-6",
-    "body": "marginX: '6'"
+    "body": "marginX: '6'$0"
   },
-  "marginX 1.75rem": {
+  "7 marginX:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mx-2xl",
-    "body": "marginX: '$$2xl'"
+    "prefix": "mx-7",
+    "body": "marginX: '7'$0"
   },
-  "marginX 2rem": {
+  "8 marginX:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-8",
-    "body": "marginX: '8'"
+    "body": "marginX: '8'$0"
   },
-  "marginX 0.0625rem": {
+  "px marginX:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-px",
-    "body": "marginX: 'px'"
+    "body": "marginX: 'px'$0"
   },
-  "marginX 0.125rem": {
+  "2px marginX:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-2px",
+    "body": "marginX: '2px'$0"
+  },
+  "xs marginX:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-xs",
-    "body": "marginX: '$$xs'"
+    "body": "marginX: '\\$xs'$0"
   },
-  "marginX 2.75rem": {
+  "s marginX:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-s",
+    "body": "marginX: '\\$s'$0"
+  },
+  "m marginX:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-m",
+    "body": "marginX: '\\$m'$0"
+  },
+  "l marginX:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-l",
+    "body": "marginX: '\\$l'$0"
+  },
+  "xl marginX:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-xl",
+    "body": "marginX: '\\$xl'$0"
+  },
+  "2xl marginX:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mx-2xl",
+    "body": "marginX: '\\$2xl'$0"
+  },
+  "3xl marginX:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mx-3xl",
-    "body": "marginX: '$$3xl'"
+    "body": "marginX: '\\$3xl'$0"
   },
-  "marginY 0rem": {
+  "0 marginY:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "my-xs",
-    "body": "marginY: '$$xs'"
+    "prefix": "my-0",
+    "body": "marginY: '0'$0"
   },
-  "marginY 0.25rem": {
+  "1 marginY:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "my-m",
-    "body": "marginY: '$$m'"
+    "prefix": "my-1",
+    "body": "marginY: '1'$0"
   },
-  "marginY 0.5rem": {
+  "2 marginY:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "my-l",
-    "body": "marginY: '$$l'"
+    "prefix": "my-2",
+    "body": "marginY: '2'$0"
   },
-  "marginY 0.75rem": {
+  "3 marginY:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-3",
-    "body": "marginY: '3'"
+    "body": "marginY: '3'$0"
   },
-  "marginY 1rem": {
+  "4 marginY:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "my-xl",
-    "body": "marginY: '$$xl'"
+    "prefix": "my-4",
+    "body": "marginY: '4'$0"
   },
-  "marginY 1.25rem": {
+  "5 marginY:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-5",
-    "body": "marginY: '5'"
+    "body": "marginY: '5'$0"
   },
-  "marginY 1.5rem": {
+  "6 marginY:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "my-2xl",
-    "body": "marginY: '$$2xl'"
+    "prefix": "my-6",
+    "body": "marginY: '6'$0"
   },
-  "marginY 1.75rem": {
+  "7 marginY:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-7",
-    "body": "marginY: '7'"
+    "body": "marginY: '7'$0"
   },
-  "marginY 2rem": {
+  "8 marginY:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-8",
-    "body": "marginY: '8'"
+    "body": "marginY: '8'$0"
   },
-  "marginY 0.0625rem": {
+  "px marginY:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-px",
-    "body": "marginY: 'px'"
+    "body": "marginY: 'px'$0"
   },
-  "marginY 0.125rem": {
+  "2px marginY:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-2px",
+    "body": "marginY: '2px'$0"
+  },
+  "xs marginY:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-xs",
+    "body": "marginY: '\\$xs'$0"
+  },
+  "s marginY:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-s",
-    "body": "marginY: '$$s'"
+    "body": "marginY: '\\$s'$0"
   },
-  "marginY 3rem": {
+  "m marginY:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-m",
+    "body": "marginY: '\\$m'$0"
+  },
+  "l marginY:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-l",
+    "body": "marginY: '\\$l'$0"
+  },
+  "xl marginY:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-xl",
+    "body": "marginY: '\\$xl'$0"
+  },
+  "2xl marginY:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "my-2xl",
+    "body": "marginY: '\\$2xl'$0"
+  },
+  "3xl marginY:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "my-3xl",
-    "body": "marginY: '$$3xl'"
+    "body": "marginY: '\\$3xl'$0"
   },
-  "marginLeft 0rem": {
+  "0 marginLeft:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-0",
-    "body": "marginLeft: '0'"
+    "body": "marginLeft: '0'$0"
   },
-  "marginLeft 0.25rem": {
+  "1 marginLeft:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ml-s",
-    "body": "marginLeft: '$$s'"
+    "prefix": "ml-1",
+    "body": "marginLeft: '1'$0"
   },
-  "marginLeft 0.5rem": {
+  "2 marginLeft:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ml-m",
-    "body": "marginLeft: '$$m'"
+    "prefix": "ml-2",
+    "body": "marginLeft: '2'$0"
   },
-  "marginLeft 0.75rem": {
+  "3 marginLeft:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ml-l",
-    "body": "marginLeft: '$$l'"
+    "prefix": "ml-3",
+    "body": "marginLeft: '3'$0"
   },
-  "marginLeft 1rem": {
+  "4 marginLeft:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-4",
-    "body": "marginLeft: '4'"
+    "body": "marginLeft: '4'$0"
   },
-  "marginLeft 1.25rem": {
+  "5 marginLeft:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ml-xl",
-    "body": "marginLeft: '$$xl'"
+    "prefix": "ml-5",
+    "body": "marginLeft: '5'$0"
   },
-  "marginLeft 1.5rem": {
+  "6 marginLeft:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-6",
-    "body": "marginLeft: '6'"
+    "body": "marginLeft: '6'$0"
   },
-  "marginLeft 1.75rem": {
+  "7 marginLeft:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ml-2xl",
-    "body": "marginLeft: '$$2xl'"
+    "prefix": "ml-7",
+    "body": "marginLeft: '7'$0"
   },
-  "marginLeft 2rem": {
+  "8 marginLeft:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-8",
-    "body": "marginLeft: '8'"
+    "body": "marginLeft: '8'$0"
   },
-  "marginLeft 0.0625rem": {
+  "px marginLeft:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-px",
-    "body": "marginLeft: 'px'"
+    "body": "marginLeft: 'px'$0"
   },
-  "marginLeft 0.125rem": {
+  "2px marginLeft:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-2px",
+    "body": "marginLeft: '2px'$0"
+  },
+  "xs marginLeft:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-xs",
-    "body": "marginLeft: '$$xs'"
+    "body": "marginLeft: '\\$xs'$0"
   },
-  "marginLeft 2.75rem": {
+  "s marginLeft:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-s",
+    "body": "marginLeft: '\\$s'$0"
+  },
+  "m marginLeft:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-m",
+    "body": "marginLeft: '\\$m'$0"
+  },
+  "l marginLeft:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-l",
+    "body": "marginLeft: '\\$l'$0"
+  },
+  "xl marginLeft:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-xl",
+    "body": "marginLeft: '\\$xl'$0"
+  },
+  "2xl marginLeft:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ml-2xl",
+    "body": "marginLeft: '\\$2xl'$0"
+  },
+  "3xl marginLeft:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "ml-3xl",
-    "body": "marginLeft: '$$3xl'"
+    "body": "marginLeft: '\\$3xl'$0"
   },
-  "marginRight 0rem": {
+  "0 marginRight:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-0",
-    "body": "marginRight: '0'"
+    "body": "marginRight: '0'$0"
   },
-  "marginRight 0.25rem": {
+  "1 marginRight:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mr-s",
-    "body": "marginRight: '$$s'"
+    "prefix": "mr-1",
+    "body": "marginRight: '1'$0"
   },
-  "marginRight 0.5rem": {
+  "2 marginRight:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mr-m",
-    "body": "marginRight: '$$m'"
+    "prefix": "mr-2",
+    "body": "marginRight: '2'$0"
   },
-  "marginRight 0.75rem": {
+  "3 marginRight:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mr-l",
-    "body": "marginRight: '$$l'"
+    "prefix": "mr-3",
+    "body": "marginRight: '3'$0"
   },
-  "marginRight 1rem": {
+  "4 marginRight:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-4",
-    "body": "marginRight: '4'"
+    "body": "marginRight: '4'$0"
   },
-  "marginRight 1.25rem": {
+  "5 marginRight:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mr-xl",
-    "body": "marginRight: '$$xl'"
+    "prefix": "mr-5",
+    "body": "marginRight: '5'$0"
   },
-  "marginRight 1.5rem": {
+  "6 marginRight:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-6",
-    "body": "marginRight: '6'"
+    "body": "marginRight: '6'$0"
   },
-  "marginRight 1.75rem": {
+  "7 marginRight:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mr-2xl",
-    "body": "marginRight: '$$2xl'"
+    "prefix": "mr-7",
+    "body": "marginRight: '7'$0"
   },
-  "marginRight 2rem": {
+  "8 marginRight:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-8",
-    "body": "marginRight: '8'"
+    "body": "marginRight: '8'$0"
   },
-  "marginRight 0.0625rem": {
+  "px marginRight:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-px",
-    "body": "marginRight: 'px'"
+    "body": "marginRight: 'px'$0"
   },
-  "marginRight 0.125rem": {
+  "2px marginRight:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-2px",
+    "body": "marginRight: '2px'$0"
+  },
+  "xs marginRight:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-xs",
-    "body": "marginRight: '$$xs'"
+    "body": "marginRight: '\\$xs'$0"
   },
-  "marginRight 2.75rem": {
+  "s marginRight:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-s",
+    "body": "marginRight: '\\$s'$0"
+  },
+  "m marginRight:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-m",
+    "body": "marginRight: '\\$m'$0"
+  },
+  "l marginRight:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-l",
+    "body": "marginRight: '\\$l'$0"
+  },
+  "xl marginRight:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-xl",
+    "body": "marginRight: '\\$xl'$0"
+  },
+  "2xl marginRight:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mr-2xl",
+    "body": "marginRight: '\\$2xl'$0"
+  },
+  "3xl marginRight:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mr-3xl",
-    "body": "marginRight: '$$3xl'"
+    "body": "marginRight: '\\$3xl'$0"
   },
-  "marginTop 0rem": {
+  "0 marginTop:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mt-xs",
-    "body": "marginTop: '$$xs'"
+    "prefix": "mt-0",
+    "body": "marginTop: '0'$0"
   },
-  "marginTop 0.25rem": {
+  "1 marginTop:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mt-m",
-    "body": "marginTop: '$$m'"
+    "prefix": "mt-1",
+    "body": "marginTop: '1'$0"
   },
-  "marginTop 0.5rem": {
+  "2 marginTop:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mt-l",
-    "body": "marginTop: '$$l'"
+    "prefix": "mt-2",
+    "body": "marginTop: '2'$0"
   },
-  "marginTop 0.75rem": {
+  "3 marginTop:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-3",
-    "body": "marginTop: '3'"
+    "body": "marginTop: '3'$0"
   },
-  "marginTop 1rem": {
+  "4 marginTop:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mt-xl",
-    "body": "marginTop: '$$xl'"
+    "prefix": "mt-4",
+    "body": "marginTop: '4'$0"
   },
-  "marginTop 1.25rem": {
+  "5 marginTop:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-5",
-    "body": "marginTop: '5'"
+    "body": "marginTop: '5'$0"
   },
-  "marginTop 1.5rem": {
+  "6 marginTop:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mt-2xl",
-    "body": "marginTop: '$$2xl'"
+    "prefix": "mt-6",
+    "body": "marginTop: '6'$0"
   },
-  "marginTop 1.75rem": {
+  "7 marginTop:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-7",
-    "body": "marginTop: '7'"
+    "body": "marginTop: '7'$0"
   },
-  "marginTop 2rem": {
+  "8 marginTop:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-8",
-    "body": "marginTop: '8'"
+    "body": "marginTop: '8'$0"
   },
-  "marginTop 0.0625rem": {
+  "px marginTop:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-px",
-    "body": "marginTop: 'px'"
+    "body": "marginTop: 'px'$0"
   },
-  "marginTop 0.125rem": {
+  "2px marginTop:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-2px",
+    "body": "marginTop: '2px'$0"
+  },
+  "xs marginTop:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-xs",
+    "body": "marginTop: '\\$xs'$0"
+  },
+  "s marginTop:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-s",
-    "body": "marginTop: '$$s'"
+    "body": "marginTop: '\\$s'$0"
   },
-  "marginTop 3rem": {
+  "m marginTop:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-m",
+    "body": "marginTop: '\\$m'$0"
+  },
+  "l marginTop:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-l",
+    "body": "marginTop: '\\$l'$0"
+  },
+  "xl marginTop:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-xl",
+    "body": "marginTop: '\\$xl'$0"
+  },
+  "2xl marginTop:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mt-2xl",
+    "body": "marginTop: '\\$2xl'$0"
+  },
+  "3xl marginTop:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mt-3xl",
-    "body": "marginTop: '$$3xl'"
+    "body": "marginTop: '\\$3xl'$0"
   },
-  "marginBottom 0rem": {
+  "0 marginBottom:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mb-xs",
-    "body": "marginBottom: '$$xs'"
+    "prefix": "mb-0",
+    "body": "marginBottom: '0'$0"
   },
-  "marginBottom 0.25rem": {
+  "1 marginBottom:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mb-m",
-    "body": "marginBottom: '$$m'"
+    "prefix": "mb-1",
+    "body": "marginBottom: '1'$0"
   },
-  "marginBottom 0.5rem": {
+  "2 marginBottom:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mb-l",
-    "body": "marginBottom: '$$l'"
+    "prefix": "mb-2",
+    "body": "marginBottom: '2'$0"
   },
-  "marginBottom 0.75rem": {
+  "3 marginBottom:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-3",
-    "body": "marginBottom: '3'"
+    "body": "marginBottom: '3'$0"
   },
-  "marginBottom 1rem": {
+  "4 marginBottom:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mb-xl",
-    "body": "marginBottom: '$$xl'"
+    "prefix": "mb-4",
+    "body": "marginBottom: '4'$0"
   },
-  "marginBottom 1.25rem": {
+  "5 marginBottom:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-5",
-    "body": "marginBottom: '5'"
+    "body": "marginBottom: '5'$0"
   },
-  "marginBottom 1.5rem": {
+  "6 marginBottom:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "mb-2xl",
-    "body": "marginBottom: '$$2xl'"
+    "prefix": "mb-6",
+    "body": "marginBottom: '6'$0"
   },
-  "marginBottom 1.75rem": {
+  "7 marginBottom:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-7",
-    "body": "marginBottom: '7'"
+    "body": "marginBottom: '7'$0"
   },
-  "marginBottom 2rem": {
+  "8 marginBottom:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-8",
-    "body": "marginBottom: '8'"
+    "body": "marginBottom: '8'$0"
   },
-  "marginBottom 0.0625rem": {
+  "px marginBottom:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-px",
-    "body": "marginBottom: 'px'"
+    "body": "marginBottom: 'px'$0"
   },
-  "marginBottom 0.125rem": {
+  "2px marginBottom:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-2px",
+    "body": "marginBottom: '2px'$0"
+  },
+  "xs marginBottom:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-xs",
+    "body": "marginBottom: '\\$xs'$0"
+  },
+  "s marginBottom:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-s",
-    "body": "marginBottom: '$$s'"
+    "body": "marginBottom: '\\$s'$0"
   },
-  "marginBottom 3rem": {
+  "m marginBottom:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-m",
+    "body": "marginBottom: '\\$m'$0"
+  },
+  "l marginBottom:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-l",
+    "body": "marginBottom: '\\$l'$0"
+  },
+  "xl marginBottom:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-xl",
+    "body": "marginBottom: '\\$xl'$0"
+  },
+  "2xl marginBottom:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "mb-2xl",
+    "body": "marginBottom: '\\$2xl'$0"
+  },
+  "3xl marginBottom:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "mb-3xl",
-    "body": "marginBottom: '$$3xl'"
+    "body": "marginBottom: '\\$3xl'$0"
   },
-  "paddingX 0rem": {
+  "0 paddingX:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-0",
-    "body": "paddingX: '0'"
+    "body": "paddingX: '0'$0"
   },
-  "paddingX 0.25rem": {
+  "1 paddingX:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "px-s",
-    "body": "paddingX: '$$s'"
+    "prefix": "px-1",
+    "body": "paddingX: '1'$0"
   },
-  "paddingX 0.5rem": {
+  "2 paddingX:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "px-m",
-    "body": "paddingX: '$$m'"
+    "prefix": "px-2",
+    "body": "paddingX: '2'$0"
   },
-  "paddingX 0.75rem": {
+  "3 paddingX:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "px-l",
-    "body": "paddingX: '$$l'"
+    "prefix": "px-3",
+    "body": "paddingX: '3'$0"
   },
-  "paddingX 1rem": {
+  "4 paddingX:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-4",
-    "body": "paddingX: '4'"
+    "body": "paddingX: '4'$0"
   },
-  "paddingX 1.25rem": {
+  "5 paddingX:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "px-xl",
-    "body": "paddingX: '$$xl'"
+    "prefix": "px-5",
+    "body": "paddingX: '5'$0"
   },
-  "paddingX 1.5rem": {
+  "6 paddingX:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-6",
-    "body": "paddingX: '6'"
+    "body": "paddingX: '6'$0"
   },
-  "paddingX 1.75rem": {
+  "7 paddingX:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "px-2xl",
-    "body": "paddingX: '$$2xl'"
+    "prefix": "px-7",
+    "body": "paddingX: '7'$0"
   },
-  "paddingX 2rem": {
+  "8 paddingX:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-8",
-    "body": "paddingX: '8'"
+    "body": "paddingX: '8'$0"
   },
-  "paddingX 0.0625rem": {
+  "px paddingX:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-px",
-    "body": "paddingX: 'px'"
+    "body": "paddingX: 'px'$0"
   },
-  "paddingX 0.125rem": {
+  "2px paddingX:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-2px",
+    "body": "paddingX: '2px'$0"
+  },
+  "xs paddingX:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-xs",
-    "body": "paddingX: '$$xs'"
+    "body": "paddingX: '\\$xs'$0"
   },
-  "paddingX 2.75rem": {
+  "s paddingX:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-s",
+    "body": "paddingX: '\\$s'$0"
+  },
+  "m paddingX:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-m",
+    "body": "paddingX: '\\$m'$0"
+  },
+  "l paddingX:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-l",
+    "body": "paddingX: '\\$l'$0"
+  },
+  "xl paddingX:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-xl",
+    "body": "paddingX: '\\$xl'$0"
+  },
+  "2xl paddingX:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "px-2xl",
+    "body": "paddingX: '\\$2xl'$0"
+  },
+  "3xl paddingX:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "px-3xl",
-    "body": "paddingX: '$$3xl'"
+    "body": "paddingX: '\\$3xl'$0"
   },
-  "paddingY 0rem": {
+  "0 paddingY:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "py-xs",
-    "body": "paddingY: '$$xs'"
+    "prefix": "py-0",
+    "body": "paddingY: '0'$0"
   },
-  "paddingY 0.25rem": {
+  "1 paddingY:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "py-m",
-    "body": "paddingY: '$$m'"
+    "prefix": "py-1",
+    "body": "paddingY: '1'$0"
   },
-  "paddingY 0.5rem": {
+  "2 paddingY:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "py-l",
-    "body": "paddingY: '$$l'"
+    "prefix": "py-2",
+    "body": "paddingY: '2'$0"
   },
-  "paddingY 0.75rem": {
+  "3 paddingY:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-3",
-    "body": "paddingY: '3'"
+    "body": "paddingY: '3'$0"
   },
-  "paddingY 1rem": {
+  "4 paddingY:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "py-xl",
-    "body": "paddingY: '$$xl'"
+    "prefix": "py-4",
+    "body": "paddingY: '4'$0"
   },
-  "paddingY 1.25rem": {
+  "5 paddingY:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-5",
-    "body": "paddingY: '5'"
+    "body": "paddingY: '5'$0"
   },
-  "paddingY 1.5rem": {
+  "6 paddingY:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "py-2xl",
-    "body": "paddingY: '$$2xl'"
+    "prefix": "py-6",
+    "body": "paddingY: '6'$0"
   },
-  "paddingY 1.75rem": {
+  "7 paddingY:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-7",
-    "body": "paddingY: '7'"
+    "body": "paddingY: '7'$0"
   },
-  "paddingY 2rem": {
+  "8 paddingY:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-8",
-    "body": "paddingY: '8'"
+    "body": "paddingY: '8'$0"
   },
-  "paddingY 0.0625rem": {
+  "px paddingY:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-px",
-    "body": "paddingY: 'px'"
+    "body": "paddingY: 'px'$0"
   },
-  "paddingY 0.125rem": {
+  "2px paddingY:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-2px",
+    "body": "paddingY: '2px'$0"
+  },
+  "xs paddingY:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-xs",
+    "body": "paddingY: '\\$xs'$0"
+  },
+  "s paddingY:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-s",
-    "body": "paddingY: '$$s'"
+    "body": "paddingY: '\\$s'$0"
   },
-  "paddingY 3rem": {
+  "m paddingY:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-m",
+    "body": "paddingY: '\\$m'$0"
+  },
+  "l paddingY:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-l",
+    "body": "paddingY: '\\$l'$0"
+  },
+  "xl paddingY:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-xl",
+    "body": "paddingY: '\\$xl'$0"
+  },
+  "2xl paddingY:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "py-2xl",
+    "body": "paddingY: '\\$2xl'$0"
+  },
+  "3xl paddingY:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "py-3xl",
-    "body": "paddingY: '$$3xl'"
+    "body": "paddingY: '\\$3xl'$0"
   },
-  "paddingLeft 0rem": {
+  "0 paddingLeft:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-0",
-    "body": "paddingLeft: '0'"
+    "body": "paddingLeft: '0'$0"
   },
-  "paddingLeft 0.25rem": {
+  "1 paddingLeft:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pl-s",
-    "body": "paddingLeft: '$$s'"
+    "prefix": "pl-1",
+    "body": "paddingLeft: '1'$0"
   },
-  "paddingLeft 0.5rem": {
+  "2 paddingLeft:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pl-m",
-    "body": "paddingLeft: '$$m'"
+    "prefix": "pl-2",
+    "body": "paddingLeft: '2'$0"
   },
-  "paddingLeft 0.75rem": {
+  "3 paddingLeft:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pl-l",
-    "body": "paddingLeft: '$$l'"
+    "prefix": "pl-3",
+    "body": "paddingLeft: '3'$0"
   },
-  "paddingLeft 1rem": {
+  "4 paddingLeft:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-4",
-    "body": "paddingLeft: '4'"
+    "body": "paddingLeft: '4'$0"
   },
-  "paddingLeft 1.25rem": {
+  "5 paddingLeft:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pl-xl",
-    "body": "paddingLeft: '$$xl'"
+    "prefix": "pl-5",
+    "body": "paddingLeft: '5'$0"
   },
-  "paddingLeft 1.5rem": {
+  "6 paddingLeft:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-6",
-    "body": "paddingLeft: '6'"
+    "body": "paddingLeft: '6'$0"
   },
-  "paddingLeft 1.75rem": {
+  "7 paddingLeft:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pl-2xl",
-    "body": "paddingLeft: '$$2xl'"
+    "prefix": "pl-7",
+    "body": "paddingLeft: '7'$0"
   },
-  "paddingLeft 2rem": {
+  "8 paddingLeft:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-8",
-    "body": "paddingLeft: '8'"
+    "body": "paddingLeft: '8'$0"
   },
-  "paddingLeft 0.0625rem": {
+  "px paddingLeft:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-px",
-    "body": "paddingLeft: 'px'"
+    "body": "paddingLeft: 'px'$0"
   },
-  "paddingLeft 0.125rem": {
+  "2px paddingLeft:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-2px",
+    "body": "paddingLeft: '2px'$0"
+  },
+  "xs paddingLeft:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-xs",
-    "body": "paddingLeft: '$$xs'"
+    "body": "paddingLeft: '\\$xs'$0"
   },
-  "paddingLeft 2.75rem": {
+  "s paddingLeft:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-s",
+    "body": "paddingLeft: '\\$s'$0"
+  },
+  "m paddingLeft:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-m",
+    "body": "paddingLeft: '\\$m'$0"
+  },
+  "l paddingLeft:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-l",
+    "body": "paddingLeft: '\\$l'$0"
+  },
+  "xl paddingLeft:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-xl",
+    "body": "paddingLeft: '\\$xl'$0"
+  },
+  "2xl paddingLeft:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pl-2xl",
+    "body": "paddingLeft: '\\$2xl'$0"
+  },
+  "3xl paddingLeft:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pl-3xl",
-    "body": "paddingLeft: '$$3xl'"
+    "body": "paddingLeft: '\\$3xl'$0"
   },
-  "paddingRight 0rem": {
+  "0 paddingRight:0rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-0",
-    "body": "paddingRight: '0'"
+    "body": "paddingRight: '0'$0"
   },
-  "paddingRight 0.25rem": {
+  "1 paddingRight:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pr-s",
-    "body": "paddingRight: '$$s'"
+    "prefix": "pr-1",
+    "body": "paddingRight: '1'$0"
   },
-  "paddingRight 0.5rem": {
+  "2 paddingRight:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pr-m",
-    "body": "paddingRight: '$$m'"
+    "prefix": "pr-2",
+    "body": "paddingRight: '2'$0"
   },
-  "paddingRight 0.75rem": {
+  "3 paddingRight:0.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pr-l",
-    "body": "paddingRight: '$$l'"
+    "prefix": "pr-3",
+    "body": "paddingRight: '3'$0"
   },
-  "paddingRight 1rem": {
+  "4 paddingRight:1rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-4",
-    "body": "paddingRight: '4'"
+    "body": "paddingRight: '4'$0"
   },
-  "paddingRight 1.25rem": {
+  "5 paddingRight:1.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pr-xl",
-    "body": "paddingRight: '$$xl'"
+    "prefix": "pr-5",
+    "body": "paddingRight: '5'$0"
   },
-  "paddingRight 1.5rem": {
+  "6 paddingRight:1.5rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-6",
-    "body": "paddingRight: '6'"
+    "body": "paddingRight: '6'$0"
   },
-  "paddingRight 1.75rem": {
+  "7 paddingRight:1.75rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pr-2xl",
-    "body": "paddingRight: '$$2xl'"
+    "prefix": "pr-7",
+    "body": "paddingRight: '7'$0"
   },
-  "paddingRight 2rem": {
+  "8 paddingRight:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-8",
-    "body": "paddingRight: '8'"
+    "body": "paddingRight: '8'$0"
   },
-  "paddingRight 0.0625rem": {
+  "px paddingRight:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-px",
-    "body": "paddingRight: 'px'"
+    "body": "paddingRight: 'px'$0"
   },
-  "paddingRight 0.125rem": {
+  "2px paddingRight:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-2px",
+    "body": "paddingRight: '2px'$0"
+  },
+  "xs paddingRight:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-xs",
-    "body": "paddingRight: '$$xs'"
+    "body": "paddingRight: '\\$xs'$0"
   },
-  "paddingRight 2.75rem": {
+  "s paddingRight:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-s",
+    "body": "paddingRight: '\\$s'$0"
+  },
+  "m paddingRight:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-m",
+    "body": "paddingRight: '\\$m'$0"
+  },
+  "l paddingRight:0.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-l",
+    "body": "paddingRight: '\\$l'$0"
+  },
+  "xl paddingRight:1.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-xl",
+    "body": "paddingRight: '\\$xl'$0"
+  },
+  "2xl paddingRight:1.75rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pr-2xl",
+    "body": "paddingRight: '\\$2xl'$0"
+  },
+  "3xl paddingRight:2.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pr-3xl",
-    "body": "paddingRight: '$$3xl'"
+    "body": "paddingRight: '\\$3xl'$0"
   },
-  "paddingTop 0rem": {
+  "0 paddingTop:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pt-xs",
-    "body": "paddingTop: '$$xs'"
+    "prefix": "pt-0",
+    "body": "paddingTop: '0'$0"
   },
-  "paddingTop 0.25rem": {
+  "1 paddingTop:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pt-m",
-    "body": "paddingTop: '$$m'"
+    "prefix": "pt-1",
+    "body": "paddingTop: '1'$0"
   },
-  "paddingTop 0.5rem": {
+  "2 paddingTop:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pt-l",
-    "body": "paddingTop: '$$l'"
+    "prefix": "pt-2",
+    "body": "paddingTop: '2'$0"
   },
-  "paddingTop 0.75rem": {
+  "3 paddingTop:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-3",
-    "body": "paddingTop: '3'"
+    "body": "paddingTop: '3'$0"
   },
-  "paddingTop 1rem": {
+  "4 paddingTop:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pt-xl",
-    "body": "paddingTop: '$$xl'"
+    "prefix": "pt-4",
+    "body": "paddingTop: '4'$0"
   },
-  "paddingTop 1.25rem": {
+  "5 paddingTop:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-5",
-    "body": "paddingTop: '5'"
+    "body": "paddingTop: '5'$0"
   },
-  "paddingTop 1.5rem": {
+  "6 paddingTop:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pt-2xl",
-    "body": "paddingTop: '$$2xl'"
+    "prefix": "pt-6",
+    "body": "paddingTop: '6'$0"
   },
-  "paddingTop 1.75rem": {
+  "7 paddingTop:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-7",
-    "body": "paddingTop: '7'"
+    "body": "paddingTop: '7'$0"
   },
-  "paddingTop 2rem": {
+  "8 paddingTop:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-8",
-    "body": "paddingTop: '8'"
+    "body": "paddingTop: '8'$0"
   },
-  "paddingTop 0.0625rem": {
+  "px paddingTop:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-px",
-    "body": "paddingTop: 'px'"
+    "body": "paddingTop: 'px'$0"
   },
-  "paddingTop 0.125rem": {
+  "2px paddingTop:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-2px",
+    "body": "paddingTop: '2px'$0"
+  },
+  "xs paddingTop:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-xs",
+    "body": "paddingTop: '\\$xs'$0"
+  },
+  "s paddingTop:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-s",
-    "body": "paddingTop: '$$s'"
+    "body": "paddingTop: '\\$s'$0"
   },
-  "paddingTop 3rem": {
+  "m paddingTop:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-m",
+    "body": "paddingTop: '\\$m'$0"
+  },
+  "l paddingTop:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-l",
+    "body": "paddingTop: '\\$l'$0"
+  },
+  "xl paddingTop:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-xl",
+    "body": "paddingTop: '\\$xl'$0"
+  },
+  "2xl paddingTop:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pt-2xl",
+    "body": "paddingTop: '\\$2xl'$0"
+  },
+  "3xl paddingTop:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pt-3xl",
-    "body": "paddingTop: '$$3xl'"
+    "body": "paddingTop: '\\$3xl'$0"
   },
-  "paddingBottom 0rem": {
+  "0 paddingBottom:0rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pb-xs",
-    "body": "paddingBottom: '$$xs'"
+    "prefix": "pb-0",
+    "body": "paddingBottom: '0'$0"
   },
-  "paddingBottom 0.25rem": {
+  "1 paddingBottom:0.25rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pb-m",
-    "body": "paddingBottom: '$$m'"
+    "prefix": "pb-1",
+    "body": "paddingBottom: '1'$0"
   },
-  "paddingBottom 0.5rem": {
+  "2 paddingBottom:0.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pb-l",
-    "body": "paddingBottom: '$$l'"
+    "prefix": "pb-2",
+    "body": "paddingBottom: '2'$0"
   },
-  "paddingBottom 0.75rem": {
+  "3 paddingBottom:0.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-3",
-    "body": "paddingBottom: '3'"
+    "body": "paddingBottom: '3'$0"
   },
-  "paddingBottom 1rem": {
+  "4 paddingBottom:1rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pb-xl",
-    "body": "paddingBottom: '$$xl'"
+    "prefix": "pb-4",
+    "body": "paddingBottom: '4'$0"
   },
-  "paddingBottom 1.25rem": {
+  "5 paddingBottom:1.25rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-5",
-    "body": "paddingBottom: '5'"
+    "body": "paddingBottom: '5'$0"
   },
-  "paddingBottom 1.5rem": {
+  "6 paddingBottom:1.5rem": {
     "scope": "typescript,typescriptreact",
-    "prefix": "pb-2xl",
-    "body": "paddingBottom: '$$2xl'"
+    "prefix": "pb-6",
+    "body": "paddingBottom: '6'$0"
   },
-  "paddingBottom 1.75rem": {
+  "7 paddingBottom:1.75rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-7",
-    "body": "paddingBottom: '7'"
+    "body": "paddingBottom: '7'$0"
   },
-  "paddingBottom 2rem": {
+  "8 paddingBottom:2rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-8",
-    "body": "paddingBottom: '8'"
+    "body": "paddingBottom: '8'$0"
   },
-  "paddingBottom 0.0625rem": {
+  "px paddingBottom:0.0625rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-px",
-    "body": "paddingBottom: 'px'"
+    "body": "paddingBottom: 'px'$0"
   },
-  "paddingBottom 0.125rem": {
+  "2px paddingBottom:0.125rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-2px",
+    "body": "paddingBottom: '2px'$0"
+  },
+  "xs paddingBottom:0rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-xs",
+    "body": "paddingBottom: '\\$xs'$0"
+  },
+  "s paddingBottom:0.125rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-s",
-    "body": "paddingBottom: '$$s'"
+    "body": "paddingBottom: '\\$s'$0"
   },
-  "paddingBottom 3rem": {
+  "m paddingBottom:0.25rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-m",
+    "body": "paddingBottom: '\\$m'$0"
+  },
+  "l paddingBottom:0.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-l",
+    "body": "paddingBottom: '\\$l'$0"
+  },
+  "xl paddingBottom:1rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-xl",
+    "body": "paddingBottom: '\\$xl'$0"
+  },
+  "2xl paddingBottom:1.5rem": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "pb-2xl",
+    "body": "paddingBottom: '\\$2xl'$0"
+  },
+  "3xl paddingBottom:3rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "pb-3xl",
-    "body": "paddingBottom: '$$3xl'"
+    "body": "paddingBottom: '\\$3xl'$0"
   },
-  "bg #FFFFFF": {
+  "pri... bg:#FFFFFF": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-primary",
-    "body": "bg: '$$primary'"
+    "body": "bg: '\\$primary'$0"
   },
-  "bg #F4F4F4": {
+  "sec... bg:#F4F4F4": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-action-neutral-secondary",
-    "body": "bg: '$$action.neutral.secondary'"
+    "prefix": "bg-secondary",
+    "body": "bg: '\\$secondary'$0"
   },
-  "bg #E6E6E6": {
+  "dis... bg:#E6E6E6": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-form-neutralHover",
-    "body": "bg: '$$form.neutralHover'"
+    "prefix": "bg-disabled",
+    "body": "bg: '\\$disabled'$0"
   },
-  "bg #DFF1E0": {
+  "pos... bg:#DFF1E0": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-positive",
-    "body": "bg: '$$positive'"
+    "body": "bg: '\\$positive'$0"
   },
-  "bg #F8E3E3": {
+  "cri... bg:#F8E3E3": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-action-critical-tertiaryPressed",
-    "body": "bg: '$$action.critical.tertiaryPressed'"
+    "prefix": "bg-critical",
+    "body": "bg: '\\$critical'$0"
   },
-  "bg #FFEBD7": {
+  "war... bg:#FFEBD7": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-warning",
-    "body": "bg: '$$warning'"
+    "body": "bg: '\\$warning'$0"
   },
-  "bg #DEECF7": {
+  "inf... bg:#DEECF7": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-info",
-    "body": "bg: '$$info'"
+    "body": "bg: '\\$info'$0"
   },
-  "bg #000000": {
+  "inv... bg:#000000": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-form-neutralActive",
-    "body": "bg: '$$form.neutralActive'"
+    "prefix": "bg-inverted",
+    "body": "bg: '\\$inverted'$0"
   },
-  "bg rgba(0, 0, 0, 0.5)": {
+  "ove... bg:rgba(0, 0, 0, 0.5)": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-overlay",
-    "body": "bg: '$$overlay'"
+    "body": "bg: '\\$overlay'$0"
   },
-  "bg linear-gradient(90deg, #E6E6E6, #DDDDDD), #E6E6E6": {
+  "ske... bg:linear-gradient(90deg, #E6E6E6, #DDDDDD), #E6E6E6": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-skeleton",
-    "body": "bg: '$$skeleton'"
+    "body": "bg: '\\$skeleton'$0"
   },
-  "bg #DDDDDD": {
+  "act... bg:#F4F4F4": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-secondary",
+    "body": "bg: '\\$action.neutral.secondary'$0"
+  },
+  "act... bg:#E6E6E6": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-neutral-secondaryHover",
+    "body": "bg: '\\$action.neutral.secondaryHover'$0"
+  },
+  "act... bg:#DDDDDD": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-neutral-secondaryPressed",
-    "body": "bg: '$$action.neutral.secondaryPressed'"
+    "body": "bg: '\\$action.neutral.secondaryPressed'$0"
   },
-  "bg transparent": {
+  "act... bg:transparent": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-form-controlHover",
-    "body": "bg: '$$form.controlHover'"
+    "prefix": "bg-action-critical-tertiary",
+    "body": "bg: '\\$action.critical.tertiary'$0"
   },
-  "bg rgba(0, 0, 0, 0.05)": {
+  "act... bg:rgba(0, 0, 0, 0.05)": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-neutral-tertiaryHover",
-    "body": "bg: '$$action.neutral.tertiaryHover'"
+    "body": "bg: '\\$action.neutral.tertiaryHover'$0"
   },
-  "bg rgba(0, 0, 0, 0.1)": {
+  "act... bg:rgba(0, 0, 0, 0.1)": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-neutral-tertiaryPressed",
-    "body": "bg: '$$action.neutral.tertiaryPressed'"
+    "body": "bg: '\\$action.neutral.tertiaryPressed'$0"
   },
-  "bg #2953B2": {
+  "act... bg:#2953B2": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-form-controlChecked",
-    "body": "bg: '$$form.controlChecked'"
+    "prefix": "bg-action-main-primary",
+    "body": "bg: '\\$action.main.primary'$0"
   },
-  "bg #20408C": {
+  "act... bg:#20408C": {
     "scope": "typescript,typescriptreact",
-    "prefix": "bg-form-controlCheckedFocus",
-    "body": "bg: '$$form.controlCheckedFocus'"
+    "prefix": "bg-action-main-primaryHover",
+    "body": "bg: '\\$action.main.primaryHover'$0"
   },
-  "bg #172F66": {
+  "act... bg:#172F66": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-main-primaryPressed",
-    "body": "bg: '$$action.main.primaryPressed'"
+    "body": "bg: '\\$action.main.primaryPressed'$0"
   },
-  "bg #DDE5F7": {
+  "act... bg:#DDE5F7": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-main-tertiaryPressed",
-    "body": "bg: '$$action.main.tertiaryPressed'"
+    "body": "bg: '\\$action.main.tertiaryPressed'$0"
   },
-  "bg #BBCBF0": {
+  "act... bg:#BBCBF0": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-main-secondaryHover",
-    "body": "bg: '$$action.main.secondaryHover'"
+    "body": "bg: '\\$action.main.secondaryHover'$0"
   },
-  "bg #96B2F2": {
+  "act... bg:#96B2F2": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-main-secondaryPressed",
-    "body": "bg: '$$action.main.secondaryPressed'"
+    "body": "bg: '\\$action.main.secondaryPressed'$0"
   },
-  "bg #F1F4FC": {
+  "act... bg:#F1F4FC": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-main-tertiarySelected",
-    "body": "bg: '$$action.main.tertiarySelected'"
+    "body": "bg: '\\$action.main.tertiarySelected'$0"
   },
-  "bg #CC3D3D": {
+  "act... bg:#CC3D3D": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-primary",
-    "body": "bg: '$$action.critical.primary'"
+    "body": "bg: '\\$action.critical.primary'$0"
   },
-  "bg #962828": {
+  "act... bg:#962828": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-primaryHover",
-    "body": "bg: '$$action.critical.primaryHover'"
+    "body": "bg: '\\$action.critical.primaryHover'$0"
   },
-  "bg #782020": {
+  "act... bg:#782020": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-primaryPressed",
-    "body": "bg: '$$action.critical.primaryPressed'"
+    "body": "bg: '\\$action.critical.primaryPressed'$0"
   },
-  "bg #EDBABA": {
+  "act... bg:#F8E3E3": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-action-critical-tertiaryPressed",
+    "body": "bg: '\\$action.critical.tertiaryPressed'$0"
+  },
+  "act... bg:#EDBABA": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-secondaryHover",
-    "body": "bg: '$$action.critical.secondaryHover'"
+    "body": "bg: '\\$action.critical.secondaryHover'$0"
   },
-  "bg #F49494": {
+  "act... bg:#F49494": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-secondaryPressed",
-    "body": "bg: '$$action.critical.secondaryPressed'"
+    "body": "bg: '\\$action.critical.secondaryPressed'$0"
   },
-  "bg #FBF2F2": {
+  "act... bg:#FBF2F2": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-action-critical-tertiarySelected",
-    "body": "bg: '$$action.critical.tertiarySelected'"
+    "body": "bg: '\\$action.critical.tertiarySelected'$0"
   },
-  "bg #B9B9B9": {
+  "for... bg:transparent": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlHover",
+    "body": "bg: '\\$form.controlHover'$0"
+  },
+  "for... bg:#E6E6E6": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralHover",
+    "body": "bg: '\\$form.neutralHover'$0"
+  },
+  "for... bg:#B9B9B9": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-controlInactive",
-    "body": "bg: '$$form.controlInactive'"
+    "body": "bg: '\\$form.controlInactive'$0"
   },
-  "bg #3B3B3B": {
+  "for... bg:#000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-neutralActive",
+    "body": "bg: '\\$form.neutralActive'$0"
+  },
+  "for... bg:#3B3B3B": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-neutralActiveHover",
-    "body": "bg: '$$form.neutralActiveHover'"
+    "body": "bg: '\\$form.neutralActiveHover'$0"
   },
-  "bg #545454": {
+  "for... bg:#545454": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-neutralActivePressed",
-    "body": "bg: '$$form.neutralActivePressed'"
+    "body": "bg: '\\$form.neutralActivePressed'$0"
   },
-  "bg #38853C": {
+  "for... bg:#2953B2": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlChecked",
+    "body": "bg: '\\$form.controlChecked'$0"
+  },
+  "for... bg:#20408C": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "bg-form-controlCheckedFocus",
+    "body": "bg: '\\$form.controlCheckedFocus'$0"
+  },
+  "for... bg:#38853C": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-controlActive",
-    "body": "bg: '$$form.controlActive'"
+    "body": "bg: '\\$form.controlActive'$0"
   },
-  "bg #285F2B": {
+  "for... bg:#285F2B": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-controlActiveHover",
-    "body": "bg: '$$form.controlActiveHover'"
+    "body": "bg: '\\$form.controlActiveHover'$0"
   },
-  "bg #747474": {
+  "for... bg:#747474": {
     "scope": "typescript,typescriptreact",
     "prefix": "bg-form-controlInactiveHover",
-    "body": "bg: '$$form.controlInactiveHover'"
+    "body": "bg: '\\$form.controlInactiveHover'$0"
   },
-  "color #000000": {
+  "pri... color:#000000": {
     "scope": "typescript,typescriptreact",
-    "prefix": "fg-form-controlNeutral",
-    "body": "color: '$$form.controlNeutral'"
+    "prefix": "fg-primary",
+    "body": "color: '\\$primary'$0"
   },
-  "color #545454": {
+  "sec... color:#545454": {
     "scope": "typescript,typescriptreact",
-    "prefix": "fg-action-neutral-tertiary",
-    "body": "color: '$$action.neutral.tertiary'"
+    "prefix": "fg-secondary",
+    "body": "color: '\\$secondary'$0"
   },
-  "color #747474": {
+  "dis... color:#747474": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-disabled",
-    "body": "color: '$$disabled'"
+    "body": "color: '\\$disabled'$0"
   },
-  "color #FFFFFF": {
+  "inv... color:#FFFFFF": {
     "scope": "typescript,typescriptreact",
-    "prefix": "fg-form-control",
-    "body": "color: '$$form.control'"
+    "prefix": "fg-inverted",
+    "body": "color: '\\$inverted'$0"
   },
-  "color #38853C": {
+  "pos... color:#38853C": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-positive",
-    "body": "color: '$$positive'"
+    "body": "color: '\\$positive'$0"
   },
-  "color #2978B5": {
+  "inf... color:#2978B5": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-info",
-    "body": "color: '$$info'"
+    "body": "color: '\\$info'$0"
   },
-  "color #CC3D3D": {
+  "cri... color:#CC3D3D": {
     "scope": "typescript,typescriptreact",
-    "prefix": "fg-action-critical-tertiarySelected",
-    "body": "color: '$$action.critical.tertiarySelected'"
+    "prefix": "fg-critical",
+    "body": "color: '\\$critical'$0"
   },
-  "color #D56A00": {
+  "war... color:#D56A00": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-warning",
-    "body": "color: '$$warning'"
+    "body": "color: '\\$warning'$0"
   },
-  "color #3B3B3B": {
+  "act... color:#545454": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-neutral-tertiary",
+    "body": "color: '\\$action.neutral.tertiary'$0"
+  },
+  "act... color:#3B3B3B": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-neutral-tertiaryHover",
-    "body": "color: '$$action.neutral.tertiaryHover'"
+    "body": "color: '\\$action.neutral.tertiaryHover'$0"
   },
-  "color #2953B2": {
+  "act... color:#000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-neutral-tertiaryPressed",
+    "body": "color: '\\$action.neutral.tertiaryPressed'$0"
+  },
+  "act... color:#FFFFFF": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-critical-primaryPressed",
+    "body": "color: '\\$action.critical.primaryPressed'$0"
+  },
+  "act... color:#2953B2": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-main-tertiarySelected",
-    "body": "color: '$$action.main.tertiarySelected'"
+    "body": "color: '\\$action.main.tertiarySelected'$0"
   },
-  "color #20408C": {
+  "act... color:#20408C": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-main-tertiaryHover",
-    "body": "color: '$$action.main.tertiaryHover'"
+    "body": "color: '\\$action.main.tertiaryHover'$0"
   },
-  "color #172F66": {
+  "act... color:#172F66": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-main-tertiaryPressed",
-    "body": "color: '$$action.main.tertiaryPressed'"
+    "body": "color: '\\$action.main.tertiaryPressed'$0"
   },
-  "color #962828": {
+  "act... color:#CC3D3D": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-action-critical-tertiarySelected",
+    "body": "color: '\\$action.critical.tertiarySelected'$0"
+  },
+  "act... color:#962828": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-critical-tertiaryHover",
-    "body": "color: '$$action.critical.tertiaryHover'"
+    "body": "color: '\\$action.critical.tertiaryHover'$0"
   },
-  "color #782020": {
+  "act... color:#782020": {
     "scope": "typescript,typescriptreact",
     "prefix": "fg-action-critical-tertiaryPressed",
-    "body": "color: '$$action.critical.tertiaryPressed'"
+    "body": "color: '\\$action.critical.tertiaryPressed'$0"
   },
-  "width 20rem": {
+  "for... color:#000000": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-form-controlNeutral",
+    "body": "color: '\\$form.controlNeutral'$0"
+  },
+  "for... color:#FFFFFF": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "fg-form-control",
+    "body": "color: '\\$form.control'$0"
+  },
+  "sm width:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-sm",
-    "body": "width: '$$sm'"
+    "body": "width: '\\$sm'$0"
   },
-  "width 48rem": {
+  "md width:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-md",
-    "body": "width: '$$md'"
+    "body": "width: '\\$md'$0"
   },
-  "width 56rem": {
+  "lg width:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-lg",
-    "body": "width: '$$lg'"
+    "body": "width: '\\$lg'$0"
   },
-  "width 64rem": {
+  "xl width:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-xl",
-    "body": "width: '$$xl'"
+    "body": "width: '\\$xl'$0"
   },
-  "width 50%": {
+  "1/2 width:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "w-6/12",
-    "body": "width: '6/12'"
+    "prefix": "w-1/2",
+    "body": "width: '1/2'$0"
   },
-  "width 25%": {
+  "1/4 width:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "w-3/12",
-    "body": "width: '3/12'"
+    "prefix": "w-1/4",
+    "body": "width: '1/4'$0"
   },
-  "width 75%": {
+  "2/4 width:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "w-9/12",
-    "body": "width: '9/12'"
+    "prefix": "w-2/4",
+    "body": "width: '2/4'$0"
   },
-  "width 12.5%": {
+  "3/4 width:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-3/4",
+    "body": "width: '3/4'$0"
+  },
+  "1/8 width:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-1/8",
-    "body": "width: '1/8'"
+    "body": "width: '1/8'$0"
   },
-  "width 37.5%": {
+  "2/8 width:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-2/8",
+    "body": "width: '2/8'$0"
+  },
+  "3/8 width:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-3/8",
-    "body": "width: '3/8'"
+    "body": "width: '3/8'$0"
   },
-  "width 62.5%": {
+  "4/8 width:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-4/8",
+    "body": "width: '4/8'$0"
+  },
+  "5/8 width:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-5/8",
-    "body": "width: '5/8'"
+    "body": "width: '5/8'$0"
   },
-  "width 87.5%": {
+  "6/8 width:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-6/8",
+    "body": "width: '6/8'$0"
+  },
+  "7/8 width:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-7/8",
-    "body": "width: '7/8'"
+    "body": "width: '7/8'$0"
   },
-  "width 8.333333%": {
+  "1/1... width:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-1/12",
-    "body": "width: '1/12'"
+    "body": "width: '1/12'$0"
   },
-  "width 16.666667%": {
+  "2/1... width:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-2/12",
-    "body": "width: '2/12'"
+    "body": "width: '2/12'$0"
   },
-  "width 33.333333%": {
+  "3/1... width:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-3/12",
+    "body": "width: '3/12'$0"
+  },
+  "4/1... width:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-4/12",
-    "body": "width: '4/12'"
+    "body": "width: '4/12'$0"
   },
-  "width 41.666667%": {
+  "5/1... width:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-5/12",
-    "body": "width: '5/12'"
+    "body": "width: '5/12'$0"
   },
-  "width 58.333333%": {
+  "6/1... width:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-6/12",
+    "body": "width: '6/12'$0"
+  },
+  "7/1... width:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-7/12",
-    "body": "width: '7/12'"
+    "body": "width: '7/12'$0"
   },
-  "width 66.666667%": {
+  "8/1... width:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-8/12",
-    "body": "width: '8/12'"
+    "body": "width: '8/12'$0"
   },
-  "width 83.333333%": {
+  "9/1... width:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "w-9/12",
+    "body": "width: '9/12'$0"
+  },
+  "10/... width:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-10/12",
-    "body": "width: '10/12'"
+    "body": "width: '10/12'$0"
   },
-  "width 91.666667%": {
+  "11/... width:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-11/12",
-    "body": "width: '11/12'"
+    "body": "width: '11/12'$0"
   },
-  "width 100%": {
+  "ful... width:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-full",
-    "body": "width: '$$full'"
+    "body": "width: '\\$full'$0"
   },
-  "width 100vh": {
+  "scr... width:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-screenHeight",
-    "body": "width: '$$screenHeight'"
+    "body": "width: '\\$screenHeight'$0"
   },
-  "width 100vw": {
+  "scr... width:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "w-screenWidth",
-    "body": "width: '$$screenWidth'"
+    "body": "width: '\\$screenWidth'$0"
   },
-  "height 20rem": {
+  "sm height:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-sm",
-    "body": "height: '$$sm'"
+    "body": "height: '\\$sm'$0"
   },
-  "height 48rem": {
+  "md height:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-md",
-    "body": "height: '$$md'"
+    "body": "height: '\\$md'$0"
   },
-  "height 56rem": {
+  "lg height:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-lg",
-    "body": "height: '$$lg'"
+    "body": "height: '\\$lg'$0"
   },
-  "height 64rem": {
+  "xl height:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-xl",
-    "body": "height: '$$xl'"
+    "body": "height: '\\$xl'$0"
   },
-  "height 50%": {
+  "1/2 height:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "h-6/12",
-    "body": "height: '6/12'"
+    "prefix": "h-1/2",
+    "body": "height: '1/2'$0"
   },
-  "height 25%": {
+  "1/4 height:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "h-3/12",
-    "body": "height: '3/12'"
+    "prefix": "h-1/4",
+    "body": "height: '1/4'$0"
   },
-  "height 75%": {
+  "2/4 height:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "h-9/12",
-    "body": "height: '9/12'"
+    "prefix": "h-2/4",
+    "body": "height: '2/4'$0"
   },
-  "height 12.5%": {
+  "3/4 height:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-3/4",
+    "body": "height: '3/4'$0"
+  },
+  "1/8 height:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-1/8",
-    "body": "height: '1/8'"
+    "body": "height: '1/8'$0"
   },
-  "height 37.5%": {
+  "2/8 height:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-2/8",
+    "body": "height: '2/8'$0"
+  },
+  "3/8 height:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-3/8",
-    "body": "height: '3/8'"
+    "body": "height: '3/8'$0"
   },
-  "height 62.5%": {
+  "4/8 height:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-4/8",
+    "body": "height: '4/8'$0"
+  },
+  "5/8 height:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-5/8",
-    "body": "height: '5/8'"
+    "body": "height: '5/8'$0"
   },
-  "height 87.5%": {
+  "6/8 height:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-6/8",
+    "body": "height: '6/8'$0"
+  },
+  "7/8 height:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-7/8",
-    "body": "height: '7/8'"
+    "body": "height: '7/8'$0"
   },
-  "height 8.333333%": {
+  "1/1... height:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-1/12",
-    "body": "height: '1/12'"
+    "body": "height: '1/12'$0"
   },
-  "height 16.666667%": {
+  "2/1... height:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-2/12",
-    "body": "height: '2/12'"
+    "body": "height: '2/12'$0"
   },
-  "height 33.333333%": {
+  "3/1... height:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-3/12",
+    "body": "height: '3/12'$0"
+  },
+  "4/1... height:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-4/12",
-    "body": "height: '4/12'"
+    "body": "height: '4/12'$0"
   },
-  "height 41.666667%": {
+  "5/1... height:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-5/12",
-    "body": "height: '5/12'"
+    "body": "height: '5/12'$0"
   },
-  "height 58.333333%": {
+  "6/1... height:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-6/12",
+    "body": "height: '6/12'$0"
+  },
+  "7/1... height:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-7/12",
-    "body": "height: '7/12'"
+    "body": "height: '7/12'$0"
   },
-  "height 66.666667%": {
+  "8/1... height:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-8/12",
-    "body": "height: '8/12'"
+    "body": "height: '8/12'$0"
   },
-  "height 83.333333%": {
+  "9/1... height:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "h-9/12",
+    "body": "height: '9/12'$0"
+  },
+  "10/... height:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-10/12",
-    "body": "height: '10/12'"
+    "body": "height: '10/12'$0"
   },
-  "height 91.666667%": {
+  "11/... height:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-11/12",
-    "body": "height: '11/12'"
+    "body": "height: '11/12'$0"
   },
-  "height 100%": {
+  "ful... height:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-full",
-    "body": "height: '$$full'"
+    "body": "height: '\\$full'$0"
   },
-  "height 100vh": {
+  "scr... height:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-screenHeight",
-    "body": "height: '$$screenHeight'"
+    "body": "height: '\\$screenHeight'$0"
   },
-  "height 100vw": {
+  "scr... height:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "h-screenWidth",
-    "body": "height: '$$screenWidth'"
+    "body": "height: '\\$screenWidth'$0"
   },
-  "minHeight 20rem": {
+  "sm minHeight:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-sm",
-    "body": "minHeight: '$$sm'"
+    "body": "minHeight: '\\$sm'$0"
   },
-  "minHeight 48rem": {
+  "md minHeight:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-md",
-    "body": "minHeight: '$$md'"
+    "body": "minHeight: '\\$md'$0"
   },
-  "minHeight 56rem": {
+  "lg minHeight:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-lg",
-    "body": "minHeight: '$$lg'"
+    "body": "minHeight: '\\$lg'$0"
   },
-  "minHeight 64rem": {
+  "xl minHeight:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-xl",
-    "body": "minHeight: '$$xl'"
+    "body": "minHeight: '\\$xl'$0"
   },
-  "minHeight 50%": {
+  "1/2 minHeight:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minH-6/12",
-    "body": "minHeight: '6/12'"
+    "prefix": "minH-1/2",
+    "body": "minHeight: '1/2'$0"
   },
-  "minHeight 25%": {
+  "1/4 minHeight:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minH-3/12",
-    "body": "minHeight: '3/12'"
+    "prefix": "minH-1/4",
+    "body": "minHeight: '1/4'$0"
   },
-  "minHeight 75%": {
+  "2/4 minHeight:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minH-9/12",
-    "body": "minHeight: '9/12'"
+    "prefix": "minH-2/4",
+    "body": "minHeight: '2/4'$0"
   },
-  "minHeight 12.5%": {
+  "3/4 minHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-3/4",
+    "body": "minHeight: '3/4'$0"
+  },
+  "1/8 minHeight:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-1/8",
-    "body": "minHeight: '1/8'"
+    "body": "minHeight: '1/8'$0"
   },
-  "minHeight 37.5%": {
+  "2/8 minHeight:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-2/8",
+    "body": "minHeight: '2/8'$0"
+  },
+  "3/8 minHeight:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-3/8",
-    "body": "minHeight: '3/8'"
+    "body": "minHeight: '3/8'$0"
   },
-  "minHeight 62.5%": {
+  "4/8 minHeight:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-4/8",
+    "body": "minHeight: '4/8'$0"
+  },
+  "5/8 minHeight:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-5/8",
-    "body": "minHeight: '5/8'"
+    "body": "minHeight: '5/8'$0"
   },
-  "minHeight 87.5%": {
+  "6/8 minHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-6/8",
+    "body": "minHeight: '6/8'$0"
+  },
+  "7/8 minHeight:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-7/8",
-    "body": "minHeight: '7/8'"
+    "body": "minHeight: '7/8'$0"
   },
-  "minHeight 8.333333%": {
+  "1/1... minHeight:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-1/12",
-    "body": "minHeight: '1/12'"
+    "body": "minHeight: '1/12'$0"
   },
-  "minHeight 16.666667%": {
+  "2/1... minHeight:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-2/12",
-    "body": "minHeight: '2/12'"
+    "body": "minHeight: '2/12'$0"
   },
-  "minHeight 33.333333%": {
+  "3/1... minHeight:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-3/12",
+    "body": "minHeight: '3/12'$0"
+  },
+  "4/1... minHeight:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-4/12",
-    "body": "minHeight: '4/12'"
+    "body": "minHeight: '4/12'$0"
   },
-  "minHeight 41.666667%": {
+  "5/1... minHeight:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-5/12",
-    "body": "minHeight: '5/12'"
+    "body": "minHeight: '5/12'$0"
   },
-  "minHeight 58.333333%": {
+  "6/1... minHeight:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-6/12",
+    "body": "minHeight: '6/12'$0"
+  },
+  "7/1... minHeight:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-7/12",
-    "body": "minHeight: '7/12'"
+    "body": "minHeight: '7/12'$0"
   },
-  "minHeight 66.666667%": {
+  "8/1... minHeight:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-8/12",
-    "body": "minHeight: '8/12'"
+    "body": "minHeight: '8/12'$0"
   },
-  "minHeight 83.333333%": {
+  "9/1... minHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minH-9/12",
+    "body": "minHeight: '9/12'$0"
+  },
+  "10/... minHeight:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-10/12",
-    "body": "minHeight: '10/12'"
+    "body": "minHeight: '10/12'$0"
   },
-  "minHeight 91.666667%": {
+  "11/... minHeight:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-11/12",
-    "body": "minHeight: '11/12'"
+    "body": "minHeight: '11/12'$0"
   },
-  "minHeight 100%": {
+  "ful... minHeight:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-full",
-    "body": "minHeight: '$$full'"
+    "body": "minHeight: '\\$full'$0"
   },
-  "minHeight 100vh": {
+  "scr... minHeight:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-screenHeight",
-    "body": "minHeight: '$$screenHeight'"
+    "body": "minHeight: '\\$screenHeight'$0"
   },
-  "minHeight 100vw": {
+  "scr... minHeight:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "minH-screenWidth",
-    "body": "minHeight: '$$screenWidth'"
+    "body": "minHeight: '\\$screenWidth'$0"
   },
-  "maxHeight 20rem": {
+  "sm maxHeight:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-sm",
-    "body": "maxHeight: '$$sm'"
+    "body": "maxHeight: '\\$sm'$0"
   },
-  "maxHeight 48rem": {
+  "md maxHeight:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-md",
-    "body": "maxHeight: '$$md'"
+    "body": "maxHeight: '\\$md'$0"
   },
-  "maxHeight 56rem": {
+  "lg maxHeight:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-lg",
-    "body": "maxHeight: '$$lg'"
+    "body": "maxHeight: '\\$lg'$0"
   },
-  "maxHeight 64rem": {
+  "xl maxHeight:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-xl",
-    "body": "maxHeight: '$$xl'"
+    "body": "maxHeight: '\\$xl'$0"
   },
-  "maxHeight 50%": {
+  "1/2 maxHeight:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxH-6/12",
-    "body": "maxHeight: '6/12'"
+    "prefix": "maxH-1/2",
+    "body": "maxHeight: '1/2'$0"
   },
-  "maxHeight 25%": {
+  "1/4 maxHeight:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxH-3/12",
-    "body": "maxHeight: '3/12'"
+    "prefix": "maxH-1/4",
+    "body": "maxHeight: '1/4'$0"
   },
-  "maxHeight 75%": {
+  "2/4 maxHeight:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxH-9/12",
-    "body": "maxHeight: '9/12'"
+    "prefix": "maxH-2/4",
+    "body": "maxHeight: '2/4'$0"
   },
-  "maxHeight 12.5%": {
+  "3/4 maxHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-3/4",
+    "body": "maxHeight: '3/4'$0"
+  },
+  "1/8 maxHeight:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-1/8",
-    "body": "maxHeight: '1/8'"
+    "body": "maxHeight: '1/8'$0"
   },
-  "maxHeight 37.5%": {
+  "2/8 maxHeight:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-2/8",
+    "body": "maxHeight: '2/8'$0"
+  },
+  "3/8 maxHeight:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-3/8",
-    "body": "maxHeight: '3/8'"
+    "body": "maxHeight: '3/8'$0"
   },
-  "maxHeight 62.5%": {
+  "4/8 maxHeight:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-4/8",
+    "body": "maxHeight: '4/8'$0"
+  },
+  "5/8 maxHeight:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-5/8",
-    "body": "maxHeight: '5/8'"
+    "body": "maxHeight: '5/8'$0"
   },
-  "maxHeight 87.5%": {
+  "6/8 maxHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-6/8",
+    "body": "maxHeight: '6/8'$0"
+  },
+  "7/8 maxHeight:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-7/8",
-    "body": "maxHeight: '7/8'"
+    "body": "maxHeight: '7/8'$0"
   },
-  "maxHeight 8.333333%": {
+  "1/1... maxHeight:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-1/12",
-    "body": "maxHeight: '1/12'"
+    "body": "maxHeight: '1/12'$0"
   },
-  "maxHeight 16.666667%": {
+  "2/1... maxHeight:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-2/12",
-    "body": "maxHeight: '2/12'"
+    "body": "maxHeight: '2/12'$0"
   },
-  "maxHeight 33.333333%": {
+  "3/1... maxHeight:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-3/12",
+    "body": "maxHeight: '3/12'$0"
+  },
+  "4/1... maxHeight:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-4/12",
-    "body": "maxHeight: '4/12'"
+    "body": "maxHeight: '4/12'$0"
   },
-  "maxHeight 41.666667%": {
+  "5/1... maxHeight:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-5/12",
-    "body": "maxHeight: '5/12'"
+    "body": "maxHeight: '5/12'$0"
   },
-  "maxHeight 58.333333%": {
+  "6/1... maxHeight:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-6/12",
+    "body": "maxHeight: '6/12'$0"
+  },
+  "7/1... maxHeight:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-7/12",
-    "body": "maxHeight: '7/12'"
+    "body": "maxHeight: '7/12'$0"
   },
-  "maxHeight 66.666667%": {
+  "8/1... maxHeight:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-8/12",
-    "body": "maxHeight: '8/12'"
+    "body": "maxHeight: '8/12'$0"
   },
-  "maxHeight 83.333333%": {
+  "9/1... maxHeight:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxH-9/12",
+    "body": "maxHeight: '9/12'$0"
+  },
+  "10/... maxHeight:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-10/12",
-    "body": "maxHeight: '10/12'"
+    "body": "maxHeight: '10/12'$0"
   },
-  "maxHeight 91.666667%": {
+  "11/... maxHeight:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-11/12",
-    "body": "maxHeight: '11/12'"
+    "body": "maxHeight: '11/12'$0"
   },
-  "maxHeight 100%": {
+  "ful... maxHeight:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-full",
-    "body": "maxHeight: '$$full'"
+    "body": "maxHeight: '\\$full'$0"
   },
-  "maxHeight 100vh": {
+  "scr... maxHeight:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-screenHeight",
-    "body": "maxHeight: '$$screenHeight'"
+    "body": "maxHeight: '\\$screenHeight'$0"
   },
-  "maxHeight 100vw": {
+  "scr... maxHeight:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxH-screenWidth",
-    "body": "maxHeight: '$$screenWidth'"
+    "body": "maxHeight: '\\$screenWidth'$0"
   },
-  "minWidth 20rem": {
+  "sm minWidth:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-sm",
-    "body": "minWidth: '$$sm'"
+    "body": "minWidth: '\\$sm'$0"
   },
-  "minWidth 48rem": {
+  "md minWidth:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-md",
-    "body": "minWidth: '$$md'"
+    "body": "minWidth: '\\$md'$0"
   },
-  "minWidth 56rem": {
+  "lg minWidth:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-lg",
-    "body": "minWidth: '$$lg'"
+    "body": "minWidth: '\\$lg'$0"
   },
-  "minWidth 64rem": {
+  "xl minWidth:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-xl",
-    "body": "minWidth: '$$xl'"
+    "body": "minWidth: '\\$xl'$0"
   },
-  "minWidth 50%": {
+  "1/2 minWidth:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minW-6/12",
-    "body": "minWidth: '6/12'"
+    "prefix": "minW-1/2",
+    "body": "minWidth: '1/2'$0"
   },
-  "minWidth 25%": {
+  "1/4 minWidth:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minW-3/12",
-    "body": "minWidth: '3/12'"
+    "prefix": "minW-1/4",
+    "body": "minWidth: '1/4'$0"
   },
-  "minWidth 75%": {
+  "2/4 minWidth:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "minW-9/12",
-    "body": "minWidth: '9/12'"
+    "prefix": "minW-2/4",
+    "body": "minWidth: '2/4'$0"
   },
-  "minWidth 12.5%": {
+  "3/4 minWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-3/4",
+    "body": "minWidth: '3/4'$0"
+  },
+  "1/8 minWidth:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-1/8",
-    "body": "minWidth: '1/8'"
+    "body": "minWidth: '1/8'$0"
   },
-  "minWidth 37.5%": {
+  "2/8 minWidth:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-2/8",
+    "body": "minWidth: '2/8'$0"
+  },
+  "3/8 minWidth:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-3/8",
-    "body": "minWidth: '3/8'"
+    "body": "minWidth: '3/8'$0"
   },
-  "minWidth 62.5%": {
+  "4/8 minWidth:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-4/8",
+    "body": "minWidth: '4/8'$0"
+  },
+  "5/8 minWidth:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-5/8",
-    "body": "minWidth: '5/8'"
+    "body": "minWidth: '5/8'$0"
   },
-  "minWidth 87.5%": {
+  "6/8 minWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-6/8",
+    "body": "minWidth: '6/8'$0"
+  },
+  "7/8 minWidth:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-7/8",
-    "body": "minWidth: '7/8'"
+    "body": "minWidth: '7/8'$0"
   },
-  "minWidth 8.333333%": {
+  "1/1... minWidth:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-1/12",
-    "body": "minWidth: '1/12'"
+    "body": "minWidth: '1/12'$0"
   },
-  "minWidth 16.666667%": {
+  "2/1... minWidth:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-2/12",
-    "body": "minWidth: '2/12'"
+    "body": "minWidth: '2/12'$0"
   },
-  "minWidth 33.333333%": {
+  "3/1... minWidth:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-3/12",
+    "body": "minWidth: '3/12'$0"
+  },
+  "4/1... minWidth:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-4/12",
-    "body": "minWidth: '4/12'"
+    "body": "minWidth: '4/12'$0"
   },
-  "minWidth 41.666667%": {
+  "5/1... minWidth:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-5/12",
-    "body": "minWidth: '5/12'"
+    "body": "minWidth: '5/12'$0"
   },
-  "minWidth 58.333333%": {
+  "6/1... minWidth:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-6/12",
+    "body": "minWidth: '6/12'$0"
+  },
+  "7/1... minWidth:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-7/12",
-    "body": "minWidth: '7/12'"
+    "body": "minWidth: '7/12'$0"
   },
-  "minWidth 66.666667%": {
+  "8/1... minWidth:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-8/12",
-    "body": "minWidth: '8/12'"
+    "body": "minWidth: '8/12'$0"
   },
-  "minWidth 83.333333%": {
+  "9/1... minWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "minW-9/12",
+    "body": "minWidth: '9/12'$0"
+  },
+  "10/... minWidth:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-10/12",
-    "body": "minWidth: '10/12'"
+    "body": "minWidth: '10/12'$0"
   },
-  "minWidth 91.666667%": {
+  "11/... minWidth:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-11/12",
-    "body": "minWidth: '11/12'"
+    "body": "minWidth: '11/12'$0"
   },
-  "minWidth 100%": {
+  "ful... minWidth:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-full",
-    "body": "minWidth: '$$full'"
+    "body": "minWidth: '\\$full'$0"
   },
-  "minWidth 100vh": {
+  "scr... minWidth:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-screenHeight",
-    "body": "minWidth: '$$screenHeight'"
+    "body": "minWidth: '\\$screenHeight'$0"
   },
-  "minWidth 100vw": {
+  "scr... minWidth:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "minW-screenWidth",
-    "body": "minWidth: '$$screenWidth'"
+    "body": "minWidth: '\\$screenWidth'$0"
   },
-  "maxWidth 20rem": {
+  "sm maxWidth:20rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-sm",
-    "body": "maxWidth: '$$sm'"
+    "body": "maxWidth: '\\$sm'$0"
   },
-  "maxWidth 48rem": {
+  "md maxWidth:48rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-md",
-    "body": "maxWidth: '$$md'"
+    "body": "maxWidth: '\\$md'$0"
   },
-  "maxWidth 56rem": {
+  "lg maxWidth:56rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-lg",
-    "body": "maxWidth: '$$lg'"
+    "body": "maxWidth: '\\$lg'$0"
   },
-  "maxWidth 64rem": {
+  "xl maxWidth:64rem": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-xl",
-    "body": "maxWidth: '$$xl'"
+    "body": "maxWidth: '\\$xl'$0"
   },
-  "maxWidth 50%": {
+  "1/2 maxWidth:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxW-6/12",
-    "body": "maxWidth: '6/12'"
+    "prefix": "maxW-1/2",
+    "body": "maxWidth: '1/2'$0"
   },
-  "maxWidth 25%": {
+  "1/4 maxWidth:25%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxW-3/12",
-    "body": "maxWidth: '3/12'"
+    "prefix": "maxW-1/4",
+    "body": "maxWidth: '1/4'$0"
   },
-  "maxWidth 75%": {
+  "2/4 maxWidth:50%": {
     "scope": "typescript,typescriptreact",
-    "prefix": "maxW-9/12",
-    "body": "maxWidth: '9/12'"
+    "prefix": "maxW-2/4",
+    "body": "maxWidth: '2/4'$0"
   },
-  "maxWidth 12.5%": {
+  "3/4 maxWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-3/4",
+    "body": "maxWidth: '3/4'$0"
+  },
+  "1/8 maxWidth:12.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-1/8",
-    "body": "maxWidth: '1/8'"
+    "body": "maxWidth: '1/8'$0"
   },
-  "maxWidth 37.5%": {
+  "2/8 maxWidth:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-2/8",
+    "body": "maxWidth: '2/8'$0"
+  },
+  "3/8 maxWidth:37.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-3/8",
-    "body": "maxWidth: '3/8'"
+    "body": "maxWidth: '3/8'$0"
   },
-  "maxWidth 62.5%": {
+  "4/8 maxWidth:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-4/8",
+    "body": "maxWidth: '4/8'$0"
+  },
+  "5/8 maxWidth:62.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-5/8",
-    "body": "maxWidth: '5/8'"
+    "body": "maxWidth: '5/8'$0"
   },
-  "maxWidth 87.5%": {
+  "6/8 maxWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-6/8",
+    "body": "maxWidth: '6/8'$0"
+  },
+  "7/8 maxWidth:87.5%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-7/8",
-    "body": "maxWidth: '7/8'"
+    "body": "maxWidth: '7/8'$0"
   },
-  "maxWidth 8.333333%": {
+  "1/1... maxWidth:8.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-1/12",
-    "body": "maxWidth: '1/12'"
+    "body": "maxWidth: '1/12'$0"
   },
-  "maxWidth 16.666667%": {
+  "2/1... maxWidth:16.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-2/12",
-    "body": "maxWidth: '2/12'"
+    "body": "maxWidth: '2/12'$0"
   },
-  "maxWidth 33.333333%": {
+  "3/1... maxWidth:25%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-3/12",
+    "body": "maxWidth: '3/12'$0"
+  },
+  "4/1... maxWidth:33.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-4/12",
-    "body": "maxWidth: '4/12'"
+    "body": "maxWidth: '4/12'$0"
   },
-  "maxWidth 41.666667%": {
+  "5/1... maxWidth:41.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-5/12",
-    "body": "maxWidth: '5/12'"
+    "body": "maxWidth: '5/12'$0"
   },
-  "maxWidth 58.333333%": {
+  "6/1... maxWidth:50%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-6/12",
+    "body": "maxWidth: '6/12'$0"
+  },
+  "7/1... maxWidth:58.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-7/12",
-    "body": "maxWidth: '7/12'"
+    "body": "maxWidth: '7/12'$0"
   },
-  "maxWidth 66.666667%": {
+  "8/1... maxWidth:66.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-8/12",
-    "body": "maxWidth: '8/12'"
+    "body": "maxWidth: '8/12'$0"
   },
-  "maxWidth 83.333333%": {
+  "9/1... maxWidth:75%": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "maxW-9/12",
+    "body": "maxWidth: '9/12'$0"
+  },
+  "10/... maxWidth:83.333333%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-10/12",
-    "body": "maxWidth: '10/12'"
+    "body": "maxWidth: '10/12'$0"
   },
-  "maxWidth 91.666667%": {
+  "11/... maxWidth:91.666667%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-11/12",
-    "body": "maxWidth: '11/12'"
+    "body": "maxWidth: '11/12'$0"
   },
-  "maxWidth 100%": {
+  "ful... maxWidth:100%": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-full",
-    "body": "maxWidth: '$$full'"
+    "body": "maxWidth: '\\$full'$0"
   },
-  "maxWidth 100vh": {
+  "scr... maxWidth:100vh": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-screenHeight",
-    "body": "maxWidth: '$$screenHeight'"
+    "body": "maxWidth: '\\$screenHeight'$0"
   },
-  "maxWidth 100vw": {
+  "scr... maxWidth:100vw": {
     "scope": "typescript,typescriptreact",
     "prefix": "maxW-screenWidth",
-    "body": "maxWidth: '$$screenWidth'"
+    "body": "maxWidth: '\\$screenWidth'$0"
   },
-  "text pageTitle": {
+  "pag... text:pageTitle": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-pageTitle",
-    "body": "text: '$$pageTitle'"
+    "body": "text: '\\$pageTitle'$0"
   },
-  "text title1": {
+  "tit... text:title1": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-title1",
-    "body": "text: '$$title1'"
+    "body": "text: '\\$title1'$0"
   },
-  "text title2": {
+  "tit... text:title2": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-title2",
-    "body": "text: '$$title2'"
+    "body": "text: '\\$title2'$0"
   },
-  "text action1": {
+  "act... text:action1": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-action1",
-    "body": "text: '$$action1'"
+    "body": "text: '\\$action1'$0"
   },
-  "text action2": {
+  "act... text:action2": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-action2",
-    "body": "text: '$$action2'"
+    "body": "text: '\\$action2'$0"
   },
-  "text display": {
+  "dis... text:display": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-display",
-    "body": "text: '$$display'"
+    "body": "text: '\\$display'$0"
   },
-  "text body": {
+  "bod... text:body": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-body",
-    "body": "text: '$$body'"
+    "body": "text: '\\$body'$0"
   },
-  "text detail": {
+  "det... text:detail": {
     "scope": "typescript,typescriptreact",
     "prefix": "text-detail",
-    "body": "text: '$$detail'"
+    "body": "text: '\\$detail'$0"
   },
-  "border 1px solid #DDDDDD": {
+  "neu... border:1px solid #DDDDDD": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-neutral",
-    "body": "border: '$$neutral'"
+    "body": "border: '\\$neutral'$0"
   },
-  "border 2px solid #2953B2": {
+  "mai... border:2px solid #2953B2": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-mainSelected",
-    "body": "border: '$$mainSelected'"
+    "body": "border: '\\$mainSelected'$0"
   },
-  "border 1px solid #83D187": {
+  "pos... border:1px solid #83D187": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-positive",
-    "body": "border: '$$positive'"
+    "body": "border: '\\$positive'$0"
   },
-  "border 1px solid #7CBBEA": {
+  "inf... border:1px solid #7CBBEA": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-info",
-    "body": "border: '$$info'"
+    "body": "border: '\\$info'$0"
   },
-  "border 1px solid #F49494": {
+  "cri... border:1px solid #F49494": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-critical",
-    "body": "border: '$$critical'"
+    "body": "border: '\\$critical'$0"
   },
-  "border 1px solid #F5AE70": {
+  "war... border:1px solid #F5AE70": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-warning",
-    "body": "border: '$$warning'"
+    "body": "border: '\\$warning'$0"
   },
-  "border 1px solid #747474": {
+  "dis... border:1px solid #747474": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-disabled",
-    "body": "border: '$$disabled'"
+    "body": "border: '\\$disabled'$0"
   },
-  "border 1px solid #B9B9B9": {
+  "for... border:1px solid #B9B9B9": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-control",
-    "body": "border: '$$form.control'"
+    "body": "border: '\\$form.control'$0"
   },
-  "border 1px solid #545454": {
+  "for... border:1px solid #545454": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-controlFocus",
-    "body": "border: '$$form.controlFocus'"
+    "body": "border: '\\$form.controlFocus'$0"
   },
-  "border 1px solid #3B3B3B": {
+  "for... border:1px solid #3B3B3B": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-neutralCheckedHover",
-    "body": "border: '$$form.neutralCheckedHover'"
+    "body": "border: '\\$form.neutralCheckedHover'$0"
   },
-  "border 1px solid #000000": {
+  "for... border:1px solid #000000": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-neutralChecked",
-    "body": "border: '$$form.neutralChecked'"
+    "body": "border: '\\$form.neutralChecked'$0"
   },
-  "border 1px solid #CC3D3D": {
+  "for... border:1px solid #CC3D3D": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-critical",
-    "body": "border: '$$form.critical'"
+    "body": "border: '\\$form.critical'$0"
   },
-  "border 1px solid #962828": {
+  "for... border:1px solid #962828": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-criticalHover",
-    "body": "border: '$$form.criticalHover'"
+    "body": "border: '\\$form.criticalHover'$0"
   },
-  "border 1px solid #782020": {
+  "for... border:1px solid #782020": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-criticalFocus",
-    "body": "border: '$$form.criticalFocus'"
+    "body": "border: '\\$form.criticalFocus'$0"
   },
-  "border 1px solid #2953B2": {
+  "for... border:1px solid #2953B2": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-controlChecked",
-    "body": "border: '$$form.controlChecked'"
+    "body": "border: '\\$form.controlChecked'$0"
   },
-  "border 1px solid #20408C": {
+  "for... border:1px solid #20408C": {
     "scope": "typescript,typescriptreact",
     "prefix": "b-form-controlCheckedFocus",
-    "body": "border: '$$form.controlCheckedFocus'"
+    "body": "border: '\\$form.controlCheckedFocus'$0"
   },
-  "shadow 0rem 0rem 0rem 0.0625rem #FBF2F2, 0rem 0rem 0rem 0.1875rem #F49494": {
+  "rin... shadow:0rem 0rem 0rem 0.0625rem #FBF2F2, 0rem 0rem 0rem 0.1875rem #F49494": {
     "scope": "typescript,typescriptreact",
     "prefix": "shadow-ring-critical",
-    "body": "shadow: '$$ring.critical'"
+    "body": "shadow: '\\$ring.critical'$0"
   },
-  "shadow 0rem 0rem 0rem 0.0625rem #F4F4F4, 0rem 0rem 0rem 0.1875rem #B9B9B9": {
+  "rin... shadow:0rem 0rem 0rem 0.0625rem #F4F4F4, 0rem 0rem 0rem 0.1875rem #B9B9B9": {
     "scope": "typescript,typescriptreact",
     "prefix": "shadow-ring-neutral",
-    "body": "shadow: '$$ring.neutral'"
+    "body": "shadow: '\\$ring.neutral'$0"
   },
-  "shadow 0rem 0rem 0rem 0.0625rem #F1F4FC, 0rem 0rem 0rem 0.1875rem #96B2F2": {
+  "rin... shadow:0rem 0rem 0rem 0.0625rem #F1F4FC, 0rem 0rem 0rem 0.1875rem #96B2F2": {
     "scope": "typescript,typescriptreact",
     "prefix": "shadow-ring-main",
-    "body": "shadow: '$$ring.main'"
+    "body": "shadow: '\\$ring.main'$0"
   },
-  "shadow 0rem 0rem 1rem 0rem rgba(0,0,0,0.10)": {
+  "ove... shadow:0rem 0rem 1rem 0rem rgba(0,0,0,0.10)": {
     "scope": "typescript,typescriptreact",
     "prefix": "shadow-overlay-center",
-    "body": "shadow: '$$overlay.center'"
+    "body": "shadow: '\\$overlay.center'$0"
   },
-  "shadow 0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)": {
+  "ove... shadow:0rem 0rem 1.5rem 0rem rgba(0,0,0,0.05)": {
     "scope": "typescript,typescriptreact",
     "prefix": "shadow-overlay-bottom",
-    "body": "shadow: '$$overlay.bottom'"
+    "body": "shadow: '\\$overlay.bottom'$0"
   }
 }
