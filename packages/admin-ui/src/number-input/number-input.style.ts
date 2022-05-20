@@ -24,11 +24,11 @@ export const input = style({
 })
 
 export const spinButton = style({
-  marginTop: '$s',
-  marginBottom: '$s',
+  marginTop: '$m',
+  marginBottom: '$m',
 })
 
 export const incrementButton = style({
-  marginRight: '$xs',
+  marginRight: '$s',
   ...spinButton,
 })
