@@ -46,7 +46,7 @@ type InheritedProps = Omit<AdminUITextAreaProps, TextAreaHiddenProps>
 
 export interface TextAreaProps extends InheritedProps {
   /**
-   * Input required state
+   * TextArea required state
    */
   name: string
   /**
