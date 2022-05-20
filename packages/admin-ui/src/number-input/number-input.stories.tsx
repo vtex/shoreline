@@ -5,7 +5,10 @@ import type { NumberInputProps } from './index'
 import { NumberInput } from './index'
 
 import { experimental_I18nProvider as I18nProvider } from '../experimental'
-import { Box } from '../components/Box'
+import { Box } from '../box'
+import { Button } from '../button'
+
+import { IconMagnifyingGlass, IconArrowsClockwise } from '@vtex/phosphor-icons'
 
 export default {
   title: 'admin-ui-review/number-input',
@@ -17,6 +20,7 @@ interface NumberInputPlaygroundProps
   hasLabel: boolean
   hasSuffix: boolean
   hasPrefix: boolean
+  hasHelpText: boolean
 }
 
 export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
@@ -27,6 +31,8 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
     hasPrefix,
     suffix,
     hasSuffix,
+    hasHelpText,
+    helpText,
     ...remainigProps
   } = args
 
@@ -35,6 +41,7 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
       <Box csx={{ margin: '$xs' }}>
         <NumberInput
           label={hasLabel && label}
+          helpText={hasHelpText && helpText}
           prefix={hasPrefix && prefix}
           suffix={hasSuffix && suffix}
           {...remainigProps}
@@ -58,6 +65,7 @@ Playground.args = {
   disabled: false,
   error: false,
   errorText: 'Number is not valid',
+  hasHelpText: true,
   helpText: 'Help text',
 }
 
@@ -79,6 +87,32 @@ export const ControlledState: Story<NumberInputProps> = () => {
           value={value}
           onChange={(nextValue) => setValue(nextValue)}
           errorText="Number is not valid"
+        />
+      </Box>
+    </I18nProvider>
+  )
+}
+
+export const WithTerms: Story<NumberInputProps> = () => {
+  const [value, setValue] = useState<number | string>('')
+
+  return (
+    <I18nProvider>
+      <Box csx={{ margin: '$xs' }}>
+        <NumberInput
+          prefix={<IconMagnifyingGlass />}
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
+          suffix={
+            <Button
+              variant="tertiary"
+              icon={<IconArrowsClockwise />}
+              ariaLabel="Reset"
+              onClick={() => setValue('')}
+              bleedY
+              bleedX
+            />
+          }
         />
       </Box>
     </I18nProvider>
