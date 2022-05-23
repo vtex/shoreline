@@ -7,23 +7,23 @@ const DEFAULT_TIMEOUT_MS = 250
 export function useSearchState(
   params: UseSearchStateParams = {
     initialValue: '',
-    timeoutMs: DEFAULT_TIMEOUT_MS,
+    timeout: DEFAULT_TIMEOUT_MS,
   }
-): SearchFormStateReturn {
+): SearchFormState {
   const {
     initialValue = '',
     defaultValue = '',
-    timeoutMs = DEFAULT_TIMEOUT_MS,
+    timeout = DEFAULT_TIMEOUT_MS,
   } = params
 
   const [value, debouncedValue, setValue] = useDebouncedCache({
     initialState: initialValue,
-    timeoutMs,
+    timeoutMs: timeout,
   })
 
   const onClear = useCallback(() => {
     setValue(defaultValue)
-  }, [value])
+  }, [setValue, defaultValue])
 
   const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
@@ -32,13 +32,13 @@ export function useSearchState(
     []
   )
 
-  const getInputProps = useCallback(() => {
+  const getInputProps = () => {
     return {
       value,
       onChange,
       onClear,
     }
-  }, [value, onChange])
+  }
 
   return {
     getInputProps,
@@ -51,23 +51,64 @@ export function useSearchState(
 }
 
 export interface GetInputPropsReturn {
+  /**
+   * Search input value
+   */
   value: string
+  /**
+   * Search input change handler event
+   */
   onChange: ChangeEventHandler<HTMLInputElement>
+  /**
+   * On clear button is clicked event
+   */
   onClear: () => void
 }
 
 export interface UseSearchStateParams {
+  /**
+   * Search initial value
+   */
   initialValue?: string
+  /**
+   * Search default value. When clicking the clear button the value should be reseted to the default one
+   * @default ''
+   */
   defaultValue?: string
-  timeoutMs?: number
+  /**
+   * Debounced value timeout in milliseconds
+   * @default 250
+   */
+  timeout?: number
+  /**
+   * Search input change handler event
+   */
   onChange?: ChangeEventHandler
 }
 
-export interface SearchFormStateReturn {
+export interface SearchFormState {
+  /**
+   * Returns the search input props: value, onChange, onClear
+   */
   getInputProps: () => GetInputPropsReturn
+  /**
+   * Debounced search input value
+   */
   debouncedValue: string
+  /**
+   * Sets the value state
+   */
   setValue: (value: string) => void
+  /**
+   * Search input value
+   */
   value: string
+  /**
+   * On clear button is clicked event
+   */
   onClear: () => void
+  /**
+   * Search input change handler event
+   */
   onChange: ChangeEventHandler<HTMLInputElement>
 }
