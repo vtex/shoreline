@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.6](https://github.com/vtex/admin-ui/compare/@vtex/eslint-plugin-admin-ui@0.4.5...@vtex/eslint-plugin-admin-ui@0.4.6) (2022-05-23)
+
+**Note:** Version bump only for package @vtex/eslint-plugin-admin-ui
+
 ## [0.4.5](https://github.com/vtex/admin-ui/compare/@vtex/eslint-plugin-admin-ui@0.4.4...@vtex/eslint-plugin-admin-ui@0.4.5) (2022-05-19)
 
 **Note:** Version bump only for package @vtex/eslint-plugin-admin-ui
