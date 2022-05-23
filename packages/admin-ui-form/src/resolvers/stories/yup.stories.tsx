@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { yupResolver } from '../index'
 import { useFormState, Form } from '../../form'
 import { TextInput } from '../../text-input'
+import { TextArea } from '../../text-area'
 
 export default {
   title: 'admin-ui-form/yup',
@@ -13,7 +14,7 @@ export default {
 
 const schema = yup.object({
   firstName: yup.string().required(),
-  comment: yup.string().required(),
+  comment: yup.string().required().min(10, 'Make a longer comment'),
 })
 
 export const YupValidation = () => {
@@ -25,7 +26,7 @@ export const YupValidation = () => {
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <TextInput label="First Name" name="firstName" state={form} />
-        <TextInput label="Comment" state={form} name="comment" />
+        <TextArea label="Comment" state={form} name="comment" />
         <input type="submit" value="Submit" />
       </Form>
     </Box>

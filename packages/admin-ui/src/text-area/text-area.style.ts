@@ -7,6 +7,7 @@ import {
 
 export const container = style({
   ...inputStyle.container,
+  height: 'auto',
   display: 'block',
   minHeight: `${MIN_TEXT_AREA_HEIGHT}px`,
   maxHeight: `${MAX_TEXT_AREA_HEIGHT}px`,
@@ -18,6 +19,7 @@ export const containerVariants = inputStyle.containerVariants
 
 export const input = style({
   ...inputStyle.input,
+  height: 'auto',
   display: 'block',
   text: '$body',
   resize: 'none',
