@@ -132,3 +132,5 @@ interface NumberInputOptions {
 
 export type NumberInputProps = NumberInputOptions &
   Omit<JSXInputProps, keyof NumberInputOptions>
+
+export type { NumberInputValue } from './number-input.state'
