@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.130.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.130.0...@vtex/admin-ui@0.130.1) (2022-05-23)
+
+### Bug Fixes
+
+- **textarea:** fix typo and style ([7ce1e44](https://github.com/vtex/admin-ui/commit/7ce1e441ce45f5d7332504ca4128f46e0e7fd589))
+
 # [0.130.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.129.0...@vtex/admin-ui@0.130.0) (2022-05-19)
 
 ### Features

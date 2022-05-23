@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.2.0...@vtex/admin-ui-form@0.3.0) (2022-05-23)
+
+### Bug Fixes
+
+- **textarea:** fix typo and style ([7ce1e44](https://github.com/vtex/admin-ui/commit/7ce1e441ce45f5d7332504ca4128f46e0e7fd589))
+
+### Features
+
+- **textarea:** include textarea component to admin-ui-form ([be1b343](https://github.com/vtex/admin-ui/commit/be1b343ea876114af1fd5ca5aef792597f090baf))
+
 # [0.2.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.1.0...@vtex/admin-ui-form@0.2.0) (2022-05-18)
 
 ### Features
