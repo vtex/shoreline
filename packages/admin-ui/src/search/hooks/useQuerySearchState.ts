@@ -1,15 +1,12 @@
 import type { ChangeEventHandler } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import { useQueryState } from '@vtex/admin-ui-hooks'
-import type {
-  UseSearchStateParams,
-  SearchFormStateReturn,
-} from './useSearchState'
+import type { UseSearchStateParams, SearchFormState } from './useSearchState'
 import { useSearchState } from './useSearchState'
 
 export function useQuerySearchState(
   props: UseQuerySearchStateParams
-): SearchFormStateReturn {
+): SearchFormState {
   const [searchChanged, setSearchChanged] = useState(false)
 
   const [initialQuery, setQuery, query] = useQueryState({
@@ -63,9 +60,9 @@ export function useQuerySearchState(
     setValue('')
   }, [setValue])
 
-  const getInputProps = useCallback(() => {
+  const getInputProps = () => {
     return { onClear, onChange, value: searchState.value }
-  }, [onClear, onChange, searchState.value])
+  }
 
   return {
     ...searchState,

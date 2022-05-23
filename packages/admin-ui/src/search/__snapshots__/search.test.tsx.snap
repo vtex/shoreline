@@ -139,8 +139,8 @@ exports[`Search should match snapshot 1`] = `
 
 .emotion-3 {
   position: relative;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 0.06 rem;
+  margin-right: 0.06 rem;
   height: 2.25rem;
 }
 
@@ -364,8 +364,8 @@ exports[`Search should match snapshot on loading 1`] = `
 
 .emotion-4 {
   position: relative;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 0.06 rem;
+  margin-right: 0.06 rem;
   height: 2.25rem;
 }
 
@@ -565,8 +565,8 @@ exports[`Search should match snapshot with value 1`] = `
 
 .emotion-8 {
   position: relative;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 0.06 rem;
+  margin-right: 0.06 rem;
   height: 2.25rem;
 }
 

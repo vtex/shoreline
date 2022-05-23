@@ -35,7 +35,7 @@ export const input = style({
 
 export const form = style({
   position: 'relative',
-  marginX: '1px',
+  marginX: '0.06 rem',
   height: '2.25rem',
 })
 

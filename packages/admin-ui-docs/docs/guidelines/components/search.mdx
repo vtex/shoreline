@@ -182,7 +182,7 @@ function Example() {
 function Example() {
   const { getInputProps, value, debouncedValue } = useSearchState({
     // controls the debounce timeout
-    timeoutMs: 500,
+    timeout: 500,
   })
 
   return (
@@ -275,7 +275,7 @@ function Example() {
 
 | Name     | Type                                   | Description                              | Required | Default |
 | -------- | -------------------------------------- | ---------------------------------------- | -------- | ------- |
-| onClear  | `() => void`                           | Clears the input value                   | ✅       | -       |
+| onClear  | `() => void`                           | Clears the input value                   | 🚫       | -       |
 | value    | `string`                               | Input value                              | 🚫       | `''`    |
 | onChange | `ChangeEventHandler<HTMLInputElement>` | Event triggered when input value changes | 🚫       | -       |
 | loading  | `boolean`                              | Whether the search is loading or not     | 🚫       | `false` |
@@ -291,7 +291,7 @@ function Example() {
 | ------------ | -------- | ----------------------------- | -------- | ------- |
 | initialValue | `string` | Initial input value           | 🚫       | `''`    |
 | defaultValue | `string` | Value set in the clean action | 🚫       | `''`    |
-| timeoutMs    | `number` | Debounce timeout in ms        | 🚫       | `250`   |
+| timeout      | `number` | Debounce timeout in ms        | 🚫       | `250`   |
 
 </PageSection>
 
@@ -320,7 +320,7 @@ function Example() {
 | ---------------- | --------- | ----------------------------- | -------- | ------- |
 | defaultValue     | `string`  | Value set in the clean action | 🚫       | `''`    |
 | initiallyLoading | `boolean` | If is initially loading       | 🚫       | `false` |
-| timeoutMs        | `number`  | Debounce timeout in ms        | 🚫       | `250`   |
+| timeout          | `number`  | Debounce timeout in ms        | 🚫       | `250`   |
 
 </PageSection>
 
