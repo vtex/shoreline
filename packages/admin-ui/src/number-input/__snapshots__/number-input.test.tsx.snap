@@ -302,7 +302,7 @@ exports[`Number Input should match snapshot 1`] = `
         placeholder=""
         step="1"
         type="number"
-        value="6"
+        value="8"
       />
       <button
         aria-label="Decrement"

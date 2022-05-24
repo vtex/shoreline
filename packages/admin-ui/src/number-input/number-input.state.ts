@@ -76,7 +76,7 @@ export const useNumberInput = (props: NumberInputState) => {
       'aria-label': 'Decrement',
       variant: 'tertiary',
       onClick: handleDecrement,
-      disabled: currentValue && Number(currentValue) <= min,
+      disabled: isNumber(currentValue) && Number(currentValue) <= min,
       ...props,
     }
   }
@@ -86,7 +86,7 @@ export const useNumberInput = (props: NumberInputState) => {
       'aria-label': 'Increment',
       variant: 'tertiary',
       onClick: handleIncrement,
-      disabled: currentValue && Number(currentValue) >= max,
+      disabled: isNumber(currentValue) && Number(currentValue) >= max,
       ...props,
     }
   }
