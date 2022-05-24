@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.13.2...@vtex/admin-ui-docs@0.14.0) (2022-05-24)
+
+### Features
+
+- **search:** add Search component review ([98a464b](https://github.com/vtex/admin-ui/commit/98a464b949d2f1aece5c5f63e9634ad35701bd43))
+
 ## [0.13.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.13.1...@vtex/admin-ui-docs@0.13.2) (2022-05-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
