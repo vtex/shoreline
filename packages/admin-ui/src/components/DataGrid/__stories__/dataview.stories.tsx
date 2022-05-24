@@ -6,7 +6,7 @@ import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { DataGrid, useDataGridState } from '../index'
 import { Button } from '../../../button'
-import { useSearchState, Search, useQuerySearchState } from '../../Search'
+import { useSearchState, Search, useQuerySearchState } from '../../../search'
 import { createColumns } from '../createColumns'
 import { Pagination, useQueryPaginationState } from '../../Pagination'
 import { Stack } from '../../../stack'
@@ -93,9 +93,6 @@ export function SearchControls() {
       <DataViewControls>
         <Search
           state={search}
-          id="search"
-          aria-label="DataGrid Search"
-          placeholder="Search by name"
           csx={{
             width: 'full',
           }}
@@ -222,7 +219,7 @@ export function QueryState() {
         />
         <DataView csx={{ width: 500 }} state={view}>
           <DataViewControls>
-            <Search id="search" placeholder="search" state={search} />
+            <Search state={search} />
             <FlexSpacer />
             <Pagination
               state={pagination}

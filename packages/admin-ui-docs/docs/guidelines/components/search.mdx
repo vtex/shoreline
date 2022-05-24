@@ -1,111 +1,221 @@
 ---
 title: Search
 path: /search/
+hide_table_of_contents: true
 ---
 
-Search enables users to specify a word, phrase, or term to find relevant pieces of content.
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
+import { BestPractices, Practice } from '@site/src/components/BestPractices'
 
-## Import
-
-```jsx isStatic
-import { Search } from '@vtex/admin-ui'
-```
-
-## Behavior
-
-```jsx live
-function Example() {
-  const state = useSearchState()
-
-  return (
-    <Search
-      state={state}
-      id="basic-behavior"
-      aria-label="Behavior Search"
-      placeholder="Search something..."
-    />
-  )
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'loading',
+      value: 'Loading',
+      level: 2,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 2,
+    },
+    {
+      id: 'intl',
+      value: 'Internationalized Placeholder',
+      level: 2,
+    },
+    {
+      id: 'debounce',
+      value: 'Debounce',
+      level: 2,
+    },
+    {
+      id: 'query',
+      value: 'Persisted state in query params',
+      level: 2,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+    {
+      id: 'search-props',
+      value: 'Search',
+      level: 3,
+    },
+    {
+      id: 'use-search-state-params',
+      value: 'useSearchState Params',
+      level: 3,
+    },
+    {
+      id: 'use-search-state-return',
+      value: 'useSearchState return',
+      level: 3,
+    },
+    {
+      id: 'use-query-search-state-params',
+      value: 'useQuerySearchState Params',
+      level: 3,
+    },
+    {
+      id: 'use-query-search-state-return',
+      value: 'useQuerySearchState Return',
+      level: 3,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
 }
-```
 
-## State
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
 
-The `useSearchState` hook handles the `Search` behavior
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Search enables users to specify a word, phrase, or term to find relevant pieces of content."
+/>
 
-### Loading
-
-The loading state is already maintained by the **state hook** so that you don't need to do it within your application. The initial loading state can be controlled using the `initiallyLoading` parameter. You can also toggle its state programmatically with the `setLoading` function.
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
 ```jsx live
 function Example() {
-  const state = useSearchState({
-    initiallyLoading: true,
-  })
+  const [value, setValue] = useState('')
 
   return (
-    <Set>
+    <Box csx={{ width: 400 }}>
       <Search
-        state={state}
-        id="loading-example"
-        aria-label="Loading Example Search"
-        placeholder="Search something..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+        loading
       />
-      <Button variant="secondary" onClick={() => state.setLoading((l) => !l)}>
-        Toggle Loading
-      </Button>
-    </Set>
+    </Box>
   )
 }
 ```
 
-### Debounce
+</PageSection>
 
-A common UX pattern is to filter the collections (or make a query) while the user types the input. To do that performatively, we often use debounced values. The good thing here, it that useSearchState stores a debounced value for you!
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
 
 ```jsx live
 function Example() {
-  const state = useSearchState({
+  const [value, setValue] = useState('')
+
+  return (
+    <Box csx={{ width: 400 }}>
+      <Search
+        disabled
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+      />
+    </Box>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('')
+
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="pt-BR">
+      <Box csx={{ width: 400 }}>
+        <Search
+          disabled
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onClear={() => setValue('')}
+        />
+      </Box>
+    </I18nProvider>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+  explanation="A common UX pattern is to filter the collections (or make a query) while the user types the input. To do that performatively, we often use debounced values. You can use the useSearchState hook which stores a debounced value for you!"
+>
+
+```jsx live
+function Example() {
+  const { getInputProps, value, debouncedValue } = useSearchState({
     // controls the debounce timeout
-    timeoutMs: 500,
+    timeout: 500,
   })
 
   return (
-    <tag.div csx={{ width: 500 }}>
-      <Search
-        id="search"
-        state={state}
-        placeholder="Search for a product, category or brand"
-      />
+    <tag.div csx={{ width: 400 }}>
+      <Search {...getInputProps()} />
       <tag.div csx={{ marginTop: 4 }}>
-        <tag.p>Value: {state.value}</tag.p>
-        <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+        <tag.p>Value: {value}</tag.p>
+        <tag.p>DebouncedValue: {debouncedValue}</tag.p>
       </tag.div>
     </tag.div>
   )
 }
 ```
 
-### Persisted state in query params
+</PageSection>
 
-You can persist the search value within the browser's query params using the `useQuerySearchState` hook, instead of `useSearchState`. The application should be wrapped by `QueryStateProvider`.
-
-_watch how your url changes (Note that the persisted value is the debounce value)_
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+  explanation="You can persist the search value within the browser's query params using the `useQuerySearchState` hook, instead of `useSearchState`. The application should be wrapped by `QueryStateProvider`. Watch how your url changes (note that the persisted value is the debounced value)."
+>
 
 ```jsx live
 function Example() {
   const Content = () => {
-    const state = useQuerySearchState()
+    const { getInputProps, value, debouncedValue } = useQuerySearchState()
 
     return (
       <tag.div csx={{ width: 500 }}>
-        <Search
-          id="search"
-          state={state}
-          placeholder="Search for a product, category or brand"
-        />
+        <Search {...getInputProps()} />
         <tag.div csx={{ marginTop: 4 }}>
-          <tag.p>Value: {state.value}</tag.p>
-          <tag.p>DebouncedValue: {state.debouncedValue}</tag.p>
+          <tag.p>Value: {value}</tag.p>
+          <tag.p>DebouncedValue: {debouncedValue}</tag.p>
         </tag.div>
       </tag.div>
     )
@@ -119,59 +229,133 @@ function Example() {
 }
 ```
 
-## Accessibility
+</PageSection>
 
-To ensure that assistive technology can interact safely with the `Search` component, you must define two things:
+</Panel>
 
-- The `aria-label` property.
-- The `id` property.
+<Panel id="codeReference">
 
-Both should be unique for the Page. This means that if you have two searches, they should have different `aria-label`'s and `id`s. Also, if you're dealing with i18n, you must translate your `aria-label`'s.
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+  explanation="Remember that you can use the useSearchState or useSearchQueryState hooks to help you managing the Search state."
+>
 
-## Types
+```jsx
+import { Search, useSearchState } from '@vtex/admin-ui'
 
-### Search props
+function Example() {
+  const [value, setValue] = useState('')
+  const [loading, setLoading] = useState(false)
 
-You can use all the props accepted by the `form` JSX element in addition to `state` (useSearchState return).
+  return (
+    <Search
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onClear={() => setValue('')}
+      loading={loading}
+    />
+  )
+}
+```
 
-### useSearchState Params
+</PageSection>
 
-Configuration params accepted by the state hook
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+  explanation="In the following sections you can check the properties of the Search component and its hooks."
+/>
 
-| Name             | Type                                      | Description                       | Required | Default |
-| ---------------- | ----------------------------------------- | --------------------------------- | -------- | ------- |
-| initialValue     | `string`                                  | Initial input value               | 🚫       | `''`    |
-| defaultValue     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
-| initiallyLoading | `boolean`                                 | If is initially loading           | 🚫       | `false` |
-| onSubmit         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
-| timeoutMs        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  explanation="You can use all the props accepted by the `form` JSX element."
+>
 
-### useSearchState Return
+| Name     | Type                                   | Description                              | Required | Default |
+| -------- | -------------------------------------- | ---------------------------------------- | -------- | ------- |
+| onClear  | `() => void`                           | Clears the input value                   | 🚫       | -       |
+| value    | `string`                               | Input value                              | 🚫       | `''`    |
+| onChange | `ChangeEventHandler<HTMLInputElement>` | Event triggered when input value changes | 🚫       | -       |
+| loading  | `boolean`                              | Whether the search is loading or not     | 🚫       | `false` |
 
-The object returned from the state hook
+</PageSection>
 
-| Name           | Type                                            | Description                                 |
-| -------------- | ----------------------------------------------- | ------------------------------------------- |
-| value          | `string`                                        | Input value                                 |
-| debouncedValue | `string`                                        | Input value with debouce                    |
-| setValue       | `(value: string) => void`                       | Sets the value state                        |
-| onSubmit       | `(e: FormEvent<HTMLFormElement>) => void`       | Action to take on submit the form           |
-| clear          | `() => void`                                    | Clears the input value                      |
-| showClear      | `boolean`                                       | Whether should show the clear option or not |
-| loading        | `boolean`                                       | Whether is loading                          |
-| setLoading     | `React.Dispatch<React.SetStateAction<boolean>>` | Sets the loading state                      |
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+>
 
-### useQuerySearchState Params
+| Name         | Type     | Description                   | Required | Default |
+| ------------ | -------- | ----------------------------- | -------- | ------- |
+| initialValue | `string` | Initial input value           | 🚫       | `''`    |
+| defaultValue | `string` | Value set in the clean action | 🚫       | `''`    |
+| timeout      | `number` | Debounce timeout in ms        | 🚫       | `250`   |
 
-Configuration params accepted by the state hook
+</PageSection>
 
-| Name             | Type                                      | Description                       | Required | Default |
-| ---------------- | ----------------------------------------- | --------------------------------- | -------- | ------- |
-| defaultValue     | `string`                                  | Value set in the clean action     | 🚫       | `''`    |
-| initiallyLoading | `boolean`                                 | If is initially loading           | 🚫       | `false` |
-| onSubmit         | `(e: FormEvent<HTMLFormElement>) => void` | Action to take on submit the form | 🚫       | -       |
-| timeoutMs        | `number`                                  | Debounce timeout in ms            | 🚫       | `250`   |
+<PageSection
+  id={tabToc.codeReference[4].id}
+  title={tabToc.codeReference[4].value}
+>
 
-### useQuerySearchState Return
+| Name           | Type                                   | Description                                             |
+| -------------- | -------------------------------------- | ------------------------------------------------------- |
+| debouncedValue | `string`                               | Input value with debouce                                |
+| setValue       | `(value: string) => void`              | Sets the value state                                    |
+| onClear        | `() => void`                           | Clears the input value                                  |
+| value          | `string`                               | Input value                                             |
+| onChange       | `ChangeEventHandler<HTMLInputElement>` | Event triggered when input value changes                |
+| getInputProps  | `() => { value, onClear, onChange }`   | It returns the necessary properties to the Search works |
 
-The object returned from the state hook is the same as [useSearchState](#usesearchstate-params)
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[5].id}
+  title={tabToc.codeReference[5].value}
+>
+
+| Name             | Type      | Description                   | Required | Default |
+| ---------------- | --------- | ----------------------------- | -------- | ------- |
+| defaultValue     | `string`  | Value set in the clean action | 🚫       | `''`    |
+| initiallyLoading | `boolean` | If is initially loading       | 🚫       | `false` |
+| timeout          | `number`  | Debounce timeout in ms        | 🚫       | `250`   |
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[6].id}
+  title={tabToc.codeReference[6].value}
+  explanation="The object returned from the state hook is the same as useSearchState."
+/>
+
+<PageSection
+  id={tabToc.codeReference[7].id}
+  title={tabToc.codeReference[7].value}
+  explanation="To ensure that assistive technology can interact safely with the Search component, you must define the aria-label property when using multiple Search components in the same page. Remember that each aria-label should be unique and if you're dealing with i18n, you must translate them."
+>
+
+```jsx
+import { Search, useSearchState } from '@vtex/admin-ui'
+
+function Example() {
+  const { getInputProps } = useSearchState()
+
+  return (
+    <Page>
+      <Search {...getInputProps()} aria-label="Unique and meaningful label" />
+      ...
+      <Search
+        {...getInputProps()}
+        aria-label="Another unique and meaningful label"
+      />
+    </Page>
+  )
+}
+```
+
+</PageSection>
+
+</Panel>
+</Page>
