@@ -43,9 +43,9 @@ export function ReleaseNotes() {
       header: 'Details',
       resolver: {
         type: 'root',
-        render: ({ data }) => {
+        render: ({ item }) => {
           return (
-            <Anchor href={data ?? ''} target="blank">
+            <Anchor href={item.html_url} target="blank">
               Github release
             </Anchor>
           )
