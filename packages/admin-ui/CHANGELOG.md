@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.131.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.130.1...@vtex/admin-ui@0.131.0) (2022-05-24)
+
+### Bug Fixes
+
+- **search:** add design requested changes ([b4b0070](https://github.com/vtex/admin-ui/commit/b4b0070eabe2a368ab006ce247d6a7d485ac6f86))
+- **search:** fix rebase issues ([0d084e1](https://github.com/vtex/admin-ui/commit/0d084e1a4c9a4ef8bad85c52b737ded56b92bd0c))
+
+### Features
+
+- **search:** add Search component review ([98a464b](https://github.com/vtex/admin-ui/commit/98a464b949d2f1aece5c5f63e9634ad35701bd43))
+
 ## [0.130.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.130.0...@vtex/admin-ui@0.130.1) (2022-05-23)
 
 ### Bug Fixes
