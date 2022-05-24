@@ -17,6 +17,7 @@ export * from './checkbox'
 export * from './text-input'
 export * from './box'
 export * from './search'
+export * from './number-input'
 
 export * from './deprecated-set'
 
