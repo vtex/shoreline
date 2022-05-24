@@ -14,7 +14,7 @@ export const getIncrementedValue = ({
   max,
 }: NumberValidationProps): number => {
   if (isValidNumber(currentValue, min, max)) {
-    return nextValue <= max ? nextValue : max
+    return Math.min(max, nextValue)
   }
 
   // When the currentValue is less than the min range value and you click to increment
@@ -28,7 +28,7 @@ export const getDecrementedValue = ({
   max,
 }: NumberValidationProps): number => {
   if (isValidNumber(currentValue, min, max)) {
-    return nextValue >= min ? nextValue : min
+    return Math.max(min, nextValue)
   }
 
   // When the currentValue is more than the max range value and you click to decrement
