@@ -7,9 +7,15 @@ import {
   getDecrementedValue,
 } from './utils'
 
+import { useMessageFormatter } from '../i18n'
+
+import { messages } from './number-input.i18n'
+
 export const useNumberInput = (props: NumberInputState) => {
   const { initialValue, step, min, max, onChange } = props
   const [currentValue, setCurrentValue] = useState(initialValue)
+
+  const formatMessage = useMessageFormatter(messages.formControl)
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const { value } = event.target
@@ -32,7 +38,7 @@ export const useNumberInput = (props: NumberInputState) => {
       onChange(newValue)
     } else {
       // When the currentValue is a empty string and you click to increment
-      const newValue = max <= step ? max : step
+      const newValue = Math.min(max, step)
 
       setCurrentValue(newValue)
       onChange(newValue)
@@ -52,7 +58,7 @@ export const useNumberInput = (props: NumberInputState) => {
       onChange(newValue)
     } else {
       // When the currentValue is a empty string and you click to decrement
-      const newValue = min >= -step ? min : -step
+      const newValue = Math.max(min, -step)
 
       setCurrentValue(newValue)
       onChange(newValue)
@@ -73,7 +79,7 @@ export const useNumberInput = (props: NumberInputState) => {
 
   const getDecrementButtonProps = (props: ButtonProps) => {
     return {
-      'aria-label': 'Decrement',
+      'aria-label': formatMessage('decrement'),
       variant: 'tertiary',
       onClick: handleDecrement,
       disabled: isNumber(currentValue) && Number(currentValue) <= min,
@@ -83,7 +89,7 @@ export const useNumberInput = (props: NumberInputState) => {
 
   const getIncrementButtonProps = (props: ButtonProps) => {
     return {
-      'aria-label': 'Increment',
+      'aria-label': formatMessage('increment'),
       variant: 'tertiary',
       onClick: handleIncrement,
       disabled: isNumber(currentValue) && Number(currentValue) >= max,
