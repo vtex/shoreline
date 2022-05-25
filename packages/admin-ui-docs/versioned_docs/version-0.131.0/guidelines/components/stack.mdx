@@ -1,0 +1,204 @@
+---
+title: Stack
+path: /stack/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'space',
+      value: 'Space',
+      level: 2,
+    },
+    {
+      id: 'direction',
+      value: 'Direction',
+      level: 2,
+    },
+    {
+      id: 'fluid',
+      value: 'Fluid',
+      level: 2,
+    },
+    {
+      id: 'align',
+      value: 'Align',
+      level: 2,
+    },
+    {
+      id: 'responsive',
+      value: 'Responsive',
+      level: 2,
+    },
+  ],
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+
+<Panel id="overview">
+
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Stack is a layout component that makes it easy to stack elements together and apply a space between them."
+/>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Stack>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+  <Stack space="$xl">
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Stack>
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+  <Stack direction="row">
+    <Button>Button 1</Button>
+    <Button>Button 2</Button>
+    <Button>Button 3</Button>
+  </Stack>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Box csx={{ width: 300 }}>
+    <Stack>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+  <Box csx={{ width: 300 }}>
+    <Stack fluid>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Box csx={{ width: 300 }}>
+    <Stack>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+  <Box csx={{ width: 300 }}>
+    <Stack align="end">
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Stack>
+  </Box>
+</>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live
+<Stack
+  direction={{
+    mobile: 'column',
+    tablet: 'row',
+  }}
+  fluid
+>
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+  <Button>Fourth</Button>
+  <Button>Fifth</Button>
+</Stack>
+```
+
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { Stack } from '@vtex/admin-ui'
+
+function Example() {
+  return <Stack>{/* Stacked elements */}</Stack>
+}
+```
+
+## Props
+
+_Extends `div` props_
+
+| Name      | Type                                               | Description                                              | Required | Default    |
+| --------- | -------------------------------------------------- | -------------------------------------------------------- | -------- | ---------- |
+| direction | `ResponsiveProp<'row', or 'column'>`               | Direction of items                                       | 🚫       | `'column'` |
+| fluid     | `ResponsiveProp<boolean>`                          | If the items should grow in width to match the container | 🚫       | `false`    |
+| space     | `ResponsiveProp<CSSPropAutocomplete<SpaceTokens>>` | Space between items                                      | 🚫       | `0`        |
+| align     | `ResponsiveProp<'start' or 'end'>`                 | Items alignment                                          | 🚫       | `start`    |
+
+</Panel>
+
+</Page>
