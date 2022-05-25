@@ -2,44 +2,50 @@ import { useState, useCallback, useEffect } from 'react'
 
 import type { MenuState } from 'ariakit/menu'
 import { useMenuState } from 'ariakit/menu'
-import type { ComboboxState } from '../combobox/combobox.state'
-import { useComboboxState } from '../combobox/combobox.state'
+import type { ComboboxState } from '../../combobox/combobox.state'
+import { useComboboxState } from '../../combobox/combobox.state'
+import type { AnyObject } from 'packages/admin-ui-util'
 
-export function useFilterState<T extends FilterItem>(
+export function useFilterState<T extends AnyObject>(
   props: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
-  const { items, label, initialApplied, baseId, onChange = () => {} } = props
+  const {
+    items,
+    label,
+    baseId,
+    getOptionLabel = (option) => option.label,
+    getOptionId = (option) => option.id,
+    onChange = () => {},
+  } = props
 
-  const [appliedKey, setAppliedKey] = useState(initialApplied || null)
   const [appliedItem, setAppliedItem] = useState<T>()
 
   const combobox = useComboboxState({
     virtualFocus: false,
-    list: items,
-    getOptionValue: (item) => item.id,
+    list: items || [],
+    getOptionValue: getOptionLabel,
   })
-
-  useEffect(() => {
-    const initialItem = items.find((item) => item.id === initialApplied)
-
-    combobox.setSelectedItem(initialItem)
-    setAppliedItem(initialItem)
-  }, [])
 
   const menu = useMenuState({ ...combobox, gutter: 4 })
 
-  const apply = useCallback(() => {
-    const selected = combobox.value
+  const updateApplied = useCallback(
+    (item: T) => {
+      combobox.setSelectedItem(item)
+      setAppliedItem(item)
 
-    setAppliedKey(selected)
+      onChange({ selected: item })
+    },
+    [onChange]
+  )
+
+  const apply = useCallback(() => {
     setAppliedItem(combobox.selectedItem)
 
-    onChange({ selected })
+    onChange({ selected: combobox.selectedItem || null })
     menu.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
-    setAppliedKey(null)
     setAppliedItem(undefined)
 
     combobox.setValue('')
@@ -51,7 +57,7 @@ export function useFilterState<T extends FilterItem>(
 
   useEffect(() => {
     // auto applies whenever a new value is selected
-    if (combobox.selectedItem) {
+    if (combobox.selectedItem && combobox.selectedItem !== appliedItem) {
       apply()
     }
   }, [combobox.selectedItem])
@@ -62,7 +68,7 @@ export function useFilterState<T extends FilterItem>(
     if (isMenuClosed && combobox.value) {
       // resets combobox
       combobox.setValue('')
-      combobox.setSelectedItem(appliedItem)
+      combobox.setSelectedItem(appliedItem || undefined)
     }
   }, [menu.mounted])
 
@@ -71,11 +77,13 @@ export function useFilterState<T extends FilterItem>(
     combobox,
     onClear: clear,
     onChange: apply,
-    items,
+    items: items || [],
     appliedItem,
-    appliedKey,
+    setAppliedItem: updateApplied,
     label,
     baseId,
+    getOptionLabel,
+    getOptionId,
   }
 }
 
@@ -92,22 +100,26 @@ export interface GenericFilterStateReturn<T> {
   items: T[]
   combobox: ComboboxState<T>
   baseId?: string
+  getOptionLabel: (option: T) => string
+  getOptionId: (option: T) => string
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
   appliedItem?: T | null
-  appliedKey: string | null
+  setAppliedItem: (option: T) => void
 }
 
 export interface UseFilterStateProps<T> {
+  /** Function for getting an id from the option object. */
+  getOptionId?: (option: T) => string
+  /** Function for getting a label from the option object. */
+  getOptionLabel?: (option: T) => string
   /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: string | null }) => void
-  /** The initial selected key. */
-  initialApplied?: string
+  onChange?: ({ selected }: { selected: T | null }) => void
   /** Filter button label. */
   label: string
   /** Base for component and it's children id. */
   baseId?: string
   /** List of items to be showed on the list. */
-  items: T[]
+  items?: T[]
 }
