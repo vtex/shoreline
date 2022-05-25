@@ -1,0 +1,81 @@
+---
+title: Bleed
+path: /bleed/
+---
+
+Sometimes a component needs to trespass the parent padding to achieve alignment harmony and visual compensation to the layout. You can accomplish this with `Bleed`, which applies a negative margin to represent the amount of trespassing desired.
+
+## Usage
+
+```jsx
+function Example() {
+  return (
+    <Card>
+      <Bleed>
+        <img src="..." />
+      </Bleed>
+    </Card>
+  )
+}
+```
+
+## Examples
+
+### Basic
+
+```jsx noInline live
+const containerWidth = '20rem'
+
+function Example() {
+  return (
+    <Box
+      csx={{
+        padding: '1rem',
+        border: '$neutral',
+        width: containerWidth,
+      }}
+    >
+      <Bleed top="1rem" left="1rem" right="1rem">
+        <tag.img
+          csx={{
+            width: containerWidth,
+          }}
+          src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
+          alt="vtex-brand"
+        />
+      </Bleed>
+      <Paragraph>
+        VTEX is the Enterprise Digital Commerce Platform for brands and
+        retailers looking to build a future-proof digital commerce strategy.
+        Powered by a modern platform and a team of digital commerce experts, we
+        enable enterprises to achieve faster time-to-market, reach their
+        customers across any channel and uncover new areas of growth.
+      </Paragraph>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+### With Inline
+
+```jsx live
+<Bleed top="$xl" left="$xl">
+  <Inline vSpace="$xl" hSpace="$xl">
+    <Tag label="Brazil" />
+    <Tag label="Argentina" />
+    <Tag label="Chile" />
+    <Tag label="Uruguai" />
+  </Inline>
+</Bleed>
+```
+
+## Props
+
+| Name   | Type                     | Description  | Required | Default |
+| ------ | ------------------------ | ------------ | -------- | ------- |
+| top    | `VSpaceTokens or number` | Top bleed    | 🚫       | '0rem'  |
+| bottom | `VSpaceTokens or number` | Bottom bleed | 🚫       | '0rem'  |
+| left   | `HSpaceTokens or number` | Left bleed   | 🚫       | '0rem'  |
+| right  | `HSpaceTokens or number` | Right bleed  | 🚫       | '0rem'  |

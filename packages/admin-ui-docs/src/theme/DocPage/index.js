@@ -46,7 +46,7 @@ function DocPageContent({
     setHiddenSidebarContainer((value) => !value);
   }, [hiddenSidebar]);
 
-  const routeKey = currentDocRoute.path.slice(1) || 'introduction/about'
+  const routeKey = currentDocRoute.path.replace('/next', '').slice(1) || 'introduction/about'
 
   return (
     <Layout
@@ -143,6 +143,7 @@ export default function DocPage(props) {
     versionMetadata,
     location,
   } = props;
+  console.log(versionMetadata)
   const currentDocRoute = docRoutes.find((docRoute) =>
     matchPath(location.pathname, docRoute),
   );

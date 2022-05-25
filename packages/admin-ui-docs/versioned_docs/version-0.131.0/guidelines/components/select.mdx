@@ -1,0 +1,138 @@
+---
+title: Select
+path: /select/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+
+export const tabToc = {
+  overview: toc.filter((item) =>
+    ['Tone of voice', 'Disabled', 'Examples'].includes(item.value)
+  ),
+  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
+  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+}
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+Select is a component that allows users to select an option from a list. It requires a click to see the options and supports only single-selection.
+
+## Examples
+
+### Tone of voice
+
+The `Select` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
+
+```jsx live
+function Example() {
+  const [value, setValue] = React.useState('today')
+
+  return (
+    <Set spacing={3}>
+      <Select
+        label="Neutral"
+        helperText="Helpful text"
+        criticalText="Critical message"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      >
+        <option value="yesterday">Yesterday</option>
+        <option value="today">Today</option>
+        <option value="tomorrow">Tomorrow</option>
+      </Select>
+      <Select
+        tone="critical"
+        label="Critical"
+        criticalText="Critical message"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      >
+        <option value="yesterday">Yesterday</option>
+        <option value="today">Today</option>
+        <option value="tomorrow">Tomorrow</option>
+      </Select>
+    </Set>
+  )
+}
+```
+
+### Disabled
+
+It means that the user will not be able to select any value from the `Select`. To use this variation, the `disabled` property should have a true value.
+
+```jsx live
+function Example() {
+  const [value, setValue] = React.useState('today')
+
+  return (
+    <Select
+      label="Disabled"
+      helperText="Helpful text"
+      criticalText="Critical message"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      disabled
+    >
+      <option value="yesterday">Yesterday</option>
+      <option value="today">Today</option>
+      <option value="tomorrow">Tomorrow</option>
+    </Select>
+  )
+}
+```
+
+</Panel>
+<Panel id="codeReference">
+
+## Usage
+
+```jsx isStatic
+import { useState } from 'react'
+import { Select } from '@vtex/admin-ui'
+
+const days = ['Yesterday', '7 days ago', '28 days ago', 'One year ago']
+
+function Example() {
+  const [value, setValue] = useState('today')
+
+  return (
+    <Select
+      label="Date"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    >
+      <option value="yesterday">Yesterday</option>
+      <option value="today">Today</option>
+      <option value="tomorrow">Tomorrow</option>
+    </Select>
+  )
+}
+```
+
+## Props
+
+Besides the props listed bellow, you can use all the props accepted by the `select` JSX element.
+
+| Name         | Type                | Description               | Required | Default   |
+| ------------ | ------------------- | ------------------------- | -------- | --------- |
+| label        | `string`            | Label text                | ✅       | -         |
+| helperText   | `string`            | Select helper text        | 🚫       | -         |
+| tone         | `neutral, critical` | Select's tone of voice    | 🚫       | `neutral` |
+| criticalText | `string`            | TextArea critical message | 🚫       | -         |
+| csx          | `StyleProp`         | Defines component styles  | 🚫       | `{}`      |
+
+</Panel>
+<Panel id="designReference">
+
+## Do’s
+
+1. Mind the order of the options, like putting the more probable one to be selected at the top. In doubt, sort them alphanumerically (from A to Z and from 0 to 9).
+2. If there are less than four options listed, consider using a radio button.
+3. Don't offer overlapping options, they should be clearly mutually exclusive.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</Panel>
+</Page>
