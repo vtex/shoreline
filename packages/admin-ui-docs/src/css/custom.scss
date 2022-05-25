@@ -30,8 +30,17 @@ body {
   --ifm-spacing-horizontal: 3rem;
 }
 
-h1:first-child {
+header > h1:first-child {
   display: none;
+}
+
+.badge--secondary {
+  position: absolute;
+  top: 2rem;
+}
+
+.theme-doc-version-banner {
+  margin-top: -3.5rem;
 }
 
 .theme-doc-breadcrumbs {

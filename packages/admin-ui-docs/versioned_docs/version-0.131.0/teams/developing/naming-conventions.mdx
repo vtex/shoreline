@@ -1,0 +1,29 @@
+---
+title: Naming Conventions
+path: /developing/naming-conventions/
+---
+
+:::caution
+
+This page is under construction.
+
+:::
+
+Common naming decisions that you must know when developing or designing with Admin UI.
+
+## Error Messaging
+
+Represented by the [Critical Tone](/guidelines/foundations/colors#critical), an error message alerts people of a problem that has occurred and informs them what to do next.
+
+It appears after someone has taken an action. The message draws the user's attention to what has happened and provides guidance to move forward. Optionally, they can also include why something happened and whether the problem will occur again.
+
+### Code Usage
+
+You must use the `error` property to represent the critical state, and the `errorText` property to define the message that will provide guidance to the user.
+
+```jsx
+{
+  error: boolean
+  errorText: string
+}
+```

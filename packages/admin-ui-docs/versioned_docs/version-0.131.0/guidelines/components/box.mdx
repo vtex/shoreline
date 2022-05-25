@@ -1,0 +1,121 @@
+---
+title: Box
+path: /box/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'styling',
+      value: 'Styling',
+      level: 2,
+    },
+    {
+      id: 'semantic-elements',
+      value: 'Semantic Elements',
+      level: 2,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+    {
+      id: 'accessibility',
+      value: 'Accessibility',
+      level: 2,
+    },
+  ],
+}
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection
+  id={tabToc.overview[0].id}
+  title={tabToc.overview[0].value}
+  description="Box is the base component to be used for most of your html elements. It has no defined style or shape."
+/>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+```jsx live
+<Box csx={{ border: '$neutral', padding: '$m' }}>Box with padding</Box>
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  explanation="Using the dev tools you can see that is rendered as an anchor html element."
+>
+
+```jsx live
+<Box as="a" href="/guidelines/components/box#semantic-elements">
+  Box as a anchor
+</Box>
+```
+
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx
+import { Box } from '@vtex/admin-ui'
+
+function Example() {
+  return <Box>Content</Box>
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+  explanation="Besides the props listed bellow, you can use all the props accepted by the JSX element you defined using `as` property."
+>
+
+| Name | Type          | Description                            | Required | Default |
+| ---- | ------------- | -------------------------------------- | -------- | ------- |
+| csx  | `StyleObject` | Layout styles                          | 🚫       | -       |
+| as   | `HTMLElement` | A valid HTMLElement in a string format | 🚫       | `div`   |
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+  explanation="Be sure that you're using the correct semantic element and `aria roles` for the behavior you're implementing. You can use the WAI-ARIA Practices to help you."
+/>
+
+</Panel>
+</Page>
