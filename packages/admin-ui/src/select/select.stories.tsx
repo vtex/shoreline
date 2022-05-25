@@ -47,9 +47,9 @@ export const SelectInlineComponent: Story<SelectInlineProps> = (args) => {
 
   return (
     <SelectInline
+      {...args}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      {...args}
     >
       <option>Option 1</option>
       <option>Option 2</option>
@@ -63,4 +63,6 @@ SelectInlineComponent.args = {
   label: 'Label',
   disabled: false,
   csx: { margin: '$l' },
+  bleedY: false,
+  bleedX: false,
 }

@@ -1,12 +1,14 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { IconCaretDown, IconCaretUp } from '@vtex/phosphor-icons'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
+import { messages } from './select.i18n'
 import * as styles from './select.styles'
-import { Stack } from '../stack'
+
+import { useMessageFormatter } from '../i18n'
 import { Box } from '../box'
+import { SelectIcon } from './select-icon'
 
 export const SelectInput = createComponent<'select', SelectInputOptions>(
   (props) => {
@@ -14,25 +16,25 @@ export const SelectInput = createComponent<'select', SelectInputOptions>(
       error = false,
       value = '',
       children,
-      placeholder = '',
       variant = 'default',
       ...restProps
     } = props
+
+    const formatMessage = useMessageFormatter(messages.select)
 
     return useElement('select', {
       ...restProps,
       value,
       baseStyle: {
         ...styles.baseline,
-        ...styles.variants({ error, selected: !!value, variant }),
+        ...styles.variants({ variant, error, selected: !!value }),
       },
       children: (
         <>
-          {placeholder ? (
-            <option value="" disabled>
-              {placeholder}
-            </option>
-          ) : null}
+          <option value="" disabled>
+            {formatMessage('placeholder')}
+          </option>
+
           {children}
         </>
       ),
@@ -40,26 +42,27 @@ export const SelectInput = createComponent<'select', SelectInputOptions>(
   }
 )
 
-export function SelectInputContainer(props: SelectInputContainer) {
-  const { children, csx } = props
+export function SelectContainer(props: SelectContainer) {
+  const { children, csx, variant = 'default' } = props
 
   return (
-    <Box csx={{ position: 'relative', width: '100%', ...csx }}>
+    <Box csx={{ ...styles.container({ variant }), ...csx }}>
       {children}
-      <Stack space="0" csx={styles.caret}>
-        <IconCaretUp width="12" height="12" />
-        <IconCaretDown width="12" height="12" />
-      </Stack>
+      <Box csx={{ ...styles.caret, ...styles.caretVariants({ variant }) }}>
+        <SelectIcon size={variant === 'default' ? 'regular' : 'small'} />
+      </Box>
     </Box>
   )
 }
+
+export type JSXSelectProps = ComponentPropsWithoutRef<'select'>
 
 export interface SelectInputOptions {
   error?: boolean
   variant?: 'default' | 'inline'
 }
 
-export interface SelectInputContainer {
-  children: ReactNode
+export interface SelectContainer extends Pick<SelectInputOptions, 'variant'> {
+  children?: ReactNode
   csx?: StyleProp
 }
