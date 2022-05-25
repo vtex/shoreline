@@ -27,8 +27,8 @@
   },
   "peerDependencies": {
     "@vtex/admin-ui": "0.x",
-    "react": ">=16.8",
-    "react-dom": ">=16.8"
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "devDependencies": {
     "yup": "0.32.11"
