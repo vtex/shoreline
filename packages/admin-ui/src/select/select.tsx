@@ -4,12 +4,15 @@ import { useId } from '@vtex/admin-ui-hooks'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
 import type { SelectInputOptions, JSXSelectProps } from './select-input'
-import { SelectInput, SelectContainer } from './select-input'
+import { SelectInput } from './select-input'
+import * as styles from './select.styles'
+import { SelectIcon } from './select-icon'
 import {
   FormControl,
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
+import { Box } from '../box'
 
 export const Select = forwardRef(
   (props: SelectProps, ref: Ref<HTMLSelectElement>) => {
@@ -32,11 +35,14 @@ export const Select = forwardRef(
         {label ? (
           <FormControlLabel htmlFor={id}>{label}</FormControlLabel>
         ) : null}
-        <SelectContainer>
+        <Box csx={styles.container}>
           <SelectInput id={id} ref={ref} error={error} {...selectProps}>
             {children}
           </SelectInput>
-        </SelectContainer>
+          <Box csx={styles.caret}>
+            <SelectIcon />
+          </Box>
+        </Box>
         <FormControlMessage helpText={helpText} errorText={errorText} />
       </FormControl>
     )
