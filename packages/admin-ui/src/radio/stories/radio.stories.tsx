@@ -1,10 +1,10 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import type { RadioGroupProps, RadioProps } from './index'
-import { Radio, useRadioState, RadioGroup } from './index'
-import { Stack } from '../stack'
-import { Box } from '../box'
+import type { RadioGroupProps, RadioProps } from '../index'
+import { Radio, useRadioState, RadioGroup } from '../index'
+import { Stack } from '../../stack'
+import { Box } from '../../box'
 
 export default {
   title: 'admin-ui-review/radio',
