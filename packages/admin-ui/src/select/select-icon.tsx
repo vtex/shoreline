@@ -3,14 +3,11 @@ import type { IconProps } from '@vtex/phosphor-icons'
 import { tag } from '@vtex/admin-ui-react'
 
 export function SelectIcon(props: IconProps) {
-  const { size: iconSize = 'regular' } = props
-
-  const size = iconSize === 'regular' ? '20' : '16'
-
   return (
     <tag.svg
-      width={size}
-      height={size}
+      {...props}
+      width="1.25rem"
+      height="1.25rem"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
