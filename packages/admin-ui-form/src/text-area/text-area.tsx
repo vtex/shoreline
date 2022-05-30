@@ -2,7 +2,7 @@ import React from 'react'
 import type { next_TextAreaProps as AdminUITextAreaProps } from '@vtex/admin-ui'
 import { next_TextArea as AdminUITextArea } from '@vtex/admin-ui'
 
-import type { FormState, RegisterOptions } from '../form'
+import type { FormFieldProps } from '../util'
 import { hasError, getErrorText, useFieldDx } from '../util'
 
 /**
@@ -44,17 +44,4 @@ type TextAreaHiddenProps =
 
 type InheritedProps = Omit<AdminUITextAreaProps, TextAreaHiddenProps>
 
-export interface TextAreaProps extends InheritedProps {
-  /**
-   * TextArea required state
-   */
-  name: string
-  /**
-   * Form state
-   */
-  state: FormState
-  /**
-   * Field validation
-   */
-  validation?: RegisterOptions
-}
+export type TextAreaProps = InheritedProps & FormFieldProps
