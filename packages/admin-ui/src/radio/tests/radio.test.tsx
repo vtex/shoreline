@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render, axe, withState, jestMatchMedia } from '../test-utils'
-import { Radio, useRadioState, RadioGroup } from './index'
+import { render, axe, withState, jestMatchMedia } from '../../test-utils'
+import { Radio, useRadioState, RadioGroup } from '../index'
 
 const StatefulRadioGroup = withState(RadioGroup, () => {
   const state = useRadioState()
