@@ -5,9 +5,7 @@ import { useMenuState, Menu, MenuItem, MenuButton } from 'reakit/Menu'
 import { createSystem } from '../system'
 import { tag } from '../system-deprecated'
 
-const [SystemProvider] = createSystem({
-  key: 'admin-ui-react',
-})
+const [SystemProvider] = createSystem()
 
 export default {
   title: 'admin-ui-react/tag',

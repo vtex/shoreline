@@ -16,12 +16,6 @@ const FilterWithState = withState(FilterMultiple, () =>
 )
 
 describe('Multiselect filter tests', () => {
-  it('should match snapshot', () => {
-    const { asFragment } = render(<FilterWithState />)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(<FilterWithState />)
 
