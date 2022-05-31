@@ -14,6 +14,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Reverts
 
 - **react:** update react to version 17 ([57ffa42](https://github.com/vtex/admin-ui/commit/57ffa42dc1254bf0ade4afbc32fe79382bf92ddc))
+## [0.3.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.3.0...@vtex/admin-ui-form@0.3.1-dev.0) (2022-05-31)
+
+### Features
+
+- **forms:** add radio ([10bc119](https://github.com/vtex/admin-ui/commit/10bc119aecddfccfbaa615425b4d3187e10e0960))
 
 # [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.2.0...@vtex/admin-ui-form@0.3.0) (2022-05-23)
 
