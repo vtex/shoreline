@@ -4,7 +4,6 @@ import { createSystem } from '@vtex/admin-ui'
 import theme from './theme'
 
 const [ThemeProvider] = createSystem({
-  key: 'gatsby-plugin-admin-ui',
   experimentalTheme: theme,
 })
 

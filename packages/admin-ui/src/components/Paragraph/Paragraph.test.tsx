@@ -1,22 +1,14 @@
 import React from 'react'
-import { render } from '../../test-utils'
+import { render, axe } from '../../test-utils'
 
 import { Paragraph } from './index'
 
 describe('Paragraph tests', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <Paragraph data-testid="paragraph" csx={{ bg: 'azure' }}>
-        test paragraph
-      </Paragraph>
-    )
+  it('should not have any violations', async () => {
+    const { container } = render(<Paragraph>test paragraph</Paragraph>)
 
-    expect(getByTestId('paragraph')).toHaveStyleRule('background', 'azure')
-  })
+    const results = await axe(container)
 
-  it('should match snapshot', () => {
-    const { asFragment } = render(<Paragraph>test paragraph</Paragraph>)
-
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })

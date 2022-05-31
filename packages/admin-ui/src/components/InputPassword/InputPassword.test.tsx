@@ -5,50 +5,6 @@ import { IconPlus } from '@vtex/phosphor-icons'
 import { InputPassword } from './index'
 
 describe('InputPassword tests', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <InputPassword
-        data-testid="text-field"
-        csx={{ bg: 'coral' }}
-        value=""
-        onChange={() => {}}
-        label="TextField label"
-        id="text-field-1"
-        helperText="Helper"
-        charLimit={120}
-      />
-    )
-
-    expect(getByTestId('text-field')).toHaveStyleRule('background', 'coral')
-  })
-
-  it('should match snapshot', () => {
-    const { asFragment } = render(
-      <>
-        <InputPassword
-          criticalText="Error Message"
-          tone="critical"
-          value=""
-          onChange={() => {}}
-          label="Label"
-          id="text-field-1"
-        />
-        <InputPassword
-          icon={<IconPlus />}
-          charLimit={120}
-          helperText="Helper Text"
-          criticalText="Error Message"
-          value=""
-          onChange={() => {}}
-          label="Label"
-          id="text-field-7"
-        />
-      </>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(
       <>

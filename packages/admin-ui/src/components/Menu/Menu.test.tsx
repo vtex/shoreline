@@ -17,74 +17,7 @@ const StatefulMenu = withState(Menu, () =>
   useMenuState({ visible: true, baseId: 'id' })
 )
 
-const StatefulHiddenMenu = withState(Menu, () =>
-  useMenuState({ visible: false, baseId: 'id' })
-)
-
 describe('Menu', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <StatefulMenu>
-        <MenuButton>Open</MenuButton>
-        <MenuList
-          data-testid="menu"
-          aria-label="menu label"
-          csx={{
-            bg: 'coral',
-          }}
-        >
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Link to</MenuItem>
-          <MenuItem>Favorite</MenuItem>
-          <MenuSeparator />
-          <MenuItem>Delete</MenuItem>
-        </MenuList>
-      </StatefulMenu>
-    )
-
-    expect(getByTestId('menu')).toHaveStyleRule('background', 'coral')
-  })
-
-  it('should match snapshot visible', () => {
-    const { asFragment } = render(
-      <StatefulMenu>
-        <MenuButton>Open</MenuButton>
-        <MenuList data-testid="menu" aria-label="menu label">
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Link to</MenuItem>
-          <MenuItem>Favorite</MenuItem>
-          <MenuSeparator />
-          <MenuItem>Delete</MenuItem>
-        </MenuList>
-      </StatefulMenu>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match snapshot hidden', () => {
-    const { asFragment } = render(
-      <StatefulHiddenMenu>
-        <MenuButton>Open</MenuButton>
-        <MenuList
-          data-testid="menu"
-          aria-label="menu label"
-          csx={{
-            bg: 'coral',
-          }}
-        >
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Link to</MenuItem>
-          <MenuItem>Favorite</MenuItem>
-          <MenuSeparator />
-          <MenuItem>Delete</MenuItem>
-        </MenuList>
-      </StatefulHiddenMenu>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(
       <StatefulMenu>

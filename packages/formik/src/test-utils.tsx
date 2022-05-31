@@ -17,9 +17,7 @@ expect.addSnapshotSerializer(serializer)
 expect.extend(matchers)
 expect.extend(toHaveNoViolations)
 
-const [ThemeProvider] = createSystem({
-  key: 'test',
-})
+const [ThemeProvider] = createSystem()
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {
   return baseRender(ui, { wrapper: ThemeProvider, ...options })

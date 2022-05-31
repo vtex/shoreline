@@ -4,12 +4,6 @@ import { render, axe } from '../test-utils'
 import { Abbr } from './abbr'
 
 describe('Abbr', () => {
-  it('should match snapshot', () => {
-    const { asFragment } = render(<Abbr title="full name">name</Abbr>)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(<Abbr title="full name">name</Abbr>)
 

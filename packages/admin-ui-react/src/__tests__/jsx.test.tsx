@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '../test-utils'
 import { jsx } from '../system-deprecated'
 
-describe('createComponent', () => {
+describe.skip('createComponent', () => {
   describe('short mode', () => {
     it('should return a function', () => {
       const Func = jsx('div')
@@ -195,7 +195,7 @@ describe('createComponent', () => {
   })
 })
 
-describe('variants', () => {
+describe.skip('variants', () => {
   it('should be able to create a variant', () => {
     const Square = jsx('div')({
       variants: {
