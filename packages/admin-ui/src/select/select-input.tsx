@@ -23,7 +23,7 @@ export const SelectInput = createComponent<'select', SelectInputOptions>(
       children: (
         <>
           <option value="" disabled>
-            {formatMessage('placeholder')}
+            {formatMessage('placeholder')}&hellip;
           </option>
 
           {children}

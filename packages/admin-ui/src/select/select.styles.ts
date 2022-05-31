@@ -10,6 +10,9 @@ export const baseline = style({
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
+  '> option': {
+    color: 'currentColor',
+  },
   '+ * > svg': {
     color: '$secondary',
   },
@@ -18,13 +21,17 @@ export const baseline = style({
   padding: '$m',
   paddingRight: '2.5rem',
   border: '$form.neutral',
-  ...focusVisible('neutral', { polyfill: { boxShadow: ring('neutral') } }),
+  ...focusVisible('neutral', {
+    focus: { border: '$form.neutralFocus' },
+    polyfill: { boxShadow: ring('neutral') },
+  }),
 
   ':disabled': {
     bg: '$disabled',
     color: '$disabled',
     border: '$disabled',
     cursor: 'not-allowed',
+    opacity: 1,
     '+ * > svg': {
       color: '$disabled',
     },
@@ -40,9 +47,14 @@ export const variants = styleVariants({
     false: {},
     true: {
       ...focusVisible('critical', {
+        focus: { border: '$form.criticalFocus' },
         polyfill: { boxShadow: ring('critical') },
       }),
       border: '$form.critical',
+
+      ':hover:not(:disabled)': {
+        border: '$form.criticalHover',
+      },
     },
   },
 
