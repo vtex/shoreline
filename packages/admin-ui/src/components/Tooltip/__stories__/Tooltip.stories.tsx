@@ -9,7 +9,7 @@ import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
 
 import { Button } from '../../../button'
-import { Tag } from '../../Tag'
+import { Tag } from '../../../tag'
 import { Text } from '../../Text'
 import { Stack } from '../../../stack'
 
@@ -40,7 +40,7 @@ export const ReactNodeLabel = () => {
           <Text variant="detail" tone="secondary">
             Previous Order: 102183 (211-213)
           </Text>
-          <Tag palette="green" label="Ready for Handling" size="small" />
+          <Tag palette="green" label="Ready for Handling" />
           <Text variant="detail">João da Silva</Text>
           <Text variant="detail">49,00 BRL</Text>
         </Stack>

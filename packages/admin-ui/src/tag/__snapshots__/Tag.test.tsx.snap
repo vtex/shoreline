@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag tests should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #D5EFF4;
+  color: #093F46;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #EDE8F4;
+  color: #462D63;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #DFF1E0;
+  color: #1C431E;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #F8E3E3;
+  color: #782020;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #EDE8F4;
+  color: #462D63;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #FFEBD7;
+  color: #5C2C00;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #CDEFE7;
+  color: #00463C;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #E6E6E6;
+  color: #3B3B3B;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    Rio de Janeiro
+  </div>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100px;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: none;
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #DEECF7;
+  color: #143C5C;
+}
+
+.emotion-0 >svg:nth-of-type(1) {
+  margin-right: 0.25rem;
+}
+
+.emotion-0 svg {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+}
+
+<div
+    class="emotion-0"
+  >
+    tag-1
+  </div>
+</DocumentFragment>
+`;

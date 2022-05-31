@@ -5,7 +5,7 @@ import type { Meta } from '@storybook/react'
 import { Inline } from '../inline'
 import { Bleed } from './bleed'
 
-import { Tag } from '../components/Tag'
+import { Tag } from '../tag'
 import { Box } from '../box'
 import { Paragraph } from '../components/Paragraph'
 
