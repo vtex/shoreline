@@ -1,3 +1,5 @@
+import { get } from '@vtex/admin-ui-util'
+
 import { cx, styles } from '../styles'
 
 describe('styles', () => {
@@ -192,7 +194,7 @@ describe('styles', () => {
   })
 
   describe('chained selectors alias', () => {
-    it('returns CSS selectors correct syntax', () => {
+    it('returns correct syntax for CSS selectors', () => {
       const result = styles({
         ':hover': { color: 'blue' },
         '::before': { color: 'blue' },
@@ -218,6 +220,38 @@ describe('styles', () => {
         '& + button': { color: 'blue' },
         '& .class-test': { color: 'blue' },
       })
+    })
+  })
+
+  it('returns correct syntax for deep CSS selectors', () => {
+    const result = styles({
+      button: {
+        ':hover': { color: 'blue' },
+        '::before': { color: 'blue' },
+        '[data]': { color: 'blue' },
+        '+ button': { color: 'blue' },
+        '.class-test': { color: 'blue' },
+      },
+    })
+
+    const keys = Object.keys(get(result, 'button', result))
+
+    expect(keys).toEqual([
+      '&:hover',
+      '&::before',
+      '&[data]',
+      '& + button',
+      '& .class-test',
+    ])
+
+    expect(result).toEqual({
+      button: {
+        '&:hover': { color: 'blue' },
+        '&::before': { color: 'blue' },
+        '&[data]': { color: 'blue' },
+        '& + button': { color: 'blue' },
+        '& .class-test': { color: 'blue' },
+      },
     })
   })
 
