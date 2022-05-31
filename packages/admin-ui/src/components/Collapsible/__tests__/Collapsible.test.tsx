@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, withState } from '../../../test-utils'
+import { render, withState, axe } from '../../../test-utils'
 
 import {
   Collapsible,
@@ -13,49 +13,16 @@ const StatefulCollapsible = withState(Collapsible, () =>
 )
 
 describe('Collapsible', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <StatefulCollapsible data-testid="collapsible" csx={{ bg: 'azure' }}>
-        <CollapsibleHeader
-          label="Collapsible Label"
-          data-testid="header"
-          csx={{ bg: 'azure' }}
-        />
-        <CollapsibleContent data-testid="content" csx={{ bg: 'azure' }}>
-          Collapsible Content
-        </CollapsibleContent>
-      </StatefulCollapsible>
-    )
-
-    expect(getByTestId('collapsible')).toHaveStyleRule('background', 'azure')
-    expect(getByTestId('header')).toHaveStyleRule('background', 'azure')
-    expect(getByTestId('content')).toHaveStyleRule('background', 'azure')
-  })
-
-  it('should match snapshot', () => {
-    const { asFragment } = render(
+  it('should not have a11y violations', async () => {
+    const { container } = render(
       <StatefulCollapsible>
         <CollapsibleHeader label="Collapsible Label" />
         <CollapsibleContent>Collapsible Content</CollapsibleContent>
       </StatefulCollapsible>
     )
 
-    expect(asFragment()).toMatchSnapshot()
-  })
+    const results = await axe(container)
 
-  it('should match snapshot with nesting collapsibles', () => {
-    const { asFragment } = render(
-      <StatefulCollapsible>
-        <CollapsibleHeader label="Collapsible Label" />
-        <CollapsibleContent>
-          <StatefulCollapsible>
-            <CollapsibleHeader label="Collapsible Label" />
-            <CollapsibleContent>Collapsible Content</CollapsibleContent>
-          </StatefulCollapsible>
-        </CollapsibleContent>
-      </StatefulCollapsible>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })

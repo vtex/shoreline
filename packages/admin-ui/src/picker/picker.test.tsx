@@ -34,12 +34,6 @@ function BaseComponent(props: PickerInitialState) {
 }
 
 describe('Picker', () => {
-  it('should render correctly', () => {
-    const { baseElement } = render(<BaseComponent visible />)
-
-    expect(baseElement).toMatchSnapshot()
-  })
-
   it('should open/close properly', () => {
     render(<BaseComponent />)
 

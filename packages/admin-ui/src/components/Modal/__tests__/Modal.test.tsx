@@ -19,47 +19,6 @@ const ModalWithState = withState(Modal, () =>
 )
 
 describe('Modal', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <ModalWithState
-        data-testid="modal"
-        aria-label="modal"
-        csx={{
-          bg: 'coral',
-        }}
-      >
-        <ModalHeader
-          data-testid="header"
-          title="Header"
-          csx={{
-            bg: 'azure',
-          }}
-        />
-        <ModalContent
-          data-testid="content"
-          csx={{
-            bg: 'aquamarine',
-          }}
-        >
-          <div>modal content</div>
-        </ModalContent>
-        <ModalFooter
-          data-testid="footer"
-          csx={{
-            bg: 'firebrick',
-          }}
-        >
-          <button>footer button</button>
-        </ModalFooter>
-      </ModalWithState>
-    )
-
-    expect(getByTestId('modal')).toHaveStyleRule('background', 'coral')
-    expect(getByTestId('header')).toHaveStyleRule('background', 'azure')
-    expect(getByTestId('content')).toHaveStyleRule('background', 'aquamarine')
-    expect(getByTestId('footer')).toHaveStyleRule('background', 'firebrick')
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ModalWithState aria-label="modal">
