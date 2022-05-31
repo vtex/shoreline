@@ -1,20 +1,14 @@
 import React from 'react'
 
-import { render } from '../../../test-utils'
+import { render, axe } from '../../../test-utils'
 import { Page } from '../index'
 
 describe('Page', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <Page csx={{ bg: 'coral' }} data-testid="page" />
-    )
+  it('should not have any violations', async () => {
+    const { container } = render(<Page />)
 
-    expect(getByTestId('page')).toHaveStyleRule('background', 'coral')
-  })
+    const results = await axe(container)
 
-  it('should match snapshot', () => {
-    const { asFragment } = render(<Page />)
-
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })

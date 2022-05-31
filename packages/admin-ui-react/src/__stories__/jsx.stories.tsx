@@ -11,9 +11,7 @@ import { Button as ReakitButton, Separator, Role } from 'reakit'
 import { createSystem } from '../system'
 import { jsx, tag } from '../system-deprecated'
 
-const [SystemProvider] = createSystem({
-  key: 'admin-ui-react',
-})
+const [SystemProvider] = createSystem()
 
 export default {
   title: 'admin-ui-react/jsx',

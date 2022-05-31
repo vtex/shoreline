@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '../test-utils'
 import { tag, jsx } from '../system-deprecated'
 
-describe('AdminUI elements', () => {
+describe.skip('AdminUI elements', () => {
   it('should create a callable element', () => {
     const Div = tag('div')
     const { getByText } = render(<Div>Testing</Div>)
