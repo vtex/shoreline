@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.131.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.0...@vtex/admin-ui@0.131.1-dev.0) (2022-05-31)
+
+### Bug Fixes
+
+- **filters:** fix setApplliedItems not having visual effects ([240e11a](https://github.com/vtex/admin-ui/commit/240e11a1350471fed9e6bcd8f30077b58dfe0ce7))
+
+### Code Refactoring
+
+- **filters:** change api to accept full object instead of ids ([30c5eab](https://github.com/vtex/admin-ui/commit/30c5eabcb537207953b2433d739529d83c1278a3))
+
+### Features
+
+- **forms:** add radio ([10bc119](https://github.com/vtex/admin-ui/commit/10bc119aecddfccfbaa615425b4d3187e10e0960))
+
+### BREAKING CHANGES
+
+- **filters:** objects are accepted in any shape
+
 # [0.131.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.130.1...@vtex/admin-ui@0.131.0) (2022-05-24)
 
 ### Bug Fixes

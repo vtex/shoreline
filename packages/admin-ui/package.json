@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.131.0",
+  "version": "0.131.1-dev.0",
   "main": "dist/vtex-admin-ui.cjs.js",
   "module": "dist/vtex-admin-ui.esm.js",
   "types": "dist/vtex-admin-ui.cjs.d.ts",
