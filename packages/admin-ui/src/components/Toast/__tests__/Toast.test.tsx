@@ -18,19 +18,6 @@ const toastProps = {
 }
 
 describe('Toast', () => {
-  it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ToastProvider>
-        <Toast {...toastProps} />
-        <Toast {...toastProps} tone="positive" />
-        <Toast {...toastProps} tone="warning" />
-        <Toast {...toastProps} tone="critical" />
-      </ToastProvider>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(
       <ToastProvider>
