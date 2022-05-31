@@ -115,7 +115,7 @@ export function createCsx(theme?: any) {
     const stitchesCSSObject = styles(csxObject, theme)
     const className = css(stitchesCSSObject)
 
-    return className()
+    return className().toString()
   }
 
   return csx
