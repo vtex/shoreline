@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.131.1-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.1-dev.0...@vtex/admin-ui@0.131.1-experimental.0) (2022-05-31)
+
+### Bug Fixes
+
+- **stitches:** adjust switch component styles ([6a7cfba](https://github.com/vtex/admin-ui/commit/6a7cfbad0040ed65be57d52cc64d6f770acc7b4e))
+
+### Features
+
+- **stitches:** remove emotion dependency from the project ([9298bff](https://github.com/vtex/admin-ui/commit/9298bff71c546d99cb1a4a562dbd4bd3a6a67e1c))
+
 ## [0.131.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.0...@vtex/admin-ui@0.131.1-dev.0) (2022-05-31)
 
 ### Bug Fixes
