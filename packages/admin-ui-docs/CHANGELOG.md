@@ -7,6 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
+## [0.14.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.14.0...@vtex/admin-ui-docs@0.14.1-dev.0) (2022-05-31)
+
 ## [0.14.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.14.0...@vtex/admin-ui-docs@0.14.1) (2022-06-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
