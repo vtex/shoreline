@@ -49,7 +49,7 @@
     "prepublish:main": "yarn && yarn build && yarn check --integrity",
     "prepublish:dev": "yarn && yarn build",
     "publish:main": "lerna publish",
-    "publish:dev": "yarn lerna publish --preid dev --dist-tag dev",
+    "publish:dev": "yarn lerna publish prerelease --preid dev --dist-tag dev",
     "clean": "turbo clean && turbo run clean",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint packages/ --ext .js,.ts,.jsx,.tsx",
