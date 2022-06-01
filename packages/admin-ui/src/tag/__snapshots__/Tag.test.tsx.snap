@@ -22,6 +22,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #D5EFF4;
 }
 
@@ -50,6 +53,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #EDE8F4;
 }
 
@@ -78,6 +84,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #DFF1E0;
 }
 
@@ -106,6 +115,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #F8E3E3;
 }
 
@@ -134,6 +146,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #EDE8F4;
 }
 
@@ -162,6 +177,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #FFEBD7;
 }
 
@@ -190,6 +208,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #CDEFE7;
 }
 
@@ -218,6 +239,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #E6E6E6;
 }
 
@@ -246,6 +270,9 @@ exports[`Tag tests should match snapshot 1`] = `
   height: 1.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  outline-color: #FFFFFF;
+  outline-width: 0.125rem;
+  outline-style: solid;
   background: #DEECF7;
 }
 
