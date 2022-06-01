@@ -29,7 +29,7 @@
     "react-dom": ">=16.8"
   },
   "dependencies": {
-    "@stitches/core": "1.2.8",
+    "@stitches/react": "1.2.8",
     "@vtex/admin-ui-util": "^0.3.0",
     "csstype": "3.0.10"
   }
