@@ -14,26 +14,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #D5EFF4;
-  color: #093F46;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -53,26 +42,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #EDE8F4;
-  color: #462D63;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -92,26 +70,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #DFF1E0;
-  color: #1C431E;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -131,26 +98,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #F8E3E3;
-  color: #782020;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -170,26 +126,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #EDE8F4;
-  color: #462D63;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -209,26 +154,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #FFEBD7;
-  color: #5C2C00;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -248,26 +182,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #CDEFE7;
-  color: #00463C;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -287,26 +210,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #E6E6E6;
-  color: #3B3B3B;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
@@ -326,26 +238,15 @@ exports[`Tag tests should match snapshot 1`] = `
   border-radius: 100px;
   font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
   font-variation-settings: 'WGHT' 400;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  letter-spacing: 0.002em;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: -0.004em;
+  color: #000000;
   border: none;
-  height: 40px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  height: 1.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   background: #DEECF7;
-  color: #143C5C;
-}
-
-.emotion-0 >svg:nth-of-type(1) {
-  margin-right: 0.25rem;
-}
-
-.emotion-0 svg {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  min-height: 20px;
 }
 
 <div
