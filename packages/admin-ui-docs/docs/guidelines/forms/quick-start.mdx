@@ -1,0 +1,76 @@
+---
+title: Quick start
+path: /quick-start/
+sidebar_position: 1
+---
+
+The `admin-ui-form` is a performant form state handling library. It has a first-class typescript support, and easy field validation.
+
+## Installation
+
+```sh
+# with yarn
+yarn add @vtex/admin-ui-form
+
+# with npm
+npm install @vtex/admin-ui-form
+
+# with pnpm
+pnpm add @vtex/admin-ui-form
+```
+
+## Usage
+
+```jsx
+import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <TextInput
+        label="Name"
+        name="name"
+        helpText="Enter your name"
+        state={form}
+      />
+
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+```
+
+## Example
+
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+const { Form, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <TextInput
+        label="Name"
+        name="name"
+        helpText="Enter your name"
+        state={form}
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
