@@ -2,6 +2,8 @@ import React from 'react'
 import { render, axe } from '../test-utils'
 import { Tag } from './tag'
 
+const LABEL = 'Rio de Janeiro'
+
 describe('Tag tests', () => {
   it('should have overridable styles', () => {
     const { getByTestId } = render(
@@ -14,14 +16,14 @@ describe('Tag tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <>
-        <Tag label="Rio de Janeiro" palette="cyan" />
-        <Tag label="Rio de Janeiro" palette="purple" />
-        <Tag label="Rio de Janeiro" palette="green" />
-        <Tag label="Rio de Janeiro" palette="red" />
-        <Tag label="Rio de Janeiro" palette="purple" />
-        <Tag label="Rio de Janeiro" palette="orange" />
-        <Tag label="Rio de Janeiro" palette="teal" />
-        <Tag label="Rio de Janeiro" palette="gray" />
+        <Tag label={LABEL} palette="cyan" />
+        <Tag label={LABEL} palette="purple" />
+        <Tag label={LABEL} palette="green" />
+        <Tag label={LABEL} palette="red" />
+        <Tag label={LABEL} palette="purple" />
+        <Tag label={LABEL} palette="orange" />
+        <Tag label={LABEL} palette="teal" />
+        <Tag label={LABEL} palette="gray" />
         <Tag label="tag-1" />
       </>
     )

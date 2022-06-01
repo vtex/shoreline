@@ -1,33 +1,34 @@
-import { palette, style, styleVariants } from '@vtex/admin-ui-core'
+import { colors, style, styleVariants } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
+
+function customPalette(color: string) {
+  return {
+    bg: get(colors, `${color}10`, ''),
+    color: '$primary',
+  }
+}
 
 export const baseline = style({
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '100px',
-  text: '$body',
+  text: '$detail',
+  color: '$primary',
   border: 'none',
-  '> svg:nth-of-type(1)': {
-    marginRight: 1,
-  },
-  height: 40,
-  paddingX: '4',
-  svg: {
-    width: 20,
-    minWidth: 20,
-    height: 20,
-    minHeight: 20,
-  },
+  height: '1.5rem',
+  paddingX: '0.75rem',
 })
 
 export const variants = styleVariants({
   palette: {
-    lightBlue: palette('lightBlue'),
-    green: palette('green'),
-    orange: palette('orange'),
-    cyan: palette('cyan'),
-    purple: palette('purple'),
-    teal: palette('teal'),
-    red: palette('red'),
-    gray: palette('gray'),
+    gray: customPalette('gray'),
+    red: customPalette('red'),
+    orange: customPalette('orange'),
+    green: customPalette('green'),
+    lightBlue: customPalette('lightBlue'),
+    cyan: customPalette('cyan'),
+    purple: customPalette('purple'),
+    teal: customPalette('teal'),
+    pink: customPalette('pink'),
   },
 })
