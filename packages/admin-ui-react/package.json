@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.7.1-experimental.2",
+  "version": "0.7.1-experimental.3",
   "main": "dist/vtex-admin-ui-react.cjs.js",
   "module": "dist/vtex-admin-ui-react.esm.js",
   "types": "dist/vtex-admin-ui-react.cjs.d.ts",
