@@ -2,10 +2,12 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 import type { TagProps } from './tag'
 import { Tag } from './tag'
 import { Stack } from '../stack'
+import type { InlineProps } from '../inline'
 import { Inline as AdminUIInline } from '../inline'
 import { Text } from '../components/Text'
 
@@ -30,16 +32,18 @@ Playground.args = {
   label: 'Short text',
 }
 
-function Inline(props: { children: ReactNode }) {
+type Props = InlineProps & { children: ReactNode; csx?: StyleProp }
+
+function Inline(props: Props) {
   return (
     <AdminUIInline
+      {...props}
       csx={{
         minWidth: '15rem',
         justifyContent: 'space-between',
+        ...props.csx,
       }}
-    >
-      {props.children}
-    </AdminUIInline>
+    />
   )
 }
 
@@ -81,6 +85,16 @@ export function Variants() {
       <Inline>
         <Text>pink</Text>
         <Tag label={LABEL} palette="pink" />
+      </Inline>
+      <Inline
+        csx={{
+          bg: '$secondary',
+          height: '2rem',
+          paddingTop: '0.1rem',
+        }}
+      >
+        <Text>outline</Text>
+        <Tag label={LABEL} />
       </Inline>
     </Stack>
   )
