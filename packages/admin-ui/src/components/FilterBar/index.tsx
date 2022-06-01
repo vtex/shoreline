@@ -113,9 +113,8 @@ export function FilterBar<T, V extends { value: T }>(
                 />
               </Inline>
               <Statement.Menu>
-                <Button
+                <MenuButton
                   variant="neutralTertiary"
-                  as={MenuButton}
                   aria-label={`${statementMenuLabel} ${index}`}
                   display="actions"
                 />
