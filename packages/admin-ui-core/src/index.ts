@@ -5,4 +5,4 @@ export * from './theme'
 export * from './types'
 export * from './styleVariants'
 
-export { keyframes, globalCss } from '@stitches/core'
+export * from './stitches.config'
