@@ -17,6 +17,9 @@ export const baseline = style({
   border: 'none',
   height: '1.5rem',
   paddingX: '0.75rem',
+  outlineColor: (theme) => theme.bg.primary,
+  outlineWidth: '0.125rem',
+  outlineStyle: 'solid',
 })
 
 export const variants = styleVariants({
