@@ -9,13 +9,19 @@ import 'focus-visible/dist/focus-visible'
 import { IconProvider } from './icons'
 import { SystemContext } from './context'
 
-export function createSystem(spec?: CreateSystemOptions): CreateSystemReturn {
-  const { experimentalTheme, experimentalDisabledGlobalStyles = false } =
-    spec ?? {}
+export function createSystem(
+  spec: CreateSystemOptions = {}
+): CreateSystemReturn {
+  const {
+    experimentalTheme = theme,
+    experimentalDisabledGlobalStyles = false,
+  } = spec
 
   const csx = createCsx(experimentalTheme)
 
-  const global = experimentalDisabledGlobalStyles ? {} : theme.global
+  const global = experimentalDisabledGlobalStyles
+    ? {}
+    : experimentalTheme.global
 
   globalCss(styles(global) as any)()
 
@@ -25,7 +31,7 @@ export function createSystem(spec?: CreateSystemOptions): CreateSystemReturn {
     return (
       <SystemContext.Provider
         value={{
-          theme,
+          theme: experimentalTheme,
           cn: csx,
           cx,
         }}
