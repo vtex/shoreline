@@ -55,6 +55,6 @@ export const text = {
     fontVariationSettings: typography.fontWeight.regular,
     fontSize: typography.fontSize.sm,
     lineHeight: typography.lineHeight.md,
-    letterSpacing: typography.letterSpacing.xs,
+    letterSpacing: typography.letterSpacing.s,
   },
 }
