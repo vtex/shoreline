@@ -1,5 +1,5 @@
-import type { CSS as CSSObject } from '@stitches/core'
-import { css } from '@stitches/core'
+import type { CSS as CSSObject } from '@stitches/react'
+import { css } from './stitches.config'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { alias } from './aliases'
