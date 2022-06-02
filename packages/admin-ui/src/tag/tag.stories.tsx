@@ -17,8 +17,17 @@ export default {
   title: 'admin-ui-review/tag',
   component: Tag,
   argTypes: {
-    palette: {
-      options: ['cyan', 'purple', 'green', 'red', 'orange', 'teal', 'gray'],
+    variant: {
+      options: [
+        'cyan',
+        'purple',
+        'green',
+        'red',
+        'orange',
+        'teal',
+        'gray',
+        'lightBlue',
+      ],
       control: { type: 'select' },
     },
   },
@@ -51,40 +60,40 @@ export function Variants() {
   return (
     <Stack>
       <Inline>
-        <Text>gray</Text>
-        <Tag label={LABEL} palette="gray" />
+        <Text>gray (default)</Text>
+        <Tag label={LABEL} />
       </Inline>
       <Inline>
         <Text>red (critical)</Text>
-        <Tag label={LABEL} palette="red" />
+        <Tag label={LABEL} variant="red" />
       </Inline>
       <Inline>
         <Text>orange (warning)</Text>
-        <Tag label={LABEL} palette="orange" />
+        <Tag label={LABEL} variant="orange" />
       </Inline>
       <Inline>
         <Text>green (positive)</Text>
-        <Tag label={LABEL} palette="green" />
+        <Tag label={LABEL} variant="green" />
       </Inline>
       <Inline>
-        <Text>lightBlue (default, info)</Text>
-        <Tag label={LABEL} palette="lightBlue" />
+        <Text>lightBlue (info)</Text>
+        <Tag label={LABEL} variant="lightBlue" />
       </Inline>
       <Inline>
         <Text>cyan</Text>
-        <Tag label={LABEL} palette="cyan" />
+        <Tag label={LABEL} variant="cyan" />
       </Inline>
       <Inline>
         <Text>purple</Text>
-        <Tag label={LABEL} palette="purple" />
+        <Tag label={LABEL} variant="purple" />
       </Inline>
       <Inline>
         <Text>teal</Text>
-        <Tag label={LABEL} palette="teal" />
+        <Tag label={LABEL} variant="teal" />
       </Inline>
       <Inline>
         <Text>pink</Text>
-        <Tag label={LABEL} palette="pink" />
+        <Tag label={LABEL} variant="pink" />
       </Inline>
       <Inline
         csx={{

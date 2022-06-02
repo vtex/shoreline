@@ -23,7 +23,7 @@ export const baseline = style({
 })
 
 export const variants = styleVariants({
-  palette: {
+  variant: {
     gray: customPalette('gray'),
     red: customPalette('red'),
     orange: customPalette('orange'),

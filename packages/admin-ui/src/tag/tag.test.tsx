@@ -16,14 +16,14 @@ describe('Tag tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <>
-        <Tag label={LABEL} palette="cyan" />
-        <Tag label={LABEL} palette="purple" />
-        <Tag label={LABEL} palette="green" />
-        <Tag label={LABEL} palette="red" />
-        <Tag label={LABEL} palette="purple" />
-        <Tag label={LABEL} palette="orange" />
-        <Tag label={LABEL} palette="teal" />
-        <Tag label={LABEL} palette="gray" />
+        <Tag label={LABEL} variant="cyan" />
+        <Tag label={LABEL} variant="purple" />
+        <Tag label={LABEL} variant="green" />
+        <Tag label={LABEL} variant="red" />
+        <Tag label={LABEL} variant="purple" />
+        <Tag label={LABEL} variant="orange" />
+        <Tag label={LABEL} variant="teal" />
+        <Tag label={LABEL} variant="gray" />
         <Tag label="tag-1" />
       </>
     )
