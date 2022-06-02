@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.5.7...@vtex/admin-formik@0.5.8) (2022-06-02)
+
+### Reverts
+
+- **react:** update react to version 17 ([57ffa42](https://github.com/vtex/admin-ui/commit/57ffa42dc1254bf0ade4afbc32fe79382bf92ddc))
+
 ## [0.5.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.5.6...@vtex/admin-formik@0.5.7) (2022-05-24)
 
 **Note:** Version bump only for package @vtex/admin-formik
