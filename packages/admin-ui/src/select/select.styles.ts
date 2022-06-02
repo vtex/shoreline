@@ -18,7 +18,7 @@ export const baseline = style({
   },
   boxSizing: 'border-box',
   height: '2.75rem',
-  padding: '$m',
+  paddingLeft: '1rem',
   paddingRight: '2.5rem',
   border: '$form.neutral',
   ...focusVisible('neutral', {
