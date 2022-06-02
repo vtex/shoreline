@@ -29,8 +29,8 @@
     "@emotion/react": ">=11",
     "@vtex/admin-ui-core": ">=0.x",
     "@vtex/phosphor-icons": ">=0.x",
-    "react": ">=17",
-    "react-dom": ">=17"
+    "react": "^16.9 || ^17.0",
+    "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",

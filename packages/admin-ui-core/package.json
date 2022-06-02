@@ -26,8 +26,8 @@
   },
   "peerDependencies": {
     "@emotion/css": ">=11",
-    "react": ">=17",
-    "react-dom": ">=17"
+    "react": "^16.9 || ^17.0",
+    "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
     "@emotion/css": "11.7.1"
