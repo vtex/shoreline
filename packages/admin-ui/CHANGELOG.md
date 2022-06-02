@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.131.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.0...@vtex/admin-ui@0.131.1) (2022-06-02)
+
+### Reverts
+
+- **react:** update react to version 17 ([57ffa42](https://github.com/vtex/admin-ui/commit/57ffa42dc1254bf0ade4afbc32fe79382bf92ddc))
+
 # [0.131.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.130.1...@vtex/admin-ui@0.131.0) (2022-05-24)
 
 ### Bug Fixes
