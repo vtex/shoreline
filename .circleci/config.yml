@@ -1,3 +1,14 @@
+aliases:
+  [
+    &filter-default-branches {
+      filters: { branches: { ignore: 'feat/publish-workflow' } },
+    },
+
+    &filter-release-branches-only {
+      filters: { branches: { only: 'feat/publish-workflow' } },
+    },
+  ]
+
 # Javascript Node CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
@@ -89,32 +100,18 @@ workflows:
 
   build-and-test:
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore: feat/publish-workflow
+      - build: *filter-default-branches
       - test:
           name: '@vtex/admin-ui test'
           requires:
             - build
-          filters:
-            branches:
-              ignore: feat/publish-workflow
 
   publish:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - feat/publish-workflow
+      - build: *filter-release-branches-only
       - test:
           requires:
             - build
-          filters:
-            branches:
-              only:
-                - feat/publish-workflow
       - confirm-release:
           type: approval
           requires:
@@ -123,7 +120,3 @@ workflows:
       - publish:
           requires:
             - confirm-release
-          filters:
-            branches:
-              only:
-                - feat/publish-workflow
