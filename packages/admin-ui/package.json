@@ -23,8 +23,8 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "peerDependencies": {
-    "react": ">=17",
-    "react-dom": ">=17"
+    "react": "^16.9 || ^17.0",
+    "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
     "@types/faker": "^5.1.2",
@@ -52,7 +52,7 @@
     "@vtex/admin-ui-react": "^0.7.1",
     "@vtex/admin-ui-util": "^0.3.1",
     "@vtex/phosphor-icons": "0.2.6",
-    "ariakit": "2.0.0-next.26",
+    "ariakit": "2.0.0-next.22",
     "csstype": "3.0.10",
     "date-fns": "^2.28.0",
     "downshift": "^6.0.6",
