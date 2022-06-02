@@ -597,7 +597,7 @@ exports[`Multiselect filter tests should match snapshot 1`] = `
 
 <div
     role="presentation"
-    style="position: fixed; --popover-overflow-padding: 8px;"
+    style="position: absolute; left: 0px; top: 0px; margin: 0px;"
   >
     <div
       aria-orientation="vertical"
