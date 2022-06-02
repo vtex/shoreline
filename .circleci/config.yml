@@ -109,7 +109,6 @@ workflows:
               only:
                 - feat/publish-workflow
       - test:
-          name: '@vtex/admin-ui test'
           requires:
             - build
           filters:
