@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, axe } from '../test-utils'
+import { render, axe } from '../../test-utils'
 
-import { Select } from './index'
+import { Select } from '../index'
 
 describe('Select', () => {
   it('should not have a11y violations', async () => {

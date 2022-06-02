@@ -1,13 +1,13 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { Select } from './index'
-import type { SelectProps } from './select'
-import { Box } from '../box'
-import { Stack } from '../stack'
-import type { Locales } from '../i18n'
-import { I18nProvider, locales } from '../i18n'
-import { Button } from '../button'
+import { Select } from '../index'
+import type { SelectProps } from '../select'
+import { Box } from '../../box'
+import { Stack } from '../../stack'
+import type { Locales } from '../../i18n'
+import { I18nProvider, locales } from '../../i18n'
+import { Button } from '../../button'
 
 export default {
   title: 'admin-ui-review/select',
