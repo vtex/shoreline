@@ -16,7 +16,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -47,7 +47,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -78,7 +78,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -109,7 +109,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -140,7 +140,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -171,7 +171,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -202,7 +202,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -233,7 +233,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -264,7 +264,7 @@ exports[`Tag tests should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #000000;
   border: none;
   height: 1.5rem;
@@ -273,7 +273,7 @@ exports[`Tag tests should match snapshot 1`] = `
   outline-color: #FFFFFF;
   outline-width: 0.125rem;
   outline-style: solid;
-  background: #DEECF7;
+  background: #E6E6E6;
 }
 
 <div

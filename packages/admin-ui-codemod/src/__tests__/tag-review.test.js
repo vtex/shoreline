@@ -23,8 +23,18 @@ describe('Preserve Tag', () => {
   defineInlineTest(
     tagTransform,
     {},
-    '<Switch label="Short text" />',
-    '<Switch label="Short text" />',
+    '<Tag label="Short text" variant="gray" />',
+    '<Tag label="Short text" variant="gray" />',
     'preserve props'
+  )
+})
+
+describe('Replace palette by variant', () => {
+  defineInlineTest(
+    tagTransform,
+    {},
+    '<Tag label="Short text" palette="gray" />',
+    '<Tag label="Short text" variant="gray" />',
+    'replace palette by variant'
   )
 })

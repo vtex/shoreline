@@ -21,8 +21,8 @@ export const tabToc = {
       level: 2,
     },
     {
-      id: 'palettes',
-      value: 'Palettes',
+      id: 'variants',
+      value: 'Variants',
       level: 3,
     },
   ],
@@ -64,20 +64,20 @@ export const tabToc = {
 <PageSection
   id={tabToc.overview[2].id}
   title={tabToc.overview[2].value}
-  explanation="By default, the palette property has the 'lightBlue' value, but you can also set it to the following values: 'red', 'orange', 'green', 'cyan', 'teal', 'gray', 'purple' and 'pink'."
+  explanation="By default, the variant property has the 'lightBlue' value, but you can also set it to the following values: 'red', 'orange', 'green', 'cyan', 'teal', 'gray', 'purple' and 'pink'."
 >
 
 ```jsx live
 <Inline>
   <Tag label="Short text" />
-  <Tag label="Short text" palette="red" />
-  <Tag label="Short text" palette="orange" />
-  <Tag label="Short text" palette="green" />
-  <Tag label="Short text" palette="cyan" />
-  <Tag label="Short text" palette="teal" />
-  <Tag label="Short text" palette="gray" />
-  <Tag label="Short text" palette="purple" />
-  <Tag label="Short text" palette="pink" />
+  <Tag label="Short text" variant="red" />
+  <Tag label="Short text" variant="orange" />
+  <Tag label="Short text" variant="green" />
+  <Tag label="Short text" variant="cyan" />
+  <Tag label="Short text" variant="teal" />
+  <Tag label="Short text" variant="gray" />
+  <Tag label="Short text" variant="purple" />
+  <Tag label="Short text" variant="pink" />
 </Inline>
 ```
 
@@ -105,11 +105,11 @@ function Example() {
   title={tabToc.codeReference[1].value}
 >
 
-| Name    | Type                                                                      | Description   | Required | Default     |
-| ------- | ------------------------------------------------------------------------- | ------------- | -------- | ----------- |
-| label   | `string`                                                                  | Tag label     | ✅       | -           |
-| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`        |
-| palette | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `lightBlue` |
+| Name    | Type                                                                      | Description   | Required | Default |
+| ------- | ------------------------------------------------------------------------- | ------------- | -------- | ------- |
+| label   | `string`                                                                  | Tag label     | ✅       | -       |
+| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`    |
+| variant | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `gray`  |
 
 </PageSection >
 </PageSection >
