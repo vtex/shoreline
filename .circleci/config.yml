@@ -87,17 +87,43 @@ workflows:
     jobs:
       - chromatic-deployment
 
-  build_and_test:
+  build-and-test:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: feat/publish-workflow
       - test:
           name: '@vtex/admin-ui test'
           requires:
             - build
+          filters:
+            branches:
+              ignore: feat/publish-workflow
 
   publish:
     jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - feat/publish-workflow
+      - test:
+          name: '@vtex/admin-ui test'
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - feat/publish-workflow
+      - confirm-release:
+          type: approval
+          requires:
+            - build
+            - test
       - publish:
+          requires:
+            - confirm-release
           filters:
             branches:
               only:
