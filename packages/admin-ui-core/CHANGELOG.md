@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.1...@vtex/admin-ui-core@0.10.2) (2022-06-02)
+
+### Bug Fixes
+
+- **dependencies:** rollback react to 16.9.x and change ariakit version to 2.0.0-rc.22 ([ddbfa2e](https://github.com/vtex/admin-ui/commit/ddbfa2e4455401bafd4404c3dcf6101e66403c7c))
+
 ## [0.10.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.0...@vtex/admin-ui-core@0.10.1) (2022-06-02)
 
 ### Reverts
