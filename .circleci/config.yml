@@ -63,6 +63,23 @@ jobs:
       - run: yarn build
       - run: yarn test:ci
 
+  publish:
+    docker:
+      - image: circleci/node:16
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - when:
+          condition:
+            equal: [feat/publish-workflow, << pipeline.git.branch >>]
+
+          steps:
+            - run: yarn install
+            - run: yarn build
+            - run: yarn publish:test
+
 workflows:
   version: 2
 
@@ -77,3 +94,11 @@ workflows:
           name: '@vtex/admin-ui test'
           requires:
             - build
+
+  publish:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only:
+                - feat/publish-workflow
