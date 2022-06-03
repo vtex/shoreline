@@ -49,7 +49,7 @@ npx admin-ui-codemod toggle-to-switch <path>
 
 #### `tag-review`
 
-Update `Tag` props to the latest specs (0.131.0+)
+Update `Tag` props to the latest specs (0.132.0+)
 
 ```sh
 npx admin-ui-codemod tag-review <path>
