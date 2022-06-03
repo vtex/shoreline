@@ -110,7 +110,7 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     value: 'toggle-to-switch',
   },
   {
-    name: 'tag-review: Update Tag props to the latest specs (0.131.0+)',
+    name: 'tag-review: Update Tag props to the latest specs (0.132.0+)',
     value: 'tag-review',
   },
 ]
