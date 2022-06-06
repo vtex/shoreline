@@ -46,8 +46,8 @@ export const NumberInput = forwardRef(
       useNumberInput({
         initialValue: value,
         step,
-        min,
-        max,
+        min: Number(min),
+        max: Number(max),
         onChange,
       })
 
@@ -122,8 +122,8 @@ interface NumberInputOptions {
   label?: ReactNode
   value?: NumberInputValue
   step?: number
-  min?: number
-  max?: number
+  min?: string | number
+  max?: string | number
   optional?: boolean
   error?: boolean
   errorText?: ReactNode
