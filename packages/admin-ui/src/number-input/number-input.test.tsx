@@ -23,23 +23,6 @@ const ControlledNumberInput = (props: NumberInputProps) => {
 describe('Number Input', () => {
   beforeEach(jestMatchMedia)
 
-  it('should match snapshot', () => {
-    const { asFragment } = render(
-      <ControlledNumberInput
-        label="Label"
-        min={-5}
-        max={5}
-        helpText="Help Text"
-        errorText="Error text"
-        error
-        disabled
-        optional
-      />
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should load controlled value', () => {
     const { getByTestId } = render(
       <ControlledNumberInput data-testid="number-input" />
