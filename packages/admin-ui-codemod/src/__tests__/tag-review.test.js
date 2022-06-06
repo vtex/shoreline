@@ -6,16 +6,42 @@ describe('Tag sizes', () => {
     tagTransform,
     {},
     '<Tag size="regular" label="Short text" />',
-    '<Tag label="Short text" />',
-    'remove size property and its value'
+    '<Tag size="normal" label="Short text" />',
+    'change from regular to normal'
   )
 
   defineInlineTest(
     tagTransform,
     {},
     '<Tag size="small" label="Short text" />',
+    '<Tag size="normal" label="Short text" />',
+    'change from small to normal'
+  )
+})
+
+describe('Removes tag props', () => {
+  defineInlineTest(
+    tagTransform,
+    {},
+    '<Tag handleDelete={() => null} label="Short text" />',
     '<Tag label="Short text" />',
-    'remove size property and its value'
+    'removes handleDelete property'
+  )
+
+  defineInlineTest(
+    tagTransform,
+    {},
+    '<Tag icon={<Icon />} label="Short text" />',
+    '<Tag label="Short text" />',
+    'removes icon property'
+  )
+
+  defineInlineTest(
+    tagTransform,
+    {},
+    '<Tag handleDelete={() => null} icon={<Icon />} label="Short text" />',
+    '<Tag label="Short text" />',
+    'removes handleDelete and icon property'
   )
 })
 

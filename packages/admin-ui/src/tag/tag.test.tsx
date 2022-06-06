@@ -25,6 +25,8 @@ describe('Tag tests', () => {
         <Tag label={LABEL} variant="teal" />
         <Tag label={LABEL} variant="gray" />
         <Tag label="tag-1" />
+        <Tag label="tag-1" size="large" />
+        <Tag label="tag-1" size="normal" />
       </>
     )
 
