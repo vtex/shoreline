@@ -4,7 +4,7 @@ import { baseline, variants } from './tag.style'
 import type { VariantProps } from '@vtex/admin-ui-core'
 
 export const useTag = createHook<'div', TagOptions>((props) => {
-  const { variant = 'gray', label, ...htmlProps } = props
+  const { variant = 'gray', size = 'normal', label, ...htmlProps } = props
 
   return {
     ...htmlProps,
@@ -12,6 +12,7 @@ export const useTag = createHook<'div', TagOptions>((props) => {
       ...baseline,
       ...variants({
         variant,
+        size,
       }),
     },
     children: label,
