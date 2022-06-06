@@ -8,18 +8,19 @@ const breakpoints = {
 }
 
 export function convertChainedSelectors(key: string) {
-  const joinedSelectors = ['[', ':']
-  const spacedSelectors = ['.', '+']
+  const selector = '&'
+  const space = ' '
 
-  const isJoined = joinedSelectors.find((selector) => key.startsWith(selector))
-  const isSpaced = spacedSelectors.find((selector) => key.startsWith(selector))
+  const selectorKey = key.charAt(0)
 
-  const joinedSelector = isJoined && `&${key}`
-  const spacedSelector = isSpaced && `& ${key}`
+  const converted = {
+    '[': `${selector}${key}`,
+    ':': `${selector}${key}`,
+    '.': `${selector}${space}${key}`,
+    '+': `${selector}${space}${key}`,
+  }[selectorKey]
 
-  const converted = joinedSelector ?? spacedSelector ?? key
-
-  return converted
+  return converted ?? key
 }
 
 export const aliases = {
