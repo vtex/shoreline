@@ -10,7 +10,7 @@ export function useFilterMultipleState<T extends AnyObject>(
   props: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
   const {
-    items,
+    items = [],
     label,
     baseId,
     onChange = () => {},
@@ -21,7 +21,7 @@ export function useFilterMultipleState<T extends AnyObject>(
   const [appliedItems, setAppliedItems] = useState<T[]>([])
 
   const comboboxMultiple = useComboboxMultipleState<T>({
-    list: items || [],
+    list: items,
     getOptionValue: getOptionLabel,
     compare: (optionA, optionB) =>
       getOptionId(optionA) === getOptionId(optionB),
@@ -76,7 +76,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     combobox: comboboxMultiple,
     onClear: clear,
     onChange: apply,
-    items: items ?? [],
+    items,
     appliedItems,
     setAppliedItems: updateApplied,
     selectedItems,

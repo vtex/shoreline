@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import {
@@ -11,7 +11,6 @@ import {
 
 import { useFilterGroupState } from '../filter-group.state'
 import { I18nProvider } from '@react-aria/i18n'
-import { useEffect } from '@storybook/addons'
 
 export default {
   title: 'admin-ui/Filters',
