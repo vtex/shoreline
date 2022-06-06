@@ -109,6 +109,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'toggle-to-switch: Migrate Toggle to Switch. Update Switch props to the latest specs (0.128.0+)',
     value: 'toggle-to-switch',
   },
+  {
+    name: 'tag-review: Update Tag props to the latest specs (0.132.0+)',
+    value: 'tag-review',
+  },
 ]
 
 // tsx or jsx
