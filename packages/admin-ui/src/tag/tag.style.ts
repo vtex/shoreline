@@ -12,10 +12,8 @@ export const baseline = style({
   display: 'inline-flex',
   alignItems: 'center',
   borderRadius: '100px',
-  text: '$detail',
   color: '$primary',
   border: 'none',
-  height: '1.5rem',
   paddingX: '0.75rem',
   outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
   outlineWidth: '0.125rem',
@@ -33,5 +31,15 @@ export const variants = styleVariants({
     purple: customPalette('purple'),
     teal: customPalette('teal'),
     pink: customPalette('pink'),
+  },
+  size: {
+    normal: {
+      height: '1.5rem',
+      text: '$detail',
+    },
+    large: {
+      height: '1.75rem',
+      text: '$body',
+    },
   },
 })

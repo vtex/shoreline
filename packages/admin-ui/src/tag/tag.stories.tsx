@@ -108,3 +108,18 @@ export function Variants() {
     </Stack>
   )
 }
+
+export function Sizes() {
+  return (
+    <Stack>
+      <Inline>
+        <Text>normal</Text>
+        <Tag label={LABEL} size="normal" />
+      </Inline>
+      <Inline>
+        <Text>large</Text>
+        <Tag label={LABEL} size="large" />
+      </Inline>
+    </Stack>
+  )
+}

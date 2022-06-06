@@ -25,6 +25,11 @@ export const tabToc = {
       value: 'Variants',
       level: 3,
     },
+    {
+      id: 'sizes',
+      value: 'Sizes',
+      level: 3,
+    },
   ],
   codeReference: [
     {
@@ -81,6 +86,21 @@ export const tabToc = {
 </Inline>
 ```
 
+</PageSection >
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+  explanation="By default, the size property has a 'normal' value, but you can also set it to 'large'."
+>
+
+```jsx live
+<Inline>
+  <Tag label="Short text" size="normal" />
+  <Tag label="Short text" size="large" />
+</Inline>
+```
+
 </PageSection>
 </PageSection>
 </Panel>
@@ -105,11 +125,12 @@ function Example() {
   title={tabToc.codeReference[1].value}
 >
 
-| Name    | Type                                                                      | Description   | Required | Default |
-| ------- | ------------------------------------------------------------------------- | ------------- | -------- | ------- |
-| label   | `string`                                                                  | Tag label     | ✅       | -       |
-| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`    |
-| variant | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `gray`  |
+| Name    | Type                                                                      | Description   | Required | Default  |
+| ------- | ------------------------------------------------------------------------- | ------------- | -------- | -------- |
+| label   | `string`                                                                  | Tag label     | ✅       | -        |
+| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`     |
+| variant | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `gray`   |
+| size    | `normal`, `large`                                                         | Tag size      | 🚫       | `normal` |
 
 </PageSection >
 </PageSection >

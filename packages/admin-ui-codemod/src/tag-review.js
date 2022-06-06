@@ -28,6 +28,10 @@ function replace(source, j, componentName) {
             )
           }
 
+          if (attribute.name.name === 'size') {
+            return j.jsxAttribute(j.jsxIdentifier('size'), j.literal('normal'))
+          }
+
           return attribute
         })
         .filter(Boolean)
@@ -40,7 +44,7 @@ function replace(source, j, componentName) {
 module.exports = function (file, { jscodeshift: j }) {
   let { source } = file
 
-  source = remove(source, j, 'Tag', ['size', 'handleDelete'])
+  source = remove(source, j, 'Tag', ['handleDelete', 'icon'])
   source = replace(source, j, 'Tag')
 
   return source
