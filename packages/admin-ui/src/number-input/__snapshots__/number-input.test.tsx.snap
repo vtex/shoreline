@@ -1,0 +1,400 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Number Input should match snapshot 1`] = `
+<DocumentFragment>
+  .emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-14 >*:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+.emotion-0 {
+  color: #545454;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+}
+
+.emotion-10 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  letter-spacing: 0.002em;
+  border: 1px solid #747474;
+  border-radius: 4px;
+  background: #E6E6E6;
+  cursor: text;
+  color: #747474;
+}
+
+.emotion-10:hover {
+  border: 1px solid #747474;
+}
+
+.emotion-10:focus-within {
+  border: 1px solid #782020;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #FBF2F2,0rem 0rem 0rem 0.1875rem #F49494;
+}
+
+.emotion-10:not(:hover):not(:focus-within)>button {
+  display: none;
+}
+
+.emotion-1 {
+  height: 2.75rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border-radius: 4px;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.emotion-1:focus {
+  outline: none;
+}
+
+.emotion-1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0rem;
+}
+
+.emotion-1::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.emotion-1::-moz-placeholder {
+  font-style: italic;
+}
+
+.emotion-1:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.emotion-1::placeholder {
+  font-style: italic;
+}
+
+.emotion-1:disabled~button {
+  display: none;
+}
+
+.emotion-5 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #2953B2;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-5:hover {
+  color: #20408C;
+  background: #F1F4FC;
+}
+
+.emotion-5:active {
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-5:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-5:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-5:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.01em;
+  visibility: visible;
+}
+
+.emotion-2 {
+  height: 1.25rem;
+  width: 1.25rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.emotion-9 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 500;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  color: #2953B2;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  height: 2.25rem;
+  margin-right: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-9:hover {
+  color: #20408C;
+  background: #F1F4FC;
+}
+
+.emotion-9:active {
+  color: #172F66;
+  background: #DDE5F7;
+}
+
+.emotion-9:disabled {
+  background: transparent;
+  color: #747474;
+}
+
+.emotion-9:focus {
+  outline: none;
+  box-shadow: 0rem 0rem 0rem 0.0625rem #F1F4FC,0rem 0rem 0rem 0.1875rem #96B2F2;
+}
+
+.emotion-9:focus:not([data-focus-visible-added]) {
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  -webkit-justify-content: unset;
+  justify-content: unset;
+}
+
+.emotion-13 >*:not(:first-child) {
+  margin-top: 0rem;
+}
+
+.emotion-11 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: 0.004em;
+  color: #545454;
+}
+
+.emotion-12 {
+  font-family: "VTEX Trust",-apple-system,system-ui,BlinkMacSystemFont,sans-serif;
+  font-variation-settings: 'WGHT' 400;
+  font-size: 0.75rem;
+  line-height: 1.3333333333;
+  letter-spacing: 0.004em;
+  color: #CC3D3D;
+}
+
+<div
+    class="emotion-14"
+  >
+    <label
+      class="emotion-0"
+      for="number-input"
+    >
+      Label (optional)
+    </label>
+    <div
+      class="emotion-10"
+    >
+      <input
+        class="emotion-1"
+        disabled=""
+        id="number-input"
+        max="5"
+        min="-5"
+        placeholder=""
+        step="1"
+        type="number"
+        value="8"
+      />
+      <button
+        aria-label="Decrement"
+        class="emotion-5"
+        type="button"
+      >
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-3"
+          >
+            <svg
+              class="emotion-2"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
+              />
+              <polyline
+                fill="none"
+                points="208 96 128 176 48 96"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="18"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <button
+        aria-disabled="true"
+        aria-label="Increment"
+        class="emotion-9"
+        disabled=""
+        style="pointer-events: none;"
+        type="button"
+      >
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-3"
+          >
+            <svg
+              class="emotion-2"
+              fill="currentColor"
+              height="1.25rem"
+              viewBox="0 0 256 256"
+              width="1.25rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="none"
+                height="16rem"
+                width="16rem"
+              />
+              <polyline
+                fill="none"
+                points="48 160 128 80 208 160"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="18"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="emotion-13"
+    >
+      <span
+        class="emotion-11"
+      >
+        Help Text
+      </span>
+      <span
+        class="emotion-12"
+        role="alert"
+      >
+        Error text
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
