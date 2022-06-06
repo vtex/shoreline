@@ -1,8 +1,10 @@
 import { style } from '@vtex/admin-ui-core'
 
 export const container = style({
+  opacity: 1,
   ':not(:hover):not(:focus-within) > button': {
-    display: 'none',
+    opacity: 0,
+    transition: 'opacity 250ms ease-in-out',
   },
 })
 
