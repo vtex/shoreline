@@ -268,7 +268,7 @@ exports[`Number Input should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #545454;
 }
 
@@ -277,7 +277,7 @@ exports[`Number Input should match snapshot 1`] = `
   font-variation-settings: 'WGHT' 400;
   font-size: 0.75rem;
   line-height: 1.3333333333;
-  letter-spacing: -0.004em;
+  letter-spacing: 0.004em;
   color: #CC3D3D;
 }
 
