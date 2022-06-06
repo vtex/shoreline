@@ -1,5 +1,5 @@
-import type { Emotion } from '@emotion/css/create-instance'
-import type { CSSObject as EmotionCSSObject } from '@emotion/css'
+import type { CSS as CSSObject } from '@stitches/react'
+import { css } from './stitches.config'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { alias } from './aliases'
@@ -69,7 +69,7 @@ function resolveResponsiveArray(
  * Parses a style object
  */
 export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
-  const cssObject: EmotionCSSObject = {}
+  const cssObject: CSSObject = {}
   const responsive = resolveResponsiveArray(csxObject as any)
 
   for (const key in responsive) {
@@ -110,12 +110,12 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
   return cssObject
 }
 
-export function createCsx(emotion: Emotion, theme?: any) {
+export function createCsx(theme?: any) {
   function csx(csxObject: StyleProp) {
-    const emotionCSSObject = styles(csxObject, theme)
-    const className = emotion.css(emotionCSSObject)
+    const stitchesCSSObject = styles(csxObject, theme)
+    const className = css(stitchesCSSObject)
 
-    return className
+    return className().toString()
   }
 
   return csx
@@ -128,3 +128,5 @@ export function isToken(token: string) {
 export function extractTokenCall(token: string) {
   return isToken(token) ? token.substring(1) : token
 }
+
+export const cx = (...args: string[]) => args.join(' ')

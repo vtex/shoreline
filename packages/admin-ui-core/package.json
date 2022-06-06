@@ -25,15 +25,12 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "peerDependencies": {
-    "@emotion/css": ">=11",
     "react": "^16.9 || ^17.0",
     "react-dom": "^16.9 || ^17.0"
   },
-  "devDependencies": {
-    "@emotion/css": "11.7.1"
-  },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.3.2",
-    "csstype": "3.0.10"
+    "@vtex/admin-ui-util": "^0.3.1",
+    "csstype": "3.0.10",
+    "@stitches/react": "1.2.8"
   }
 }

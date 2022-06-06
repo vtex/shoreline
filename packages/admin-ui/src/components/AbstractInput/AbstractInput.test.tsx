@@ -7,52 +7,6 @@ import { AbstractInput, AbstractInputPassword } from './index'
 
 describe('AbstractInput tests', () => {
   describe('Text', () => {
-    it('should have overridable styles', () => {
-      const { getByTestId } = render(
-        <AbstractInput
-          data-testid="input"
-          csx={{ color: 'coral' }}
-          value="Test1"
-          readOnly
-        />
-      )
-
-      expect(getByTestId('input')).toHaveStyleRule('color', 'coral')
-    })
-
-    it('should match snapshot', () => {
-      const { asFragment } = render(
-        <Fragment>
-          <AbstractInput value="Test1" readOnly />
-          <AbstractInput onClear={() => {}} />
-          <AbstractInput onClear={() => {}} value="Test2" readOnly />
-          <AbstractInput icon={<IconPlus />} />
-          <AbstractInput icon={<IconPlus />} value="Test3" readOnly />
-          <AbstractInput icon={<IconPlus />} onClear={() => {}} />
-          <AbstractInput
-            icon={<IconPlus />}
-            onClear={() => {}}
-            value="Test4"
-            readOnly
-          />
-          <AbstractInput suffix="Kg" />
-          <AbstractInput suffix="Kg" value="Test5" readOnly />
-          <AbstractInput suffix="Kg" onClear={() => {}} />
-          <AbstractInput suffix="Kg" icon={<IconPlus />} />
-          <AbstractInput suffix="Kg" icon={<IconPlus />} onClear={() => {}} />
-          <AbstractInput
-            suffix="Kg"
-            icon={<IconPlus />}
-            onClear={() => {}}
-            value="Test6"
-            readOnly
-          />
-        </Fragment>
-      )
-
-      expect(asFragment()).toMatchSnapshot()
-    })
-
     it('should not have a11y violations', async () => {
       const { container } = render(
         <Fragment>
@@ -151,22 +105,6 @@ describe('AbstractInput tests', () => {
       // hidden
       clickButton()
       expect(input()).toHaveAttribute('type', 'password')
-    })
-
-    it('should match snaphost', () => {
-      const { asFragment } = render(
-        <Fragment>
-          <AbstractInputPassword value="" id="password" readOnly />
-          <AbstractInputPassword
-            value=""
-            id="password"
-            readOnly
-            icon={<IconPlus />}
-          />
-        </Fragment>
-      )
-
-      expect(asFragment()).toMatchSnapshot()
     })
   })
 })

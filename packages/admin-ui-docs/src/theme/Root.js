@@ -6,7 +6,6 @@ import {
 } from '@vtex/admin-ui'
 
 const [ThemeProvider] = createSystem({
-  key: 'example',
   experimentalDisabledGlobalStyles: false,
 })
 

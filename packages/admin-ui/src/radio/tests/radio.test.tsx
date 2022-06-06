@@ -12,30 +12,6 @@ const StatefulRadioGroup = withState(RadioGroup, () => {
 describe('Radio', () => {
   beforeEach(jestMatchMedia)
 
-  it('should match snapshot', () => {
-    const { asFragment } = render(
-      <StatefulRadioGroup>
-        <Radio value="unchecked" label="label" id="radio-test" />
-        <Radio value="checked" label="label" checked id="radio-test" />
-        <Radio
-          value="unchecked disabled"
-          label="label"
-          disabled
-          id="radio-test"
-        />
-        <Radio
-          value="checked disabled"
-          label="label"
-          disabled
-          checked
-          id="radio-test"
-        />
-      </StatefulRadioGroup>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(
       <StatefulRadioGroup>

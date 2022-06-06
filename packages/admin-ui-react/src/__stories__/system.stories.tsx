@@ -20,9 +20,7 @@ import {
   useElement,
 } from '../system'
 
-const [SystemProvider] = createSystem({
-  key: 'admin-ui-react',
-})
+const [SystemProvider] = createSystem()
 
 export default {
   title: 'admin-ui-react/system',

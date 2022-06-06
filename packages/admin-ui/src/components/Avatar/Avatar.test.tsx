@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { render } from '../../test-utils'
+import React from 'react'
+import { axe, render } from '../../test-utils'
 
 import { Avatar } from './index'
 
@@ -10,19 +10,11 @@ describe('Avatar tests', () => {
     expect(getByText('T')).toBeTruthy()
   })
 
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <Fragment>
-        <Avatar data-testid="avatar" label="Test" csx={{ bg: 'azure' }} />
-      </Fragment>
-    )
+  it('should not have a11y violations', async () => {
+    const { container } = render(<Avatar label="Test" />)
 
-    expect(getByTestId('avatar')).toHaveStyleRule('background', 'azure')
-  })
+    const results = await axe(container)
 
-  it('should match snaphot', () => {
-    const { asFragment } = render(<Avatar label="Test" />)
-
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })
