@@ -4,7 +4,7 @@ path: /contributing/code-styleguide/
 sidebar_position: 4
 ---
 
-Here you can find common code style decisions that you must know before becoming a contributor.
+Common code style decisions that you must know before becoming a contributor.
 
 ## Components
 
@@ -14,31 +14,26 @@ The standard is to use pattern:
 
 ```sh isStatic
 // ✅ Good
-Component
-|__ __tests__
-|   |__ __snapshots__
-|   |__ Component.test.tsx
-|   |__ ComponentComposite.test.tsx
+component
+|__ tests
+|   |__ component.test.tsx
+|   |__ component-composite.test.tsx
 |
-|__ __stories__
-|   |__ Component.stories.tsx
-|   |__ ComponentComposite.stories.tsx
-|
-|__ components
-|   |__ Component.tsx
-|   |__ ComponentComposite.tsx
-|   |__ ComponentContext.tsx
-|
-|__ hooks
-|   |__ useComponentHook.ts
+|__ stories
+|   |__ component.stories.tsx
+|   |__ component-composite.stories.tsx
 |
 |_ index.tsx
-|_ state.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.context.tsx
+|_ component.style.ts
+|_ component.state.ts
 ```
 
 ### Prevent the use of React.FC
 
-The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. Find out [some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
+The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. [Some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
 
 ```tsx isStatic
 // ✅ Good
@@ -141,7 +136,7 @@ function Component(props: Props & SomeTypeA) {
 
 ### Avoid too much nesting
 
-A deep directory nesting can cause a lot of pain points, so you must avoid it as much as you can.[Learn why here](https://reactjs.org/docs/faq-structure.html#avoid-too-much-nesting).
+A deep directory nesting can cause a lot of pain points, so you must avoid it as much as you can.[Link](https://reactjs.org/docs/faq-structure.html#avoid-too-much-nesting).
 
 ### Prefer named exports
 
@@ -163,51 +158,47 @@ export default function Component() {
 
 ### File structure
 
-All test files must follow the `*.test.(ts|tsx)` pattern, where `*` shall never be `index`. Use the `__tests__` directory to store all the test files
+All test files must follow the `*.test.(ts|tsx)` pattern, where `*` shall never be `index`. Use the `tests` directory to store all the test files.
 
 ```sh isStatic
 // ✅ Good
-Component
-|__ __tests__
-|   |__ __snapshots__
-|   |__ Component.test.tsx
-|   |__ ComponentComposite.test.tsx
-|
-|__ components
-|   |__ Component.tsx
-|   |__ ComponentComposite.tsx
-|   |__ ComponentContext.tsx
+component
+|__ tests
+|   |__ component.test.tsx
+|   |__ component-composite.test.tsx
 |
 |_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
 
 // 🚨 Bad
-Component
-|__ index.tsx
-|__ Component.tsx
-|__ Component.test.tsx
-|__ ComponentComposite.tsx
-|__ ComponentComposite.test.tsx
+component
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.test.tsx
+|_ component-composite.test.tsx
 ```
 
 ## Styling
 
 ### Prefer tokens
 
-Always prefer to use tokens instead of hardcoded values
+Always prefer to use tokens instead of hardcoded values.
 
 ```jsx isStatic
 // ✅ Good
 <tag.div
   csx={{
-    color: 'base',
-    padding: 2,
+    bg: '$primary',
+    padding: '$xs',
   }}
 />
 
 // 🚨 Bad
 <tag.div
   csx={{
-    color: '#fff',
+    bg: '#fff',
     padding: '8px',
   }}
 />
@@ -221,18 +212,18 @@ Prefer props composition and shorthands.
 // ✅ Preferred
 <tag.div
   csx={{
-    bg: 'base',
-    paddingX: 2,
+    bg: '$primary',
+    paddingX: '$xs',
     size: '20rem',
   }}
 />
 
-// 🚨 Not wrong, but can improve
+// 🚨 Not wrong, but can be improved
 <tag.div
   csx={{
-    backgroundColor: 'base',
-    paddingLeft: 2,
-    paddingRight: 2,
+    backgroundColor: '$primary',
+    paddingLeft: '$xs',
+    paddingRight: '$xs',
     height: '20rem',
     width: '20rem',
   }}
@@ -247,12 +238,12 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 // ✅ Good
 <tag.div
   csx={{
-    padding: 2,
+    padding: '$xs',
     '@tablet': {
-      padding: 3,
+      padding: '$s',
     },
     '@desktop': {
-      padding: 4,
+      padding: '$m',
     }
   }}
 />
@@ -260,19 +251,19 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 // 🚨 Bad, not semantic
 <tag.div
   csx={{
-    padding: [2, 3, 4],
+    padding: ['$xs', '$s', '$m'],
   }}
 />
 
 // 🚨 Bad, not consistent
 <tag.div
   csx={{
-    padding: 2,
+    padding: '$xs',
     '@media screen and (min-width: 40em)': {
-      padding: 3,
+      padding: '$s',
     },
     '@media screen and (min-width: 80em)': {
-      padding: 4,
+      padding: '$m',
     },
   }}
 />
@@ -280,16 +271,16 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 
 ### Avoid parent styles
 
-Avoiding parent styles while coding an app does not matter much, but if you are within a library this is a bad practice. The user will not be able to customize the child's style without the `!important` flag. So, you must avoid it.
+While coding an app it doesn't matter, but if you are within a library this is a bad practice! The user will not be able to customize the child's style without the `!important` flag. So, you must avoid it.
 
 ```jsx isStatic
 // ✅ Good
 <tag.div
   csx={{
-    padding: 2,
+    padding: '$m',
   }}
 >
-  <tag.h1 csx={{ color: 'base' }}>
+  <tag.h1 csx={{ color: '$primary' }}>
     Title
   </tag.h1>
 </tag.div>
@@ -297,9 +288,9 @@ Avoiding parent styles while coding an app does not matter much, but if you are 
 // 🚨 Bad
 <tag.div
   csx={{
-    padding: 2,
+    padding: '$m',
     h1: {
-      color: 'base'
+      color: '$primary'
     }
   }}
 >
@@ -311,32 +302,28 @@ Avoiding parent styles while coding an app does not matter much, but if you are 
 
 ### Writing stories
 
-In admin-ui we use [storybook](#) as our playground to develop components.
+In admin-ui we use [storybook](https://storybook.js.org/) as our playground to develop components.
 
 #### File structure
 
-Always use the `stories.tsx` suffix. Otherwise, it will not work. Use the `__stories__` directory to store all the story files
+Always use the `stories.tsx` suffix. Otherwise, it will not work. Use the `stories` directory to store all the story files.
 
 ```sh isStatic
 // ✅ Good
-Component
-|
-|__ __stories__
-|   |__ Component.stories.tsx
-|   |__ ComponentComposite.stories.tsx
-|
-|__ components
-|   |__ Component.tsx
-|   |__ ComponentComposite.tsx
-|   |__ ComponentContext.tsx
+component
+|__ stories
+|   |__ component.stories.tsx
+|   |__ component-composite.stories.tsx
 |
 |_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
 
 // 🚨 Bad
-Component
-|__ index.tsx
-|__ Component.tsx
-|__ Component.test.tsx
-|__ ComponentComposite.tsx
-|__ ComponentComposite.test.tsx
+component
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.stories.tsx
+|_ component-composite.stories.tsx
 ```
