@@ -58,6 +58,7 @@
     "chromatic": "chromatic --exit-zero-on-changes --build-script-name=build:storybook",
     "docs": "yarn --cwd packages/admin-ui-docs start",
     "build:docs": "yarn --cwd packages/admin-ui-docs build-docs",
+    "version:docs": "yarn --cwd packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
     "build:ci": "preconstruct build",
     "test:ci": "jest --color --runInBand --ci",
