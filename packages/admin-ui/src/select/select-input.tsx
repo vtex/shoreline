@@ -9,11 +9,12 @@ import { useMessageFormatter } from '../i18n'
 
 export const SelectInput = createComponent<'select', SelectInputOptions>(
   (props) => {
-    const { error = false, value = '', children, ...restProps } = props
+    const { error = false, value, children, ...restProps } = props
 
     const formatMessage = useMessageFormatter(messages.select)
 
     return useElement('select', {
+      defaultValue: '',
       ...restProps,
       value,
       baseStyle: {
@@ -25,7 +26,6 @@ export const SelectInput = createComponent<'select', SelectInputOptions>(
           <option value="" disabled>
             {formatMessage('placeholder')}&hellip;
           </option>
-
           {children}
         </>
       ),
