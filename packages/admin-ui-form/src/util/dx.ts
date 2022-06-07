@@ -17,7 +17,7 @@ export function useFieldDx(props: AnyObject) {
 /**
  * Wether is dev mode
  */
-function isDevMode() {
+export function isDevMode() {
   return process.env.NODE_ENV !== 'production'
 }
 
@@ -30,7 +30,7 @@ function isDevMode() {
  *  tone: 'error' | 'warning' | 'neutral'
  * })
  */
-function developerMessage(message: DeveloperMessage) {
+export function developerMessage(message: DeveloperMessage) {
   switch (message.tone) {
     case 'error': {
       throw Error(message.text)
