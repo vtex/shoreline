@@ -24,6 +24,13 @@ We use Lerna to control the operations through all of our packages on Admin UI. 
 - [Lerna documentation](https://github.com/lerna/lerna)
 - [Lerna config on Admin UI](https://github.com/vtex/admin-ui/blob/main/lerna.json).
 
+**Admin UI Docs**
+
+We need to add manually a new version of our documentation each time a new version of Admin UI will be published. Execute the following command to create a new version of the documentation:
+```
+yarn version:docs <admin-ui-version>
+```
+
 ## Publish Flow
 
 Once you merge the changes within the `main` branch, you should update your local branch, and then run `yarn publish:main`.
