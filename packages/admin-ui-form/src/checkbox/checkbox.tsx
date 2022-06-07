@@ -39,7 +39,7 @@ export function Checkbox(props: CheckboxProps) {
       if (!checkboxProps.value) {
         developerMessage({
           tone: 'error',
-          text: 'You are within a Group! Add the `value` prop to each checkbox to give then meaning',
+          text: 'You are within a Group! Add the `value` prop to each checkbox to give them meaning',
         })
       }
     } else {
