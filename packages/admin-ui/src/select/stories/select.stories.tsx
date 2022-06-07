@@ -35,9 +35,9 @@ export const Playground: Story<PlaygroundProps> = (args) => {
           onChange={(e) => setValue(e.target.value)}
           {...args}
         >
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
+          <option value="option-1">Option 1</option>
+          <option value="option-2">Option 2</option>
+          <option value="option-3">Option 3</option>
         </Select>
       </Box>
     </I18nProvider>
@@ -68,9 +68,9 @@ export const UIStates: Story<SelectProps> = () => {
         errorText="Error Text"
         onChange={(e) => setValue(e.target.value)}
       >
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
+        <option value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+        <option value="option-3">Option 3</option>
       </Select>
       <Select
         value={value}
@@ -79,9 +79,9 @@ export const UIStates: Story<SelectProps> = () => {
         error
         onChange={(e) => setValue(e.target.value)}
       >
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
+        <option value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+        <option value="option-3">Option 3</option>
       </Select>
       <Select
         value={value}
@@ -91,9 +91,9 @@ export const UIStates: Story<SelectProps> = () => {
         error
         onChange={(e) => setValue(e.target.value)}
       >
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
+        <option value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+        <option value="option-3">Option 3</option>
       </Select>
     </Stack>
   )
@@ -111,14 +111,14 @@ export const ForwardRef: Story<SelectProps> = () => {
   return (
     <Stack space="$3xl" csx={{ width: '288px', margin: '$m' }} fluid>
       <Select ref={ref}>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
+        <option value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+        <option value="option-3">Option 3</option>
       </Select>
       <Button
         onClick={() => {
           if (ref.current) {
-            ref.current.value = 'Option 2'
+            ref.current.value = 'option-2'
           }
         }}
       >
