@@ -77,22 +77,24 @@ export const useNumberInput = (props: NumberInputState) => {
     }
   }
 
-  const getDecrementButtonProps = (props: ButtonProps) => {
+  const getDecrementButtonProps = (props: ButtonProps): ButtonProps => {
     return {
       'aria-label': formatMessage('decrement'),
       variant: 'tertiary',
       onClick: handleDecrement,
       disabled: isNumber(currentValue) && Number(currentValue) <= min,
+      tabIndex: -1,
       ...props,
     }
   }
 
-  const getIncrementButtonProps = (props: ButtonProps) => {
+  const getIncrementButtonProps = (props: ButtonProps): ButtonProps => {
     return {
       'aria-label': formatMessage('increment'),
       variant: 'tertiary',
       onClick: handleIncrement,
       disabled: isNumber(currentValue) && Number(currentValue) >= max,
+      tabIndex: -1,
       ...props,
     }
   }

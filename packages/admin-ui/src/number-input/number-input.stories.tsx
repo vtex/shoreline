@@ -107,7 +107,7 @@ export const WithTerms: Story<NumberInputProps> = () => {
             <Button
               variant="tertiary"
               icon={<IconArrowsClockwise />}
-              ariaLabel="Reset"
+              aria-label="Reset"
               onClick={() => setValue('')}
               bleedY
               bleedX
