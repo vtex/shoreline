@@ -75,7 +75,7 @@ export const CheckboxGroupPlayground: Story<CheckboxGroupPlaygroundProps> = (
     <Box csx={{ margin: '$xs' }}>
       <CheckboxGroup {...remainingProps}>
         {[...Array(checkboxCount)].map((_, index) => (
-          <Checkbox label={`Checkbox ${index}`} />
+          <Checkbox key={index} label={`Checkbox ${index}`} />
         ))}
       </CheckboxGroup>
     </Box>
@@ -89,7 +89,6 @@ CheckboxGroupPlayground.args = {
   error: false,
   errorText: 'Error Text',
   optional: false,
-  optionalText: 'optional',
   checkboxCount: 4,
 }
 
@@ -98,12 +97,7 @@ export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
 ) => {
   return (
     <Box csx={{ margin: '$xs' }}>
-      <CheckboxGroup
-        label="Contact Info"
-        direction={args.direction}
-        optionalText="optional"
-        optional
-      >
+      <CheckboxGroup label="Contact Info" direction={args.direction} optional>
         <Checkbox label="Phone" helpText="All contacts will be made by call" />
         <Checkbox
           label="Cell Phone"
