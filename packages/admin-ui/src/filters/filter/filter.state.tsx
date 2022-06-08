@@ -10,7 +10,7 @@ export function useFilterState<T extends AnyObject>(
   props: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
   const {
-    items,
+    items = [],
     label,
     baseId,
     getOptionLabel = (option) => option.label,
@@ -22,7 +22,7 @@ export function useFilterState<T extends AnyObject>(
 
   const combobox = useComboboxState({
     virtualFocus: false,
-    list: items || [],
+    list: items,
     getOptionValue: getOptionLabel,
   })
 
@@ -77,7 +77,7 @@ export function useFilterState<T extends AnyObject>(
     combobox,
     onClear: clear,
     onChange: apply,
-    items: items || [],
+    items,
     appliedItem,
     setAppliedItem: updateApplied,
     label,
