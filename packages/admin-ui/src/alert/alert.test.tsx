@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { render, jestMatchMedia, axe } from '../../../test-utils'
-import { IconXCircle, IconCheckCircle, IconWarning } from '@vtex/phosphor-icons'
+import { render, jestMatchMedia, axe } from '../test-utils'
 
-import { Alert } from '../index'
+import { Alert } from './index'
 
 describe('Alert', () => {
   beforeEach(jestMatchMedia)
@@ -10,15 +9,20 @@ describe('Alert', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Fragment>
-        <Alert tone="positive" icon={<IconCheckCircle />} visible>
+        <Alert tone="positive" visible>
           Order successfully placed
         </Alert>
-        <Alert tone="warning" icon={<IconWarning />} visible>
+        <Alert tone="warning" visible fluid>
           This account is inactive. Check your billing for more information.
         </Alert>
-        <Alert tone="critical" icon={<IconXCircle />} visible>
+        <Alert
+          tone="critical"
+          visible
+          action={{ children: 'Click here', onClick: () => null }}
+        >
           Somenthing went wrong. Please, try again.
         </Alert>
+        <Alert>I'm invisible</Alert>
       </Fragment>
     )
 
