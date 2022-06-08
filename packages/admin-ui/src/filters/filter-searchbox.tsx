@@ -4,13 +4,10 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useCombobox } from 'ariakit/combobox'
 import type { ComboboxState } from '../combobox'
 import { Search } from '..'
-import { messages } from './filter.i18n'
-import { useMessageFormatter } from '../i18n'
 
 export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
   (props) => {
     const { state, id, ...htmlProps } = props
-    const formatMessage = useMessageFormatter(messages.searchBox)
 
     const comboboxProps = useCombobox({
       state,
@@ -25,7 +22,6 @@ export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
       children: (
         <Search
           {...seachBoxProps}
-          placeholder={formatMessage('searchPlaceholder')}
           value={state.value}
           loading={state.status === 'loading'}
           onClear={() => {

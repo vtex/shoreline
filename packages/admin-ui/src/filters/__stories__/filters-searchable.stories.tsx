@@ -7,6 +7,7 @@ import {
   FilterSearch,
   useFilterGroupState,
   FilterGroup,
+  FilterMultipleSearch,
 } from '../index'
 
 export default {
@@ -36,6 +37,30 @@ export function SingleSearch() {
   })
 
   return <FilterSearch state={state} />
+}
+
+export function MultipleSearch() {
+  const state = useFilterMultipleState({
+    items: [
+      { label: 'Rio de Janeiro', id: '#1' },
+      { label: 'Rio de Janeiro', id: '#01' },
+      { label: 'New York', id: '#2' },
+      { label: 'Paris', id: '#3' },
+      { label: 'Tokyo', id: '#4' },
+      { label: 'São Paulo', id: '#5' },
+      { label: 'Berlin', id: '#7' },
+      { label: 'Washington', id: '#8' },
+      { label: 'Lisboa', id: '#9' },
+      { label: 'Porto', id: '#10' },
+      { label: 'João Pessoa', id: '#11' },
+      { label: 'Salvador', id: '#12' },
+      { label: 'Barcelona', id: '#13' },
+    ],
+    onChange: ({ selected }) => console.log({ selected }),
+    label: 'City',
+  })
+
+  return <FilterMultipleSearch state={state} />
 }
 
 // fake request
@@ -105,6 +130,34 @@ export const Async = () => {
   return <FilterSearch state={state} />
 }
 
+export const AsyncMultiple = () => {
+  const state = useFilterMultipleState<{ label: string; id: string }>({
+    items: [],
+    label: 'Async city',
+  })
+
+  useEffect(() => {
+    if (state.combobox.deferredValue === '') {
+      searchItems('').then((res) => {
+        state.combobox.setMatches(
+          res.map(({ value }) => ({ label: value, id: value }))
+        )
+        state.combobox.setLoading(false)
+      })
+    } else {
+      state.combobox.setLoading(true)
+      searchItems(state.combobox.deferredValue).then((res) => {
+        state.combobox.setMatches(
+          res.map(({ value }) => ({ label: value, id: value }))
+        )
+        state.combobox.setLoading(false)
+      })
+    }
+  }, [state.combobox.deferredValue])
+
+  return <FilterMultipleSearch state={state} />
+}
+
 export const Group = () => {
   const fullList = [
     { name: 'Rio de Janeiro', uniqueId: '#1' },
@@ -164,7 +217,9 @@ export const Group = () => {
 
   return (
     <FilterGroup state={filterGroupState}>
+      <FilterMultipleSearch state={state} />
       <FilterSearch state={state2} />
+      <FilterMultipleSearch state={state3} />
       <FilterSearch state={state4} />
     </FilterGroup>
   )
