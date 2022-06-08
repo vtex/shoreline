@@ -1,22 +1,14 @@
 import React, { useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
-import {
-  IconCheckCircle,
-  IconWarning,
-  IconXOctagon,
-  IconQuestion,
-  IconWarningCircle,
-} from '@vtex/phosphor-icons'
 
-import type { AlertProps } from '../index'
-import { Alert } from '../index'
-import { Box } from '../../../box'
-import { Button } from '../../../button'
-import { Anchor } from '../../Anchor'
-import { Stack } from '../../../stack'
+import type { AlertProps } from './index'
+import { Alert } from './index'
+import { Box } from '../box'
+import { Button } from '../button'
+import { Stack } from '../stack'
 
 export default {
-  title: 'admin-ui/Alert',
+  title: 'admin-ui-review/alert',
   component: Alert,
 } as Meta
 
@@ -34,16 +26,16 @@ Playground.args = {
 export function Tones() {
   return (
     <Stack fluid>
-      <Alert tone="info" icon={<IconQuestion />} visible>
+      <Alert tone="info" visible>
         Order successfully placed
       </Alert>
-      <Alert tone="positive" icon={<IconCheckCircle />} visible>
+      <Alert tone="positive" visible>
         Order successfully placed
       </Alert>
-      <Alert tone="warning" icon={<IconWarning />} visible>
+      <Alert tone="warning" visible>
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert tone="critical" icon={<IconXOctagon />} visible>
+      <Alert tone="critical" visible>
         Somenthing went wrong. Please, try again.
       </Alert>
     </Stack>
@@ -53,13 +45,26 @@ export function Tones() {
 export function Actions() {
   return (
     <Stack fluid>
-      <Alert tone="positive" visible>
-        Order successfully placed <Anchor>See order</Anchor>
+      <Alert
+        tone="positive"
+        visible
+        action={{
+          children: 'See order',
+          onClick: () => alert('Order #123'),
+        }}
+      >
+        Order successfully placed
       </Alert>
 
-      <Alert visible onDismiss={() => {}}>
-        You’re beta testing the new Order Details{' '}
-        <Anchor>Back to the old version</Anchor>
+      <Alert
+        visible
+        onDismiss={() => {}}
+        action={{
+          children: 'Back to the old version',
+          onClick: () => alert('Old version'),
+        }}
+      >
+        You're beta testing the new Order Details
       </Alert>
     </Stack>
   )
@@ -84,23 +89,9 @@ export function Visible() {
 export function Fluid() {
   return (
     <Box csx={{ width: 400 }}>
-      <Alert
-        icon={<IconWarningCircle />}
-        visible
-        fluid
-        tone="info"
-        onDismiss={() => {}}
-      >
+      <Alert visible fluid tone="info" onDismiss={() => {}}>
         This account is inactive. Check your billing for more information.
       </Alert>
     </Box>
-  )
-}
-
-export function Sticky() {
-  return (
-    <Alert onDismiss={() => {}} tone="positive" visible sticky>
-      Order successfully placed
-    </Alert>
   )
 }
