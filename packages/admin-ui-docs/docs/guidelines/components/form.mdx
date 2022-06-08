@@ -1,0 +1,193 @@
+---
+title: Form
+path: /form/
+---
+
+`@vtex/admin-ui-form` is a performant form state handling library. It has a first-class typescript support, and easy field validation.
+
+## Installation
+
+The `admin-ui-form` package is not included in the `admin-ui` bundle, so you must add it.
+
+```sh
+# with yarn
+yarn add @vtex/admin-ui-form
+
+# with npm
+npm install @vtex/admin-ui-form
+
+# with pnpm
+pnpm add @vtex/admin-ui-form
+```
+
+## Key concepts
+
+### State hook
+
+TODO
+
+### The name
+
+TODO
+
+### Subscriptions
+
+TODO
+
+## Usage
+
+```jsx
+import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    // form data
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      {/** ... components ... */}
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+```
+
+## Example
+
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+const { Form, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <TextInput
+        label="Name"
+        name="name"
+        helpText="Enter your name"
+        state={form}
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+render(<Example />)
+```
+
+## Props
+
+### Form
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### TextInput
+
+Extends `<input type="text">` props.
+
+| Name       | Type              | Description              | Required | Default |
+| ---------- | ----------------- | ------------------------ | -------- | ------- |
+| state      | FormState         | Return of useFormState   | ✅       | -       |
+| name       | string            | Field name               | ✅       | ''      |
+| validation | ValidationOptions | Field validation options | 🚫       | -       |
+
+### NumberInput
+
+Extends `<input type="number">` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### TextArea
+
+Extends `<textarea>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### Select
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### Radio
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### RadioGroup
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### Checkbox
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### CheckboxGroup
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### Switch
+
+Extends `<form>` props.
+
+| Name  | Type      | Description            | Required | Default |
+| ----- | --------- | ---------------------- | -------- | ------- |
+| state | FormState | Return of useFormState | ✅       | -       |
+
+### Watch
+
+Extends `<form>` props.
+
+| Name  | Type                     | Description            | Required | Default |
+| ----- | ------------------------ | ---------------------- | -------- | ------- |
+| state | [FormState](/form-state) | Return of useFormState | ✅       | -       |
+
+### Shared types
+
+#### FormState
+
+| Name        | Type                                                                    | Description | Required | Default |
+| ----------- | ----------------------------------------------------------------------- | ----------- | -------- | ------- |
+| register    | `(name: string, RegisterOptions?) => ({ onChange, onBlur, name, ref })` |             | ✅       | -       |
+| formState   | `Object`                                                                |             | ✅       | -       |
+| resetField  |                                                                         |             | ✅       | -       |
+| setError    |                                                                         |             | ✅       | -       |
+| clearErrors |                                                                         |             | ✅       | -       |
+| setValue    |                                                                         |             | ✅       | -       |
+| getValues   |                                                                         |             | ✅       | -       |
+| control     |                                                                         |             | ✅       | -       |
+
+#### ValidationOptions

@@ -13,6 +13,7 @@ import * as Formik from 'formik'
 import * as Yup from 'yup'
 import * as Intl from 'react-intl'
 import * as dnd from 'react-beautiful-dnd'
+import * as Forms from '@vtex/admin-ui-form'
 
 import {
   Button as ReakitButton,
@@ -33,6 +34,7 @@ const ReactLiveScope = {
   ...Formik,
   ...dnd,
   Yup,
+  Forms,
   ...Intl,
   ReakitButton,
   ReakitMenu,
