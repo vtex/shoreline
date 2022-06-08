@@ -23,29 +23,6 @@
     padding-top: 3px;
   }
 
-  &__items {
-    width: fit-content;
-  }
-
-  &__items--right {
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-
-    .dropdown {
-      position: absolute;
-      top: 49px;
-      display: flex;
-      right: 24px;
-      width: 62px;
-      font-size: 0.75rem;
-
-      a::after {
-        border-width: 0.5em 0.5em 0;
-      }
-    }
-  }
-
   .DocSearch-Button {
     border-radius: 4px;
     padding: 8px;
@@ -110,8 +87,28 @@
       font-size: 1.5rem;
     }
 
+    &__items {
+      width: fit-content;
+    }
+
     &__items--right {
       justify-content: left;
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+
+      .dropdown {
+        position: absolute;
+        top: 49px;
+        display: flex;
+        right: 24px;
+        width: 62px;
+        font-size: 0.75rem;
+
+        a::after {
+          border-width: 0.5em 0.5em 0;
+        }
+      }
 
       & > div {
         width: 100%;
