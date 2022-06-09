@@ -7,18 +7,14 @@ import {
 } from '@vtex/admin-ui-react'
 
 import * as style from './menu.style'
-import { useMenuContext } from './menu-context'
 
 export const MenuList = createComponent<typeof AriakitMenu, MenuListProps>(
   (props) => {
     const { children, ...menuListProps } = props
 
-    const { state } = useMenuContext()
-
     return useElement(AriakitMenu, {
       ...menuListProps,
       baseStyle: style.list,
-      state,
       children: <IconContainer size="small">{children}</IconContainer>,
     })
   }

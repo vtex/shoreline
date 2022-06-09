@@ -1,10 +1,12 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
-import { createComponent, tag, useElement } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { MenuItem as AriakitMenuItem } from 'ariakit/Menu'
+import type { VariantProps } from '@vtex/admin-ui-core'
+
+import { Center } from '../center'
 
 import * as style from './menu.style'
-import { useMenuContext } from './menu-context'
 
 /**
  * Accessible menu item component
@@ -28,44 +30,25 @@ export const MenuItem = createComponent<
   typeof AriakitMenuItem,
   MenuItemOptions
 >((props) => {
-  const { children, onClick, icon, tone = 'main', ...buttonProps } = props
-
-  const { hideOnClick, state } = useMenuContext()
+  const { children, onClick, icon, variant = 'neutral', ...buttonProps } = props
 
   return useElement(AriakitMenuItem, {
     ...buttonProps,
     baseStyle: {
       ...style.item,
-      ...style.itemVariants({ tone }),
-    },
-    state,
-    onClick(e) {
-      hideOnClick && state.hide()
-      onClick?.(e)
+      ...style.itemVariants({ variant }),
     },
     children: (
-      <tag.div
-        csx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <Center>
         {icon} {children}
-      </tag.div>
+      </Center>
     ),
   })
 })
 
-// MenuItem.defaultProps = {
-//   tone: 'main',
-//   type: any,
-// }
-
-export interface MenuItemOptions {
+export type MenuItemOptions = VariantProps<typeof style.itemVariants> & {
   icon?: ReactNode
-  type: any
-  tone: any
+  children: ReactNode
 }
 
 export type MenuItemProps = ComponentPropsWithRef<typeof MenuItem>
