@@ -22,12 +22,13 @@ export const item = style({
 })
 
 export const itemVariants = styleVariants({
-  tone: {
+  variant: {
+    // check
     critical: deafultButtonStyle.action({
       tone: 'critical',
       variant: 'tertiary',
     }),
-    main: deafultButtonStyle.action({
+    neutral: deafultButtonStyle.action({
       tone: 'neutral',
       variant: 'tertiary',
     }),

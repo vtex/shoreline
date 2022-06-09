@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Menu } from '.'
@@ -23,30 +23,32 @@ export const Playground = () => {
 
   return (
     <Stack>
-      <Menu state={state} hideOnClick>
-        <MenuButton display="actions">Menu</MenuButton>
-        <MenuList aria-label="Menu">
+      <Menu>
+        <MenuButton state={state} display="actions">
+          Menu
+        </MenuButton>
+        <MenuList state={state} aria-label="Menu">
           <MenuItem icon={<IconPen />}>Option a</MenuItem>
-          <MenuItem icon={<IconX />} tone="critical">
+          <MenuItem icon={<IconX />} variant="critical">
             option b
           </MenuItem>
         </MenuList>
       </Menu>
 
-      <Menu state={stateb} hideOnClick>
-        <MenuButton display="actions" />
-        <MenuList aria-label="Menu">
+      <Menu>
+        <MenuButton state={stateb} display="actions" variant="primary" />
+        <MenuList state={stateb} aria-label="Menu">
           <MenuItem>Option a</MenuItem>
           <MenuDivider />
           <MenuItem>option b</MenuItem>
         </MenuList>
       </Menu>
 
-      <Menu state={statec} hideOnClick>
-        <MenuButton display="actions" size="large">
+      <Menu>
+        <MenuButton state={statec} display="actions" size="large">
           Menu
         </MenuButton>
-        <MenuList aria-label="Menu">
+        <MenuList state={statec} aria-label="Menu">
           <MenuItem>Option a</MenuItem>
           <MenuItem>option b</MenuItem>
         </MenuList>
@@ -60,32 +62,46 @@ export const Variants = () => {
 
   return (
     <Stack>
-      <Menu state={state} hideOnClick>
-        <MenuButton display="actions">Menu</MenuButton>
-        <MenuButton display="menu">Menu</MenuButton>
-        <MenuButton display="actions" disabled>
+      <Menu>
+        <MenuButton state={g} display="actions">
           Menu
         </MenuButton>
-        <MenuButton display="menu" disabled>
+        <MenuButton state={state} display="menu">
+          Menu
+        </MenuButton>
+        <MenuButton state={state} display="actions" disabled>
+          Menu
+        </MenuButton>
+        <MenuButton state={state} display="menu" disabled>
           Menu
         </MenuButton>
 
-        <MenuButton display="actions" variant="secondary">
+        <MenuButton state={state} display="actions" variant="secondary">
           Menu
         </MenuButton>
-        <MenuButton display="actions" variant="secondary" disabled>
+        <MenuButton
+          state={state}
+          display="actions"
+          variant="secondary"
+          disabled
+        >
           Menu
         </MenuButton>
-        <MenuButton display="actions" variant="tertiary">
+        <MenuButton state={state} display="actions" variant="tertiary">
           Menu
         </MenuButton>
-        <MenuButton display="actions" variant="tertiary" disabled>
+        <MenuButton state={state} display="actions" variant="tertiary" disabled>
           Menu
         </MenuButton>
-        <MenuButton display="actions" variant="neutralTertiary">
+        <MenuButton state={state} display="actions" variant="neutralTertiary">
           Menu
         </MenuButton>
-        <MenuButton display="actions" variant="neutralTertiary" disabled>
+        <MenuButton
+          state={state}
+          display="actions"
+          variant="neutralTertiary"
+          disabled
+        >
           Menu
         </MenuButton>
       </Menu>
