@@ -1,16 +1,16 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import {
-  IconCaretDown,
-  IconCaretUp,
-  IconDotsThreeVertical,
-} from '@vtex/phosphor-icons'
+import { IconCaretDown, IconDotsThreeVertical } from '@vtex/phosphor-icons'
 import { MenuButton as AriakitMenuButton } from 'ariakit'
 
 import * as style from './menu.style'
-import type { VariantProps } from '..'
-import { Center, createComponent, IconContainer, useElement } from '..'
-import { useMenuContext } from './menu-context'
+import type { VariantProps } from '@vtex/admin-ui-core'
+import {
+  createComponent,
+  IconContainer,
+  useElement,
+} from '@vtex/admin-ui-react'
+import { Center } from '../center'
 
 export const MenuButton = createComponent<
   typeof AriakitMenuButton,
@@ -20,12 +20,10 @@ export const MenuButton = createComponent<
     display = 'actions',
     variant = 'primary',
     size = 'normal',
-    state: ble,
+    state,
     children,
     ...buttonProps
   } = props
-
-  const { state } = useMenuContext()
 
   const isMenu = display === 'menu'
   const iconOnly = !children
@@ -57,22 +55,20 @@ export const MenuButton = createComponent<
     },
     state,
     children: (
-      <Center>
-        <Center
-          csx={{
-            ...style.innerContainerStyle,
-            ...style.innerContainerVariants({
-              iconPosition,
-            }),
-          }}
-        >
-          {icon && (
-            <IconContainer size={iconPosition === 'end' ? 'small' : 'regular'}>
-              {icon}
-            </IconContainer>
-          )}
-          {children}
-        </Center>
+      <Center
+        csx={{
+          ...style.innerContainerStyle,
+          ...style.innerContainerVariants({
+            iconPosition,
+          }),
+        }}
+      >
+        {icon && (
+          <IconContainer size={iconPosition === 'end' ? 'small' : 'regular'}>
+            {icon}
+          </IconContainer>
+        )}
+        {children}
       </Center>
     ),
   })
@@ -81,7 +77,7 @@ export const MenuButton = createComponent<
 export type MenuButtonOptions = VariantProps<typeof style.colorVariants> & {
   display?: 'menu' | 'actions'
   size?: 'normal' | 'large'
-  children: ReactNode
+  children?: ReactNode
 }
 
 export type MenuButtonProps = React.ComponentPropsWithoutRef<typeof MenuButton>
