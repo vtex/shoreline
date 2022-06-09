@@ -1,57 +1,80 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { IconCaretDown, IconDotsThreeVertical } from '@vtex/phosphor-icons'
 import { MenuButton as AriakitMenuButton } from 'ariakit'
-
-import * as style from './menu.style'
-import type { VariantProps } from '@vtex/admin-ui-core'
+import {
+  IconCaretUp,
+  IconCaretDown,
+  IconDotsThreeVertical,
+} from '@vtex/phosphor-icons'
+import type { StyleProp, VariantProps } from '@vtex/admin-ui-core'
+import type { AvailableSize } from '@vtex/admin-ui-react'
 import {
   createComponent,
   IconContainer,
   useElement,
 } from '@vtex/admin-ui-react'
+
 import { Center } from '../center'
+
+import * as style from './menu.style'
+
+import { useMessageFormatter } from '../i18n'
+import { messages } from './menu.i18n'
 
 export const MenuButton = createComponent<
   typeof AriakitMenuButton,
   MenuButtonOptions
 >((props) => {
   const {
-    display = 'actions',
     variant = 'primary',
     size = 'normal',
     state,
-    children,
+    label,
+    labelHidden,
     ...buttonProps
   } = props
 
-  const isMenu = display === 'menu'
-  const iconOnly = !children
-  const iconPosition = isMenu ? 'end' : iconOnly ? 'center' : 'start'
+  const colorVariants = style.colorVariants({
+    variant,
+  })
 
-  const icon = !isMenu ? <IconDotsThreeVertical /> : <IconCaretDown />
+  const colorVariantsStyle = state.visible
+    ? colorVariants[':active' as keyof StyleProp]
+    : colorVariants
 
-  const actionStyle = !isMenu
-    ? style.actionsButtonSizeVariants({
+  const isCustomMenu = label && !labelHidden
+  const menuStyle = isCustomMenu
+    ? style.customMenuButtonSizeVariants({
         size,
       })
-    : {}
-
-  const menuStyle = isMenu
-    ? style.menuButtonSizeVariants({
+    : style.defaultMenuButtonSizeVariants({
         size,
       })
-    : {}
+
+  const menuType = isCustomMenu ? 'custom' : 'default'
+  const iconConfig: IconConfig = {
+    default: {
+      icon: <IconDotsThreeVertical />,
+      position: labelHidden ? 'center' : 'start',
+      size: 'regular',
+    },
+    custom: {
+      icon: state.visible ? <IconCaretUp /> : <IconCaretDown />,
+      position: 'end',
+      size: 'small',
+    },
+  }[menuType] as IconConfig
+
+  const formatMessage = useMessageFormatter(messages.menu)
+  const menuLabel = label ?? formatMessage('buttonLabel')
 
   return useElement(AriakitMenuButton, {
+    'aria-label': menuLabel,
     ...buttonProps,
     baseStyle: {
       ...style.buttonStyle,
-      ...style.colorVariants({
-        variant,
-      }),
+      ...colorVariantsStyle,
       ...menuStyle,
-      ...actionStyle,
     },
     state,
     children: (
@@ -59,25 +82,27 @@ export const MenuButton = createComponent<
         csx={{
           ...style.innerContainerStyle,
           ...style.innerContainerVariants({
-            iconPosition,
+            iconPosition: iconConfig.position,
           }),
         }}
       >
-        {icon && (
-          <IconContainer size={iconPosition === 'end' ? 'small' : 'regular'}>
-            {icon}
-          </IconContainer>
-        )}
-        {children}
+        <IconContainer size={iconConfig.size}>{iconConfig.icon}</IconContainer>
+        {!labelHidden && menuLabel}
       </Center>
     ),
   })
 })
 
+type IconConfig = {
+  icon: ReactNode
+  position: 'start' | 'center' | 'end'
+  size: AvailableSize
+}
+
 export type MenuButtonOptions = VariantProps<typeof style.colorVariants> & {
-  display?: 'menu' | 'actions'
   size?: 'normal' | 'large'
-  children?: ReactNode
+  label?: string
+  labelHidden?: boolean
 }
 
 export type MenuButtonProps = React.ComponentPropsWithoutRef<typeof MenuButton>

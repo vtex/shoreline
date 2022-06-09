@@ -1,14 +1,23 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react'
 import React from 'react'
+import { Menu as AriakitMenu } from 'ariakit/menu'
+import {
+  IconContainer,
+  createComponent,
+  useElement,
+} from '@vtex/admin-ui-react'
 
-export function Menu(props: MenuOptions) {
-  const { children } = props
+import * as style from './menu.style'
 
-  return <>{children}</>
-}
+export const Menu = createComponent<typeof AriakitMenu, MenuListProps>(
+  (props) => {
+    const { children, ...menuListProps } = props
 
-export interface MenuOptions {
-  children?: ReactNode
-}
+    return useElement(AriakitMenu, {
+      ...menuListProps,
+      baseStyle: style.list,
+      children: <IconContainer size="small">{children}</IconContainer>,
+    })
+  }
+)
 
-export type MenuProps = ComponentPropsWithRef<typeof Menu>
+export type MenuListProps = any
