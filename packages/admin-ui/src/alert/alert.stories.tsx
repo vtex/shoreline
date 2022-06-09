@@ -85,13 +85,3 @@ export function Visible() {
     </Box>
   )
 }
-
-export function Fluid() {
-  return (
-    <Box csx={{ width: 400 }}>
-      <Alert visible fluid tone="info" onDismiss={() => {}}>
-        This account is inactive. Check your billing for more information.
-      </Alert>
-    </Box>
-  )
-}
