@@ -1,6 +1,6 @@
 import type { ReactNode, ComponentPropsWithoutRef, Ref } from 'react'
-import React, { useRef, forwardRef } from 'react'
-import { useForkRef, useId } from '@vtex/admin-ui-hooks'
+import React, { forwardRef } from 'react'
+import { useForkRef, useFieldFocus, useId } from '@vtex/admin-ui-hooks'
 
 import { IconCaretDown, IconCaretUp } from '@vtex/phosphor-icons'
 import { Button } from '../button'
@@ -52,17 +52,11 @@ export const NumberInput = forwardRef(
       })
 
     const id = useId(defaultId)
+    const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
 
     const formatMessage = useMessageFormatter(messages.formControl)
     const optionalPlaceholder =
       !label && optional ? formatMessage('optional') : ''
-
-    const inputRef = useRef<HTMLInputElement>(null)
-    const handleClick: React.MouseEventHandler<HTMLDivElement> = () => {
-      if (inputRef.current) {
-        inputRef.current.focus()
-      }
-    }
 
     // Avoid losing input focus when the spin button is disabled
     const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (
@@ -75,7 +69,7 @@ export const NumberInput = forwardRef(
       <FormControl error={error} optional={optional}>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
         <InputContainer
-          onClick={handleClick}
+          onClick={ensureFocus}
           onMouseDown={handleMouseDown}
           error={error}
           disabled={disabled}
@@ -89,7 +83,7 @@ export const NumberInput = forwardRef(
               disabled,
               ...inputProps,
             })}
-            ref={useForkRef(inputRef, ref)}
+            ref={useForkRef(focusRef, ref)}
             csx={style.input}
           />
           <Button
