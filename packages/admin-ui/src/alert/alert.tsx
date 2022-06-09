@@ -26,7 +26,6 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
   const {
     children,
     onDismiss,
-    fluid = false,
     visible = false,
     tone = 'info',
     action,
@@ -43,7 +42,6 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
       ...styles.variants({
         visible,
         tone,
-        fluid,
       }),
     },
     children: (
@@ -66,12 +64,13 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
           </Paragraph>
         </Inline>
         <Inline>
-          {action && <Button {...action} variant="neutralTertiary" />}
+          {action && <Button {...action} variant="neutralTertiary" bleedY />}
           {onDismiss && (
             <Button
               variant="neutralTertiary"
               icon={<IconX />}
               onClick={onDismiss}
+              bleedY
             />
           )}
         </Inline>

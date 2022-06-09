@@ -12,9 +12,6 @@ describe('Alert', () => {
         <Alert tone="positive" visible>
           Order successfully placed
         </Alert>
-        <Alert tone="warning" visible fluid>
-          This account is inactive. Check your billing for more information.
-        </Alert>
         <Alert
           tone="critical"
           visible
