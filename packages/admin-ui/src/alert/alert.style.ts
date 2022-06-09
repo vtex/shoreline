@@ -7,7 +7,7 @@ export const baseline = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   minHeight: '3.25rem',
-  height: '3.25rem',
+  height: '100%',
   paddingY: 2,
   paddingX: 4,
   borderRadius: 'default',
@@ -49,24 +49,6 @@ export const variants = styleVariants({
     info: {
       bg: '$info',
       border: '$info',
-    },
-  },
-  fluid: {
-    true: {
-      alignItems: 'flex-start',
-      height: '100%',
-      '@tablet': {
-        alignItems: 'center',
-      },
-      '@desktop': {
-        alignItems: 'center',
-      },
-      '@widescreen': {
-        alignItems: 'center',
-      },
-    },
-    false: {
-      alignItems: 'center',
     },
   },
 })
