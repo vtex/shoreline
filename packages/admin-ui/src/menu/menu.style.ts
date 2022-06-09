@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
-import * as deafultButtonStyle from '../button/button.style'
+import * as defaultButtonStyle from '../button/button.style'
 
 export const item = style({
   paddingY: '$l',
@@ -23,15 +23,17 @@ export const item = style({
 
 export const itemVariants = styleVariants({
   variant: {
-    // check
-    critical: deafultButtonStyle.action({
+    critical: defaultButtonStyle.action({
       tone: 'critical',
       variant: 'tertiary',
     }),
-    neutral: deafultButtonStyle.action({
+    neutral: defaultButtonStyle.action({
       tone: 'neutral',
       variant: 'tertiary',
     }),
+    disabled: {
+      color: '$disabled',
+    },
   },
 })
 
@@ -56,30 +58,30 @@ export const divider = style({
   outline: 'none',
 })
 
-export const buttonStyle = deafultButtonStyle.buttonStyle
+export const buttonStyle = defaultButtonStyle.buttonStyle
 
 export const colorVariants = styleVariants({
   variant: {
-    primary: deafultButtonStyle.action({
+    primary: defaultButtonStyle.action({
       tone: 'main',
       variant: 'primary',
     }),
-    secondary: deafultButtonStyle.action({
+    secondary: defaultButtonStyle.action({
       tone: 'main',
       variant: 'secondary',
     }),
-    tertiary: deafultButtonStyle.action({
+    tertiary: defaultButtonStyle.action({
       tone: 'main',
       variant: 'tertiary',
     }),
-    neutralTertiary: deafultButtonStyle.action({
+    neutralTertiary: defaultButtonStyle.action({
       tone: 'neutral',
       variant: 'tertiary',
     }),
   },
 })
 
-export const actionsButtonSizeVariants = styleVariants({
+export const defaultMenuButtonSizeVariants = styleVariants({
   size: {
     normal: {
       padding: '$s',
@@ -94,7 +96,7 @@ export const actionsButtonSizeVariants = styleVariants({
   },
 })
 
-export const menuButtonSizeVariants = styleVariants({
+export const customMenuButtonSizeVariants = styleVariants({
   size: {
     normal: {
       padding: '$s',
@@ -107,7 +109,7 @@ export const menuButtonSizeVariants = styleVariants({
   },
 })
 
-export const innerContainerStyle = deafultButtonStyle.innerContainerStyle
+export const innerContainerStyle = defaultButtonStyle.innerContainerStyle
 
 export const innerContainerVariants = styleVariants({
   iconPosition: {

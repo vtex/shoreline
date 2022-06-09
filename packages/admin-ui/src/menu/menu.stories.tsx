@@ -1,110 +1,165 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Menu } from '.'
-import { MenuButton } from './menu-button'
-import { useMenuState } from 'ariakit'
-import { MenuList } from './menu-list'
-import { MenuItem } from './menu-item'
-import { Stack } from '..'
+import { IconX, IconPlus, IconPen, IconDownload } from '@vtex/phosphor-icons'
 
-import { IconX, IconPen } from '@vtex/phosphor-icons'
+import { Stack } from '../stack'
+import { Inline } from '../inline'
+import { Menu } from './menu'
+import { MenuButton } from './menu-button'
+import { MenuItem } from './menu-item'
 import { MenuDivider } from './menu-divider'
 
+import { useMenuState } from 'ariakit'
+
 export default {
-  title: 'admin-ui-review/Menu',
+  title: 'admin-ui-review/menu',
   component: Menu,
 } as Meta
 
 export const Playground = () => {
   const state = useMenuState()
-  const stateb = useMenuState()
-  const statec = useMenuState()
 
   return (
-    <Stack>
-      <Menu>
-        <MenuButton state={state} display="actions">
-          Menu
-        </MenuButton>
-        <MenuList state={state} aria-label="Menu">
-          <MenuItem icon={<IconPen />}>Option a</MenuItem>
-          <MenuItem icon={<IconX />} variant="critical">
-            option b
+    <Inline>
+      <>
+        <MenuButton state={state} />
+        <Menu state={state}>
+          <MenuItem icon={<IconPlus />} disabled>
+            Create
           </MenuItem>
-        </MenuList>
-      </Menu>
-
-      <Menu>
-        <MenuButton state={stateb} display="actions" variant="primary" />
-        <MenuList state={stateb} aria-label="Menu">
-          <MenuItem>Option a</MenuItem>
+          <MenuItem icon={<IconPen />}>Edit</MenuItem>
+          <MenuItem icon={<IconDownload />}>Download</MenuItem>
           <MenuDivider />
-          <MenuItem>option b</MenuItem>
-        </MenuList>
-      </Menu>
+          <MenuItem icon={<IconX />} critical>
+            Delete
+          </MenuItem>
+        </Menu>
+      </>
+    </Inline>
+  )
+}
 
-      <Menu>
-        <MenuButton state={statec} display="actions" size="large">
-          Menu
-        </MenuButton>
-        <MenuList state={statec} aria-label="Menu">
-          <MenuItem>Option a</MenuItem>
-          <MenuItem>option b</MenuItem>
-        </MenuList>
+export const InitiallyVisible = () => {
+  const state = useMenuState()
+
+  useEffect(() => {
+    state.show()
+  }, [])
+
+  return (
+    <Inline>
+      <MenuButton state={state} />
+      <Menu state={state}>
+        <MenuItem icon={<IconPlus />} disabled>
+          Create
+        </MenuItem>
+        <MenuItem icon={<IconPen />}>Edit</MenuItem>
+        <MenuItem icon={<IconDownload />}>Download</MenuItem>
+        <MenuDivider />
+        <MenuItem icon={<IconX />} critical>
+          Delete
+        </MenuItem>
       </Menu>
-    </Stack>
+    </Inline>
+  )
+}
+
+export const CustomMenu = () => {
+  const state = useMenuState()
+
+  return (
+    <Inline>
+      <MenuButton state={state} label="Custom menu" />
+      <Menu state={state}>
+        <MenuItem>Option 1</MenuItem>
+        <MenuItem>Option 2</MenuItem>
+        <MenuItem>Option 3</MenuItem>
+      </Menu>
+    </Inline>
+  )
+}
+
+export const IconOnly = () => {
+  const state = useMenuState()
+
+  return (
+    <Inline>
+      <>
+        <MenuButton state={state} labelHidden />
+        <Menu state={state}>
+          <MenuItem icon={<IconPlus />} disabled>
+            Create
+          </MenuItem>
+          <MenuItem icon={<IconPen />}>Edit</MenuItem>
+          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuDivider />
+          <MenuItem icon={<IconX />} critical>
+            Delete
+          </MenuItem>
+        </Menu>
+      </>
+    </Inline>
   )
 }
 
 export const Variants = () => {
-  const state = useMenuState()
+  const variants: any[] = [
+    'primary',
+    'secondary',
+    'tertiary',
+    'neutralTertiary',
+  ]
 
   return (
     <Stack>
-      <Menu>
-        <MenuButton state={g} display="actions">
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="menu">
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="actions" disabled>
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="menu" disabled>
-          Menu
-        </MenuButton>
+      {variants.map((variant) => {
+        const actionMenuState = useMenuState()
+        const cusontMenuState = useMenuState()
 
-        <MenuButton state={state} display="actions" variant="secondary">
-          Menu
-        </MenuButton>
-        <MenuButton
-          state={state}
-          display="actions"
-          variant="secondary"
-          disabled
-        >
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="actions" variant="tertiary">
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="actions" variant="tertiary" disabled>
-          Menu
-        </MenuButton>
-        <MenuButton state={state} display="actions" variant="neutralTertiary">
-          Menu
-        </MenuButton>
-        <MenuButton
-          state={state}
-          display="actions"
-          variant="neutralTertiary"
-          disabled
-        >
-          Menu
-        </MenuButton>
-      </Menu>
+        return (
+          <Inline>
+            <Stack>
+              <MenuButton state={actionMenuState} variant={variant} />
+              <Menu state={actionMenuState}>
+                <MenuItem icon={<IconPlus />} disabled>
+                  Create
+                </MenuItem>
+                <MenuItem icon={<IconPen />}>Edit</MenuItem>
+                <MenuItem icon={<IconDownload />}>Download</MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<IconX />} critical>
+                  Delete
+                </MenuItem>
+              </Menu>
+
+              <MenuButton state={useMenuState()} variant={variant} disabled>
+                Action Menu
+              </MenuButton>
+            </Stack>
+
+            <Stack>
+              <MenuButton
+                state={cusontMenuState}
+                variant={variant}
+                label="Custom menu"
+              />
+              <Menu state={cusontMenuState}>
+                <MenuItem>Option 1</MenuItem>
+                <MenuItem>Option 2</MenuItem>
+                <MenuItem>Option 3</MenuItem>
+              </Menu>
+
+              <MenuButton
+                state={useMenuState()}
+                variant={variant}
+                label="Custom menu"
+                disabled
+              />
+            </Stack>
+          </Inline>
+        )
+      })}
     </Stack>
   )
 }
