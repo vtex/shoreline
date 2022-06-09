@@ -44,7 +44,7 @@ The fastest way to start is to install [`@vtex/admin-ui`](./packages/admin-ui) -
 | [`@vtex/admin-ui-util`](./packages/admin-ui-util)                             | Common utility functions.                                                                 |
 | [`@vtex/babel-plugin-admin-ui-react`](./packages/babel-plugin-admin-ui-react) | Babel plugin relevant to the [`@vtex/admin-ui-react`](./packages/admin-ui-react) library. |
 | [`@vtex/eslint-plugin-admin-ui`](./packages/eslint-plugin-admin-ui)           | Eslint rules.                                                                             |
-| [`@vtex/admin-formik`](./packages/formik)                                     | Formik shorthands using admin-ui forms.                                                   |
+| [`@vtex/admin-formik`](./packages/deprecated-formik)                          | DEPRECATED Formik shorthands using admin-ui forms.                                        |
 | [`@vtex/gatsby-plugin-admin-ui`](./packages/gatsby-plugin-admin-ui)           | The easiest way to use admin-ui with gatsby.                                              |
 
 ## Contributing
