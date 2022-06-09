@@ -1,6 +1,6 @@
 import type { ReactNode, ComponentPropsWithoutRef, Ref } from 'react'
-import React, { useRef, forwardRef } from 'react'
-import { useId, useForkRef } from '@vtex/admin-ui-hooks'
+import React, { forwardRef } from 'react'
+import { useId, useForkRef, useFieldFocus } from '@vtex/admin-ui-hooks'
 
 import { TextInputContainer } from './text-input-container'
 import { TextInputElement } from './text-input-element'
@@ -26,21 +26,19 @@ export const TextInput = forwardRef(
     } = props
 
     const id = useId(defaultId)
-    const innerRef = useRef<HTMLInputElement>(null)
-
-    const focus = () => {
-      if (innerRef.current) {
-        innerRef.current.focus()
-      }
-    }
+    const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
 
     return (
       <FormControl error={error}>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
-        <TextInputContainer onClick={focus} error={error} disabled={disabled}>
+        <TextInputContainer
+          onClick={ensureFocus}
+          error={error}
+          disabled={disabled}
+        >
           {prefix && <TextInputTerm type="prefix">{prefix}</TextInputTerm>}
           <TextInputElement
-            ref={useForkRef(innerRef, ref)}
+            ref={useForkRef(focusRef, ref)}
             disabled={disabled}
             id={id}
             aria-invalid={error ? 'true' : 'false'}
