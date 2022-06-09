@@ -2,6 +2,7 @@ import type { ChangeEventHandler } from 'react'
 import React, { useMemo } from 'react'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
+import { useFieldFocus } from '@vtex/admin-ui-hooks'
 
 import * as styles from './search.style'
 import { Center } from '../center'
@@ -13,7 +14,6 @@ import { messages } from './search.i18n'
 
 export const Search = createComponent<'form', SearchOptions>((props) => {
   const formatMessage = useMessageFormatter(messages)
-
   const label = formatMessage('search')
 
   const {
@@ -28,14 +28,15 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     ...formProps
   } = props
 
+  const [inputRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
+  const hasValue = useMemo(() => value.toString().length > 0, [value])
+  const hasClearButton = hasValue && !disabled
+
   const icon = loading ? (
     <Spinner size={16} csx={styles.icon(disabled)} />
   ) : (
     <IconMagnifyingGlass size="small" csx={styles.icon(disabled)} />
   )
-
-  const hasValue = useMemo(() => value.toString().length > 0, [value])
-  const hasClearButton = hasValue && !disabled
 
   return useElement('form', {
     ...formProps,
@@ -44,11 +45,15 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
       e.preventDefault()
       onSubmit?.(e)
     },
+    onClick: () => {
+      ensureFocus()
+    },
     baseStyle: styles.form,
     children: (
       <>
         <Center csx={styles.innerContainer('start')}>{icon}</Center>
         <tag.input
+          ref={inputRef}
           csx={styles.input}
           placeholder={label}
           aria-label={ariaLabel}
