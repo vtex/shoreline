@@ -1,7 +1,6 @@
 ---
-title: Onboarding
-path: /contributing/onboarding/
-sidebar_position: 1
+title: Contributing
+path: /developing/contributing/
 ---
 
 The redesigned VTEX Admin is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process.
@@ -37,6 +36,7 @@ Follow the instructions below to get started on development with Admin UI.
 4.  Run `yarn test`.
 
 #### Scripts
+
 Check out the list of scripts available for getting started with Admin UI:
 
 | Command               | Description                                   |
@@ -71,20 +71,21 @@ Before submitting a pull request:, please make sure the following is done:
 7.  Make sure your code lints (yarn lint).
 8.  Run `yarn build`, yarn `build:storybook` or `yarn build:site` to ensure that the builds are still working.
 
-
 ## Contributing with documentation
+
 Our Admin UI documentation is constantly updated and improved to support you in your journey with the VTEX design system. And to make this a collaborative effort, check out how to contribute with our documentation in the sections below.
 
 ### Editing a page
+
 Our documentation site is built using [Docusaurus](https://docusaurus.io/), a static website generator. All of our documentation is stored in the [/docs folder](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs) of our Github Repository.
 
 To edit any page in the [Admin UI website](https://admin-ui.vercel.app/):
 
 1. In the selected page, click on the `Edit this page` button that appears at the bottom.
-You will be redirected to the page on our [Admin UI Github Repository](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs).
+   You will be redirected to the page on our [Admin UI Github Repository](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs).
 2. In the **Edit file** space, [make the desired changes](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) to our documentation.
-Note that we use [Markdown](https://www.markdownguide.org/) in our files to make editing accessible.
-3. Select the option *Create a new branch for this commit and start a pull request*.
+   Note that we use [Markdown](https://www.markdownguide.org/) in our files to make editing accessible.
+3. Select the option _Create a new branch for this commit and start a pull request_.
 4. [Add comments to your Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
 5. Click on `Propose changes`.
 
@@ -96,13 +97,54 @@ We will review your Pull request and update our documentation accordingly!
 
 Keep the following recommendations in mind when editing our documentation, so we can create a consistent documentation experience for users all around the world:
 
-
 - Regardless of what you are writing about, you must always aim for the following goals:
   - Clarity: make sure your content is free from any possible ambiguities.
   - Precision: stick to the main message you want to communicate and cut everything else.
 - Be concise. Yes, documentation is where you add more context about a project, but be careful when creating docs that are too long to read.
 - Use [Markdown](https://www.markdownguide.org/) formatting to make your documentation scannable when users skim through it. Avoid walls of text.
 - Prefer direct, informative and clear language, written specifically for an identified audience.
-- Be gender neutral. Avoid gender-specific pronouns such as *he* or *she*, and prefer the non-binary pronoun *they* when referring to a singular person.
+- Be gender neutral. Avoid gender-specific pronouns such as _he_ or _she_, and prefer the non-binary pronoun _they_ when referring to a singular person.
 - Prefer active voice instead of passive voice. In the active voice, the subject of the sentence performs the action, instead of being acted upon. That's because in documentation it's essential that the reader clearly understands who or what is responsible for each action.
 
+## Maintainers
+
+### Publishing versions
+
+Currently we are publishing our versions manually in the repository. Here we have listed the topics that you should be aware of before publishing a package.
+
+**Conventional commits**
+
+The releases are made based on the commits' messages, so when running the `publish` command, the Lerna will look for the pattern that represents a new release in the commits. You should read [this quick documentation](https://www.conventionalcommits.org/en/v1.0.0/) for detailed info
+
+**NPM**
+
+You must be logged in to your account through the terminal and also must be in the VTEX organization, so you’ll have permission to publish a package.
+
+**Repository permissions**
+
+When publishing a package you must have permission to make `git push` directly on the `main` branch, otherwise, it will not work.
+
+**Lerna**
+
+We use Lerna to control the operations through all of our packages on Admin UI. Know more in:
+
+- [Lerna documentation](https://github.com/lerna/lerna)
+- [Lerna config on Admin UI](https://github.com/vtex/admin-ui/blob/main/lerna.json).
+
+**Admin UI Docs**
+
+We need to add manually a new version of our documentation each time a new version of Admin UI will be published. Execute the following command to create a new version of the documentation:
+
+```
+yarn version:docs <admin-ui-version>
+```
+
+#### Publish Flow
+
+Once you merge the changes within the `main` branch, you should update your local branch, and then run `yarn publish:main`.
+
+We defined this command to make it easier to release a package, but under the hood, it will run the following commands:
+
+1. `yarn`
+2. `yarn lerna run build` - It builds all the packages from the repository, and without this command, the _npm_ package will not have the current changes when published.
+3. `yarn lerna publish` - It will look for all the packages and publish only the ones that have been changed.
