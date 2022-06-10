@@ -5,7 +5,7 @@ import { Pagination } from '../Pagination'
 import { usePaginationState } from '../hooks/usePaginationState'
 import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
 import { Stack } from '../../../stack'
-import { Input } from '../../Input'
+import { TextInput } from '../../../text-input'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
 export default {
@@ -54,13 +54,12 @@ export function PersistedPaginationWithQuery() {
 
     return (
       <Stack>
-        <Input
+        <TextInput
           label="Current URL:"
           id="current-url-input"
           value={window.location.href}
           disabled
-          csx={{ width: 'lg' }}
-          helperText="You can copy the part with page in your URL to see the page
+          helpText="You can copy the part with page in your URL to see the page
             load directly on choosed page"
         />
         <Pagination
