@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react'
 import React, { useEffect } from 'react'
 import {
-  useDataGridState,
+  useTableState,
   useDataViewState,
   useSearchState,
   useDropdownState,
   Tag,
 } from '@vtex/admin-ui'
-import { FilterDataGrid } from '../FilterDataGrid'
+import { FilterTable } from '../FilterTable'
 
 interface StatusTableProps {
   items: Array<{
@@ -67,7 +67,7 @@ export function StatusTable(props: StatusTableProps) {
     }
   }, [searchedItems.length])
 
-  const dataGrid = useDataGridState({
+  const table = useTableState({
     density: 'variable',
     columns: [
       {
@@ -91,13 +91,7 @@ export function StatusTable(props: StatusTableProps) {
               upcoming: 'purple',
             }[status]
 
-            return (
-              <Tag
-                label={column?.item?.status}
-                palette={palette as any}
-                size="small"
-              />
-            )
+            return <Tag label={column?.item?.status} variant={palette as any} />
           },
         },
       },
@@ -110,9 +104,9 @@ export function StatusTable(props: StatusTableProps) {
   })
 
   return (
-    <FilterDataGrid
+    <FilterTable
       filters={filters}
-      dataGrid={dataGrid}
+      table={table}
       dataView={dataView}
       search={search}
       dropdown={dropdown}

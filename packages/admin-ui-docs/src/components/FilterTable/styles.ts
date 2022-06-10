@@ -13,7 +13,7 @@ style.dataViewControls = {
   background: '$primary',
 }
 
-style.dataGrid = {
+style.table = {
   tr: {
     background: 'white !important',
   },

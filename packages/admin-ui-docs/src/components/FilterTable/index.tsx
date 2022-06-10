@@ -4,10 +4,10 @@ import type {
   SearchFormState,
   UsePaginationReturn,
   UseDropdownReturnValue,
-  DataGridState,
+  TableState,
 } from '@vtex/admin-ui'
 import {
-  DataGrid,
+  Table,
   DataView,
   DataViewControls,
   Search,
@@ -18,13 +18,13 @@ import {
 
 import style from './styles'
 
-export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
-  const { pagination, dataGrid, filters, dataView, search, dropdown } = props
+export function FilterTable<T>(props: TableFilterProps<T>) {
+  const { pagination, table, filters, dataView, search, dropdown } = props
 
   return (
     <DataView state={dataView} csx={style.dataView}>
       <DataViewControls csx={style.dataViewControls}>
-        <Search state={search} />
+        <Search {...search.getInputProps()} />
         <Dropdown
           label="Filters"
           state={dropdown}
@@ -42,14 +42,14 @@ export function FilterDataGrid<T>(props: DataGridFilterProps<T>) {
           />
         )}
       </DataViewControls>
-      <DataGrid state={dataGrid} csx={style.dataGrid} />
+      <Table state={table} csx={style.table} />
     </DataView>
   )
 }
 
-interface DataGridFilterProps<T> {
+interface TableFilterProps<T> {
   pagination?: UsePaginationReturn
-  dataGrid: DataGridState<T>
+  table: TableState<T>
   filters: string[]
   dataView: DataViewState
   search: SearchFormState

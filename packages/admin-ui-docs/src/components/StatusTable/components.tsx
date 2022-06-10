@@ -72,9 +72,9 @@ const dataDisplay = [
     type: 'dataDisplay',
   },
   {
-    component: 'DataGrid',
-    status: 'supported',
-    notes: 'Will be renamed to Table',
+    component: 'Table',
+    status: 'in review',
+    notes: 'Old DataGrid component',
     type: 'dataDisplay',
   },
   {

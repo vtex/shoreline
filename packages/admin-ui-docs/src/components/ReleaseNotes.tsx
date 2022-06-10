@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {
-  useDataGridState,
+  useTableState,
   createColumns,
-  DataGrid,
+  Table,
   Anchor,
   Heading,
   Box,
@@ -54,7 +54,7 @@ export function ReleaseNotes() {
     },
   ])
 
-  const datagrid = useDataGridState({
+  const table = useTableState({
     items: releases,
     columns,
     view,
@@ -82,7 +82,7 @@ export function ReleaseNotes() {
         }}
       >
         <Heading>Releases table</Heading>
-        <DataGrid state={datagrid} />
+        <Table state={table} />
       </Box>
     </DataView>
   )
