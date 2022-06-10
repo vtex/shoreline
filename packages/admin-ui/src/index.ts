@@ -3,7 +3,6 @@ export * from '@vtex/admin-ui-react'
 export * from '@vtex/admin-ui-hooks'
 export * from '@vtex/admin-ui-util'
 
-export * from './next'
 export * from './experimental'
 
 export * from './center'
@@ -19,6 +18,8 @@ export * from './box'
 export * from './search'
 export * from './number-input'
 export * from './tag'
+export * from './text-area'
+export * from './select'
 
 export * from './deprecated-set'
 
