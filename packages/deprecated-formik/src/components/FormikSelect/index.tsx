@@ -1,8 +1,8 @@
 import React from 'react'
-import type { SelectProps } from '@vtex/admin-ui'
-import { Select } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
+import type { SelectProps } from '../DeprecatedBase'
+import { Select } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
 export function FormikSelect(props: FormikSelectProps) {
