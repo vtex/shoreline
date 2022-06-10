@@ -9,7 +9,7 @@ import { DataGrid, DataGridBody, DataGridHead, DataGridBodyRow } from '../index'
 import { useDataGridState } from '../hooks/use-table-state'
 
 export default {
-  title: 'admin-ui-review/Table/Dnd',
+  title: 'admin-ui-review/table/Dnd',
   component: DataGrid,
 } as Meta
 

@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/use-table-state'
-import type { DataGridColumn } from '../typings'
+import type { DataGridColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
 import {
   SelectionTree,
@@ -11,7 +11,7 @@ import {
 } from '../../components/SelectionTree'
 
 export default {
-  title: 'admin-ui-review/Table/selectable',
+  title: 'admin-ui-review/table/selectable',
   component: DataGrid,
 } as Meta
 

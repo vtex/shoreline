@@ -2,8 +2,8 @@ import type { ReactNode } from 'react'
 import React from 'react'
 
 import { Skeleton } from '../../components/Skeleton'
-import type { ResolverRenderProps } from './core'
-import { createResolver, defaultRender } from './core'
+import type { ResolverRenderProps } from './resolver-core'
+import { createResolver, defaultRender } from './resolver-core'
 
 export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({

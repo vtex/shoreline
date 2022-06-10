@@ -1,4 +1,4 @@
-import type { DataGridColumn } from './typings'
+import type { DataGridColumn } from './types'
 
 /**
  * Utility to create typesafe columns

@@ -5,8 +5,8 @@ import {
   SelectionTreeRoot,
   SelectionTreeItem,
 } from '../../components/SelectionTree'
-import type { ResolverRenderProps } from './core'
-import { createResolver } from './core'
+import type { ResolverRenderProps } from './resolver-core'
+import { createResolver } from './resolver-core'
 
 export function selectionResolver<T>() {
   return createResolver<T, 'selection', SelectionResolver<T>>({
