@@ -113,6 +113,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'tag-review: Update Tag props to the latest specs (0.132.0+)',
     value: 'tag-review',
   },
+  {
+    name: 'alert-review: Update Alert props to the latest specs (0.133.0+)',
+    value: 'alert-review',
+  },
 ]
 
 // tsx or jsx
