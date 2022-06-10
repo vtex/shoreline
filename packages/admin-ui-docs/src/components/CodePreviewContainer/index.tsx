@@ -21,13 +21,15 @@ export function CodePreviewContainer(props: CodeSectionProps) {
     ? 'preview-grid-container'
     : 'preview-default-container'
 
+  const wrapperClassName = isGridLayout ? 'wrapper-container' : ''
+
   const gridTemplateColumns =
     isGridLayout && isTabletScreen
       ? `repeat(${props.columnsCount}, 1fr)`
       : `1fr`
 
   return (
-    <div className="wrapper-container">
+    <div className={wrapperClassName}>
       <tag.div
         className={className}
         csx={{
