@@ -3,10 +3,10 @@ import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 import { IconCaretDown, IconCaretUp } from '@vtex/phosphor-icons'
 
 import { useStateContext } from '../context'
-import { DataGridCell } from './table-cell'
+import { TableCell } from './table-cell'
 import * as styles from '../styles/table-head.styles'
 
-export const DataGridHead = createComponent<'thead'>((props) => {
+export const TableHead = createComponent<'thead'>((props) => {
   const { children, role = 'rowgroup', ...headProps } = props
   const state = useStateContext()
 
@@ -44,7 +44,7 @@ export const DataGridHead = createComponent<'thead'>((props) => {
               {children ? (
                 cloneElement(children as any, cellProps)
               ) : (
-                <DataGridCell {...cellProps} />
+                <TableCell {...cellProps} />
               )}
             </Fragment>
           )

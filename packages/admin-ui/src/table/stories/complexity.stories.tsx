@@ -3,19 +3,19 @@ import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
 import {
-  DataGrid,
-  DataGridBody,
-  DataGridBodyRow,
-  DataGridHead,
-  DataGridCell,
+  Table,
+  TableBody,
+  TableBodyRow,
+  TableHead,
+  TableCell,
   createColumns,
 } from '../index'
-import { useDataGridState } from '../hooks/use-table-state'
+import { useTableState } from '../hooks/use-table-state'
 import { DataView, useDataViewState } from '../../components/DataView'
 
 export default {
   title: 'admin-ui-review/table/complexity',
-  component: DataGrid,
+  component: Table,
 } as Meta
 
 interface Item {
@@ -55,17 +55,17 @@ const columns = createColumns<Item>([
 ])
 
 export function Zero() {
-  const state = useDataGridState<Item>({
+  const state = useTableState<Item>({
     columns,
     items,
   })
 
-  return <DataGrid state={state} csx={{ width: 560 }} />
+  return <Table state={state} csx={{ width: 560 }} />
 }
 
 export function LevelOne() {
   const view = useDataViewState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     columns,
     items,
     view,
@@ -73,41 +73,41 @@ export function LevelOne() {
 
   return (
     <DataView state={view}>
-      <DataGrid state={grid} csx={{ width: 560 }} />
+      <Table state={grid} csx={{ width: 560 }} />
     </DataView>
   )
 }
 
 export function LevelTwo() {
-  const state = useDataGridState<Item>({
+  const state = useTableState<Item>({
     columns,
     items,
   })
 
   return (
-    <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGridHead />
-      <DataGridBody />
-    </DataGrid>
+    <Table state={state} csx={{ width: 560 }}>
+      <TableHead />
+      <TableBody />
+    </Table>
   )
 }
 
 export function Full() {
-  const state = useDataGridState<Item>({
+  const state = useTableState<Item>({
     columns,
     items,
   })
 
   return (
-    <DataGrid state={state} csx={{ width: 560 }}>
-      <DataGridHead>
-        <DataGridCell />
-      </DataGridHead>
-      <DataGridBody>
-        <DataGridBodyRow>
-          <DataGridCell />
-        </DataGridBodyRow>
-      </DataGridBody>
-    </DataGrid>
+    <Table state={state} csx={{ width: 560 }}>
+      <TableHead>
+        <TableCell />
+      </TableHead>
+      <TableBody>
+        <TableBodyRow>
+          <TableCell />
+        </TableBodyRow>
+      </TableBody>
+    </Table>
   )
 }

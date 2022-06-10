@@ -14,15 +14,15 @@ import {
   resolveHeader as unstableResolveHeader,
 } from '../resolvers/resolver-core'
 import { baseResolvers } from '../resolvers/base'
-import type { DataGridColumn, DataGridDensity } from '../types'
-import type { UseSortReturn, UseDataGridSortParams } from './use-table-sort'
-import { useDataGridSort } from './use-table-sort'
+import type { TableColumn, TableDensity } from '../types'
+import type { UseSortReturn, UseTableSortParams } from './use-table-sort'
+import { useTableSort } from './use-table-sort'
 import type { DataViewState } from '../../components/DataView'
 
-export function useDataGridState<T>(
-  params: UseDataGridStateParams<T>,
+export function useTableState<T>(
+  params: UseTableStateParams<T>,
   resolvers: Record<string, Resolver<T>> | undefined = baseResolvers<T>()
-): DataGridState<T> {
+): TableState<T> {
   const {
     columns,
     length = 5,
@@ -43,7 +43,7 @@ export function useDataGridState<T>(
     },
   } = params
 
-  const [density, setDensity] = useState<DataGridDensity>(initialDensity)
+  const [density, setDensity] = useState<TableDensity>(initialDensity)
   const { status, statusObject } = view
 
   /**
@@ -58,7 +58,7 @@ export function useDataGridState<T>(
     [density, status, statusObject]
   )
 
-  const sortState = useDataGridSort(sort)
+  const sortState = useTableSort(sort)
 
   const skeletonCollection = useMemo<T[]>(() => {
     return Array(length)
@@ -135,11 +135,11 @@ export function useDataGridState<T>(
   }
 }
 
-export interface UseDataGridStateParams<T> {
+export interface UseTableStateParams<T> {
   /**
-   * DataGrid column spec
+   * Table column spec
    */
-  columns: Array<DataGridColumn<T>>
+  columns: Array<TableColumn<T>>
   /**
    * data-view state
    */
@@ -154,7 +154,7 @@ export interface UseDataGridStateParams<T> {
    */
   getRowKey?: (item: T) => string
   /**
-   * DataGrid items
+   * Table items
    * @default []
    */
   items?: T[]
@@ -166,19 +166,19 @@ export interface UseDataGridStateParams<T> {
   /**
    * Object used in sort hook
    */
-  sort?: UseDataGridSortParams<T>
+  sort?: UseTableSortParams<T>
   /**
-   * DataGrid row height
+   * Table row height
    * @default regular
    */
-  density?: DataGridDensity
+  density?: TableDensity
   /**
    * Action to dispatch on a row click
    */
   onRowClick?: (item: T) => void
 }
 
-export interface DataGridState<T> {
+export interface TableState<T> {
   /**
    * Collection rendered while loading
    */
@@ -200,7 +200,7 @@ export interface DataGridState<T> {
   /**
    * Grid columns
    */
-  columns: Array<DataGridColumn<T>>
+  columns: Array<TableColumn<T>>
   /**
    * Current sorting state
    */
@@ -212,11 +212,11 @@ export interface DataGridState<T> {
   /**
    * Current grid density
    */
-  density: DataGridDensity
+  density: TableDensity
   /**
    * Set the current grid density
    */
-  setDensity: React.Dispatch<DataGridDensity>
+  setDensity: React.Dispatch<TableDensity>
   /**
    * Action to take on click a row
    */

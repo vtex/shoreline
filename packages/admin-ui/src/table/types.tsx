@@ -8,10 +8,10 @@ import type { BaseResolvers } from './resolvers/base'
  * @template T: Item
  * @template R: Resolver filed
  */
-export type DataGridColumn<T, R = BaseResolvers<T>> =
+export type TableColumn<T, R = BaseResolvers<T>> =
   | {
       id: keyof T
-      header?: ((column: DataGridColumn<T>) => ReactNode) | string
+      header?: ((column: TableColumn<T>) => ReactNode) | string
       accessor?: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
@@ -20,7 +20,7 @@ export type DataGridColumn<T, R = BaseResolvers<T>> =
     }
   | {
       id: Exclude<string, keyof T>
-      header?: ((column: DataGridColumn<T>) => ReactNode) | string
+      header?: ((column: TableColumn<T>) => ReactNode) | string
       accessor: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
@@ -29,7 +29,7 @@ export type DataGridColumn<T, R = BaseResolvers<T>> =
     }
   | {
       id: Exclude<string, keyof T>
-      header?: ((column: DataGridColumn<T>) => ReactNode) | string
+      header?: ((column: TableColumn<T>) => ReactNode) | string
       accessor?: ((item: T) => ReactNode) | string
       resolver: R
       width?: any
@@ -37,4 +37,4 @@ export type DataGridColumn<T, R = BaseResolvers<T>> =
       sortable?: boolean
     }
 
-export type DataGridDensity = 'compact' | 'regular' | 'variable'
+export type TableDensity = 'compact' | 'regular' | 'variable'

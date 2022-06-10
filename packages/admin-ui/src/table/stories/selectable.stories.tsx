@@ -1,9 +1,9 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { DataGrid } from '../index'
-import { useDataGridState } from '../hooks/use-table-state'
-import type { DataGridColumn } from '../types'
+import { Table } from '../index'
+import { useTableState } from '../hooks/use-table-state'
+import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
 import {
   SelectionTree,
@@ -12,7 +12,7 @@ import {
 
 export default {
   title: 'admin-ui-review/table/selectable',
-  component: DataGrid,
+  component: Table,
 } as Meta
 
 interface Item {
@@ -69,11 +69,11 @@ export function Selectable() {
           id: 'price',
           header: 'Price',
         },
-      ] as Array<DataGridColumn<Item, BaseResolvers<Item>>>,
+      ] as Array<TableColumn<Item, BaseResolvers<Item>>>,
     []
   )
 
-  const state = useDataGridState<Item>({
+  const state = useTableState<Item>({
     columns,
     items,
   })
@@ -85,7 +85,7 @@ export function Selectable() {
 
   return (
     <SelectionTree state={selection}>
-      <DataGrid state={state} csx={{ width: 800 }} />
+      <Table state={state} csx={{ width: 800 }} />
     </SelectionTree>
   )
 }
