@@ -2,13 +2,13 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { DataGrid } from '../index'
-import { useDataGridState } from '../hooks/use-table-state'
+import { Table } from '../index'
+import { useTableState } from '../hooks/use-table-state'
 import { createColumns } from '../create-columns'
 
 export default {
   title: 'admin-ui-review/table/sortable',
-  component: DataGrid,
+  component: Table,
 } as Meta
 
 interface Item {
@@ -50,10 +50,10 @@ const columns = createColumns<Item>([
 ])
 
 export function CompareFunction() {
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     columns,
     items,
   })
 
-  return <DataGrid state={grid} csx={{ width: 560 }} />
+  return <Table state={grid} csx={{ width: 560 }} />
 }

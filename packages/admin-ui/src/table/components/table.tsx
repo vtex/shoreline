@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import { DataGridHead } from './table-head'
-import { DataGridBody } from './table-body'
-import type { DataGridState } from '../hooks/use-table-state'
+import { TableHead } from './table-head'
+import { TableBody } from './table-body'
+import type { TableState } from '../hooks/use-table-state'
 import { StateContext } from '../context'
 
-export const DataGrid = createComponent<'table', DataGridOptions>((props) => {
+export const Table = createComponent<'table', TableOptions>((props) => {
   const { children, state, ...dtgProps } = props
 
   return useElement('table', {
@@ -16,8 +16,8 @@ export const DataGrid = createComponent<'table', DataGridOptions>((props) => {
       <StateContext.Provider value={state}>
         {children ?? (
           <Fragment>
-            <DataGridHead />
-            <DataGridBody />
+            <TableHead />
+            <TableBody />
           </Fragment>
         )}
       </StateContext.Provider>
@@ -25,9 +25,9 @@ export const DataGrid = createComponent<'table', DataGridOptions>((props) => {
   })
 })
 
-export interface DataGridOptions {
+export interface TableOptions {
   /**
-   * DataGrid state
+   * Table state
    */
-  state: DataGridState<any>
+  state: TableState<any>
 }

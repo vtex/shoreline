@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-ui-util'
 
-import type { DataGridColumn, DataGridDensity } from '../types'
+import type { TableColumn, TableDensity } from '../types'
 import type { SortOrder, SortState } from '../hooks/use-table-sort'
 import type {
   DataViewStatus,
@@ -17,13 +17,13 @@ import type {
 export type ResolverShorcut<I, T = unknown> = T & { type: I }
 
 /**
- * DataGrid context
+ * Table context
  */
 export type ResolverContext = {
   /**
    * Grid current density
    */
-  density: DataGridDensity
+  density: TableDensity
   /**
    * Grid current status
    */
@@ -58,7 +58,7 @@ export interface Resolver<T = any, I = any, S = any> {
     /** current item */
     item: T
     /** current column */
-    column: DataGridColumn<T, ResolverShorcut<I, S>>
+    column: TableColumn<T, ResolverShorcut<I, S>>
     /** cell context */
     context: ResolverContext
   }) => ReactNode
@@ -66,7 +66,7 @@ export interface Resolver<T = any, I = any, S = any> {
     getData: CallableFunction
     context: ResolverContext
     items: T[]
-    column: DataGridColumn<T, ResolverShorcut<I, S>>
+    column: TableColumn<T, ResolverShorcut<I, S>>
   }) => ReactNode
 }
 
@@ -84,7 +84,7 @@ export function createResolver<T, I, S = Record<string, unknown>>(
 }
 
 export type ResolveHeaderArgs<T> = {
-  column: DataGridColumn<T>
+  column: TableColumn<T>
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
   items: T[]
@@ -130,7 +130,7 @@ export function resolveHeader<T>(
 }
 
 export type ResolveCellArgs<T> = {
-  column: DataGridColumn<T>
+  column: TableColumn<T>
   item: T
   resolvers: Record<string, Resolver<T>>
   context: ResolverContext
@@ -159,7 +159,7 @@ export function resolveCell<T>(args: ResolveCellArgs<T>) {
  * Call the column header
  * @param column current column
  */
-export function accessHeader<T>(column: DataGridColumn<T>) {
+export function accessHeader<T>(column: TableColumn<T>) {
   const { header } = column
 
   switch (typeof header) {
@@ -182,7 +182,7 @@ export function accessHeader<T>(column: DataGridColumn<T>) {
  * @param column current column
  * @param item current item
  */
-export function accessCell<T>(column: DataGridColumn<T>, item: T) {
+export function accessCell<T>(column: TableColumn<T>, item: T) {
   const { accessor } = column
 
   switch (typeof accessor) {
