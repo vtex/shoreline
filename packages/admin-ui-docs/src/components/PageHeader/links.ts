@@ -43,7 +43,6 @@ export const PAGE_LINK: any = {
   Skeleton: { github: 'components/Skeleton' },
   Spinner: { github: 'components/Spinner' },
   Tabs: { github: 'components/Tabs' },
-  TextArea: { github: 'components/TextArea' },
   Text: { github: 'components/Text' },
   Toast: { github: 'components/Toast' },
   Toggle: { github: 'components/Toggle' },
