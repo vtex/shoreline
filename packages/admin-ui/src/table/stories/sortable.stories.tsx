@@ -4,10 +4,10 @@ import faker from 'faker'
 
 import { DataGrid } from '../index'
 import { useDataGridState } from '../hooks/use-table-state'
-import { createColumns } from '../createColumns'
+import { createColumns } from '../create-columns'
 
 export default {
-  title: 'admin-ui-review/Table/sortable',
+  title: 'admin-ui-review/table/sortable',
   component: DataGrid,
 } as Meta
 

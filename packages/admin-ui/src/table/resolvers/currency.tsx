@@ -3,8 +3,8 @@ import React from 'react'
 import invariant from 'tiny-invariant'
 
 import { Skeleton } from '../../components/Skeleton'
-import type { ResolverRenderProps } from './core'
-import { createResolver, defaultRender } from './core'
+import type { ResolverRenderProps } from './resolver-core'
+import { createResolver, defaultRender } from './resolver-core'
 
 export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({

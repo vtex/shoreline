@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import invariant from 'tiny-invariant'
 
-import type { ResolverRenderProps } from './core'
-import { createResolver } from './core'
+import type { ResolverRenderProps } from './resolver-core'
+import { createResolver } from './resolver-core'
 
 export function rootResolver<T>() {
   return createResolver<T, 'root', RootResolver<T>>({

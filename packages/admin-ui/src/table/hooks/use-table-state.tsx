@@ -8,13 +8,13 @@ import type {
   ResolveCellArgs,
   ResolveHeaderArgs,
   ResolveHeaderReturn,
-} from '../resolvers/core'
+} from '../resolvers/resolver-core'
 import {
   resolveCell as unstableResolveCell,
   resolveHeader as unstableResolveHeader,
-} from '../resolvers/core'
+} from '../resolvers/resolver-core'
 import { baseResolvers } from '../resolvers/base'
-import type { DataGridColumn, DataGridDensity } from '../typings'
+import type { DataGridColumn, DataGridDensity } from '../types'
 import type { UseSortReturn, UseDataGridSortParams } from './use-table-sort'
 import { useDataGridSort } from './use-table-sort'
 import type { DataViewState } from '../../components/DataView'

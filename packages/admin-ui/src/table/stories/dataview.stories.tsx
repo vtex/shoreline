@@ -11,7 +11,7 @@ import {
 import { DataGrid, useDataGridState } from '../index'
 import { Button } from '../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../search'
-import { createColumns } from '../createColumns'
+import { createColumns } from '../create-columns'
 import {
   Pagination,
   useQueryPaginationState,
@@ -29,7 +29,7 @@ import {
 } from '../../filters'
 
 export default {
-  title: 'admin-ui-review/Table/WithDataView',
+  title: 'admin-ui-review/table/WithDataView',
   component: DataGrid,
 } as Meta
 
