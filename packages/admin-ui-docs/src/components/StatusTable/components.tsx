@@ -375,12 +375,6 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'InputPassword',
-    status: 'supported',
-    notes: 'Will be deprecated for lack of a use case',
-    type: 'forms',
-  },
-  {
     component: 'Input',
     status: 'supported',
     notes: 'Will be merged with the TextArea in a new TextField component.',
