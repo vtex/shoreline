@@ -394,22 +394,6 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'TextArea',
-    status: 'supported',
-    notes: (
-      <Text>
-        TextArea label covered by input content.{' '}
-        <Anchor href="https://github.com/vtex/onda/issues/501" target="_blank">
-          Issue #501
-        </Anchor>
-        <br />
-        This component will be merged with the Input in a new TextField
-        component.
-      </Text>
-    ),
-    type: 'forms',
-  },
-  {
     component: 'Toggle',
     status: 'supported',
     notes: 'Will be renamed to Switch',
