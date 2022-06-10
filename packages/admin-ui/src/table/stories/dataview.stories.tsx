@@ -17,7 +17,7 @@ import {
   useQueryPaginationState,
 } from '../../components/Pagination'
 import { Stack } from '../../stack'
-import { Input } from '../../components/Input'
+import { TextInput } from '../../text-input'
 import { FlexSpacer } from '../../components/Flex'
 import {
   FilterGroup,
@@ -216,13 +216,12 @@ export function QueryState() {
 
     return (
       <Stack>
-        <Input
+        <TextInput
           label="Current URL:"
           id="current-url-input"
           value={window.location.href}
           disabled
-          csx={{ width: 'lg' }}
-          helperText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
+          helpText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
         />
         <DataView csx={{ width: 500 }} state={view}>
           <DataViewControls>
