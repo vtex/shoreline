@@ -39,7 +39,6 @@ export const PAGE_LINK: any = {
   RadioGroup: { github: 'components/RadioGroup' },
   Radio: { github: 'components/Radio' },
   Search: { github: 'components/Search' },
-  Select: { github: 'components/Select' },
   Set: { github: 'components/Set' },
   Skeleton: { github: 'components/Skeleton' },
   Spinner: { github: 'components/Spinner' },

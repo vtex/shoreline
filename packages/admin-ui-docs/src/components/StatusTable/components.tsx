@@ -394,12 +394,6 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'Select',
-    status: 'supported',
-    notes: '-',
-    type: 'forms',
-  },
-  {
     component: 'TextArea',
     status: 'supported',
     notes: (
