@@ -375,12 +375,6 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'Input',
-    status: 'supported',
-    notes: 'Will be merged with the TextArea in a new TextField component.',
-    type: 'forms',
-  },
-  {
     component: 'Label',
     status: 'supported',
     notes: '-',
