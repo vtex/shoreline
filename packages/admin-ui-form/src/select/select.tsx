@@ -1,6 +1,6 @@
 import React from 'react'
-import type { next_SelectProps as AdminUISelectProps } from '@vtex/admin-ui'
-import { next_Select as AdminUISelect } from '@vtex/admin-ui'
+import type { SelectProps as AdminUISelectProps } from '@vtex/admin-ui'
+import { Select as AdminUISelect } from '@vtex/admin-ui'
 
 import type { FormFieldProps } from '../util'
 import { hasError, getErrorText, useFieldDx } from '../util'

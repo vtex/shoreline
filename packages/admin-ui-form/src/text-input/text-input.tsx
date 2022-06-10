@@ -1,6 +1,6 @@
 import React from 'react'
-import type { next_TextInputProps as AdminUIInputProps } from '@vtex/admin-ui'
-import { next_TextInput as AdminUIInput } from '@vtex/admin-ui'
+import type { TextInputProps as AdminUIInputProps } from '@vtex/admin-ui'
+import { TextInput as AdminUIInput } from '@vtex/admin-ui'
 
 import type { FormFieldProps } from '../util'
 import { hasError, getErrorText, useFieldDx } from '../util'
