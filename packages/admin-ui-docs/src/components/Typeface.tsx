@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  useDataGridState,
-  DataGrid,
+  useTableState,
+  Table,
   createColumns,
   Text,
   Set,
@@ -57,14 +57,14 @@ export function Typeface() {
     },
   ])
 
-  const state = useDataGridState<TypefaceItem>({
+  const state = useTableState<TypefaceItem>({
     density: 'regular',
     columns,
     items,
   })
 
   return (
-    <DataGrid
+    <Table
       csx={{
         tr: {
           bg: 'white !important',
