@@ -6,7 +6,7 @@ import faker from 'faker'
 import { Page, PageContent, PageHeader, PageTitle, PageActions } from '../index'
 import { DataView, DataViewControls, useDataViewState } from '../../DataView'
 import { Search, useSearchState } from '../../../search'
-import { DataGrid, useDataGridState, createColumns } from '../../DataGrid'
+import { Table, useTableState, createColumns } from '../../../table'
 import { Button } from '../../../button'
 
 export default {
@@ -67,7 +67,7 @@ export function WithDataView() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items: data,
@@ -98,9 +98,9 @@ export function WithDataView() {
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
-            <Search state={search} />
+            <Search {...search.getInputProps()} />
           </DataViewControls>
-          <DataGrid state={grid} />
+          <Table state={grid} />
         </DataView>
       </PageContent>
     </Page>

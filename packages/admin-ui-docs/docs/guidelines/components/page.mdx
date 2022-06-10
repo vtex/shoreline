@@ -101,7 +101,7 @@ Renders the content of the page.
 
 ### With DataView
 
-Example featuring [DataView](/patterns/data-view/) and [DataGrid](/components/data-grid/)
+Example featuring [DataView](/patterns/data-view/) and [Table](/components/table/)
 
 ```jsx noInline live
 const items = [
@@ -142,7 +142,7 @@ function WithSearch() {
     )
   }, [search])
 
-  const grid = useDataGridState({
+  const table = useTableState({
     view,
     columns: [
       {
@@ -181,7 +181,7 @@ function WithSearch() {
           <DataViewControls>
             <Search id="search" placeholder="Search" state={search} />
           </DataViewControls>
-          <DataGrid state={grid} />
+          <Table state={table} />
         </DataView>
       </PageContent>
     </Page>

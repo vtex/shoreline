@@ -19,7 +19,7 @@ export const PAGE_LINK: any = {
   CollapsibleGroup: { github: 'components/CollapsibleGroup' },
   Collapsible: { github: 'components/Collapsible' },
   Columns: { github: 'components/Columns' },
-  DataGrid: { github: 'components/DataGrid' },
+  Table: { github: 'components/Table' },
   DataView: { github: 'components/DataView' },
   Divider: { github: 'components/Divider' },
   Dropdown: { github: 'components/Dropdown' },

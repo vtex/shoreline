@@ -20,6 +20,7 @@ export * from './number-input'
 export * from './tag'
 export * from './text-area'
 export * from './select'
+export * from './table'
 
 export * from './deprecated-set'
 
@@ -58,7 +59,6 @@ export {
   isEdge,
 } from 'react-device-detect'
 export * from './components/SearchBox'
-export * from './components/DataGrid'
 export * from './components/Page'
 export * from './components/DataView'
 export * from './components/SelectionTree'
