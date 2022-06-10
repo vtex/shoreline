@@ -34,7 +34,6 @@ export const PAGE_LINK: any = {
   List: { github: 'components/List' },
   Menu: { github: 'components/Menu' },
   Modal: { github: 'components/Modal' },
-  NumericStepper: { github: 'components/NumericStepper' },
   Page: { github: 'components/Page' },
   Pagination: { github: 'components/Pagination' },
   Paragraph: { github: 'components/Paragraph' },

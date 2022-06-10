@@ -393,12 +393,6 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'NumericStepper',
-    status: 'supported',
-    notes: 'Will be renamed to Number Field',
-    type: 'forms',
-  },
-  {
     component: 'RadioGroup',
     status: 'supported',
     notes:
