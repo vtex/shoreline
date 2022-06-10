@@ -3,8 +3,9 @@ import { render, screen, waitFor, axe } from '../../test-utils'
 import userEvent from '@testing-library/user-event'
 import { IntlProvider, useIntl } from 'react-intl'
 import { Form, Formik } from 'formik'
-import { Button, Label, Text } from '@vtex/admin-ui'
+import { Button, Text } from '@vtex/admin-ui'
 
+import { Label } from '../DeprecatedBase'
 import { FormikCheckboxGroup } from './index'
 
 describe('CheckboxGroup tests', () => {

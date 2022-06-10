@@ -1,9 +1,9 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { TextAreaProps } from '@vtex/admin-ui'
-import { TextArea } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
+import type { TextAreaProps } from '../DeprecatedBase'
+import { TextArea } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
 export const FormikTextArea = forwardRef(
