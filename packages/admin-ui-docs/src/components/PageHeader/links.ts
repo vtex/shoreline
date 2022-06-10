@@ -29,7 +29,6 @@ export const PAGE_LINK: any = {
   Grid: { github: 'components/Grid' },
   Heading: { github: 'components/Heading' },
   InputPassword: { github: 'components/InputPassword' },
-  Input: { github: 'components/Input' },
   Label: { github: 'components/Label' },
   List: { github: 'components/List' },
   Menu: { github: 'components/Menu' },

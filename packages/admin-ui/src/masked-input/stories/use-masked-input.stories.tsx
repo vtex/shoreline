@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 
 import { useMaskedInput, useFormatter } from '../index'
-import { Input } from '../../components/Input'
+import { TextInput } from '../../text-input'
 import { Box } from '../../box'
 
 export default {
@@ -28,7 +28,12 @@ export function CPFMask() {
         width: 256,
       }}
     >
-      <Input id="cpf" label="CPF" helperText="___.___.___-__" {...inputProps} />
+      <TextInput
+        id="cpf"
+        label="CPF"
+        helpText="___.___.___-__"
+        {...inputProps}
+      />
     </Box>
   )
 }
@@ -52,11 +57,11 @@ export function PhoneMask() {
         width: 256,
       }}
     >
-      <Input
+      <TextInput
         id="phone"
         label="Phone"
         type="tel"
-        helperText="+__ (___) _____-____"
+        helpText="+__ (___) _____-____"
         {...inputProps}
       />
     </Box>
@@ -82,7 +87,7 @@ export function DateMask() {
         width: 256,
       }}
     >
-      <Input id="date" label="Date" helperText="dd/MM/aaaa" {...inputProps} />
+      <TextInput id="date" label="Date" helpText="dd/MM/aaaa" {...inputProps} />
     </Box>
   )
 }
@@ -106,10 +111,10 @@ export function DateTimeMask() {
         width: 256,
       }}
     >
-      <Input
+      <TextInput
         id="date"
         label="Date"
-        helperText="dd/MM/aaaa : hh:mm:ss"
+        helpText="dd/MM/aaaa : hh:mm:ss"
         {...inputProps}
       />
     </Box>
