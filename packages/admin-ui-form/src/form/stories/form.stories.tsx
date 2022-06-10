@@ -1,13 +1,6 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import {
-  Inline,
-  Stack,
-  Button,
-  next_TextInput as TextInput,
-  next_TextArea as TextArea,
-  get,
-} from '@vtex/admin-ui'
+import { Inline, Stack, Button, TextInput, TextArea, get } from '@vtex/admin-ui'
 
 import { Form, useFormState } from '../index'
 
