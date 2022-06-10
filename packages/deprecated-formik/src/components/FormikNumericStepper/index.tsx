@@ -1,8 +1,10 @@
 import type { Ref } from 'react'
 import React, { forwardRef, useEffect, useState } from 'react'
-import type { NumericStepperProps } from '@vtex/admin-ui'
-import { Box, NumericStepper } from '@vtex/admin-ui'
 import { useField } from 'formik'
+import { Box } from '@vtex/admin-ui'
+
+import type { NumericStepperProps } from '../DeprecatedBase'
+import { NumericStepper } from '../DeprecatedBase'
 
 import { handleErrorMessage } from '../util'
 

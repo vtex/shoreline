@@ -1,9 +1,9 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { InputPasswordProps } from '@vtex/admin-ui'
-import { InputPassword } from '@vtex/admin-ui'
 import { useField } from 'formik'
 
+import type { InputPasswordProps } from '../DeprecatedBase'
+import { InputPassword } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
 export const FormikInputPassword = forwardRef(

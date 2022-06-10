@@ -57,7 +57,6 @@ export const Playground: Story<FormikSelectProps> = (args) => {
               <Button
                 variant="secondary"
                 type="reset"
-                size="small"
                 onClick={() => resetForm()}
                 disabled={!dirty}
               >
@@ -70,9 +69,7 @@ export const Playground: Story<FormikSelectProps> = (args) => {
               >
                 Change values in formik to current initial values
               </Text>
-              <Button type="submit" size="small">
-                Save
-              </Button>
+              <Button type="submit">Save</Button>
               <Text
                 variant="detail"
                 tone="secondary"
@@ -80,9 +77,7 @@ export const Playground: Story<FormikSelectProps> = (args) => {
               >
                 Set the current value as initial value
               </Text>
-              <Button variant="secondary" size="small">
-                Set initial values
-              </Button>
+              <Button variant="secondary">Set initial values</Button>
               <Text
                 variant="detail"
                 tone="secondary"
