@@ -14,7 +14,7 @@ import { useDataGridState } from '../hooks/use-table-state'
 import { DataView, useDataViewState } from '../../components/DataView'
 
 export default {
-  title: 'admin-ui-review/Table/complexity',
+  title: 'admin-ui-review/table/complexity',
   component: DataGrid,
 } as Meta
 

@@ -6,10 +6,10 @@ import type { StyleObject } from '@vtex/admin-ui-core'
 import { focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'
 
-import type { ResolverContext, ResolverRenderProps } from './core'
-import { createResolver, defaultRender } from './core'
+import type { ResolverContext, ResolverRenderProps } from './resolver-core'
+import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../components/Skeleton'
-import type { DataGridDensity } from '../typings'
+import type { DataGridDensity } from '../types'
 
 const defaultPreview: ImagePreview = {
   display: true,

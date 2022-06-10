@@ -4,7 +4,7 @@ import {
   resolveHeader,
   createResolver,
   resolveCell,
-} from '../resolvers/core'
+} from '../resolvers/resolver-core'
 
 describe('table resolver core tests', () => {
   describe('accessHeader', () => {

@@ -1,7 +1,7 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import * as styles from '../styles/table-cell.styles'
-import type { DataGridColumn } from '../typings'
+import type { DataGridColumn } from '../types'
 
 export const DataGridCell = createComponent<'td', CellOptions>((props) => {
   const {

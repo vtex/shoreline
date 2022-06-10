@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-ui-util'
 
-import type { DataGridColumn, DataGridDensity } from '../typings'
+import type { DataGridColumn, DataGridDensity } from '../types'
 import type { SortOrder, SortState } from '../hooks/use-table-sort'
 import type {
   DataViewStatus,
