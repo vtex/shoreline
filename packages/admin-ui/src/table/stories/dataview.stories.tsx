@@ -8,7 +8,7 @@ import {
   DataViewControls,
   useDataViewState,
 } from '../../components/DataView'
-import { DataGrid, useDataGridState } from '../index'
+import { Table, useTableState } from '../index'
 import { Button } from '../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../search'
 import { createColumns } from '../create-columns'
@@ -30,7 +30,7 @@ import {
 
 export default {
   title: 'admin-ui-review/table/WithDataView',
-  component: DataGrid,
+  component: Table,
 } as Meta
 
 interface Item {
@@ -75,7 +75,7 @@ export function SearchControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items: data,
@@ -105,14 +105,14 @@ export function SearchControls() {
           }}
         />
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
 
 export function Status() {
   const view = useDataViewState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items,
@@ -165,7 +165,7 @@ export function Status() {
           Empty
         </Button>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -190,7 +190,7 @@ export function QueryState() {
     })
 
     const search = useQuerySearchState({})
-    const grid = useDataGridState<Item>({
+    const grid = useTableState<Item>({
       view,
       columns,
       items: data.slice(pagination.range[0] - 1, pagination.range[1]),
@@ -235,7 +235,7 @@ export function QueryState() {
               nextLabel="Next"
             />
           </DataViewControls>
-          <DataGrid state={grid} />
+          <Table state={grid} />
         </DataView>
       </Stack>
     )
@@ -252,7 +252,7 @@ export function FilterControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
 
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items: data,
@@ -325,7 +325,7 @@ export function FilterControls() {
           <Filter state={qualityFilterState} />
         </FilterGroup>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }

@@ -5,12 +5,12 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import faker from 'faker'
 import { IconDotsSixVertical } from '@vtex/phosphor-icons'
 
-import { DataGrid, DataGridBody, DataGridHead, DataGridBodyRow } from '../index'
-import { useDataGridState } from '../hooks/use-table-state'
+import { Table, TableBody, TableHead, TableBodyRow } from '../index'
+import { useTableState } from '../hooks/use-table-state'
 
 export default {
   title: 'admin-ui-review/table/Dnd',
-  component: DataGrid,
+  component: Table,
 } as Meta
 
 interface Item {
@@ -31,7 +31,7 @@ const fakeData = [...Array(10).keys()].map((id) => {
 
 export function Dnd() {
   const [items, setItems] = useState(fakeData)
-  const datagrid = useDataGridState<Item>({
+  const state = useTableState<Item>({
     columns: [
       {
         id: 'draggable',
@@ -92,19 +92,19 @@ export function Dnd() {
   }
 
   return (
-    <DataGrid state={datagrid} csx={{ width: 'unset' }}>
-      <DataGridHead />
+    <Table state={state} csx={{ width: 'unset' }}>
+      <TableHead />
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
           {(droppableProvided) => (
-            <DataGridBody ref={droppableProvided.innerRef}>
+            <TableBody ref={droppableProvided.innerRef}>
               {(render) => (
                 <Fragment>
                   {render(({ key, item, index }) => {
                     return (
                       <Draggable draggableId={key} index={index}>
                         {(draggableProvided, draggableSnapshot) => (
-                          <DataGridBodyRow
+                          <TableBodyRow
                             id={key}
                             item={item}
                             ref={draggableProvided.innerRef}
@@ -124,10 +124,10 @@ export function Dnd() {
                   {droppableProvided.placeholder}
                 </Fragment>
               )}
-            </DataGridBody>
+            </TableBody>
           )}
         </Droppable>
       </DragDropContext>
-    </DataGrid>
+    </Table>
   )
 }

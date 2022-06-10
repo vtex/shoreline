@@ -4,52 +4,50 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { useStateContext } from '../context'
-import { DataGridCell } from './table-cell'
+import { TableCell } from './table-cell'
 import { useDataViewContext } from '../../components/DataView'
 import * as styles from '../styles/table-body.styles'
 
-export const DataGridBody = createComponent<'tbody', DataGridBodyOptions>(
-  (props) => {
-    const { children, role = 'rowgroup', ...restProps } = props
-    const { status } = useDataViewContext()
-    const { data, getRowKey } = useStateContext()
+export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
+  const { children, role = 'rowgroup', ...restProps } = props
+  const { status } = useDataViewContext()
+  const { data, getRowKey } = useStateContext()
 
-    const shouldRender = status === 'ready' || status === 'loading'
+  const shouldRender = status === 'ready' || status === 'loading'
 
-    return useElement('tbody', {
-      ...restProps,
-      role,
-      baseStyle: styles.tbodyBaseline,
-      children: shouldRender && (
-        <Fragment>
-          {isFunction(children)
-            ? children(function render(callback: RenderFunction) {
-                return data.map((item, index) => {
-                  const key = String(getRowKey(item))
+  return useElement('tbody', {
+    ...restProps,
+    role,
+    baseStyle: styles.tbodyBaseline,
+    children: shouldRender && (
+      <Fragment>
+        {isFunction(children)
+          ? children(function render(callback: RenderFunction) {
+              return data.map((item, index) => {
+                const key = String(getRowKey(item))
 
-                  return (
-                    <Fragment key={key}>
-                      {callback({ item, key, index })}
-                    </Fragment>
-                  )
-                })
+                return (
+                  <Fragment key={key}>
+                    {callback({ item, key, index })}
+                  </Fragment>
+                )
               })
-            : data.map((item) => (
-                <Fragment key={String(getRowKey(item))}>
-                  {children ? (
-                    cloneElement(children as any, {
-                      item,
-                    })
-                  ) : (
-                    <DataGridBodyRow item={item} />
-                  )}
-                </Fragment>
-              ))}
-        </Fragment>
-      ),
-    })
-  }
-)
+            })
+          : data.map((item) => (
+              <Fragment key={String(getRowKey(item))}>
+                {children ? (
+                  cloneElement(children as any, {
+                    item,
+                  })
+                ) : (
+                  <TableBodyRow item={item} />
+                )}
+              </Fragment>
+            ))}
+      </Fragment>
+    ),
+  })
+})
 
 type RenderParams = {
   key: string
@@ -59,13 +57,13 @@ type RenderParams = {
 
 type RenderFunction = (params: RenderParams) => ReactNode
 
-export interface DataGridBodyOptions {
+export interface TableBodyOptions {
   children?:
     | ((render: (callbackFunction: RenderFunction) => void) => ReactNode)
     | ReactNode
 }
 
-export const DataGridBodyRow = createComponent<'tr', DataGridBodyRowOptions>(
+export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
   (props) => {
     const { item = {}, role = 'row', children, ...rowProps } = props
 
@@ -101,9 +99,9 @@ export const DataGridBodyRow = createComponent<'tr', DataGridBodyRowOptions>(
                     density,
                   })
                 ) : (
-                  <DataGridCell column={column} density={density}>
+                  <TableCell column={column} density={density}>
                     {content}
-                  </DataGridCell>
+                  </TableCell>
                 )}
               </Fragment>
             )
@@ -115,6 +113,6 @@ export const DataGridBodyRow = createComponent<'tr', DataGridBodyRowOptions>(
   }
 )
 
-export interface DataGridBodyRowOptions {
+export interface TableBodyRowOptions {
   item?: Record<string, any>
 }

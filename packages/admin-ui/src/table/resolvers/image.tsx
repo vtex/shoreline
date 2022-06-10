@@ -9,7 +9,7 @@ import { useSystem } from '@vtex/admin-ui-react'
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../components/Skeleton'
-import type { DataGridDensity } from '../types'
+import type { TableDensity } from '../types'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -17,7 +17,7 @@ const defaultPreview: ImagePreview = {
   size: 'regular',
 }
 
-function getImageVariant(density: DataGridDensity): StyleObject {
+function getImageVariant(density: TableDensity): StyleObject {
   return {
     regular: {
       width: 56,

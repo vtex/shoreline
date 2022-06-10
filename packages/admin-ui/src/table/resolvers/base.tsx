@@ -12,7 +12,7 @@ import type { SelectionResolver } from './selection'
 import { selectionResolver } from './selection'
 
 /**
- * DataGrid base resolvers
+ * Table base resolvers
  */
 export function baseResolvers<T>() {
   return {
