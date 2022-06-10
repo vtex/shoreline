@@ -1,6 +1,6 @@
 import React from 'react'
-import type { next_TextAreaProps as AdminUITextAreaProps } from '@vtex/admin-ui'
-import { next_TextArea as AdminUITextArea } from '@vtex/admin-ui'
+import type { TextAreaProps as AdminUITextAreaProps } from '@vtex/admin-ui'
+import { TextArea as AdminUITextArea } from '@vtex/admin-ui'
 
 import type { FormFieldProps } from '../util'
 import { hasError, getErrorText, useFieldDx } from '../util'
