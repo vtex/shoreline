@@ -31,7 +31,7 @@ Text Area is the space where longer text is inputted by users. It renders a `<te
 
 The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
-```jsx live
+```jsx
 <Set spacing={3}>
   <TextArea
     label="Neutral"
@@ -52,7 +52,7 @@ The `TextArea` [tone of voice](/foundations/colors/#tones) is either `neutral` (
 
 You can add a helper text to indicate the proper way to fill in the text area, and also, can add a character count to indicate the text maximum length and the current quantity of characters in the text area. To use these variations, the `helperText` and `charLimit` properties should have a value defined.
 
-```jsx live
+```jsx
 function Example() {
   const [value, setValue] = React.useState('')
 
@@ -77,7 +77,7 @@ function Example() {
 
 You can disable the input by defining the `disabled` property.
 
-```jsx live
+```jsx
 function Example() {
   const [value, setValue] = React.useState('')
 
