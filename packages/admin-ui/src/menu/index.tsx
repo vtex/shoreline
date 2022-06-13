@@ -1,4 +1,4 @@
-export { useMenuState } from 'ariakit'
+export { useMenuState } from 'ariakit/menu'
 export * from './menu-button'
 export * from './menu'
 export * from './menu-item'
