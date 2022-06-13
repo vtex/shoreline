@@ -5,12 +5,7 @@ import { IconX, IconPlus, IconPen, IconDownload } from '@vtex/phosphor-icons'
 
 import { Stack } from '../stack'
 import { Inline } from '../inline'
-import { Menu } from './menu'
-import { MenuButton } from './menu-button'
-import { MenuItem } from './menu-item'
-import { MenuDivider } from './menu-divider'
-
-import { useMenuState } from 'ariakit'
+import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
 
 export default {
   title: 'admin-ui-review/menu',
@@ -18,13 +13,28 @@ export default {
 } as Meta
 
 export const Playground = () => {
-  const state = useMenuState()
+  const menuState = useMenuState()
+  const largeMenuState = useMenuState()
 
   return (
     <Inline>
       <>
-        <MenuButton state={state} />
-        <Menu state={state}>
+        <MenuButton state={menuState} />
+        <Menu state={menuState}>
+          <MenuItem icon={<IconPlus />} disabled>
+            Create
+          </MenuItem>
+          <MenuItem icon={<IconPen />}>Edit</MenuItem>
+          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuDivider />
+          <MenuItem icon={<IconX />} critical>
+            Delete
+          </MenuItem>
+        </Menu>
+      </>
+      <>
+        <MenuButton state={largeMenuState} size="large" />
+        <Menu state={largeMenuState}>
           <MenuItem icon={<IconPlus />} disabled>
             Create
           </MenuItem>
@@ -81,13 +91,28 @@ export const CustomMenu = () => {
 }
 
 export const IconOnly = () => {
-  const state = useMenuState()
+  const menuState = useMenuState()
+  const largeMenuState = useMenuState()
 
   return (
     <Inline>
       <>
-        <MenuButton state={state} labelHidden />
-        <Menu state={state}>
+        <MenuButton state={menuState} labelHidden />
+        <Menu state={menuState}>
+          <MenuItem icon={<IconPlus />} disabled>
+            Create
+          </MenuItem>
+          <MenuItem icon={<IconPen />}>Edit</MenuItem>
+          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuDivider />
+          <MenuItem icon={<IconX />} critical>
+            Delete
+          </MenuItem>
+        </Menu>
+      </>
+      <>
+        <MenuButton state={largeMenuState} size="large" labelHidden />
+        <Menu state={largeMenuState}>
           <MenuItem icon={<IconPlus />} disabled>
             Create
           </MenuItem>
@@ -115,7 +140,7 @@ export const Variants = () => {
     <Stack>
       {variants.map((variant) => {
         const actionMenuState = useMenuState()
-        const cusontMenuState = useMenuState()
+        const customMenuState = useMenuState()
 
         return (
           <Inline>
@@ -140,14 +165,20 @@ export const Variants = () => {
 
             <Stack>
               <MenuButton
-                state={cusontMenuState}
+                state={customMenuState}
                 variant={variant}
                 label="Custom menu"
               />
-              <Menu state={cusontMenuState}>
-                <MenuItem>Option 1</MenuItem>
-                <MenuItem>Option 2</MenuItem>
-                <MenuItem>Option 3</MenuItem>
+              <Menu state={customMenuState}>
+                <MenuItem icon={<IconPlus />} disabled>
+                  Create
+                </MenuItem>
+                <MenuItem icon={<IconPen />}>Edit</MenuItem>
+                <MenuItem icon={<IconDownload />}>Download</MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<IconX />} critical>
+                  Delete
+                </MenuItem>
               </Menu>
 
               <MenuButton

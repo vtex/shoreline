@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { MenuItem as AriakitMenuItem } from 'ariakit/Menu'
@@ -37,4 +37,4 @@ export type MenuItemOptions = {
   children: ReactNode
 }
 
-export type MenuItemProps = ComponentPropsWithRef<typeof MenuItem>
+export type MenuItemProps = React.ComponentPropsWithoutRef<typeof MenuItem>
