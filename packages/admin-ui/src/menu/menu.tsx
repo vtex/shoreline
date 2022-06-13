@@ -8,16 +8,14 @@ import {
 
 import * as style from './menu.style'
 
-export const Menu = createComponent<typeof AriakitMenu, MenuListProps>(
-  (props) => {
-    const { children, ...menuListProps } = props
+export const Menu = createComponent<typeof AriakitMenu>((props) => {
+  const { children, ...menuProps } = props
 
-    return useElement(AriakitMenu, {
-      ...menuListProps,
-      baseStyle: style.list,
-      children: <IconContainer size="small">{children}</IconContainer>,
-    })
-  }
-)
+  return useElement(AriakitMenu, {
+    ...menuProps,
+    baseStyle: style.list,
+    children: <IconContainer size="small">{children}</IconContainer>,
+  })
+})
 
-export type MenuListProps = any
+export type MenuProps = React.ComponentPropsWithoutRef<typeof Menu>

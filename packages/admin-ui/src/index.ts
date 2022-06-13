@@ -21,12 +21,12 @@ export * from './tag'
 export * from './text-area'
 export * from './select'
 export * from './table'
+export * from './menu'
 
 export * from './deprecated-set'
 
 export * from './components/Skeleton'
 export * from './components/Label'
-export * from './components/Menu'
 export * from './components/Collapsible'
 export * from './components/CollapsibleGroup'
 export * from './components/Tooltip'
