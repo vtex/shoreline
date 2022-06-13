@@ -1,0 +1,105 @@
+import { PageSection } from '@site/src/components/PageSection'
+import { codeReference } from './toc'
+
+<PageSection
+  id={codeReference[0].id}
+  title={codeReference[0].value}
+>
+
+```jsx isStatic
+import { Radio, RadioGroup, useRadioState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useRadioState()
+
+  return (
+    <RadioGroup state={state} label="Group label">
+      <Radio value="radio-1" label="Label" />
+      <Radio value="radio-2" label="Label" />
+      <Radio value="radio-3" label="Label" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={codeReference[1].id}
+  title={codeReference[1].value}
+>
+
+| Name     | Type             | Description                                                                                           | Required | Default |
+| -------- | ---------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| value    | `string, number` | The value to be used in the radio button. This is the value that will be returned on form submission. | ✅       | -       |
+| label    | `string`         | Radio label                                                                                           | ✅       | -       |
+| helpText | `ReactNode`      | Help text                                                                                             | 🚫       | -       |
+| checked  | `boolean`        | Same as the HTML checked attribute                                                                    | 🚫       | -       |
+| disabled | `boolean`        | Whether is disabled or not                                                                            | 🚫       | `false` |
+| id       | `string`         | Same as the HTML attribute                                                                            | 🚫       | -       |
+| csx      | `StyleProp`      | Defines component styles                                                                              | 🚫       | `{}`    |
+
+</PageSection>
+
+<PageSection
+  id={codeReference[2].id}
+  title={codeReference[2].value}
+>
+
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| label     | `string`      | Group label                                | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| optional  | `ReactNode`   | Whether the field is optional or not       | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+
+</PageSection>
+
+<PageSection
+  id={codeReference[3].id}
+  title={codeReference[3].value}
+  explanation="A hook to help control the RadioGroup state."
+>
+
+<PageSection
+  id={codeReference[4]?.id}
+  title={codeReference[4]?.value}
+>
+
+| Name         | Type                                   | Description                                                        | Required | Default |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
+| defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
+| setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
+
+</PageSection>
+
+<PageSection
+  id={codeReference[5]?.id}
+  title={codeReference[5]?.value}
+>
+
+| Name     | Type                            | Description                           | Required | Default |
+| -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
+| value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
+| setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
+
+</PageSection>
+
+</PageSection>
+
+<PageSection
+  id={codeReference[6]?.id}
+  title={codeReference[6]?.value}
+  direction="row"
+>
+
+- `Radio` has the role `radio`.
+- `RadioGroup` has role `radiogroup`.
+- `Radio` has `aria-checked` set to `true` when it's checked. Otherwise, `aria-checked` is set to `false`.
+- Always use `Radio` within a `RadioGroup`.
+
+</PageSection>
