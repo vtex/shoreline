@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { MenuItem as AriakitMenuItem } from 'ariakit/Menu'
+import { MenuItem as AriakitMenuItem } from 'ariakit/menu'
 
 import { Center } from '../center'
 

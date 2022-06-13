@@ -1,5 +1,5 @@
 import { jsx } from '@vtex/admin-ui-react'
-import { MenuSeparator } from 'ariakit/Menu'
+import { MenuSeparator } from 'ariakit/menu'
 
 import * as style from './menu.style'
 
