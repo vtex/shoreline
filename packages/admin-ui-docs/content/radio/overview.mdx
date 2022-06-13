@@ -1,0 +1,174 @@
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { overview } from './toc'
+
+<IntroSection
+  id={overview[0].id}
+  title={overview[0].value}
+  description="Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context."
+/>
+
+<PageSection id={overview[1].id} title={overview[1].value} />
+
+<PageSection id={overview[2].id} title={overview[2].value}>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'disabled' })
+
+  return (
+    <RadioGroup state={state} label="Accounts" direction="column">
+      <Radio
+        label="Accounts are disabled"
+        helpText="Customers will only be able to check out as guests"
+        value="disabled"
+      />
+      <Radio
+        label="Accounts are optional"
+        helpText="Customers will be able to check out with a customer account or as a guest"
+        value="optional"
+      />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={overview[3].id}
+  title={overview[3].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={overview[4].id}
+  title={overview[4].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={overview[5].id}
+  title={overview[5].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-2' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Radio group help text"
+      direction="column"
+    >
+      <Radio value="radio-1" label="Radio 1" disabled />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={overview[6].id}
+  title={overview[6].value}
+  explanation="Use the error prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a errorText to be displayed."
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  return (
+    <RadioGroup
+      state={state}
+      label="Group label"
+      helpText="Help text"
+      errorText="Error text"
+      direction="column"
+      error
+    >
+      <Radio value="radio-1" label="Radio 1" />
+      <Radio value="radio-2" label="Radio 2" />
+      <Radio value="radio-3" label="Radio 3" />
+    </RadioGroup>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={overview[7].id}
+  title={overview[7].value}
+>
+
+```jsx live
+function Example() {
+  const state = useRadioState({ defaultValue: 'radio-1' })
+
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="en-US">
+      <RadioGroup
+        state={state}
+        label="Group label"
+        helpText="Help text"
+        errorText="Error text"
+        direction="column"
+        optional
+      >
+        <Radio value="radio-1" label="Radio 1" />
+        <Radio value="radio-2" label="Radio 2" />
+        <Radio value="radio-3" label="Radio 3" />
+      </RadioGroup>
+    </I18nProvider>
+  )
+}
+```
+
+</PageSection>
