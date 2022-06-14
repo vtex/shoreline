@@ -30,6 +30,7 @@ export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             state.setValue(e.target.value)
           }}
+          csx={{ marginBottom: '$m' }}
         />
       ),
     })
