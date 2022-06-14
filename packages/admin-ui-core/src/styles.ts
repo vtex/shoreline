@@ -1,15 +1,12 @@
 import type { CSS as CSSObject } from '@stitches/react'
 import { css } from './stitches.config'
+import type { AnyObject } from '@vtex/admin-ui-util'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { alias } from './aliases'
-import { resolveRule } from './rules'
-import { canSplit, split } from './splits'
-import { createTransform } from './transforms'
 import type { StyleObject, StyleProp, ThemeDerivedStyles } from './types'
 import { theme as defaultTheme } from './theme'
-
-const TOKEN_PREFIX = '$'
+import { handle } from './handlers'
 
 /**
  * Available media queries mapped from the breakpoints
@@ -68,49 +65,39 @@ function resolveResponsiveArray(
 /**
  * Parses a style object
  */
-export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
+export function styles(
+  csxObject: StyleProp = {},
+  theme: AnyObject = defaultTheme
+) {
   const cssObject: CSSObject = {}
   const responsive = resolveResponsiveArray(csxObject as any)
 
+  // O(n) linear keys
   for (const key in responsive) {
     const cssProperty = alias(key)
     const mqValue = responsive[key as keyof typeof responsive]
     const token = isFunction(mqValue) ? (mqValue as Function)(theme) : mqValue
 
+    // deep O(n) rules
     if (token && typeof token === 'object') {
       cssObject[cssProperty] = styles(token as StyleObject, theme)
       continue
     }
 
-    const rule = resolveRule(cssProperty, theme)
-    const transform = createTransform(cssProperty)
-    const value = transform(rule, extractTokenCall(token))
+    // leaf | O(1)
+    const res = handle({
+      cssProp: cssProperty,
+      token,
+      theme,
+    })
 
-    if (!!value && typeof value === 'object') {
-      // handle default entries on rules
-      if (value.default) {
-        // handle object rules
-        cssObject[cssProperty] =
-          typeof value.default === 'object'
-            ? styles(value.default, theme)
-            : value.default
-      } else {
-        // handle object rules
-        Object.assign(cssObject, styles(value, theme))
-      }
-    } else if (canSplit(cssProperty)) {
-      const splitValue = split(cssProperty, value)
-
-      Object.assign(cssObject, splitValue)
-    } else {
-      cssObject[cssProperty] = value
-    }
+    Object.assign(cssObject, res)
   }
 
   return cssObject
 }
 
-export function createCsx(theme?: any) {
+export function createCsx(theme: AnyObject = defaultTheme) {
   function csx(csxObject: StyleProp) {
     const stitchesCSSObject = styles(csxObject, theme)
     const className = css(stitchesCSSObject)
@@ -119,14 +106,6 @@ export function createCsx(theme?: any) {
   }
 
   return csx
-}
-
-export function isToken(token: string) {
-  return typeof token === 'string' && token.startsWith(TOKEN_PREFIX)
-}
-
-export function extractTokenCall(token: string) {
-  return isToken(token) ? token.substring(1) : token
 }
 
 export const cx = (...args: string[]) => args.join(' ')

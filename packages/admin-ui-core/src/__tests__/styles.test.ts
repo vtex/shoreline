@@ -1,6 +1,6 @@
 import { get } from '@vtex/admin-ui-util'
 
-import { cx, styles } from '../styles'
+import { styles, cx } from '../styles'
 
 describe('styles', () => {
   describe('edge cases', () => {
