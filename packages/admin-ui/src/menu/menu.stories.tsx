@@ -1,11 +1,28 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { IconX, IconPlus, IconPen, IconDownload } from '@vtex/phosphor-icons'
+import {
+  IconTrash,
+  IconPlus,
+  IconPencil,
+  IconArrowLineDown,
+} from '@vtex/phosphor-icons'
 
 import { Stack } from '../stack'
 import { Inline } from '../inline'
+import { Box } from '../box'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
+import {
+  Modal,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useModalState,
+} from '../components/Modal'
+import { Text } from '../components/Text'
+import { Button } from '../button'
+import { Flex } from '../components/Flex'
+import { Heading } from '../components/Heading'
 
 export default {
   title: 'admin-ui-review/menu',
@@ -21,56 +38,23 @@ export const Playground = () => {
       <>
         <MenuButton state={menuState} />
         <Menu state={menuState}>
-          <MenuItem icon={<IconPlus />} disabled>
-            Create
-          </MenuItem>
-          <MenuItem icon={<IconPen />}>Edit</MenuItem>
-          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuItem label="Create" icon={<IconPlus />} disabled />
+          <MenuItem label="Edit" icon={<IconPencil />} />
+          <MenuItem label="Download" icon={<IconArrowLineDown />} />
           <MenuDivider />
-          <MenuItem icon={<IconX />} critical>
-            Delete
-          </MenuItem>
+          <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
       <>
         <MenuButton state={largeMenuState} size="large" />
         <Menu state={largeMenuState}>
-          <MenuItem icon={<IconPlus />} disabled>
-            Create
-          </MenuItem>
-          <MenuItem icon={<IconPen />}>Edit</MenuItem>
-          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuItem label="Create" icon={<IconPlus />} disabled />
+          <MenuItem label="Edit" icon={<IconPencil />} />
+          <MenuItem label="Download" icon={<IconArrowLineDown />} />
           <MenuDivider />
-          <MenuItem icon={<IconX />} critical>
-            Delete
-          </MenuItem>
+          <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
-    </Inline>
-  )
-}
-
-export const InitiallyVisible = () => {
-  const state = useMenuState()
-
-  useEffect(() => {
-    state.show()
-  }, [])
-
-  return (
-    <Inline>
-      <MenuButton state={state} />
-      <Menu state={state}>
-        <MenuItem icon={<IconPlus />} disabled>
-          Create
-        </MenuItem>
-        <MenuItem icon={<IconPen />}>Edit</MenuItem>
-        <MenuItem icon={<IconDownload />}>Download</MenuItem>
-        <MenuDivider />
-        <MenuItem icon={<IconX />} critical>
-          Delete
-        </MenuItem>
-      </Menu>
     </Inline>
   )
 }
@@ -82,9 +66,9 @@ export const CustomMenu = () => {
     <Inline>
       <MenuButton state={state} label="Custom menu" />
       <Menu state={state}>
-        <MenuItem>Option 1</MenuItem>
-        <MenuItem>Option 2</MenuItem>
-        <MenuItem>Option 3</MenuItem>
+        <MenuItem label="Option 1" />
+        <MenuItem label="Option 2" />
+        <MenuItem label="Option 3" />
       </Menu>
     </Inline>
   )
@@ -99,29 +83,21 @@ export const IconOnly = () => {
       <>
         <MenuButton state={menuState} labelHidden />
         <Menu state={menuState}>
-          <MenuItem icon={<IconPlus />} disabled>
-            Create
-          </MenuItem>
-          <MenuItem icon={<IconPen />}>Edit</MenuItem>
-          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuItem label="Create" icon={<IconPlus />} disabled />
+          <MenuItem label="Edit" icon={<IconPencil />} />
+          <MenuItem label="Download" icon={<IconArrowLineDown />} />
           <MenuDivider />
-          <MenuItem icon={<IconX />} critical>
-            Delete
-          </MenuItem>
+          <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
       <>
         <MenuButton state={largeMenuState} size="large" labelHidden />
         <Menu state={largeMenuState}>
-          <MenuItem icon={<IconPlus />} disabled>
-            Create
-          </MenuItem>
-          <MenuItem icon={<IconPen />}>Edit</MenuItem>
-          <MenuItem icon={<IconDownload />}>Download</MenuItem>
+          <MenuItem label="Create" icon={<IconPlus />} disabled />
+          <MenuItem label="Edit" icon={<IconPencil />} />
+          <MenuItem label="Download" icon={<IconArrowLineDown />} />
           <MenuDivider />
-          <MenuItem icon={<IconX />} critical>
-            Delete
-          </MenuItem>
+          <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
     </Inline>
@@ -147,15 +123,11 @@ export const Variants = () => {
             <Stack>
               <MenuButton state={actionMenuState} variant={variant} />
               <Menu state={actionMenuState}>
-                <MenuItem icon={<IconPlus />} disabled>
-                  Create
-                </MenuItem>
-                <MenuItem icon={<IconPen />}>Edit</MenuItem>
-                <MenuItem icon={<IconDownload />}>Download</MenuItem>
+                <MenuItem label="Create" icon={<IconPlus />} disabled />
+                <MenuItem label="Edit" icon={<IconPencil />} />
+                <MenuItem label="Download" icon={<IconArrowLineDown />} />
                 <MenuDivider />
-                <MenuItem icon={<IconX />} critical>
-                  Delete
-                </MenuItem>
+                <MenuItem label="Delete" icon={<IconTrash />} critical />
               </Menu>
 
               <MenuButton state={useMenuState()} variant={variant} disabled>
@@ -170,15 +142,11 @@ export const Variants = () => {
                 label="Custom menu"
               />
               <Menu state={customMenuState}>
-                <MenuItem icon={<IconPlus />} disabled>
-                  Create
-                </MenuItem>
-                <MenuItem icon={<IconPen />}>Edit</MenuItem>
-                <MenuItem icon={<IconDownload />}>Download</MenuItem>
+                <MenuItem label="Create" icon={<IconPlus />} disabled />
+                <MenuItem label="Edit" icon={<IconPencil />} />
+                <MenuItem label="Download" icon={<IconArrowLineDown />} />
                 <MenuDivider />
-                <MenuItem icon={<IconX />} critical>
-                  Delete
-                </MenuItem>
+                <MenuItem label="Delete" icon={<IconTrash />} critical />
               </Menu>
 
               <MenuButton
@@ -192,5 +160,100 @@ export const Variants = () => {
         )
       })}
     </Stack>
+  )
+}
+
+export const HandleOnClickItem = () => {
+  const menuState = useMenuState()
+  const modalState = useModalState()
+
+  return (
+    <>
+      <Inline>
+        <MenuButton state={menuState} label="Modal options" />
+        <Menu state={menuState}>
+          <MenuItem
+            label="Open custom dialog"
+            onClick={() => modalState.show()}
+          />
+          <MenuItem
+            label="Open native dialog"
+            onClick={() => alert('Native dialog')}
+          />
+        </Menu>
+      </Inline>
+      <Box>
+        <Modal aria-label="Publish modal" state={modalState} size="small">
+          <ModalHeader title="Publish content" />
+          <ModalContent>
+            <Text>
+              Are you sure you want to publish this content? These action cannot
+              be undone.
+            </Text>
+          </ModalContent>
+          <ModalFooter>
+            <Button>Confirm</Button>
+          </ModalFooter>
+        </Modal>
+      </Box>
+    </>
+  )
+}
+
+export const Bleed = () => {
+  const bleedMenuState = useMenuState()
+  const menuState = useMenuState()
+
+  return (
+    <>
+      <Box
+        csx={{
+          padding: '$m',
+          bg: '$secondary',
+        }}
+      >
+        <Box
+          csx={{
+            bg: '$primary',
+          }}
+        >
+          <Flex align="center" justify="space-between">
+            <Heading>With bleed</Heading>
+            <MenuButton state={bleedMenuState} bleedY bleedX />
+            <Menu state={bleedMenuState}>
+              <MenuItem label="Create" icon={<IconPlus />} disabled />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+              <MenuItem label="Download" icon={<IconArrowLineDown />} />
+              <MenuDivider />
+              <MenuItem label="Delete" icon={<IconTrash />} critical />
+            </Menu>
+          </Flex>
+        </Box>
+      </Box>
+      <Box
+        csx={{
+          padding: '$m',
+          bg: '$secondary',
+        }}
+      >
+        <Box
+          csx={{
+            bg: '$primary',
+          }}
+        >
+          <Flex align="center" justify="space-between">
+            <Heading>Without bleed</Heading>
+            <MenuButton state={menuState} />
+            <Menu state={menuState}>
+              <MenuItem label="Create" icon={<IconPlus />} disabled />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+              <MenuItem label="Download" icon={<IconArrowLineDown />} />
+              <MenuDivider />
+              <MenuItem label="Delete" icon={<IconTrash />} critical />
+            </Menu>
+          </Flex>
+        </Box>
+      </Box>
+    </>
   )
 }
