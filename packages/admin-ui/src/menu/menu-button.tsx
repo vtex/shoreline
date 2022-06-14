@@ -31,16 +31,18 @@ export const MenuButton = createComponent<
     state,
     label,
     labelHidden,
+    bleedY,
+    bleedX,
     ...buttonProps
   } = props
 
-  const colorVariants = style.colorVariants({
+  const buttonColorVariants = style.buttonColorVariants({
     variant,
   })
 
   const colorVariantsStyle = state.visible
-    ? colorVariants[':active' as keyof StyleProp]
-    : colorVariants
+    ? buttonColorVariants[':active' as keyof StyleProp]
+    : buttonColorVariants
 
   const isCustomMenu = label && !labelHidden
   const menuStyle = isCustomMenu
@@ -68,6 +70,18 @@ export const MenuButton = createComponent<
   const formatMessage = useMessageFormatter(messages.menu)
   const menuLabel = label ?? formatMessage('buttonLabel')
 
+  const bleedYStyle = bleedY
+    ? style.bleedY({
+        size,
+      })
+    : {}
+
+  const bleedXStyle = bleedX
+    ? style.bleedX({
+        size,
+      })
+    : {}
+
   return useElement(AriakitMenuButton, {
     'aria-label': menuLabel,
     ...buttonProps,
@@ -75,13 +89,15 @@ export const MenuButton = createComponent<
       ...style.buttonStyle,
       ...colorVariantsStyle,
       ...menuStyle,
+      ...bleedYStyle,
+      ...bleedXStyle,
     },
     state,
     children: (
       <Center
         csx={{
-          ...style.innerContainerStyle,
-          ...style.innerContainerVariants({
+          ...style.buttonInnerContainerStyle,
+          ...style.buttonInnerContainerVariants({
             iconPosition: iconConfig.position,
           }),
         }}
@@ -99,10 +115,31 @@ type IconConfig = {
   size: AvailableSize
 }
 
-export type MenuButtonOptions = VariantProps<typeof style.colorVariants> & {
+export type MenuButtonOptions = VariantProps<
+  typeof style.buttonColorVariants
+> & {
+  /**
+   * Button size
+   * @default normal
+   */
   size?: 'normal' | 'large'
+  /**
+   * Button label
+   */
   label?: string
+  /**
+   * Whether the label is visible
+   * @default false
+   */
   labelHidden?: boolean
+  /**
+   * Vertical bleed
+   */
+  bleedY?: boolean
+  /**
+   * Horizontal bleed
+   */
+  bleedX?: boolean
 }
 
 export type MenuButtonProps = React.ComponentPropsWithoutRef<typeof MenuButton>
