@@ -2,52 +2,73 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 import * as defaultButtonStyle from '../button/button.style'
 
 export const item = style({
+  display: 'flex',
+  alignItems: 'center',
+  text: '$action2',
+  height: '2.25rem',
   paddingY: '$l',
   paddingX: '$m',
-  text: '$action2',
   border: 'none',
-  textTransform: 'initial',
-  width: 'full',
-  div: {
+  borderRadius: '$default',
+  cursor: 'pointer',
+
+  '> div': {
     justifyContent: 'flex-start',
   },
-  height: '2.25rem',
+
   svg: {
     marginRight: '$m',
     size: '1.25rem',
   },
-  borderRadius: '$default',
-  cursor: 'pointer',
-  position: 'relative',
+})
+
+export const disabledItemWrapper = style({
+  cursor: 'not-allowed',
 })
 
 export const itemVariants = styleVariants({
   variant: {
-    critical: defaultButtonStyle.action({
-      tone: 'critical',
-      variant: 'tertiary',
-    }),
-    neutral: defaultButtonStyle.action({
-      tone: 'neutral',
-      variant: 'tertiary',
-    }),
+    critical: {
+      ...defaultButtonStyle.action({
+        tone: 'critical',
+        variant: 'tertiary',
+      }),
+      ':active': {
+        color: '$action.critical.tertiaryHover',
+        bg: '$action.critical.tertiaryHover',
+      },
+    },
+    neutral: {
+      ...defaultButtonStyle.action({
+        tone: 'neutral',
+        variant: 'tertiary',
+      }),
+      ':active': {
+        color: '$action.neutral.tertiaryHover',
+        bg: '$action.neutral.tertiaryHover',
+      },
+    },
     disabled: {
       color: '$disabled',
     },
   },
 })
 
-export const list = style({
-  outline: 'none',
-  zIndex: 999,
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '$s',
+export const popoverContainer = style({
+  marginTop: '$m',
   minWidth: '9rem',
   borderRadius: '$default',
   bg: '$primary',
   border: '$neutral',
   boxShadow: '$overlay.center',
+  zIndex: 999,
+})
+
+export const popoverChildren = style({
+  marginY: '$m',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '$s',
 })
 
 export const divider = style({
@@ -59,8 +80,10 @@ export const divider = style({
 })
 
 export const buttonStyle = defaultButtonStyle.buttonStyle
+export const bleedY = defaultButtonStyle.bleedY
+export const bleedX = defaultButtonStyle.bleedX
 
-export const colorVariants = styleVariants({
+export const buttonColorVariants = styleVariants({
   variant: {
     primary: defaultButtonStyle.action({
       tone: 'main',
@@ -109,13 +132,13 @@ export const customMenuButtonSizeVariants = styleVariants({
   },
 })
 
-export const innerContainerStyle = defaultButtonStyle.innerContainerStyle
+export const buttonInnerContainerStyle = defaultButtonStyle.innerContainerStyle
 
-export const innerContainerVariants = styleVariants({
+export const buttonInnerContainerVariants = styleVariants({
   iconPosition: {
     start: {
       flexDirection: 'row',
-      paddingRight: '$m',
+      paddingRight: '$s',
     },
     end: {
       flexDirection: 'row-reverse',

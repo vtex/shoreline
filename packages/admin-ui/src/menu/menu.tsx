@@ -1,10 +1,6 @@
 import React from 'react'
 import { Menu as AriakitMenu } from 'ariakit/menu'
-import {
-  IconContainer,
-  createComponent,
-  useElement,
-} from '@vtex/admin-ui-react'
+import { tag, createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './menu.style'
 
@@ -13,8 +9,8 @@ export const Menu = createComponent<typeof AriakitMenu>((props) => {
 
   return useElement(AriakitMenu, {
     ...menuProps,
-    baseStyle: style.list,
-    children: <IconContainer size="small">{children}</IconContainer>,
+    baseStyle: style.popoverContainer,
+    children: <tag.div csx={style.popoverChildren}>{children}</tag.div>,
   })
 })
 

@@ -1,8 +1,13 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import {
+  createComponent,
+  useElement,
+  IconContainer,
+} from '@vtex/admin-ui-react'
 import { MenuItem as AriakitMenuItem } from 'ariakit/menu'
 
+import { MenuItemWrapper } from './menu-item-wrapper'
 import { Center } from '../center'
 
 import * as style from './menu.style'
@@ -11,30 +16,44 @@ export const MenuItem = createComponent<
   typeof AriakitMenuItem,
   MenuItemOptions
 >((props) => {
-  const { children, onClick, icon, critical, disabled, ...buttonProps } = props
+  const { icon, label, critical, disabled, onClick, ...itemProps } = props
 
-  return useElement(AriakitMenuItem, {
+  return useElement(MenuItemWrapper, {
     disabled,
-    ...buttonProps,
-    baseStyle: {
-      ...style.item,
-      ...style.itemVariants({
-        variant:
-          (disabled && 'disabled') || (critical && 'critical') || 'neutral',
-      }),
-    },
-    children: (
-      <Center>
-        {icon} {children}
-      </Center>
-    ),
+    children: useElement(AriakitMenuItem, {
+      disabled,
+      onClick,
+      ...itemProps,
+      baseStyle: {
+        ...style.item,
+        ...style.itemVariants({
+          variant:
+            (disabled && 'disabled') || (critical && 'critical') || 'neutral',
+        }),
+      },
+      children: (
+        <Center>
+          <IconContainer size="small">{icon}</IconContainer> {label}
+        </Center>
+      ),
+    }),
   })
 })
 
 export type MenuItemOptions = {
+  /**
+   * Item icon
+   */
   icon?: ReactNode
+  /**
+   * Whether the item variant is critical
+   * @default false
+   */
   critical?: boolean
-  children: ReactNode
+  /**
+   * Item label
+   */
+  label: string
 }
 
 export type MenuItemProps = React.ComponentPropsWithoutRef<typeof MenuItem>
