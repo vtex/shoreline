@@ -40,7 +40,6 @@ export function FilterMultiple<T>(props: FilterMultipleProps<T>) {
             id={getOptionId(item)}
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
-            csx={{ marginRight: '$s' }}
             label={getOptionLabel(item)}
             aria-readonly="true"
           />

@@ -40,7 +40,6 @@ export function FilterMultipleSearch<T>(props: FilterMultipleProps<T>) {
           <Checkbox
             checked={combobox.isSelected(item)}
             aria-checked={undefined}
-            csx={{ marginRight: '$s' }}
             label={getOptionLabel(item)}
             readOnly
           />
