@@ -1,20 +1,20 @@
 ---
-title: DataGrid
-path: /data-grid/
+title: Table
+path: /table/
 ---
 
-DataGrid is designed to render tabular data consistently for any kind of data type. If you're coming from [VTEX Styleguide](https://styleguide.vtex.com/), you can see it as the next-gen of the [Table v2](https://styleguide.vtex.com/#/Components/%F0%9F%91%BB%20Experimental/Table%20V2) (and is strongly inspired by it).
+Table is designed to render tabular data consistently for any kind of data type. If you're coming from [VTEX Styleguide](https://styleguide.vtex.com/), you can see it as the next-gen of the [Table v2](https://styleguide.vtex.com/#/Components/%F0%9F%91%BB%20Experimental/Table%20V2) (and is strongly inspired by it).
 
 ## State
 
-DataGrid is pretty much stateless. The state hook `useDataGridState` contains all business logic needed for the component.
+Table is pretty much stateless. The state hook `useTableState` contains all business logic needed for the component.
 
 ```jsx live
 function Example() {
   /**
-   * The hook returns the DataGrid state
+   * The hook returns the Table state
    */
-  const state = useDataGridState({
+  const state = useTableState({
     /**
      * Columns shape, read more about it on the rendering section
      */
@@ -50,14 +50,14 @@ function Example() {
     ],
   })
   /**
-   * You must use the `state` prop so that your DataGrid comes to life
+   * You must use the `state` prop so that your Table comes to life
    * This is the only prop that is required
    */
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 ```
 
-### useDataGridState
+### useTableState
 
 | Name       | Type                          | Description                                                                | Required | Default                       |
 | ---------- | ----------------------------- | -------------------------------------------------------------------------- | -------- | ----------------------------- |
@@ -75,7 +75,7 @@ function Example() {
 It returns an object with the following types
 
 ```ts isStatic
-interface DataGridState<T> {
+interface TableState<T> {
   /**
    * Collection rendered while loading
    */
@@ -113,11 +113,11 @@ interface DataGridState<T> {
   /**
    * Current grid density
    */
-  density: DataGridDensity
+  density: TableDensity
   /**
    * Set the current grid density
    */
-  setDensity: React.Dispatch<DataGridDensity>
+  setDensity: React.Dispatch<TableDensity>
   /**
    * Action to take on click a row
    */
@@ -132,17 +132,17 @@ type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 
 ## Rendering
 
-The main objective of `DataGrid` is to provide a flexible render to support any kind of data type.
+The main objective of `Table` is to provide a flexible render to support any kind of data type.
 
-| Attribute | Type                                            | Description                                                                                                                                                                                                                             | Required |
-| --------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                       | ✅       |
-| header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                                | 🚫       |
-| accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                        | 🚫       |
-| resolver  | `R`                                             | [Resolvers](data-grid/#resolver-options) api<br />Will select the [plain resolver](data-grid/#resolver-options) by default                                                                                                              | 🚫       |
-| width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                         | 🚫       |
-| sortable  | `(a: T, b: T) => number`                        | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](data-grid/#sorting) | 🚫       |
-| compare   | `boolean`                                       | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](data-grid/#sorting)                                 | 🚫       |
+| Attribute | Type                                            | Description                                                                                                                                                                                                                         | Required |
+| --------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                   | ✅       |
+| header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                            | 🚫       |
+| accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                    | 🚫       |
+| resolver  | `R`                                             | [Resolvers](table/#resolver-options) api<br />Will select the [plain resolver](table/#resolver-options) by default                                                                                                                  | 🚫       |
+| width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                     | 🚫       |
+| sortable  | `(a: T, b: T) => number`                        | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](table/#sorting) | 🚫       |
+| compare   | `boolean`                                       | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](table/#sorting)                                 | 🚫       |
 
 ### Accessor
 
@@ -168,7 +168,7 @@ const items = [
 ]
 
 function Example() {
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'product.name',
@@ -204,7 +204,7 @@ function Example() {
     items,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 
 render(<Example />)
@@ -233,11 +233,11 @@ All resolvers accept a render function, that returns a component. It controls th
 }
 ```
 
-| Name    | Type                                             | Description                                                         |
-| ------- | ------------------------------------------------ | ------------------------------------------------------------------- |
-| item    | `T`                                              | the item displayed for the row                                      |
-| data    | `unknown`                                        | extracted column data from the item, you need to cast it before use |
-| context | `{ loading: boolean, density: DataGridDensity }` | relevant global information about the table current state           |
+| Name    | Type                                          | Description                                                         |
+| ------- | --------------------------------------------- | ------------------------------------------------------------------- |
+| item    | `T`                                           | the item displayed for the row                                      |
+| data    | `unknown`                                     | extracted column data from the item, you need to cast it before use |
+| context | `{ loading: boolean, density: TableDensity }` | relevant global information about the table current state           |
 
 ##### Root Resolver
 
@@ -245,7 +245,7 @@ This is the parent of all other resolvers. It does not treat the data at all - e
 
 ```jsx live
 function Example() {
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'id',
@@ -305,7 +305,7 @@ function Example() {
     ],
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 ```
 
@@ -341,7 +341,7 @@ const items = [
 ]
 
 function Example() {
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'productName',
@@ -374,7 +374,7 @@ function Example() {
     items,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 
 render(<Example />)
@@ -393,7 +393,7 @@ function Example() {
     },
   ]
 
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'brl',
@@ -426,7 +426,7 @@ function Example() {
     items: currencies,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 ```
 
@@ -444,7 +444,7 @@ function Example() {
     },
   ]
 
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'pt',
@@ -502,7 +502,7 @@ function Example() {
     items: dates,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 ```
 
@@ -543,7 +543,7 @@ function Example() {
     },
   ]
 
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'image',
@@ -578,7 +578,7 @@ function Example() {
     items: fruits,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 ```
 
@@ -605,7 +605,7 @@ const items = Array(3)
   })
 
 function CompareExample() {
-  const state = useDataGridState({
+  const state = useTableState({
     columns: [
       {
         id: 'name',
@@ -636,7 +636,7 @@ function CompareExample() {
     items,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 
 render(<CompareExample />)
@@ -644,7 +644,7 @@ render(<CompareExample />)
 
 #### Configuration
 
-By using the `sort` property within `useDataGridState` you can configure the sorting to match specific use cases.
+By using the `sort` property within `useTableState` you can configure the sorting to match specific use cases.
 
 ##### initialValue
 
@@ -672,11 +672,11 @@ This function is called with an object containing the current sort state, the di
 
 ## Composition
 
-The `DataGrid` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](/patterns/data-view/) before reading this section.
+The `Table` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](/patterns/data-view/) before reading this section.
 
 ### Anatomy
 
-Normally you will encounter DataGrid as the data-rendering part of the data-view, for example:
+Normally you will encounter Table as the data-rendering part of the data-view, for example:
 
 ```txt isStatic
 DataView
@@ -686,7 +686,7 @@ DataView
 |   |   |__ Button
 |   |__ Pagination
 |
-|__ DataGrid
+|__ Table
     |__ .Head
     |   |__ .Cell
     |__ .Body
@@ -697,11 +697,11 @@ DataView
 ```jsx live
 function WithinDataView() {
   const view = useDataViewState()
-  const grid = useDataGridState({
+  const grid = useTableState({
     columns: [
       /**
        * For easier usage, you can define the related view
-       * within inside of the DataGrid state hook
+       * within inside of the Table state hook
        */
       view,
       {
@@ -734,7 +734,7 @@ function WithinDataView() {
 
   return (
     <DataView state={view}>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -783,7 +783,7 @@ function WithSearch() {
     )
   }, [search])
 
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     columns: [
       {
@@ -812,7 +812,7 @@ function WithSearch() {
       <DataViewControls>
         <Search id="search" placeholder="Search" state={search} />
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -828,7 +828,7 @@ Example using the [Toolbar](toolbar/) component.
 function WithToolbar() {
   const toolbar = useToolbarState()
   const view = useDataViewState()
-  const grid = useDataGridState({
+  const grid = useTableState({
     columns: [
       view,
       {
@@ -875,7 +875,7 @@ function WithToolbar() {
           </ToolbarButton>
         </Toolbar>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -906,7 +906,7 @@ function WithPagination() {
     pageSize: ITEMS_PER_PAGE,
     total: NUMBER_OF_ITEMS,
   })
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     columns: [
       {
@@ -943,7 +943,7 @@ function WithPagination() {
           nextLabel="Next"
         />
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -953,7 +953,7 @@ render(<WithPagination />)
 
 ### Reacting to DataView status
 
-By dispatch the `setStatus` function of the `DataView`, the `DataGrid` reacts to it.
+By dispatch the `setStatus` function of the `DataView`, the `Table` reacts to it.
 
 ```jsx noInline live
 const items = Array(3)
@@ -969,7 +969,7 @@ const items = Array(3)
 
 function StatusExample() {
   const view = useDataViewState()
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     items,
     columns: [
@@ -1046,7 +1046,7 @@ function StatusExample() {
           Empty
         </Button>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -1109,7 +1109,7 @@ function FilterControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
 
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     columns,
     items: data,
@@ -1178,7 +1178,7 @@ function FilterControls() {
           <Filter state={qualityFilterState} />
         </FilterGroup>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -1225,7 +1225,7 @@ function WithFullTopbar() {
     )
   }, [search.debouncedValue])
 
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     columns: [
       {
@@ -1278,7 +1278,7 @@ function WithFullTopbar() {
           nextLabel="Next"
         />
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -1322,7 +1322,7 @@ function DataFetchExample() {
   const [update, setUpdate] = React.useState(false)
 
   const view = useDataViewState()
-  const grid = useDataGridState({
+  const grid = useTableState({
     view,
     columns: [
       {
@@ -1370,7 +1370,7 @@ function DataFetchExample() {
           Simulate data fetching
         </Button>
       </DataViewControls>
-      <DataGrid state={grid} />
+      <Table state={grid} />
     </DataView>
   )
 }
@@ -1380,7 +1380,7 @@ render(<DataFetchExample />)
 
 ### Drag and Drop
 
-Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the DataGrid's table internals.
+Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the Table's table internals.
 
 ```jsx noInline live
 const fakeData = Array(5)
@@ -1407,7 +1407,7 @@ function reorder(list, startIndex, endIndex) {
 function Example() {
   // we need to keep our items within a state, since they're reordered
   const [items, setItems] = React.useState(fakeData)
-  const datagrid = useDataGridState({
+  const state = useTableState({
     columns: [
       // here we create a new column that does not exist on the collection
       // this is one of the greatest things about the root resolver
@@ -1465,18 +1465,18 @@ function Example() {
   }
 
   return (
-    <DataGrid state={datagrid} csx={{ width: 'unset' }}>
-      <DataGrid.Head />
+    <Table state={state} csx={{ width: 'unset' }}>
+      <Table.Head />
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
           {(droppableProvided) => (
-            <DataGrid.Body ref={droppableProvided.innerRef}>
+            <Table.Body ref={droppableProvided.innerRef}>
               {(renderRow) => (
                 <React.Fragment>
                   {renderRow(({ key, item, index }) => (
                     <Draggable draggableId={key} index={index}>
                       {(draggableProvided, draggableSnapshot) => (
-                        <DataGrid.Body.Row
+                        <Table.Body.Row
                           id={key}
                           item={item}
                           ref={draggableProvided.innerRef}
@@ -1495,11 +1495,11 @@ function Example() {
                   {droppableProvided.placeholder}
                 </React.Fragment>
               )}
-            </DataGrid.Body>
+            </Table.Body>
           )}
         </Droppable>
       </DragDropContext>
-    </DataGrid>
+    </Table>
   )
 }
 

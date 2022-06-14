@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  useDataGridState,
-  DataGrid,
+  useTableState,
+  Table,
   Text,
   createColumns,
   color as getColor,
@@ -91,13 +91,13 @@ export function SemanticTable(props: SemanticTableProps) {
     },
   ])
 
-  const state = useDataGridState({
+  const state = useTableState({
     density: 'variable',
     columns,
     items,
   })
 
-  return <DataGrid state={state} />
+  return <Table state={state} />
 }
 
 function Tone(props: ToneProps) {
