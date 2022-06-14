@@ -5,7 +5,7 @@ import * as buttonStyle from '../button/button.style'
 export const disclosure = style({
   ...buttonStyle.buttonStyle,
   ...buttonStyle.variants({ size: 'normal' }),
-  marginRight: '$s',
+  marginRight: '$m',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
