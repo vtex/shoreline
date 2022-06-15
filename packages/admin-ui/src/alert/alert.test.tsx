@@ -9,17 +9,13 @@ describe('Alert', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Fragment>
-        <Alert tone="positive" visible>
-          Order successfully placed
-        </Alert>
+        <Alert variant="positive">Order successfully placed</Alert>
         <Alert
-          tone="critical"
-          visible
+          variant="critical"
           action={{ children: 'Click here', onClick: () => null }}
         >
           Somenthing went wrong. Please, try again.
         </Alert>
-        <Alert>I'm invisible</Alert>
       </Fragment>
     )
 

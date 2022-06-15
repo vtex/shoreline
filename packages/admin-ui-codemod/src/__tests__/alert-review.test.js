@@ -29,8 +29,26 @@ describe('Removes deprecated Alert props', () => {
   defineInlineTest(
     alertTransform,
     {},
-    '<Alert fluid={true} sticky={false} icon={<Icon />}>Hello world</Alert>',
+    '<Alert visible>Hello world</Alert>',
+    '<Alert>Hello world</Alert>',
+    'removes visible property'
+  )
+
+  defineInlineTest(
+    alertTransform,
+    {},
+    '<Alert fluid={true} sticky={false} visible icon={<Icon />}>Hello world</Alert>',
     '<Alert>Hello world</Alert>',
     'removes all deprecated properties'
+  )
+})
+
+describe('Replace tone by variant', () => {
+  defineInlineTest(
+    alertTransform,
+    {},
+    '<Alert tone="positive">Hello world</Alert>',
+    '<Alert variant="positive">Hello world</Alert>',
+    'replace tone by variant'
   )
 })
