@@ -68,7 +68,7 @@ export function useComboboxState<T>(
 
     const noMatches = !matches.length
 
-    if (noMatches && deferredValue === '') {
+    if (noMatches && state.value === '') {
       return 'empty-search'
     }
 
