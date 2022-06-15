@@ -6,7 +6,7 @@ import { MenuButton } from 'ariakit/menu'
 
 import * as style from './filter.style'
 import type { GenericFilterStateReturn } from '.'
-import { AppliedListLabel } from './filter-applied-list-label'
+import { AppliedItemsLabel } from './filter-applied-items-label'
 import type { AnyObject } from '..'
 
 export const FilterDisclosure = (props: FilterDisclosureProps) => {
@@ -22,8 +22,8 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
       id={disclosureId}
     >
       {children}
-      <AppliedListLabel
-        renderItem={state.getOptionLabel}
+      <AppliedItemsLabel
+        renderItemLabel={state.getOptionLabel}
         appliedItems={appliedItems}
       />
       <IconCaretUp size="small" csx={style.caretIcon(state.menu.mounted)} />

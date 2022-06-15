@@ -4,14 +4,14 @@ import type { AnyObject } from '..'
 
 import * as style from './filter.style'
 
-export const AppliedListLabel = (props: {
+export const AppliedItemsLabel = (props: {
   appliedItems: AnyObject[]
-  renderItem: (item: AnyObject) => string
+  renderItemLabel: (item: AnyObject) => string
 }) => {
-  const { appliedItems, renderItem } = props
+  const { appliedItems, renderItemLabel } = props
 
   const separator = appliedItems.length > 1 ? ',' : ''
-  const firstOptionLabel = renderItem(appliedItems[0] || {}) || ''
+  const firstOptionLabel = renderItemLabel(appliedItems[0] || {}) || ''
 
   const firstSelectedItemLabel = `${firstOptionLabel}${separator}`
 
