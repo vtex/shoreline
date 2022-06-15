@@ -8,7 +8,6 @@ import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
 
-
 export const tabToc = {
   overview: [
     {
@@ -49,11 +48,13 @@ export const tabToc = {
 
 <Panel id="overview">
 
-<IntroSection
-  id={tabToc.overview[0].id}
-  title={tabToc.overview[0].value}
-  description="Stack is a layout component that makes it easy to stack elements together and apply a space between them."
-/>
+<IntroSection>
+
+## What is this?
+
+Stack is a layout component that makes it easy to stack elements together and apply a space between them.
+
+</IntroSection>
 
 <PageSection
   id={tabToc.overview[1].id}

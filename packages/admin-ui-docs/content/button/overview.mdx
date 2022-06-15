@@ -1,20 +1,18 @@
-import { PageSection } from '@site/src/components/PageSection'
+import { Section } from '@site/src/components/Section'
 import { IntroSection } from '@site/src/components/IntroSection'
 import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
-import { overview } from './toc'
 
-<IntroSection
-  id={overview[0].id}
-  title={overview[0].value}
-  description="Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions."
-/>
+<IntroSection>
 
-<MultipleCodeSection
-  id={overview[1].id}
-  title={overview[1].value}
-  optionsTitle="Variant"
-  options={['Primary','Secondary','Tertiary']}
->
+## What is this?
+
+Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions.
+
+</IntroSection>
+
+<MultipleCodeSection optionsTitle="Variant" options={['Primary','Secondary','Tertiary']}>
+
+## Variants
 
 ```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
 <>
@@ -40,23 +38,19 @@ import { overview } from './toc'
 
 </MultipleCodeSection>
 
-<PageSection
-  id={overview[2].id}
-  title={overview[2].value}
-  level={overview[2].level}
-  direction="row"
->
+<Section direction="row">
+
+### How does each variant work?
 
 - tertiary (low emphasis): Typically used for less important actions.
 - secondary (medium emphasis): Used for more emphasis than text buttons.
 - primary (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[3].id}
-  title={overview[3].value}
->
+<Section>
+
+## Button Sizes
 
 ```jsx live layout=grid columnsCount=2 rowsCount=1
 <>
@@ -65,12 +59,11 @@ import { overview } from './toc'
 </>
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[4].id}
-  title={overview[4].value}
->
+<Section>
+
+## Button With Icon
 
 ```jsx live layout=grid columnsCount=3 rowsCount=1
 <>
@@ -82,12 +75,11 @@ import { overview } from './toc'
 </>
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[5].id}
-  title={overview[5].value}
->
+<Section>
+
+## Disabled
 
 ```jsx live layout=grid columnsCount=3 rowsCount=1
 <>
@@ -101,12 +93,11 @@ import { overview } from './toc'
 </>
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[6].id}
-  title={overview[6].value}
->
+<Section>
+
+## Loading
 
 ```jsx live layout=grid columnsCount=3 rowsCount=1
 function Example() {
@@ -136,4 +127,4 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
