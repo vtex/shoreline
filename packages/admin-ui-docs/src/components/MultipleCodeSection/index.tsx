@@ -8,52 +8,63 @@ import {
   useTabState,
   experimental_Filter as Filter,
   experimental_useFilterState as useFilterState,
+  VisuallyHidden,
 } from '@vtex/admin-ui'
 
-import { PageSection } from '../PageSection'
+import { Section } from '../Section'
 
 import './styles.scss'
 
 export interface MultipleCodeSectionProps {
   children: ReactNode
-  id: string
   options: string[]
   optionsTitle: string
-  title: string
 }
+
+const FIRST_ELEMENT = 0
 
 export function MultipleCodeSection(props: MultipleCodeSectionProps) {
   const tabState = useTabState()
-  const items = props.options.map((option) => ({
+  const { children, options, optionsTitle } = props
+
+  const items = options.map((option) => ({
     id: option.toLowerCase(),
     label: option,
   }))
 
   const filterState = useFilterState({
-    label: props.optionsTitle,
-    initialApplied: items[0].id,
+    label: optionsTitle,
     items,
-    onChange: ({ selected }) => tabState.select(selected as string),
+    onChange: ({ selected }) => {
+      if (!selected) return
+
+      tabState.select(selected.id)
+    },
   })
 
   return (
-    <PageSection
-      id={props.id}
-      title={props.title}
+    <Section
       actionElement={
         <div className="code-selector">
           <Filter state={filterState} />
         </div>
       }
     >
+      {React.Children.map(children, (child, index) =>
+        index === FIRST_ELEMENT ? child : null
+      )}
       <Tabs state={tabState}>
-        <TabList fluid aria-label="Live code tabs" csx={{ display: 'none' }}>
-          {props.options.map((option) => (
-            <Tab id={option.toLowerCase()}>{option}</Tab>
-          ))}
-        </TabList>
-        {props.children}
+        <VisuallyHidden>
+          <TabList fluid aria-label="Live code tabs">
+            {options.map((option) => (
+              <Tab id={option.toLowerCase()}>{option}</Tab>
+            ))}
+          </TabList>
+        </VisuallyHidden>
+        {React.Children.map(children, (child, index) =>
+          index === FIRST_ELEMENT ? null : child
+        )}
       </Tabs>
-    </PageSection>
+    </Section>
   )
 }
