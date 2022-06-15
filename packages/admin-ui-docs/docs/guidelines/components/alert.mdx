@@ -21,13 +21,8 @@ export const tabToc = {
       level: 2,
     },
     {
-      id: 'tone-of-voice',
-      value: 'Tone of voice',
-      level: 3,
-    },
-    {
-      id: 'visible',
-      value: 'Visible',
+      id: 'variants',
+      value: 'Variants',
       level: 3,
     },
     {
@@ -109,48 +104,14 @@ export const tabToc = {
 
 ```jsx live
 <Set spacing={2} orientation="vertical" fluid>
-  <Alert visible tone="info">
-    Info alert
-  </Alert>
-  <Alert visible tone="warning">
-    Warning alert
-  </Alert>
-  <Alert visible tone="positive">
-    Positive alert
-  </Alert>
-  <Alert visible tone="critical">
-    Critical alert
-  </Alert>
+  <Alert variant="info">Info alert</Alert>
+  <Alert variant="warning">Warning alert</Alert>
+  <Alert variant="positive">Positive alert</Alert>
+  <Alert variant="critical">Critical alert</Alert>
 </Set>
 ```
 
 </PageSection >
-
-<PageSection
-  id={tabToc.overview[3].id}
-  title={tabToc.overview[3].value}
-  explanation="The Alert can be visible or not. By default, it will render an Alert with the 'visible' property set to 'false'."
->
-
-```jsx live
-function Example() {
-  const [visible, setVisible] = React.useState(false)
-
-  const handleDismiss = () => setVisible(false)
-  const handleToggle = () => setVisible((v) => !v)
-
-  return (
-    <Box>
-      <Button onClick={handleToggle}>Toggle</Button>
-      <Alert visible={visible} onDismiss={handleDismiss}>
-        This account is inactive. Check your billing for more information.
-      </Alert>
-    </Box>
-  )
-}
-```
-
-</PageSection>
 
 <PageSection
   id={tabToc.overview[4].id}
@@ -163,8 +124,7 @@ function Example() {
   return (
     <Set spacing={2} orientation="vertical" fluid>
       <Alert
-        tone="positive"
-        visible
+        variant="positive"
         action={{
           children: 'See order',
           onClick: () => alert('Order #123'),
@@ -197,17 +157,19 @@ function Example() {
     }
   }, [visible])
 
-  return (
-    <Alert
-      visible={visible}
-      onDismiss={() => {
-        window.alert('Dismissed!')
-        setVisible(false)
-      }}
-    >
-      This account is inactive. Check your billing for more information.
-    </Alert>
-  )
+  if (visible)
+    return (
+      <Alert
+        onDismiss={() => {
+          window.alert('Dismissed!')
+          setVisible(false)
+        }}
+      >
+        This account is inactive. Check your billing for more information.
+      </Alert>
+    )
+
+  return <></>
 }
 ```
 
@@ -296,7 +258,7 @@ Ex. Order successfully placed.
 import { Alert } from '@vtex/admin-ui'
 
 function Example() {
-  return <Alert visible>Order successfully placed</Alert>
+  return <Alert>Order successfully placed</Alert>
 }
 ```
 
@@ -311,8 +273,7 @@ function Example() {
 | --------- | -------------------------------------------- | --------------------------------------------- | -------- | ------- |
 | csx       | `StyleObject`                                | Custom styles                                 | 🚫       | `{}`    |
 | onDismiss | `() => void`                                 | Action to dispatch on dismiss                 | 🚫       | -       |
-| visible   | `boolean`                                    | Whether it is visible or not                  | 🚫       | `false` |
-| tone      | `info`, `positive`, `warning`, or `critical` | Tone of voice                                 | 🚫       | `info`  |
+| variant   | `info`, `positive`, `warning`, or `critical` | Tone of voice                                 | 🚫       | `info`  |
 | children  | `ReactNode`                                  | Component children                            | 🚫       | -       |
 | action    | `AlertActionProps`                           | An action that a user can take upon the alert | 🚫       | `{}`    |
 

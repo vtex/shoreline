@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import type { AlertProps } from './index'
 import { Alert } from './index'
-import { Box } from '../box'
-import { Button } from '../button'
 import { Stack } from '../stack'
 
 export default {
@@ -18,24 +16,20 @@ export const Playground: Story<AlertProps> = (args) => {
 
 Playground.args = {
   children: 'Order successfully placed',
-  visible: true,
   csx: {},
   onDismiss: () => {},
+  action: { children: 'See order', onClick: () => {} },
 }
 
-export function Tones() {
+export function Variants() {
   return (
     <Stack fluid>
-      <Alert tone="info" visible>
-        Order successfully placed
-      </Alert>
-      <Alert tone="positive" visible>
-        Order successfully placed
-      </Alert>
-      <Alert tone="warning" visible>
+      <Alert variant="info">Order successfully placed</Alert>
+      <Alert variant="positive">Order successfully placed</Alert>
+      <Alert variant="warning">
         This account is inactive. Check your billing for more information.
       </Alert>
-      <Alert tone="critical" visible>
+      <Alert variant="critical">
         Somenthing went wrong. Please, try again.
       </Alert>
     </Stack>
@@ -46,8 +40,7 @@ export function Actions() {
   return (
     <Stack fluid>
       <Alert
-        tone="positive"
-        visible
+        variant="positive"
         action={{
           children: 'See order',
           onClick: () => alert('Order #123'),
@@ -57,7 +50,6 @@ export function Actions() {
       </Alert>
 
       <Alert
-        visible
         onDismiss={() => {}}
         action={{
           children: 'Back to the old version',
@@ -67,21 +59,5 @@ export function Actions() {
         You're beta testing the new Order Details
       </Alert>
     </Stack>
-  )
-}
-
-export function Visible() {
-  const [visible, setVisible] = useState(false)
-
-  const handleDismiss = () => setVisible(false)
-  const handleToggle = () => setVisible((v) => !v)
-
-  return (
-    <Box>
-      <Button onClick={handleToggle}>Toggle</Button>
-      <Alert visible={visible} onDismiss={handleDismiss}>
-        This account is inactive. Check your billing for more information.
-      </Alert>
-    </Box>
   )
 }
