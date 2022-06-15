@@ -12,7 +12,7 @@ import { text } from './text'
 import { transitions } from './transitions'
 import { zIndices } from './zIndices'
 
-export const tokens = {
+export const themeSections = {
   colors,
   bg,
   border,

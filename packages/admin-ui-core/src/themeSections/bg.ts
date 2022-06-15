@@ -1,6 +1,9 @@
-import { colors } from '../values'
+import { createThemeSection } from '../utils'
+import { colors as colorSection } from './colors'
 
-export const bg = {
+const colors = colorSection.raw
+
+export const bg = createThemeSection('bg', {
   primary: colors.white,
   secondary: colors.gray05,
   disabled: colors.gray10,
@@ -75,4 +78,4 @@ export const bg = {
     controlInactive: colors.gray30,
     controlInactiveHover: colors.gray40,
   },
-}
+})

@@ -1,14 +1,8 @@
-import { tokens } from './tokens'
-import type { ThemeOptions } from './createTheme'
-import { createTheme } from './createTheme'
+import { themeSections } from './themeSections'
+import { createTheme } from './utils'
 
-const themeOptions: ThemeOptions = {
-  enableModes: false,
-}
+const { theme, cssVars } = createTheme(themeSections as any, {
+  enableCSSVariables: true,
+})
 
-const { theme, cssVariables, rootStyleObject, rootStyleString } = createTheme(
-  tokens,
-  themeOptions
-)
-
-export { theme, cssVariables, rootStyleObject, rootStyleString }
+export { theme, cssVars }

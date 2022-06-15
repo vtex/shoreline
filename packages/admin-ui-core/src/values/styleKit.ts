@@ -2,7 +2,9 @@ import { get } from '@vtex/admin-ui-util'
 
 import { paletteMap } from '../types'
 import type { Palette, Tone, ColorTokens, StyleProp, CSSUnit } from '../types'
-import { colors } from './colors'
+import { colors as colorSection } from '../themeSections/colors'
+
+const colors = colorSection.raw
 
 export function ring(tone: Tone) {
   const lighterColor = get(colors, `${paletteMap[tone]}05`)

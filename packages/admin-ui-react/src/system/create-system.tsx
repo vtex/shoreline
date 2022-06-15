@@ -1,5 +1,13 @@
 import React from 'react'
-import { createCsx, theme, styles, globalCss, cx } from '@vtex/admin-ui-core'
+import {
+  createCsx,
+  theme,
+  cssVars,
+  styles,
+  globalCss,
+  cx,
+  applyCSSVars,
+} from '@vtex/admin-ui-core'
 import type { ReactElement, PropsWithChildren } from 'react'
 import { Helmet } from 'react-helmet'
 
@@ -24,6 +32,7 @@ export function createSystem(
     : experimentalTheme.global
 
   globalCss(styles(global) as any)()
+  applyCSSVars(cssVars)
 
   function SystemProvider(props: PropsWithChildren<{}>) {
     const { children } = props

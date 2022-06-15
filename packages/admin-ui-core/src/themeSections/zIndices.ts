@@ -1,4 +1,6 @@
-export const zIndices = {
+import { createThemeSection } from '../utils'
+
+export const zIndices = createThemeSection('zIndices', {
   under: -1,
   plain: 0,
   over: 999,
@@ -11,4 +13,4 @@ export const zIndices = {
   sidebarDisclosure: 999,
   sidebarOverlay: 99,
   sidebarUl: -999,
-}
+})

@@ -1,6 +1,7 @@
+import { createThemeSection } from '../utils'
 import { typography } from '../values'
 
-export const text = {
+export const text = createThemeSection('text', {
   pageTitle: {
     fontFamily: typography.fontStack.sans,
     fontVariationSettings: typography.fontWeight.regular,
@@ -57,4 +58,4 @@ export const text = {
     lineHeight: typography.lineHeight.md,
     letterSpacing: typography.letterSpacing.s,
   },
-}
+})

@@ -1,3 +1,5 @@
+import { createThemeSection } from '../utils'
+
 const deprecatedSpace = {
   0: '0rem',
   1: '0.25rem',
@@ -12,7 +14,7 @@ const deprecatedSpace = {
   '2px': '0.125rem',
 }
 
-export const space = {
+export const space = createThemeSection('space', {
   ...deprecatedSpace,
   xs: '0.25rem 0.5rem',
   s: '0.5rem 0.75rem',
@@ -25,9 +27,9 @@ export const space = {
     m: '0.75rem 1.25rem',
     l: '1rem 1.75rem',
   },
-}
+})
 
-export const hspace = {
+export const hspace = createThemeSection('hspace', {
   ...deprecatedSpace,
   xs: '0.125rem',
   s: '0.25rem',
@@ -36,9 +38,9 @@ export const hspace = {
   xl: '1.25rem',
   '2xl': '1.75rem',
   '3xl': '2.75rem',
-}
+})
 
-export const vspace = {
+export const vspace = createThemeSection('vspace', {
   ...deprecatedSpace,
   xs: '0rem',
   s: '0.125rem',
@@ -47,4 +49,4 @@ export const vspace = {
   xl: '1rem',
   '2xl': '1.5rem',
   '3xl': '3rem',
-}
+})

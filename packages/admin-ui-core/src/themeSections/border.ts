@@ -1,6 +1,7 @@
+import { createThemeSection } from '../utils'
 import { border as borderStyles } from '../values'
 
-export const border = {
+export const border = createThemeSection('border', {
   neutral: borderStyles('gray20'),
   mainSelected: borderStyles('blue40', 2),
   positive: borderStyles('green30'),
@@ -29,4 +30,4 @@ export const border = {
     controlCheckedHover: borderStyles('blue50'),
     controlCheckedFocus: borderStyles('blue50'),
   },
-}
+})

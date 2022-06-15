@@ -1,4 +1,6 @@
-export const sizes = {
+import { createThemeSection } from '../utils'
+
+export const sizes = createThemeSection('sizes', {
   sm: '20rem',
   md: '48rem',
   lg: '56rem',
@@ -28,4 +30,4 @@ export const sizes = {
   full: '100%',
   screenHeight: '100vh',
   screenWidth: '100vw',
-}
+})

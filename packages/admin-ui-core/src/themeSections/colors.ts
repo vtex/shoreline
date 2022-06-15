@@ -1,4 +1,6 @@
-export const colors = {
+import { createThemeSection } from '../utils'
+
+export const colors = createThemeSection('colors', {
   white: '#FFFFFF',
   black: '#000000',
 
@@ -92,4 +94,4 @@ export const colors = {
   grayTransparent70: 'rgba(0, 0, 0, 0.7)',
   grayTransparent80: 'rgba(0, 0, 0, 0.8)',
   grayTransparent90: 'rgba(0, 0, 0, 0.9)',
-}
+})

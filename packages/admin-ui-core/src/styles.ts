@@ -13,7 +13,9 @@ import { handle } from './handlers'
  */
 const mediaQueries = [
   null,
-  ...defaultTheme.breakpoints.map((n) => `@media screen and (min-width: ${n})`),
+  ...['40em', '48em', '64em', '75em'].map(
+    (n: any) => `@media screen and (min-width: ${n})`
+  ),
 ]
 
 /**
