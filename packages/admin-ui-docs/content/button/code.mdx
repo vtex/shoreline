@@ -1,10 +1,8 @@
-import { PageSection } from '@site/src/components/PageSection'
-import { codeReference } from './toc'
+import { Section } from '@site/src/components/Section'
 
-<PageSection
-  id={codeReference[0].id}
-  title={codeReference[0].value}
->
+<Section>
+
+## Usage
 
 ```jsx
 import { Button } from '@vtex/admin-ui'
@@ -14,12 +12,11 @@ export function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[1].id}
-  title={codeReference[1].value}
->
+<Section>
+
+## Props
 
 | Name         | Type                                                                                           | Description                               | Required | Default   |
 | ------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | --------- |
@@ -31,13 +28,11 @@ export function Example() {
 | loading      | `boolean`                                                                                      | Defines if the Button is in loading state | 🚫       | `false`   |
 | csx          | `StyleProp`                                                                                    | Defines component styles                  | 🚫       | `{}`      |
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[2].id}
-  title={codeReference[2].value}
-  direction="row"
->
+<Section direction="row">
+
+## Best Practices
 
 - `Button` has the role `button`.
 - When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> triggers its action.
@@ -55,4 +50,4 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>

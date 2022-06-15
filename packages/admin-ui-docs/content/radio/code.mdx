@@ -1,10 +1,9 @@
-import { PageSection } from '@site/src/components/PageSection'
-import { codeReference } from './toc'
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
-<PageSection
-  id={codeReference[0].id}
-  title={codeReference[0].value}
->
+<Section>
+
+## Usage
 
 ```jsx isStatic
 import { Radio, RadioGroup, useRadioState } from '@vtex/admin-ui'
@@ -22,12 +21,11 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[1].id}
-  title={codeReference[1].value}
->
+<Section>
+
+## Radio Props
 
 | Name     | Type             | Description                                                                                           | Required | Default |
 | -------- | ---------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -39,12 +37,11 @@ function Example() {
 | id       | `string`         | Same as the HTML attribute                                                                            | 🚫       | -       |
 | csx      | `StyleProp`      | Defines component styles                                                                              | 🚫       | `{}`    |
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[2].id}
-  title={codeReference[2].value}
->
+<Section>
+
+## RadioGroup Props
 
 | Name      | Type          | Description                                | Required | Default |
 | --------- | ------------- | ------------------------------------------ | -------- | ------- |
@@ -57,49 +54,50 @@ function Example() {
 | optional  | `ReactNode`   | Whether the field is optional or not       | 🚫       | -       |
 | csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[3].id}
-  title={codeReference[3].value}
-  explanation="A hook to help control the RadioGroup state."
->
+<Section hasExplanation>
 
-<PageSection
-  id={codeReference[4]?.id}
-  title={codeReference[4]?.value}
->
+## useRadioState
+
+A hook to help control the RadioGroup state.
+
+</Section>
+
+<Section>
+
+### Params Props
 
 | Name         | Type                                   | Description                                                        | Required | Default |
 | ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
 | defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
 | setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={codeReference[5]?.id}
-  title={codeReference[5]?.value}
->
+<Section>
+
+### Return Props
 
 | Name     | Type                            | Description                           | Required | Default |
 | -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
 | value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
 | setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
 
-</PageSection>
+</Section>
 
-</PageSection>
+<Section direction="row">
 
-<PageSection
-  id={codeReference[6]?.id}
-  title={codeReference[6]?.value}
-  direction="row"
->
+## Accessibility
 
-- `Radio` has the role `radio`.
-- `RadioGroup` has role `radiogroup`.
-- `Radio` has `aria-checked` set to `true` when it's checked. Otherwise, `aria-checked` is set to `false`.
-- Always use `Radio` within a `RadioGroup`.
+<OrderedList>
+  <OrderedListItem>`Radio` has the role `radio`.</OrderedListItem>
+  <OrderedListItem>`RadioGroup` has role `radiogroup`.</OrderedListItem>
+  <OrderedListItem>
+    `Radio` has `aria-checked` set to `true` when it's checked. Otherwise,
+    `aria-checked` is set to `false`.
+  </OrderedListItem>
+  <OrderedListItem>Always use `Radio` within a `RadioGroup`.</OrderedListItem>
+</OrderedList>
 
-</PageSection>
+</Section>
