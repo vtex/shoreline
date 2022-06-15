@@ -1,21 +1,17 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import type { UseFilterMultipleReturn } from '..'
-import type { AnyObject } from '../..'
+import type { AnyObject } from '..'
 
-import * as style from '../filter.style'
+import * as style from './filter.style'
 
-export const MultipleItemsLabel = (props: {
+export const AppliedListLabel = (props: {
   appliedItems: AnyObject[]
-  state: UseFilterMultipleReturn<any>
+  renderItem: (item: AnyObject) => string
 }) => {
-  const {
-    appliedItems,
-    state: { getOptionLabel },
-  } = props
+  const { appliedItems, renderItem } = props
 
   const separator = appliedItems.length > 1 ? ',' : ''
-  const firstOptionLabel = getOptionLabel(appliedItems[0] || {}) || ''
+  const firstOptionLabel = renderItem(appliedItems[0] || {}) || ''
 
   const firstSelectedItemLabel = `${firstOptionLabel}${separator}`
 
