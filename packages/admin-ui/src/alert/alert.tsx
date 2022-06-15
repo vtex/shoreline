@@ -14,7 +14,6 @@ import {
   useElement,
 } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
-import { style } from '@vtex/admin-ui-core'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
@@ -23,48 +22,35 @@ import { Paragraph } from '../components/Paragraph'
 import * as styles from './alert.style'
 
 export const useAlert = createHook<'div', AlertOptions>((props) => {
-  const {
-    children,
-    onDismiss,
-    visible = false,
-    tone = 'info',
-    action,
-    ...htmlProps
-  } = props
+  const { children, onDismiss, variant = 'info', action, ...htmlProps } = props
 
-  const icon = alertIconMap[tone]
-  const iconContainerCsx = style(alertIconContainerStyleMap[tone])
+  const icon = alertIconMap[variant]
 
   return {
     ...htmlProps,
     baseStyle: {
       ...styles.baseline,
       ...styles.variants({
-        visible,
-        tone,
+        variant,
       }),
     },
     children: (
       <Fragment>
-        <Inline
-          csx={{
-            marginRight: '$m',
-          }}
-          noWrap
-        >
-          <IconContainer size="regular" csx={iconContainerCsx}>
+        <Inline noWrap vSpace="unset" hSpace="$l">
+          <IconContainer size="regular" csx={styles.iconContainer(variant)}>
             {icon}
           </IconContainer>
-          <Paragraph
-            csx={{
-              marginLeft: 3,
-            }}
-          >
-            {children}
-          </Paragraph>
+          <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
-        <Inline>
-          {action && <Button {...action} variant="neutralTertiary" bleedY />}
+        <Inline noWrap vSpace="unset" hSpace="unset">
+          {action && (
+            <Button
+              {...action}
+              variant="neutralTertiary"
+              bleedY
+              csx={styles.button(!!onDismiss)}
+            />
+          )}
           {onDismiss && (
             <Button
               variant="neutralTertiary"
@@ -93,21 +79,6 @@ const alertIconMap = {
   positive: <IconCheckCircle weight="fill" />,
   warning: <IconWarning weight="fill" />,
   info: <IconBell weight="fill" />,
-}
-
-const alertIconContainerStyleMap = {
-  warning: {
-    color: '$warning',
-  },
-  positive: {
-    color: '$positive',
-  },
-  critical: {
-    color: '$critical',
-  },
-  info: {
-    color: '$info',
-  },
 }
 
 export type AlertActionProps = ButtonProps & {

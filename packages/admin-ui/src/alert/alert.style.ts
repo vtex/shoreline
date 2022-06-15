@@ -6,10 +6,10 @@ export const baseline = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  minHeight: '3.25rem',
+  minHeight: '3.125rem',
   height: '100%',
-  paddingY: 2,
-  paddingX: 4,
+  paddingY: '0.9375rem',
+  paddingX: 5,
   borderRadius: 'default',
   zIndex: 999,
   transition: 'pop',
@@ -21,19 +21,7 @@ export const action = style({
 })
 
 export const variants = styleVariants({
-  visible: {
-    true: {
-      opacity: 1,
-      transform: 'translate3d(0, 0, 0)',
-      visibility: 'visible',
-    },
-    false: {
-      opacity: 0,
-      transform: 'translate3d(0, -10px, 0)',
-      visibility: 'hidden',
-    },
-  },
-  tone: {
+  variant: {
     critical: {
       bg: '$critical',
       border: '$critical',
@@ -52,3 +40,44 @@ export const variants = styleVariants({
     },
   },
 })
+
+export const paragraph = style({
+  maxWidth: '49rem',
+})
+
+export const iconContainer = (
+  variant: 'warning' | 'positive' | 'critical' | 'info'
+) =>
+  style(
+    {
+      warning: {
+        color: '$warning',
+        marginLeft: 'unset',
+      },
+      positive: {
+        color: '$positive',
+        marginLeft: 'unset',
+      },
+      critical: {
+        color: '$critical',
+        marginLeft: 'unset',
+      },
+      info: {
+        color: '$info',
+        marginLeft: 'unset',
+      },
+    }[variant]
+  )
+
+export const button = (withDismiss: boolean) => {
+  if (withDismiss) {
+    return style({
+      marginLeft: '$2xl',
+      marginRight: '$m',
+    })
+  }
+
+  return style({
+    marginLeft: '$2xl',
+  })
+}
