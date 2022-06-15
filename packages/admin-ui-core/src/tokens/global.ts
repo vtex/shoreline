@@ -35,7 +35,10 @@ export const global = {
     },
   'blockquote, q': { quotes: 'none' },
   'blockquote:before, blockquote:after, q:before, q:after': {
-    content: ["''", 'none'],
+    content: "''",
+    '@tablet': {
+      content: 'none',
+    },
   },
   table: { borderCollapse: 'collapse', borderSpacing: 0 },
 }

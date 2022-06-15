@@ -28,6 +28,7 @@ export const aliases = {
   bg: 'background',
 
   // responsive
+  '@mobile': `@media (min-width: ${breakpoints.mobile})`,
   '@tablet': `@media (min-width: ${breakpoints.tablet})`,
   '@tabletOnly': `@media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop})`,
   '@desktop': `@media (min-width: ${breakpoints.desktop})`,

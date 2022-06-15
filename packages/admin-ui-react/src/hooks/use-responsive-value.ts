@@ -11,12 +11,12 @@ export type ResponsiveValue<T> = T | T[]
 const useBreakpointIndex = (options: DefaultOptions = {}) => {
   const { theme } = useSystem()
   const { defaultIndex = 0 } = options
-  const breakpoints = (theme && theme.breakpoints) || [
-    '40em',
-    '48em',
-    '64em',
-    '75em',
-  ]
+  const breakpoints = (theme && [
+    theme.breakpoints.mobile,
+    theme.breakpoints.tablet,
+    theme.breakpoints.desktop,
+    theme.breakpoints.widescreen,
+  ]) || ['40em', '48em', '64em', '75em']
 
   if (typeof defaultIndex !== 'number') {
     throw new TypeError(

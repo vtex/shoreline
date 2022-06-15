@@ -148,17 +148,17 @@ describe('styles', () => {
 
       expect(keys).toEqual([
         'width',
-        '@media screen and (min-width: 40em)',
-        '@media screen and (min-width: 48em)',
+        '@media (min-width: 40em)',
+        '@media (min-width: 48em)',
         'color',
       ])
 
       expect(result).toEqual({
         width: '100%',
-        '@media screen and (min-width: 40em)': {
+        '@media (min-width: 40em)': {
           color: 'green',
         },
-        '@media screen and (min-width: 48em)': {
+        '@media (min-width: 48em)': {
           width: '50%',
           color: 'blue',
         },
@@ -181,8 +181,8 @@ describe('styles', () => {
       expect(keys).toEqual([
         'flexDirection',
         'justifyContent',
-        '@media screen and (min-width: 40em)',
-        '@media screen and (min-width: 48em)',
+        '@media (min-width: 40em)',
+        '@media (min-width: 48em)',
         'color',
         'height',
         'paddingLeft',

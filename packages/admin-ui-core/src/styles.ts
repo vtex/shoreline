@@ -11,10 +11,7 @@ import { handle } from './handlers'
 /**
  * Available media queries mapped from the breakpoints
  */
-const mediaQueries = [
-  null,
-  ...defaultTheme.breakpoints.map((n) => `@media screen and (min-width: ${n})`),
-]
+const mediaQueries = [null, '@mobile', '@tablet', '@desktop', '@widescreen']
 
 /**
  * This function allows the responsive arrays

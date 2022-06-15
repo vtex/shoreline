@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react'
 import { isBrowser, get } from '@vtex/admin-ui-util'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
-import { tokens } from '@vtex/admin-ui-core'
+import { theme } from '@vtex/admin-ui-core'
 
-const queries = tokens.breakpoints.map((bp) => `(min-width: ${bp})`)
+const queries = theme.breakpoints.map((bp) => `(min-width: ${bp})`)
 
 /**
  * React hook that tracks state of a CSS media query
