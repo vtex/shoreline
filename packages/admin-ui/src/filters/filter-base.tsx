@@ -5,7 +5,7 @@ import { Button } from '../button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
 
 import type { GenericFilterStateReturn } from './filter/filter.state'
-import { ComboboxList } from 'ariakit'
+import { ComboboxList } from 'ariakit/combobox'
 
 import { tag } from '@vtex/admin-ui-react'
 
