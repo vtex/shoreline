@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import { Button } from '../button'
 import { IconCaretUp } from '@vtex/phosphor-icons'
-import { MenuButton } from 'ariakit'
+import { MenuButton } from 'ariakit/menu'
 
 import * as style from './filter.style'
 import type { GenericFilterStateReturn } from '.'
