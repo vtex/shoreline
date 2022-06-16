@@ -5,6 +5,8 @@ import type { AlertProps } from './index'
 import { Alert } from './index'
 import { Stack } from '../stack'
 
+const dismiss = () => alert('Dismissed')
+
 export default {
   title: 'admin-ui-review/alert',
   component: Alert,
@@ -17,8 +19,19 @@ export const Playground: Story<AlertProps> = (args) => {
 Playground.args = {
   children: 'Order successfully placed',
   csx: {},
-  onDismiss: () => {},
-  action: { children: 'See order', onClick: () => {} },
+  onDismiss: undefined,
+  action: { children: 'See order', onClick: () => alert('Order #123') },
+}
+
+Playground.argTypes = {
+  variant: {
+    options: ['info', 'positive', 'warning', 'critical'],
+    control: { type: 'radio' },
+  },
+  onDismiss: {
+    options: [dismiss, undefined],
+    control: { type: 'radio' },
+  },
 }
 
 export function Variants() {

@@ -4,7 +4,7 @@ export const baseline = style({
   text: '$detail',
   color: '$primary',
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   justifyContent: 'space-between',
   minHeight: '3.125rem',
   height: '100%',
