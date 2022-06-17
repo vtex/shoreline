@@ -8,7 +8,7 @@ interface ActionOptions {
   variant: ActionVariant
 }
 
-function action(options: ActionOptions) {
+export function action(options: ActionOptions) {
   const { tone, variant } = options
 
   return style({
