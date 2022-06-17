@@ -1,19 +1,19 @@
 import React from 'react'
 import * as AdminUI from '@vtex/admin-ui'
-import type { Icon } from '@vtex/phosphor-icons'
 
 function generateMap() {
-  iconsDoc.sort((a, b) => {
+  const icons = [...iconsDoc].sort((a, b) => {
     if (a < b) return -1
     if (a > b) return 1
 
     return 0
   })
 
-  return iconsDoc.map((name) => {
-    const Icon = (AdminUI as Record<string, any>)[`Icon${name}`] as Icon
+  return icons.map((name) => {
+    const Icon = AdminUI[`Icon${name}`]
 
     return {
+      id: name,
       name,
       icon: <Icon />,
     }
@@ -25,7 +25,7 @@ export interface IconProps {
   size?: number
 }
 
-export const iconsDoc = [
+const iconsDoc = [
   'CaretUp',
   'CaretDown',
   'CaretLeft',
@@ -127,7 +127,7 @@ export const iconsDoc = [
   'Cube',
   'ShareNetwork',
   'Stack',
-]
+] as const
 
 export const filled = ['Warning', 'Bell', 'Envelope', 'XOctagon']
 export const small = [
