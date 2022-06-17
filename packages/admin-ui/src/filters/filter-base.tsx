@@ -3,10 +3,9 @@ import React, { useRef } from 'react'
 
 import { Button } from '../button'
 import { FilterPopoverFooter, FilterPopover } from './filter-popover'
-import { FilterDisclosure } from './filter-disclosure'
 
 import type { GenericFilterStateReturn } from './filter/filter.state'
-import { ComboboxList } from 'ariakit'
+import { ComboboxList } from 'ariakit/combobox'
 
 import { tag } from '@vtex/admin-ui-react'
 
@@ -17,35 +16,26 @@ import { Stack } from '../stack'
 import * as style from './filter.style'
 
 export function BaseFilter(props: BaseFilterProps) {
-  const { state, children, appliedValuesLabel = '' } = props
-  const { onClear, onChange, label, menu, combobox, baseId } = state
+  const { state, children } = props
+  const { onClear, onChange, menu, combobox, baseId } = state
 
   const formatMessage = useMessageFormatter(messages.actions)
 
   const optionsContainerRef = useRef<HTMLDivElement>(null)
 
   const popoverId = baseId ? `${baseId}-popover` : undefined
-  const disclosureId = baseId ? `${baseId}-disclosure` : undefined
 
-  // TODO investigate arikit buggy typing
-  const comboboxListId = {
-    id: baseId ? `${baseId}-combobox-list` : undefined,
-  } as any
+  const comboboxListId = { id: baseId ? `${baseId}-combobox-list` : undefined }
 
   const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
   const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
 
   return (
     <>
-      <FilterDisclosure state={menu} id={disclosureId}>
-        {label}
-        {appliedValuesLabel}
-      </FilterDisclosure>
-
       <FilterPopover state={menu} id={popoverId}>
         <tag.span ref={optionsContainerRef} csx={style.scrollableContainer}>
           <Stack
-            as={ComboboxList}
+            as={ComboboxList as any}
             state={combobox}
             space="$xl"
             {...comboboxListId}
@@ -70,5 +60,4 @@ export function BaseFilter(props: BaseFilterProps) {
 export interface BaseFilterProps {
   state: GenericFilterStateReturn<any>
   children?: ReactNode
-  appliedValuesLabel?: ReactNode
 }

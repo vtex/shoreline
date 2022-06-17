@@ -9,7 +9,7 @@ export const FilterRadio = (props: FilterRadioProps) => {
     baseStyle: {
       ...style.radioButtonStyle,
       ariaChecked: undefined,
-      marginRight: '$s',
+      marginRight: '$m',
     },
     checked,
     type: 'radio',
