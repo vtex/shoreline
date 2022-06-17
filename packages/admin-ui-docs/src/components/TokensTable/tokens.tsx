@@ -88,4 +88,7 @@ export const tokens = [
   ...border,
   ...shadow,
   ...text,
-]
+].map((token, index) => ({
+  id: index,
+  ...token,
+}))
