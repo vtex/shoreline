@@ -32,7 +32,7 @@ export function ReleaseNotes() {
     },
     {
       id: 'published_at',
-      header: 'Pulish Date',
+      header: 'Publish Date',
       resolver: {
         type: 'date',
         locale: 'en-US',
