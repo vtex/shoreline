@@ -1,13 +1,9 @@
-import { PageSection } from '@site/src/components/PageSection'
+import { Section } from '@site/src/components/Section'
 import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
-import { designReference } from './toc'
+<Section direction="row">
 
-<PageSection
-  id={designReference[0].id}
-  title={designReference[0].value}
-  direction="row"
->
+## Best Practices
 
 <OrderedList>
   <OrderedListItem>Use them for single choice options.</OrderedListItem>
@@ -43,4 +39,4 @@ import { designReference } from './toc'
   </OrderedListItem>
 </OrderedList>
 
-</PageSection>
+</Section>

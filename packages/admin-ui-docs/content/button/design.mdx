@@ -1,13 +1,11 @@
-import { PageSection } from '@site/src/components/PageSection'
+import { Section } from '@site/src/components/Section'
+
 import { BestPractices, Practice } from '@site/src/components/BestPractices'
 import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
-import { designReference } from './toc'
 
-<PageSection
-id={designReference[0].id}
-title={designReference[0].value}
-direction="row"
->
+<Section direction="row">
+
+## Best Practices
 
 <OrderedList>
   <OrderedListItem>
@@ -25,15 +23,13 @@ direction="row"
   </OrderedListItem>
 </OrderedList>
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[1].id}
-  title={designReference[1].value}
-  direction="row"
-  explanation="The button label should be actionable so users know exactly what
-  to expect when clicking. Prefer verbs in the infinitive tense."
->
+<Section direction="row" hasExplanation>
+
+## Writing Labels
+
+The button label should be actionable so users know exactly what to expect when clicking. Prefer verbs in the infinitive tense.
 
 <BestPractices>
 
@@ -85,14 +81,13 @@ direction="row"
 
 </BestPractices>
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[2].id}
-  title={designReference[2].value}
-  direction="row"
-  explanation="The button text should be actionable so users know exactly what to expect when clicking."
->
+<Section direction="row" hasExplanation>
+
+## Combining button styles
+
+The button text should be actionable so users know exactly what to expect when clicking.
 
 <BestPractices>
 
@@ -123,21 +118,21 @@ one primary button per page/modal.
 
 </BestPractices>
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[2].id}
-  title={designReference[2].value}
-  explanation="Follow the set of recommendations below to make the best decisions when designing sleek, clear pages."
->
+<Section hasExplanation>
 
-</PageSection>
+## Recomendations
 
-<PageSection
-  id={designReference[3].id}
-  title={designReference[3].value}
-  explanation="Learn more about how to choose between different action components."
->
+Follow the set of recommendations below to make the best decisions when designing sleek, clear pages.
+
+</Section>
+
+<Section hasExplanation>
+
+### Components
+
+Learn more about how to choose between different action components.
 
 **When should I use the _link_ component instead of the _button_?**
 
@@ -153,13 +148,13 @@ Choose the button component when it makes sense to place the action in a _group 
 - When the actions will be repeated multiple times for each list item.
 - When there are already many actions shown on the screen at a time.
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[4].id}
-  title={designReference[4].value}
-  explanation="Learn more about the different variants of action components."
->
+<Section hasExplanation>
+
+### Variants
+
+Learn more about the different variants of action components.
 
 **When should an action component have a _primary_, _secondary_, or _tertiary_ prominence?**
 The prominence of an action component should vary depending on how frequently it is used, so this answer depends on research applied to your design’s context. Even so, there are patterns you can follow:
@@ -185,13 +180,13 @@ The prominence of an action component should vary depending on how frequently it
 - **Normal:** all tertiary actions and most secondary actions should be normal sized. Apply it to actions that are repeated multiple times on a screen or that are not frequently used.
 - **Large:** most primary actions should be large sized. Apply it to actions that should have the most prominence on a screen, such as those in the Page Header component.
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[5].id}
-  title={designReference[5].value}
-  explanation="Learn more about the different positions of action components within a page."
->
+<Section hasExplanation>
+
+### Position
+
+Learn more about the different positions of action components within a page.
 
 **Where should an action component be _positioned_, when next to other actions?**
 Considering left-to-right interfaces, there are three common guidelines related to how actions should be positioned:
@@ -213,13 +208,13 @@ Tertiary actions should be vertically or horizontally aligned based on their con
 - **Right-aligned:** when the action is at the end of the form and will submit the content.
 - **Left-aligned:** when the action will only modify part of the form's content.
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[6].id}
-  title={designReference[6].value}
-  explanation="Learn more about the different behaviors of action components within a page."
->
+<Section hasExplanation>
+
+### Behavior
+
+Learn more about the different behaviors of action components within a page.
 
 **When should an action component be _disabled_ and how?**
 This state should be avoided since it is not visually pleasant and its visual appearance can be mistaken for a neutral action. However, it can be used in rare scenarios where the reason behind the button being disabled is very intuitive for users.
@@ -235,13 +230,13 @@ For example, a save button can be disabled when no changes have been made.
 - When the action is irreversible. For example, a delete action where the content cannot be restored from the trash.
 - When the action would take considerable time to undo. For example, a publish action where the publication cannot be canceled while in progress.
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={designReference[7].id}
-  title={designReference[7].value}
-  explanation="Learn more about how to craft precise labels to improve button's UX writing."
->
+<Section hasExplanation>
+
+### Content
+
+Learn more about how to craft precise labels to improve button's UX writing.
 
 **What _labels_ and _icons_ should be applied to an action component?**
 Whenever possible, the labels and icons listed below should be adopted. If you need a new label and/or icon please open a request explaining your use case.
@@ -281,4 +276,4 @@ So we have consistency throughout the actions that buttons represent, we suggest
 | Save   | Salvar  | Guardar |
 | Delete | Excluir | Excluir |
 
-</PageSection>
+</Section>

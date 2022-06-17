@@ -118,11 +118,14 @@ export const tabToc = {
 <Page toc={tabToc} hasTabs>
 <Panel id="overview">
 
-<IntroSection
-  id={tabToc.overview[0].id}
-  title={tabToc.overview[0].value}
-  description="Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions."
-/>
+<IntroSection>
+
+## What is this?
+
+Buttons trigger an action, or allow the user to advance a state. They are
+where the user interacts with the screen, enabling actions or decisions.
+
+</IntroSection>
 
 <MultipleCodeSection
   id={tabToc.overview[1].id}
@@ -130,6 +133,8 @@ export const tabToc = {
   optionsTitle="Variant"
   options={['Primary','Secondary','Tertiary']}
 >
+
+## Variants
 
 ```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
 <>

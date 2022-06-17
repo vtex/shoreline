@@ -1,16 +1,23 @@
-import { PageSection } from '@site/src/components/PageSection'
+import { Section } from '@site/src/components/Section'
 import { IntroSection } from '@site/src/components/IntroSection'
-import { overview } from './toc'
 
-<IntroSection
-  id={overview[0].id}
-  title={overview[0].value}
-  description="Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context."
-/>
+<IntroSection>
 
-<PageSection id={overview[1].id} title={overview[1].value} />
+## What is this?
 
-<PageSection id={overview[2].id} title={overview[2].value}>
+Radio buttons are tools that customize configurations. They represent a need for the user to make a choice among a few offered options. In multiple choice forms, use radio buttons for a single option to be selected. This component is always used in a `RadioGroup` context.
+
+</IntroSection>
+
+<Section>
+
+## Examples
+
+</Section>
+
+<Section>
+
+## Help Text
 
 ```jsx live
 function Example() {
@@ -33,12 +40,11 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[3].id}
-  title={overview[3].value}
->
+<Section>
+
+## Group Help Text
 
 ```jsx live
 function Example() {
@@ -58,12 +64,11 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[4].id}
-  title={overview[4].value}
->
+<Section>
+
+## Direction
 
 ```jsx live
 function Example() {
@@ -84,12 +89,11 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[5].id}
-  title={overview[5].value}
->
+<Section>
+
+## Disabled
 
 ```jsx live
 function Example() {
@@ -110,13 +114,13 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[6].id}
-  title={overview[6].value}
-  explanation="Use the error prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a errorText to be displayed."
->
+<Section hasExplanation>
+
+## Error
+
+Use the error prop to define whether the user input is with error or not. It is up to you to define what triggers it. Additionally, you should add a errorText to be displayed.
 
 ```jsx live
 function Example() {
@@ -139,12 +143,11 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
 
-<PageSection
-  id={overview[7].id}
-  title={overview[7].value}
->
+<Section>
+
+## Optional
 
 ```jsx live
 function Example() {
@@ -171,4 +174,4 @@ function Example() {
 }
 ```
 
-</PageSection>
+</Section>
