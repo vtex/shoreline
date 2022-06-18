@@ -9,7 +9,7 @@ export const baseline = style({
   minHeight: '3.125rem',
   height: '100%',
   paddingY: '0.9375rem',
-  paddingX: 5,
+  paddingX: '1.125rem',
   borderRadius: 'default',
   zIndex: 999,
   transition: 'pop',
@@ -73,7 +73,7 @@ export const button = (withDismiss: boolean) => {
   if (withDismiss) {
     return style({
       marginLeft: '$2xl',
-      marginRight: '$m',
+      marginRight: '$xl',
     })
   }
 
@@ -81,3 +81,5 @@ export const button = (withDismiss: boolean) => {
     marginLeft: '$2xl',
   })
 }
+
+export const rightInline = style({ whiteSpace: 'nowrap' })
