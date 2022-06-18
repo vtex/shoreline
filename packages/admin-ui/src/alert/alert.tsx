@@ -42,12 +42,13 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
           </IconContainer>
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
-        <Inline noWrap vSpace="unset" hSpace="unset">
+        <Inline noWrap vSpace="unset" hSpace="unset" csx={styles.rightInline}>
           {action && (
             <Button
               {...action}
               variant="neutralTertiary"
               bleedY
+              bleedX
               csx={styles.button(!!onDismiss)}
             />
           )}
@@ -57,6 +58,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
               icon={<IconX />}
               onClick={onDismiss}
               bleedY
+              bleedX
             />
           )}
         </Inline>
