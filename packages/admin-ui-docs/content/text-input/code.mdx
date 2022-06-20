@@ -1,0 +1,40 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section>
+
+## Usage
+
+```jsx isStatic
+import { useState } from 'react'
+import { TextInput } from '@vtex/admin-ui'
+
+function Example() {
+  const [value, setValue] = useState()
+
+  return (
+    <TextInput
+      label="Label"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## TextInput Props
+
+| Name      | Type        | Description  | Required | Default |
+| --------- | ----------- | ------------ | -------- | ------- |
+| label     | `string`    | Label text   | ✅       | -       |
+| helpText  | `ReactNode` | Help text    | 🚫       | -       |
+| error     | `boolean`   | Has an error | 🚫       | -       |
+| errorText | `ReactNode` | Error text   | 🚫       | -       |
+| prefix    | `ReactNode` | Input prefix | 🚫       | -       |
+| suffix    | `ReactNode` | Input suffix | 🚫       | -       |
+
+</Section>
