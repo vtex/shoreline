@@ -1,4 +1,5 @@
 import { get } from '@vtex/admin-ui-util'
+import { negative } from '../style-callbacks'
 
 import { styles, cx } from '../styles'
 
@@ -269,6 +270,34 @@ describe('styles', () => {
       const result = cx(cls1, cls2)
 
       expect(result).toEqual('cls-1 cls-2 cls-3 cls-4')
+    })
+  })
+
+  describe('negative function', () => {
+    it('should handle negative tokens', () => {
+      const res = styles(
+        {
+          padding: negative('$sm') as any,
+        },
+        {
+          space: {
+            sm: '10rem',
+          },
+        }
+      )
+
+      expect(res).toEqual({
+        padding: '-10rem',
+      })
+    })
+    it('should handle negative values', () => {
+      const res = styles({
+        margin: negative('1rem') as any,
+      })
+
+      expect(res).toEqual({
+        margin: '-1rem',
+      })
     })
   })
 })

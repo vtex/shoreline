@@ -7,6 +7,9 @@ import { alias } from './aliases'
 import type { StyleObject, StyleProp, ThemeDerivedStyles } from './types'
 import { theme as defaultTheme } from './theme'
 import { handle } from './handlers'
+import { isStyleCallback } from './style-callbacks'
+
+// parsing function
 
 /**
  * Available media queries mapped from the breakpoints
@@ -72,12 +75,14 @@ export function styles(
   // O(n) linear keys
   for (const key in responsive) {
     const cssProperty = alias(key)
-    const mqValue = responsive[key as keyof typeof responsive]
-    const token = isFunction(mqValue) ? (mqValue as Function)(theme) : mqValue
+    const value = responsive[key as keyof typeof responsive]
+    const token = isFunction(value) ? (value as Function)(theme) : value
+
+    const rawToken = isStyleCallback(token) ? token.token : token
 
     // deep O(n) rules
-    if (token && typeof token === 'object') {
-      cssObject[cssProperty] = styles(token as StyleObject, theme)
+    if (rawToken && typeof rawToken === 'object') {
+      cssObject[cssProperty] = styles(rawToken as StyleObject, theme)
       continue
     }
 

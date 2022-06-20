@@ -1,5 +1,6 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
+import { isStyleCallback } from './style-callbacks'
 
 const TOKEN_PREFIX = '$'
 
@@ -15,10 +16,12 @@ export function handleToken(entry: string, theme: AnyObject, value: any) {
   const root = theme[entry]
 
   if (!root) {
-    return value
+    return isStyleCallback(value) ? value.callback(value.token) : value
   }
 
-  return get(root, extractTokenCall(value), value)
+  return isStyleCallback(value)
+    ? value.callback(get(root, extractTokenCall(value.token), value.token))
+    : get(root, extractTokenCall(value), value)
 }
 
 type StyleHandler = (value: any, theme: AnyObject) => AnyObject
@@ -225,10 +228,14 @@ export const handlers: Record<string, StyleHandler> = {
       marginRight: value,
     }
   },
-  marginY: (value, theme) => ({
-    marginTop: handleToken('vspace', theme, value),
-    marginBottom: handleToken('vspace', theme, value),
-  }),
+  marginY: (token, theme) => {
+    const value = handleToken('vspace', theme, token)
+
+    return {
+      marginTop: value,
+      marginBottom: value,
+    }
+  },
   paddingX: (token, theme) => {
     const value = handleToken('hspace', theme, token)
 
@@ -252,34 +259,11 @@ export const handlers: Record<string, StyleHandler> = {
   },
   colorScheme: (color, theme) => {
     return {
-      background: get(theme, `colors.${color}10`, ''),
+      backgroundColor: get(theme, `colors.${color}10`, ''),
       color: get(theme, `colors.${color}60`, ''),
     }
   },
 }
-
-// function convertValue(value: string | number, themeSection: AnyObject) {
-//   const isNumeric = typeof value === 'number'
-//   const isPositive = isNumeric && value >= 0
-
-//   if (isPositive) {
-//     return get(themeSection, value, value)
-//   }
-
-//   const isString = typeof value === 'string'
-//   const isNegative = isString && value.startsWith('-')
-
-//   if (isString && value.startsWith('-')) {
-//     const valueWithoutMinus = value.substring(1)
-//     const valueFromRule = get(
-//       themeSection,
-//       valueWithoutMinus,
-//       valueWithoutMinus
-//     )
-
-//     return `-${valueFromRule}`
-//   }
-// }
 
 export function handle(props: {
   cssProp: string
