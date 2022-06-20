@@ -20,6 +20,7 @@
   --ifm-code-font-size: 95%;
   --ifm-pre-background: #ffffff;
   --ifm-toc-border-color: #DDDDDD;
+  --ifm-hr-border-width: 0;
 }
 
 body {
@@ -30,7 +31,7 @@ body {
   --ifm-spacing-horizontal: 3rem;
 }
 
-header > h1:first-child {
+header>h1:first-child {
   display: none;
 }
 
@@ -63,7 +64,7 @@ header > h1:first-child {
     margin-top: -171px;
     padding-top: 0;
 
-    & > .container {
+    &>.container {
       max-width: 1505px;
     }
   }

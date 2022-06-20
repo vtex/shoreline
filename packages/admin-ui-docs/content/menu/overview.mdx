@@ -1,0 +1,293 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Accessible dropdown Menu component.
+
+</IntroSection>
+
+<Section>
+
+## Composition
+
+| Name        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| MenuButton  | Button that triggers the menu popover                              |
+| Menu        | Menu's popover                                                     |
+| MenuItem    | Represents a button rendered inside the MenuList                   |
+| MenuDivider | Represents an `hr` used to separate the menu popover into sections |
+
+</Section>
+
+<Section hasExplanation>
+
+## Variants
+
+MenuButton has four possible variants: `primary`, `secondary`, `tertiary` and `neutralTertiary`. Primary is the default variant.
+
+```jsx live layout=grid columnsCount=2 rowsCount=2
+function Example() {
+  const state1 = useMenuState()
+  const state2 = useMenuState()
+  const state3 = useMenuState()
+  const state4 = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state1} />
+      <Menu state={state1} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+
+      <MenuButton state={state2} variant="secondary" />
+      <Menu state={state2} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+
+      <MenuButton state={state3} variant="tertiary" />
+      <Menu state={state3} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+
+      <MenuButton state={state4} variant="neutralTertiary" />
+      <Menu state={state4} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Sizes
+
+MenuButton has two possible sizes: `normal` and `large`. Normal is the default size.
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+function Example() {
+  const state1 = useMenuState()
+  const state2 = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state1} />
+      <Menu state={state1} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+      <MenuButton state={state2} size="large" />
+      <Menu state={state2} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Icon only
+
+You can use the `labelHidden` property to hide the MenuButton label
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} labelHidden />
+      <Menu state={state} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuItem label="Download" icon={<IconArrowLineDown />} />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Custom
+
+It possible to use the `label` MenuButton property to set the button text. When a custom label is used, the icon changes to the IconCaretDown/Up.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} label="Custom label" />
+      <Menu state={state} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuItem label="Download" icon={<IconArrowLineDown />} />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Disabled
+
+Disable the MenuButton by setting the `disabled` property to true.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} disabled />
+      <Menu state={state} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuItem label="Download" icon={<IconArrowLineDown />} />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Bleed
+
+MenuButton can trespass the parent padding for some alignment and layout reasons, it is possible to achieve this behavior through the `bleedX` and `bleedY` property.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <Box
+      csx={{
+        padding: '$m',
+        bg: '$secondary',
+      }}
+    >
+      <Box
+        csx={{
+          bg: '$primary',
+        }}
+      >
+        <Flex align="center" justify="flex-end">
+          <MenuButton state={state} bleedX bleedY />
+          <Menu state={state} aria-label="actions">
+            <MenuItem label="Create" icon={<IconPlus />} disabled />
+            <MenuItem label="Edit" icon={<IconPencil />} />
+            <MenuItem label="Download" icon={<IconArrowLineDown />} />
+          </Menu>
+        </Flex>
+      </Box>
+    </Box>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Item
+
+MenuItem has two possible variants: neutral and critical, to enable the critical variant, the `critical` property needs to be true.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} />
+      <Menu state={state} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuDivider />
+        <MenuItem label="Delete" icon={<IconTrash />} critical />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Item click
+
+It is possible to set a custom action when a item is clicked.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} />
+      <Menu state={state} aria-label="actions">
+        <MenuItem
+          label="Create"
+          icon={<IconPlus />}
+          onClick={() => alert('Creating item...')}
+        />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuDivider />
+        <MenuItem label="Delete" icon={<IconTrash />} critical />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Item disabled
+
+Disable the MenuItem by setting the `disabled` property to true.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <>
+      <MenuButton state={state} />
+      <Menu state={state} aria-label="actions">
+        <MenuItem label="Create" icon={<IconPlus />} disabled />
+        <MenuItem label="Edit" icon={<IconPencil />} />
+        <MenuDivider />
+        <MenuItem label="Delete" icon={<IconTrash />} critical />
+      </Menu>
+    </>
+  )
+}
+```
+
+</Section>
