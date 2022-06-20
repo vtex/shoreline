@@ -1,0 +1,81 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+The TextInput is used in a form to retrieve data inputted by the user.
+
+</IntroSection>
+
+<Section>
+
+## Handling state
+
+### Uncontrolled
+
+```jsx live
+<TextInput label="Controlled" />
+```
+
+### Controlled
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <TextInput
+      label="Controlled"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Terms
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <TextInput label="URL" prefix="https://" />
+  <TextInput label="URL" suffix=".com.br" />
+</>
+```
+
+</Section>
+
+<Section>
+
+## Help text
+
+```jsx live
+<TextInput label="Label" helpText="Help text" />
+```
+
+</Section>
+
+<Section>
+
+## Error
+
+```jsx live
+<TextInput label="With error" error errorText="Error text" />
+```
+
+</Section>
+
+<Section>
+
+## Disabled
+
+```jsx live
+<TextInput label="Disabled" disabled />
+```
+
+</Section>
