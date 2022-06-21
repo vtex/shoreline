@@ -8,7 +8,7 @@ import {
   Tooltip as TooltipPopover,
   TooltipAnchor,
   TooltipArrow,
-} from 'ariakit/Tooltip'
+} from 'ariakit'
 import * as style from './tooltip.style'
 import { TooltipTrigger } from './tooltip-trigger'
 
