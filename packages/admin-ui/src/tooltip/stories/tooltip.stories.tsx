@@ -43,20 +43,20 @@ export default {
 export const Playground: Story<TooltipProps> = (args) => <Tooltip {...args} />
 
 Playground.args = {
-  label: 'Tooltip Label!',
+  text: 'Tooltip Label!',
   placement: 'bottom',
 }
 
 export const Basic: Story<TooltipProps> = (args) => (
-  <Tooltip {...args} label="Basic tooltip" />
+  <Tooltip {...args} text="Basic tooltip" />
 )
 
 export const Visible: Story<TooltipProps> = (args) => (
-  <Tooltip {...args} visible label="Always visible" />
+  <Tooltip {...args} visible text="Always visible" />
 )
 
 export const WithButton: Story<TooltipProps> = (args) => (
-  <Tooltip {...args} label="Copy files">
+  <Tooltip {...args} text="Copy files">
     <Button icon={<IconCopy />} variant="tertiary" />
   </Tooltip>
 )
