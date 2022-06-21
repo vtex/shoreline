@@ -5,15 +5,20 @@ import { IconCopy } from '@vtex/phosphor-icons'
 import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
 import { Button } from '../../button'
+import { Center } from '../../center'
 
 export default {
   title: 'admin-ui-review/tooltip',
   component: Tooltip,
   decorators: [
     (Story) => (
-      <div style={{ margin: '1rem' }}>
+      <Center
+        csx={{
+          height: '100vh',
+        }}
+      >
         <Story />
-      </div>
+      </Center>
     ),
   ],
   argTypes: {
