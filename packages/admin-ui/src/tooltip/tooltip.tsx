@@ -1,7 +1,6 @@
-import type { FunctionComponentElement, ReactNode } from 'react'
+import type { FunctionComponentElement } from 'react'
 import React, { cloneElement } from 'react'
 import { useSystem } from '@vtex/admin-ui-react'
-
 import type { TooltipStateProps } from 'ariakit/Tooltip'
 import {
   useTooltipState,
@@ -9,13 +8,19 @@ import {
   TooltipAnchor,
   TooltipArrow,
 } from 'ariakit'
+
 import * as style from './tooltip.style'
 import { TooltipTrigger } from './tooltip-trigger'
 
+/**
+ * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse)
+ * @example
+ * <Tooltip label="Label" />
+ */
 export function Tooltip(props: TooltipProps) {
   const {
     children = (<TooltipTrigger />) as FunctionComponentElement<unknown>,
-    label,
+    text,
     visible,
     placement = 'bottom',
   } = props
@@ -38,8 +43,8 @@ export function Tooltip(props: TooltipProps) {
         {(referenceProps: any) => cloneElement(children, { ...referenceProps })}
       </TooltipAnchor>
       <TooltipPopover state={state} className={cn(style.tooltipPopover)}>
-        <TooltipArrow />
-        {label}
+        <TooltipArrow style={style.tooltipArrow} />
+        {text}
       </TooltipPopover>
     </>
   )
@@ -49,9 +54,9 @@ export type TooltipPlacement = Pick<TooltipStateProps, 'placement'>['placement']
 
 export interface TooltipProps {
   /**
-   * Label shown inside the tooltip
+   * Text shown inside the tooltip
    */
-  label: ReactNode
+  text: string
   /**
    * The element that triggers the tooltip
    */
