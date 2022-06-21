@@ -1,0 +1,29 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section direction="row">
+
+## Best Practices
+
+<OrderedList>
+  <OrderedListItem>
+    Use tooltips when you want to add a label to an specific icon.
+  </OrderedListItem>
+  <OrderedListItem>
+    Use tooltips when you want to add an informative text in situations where
+    more clarification may be needed.
+  </OrderedListItem>
+  <OrderedListItem>
+    Don't use long texts in tooltips, a reasonable character limit is 220.
+  </OrderedListItem>
+  <OrderedListItem>
+    The position where the tooltip appears can be set and its fallback position
+    too. By default the tooltip appears at the top and follows clockwise.
+  </OrderedListItem>
+  <OrderedListItem>
+    Prefere using hovers for tooltips to appear, instead of triggering them with
+    clicks.
+  </OrderedListItem>
+</OrderedList>
+
+</Section>

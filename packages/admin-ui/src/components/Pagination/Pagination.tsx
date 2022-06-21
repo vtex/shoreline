@@ -6,7 +6,7 @@ import { jsx } from '@vtex/admin-ui-react'
 import { Inline } from '../../inline'
 import { Button } from '../../button'
 import { Text } from '../Text'
-import { Tooltip } from '../Tooltip'
+import { Tooltip } from '../../tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
 
 export const Pagination = jsx('div')(
@@ -47,7 +47,7 @@ export const Pagination = jsx('div')(
               </Text>
             )}
             <Inline align="center" noWrap>
-              <Tooltip label={prevLabel}>
+              <Tooltip text={prevLabel}>
                 <Button
                   variant="neutralTertiary"
                   disabled={loading || prevDisabled}
@@ -56,7 +56,7 @@ export const Pagination = jsx('div')(
                 />
               </Tooltip>
 
-              <Tooltip label={nextLabel}>
+              <Tooltip text={nextLabel}>
                 <Button
                   variant="neutralTertiary"
                   disabled={loading || nextDisabled}
