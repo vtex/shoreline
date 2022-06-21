@@ -55,7 +55,7 @@ export const itemVariants = styleVariants({
 })
 
 export const popoverContainer = style({
-  marginTop: '$m',
+  marginY: '$m',
   minWidth: '9rem',
   borderRadius: '$default',
   bg: '$primary',
