@@ -4,8 +4,8 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import * as style from './tooltip.style'
 import { Center } from '../center'
 
-export const TooltipTrigger = createComponent<'div'>((props) => {
-  return useElement('div', {
+export const TooltipTrigger = createComponent<'button'>((props) => {
+  return useElement('button', {
     ...props,
     baseStyle: style.tooltipTrigger,
     children: (
@@ -19,8 +19,8 @@ export const TooltipTrigger = createComponent<'div'>((props) => {
 function IconQuestionMark() {
   return (
     <svg
-      width="6"
-      height="8"
+      width={6}
+      height={8}
       viewBox="0 0 6 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

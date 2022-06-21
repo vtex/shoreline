@@ -1,6 +1,6 @@
-import { style } from '@vtex/admin-ui-core'
+import { style, color } from '@vtex/admin-ui-core'
 
-export const tooltipGutter = 4
+export const tooltipGutter = 2
 
 export const tooltipPopover = style({
   bg: '$inverted',
@@ -14,11 +14,19 @@ export const tooltipPopover = style({
 
 export const tooltipTrigger = style({
   size: '1rem',
-  bg: '$secondary',
+  bg: color('gray20'),
   color: '$primary',
   borderRadius: '100%',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
 })
 
 export const tooltipTriggerContainer = style({
-  size: '100%',
+  size: '1rem',
 })
+
+export const tooltipArrow = {
+  width: 12,
+  height: 12,
+}
