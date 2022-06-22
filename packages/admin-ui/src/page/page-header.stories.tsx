@@ -2,13 +2,13 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
-import { PageHeader } from '../index'
-import { Button } from '../../button'
-import { Tabs, useTabState, TabPanel } from '../../components/Tabs'
-import { useMenuState } from '../../components/Menu'
+import { PageHeader } from './index'
+import { Button } from '../button'
+import { Tabs, useTabState, TabPanel } from '../components/Tabs'
+import { useMenuState } from '../components/Menu'
 import { IconHeart, IconLink, IconTrash, IconTruck } from '@vtex/phosphor-icons'
-import type { PageHeaderMenuOptions, PageHeaderProps } from '../page-header'
-import type { TagProps } from '../../tag'
+import type { PageHeaderMenuOptions, PageHeaderProps } from './page-header'
+import type { TagProps } from '../tag'
 
 export default {
   title: 'admin-ui-review/page/page-header',
@@ -203,6 +203,7 @@ export function FullBlown() {
     <Tabs state={tabs}>
       <PageHeader
         title="Product"
+        onPopNavigation={() => alert('onPopNavigation()')}
         actionOptions={actionOptions}
         tabOptions={tabOptions}
         menuOptions={menuOptions}
