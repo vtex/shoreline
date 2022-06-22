@@ -3,8 +3,9 @@ import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { focusVisible } from '@vtex/admin-ui-core'
+import { style, focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
@@ -18,25 +19,22 @@ const defaultPreview: ImagePreview = {
 }
 
 function getImageVariant(density: TableDensity): StyleObject {
+  const outlineStyle = style({
+    outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+    outlineWidth: '0.125rem',
+    outlineStyle: 'solid',
+  })
+
   return {
     regular: {
-      width: 56,
-      minWidth: 56,
-      height: 56,
-      minHeight: 56,
-      borderRadius: 4,
+      size: 44,
+      minSize: 44,
+      ...outlineStyle,
     },
     compact: {
-      width: 32,
-      minWidth: 32,
-      height: 32,
-      minHeight: 32,
-      borderRadius: 4,
-    },
-    variable: {
-      minWidth: 32,
-      minHeight: 32,
-      borderRadius: 4,
+      size: 24,
+      minSize: 24,
+      ...outlineStyle,
     },
   }[density] as any
 }
@@ -124,12 +122,6 @@ function ImageWithPreview(props: PreviewComponentProps) {
             alt={alt}
             className={cn({
               ...getImageVariant(density),
-              cursor: 'zoom-in',
-              transition: 'transform 150ms ease-in-out',
-              ':hover': {
-                transform: 'scale(1.1)',
-                boxShadow: '$overlay.bottom',
-              },
               ...focusVisible('main'),
             })}
             src={url}
