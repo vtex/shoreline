@@ -37,4 +37,4 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       sortable?: boolean
     }
 
-export type TableDensity = 'compact' | 'regular' | 'variable'
+export type TableDensity = 'compact' | 'regular'
