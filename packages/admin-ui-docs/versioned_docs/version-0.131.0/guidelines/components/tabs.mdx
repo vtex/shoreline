@@ -43,7 +43,7 @@ Tabs are navigation solutions for alternating between content that is at the sam
 
 This property will make the `TabList`, match the container width. By default, it has the value set to `false`.
 
-```jsx live
+```jsx
 function Example() {
   const state = useTabState()
 
@@ -76,7 +76,7 @@ function Example() {
 
 You can set the default selected tab by passing an id to selectedId on useTabState.
 
-```jsx live
+```jsx
 function Example() {
   const state = useTabState({ selectedId: '2' })
 
@@ -105,7 +105,7 @@ function Example() {
 
 You can set the selected tab by passing an `id` to the `select` returned by the `useTabState`.
 
-```jsx live
+```jsx
 function Example() {
   const state = useTabState()
 
@@ -130,7 +130,7 @@ function Example() {
 
 By default, a Tab is selected when it gets focused, which reveals its corresponding TabPanel. This behavior can be changed by setting manual to true on useTabState.
 
-```jsx live
+```jsx
 function Example() {
   const state = useTabState({ manual: true })
 
