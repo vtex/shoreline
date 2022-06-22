@@ -1,6 +1,6 @@
 import { style, color } from '@vtex/admin-ui-core'
 
-export const tooltipGutter = 2
+export const tooltipGutter = 0
 
 export const tooltipPopover = style({
   bg: '$inverted',
@@ -10,6 +10,15 @@ export const tooltipPopover = style({
   borderRadius: '$default',
   maxWidth: '16rem',
   zIndex: 'over',
+})
+
+export const tooltipTriggerWrapper = style({
+  size: '1.5rem',
+  bg: 'transparent',
+  padding: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 export const tooltipTrigger = style({

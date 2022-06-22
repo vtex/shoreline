@@ -4,17 +4,26 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import * as style from './tooltip.style'
 import { Center } from '../center'
 
-export const TooltipTrigger = createComponent<'button'>((props) => {
-  return useElement('button', {
-    ...props,
-    baseStyle: style.tooltipTrigger,
-    children: (
-      <Center csx={style.tooltipTriggerContainer}>
-        <IconQuestionMark />
-      </Center>
-    ),
-  })
-})
+export const TooltipTrigger = createComponent<'button', TooltipTriggerOptions>(
+  (props) => {
+    const { bleedX = false, bleedY = false, ...buttonProps } = props
+
+    return useElement('button', {
+      ...buttonProps,
+      baseStyle: {
+        ...style.tooltipTriggerWrapper,
+        margin: `${getBleedValue(bleedY)} ${getBleedValue(bleedX)}`,
+      },
+      children: (
+        <Center csx={style.tooltipTrigger}>
+          <Center csx={style.tooltipTriggerContainer}>
+            <IconQuestionMark />
+          </Center>
+        </Center>
+      ),
+    })
+  }
+)
 
 function IconQuestionMark() {
   return (
@@ -31,4 +40,19 @@ function IconQuestionMark() {
       />
     </svg>
   )
+}
+
+function getBleedValue(bleed: boolean): string {
+  return `${bleed ? '-0.25' : '0'}rem`
+}
+
+interface TooltipTriggerOptions {
+  /**
+   * Vertical bleed
+   */
+  bleedY?: boolean
+  /**
+   * Horizontal bleed
+   */
+  bleedX?: boolean
 }
