@@ -1,5 +1,5 @@
 import React from 'react'
-import type { Meta } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
 import { PageHeader } from '../index'
@@ -7,12 +7,69 @@ import { Button } from '../../button'
 import { Tabs, useTabState, TabPanel } from '../../components/Tabs'
 import { useMenuState } from '../../components/Menu'
 import { IconHeart, IconLink, IconTrash, IconTruck } from '@vtex/phosphor-icons'
-import type { PageHeaderMenuOptions } from '../page-header'
+import type { PageHeaderMenuOptions, PageHeaderProps } from '../page-header'
 
 export default {
   title: 'admin-ui-review/page/page-header',
   component: PageHeader,
 } as Meta
+
+export const Playground: Story<PageHeaderProps> = (args) => {
+  const tabs = useTabState({ selectedId: '1' })
+
+  return (
+    <Tabs state={tabs}>
+      <PageHeader {...args} />
+    </Tabs>
+  )
+}
+
+const onPopNavigation = () => alert('Back')
+
+const tabsOptions = [
+  {
+    id: '1',
+    csx: { padding: 3 },
+    children: 'Label',
+  },
+  {
+    id: '2',
+    csx: { padding: 3 },
+    children: 'Label',
+  },
+  {
+    id: '3',
+    csx: { padding: 3 },
+    children: 'Label',
+  },
+]
+
+const actionsOptions = [
+  { variant: 'secondary', children: 'Edit' },
+  { children: 'Create' },
+] as any
+
+Playground.args = {
+  title: 'Product',
+  onPopNavigation,
+  actionsOptions,
+  tabsOptions,
+}
+
+Playground.argTypes = {
+  onPopNavigation: {
+    options: [onPopNavigation, undefined],
+    control: { type: 'radio' },
+  },
+  tabsOptions: {
+    options: [tabsOptions, undefined],
+    control: { type: 'radio' },
+  },
+  actionsOptions: {
+    options: [actionsOptions, undefined],
+    control: { type: 'radio' },
+  },
+}
 
 export function Basic() {
   return <PageHeader title="Product" />
@@ -41,24 +98,6 @@ export function WithActions() {
 
 export function WithTabs() {
   const tabs = useTabState({ selectedId: '1' })
-
-  const tabsOptions = [
-    {
-      id: '1',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '2',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '3',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-  ]
 
   return (
     <>
