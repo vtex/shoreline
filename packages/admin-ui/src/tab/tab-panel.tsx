@@ -1,4 +1,4 @@
-import { TabPanel as AriakitTabPanel } from 'ariakit/Tab'
+import { TabPanel as AriakitTabPanel } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './tabs.style'
