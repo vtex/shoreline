@@ -49,6 +49,8 @@ export const Playground: Story<TooltipProps> = (args) => <Tooltip {...args} />
 
 Playground.args = {
   text: 'Tooltip Label!',
+  bleedX: false,
+  bleedY: false,
   placement: 'bottom',
 }
 

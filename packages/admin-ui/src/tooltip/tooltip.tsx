@@ -19,19 +19,26 @@ import { TooltipTrigger } from './tooltip-trigger'
  */
 export function Tooltip(props: TooltipProps) {
   const {
-    children = (<TooltipTrigger />) as FunctionComponentElement<unknown>,
     text,
     visible,
+    children: _children,
     placement = 'bottom',
+    bleedX = false,
+    bleedY = false,
   } = props
 
-  const { cn } = useSystem()
+  const hasChildren = !!_children
 
+  const { cn } = useSystem()
   const state = useTooltipState({
     placement,
     visible,
-    gutter: style.tooltipGutter,
+    gutter: hasChildren ? 2 : 0,
   })
+
+  const children: FunctionComponentElement<unknown> = _children ?? (
+    <TooltipTrigger bleedX={bleedX} bleedY={bleedY} />
+  )
 
   return (
     <>
@@ -71,4 +78,12 @@ export interface TooltipProps {
    * @default false
    */
   visible?: boolean
+  /**
+   * Vertical bleed
+   */
+  bleedY?: boolean
+  /**
+   * Horizontal bleed
+   */
+  bleedX?: boolean
 }
