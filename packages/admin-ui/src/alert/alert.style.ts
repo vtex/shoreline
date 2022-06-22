@@ -45,41 +45,37 @@ export const paragraph = style({
   maxWidth: '49rem',
 })
 
-export const iconContainer = (
-  variant: 'warning' | 'positive' | 'critical' | 'info'
-) =>
-  style(
-    {
-      warning: {
-        color: '$warning',
-        marginLeft: 'unset',
-      },
-      positive: {
-        color: '$positive',
-        marginLeft: 'unset',
-      },
-      critical: {
-        color: '$critical',
-        marginLeft: 'unset',
-      },
-      info: {
-        color: '$info',
-        marginLeft: 'unset',
-      },
-    }[variant]
-  )
+export const iconContainer = styleVariants({
+  variant: {
+    warning: {
+      color: '$warning',
+      marginLeft: 'unset',
+    },
+    positive: {
+      color: '$positive',
+      marginLeft: 'unset',
+    },
+    critical: {
+      color: '$critical',
+      marginLeft: 'unset',
+    },
+    info: {
+      color: '$info',
+      marginLeft: 'unset',
+    },
+  },
+})
 
-export const button = (withDismiss: boolean) => {
-  if (withDismiss) {
-    return style({
+export const button = styleVariants({
+  dismissible: {
+    true: {
       marginLeft: '$2xl',
       marginRight: '$xl',
-    })
-  }
-
-  return style({
-    marginLeft: '$2xl',
-  })
-}
+    },
+    false: {
+      marginLeft: '$2xl',
+    },
+  },
+})
 
 export const rightInline = style({ whiteSpace: 'nowrap' })

@@ -37,7 +37,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
     children: (
       <Fragment>
         <Inline noWrap vSpace="unset" hSpace="$l">
-          <IconContainer size="regular" csx={styles.iconContainer(variant)}>
+          <IconContainer size="regular" csx={styles.iconContainer({ variant })}>
             {icon}
           </IconContainer>
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
@@ -49,7 +49,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
               variant="neutralTertiary"
               bleedY
               bleedX
-              csx={styles.button(!!onDismiss)}
+              csx={styles.button({ dismissible: !!onDismiss })}
             />
           )}
           {onDismiss && (
@@ -83,10 +83,10 @@ const alertIconMap = {
   info: <IconBell weight="fill" />,
 }
 
-export type AlertActionProps = ButtonProps & {
-  children: ButtonProps['children']
-  onClick: ButtonProps['onClick']
-}
+export type AlertActionProps = Omit<
+  WithRequiredProperty<ButtonProps, 'children' | 'onClick'>,
+  'csx' | 'variant' | 'bleedX' | 'bleedY'
+>
 
 export type AlertOptions = VariantProps<typeof styles.variants> & {
   /**
@@ -100,3 +100,7 @@ export type AlertOptions = VariantProps<typeof styles.variants> & {
 }
 
 export type AlertProps = ComponentPropsWithRef<typeof Alert>
+
+type WithRequiredProperty<Type, Key extends keyof Type> = Type & {
+  [Property in Key]-?: Type[Property]
+}
