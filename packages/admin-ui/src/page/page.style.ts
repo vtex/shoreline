@@ -52,6 +52,8 @@ export const popNavigationButton = style({
 export const pageActions = style({
   display: 'flex',
   alignItems: 'center',
+  flexWrap: 'wrap',
+  justifyContent: 'flex-end',
   '> button': {
     minWidth: '6.5rem',
   },

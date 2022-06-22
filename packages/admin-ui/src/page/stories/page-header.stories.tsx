@@ -8,6 +8,7 @@ import { Tabs, useTabState, TabPanel } from '../../components/Tabs'
 import { useMenuState } from '../../components/Menu'
 import { IconHeart, IconLink, IconTrash, IconTruck } from '@vtex/phosphor-icons'
 import type { PageHeaderMenuOptions, PageHeaderProps } from '../page-header'
+import type { TagProps } from '../../tag'
 
 export default {
   title: 'admin-ui-review/page/page-header',
@@ -26,34 +27,37 @@ export const Playground: Story<PageHeaderProps> = (args) => {
 
 const onPopNavigation = () => alert('Back')
 
-const tabsOptions = [
+const tabOptions = [
   {
     id: '1',
-    csx: { padding: 3 },
     children: 'Label',
   },
   {
     id: '2',
-    csx: { padding: 3 },
     children: 'Label',
   },
   {
     id: '3',
-    csx: { padding: 3 },
     children: 'Label',
   },
 ]
 
-const actionsOptions = [
+const actionOptions = [
+  { variant: 'critical', children: 'Delete Item' },
   { variant: 'secondary', children: 'Edit' },
   { children: 'Create' },
 ] as any
 
+const tagOptions: TagProps[] = [
+  { label: 'Short text' },
+  { label: 'Short text' },
+]
+
 Playground.args = {
   title: 'Product',
   onPopNavigation,
-  actionsOptions,
-  tabsOptions,
+  actionOptions,
+  tabOptions,
 }
 
 Playground.argTypes = {
@@ -61,12 +65,16 @@ Playground.argTypes = {
     options: [onPopNavigation, undefined],
     control: { type: 'radio' },
   },
-  tabsOptions: {
-    options: [tabsOptions, undefined],
+  tabOptions: {
+    options: [tabOptions, undefined],
     control: { type: 'radio' },
   },
-  actionsOptions: {
-    options: [actionsOptions, undefined],
+  actionOptions: {
+    options: [actionOptions, undefined],
+    control: { type: 'radio' },
+  },
+  tagOptions: {
+    options: [tagOptions, undefined],
     control: { type: 'radio' },
   },
 }
@@ -85,15 +93,7 @@ export function WithBackLink() {
 }
 
 export function WithActions() {
-  return (
-    <PageHeader
-      title="Product"
-      actionsOptions={[
-        { variant: 'secondary', children: 'Edit' },
-        { children: 'Create' },
-      ]}
-    />
-  )
+  return <PageHeader title="Product" actionOptions={actionOptions} />
 }
 
 export function WithTabs() {
@@ -102,7 +102,7 @@ export function WithTabs() {
   return (
     <>
       <Tabs state={tabs}>
-        <PageHeader title="Product" tabsOptions={tabsOptions} />
+        <PageHeader title="Product" tabOptions={tabOptions} />
         <TabPanel id="1" csx={{ padding: 3 }}>
           <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
         </TabPanel>
@@ -117,27 +117,13 @@ export function WithTabs() {
   )
 }
 
+export function WithTags() {
+  return <PageHeader title="Product" tagOptions={tagOptions} />
+}
+
 export function WithMenu() {
   const tabs = useTabState({ selectedId: '1' })
   const state = useMenuState()
-
-  const tabsOptions = [
-    {
-      id: '1',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '2',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '3',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-  ]
 
   const menuOptions: PageHeaderMenuOptions = {
     state,
@@ -168,7 +154,7 @@ export function WithMenu() {
       <Tabs state={tabs}>
         <PageHeader
           title="Product"
-          tabsOptions={tabsOptions}
+          tabOptions={tabOptions}
           menuOptions={menuOptions}
         />
         <TabPanel id="1" csx={{ padding: 3 }}>
@@ -188,24 +174,6 @@ export function WithMenu() {
 export function FullBlown() {
   const tabs = useTabState({ selectedId: '1' })
   const state = useMenuState()
-
-  const tabsOptions = [
-    {
-      id: '1',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '2',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-    {
-      id: '3',
-      csx: { padding: 3 },
-      children: 'Label',
-    },
-  ]
 
   const menuOptions: PageHeaderMenuOptions = {
     state,
@@ -235,13 +203,10 @@ export function FullBlown() {
     <Tabs state={tabs}>
       <PageHeader
         title="Product"
-        actionsOptions={[
-          { variant: 'critical', children: 'Delete Item' },
-          { variant: 'secondary', children: 'Edit' },
-          { children: 'Create' },
-        ]}
-        tabsOptions={tabsOptions}
+        actionOptions={actionOptions}
+        tabOptions={tabOptions}
         menuOptions={menuOptions}
+        tagOptions={tagOptions}
       />
       <TabPanel id="1" csx={{ padding: 3 }}>
         <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
