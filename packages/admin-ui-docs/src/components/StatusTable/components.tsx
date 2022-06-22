@@ -299,7 +299,7 @@ const layout = [
 
 const page = [
   {
-    component: 'Tabs',
+    component: 'Tab',
     status: 'supported',
     notes: '-',
     type: 'page',

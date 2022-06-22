@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render, axe } from '../../test-utils'
-import { TabList, Tab, TabPanel, useTabState } from '../index'
+import { TabList, Tab, TabPanel, TabPanelList, useTabState } from '../index'
 
 function Example() {
   const state = useTabState()
@@ -12,8 +12,10 @@ function Example() {
         <Tab>Tab 1</Tab>
         <Tab>Tab 2</Tab>
       </TabList>
-      <TabPanel state={state}>Panel 1</TabPanel>
-      <TabPanel state={state}>Panel 2</TabPanel>
+      <TabPanelList state={state}>
+        <TabPanel>Panel 1</TabPanel>
+        <TabPanel>Panel 2</TabPanel>
+      </TabPanelList>
     </>
   )
 }
