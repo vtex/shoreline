@@ -1,6 +1,6 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
 
-export const tableRowbaseline = style({
+export const tableRowBaseline = style({
   display: 'table-row',
   bg: '$primary',
   textAlign: 'left',
@@ -17,5 +17,13 @@ export const variants = styleVariants({
       },
     },
     false: {},
+  },
+  selected: {
+    true: {
+      bg: '$action.main.tertiarySelected',
+    },
+    false: {
+      bg: '$primary',
+    },
   },
 })
