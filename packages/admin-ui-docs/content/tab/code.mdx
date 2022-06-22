@@ -1,0 +1,121 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section>
+
+## Usage
+
+```jsx isStatic
+import {
+  Tab,
+  TabList,
+  TabPanelList,
+  TabPanel,
+  useTabState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel>Panel 1</TabPanel>
+        <TabPanel>Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## TabList Props
+
+| Name     | Type        | Description   | Required | Default |
+| -------- | ----------- | ------------- | -------- | ------- |
+| state    | `TabState`  | Tab state     | ✅       | -       |
+| children | `ReactNode` | Tabs children | ✅       | -       |
+
+</Section>
+
+<Section>
+
+## Tab Props
+
+| Name | Type     | Description | Required | Default |
+| ---- | -------- | ----------- | -------- | ------- |
+| id   | `string` | Tab's id    | 🚫       | -       |
+
+</Section>
+
+<Section>
+
+## TabPanelList Props
+
+| Name     | Type        | Description        | Required | Default |
+| -------- | ----------- | ------------------ | -------- | ------- |
+| children | `ReactNode` | Component children | ✅       | -       |
+| state    | `TabState`  | Tab state          | ✅       | -       |
+
+</Section>
+
+<Section>
+
+## TabPanel Props
+
+| Name | Type     | Description                               | Required | Default |
+| ---- | -------- | ----------------------------------------- | -------- | ------- |
+| id   | `string` | The same id as the correspondent Tab's id | 🚫       | -       |
+
+</Section>
+
+<Section>
+
+## useTabState
+
+### Hook parameters.
+
+| Name       | Type      | Description                                                | Required | Default |
+| ---------- | --------- | ---------------------------------------------------------- | -------- | ------- |
+| selectedId | `string`  | The current selected tab's id                              | 🚫       | -       |
+| baseId     | `string`  | ID that will serve as a base for all the items IDs.        | 🚫       | -       |
+| manual     | `boolean` | Whether the tab selection should be manual or not          | 🚫       | `false` |
+| loop       | `boolean` | Loops from the last item to the first item and vice-versa. | 🚫       | `false` |
+
+### TabStateReturn
+
+Properties returned by the `useTabState` hook.
+
+| Name       | Type         | Description                            | Required | Default |
+| ---------- | ------------ | -------------------------------------- | -------- | ------- |
+| selectedId | `string`     | The current selected tab's id          | 🚫       | -       |
+| select     | `() => void` | Moves into and selects a tab by its id | 🚫       | -       |
+| first      | `() => void` | Moves focus to the first item          | 🚫       | -       |
+| last       | `() => void` | Moves focus to the last item           | 🚫       | -       |
+| next       | `() => void` | Moves focus to the next item           | 🚫       | -       |
+| previous   | `() => void` | Moves focus to the previous item       | 🚫       | -       |
+
+</Section>
+
+<Section direction="row">
+
+## Accessibility
+
+<OrderedList>
+  <OrderedListItem>
+    Each `TabPanel` should have an `id` correspondent to the id of its `Tab`.
+  </OrderedListItem>
+  <OrderedListItem>
+    Every `TabList` should have the `aria-label` defined to guarantee
+    accessibility.
+  </OrderedListItem>
+</OrderedList>
+
+</Section>
