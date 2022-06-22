@@ -1,27 +1,43 @@
 import React from 'react'
 import type { ComponentPropsWithRef, ReactNode } from 'react'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { PageHeaderContext } from './page-header-context'
-import * as style from './page.style'
+import { PageHeaderTop } from './page-header-top'
+import { PageHeaderStart } from './page-header-start'
+import { PageHeaderEnd } from './page-header-end'
 import type { ButtonProps } from '../button'
-import { Button } from '../button'
-import { Tag } from '../tag'
 import type { MenuItemProps, MenuOptions } from '../components/Menu'
-import { Menu, MenuButton, MenuItem, MenuList } from '../components/Menu'
 import type { TagProps } from '../tag'
 import type { TabProps } from '../components/Tabs'
-import { TabList, Tab } from '../components/Tabs'
-import { IconArrowLeft } from '@vtex/phosphor-icons'
+import * as style from './page.style'
+import { PageHeaderBottom } from './page-header-bottom'
 
 /**
  * Page header component
+ *
  * @example
- * <PageHeader onPopNavigation={() => {}}>
- *  <PageTitle>
- *    Title
- *  </PageTitle>
- * </PageHeader>
+ * import { Tabs, TabPanel, Button, PageHeader } from "@vtex/admin-ui"
+ *
+ * <Tabs state={tabs}>
+ *   <PageHeader
+ *      title="Product"
+ *      onPopNavigation={() => alert('onPopNavigation()')}
+ *      actionOptions={actionOptions}
+ *      tabOptions={tabOptions}
+ *      menuOptions={menuOptions}
+ *      tagOptions={tagOptions}
+ *   />
+ *   <TabPanel id="1">
+ *     <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+ *   </TabPanel>
+ *   <TabPanel id="2">
+ *     <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+ *   </TabPanel>
+ *   <TabPanel id="3">
+ *     <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+ *   </TabPanel>
+ * </Tabs>
  */
 export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {
@@ -36,110 +52,24 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
       ...htmlProps
     } = props
 
-    const actions =
-      actionOptions?.map((option) => <Button {...option} size="large" />) ??
-      null
-
-    const tabs = tabOptions?.map((option) => (
-      <Tab
-        {...option}
-        csx={{
-          ...option.csx,
-          padding: 3,
-        }}
-      />
-    ))
-
-    const menu = menuOptions
-      ? (({ menuItemOptions, ...menuOptions }) => (
-          <Menu {...menuOptions} csx={{ display: 'flex' }}>
-            <MenuButton
-              variant="tertiary"
-              bleedY
-              bleedX
-              csx={{ marginLeft: '0rem' }}
-            />
-            <MenuList aria-label="Menu">
-              {menuItemOptions.map((options) => (
-                <MenuItem {...options} />
-              ))}
-            </MenuList>
-          </Menu>
-        ))(menuOptions)
-      : null
-
-    const tags = tagOptions?.map((option) => (
-      <Tag
-        {...option}
-        csx={{
-          marginLeft: '$l',
-        }}
-      />
-    ))
-
     return useElement('header', {
       baseStyle: style.pageHeader,
       children: (
         <PageHeaderContext.Provider
           value={{
             onPopNavigation,
+            title,
+            tagOptions,
+            menuOptions,
+            tabOptions,
+            actionOptions,
           }}
         >
-          <tag.div csx={style.pageHeaderContent}>
-            <tag.div csx={style.pageTitle}>
-              {onPopNavigation && (
-                <Button
-                  variant="tertiary"
-                  bleedX
-                  bleedY
-                  icon={<IconArrowLeft />}
-                  onClick={onPopNavigation}
-                  csx={style.popNavigationButton}
-                />
-              )}
-              <tag.div
-                csx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  justifyContent: 'flex-start',
-                }}
-              >
-                {title} {tags}
-              </tag.div>
-            </tag.div>
-            {actions && !menu ? (
-              <tag.div csx={style.pageActions}>{actions}</tag.div>
-            ) : null}
-            {actions && menu ? (
-              <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
-                <tag.div csx={style.pageActions}>{actions}</tag.div>
-                {menu}
-              </tag.div>
-            ) : null}
-            {menu && !actions ? menu : null}
-          </tag.div>
-          {tabs ? (
-            <tag.div
-              csx={{
-                width: '100%',
-                marginTop: '$l',
-                marginBottom: '-1.55rem',
-                '* > button': {
-                  minWidth: 'unset',
-                },
-                maxWidth: '95rem',
-              }}
-            >
-              <TabList
-                csx={{
-                  paddingX: 'unset',
-                }}
-              >
-                {tabs}
-              </TabList>
-            </tag.div>
-          ) : null}
+          <PageHeaderTop>
+            <PageHeaderStart />
+            <PageHeaderEnd />
+          </PageHeaderTop>
+          <PageHeaderBottom />
         </PageHeaderContext.Provider>
       ),
       ...htmlProps,

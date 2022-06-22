@@ -22,7 +22,7 @@ export const pageHeader = style({
   zIndex: 999,
 })
 
-export const pageHeaderContent = style({
+export const pageHeaderTop = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -30,13 +30,33 @@ export const pageHeaderContent = style({
   maxWidth: '95rem',
 })
 
-export const pageTitle = style({
+export const pageHeaderBottom = style({
+  width: '100%',
+  marginTop: '$l',
+  marginBottom: '-1.55rem',
+  '* > button': {
+    minWidth: 'unset',
+  },
+  '> div': {
+    paddingX: 'unset',
+  },
+  maxWidth: '95rem',
+})
+
+export const pageHeaderStart = style({
   display: 'flex',
   alignItems: 'center',
   minHeight: '2.75rem',
   '> div': {
     text: '$pageTitle',
   },
+})
+
+export const pageHeaderTitle = style({
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  justifyContent: 'flex-start',
 })
 
 export const pageHeaderFooter = style({
@@ -49,7 +69,7 @@ export const popNavigationButton = style({
   marginRight: '0.5rem',
 })
 
-export const pageActions = style({
+export const pageHeaderActions = style({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
