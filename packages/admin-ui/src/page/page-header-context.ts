@@ -1,8 +1,7 @@
 import { createContext, useContext } from 'react'
+import type { PageHeaderOptions } from './page-header'
 
-interface PageHeaderContextType {
-  onPopNavigation?: () => void
-}
+type PageHeaderContextType = PageHeaderOptions
 
 export const PageHeaderContext = createContext<PageHeaderContextType | null>(
   null
