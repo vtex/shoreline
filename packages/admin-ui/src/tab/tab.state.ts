@@ -1,3 +1,3 @@
-import { useTabState } from 'ariakit/Tab'
+import { useTabState } from 'ariakit'
 
 export { useTabState }
