@@ -9,7 +9,7 @@ export const TableCell = createComponent<'td', CellOptions>((props) => {
     onClick,
     csx,
     role = 'cell',
-    density = 'regular',
+    density = 'compact',
     ...cellProps
   } = props
 

@@ -6,21 +6,24 @@ export const baseline = style({
   display: 'table-cell',
   borderBottom: '$neutral',
   verticalAlign: 'middle',
-  paddingX: 2,
+  paddingX: '$xl',
+
+  ':first-child': {
+    paddingLeft: '$l',
+  },
+
+  ':last-child': {
+    paddingRight: '$l',
+  },
 })
 
 export const variants = styleVariants({
   density: {
     regular: {
-      height: 80,
+      height: 64,
     },
     compact: {
-      height: 48,
-    },
-    variable: {
-      verticalAlign: 'top',
-      minHeight: 48,
-      paddingY: 4,
+      height: 44,
     },
   },
   clickable: {
