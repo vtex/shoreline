@@ -14,6 +14,7 @@ export function Basic() {
   return (
     <PageHeader>
       <PageTitle>Product</PageTitle>
+      <Button>Hello World</Button>
     </PageHeader>
   )
 }
