@@ -2,10 +2,10 @@ import React from 'react'
 import type { ReactNode } from 'react'
 
 import {
-  Tabs,
   Tab,
   TabList,
   useTabState,
+  TabPanelList,
   experimental_Filter as Filter,
   experimental_useFilterState as useFilterState,
   VisuallyHidden,
@@ -53,18 +53,18 @@ export function MultipleCodeSection(props: MultipleCodeSectionProps) {
       {React.Children.map(children, (child, index) =>
         index === FIRST_ELEMENT ? child : null
       )}
-      <Tabs state={tabState}>
-        <VisuallyHidden>
-          <TabList fluid aria-label="Live code tabs">
-            {options.map((option) => (
-              <Tab id={option.toLowerCase()}>{option}</Tab>
-            ))}
-          </TabList>
-        </VisuallyHidden>
+      <VisuallyHidden>
+        <TabList state={tabState} aria-label="Live code tabs">
+          {options.map((option) => (
+            <Tab id={option.toLowerCase()}>{option}</Tab>
+          ))}
+        </TabList>
+      </VisuallyHidden>
+      <TabPanelList state={tabState}>
         {React.Children.map(children, (child, index) =>
           index === FIRST_ELEMENT ? null : child
         )}
-      </Tabs>
+      </TabPanelList>
     </Section>
   )
 }
