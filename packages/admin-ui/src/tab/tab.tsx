@@ -1,4 +1,4 @@
-import { Tab as AriakitTab } from 'ariakit/Tab'
+import { Tab as AriakitTab } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './tabs.style'

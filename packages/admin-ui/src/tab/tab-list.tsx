@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabList as AriakitTabList } from 'ariakit/Tab'
+import { TabList as AriakitTabList } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './tabs.style'
