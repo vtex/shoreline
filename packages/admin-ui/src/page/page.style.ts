@@ -9,30 +9,54 @@ export const pageHeader = style({
   bg: '$primary',
   color: '$primary',
   display: 'flex',
-  justifyContent: 'space-between',
+  flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'center',
   width: '100%',
   borderBottom: '$neutral',
   position: 'sticky',
   top: 0,
-  height: '4.5rem',
-  paddingX: 4,
+  minHeight: '5.75rem',
+  paddingX: '2rem',
+  paddingY: '1.5rem',
   zIndex: 999,
+})
+
+export const pageHeaderContent = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+  maxWidth: '95rem',
 })
 
 export const pageTitle = style({
   display: 'flex',
   alignItems: 'center',
-  '* + *': {
-    marginLeft: 4,
+  minHeight: '2.75rem',
+  '> div': {
+    text: '$pageTitle',
   },
+})
+
+export const pageHeaderFooter = style({
+  display: 'flex',
+  width: '100%',
+  marginTop: '0.5rem',
+})
+
+export const popNavigationButton = style({
+  marginRight: '0.5rem',
 })
 
 export const pageActions = style({
   display: 'flex',
   alignItems: 'center',
+  '> button': {
+    minWidth: '6.5rem',
+  },
   '> * + *': {
-    marginLeft: 4,
+    marginLeft: '$l',
   },
 })
 

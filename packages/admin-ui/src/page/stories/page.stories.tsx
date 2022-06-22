@@ -9,7 +9,7 @@ import {
   DataViewControls,
   useDataViewState,
 } from '../../components/DataView'
-import { Search, useSearchState } from '../../components/Search'
+import { Search, useSearchState } from '../../search'
 import {
   DataGrid,
   useDataGridState,
@@ -107,7 +107,6 @@ export function WithDataView() {
         <DataView state={view}>
           <DataViewControls>
             <Search
-              state={search}
               id="search"
               aria-label="DataGrid Search"
               placeholder="Search by name"

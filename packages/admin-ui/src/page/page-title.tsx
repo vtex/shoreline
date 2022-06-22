@@ -1,10 +1,9 @@
 import React from 'react'
 import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
 import { IconArrowLeft } from '@vtex/phosphor-icons'
 
 import { usePageHeaderContext } from './page-header-context'
-import { Heading } from '../components/Heading'
 import { Button } from '../button'
 import * as style from './page.style'
 
@@ -28,11 +27,14 @@ export const PageTitle = createComponent<'div'>((props) => {
         {onPopNavigation && (
           <Button
             variant="tertiary"
+            bleedX
+            bleedY
             icon={<IconArrowLeft />}
             onClick={onPopNavigation}
+            csx={style.popNavigationButton}
           />
         )}
-        <Heading>{children}</Heading>
+        <tag.div>{children}</tag.div>
       </>
     ),
     ...htmlProps,
