@@ -6,6 +6,7 @@ import { PageHeaderContext } from './page-header-context'
 import * as style from './page.style'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
+import { Tag } from '../tag'
 import type { MenuItemProps, MenuOptions } from '../components/Menu'
 import { Menu, MenuButton, MenuItem, MenuList } from '../components/Menu'
 import type { TagProps } from '../tag'
@@ -28,22 +29,36 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
       onPopNavigation,
       children,
       title,
-      actionsOptions,
-      tabsOptions,
+      actionOptions,
+      tabOptions,
       menuOptions,
+      tagOptions,
       ...htmlProps
     } = props
 
     const actions =
-      actionsOptions?.map((option) => <Button {...option} size="large" />) ??
+      actionOptions?.map((option) => <Button {...option} size="large" />) ??
       null
 
-    const tabs = tabsOptions?.map((option) => <Tab {...option} />)
+    const tabs = tabOptions?.map((option) => (
+      <Tab
+        {...option}
+        csx={{
+          ...option.csx,
+          padding: 3,
+        }}
+      />
+    ))
 
     const menu = menuOptions
       ? (({ menuItemOptions, ...menuOptions }) => (
-          <Menu {...menuOptions}>
-            <MenuButton variant="tertiary" />
+          <Menu {...menuOptions} csx={{ display: 'flex' }}>
+            <MenuButton
+              variant="tertiary"
+              bleedY
+              bleedX
+              csx={{ marginLeft: '0rem' }}
+            />
             <MenuList aria-label="Menu">
               {menuItemOptions.map((options) => (
                 <MenuItem {...options} />
@@ -52,6 +67,15 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
           </Menu>
         ))(menuOptions)
       : null
+
+    const tags = tagOptions?.map((option) => (
+      <Tag
+        {...option}
+        csx={{
+          marginLeft: '$l',
+        }}
+      />
+    ))
 
     return useElement('header', {
       baseStyle: style.pageHeader,
@@ -73,7 +97,16 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
                   csx={style.popNavigationButton}
                 />
               )}
-              <tag.div>{title}</tag.div>
+              <tag.div
+                csx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  justifyContent: 'flex-start',
+                }}
+              >
+                {title} {tags}
+              </tag.div>
             </tag.div>
             {actions && !menu ? (
               <tag.div csx={style.pageActions}>{actions}</tag.div>
@@ -116,13 +149,28 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
 
 export interface PageHeaderOptions {
   onPopNavigation?: () => void
+  /**
+   * Page header title
+   */
   title?: ReactNode
-  actionsOptions?: ButtonProps[]
-  tagsOptions?: TagProps[]
+  /**
+   * Page headers' actions options.
+   */
+  actionOptions?: ButtonProps[]
+  /**
+   * Tags options.
+   * Recommended: X
+   */
+  tagOptions?: TagProps[]
   /**
    * Tabs options.
+   * Recommended: X
    */
-  tabsOptions?: TabProps[]
+  tabOptions?: TabProps[]
+  /**
+   * Menu options.
+   * Only one menu per Page Header is allowed.
+   */
   menuOptions?: PageHeaderMenuOptions
 }
 
