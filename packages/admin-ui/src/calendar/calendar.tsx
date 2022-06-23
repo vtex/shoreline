@@ -33,34 +33,23 @@ export const Calendar = createComponent<typeof Role, CalendarOptions>(
               <IconCaretRight />
             </CalendarHeaderButton>
           </CalendarHeader>
-          <CalendarGrid state={state} as="table">
-            <thead>
-              <tr>
-                {state?.weekDays?.map((day, dayIndex) => (
-                  <CalendarDayTitle
-                    as="th"
-                    scope="col"
-                    key={dayIndex}
-                    dayIndex={dayIndex}
-                    state={state}
-                  >
-                    <Abbr title={day.title}>{day.abbr}</Abbr>
-                  </CalendarDayTitle>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              {state?.daysInMonth?.map((week, weekIndex) => (
-                <tr key={weekIndex}>
-                  {week.map((date, index) => (
-                    <CalendarCell state={state} date={date} as="td" key={index}>
-                      <CalendarCellButton state={state} date={date} />
-                    </CalendarCell>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
+          <CalendarGrid state={state}>
+            {state.weekDays.map((day, dayIndex) => (
+              <CalendarDayTitle
+                key={dayIndex}
+                dayIndex={dayIndex}
+                state={state}
+              >
+                <Abbr title={day.title}>{day.abbr}</Abbr>
+              </CalendarDayTitle>
+            ))}
+            {state.daysInMonth.map((week) =>
+              week.map((date, index) => (
+                <CalendarCell state={state} date={date} key={index}>
+                  <CalendarCellButton state={state} date={date} />
+                </CalendarCell>
+              ))
+            )}
           </CalendarGrid>
         </>
       ),

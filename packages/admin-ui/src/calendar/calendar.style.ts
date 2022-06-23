@@ -6,14 +6,6 @@ export const calendar = style({
   display: 'flex',
   flexDirection: 'column',
   padding: '$l',
-  '[aria-disabled="true"]': {
-    color: '$disabled',
-    bg: 'transparent',
-  },
-  '[aria-selected] > button': {
-    bg: '$action.main.primary',
-    color: '$action.main.primary',
-  },
 })
 
 export const calendarHeader = style({
@@ -37,6 +29,10 @@ export const calendarButton = style({
 
 export const calendarCell = style({
   size: '2.25rem',
+  '&[aria-selected="true"] button': {
+    bg: '$action.main.primary',
+    color: '$action.main.primary',
+  },
 })
 
 export const calendarCellButton = style({

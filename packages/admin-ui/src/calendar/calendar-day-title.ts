@@ -8,15 +8,14 @@ export const CalendarDayTitle = createComponent<
   typeof Role,
   CalendarDayTitleOptions
 >((props) => {
-  const {
-    state: { weekDays },
-    dayIndex,
-    ...htmlProps
-  } = props
+  const { state, dayIndex, ...htmlProps } = props
+  const { weekDays } = state
+
+  const ariaLabel = weekDays[dayIndex].title
 
   return useElement(Role, {
     baseStyle: style.calendarDayTitle,
-    'aria-label': weekDays?.[dayIndex]?.title,
+    'aria-label': ariaLabel,
     ...htmlProps,
   })
 })

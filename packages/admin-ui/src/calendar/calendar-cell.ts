@@ -1,36 +1,52 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { createComponent, createHook, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit/Role'
+import type { AnyObject } from '@vtex/admin-ui-util'
 import { ariaAttr, dataAttr } from '@vtex/admin-ui-util'
 import { isSameDay, isWeekend } from 'date-fns'
 
 import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'
 
-export const CalendarCell = createComponent<typeof Role, CalendarCellOptions>(
+/**
+ * Calendar cell behavior
+ * @example
+ * const calendarCellProps = useButton({})
+ */
+export const useCalendarCell = createHook<typeof Role, CalendarCellOptions>(
   (props) => {
-    const {
-      date,
-      state: { dateValue },
-      ...htmlProps
-    } = props
+    const { date, state, ...htmlProps } = props
 
+    const { dateValue } = state
     const isSelected = dateValue ? isSameDay(date, dateValue) : false
 
-    const customDataAttr = {
+    const dataAttrs: AnyObject = {
       'data-weekend': dataAttr(isWeekend(date)),
-    } as any
+    }
 
-    return useElement(Role, {
+    return {
       baseStyle: style.calendarCell,
       role: 'gridcell',
       'aria-selected': ariaAttr(isSelected),
-      ...customDataAttr,
+      ...dataAttrs,
       ...htmlProps,
-    })
+    }
   }
 )
 
-export type CalendarCellOptions = {
+/**
+ * Calendar cell component
+ * @example
+ * <CalendarCell state={state} data={new Date()} />
+ */
+export const CalendarCell = createComponent<typeof Role, CalendarCellOptions>(
+  (props) => {
+    const calendarCellProps = useCalendarCell(props)
+
+    return useElement(Role, calendarCellProps)
+  }
+)
+
+export interface CalendarCellOptions {
   date: Date
   state: CalendarStateReturn
 }

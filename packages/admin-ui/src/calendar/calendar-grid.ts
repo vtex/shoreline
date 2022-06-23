@@ -57,6 +57,10 @@ export const CalendarGrid = createComponent<typeof Role, CalendarGridOptions>(
 
     return useElement(Role, {
       role: 'grid',
+      baseStyle: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(7, 1fr)',
+      },
       'aria-labelledby': calendarId,
       'aria-readonly': ariaAttr(isReadOnly),
       'aria-disabled': ariaAttr(isDisabled),
