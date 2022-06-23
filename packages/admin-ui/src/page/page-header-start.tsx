@@ -1,12 +1,12 @@
 import React from 'react'
 import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
-import { Button } from '../button'
-
-import * as style from './page.style'
-import { usePageHeaderContext } from './page-header-context'
 import { IconArrowLeft } from '@vtex/phosphor-icons'
+
+import { Button } from '../button'
+import { usePageHeaderContext } from './page-header-context'
 import { Tag } from '../tag'
+import * as style from './page.style'
 
 export const PageHeaderStart = createComponent<'div'>((props) => {
   const { ...htmlProps } = props
@@ -17,7 +17,7 @@ export const PageHeaderStart = createComponent<'div'>((props) => {
       {...option}
       csx={{
         ...option.csx,
-        marginLeft: '$l',
+        ...style.pageHeaderTag,
       }}
       size="large"
     />
