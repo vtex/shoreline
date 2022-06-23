@@ -12,14 +12,13 @@ export const CheckboxInput = createComponent<
 >((props) => {
   const { error = false, ref: htmlRef, state, ...htmlProps } = props
 
-  const ref = useRef<HTMLInputElement & any>(null)
+  const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (ref.current && state) {
+    if (ref.current && state?.value) {
       ref.current.indeterminate = state.value === 'indeterminate'
-      ref.current.ariaChecked = 'mixed'
     }
-  }, [state])
+  }, [state?.value])
 
   return useElement(AriakitCheckbox, {
     ...htmlProps,
