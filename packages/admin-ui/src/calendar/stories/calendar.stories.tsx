@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
+import { Popover, PopoverDisclosure, usePopoverState } from 'ariakit'
 
 import { Calendar, useCalendarState } from '../index'
-import {
-  Picker,
-  PickerDisclosure,
-  PickerPopover,
-  usePickerState,
-} from '../../picker'
 import { Button } from '../../button'
 import { getDateObject } from '../utils'
 import { I18nProvider } from '../../i18n'
+import { Box } from '../../box'
+import { ClassName } from '@vtex/admin-ui-react'
 
 export default {
-  title: 'admin-ui/Calendar',
+  title: 'admin-ui-review/calendar',
+  decorators: [
+    (Story) => (
+      <Box
+        csx={{
+          margin: '$xl',
+        }}
+      >
+        <Story />
+      </Box>
+    ),
+  ],
 } as Meta
 
 export function Basic() {
@@ -39,6 +47,11 @@ export function MinMaxDates() {
       month: 2,
       day: 25,
     },
+    maxValue: {
+      year: 2030,
+      month: 1,
+      day: 1,
+    },
   })
 
   return <Calendar state={state} />
@@ -46,18 +59,30 @@ export function MinMaxDates() {
 
 export function PopoverBox() {
   const calendar = useCalendarState()
-  const picker = usePickerState()
+  const popover = usePopoverState({
+    gutter: 4,
+    placement: 'bottom-start',
+  })
 
   return (
     <>
-      <Picker state={picker}>
-        <PickerDisclosure state={picker}>
-          <Button>open</Button>
-        </PickerDisclosure>
-      </Picker>
-      <PickerPopover state={picker}>
-        <Calendar state={calendar} />
-      </PickerPopover>
+      <PopoverDisclosure state={popover} as={Button} variant="tertiary">
+        Pick a date
+      </PopoverDisclosure>
+      <ClassName
+        csx={{
+          bg: '$primary',
+          boxShadow: '$overlay.center',
+          border: '$neutral',
+          borderRadius: '$default',
+        }}
+      >
+        {(className) => (
+          <Popover className={className} state={popover}>
+            <Calendar state={calendar} />
+          </Popover>
+        )}
+      </ClassName>
     </>
   )
 }
