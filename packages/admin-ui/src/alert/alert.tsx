@@ -14,6 +14,7 @@ import {
   useElement,
 } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
+import type { WithRequiredProps } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
@@ -84,7 +85,7 @@ const alertIconMap = {
 }
 
 export type AlertActionProps = Omit<
-  WithRequiredProperty<ButtonProps, 'children' | 'onClick'>,
+  WithRequiredProps<ButtonProps, 'children' | 'onClick'>,
   'csx' | 'variant' | 'bleedX' | 'bleedY'
 >
 
@@ -100,7 +101,3 @@ export type AlertOptions = VariantProps<typeof styles.variants> & {
 }
 
 export type AlertProps = ComponentPropsWithRef<typeof Alert>
-
-type WithRequiredProperty<Type, Key extends keyof Type> = Type & {
-  [Property in Key]-?: Type[Property]
-}
