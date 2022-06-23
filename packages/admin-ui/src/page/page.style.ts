@@ -59,6 +59,9 @@ export const pageHeaderTitle = style({
   alignItems: 'center',
   flexWrap: 'wrap',
   justifyContent: 'flex-start',
+  '> div:first-of-type': {
+    marginLeft: '0.75rem',
+  },
 })
 
 export const popNavigationButton = style({
