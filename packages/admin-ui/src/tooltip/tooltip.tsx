@@ -21,13 +21,13 @@ export function Tooltip(props: TooltipProps) {
   const {
     text,
     visible,
-    children: _children,
+    children,
     placement = 'bottom',
     bleedX = false,
     bleedY = false,
   } = props
 
-  const hasChildren = !!_children
+  const hasChildren = children
 
   const { cn } = useSystem()
   const state = useTooltipState({
@@ -36,7 +36,7 @@ export function Tooltip(props: TooltipProps) {
     gutter: hasChildren ? 2 : 0,
   })
 
-  const children: FunctionComponentElement<unknown> = _children ?? (
+  const tooltipAnchorChildren: FunctionComponentElement<unknown> = children ?? (
     <TooltipTrigger bleedX={bleedX} bleedY={bleedY} />
   )
 
@@ -44,10 +44,12 @@ export function Tooltip(props: TooltipProps) {
     <>
       <TooltipAnchor
         state={state}
-        {...(children.props as any)}
-        ref={children.ref}
+        {...(tooltipAnchorChildren.props as any)}
+        ref={tooltipAnchorChildren.ref}
       >
-        {(referenceProps: any) => cloneElement(children, { ...referenceProps })}
+        {(referenceProps: any) =>
+          cloneElement(tooltipAnchorChildren, { ...referenceProps })
+        }
       </TooltipAnchor>
       <TooltipPopover state={state} className={cn(style.tooltipPopover)}>
         <TooltipArrow style={style.tooltipArrow} />
