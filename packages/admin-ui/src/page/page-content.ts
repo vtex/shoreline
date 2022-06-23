@@ -7,9 +7,14 @@ import * as style from './page.style'
 
 /**
  * Page content component
+ *
  * @example
+ * import { Page, PageContent } from "@vtex/admin-ui"
+ *
  * <Page>
- *  <PageContent />
+ *  <PageContent>
+ *    Content
+ *  </PageContent>
  * </Page>
  */
 export const PageContent = createComponent<'div', PageContentOptions>(

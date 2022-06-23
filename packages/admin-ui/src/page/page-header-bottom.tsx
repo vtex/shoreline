@@ -15,7 +15,7 @@ export const PageHeaderBottom = createComponent<'div'>((props) => {
       {...option}
       csx={{
         ...option.csx,
-        padding: 3,
+        ...style.pageHeaderTab,
       }}
     />
   ))

@@ -20,13 +20,8 @@ export const PageHeaderEnd = createComponent<'div'>((props) => {
 
   const menu = menuOptions
     ? (({ menuItemOptions, ...menuOptions }) => (
-        <Menu {...menuOptions} csx={{ display: 'flex' }}>
-          <MenuButton
-            variant="tertiary"
-            bleedY
-            bleedX
-            csx={{ marginLeft: '0rem' }}
-          />
+        <Menu {...menuOptions} csx={style.pageHeaderMenu}>
+          <MenuButton variant="tertiary" bleedY bleedX />
           <MenuList aria-label="Menu">
             {menuItemOptions.map((options) => (
               <MenuItem {...options} />
@@ -37,7 +32,7 @@ export const PageHeaderEnd = createComponent<'div'>((props) => {
     : null
 
   return useElement('div', {
-    baseStyle: { display: 'flex', alignItems: 'center' },
+    baseStyle: style.pageHeaderEnd,
     children: (
       <>
         {actions}
