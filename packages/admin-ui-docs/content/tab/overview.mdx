@@ -1,0 +1,116 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Tab is a navigation solution for alternating between content that is at the same level of the hierarchy.
+
+</IntroSection>
+
+<Section>
+
+## Example
+
+```jsx live
+function Example() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel>Panel 1</TabPanel>
+        <TabPanel>Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Id
+
+```jsx live
+function Example() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel id="1">Panel 1</TabPanel>
+        <TabPanel id="2">Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Default selected id
+
+```jsx live
+function Example() {
+  const state = useTabState({ defaultSelectedId: '2' })
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel id="1">Panel 1</TabPanel>
+        <TabPanel id="2">Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Manual navigation
+
+```jsx live
+function Example() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab id="1">Tab 1</Tab>
+        <Tab id="2">Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel id="1">
+          Panel 1
+          <Button onClick={() => state.select('2')}>Navigate to tab 2</Button>
+        </TabPanel>
+        <TabPanel id="2">
+          Panel 2
+          <Button onClick={() => state.select('1')}>Navigate to tab 1</Button>
+        </TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+```
+
+</Section>

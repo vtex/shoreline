@@ -42,7 +42,7 @@ export const PAGE_LINK: any = {
   Set: { github: 'components/Set' },
   Skeleton: { github: 'components/Skeleton' },
   Spinner: { github: 'components/Spinner' },
-  Tabs: { github: 'components/Tabs' },
+  Tab: { github: 'components/Tab' },
   Text: { github: 'components/Text' },
   Toast: { github: 'components/Toast' },
   Toggle: { github: 'components/Toggle' },
