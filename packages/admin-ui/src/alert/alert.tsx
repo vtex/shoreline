@@ -44,7 +44,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
         <Inline noWrap vSpace="unset" hSpace="unset" csx={styles.rightInline}>
-          {action && (
+          {action ? (
             <Button
               {...action}
               variant="neutralTertiary"
@@ -52,7 +52,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
               bleedX
               csx={styles.button({ dismissible: !!onDismiss })}
             />
-          )}
+          ) : null}
           {onDismiss && (
             <Button
               variant="neutralTertiary"
