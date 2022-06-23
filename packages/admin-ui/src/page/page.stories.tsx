@@ -3,20 +3,19 @@ import type { Meta } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 import faker from 'faker'
 
-import { Page, PageContent, PageHeader, PageTitle, PageActions } from '../index'
+import { Page, PageContent, PageHeader } from './index'
 import {
   DataView,
   DataViewControls,
   useDataViewState,
-} from '../../components/DataView'
-import { Search, useSearchState } from '../../search'
+} from '../components/DataView'
+import { Search, useSearchState } from '../search'
 import {
   DataGrid,
   useDataGridState,
   createColumns,
-} from '../../components/DataGrid'
-import { Button } from '../../button'
-import { Box } from '../../box'
+} from '../components/DataGrid'
+import { Box } from '../box'
 
 export default {
   title: 'admin-ui-review/page',
@@ -25,9 +24,7 @@ export default {
 export function Basic() {
   return (
     <Page>
-      <PageHeader>
-        <PageTitle>Page Title</PageTitle>
-      </PageHeader>
+      <PageHeader title="Page Title" />
       <PageContent>
         <tag.div>Page Content</tag.div>
       </PageContent>
@@ -97,12 +94,15 @@ export function WithDataView() {
 
   return (
     <Page>
-      <PageHeader onPopNavigation={() => alert('should go back')}>
-        <PageTitle>Page Title</PageTitle>
-        <PageActions>
-          <Button>Primary Action</Button>
-        </PageActions>
-      </PageHeader>
+      <PageHeader
+        title="Page Title"
+        onPopNavigation={() => alert('should go back')}
+        actionOptions={[
+          {
+            children: 'Primary Action',
+          },
+        ]}
+      />
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
@@ -133,9 +133,7 @@ function Placeholder() {
 export function Standard() {
   return (
     <Page>
-      <PageHeader>
-        <PageTitle>Page Title</PageTitle>
-      </PageHeader>
+      <PageHeader title="Page Title" />
       <PageContent>
         <Placeholder />
         <Placeholder />
@@ -147,9 +145,7 @@ export function Standard() {
 export function Narrow() {
   return (
     <Page>
-      <PageHeader>
-        <PageTitle>Page Title</PageTitle>
-      </PageHeader>
+      <PageHeader title="Page Title" />
       <PageContent layout="narrow">
         <Placeholder />
         <Placeholder />
@@ -161,9 +157,7 @@ export function Narrow() {
 export function Wide() {
   return (
     <Page>
-      <PageHeader>
-        <PageTitle>Page Title</PageTitle>
-      </PageHeader>
+      <PageHeader title="Page Title" />
       <PageContent layout="wide">
         <Placeholder />
         <Placeholder />

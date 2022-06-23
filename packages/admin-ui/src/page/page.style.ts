@@ -52,6 +52,8 @@ export const pageHeaderStart = style({
   },
 })
 
+export const pageHeaderEnd = style({ display: 'flex', alignItems: 'center' })
+
 export const pageHeaderTitle = style({
   display: 'flex',
   alignItems: 'center',
@@ -59,14 +61,13 @@ export const pageHeaderTitle = style({
   justifyContent: 'flex-start',
 })
 
-export const pageHeaderFooter = style({
-  display: 'flex',
-  width: '100%',
-  marginTop: '0.5rem',
-})
-
 export const popNavigationButton = style({
   marginRight: '0.5rem',
+})
+
+export const pageHeaderMenu = style({
+  display: 'flex',
+  '> button': { marginLeft: '0rem' },
 })
 
 export const pageHeaderActions = style({
@@ -81,6 +82,10 @@ export const pageHeaderActions = style({
     marginLeft: '$l',
   },
 })
+
+export const pageHeaderTab = style({ padding: 3 })
+
+export const pageHeaderTag = style({ marginLeft: '$l' })
 
 export const pageContent = style({
   width: '100%',

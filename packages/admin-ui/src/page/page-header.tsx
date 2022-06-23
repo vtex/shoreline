@@ -78,9 +78,12 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
 )
 
 export interface PageHeaderOptions {
+  /**
+   * Callback function to the "return", or "back" method you would like.
+   */
   onPopNavigation?: () => void
   /**
-   * Page header title
+   * Page header title.
    */
   title?: ReactNode
   /**
@@ -89,17 +92,14 @@ export interface PageHeaderOptions {
   actionOptions?: ButtonProps[]
   /**
    * Tags options.
-   * Recommended: X
    */
   tagOptions?: TagProps[]
   /**
    * Tabs options.
-   * Recommended: X
    */
   tabOptions?: TabProps[]
   /**
    * Menu options.
-   * Only one menu per Page Header is allowed.
    */
   menuOptions?: PageHeaderMenuOptions
 }
