@@ -85,7 +85,7 @@ export const pageHeaderActions = style({
 
 export const pageHeaderTab = style({ padding: 3 })
 
-export const pageHeaderTag = style({ marginLeft: '$l' })
+export const pageHeaderTag = style({ marginLeft: '$m' })
 
 export const pageContent = style({
   width: '100%',

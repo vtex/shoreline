@@ -31,6 +31,7 @@ export const PageHeaderStart = createComponent<'div'>((props) => {
           <Button
             variant="tertiary"
             bleedX
+            size="large"
             bleedY
             icon={<IconArrowLeft />}
             onClick={onPopNavigation}
