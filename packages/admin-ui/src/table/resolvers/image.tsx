@@ -28,14 +28,18 @@ function getImageVariant(density: TableDensity): StyleObject {
 
   return {
     regular: {
-      size: 44,
-      minSize: 44,
-      ...outlineStyle,
+      width: 56,
+      minWidth: 56,
+      height: 56,
+      minHeight: 56,
+      borderRadius: 4,
     },
     compact: {
-      size: 24,
-      minSize: 24,
-      ...outlineStyle,
+      width: 32,
+      minWidth: 32,
+      height: 32,
+      minHeight: 32,
+      borderRadius: 4,
     },
     variable: {
       size: 44,
