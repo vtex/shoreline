@@ -25,6 +25,10 @@ export const variants = styleVariants({
     compact: {
       height: 44,
     },
+    variable: {
+      size: 44,
+      minHeight: 44,
+    },
   },
   clickable: {
     true: {

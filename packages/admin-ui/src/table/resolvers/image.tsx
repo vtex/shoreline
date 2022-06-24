@@ -11,6 +11,7 @@ import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../components/Skeleton'
 import type { TableDensity } from '../types'
+import { Stack } from '../../stack'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -34,6 +35,12 @@ function getImageVariant(density: TableDensity): StyleObject {
     compact: {
       size: 24,
       minSize: 24,
+      ...outlineStyle,
+    },
+    variable: {
+      size: 44,
+      minSize: 44,
+      verticalAlign: 'middle',
       ...outlineStyle,
     },
   }[density] as any
@@ -70,11 +77,13 @@ export function imageResolver<T>() {
             context={context}
           />
         ) : (
-          <img
-            alt={resolver.alt}
-            className={cn(getImageVariant(context.density))}
-            src={url}
-          />
+          <ImageContainer>
+            <img
+              alt={resolver.alt}
+              className={cn(getImageVariant(context.density))}
+              src={url}
+            />
+          </ImageContainer>
         )
       ) : (
         <Skeleton
@@ -90,6 +99,14 @@ export function imageResolver<T>() {
       return render({ data, item, context })
     },
   })
+}
+
+function ImageContainer(props: ImageContainerProps) {
+  return (
+    <Stack csx={{ height: 64, justifyContent: 'center' }}>
+      {props.children}
+    </Stack>
+  )
 }
 
 /**
@@ -117,15 +134,17 @@ function ImageWithPreview(props: PreviewComponentProps) {
     <Fragment>
       <TooltipReference {...tooltip}>
         {(referenceProps) => (
-          <img
-            {...referenceProps}
-            alt={alt}
-            className={cn({
-              ...getImageVariant(density),
-              ...focusVisible('main'),
-            })}
-            src={url}
-          />
+          <ImageContainer>
+            <img
+              {...referenceProps}
+              alt={alt}
+              className={cn({
+                ...getImageVariant(density),
+                ...focusVisible('main'),
+              })}
+              src={url}
+            />
+          </ImageContainer>
         )}
       </TooltipReference>
       <Tooltip
@@ -185,6 +204,10 @@ function ImageWithPreview(props: PreviewComponentProps) {
       </Tooltip>
     </Fragment>
   )
+}
+
+interface ImageContainerProps {
+  children: ReactNode
 }
 
 interface PreviewComponentProps {
