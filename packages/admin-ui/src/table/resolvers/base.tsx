@@ -10,6 +10,8 @@ import type { ImageResolver } from './image'
 import { imageResolver } from './image'
 import type { SelectionResolver } from './selection'
 import { selectionResolver } from './selection'
+import type { TextResolver } from './text'
+import { textResolver } from './text'
 
 /**
  * Table base resolvers
@@ -22,6 +24,7 @@ export function baseResolvers<T>() {
     image: imageResolver<T>(),
     root: rootResolver<T>(),
     selection: selectionResolver<T>(),
+    text: textResolver<T>(),
   }
 }
 
@@ -32,3 +35,4 @@ export type BaseResolvers<T> =
   | DateResolver<T>
   | RootResolver<T>
   | SelectionResolver<T>
+  | TextResolver<T>
