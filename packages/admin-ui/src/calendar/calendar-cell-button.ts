@@ -19,7 +19,7 @@ export const CalendarCellButton = createComponent<
       isDisabled: isDisabledOption,
       month,
       isInvalidDateRange,
-      dateValue,
+      selectedDate,
       focusedDate,
       isFocused: isFocusedOption,
       selectDate,
@@ -39,7 +39,7 @@ export const CalendarCellButton = createComponent<
 
   const disabled = htmlDisabled || isDisabled
 
-  const isSelected = dateValue ? isSameDay(date, dateValue) : false
+  const isSelected = selectedDate.isSameDay(date)
   const isFocused =
     isFocusedOption && focusedDate && isSameDay(date, focusedDate)
 

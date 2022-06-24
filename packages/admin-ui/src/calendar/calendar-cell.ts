@@ -1,8 +1,7 @@
 import { createComponent, createHook, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit/Role'
-import type { AnyObject } from '@vtex/admin-ui-util'
 import { ariaAttr, dataAttr } from '@vtex/admin-ui-util'
-import { isSameDay, isWeekend } from 'date-fns'
+import { isWeekend } from 'date-fns'
 
 import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'
@@ -16,18 +15,14 @@ export const useCalendarCell = createHook<typeof Role, CalendarCellOptions>(
   (props) => {
     const { date, state, ...htmlProps } = props
 
-    const { dateValue } = state
-    const isSelected = dateValue ? isSameDay(date, dateValue) : false
-
-    const dataAttrs: AnyObject = {
-      'data-weekend': dataAttr(isWeekend(date)),
-    }
+    const { selectedDate } = state
+    const isSelected = selectedDate.isSameDay(date)
 
     return {
       baseStyle: style.calendarCell,
       role: 'gridcell',
       'aria-selected': ariaAttr(isSelected),
-      ...dataAttrs,
+      'data-weekend': dataAttr(isWeekend(date)),
       ...htmlProps,
     }
   }

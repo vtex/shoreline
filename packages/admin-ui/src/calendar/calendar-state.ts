@@ -18,14 +18,8 @@ import {
   subYears,
 } from 'date-fns'
 
-import { useWeekStart } from '../i18n'
-import type { DateObject } from './utils'
-import {
-  getDateObject,
-  useWeekDays,
-  generateDaysInMonthArray,
-  createDate,
-} from './utils'
+import type { Week } from './utils'
+import { generateDaysInMonthArray, AdminUIDate, useWeek } from './utils'
 
 import type { InputState } from '../types'
 
@@ -34,44 +28,39 @@ export function useCalendarState(
 ): CalendarStateReturn {
   const {
     value: initialValue,
-    defaultValue = getDateObject(),
+    defaultValue = new AdminUIDate(new Date()),
     onChange,
-    minValue = {
+    minValue = new AdminUIDate({
       year: 1,
       month: 0,
       day: 1,
-    },
-    maxValue = {
+    }),
+    maxValue = new AdminUIDate({
       year: 8000,
       month: 11,
       day: 31,
-    },
+    }),
     isDisabled = false,
     isReadOnly = false,
     autoFocus = false,
   } = props
 
-  const [value, setValue] = useControllableState({
+  const [selectedDate, setSelectedDate] = useControllableState({
     value: initialValue,
     defaultValue,
     onChange,
   })
 
-  const date = useMemo(() => createDate(value), [value])
-  const minDate = useMemo(() => createDate(minValue), [minValue])
-  const maxDate = useMemo(() => createDate(maxValue), [maxValue])
-
-  const [currentMonth, setCurrentMonth] = useState(date)
-  const [focusedDate, setFocusedDate] = useState(date)
+  const [currentMonth, setCurrentMonth] = useState(selectedDate.asDate)
+  const [focusedDate, setFocusedDate] = useState(selectedDate.asDate)
   const [isFocused, setFocused] = useState(autoFocus)
   const month = currentMonth.getMonth()
   const year = currentMonth.getFullYear()
-  const weekStart = useWeekStart()
-  const weekDays = useWeekDays(weekStart)
+  const week = useWeek()
 
   // Get 2D Date arrays in 7 days a week format
   const daysInMonth = useMemo(() => {
-    let monthStartsAt = (startOfMonth(currentMonth).getDay() - weekStart) % 7
+    let monthStartsAt = (startOfMonth(currentMonth).getDay() - week.start) % 7
 
     if (monthStartsAt < 0) {
       monthStartsAt += 7
@@ -81,13 +70,13 @@ export function useCalendarState(
     const weeksInMonth = Math.ceil((monthStartsAt + days) / 7)
 
     return generateDaysInMonthArray(month, monthStartsAt, weeksInMonth, year)
-  }, [month, year, currentMonth, weekStart])
+  }, [month, year, currentMonth, week])
 
   const isInvalidDateRange = useCallback(
     (value: Date) => {
-      return value < minDate || value > maxDate
+      return value < minValue.asDate || value > maxValue.asDate
     },
-    [minDate, maxDate]
+    [minValue, maxValue]
   )
 
   const focusCell = useCallback(
@@ -106,24 +95,23 @@ export function useCalendarState(
   const setDate = useCallback(
     (value: Date) => {
       if (!isDisabled && !isReadOnly) {
-        setValue(getDateObject(value))
+        setSelectedDate(new AdminUIDate(value))
       }
     },
-    [isDisabled, isReadOnly, setValue]
+    [isDisabled, isReadOnly]
   )
 
   const { id: calendarId } = useId({ id: props.id, baseId: 'calendar' })
 
   return {
-    dateValue: date,
-    setDateValue: setDate,
-    minDateValue: minDate,
-    maxDateValue: maxDate,
+    selectedDate,
+    setSelectedDate,
+    minDateValue: minValue.asDate,
+    maxDateValue: maxValue.asDate,
     calendarId,
     month,
     year,
-    weekStart,
-    weekDays,
+    week,
     daysInMonth,
     isDisabled,
     isFocused,
@@ -185,7 +173,7 @@ export interface CalendarState {
   /**
    * Selected Date value
    */
-  dateValue: Date
+  selectedDate: AdminUIDate
   /**
    * Month of the current date value
    */
@@ -194,17 +182,7 @@ export interface CalendarState {
    * Year of the current date value
    */
   year: number
-  /**
-   * Start of the week for the current date value
-   */
-  weekStart: number
-  /**
-   * Generated week days for CalendarWeekTitle based on weekStart
-   */
-  weekDays: Array<{
-    title: string
-    abbr: string
-  }>
+  week: Week
   /**
    * Generated days in the current month
    */
@@ -251,7 +229,7 @@ export interface CalendarActions {
   /**
    * Sets `dateValue`
    */
-  setDateValue: (value: Date) => void
+  setSelectedDate: (value: AdminUIDate) => void
   /**
    * Focus the cell of the specified date
    */
@@ -308,20 +286,20 @@ export interface CalendarActions {
 
 export interface RangeValueMinMax {
   /** The lowest date allowed. */
-  minValue?: DateObject
+  minValue?: AdminUIDate
   /** The highest date allowed. */
-  maxValue?: DateObject
+  maxValue?: AdminUIDate
 }
 
 export interface CalendarInitialState extends RangeValueMinMax, InputState {
   /** Id for the calendar grid */
   id?: string
   /** The current date (controlled). */
-  value?: DateObject
+  value?: AdminUIDate
   /** The default date (uncontrolled). */
-  defaultValue?: DateObject
+  defaultValue?: AdminUIDate
   /** Handler that is called when the date changes. */
-  onChange?: (value: DateObject) => void
+  onChange?: (value: AdminUIDate) => void
   /** Whether the element should receive focus on render. */
   autoFocus?: boolean
 }

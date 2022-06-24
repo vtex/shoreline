@@ -34,7 +34,7 @@ export const Calendar = createComponent<typeof Role, CalendarOptions>(
             </CalendarHeaderButton>
           </CalendarHeader>
           <CalendarGrid state={state}>
-            {state.weekDays.map((day, dayIndex) => (
+            {state.week.days.map((day, dayIndex) => (
               <CalendarDayTitle
                 key={dayIndex}
                 dayIndex={dayIndex}

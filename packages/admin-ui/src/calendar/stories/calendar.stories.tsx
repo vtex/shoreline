@@ -4,7 +4,7 @@ import { Popover, PopoverDisclosure, usePopoverState } from 'ariakit'
 
 import { Calendar, useCalendarState } from '../index'
 import { Button } from '../../button'
-import { getDateObject } from '../utils'
+import { AdminUIDate } from '../utils'
 import { I18nProvider } from '../../i18n'
 import { Box } from '../../box'
 import { ClassName } from '@vtex/admin-ui-react'
@@ -31,7 +31,7 @@ export function Basic() {
 }
 
 export function ControlledState() {
-  const [value, setValue] = useState(getDateObject())
+  const [value, setValue] = useState(new AdminUIDate(new Date()))
   const calendar = useCalendarState({
     value,
     onChange: (d) => setValue(d),
@@ -42,16 +42,16 @@ export function ControlledState() {
 
 export function MinMaxDates() {
   const state = useCalendarState({
-    minValue: {
+    minValue: new AdminUIDate({
       year: 2022,
       month: 2,
       day: 25,
-    },
-    maxValue: {
+    }),
+    maxValue: new AdminUIDate({
       year: 2030,
       month: 1,
       day: 1,
-    },
+    }),
   })
 
   return <Calendar state={state} />
