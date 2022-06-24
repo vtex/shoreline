@@ -20,10 +20,10 @@ export const baseline = style({
 export const variants = styleVariants({
   density: {
     regular: {
-      height: 64,
+      height: 80,
     },
     compact: {
-      height: 44,
+      height: 48,
     },
     variable: {
       size: 44,
