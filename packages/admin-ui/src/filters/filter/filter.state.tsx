@@ -1,18 +1,14 @@
 import { useState, useCallback, useEffect } from 'react'
 
-import type { MenuState } from 'ariakit/menu'
-import { useMenuState } from 'ariakit/menu'
 import type { ComboboxState } from '../../combobox/combobox.state'
 import { useComboboxState } from '../../combobox/combobox.state'
-import type { AnyObject } from 'packages/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui-util'
 
 export function useFilterState<T extends AnyObject>(
   props: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
   const {
     items = [],
-    label,
-    baseId,
     getOptionLabel = (option) => option.label,
     getOptionId = (option) => option.id,
     onChange = () => {},
@@ -25,8 +21,6 @@ export function useFilterState<T extends AnyObject>(
     list: items,
     getOptionValue: getOptionLabel,
   })
-
-  const menu = useMenuState({ ...combobox, gutter: 4 })
 
   const updateApplied = useCallback(
     (item: T) => {
@@ -42,7 +36,7 @@ export function useFilterState<T extends AnyObject>(
     setAppliedItem(combobox.selectedItem)
 
     onChange({ selected: combobox.selectedItem || null })
-    menu.hide()
+    combobox.hide()
   }, [onChange])
 
   const clear = useCallback(() => {
@@ -52,7 +46,7 @@ export function useFilterState<T extends AnyObject>(
     combobox.setSelectedItem(undefined)
 
     onChange({ selected: null })
-    menu.hide()
+    combobox.hide()
   }, [onChange])
 
   useEffect(() => {
@@ -63,43 +57,32 @@ export function useFilterState<T extends AnyObject>(
   }, [combobox.selectedItem])
 
   useEffect(() => {
-    const isMenuClosed = !menu.mounted
+    const isMenuClosed = !combobox.mounted
 
     if (isMenuClosed && combobox.value) {
       // resets combobox
       combobox.setValue('')
       combobox.setSelectedItem(appliedItem || undefined)
     }
-  }, [menu.mounted])
+  }, [combobox.mounted])
 
   return {
-    menu,
     combobox,
     onClear: clear,
     onChange: apply,
     items,
     appliedItem,
     setAppliedItem: updateApplied,
-    label,
-    baseId,
     getOptionLabel,
     getOptionId,
   }
 }
 
-export interface FilterItem {
-  id: string
-  label: string
-}
-
 export interface GenericFilterStateReturn<T> {
-  menu: MenuState<any>
   onClear: () => void
   onChange: () => void
-  label: string
   items: T[]
   combobox: ComboboxState<T>
-  baseId?: string
   getOptionLabel: (option: T) => string
   getOptionId: (option: T) => string
 }
@@ -116,10 +99,6 @@ export interface UseFilterStateProps<T> {
   getOptionLabel?: (option: T) => string
   /** Function called when a change is applied. */
   onChange?: ({ selected }: { selected: T | null }) => void
-  /** Filter button label. */
-  label: string
-  /** Base for component and it's children id. */
-  baseId?: string
   /** List of items to be showed on the list. */
   items?: T[]
 }
