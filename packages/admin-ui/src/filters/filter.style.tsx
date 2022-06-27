@@ -45,6 +45,12 @@ export const scrollableContainer = style({
   overflowY: 'auto',
 })
 
+export const list = style({
+  '> *:not(:first-child)': {
+    marginTop: '$xl',
+  },
+})
+
 export const disclosureStatusLabel = style({
   color: '$primary',
   marginLeft: '$s',
