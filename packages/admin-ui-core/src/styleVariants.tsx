@@ -11,7 +11,7 @@ export function styleVariants<V extends {}>(variants: VariantDef<V>) {
     const css: StyleProp = {}
 
     for (const key in rules) {
-      Object.assign(css, get(variants, `${key}.${rules[key]}`, {}))
+      Object.assign(css, get(variants, `${key}.${get(rules, key)}`, {}))
     }
 
     return style(css)
