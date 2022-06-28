@@ -45,6 +45,7 @@ function getImageVariant(density: TableDensity): StyleObject {
       size: 44,
       minSize: 44,
       verticalAlign: 'middle',
+      borderRadius: '$default',
       ...outlineStyle,
     },
   }[density] as any
@@ -154,11 +155,18 @@ function ImageWithPreview(props: PreviewComponentProps) {
       <Tooltip
         {...tooltip}
         className={cn({
+          display: 'flex',
           outline: 'none',
+          paddingY: '$l',
+          paddingX: '$m',
           transition: `opacity 100ms ease-in ${preview.delay}ms`,
           willChange: 'opacity',
           opacity: 0,
+          boxShadow: '$overlay.center',
+          borderRadius: '$default',
+          background: '$primary',
           img: {
+            borderRadius: '$default',
             willChange: 'transform',
             transformOrigin: 'right center',
             transition: `transform 100ms ease-in ${preview.delay}ms`,
@@ -178,28 +186,16 @@ function ImageWithPreview(props: PreviewComponentProps) {
           className={cn(
             {
               small: {
-                width: 56,
-                minWidth: 56,
-                height: 56,
-                minHeight: 56,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 56,
+                minSize: 56,
               },
               regular: {
-                width: 156,
-                minWidth: 156,
-                height: 156,
-                minHeight: 156,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 156,
+                minSize: 156,
               },
               large: {
-                width: 256,
-                minWidth: 256,
-                height: 256,
-                minHeight: 256,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 256,
+                minSize: 256,
               },
             }[preview.size] as StyleObject
           )}

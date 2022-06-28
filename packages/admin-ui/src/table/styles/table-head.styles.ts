@@ -1,5 +1,7 @@
 import { style } from '@vtex/admin-ui-core'
 
+export * from './table-row.styles'
+
 export const baseline = style({
   display: 'table-header-group',
   color: '$secondary',
@@ -13,12 +15,6 @@ export const sortableContainer = style({
       opacity: 1,
     },
   },
-})
-
-export const rowBaseline = style({
-  display: 'table-row',
-  bg: '$primary',
-  textAlign: 'left',
 })
 
 export const sortIndicator = style({

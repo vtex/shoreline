@@ -19,7 +19,7 @@ export function textResolver<T>() {
 
       invariant(
         resolver,
-        'Resolver prop is required while using the image resolver'
+        'Resolver prop is required while using the text resolver'
       )
 
       const textVariant = resolver?.isNameCell ? 'action1' : 'body'
