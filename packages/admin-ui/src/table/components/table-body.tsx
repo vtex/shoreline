@@ -96,7 +96,7 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
     return useElement('tr', {
       ...rowProps,
       baseStyle: {
-        ...styles.tableRowBaseline,
+        ...styles.rowBaseline,
         ...styles.variants({ clickable }),
         ...styles.variants({ selected: isRowSelected() }),
       },

@@ -15,9 +15,7 @@ export default {
 
 interface Item {
   id: number
-  productName: string
-  description: string
-  condition: string
+  name: string
   price: number
 }
 
@@ -26,30 +24,23 @@ export function Clickable() {
     () => [
       {
         id: 1,
-        productName: 'Orange',
-        description: 'Fruit',
+        name: 'Color 1',
         image:
-          'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
-
-        condition: 'Good',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_gD9Fm-5bttYHoJ-wxD2W8kK2boZsQItYw&usqp=CAU',
         price: 100,
       },
       {
         id: 2,
-        productName: 'Lemon',
-        description: 'Fruit',
+        name: 'Color 2',
         image:
-          'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-        condition: 'Average',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsvxLXJ3jW2hQox375iMAcaScYMpUmXk1dFw&usqp=CAU',
         price: 30,
       },
       {
         id: 3,
-        productName: 'Tomato',
-        description: 'Fruit',
+        name: 'Color 3',
         image:
-          'https://images.unsplash.com/photo-1587486938113-d6d38d424efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-        condition: 'Mint',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
         price: 10,
       },
     ],
@@ -72,24 +63,23 @@ export function Clickable() {
           },
         },
         {
-          id: 'productName',
+          id: 'name',
           header: 'Name',
           resolver: {
             type: 'text',
             isNameCell: true,
-            mapText: (item) => item.productName,
-            mapDescription: (item) => item.description,
+            mapText: (item) => item.name,
           },
         },
         {
-          id: 'condition',
-          header: 'Condition',
+          id: 'price',
+          header: 'Price',
         },
         {
           header: 'Actions',
           resolver: {
             type: 'root',
-            render: ({ item }) => {
+            render: () => {
               const menu = useMenuState()
 
               const handleClick = (
@@ -120,7 +110,7 @@ export function Clickable() {
   const state = useTableState<Item>({
     columns,
     items,
-    onRowClick: (item) => alert(`Row clicked: ${item.productName}`),
+    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
   return <Table state={state} csx={{ width: 800 }} />
