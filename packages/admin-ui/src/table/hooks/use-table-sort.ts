@@ -56,10 +56,6 @@ function sortReducer(state: SortState, action: SortAction) {
       }
     }
 
-    case 'RESET': {
-      return clearState
-    }
-
     default:
       return state
   }
@@ -73,12 +69,10 @@ function sortCallback<T>({
 }: SortCallbackParams<T>) {
   const { by, order } = currentSortState
 
-  if (!by || by !== columnId) {
+  if (!by || by !== columnId || order === directions[1]) {
     dispatch({ type: directions[0], columnId })
   } else if (order === directions[0] && directions[1]) {
     dispatch({ type: directions[1], columnId })
-  } else {
-    dispatch({ type: 'RESET' })
   }
 }
 
@@ -92,7 +86,7 @@ export interface SortState {
 }
 
 export interface SortAction {
-  type: SortOrder | 'RESET'
+  type: SortOrder
   columnId?: string | number | symbol
 }
 

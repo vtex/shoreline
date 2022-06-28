@@ -31,7 +31,7 @@ const columns = createColumns<Item>([
   {
     id: 'name',
     header: 'Product Name',
-    compare: (a, b) => b.name.localeCompare(a.name),
+    compare: (a, b) => a.name.localeCompare(b.name),
   },
   {
     id: 'lastSale',
@@ -45,7 +45,7 @@ const columns = createColumns<Item>([
       locale: 'en-US',
       currency: 'USD',
     },
-    compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
+    compare: (a, b) => parseInt(a.price, 10) - parseInt(b.price, 10),
   },
 ])
 
