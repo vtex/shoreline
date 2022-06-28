@@ -4,7 +4,6 @@ export const baseline = style({
   flex: 1,
   text: '$body',
   display: 'table-cell',
-  borderBottom: '$neutral',
   verticalAlign: 'middle',
   paddingX: '$xl',
 
