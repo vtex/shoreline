@@ -8,6 +8,11 @@ export const baseline = style({
 export const sortableContainer = style({
   display: 'flex',
   alignItems: 'center',
+  ':hover': {
+    svg: {
+      opacity: 1,
+    },
+  },
 })
 
 export const rowBaseline = style({
