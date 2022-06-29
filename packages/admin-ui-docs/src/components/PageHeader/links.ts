@@ -31,7 +31,7 @@ export const PAGE_LINK: any = {
   InputPassword: { github: 'components/InputPassword' },
   Label: { github: 'components/Label' },
   List: { github: 'components/List' },
-  Menu: { github: 'components/Menu' },
+  Menu: { github: 'menu' },
   Modal: { github: 'components/Modal' },
   Page: { github: 'components/Page' },
   Pagination: { github: 'components/Pagination' },
