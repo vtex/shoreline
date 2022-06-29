@@ -22,11 +22,12 @@ export function textResolver<T>() {
         'Resolver prop is required while using the text resolver'
       )
 
-      const textVariant = resolver?.isNameCell ? 'action1' : 'body'
+      const isNameColumn = resolver?.columnType === 'name' ?? 'text'
+      const textVariant = isNameColumn ? 'action1' : 'body'
 
       const data = resolver?.mapDescription ? (
         <Stack
-          space={resolver?.isNameCell ? '$s' : '0'}
+          space={isNameColumn ? '$s' : '0'}
           csx={{ height: 64, justifyContent: 'center' }}
         >
           <Text variant={textVariant}>{resolver?.mapText(item)}</Text>
@@ -45,7 +46,7 @@ export function textResolver<T>() {
 
 export type TextResolver<T> = {
   type: 'text'
-  isNameCell?: boolean
+  columnType?: 'name' | 'text'
   mapText: (item: T) => ReactNode
   mapDescription?: (item: T) => ReactNode
   render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
