@@ -85,7 +85,7 @@ export function Selectable() {
           header: 'Name',
           resolver: {
             type: 'text',
-            isNameCell: true,
+            columnType: 'name',
             mapText: (item) => item.productName,
             mapDescription: (item) => item.description,
           },
