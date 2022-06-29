@@ -9,7 +9,7 @@ DataGrid is designed to render tabular data consistently for any kind of data ty
 
 DataGrid is pretty much stateless. The state hook `useDataGridState` contains all business logic needed for the component.
 
-```jsx live
+```jsx
 function Example() {
   /**
    * The hook returns the DataGrid state
@@ -148,7 +148,7 @@ The main objective of `DataGrid` is to provide a flexible render to support any 
 
 Some properties may be nested within objects and arrays. The `accessor` properties provide an easy way to access those.
 
-```jsx noInline live
+```jsx noInline
 const items = [
   {
     id: 1,
@@ -243,7 +243,7 @@ All resolvers accept a render function, that returns a component. It controls th
 
 This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
 
-```jsx live
+```jsx
 function Example() {
   const state = useDataGridState({
     columns: [
@@ -315,7 +315,7 @@ function Example() {
 
 The plain resolver is the default for all columns. It means that if you don't select a resolver, this is what you're rendering. It should be mainly used to render raw data like strings or numbers that don't need treatment.
 
-```jsx noInline live
+```jsx noInline
 const items = [
   {
     id: 1,
@@ -382,7 +382,7 @@ render(<Example />)
 
 ##### Currency
 
-```jsx live
+```jsx
 function Example() {
   const currencies = [
     {
@@ -432,7 +432,7 @@ function Example() {
 
 ##### Date
 
-```jsx live
+```jsx
 function Example() {
   const dates = [
     {
@@ -514,7 +514,7 @@ function Example() {
 | size    | `small, regular or large` | size of the preview              | 🚫       | regular |
 | delay   | number                    | delay of a preview display in ms | 🚫       | 0       |
 
-```jsx live
+```jsx
 function Example() {
   const fruits = [
     {
@@ -592,7 +592,7 @@ type Compare = (a: T, b: T) => boolean
 
 The following example allows ordering by `name`, `lastSale` and `price`.
 
-```jsx noInline live
+```jsx noInline
 const items = Array(3)
   .fill()
   .map((_, id) => {
@@ -694,7 +694,7 @@ DataView
             |__ .Cell
 ```
 
-```jsx live
+```jsx
 function WithinDataView() {
   const view = useDataViewState()
   const grid = useDataGridState({
@@ -744,7 +744,7 @@ function WithinDataView() {
 
 Example using the [Search](search/) component to filter the data.
 
-```jsx noInline live
+```jsx noInline
 const items = [
   {
     id: 1,
@@ -824,7 +824,7 @@ render(<WithSearch />)
 
 Example using the [Toolbar](toolbar/) component.
 
-```jsx live
+```jsx
 function WithToolbar() {
   const toolbar = useToolbarState()
   const view = useDataViewState()
@@ -885,7 +885,7 @@ function WithToolbar() {
 
 Example using the [Pagination](pagination) component.
 
-```jsx noInline live
+```jsx noInline
 const NUMBER_OF_ITEMS = 100
 const ITEMS_PER_PAGE = 5
 
@@ -955,7 +955,7 @@ render(<WithPagination />)
 
 By dispatch the `setStatus` function of the `DataView`, the `DataGrid` reacts to it.
 
-```jsx noInline live
+```jsx noInline
 const items = Array(3)
   .fill()
   .map((_, id) => {
@@ -1062,7 +1062,7 @@ This section presents a series of examples that may be useful.
 
 Displaying filters and filtering data
 
-```jsx noInline live
+```jsx noInline
 const FilterMultiple = experimental_FilterMultiple
 const useFilterMultipleState = experimental_useFilterMultipleState
 const FilterGroup = experimental_FilterGroup
@@ -1190,7 +1190,7 @@ render(<FilterControls />)
 
 Mixing the concepts of `Search`, `Toolbar` and `Pagination`
 
-```jsx noInline live
+```jsx noInline
 const NUMBER_OF_ITEMS = 100
 const ITEMS_PER_PAGE = 5
 
@@ -1290,7 +1290,7 @@ render(<WithFullTopbar />)
 
 Example with a simulated data fetching
 
-```jsx noInline live
+```jsx noInline
 /**
  * Function to simulate a request
  * You can configure the delay and numberOfItems here
@@ -1382,7 +1382,7 @@ render(<DataFetchExample />)
 
 Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the DataGrid's table internals.
 
-```jsx noInline live
+```jsx noInline
 const fakeData = Array(5)
   .fill()
   .map((_, id) => {
