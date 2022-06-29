@@ -9,7 +9,6 @@ import {
 } from '@vtex/phosphor-icons'
 
 import { Stack } from '../stack'
-import { Inline } from '../inline'
 import { Box } from '../box'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
 import {
@@ -34,7 +33,7 @@ export const Playground = () => {
   const largeMenuState = useMenuState()
 
   return (
-    <Inline>
+    <Stack direction="row">
       <>
         <MenuButton state={menuState} />
         <Menu state={menuState}>
@@ -55,7 +54,7 @@ export const Playground = () => {
           <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
-    </Inline>
+    </Stack>
   )
 }
 
@@ -63,14 +62,14 @@ export const CustomMenu = () => {
   const state = useMenuState()
 
   return (
-    <Inline>
+    <Stack>
       <MenuButton state={state} label="Custom menu" />
       <Menu state={state}>
         <MenuItem label="Option 1" />
         <MenuItem label="Option 2" />
         <MenuItem label="Option 3" />
       </Menu>
-    </Inline>
+    </Stack>
   )
 }
 
@@ -79,7 +78,7 @@ export const IconOnly = () => {
   const largeMenuState = useMenuState()
 
   return (
-    <Inline>
+    <Stack direction="row">
       <>
         <MenuButton state={menuState} labelHidden />
         <Menu state={menuState}>
@@ -100,7 +99,7 @@ export const IconOnly = () => {
           <MenuItem label="Delete" icon={<IconTrash />} critical />
         </Menu>
       </>
-    </Inline>
+    </Stack>
   )
 }
 
@@ -113,13 +112,13 @@ export const Variants = () => {
   ]
 
   return (
-    <Stack>
+    <>
       {variants.map((variant) => {
         const actionMenuState = useMenuState()
         const customMenuState = useMenuState()
 
         return (
-          <Inline>
+          <Stack direction="row">
             <Stack>
               <MenuButton state={actionMenuState} variant={variant} />
               <Menu state={actionMenuState}>
@@ -156,10 +155,10 @@ export const Variants = () => {
                 disabled
               />
             </Stack>
-          </Inline>
+          </Stack>
         )
       })}
-    </Stack>
+    </>
   )
 }
 
@@ -169,7 +168,7 @@ export const HandleOnClickItem = () => {
 
   return (
     <>
-      <Inline>
+      <Stack>
         <MenuButton state={menuState} label="Modal options" />
         <Menu state={menuState}>
           <MenuItem
@@ -181,7 +180,7 @@ export const HandleOnClickItem = () => {
             onClick={() => alert('Native dialog')}
           />
         </Menu>
-      </Inline>
+      </Stack>
       <Box>
         <Modal aria-label="Publish modal" state={modalState} size="small">
           <ModalHeader title="Publish content" />

@@ -6,7 +6,6 @@ import type { Conjunction } from '../typings'
 import type { StatementDropdownProps } from './StatementDropdown'
 import { StatementDropdown } from './StatementDropdown'
 import { ResolvedValue } from '../resolvers/core'
-import { StatementMenu } from './StatementMenu'
 
 /**
  * Statement container
@@ -52,10 +51,6 @@ const Conditions = StatementDropdown
  * It renders a component according to the statement filter resolver.
  */
 const Value = ResolvedValue
-/**
- * It renders a menu where it's possible to delete or duplicate the current statement.
- */
-const Menu = StatementMenu
 
 interface StatementConjunctionProps
   extends StatementDropdownProps<Conjunction> {
@@ -67,7 +62,6 @@ interface StatementConjunctionProps
 
 export const Statement = Object.assign(_Statement, {
   Conjunction: StatementConjunction,
-  Menu,
   Filter,
   Conditions,
   Value,
