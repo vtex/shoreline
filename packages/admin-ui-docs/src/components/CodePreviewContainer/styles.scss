@@ -52,7 +52,7 @@
     tbody tr {
       border-top: none;
 
-      &:nth-child(2n) {
+      &:nth-child(2n):not(:hover) {
         background-color: revert;
       }
     }
@@ -76,6 +76,10 @@
     tbody td {
       padding-top: 0;
       padding-bottom: 0;
+    }
+
+    tbody tr:nth-child(2n):hover {
+      background-color: revert;
     }
 
     td,
