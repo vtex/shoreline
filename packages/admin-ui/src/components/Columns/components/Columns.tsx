@@ -1,7 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { jsx } from '@vtex/admin-ui-react'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
 
 import { ColumnsProvider } from './ColumnsContext'
 
@@ -27,7 +26,7 @@ export const Columns = jsx('div')(
 )
 
 export interface ColumnsOptions {
-  spacing?: ResponsiveValue<number>
+  spacing?: number
 }
 
 export type ColumnsProps = ComponentPropsWithRef<typeof Columns> &

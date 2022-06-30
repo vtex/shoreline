@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef } from 'react'
-import { jsx, useResponsiveValue } from '@vtex/admin-ui-react'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 import { useColumnsContext } from './ColumnsContext'
 
@@ -12,8 +11,6 @@ export const Column = jsx('div')(
       const { units, offset = 'none' } = options
       const { csx, ...layoutProps } = props
       const { spacing } = useColumnsContext()
-      const responsiveUnits = useResponsiveValue(units)
-      const responsiveOffset = useResponsiveValue(offset)
 
       const margin = {
         left: {
@@ -27,12 +24,12 @@ export const Column = jsx('div')(
           marginRight: 'auto',
         },
         none: {},
-      }[responsiveOffset]
+      }[offset]
 
-      const styles = responsiveUnits
+      const styles = units
         ? {
             flex: '0 0 auto',
-            width: `${(Number(responsiveUnits) / 12) * 100}%`,
+            width: `${(Number(units) / 12) * 100}%`,
             ...margin,
             '&:not(:first-child)': {
               paddingLeft: spacing,
@@ -58,8 +55,8 @@ export const Column = jsx('div')(
 )
 
 export interface ColumnOptions {
-  units?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>
-  offset?: ResponsiveValue<'left' | 'right' | 'both' | 'none'>
+  units?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+  offset?: 'left' | 'right' | 'both' | 'none'
 }
 
 export type ColumnsItemProps = ComponentPropsWithRef<typeof Column> &

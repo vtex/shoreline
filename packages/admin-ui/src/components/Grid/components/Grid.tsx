@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import { pick, renameKeys } from '@vtex/admin-ui-util'
 import { jsx } from '@vtex/admin-ui-react'
 
@@ -50,17 +49,17 @@ export const Grid = jsx('div')(
 
 export interface GridOptions {
   /** Shorthand for CSS gridGap property */
-  gap?: ResponsiveValue<CSS.Property.GridGap>
+  gap?: CSS.Property.GridGap
   /** Shorthand for CSS gridRowGap property */
-  rowGap?: ResponsiveValue<CSS.Property.GridRowGap>
+  rowGap?: CSS.Property.GridRowGap
   /** Shorthand for CSS gridColumnGap property */
-  columnGap?: ResponsiveValue<CSS.Property.GridColumnGap>
+  columnGap?: CSS.Property.GridColumnGap
   /** Shorthand for CSS gridTemplateAreas property */
   templateAreas?: string[]
   /** Shorthand for CSS gridTemplateRows property */
-  templateRows?: ResponsiveValue<CSS.Property.GridTemplateRows>
+  templateRows?: CSS.Property.GridTemplateRows
   /** Shorthand for CSS gridTemplateColumns property */
-  templateColumns?: ResponsiveValue<CSS.Property.GridTemplateColumns>
+  templateColumns?: CSS.Property.GridTemplateColumns
 }
 
 export type GridProps = ComponentPropsWithRef<typeof Grid>
