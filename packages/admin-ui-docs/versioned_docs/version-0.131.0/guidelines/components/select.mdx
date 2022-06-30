@@ -25,62 +25,44 @@ Select is a component that allows users to select an option from a list. It requ
 
 The `Select` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
-```jsx
-function Example() {
-  const [value, setValue] = React.useState('today')
-
-  return (
-    <Set spacing={3}>
-      <Select
-        label="Neutral"
-        helperText="Helpful text"
-        criticalText="Critical message"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      >
-        <option value="yesterday">Yesterday</option>
-        <option value="today">Today</option>
-        <option value="tomorrow">Tomorrow</option>
-      </Select>
-      <Select
-        tone="critical"
-        label="Critical"
-        criticalText="Critical message"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      >
-        <option value="yesterday">Yesterday</option>
-        <option value="today">Today</option>
-        <option value="tomorrow">Tomorrow</option>
-      </Select>
-    </Set>
-  )
-}
+```jsx live
+<Set spacing={3}>
+  <Select
+    label="Neutral"
+    helperText="Helpful text"
+    criticalText="Critical message"
+  >
+    <option value="yesterday">Yesterday</option>
+    <option value="today">Today</option>
+    <option value="tomorrow">Tomorrow</option>
+  </Select>
+  <Select
+    tone="critical"
+    label="Critical"
+    criticalText="Critical message"
+  >
+    <option value="yesterday">Yesterday</option>
+    <option value="today">Today</option>
+    <option value="tomorrow">Tomorrow</option>
+  </Select>
+</Set>
 ```
 
 ### Disabled
 
 It means that the user will not be able to select any value from the `Select`. To use this variation, the `disabled` property should have a true value.
 
-```jsx
-function Example() {
-  const [value, setValue] = React.useState('today')
-
-  return (
-    <Select
-      label="Disabled"
-      helperText="Helpful text"
-      criticalText="Critical message"
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      disabled
-    >
-      <option value="yesterday">Yesterday</option>
-      <option value="today">Today</option>
-      <option value="tomorrow">Tomorrow</option>
-    </Select>
-  )
-}
+```jsx live
+<Select
+  label="Disabled"
+  helperText="Helpful text"
+  criticalText="Critical message"
+  disabled
+>
+  <option value="yesterday">Yesterday</option>
+  <option value="today">Today</option>
+  <option value="tomorrow">Tomorrow</option>
+</Select>
 ```
 
 </Panel>
