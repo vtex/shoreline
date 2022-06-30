@@ -15,10 +15,10 @@ export const CheckboxInput = createComponent<
   const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (ref.current && state?.value) {
+    if (ref.current && state) {
       ref.current.indeterminate = state.value === 'indeterminate'
     }
-  }, [state?.value])
+  }, [state])
 
   return useElement(AriakitCheckbox, {
     ...htmlProps,
