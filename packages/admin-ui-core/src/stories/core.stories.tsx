@@ -37,3 +37,18 @@ export function FrameworkdAgnostic() {
     </div>
   )
 }
+
+export const Utils = () => {
+  return (
+    <div
+      className={csx({
+        bg: '$critical',
+        size: 200,
+        marginX: '$xl',
+        paddingY: '$xl',
+      })}
+    >
+      Utils
+    </div>
+  )
+}
