@@ -3,6 +3,7 @@ import { Menu as AriakitMenu } from 'ariakit/menu'
 import { tag, createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './menu.style'
+import { Box } from '../box'
 
 export const Menu = createComponent<typeof AriakitMenu>((props) => {
   const { children, ...menuProps } = props
@@ -10,7 +11,7 @@ export const Menu = createComponent<typeof AriakitMenu>((props) => {
   return useElement(AriakitMenu, {
     ...menuProps,
     baseStyle: style.popoverContainer,
-    children: <tag.div csx={style.popoverChildren}>{children}</tag.div>,
+    children: <Box csx={style.popoverChildren}>{children}</Box>,
   })
 })
 

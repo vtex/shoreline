@@ -19,12 +19,11 @@ import {
 } from '../../Toolbar'
 import {
   useMenuState,
-  Menu,
   MenuButton,
-  MenuList,
+  Menu,
   MenuItem,
-  MenuSeparator,
-} from '../../Menu'
+  MenuDivider,
+} from '../../../menu'
 
 export default {
   title: 'admin-ui/DataView',
@@ -72,22 +71,21 @@ export function ToolbarControls() {
           </Button>
           <ToolbarItem>
             {(itemProps) => (
-              <Menu state={menu}>
-                <Button
+              <>
+                <MenuButton
                   variant="neutralTertiary"
-                  as={MenuButton}
+                  state={menu}
+                  label="More"
                   {...itemProps}
-                >
-                  More
-                </Button>
-                <MenuList aria-label="actions">
-                  <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-                  <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                  <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
-                  <MenuSeparator />
-                  <MenuItem icon={<IconTrash />}>Delete</MenuItem>
-                </MenuList>
-              </Menu>
+                />
+                <Menu state={menu} aria-label="actions">
+                  <MenuItem icon={<IconArrowLineDown />} label="Download" />
+                  <MenuItem icon={<IconLink />} label="Link to" />
+                  <MenuItem icon={<IconHeart />} label="Favorite" />
+                  <MenuDivider />
+                  <MenuItem icon={<IconTrash />} label="Delete" />
+                </Menu>
+              </>
             )}
           </ToolbarItem>
         </Toolbar>
