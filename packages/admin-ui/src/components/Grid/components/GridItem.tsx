@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import { pick, renameKeys } from '@vtex/admin-ui-util'
 import { jsx } from '@vtex/admin-ui-react'
 
@@ -30,7 +29,7 @@ export const GridItem = jsx('div')(
 
 export interface GridItemOptions {
   /** Shorthand for CSS gridArea property */
-  area?: ResponsiveValue<CSS.Property.GridArea>
+  area?: CSS.Property.GridArea
 }
 
 export type GridItemProps = ComponentPropsWithRef<typeof GridItem>

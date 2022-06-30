@@ -28,7 +28,7 @@ export const Example = () => {
 export const WithColumns = () => {
   return (
     <Columns>
-      <Column units={[12, 12, 8]}>
+      <Column units={8}>
         <Card csx={{ height: 'full' }}>
           <Heading>Build for community</Heading>
           <Paragraph>
@@ -39,7 +39,7 @@ export const WithColumns = () => {
           </Paragraph>
         </Card>
       </Column>
-      <Column units={[12, 12, 4]}>
+      <Column units={4}>
         <Card>
           <Heading>Build for community</Heading>
           <Paragraph>

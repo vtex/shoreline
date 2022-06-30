@@ -1,9 +1,8 @@
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import React from 'react'
 import invariant from 'tiny-invariant'
 
 const ColumnsContext = React.createContext<{
-  spacing: ResponsiveValue<number>
+  spacing: number
 } | null>(null)
 
 export function useColumnsContext() {

@@ -84,7 +84,7 @@ export const Units = () => {
 export const ResponsiveUnits = () => {
   return (
     <Columns spacing={1}>
-      <Column units={6} offset={['right', 'right', 'none']}>
+      <Column units={6} offset="none">
         <Box csx={primaryStyles}>6 units</Box>
       </Column>
       <Column units={3}>

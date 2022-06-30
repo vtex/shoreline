@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
-import { jsx, useResponsiveValue } from '@vtex/admin-ui-react'
+import { jsx } from '@vtex/admin-ui-react'
 
 /**
  * Component used to display a set of components that are spaced evenly.
@@ -23,8 +22,8 @@ export const Set = jsx('div')(
 
       const { csx, ...layoutProps } = props
 
-      const currentOrientation = useResponsiveValue(orientation)
-      const currentAlign = useResponsiveValue(align)
+      const currentOrientation = orientation
+      const currentAlign = align
       const isVertical = currentOrientation === 'vertical'
 
       const childrenSpacing = {
@@ -59,7 +58,7 @@ export interface SetOptions {
    * orientation of items
    * @default vertical
    */
-  orientation?: ResponsiveValue<'vertical' | 'horizontal'>
+  orientation?: 'vertical' | 'horizontal'
   /**
    * if the items should grow in width to match the container
    * @default false
@@ -69,12 +68,12 @@ export interface SetOptions {
    * space between items
    * @default 0
    */
-  spacing?: ResponsiveValue<number> | string
+  spacing?: number | string
   /**
    * items alignment
    * @default start
    */
-  align?: ResponsiveValue<'start' | 'end'>
+  align?: 'start' | 'end'
 }
 
 export type SetProps = ComponentPropsWithoutRef<typeof Set> & SetOptions
