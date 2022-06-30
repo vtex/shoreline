@@ -1,0 +1,1377 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Table is designed to render tabular data consistently for any kind of data type.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Composition
+
+The `Table` is designed to easily integrate with other components to create the view. You must understand the concept of the [DataView Pattern](data-view/) before reading this section.
+
+<Section hasExplanation>
+
+### Anatomy
+
+Normally you will encounter Table as the data-rendering part of the data-view, for example:
+
+```txt
+DataView
+|__ DataViewControls
+|   |__ Search
+|   |__ Toolbar
+|   |   |__ Button
+|   |__ Pagination
+|
+|__ Table
+    |__ .Head
+    |   |__ .Cell
+    |__ .Body
+        |__ .Row
+            |__ .Cell
+```
+
+```jsx live
+function WithinDataView() {
+  const view = useDataViewState()
+  const grid = useTableState({
+    /**
+     * For easier usage, you can define the related view
+     * within inside of the Table state hook
+     */
+    view,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item }) => {
+            return <Tag label={item.status} size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: () => {
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        name: 'Orange',
+        inStock: 380,
+        skus: 0,
+        status: 'Good',
+        price: 80,
+      },
+    ],
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Search Form
+
+Example using the [Search](search/) component to filter the data.
+
+```jsx noInline live
+const items = [
+  {
+    id: 1,
+    name: 'Orange',
+    inStock: 380,
+    skus: 0,
+    status: 'Good',
+    price: 80,
+  },
+  {
+    id: 2,
+    name: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    status: 'Good',
+    price: 500,
+  },
+  {
+    id: 3,
+    name: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    status: 'Good',
+    price: 100,
+  },
+]
+
+function WithSearch() {
+  const view = useDataViewState()
+  const search = useSearchState()
+
+  const searchedItems = React.useMemo(() => {
+    return items.filter((item) =>
+      item.name.toLowerCase().startsWith(
+        // use the search debounced value to
+        // filter the collection
+        search.debouncedValue.toLocaleLowerCase()
+      )
+    )
+  }, [search])
+
+  const grid = useTableState({
+    view,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item }) => {
+            return <Tag label={item.status} size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: () => {
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    items: searchedItems,
+    length: 5,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Search id="search" placeholder="Search" state={search} />
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<WithSearch />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Toolbar
+
+Example using the [Toolbar](toolbar/) component.
+
+```jsx live
+function WithToolbar() {
+  const toolbar = useToolbarState()
+  const view = useDataViewState()
+  const grid = useTableState({
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item }) => {
+            return <Tag label={item.status} size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: () => {
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    items: [
+      {
+        id: 1,
+        name: 'Orange',
+        inStock: 380,
+        skus: 0,
+        status: 'Good',
+        price: 80,
+      },
+    ],
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Toolbar state={toolbar}>
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
+            Import
+          </ToolbarButton>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
+            Export
+          </ToolbarButton>
+        </Toolbar>
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Pagination
+
+Example using the [Pagination](pagination) component.
+
+```jsx noInline live
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const items = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function WithPagination() {
+  const view = useDataViewState()
+  const pagination = usePaginationState({
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
+  })
+  const grid = useTableState({
+    view,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item }) => {
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: () => {
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    items: items.slice(pagination.range[0] - 1, pagination.range[1]),
+    length: ITEMS_PER_PAGE,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<WithPagination />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Reacting to DataView status
+
+By dispatch the `setStatus` function of the `DataView`, the `Table` reacts to it.
+
+```jsx noInline live
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function StatusExample() {
+  const view = useDataViewState()
+  const grid = useTableState({
+    view,
+    items,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item, context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: ({ context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    length: 3,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Button
+          onClick={() =>
+            view.setStatus({
+              type: 'ready',
+            })
+          }
+        >
+          Ready
+        </Button>
+        <Button
+          onClick={() =>
+            view.setStatus({
+              type: 'loading',
+            })
+          }
+        >
+          Loading
+        </Button>
+        <Button
+          onClick={() =>
+            view.setStatus({
+              type: 'error',
+              message: 'Something went wrong',
+            })
+          }
+        >
+          Error
+        </Button>
+        <Button
+          onClick={() =>
+            view.setStatus({
+              type: 'not-found',
+              message: 'Your product was not found',
+            })
+          }
+        >
+          Not Found
+        </Button>
+        <Button
+          onClick={() =>
+            view.setStatus({
+              type: 'empty',
+              message: 'You need to create something',
+            })
+          }
+        >
+          Empty
+        </Button>
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<StatusExample />)
+```
+
+</Section>
+
+</Section>
+
+<Section hasExplanation>
+
+## Examples
+
+This section presents a series of examples that may be useful.
+
+<Section hasExplanation>
+
+### Filters
+
+Displaying filters and filtering data
+
+```jsx noInline live
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
+const FilterGroup = experimental_FilterGroup
+const useFilterGroupState = experimental_useFilterGroupState
+const Filter = experimental_Filter
+const useFilterState = experimental_useFilterState
+
+const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const items = ids.map((id) => {
+  return {
+    id: `${id}`,
+    name: faker.commerce.productName(),
+    lastSale: faker.date.past().toDateString(),
+    price: faker.commerce.price(),
+    brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
+  }
+})
+
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'brand',
+    header: 'Brand ID',
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label="Good" size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'root',
+      render: () => {
+        const menu = useMenuState()
+
+        const handleClick = (event) => {
+          event.stopPropagation()
+        }
+
+        return (
+          <>
+            <MenuButton
+              state={menu}
+              variant="neutralTertiary"
+              onClick={handleClick}
+              labelHidden
+            />
+            <Menu state={menu}>
+              <MenuItem label="Add to cart" onClick={handleClick} />
+              <MenuItem label="Buy" onClick={handleClick} />
+            </Menu>
+          </>
+        )
+      },
+    },
+  },
+])
+
+function FilterControls() {
+  const [data, setData] = useState(items)
+  const view = useDataViewState()
+
+  const grid = useTableState({
+    view,
+    columns,
+    items: data,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  const [quality, setQuality] = useState()
+  const [brand, setBrand] = useState()
+
+  const brandFilterState = useFilterMultipleState({
+    items: [
+      { label: 'Mistery brand', id: 'mistery_id' },
+      { label: 'Cool brand', id: 'cool_id' },
+    ],
+    onChange: ({ selected }) => {
+      setBrand(selected)
+    },
+    label: 'Brand',
+  })
+
+  const qualityFilterState = useFilterState({
+    items: [
+      { label: 'Normal', id: 'norm' },
+      { label: 'Premium', id: 'prem' },
+    ],
+    onChange: ({ selected }) => {
+      setQuality(selected)
+    },
+    label: 'Quality',
+  })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [qualityFilterState, brandFilterState],
+  })
+
+  useEffect(() => {
+    const filtered = items.filter((item) => {
+      if (quality === 'norm' && Number(item.price) > 510) {
+        return false
+      }
+
+      if (quality === 'prem' && Number(item.price) <= 510) {
+        return false
+      }
+
+      if (brand && brand.length) {
+        if (!brand.includes('cool_id') && item.brand === 'cool_id') {
+          return false
+        }
+
+        if (!brand.includes('mistery_id') && item.brand === 'mistery_id') {
+          return false
+        }
+      }
+
+      return true
+    })
+
+    setData(filtered)
+  }, [quality, brand])
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <FilterGroup state={filterGroupState}>
+          <FilterMultiple state={brandFilterState} />
+          <Filter state={qualityFilterState} />
+        </FilterGroup>
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<FilterControls />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Topbar
+
+Mixing the concepts of `Search`, `Toolbar` and `Pagination`
+
+```jsx noInline live
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const items = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function WithFullTopbar() {
+  const toolbar = useToolbarState()
+  const view = useDataViewState()
+  const search = useSearchState()
+  const pagination = usePaginationState({
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
+  })
+
+  const paginatedItems = React.useMemo(() => {
+    pagination.paginate({ type: 'reset' })
+    return items.filter((item) =>
+      item.name.toLowerCase().startsWith(
+        // use the search debounced value to
+        // filter the collection
+        search.debouncedValue.toLocaleLowerCase()
+      )
+    )
+  }, [search.debouncedValue])
+
+  const grid = useTableState({
+    view,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item }) => {
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: () => {
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    items: [...paginatedItems].slice(
+      pagination.range[0] - 1,
+      pagination.range[1]
+    ),
+    length: ITEMS_PER_PAGE,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Search id="search" placeholder="Search" state={search} />
+        <Toolbar state={toolbar} aria-label="Toolbar">
+          <ToolbarButton
+            size="small"
+            variant="text"
+            icon={<IconArrowLineDown />}
+          >
+            Import
+          </ToolbarButton>
+          <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
+            Export
+          </ToolbarButton>
+        </Toolbar>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<WithFullTopbar />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Data fetching
+
+Example with a simulated data fetching
+
+```jsx noInline live
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
+function request(delay = 3000, numberOfItems = 3) {
+  return new Promise(function (resolve) {
+    setTimeout(
+      resolve,
+      delay,
+      Array(numberOfItems)
+        .fill()
+        .map((_, id) => {
+          return {
+            id: `${id}`,
+            name: faker.commerce.productName(),
+            lastSale: faker.date.past().toDateString(),
+            price: faker.commerce.price(),
+          }
+        })
+    )
+  })
+}
+
+function DataFetchExample() {
+  const [items, setItems] = React.useState([])
+  /**
+   * This is just for the example purposes so, nevermind
+   */
+  const [update, setUpdate] = React.useState(false)
+
+  const view = useDataViewState()
+  const grid = useTableState({
+    view,
+    columns: [
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item, context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: ({ context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    length: 3,
+    items,
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  React.useEffect(() => {
+    view.setStatus({
+      type: 'loading',
+    })
+    request().then((d) => {
+      setItems(d)
+      view.setStatus({
+        type: 'ready',
+      })
+    })
+  }, [update])
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <Button
+          onClick={() => {
+            setUpdate((u) => !u)
+          }}
+        >
+          Simulate data fetching
+        </Button>
+      </DataViewControls>
+      <Table state={grid} />
+    </DataView>
+  )
+}
+
+render(<DataFetchExample />)
+```
+
+</Section>
+<Section hasExplanation>
+
+### Selectable row
+
+Example with a simulated data fetching
+
+```jsx noInline live
+function DataFetchExample() {
+  const grid = useTableState({
+    columns: [
+      {
+        id: 'id',
+        resolver: {
+          type: 'selection',
+          mapId: (item) => item.id,
+        },
+      },
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item, context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'root',
+          render: ({ context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            const menu = useMenuState()
+
+            const handleClick = (event) => {
+              event.stopPropagation()
+            }
+
+            return (
+              <>
+                <MenuButton
+                  state={menu}
+                  variant="neutralTertiary"
+                  onClick={handleClick}
+                  labelHidden
+                />
+                <Menu state={menu}>
+                  <MenuItem label="Add to cart" onClick={handleClick} />
+                  <MenuItem label="Buy" onClick={handleClick} />
+                </Menu>
+              </>
+            )
+          },
+        },
+      },
+    ],
+    length: 3,
+    items: React.useMemo(
+      () =>
+        Array(3)
+          .fill()
+          .map((_, id) => {
+            return {
+              id: `${id}`,
+              name: faker.commerce.productName(),
+              lastSale: faker.date.past().toDateString(),
+              price: faker.commerce.price(),
+            }
+          }),
+      []
+    ),
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  const selection = useSelectionTreeState({
+    items: grid.data,
+    mapId: (item) => item.id,
+  })
+
+  return (
+    <SelectionTree state={selection}>
+      <Table state={grid} />
+    </SelectionTree>
+  )
+}
+
+render(<DataFetchExample />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Drag and Drop
+
+Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the Table's table internals.
+
+```jsx noInline live
+const fakeData = Array(5)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function Dnd() {
+  console.log(fakeData)
+  const [items, setItems] = useState(fakeData)
+  const state = useTableState({
+    columns: [
+      {
+        id: 'draggable',
+        header: '',
+        width: 36,
+        resolver: {
+          type: 'root',
+          render: function RenderIcon() {
+            return <IconDotsSixVertical />
+          },
+        },
+      },
+      {
+        id: 'name',
+        width: 200,
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        width: 200,
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        width: 100,
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  function reorder(list, startIndex, endIndex) {
+    const result = Array.from(list)
+    const [removed] = result.splice(startIndex, 1)
+
+    result.splice(endIndex, 0, removed)
+
+    return result
+  }
+
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return
+    }
+
+    const orderedItems = reorder(
+      items,
+      result.source.index,
+      result.destination.index
+    )
+
+    setItems(orderedItems)
+  }
+
+  return (
+    <Table state={state} csx={{ width: 'unset' }}>
+      <TableHead />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable">
+          {(droppableProvided) => (
+            <TableBody ref={droppableProvided.innerRef}>
+              {(render) => (
+                <Fragment>
+                  {render(({ key, item, index }) => {
+                    return (
+                      <Draggable draggableId={key} index={index}>
+                        {(draggableProvided, draggableSnapshot) => (
+                          <TableBodyRow
+                            id={key}
+                            item={item}
+                            ref={draggableProvided.innerRef}
+                            {...draggableProvided.draggableProps}
+                            {...draggableProvided.dragHandleProps}
+                            csx={{
+                              ...draggableProvided.draggableProps.style,
+                              boxShadow: draggableSnapshot.isDragging
+                                ? '$overlay.center'
+                                : 'none',
+                            }}
+                          />
+                        )}
+                      </Draggable>
+                    )
+                  })}
+                  {droppableProvided.placeholder}
+                </Fragment>
+              )}
+            </TableBody>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </Table>
+  )
+}
+
+render(<Dnd />)
+```
+
+</Section>
+
+</Section>
