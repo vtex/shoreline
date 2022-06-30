@@ -53,10 +53,10 @@ export function TokensTable(props: TokensTableProps) {
     [dropdown.selectedItem]
   )
 
+  const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
+
   const searchedItems = React.useMemo(() => {
     return items.filter((item) => {
-      const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
-
       if (filter !== 'all' && filter !== item.type.toLowerCase()) return false
 
       const isSearchedTextInValueColumn =
@@ -70,7 +70,7 @@ export function TokensTable(props: TokensTableProps) {
         isSearchedTextInValueColumn
       )
     })
-  }, [search])
+  }, [searchLowerCase])
 
   useEffect(() => {
     if (!searchedItems.length) {
