@@ -3,13 +3,15 @@ import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 import type { StyleObject } from '@vtex/admin-ui-core'
-import { focusVisible } from '@vtex/admin-ui-core'
+import { style, focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'
+import { get } from '@vtex/admin-ui-util'
 
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../components/Skeleton'
 import type { TableDensity } from '../types'
+import { Stack } from '../../stack'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -18,6 +20,12 @@ const defaultPreview: ImagePreview = {
 }
 
 function getImageVariant(density: TableDensity): StyleObject {
+  const outlineStyle = style({
+    outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+    outlineWidth: '0.125rem',
+    outlineStyle: 'solid',
+  })
+
   return {
     regular: {
       width: 56,
@@ -34,9 +42,11 @@ function getImageVariant(density: TableDensity): StyleObject {
       borderRadius: 4,
     },
     variable: {
-      minWidth: 32,
-      minHeight: 32,
-      borderRadius: 4,
+      size: 44,
+      minSize: 44,
+      verticalAlign: 'middle',
+      borderRadius: '$default',
+      ...outlineStyle,
     },
   }[density] as any
 }
@@ -72,11 +82,13 @@ export function imageResolver<T>() {
             context={context}
           />
         ) : (
-          <img
-            alt={resolver.alt}
-            className={cn(getImageVariant(context.density))}
-            src={url}
-          />
+          <ImageContainer>
+            <img
+              alt={resolver.alt}
+              className={cn(getImageVariant(context.density))}
+              src={url}
+            />
+          </ImageContainer>
         )
       ) : (
         <Skeleton
@@ -92,6 +104,14 @@ export function imageResolver<T>() {
       return render({ data, item, context })
     },
   })
+}
+
+function ImageContainer(props: ImageContainerProps) {
+  return (
+    <Stack csx={{ height: 64, justifyContent: 'center' }}>
+      {props.children}
+    </Stack>
+  )
 }
 
 /**
@@ -119,31 +139,34 @@ function ImageWithPreview(props: PreviewComponentProps) {
     <Fragment>
       <TooltipReference {...tooltip}>
         {(referenceProps) => (
-          <img
-            {...referenceProps}
-            alt={alt}
-            className={cn({
-              ...getImageVariant(density),
-              cursor: 'zoom-in',
-              transition: 'transform 150ms ease-in-out',
-              ':hover': {
-                transform: 'scale(1.1)',
-                boxShadow: '$overlay.bottom',
-              },
-              ...focusVisible('main'),
-            })}
-            src={url}
-          />
+          <ImageContainer>
+            <img
+              {...referenceProps}
+              alt={alt}
+              className={cn({
+                ...getImageVariant(density),
+                ...focusVisible('main'),
+              })}
+              src={url}
+            />
+          </ImageContainer>
         )}
       </TooltipReference>
       <Tooltip
         {...tooltip}
         className={cn({
+          display: 'flex',
           outline: 'none',
+          paddingY: '$l',
+          paddingX: '$m',
           transition: `opacity 100ms ease-in ${preview.delay}ms`,
           willChange: 'opacity',
           opacity: 0,
+          boxShadow: '$overlay.center',
+          borderRadius: '$default',
+          background: '$primary',
           img: {
+            borderRadius: '$default',
             willChange: 'transform',
             transformOrigin: 'right center',
             transition: `transform 100ms ease-in ${preview.delay}ms`,
@@ -163,28 +186,16 @@ function ImageWithPreview(props: PreviewComponentProps) {
           className={cn(
             {
               small: {
-                width: 56,
-                minWidth: 56,
-                height: 56,
-                minHeight: 56,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 56,
+                minSize: 56,
               },
               regular: {
-                width: 156,
-                minWidth: 156,
-                height: 156,
-                minHeight: 156,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 156,
+                minSize: 156,
               },
               large: {
-                width: 256,
-                minWidth: 256,
-                height: 256,
-                minHeight: 256,
-                borderRadius: 4,
-                boxShadow: '$overlay.center',
+                size: 256,
+                minSize: 256,
               },
             }[preview.size] as StyleObject
           )}
@@ -193,6 +204,10 @@ function ImageWithPreview(props: PreviewComponentProps) {
       </Tooltip>
     </Fragment>
   )
+}
+
+interface ImageContainerProps {
+  children: ReactNode
 }
 
 interface PreviewComponentProps {

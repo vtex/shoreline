@@ -1,6 +1,6 @@
 import React, { cloneElement, Fragment } from 'react'
 import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
-import { IconCaretDown, IconCaretUp } from '@vtex/phosphor-icons'
+import { IconArrowDown, IconArrowUp } from '@vtex/phosphor-icons'
 
 import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
@@ -25,7 +25,7 @@ export const TableHead = createComponent<'thead'>((props) => {
           const cellProps = {
             column,
             role: 'columnheader',
-            density: 'compact',
+            density: 'variable',
             onClick: isSortable
               ? () => state.sortState.sort(column.id)
               : undefined,
@@ -70,25 +70,15 @@ const SortIndicator = createComponent<'div', SortIndicatorOptions>((props) => {
     baseStyle: styles.sortIndicator,
     children: (
       <Fragment>
-        {direction !== 'DSC' && (
-          <IconCaretUp
-            weight="fill"
-            height="8px"
-            width="8px"
+        {direction !== 'DSC' ? (
+          <IconArrowUp
+            size="small"
             csx={{
-              color: direction === 'ASC' ? '$primary' : '$secondary',
+              opacity: direction === 'ASC' ? 1 : 0,
             }}
           />
-        )}
-        {direction !== 'ASC' && (
-          <IconCaretDown
-            weight="fill"
-            height="8px"
-            width="8px"
-            csx={{
-              color: direction === 'DSC' ? '$primary' : '$secondary',
-            }}
-          />
+        ) : (
+          <IconArrowDown size="small" />
         )}
       </Fragment>
     ),

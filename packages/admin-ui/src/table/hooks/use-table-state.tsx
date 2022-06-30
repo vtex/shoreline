@@ -31,7 +31,7 @@ export function useTableState<T>(
     getRowKey = (item: T) =>
       get(item as unknown as Record<string, unknown>, 'id', ''),
     onRowClick,
-    density: initialDensity = 'regular',
+    density: initialDensity = 'variable',
     view = {
       status: 'ready',
       statusObject: {

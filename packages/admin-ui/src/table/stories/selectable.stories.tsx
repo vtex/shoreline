@@ -18,6 +18,7 @@ export default {
 interface Item {
   id: number
   productName: string
+  description: string
   condition: string
   price: number
 }
@@ -28,18 +29,28 @@ export function Selectable() {
       {
         id: 1,
         productName: 'Orange',
+        description: 'Fruit',
+        image:
+          'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
+
         condition: 'Good',
         price: 100,
       },
       {
         id: 2,
         productName: 'Lemon',
+        description: 'Fruit',
+        image:
+          'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
         condition: 'Average',
         price: 30,
       },
       {
         id: 3,
         productName: 'Tomato',
+        description: 'Fruit',
+        image:
+          'https://images.unsplash.com/photo-1587486938113-d6d38d424efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
         condition: 'Mint',
         price: 10,
       },
@@ -58,8 +69,26 @@ export function Selectable() {
           },
         },
         {
+          id: 'image',
+          header: 'Image',
+          resolver: {
+            type: 'image',
+            preview: {
+              display: true,
+              size: 'regular',
+              delay: 0,
+            },
+          },
+        },
+        {
           id: 'productName',
-          header: 'Product Name',
+          header: 'Name',
+          resolver: {
+            type: 'text',
+            columnType: 'name',
+            mapText: (item) => item.productName,
+            mapDescription: (item) => item.description,
+          },
         },
         {
           id: 'condition',

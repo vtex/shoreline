@@ -4,9 +4,16 @@ export const baseline = style({
   flex: 1,
   text: '$body',
   display: 'table-cell',
-  borderBottom: '$neutral',
   verticalAlign: 'middle',
-  paddingX: 2,
+  paddingX: '$xl',
+
+  ':first-child': {
+    paddingLeft: '$l',
+  },
+
+  ':last-child': {
+    paddingRight: '$l',
+  },
 })
 
 export const variants = styleVariants({
@@ -18,9 +25,8 @@ export const variants = styleVariants({
       height: 48,
     },
     variable: {
-      verticalAlign: 'top',
-      minHeight: 48,
-      paddingY: 4,
+      size: 44,
+      minHeight: 44,
     },
   },
   clickable: {

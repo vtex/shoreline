@@ -1,11 +1,12 @@
-import type { ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
+import type { ReactNode } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
 import { useDataViewContext } from '../../components/DataView'
+import { useSelectionTreeContext } from '../../components/SelectionTree'
 import * as styles from '../styles/table-body.styles'
 
 export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
@@ -72,6 +73,20 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
 
     const clickable = onRowClick && !(status === 'loading')
 
+    const isRowSelected = () => {
+      const isSelectable = columns.some(
+        (column) => column?.resolver?.type === 'selection'
+      )
+
+      if (!isSelectable) {
+        return false
+      }
+
+      const { selectedItems } = useSelectionTreeContext()
+
+      return selectedItems.some((selectedItem) => selectedItem.id === item.id)
+    }
+
     const handleClick = () => {
       if (clickable) {
         onRowClick?.(item)
@@ -81,8 +96,9 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
     return useElement('tr', {
       ...rowProps,
       baseStyle: {
-        ...styles.tableRowbaseline,
+        ...styles.rowBaseline,
         ...styles.variants({ clickable }),
+        ...styles.variants({ selected: isRowSelected() }),
       },
       role,
       children: (
