@@ -33,7 +33,7 @@ const ReactLiveScope = {
   ...AdminFormik,
   ...Formik,
   ...dnd,
-  ...Forms,
+  Forms,
   Yup,
   ...Intl,
   ReakitButton,
