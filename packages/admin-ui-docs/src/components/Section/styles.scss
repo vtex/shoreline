@@ -4,6 +4,12 @@
   --ifm-table-cell-padding: 2rem 1.25rem;
 }
 
+.section-with-content {
+  .section-info {
+    margin-bottom: 2.5rem;
+  }
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -13,7 +19,6 @@
   }
 
   .section-info {
-    margin-bottom: 2.5rem;
     width: 100%;
   }
 
