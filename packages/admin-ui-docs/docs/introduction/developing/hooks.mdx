@@ -121,22 +121,6 @@ function Example() {
 }
 ```
 
-## useResponsiveValue
-
-Custom hook which returns the value for the current breakpoint from the provided responsive values object. It also responds to the window resizing and returning the appropriate value for the new window size.
-
-### Usage
-
-```jsx live
-function Example() {
-  const mobileText = '📱 mobile'
-  const aboveTabletText = '🖥 tablet & above'
-  const text = useResponsiveValue([mobileText, aboveTabletText])
-
-  return <Box>{text}</Box>
-}
-```
-
 ## useMediaQuery
 
 This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of components based on whether the query matches or not.
