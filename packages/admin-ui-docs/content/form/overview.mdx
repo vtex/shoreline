@@ -19,7 +19,11 @@ A performant form state handling library. It has a first-class typescript suppor
 
 ### Simple Form
 
-```jsx live
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -42,6 +46,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -50,7 +56,11 @@ function Example() {
 
 ### Validation
 
-```jsx live
+```jsx noInline live
+// import { Form, TextInput, NumberInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, NumberInput, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -100,6 +110,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -110,7 +122,11 @@ function Example() {
 
 Yup is a schema builder for runtime value parsing and validation
 
-```jsx live
+```jsx noInline live
+// import { Form, TextInput, TextArea, yupResolver, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, TextArea, yupResolver, useFormState } = Forms
+
 function Example() {
   const schema = Yup.object({
     firstName: Yup.string().required(),
@@ -136,6 +152,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -144,7 +162,11 @@ function Example() {
 
 ### useWatch
 
-```jsx live
+```jsx noInline live
+// import { Form, useWatch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, useWatch, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -187,6 +209,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -195,7 +219,11 @@ function Example() {
 
 ### Watch
 
-```jsx live
+```jsx noInline live
+// import { Form, Watch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Watch, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -234,6 +262,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -248,7 +278,11 @@ function Example() {
 
 ### Checkbox
 
-```jsx live
+```jsx noInline live
+// import { Form, CheckboxGroup, Checkbox, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, CheckboxGroup, Checkbox, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -273,6 +307,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -281,7 +317,11 @@ function Example() {
 
 ### Radio
 
-```jsx live
+```jsx noInline live
+// import { Form, RadioGroup, Radio, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, RadioGroup, Radio, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -310,6 +350,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -318,7 +360,11 @@ function Example() {
 
 ### Switch
 
-```jsx live
+```jsx noInline live
+// import { Form, Switch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Switch, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -341,6 +387,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -349,7 +397,11 @@ function Example() {
 
 ### NumberInput
 
-```jsx live
+```jsx noInline live
+// import { Form, NumberInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, NumberInput, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -367,6 +419,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -375,7 +429,11 @@ function Example() {
 
 ### Select
 
-```jsx live
+```jsx noInline live
+// import { Form, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Select, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -396,6 +454,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -404,7 +464,11 @@ function Example() {
 
 ### TextArea
 
-```jsx live
+```jsx noInline live
+// import { Form, TextArea, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextArea, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -422,6 +486,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -430,7 +496,11 @@ function Example() {
 
 ### TextInput
 
-```jsx live
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, useFormState } = Forms
+
 function Example() {
   const form = useFormState()
 
@@ -453,6 +523,8 @@ function Example() {
     </Form>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
