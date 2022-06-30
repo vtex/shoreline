@@ -25,12 +25,17 @@ export function Section(props: SectionProps) {
     children,
   } = props
 
+  const childrenLength = React.Children.toArray(children).length
+
+  const hasContent = hasExplanation ? childrenLength > 2 : childrenLength > 1
+
   return (
     <div
       className={clsx(
         'section',
         {
           'section--row': isLargeScreen && props.direction === 'row',
+          'section-with-content': hasContent,
         },
         props.className
       )}
@@ -50,11 +55,13 @@ export function Section(props: SectionProps) {
           </p>
         )}
       </div>
-      <div className="section-content">
-        {React.Children.map(children, (child, index) =>
-          isContentChild(index, hasExplanation) ? child : null
-        )}
-      </div>
+      {hasContent ? (
+        <div className="section-content">
+          {React.Children.map(children, (child, index) =>
+            isContentChild(index, hasExplanation) ? child : null
+          )}
+        </div>
+      ) : null}
     </div>
   )
 }
