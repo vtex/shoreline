@@ -16,7 +16,10 @@ export const PageHeaderBottom = createComponent<'div'>((props) => {
   })
 
   return useElement('div', {
-    baseStyle: style.pageHeaderBottom({ tabs: hasTab.current }),
+    baseStyle: {
+      ...style.pageHeaderBottomBase,
+      ...style.pageHeaderBottom({ tabs: hasTab.current }),
+    },
     children,
     ...htmlProps,
   })
