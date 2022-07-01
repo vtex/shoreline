@@ -10,11 +10,15 @@ export const global = {
   'html, body': {
     fontFamily: typography.fontStack.sans,
     fontVariationSettings: typography.fontWeight.regular,
+    '-webkit-font-smoothing': 'antialiased',
+    '-moz-osx-font-smoothing': 'grayscale',
   },
   'pre, code': { fontFamily: typography.fontStack.mono },
   '*': {
     fontFamily: typography.fontStack.sans,
     fontVariationSettings: typography.fontWeight.regular,
+    '-webkit-font-smoothing': 'antialiased',
+    '-moz-osx-font-smoothing': 'grayscale',
     fontWeight: 'normal',
   },
   '*, ::before, ::after': {
