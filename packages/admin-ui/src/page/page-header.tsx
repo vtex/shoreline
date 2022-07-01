@@ -1,9 +1,8 @@
 import React from 'react'
-import type { ComponentPropsWithRef, ReactNode } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { PageHeaderContext } from './page-header-context'
-import type { MenuItemProps, MenuOptions } from '../components/Menu'
 import * as style from './page.style'
 
 /**
