@@ -3,7 +3,16 @@ import type { Meta } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 import faker from 'faker'
 
-import { Page, PageContent, PageHeader } from './index'
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  PageHeaderTitle,
+  PageHeaderTop,
+  PageHeaderActions,
+  PageHeaderBottom,
+} from './index'
+import { Tabs, useTabState, TabPanel, TabList, Tab } from '../components/Tabs'
 import {
   DataView,
   DataViewControls,
@@ -16,19 +25,63 @@ import {
   createColumns,
 } from '../components/DataGrid'
 import { Box } from '../box'
+import { Tag } from '../tag'
+import { Button } from '../button'
+import { Inline } from '../inline'
 
 export default {
   title: 'admin-ui-review/page',
 } as Meta
 
 export function Basic() {
+  const tabs = useTabState()
+
   return (
-    <Page>
-      <PageHeader title="Page Title" />
-      <PageContent>
-        <tag.div>Page Content</tag.div>
-      </PageContent>
-    </Page>
+    <Tabs state={tabs}>
+      <Page>
+        <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+          <PageHeaderTop>
+            <PageHeaderTitle>
+              Product #123{' '}
+              <Inline hSpace="$m">
+                <Tag label="Short text" size="large" />
+                <Tag label="Short text" size="large" />
+              </Inline>
+            </PageHeaderTitle>
+            <PageHeaderActions>
+              <Button variant="critical" size="large">
+                Delete item
+              </Button>
+              <Button variant="secondary" size="large">
+                Edit
+              </Button>
+              <Button size="large">Create</Button>
+            </PageHeaderActions>
+          </PageHeaderTop>
+          <PageHeaderBottom>
+            <TabList>
+              <Tab id="1">Label</Tab>
+              <Tab id="2">Label</Tab>
+              <Tab id="3">Label</Tab>
+            </TabList>
+          </PageHeaderBottom>
+        </PageHeader>
+        <PageContent>
+          <tag.div>
+            Page Content
+            <TabPanel id="1" csx={{ padding: 3 }}>
+              <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+            </TabPanel>
+            <TabPanel id="2" csx={{ padding: 3 }}>
+              <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+            </TabPanel>
+            <TabPanel id="3" csx={{ padding: 3 }}>
+              <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+            </TabPanel>
+          </tag.div>
+        </PageContent>
+      </Page>
+    </Tabs>
   )
 }
 
@@ -94,15 +147,7 @@ export function WithDataView() {
 
   return (
     <Page>
-      <PageHeader
-        title="Page Title"
-        onPopNavigation={() => alert('should go back')}
-        actionOptions={[
-          {
-            children: 'Primary Action',
-          },
-        ]}
-      />
+      <PageHeader onPopNavigation={() => alert('should go back')} />
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
@@ -133,7 +178,7 @@ function Placeholder() {
 export function Standard() {
   return (
     <Page>
-      <PageHeader title="Page Title" />
+      <PageHeader />
       <PageContent>
         <Placeholder />
         <Placeholder />
@@ -145,7 +190,7 @@ export function Standard() {
 export function Narrow() {
   return (
     <Page>
-      <PageHeader title="Page Title" />
+      <PageHeader />
       <PageContent layout="narrow">
         <Placeholder />
         <Placeholder />
@@ -157,7 +202,7 @@ export function Narrow() {
 export function Wide() {
   return (
     <Page>
-      <PageHeader title="Page Title" />
+      <PageHeader />
       <PageContent layout="wide">
         <Placeholder />
         <Placeholder />

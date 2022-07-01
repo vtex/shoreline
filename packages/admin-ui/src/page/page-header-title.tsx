@@ -5,26 +5,14 @@ import { IconArrowLeft } from '@vtex/phosphor-icons'
 
 import { Button } from '../button'
 import { usePageHeaderContext } from './page-header-context'
-import { Tag } from '../tag'
 import * as style from './page.style'
 
-export const PageHeaderStart = createComponent<'div'>((props) => {
-  const { ...htmlProps } = props
-  const { onPopNavigation, title, tagOptions } = usePageHeaderContext()
-
-  const tags = tagOptions?.map((option) => (
-    <Tag
-      {...option}
-      csx={{
-        ...option.csx,
-        ...style.pageHeaderTag,
-      }}
-      size="large"
-    />
-  ))
+export const PageHeaderTitle = createComponent<'div'>((props) => {
+  const { children, ...htmlProps } = props
+  const { onPopNavigation } = usePageHeaderContext()
 
   return useElement('div', {
-    baseStyle: style.pageHeaderStart,
+    baseStyle: style.pageHeaderTitleBase,
     children: (
       <>
         {onPopNavigation && (
@@ -38,13 +26,11 @@ export const PageHeaderStart = createComponent<'div'>((props) => {
             csx={style.popNavigationButton}
           />
         )}
-        <tag.div csx={style.pageHeaderTitle}>
-          {title} {tags}
-        </tag.div>
+        <tag.div csx={style.pageHeaderTitle}>{children}</tag.div>
       </>
     ),
     ...htmlProps,
   })
 })
 
-export type PageHeaderStart = ComponentPropsWithRef<typeof PageHeaderStart>
+export type PageHeaderTitle = ComponentPropsWithRef<typeof PageHeaderTitle>
