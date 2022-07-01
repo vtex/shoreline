@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
@@ -30,8 +30,47 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {
     const { onPopNavigation, children, ...htmlProps } = props
 
+    const [scrollOnTop, setScrollOnTop] = useState(window.scrollY === 0)
+
+    useEffect(() => {
+      const threshold = 0
+      let lastScrollY = window.scrollY
+      let ticking = false
+
+      const updateScrolling = () => {
+        const scrollY = window.scrollY
+
+        if (scrollY === threshold) {
+          setScrollOnTop(true)
+
+          return
+        }
+
+        if (Math.abs(scrollY - lastScrollY) < threshold) {
+          ticking = false
+
+          return
+        }
+
+        setScrollOnTop(false)
+        lastScrollY = scrollY > threshold ? scrollY : threshold
+        ticking = false
+      }
+
+      const onScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrolling)
+          ticking = true
+        }
+      }
+
+      window.addEventListener('scroll', onScroll)
+
+      return () => window.removeEventListener('scroll', onScroll)
+    }, [scrollOnTop])
+
     return useElement('header', {
-      baseStyle: style.pageHeader,
+      baseStyle: style.pageHeader({ scrollOnTop }),
       children: (
         <PageHeaderContext.Provider
           value={{

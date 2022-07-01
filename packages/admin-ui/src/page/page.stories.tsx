@@ -34,52 +34,14 @@ export default {
 } as Meta
 
 export function Basic() {
-  const tabs = useTabState()
-
   return (
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>
-            Product #123{' '}
-            <Stack direction="row" space="$m">
-              <Tag label="Short text" size="large" />
-              <Tag label="Short text" size="large" />
-            </Stack>
-          </PageHeaderTitle>
-          <PageHeaderActions>
-            <Button variant="critical" size="large">
-              Delete item
-            </Button>
-            <Button variant="secondary" size="large">
-              Edit
-            </Button>
-            <Button size="large">Create</Button>
-          </PageHeaderActions>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
         </PageHeaderTop>
-        <PageHeaderBottom>
-          <TabList state={tabs}>
-            <Tab id="1">Label</Tab>
-            <Tab id="2">Label</Tab>
-            <Tab id="3">Label</Tab>
-          </TabList>
-        </PageHeaderBottom>
       </PageHeader>
-      <PageContent>
-        <tag.div>
-          <TabPanelList state={tabs}>
-            <TabPanel id="1" csx={{ padding: 3 }}>
-              <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-            </TabPanel>
-            <TabPanel id="2" csx={{ padding: 3 }}>
-              <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-            </TabPanel>
-            <TabPanel id="3" csx={{ padding: 3 }}>
-              <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-            </TabPanel>
-          </TabPanelList>
-        </tag.div>
-      </PageContent>
+      <PageContent>Page content</PageContent>
     </Page>
   )
 }
@@ -146,7 +108,11 @@ export function WithDataView() {
 
   return (
     <Page>
-      <PageHeader onPopNavigation={() => alert('should go back')} />
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+        </PageHeaderTop>
+      </PageHeader>
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
@@ -177,7 +143,11 @@ function Placeholder() {
 export function Standard() {
   return (
     <Page>
-      <PageHeader />
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+        </PageHeaderTop>
+      </PageHeader>
       <PageContent>
         <Placeholder />
         <Placeholder />
@@ -189,7 +159,11 @@ export function Standard() {
 export function Narrow() {
   return (
     <Page>
-      <PageHeader />
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+        </PageHeaderTop>
+      </PageHeader>
       <PageContent layout="narrow">
         <Placeholder />
         <Placeholder />
@@ -201,11 +175,97 @@ export function Narrow() {
 export function Wide() {
   return (
     <Page>
-      <PageHeader />
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+        </PageHeaderTop>
+      </PageHeader>
       <PageContent layout="wide">
         <Placeholder />
         <Placeholder />
         <Placeholder />
+      </PageContent>
+    </Page>
+  )
+}
+
+export function FullFledged() {
+  const tabs = useTabState()
+  const [data, setData] = useState(items)
+  const view = useDataViewState()
+  const search = useSearchState()
+  const grid = useDataGridState<Item>({
+    view,
+    columns,
+    items: data,
+  })
+
+  useEffect(() => {
+    if (search.debouncedValue !== '') {
+      setData(
+        items.filter((item) =>
+          item.name
+            .toLowerCase()
+            .startsWith(search.debouncedValue.toLowerCase())
+        )
+      )
+    } else {
+      setData(items)
+    }
+  }, [search.debouncedValue])
+
+  return (
+    <Page>
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>
+            Product #123{' '}
+            <Stack direction="row" space="$m">
+              <Tag label="Short text" size="large" />
+              <Tag label="Short text" size="large" />
+            </Stack>
+          </PageHeaderTitle>
+          <PageHeaderActions>
+            <Button variant="critical" size="large">
+              Delete item
+            </Button>
+            <Button variant="secondary" size="large">
+              Edit
+            </Button>
+            <Button size="large">Create</Button>
+          </PageHeaderActions>
+        </PageHeaderTop>
+        <PageHeaderBottom>
+          <TabList state={tabs}>
+            <Tab id="1">Label</Tab>
+            <Tab id="2">Label</Tab>
+            <Tab id="3">Label</Tab>
+          </TabList>
+        </PageHeaderBottom>
+      </PageHeader>
+      <PageContent>
+        <TabPanelList state={tabs}>
+          <TabPanel id="1">
+            <DataView state={view}>
+              <DataViewControls>
+                <Search
+                  id="search"
+                  aria-label="DataGrid Search"
+                  placeholder="Search by name"
+                />
+              </DataViewControls>
+              <DataGrid state={grid} />
+            </DataView>
+          </TabPanel>
+          <TabPanel id="2">
+            <Placeholder />
+          </TabPanel>
+          <TabPanel id="3">
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+          </TabPanel>
+        </TabPanelList>
       </PageContent>
     </Page>
   )
