@@ -28,7 +28,7 @@ export function textResolver<T>() {
       const data = resolver?.mapDescription ? (
         <Stack
           space={isNameColumn ? '$s' : '0'}
-          csx={{ height: 64, justifyContent: 'center' }}
+          csx={{ height: '4rem', justifyContent: 'center' }}
         >
           <Text variant={textVariant}>{resolver?.mapText(item)}</Text>
           <Text tone="secondary">{resolver.mapDescription(item)}</Text>

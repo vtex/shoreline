@@ -25,7 +25,6 @@ export const TableHead = createComponent<'thead'>((props) => {
           const cellProps = {
             column,
             role: 'columnheader',
-            density: 'variable',
             onClick: isSortable
               ? () => state.sortState.sort(column.id)
               : undefined,

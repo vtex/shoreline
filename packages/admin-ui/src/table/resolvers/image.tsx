@@ -10,7 +10,6 @@ import { get } from '@vtex/admin-ui-util'
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../components/Skeleton'
-import type { TableDensity } from '../types'
 import { Stack } from '../../stack'
 
 const defaultPreview: ImagePreview = {
@@ -19,37 +18,15 @@ const defaultPreview: ImagePreview = {
   size: 'regular',
 }
 
-function getImageVariant(density: TableDensity): StyleObject {
-  const outlineStyle = style({
-    outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
-    outlineWidth: '0.125rem',
-    outlineStyle: 'solid',
-  })
-
-  return {
-    regular: {
-      width: 56,
-      minWidth: 56,
-      height: 56,
-      minHeight: 56,
-      borderRadius: 4,
-    },
-    compact: {
-      width: 32,
-      minWidth: 32,
-      height: 32,
-      minHeight: 32,
-      borderRadius: 4,
-    },
-    variable: {
-      size: 44,
-      minSize: 44,
-      verticalAlign: 'middle',
-      borderRadius: '$default',
-      ...outlineStyle,
-    },
-  }[density] as any
-}
+const imageStyles = style({
+  size: '2.75rem',
+  minSize: '2.75rem',
+  verticalAlign: 'middle',
+  borderRadius: '$default',
+  outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+  outlineWidth: '0.125rem',
+  outlineStyle: 'solid',
+})
 
 /**
  * Resolve image fields
@@ -83,17 +60,13 @@ export function imageResolver<T>() {
           />
         ) : (
           <ImageContainer>
-            <img
-              alt={resolver.alt}
-              className={cn(getImageVariant(context.density))}
-              src={url}
-            />
+            <img alt={resolver.alt} className={cn(imageStyles)} src={url} />
           </ImageContainer>
         )
       ) : (
         <Skeleton
           csx={{
-            ...getImageVariant(context.density),
+            ...imageStyles,
             animation: '',
           }}
         />
@@ -108,7 +81,7 @@ export function imageResolver<T>() {
 
 function ImageContainer(props: ImageContainerProps) {
   return (
-    <Stack csx={{ height: 64, justifyContent: 'center' }}>
+    <Stack csx={{ height: '4rem', justifyContent: 'center' }}>
       {props.children}
     </Stack>
   )
@@ -120,12 +93,7 @@ function ImageContainer(props: ImageContainerProps) {
  * Uses reakit tooltip under the hood
  */
 function ImageWithPreview(props: PreviewComponentProps) {
-  const {
-    url,
-    preview,
-    context: { density },
-    alt,
-  } = props
+  const { url, preview, alt } = props
 
   const { cn } = useSystem()
 
@@ -144,7 +112,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
               {...referenceProps}
               alt={alt}
               className={cn({
-                ...getImageVariant(density),
+                ...imageStyles,
                 ...focusVisible('main'),
               })}
               src={url}
