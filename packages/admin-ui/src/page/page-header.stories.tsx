@@ -10,10 +10,10 @@ import {
   PageHeaderActions,
   PageHeaderBottom,
 } from './index'
-import { Tabs, useTabState, TabPanel, TabList, Tab } from '../components/Tabs'
+import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
 import { Tag } from '../tag'
 import { Button } from '../button'
-import { Inline } from '../inline'
+import { Stack } from '../stack'
 
 export default {
   title: 'admin-ui-review/page/page-header',
@@ -21,13 +21,7 @@ export default {
 } as Meta
 
 export const Playground: Story<PageHeaderProps> = (args) => {
-  const tabs = useTabState({ selectedId: '1' })
-
-  return (
-    <Tabs state={tabs}>
-      <PageHeader {...args} />
-    </Tabs>
-  )
+  return <PageHeader {...args} />
 }
 
 export function Basic() {
@@ -77,10 +71,10 @@ export function WithTags() {
       <PageHeaderTop>
         <PageHeaderTitle>
           Product #123
-          <Inline hSpace="$m">
+          <Stack direction="row" space="$m">
             <Tag label="Short text" size="large" />
             <Tag label="Short text" size="large" />
-          </Inline>
+          </Stack>
         </PageHeaderTitle>
       </PageHeaderTop>
     </PageHeader>
@@ -91,13 +85,13 @@ export function WithTabs() {
   const tabs = useTabState()
 
   return (
-    <Tabs state={tabs}>
+    <>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
           <PageHeaderTitle>Product #123</PageHeaderTitle>
         </PageHeaderTop>
         <PageHeaderBottom>
-          <TabList>
+          <TabList state={tabs}>
             <Tab id="1">Label</Tab>
             <Tab id="2">Label</Tab>
             <Tab id="3">Label</Tab>
@@ -105,17 +99,19 @@ export function WithTabs() {
         </PageHeaderBottom>
       </PageHeader>
       <tag.div>
-        <TabPanel id="1" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-        </TabPanel>
-        <TabPanel id="2" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-        </TabPanel>
-        <TabPanel id="3" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-        </TabPanel>
+        <TabPanelList state={tabs}>
+          <TabPanel id="1" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+          </TabPanel>
+          <TabPanel id="2" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+          </TabPanel>
+          <TabPanel id="3" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+          </TabPanel>
+        </TabPanelList>
       </tag.div>
-    </Tabs>
+    </>
   )
 }
 
@@ -123,15 +119,15 @@ export function FullFledged() {
   const tabs = useTabState()
 
   return (
-    <Tabs state={tabs}>
+    <>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
           <PageHeaderTitle>
             Product #123{' '}
-            <Inline hSpace="$m">
+            <Stack direction="row" space="$m">
               <Tag label="Short text" size="large" />
               <Tag label="Short text" size="large" />
-            </Inline>
+            </Stack>
           </PageHeaderTitle>
           <PageHeaderActions>
             <Button variant="critical" size="large" bleedY>
@@ -146,7 +142,7 @@ export function FullFledged() {
           </PageHeaderActions>
         </PageHeaderTop>
         <PageHeaderBottom>
-          <TabList>
+          <TabList state={tabs}>
             <Tab id="1">Label</Tab>
             <Tab id="2">Label</Tab>
             <Tab id="3">Label</Tab>
@@ -154,16 +150,18 @@ export function FullFledged() {
         </PageHeaderBottom>
       </PageHeader>
       <tag.div>
-        <TabPanel id="1" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-        </TabPanel>
-        <TabPanel id="2" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-        </TabPanel>
-        <TabPanel id="3" csx={{ padding: 3 }}>
-          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-        </TabPanel>
+        <TabPanelList state={tabs}>
+          <TabPanel id="1" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+          </TabPanel>
+          <TabPanel id="2" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+          </TabPanel>
+          <TabPanel id="3" csx={{ padding: 3 }}>
+            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+          </TabPanel>
+        </TabPanelList>
       </tag.div>
-    </Tabs>
+    </>
   )
 }
