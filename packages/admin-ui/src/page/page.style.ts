@@ -30,37 +30,43 @@ export const pageHeaderTop = style({
   maxWidth: '95rem',
 })
 
-export const pageHeaderBottom = style({
+const pageHeaderBottomBase = style({
   width: '100%',
   marginTop: '$l',
-  marginBottom: '-1.55rem',
-  '* > button': {
-    minWidth: 'unset',
-  },
   '> div': {
     paddingX: 'unset',
   },
   maxWidth: '95rem',
 })
 
-export const pageHeaderStart = style({
-  display: 'flex',
-  alignItems: 'center',
-  minHeight: '2.75rem',
-  '> div': {
-    text: '$pageTitle',
+export const pageHeaderBottom = styleVariants({
+  tabs: {
+    true: {
+      ...pageHeaderBottomBase,
+      marginBottom: '-1.55rem',
+      '* > button': {
+        minWidth: 'unset',
+        padding: 3,
+      },
+    },
+    false: pageHeaderBottomBase,
   },
 })
 
-export const pageHeaderEnd = style({ display: 'flex', alignItems: 'center' })
+export const pageHeaderTitleBase = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+})
 
 export const pageHeaderTitle = style({
+  text: '$pageTitle',
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
   justifyContent: 'flex-start',
   '> div:first-of-type': {
-    marginLeft: '0.75rem',
+    marginLeft: '0.25rem',
   },
 })
 
@@ -78,17 +84,16 @@ export const pageHeaderActions = style({
   alignItems: 'center',
   flexWrap: 'wrap',
   justifyContent: 'flex-end',
-  '> button': {
+  '> div': {
+    display: 'flex',
+  },
+  '* > button': {
     minWidth: '6.5rem',
   },
   '> * + *': {
     marginLeft: '$l',
   },
 })
-
-export const pageHeaderTab = style({ padding: 3 })
-
-export const pageHeaderTag = style({ marginLeft: '$m' })
 
 export const pageContent = style({
   width: '100%',
