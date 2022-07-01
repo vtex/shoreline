@@ -89,7 +89,7 @@ export const tabToc = {
     },
     {
       id: 'use-checkbox-state',
-      value: 'useCheckboxState',
+      value: 'useCheckboxState props',
       level: 2,
     },
     {
@@ -452,18 +452,18 @@ function Example() {
   title={tabToc.codeReference[1].value}
 >
 
-| Name      | Type                | Description                         | Required | Default |
-| --------- | ------------------- | ----------------------------------- | -------- | ------- |
-| id        | `string`            | Same as the HTML attribute          | 🚫       | -       |
-| label     | `string`            | Checkbox label                      | ✅       | -       |
-| value     | `string, or number` | Checkbox value                      | ✅       | -       |
-| disabled  | `boolean`           | Whether Checkbox is disabled or not | 🚫       | `false` |
-| checked   | `boolean`           | Same as the HTML checked attribute  | 🚫       | -       |
-| helpText  | `ReactNode`         | Help text                           | 🚫       | -       |
-| errorText | `ReactNode`         | Error text                          | 🚫       | -       |
-| error     | `boolean`           | Whether the filed is error or not   | 🚫       | `false` |
-| state     | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -       |
-| csx       | `StyleProp`         | Defines component styles            | 🚫       | `{}`    |
+| Name      | Type                | Description                             | Required | Default |
+| --------- | ------------------- | --------------------------------------- | -------- | ------- |
+| id        | `string`            | Same as the HTML attribute              | 🚫       | -       |
+| label     | `string`            | Checkbox label                          | ✅       | -       |
+| value     | `string, or number` | Checkbox value                          | ✅       | -       |
+| disabled  | `boolean`           | Whether the Checkbox is disabled or not | 🚫       | `false` |
+| checked   | `boolean`           | Same as the HTML checked attribute      | 🚫       | -       |
+| helpText  | `ReactNode`         | Help text                               | 🚫       | -       |
+| errorText | `ReactNode`         | Error text                              | 🚫       | -       |
+| error     | `boolean`           | Whether the filed is error or not       | 🚫       | `false` |
+| state     | `CheckboxState`     | Return of `useCheckboxState` hook       | 🚫       | -       |
+| csx       | `StyleProp`         | Defines component styles                | 🚫       | `{}`    |
 
 </PageSection>
 
@@ -472,15 +472,15 @@ function Example() {
   title={tabToc.codeReference[2].value}
 >
 
-| Name      | Type          | Description                                | Required | Default |
-| --------- | ------------- | ------------------------------------------ | -------- | ------- |
-| label     | `string`      | Group label                                | ✅       | -       |
-| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
-| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
-| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
-| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
-| optional  | `boolean`     | Whether the field is optional or not       | 🚫       | -       |
-| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+| Name      | Type          | Description                                   | Required | Default |
+| --------- | ------------- | --------------------------------------------- | -------- | ------- |
+| label     | `string`      | Group label                                   | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                     | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                    | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not             | 🚫       | `false` |
+| direction | `row, column` | Direction in which the children are displayed | 🚫       | `row`   |
+| optional  | `boolean`     | Whether the field is optional or not          | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                      | 🚫       | `{}`    |
 
 </PageSection>
 
@@ -497,7 +497,7 @@ function Example() {
 
 | Name         | Type                              | Description                                                                                                           | Required | Default |
 | ------------ | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| initialValue | `boolean, "indeterminate", any[]` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | ✅       | -       |
+| initialValue | `boolean, "indeterminate", any[]` | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array | ✅       | -       |
 
 </PageSection>
 
@@ -509,8 +509,8 @@ function Example() {
 
 | Name     | Type                                       | Description                                                                                                           | Required | Default |
 | -------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| value    | `boolean, "indeterminate", any[]`          | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | -        | -       |
-| setValue | `SetStateAction< CheckboxState["value"] >` | Sets state                                                                                                            | -        | -       |
+| value    | `boolean, "indeterminate", any[]`          | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array | -        | -       |
+| setValue | `SetStateAction< CheckboxState["value"] >` | Sets the state of the checkbox                                                                                                            | -        | -       |
 
 </PageSection>
 
@@ -522,10 +522,10 @@ function Example() {
   direction="row"
 >
 
-- Checkbox has role `checkbox`.
+- Checkbox has the `checkbox` role.
 - When checked, Checkbox has `aria-checked` set to `true`.
-- When not checked, Checkbox has `aria-checked` set to `false`.
-- When partially checked, Checkbox has `aria-checked` set to `mixed`.
+- When unchecked, Checkbox has `aria-checked` set to `false`.
+- When indeterminate, Checkbox has `aria-checked` set to `mixed`.
 
 </PageSection>
 
