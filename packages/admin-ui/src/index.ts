@@ -25,6 +25,7 @@ export * from './menu'
 export * from './tooltip'
 export * from './alert'
 export * from './tab'
+export * from './page'
 
 export * from './deprecated-set'
 
@@ -59,7 +60,6 @@ export {
   isEdge,
 } from 'react-device-detect'
 export * from './components/SearchBox'
-export * from './components/Page'
 export * from './components/DataView'
 export * from './components/SelectionTree'
 export * from './components/Flex'

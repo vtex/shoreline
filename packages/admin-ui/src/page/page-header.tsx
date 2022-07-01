@@ -9,22 +9,40 @@ import * as style from './page.style'
  * Page header component
  *
  * @example
- * import { Tabs, TabPanel, Button, PageHeader } from "@vtex/admin-ui"
+ * import { PageHeader, PageHeaderTop, PageHeaderTitle, PageHeaderActions, Button, PageHeaderBottom, TabList, Tab } from "@vtex/admin-ui"
  *
- * <Tabs state={tabs}>
- *   <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
- *     Product #123
- *   </PageHeader>
- *   <TabPanel id="1">
- *     <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
- *   </TabPanel>
- *   <TabPanel id="2">
- *     <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
- *   </TabPanel>
- *   <TabPanel id="3">
- *     <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
- *   </TabPanel>
- * </Tabs>
+ * <PageHeader>
+ *  <PageHeaderTop>
+ *    <PageHeaderTitle>
+ *      Product #123
+ *      <Stack direction="row" space="$m">
+ *        <Tag label="Short text" size="large" />
+ *        <Tag label="Short text" size="large" />
+ *      </Stack>
+ *    </PageHeaderTitle>
+ *    <PageHeaderActions>
+ *      <Button size="large" bleedY>Create</Button>
+ *      <Button size="large" bleedY variant="critical">Delete</Button>
+ *      <MenuButton
+ *        state={state}
+ *        variant="tertiary"
+ *        size="large"
+ *        labelHidden
+ *        bleedY
+ *      />
+ *      <Menu state={state} aria-label="actions">
+ *        <MenuItem label="Create" icon={<IconPlus />} />
+ *        <MenuItem label="Edit" icon={<IconPencil />} />
+ *      </Menu>
+ *    </PageHeaderActions>
+ *  </PageHeaderTop>
+ *  <PageHeaderBottom>
+ *    <TabList>
+ *     <Tab id="1">Label</Tab>
+ *     <Tab id="2">Label</Tab>
+ *    </TabList>
+ *  </PageHeaderBottom>
+ * </PageHeader>
  */
 export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {

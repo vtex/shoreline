@@ -7,6 +7,24 @@ import { Button } from '../button'
 import { usePageHeaderContext } from './page-header-context'
 import * as style from './page.style'
 
+/**
+ * Page header title component
+ *
+ * @example
+ * import { PageHeader, PageHeaderTop, PageHeaderTitle, Stack, Tag } from "@vtex/admin-ui"
+ *
+ * <PageHeader>
+ *  <PageHeaderTop>
+ *    <PageHeaderTitle>
+ *      Product #123
+ *      <Stack direction="row" space="$m">
+ *        <Tag label="Short text" size="large" />
+ *        <Tag label="Short text" size="large" />
+ *      </Stack>
+ *    </PageHeaderTitle>
+ *  </PageHeaderTop>
+ * </PageHeader>
+ */
 export const PageHeaderTitle = createComponent<'div'>((props) => {
   const { children, ...htmlProps } = props
   const { onPopNavigation } = usePageHeaderContext()
