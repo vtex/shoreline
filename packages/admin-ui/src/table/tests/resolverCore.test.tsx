@@ -123,7 +123,6 @@ describe('table resolver core tests', () => {
         },
         items: [],
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -160,7 +159,6 @@ describe('table resolver core tests', () => {
           plain,
         },
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -196,7 +194,6 @@ describe('table resolver core tests', () => {
           plain,
         },
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -220,10 +217,6 @@ describe('table resolver core tests', () => {
   describe('resolver factory - header', () => {
     const resolver = createResolver({
       header: function headerResolver({ getData, context }) {
-        if (context.density === 'variable') {
-          return 'variable density'
-        }
-
         if (context.status === 'loading') {
           return 'loading...'
         }
@@ -239,7 +232,6 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -262,7 +254,6 @@ describe('table resolver core tests', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
         context: {
-          density: 'regular',
           status: 'loading',
           statusObject: {
             loading: true,
@@ -280,38 +271,11 @@ describe('table resolver core tests', () => {
 
       expect(result).toBe('loading...')
     })
-
-    it('should be able to handle different densities within a header function', () => {
-      const result = resolver?.header?.({
-        getData: () => 'data',
-        context: {
-          density: 'variable',
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
-        column: {
-          id: 'image',
-          accessor: 'image',
-        },
-        items: [],
-      })
-
-      expect(result).toBe('variable density')
-    })
   })
 
   describe('resolver factory - cell', () => {
     const resolver = createResolver({
       cell: function cellResolver({ getData, context, item, column }) {
-        if (context.density === 'variable') {
-          return 'variable density'
-        }
-
         if (context.status === 'loading') {
           return 'loading...'
         }
@@ -333,7 +297,6 @@ describe('table resolver core tests', () => {
       const result = resolver.cell({
         getData: () => 'data',
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -358,7 +321,6 @@ describe('table resolver core tests', () => {
       const result = resolver.cell({
         getData: () => 'data',
         context: {
-          density: 'regular',
           status: 'loading',
           statusObject: {
             loading: true,
@@ -379,36 +341,10 @@ describe('table resolver core tests', () => {
       expect(result).toBe('loading...')
     })
 
-    it('should be able to handle different densities within a cell function', () => {
-      const result = resolver.cell({
-        getData: () => 'data',
-        context: {
-          density: 'variable',
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
-        item: {
-          name: 'Name',
-        },
-        column: {
-          id: 'name',
-          accessor: 'name',
-        },
-      })
-
-      expect(result).toBe('variable density')
-    })
-
     it('should be able to handle item values within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -434,7 +370,6 @@ describe('table resolver core tests', () => {
         resolver.cell({
           getData: () => 'data',
           context: {
-            density: 'regular',
             status: 'ready',
             statusObject: {
               loading: false,

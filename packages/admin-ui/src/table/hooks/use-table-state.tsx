@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { useMemo, useCallback, useState } from 'react'
+import { useMemo, useCallback } from 'react'
 import { get } from '@vtex/admin-ui-util'
 
 import type {
@@ -14,7 +14,7 @@ import {
   resolveHeader as unstableResolveHeader,
 } from '../resolvers/resolver-core'
 import { baseResolvers } from '../resolvers/base'
-import type { TableColumn, TableDensity } from '../types'
+import type { TableColumn } from '../types'
 import type { UseSortReturn, UseTableSortParams } from './use-table-sort'
 import { useTableSort } from './use-table-sort'
 import type { DataViewState } from '../../components/DataView'
@@ -31,7 +31,6 @@ export function useTableState<T>(
     getRowKey = (item: T) =>
       get(item as unknown as Record<string, unknown>, 'id', ''),
     onRowClick,
-    density: initialDensity = 'variable',
     view = {
       status: 'ready',
       statusObject: {
@@ -43,7 +42,6 @@ export function useTableState<T>(
     },
   } = params
 
-  const [density, setDensity] = useState<TableDensity>(initialDensity)
   const { status, statusObject } = view
 
   /**
@@ -51,11 +49,10 @@ export function useTableState<T>(
    */
   const context: ResolverContext = useMemo(
     () => ({
-      density,
       status,
       statusObject,
     }),
-    [density, status, statusObject]
+    [status, statusObject]
   )
 
   const sortState = useTableSort(sort)
@@ -130,8 +127,6 @@ export function useTableState<T>(
     sortState,
     getRowKey,
     onRowClick,
-    setDensity,
-    density,
   }
 }
 
@@ -167,11 +162,6 @@ export interface UseTableStateParams<T> {
    * Object used in sort hook
    */
   sort?: UseTableSortParams<T>
-  /**
-   * Table row height
-   * @default regular
-   */
-  density?: TableDensity
   /**
    * Action to dispatch on a row click
    */
@@ -209,14 +199,6 @@ export interface TableState<T> {
    * Key extractor
    */
   getRowKey: (item: T) => string | unknown
-  /**
-   * Current grid density
-   */
-  density: TableDensity
-  /**
-   * Set the current grid density
-   */
-  setDensity: React.Dispatch<TableDensity>
   /**
    * Action to take on click a row
    */

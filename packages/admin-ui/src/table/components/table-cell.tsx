@@ -4,21 +4,14 @@ import * as styles from '../styles/table-cell.styles'
 import type { TableColumn } from '../types'
 
 export const TableCell = createComponent<'td', CellOptions>((props) => {
-  const {
-    column,
-    onClick,
-    csx,
-    role = 'cell',
-    density = 'variable',
-    ...cellProps
-  } = props
+  const { column, onClick, csx, role = 'cell', ...cellProps } = props
 
   const clickable = !!onClick
 
   return useElement('td', {
     baseStyle: {
       ...styles.baseline,
-      ...styles.variants({ density, clickable }),
+      ...styles.variants({ clickable }),
     },
     role,
     csx: {
