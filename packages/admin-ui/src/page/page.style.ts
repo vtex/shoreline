@@ -5,7 +5,7 @@ export const page = style({
   width: '100%',
 })
 
-export const pageHeader = style({
+const pageHeaderBase = style({
   bg: '$primary',
   color: '$primary',
   display: 'flex',
@@ -20,6 +20,18 @@ export const pageHeader = style({
   paddingX: '2rem',
   paddingY: '1.5rem',
   zIndex: 999,
+})
+
+export const pageHeader = styleVariants({
+  scrollOnTop: {
+    true: {
+      ...pageHeaderBase,
+    },
+    false: {
+      ...pageHeaderBase,
+      boxShadow: '$overlay.center',
+    },
+  },
 })
 
 export const pageHeaderTop = style({
