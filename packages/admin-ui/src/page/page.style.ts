@@ -5,7 +5,7 @@ export const page = style({
   width: '100%',
 })
 
-const pageHeaderBase = style({
+export const pageHeaderBase = style({
   bg: '$primary',
   color: '$primary',
   display: 'flex',
@@ -24,11 +24,8 @@ const pageHeaderBase = style({
 
 export const pageHeader = styleVariants({
   scrollOnTop: {
-    true: {
-      ...pageHeaderBase,
-    },
+    true: {},
     false: {
-      ...pageHeaderBase,
       boxShadow: '$overlay.center',
     },
   },
@@ -43,7 +40,7 @@ export const pageHeaderTop = style({
   minHeight: '2.6875rem',
 })
 
-const pageHeaderBottomBase = style({
+export const pageHeaderBottomBase = style({
   width: '100%',
   marginTop: '$l',
   '> div': {
@@ -55,13 +52,12 @@ const pageHeaderBottomBase = style({
 export const pageHeaderBottom = styleVariants({
   tabs: {
     true: {
-      ...pageHeaderBottomBase,
       marginBottom: '-1.5rem',
       '* > button': {
         minWidth: 'unset',
       },
     },
-    false: pageHeaderBottomBase,
+    false: {},
   },
 })
 
@@ -114,7 +110,7 @@ export const pageContent = style({
   gridGap: '1rem',
   paddingX: '1rem',
   '@desktop': {
-    paddingX: '1.25rem',
+    paddingX: '2rem',
   },
 })
 
@@ -122,12 +118,12 @@ export const pageContentVariants = styleVariants({
   layout: {
     wide: {
       maxWidth: '95rem',
-      paddingTop: '1rem',
+      paddingTop: '2rem',
       paddingBottom: '3rem',
     },
     standard: {
       maxWidth: '71rem',
-      paddingTop: '1.5rem',
+      paddingTop: '2.5rem',
       paddingBottom: '5rem',
     },
     narrow: {
