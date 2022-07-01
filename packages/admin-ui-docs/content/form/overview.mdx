@@ -1,0 +1,530 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+A performant form state handling library. It has a first-class typescript support, and easy field validation.
+
+</IntroSection>
+
+<Section>
+
+## Examples
+
+</Section>
+
+<Section>
+
+### Simple Form
+
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          label="Name"
+          name="name"
+          helpText="Enter your name"
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### Validation
+
+```jsx noInline live
+// import { Form, TextInput, NumberInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, NumberInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          label="Name"
+          name="name"
+          helpText="Enter your name"
+          validation={{
+            required: { value: true, message: 'This is a required field' },
+          }}
+          state={form}
+        />
+
+        <TextInput
+          label="Email"
+          name="Email"
+          helpText="Enter your email"
+          validation={{
+            pattern: {
+              value: RegExp(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i),
+              message: 'Email is not valid',
+            },
+          }}
+          state={form}
+        />
+
+        <NumberInput
+          label="Age"
+          name="age"
+          helpText="Enter your age"
+          validation={{
+            min: { value: 18, message: 'The minimum age is 18' },
+            required: { value: true, message: 'This is a required field' },
+          }}
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Validation using Yup
+
+Yup is a schema builder for runtime value parsing and validation
+
+```jsx noInline live
+// import { Form, TextInput, TextArea, yupResolver, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, TextArea, yupResolver, useFormState } = Forms
+
+function Example() {
+  const schema = Yup.object({
+    firstName: Yup.string().required(),
+    comment: Yup.string().required().min(10, 'Make a longer comment'),
+  })
+
+  const form = useFormState({
+    resolver: yupResolver(schema),
+  })
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput label="First Name" name="firstName" state={form} />
+        <TextArea label="Comment" state={form} name="comment" />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### useWatch
+
+```jsx noInline live
+// import { Form, useWatch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, useWatch, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  const firstName = useWatch({
+    form,
+    name: 'firstName',
+  })
+
+  const age = useWatch({
+    form,
+    name: 'age',
+  })
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <Box
+          as="input"
+          csx={{ border: '$neutral' }}
+          placeholder="First Name"
+          {...form.register('firstName')}
+        />
+        <Box
+          as="input"
+          csx={{ border: '$neutral' }}
+          placeholder="Age"
+          type="number"
+          {...form.register('age')}
+        />
+        <Button type="submit">Submit</Button>
+        <Box>
+          <Box as="p">firstName: {firstName}</Box>
+          <Box as="p">age: {age}</Box>
+        </Box>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### Watch
+
+```jsx noInline live
+// import { Form, Watch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Watch, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <Stack space="$2xl">
+          <Box
+            as="input"
+            csx={{ border: '$neutral' }}
+            placeholder="First Name"
+            {...form.register('firstName')}
+          />
+          <Box
+            as="input"
+            csx={{ border: '$neutral' }}
+            placeholder="Age"
+            type="number"
+            {...form.register('age')}
+          />
+          <Button type="submit">Submit</Button>
+          <Box>
+            <Box as="p">
+              firstName: <Watch form={form} name="firstName" />
+            </Box>
+            <Box as="p">
+              age: <Watch form={form} name="age" />
+            </Box>
+          </Box>
+        </Stack>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+## Components
+
+</Section>
+
+<Section>
+
+### Checkbox
+
+```jsx noInline live
+// import { Form, CheckboxGroup, Checkbox, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, CheckboxGroup, Checkbox, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <CheckboxGroup name="features" state={form} label="Features">
+          <Checkbox value="dark-mode" label="Dark Mode" />
+          <Checkbox value="a11y-theme" label="Accessible Theme" />
+          <Checkbox
+            value="component-composition"
+            label="Component Composition"
+          />
+        </CheckboxGroup>
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### Radio
+
+```jsx noInline live
+// import { Form, RadioGroup, Radio, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, RadioGroup, Radio, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <RadioGroup label="Accounts Configuration" name="account" state={form}>
+          <Radio
+            label="Accounts are disabled"
+            helpText="Customers will only be able to check out as guests"
+            value="disabled"
+          />
+          <Radio
+            label="Accounts are optional"
+            helpText="Customers will be able to check out with a customer account or as a guest"
+            value="optional"
+          />
+        </RadioGroup>
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### Switch
+
+```jsx noInline live
+// import { Form, Switch, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Switch, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <Switch
+          state={form}
+          name="terms-of-service"
+          label="I agree to the Terms of Service"
+          helpText="You must select this option to use our services"
+        />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### NumberInput
+
+```jsx noInline live
+// import { Form, NumberInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, NumberInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <NumberInput label="Age" name="age" state={form} />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### Select
+
+```jsx noInline live
+// import { Form, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, Select, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <Select label="Role" name="role" state={form}>
+          <option value="member">Member</option>
+          <option value="owner">Owner</option>
+        </Select>
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### TextArea
+
+```jsx noInline live
+// import { Form, TextArea, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextArea, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextArea label="Address" name="address" state={form} />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+### TextInput
+
+```jsx noInline live
+// import { Form, TextInput, useFormState } from '@vtex/admin-ui-form'
+
+const { Form, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          autoComplete="off"
+          label="First Name"
+          name="firstName"
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
