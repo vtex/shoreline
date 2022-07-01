@@ -1,13 +1,12 @@
 import { Section } from '@site/src/components/Section'
 
-
 <Section hasExplanation>
 
-## State
+## Usage
 
-Table is pretty much stateless. The state hook `useTableState` contains all business logic needed for the component.
+```jsx
+import { Table, useTableState } from '@vtex/admin-ui'
 
-```jsx live
 function Example() {
   /**
    * The hook returns the Table state
@@ -56,6 +55,16 @@ function Example() {
 ```
 
 </Section>
+
+<Section hasExplanation>
+
+## State
+
+The state hook `useTableState` contains all business logic needed for the component.
+
+</Section>
+
+<Section>
 
 ### useTableState
 
@@ -130,6 +139,10 @@ interface TableState<T> {
 type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 ```
 
+</Section>
+
+<Section hasExplanation>
+
 ## Rendering
 
 The main objective of `Table` is to provide a flexible render to support any kind of data type.
@@ -139,12 +152,16 @@ The main objective of `Table` is to provide a flexible render to support any kin
 | id        | `string`                                        | String that defines the property name that the column represents.                                                                                                                                                                   | ✅       |
 | header    | `((column: Column<T>) => ReactNode), or string` | Controls the title which appears on the table Header.<br />It can receive either a string or an element.                                                                                                                            | 🚫       |
 | accessor  | `((item: T) => ReactNode), or string`           | Defines how to access a property                                                                                                                                                                                                    | 🚫       |
-| resolver  | `R`                                             | [Resolvers](table/#resolver-options) api<br />Will select the [plain resolver](table/#resolver-options) by default                                                                                                                  | 🚫       |
+| resolver  | `R`                                             | [Resolvers](#resolvers) api<br />Will select the [plain resolver](#plain) by default                                                                                                                                                | 🚫       |
 | width     | `number`                                        | Defines a fixed width for the specific column.<br />Receives either a string or number.<br />By default, the column's width is defined to fit the available space without breaking the content.                                     | 🚫       |
 | sortable  | `(a: T, b: T) => number`                        | Defines if that column is sortable or not, passing true to this prop won't sort items by itself, the sorting will still need to be handled using the sort prop inside the StatelessTable sort prop. Check [Sorting](table/#sorting) | 🚫       |
 | compare   | `boolean`                                       | The function provided to handle the sorting of this column of the table, if this function is provided the table items will be sorted based on this function result. Check [Sorting](table/#sorting)                                 | 🚫       |
 
-### Accessor
+</Section>
+
+<Section hasExplanation>
+
+## Accessor
 
 Some properties may be nested within objects and arrays. The `accessor` properties provide an easy way to access those.
 
@@ -202,6 +219,7 @@ function Example() {
       },
     ],
     items,
+    onRowClick: (item) => alert(`Item: ${item.product.name}`),
   })
 
   return <Table state={state} />
@@ -210,13 +228,19 @@ function Example() {
 render(<Example />)
 ```
 
-### Resolvers
+</Section>
+
+<Section hasExplanation>
+
+## Resolvers
 
 Resolvers are rendering functions that target a specific data type. The main usage is to render the same data types consistently along with admin applications.
 
-#### Key concepts
+</Section>
 
-##### Render function
+<Section hasExplanation>
+
+### Render function
 
 All resolvers accept a render function, that returns a component. It controls the data rendering, which may be treated by the resolver or not.
 
@@ -239,7 +263,11 @@ All resolvers accept a render function, that returns a component. It controls th
 | data    | `unknown`                                     | extracted column data from the item, you need to cast it before use |
 | context | `{ loading: boolean, density: TableDensity }` | relevant global information about the table current state           |
 
-##### Root Resolver
+</Section>
+
+<Section hasExplanation>
+
+### Root
 
 This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
 
@@ -254,8 +282,6 @@ function Example() {
       /**
        * The great thing about the root resolver is that you can infer new columns from
        * multiple properties of the item.
-       *
-       * description is being created from productName and category
        */
       {
         id: 'description',
@@ -280,8 +306,9 @@ function Example() {
                 orientation="vertical"
                 csx={{ justifyContent: 'center', height: 64 }}
               >
-                <Text variant="highlight">{item.productName}</Text>
-                <Text>{item.category}</Text>
+                <Text variant="highlight">
+                  {item.productName} ({item.category})
+                </Text>
               </Stack>
             )
           },
@@ -306,15 +333,23 @@ function Example() {
         inStock: 380,
       },
     ],
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
   return <Table state={state} />
 }
 ```
 
-#### Resolver Options
+| Name   | Type                                                  | Description              | Required |
+| ------ | ----------------------------------------------------- | ------------------------ | -------- |
+| type   | `root`                                                | Root resolver type       | ✅       |
+| render | ` (props: ResolverRenderProps<null, T>) => ReactNode` | Resolver render function | ✅       |
 
-##### Plain
+</Section>
+
+<Section hasExplanation>
+
+### Plain
 
 The plain resolver is the default for all columns. It means that if you don't select a resolver, this is what you're rendering. It should be mainly used to render raw data like strings or numbers that don't need treatment.
 
@@ -375,6 +410,7 @@ function Example() {
       },
     ],
     items,
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
   return <Table state={state} />
@@ -383,7 +419,113 @@ function Example() {
 render(<Example />)
 ```
 
-##### Currency
+| Name   | Type                                                      | Description              | Required |
+| ------ | --------------------------------------------------------- | ------------------------ | -------- |
+| type   | `plain`                                                   | Plain resolver type      | ✅       |
+| render | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function | 🚫       |
+
+</Section>
+
+<Section hasExplanation>
+
+### Text
+
+The text resolver should be mainly used to render a text and an optional description just below it. It must be used for cells belonging to a `name` column.
+
+```jsx noInline live
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 0,
+    price: 120,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+]
+
+function Example() {
+  const state = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.productName,
+          mapDescription: (item) => item.description,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'text',
+          columnType: 'text',
+          mapText: (item) => item.price,
+          mapDescription: () => 'Recently updated',
+        },
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        resolver: {
+          type: 'plain',
+          /**
+           * this is how to use the render function
+           */
+          render: function Render({ data }) {
+            return (
+              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+            )
+          },
+        },
+      },
+    ],
+    items,
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
+  })
+
+  return <Table state={state} />
+}
+
+render(<Example />)
+```
+
+| Name           | Type                                                      | Description                                                   | Required | Default |
+| -------------- | --------------------------------------------------------- | ------------------------------------------------------------- | -------- | ------- |
+| type           | `text`                                                    | Text resolver type                                            | ✅       | -       |
+| columnType     | `name or text`                                            | Column text type                                              | 🚫       | `text`  |
+| mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered        | ✅       | -       |
+| mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered | 🚫       | -       |
+| render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                      | 🚫       | -       |
+
+</Section>
+
+<Section>
+
+### Currency
 
 ```jsx live
 function Example() {
@@ -427,13 +569,25 @@ function Example() {
       },
     ],
     items: currencies,
+    onRowClick: (item) => alert(`Item: ${item.id}`),
   })
 
   return <Table state={state} />
 }
 ```
 
-##### Date
+| Name     | Type                                                   | Description              | Required |
+| -------- | ------------------------------------------------------ | ------------------------ | -------- |
+| type     | `currency`                                             | Currency resolver type   | ✅       |
+| locale   | `string`                                               | Currency locale          | ✅       |
+| currency | `string`                                               | Currency type            | ✅       |
+| render   | `(props: ResolverRenderProps<string, T>) => ReactNode` | Resolver render function | 🚫       |
+
+</Section>
+
+<Section>
+
+### Date
 
 ```jsx live
 function Example() {
@@ -503,19 +657,25 @@ function Example() {
       },
     ],
     items: dates,
+    onRowClick: (item) => alert(`Item: ${item.id}`),
   })
 
   return <Table state={state} />
 }
 ```
 
-##### Image
+| Name    | Type                                                   | Description              | Required |
+| ------- | ------------------------------------------------------ | ------------------------ | -------- |
+| type    | `date`                                                 | Date resolver type       | ✅       |
+| locale  | `string`                                               | Date locale              | ✅       |
+| options | `Intl.DateTimeFormatOptions`                           | Date options             | 🚫       |
+| render  | `(props: ResolverRenderProps<string, T>) => ReactNode` | Resolver render function | 🚫       |
 
-| Prop    | Type                      | Description                      | Required | Default |
-| ------- | ------------------------- | -------------------------------- | -------- | ------- |
-| display | boolean                   | if should preview on hover       | 🚫       | true    |
-| size    | `small, regular or large` | size of the preview              | 🚫       | regular |
-| delay   | number                    | delay of a preview display in ms | 🚫       | 0       |
+</Section>
+
+<Section>
+
+### Image
 
 ```jsx live
 function Example() {
@@ -553,11 +713,6 @@ function Example() {
         header: 'Image',
         resolver: {
           type: 'image',
-          preview: {
-            display: true,
-            size: 'regular',
-            delay: 0,
-          },
         },
       },
       {
@@ -579,6 +734,7 @@ function Example() {
       },
     ],
     items: fruits,
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
   return <Table state={state} />
@@ -588,66 +744,152 @@ function Example() {
 ```jsx live
 function Example() {
   const fruits = [
-      {
-        id: 1,
-        name: 'Color 1',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_gD9Fm-5bttYHoJ-wxD2W8kK2boZsQItYw&usqp=CAU',
-        price: 100,
-      },
-      {
-        id: 2,
-        name: 'Color 2',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsvxLXJ3jW2hQox375iMAcaScYMpUmXk1dFw&usqp=CAU',
-        price: 30,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-    ]
+    {
+      id: 1,
+      name: 'Color 1',
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_gD9Fm-5bttYHoJ-wxD2W8kK2boZsQItYw&usqp=CAU',
+      price: 100,
+    },
+    {
+      id: 2,
+      name: 'Color 2',
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsvxLXJ3jW2hQox375iMAcaScYMpUmXk1dFw&usqp=CAU',
+      price: 30,
+    },
+    {
+      id: 3,
+      name: 'Color 3',
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
+      price: 10,
+    },
+  ]
 
   const state = useTableState({
     columns: [
-        {
-          id: 'image',
-          header: 'Image',
-          resolver: {
-            type: 'image',
-            preview: {
-              display: true,
-              size: 'regular',
-              delay: 0,
-            },
-          },
+      {
+        id: 'image',
+        header: 'Image',
+        resolver: {
+          type: 'image',
         },
-        {
-          id: 'name',
-          header: 'Name',
-          resolver: {
-            type: 'text',
-            isNameCell: true,
-            mapText: (item) => item.name,
-          },
+      },
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          isNameCell: true,
+          mapText: (item) => item.name,
         },
-        {
-          id: 'price',
-          header: 'Price',
-        },
-      ],
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
     items: fruits,
-     onRowClick: (item) => alert(`Row clicked: ${item.name}`),
+    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return <Table state={state} />
 }
 ```
 
-### Sorting
+| Name   | Type                                                        | Description              | Required |
+| ------ | ----------------------------------------------------------- | ------------------------ | -------- |
+| type   | `image`                                                     | Image resolver type      | ✅       |
+| alt    | `string`                                                    | HTML img alt             | 🚫       |
+| render | `(props: ResolverRenderProps<JSX.Element, T>) => ReactNode` | Resolver render function | 🚫       |
+
+</Section>
+
+<Section hasExplanation>
+
+### Selection
+
+The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.
+
+```jsx noInline live
+function Example() {
+  const grid = useTableState({
+    columns: [
+      {
+        id: 'id',
+        resolver: {
+          type: 'selection',
+          mapId: (item) => item.id,
+        },
+      },
+      {
+        id: 'name',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    length: 3,
+    items: React.useMemo(
+      () =>
+        Array(3)
+          .fill()
+          .map((_, id) => {
+            return {
+              id: `${id}`,
+              name: faker.commerce.productName(),
+              lastSale: faker.date.past().toDateString(),
+              price: faker.commerce.price(),
+            }
+          }),
+      []
+    ),
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  const selection = useSelectionTreeState({
+    items: grid.data,
+    mapId: (item) => item.id,
+  })
+
+  return (
+    <SelectionTree state={selection}>
+      <Table state={grid} />
+    </SelectionTree>
+  )
+}
+
+render(<Example />)
+```
+
+| Name   | Type                                                      | Description              | Required                                                         |
+| ------ | --------------------------------------------------------- | ------------------------ | ---------------------------------------------------------------- | --- |
+| type   | `selection`                                               | Selection resolver type  | ✅                                                               |
+| mapId  | `mapId: (item: T) => string                               | number`                  | The map function which returns the id to be used by the checkbox | 🚫  |
+| render | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function | 🚫                                                               |
+
+</Section>
+
+<Section hasExplanation>
+
+## Sorting
 
 To use the base sorting configuration, that matches the majority of use cases, you just need to pass the `compare` function to the columns that you want to sort by. Two params are accepted, representing two items - you must return a boolean that proves their equality.
 
@@ -655,7 +897,13 @@ To use the base sorting configuration, that matches the majority of use cases, y
 type Compare = (a: T, b: T) => boolean
 ```
 
-The following example allows ordering by `name`, `lastSale` and `price`.
+</Section>
+
+<Section hasExplanation>
+
+### Configuration
+
+The following example allows ordering by `name`, `lastSale` and `price`. By using the `sort` property within `useTableState` you can configure the sorting to match specific use cases.
 
 ```jsx noInline live
 const items = Array(3)
@@ -702,6 +950,7 @@ function CompareExample() {
     sort: {
       initialValue: { order: 'ASC' },
     },
+    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return <Table state={state} />
@@ -710,30 +959,44 @@ function CompareExample() {
 render(<CompareExample />)
 ```
 
-#### Configuration
+</Section>
 
-By using the `sort` property within `useTableState` you can configure the sorting to match specific use cases.
+<Section>
 
-##### initialValue
+#### initialValue
 
-Defines the table initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
+- Defines the table's initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
 
-The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
+- The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
 
-##### directions
+</Section>
 
-Defines the sorting order of the table.
+<Section>
 
-It accepts an array with `ASC` and `DSC` as possible values.
-You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
+#### directions
 
-##### reducer
+- Defines the sorting order of the table.
+- It accepts an array with `ASC` and `DSC` as possible values.
+  You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
 
-Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it is not required and if not provided the default reducer function will be used.
-The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
+</Section>
 
-##### callback
+<Section>
 
-Receives a function that will be fired when the user clicks the table header cell of a column.
+#### reducer
 
-This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked, and the current sort directions being used.
+- Receives the reducer that will be used inside of the `useReducer` that handles the sorting state, it is not required and if not provided the default reducer function will be used.
+
+- The reducer function is called with the current sort state `{ order?: SortOrder, by?: string }` and the sorting action `{ type: SortOrder | 'RESET', columnId?: string }`.
+
+</Section>
+
+<Section>
+
+#### callback
+
+- Receives a function that will be fired when the user clicks the table header cell of a column.
+
+- This function is called with an object containing the current sort state, the dispatch of the current `useReducer` that handles the sorting state, the column id of the column that was clicked, and the current sort directions being used.
+
+</Section>
