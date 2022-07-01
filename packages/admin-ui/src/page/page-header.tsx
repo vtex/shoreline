@@ -70,7 +70,10 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
     }, [scrollOnTop])
 
     return useElement('header', {
-      baseStyle: style.pageHeader({ scrollOnTop }),
+      baseStyle: {
+        ...style.pageHeaderBase,
+        ...style.pageHeader({ scrollOnTop }),
+      },
       children: (
         <PageHeaderContext.Provider
           value={{
