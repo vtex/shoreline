@@ -6,6 +6,8 @@ export const baseline = style({
   display: 'table-cell',
   verticalAlign: 'middle',
   paddingX: '$xl',
+  size: '2.75rem',
+  minHeight: '2.75rem',
 
   ':first-child': {
     paddingLeft: '$l',
@@ -17,18 +19,6 @@ export const baseline = style({
 })
 
 export const variants = styleVariants({
-  density: {
-    regular: {
-      height: 80,
-    },
-    compact: {
-      height: 48,
-    },
-    variable: {
-      size: 44,
-      minHeight: 44,
-    },
-  },
   clickable: {
     true: {
       cursor: 'pointer',
