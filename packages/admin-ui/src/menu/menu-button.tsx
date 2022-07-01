@@ -126,7 +126,7 @@ export type MenuButtonOptions = VariantProps<
   /**
    * Button label
    */
-  label?: string
+  label?: ReactNode
   /**
    * Whether the label is visible
    * @default false
