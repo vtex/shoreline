@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-ui-util'
 
-import type { TableColumn, TableDensity } from '../types'
+import type { TableColumn } from '../types'
 import type { SortOrder, SortState } from '../hooks/use-table-sort'
 import type {
   DataViewStatus,
@@ -20,10 +20,6 @@ export type ResolverShorcut<I, T = unknown> = T & { type: I }
  * Table context
  */
 export type ResolverContext = {
-  /**
-   * Grid current density
-   */
-  density: TableDensity
   /**
    * Grid current status
    */

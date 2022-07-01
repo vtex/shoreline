@@ -69,7 +69,7 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
     const { item = {}, role = 'row', children, ...rowProps } = props
 
     const { status } = useDataViewContext()
-    const { onRowClick, columns, resolveCell, density } = useStateContext()
+    const { onRowClick, columns, resolveCell } = useStateContext()
 
     const clickable = onRowClick && !(status === 'loading')
 
@@ -112,12 +112,9 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
                   cloneElement(children as any, {
                     column,
                     children: <Fragment>{content}</Fragment>,
-                    density,
                   })
                 ) : (
-                  <TableCell column={column} density={density}>
-                    {content}
-                  </TableCell>
+                  <TableCell column={column}>{content}</TableCell>
                 )}
               </Fragment>
             )

@@ -22,7 +22,6 @@ describe('Resolvers tests', () => {
           },
         },
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -53,7 +52,6 @@ describe('Resolvers tests', () => {
           },
         },
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,
@@ -85,7 +83,6 @@ describe('Resolvers tests', () => {
           },
         },
         context: {
-          density: 'regular',
           status: 'ready',
           statusObject: {
             loading: false,

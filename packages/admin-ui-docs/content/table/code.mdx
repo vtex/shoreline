@@ -78,7 +78,6 @@ The state hook `useTableState` contains all business logic needed for the compon
 | length     | `number`                      | Expected items length, this will also control the number of skeleton items | 🚫       | `5`                           |
 | sort       | `UseTableSortParams<T>`       | useTableSort hook params                                                   | 🚫       | -                             |
 | getRowKey  | `(item: T) => string`         | Key extractor                                                              | 🚫       | Table's default key extractor |
-| density    | `TableDensity`                | Inital table row height                                                    | 🚫       | `regular`                     |
 | onRowClick | `(item: T) => void`           | Action to dispatch on a row click                                          | 🚫       | -                             |
 
 It returns an object with the following types
@@ -119,14 +118,6 @@ interface TableState<T> {
    * Key extractor
    */
   getRowKey: (item: T) => string | unknown
-  /**
-   * Current grid density
-   */
-  density: TableDensity
-  /**
-   * Set the current grid density
-   */
-  setDensity: React.Dispatch<TableDensity>
   /**
    * Action to take on click a row
    */
@@ -261,7 +252,7 @@ All resolvers accept a render function, that returns a component. It controls th
 | ------- | --------------------------------------------- | ------------------------------------------------------------------- |
 | item    | `T`                                           | the item displayed for the row                                      |
 | data    | `unknown`                                     | extracted column data from the item, you need to cast it before use |
-| context | `{ loading: boolean, density: TableDensity }` | relevant global information about the table current state           |
+| context | `{ loading: boolean }`                        | relevant global information about the table current state           |
 
 </Section>
 

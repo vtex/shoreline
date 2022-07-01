@@ -36,5 +36,3 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       compare?: (a: T, b: T) => number
       sortable?: boolean
     }
-
-export type TableDensity = 'compact' | 'regular' | 'variable'
