@@ -53,7 +53,7 @@ export type MenuItemOptions = {
   /**
    * Item label
    */
-  label: string
+  label: ReactNode
 }
 
 export type MenuItemProps = React.ComponentPropsWithoutRef<typeof MenuItem>
