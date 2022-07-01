@@ -6,6 +6,10 @@ import type { InputPasswordProps } from '../DeprecatedBase'
 import { InputPassword } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export const FormikInputPassword = forwardRef(
   (props: FormikInputPasswordProps, ref: Ref<HTMLInputElement>) => {
     const {

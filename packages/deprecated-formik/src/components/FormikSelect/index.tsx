@@ -5,6 +5,10 @@ import type { SelectProps } from '../DeprecatedBase'
 import { Select } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export function FormikSelect(props: FormikSelectProps) {
   const {
     name,
