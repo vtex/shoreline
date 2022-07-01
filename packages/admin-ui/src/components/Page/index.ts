@@ -1,5 +1,0 @@
-export * from './components/Page'
-export * from './components/PageHeader'
-export * from './components/PageTitle'
-export * from './components/PageActions'
-export * from './components/PageContent'
