@@ -1,34 +1,25 @@
-import React from 'react'
+import { Children, useRef } from 'react'
 import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import { usePageHeaderContext } from './page-header-context'
-import { TabList, Tab } from '../components/Tabs'
 import * as style from './page.style'
+import { TabList } from '../components/Tabs'
 
 export const PageHeaderBottom = createComponent<'div'>((props) => {
-  const { ...htmlProps } = props
-  const { tabOptions } = usePageHeaderContext()
+  const { children, ...htmlProps } = props
+  const hasTab = useRef(false)
 
-  const tabs = tabOptions?.map((option) => (
-    <Tab
-      {...option}
-      csx={{
-        ...option.csx,
-        ...style.pageHeaderTab,
-      }}
-    />
-  ))
+  Children.forEach(children, (child) => {
+    if ((child as any)?.type === TabList) {
+      hasTab.current = true
+    }
+  })
 
-  if (tabs) {
-    return useElement('div', {
-      baseStyle: style.pageHeaderBottom,
-      children: <TabList>{tabs}</TabList>,
-      ...htmlProps,
-    })
-  }
-
-  return null
+  return useElement('div', {
+    baseStyle: style.pageHeaderBottom({ tabs: hasTab.current }),
+    children,
+    ...htmlProps,
+  })
 })
 
 export type PageHeaderBottom = ComponentPropsWithRef<typeof PageHeaderBottom>
