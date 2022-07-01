@@ -1,8 +1,8 @@
+import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { tag } from '@vtex/admin-ui-react'
 
-import type { PageHeaderProps } from './index'
 import {
   PageHeader,
   PageHeaderTitle,
@@ -10,64 +10,119 @@ import {
   PageHeaderActions,
   PageHeaderBottom,
 } from './index'
+import type { TabProps } from '../tab'
 import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
+import type { TagProps } from '../tag'
 import { Tag } from '../tag'
+import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { Stack } from '../stack'
 import { useMenuState, MenuButton, Menu, MenuItem } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
+
+const actionOptions: ButtonProps[] = [
+  {
+    children: 'Delete item',
+    variant: 'critical',
+    size: 'large',
+    bleedY: true,
+  },
+  {
+    children: 'Edit',
+    variant: 'secondary',
+    size: 'large',
+    bleedY: true,
+  },
+  {
+    children: 'Create',
+    size: 'large',
+    bleedY: true,
+  },
+]
+
+const tagOptions: TagProps[] = [
+  { label: 'Short text', size: 'large' },
+  { label: 'Short text', size: 'large' },
+]
+
+const tabOptions: TabProps[] = [
+  {
+    id: '1',
+    children: 'Label',
+  },
+  {
+    id: '2',
+    children: 'Label',
+  },
+  {
+    id: '3',
+    children: 'Label',
+  },
+]
 
 export default {
   title: 'admin-ui-review/page/page-header',
   component: PageHeader,
 } as Meta
 
-export const Playground: Story<PageHeaderProps> = (args) => {
-  return <PageHeader {...args} />
-}
-
-export function Basic() {
+export const Basic: Story<{ title: ReactNode }> = ({ title }) => {
   return (
     <PageHeader>
       <PageHeaderTop>
-        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderTitle>{title}</PageHeaderTitle>
       </PageHeaderTop>
     </PageHeader>
   )
 }
 
-export function WithOnPopNavigation() {
+Basic.args = {
+  title: 'Product #123',
+}
+
+export const WithOnPopNavigation: Story<{
+  title: ReactNode
+  onPopNavigation: () => void
+}> = ({ title, onPopNavigation }) => {
   return (
-    <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+    <PageHeader onPopNavigation={onPopNavigation}>
       <PageHeaderTop>
-        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderTitle>{title}</PageHeaderTitle>
       </PageHeaderTop>
     </PageHeader>
   )
 }
 
-export function WithActions() {
+WithOnPopNavigation.args = {
+  title: 'Product #123',
+  onPopNavigation: () => alert('onPopNavigation'),
+}
+
+export const WithActions: Story<{
+  title: ReactNode
+  onPopNavigation: () => void
+  actionOptions: ButtonProps[]
+}> = ({ title, onPopNavigation, actionOptions }) => {
   return (
-    <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+    <PageHeader onPopNavigation={onPopNavigation}>
       <PageHeaderTop>
-        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderTitle>{title}</PageHeaderTitle>
         <PageHeaderActions>
-          <Button variant="critical" size="large" bleedY>
-            Delete item
-          </Button>
-          <Button variant="secondary" size="large" bleedY>
-            Edit
-          </Button>
-          <Button size="large" bleedY>
-            Create
-          </Button>
+          {actionOptions.map((options) => (
+            <Button {...options} />
+          ))}
         </PageHeaderActions>
       </PageHeaderTop>
     </PageHeader>
   )
 }
 
-export function WithMenu() {
+WithActions.args = {
+  title: 'Product #123',
+  onPopNavigation: () => alert('onPopNavigation'),
+  actionOptions,
+}
+
+export const WithMenu = () => {
   const state = useMenuState()
 
   return (
@@ -101,15 +156,20 @@ export function WithMenu() {
   )
 }
 
-export function WithTags() {
+export const WithTags: Story<{
+  title: ReactNode
+  onPopNavigation: () => void
+  tagOptions: TagProps[]
+}> = ({ title, onPopNavigation, tagOptions }) => {
   return (
-    <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+    <PageHeader onPopNavigation={onPopNavigation}>
       <PageHeaderTop>
         <PageHeaderTitle>
-          Product #123
+          {title}
           <Stack direction="row" space="$m">
-            <Tag label="Short text" size="large" />
-            <Tag label="Short text" size="large" />
+            {tagOptions.map((options) => (
+              <Tag {...options} />
+            ))}
           </Stack>
         </PageHeaderTitle>
       </PageHeaderTop>
@@ -117,20 +177,30 @@ export function WithTags() {
   )
 }
 
-export function WithTabs() {
+WithTags.args = {
+  title: 'Product #123',
+  onPopNavigation: () => alert('onPopNavigation'),
+  tagOptions,
+}
+
+export const WithTabs: Story<{
+  title: ReactNode
+  onPopNavigation: () => void
+  tabOptions: TabProps[]
+}> = ({ title, onPopNavigation, tabOptions }) => {
   const tabs = useTabState()
 
   return (
     <>
-      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+      <PageHeader onPopNavigation={onPopNavigation}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123</PageHeaderTitle>
+          <PageHeaderTitle>{title}</PageHeaderTitle>
         </PageHeaderTop>
         <PageHeaderBottom>
           <TabList state={tabs}>
-            <Tab id="1">Label</Tab>
-            <Tab id="2">Label</Tab>
-            <Tab id="3">Label</Tab>
+            {tabOptions.map((options) => (
+              <Tab {...options} />
+            ))}
           </TabList>
         </PageHeaderBottom>
       </PageHeader>
@@ -151,7 +221,13 @@ export function WithTabs() {
   )
 }
 
-export function FullFledged() {
+WithTabs.args = {
+  title: 'Product #123',
+  onPopNavigation: () => alert('onPopNavigation'),
+  tabOptions,
+}
+
+export const FullFledged = () => {
   const tabs = useTabState()
   const state = useMenuState()
 
