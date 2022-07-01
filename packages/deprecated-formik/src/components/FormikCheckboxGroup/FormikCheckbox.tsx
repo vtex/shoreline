@@ -5,6 +5,10 @@ import { Checkbox } from '@vtex/admin-ui'
 
 import { useCheckboxGroupContext } from './context'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export const FormikCheckbox = forwardRef(
   (props: FormikCheckboxProps, ref: Ref<HTMLInputElement>) => {
     const { state, setTouched } = useCheckboxGroupContext()

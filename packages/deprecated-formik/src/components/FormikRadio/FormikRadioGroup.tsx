@@ -6,6 +6,10 @@ import { useField } from 'formik'
 import { FormikRadioGroupContext } from './context'
 import { handleErrorMessage, useSyncedState } from '../util'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export const FormikRadioGroup = (props: FormikRadioGroupProps) => {
   const {
     name,

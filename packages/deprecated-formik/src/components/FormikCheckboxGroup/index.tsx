@@ -7,6 +7,10 @@ import { FormikCheckboxGroupContext } from './context'
 import { FormikCheckbox } from './FormikCheckbox'
 import { handleErrorMessage, useSyncedState } from '../util'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export const FormikCheckboxGroup = (props: FormikCheckboxGroupProps) => {
   const {
     name,
