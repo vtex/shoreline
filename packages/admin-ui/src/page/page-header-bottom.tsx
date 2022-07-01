@@ -3,7 +3,7 @@ import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './page.style'
-import { TabList } from '../components/Tabs'
+import { TabList } from '../tab'
 
 export const PageHeaderBottom = createComponent<'div'>((props) => {
   const { children, ...htmlProps } = props

@@ -12,7 +12,7 @@ import {
   PageHeaderActions,
   PageHeaderBottom,
 } from './index'
-import { Tabs, useTabState, TabPanel, TabList, Tab } from '../components/Tabs'
+import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
 import {
   DataView,
   DataViewControls,
@@ -27,7 +27,7 @@ import {
 import { Box } from '../box'
 import { Tag } from '../tag'
 import { Button } from '../button'
-import { Inline } from '../inline'
+import { Stack } from '../stack'
 
 export default {
   title: 'admin-ui-review/page',
@@ -37,38 +37,37 @@ export function Basic() {
   const tabs = useTabState()
 
   return (
-    <Tabs state={tabs}>
-      <Page>
-        <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
-          <PageHeaderTop>
-            <PageHeaderTitle>
-              Product #123{' '}
-              <Inline hSpace="$m">
-                <Tag label="Short text" size="large" />
-                <Tag label="Short text" size="large" />
-              </Inline>
-            </PageHeaderTitle>
-            <PageHeaderActions>
-              <Button variant="critical" size="large">
-                Delete item
-              </Button>
-              <Button variant="secondary" size="large">
-                Edit
-              </Button>
-              <Button size="large">Create</Button>
-            </PageHeaderActions>
-          </PageHeaderTop>
-          <PageHeaderBottom>
-            <TabList>
-              <Tab id="1">Label</Tab>
-              <Tab id="2">Label</Tab>
-              <Tab id="3">Label</Tab>
-            </TabList>
-          </PageHeaderBottom>
-        </PageHeader>
-        <PageContent>
-          <tag.div>
-            Page Content
+    <Page>
+      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>
+            Product #123{' '}
+            <Stack direction="row" space="$m">
+              <Tag label="Short text" size="large" />
+              <Tag label="Short text" size="large" />
+            </Stack>
+          </PageHeaderTitle>
+          <PageHeaderActions>
+            <Button variant="critical" size="large">
+              Delete item
+            </Button>
+            <Button variant="secondary" size="large">
+              Edit
+            </Button>
+            <Button size="large">Create</Button>
+          </PageHeaderActions>
+        </PageHeaderTop>
+        <PageHeaderBottom>
+          <TabList state={tabs}>
+            <Tab id="1">Label</Tab>
+            <Tab id="2">Label</Tab>
+            <Tab id="3">Label</Tab>
+          </TabList>
+        </PageHeaderBottom>
+      </PageHeader>
+      <PageContent>
+        <tag.div>
+          <TabPanelList state={tabs}>
             <TabPanel id="1" csx={{ padding: 3 }}>
               <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
             </TabPanel>
@@ -78,10 +77,10 @@ export function Basic() {
             <TabPanel id="3" csx={{ padding: 3 }}>
               <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
             </TabPanel>
-          </tag.div>
-        </PageContent>
-      </Page>
-    </Tabs>
+          </TabPanelList>
+        </tag.div>
+      </PageContent>
+    </Page>
   )
 }
 
