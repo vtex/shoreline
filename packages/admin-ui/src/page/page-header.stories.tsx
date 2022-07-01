@@ -14,6 +14,8 @@ import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
 import { Tag } from '../tag'
 import { Button } from '../button'
 import { Stack } from '../stack'
+import { useMenuState, MenuButton, Menu, MenuItem } from '../menu'
+import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
 
 export default {
   title: 'admin-ui-review/page/page-header',
@@ -59,6 +61,40 @@ export function WithActions() {
           <Button size="large" bleedY>
             Create
           </Button>
+        </PageHeaderActions>
+      </PageHeaderTop>
+    </PageHeader>
+  )
+}
+
+export function WithMenu() {
+  const state = useMenuState()
+
+  return (
+    <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+      <PageHeaderTop>
+        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderActions>
+          <Button variant="critical" size="large" bleedY>
+            Delete item
+          </Button>
+          <Button variant="secondary" size="large" bleedY>
+            Edit
+          </Button>
+          <Button size="large" bleedY>
+            Create
+          </Button>
+          <MenuButton
+            state={state}
+            variant="tertiary"
+            size="large"
+            labelHidden
+            bleedY
+          />
+          <Menu state={state} aria-label="actions">
+            <MenuItem label="Create" icon={<IconPlus />} />
+            <MenuItem label="Edit" icon={<IconPencil />} />
+          </Menu>
         </PageHeaderActions>
       </PageHeaderTop>
     </PageHeader>
@@ -117,6 +153,7 @@ export function WithTabs() {
 
 export function FullFledged() {
   const tabs = useTabState()
+  const state = useMenuState()
 
   return (
     <>
@@ -139,6 +176,17 @@ export function FullFledged() {
             <Button size="large" bleedY>
               Create
             </Button>
+            <MenuButton
+              state={state}
+              variant="tertiary"
+              size="large"
+              labelHidden
+              bleedY
+            />
+            <Menu state={state} aria-label="actions">
+              <MenuItem label="Create" icon={<IconPlus />} />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+            </Menu>
           </PageHeaderActions>
         </PageHeaderTop>
         <PageHeaderBottom>
