@@ -28,6 +28,7 @@ export const pageHeaderTop = style({
   alignItems: 'center',
   width: '100%',
   maxWidth: '95rem',
+  minHeight: '2.6875rem',
 })
 
 const pageHeaderBottomBase = style({
