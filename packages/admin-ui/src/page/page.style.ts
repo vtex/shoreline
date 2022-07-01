@@ -44,10 +44,9 @@ export const pageHeaderBottom = styleVariants({
   tabs: {
     true: {
       ...pageHeaderBottomBase,
-      marginBottom: '-1.55rem',
+      marginBottom: '-1.5rem',
       '* > button': {
         minWidth: 'unset',
-        padding: 3,
       },
     },
     false: pageHeaderBottomBase,
@@ -67,7 +66,7 @@ export const pageHeaderTitle = style({
   flexWrap: 'wrap',
   justifyContent: 'flex-start',
   '> div:first-of-type': {
-    marginLeft: '0.25rem',
+    marginLeft: '0.75rem',
   },
 })
 
