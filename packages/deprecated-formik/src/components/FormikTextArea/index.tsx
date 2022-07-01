@@ -6,6 +6,10 @@ import type { TextAreaProps } from '../DeprecatedBase'
 import { TextArea } from '../DeprecatedBase'
 import { handleErrorMessage } from '../util'
 
+/**
+ * @deprecated Use @vtex/admin-ui-form instead
+ * @see https://admin-ui.vercel.app/next/guidelines/components/form
+ */
 export const FormikTextArea = forwardRef(
   (props: FormikTextAreaProps, ref: Ref<HTMLTextAreaElement>) => {
     const {
