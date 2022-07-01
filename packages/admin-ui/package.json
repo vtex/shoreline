@@ -49,7 +49,7 @@
     "@vtex/admin-ui-hooks": "^0.3.3",
     "@vtex/admin-ui-react": "^0.7.2",
     "@vtex/admin-ui-util": "^0.3.2",
-    "@vtex/phosphor-icons": "0.2.6",
+    "@vtex/phosphor-icons": "0.2.8",
     "ariakit": "2.0.0-next.22",
     "csstype": "3.0.10",
     "date-fns": "^2.28.0",
