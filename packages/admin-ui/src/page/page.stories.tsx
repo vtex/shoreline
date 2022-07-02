@@ -243,7 +243,7 @@ export function FullFledged() {
           </TabList>
         </PageHeaderBottom>
       </PageHeader>
-      <PageContent>
+      <PageContent layout="wide">
         <TabPanelList state={tabs}>
           <TabPanel id="1">
             <DataView state={view}>

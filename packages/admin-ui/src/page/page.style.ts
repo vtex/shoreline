@@ -95,7 +95,7 @@ export const pageHeaderActions = style({
   '> div': {
     display: 'flex',
   },
-  '* > button': {
+  '> button:not([aria-haspopup="menu"])': {
     minWidth: '6.5rem',
   },
   '> * + *': {
@@ -117,17 +117,17 @@ export const pageContent = style({
 export const pageContentVariants = styleVariants({
   layout: {
     wide: {
-      maxWidth: '95rem',
+      maxWidth: '99rem',
       paddingTop: '2rem',
       paddingBottom: '3rem',
     },
     standard: {
-      maxWidth: '71rem',
+      maxWidth: '73rem',
       paddingTop: '2.5rem',
       paddingBottom: '5rem',
     },
     narrow: {
-      maxWidth: '46rem',
+      maxWidth: '48rem',
       paddingTop: '3rem',
       paddingBottom: '8rem',
     },
