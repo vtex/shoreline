@@ -6,7 +6,7 @@ export const page = style({
 })
 
 export const pageHeaderViewportRef = style({
-  height: '3rem',
+  height: '1rem',
   position: 'absolute',
   left: 0,
   right: 0,
