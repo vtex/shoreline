@@ -25,19 +25,17 @@ For the root component of the app:
 import { createSystem } from '@vtex/admin-ui'
 
 // 2. add an unique key for the onda instance
-const [ThemeProvider] = createSystem({
-  key: 'unique-key-in-kebab-case',
-})
+const [SystemProvider] = createSystem()
 
 function RootComponent() {
   // 3. Use at the root of your app
-  return <ThemeProvider>{/** your app code here */}</ThemeProvider>
+  return <SystemProvider>{/** your app code here */}</SystemProvider>
 }
 ```
 
 #### Multi-route apps
 
-Sometimes the app does not have a single entry. You **must** define a unique key for each one of them, like:
+Sometimes the app does not have a single entry. You **must** add a0 `SystemProvider` to each one of them, like:
 
 Example `routes.json`:
 
@@ -60,9 +58,12 @@ For the `Root1`:
 ```jsx isStatic
 // Root 1
 
-const [ThemeProvider] = createSystem({
-  key: 'app-name-root-one',
-})
+const [SystemProvider] = createSystem()
+
+function Root1() {
+  // 3. Use at the root of your app
+  return <SystemProvider>{/** your app code here */}</SystemProvider>
+}
 ```
 
 For the `Root2`:
@@ -70,9 +71,12 @@ For the `Root2`:
 ```jsx isStatic
 // Root 2
 
-const [ThemeProvider] = createSystem({
-  key: 'app-name-root-two',
-})
+const [SystemProvider] = createSystem()
+
+function Root2() {
+  // 3. Use at the root of your app
+  return <SystemProvider>{/** your app code here */}</SystemProvider>
+}
 ```
 
 ### Gatsby
