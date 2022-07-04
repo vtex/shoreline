@@ -3,15 +3,18 @@ import { useEffect, useRef, useState } from 'react'
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
  */
-export function useIntersectionObserver({
-  // Defaults to the browser viewport
-  root = null,
-  rootMargin = undefined,
-  threshold = 0,
-  callback,
-}: IntersectionObserverInit & {
-  callback: (entry: IntersectionObserverEntry) => void
-}) {
+export function useIntersectionObserver(
+  params: IntersectionObserverInit & {
+    callback: (entry: IntersectionObserverEntry) => void
+  }
+) {
+  const {
+    // Defaults to the browser viewport
+    root = null,
+    rootMargin = undefined,
+    threshold = 0,
+    callback,
+  } = params
   const [node, setNode] = useState<HTMLDivElement>()
   const observer = useRef<IntersectionObserver>()
 

@@ -1,7 +1,8 @@
+import React from 'react'
 import type { ComponentPropsWithRef } from 'react'
-import { Children } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
+import { Stack } from '../stack'
 import * as style from './page.style'
 
 /**
@@ -38,7 +39,11 @@ export const PageHeaderActions = createComponent<'div'>((props) => {
 
   return useElement('div', {
     baseStyle: style.pageHeaderActions,
-    children,
+    children: (
+      <Stack space="$l" direction="row">
+        {children}
+      </Stack>
+    ),
     ...htmlProps,
   })
 })

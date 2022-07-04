@@ -29,7 +29,8 @@ export type UsePortalOptions = {
   bindTo?: HTMLElement
 } & CustomEventHandlers
 
-export function usePortal({ bindTo }: UsePortalOptions = {}): any {
+export function usePortal(params: UsePortalOptions = {}): any {
+  const { bindTo } = params
   const targetEl = useRef() as HTMLElRef
   const portal = useRef(document.createElement('div')) as HTMLElRef
 
@@ -69,7 +70,7 @@ export function usePortal({ bindTo }: UsePortalOptions = {}): any {
     Portal,
     portalRef: portal,
     bind: {
-      // used if you want to spread all html attributes onto the target element
+      // Used if you want to spread all html attributes onto the target element
       ref: targetEl,
     },
   })
