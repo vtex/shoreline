@@ -9,40 +9,36 @@ import {
   PageHeaderTop,
   PageHeaderActions,
   PageHeaderBottom,
+  PageHeaderTags,
+  PageHeaderTag,
+  PageHeaderButton,
+  PageHeaderMenuButton,
 } from './index'
 import type { TabProps } from '../tab'
 import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
 import type { TagProps } from '../tag'
-import { Tag } from '../tag'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
-import { Stack } from '../stack'
-import { useMenuState, MenuButton, Menu, MenuItem } from '../menu'
+import { useMenuState, Menu, MenuItem } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
 
 const actionOptions: ButtonProps[] = [
   {
     children: 'Delete item',
     variant: 'critical',
-    size: 'large',
-    bleedY: true,
   },
   {
     children: 'Edit',
     variant: 'secondary',
-    size: 'large',
-    bleedY: true,
   },
   {
     children: 'Create',
-    size: 'large',
-    bleedY: true,
   },
 ]
 
 const tagOptions: TagProps[] = [
-  { label: 'Short text', size: 'large' },
-  { label: 'Short text', size: 'large' },
+  { label: 'Short text' },
+  { label: 'Short text' },
 ]
 
 const tabOptions: TabProps[] = [
@@ -108,7 +104,7 @@ export const WithActions: Story<{
         <PageHeaderTitle>{title}</PageHeaderTitle>
         <PageHeaderActions>
           {actionOptions.map((options) => (
-            <Button {...options} />
+            <PageHeaderButton {...options} />
           ))}
         </PageHeaderActions>
       </PageHeaderTop>
@@ -130,22 +126,10 @@ export const WithMenu = () => {
       <PageHeaderTop>
         <PageHeaderTitle>Product #123</PageHeaderTitle>
         <PageHeaderActions>
-          <Button variant="critical" size="large" bleedY>
-            Delete item
-          </Button>
-          <Button variant="secondary" size="large" bleedY>
-            Edit
-          </Button>
-          <Button size="large" bleedY>
-            Create
-          </Button>
-          <MenuButton
-            state={state}
-            variant="tertiary"
-            size="large"
-            labelHidden
-            bleedY
-          />
+          {actionOptions.map((options) => (
+            <PageHeaderButton {...options} />
+          ))}
+          <PageHeaderMenuButton state={state} />
           <Menu state={state} aria-label="actions">
             <MenuItem label="Create" icon={<IconPlus />} />
             <MenuItem label="Edit" icon={<IconPencil />} />
@@ -166,11 +150,11 @@ export const WithTags: Story<{
       <PageHeaderTop>
         <PageHeaderTitle>
           {title}
-          <Stack direction="row" space="$m">
+          <PageHeaderTags>
             {tagOptions.map((options) => (
-              <Tag {...options} />
+              <PageHeaderTag {...options} />
             ))}
-          </Stack>
+          </PageHeaderTags>
         </PageHeaderTitle>
       </PageHeaderTop>
     </PageHeader>
@@ -236,29 +220,17 @@ export const FullFledged = () => {
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
           <PageHeaderTitle>
-            Product #123{' '}
-            <Stack direction="row" space="$m">
-              <Tag label="Short text" size="large" />
-              <Tag label="Short text" size="large" />
-            </Stack>
+            Product #123
+            <PageHeaderTags>
+              <PageHeaderTag label="Short text" />
+              <PageHeaderTag label="Short text" />
+            </PageHeaderTags>
           </PageHeaderTitle>
           <PageHeaderActions>
-            <Button variant="critical" size="large" bleedY>
-              Delete item
-            </Button>
-            <Button variant="secondary" size="large" bleedY>
-              Edit
-            </Button>
-            <Button size="large" bleedY>
-              Create
-            </Button>
-            <MenuButton
-              state={state}
-              variant="tertiary"
-              size="large"
-              labelHidden
-              bleedY
-            />
+            <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
+            <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+            <PageHeaderButton>Create</PageHeaderButton>
+            <PageHeaderMenuButton state={state} />
             <Menu state={state} aria-label="actions">
               <MenuItem label="Create" icon={<IconPlus />} />
               <MenuItem label="Edit" icon={<IconPencil />} />

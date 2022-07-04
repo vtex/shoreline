@@ -90,19 +90,15 @@ export const popNavigationButton = style({
   marginRight: '0.5rem',
 })
 
-export const pageHeaderMenu = style({
-  display: 'flex',
-  '> button': { marginLeft: '0rem' },
-})
-
 export const pageHeaderActions = style({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
   justifyContent: 'flex-end',
-  '> div > button:not([aria-haspopup="menu"])': {
-    minWidth: '6.5rem',
-  },
+})
+
+export const pageHeaderButton = style({
+  minWidth: '6.5rem',
 })
 
 export const pageContent = style({

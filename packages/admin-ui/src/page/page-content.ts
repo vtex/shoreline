@@ -9,9 +9,16 @@ import * as style from './page.style'
  * Page content component
  *
  * @example
- * import { Page, PageContent } from "@vtex/admin-ui"
+ * import { Page, PageContent, PageHeader, PageHeaderTitle, PageHeaderTop } from "@vtex/admin-ui"
  *
  * <Page>
+ *  <PageHeader>
+ *    <PageHeaderTop>
+ *      <PageHeaderTitle>
+ *        Product #123
+ *      </PageHeaderTitle>
+ *    </PageHeaderTop>
+ *  </PageHeader>
  *  <PageContent>
  *    Content
  *  </PageContent>
