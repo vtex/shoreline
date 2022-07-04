@@ -11,16 +11,16 @@ import * as style from './page.style'
  * Page header title component
  *
  * @example
- * import { PageHeader, PageHeaderTop, PageHeaderTitle, Stack, Tag } from "@vtex/admin-ui"
+ * import { PageHeader, PageHeaderTop, PageHeaderTitle, PageHeaderTags, PageHeaderTag } from "@vtex/admin-ui"
  *
  * <PageHeader>
  *  <PageHeaderTop>
  *    <PageHeaderTitle>
  *      Product #123
- *      <Stack direction="row" space="$m">
- *        <Tag label="Short text" size="large" />
- *        <Tag label="Short text" size="large" />
- *      </Stack>
+ *      <PageHeaderTags>
+ *        <PageHeaderTag label="Short text" />
+ *        <PageHeaderTag label="Short text" />
+ *      </PageHeaderTags>
  *    </PageHeaderTitle>
  *  </PageHeaderTop>
  * </PageHeader>
