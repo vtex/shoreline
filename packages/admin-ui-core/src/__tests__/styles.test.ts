@@ -137,7 +137,7 @@ describe('styles', () => {
     })
   })
 
-  describe('__EXPERIMENTAL__ responsive scales', () => {
+  describe.skip('__EXPERIMENTAL__ responsive scales', () => {
     it('returns correct media query order', () => {
       const result = styles({
         width: ['100%', null, '50%'],
