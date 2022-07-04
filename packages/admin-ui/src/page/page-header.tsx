@@ -11,27 +11,21 @@ import { Box } from '../box'
  * Page header component
  *
  * @example
- * import { PageHeader, PageHeaderTop, PageHeaderTitle, PageHeaderActions, Button, PageHeaderBottom, TabList, Tab } from "@vtex/admin-ui"
+ * import { PageHeader, PageHeaderTop, PageHeaderTitle, PageHeaderActions, PageHeaderButton, PageHeaderBottom, PageHeaderTags, PageHeaderTag, PageHeaderMenuButton, TabList, Tab } from "@vtex/admin-ui"
  *
  * <PageHeader>
  *  <PageHeaderTop>
  *    <PageHeaderTitle>
  *      Product #123
- *      <Stack direction="row" space="$m">
- *        <Tag label="Short text" size="large" />
- *        <Tag label="Short text" size="large" />
- *      </Stack>
+ *      <PageHeaderTags>
+ *        <PageHeaderTag label="Short text" />
+ *        <PageHeaderTag label="Short text" />
+ *      </PageHeaderTags>
  *    </PageHeaderTitle>
  *    <PageHeaderActions>
- *      <Button size="large" bleedY>Create</Button>
- *      <Button size="large" bleedY variant="critical">Delete</Button>
- *      <MenuButton
- *        state={state}
- *        variant="tertiary"
- *        size="large"
- *        labelHidden
- *        bleedY
- *      />
+ *      <PageHeaderButton>Create</PageHeaderButton>
+ *      <PageHeaderButton variant="critical">Delete</PageHeaderButton>
+ *      <PageHeaderMenuButton state={state} />
  *      <Menu state={state} aria-label="actions">
  *        <MenuItem label="Create" icon={<IconPlus />} />
  *        <MenuItem label="Edit" icon={<IconPencil />} />

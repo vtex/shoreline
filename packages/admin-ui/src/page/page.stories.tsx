@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import type { Meta } from '@storybook/react'
-import { tag } from '@vtex/admin-ui-react'
 import faker from 'faker'
 
 import {
@@ -11,6 +10,10 @@ import {
   PageHeaderTop,
   PageHeaderActions,
   PageHeaderBottom,
+  PageHeaderButton,
+  PageHeaderMenuButton,
+  PageHeaderTags,
+  PageHeaderTag,
 } from './index'
 import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
 import {
@@ -25,9 +28,8 @@ import {
   createColumns,
 } from '../components/DataGrid'
 import { Box } from '../box'
-import { Tag } from '../tag'
-import { Button } from '../button'
-import { Stack } from '../stack'
+import { Menu, MenuItem, useMenuState } from '../menu'
+import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
 
 export default {
   title: 'admin-ui-review/page',
@@ -110,7 +112,7 @@ export function WithDataView() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+          <PageHeaderTitle>Product #123</PageHeaderTitle>
         </PageHeaderTop>
       </PageHeader>
       <PageContent>
@@ -145,7 +147,7 @@ export function Standard() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+          <PageHeaderTitle>Product #123</PageHeaderTitle>
         </PageHeaderTop>
       </PageHeader>
       <PageContent>
@@ -161,7 +163,7 @@ export function Narrow() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+          <PageHeaderTitle>Product #123</PageHeaderTitle>
         </PageHeaderTop>
       </PageHeader>
       <PageContent layout="narrow">
@@ -177,7 +179,7 @@ export function Wide() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+          <PageHeaderTitle>Product #123</PageHeaderTitle>
         </PageHeaderTop>
       </PageHeader>
       <PageContent layout="wide">
@@ -191,6 +193,7 @@ export function Wide() {
 
 export function FullFledged() {
   const tabs = useTabState()
+  const state = useMenuState()
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
@@ -218,21 +221,20 @@ export function FullFledged() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>
-            Product #123{' '}
-            <Stack direction="row" space="$m">
-              <Tag label="Short text" size="large" />
-              <Tag label="Short text" size="large" />
-            </Stack>
-          </PageHeaderTitle>
+          <PageHeaderTitle>Product #123 </PageHeaderTitle>
+          <PageHeaderTags>
+            <PageHeaderTag label="Short text" />
+            <PageHeaderTag label="Short text" />
+          </PageHeaderTags>
           <PageHeaderActions>
-            <Button variant="critical" size="large">
-              Delete item
-            </Button>
-            <Button variant="secondary" size="large">
-              Edit
-            </Button>
-            <Button size="large">Create</Button>
+            <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
+            <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+            <PageHeaderButton>Create</PageHeaderButton>
+            <PageHeaderMenuButton state={state} />
+            <Menu state={state} aria-label="actions">
+              <MenuItem label="Create" icon={<IconPlus />} />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+            </Menu>
           </PageHeaderActions>
         </PageHeaderTop>
         <PageHeaderBottom>

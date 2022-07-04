@@ -9,7 +9,7 @@ import * as style from './page.style'
  * Page header actions component
  *
  * @example
- * import { PageHeader, PageHeaderTop, PageHeaderActions, Button } from "@vtex/admin-ui"
+ * import { PageHeader, PageHeaderTop, PageHeaderActions, PageHeaderButton, PageHeaderMenuButton } from "@vtex/admin-ui"
  *
  * <PageHeader>
  *  <PageHeaderTop>
@@ -17,15 +17,9 @@ import * as style from './page.style'
  *      Product #123
  *    </PageHeaderTitle>
  *    <PageHeaderActions>
- *      <Button size="large" bleedY>Create</Button>
- *      <Button size="large" bleedY variant="critical">Delete</Button>
- *      <MenuButton
- *        state={state}
- *        variant="tertiary"
- *        size="large"
- *        labelHidden
- *        bleedY
- *      />
+ *      <PageHeaderButton>Create</PageHeaderButton>
+ *      <PageHeaderButton variant="critical">Delete</PageHeaderButton>
+ *      <PageHeaderMenuButton state={state} />
  *      <Menu state={state} aria-label="actions">
  *        <MenuItem label="Create" icon={<IconPlus />} />
  *        <MenuItem label="Edit" icon={<IconPencil />} />

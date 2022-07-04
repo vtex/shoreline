@@ -1,10 +1,10 @@
-import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import * as style from './page.style'
+import type { TagOptions } from '../tag'
+import { Tag } from '../tag'
 
 /**
- * Page header top component
+ * Page header tag component
  *
  * @example
  * import { PageHeader, PageHeaderTop, PageHeaderTitle, PageHeaderTags, PageHeaderTag } from "@vtex/admin-ui"
@@ -21,11 +21,14 @@ import * as style from './page.style'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderTop = createComponent<'div'>((props) =>
-  useElement('div', {
-    baseStyle: style.pageHeaderTop,
-    ...props,
-  })
-)
+export const PageHeaderTag = createComponent<typeof Tag, TagOptions>(
+  (props) => {
+    const { children, size = 'large', ...htmlProps } = props
 
-export type PageHeaderTop = ComponentPropsWithRef<typeof PageHeaderTop>
+    return useElement(Tag, {
+      children,
+      size,
+      ...htmlProps,
+    })
+  }
+)
