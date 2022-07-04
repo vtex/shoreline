@@ -242,6 +242,7 @@ const items = [
 function WithSearch() {
   const view = useDataViewState()
   const search = useSearchState()
+  const tabs = useTabState()
 
   const searchedItems = React.useMemo(() => {
     return items.filter((item) =>
@@ -294,6 +295,13 @@ function WithSearch() {
             </Button>
           </PageHeaderActions>
         </PageHeaderTop>
+        <PageHeaderBottom>
+          <TabList state={tabs}>
+            <Tab id="1">Label</Tab>
+            <Tab id="2">Label</Tab>
+            <Tab id="3">Label</Tab>
+          </TabList>
+        </PageHeaderBottom>
       </PageHeader>
       <PageContent>
         <DataView state={view}>
