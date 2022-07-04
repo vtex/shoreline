@@ -19,10 +19,12 @@ import {
   PageHeader,
   PageHeaderTop,
   PageHeaderTitle,
+  PageHeaderTags,
+  PageHeaderTag,
   PageHeaderActions,
+  PageHeaderButton,
+  PageHeaderMenuButton,
   PageHeaderBottom,
-  PageTitle,
-  PageActions,
   PageContent,
 } from '@vtex/admin-ui'
 ```
@@ -38,11 +40,16 @@ Page
 |__ PageHeader
 |   |__ PageHeaderTop
 |   |   |__ PageHeaderTitle
+|   |   |  |__ PageHeaderTags
+|   |   |      |__ PageHeaderTag
 |   |   |__ PageHeaderActions
-|   |       |__ Button
+|   |       |__ PageHeaderButton
+|   |       |__ PageHeaderMenuButton
 |   |       |__ Menu
+|   |           |__ MenuItem
 |   |__ PageHeaderBottom
-|       |__ Tabs
+|       |__ TabList
+|           |__ Tab
 |
 |__PageContent
    |__ (...Some view)
@@ -97,16 +104,17 @@ This is the basic usage. Use the `PageHeaderTitle` within the `PageHeaderTop` to
 
 <Section hasExplanation>
 
-You can also render components within the `PageHeaderTitle`, such as a `Tag` element.
+You can also render components within the `PageHeaderTitle`, such as a `Tag` elements using the `PageHeaderTags` and `PageHeaderTag` composites.
 
 ```jsx live
 <PageHeader>
   <PageHeaderTop>
     <PageHeaderTitle>
       Product #123
-      <Stack direction="row" space="$m">
-        <Tag label="Short text" size="large" />
-      </Stack>
+      <PageHeaderTags>
+        <PageHeaderTag label="Short text" />
+        <PageHeaderTag label="Short text" />
+      </PageHeaderTags>
     </PageHeaderTitle>
   </PageHeaderTop>
 </PageHeader>
@@ -136,25 +144,30 @@ The back-link is present if the `onPopNavigation` property is passed.
 
 #### PageHeaderActions
 
-Use the `PageHeaderActions` composite within the `PageHeaderTop` to add actions that are relevant for the whole page.
+Use the `PageHeaderActions` composite within the `PageHeaderTop` to add actions that are relevant for the whole page. Actions can be either `PageHeaderButton` or `PageHeaderMenuButton`, along with the `Menu` composites.
 
 ```jsx live
-<PageHeader>
-  <PageHeaderTop>
-    <PageHeaderTitle>Product #123</PageHeaderTitle>
-    <PageHeaderActions>
-      <Button variant="critical" size="large" bleedY>
-        Delete item
-      </Button>
-      <Button variant="secondary" size="large" bleedY>
-        Edit
-      </Button>
-      <Button size="large" bleedY>
-        Create
-      </Button>
-    </PageHeaderActions>
-  </PageHeaderTop>
-</PageHeader>
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <PageHeader>
+      <PageHeaderTop>
+        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderActions>
+          <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
+          <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+          <PageHeaderButton>Create</PageHeaderButton>
+          <PageHeaderMenuButton state={state} />
+          <Menu state={state} aria-label="actions">
+            <MenuItem label="Create" icon={<IconPlus />} />
+            <MenuItem label="Edit" icon={<IconPencil />} />
+          </Menu>
+        </PageHeaderActions>
+      </PageHeaderTop>
+    </PageHeader>
+  )
+}
 ```
 
 </Section>
@@ -171,7 +184,7 @@ This component is used to group elements to the bottom part of the PageHeader.
 
 #### With tabs
 
-If you ever need tabs on your PageHeader, locate them within the `PageHeaderBottom` component.
+If you ever need tabs on your `PageHeader`, locate them within the `PageHeaderBottom` component.
 
 See the Full Blown Example section for a full example with tabs.
 
@@ -243,6 +256,7 @@ function WithSearch() {
   const view = useDataViewState()
   const search = useSearchState()
   const tabs = useTabState()
+  const state = useMenuState()
 
   const searchedItems = React.useMemo(() => {
     return items.filter((item) =>
@@ -282,17 +296,19 @@ function WithSearch() {
     <Page>
       <PageHeader onPopNavigation={() => alert('should go back')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123</PageHeaderTitle>
+          <PageHeaderTitle>
+            Product #123{' '}
+            <PageHeaderTags>
+              <PageHeaderTag label="Short text" />
+            </PageHeaderTags>
+          </PageHeaderTitle>
           <PageHeaderActions>
-            <Button variant="critical" size="large" bleedY>
-              Delete item
-            </Button>
-            <Button variant="secondary" size="large" bleedY>
-              Edit
-            </Button>
-            <Button size="large" bleedY>
-              Create
-            </Button>
+            <PageHeaderButton>Create</PageHeaderButton>
+            <PageHeaderMenuButton state={state} />
+            <Menu state={state} aria-label="actions">
+              <MenuItem label="Create" icon={<IconPlus />} />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+            </Menu>
           </PageHeaderActions>
         </PageHeaderTop>
         <PageHeaderBottom>
