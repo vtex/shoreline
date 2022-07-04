@@ -39,7 +39,12 @@ export const global = {
     },
   'blockquote, q': { quotes: 'none' },
   'blockquote:before, blockquote:after, q:before, q:after': {
-    content: ["''", 'none'],
+    content: "''",
   },
   table: { borderCollapse: 'collapse', borderSpacing: 0 },
+  '@tablet': {
+    'blockquote:before, blockquote:after, q:before, q:after': {
+      content: 'none',
+    },
+  },
 }
