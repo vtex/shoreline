@@ -5,6 +5,14 @@ export const page = style({
   width: '100%',
 })
 
+export const pageHeaderViewportRef = style({
+  height: '3rem',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+})
+
 export const pageHeaderBase = style({
   bg: '$primary',
   color: '$primary',

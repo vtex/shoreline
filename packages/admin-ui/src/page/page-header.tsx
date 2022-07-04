@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import type { ComponentPropsWithRef } from 'react'
+import React, {
+  ComponentPropsWithRef,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { useIntersectionObserver, usePortal } from '@vtex/admin-ui-hooks'
 
 import { PageHeaderContext } from './page-header-context'
 import * as style from './page.style'
+import { Box } from '../box'
 
 /**
  * Page header component
@@ -47,45 +53,23 @@ import * as style from './page.style'
 export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {
     const { onPopNavigation, children, ...htmlProps } = props
+    const [scrollOnTop, setScrollOnTop] = useState(true)
+    const pageHeaderViewportFakeRef = useRef<HTMLDivElement>(null)
+    const { Portal } = usePortal()
 
-    const [scrollOnTop, setScrollOnTop] = useState(window.scrollY === 0)
+    const { setNode } = useIntersectionObserver({
+      root: null,
+      rootMargin: '0%',
+      threshold: [1],
+      callback: (entry) => {
+        setScrollOnTop(entry.isIntersecting)
+      },
+    })
 
     useEffect(() => {
-      const threshold = 0
-      let lastScrollY = window.scrollY
-      let ticking = false
-
-      const updateScrolling = () => {
-        const scrollY = window.scrollY
-
-        if (scrollY === threshold) {
-          setScrollOnTop(true)
-
-          return
-        }
-
-        if (Math.abs(scrollY - lastScrollY) < threshold) {
-          ticking = false
-
-          return
-        }
-
-        setScrollOnTop(false)
-        lastScrollY = scrollY > threshold ? scrollY : threshold
-        ticking = false
-      }
-
-      const onScroll = () => {
-        if (!ticking) {
-          window.requestAnimationFrame(updateScrolling)
-          ticking = true
-        }
-      }
-
-      window.addEventListener('scroll', onScroll)
-
-      return () => window.removeEventListener('scroll', onScroll)
-    }, [scrollOnTop])
+      pageHeaderViewportFakeRef.current &&
+        setNode(pageHeaderViewportFakeRef.current)
+    }, [setNode])
 
     return useElement('header', {
       baseStyle: {
@@ -93,13 +77,21 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
         ...style.pageHeader({ scrollOnTop }),
       },
       children: (
-        <PageHeaderContext.Provider
-          value={{
-            onPopNavigation,
-          }}
-        >
-          {children}
-        </PageHeaderContext.Provider>
+        <>
+          <Portal>
+            <Box
+              ref={pageHeaderViewportFakeRef}
+              csx={style.pageHeaderViewportRef}
+            />
+          </Portal>
+          <PageHeaderContext.Provider
+            value={{
+              onPopNavigation,
+            }}
+          >
+            {children}
+          </PageHeaderContext.Provider>
+        </>
       ),
       ...htmlProps,
     })
