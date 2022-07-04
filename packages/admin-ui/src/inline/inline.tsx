@@ -22,7 +22,7 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
       display: 'flex',
       flexWrap: noWrap ? 'nowrap' : 'wrap',
       alignItems: align,
-      '*:not(:first-child)': {
+      '> *:not(:first-child)': {
         marginLeft: hSpace,
         marginTop: spaceInside ? 0 : vSpace,
       },
