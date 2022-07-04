@@ -6061,6 +6061,13 @@
   dependencies:
     tiny-invariant "^1.1.0"
 
+"@vtex/phosphor-icons@0.2.8":
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.8.tgz#c143ea63c41597a6f91aef88b652a8dae2780b4b"
+  integrity sha512-piaeV+cYHJss5f/Q71D81ZL4UnGwmsbSpkcJusiKGxKhTu+MOUCGlUSKjWzeQ8sv1wXTOcycY76J8/YJTxckYg==
+  dependencies:
+    tiny-invariant "^1.1.0"
+
 "@vtex/prettier-config@^0.3.1":
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.3.6.tgz#31762608d9a59b815b6d4e963e439b12f1a12279"
