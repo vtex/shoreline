@@ -52,9 +52,10 @@ import { Box } from '../box'
  */
 export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {
-    const { onPopNavigation, children, ...htmlProps } = props
+    const { onPopNavigation, children, ref, ...htmlProps } = props
     const [scrollOnTop, setScrollOnTop] = useState(true)
     const pageHeaderViewportFakeRef = useRef<HTMLDivElement>(null)
+    const pageHeaderRef = (ref as any) ?? useRef<'header'>(null)
     const { Portal } = usePortal()
 
     const { setNode } = useIntersectionObserver({
@@ -76,12 +77,16 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
         ...style.pageHeaderBase,
         ...style.pageHeader({ scrollOnTop }),
       },
+      ref: pageHeaderRef as any,
       children: (
         <>
           <Portal>
             <Box
               ref={pageHeaderViewportFakeRef}
-              csx={style.pageHeaderViewportRef}
+              csx={{
+                ...style.pageHeaderViewportRef,
+                top: pageHeaderRef?.current?.offsetTop ?? 0,
+              }}
             />
           </Portal>
           <PageHeaderContext.Provider

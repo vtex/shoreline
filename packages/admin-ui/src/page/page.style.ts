@@ -8,9 +8,9 @@ export const page = style({
 export const pageHeaderViewportRef = style({
   height: '3rem',
   position: 'absolute',
-  top: 0,
   left: 0,
   right: 0,
+  zIndex: -2147483638,
 })
 
 export const pageHeaderBase = style({
