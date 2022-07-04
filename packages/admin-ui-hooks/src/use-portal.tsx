@@ -1,14 +1,11 @@
-import {
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
+import type {
   ReactNode,
   DOMAttributes,
   SyntheticEvent,
   MutableRefObject,
 } from 'react'
-import { createPortal, findDOMNode } from 'react-dom'
+import { useRef, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 
 type HTMLElRef = MutableRefObject<HTMLElement>
 type CustomEvent = {
@@ -29,27 +26,27 @@ export type UsePortalOptions = {
   bindTo?: HTMLElement
 } & CustomEventHandlers
 
-export function usePortal(params: UsePortalOptions = {}): any {
-  const { bindTo } = params
+export function usePortal(): any {
   const targetEl = useRef() as HTMLElRef
   const portal = useRef(document.createElement('div')) as HTMLElRef
+  const elToMountTo = document.body
 
   useEffect(() => {
-    if (!portal.current) portal.current = document.createElement('div')
+    if (!portal.current) {
+      portal.current = document.createElement('div')
+    }
   }, [portal])
-
-  const elToMountTo = useMemo(() => {
-    return (bindTo && findDOMNode(bindTo)) || document.body
-  }, [bindTo])
 
   useEffect(() => {
     if (
       !(elToMountTo instanceof HTMLElement) ||
       !(portal.current instanceof HTMLElement)
-    )
+    ) {
       return
+    }
 
     const node = portal.current
+
     elToMountTo.appendChild(portal.current)
 
     return () => {
@@ -59,7 +56,10 @@ export function usePortal(params: UsePortalOptions = {}): any {
 
   const Portal = useCallback(
     ({ children }: { children: ReactNode }) => {
-      if (portal.current != null) return createPortal(children, portal.current)
+      if (portal.current != null) {
+        return createPortal(children, portal.current)
+      }
+
       return null
     },
     [portal]
@@ -69,9 +69,5 @@ export function usePortal(params: UsePortalOptions = {}): any {
     ref: targetEl,
     Portal,
     portalRef: portal,
-    bind: {
-      // Used if you want to spread all html attributes onto the target element
-      ref: targetEl,
-    },
   })
 }
