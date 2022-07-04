@@ -221,11 +221,13 @@ export function FullFledged() {
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
         <PageHeaderTop>
-          <PageHeaderTitle>Product #123 </PageHeaderTitle>
-          <PageHeaderTags>
-            <PageHeaderTag label="Short text" />
-            <PageHeaderTag label="Short text" />
-          </PageHeaderTags>
+          <PageHeaderTitle>
+            Product #123{' '}
+            <PageHeaderTags>
+              <PageHeaderTag label="Short text" />
+              <PageHeaderTag label="Short text" />
+            </PageHeaderTags>
+          </PageHeaderTitle>
           <PageHeaderActions>
             <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
             <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
