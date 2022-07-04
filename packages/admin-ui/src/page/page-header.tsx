@@ -1,9 +1,5 @@
-import React, {
-  ComponentPropsWithRef,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import type { ComponentPropsWithRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useIntersectionObserver, usePortal } from '@vtex/admin-ui-hooks'
 
