@@ -100,14 +100,8 @@ export const pageHeaderActions = style({
   alignItems: 'center',
   flexWrap: 'wrap',
   justifyContent: 'flex-end',
-  '> div': {
-    display: 'flex',
-  },
-  '> button:not([aria-haspopup="menu"])': {
+  '> div > button:not([aria-haspopup="menu"])': {
     minWidth: '6.5rem',
-  },
-  '> * + *': {
-    marginLeft: '$l',
   },
 })
 
