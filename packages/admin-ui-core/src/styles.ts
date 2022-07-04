@@ -19,7 +19,10 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
 
   for (const key in csxObject) {
     const cssProperty = alias(key)
-    const token = isFunction(key) ? (key as Function)(theme) : key
+    const csxValue = csxObject[key as keyof typeof csxObject]
+    const token = isFunction(csxValue)
+      ? (csxValue as Function)(theme)
+      : csxValue
 
     if (token && typeof token === 'object') {
       cssObject[cssProperty] = styles(token as StyleObject, theme)
