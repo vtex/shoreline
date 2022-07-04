@@ -15,6 +15,7 @@ export function useIntersectionObserver(
     threshold = 0,
     callback,
   } = params
+
   const [node, setNode] = useState<HTMLDivElement>()
   const observer = useRef<IntersectionObserver>()
 
