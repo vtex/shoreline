@@ -54,9 +54,15 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
   (props) => {
     const { onPopNavigation, children, ref, ...htmlProps } = props
     const [scrollOnTop, setScrollOnTop] = useState(true)
+    const [distanceFromTop, setDistanceFromTop] = useState(0)
     const pageHeaderViewportFakeRef = useRef<HTMLDivElement>(null)
     const pageHeaderRef = (ref as any) ?? useRef<'header'>(null)
     const { Portal } = usePortal()
+
+    useEffect(() => {
+      pageHeaderRef?.current?.offsetTop &&
+        setDistanceFromTop(pageHeaderRef.current.offsetTop)
+    }, [])
 
     const { setNode } = useIntersectionObserver({
       root: null,
@@ -85,7 +91,7 @@ export const PageHeader = createComponent<'header', PageHeaderOptions>(
               ref={pageHeaderViewportFakeRef}
               csx={{
                 ...style.pageHeaderViewportRef,
-                top: pageHeaderRef?.current?.offsetTop ?? 0,
+                top: distanceFromTop,
               }}
             />
           </Portal>
