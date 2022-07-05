@@ -1,6 +1,7 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
-import type { ButtonOptions } from '../button'
+import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import * as style from './page.style'
 
@@ -22,16 +23,18 @@ import * as style from './page.style'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderButton = createComponent<typeof Button, ButtonOptions>(
-  (props) => {
-    const { children, size = 'large', bleedY = true, ...htmlProps } = props
+export const PageHeaderButton = forwardRef(
+  (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+    const { size = 'large', bleedY = true, ...buttonProps } = props
 
-    return useElement(Button, {
-      baseStyle: style.pageHeaderButton,
-      children,
-      size,
-      bleedY,
-      ...htmlProps,
-    })
+    return (
+      <Button
+        csx={style.pageHeaderButton}
+        size={size}
+        bleedY={bleedY}
+        ref={ref}
+        {...buttonProps}
+      />
+    )
   }
 )

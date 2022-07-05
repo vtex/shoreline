@@ -1,6 +1,7 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
-import type { TagOptions } from '../tag'
+import type { TagProps } from '../tag'
 import { Tag } from '../tag'
 
 /**
@@ -21,14 +22,10 @@ import { Tag } from '../tag'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderTag = createComponent<typeof Tag, TagOptions>(
-  (props) => {
-    const { children, size = 'large', ...htmlProps } = props
+export const PageHeaderTag = forwardRef(
+  (props: TagProps, ref: Ref<HTMLDivElement>) => {
+    const { size = 'large', ...tagProps } = props
 
-    return useElement(Tag, {
-      children,
-      size,
-      ...htmlProps,
-    })
+    return <Tag size={size} ref={ref} {...tagProps} />
   }
 )
