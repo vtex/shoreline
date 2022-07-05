@@ -6054,13 +6054,6 @@
   resolved "https://registry.yarnpkg.com/@vtex/eslint-plugin-admin-ui/-/eslint-plugin-admin-ui-0.2.21.tgz#c78ad695ed3a14adfcee52ce786d4d975e6f0dd4"
   integrity sha512-cv2ZoDEoQ8uGy3A07qqHXLEiCxslbZT0LMbFou0g12iQQqJE5MmfP0KktL8dvrZqK8I+umkuzRdw8SBWBOvDBg==
 
-"@vtex/phosphor-icons@0.2.6":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.6.tgz#9c01481f3d66ccff9c0051a0387b9abc09d2ad3c"
-  integrity sha512-gZyoxD9TdjXa3oav0Txda4t+U+AL5S4AznubQ9E35URLfA0pRxwWd5XOFG7WRXkoBa5uFDcq2vnTo91FVKvsbg==
-  dependencies:
-    tiny-invariant "^1.1.0"
-
 "@vtex/phosphor-icons@0.2.8":
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/@vtex/phosphor-icons/-/phosphor-icons-0.2.8.tgz#c143ea63c41597a6f91aef88b652a8dae2780b4b"
