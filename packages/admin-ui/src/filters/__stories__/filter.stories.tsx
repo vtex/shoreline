@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import { useMenuState } from 'ariakit'
-
 import { FilterDisclosure } from '../filter-disclosure'
 import { FilterPopover } from '../filter-popover'
 
@@ -31,35 +29,24 @@ function FilterMultiple(props: {
 }) {
   const { filterState, list, label } = props
 
-  // filter state would come from:
-  // const filterState = useFilterMultipleState({
-  //   items: list,
-  //   getOptionLabel,
-  // })
-
-  const menu = useMenuState(filterState.combobox)
-
   return (
     <>
-      <FilterDisclosure
-        appliedItems={filterState.appliedItems}
-        state={menu}
-        getOptionLabel={(op) => op.label}
-      >
-        {label}
-      </FilterDisclosure>
+      <FilterDisclosure state={filterState}>{label}</FilterDisclosure>
 
-      <FilterPopover state={menu}>
-        <FilterListbox state={filterState.combobox}>
+      <FilterPopover state={filterState}>
+        <FilterListbox state={filterState}>
           {list.map((item) => (
             <FilterOptionCheckbox
-              item={item}
+              id={item.id}
               key={item.id}
+              data={item}
               state={filterState}
-            />
+            >
+              {item.label}
+            </FilterOptionCheckbox>
           ))}
         </FilterListbox>
-        <FilterFooter {...filterState} />
+        <FilterFooter state={filterState} />
       </FilterPopover>
     </>
   )
@@ -72,38 +59,26 @@ function Filter(props: {
 }) {
   const { filterState, list, label } = props
 
-  // filter state would come from:
-  // const filterState = useFilterState({
-  //   items: list,
-  //   getOptionLabel: (op) => op.id,
-  // })
-
-  const menu = useMenuState(filterState.combobox)
-
   return (
     <>
-      <FilterDisclosure
-        appliedItems={filterState.appliedItem ? [filterState.appliedItem] : []}
-        state={menu}
-        getOptionLabel={(op) => op.label}
-      >
-        {label}
-      </FilterDisclosure>
+      <FilterDisclosure state={filterState}>{label}</FilterDisclosure>
 
-      <FilterPopover state={menu}>
-        <FilterListbox state={filterState.combobox}>
+      <FilterPopover state={filterState}>
+        <FilterListbox state={filterState}>
           {list.map((item) => (
-            <FilterOptionRadio item={item} key={item.id} state={filterState} />
+            <FilterOptionRadio id={item.id} key={item.id} state={filterState}>
+              {item.label}
+            </FilterOptionRadio>
           ))}
         </FilterListbox>
-        <FilterFooter {...filterState} />
+        <FilterFooter state={filterState} />
       </FilterPopover>
     </>
   )
 }
 
 function PlaygroundExample({ args }: any) {
-  const filterState = useFilterMultipleState({ items: args.items })
+  const filterState = useFilterMultipleState({ fullList: args.items })
 
   return (
     <FilterMultiple
@@ -143,8 +118,7 @@ export function Multiple() {
   ]
 
   const filterState = useFilterMultipleState({
-    items,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
+    fullList: items,
   })
 
   useEffect(() => {
@@ -168,90 +142,57 @@ export function Single() {
     { label: 'Unknown', id: '#5' },
   ]
 
-  const filterState = useFilterState({
-    items,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-  })
+  const filterState = useFilterState()
 
   return <Filter label="Single" list={items} filterState={filterState} />
 }
 
 export function BasicFilterGroup() {
-  const state = useFilterMultipleState({
-    items: [
-      { label: 'Full', value: 1, id: '#1' },
-      { label: 'Empty', value: 2, id: '#2' },
-      { label: 'Half full', value: 3, id: '#3' },
-      { label: 'Half empty', value: 4, id: '#4' },
-      { label: 'Unknown', value: 5, id: '#5' },
-      { label: 'Unknown', value: 5, id: '#6' },
-      { label: 'Unknown', value: 5, id: '#7' },
-      { label: 'Unknown', value: 5, id: '#8' },
-      { label: 'Half empty', value: 4, id: '#10' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-  })
+  const list1 = [
+    { label: 'Full', value: 1, id: '#1' },
+    { label: 'Empty', value: 2, id: '#2' },
+    { label: 'Half full', value: 3, id: '#3' },
+    { label: 'Half empty', value: 4, id: '#4' },
+    { label: 'Unknown', value: 5, id: '#5' },
+    { label: 'Unknown', value: 5, id: '#6' },
+    { label: 'Unknown', value: 5, id: '#7' },
+    { label: 'Unknown', value: 5, id: '#8' },
+    { label: 'Half empty', value: 4, id: '#10' },
+  ]
 
-  const state2 = useFilterState({
-    items: [
-      { label: 'Rio de Janeiro', value: 1, id: '#1' },
-      { label: 'New York', value: 2, id: '#2' },
-      { label: 'Paris', value: 3, id: '#3' },
-      { label: 'Tokyo', value: 4, id: '#4' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-  })
+  const list2 = [
+    { label: 'Rio de Janeiro', value: 1, id: '#1' },
+    { label: 'New York', value: 2, id: '#2' },
+    { label: 'Paris', value: 3, id: '#3' },
+    { label: 'Tokyo', value: 4, id: '#4' },
+  ]
 
-  const state3 = useFilterMultipleState({
-    items: [
-      { label: 'Full', value: 1, id: '#1' },
-      { label: 'Empty', value: 2, id: '#2' },
-      { label: 'Half full', value: 3, id: '#3' },
-      { label: 'Half empty', value: 4, id: '#4' },
-      { label: 'Unknown', value: 5, id: '#5' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-  })
+  const state = useFilterMultipleState()
+
+  const state2 = useFilterState({})
 
   useEffect(() => {
-    state2.setAppliedItem({ label: 'Rio de Janeiro', value: 1, id: '#1' })
+    state2.setAppliedItem({ label: 'Rio de Janeiro', id: '#1' })
     state.setAppliedItems([
-      { label: 'Full', value: 1, id: '#1' },
-      { label: 'Empty', value: 2, id: '#2' },
-    ])
-    state3.setAppliedItems([
-      { label: 'Half empty', value: 4, id: '#4' },
-      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Full', id: '#1' },
+      { label: 'Empty', id: '#2' },
     ])
   }, [])
 
   const filterGroupState = useFilterGroupState({
-    filterStates: [state, state2, state3],
+    filterStates: [state, state2],
   })
 
   return (
     <FilterGroup state={filterGroupState}>
-      <FilterMultiple filterState={state} label="Status" list={state.items} />
-      <Filter filterState={state2} label="City" list={state2.items} />
-      <FilterMultiple
-        filterState={state3}
-        label="Preselected"
-        list={state3.items}
-      />
+      <FilterMultiple filterState={state} label="Status" list={list1} />
+      <Filter filterState={state2} label="City" list={list2} />
     </FilterGroup>
   )
 }
 
 export function Interationalization() {
-  const state = useFilterState({
-    items: [
-      { label: 'Rio de Janeiro', value: 1, id: '#1' },
-      { label: 'New York', value: 2, id: '#2' },
-      { label: 'Paris', value: 3, id: '#3' },
-      { label: 'Tokyo', value: 4, id: '#4' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-  })
+  const state = useFilterState({})
 
   const filterGroupState = useFilterGroupState({
     filterStates: [state],
@@ -260,7 +201,16 @@ export function Interationalization() {
   return (
     <I18nProvider locale="pt-BR">
       <FilterGroup state={filterGroupState}>
-        <Filter filterState={state} label="Cidade" list={state.items} />
+        <Filter
+          filterState={state}
+          label="Cidade"
+          list={[
+            { label: 'Rio de Janeiro', value: 1, id: '#1' },
+            { label: 'New York', value: 2, id: '#2' },
+            { label: 'Paris', value: 3, id: '#3' },
+            { label: 'Tokyo', value: 4, id: '#4' },
+          ]}
+        />
       </FilterGroup>
     </I18nProvider>
   )
@@ -273,68 +223,46 @@ export function MultipleFromScratch() {
     { label: 'Half full', id: '#3' },
   ]
 
-  const filterState = useFilterMultipleState({
-    items,
-  })
-
-  const menu = useMenuState(filterState.combobox)
+  const filterState = useFilterMultipleState()
 
   return (
     <>
-      <FilterDisclosure
-        appliedItems={filterState.appliedItems}
-        state={menu}
-        getOptionLabel={(op) => op.label}
-      >
-        Example
-      </FilterDisclosure>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
 
-      <FilterPopover state={menu}>
-        <FilterListbox state={filterState.combobox}>
+      <FilterPopover state={filterState}>
+        <FilterListbox state={filterState}>
           {items.map((item) => (
-            <FilterOptionCheckbox
-              item={item}
-              key={item.id}
-              state={filterState}
-            />
+            <FilterOptionCheckbox data={item} id={item.id} state={filterState}>
+              {item.label}
+            </FilterOptionCheckbox>
           ))}
         </FilterListbox>
-        <FilterFooter {...filterState} />
+        <FilterFooter state={filterState} />
       </FilterPopover>
     </>
   )
 }
 
 export function SingleFromScrach() {
-  const items = [
-    { label: 'Full', id: '#1' },
-    { label: 'Empty', id: '#2' },
-    { label: 'Half full', id: '#3' },
-  ]
-
-  const filterState = useFilterState({
-    items,
-  })
-
-  const menu = useMenuState(filterState.combobox)
+  const filterState = useFilterState({})
 
   return (
     <>
-      <FilterDisclosure
-        appliedItems={filterState.appliedItem ? [filterState.appliedItem] : []}
-        state={menu}
-        getOptionLabel={(op) => op.label}
-      >
-        Example
-      </FilterDisclosure>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
 
-      <FilterPopover state={menu}>
-        <FilterListbox state={filterState.combobox}>
-          {items.map((item) => (
-            <FilterOptionRadio item={item} key={item.id} state={filterState} />
-          ))}
+      <FilterPopover state={filterState}>
+        <FilterListbox state={filterState}>
+          <FilterOptionRadio id="#1" state={filterState}>
+            Full
+          </FilterOptionRadio>
+          <FilterOptionRadio id="#2" state={filterState}>
+            Empty
+          </FilterOptionRadio>
+          <FilterOptionRadio id="#3" state={filterState}>
+            Half full
+          </FilterOptionRadio>
         </FilterListbox>
-        <FilterFooter {...filterState} />
+        <FilterFooter state={filterState} />
       </FilterPopover>
     </>
   )

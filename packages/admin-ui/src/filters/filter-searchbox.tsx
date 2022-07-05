@@ -5,7 +5,7 @@ import { useCombobox } from 'ariakit/combobox'
 import type { ComboboxState } from '../combobox'
 import { Search } from '..'
 
-export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
+export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
   (props) => {
     const { state, id, ...htmlProps } = props
 
@@ -30,7 +30,7 @@ export const FilterSeachbox = createComponent<'div', ComboboxFieldProps>(
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             state.setValue(e.target.value)
           }}
-          csx={{ marginBottom: '$m' }}
+          csx={{ marginBottom: '$2xl' }}
         />
       ),
     })
