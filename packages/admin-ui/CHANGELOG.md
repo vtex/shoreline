@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.0...@vtex/admin-ui@0.132.1) (2022-07-05)
+
+### Bug Fixes
+
+- **filtermultiplesearch:** add missing export ([eba1194](https://github.com/vtex/admin-ui/commit/eba1194f0e2c1d5d0bba4f7152fbe3d4fd8363cf))
+
 # [0.132.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.3...@vtex/admin-ui@0.132.0) (2022-07-05)
 
 ### Bug Fixes
