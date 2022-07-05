@@ -1,0 +1,167 @@
+---
+title: FilterMultiple
+path: /filter-multiple/
+---
+
+[Filters](/filter/) are supposed to be used in pages or sections that display some kind of data that can be filtered. The `filterMultiple`
+ component is a picker that displays filter options and allows for many of them to be selected. When the options are selected
+ and the changes applied, it should generate a change on the data or content being displayed, and should be filtered accordingly.
+
+## Usage
+
+```jsx
+
+import {
+  experimental_FilterMultiple as FilterMultiple,
+  experimental_useFilterMultipleState as useFilterMultipleState,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const state = useFilterMultipleState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half empty', value: 4, id: '#3' },
+    ],
+    onChange: ({ selected }) => console.log({applied: selected}),
+    label: 'Status',
+  })
+  return <FilterMultiple state={state} />
+}
+```
+
+## Examples
+
+### Initial values
+
+```jsx noInline live
+
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+function Example() {
+  const state = useFilterMultipleState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half full', value: 3, id: '#3' },
+      { label: 'Half empty', value: 4, id: '#4' },
+      { label: 'Unknown', value: 5, id: '#5' },
+    ],
+    onChange: ({ selected }) => console.log({applied: selected}),
+    label: 'Status',
+  })
+
+  useEffect(() => {
+    state.setAppliedItems([
+      
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+    ])
+  }, [])
+
+  return <FilterMultiple state={state} />
+
+
+}
+
+render(<Example />)
+```
+
+### Custom shaped object
+
+```jsx noInline live
+
+const FilterMultiple = experimental_FilterMultiple
+const useFilterMultipleState = experimental_useFilterMultipleState
+
+function Example() {
+  const state = useFilterMultipleState({
+    items: [
+      { name: 'Full', value: 1, Id: '#1' },
+      { name: 'Empty', value: 2, Id: '#2' },
+      { name: 'Half full', value: 3, Id: '#3' },
+      { name: 'Half empty', value: 4, Id: '#4' },
+      { name: 'Unknown', value: 5, Id: '#5' },
+    ],
+    onChange: ({ selected }) => console.log({applied: selected}),
+    label: 'Status',
+    getOptionId: (option) => option.Id,
+    getOptionLabel: (option) => option.name,
+    
+  })
+
+  return <FilterMultiple state={state} />
+
+
+}
+
+render(<Example />)
+```
+
+### I18n
+
+The filter-multiple has default translations. Wrap your app with [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+
+```jsx
+import {
+  experimental_FilterMultiple as FilterMultiple,
+  experimental_useFilterMultipleState as useFilterMultipleState,
+} from '@vtex/admin-ui'
+
+function Filter() {
+  const state = useFilterMultipleState({
+    items: [
+      { label: 'Full', value: 1, id: '#1' },
+      { label: 'Empty', value: 2, id: '#2' },
+      { label: 'Half empty', value: 4, id: '#3' },
+    ],
+    onChange: ({ selected }) => console.log({applied: selected}),
+    label: 'Status',
+  })
+  return <FilterMultiple state={state} />
+}
+
+function RootApp() {
+  return (
+    <I18nProvider locale="ko-KO">
+      <Filter />
+    </I18nProvider>
+  )
+}
+
+render(<RootApp />)
+```
+
+## Props
+
+### FilterMultiple
+
+| Name  | Type                  | Description    | Required | Default |
+| ----- | --------------------- | -------------- | -------- | ------- |
+| state | `FilterMultipleState` | Object that manages the component state logic, you can obtain it calling the useFilterMultipleState hook | ✅       | -       |
+
+### UseFilterMultipleState
+
+| Name           | Type                             | Description                                                            | Required | Default |
+| -------------- | -------------------------------- | ---------------------------------------------------------------------- | -------- | ------- |
+| label          | `string`                         | Filter button label                                                    | ✅       | -       |
+| items          | `T[]`                            | List of options for the filter                                         | 🚫       | []      |
+| onChange       | `({selected: T[]}) => void`      | Callback called with current selected items on apply and clear press.  | 🚫       | -       |
+| baseId         | `string`                         | Optional baseId for controling the components and its childrens id     | 🚫       | -       |
+| getOptionId    | `(item: T) => string`            | Optional function to get the id from custom objects                    | 🚫       | (option) => option.id       |
+| getOptionLabel | `(item: T) => string`            | Optional function to get the id from custom objects                    | 🚫       | (option) => option.label    |
+
+
+## FilterMultipleState (return of UseFilterMultipleState)
+
+| Name           | Type                             | Description
+| -------------- | -------------------------------- | -------------------------------------------------------------------
+| menu           | `MenuState`                      | State that controls the component's popover menu
+| combobox       | `ComboboxState`                  | State that controls the component's option list
+| onClear        | `() => void`                     | Function used by the component when clear is selected
+| onChange       | `() => void`                     | Function used by the component when apply is selected
+| appliedItems   | `T[]`                            | List of items that are currently applied
+| setAppliedItems| `(items: T[]) => void`           | Function for changing the current applied values 
+| selectedItems  | `T[]`                            | List of items that are currently selected
+| items          | `T[]`                            | List of options for the filter
