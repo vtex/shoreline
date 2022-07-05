@@ -1,5 +1,7 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
+import type { StackProps } from '../stack'
 import { Stack } from '../stack'
 
 /**
@@ -20,13 +22,12 @@ import { Stack } from '../stack'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderTags = createComponent<typeof Stack>((props) => {
-  const { children, direction = 'row', space = '$m', ...htmlProps } = props
+export const PageHeaderTags = forwardRef(
+  (props: StackProps, ref: Ref<HTMLDivElement>) => {
+    const { direction = 'row', space = '$m', ...stackProps } = props
 
-  return useElement(Stack, {
-    children,
-    direction,
-    space,
-    ...htmlProps,
-  })
-})
+    return (
+      <Stack direction={direction} space={space} ref={ref} {...stackProps} />
+    )
+  }
+)
