@@ -137,62 +137,6 @@ describe('styles', () => {
     })
   })
 
-  describe.skip('__EXPERIMENTAL__ responsive scales', () => {
-    it('returns correct media query order', () => {
-      const result = styles({
-        width: ['100%', null, '50%'],
-        color: ['red', 'green', 'blue'],
-      })
-
-      const keys = Object.keys(result)
-
-      expect(keys).toEqual([
-        'width',
-        '@media screen and (min-width: 40em)',
-        '@media screen and (min-width: 48em)',
-        'color',
-      ])
-
-      expect(result).toEqual({
-        width: '100%',
-        '@media screen and (min-width: 40em)': {
-          color: 'green',
-        },
-        '@media screen and (min-width: 48em)': {
-          width: '50%',
-          color: 'blue',
-        },
-        color: 'red',
-      })
-    })
-
-    it('returns correct media query order 2', () => {
-      const result = styles({
-        flexDirection: 'column',
-        justifyContent: [null, 'flex-start', 'flex-end'],
-        color: 'background',
-        height: '100%',
-        paddingX: [2, 3, 4],
-        paddingY: 4,
-      })
-
-      const keys = Object.keys(result)
-
-      expect(keys).toEqual([
-        'flexDirection',
-        'justifyContent',
-        '@media screen and (min-width: 40em)',
-        '@media screen and (min-width: 48em)',
-        'color',
-        'height',
-        'paddingLeft',
-        'paddingRight',
-        'paddingTop',
-        'paddingBottom',
-      ])
-    })
-  })
-
   describe('chained selectors alias', () => {
     it('returns correct syntax for CSS selectors', () => {
       const result = styles({
