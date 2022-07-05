@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-util@0.3.2...@vtex/admin-ui-util@0.4.0) (2022-07-05)
+
+### Features
+
+- **use-field-focus:** add hook ([83b3e67](https://github.com/vtex/admin-ui/commit/83b3e677eb434dc0c6554c7f22ddd6df01521326))
+
 ## [0.3.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-util@0.3.1...@vtex/admin-ui-util@0.3.2) (2022-06-02)
 
 ### Bug Fixes

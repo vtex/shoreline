@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.132.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.3...@vtex/admin-ui@0.132.0) (2022-07-05)
+
+### Bug Fixes
+
+- **admin-ui:** ariakit import ([cb02407](https://github.com/vtex/admin-ui/commit/cb024074f9c552290ee70aadde616795ddcd60f0))
+- **alert:** paddingX ([ec03747](https://github.com/vtex/admin-ui/commit/ec037474cfaf856e4caac16f0058ebe8410f4bc3))
+- **checkbox:** fix aria-checked value ([669d0ad](https://github.com/vtex/admin-ui/commit/669d0adb6f625998d1307cfe2af2d829d96766fd))
+- **checkbox:** reset state from 'indeterminate' ([4522bbb](https://github.com/vtex/admin-ui/commit/4522bbbab6cd51397276b62d3255be0aeb689783))
+- **combobox:** fix delay on empty state when just one letter is typed ([2e84388](https://github.com/vtex/admin-ui/commit/2e84388c266f060c1e5af72fc7311c23485831f6))
+- **filters:** fix setApplliedItems not having visual effects ([cf8cd98](https://github.com/vtex/admin-ui/commit/cf8cd989d7f9bf89176ae4d4cafbbbc56732a75d))
+- **filters:** fix spacing between elements ([ead579a](https://github.com/vtex/admin-ui/commit/ead579ab3f844f6d99ddbf91d51bb58bd602d871))
+- **icons:** update phosphor-icons library ([e82c050](https://github.com/vtex/admin-ui/commit/e82c0506a31f8a77f918eae08662c7b5efadf825))
+- **inline:** styles applied not only to direct children but for all nested children ([e033e55](https://github.com/vtex/admin-ui/commit/e033e552e827d9d90cdc816eb3bb511152048567))
+- **page:** adjust layout variants widths ([dd96005](https://github.com/vtex/admin-ui/commit/dd96005ec427564ed879f516528d109455095a58))
+- **page-header:** portal distance from top ([2ad2359](https://github.com/vtex/admin-ui/commit/2ad23591f4138abda7435117114cb5c198774551))
+- **page-header:** set dynamic distance from top of page for portal component ([73e067c](https://github.com/vtex/admin-ui/commit/73e067c37a4e047df37beaa92821043812854512))
+- **select:** adjust select height ([f5dec25](https://github.com/vtex/admin-ui/commit/f5dec2588de0f729a9c04aecc0d90be1b86e81b4))
+- **stitches:** adjust switch component styles ([1c3a3dd](https://github.com/vtex/admin-ui/commit/1c3a3ddfed2cb63ebc0abcd779059c3c52973a10))
+- **stitches:** wrong usage of as property ([51305b5](https://github.com/vtex/admin-ui/commit/51305b59083c9699d0b4238d6bcd2c3ca64b3dc8))
+- avoid losing input focus ([9726dcc](https://github.com/vtex/admin-ui/commit/9726dcc58eaac6d61756603471b837da2c3e91c7))
+
+### Code Refactoring
+
+- **filters:** change api to accept full object instead of ids ([5a2376b](https://github.com/vtex/admin-ui/commit/5a2376bcd1a1bf11e9bc95e5db289bbaf04006ce))
+
+### Features
+
+- **admin-ui:** deprecate abstract-input ([2e723ba](https://github.com/vtex/admin-ui/commit/2e723baf7972e7f8b14b4f26e648740d2707eeed))
+- **admin-ui:** deprecate input ([0eb429f](https://github.com/vtex/admin-ui/commit/0eb429f8d79a16d2fefbcb2eedc77f43d637cf1f))
+- **admin-ui:** deprecate input-password ([b913842](https://github.com/vtex/admin-ui/commit/b913842a60b535a24854603ab8b8c36620125533))
+- **admin-ui:** deprecate NumericStepper ([12636a4](https://github.com/vtex/admin-ui/commit/12636a4bc819b6976c50a497ef039188040c6e22))
+- **admin-ui:** deprecate select ([abbcaf7](https://github.com/vtex/admin-ui/commit/abbcaf704217689d9f7008b65b69b4e9df4fedcc))
+- **admin-ui:** deprecate text-area ([405b439](https://github.com/vtex/admin-ui/commit/405b439808be2ed260421bb01b615f3a1bdcd55c))
+- **admin-ui:** promote text-input, text-area, select, and number-input from next ([11dda1d](https://github.com/vtex/admin-ui/commit/11dda1d0bc60396c5f36936813e987295a1e15ff))
+- **alert:** make all alerts responsive ([d996df1](https://github.com/vtex/admin-ui/commit/d996df19ae7e9fa956f7aac91e02fbeb1ae2fb6c))
+- **filter:** add filter multiple search component ([2324b11](https://github.com/vtex/admin-ui/commit/2324b11b54117de45630ce8eb87746a9969ad970))
+- **filters:** add searchable filter ([014b55a](https://github.com/vtex/admin-ui/commit/014b55ac18a35ff759f0b0b76134e4452bc73702))
+- **form:** checkbox integration ([63dce34](https://github.com/vtex/admin-ui/commit/63dce3419c67496f786887d39281135913e82a37))
+- **form:** integrate number-input ([94d338f](https://github.com/vtex/admin-ui/commit/94d338fa91a2308e1df8ee44e8470686d5d6278f))
+- **form:** integrate select ([c47fc89](https://github.com/vtex/admin-ui/commit/c47fc899306ce94b7a1994031097e49f82c9c435))
+- **forms:** add radio ([14f6160](https://github.com/vtex/admin-ui/commit/14f6160747be8025682a498f937f9046a7aa8032))
+- **number-input:** create component structure and state ([0913687](https://github.com/vtex/admin-ui/commit/09136878f70b169e055656ec8ba78a9df83d7cee))
+- **number-input:** set component style ([ecb77f2](https://github.com/vtex/admin-ui/commit/ecb77f2581601decf53d88c6cf6bda8e4551f200))
+- **page:** add layouts to page-content ([fc949b4](https://github.com/vtex/admin-ui/commit/fc949b46fbb336097ba19758e96a09b08f2c8011))
+- **page:** update page layout styles ([b745680](https://github.com/vtex/admin-ui/commit/b745680caa072676a466c15a18c97be12812fa2e))
+- **page-header:** add shadow overlay when scrolling ([9c1c4cb](https://github.com/vtex/admin-ui/commit/9c1c4cbf18ad0d63717a98c3be59386565ee0a06))
+- **page-header:** tag options ([d7f184b](https://github.com/vtex/admin-ui/commit/d7f184bcabf63ac0ce8e45cb936f753e2cdb739b))
+- **page-header:** update approach with helper PageHeader[Element] components ([b120350](https://github.com/vtex/admin-ui/commit/b120350b4ac20e3f37507d33656686a1d613fdfd))
+- **page-header:** update its api and styles ([46cde4d](https://github.com/vtex/admin-ui/commit/46cde4d11c70307a512f903bad8c24ec5bae40dc))
+- **page-header:** use intersection observer api ([7b1b281](https://github.com/vtex/admin-ui/commit/7b1b28135795cfac422967fe01022e47e60ec256))
+- **reviewed menu:** setup base for reviewed version of menu ([28a1734](https://github.com/vtex/admin-ui/commit/28a17346f847f29d8e09f562219250c75842c6a1))
+- **select:** add select component review ([3435118](https://github.com/vtex/admin-ui/commit/34351185e85b60dcf43328d842981b3b339a4891))
+- **select:** remove select inline ([d264bf2](https://github.com/vtex/admin-ui/commit/d264bf26adbb527adf7564cecee217fe9082c004))
+- **select-inline:** add select-inline component review ([1410a7c](https://github.com/vtex/admin-ui/commit/1410a7c6409dd497c48c1df7d1400c21fdcb0ae8))
+- **stitches:** remove emotion dependency from the project ([62176e6](https://github.com/vtex/admin-ui/commit/62176e691ec4858fafaeb2aceab6d479522a5f8f))
+- **tab:** review component ([85a033a](https://github.com/vtex/admin-ui/commit/85a033a22eddbc5177eeeeb3d874cbbf3153255d))
+- **table:** create text resolver ([2c657b6](https://github.com/vtex/admin-ui/commit/2c657b6782815857a4944731295ace0a6520a234))
+- **table:** rename DataGrid to DataTable ([b6169c0](https://github.com/vtex/admin-ui/commit/b6169c0293f999ce5c3f6cf30041588ce2fd3281))
+- **tag:** add outline ([000df7b](https://github.com/vtex/admin-ui/commit/000df7bc54a36322bb97f4f98a8423bc4cd582a3))
+- **tag:** update tokens ([75fe529](https://github.com/vtex/admin-ui/commit/75fe529533cb2008596b5d7b0612eb4a30eb127e))
+- **tooltip:** review component ([00a3286](https://github.com/vtex/admin-ui/commit/00a3286ac5a54e05b2cb86c424d606024ab6e2fd))
+- **use-field-focus:** add hook ([83b3e67](https://github.com/vtex/admin-ui/commit/83b3e677eb434dc0c6554c7f22ddd6df01521326))
+
+### BREAKING CHANGES
+
+- **filters:** objects are accepted in any shape
+
 ## [0.131.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.131.2...@vtex/admin-ui@0.131.3) (2022-06-08)
 
 **Note:** Version bump only for package @vtex/admin-ui

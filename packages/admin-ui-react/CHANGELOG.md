@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.7.2...@vtex/admin-ui-react@0.8.0) (2022-07-05)
+
+### Bug Fixes
+
+- **stitches:** changes stitches config to allow admin-ui on SSR applications ([ea91301](https://github.com/vtex/admin-ui/commit/ea91301378e318b90547b46c75bb5f828da4f27d))
+- **stitches:** createSystem experimental theme overriding the default theme ([0589858](https://github.com/vtex/admin-ui/commit/058985807587b32095cc949036baa62a3484dede))
+- **stitches:** csx function return ([3580e36](https://github.com/vtex/admin-ui/commit/3580e3668fff53da5bfcb1e1dc7833cd631adc0d))
+
+### Features
+
+- **stitches:** remove emotion dependency from the project ([62176e6](https://github.com/vtex/admin-ui/commit/62176e691ec4858fafaeb2aceab6d479522a5f8f))
+
 ## [0.7.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.7.1...@vtex/admin-ui-react@0.7.2) (2022-06-02)
 
 ### Bug Fixes

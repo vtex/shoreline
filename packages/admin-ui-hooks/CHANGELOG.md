@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.3.3...@vtex/admin-ui-hooks@0.4.0) (2022-07-05)
+
+### Features
+
+- **page-header:** use intersection observer api ([7b1b281](https://github.com/vtex/admin-ui/commit/7b1b28135795cfac422967fe01022e47e60ec256))
+- **use-field-focus:** add hook ([83b3e67](https://github.com/vtex/admin-ui/commit/83b3e677eb434dc0c6554c7f22ddd6df01521326))
+
 ## [0.3.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.3.2...@vtex/admin-ui-hooks@0.3.3) (2022-06-02)
 
 ### Bug Fixes
