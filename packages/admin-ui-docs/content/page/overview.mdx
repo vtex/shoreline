@@ -1,0 +1,339 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Page is a pattern that represents a complete screen of an admin application. You can use the following utility components to achieve consistency easily.
+
+</IntroSection>
+
+<Section>
+
+## Import
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageHeaderTop,
+  PageHeaderTitle,
+  PageHeaderTags,
+  PageHeaderTag,
+  PageHeaderActions,
+  PageHeaderButton,
+  PageHeaderMenuButton,
+  PageHeaderBottom,
+  PageContent,
+} from '@vtex/admin-ui'
+```
+
+</Section>
+
+<Section>
+
+### Anatomy
+
+```txt
+Page
+|__ PageHeader
+|   |__ PageHeaderTop
+|   |   |__ PageHeaderTitle
+|   |   |  |__ PageHeaderTags
+|   |   |      |__ PageHeaderTag
+|   |   |__ PageHeaderActions
+|   |       |__ PageHeaderButton
+|   |       |__ PageHeaderMenuButton
+|   |       |__ Menu
+|   |           |__ MenuItem
+|   |__ PageHeaderBottom
+|       |__ TabList
+|           |__ Tab
+|
+|__PageContent
+   |__ (...Some view)
+```
+
+</Section>
+
+<Section>
+
+## Behavior
+
+```jsx
+<Page>
+  <PageHeader>
+    <PageHeaderTop>
+      <PageHeaderTitle>Product #123</PageHeaderTitle>
+    </PageHeaderTop>
+  </PageHeader>
+  <PageContent csx={{ padding: 5 }}>
+    <tag.div>Page Content</tag.div>
+  </PageContent>
+</Page>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## PageHeader
+
+Users rely on the page header to navigate and orient themselves within the admin.
+
+<Section hasExplanation>
+
+### PageHeaderTop
+
+This component is used to group elements to the top part of the PageHeader.
+
+<Section hasExplanation>
+
+#### PageHeaderTitle
+
+This is the basic usage. Use the `PageHeaderTitle` within the `PageHeaderTop` to render the page title.
+
+```jsx live
+<PageHeader>
+  <PageHeaderTop>
+    <PageHeaderTitle>Product #123</PageHeaderTitle>
+  </PageHeaderTop>
+</PageHeader>
+```
+
+<Section hasExplanation>
+
+You can also render components within the `PageHeaderTitle`, such as a `Tag` elements using the `PageHeaderTags` and `PageHeaderTag` composites.
+
+```jsx live
+<PageHeader>
+  <PageHeaderTop>
+    <PageHeaderTitle>
+      Product #123
+      <PageHeaderTags>
+        <PageHeaderTag label="Short text" />
+        <PageHeaderTag label="Short text" />
+      </PageHeaderTags>
+    </PageHeaderTitle>
+  </PageHeaderTop>
+</PageHeader>
+```
+
+</Section>
+
+</Section>
+
+<Section hasExplanation>
+
+#### With back-link
+
+The back-link is present if the `onPopNavigation` property is passed.
+
+```jsx live
+<PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+  <PageHeaderTop>
+    <PageHeaderTitle>Product #123</PageHeaderTitle>
+  </PageHeaderTop>
+</PageHeader>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+#### PageHeaderActions
+
+Use the `PageHeaderActions` composite within the `PageHeaderTop` to add actions that are relevant for the whole page. Actions can be either `PageHeaderButton` or `PageHeaderMenuButton`, along with the `Menu` composites.
+
+```jsx live
+function Example() {
+  const state = useMenuState()
+
+  return (
+    <PageHeader>
+      <PageHeaderTop>
+        <PageHeaderTitle>Product #123</PageHeaderTitle>
+        <PageHeaderActions>
+          <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
+          <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+          <PageHeaderButton>Create</PageHeaderButton>
+          <PageHeaderMenuButton state={state} />
+          <Menu state={state} aria-label="actions">
+            <MenuItem label="Create" icon={<IconPlus />} />
+            <MenuItem label="Edit" icon={<IconPencil />} />
+          </Menu>
+        </PageHeaderActions>
+      </PageHeaderTop>
+    </PageHeader>
+  )
+}
+```
+
+</Section>
+
+</Section>
+
+<Section hasExplanation>
+
+### PageHeaderBottom
+
+This component is used to group elements to the bottom part of the PageHeader.
+
+<Section hasExplanation>
+
+#### With tabs
+
+If you ever need tabs on your `PageHeader`, locate them within the `PageHeaderBottom` component.
+
+See the Full Blown Example section for a full example with tabs.
+
+```jsx live
+function Example() {
+  const tabs = useTabState()
+
+  return (
+    <PageHeader>
+      <PageHeaderTop>
+        <PageHeaderTitle>Product #123</PageHeaderTitle>
+      </PageHeaderTop>
+      <PageHeaderBottom>
+        <TabList state={tabs}>
+          <Tab id="1">Label</Tab>
+          <Tab id="2">Label</Tab>
+          <Tab id="3">Label</Tab>
+        </TabList>
+      </PageHeaderBottom>
+    </PageHeader>
+  )
+}
+```
+
+</Section>
+
+</Section>
+
+</Section>
+
+<Section hasExplanation>
+
+## PageContent
+
+Renders the content of the page.
+
+<Section hasExplanation>
+
+### With DataView
+
+Example featuring [DataView](/guidelines/components/data-view/) and [Table](/guidelines/components/table/)
+
+```jsx noInline live
+const items = [
+  {
+    id: 1,
+    productName: 'Banana',
+    inStock: 380,
+    skus: 0,
+    price: 80,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    inStock: 380,
+    skus: 26,
+    price: 500,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    inStock: 380,
+    skus: 25,
+    price: 100,
+  },
+]
+
+function WithSearch() {
+  const view = useDataViewState()
+  const search = useSearchState()
+  const tabs = useTabState()
+  const state = useMenuState()
+
+  const searchedItems = React.useMemo(() => {
+    return items.filter((item) =>
+      item.productName.toLowerCase().startsWith(
+        // use the search debounced value to
+        // filter the collection
+        search.debouncedValue.toLocaleLowerCase()
+      )
+    )
+  }, [search])
+
+  const table = useTableState({
+    view,
+    columns: [
+      {
+        id: 'productName',
+        header: 'Product Name',
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+      },
+    ],
+    items: searchedItems,
+    length: 5,
+  })
+
+  return (
+    <Page>
+      <PageHeader onPopNavigation={() => alert('should go back')}>
+        <PageHeaderTop>
+          <PageHeaderTitle>
+            Product #123{' '}
+            <PageHeaderTags>
+              <PageHeaderTag label="Short text" />
+            </PageHeaderTags>
+          </PageHeaderTitle>
+          <PageHeaderActions>
+            <PageHeaderButton>Create</PageHeaderButton>
+            <PageHeaderMenuButton state={state} />
+            <Menu state={state} aria-label="actions">
+              <MenuItem label="Create" icon={<IconPlus />} />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+            </Menu>
+          </PageHeaderActions>
+        </PageHeaderTop>
+        <PageHeaderBottom>
+          <TabList state={tabs}>
+            <Tab id="1">Label</Tab>
+            <Tab id="2">Label</Tab>
+            <Tab id="3">Label</Tab>
+          </TabList>
+        </PageHeaderBottom>
+      </PageHeader>
+      <PageContent>
+        <DataView state={view}>
+          <DataViewControls>
+            <Search id="search" placeholder="Search" state={search} />
+          </DataViewControls>
+          <Table state={table} />
+        </DataView>
+      </PageContent>
+    </Page>
+  )
+}
+
+render(<WithSearch />)
+```
+
+</Section>
+
+</Section>

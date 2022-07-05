@@ -1,0 +1,130 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
+
+<IntroSection>
+
+## What is this?
+
+Buttons trigger an action, or allow the user to advance a state. They are where the user interacts with the screen, enabling actions or decisions.
+
+</IntroSection>
+
+<MultipleCodeSection optionsTitle="Variant" options={['Primary','Secondary','Tertiary']}>
+
+## Variants
+
+```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="primary">Primary</Button>
+  <Button variant="critical">Critical Primary</Button>
+</>
+```
+
+```jsx live optionId=secondary layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="criticalSecondary">Critical Secondary</Button>
+</>
+```
+
+```jsx live optionId=tertiary layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button variant="tertiary">Tertiary</Button>
+  <Button variant="criticalTertiary">Critical Tertiary</Button>
+  <Button variant="neutralTertiary">Neutral</Button>
+</>
+```
+
+</MultipleCodeSection>
+
+<Section direction="row">
+
+### How does each variant work?
+
+- tertiary (low emphasis): Typically used for less important actions.
+- secondary (medium emphasis): Used for more emphasis than text buttons.
+- primary (high emphasis): Have the highest emphasis, as they use a color fill and shadow. Used for primary actions.
+
+</Section>
+
+<Section>
+
+## Button Sizes
+
+```jsx live layout=grid columnsCount=2 rowsCount=1
+<>
+  <Button>Normal Button</Button>
+  <Button size="large">Large Button</Button>
+</>
+```
+
+</Section>
+
+<Section>
+
+## Button With Icon
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button icon={<IconHeart />}>Icon start</Button>
+  <Button icon={<IconHeart />} iconPosition="end">
+    Icon end
+  </Button>
+  <Button icon={<IconHeart title="Favorite" />} aria-label="Favorite button" />
+</>
+```
+
+</Section>
+
+<Section>
+
+## Disabled
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+<>
+  <Button disabled>Disabled</Button>
+  <Button variant="secondary" disabled>
+    Disabled
+  </Button>
+  <Button variant="tertiary" disabled>
+    Disabled
+  </Button>
+</>
+```
+
+</Section>
+
+<Section>
+
+## Loading
+
+```jsx live layout=grid columnsCount=3 rowsCount=1
+function Example() {
+  const [loading, setLoading] = React.useState(true)
+
+  return (
+    <>
+      <Button loading={loading} onClick={() => setLoading(!loading)}>
+        Loading
+      </Button>
+      <Button
+        loading={loading}
+        variant="secondary"
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+      <Button
+        variant="tertiary"
+        loading={loading}
+        onClick={() => setLoading(!loading)}
+      >
+        Loading
+      </Button>
+    </>
+  )
+}
+```
+
+</Section>

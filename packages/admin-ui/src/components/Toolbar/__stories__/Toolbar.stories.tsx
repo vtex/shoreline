@@ -11,13 +11,12 @@ import {
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
 import { Button } from '../../../button'
 import {
-  Menu,
   MenuButton,
-  MenuList,
-  MenuSeparator,
+  Menu,
+  MenuDivider,
   MenuItem,
   useMenuState,
-} from '../../Menu'
+} from '../../../menu'
 import {
   ModalDisclosure,
   Modal,
@@ -58,18 +57,16 @@ export const WithMenu = () => {
       <Toolbar state={state} aria-label="Toolbar with menu">
         <ToolbarItem>
           {(itemProps) => (
-            <Menu state={menuState}>
-              <MenuButton icon={<IconDotsThreeVertical />} {...itemProps}>
-                More
-              </MenuButton>
-              <MenuList aria-label="actions">
-                <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-                <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
-                <MenuSeparator />
-                <MenuItem icon={<IconTrash />}>Delete</MenuItem>
-              </MenuList>
-            </Menu>
+            <>
+              <MenuButton state={menuState} label="More" {...itemProps} />
+              <Menu state={menuState} aria-label="actions">
+                <MenuItem icon={<IconArrowLineDown />} label="Download" />
+                <MenuItem icon={<IconLink />} label="Link to" />
+                <MenuItem icon={<IconHeart />} label="Favorite" />
+                <MenuDivider />
+                <MenuItem icon={<IconTrash />} label="Delete" />
+              </Menu>
+            </>
           )}
         </ToolbarItem>
       </Toolbar>
@@ -87,18 +84,16 @@ export const WithModal = () => {
       <Toolbar state={state} aria-label="Toolbar with modal">
         <ToolbarItem>
           {(itemProps) => (
-            <Menu state={menuState}>
-              <MenuButton icon={<IconDotsThreeVertical />} {...itemProps}>
-                More
-              </MenuButton>
-              <MenuList aria-label="actions">
-                <MenuItem icon={<IconArrowLineDown />}>Download</MenuItem>
-                <MenuItem icon={<IconLink />}>Link to</MenuItem>
-                <MenuItem icon={<IconHeart />}>Favorite</MenuItem>
-                <MenuSeparator />
-                <MenuItem icon={<IconTrash />}>Delete</MenuItem>
-              </MenuList>
-            </Menu>
+            <>
+              <MenuButton state={menuState} label="More" {...itemProps} />
+              <Menu state={menuState} aria-label="actions">
+                <MenuItem icon={<IconArrowLineDown />} label="Download" />
+                <MenuItem icon={<IconLink />} label="Link to" />
+                <MenuItem icon={<IconHeart />} label="Favorite" />
+                <MenuDivider />
+                <MenuItem icon={<IconTrash />} label="Delete" />
+              </Menu>
+            </>
           )}
         </ToolbarItem>
         <ToolbarItem>

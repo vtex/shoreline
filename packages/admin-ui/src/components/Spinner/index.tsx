@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { jsx, tag } from '@vtex/admin-ui-react'
+import { keyframes } from '@vtex/admin-ui-core'
 
 export const Spinner = jsx('svg')(
   {},
@@ -9,28 +10,27 @@ export const Spinner = jsx('svg')(
     useOptions(options: SpinnerOptions, props, system) {
       const { size = 24 } = options
       const { csx } = props
-      const { keyframes } = system
 
-      const dash = keyframes`
-        0% {
-          stroke-dasharray: 1, 150;
-          stroke-dashoffset: 0;
-        }
-        50% {
-          stroke-dasharray: 90, 150;
-          stroke-dashoffset: -35;
-        }
-        100% {
-          stroke-dasharray: 90, 150;
-          stroke-dashoffset: -124;
-        }
-      `
+      const dash = keyframes({
+        '0%': {
+          strokeDasharray: '1, 150',
+          strokeDashoffset: '0',
+        },
+        '50%': {
+          strokeDasharray: '90, 150',
+          strokeDashoffset: '-35',
+        },
+        '100%': {
+          strokeDasharray: '90, 150',
+          strokeDashoffset: '-124',
+        },
+      })
 
-      const rotate = keyframes`
-        100% {
-          transform: rotate(360deg)
-        }
-      `
+      const rotate = keyframes({
+        '100%': {
+          transform: 'rotate(360deg)',
+        },
+      })
 
       return {
         ...props,

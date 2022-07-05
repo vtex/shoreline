@@ -1,0 +1,74 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Tooltips are a small informative pop-ups that appear when an item is being hovered, focused or touched. It implements [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
+
+</IntroSection>
+
+<Section>
+
+## Text
+
+```jsx live
+<Tooltip text="Tooltip text" />
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Target
+
+You can change the tooltip target through children.
+
+```jsx live
+<Tooltip text="Copy files">
+  <Button icon={<IconCopySimple />} variant="tertiary" />
+</Tooltip>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Visible
+
+Use the visible prop to make the tooltip a controlled component.
+
+```jsx live
+function Example() {
+  const [visible, setVisible] = useState(false)
+  return (
+    <Tooltip text="Tooltip text" visible={visible}>
+      <Button
+        onMouseEnter={() => {
+          setVisible(true)
+        }}
+        onMouseLeave={() => {
+          setVisible(false)
+        }}
+      >
+        Button
+      </Button>
+    </Tooltip>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Placement
+
+You can use the `placement` property to change the position that the Tooltip popup will appear
+
+```jsx live
+<Tooltip text="Tooltip Label" placement="right" />
+```
+
+</Section>

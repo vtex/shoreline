@@ -57,6 +57,9 @@ const styles = {
         minWidth: '50%',
       },
     },
+    '& + &': {
+      marginTop: '3.5rem',
+    },
   }),
   previewContainer: style({
     '> *': {

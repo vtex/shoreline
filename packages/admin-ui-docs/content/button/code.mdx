@@ -1,0 +1,53 @@
+import { Section } from '@site/src/components/Section'
+
+<Section>
+
+## Usage
+
+```jsx
+import { Button } from '@vtex/admin-ui'
+
+export function Example() {
+  return <Button onClick={() => {}}>Admin UI Button</Button>
+}
+```
+
+</Section>
+
+<Section>
+
+## Props
+
+| Name         | Type                                                                                           | Description                               | Required | Default   |
+| ------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | --------- |
+| size         | `normal, large`                                                                                | Size of the button                        | 🚫       | `normal`  |
+| variant      | `primary, secondary, tertiary, critical, criticalSecondary, criticalTertiary, neutralTertiary` | Button variant                            | 🚫       | `primary` |
+| icon         | `ReactNode`                                                                                    | Icon of the button                        | 🚫       | -         |
+| iconPosition | `start, end`                                                                                   | Position of the icon                      | 🚫       | `start`   |
+| disabled     | `boolean`                                                                                      | Defines if the Button is disabled         | 🚫       | `false`   |
+| loading      | `boolean`                                                                                      | Defines if the Button is in loading state | 🚫       | `false`   |
+| csx          | `StyleProp`                                                                                    | Defines component styles                  | 🚫       | `{}`      |
+
+</Section>
+
+<Section direction="row">
+
+## Best Practices
+
+- `Button` has the role `button`.
+- When `Button` is in a focused state, pressing <kbd>Space</kbd> and <kbd>Enter</kbd> triggers its action.
+- If `disabled` prop is `true`, `Button` has `disabled` and `aria-disabled` attributes set to `true`.
+- When using an Icon-only button, you must set the `aria-label` property to make it accessible. Check Design recommendations for more practices around Icon usage in buttons.
+
+```jsx
+function Example() {
+  return (
+    <Button
+      icon={<IconHeart title="Favorite" />}
+      aria-label="Favorite button"
+    />
+  )
+}
+```
+
+</Section>

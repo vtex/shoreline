@@ -1,0 +1,48 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section>
+
+## Usage
+
+```jsx isStatic
+import { Tooltip } from '@vtex/admin-ui'
+
+function Example() {
+  return <Tooltip text="Tooltip text" />
+}
+```
+
+</Section>
+
+<Section>
+
+## Tooltip Props
+
+| Name      | Type                                                                                | Description                                           | Required | Default |
+| --------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------- | -------- | ------- |
+| text      | `string`                                                                            | Text shown inside the tooltip                         | ✅       | -       |
+| children  | `ReactNode`                                                                         | The element that triggers the tooltip                 | 🚫       | -       |
+| placement | `auto-start, auto, auto-end, top-start, top, top-end, right-start, bottom, or left` | The placement of the tooltip relative to its children | 🚫       | `top`   |
+| visible   | `boolean`                                                                           | Whether the tooltip is visible or not                 | 🚫       | `false` |
+| csx       | `StyleProps`                                                                        | Custom styles                                         | 🚫       | `{}`    |
+| bleedX    | `boolean`                                                                           | Horizontal bleed                                      | 🚫       | `false` |
+| bleedY    | `boolean`                                                                           | Vertical bleed                                        | 🚫       | `false` |
+
+</Section>
+
+<Section direction="row">
+
+## Accessibility
+
+<OrderedList>
+  <OrderedListItem>`Tooltip` has `role="tooltip"`.</OrderedListItem>
+  <OrderedListItem>
+    Tooltip's children has `aria-describedby` referring to the `Tooltip`.
+  </OrderedListItem>
+  <OrderedListItem>
+    <kbd>Esc</kbd> hides the current visible tooltip.
+  </OrderedListItem>
+</OrderedList>
+
+</Section>

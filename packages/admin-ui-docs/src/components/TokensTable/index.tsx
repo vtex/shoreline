@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import type { StyleProp } from '@vtex/admin-ui'
 import {
-  useDataGridState,
+  useTableState,
   useDataViewState,
   useSearchState,
   get,
@@ -11,7 +11,7 @@ import {
   useDropdownState,
   Center,
 } from '@vtex/admin-ui'
-import { FilterDataGrid } from '../FilterDataGrid'
+import { FilterTable } from '../FilterTable'
 
 type Item = {
   token: string
@@ -53,10 +53,10 @@ export function TokensTable(props: TokensTableProps) {
     [dropdown.selectedItem]
   )
 
+  const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
+
   const searchedItems = React.useMemo(() => {
     return items.filter((item) => {
-      const searchLowerCase = search.debouncedValue.toLocaleLowerCase()
-
       if (filter !== 'all' && filter !== item.type.toLowerCase()) return false
 
       const isSearchedTextInValueColumn =
@@ -70,7 +70,7 @@ export function TokensTable(props: TokensTableProps) {
         isSearchedTextInValueColumn
       )
     })
-  }, [search])
+  }, [searchLowerCase])
 
   useEffect(() => {
     if (!searchedItems.length) {
@@ -85,7 +85,7 @@ export function TokensTable(props: TokensTableProps) {
     }
   }, [searchedItems.length])
 
-  const dataGrid = useDataGridState({
+  const table = useTableState({
     density: 'variable',
     columns: [
       {
@@ -173,9 +173,9 @@ export function TokensTable(props: TokensTableProps) {
   })
 
   return (
-    <FilterDataGrid
+    <FilterTable
       filters={filters}
-      dataGrid={dataGrid}
+      table={table}
       dataView={dataView}
       search={search}
       dropdown={dropdown}

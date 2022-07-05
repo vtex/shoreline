@@ -20,6 +20,7 @@
   --ifm-code-font-size: 95%;
   --ifm-pre-background: #ffffff;
   --ifm-toc-border-color: #DDDDDD;
+  --ifm-hr-border-width: 0;
 }
 
 body {
@@ -30,8 +31,17 @@ body {
   --ifm-spacing-horizontal: 3rem;
 }
 
-h1:first-child {
+header>h1:first-child {
   display: none;
+}
+
+.badge--secondary {
+  position: absolute;
+  top: 2rem;
+}
+
+.theme-doc-version-banner {
+  margin-top: -3.5rem;
 }
 
 .theme-doc-breadcrumbs {
@@ -54,7 +64,7 @@ h1:first-child {
     margin-top: -171px;
     padding-top: 0;
 
-    & > .container {
+    &>.container {
       max-width: 1505px;
     }
   }

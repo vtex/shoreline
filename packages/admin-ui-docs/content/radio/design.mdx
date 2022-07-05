@@ -1,0 +1,42 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section direction="row">
+
+## Best Practices
+
+<OrderedList>
+  <OrderedListItem>Use them for single choice options.</OrderedListItem>
+  <OrderedListItem>
+    There should always be a pre-selected option as default.
+  </OrderedListItem>
+  <OrderedListItem>
+    For more than 6 options you should use a Select.
+  </OrderedListItem>
+  <OrderedListItem>
+    Don’t be ambiguous, each option should be clear.
+  </OrderedListItem>
+  <OrderedListItem>
+    Mind the order of the options. Consider ordering them from most to least
+    frequently used, simplest to most complex, or least to most risky.
+  </OrderedListItem>
+  <OrderedListItem>
+    Use a "None" option if you need an unselected state.
+  </OrderedListItem>
+  <OrderedListItem>
+    Consider adding an "Other" option if needed, together with a Text Input to
+    capture the user’s needs.
+  </OrderedListItem>
+  <OrderedListItem>Use titles to group related controls.</OrderedListItem>
+  <OrderedListItem>
+    Add descriptions if the control is critical, or complex.
+  </OrderedListItem>
+  <OrderedListItem>
+    Lists of controls should be vertical for better scannability.
+  </OrderedListItem>
+  <OrderedListItem>
+    👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+  </OrderedListItem>
+</OrderedList>
+
+</Section>

@@ -60,6 +60,12 @@ const config = {
           alt: 'VTEX Logo',
           src: 'img/vtex-logo.svg',
         },
+        items: [
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+          },
+        ],
       },
       footer: {
         style: 'light',

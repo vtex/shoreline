@@ -5,32 +5,6 @@ import { Search } from '../index'
 import { render } from '../test-utils'
 
 describe('Search', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <Search data-testid="search" csx={{ bg: 'azure' }} onClear={() => {}} />
-    )
-
-    expect(getByTestId('search')).toHaveStyleRule('background', 'azure')
-  })
-
-  it('should match snapshot', () => {
-    const { asFragment } = render(<Search />)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match snapshot on loading', () => {
-    const { asFragment } = render(<Search loading />)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('should match snapshot with value', () => {
-    const { asFragment } = render(<Search value="Search" />)
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it('should not have a11y violations', async () => {
     const { container } = render(<Search />)
 

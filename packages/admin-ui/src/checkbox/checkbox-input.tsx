@@ -12,12 +12,11 @@ export const CheckboxInput = createComponent<
 >((props) => {
   const { error = false, ref: htmlRef, state, ...htmlProps } = props
 
-  const ref = useRef<HTMLInputElement & any>(null)
+  const ref = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (ref.current && state) {
       ref.current.indeterminate = state.value === 'indeterminate'
-      ref.current.ariaChecked = 'mixed'
     }
   }, [state])
 

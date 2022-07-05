@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { merge } from '@vtex/admin-ui-util'
 
 import { useSystem } from './context'
 import type { RenderProp, PublicProps, PrivateProps, Component } from './types'
@@ -26,7 +27,10 @@ export function useElement<T extends React.ElementType>(
   } = props
 
   const { cn, cx } = useSystem()
-  const className = cx(cn(baseStyle), cn(customStyle), htmlClassName)
+
+  const styles = merge(baseStyle, customStyle)
+
+  const className = cx(cn(styles), htmlClassName)
 
   const htmlProps = {
     className,

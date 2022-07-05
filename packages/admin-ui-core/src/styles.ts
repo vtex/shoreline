@@ -1,10 +1,10 @@
-import type { Emotion } from '@emotion/css/create-instance'
-import type { CSSObject as EmotionCSSObject } from '@emotion/css'
+import type { CSS as CSSObject } from '@stitches/react'
+import { css } from './stitches.config'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { alias } from './aliases'
 import { resolveRule } from './rules'
-import { canSplit, split } from './splits'
+import { callUtil, isUtil } from './utils'
 import { createTransform } from './transforms'
 import type { StyleObject, StyleProp, ThemeDerivedStyles } from './types'
 import { theme as defaultTheme } from './theme'
@@ -69,7 +69,7 @@ function resolveResponsiveArray(
  * Parses a style object
  */
 export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
-  const cssObject: EmotionCSSObject = {}
+  const cssObject: CSSObject = {}
   const responsive = resolveResponsiveArray(csxObject as any)
 
   for (const key in responsive) {
@@ -87,21 +87,9 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
     const value = transform(rule, extractTokenCall(token))
 
     if (!!value && typeof value === 'object') {
-      // handle default entries on rules
-      if (value.default) {
-        // handle object rules
-        cssObject[cssProperty] =
-          typeof value.default === 'object'
-            ? styles(value.default, theme)
-            : value.default
-      } else {
-        // handle object rules
-        Object.assign(cssObject, styles(value, theme))
-      }
-    } else if (canSplit(cssProperty)) {
-      const splitValue = split(cssProperty, value)
-
-      Object.assign(cssObject, splitValue)
+      Object.assign(cssObject, value)
+    } else if (isUtil(cssProperty)) {
+      Object.assign(cssObject, callUtil(cssProperty, value))
     } else {
       cssObject[cssProperty] = value
     }
@@ -110,12 +98,12 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
   return cssObject
 }
 
-export function createCsx(emotion: Emotion, theme?: any) {
+export function createCsx(theme?: any) {
   function csx(csxObject: StyleProp) {
-    const emotionCSSObject = styles(csxObject, theme)
-    const className = emotion.css(emotionCSSObject)
+    const stitchesCSSObject = styles(csxObject, theme)
+    const className = css(stitchesCSSObject)
 
-    return className
+    return className().toString()
   }
 
   return csx
@@ -128,3 +116,5 @@ export function isToken(token: string) {
 export function extractTokenCall(token: string) {
   return isToken(token) ? token.substring(1) : token
 }
+
+export const cx = (...args: string[]) => args.join(' ')

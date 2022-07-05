@@ -32,3 +32,10 @@ export type InferProps<T> = T extends ComponentType<infer Props>
     ? Props
     : never
   : never
+
+/**
+ * Transforms an optional property in required
+ */
+export type WithRequiredProps<Type, Key extends keyof Type> = Type & {
+  [Property in Key]-?: Type[Property]
+}

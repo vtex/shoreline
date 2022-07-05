@@ -82,7 +82,7 @@ export function IconsGrid(props: IconsGridProps) {
   return (
     <DataView state={dataView} csx={{ marginX: 2 }}>
       <DataViewControls>
-        <Search state={search} />
+        <Search {...search.getInputProps()} />
         <Dropdown
           label="Sizes"
           state={sizeDropdown}

@@ -5,106 +5,152 @@ hide_table_of_contents: true
 ---
 
 import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
 export const tabToc = {
-  overview: toc.filter((item) =>
-    ['Examples', 'Sizes', 'Palettes', 'Deletable', 'Icon'].includes(item.value)
-  ),
-  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 3,
+    },
+    {
+      id: 'sizes',
+      value: 'Sizes',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: "Do's",
+      level: 2,
+    },
+  ],
 }
 
 <Page toc={tabToc} hasTabs>
   <Panel id="overview">
 
+<IntroSection>
+
+## What is this?
+
 Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
 
-## Examples
+</IntroSection>
 
-### Sizes
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
-By default, the size property has a `regular` value, but you can also set it to `small`.
-
-```jsx live
-<>
-  <Tag label="Rio de Janeiro" />
-  <Tag label="Rio de Janeiro" size="small" />
-</>
-```
-
-### Palettes
-
-By default, the palette property has the `lightBlue` value, but you can also set it to the following values: `red`, `orange`, `green`, `cyan`, `teal`, `gray` and `purple`.
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  explanation="By default, the variant property has the 'lightBlue' value, but you can also set it to the following values: 'red', 'orange', 'green', 'cyan', 'teal', 'gray', 'purple' and 'pink'."
+>
 
 ```jsx live
-<>
-  <Tag label="Rio de Janeiro" />
-  <Tag label="Rio de Janeiro" palette="red" />
-  <Tag label="Rio de Janeiro" palette="orange" />
-  <Tag label="Rio de Janeiro" palette="green" />
-  <Tag label="Rio de Janeiro" palette="red" />
-  <Tag label="Rio de Janeiro" palette="cyan" />
-  <Tag label="Rio de Janeiro" palette="teal" />
-  <Tag label="Rio de Janeiro" palette="gray" />
-  <Tag label="Rio de Janeiro" palette="purple" />
-</>
+<Inline>
+  <Tag label="Short text" />
+  <Tag label="Short text" variant="red" />
+  <Tag label="Short text" variant="orange" />
+  <Tag label="Short text" variant="green" />
+  <Tag label="Short text" variant="cyan" />
+  <Tag label="Short text" variant="teal" />
+  <Tag label="Short text" variant="gray" />
+  <Tag label="Short text" variant="purple" />
+  <Tag label="Short text" variant="pink" />
+</Inline>
 ```
 
-### Deletable
+</PageSection >
 
-You can add the `handleDelete` property to configure the tag as deletable. When this function is defined the tag will have a `button` where you can handle click events.
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+  explanation="By default, the size property has a 'normal' value, but you can also set it to 'large'."
+>
 
 ```jsx live
-<Tag label="Rio de Janeiro" handleDelete={() => window.alert('Tag deleted')} />
+<Inline>
+  <Tag label="Short text" size="normal" />
+  <Tag label="Short text" size="large" />
+</Inline>
 ```
 
-### Icon
+</PageSection>
+</PageSection>
+</Panel>
 
-You can add one Icon on the left side of the `Tag`. Just use the `icon` property.
+<Panel id="codeReference">
 
-```jsx live
-<Tag icon={<IconHeart />} label="Rio de Janeiro" />
-```
-
-  </Panel>
-  <Panel id="codeReference">
-
-## Usage
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
 
 ```jsx isStatic
 import { Tag } from '@vtex/admin-ui'
 
 function Example() {
-  return (
-    <Tag
-      icon={<IconHeart />}
-      label="Here goes the label!"
-      handleDelete={() => window.alert('Tag deleted')}
-    />
-  )
+  return <Tag label="Short text" />
 }
 ```
 
-## Props
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
 
-| Name         | Type                                                              | Description                       | Required | Default            |
-| ------------ | ----------------------------------------------------------------- | --------------------------------- | -------- | ------------------ |
-| label        | `string`                                                          | Tag size                          | ✅       | -                  |
-| csx          | `StyleObject`                                                     | Custom styles                     | 🚫       | `{}`               |
-| palette      | `'lightBlue', 'green', 'red', 'orange', 'cyan', 'teal', 'purple'` | Tag theme                         | 🚫       | `'blue'`, `'gray'` |
-| size         | `'regular', 'small'`                                              | Tag size                          | 🚫       | `'regular'`        |
-| handleDelete | `() => void`                                                      | When defined the tag is deletable | 🚫       | -                  |
-| icon         | `ReactNode`                                                       | Tag icon                          | 🚫       | -                  |
+| Name    | Type                                                                      | Description   | Required | Default  |
+| ------- | ------------------------------------------------------------------------- | ------------- | -------- | -------- |
+| label   | `string`                                                                  | Tag label     | ✅       | -        |
+| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`     |
+| variant | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `gray`   |
+| size    | `normal`, `large`                                                         | Tag size      | 🚫       | `normal` |
 
-  </Panel>
-  <Panel id="designReference">
+</PageSection >
+</PageSection >
+</Panel>
 
-## Do’s
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
 1. Use semantic colors that have a clear and contextualized meaning in your application, such as green for success and red for errors. However, if your application employs a richer palette with unambiguous usage of colors don't hesitate to use your Tags with them.
 2. They should always be read-only.
 
 👉 For UX Writing guidelines, access https://uxwriting.vtex.com
 
-  </Panel>
+</PageSection>
+</Panel>
+
 </Page>

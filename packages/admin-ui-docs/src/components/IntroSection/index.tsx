@@ -1,19 +1,17 @@
+import type { ReactNode } from 'react'
 import React from 'react'
 
-import { PageSection } from '../PageSection'
+import { Section } from '../Section'
 
 import './styles.scss'
 
 export interface IntroSectionProps {
   description: string
-  id: string
-  title: string
+  children: ReactNode
 }
 
 export function IntroSection(props: IntroSectionProps) {
-  return (
-    <PageSection className="intro-container" id={props.id} title={props.title}>
-      {props.description}
-    </PageSection>
-  )
+  const { children } = props
+
+  return <Section className="intro-container">{children}</Section>
 }

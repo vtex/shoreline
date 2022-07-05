@@ -12,6 +12,7 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
     hSpace = '$s',
     noWrap = false,
     align = 'start',
+    spaceInside = false,
     ...htmlProps
   } = props
 
@@ -21,9 +22,13 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
       display: 'flex',
       flexWrap: noWrap ? 'nowrap' : 'wrap',
       alignItems: align,
-      '> *': {
+      '> *:not(:first-child)': {
         marginLeft: hSpace,
-        marginTop: vSpace,
+        marginTop: spaceInside ? 0 : vSpace,
+      },
+      '&:first-child': {
+        marginLeft: spaceInside ? 0 : hSpace,
+        marginTop: spaceInside ? 0 : vSpace,
       },
     },
   })
@@ -50,4 +55,9 @@ export interface InlineProps {
    * @default 'start'
    */
   align?: CSS.Properties['alignItems']
+  /**
+   * Don't space the container
+   * @default false
+   */
+  spaceInside?: boolean
 }

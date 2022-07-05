@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, withState } from '../../test-utils'
+import { render, withState, axe } from '../../test-utils'
 
 import { CollapsibleGroup } from './index'
 
@@ -15,24 +15,8 @@ const StatefulCollapsible = withState(Collapsible, () =>
 )
 
 describe('CollapsibleGroup tests', () => {
-  it('should have overridable styles', () => {
-    const { getByTestId } = render(
-      <CollapsibleGroup data-testid="collapsible-group" csx={{ bg: 'azure' }}>
-        <StatefulCollapsible>
-          <CollapsibleHeader label="Collapsible Header" />
-          <CollapsibleContent>Collapsible Content</CollapsibleContent>
-        </StatefulCollapsible>
-      </CollapsibleGroup>
-    )
-
-    expect(getByTestId('collapsible-group')).toHaveStyleRule(
-      'background',
-      'azure'
-    )
-  })
-
-  it('should match snapshot', () => {
-    const { asFragment } = render(
+  it('should not have a11y violations', async () => {
+    const { container } = render(
       <CollapsibleGroup>
         <StatefulCollapsible>
           <CollapsibleHeader label="Collapsible Header" />
@@ -41,21 +25,8 @@ describe('CollapsibleGroup tests', () => {
       </CollapsibleGroup>
     )
 
-    expect(asFragment()).toMatchSnapshot()
-  })
+    const results = await axe(container)
 
-  it('should not render invalid children', () => {
-    const { asFragment } = render(
-      <CollapsibleGroup>
-        {undefined}
-        <StatefulCollapsible>
-          <CollapsibleHeader label="Collapsible Header" />
-          <CollapsibleContent>Collapsible Content</CollapsibleContent>
-        </StatefulCollapsible>
-        {null}
-      </CollapsibleGroup>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
+    expect(results).toHaveNoViolations()
   })
 })

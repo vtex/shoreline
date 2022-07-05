@@ -72,9 +72,9 @@ const dataDisplay = [
     type: 'dataDisplay',
   },
   {
-    component: 'DataGrid',
-    status: 'supported',
-    notes: 'Will be renamed to Table',
+    component: 'Table',
+    status: 'in review',
+    notes: 'Old DataGrid component',
     type: 'dataDisplay',
   },
   {
@@ -299,7 +299,7 @@ const layout = [
 
 const page = [
   {
-    component: 'Tabs',
+    component: 'Tab',
     status: 'supported',
     notes: '-',
     type: 'page',
@@ -375,27 +375,9 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'InputPassword',
-    status: 'supported',
-    notes: 'Will be deprecated for lack of a use case',
-    type: 'forms',
-  },
-  {
-    component: 'Input',
-    status: 'supported',
-    notes: 'Will be merged with the TextArea in a new TextField component.',
-    type: 'forms',
-  },
-  {
     component: 'Label',
     status: 'supported',
     notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'NumericStepper',
-    status: 'supported',
-    notes: 'Will be renamed to Number Field',
     type: 'forms',
   },
   {
@@ -409,28 +391,6 @@ const forms = [
     component: 'Radio',
     status: 'supported',
     notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'Select',
-    status: 'supported',
-    notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'TextArea',
-    status: 'supported',
-    notes: (
-      <Text>
-        TextArea label covered by input content.{' '}
-        <Anchor href="https://github.com/vtex/onda/issues/501" target="_blank">
-          Issue #501
-        </Anchor>
-        <br />
-        This component will be merged with the Input in a new TextField
-        component.
-      </Text>
-    ),
     type: 'forms',
   },
   {

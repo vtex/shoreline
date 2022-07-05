@@ -6,16 +6,11 @@ import { render as baseRender, fireEvent, screen } from '@testing-library/react'
 import { createSystem } from '@vtex/admin-ui-react'
 import type { ReactElement } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
-import serializer, { matchers } from 'jest-emotion'
 import userEvent from '@testing-library/user-event'
 
-expect.addSnapshotSerializer(serializer)
-expect.extend(matchers)
 expect.extend(toHaveNoViolations)
 
-const [ThemeProvider] = createSystem({
-  key: 'test',
-})
+const [ThemeProvider] = createSystem()
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {
   return baseRender(ui, { wrapper: ThemeProvider, ...options })

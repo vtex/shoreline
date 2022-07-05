@@ -1,12 +1,13 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { useSystem, IconContainer, tag } from '@vtex/admin-ui-react'
+import { IconContainer, tag } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
   IconMagnifyingGlass,
   IconXCircle,
   IconClockCounterClockwise,
 } from '@vtex/phosphor-icons'
+import { keyframes } from '@vtex/admin-ui-core'
 
 import { Button } from '../../button'
 import type { SystemComponent } from '../../types'
@@ -152,12 +153,7 @@ function Menu(props: MenuProps) {
 }
 
 function EmptyView() {
-  const { keyframes } = useSystem()
-
-  const fadeIn = keyframes`
-    0% { opacity: 0 }
-    100% { opacity: 1 }
-  `
+  const fadeIn = keyframes({ '0%': { opacity: 0 }, '100%': { opacity: 1 } })
 
   return (
     <tag.li
@@ -204,13 +200,9 @@ function Suggestion(props: SuggestionProps) {
     collection: { type },
   } = useStateContext()
 
-  const { keyframes } = useSystem()
   const liProps = getItemProps({ item, index })
 
-  const fadeIn = keyframes`
-    0% { opacity: 0 }
-    100% { opacity: 1 }
-  `
+  const fadeIn = keyframes({ '0%': { opacity: 0 }, '100%': { opacity: 1 } })
 
   return (
     <tag.li

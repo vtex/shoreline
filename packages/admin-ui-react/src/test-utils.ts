@@ -3,9 +3,7 @@ import type { RenderOptions } from '@testing-library/react'
 import { render as baseRender } from '@testing-library/react'
 import { createSystem } from './system'
 
-const [ThemeProvider] = createSystem({
-  key: 'vtex-admin-ui',
-})
+const [ThemeProvider] = createSystem()
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {
   return baseRender(ui, { wrapper: ThemeProvider, ...options })

@@ -1,0 +1,103 @@
+import { Section } from '@site/src/components/Section'
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+
+<Section>
+
+## Usage
+
+```jsx isStatic
+import { Radio, RadioGroup, useRadioState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useRadioState()
+
+  return (
+    <RadioGroup state={state} label="Group label">
+      <Radio value="radio-1" label="Label" />
+      <Radio value="radio-2" label="Label" />
+      <Radio value="radio-3" label="Label" />
+    </RadioGroup>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Radio Props
+
+| Name     | Type             | Description                                                                                           | Required | Default |
+| -------- | ---------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| value    | `string, number` | The value to be used in the radio button. This is the value that will be returned on form submission. | ✅       | -       |
+| label    | `string`         | Radio label                                                                                           | ✅       | -       |
+| helpText | `ReactNode`      | Help text                                                                                             | 🚫       | -       |
+| checked  | `boolean`        | Same as the HTML checked attribute                                                                    | 🚫       | -       |
+| disabled | `boolean`        | Whether is disabled or not                                                                            | 🚫       | `false` |
+| id       | `string`         | Same as the HTML attribute                                                                            | 🚫       | -       |
+| csx      | `StyleProp`      | Defines component styles                                                                              | 🚫       | `{}`    |
+
+</Section>
+
+<Section>
+
+## RadioGroup Props
+
+| Name      | Type          | Description                                | Required | Default |
+| --------- | ------------- | ------------------------------------------ | -------- | ------- |
+| state     | `RadioState`  | Return of `useRadioState` hook             | ✅       | -       |
+| label     | `string`      | Group label                                | ✅       | -       |
+| helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
+| errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
+| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
+| optional  | `ReactNode`   | Whether the field is optional or not       | 🚫       | -       |
+| csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
+
+</Section>
+
+<Section hasExplanation>
+
+## useRadioState
+
+A hook to help control the RadioGroup state.
+
+</Section>
+
+<Section>
+
+### Params Props
+
+| Name         | Type                                   | Description                                                        | Required | Default |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------ | -------- | ------- |
+| defaultValue | `string, number`                       | The initial value of the radio group.                              | 🚫       | -       |
+| setValue     | `(value: RadioState["value"]) => void` | Function that will be called when setting the radio `value` state. | 🚫       | -       |
+
+</Section>
+
+<Section>
+
+### Return Props
+
+| Name     | Type                            | Description                           | Required | Default |
+| -------- | ------------------------------- | ------------------------------------- | -------- | ------- |
+| value    | `string, number, null`          | The initial value of the radio group. | 🚫       | -       |
+| setValue | `SetState<RadioState["value"]>` | Sets the `value` state.               | 🚫       | -       |
+
+</Section>
+
+<Section direction="row">
+
+## Accessibility
+
+<OrderedList>
+  <OrderedListItem>`Radio` has the role `radio`.</OrderedListItem>
+  <OrderedListItem>`RadioGroup` has role `radiogroup`.</OrderedListItem>
+  <OrderedListItem>
+    `Radio` has `aria-checked` set to `true` when it's checked. Otherwise,
+    `aria-checked` is set to `false`.
+  </OrderedListItem>
+  <OrderedListItem>Always use `Radio` within a `RadioGroup`.</OrderedListItem>
+</OrderedList>
+
+</Section>

@@ -18,7 +18,7 @@ export function useComboboxState<T>(
 ): ComboboxState<T> {
   const {
     timeoutMs = 250,
-    list,
+    list = [],
     getOptionValue = (item: T) =>
       typeof item === 'string' ? item : JSON.stringify(item),
     renderOption = (item: T) =>
@@ -30,7 +30,7 @@ export function useComboboxState<T>(
   const [deferredValue] = useDebounce(state.value, timeoutMs)
 
   // replacing ariakits matches for a custom one of any type
-  const [matches, setMatches] = useState<T[]>(list || [])
+  const [matches, setMatches] = useState<T[]>(list)
   const [selectedItem, setSelectedItem] = useState<T>()
 
   // data states
@@ -39,7 +39,7 @@ export function useComboboxState<T>(
 
   // filters matches when input changes
   useEffect(() => {
-    if (!list) return
+    if (list.length === 0) return
 
     const sanitizedValue = state.value.toLocaleLowerCase()
 
@@ -68,7 +68,7 @@ export function useComboboxState<T>(
 
     const noMatches = !matches.length
 
-    if (noMatches && deferredValue === '') {
+    if (noMatches && state.value === '') {
       return 'empty-search'
     }
 

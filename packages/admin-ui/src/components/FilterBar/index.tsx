@@ -11,7 +11,7 @@ import type {
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
 } from './typings'
-import { MenuItem, MenuList, MenuButton } from '../Menu'
+import { MenuItem, Menu, MenuButton, useMenuState } from '../../menu'
 
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
@@ -54,6 +54,8 @@ export function FilterBar<T, V extends { value: T }>(
     },
     ...htmlProps
   } = props
+
+  const menuState = useMenuState({ baseId: 'statement-menu' })
 
   return (
     <Box
@@ -112,28 +114,28 @@ export function FilterBar<T, V extends { value: T }>(
                   handleValueChange={changeValue}
                 />
               </Inline>
-              <Statement.Menu>
-                <Button
+              <>
+                <MenuButton
+                  state={menuState}
                   variant="neutralTertiary"
-                  as={MenuButton}
                   aria-label={`${statementMenuLabel} ${index}`}
-                  display="actions"
                 />
-                <MenuList aria-label={`${statementMenuLabel} ${index}`}>
+                <Menu
+                  state={menuState}
+                  aria-label={`${statementMenuLabel} ${index}`}
+                >
                   <MenuItem
                     onClick={() => duplicateStatement(index)}
                     icon={<IconCopy />}
-                  >
-                    {duplicateStatementLabel}
-                  </MenuItem>
+                    label={duplicateStatementLabel}
+                  />
                   <MenuItem
                     onClick={() => deleteStatement(index)}
                     icon={<IconTrash />}
-                  >
-                    {deleteStatementLabel}
-                  </MenuItem>
-                </MenuList>
-              </Statement.Menu>
+                    label={deleteStatementLabel}
+                  />
+                </Menu>
+              </>
             </Statement>
           )
         })}

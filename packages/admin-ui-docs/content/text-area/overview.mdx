@@ -1,0 +1,78 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Text Area is the space where longer text is inputted by users.
+
+</IntroSection>
+
+<Section>
+
+## Handling state
+
+### Uncontrolled
+
+```jsx live
+<TextArea label="Controlled" />
+```
+
+### Controlled
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <TextArea
+      label="Controlled"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Max Length
+
+```jsx live
+<TextArea label="Max length" maxLength={120} />
+```
+
+</Section>
+
+<Section>
+
+## Help text
+
+```jsx live
+<TextArea label="Label" helpText="Help text" />
+```
+
+</Section>
+
+<Section>
+
+## Error
+
+```jsx live
+<TextArea label="With error" error errorText="Error text" />
+```
+
+</Section>
+
+<Section>
+
+## Disabled
+
+```jsx live
+<TextArea label="Disabled" disabled />
+```
+
+</Section>
