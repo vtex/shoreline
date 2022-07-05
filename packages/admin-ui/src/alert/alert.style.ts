@@ -70,7 +70,7 @@ export const button = styleVariants({
   dismissible: {
     true: {
       marginLeft: '$2xl',
-      marginRight: '$xl',
+      marginRight: '$xxs',
     },
     false: {
       marginLeft: '$2xl',
