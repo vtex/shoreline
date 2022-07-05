@@ -1,5 +1,7 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
+import type { MenuButtonProps } from '../menu'
 import { MenuButton } from '../menu'
 
 /**
@@ -23,24 +25,25 @@ import { MenuButton } from '../menu'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderMenuButton = createComponent<typeof MenuButton>(
-  (props) => {
+export const PageHeaderMenuButton = forwardRef(
+  (props: MenuButtonProps, ref: Ref<HTMLButtonElement>) => {
     const {
-      children,
       size = 'large',
       bleedY = true,
       variant = 'tertiary',
       labelHidden = true,
-      ...htmlProps
+      ...menuButtonProps
     } = props
 
-    return useElement(MenuButton, {
-      children,
-      size,
-      bleedY,
-      variant,
-      labelHidden,
-      ...htmlProps,
-    })
+    return (
+      <MenuButton
+        size={size}
+        bleedY={bleedY}
+        variant={variant}
+        labelHidden={labelHidden}
+        ref={ref}
+        {...menuButtonProps}
+      />
+    )
   }
 )
