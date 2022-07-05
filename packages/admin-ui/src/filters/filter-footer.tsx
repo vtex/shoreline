@@ -5,12 +5,15 @@ import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 import { usePopoverContext } from './filter-popover-context'
+import type { GenericFilterStateReturn } from './filter/filter.state'
 
 export const FilterFooter = createComponent<
   typeof Role,
   FilterPopoverFooterProps
 >((props) => {
-  const { onChange, onClear, ...restProps } = props
+  const {
+    state: { onChange, onClear },
+  } = props
 
   const formatMessage = useMessageFormatter(messages.actions)
   const { isScrollableLayout } = usePopoverContext()
@@ -18,7 +21,6 @@ export const FilterFooter = createComponent<
   return useElement(Role, {
     baseStyle: {
       borderTop: isScrollableLayout ? '$neutral' : 'none',
-      padding: '$l',
       paddingTop: isScrollableLayout ? undefined : 0,
       display: 'flex',
       justifyContent: 'end',
@@ -26,7 +28,6 @@ export const FilterFooter = createComponent<
         marginLeft: '$l',
       },
     },
-    ...restProps,
     children: (
       <>
         <Button variant="tertiary" onClick={onClear}>
@@ -39,6 +40,5 @@ export const FilterFooter = createComponent<
 })
 
 interface FilterPopoverFooterProps {
-  onChange: () => void
-  onClear: () => void
+  state: GenericFilterStateReturn<any>
 }

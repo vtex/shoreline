@@ -4,26 +4,27 @@ import type { ComboboxMultipleState } from '../../combobox'
 import { useComboboxMultipleState } from '../../combobox'
 
 import type { AnyObject } from '@vtex/admin-ui-util'
-import type { GenericFilterStateReturn } from '../filter/filter.state'
+import type {
+  GenericFilterStateReturn,
+  ItemList,
+  FilterOption,
+} from '../filter/filter.state'
+import { useMenuState } from 'ariakit'
 
 export function useFilterMultipleState<T extends AnyObject>(
-  props: UseFilterMultipleStateProps<T>
+  props?: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const {
-    items = [],
-    onChange = () => {},
-    getOptionLabel = (option) => option.label,
-    getOptionId = (option) => option.id,
-  } = props
+  const { fullList = [] } = props || {}
 
-  const [appliedItems, setAppliedItems] = useState<T[]>([])
+  const [appliedItems, setAppliedItems] = useState<ItemList<T>>([])
 
-  const comboboxMultiple = useComboboxMultipleState<T>({
-    list: items,
-    getOptionValue: getOptionLabel,
-    compare: (optionA, optionB) =>
-      getOptionId(optionA) === getOptionId(optionB),
+  const comboboxMultiple = useComboboxMultipleState<FilterOption<T>>({
+    list: fullList,
+    getOptionValue: (option) => option.label,
+    compare: (optionA, optionB) => optionA.id === optionB.id,
   })
+
+  const menu = useMenuState(comboboxMultiple)
 
   useEffect(() => {
     comboboxMultiple.setSelectedItems([])
@@ -31,33 +32,25 @@ export function useFilterMultipleState<T extends AnyObject>(
 
   const { selectedItems } = comboboxMultiple
 
-  const updateApplied = useCallback(
-    (items: T[]) => {
-      comboboxMultiple.setSelectedItems(items)
-      setAppliedItems(items)
+  const updateApplied = (items: ItemList<T>) => {
+    comboboxMultiple.setSelectedItems(items)
+    setAppliedItems(items)
+  }
 
-      onChange({ selected: items })
-    },
-    [onChange]
-  )
-
-  const apply = useCallback(() => {
+  const apply = () => {
     setAppliedItems(selectedItems)
+    menu.hide()
+  }
 
-    onChange({ selected: selectedItems })
-    comboboxMultiple.hide()
-  }, [onChange])
-
-  const clear = useCallback(() => {
+  const clear = () => {
     comboboxMultiple.clearSelected()
 
     setAppliedItems([])
-    onChange({ selected: [] })
-    comboboxMultiple.hide()
-  }, [onChange])
+    menu.hide()
+  }
 
   useEffect(() => {
-    const isMenuClosed = !comboboxMultiple.mounted
+    const isMenuClosed = !menu.mounted
     const hasSelectedItem = comboboxMultiple.value || selectedItems?.length
 
     if (isMenuClosed && hasSelectedItem) {
@@ -65,37 +58,28 @@ export function useFilterMultipleState<T extends AnyObject>(
       comboboxMultiple.setValue('')
       comboboxMultiple.setSelectedItems(appliedItems)
     }
-  }, [comboboxMultiple.mounted])
+  }, [menu.mounted])
 
   return {
     combobox: comboboxMultiple,
     onClear: clear,
     onChange: apply,
-    items,
     appliedItems,
     setAppliedItems: updateApplied,
     selectedItems,
-    getOptionId,
-    getOptionLabel,
+    menu,
   }
 }
 
 export interface UseFilterMultipleReturn<T>
   extends GenericFilterStateReturn<T> {
-  combobox: ComboboxMultipleState<T>
-  appliedItems: T[]
-  selectedItems: T[]
-  setAppliedItems: (items: T[]) => void
+  combobox: ComboboxMultipleState<FilterOption<T>>
+  appliedItems: ItemList<T>
+  selectedItems: ItemList<T>
+  setAppliedItems: (items: ItemList<T>) => void
 }
 
 export interface UseFilterMultipleStateProps<T> {
-  // menu: MenuState
-  /** Function for getting a label from the option object. */
-  getOptionLabel?: (option: T) => string
-  /** Function for getting an id from the option object. */
-  getOptionId?: (option: T) => string
-  /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: T[] }) => void
   /** List of items to be showed on the list. */
-  items?: T[]
+  fullList?: ItemList<T>
 }
