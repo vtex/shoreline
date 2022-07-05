@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.2...@vtex/admin-ui-core@0.11.0) (2022-07-05)
+
+### Bug Fixes
+
+- **stitches:** changes stitches config to allow admin-ui on SSR applications ([ea91301](https://github.com/vtex/admin-ui/commit/ea91301378e318b90547b46c75bb5f828da4f27d))
+- **stitches:** csx function return ([3580e36](https://github.com/vtex/admin-ui/commit/3580e3668fff53da5bfcb1e1dc7833cd631adc0d))
+- **stitches:** improve chained selector alias ([3b68e43](https://github.com/vtex/admin-ui/commit/3b68e43ca92152b5e0b95aee7c94daff1ae791fd))
+- **stitches:** rebase issues ([a92d898](https://github.com/vtex/admin-ui/commit/a92d89899bc91d72aeb59204019ae947a0c8a125))
+- **typography:** add font styles to fix inconcistencies with figma ([8dd7ca2](https://github.com/vtex/admin-ui/commit/8dd7ca255d956fb4d0025fa196e713d8f8e1ba48))
+
+### Features
+
+- **core:** change from splits to utils ([2ff21aa](https://github.com/vtex/admin-ui/commit/2ff21aa525531fd7be98ce896faafd7fec671aca))
+- **stitches:** remove emotion dependency from the project ([62176e6](https://github.com/vtex/admin-ui/commit/62176e691ec4858fafaeb2aceab6d479522a5f8f))
+- **stitches:** replace css emotion function with the stitches one in the admin-ui-core ([6e88098](https://github.com/vtex/admin-ui/commit/6e880989b4182e1f01b0e791b280a6bbdd59d12e))
+
 ## [0.10.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.1...@vtex/admin-ui-core@0.10.2) (2022-06-02)
 
 ### Bug Fixes

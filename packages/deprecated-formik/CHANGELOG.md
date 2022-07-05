@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.5.10...@vtex/admin-formik@0.6.0) (2022-07-05)
+
+### Bug Fixes
+
+- **formik:** deprecate formik components ([a66f6b5](https://github.com/vtex/admin-ui/commit/a66f6b517ad6a76382066020c9cfe91785785643))
+
+### Features
+
+- **formik:** add deprecated admin-ui-form components ([130f31e](https://github.com/vtex/admin-ui/commit/130f31e498f3a79404d0718738ac45417ade1e68))
+- **formik:** rename as deprecated ([a3bd03b](https://github.com/vtex/admin-ui/commit/a3bd03b6fa2db94ec4faa9179c88d2d010678e61))
+
 ## [0.5.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.5.9...@vtex/admin-formik@0.5.10) (2022-06-08)
 
 **Note:** Version bump only for package @vtex/admin-formik
@@ -18,6 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Reverts
 
 - **react:** update react to version 17 ([57ffa42](https://github.com/vtex/admin-ui/commit/57ffa42dc1254bf0ade4afbc32fe79382bf92ddc))
+
 ## [0.5.8-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.5.7...@vtex/admin-formik@0.5.8-dev.0) (2022-05-31)
 
 **Note:** Version bump only for package @vtex/admin-formik

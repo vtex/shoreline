@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.3.2...@vtex/admin-ui-form@0.4.0) (2022-07-05)
+
+### Bug Fixes
+
+- **admin-ui-form:** improve compatibility w/ VTEX IO and fix typescript ([5c48ac0](https://github.com/vtex/admin-ui/commit/5c48ac03856b1e726323caa2df0d5e0f66f36bd5))
+
+### Features
+
+- **admin-ui:** promote text-input, text-area, select, and number-input from next ([11dda1d](https://github.com/vtex/admin-ui/commit/11dda1d0bc60396c5f36936813e987295a1e15ff))
+- **form:** checkbox integration ([63dce34](https://github.com/vtex/admin-ui/commit/63dce3419c67496f786887d39281135913e82a37))
+- **form:** integrate number-input ([94d338f](https://github.com/vtex/admin-ui/commit/94d338fa91a2308e1df8ee44e8470686d5d6278f))
+- **form:** integrate select ([c47fc89](https://github.com/vtex/admin-ui/commit/c47fc899306ce94b7a1994031097e49f82c9c435))
+- **form:** integrate switch ([6d650bb](https://github.com/vtex/admin-ui/commit/6d650bb9717aa654f33adf52273c1033bc43b9e5))
+- **forms:** add radio ([14f6160](https://github.com/vtex/admin-ui/commit/14f6160747be8025682a498f937f9046a7aa8032))
+
 ## [0.3.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.3.1...@vtex/admin-ui-form@0.3.2) (2022-06-02)
 
 ### Bug Fixes
@@ -14,6 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Reverts
 
 - **react:** update react to version 17 ([57ffa42](https://github.com/vtex/admin-ui/commit/57ffa42dc1254bf0ade4afbc32fe79382bf92ddc))
+
 ## [0.3.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.3.0...@vtex/admin-ui-form@0.3.1-dev.0) (2022-05-31)
 
 ### Features

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.14.3...@vtex/admin-ui-docs@0.15.0) (2022-07-05)
+
+### Bug Fixes
+
+- **docs:** fix search for iconography and design tokens ([33cb0d9](https://github.com/vtex/admin-ui/commit/33cb0d948fc9615b2f2c26d5897efd1bfd259e7a))
+- reset table style inside the code preview ([27d2f41](https://github.com/vtex/admin-ui/commit/27d2f4190232a333b048124bb7c75b53e2c9b2e1))
+- **docs:** typo in release notes ([b4c1424](https://github.com/vtex/admin-ui/commit/b4c1424d3d35756229c47fa320de3ab7a311daa4))
+- change version dropdown style only for wide screens ([eff90c8](https://github.com/vtex/admin-ui/commit/eff90c891343801e16a8eec20236e28d32f10dde))
+- fix code preview container to show menu popover correctly ([9c7d906](https://github.com/vtex/admin-ui/commit/9c7d90657e89a4aadd6eeb4e861d757df5904c6c))
+
+### Features
+
+- **admin-ui:** deprecate abstract-input ([2e723ba](https://github.com/vtex/admin-ui/commit/2e723baf7972e7f8b14b4f26e648740d2707eeed))
+- **admin-ui:** deprecate input ([0eb429f](https://github.com/vtex/admin-ui/commit/0eb429f8d79a16d2fefbcb2eedc77f43d637cf1f))
+- **admin-ui:** deprecate input-password ([b913842](https://github.com/vtex/admin-ui/commit/b913842a60b535a24854603ab8b8c36620125533))
+- **admin-ui:** deprecate NumericStepper ([12636a4](https://github.com/vtex/admin-ui/commit/12636a4bc819b6976c50a497ef039188040c6e22))
+- **admin-ui:** deprecate select ([abbcaf7](https://github.com/vtex/admin-ui/commit/abbcaf704217689d9f7008b65b69b4e9df4fedcc))
+- **admin-ui:** deprecate text-area ([405b439](https://github.com/vtex/admin-ui/commit/405b439808be2ed260421bb01b615f3a1bdcd55c))
+- **alert:** make all alerts responsive ([d996df1](https://github.com/vtex/admin-ui/commit/d996df19ae7e9fa956f7aac91e02fbeb1ae2fb6c))
+- **filter:** add filter multiple search component ([2324b11](https://github.com/vtex/admin-ui/commit/2324b11b54117de45630ce8eb87746a9969ad970))
+- **filters:** add searchable filter ([014b55a](https://github.com/vtex/admin-ui/commit/014b55ac18a35ff759f0b0b76134e4452bc73702))
+- **stitches:** remove emotion dependency from the project ([62176e6](https://github.com/vtex/admin-ui/commit/62176e691ec4858fafaeb2aceab6d479522a5f8f))
+
 ## [0.14.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.14.2...@vtex/admin-ui-docs@0.14.3) (2022-06-08)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
