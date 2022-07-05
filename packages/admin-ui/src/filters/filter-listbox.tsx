@@ -11,7 +11,7 @@ import { usePopoverContext } from './filter-popover-context'
 export const FilterListbox = <
   GenericComboboxState extends ComboboxState<any>
 >(props: {
-  state: GenericComboboxState
+  state: { combobox: GenericComboboxState }
   id?: string
   children: React.ReactNode
 }) => {
@@ -31,7 +31,7 @@ export const FilterListbox = <
   return (
     <tag.span ref={optionsContainerRef} csx={style.scrollableContainer}>
       <ComboboxList
-        state={{ ...state, visible: true }}
+        state={{ ...state.combobox, visible: true }}
         id={id}
         className={cn(style.list)}
       >
