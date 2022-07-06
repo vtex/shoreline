@@ -1,11 +1,7 @@
 import { get } from '@vtex/admin-ui-util'
+import { breakpoints } from './tokens/breakpoints'
 
-const breakpoints = {
-  mobile: '40em',
-  tablet: '48em',
-  desktop: '64em',
-  widescreen: '75em',
-}
+const [_, tablet, desktop, widescreen] = breakpoints
 
 export function convertChainedSelectors(key: string) {
   const selector = '&'
@@ -28,11 +24,11 @@ export const aliases = {
   bg: 'background',
 
   // responsive
-  '@tablet': `@media (min-width: ${breakpoints.tablet})`,
-  '@tabletOnly': `@media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop})`,
-  '@desktop': `@media (min-width: ${breakpoints.desktop})`,
-  '@desktopOnly': `@media (min-width: ${breakpoints.desktop}) and (max-width: ${breakpoints.widescreen})`,
-  '@widescreen': `@media (min-width: ${breakpoints.widescreen})`,
+  '@tablet': `@media (min-width: ${tablet})`,
+  '@tabletOnly': `@media (min-width: ${tablet}) and (max-width: ${desktop})`,
+  '@desktop': `@media (min-width: ${desktop})`,
+  '@desktopOnly': `@media (min-width: ${desktop}) and (max-width: ${widescreen})`,
+  '@widescreen': `@media (min-width: ${widescreen})`,
 }
 
 export function alias(prop: string) {
