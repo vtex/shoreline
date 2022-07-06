@@ -20,7 +20,7 @@ import {
 } from '../components/Modal'
 import { Text } from '../components/Text'
 import { Button } from '../button'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import { Heading } from '../components/Heading'
 
 export default {

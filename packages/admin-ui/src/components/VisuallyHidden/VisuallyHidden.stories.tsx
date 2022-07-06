@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Flex } from '../Flex'
+import { Flex } from '../../flex'
 import { Text } from '../Text'
 import { VisuallyHidden } from './index'
 

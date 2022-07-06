@@ -6,7 +6,7 @@ import type { ButtonProps } from './index'
 import { Button } from './index'
 import { Heading } from '../components/Heading'
 import { Box } from '../box'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 
 export default {
   title: 'admin-ui-review/button',

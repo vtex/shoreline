@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import type { SystemComponentProps } from '../types'
 import { Button } from '../button'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
 
