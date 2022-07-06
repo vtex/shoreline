@@ -1,9 +1,13 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import { useElement, createHook, createComponent } from '@vtex/admin-ui-react'
+import type { ResponsiveProp } from '@vtex/admin-ui-react'
+import {
+  useElement,
+  createHook,
+  createComponent,
+  useBreakpoint,
+  getResponsiveValue,
+} from '@vtex/admin-ui-react'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
-
-import type { ResponsiveProp } from './responsive'
-import { useBreakpoint, getResponsiveValue } from './responsive'
 
 /**
  * Stack behavior
