@@ -34,17 +34,17 @@ export function useBreakpoint() {
  * @param breakpoint desired breakpoint
  * @example
  * const { prop } = props
- * const [breakpoint] = useBreakpoint()
+ * const { breakpoint } = useBreakpoint()
  * const responsiveProp = getResponsiveValue(prop, breakpoint)
  */
 export function getResponsiveValue<T>(
   prop: ResponsiveProp<T>,
   breakpoint: Breakpoint,
   index?: number
-): T | null {
+): T {
   if (typeof prop !== 'object') return prop
 
-  if (index && index < 0) return null
+  if (index && index < 0) return get(prop as ResponsiveValue<T>, 'mobile')
 
   const breakpoints = ['mobile', 'tablet', 'desktop', 'widescreen']
 
