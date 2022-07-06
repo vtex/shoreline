@@ -3,7 +3,7 @@ import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Label } from '../components/Label'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import * as style from './date-field.style'
 import { SegmentList, Segment } from '../segment'
 import type { SegmentStateReturn } from '../segment'

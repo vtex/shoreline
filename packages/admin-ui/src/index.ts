@@ -26,6 +26,7 @@ export * from './tooltip'
 export * from './alert'
 export * from './tab'
 export * from './page'
+export * from './flex'
 
 export * from './deprecated-set'
 
@@ -62,7 +63,6 @@ export {
 export * from './components/SearchBox'
 export * from './components/DataView'
 export * from './components/SelectionTree'
-export * from './components/Flex'
 export * from './components/Grid'
 export * from './components/Field'
 export * from './components/Illustrations'

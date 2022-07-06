@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { LabelProps } from './index'
 import { Label } from './index'
-import { Flex } from '../Flex'
+import { Flex } from '../../flex'
 
 export default {
   title: 'admin-ui/Label',

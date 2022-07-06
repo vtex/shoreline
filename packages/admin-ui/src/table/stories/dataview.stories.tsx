@@ -18,7 +18,7 @@ import {
 } from '../../components/Pagination'
 import { Stack } from '../../stack'
 import { TextInput } from '../../text-input'
-import { FlexSpacer } from '../../components/Flex'
+import { FlexSpacer } from '../../flex'
 import {
   FilterGroup,
   FilterMultiple,
