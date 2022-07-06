@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import type { ComboboxMultipleState } from '../../combobox'
 import { useComboboxMultipleState } from '../../combobox'
@@ -60,6 +60,12 @@ export function useFilterMultipleState<T extends AnyObject>(
     }
   }, [menu.mounted])
 
+  const getFromApplied = (key: string) => {
+    return appliedItems
+      .map((item) => item?.[key as keyof FilterOption<T>] || item?.value?.[key])
+      .filter((item) => item !== undefined)
+  }
+
   return {
     combobox: comboboxMultiple,
     onClear: clear,
@@ -68,6 +74,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     setAppliedItems: updateApplied,
     selectedItems,
     menu,
+    getFromApplied,
   }
 }
 
@@ -77,6 +84,7 @@ export interface UseFilterMultipleReturn<T>
   appliedItems: ItemList<T>
   selectedItems: ItemList<T>
   setAppliedItems: (items: ItemList<T>) => void
+  getFromApplied: (key: string) => any[]
 }
 
 export interface UseFilterMultipleStateProps<T> {

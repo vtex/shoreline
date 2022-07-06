@@ -12,18 +12,18 @@ export const FilterOptionCheckbox = (props: {
   state: UseFilterMultipleReturn<any>
   id: string
   children: string
-  data?: any
+  value?: any
 }) => {
   const {
     state: { combobox },
     id,
     children,
-    data,
+    value,
   } = props
 
   const { cn } = useSystem()
 
-  const item = { id, label: children, data }
+  const item = { id, label: children, value }
 
   return (
     <ComboboxItem

@@ -21,11 +21,12 @@ export const FilterFooter = createComponent<
   return useElement(Role, {
     baseStyle: {
       borderTop: isScrollableLayout ? '$neutral' : 'none',
+      padding: '$l',
       paddingTop: isScrollableLayout ? undefined : 0,
       display: 'flex',
       justifyContent: 'end',
       'button:not(:first-child)': {
-        marginLeft: '$l',
+        marginLeft: '$m',
       },
     },
     children: (
