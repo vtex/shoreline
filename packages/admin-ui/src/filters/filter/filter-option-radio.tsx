@@ -12,7 +12,7 @@ export const FilterOptionRadio = (props: {
   state: UseFilterStateReturn<any>
   id: string
   children: string
-  data?: any
+  value?: any
 }) => {
   const {
     state: {
@@ -20,14 +20,14 @@ export const FilterOptionRadio = (props: {
     },
     id,
     children,
-    data,
+    value,
   } = props
 
   const { cn } = useSystem()
 
   const isSelected = selectedItem?.id === id || false
 
-  const item = { id, label: children, data }
+  const item = { id, label: children, value }
 
   return (
     <ComboboxItem

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { FilterDisclosure } from '../filter-disclosure'
