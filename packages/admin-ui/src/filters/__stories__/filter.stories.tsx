@@ -39,7 +39,7 @@ function FilterMultiple(props: {
             <FilterOptionCheckbox
               id={item.id}
               key={item.id}
-              data={item}
+              value={item}
               state={filterState}
             >
               {item.label}
@@ -66,7 +66,12 @@ function Filter(props: {
       <FilterPopover state={filterState}>
         <FilterListbox state={filterState}>
           {list.map((item) => (
-            <FilterOptionRadio id={item.id} key={item.id} state={filterState}>
+            <FilterOptionRadio
+              id={item.id}
+              value={item.value}
+              key={item.id}
+              state={filterState}
+            >
               {item.label}
             </FilterOptionRadio>
           ))}
@@ -104,6 +109,8 @@ Playground.args = {
     { label: 'Less than empty', value: 5, id: '#7' },
     { label: 'Almost empty', value: 5, id: '#8' },
     { label: 'Almost full', value: 5, id: '#9' },
+    { label: 'Almost full', value: 5, id: '#10' },
+    { label: 'Almost full', value: 5, id: '#11' },
   ],
   label: 'Status',
 }
@@ -149,22 +156,22 @@ export function Single() {
 
 export function BasicFilterGroup() {
   const list1 = [
-    { label: 'Full', value: 1, id: '#1' },
-    { label: 'Empty', value: 2, id: '#2' },
-    { label: 'Half full', value: 3, id: '#3' },
-    { label: 'Half empty', value: 4, id: '#4' },
-    { label: 'Unknown', value: 5, id: '#5' },
-    { label: 'Unknown', value: 5, id: '#6' },
-    { label: 'Unknown', value: 5, id: '#7' },
-    { label: 'Unknown', value: 5, id: '#8' },
-    { label: 'Half empty', value: 4, id: '#10' },
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+    { label: 'Unknown', id: '#6' },
+    { label: 'Unknown', id: '#7' },
+    { label: 'Unknown', id: '#8' },
+    { label: 'Half empty', id: '#10' },
   ]
 
   const list2 = [
-    { label: 'Rio de Janeiro', value: 1, id: '#1' },
-    { label: 'New York', value: 2, id: '#2' },
-    { label: 'Paris', value: 3, id: '#3' },
-    { label: 'Tokyo', value: 4, id: '#4' },
+    { label: 'Rio de Janeiro', value: { grade: 10 }, id: '#1' },
+    { label: 'New York', value: { grade: 9 }, id: '#2' },
+    { label: 'Paris', value: { grade: 9 }, id: '#3' },
+    { label: 'Tokyo', value: { grade: 9 }, id: '#4' },
   ]
 
   const state = useFilterMultipleState()
@@ -172,7 +179,11 @@ export function BasicFilterGroup() {
   const state2 = useFilterState({})
 
   useEffect(() => {
-    state2.setAppliedItem({ label: 'Rio de Janeiro', id: '#1' })
+    state2.setAppliedItem({
+      label: 'Rio de Janeiro',
+      value: { grade: 10 },
+      id: '#1',
+    })
     state.setAppliedItems([
       { label: 'Full', id: '#1' },
       { label: 'Empty', id: '#2' },
@@ -232,7 +243,7 @@ export function MultipleFromScratch() {
       <FilterPopover state={filterState}>
         <FilterListbox state={filterState}>
           {items.map((item) => (
-            <FilterOptionCheckbox data={item} id={item.id} state={filterState}>
+            <FilterOptionCheckbox id={item.id} state={filterState} value={item}>
               {item.label}
             </FilterOptionCheckbox>
           ))}

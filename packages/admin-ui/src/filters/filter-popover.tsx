@@ -29,7 +29,6 @@ export const FilterPopover = createComponent<
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-      padding: '$l',
       width: 256,
       zIndex: 999,
       ...focusVisible('neutral'),
