@@ -1,6 +1,5 @@
 import type { ComponentPropsWithRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
 import { pick, renameKeys } from '@vtex/admin-ui-util'
 import { jsx } from '@vtex/admin-ui-react'
 
@@ -45,21 +44,21 @@ export const Flex = jsx('div')(
 
 export interface FlexOptions {
   /** Shorthand for CSS alignItems property */
-  align?: ResponsiveValue<CSS.Property.AlignContent>
+  align?: CSS.Property.AlignContent
   /** Shorthand for CSS flexBasis property */
-  basis?: ResponsiveValue<CSS.Property.FlexBasis>
+  basis?: CSS.Property.FlexBasis
   /** Shorthand for CSS flexDirection property */
-  direction?: ResponsiveValue<CSS.Property.FlexDirection>
+  direction?: CSS.Property.FlexDirection
   /** Shorthand for CSS flexGrow property */
-  grow?: ResponsiveValue<CSS.Property.FlexGrow>
+  grow?: CSS.Property.FlexGrow
   /** Shorthand for CSS flexShrink property */
-  shrink?: ResponsiveValue<CSS.Property.FlexShrink>
+  shrink?: CSS.Property.FlexShrink
   /** Shorthand for CSS justifyContent property */
-  justify?: ResponsiveValue<CSS.Property.JustifyContent>
+  justify?: CSS.Property.JustifyContent
   /** Shorthand for CSS flexWrap property */
-  wrap?: ResponsiveValue<CSS.Property.FlexWrap>
+  wrap?: CSS.Property.FlexWrap
   /** Shorthand for CSS order property */
-  order?: ResponsiveValue<CSS.Property.Order>
+  order?: CSS.Property.Order
 }
 
 export type FlexProps = ComponentPropsWithRef<typeof Flex>
