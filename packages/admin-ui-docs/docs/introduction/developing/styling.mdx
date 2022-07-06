@@ -294,6 +294,36 @@ const layout = style({
 })
 ```
 
+### Responsive Value
+
+Properties of components with the type `ResponsiveValue<T>` indicate that you can use them to behave similarly to responsive aliases by passing different values ​​depending on the screen size
+You can [check the mental model section](#mental-model) to see how the responsiveness works in these cases.
+
+```ts
+interface ResponsiveValue<T> = T | {
+  mobile: T
+  tablet?: T
+  desktop?: T
+  widescreen?: T
+}
+```
+
+#### Example
+
+```jsx live
+<Stack
+  space={{ mobile: '$l', desktop: '$2xl' }}
+  fluid={{ mobile: true, tablet: false }}
+  direction={{ mobile: 'column', tablet: 'row' }}
+>
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+  <Button>Fourth</Button>
+  <Button>Fifth</Button>
+</Stack>
+```
+
 ### Additional resources
 
 - [Learn responsive design](https://web.dev/learn/design/).
