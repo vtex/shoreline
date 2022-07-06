@@ -1,7 +1,7 @@
-import { useState, useMemo } from 'react'
-import { isBrowser, get } from '@vtex/admin-ui-util'
-import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
+import { useMemo } from 'react'
+import { get } from '@vtex/admin-ui-util'
 import { tokens } from '@vtex/admin-ui-core'
+import { useMediaQuery } from './use-media-query'
 
 const queries = tokens.breakpoints.map((bp) => `(min-width: ${bp})`)
 
@@ -9,38 +9,7 @@ const queries = tokens.breakpoints.map((bp) => `(min-width: ${bp})`)
  * React hook that tracks state of a CSS media query
  */
 export function useBreakpoint() {
-  const isMatchMediaSupported = isBrowser && 'matchMedia' in window
-
-  const [matches, setMatches] = useState(
-    queries.map(
-      (query) => isMatchMediaSupported && window.matchMedia(query).matches
-    )
-  )
-
-  useSafeLayoutEffect(() => {
-    if (!isMatchMediaSupported) return undefined
-
-    const mediaQueryList = queries.map((query) => window.matchMedia(query))
-
-    const listenerList = mediaQueryList.map((mediaQuery, index) => {
-      const listener = () =>
-        setMatches((prev) =>
-          prev.map((prevValue, idx) =>
-            index === idx ? !!mediaQuery.matches : prevValue
-          )
-        )
-
-      mediaQuery.addEventListener('change', listener)
-
-      return listener
-    })
-
-    return () => {
-      mediaQueryList.forEach((mediaQuery, index) => {
-        mediaQuery.removeEventListener('change', listenerList[index])
-      })
-    }
-  }, [])
+  const matches = useMediaQuery(queries)
 
   const breakpoint = useMemo<Breakpoint>(() => {
     const [mobile, tablet, desktop, widescreen] = matches
@@ -70,11 +39,28 @@ export function useBreakpoint() {
  */
 export function getResponsiveValue<T>(
   prop: ResponsiveProp<T>,
-  breakpoint: Breakpoint
-): T {
+  breakpoint: Breakpoint,
+  index?: number
+): T | null {
   if (typeof prop !== 'object') return prop
 
-  return get(prop as ResponsiveValue<T>, breakpoint, prop)
+  if (index && index < 0) return null
+
+  const breakpoints = ['mobile', 'tablet', 'desktop', 'widescreen']
+
+  const resolvedIndex = index ?? breakpoints.indexOf(breakpoint)
+
+  const responsiveValue = get(
+    prop as ResponsiveValue<T>,
+    breakpoints[resolvedIndex],
+    null
+  )
+
+  if (!responsiveValue) {
+    return getResponsiveValue(prop, breakpoint, resolvedIndex - 1)
+  }
+
+  return responsiveValue
 }
 
 export type Breakpoint = 'mobile' | 'tablet' | 'desktop' | 'widescreen'
