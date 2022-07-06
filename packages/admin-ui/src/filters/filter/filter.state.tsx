@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import type { ComboboxState } from '../../combobox/combobox.state'
 import { useComboboxState } from '../../combobox/combobox.state'
@@ -59,6 +59,12 @@ export function useFilterState<T extends AnyObject>(
     }
   }, [menu.mounted, appliedItem])
 
+  const getFromApplied = (key: string) => {
+    return (
+      appliedItem?.[key as keyof FilterOption<T>] || appliedItem?.value?.[key]
+    )
+  }
+
   return {
     combobox,
     menu,
@@ -66,6 +72,7 @@ export function useFilterState<T extends AnyObject>(
     onChange: apply,
     appliedItem,
     setAppliedItem: updateApplied,
+    getFromApplied,
   }
 }
 
@@ -74,7 +81,7 @@ export type ItemList<T> = Array<FilterOption<T>>
 export interface FilterOption<T> {
   id: string
   label: string
-  data?: T[]
+  value?: T
 }
 
 export interface GenericFilterStateReturn<T> {
@@ -87,6 +94,7 @@ export interface GenericFilterStateReturn<T> {
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
   appliedItem?: FilterOption<T>
   setAppliedItem: (option: FilterOption<T>) => void
+  getFromApplied: (key: string) => any
 }
 
 export interface UseFilterStateProps<T> {
