@@ -6,7 +6,7 @@ import {
   CollectionNotFound,
 } from '../../Illustrations'
 
-import { Flex } from '../../Flex'
+import { Flex } from '../../../flex'
 import { Anchor } from '../../Anchor'
 import { Text } from '../../Text'
 import { useDataViewContext } from '../context'

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { jsx } from '@vtex/admin-ui-react'
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
-import { Flex } from '../../Flex'
+import { Flex } from '../../../flex'
 import { Button } from '../../../button'
 import { useCollapsibleContext } from '../context'
 

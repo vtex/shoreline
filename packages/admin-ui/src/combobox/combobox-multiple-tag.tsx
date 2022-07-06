@@ -8,7 +8,7 @@ import { CompositeItem } from 'ariakit/composite'
 import { messages } from './combobox.i18n'
 import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../components/Paragraph'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import * as style from './combobox.style'
 
 export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
