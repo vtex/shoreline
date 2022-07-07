@@ -42,7 +42,7 @@ export function getResponsiveValue<T>(
   breakpoint: Breakpoint,
   index?: number
 ): T {
-  if (typeof prop !== 'object') return prop
+  if (typeof prop !== 'object' || !('mobile' in prop)) return prop
 
   if (index && index < 0) return get(prop as ResponsiveValue<T>, 'mobile')
 
