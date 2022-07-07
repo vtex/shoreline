@@ -7,6 +7,10 @@ import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
 import { useDataViewContext } from '../../components/DataView'
 import { useSelectionTreeContext } from '../../components/SelectionTree'
+
+import type { TableColumn } from '../types'
+import type { BaseResolvers } from '../resolvers/base'
+
 import * as styles from '../styles/table-body.styles'
 
 export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
@@ -69,7 +73,7 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
     const { item = {}, role = 'row', children, ...rowProps } = props
 
     const { status } = useDataViewContext()
-    const { onRowClick, columns, resolveCell } = useStateContext()
+    const { onRowClick, columns } = useStateContext()
 
     const clickable = onRowClick && !(status === 'loading')
 
@@ -102,29 +106,49 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
       },
       role,
       children: (
-        <Fragment>
-          {columns.map((column) => {
-            const content = resolveCell({ item, column })
-
-            return (
-              <Fragment key={`${item.id}-${String(column.id)}`}>
-                {children ? (
-                  cloneElement(children as any, {
-                    column,
-                    children: <Fragment>{content}</Fragment>,
-                  })
-                ) : (
-                  <TableCell column={column}>{content}</TableCell>
-                )}
-              </Fragment>
-            )
-          })}
-        </Fragment>
+        <>
+          {columns.map((column) => (
+            <TableBodyCell
+              item={item}
+              column={column}
+              key={`${String(item.id)}-${String(column.id)}`}
+            >
+              {children}
+            </TableBodyCell>
+          ))}
+        </>
       ),
       onClick: handleClick,
     })
   }
 )
+
+const TableBodyCell = (props: TableBodyCellOptions) => {
+  const { resolveCell } = useStateContext()
+
+  const { item, column, children } = props
+
+  const content = resolveCell({ item, column })
+
+  return (
+    <>
+      {children ? (
+        cloneElement(children as any, {
+          column,
+          children: content,
+        })
+      ) : (
+        <TableCell column={column}>{content}</TableCell>
+      )}
+    </>
+  )
+}
+
+export interface TableBodyCellOptions {
+  item?: Record<string, any>
+  column: TableColumn<any, BaseResolvers<any>>
+  children: ReactNode
+}
 
 export interface TableBodyRowOptions {
   item?: Record<string, any>
