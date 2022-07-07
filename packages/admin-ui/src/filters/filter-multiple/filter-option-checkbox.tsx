@@ -6,14 +6,9 @@ import { Checkbox } from '../../checkbox'
 import type { UseFilterMultipleReturn } from './filter-multiple.state'
 
 import * as style from '../filter.style'
-import { useSystem } from '../..'
+import { Box } from '../..'
 
-export const FilterOptionCheckbox = (props: {
-  state: UseFilterMultipleReturn<any>
-  id: string
-  children: string
-  value?: any
-}) => {
+export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
   const {
     state: { combobox },
     id,
@@ -21,16 +16,15 @@ export const FilterOptionCheckbox = (props: {
     value,
   } = props
 
-  const { cn } = useSystem()
-
   const item = { id, label: children, value }
 
   return (
-    <ComboboxItem
+    <Box
+      as={ComboboxItem}
       aria-selected={combobox.isSelected(item)}
       onClick={() => combobox.onChange(item)}
       id={id}
-      className={cn(style.option)}
+      csx={style.option}
     >
       <Checkbox
         checked={combobox.isSelected(item)}
@@ -38,6 +32,13 @@ export const FilterOptionCheckbox = (props: {
         label={children}
         readOnly
       />
-    </ComboboxItem>
+    </Box>
   )
+}
+
+interface FilterOptionCheckboxProps {
+  state: UseFilterMultipleReturn<any>
+  id: string
+  children: string
+  value?: any
 }
