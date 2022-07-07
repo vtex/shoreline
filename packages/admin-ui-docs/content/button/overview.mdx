@@ -1,6 +1,5 @@
 import { Section } from '@site/src/components/Section'
 import { IntroSection } from '@site/src/components/IntroSection'
-import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 
 <IntroSection>
 
@@ -10,25 +9,20 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 
 </IntroSection>
 
-<MultipleCodeSection optionsTitle="Variant" options={['Primary','Secondary','Tertiary']}>
+<Section>
 
 ## Variants
 
-```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
+```jsx live layout=grid columnsCount=2 rowsCount=2
 <>
   <Button variant="primary">Primary</Button>
   <Button variant="critical">Critical Primary</Button>
-</>
-```
-
-```jsx live optionId=secondary layout=grid columnsCount=2 rowsCount=1
-<>
   <Button variant="secondary">Secondary</Button>
   <Button variant="criticalSecondary">Critical Secondary</Button>
 </>
 ```
 
-```jsx live optionId=tertiary layout=grid columnsCount=3 rowsCount=1
+```jsx live layout=grid columnsCount=3 rowsCount=1
 <>
   <Button variant="tertiary">Tertiary</Button>
   <Button variant="criticalTertiary">Critical Tertiary</Button>
@@ -36,7 +30,7 @@ Buttons trigger an action, or allow the user to advance a state. They are where 
 </>
 ```
 
-</MultipleCodeSection>
+</Section>
 
 <Section direction="row">
 
