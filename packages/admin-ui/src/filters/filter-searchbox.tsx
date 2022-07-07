@@ -19,6 +19,7 @@ export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
 
     return useElement('div', {
       ...htmlProps,
+      baseStyle: { margin: '$l' },
       children: (
         <Search
           {...seachBoxProps}
@@ -30,7 +31,6 @@ export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             state.setValue(e.target.value)
           }}
-          csx={{ margin: '$l' }}
         />
       ),
     })

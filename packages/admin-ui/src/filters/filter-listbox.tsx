@@ -8,13 +8,9 @@ import * as style from './filter.style'
 import type { ComboboxState } from '../combobox'
 import { usePopoverContext } from './filter-popover-context'
 
-export const FilterListbox = <
-  GenericComboboxState extends ComboboxState<any>
->(props: {
-  state: { combobox: GenericComboboxState }
-  id?: string
-  children: React.ReactNode
-}) => {
+export const FilterListbox = <T extends ComboboxState<any>>(
+  props: FilterListboxProps<T>
+) => {
   const { state, children, id } = props
   const optionsContainerRef = useRef<HTMLDivElement>(null)
 
@@ -39,4 +35,10 @@ export const FilterListbox = <
       </ComboboxList>
     </tag.span>
   )
+}
+
+interface FilterListboxProps<T extends ComboboxState<any>> {
+  state: { combobox: T }
+  id?: string
+  children: React.ReactNode
 }
