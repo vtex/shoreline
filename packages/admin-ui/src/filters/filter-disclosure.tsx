@@ -23,7 +23,6 @@ export const FilterDisclosure = (props: FilterDisclosureProps) => {
 
   const { menu } = state
 
-  // TODO deal with this
   const appliedList = isMulti(state)
     ? asMulti(state).appliedItems
     : asSingle(state).appliedItem
