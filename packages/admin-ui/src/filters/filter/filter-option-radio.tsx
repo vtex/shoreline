@@ -4,16 +4,11 @@ import { ComboboxItem } from 'ariakit/combobox'
 
 import * as style from '../filter.style'
 
-import { useSystem } from '../..'
+import { Box } from '../..'
 import type { UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
 
-export const FilterOptionRadio = (props: {
-  state: UseFilterStateReturn<any>
-  id: string
-  children: string
-  value?: any
-}) => {
+export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
   const {
     state: {
       combobox: { selectedItem, setSelectedItem },
@@ -23,21 +18,27 @@ export const FilterOptionRadio = (props: {
     value,
   } = props
 
-  const { cn } = useSystem()
-
   const isSelected = selectedItem?.id === id || false
 
   const item = { id, label: children, value }
 
   return (
-    <ComboboxItem
+    <Box
+      as={ComboboxItem}
       aria-selected={isSelected}
       onClick={() => setSelectedItem(item)}
       id={id}
-      className={cn(style.option)}
+      csx={style.option}
     >
       <FilterRadio checked={isSelected} />
       {children}
-    </ComboboxItem>
+    </Box>
   )
+}
+
+interface FilterOptionRadioProps {
+  state: UseFilterStateReturn<any>
+  id: string
+  children: string
+  value?: any
 }
