@@ -11,7 +11,7 @@ import { createColumns } from '../createColumns'
 import { Pagination, useQueryPaginationState } from '../../Pagination'
 import { Stack } from '../../../stack'
 import { TextInput } from '../../../text-input'
-import { FlexSpacer } from '../../Flex'
+import { FlexSpacer } from '../../../flex'
 import {
   FilterGroup,
   FilterMultiple,

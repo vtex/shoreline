@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, axe } from '../../../test-utils'
+import { render, axe } from '../../test-utils'
 import { Flex } from '../index'
 
 describe('Flex', () => {
