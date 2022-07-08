@@ -32,7 +32,7 @@ function PlaygroundExample({ args }: any) {
       <FilterPopover state={state}>
         <FilterListbox>
           {args.items.map((item: { label: string; id: string }) => (
-            <FilterOptionCheckbox {...item}>{item.label}</FilterOptionCheckbox>
+            <FilterOptionCheckbox {...item} />
           ))}
         </FilterListbox>
         <FilterFooter />
@@ -69,9 +69,9 @@ export function SingleFromScrach() {
 
       <FilterPopover state={filterState}>
         <FilterListbox>
-          <FilterOptionRadio id="#1">Full</FilterOptionRadio>
-          <FilterOptionRadio id="#2">Empty</FilterOptionRadio>
-          <FilterOptionRadio id="#3">Half full</FilterOptionRadio>
+          <FilterOptionRadio id="#1" label="Full" />
+          <FilterOptionRadio id="#2" label="Empty" />
+          <FilterOptionRadio id="#3" label="Half full" />
         </FilterListbox>
         <FilterFooter />
       </FilterPopover>
@@ -95,9 +95,7 @@ export function MultipleFromScratch() {
       <FilterPopover state={filterState}>
         <FilterListbox state={filterState}>
           {items.map((item) => (
-            <FilterOptionCheckbox id={item.id} state={filterState} value={item}>
-              {item.label}
-            </FilterOptionCheckbox>
+            <FilterOptionCheckbox value={item} {...item} />
           ))}
         </FilterListbox>
         <FilterFooter state={filterState} />
@@ -146,9 +144,7 @@ export function BasicFilterGroup() {
       <FilterPopover state={state}>
         <FilterListbox state={state}>
           {list1.map((item) => (
-            <FilterOptionCheckbox {...item} state={state}>
-              {item.label}
-            </FilterOptionCheckbox>
+            <FilterOptionCheckbox {...item} state={state} />
           ))}
         </FilterListbox>
         <FilterFooter state={state} />
@@ -159,9 +155,7 @@ export function BasicFilterGroup() {
       <FilterPopover state={state2}>
         <FilterListbox state={state2}>
           {list2.map((item) => (
-            <FilterOptionRadio {...item} state={state2}>
-              {item.label}
-            </FilterOptionRadio>
+            <FilterOptionRadio {...item} state={state2} />
           ))}
         </FilterListbox>
         <FilterFooter state={state2} />
@@ -184,8 +178,8 @@ export function Interationalization() {
 
         <FilterPopover state={state}>
           <FilterListbox state={state}>
-            <FilterOptionRadio id="#1">Available</FilterOptionRadio>
-            <FilterOptionRadio id="#2">Unavailable</FilterOptionRadio>
+            <FilterOptionRadio id="#1" label="Available" />
+            <FilterOptionRadio id="#2" label="Unavailable" />
           </FilterListbox>
           <FilterFooter state={state} />
         </FilterPopover>
