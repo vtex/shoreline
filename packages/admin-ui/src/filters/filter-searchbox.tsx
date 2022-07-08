@@ -2,20 +2,27 @@ import type { ChangeEvent } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useCombobox } from 'ariakit/combobox'
-import type { ComboboxState } from '../combobox'
+
 import { Search } from '..'
+import { usePopoverContext } from './filter-popover-context'
+import type { UseFilterStateReturn } from './filter/filter.state'
+import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 
 export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
   (props) => {
-    const { state, id, ...htmlProps } = props
+    const { state: propState, id, ...htmlProps } = props
+    const { state } = usePopoverContext()
+
+    const combobox = propState?.combobox ?? state.combobox
 
     const comboboxProps = useCombobox({
-      state,
+      state: { ...combobox, matches: [] },
       id,
       as: 'form',
     })
 
     const { onClick: _onClick, ...seachBoxProps } = comboboxProps
+    const { setValue, value, status } = combobox
 
     return useElement('div', {
       ...htmlProps,
@@ -23,13 +30,13 @@ export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
       children: (
         <Search
           {...seachBoxProps}
-          value={state.value}
-          loading={state.status === 'loading'}
+          value={value}
+          loading={status === 'loading'}
           onClear={() => {
-            state.setValue('')
+            setValue('')
           }}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            state.setValue(e.target.value)
+            setValue(e.target.value)
           }}
         />
       ),
@@ -39,5 +46,5 @@ export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
 
 interface ComboboxFieldProps {
   id: string
-  state: ComboboxState<any>
+  state?: UseFilterStateReturn<any> | UseFilterMultipleReturn<any>
 }
