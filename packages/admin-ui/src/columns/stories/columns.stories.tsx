@@ -2,11 +2,11 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import { palette } from '@vtex/admin-ui-core'
 
-import { Box } from '../../../box'
+import { Box } from '../../box'
 import { Columns, Column } from '../index'
 
 export default {
-  title: 'admin-ui/Columns',
+  title: 'admin-ui-review/columns',
   component: Columns,
 } as Meta
 
@@ -35,7 +35,7 @@ export const Playground: Story = (args) => {
 
 export const Auto = () => {
   return (
-    <Columns spacing={1}>
+    <Columns space="$m">
       <Column>
         <Box csx={primaryStyles}>4 units</Box>
       </Column>
@@ -51,7 +51,7 @@ export const Auto = () => {
 
 export const AutoGapless = () => {
   return (
-    <Columns spacing={0}>
+    <Columns space="0">
       <Column>
         <Box csx={primaryStyles}>6 units</Box>
       </Column>
@@ -65,9 +65,25 @@ export const AutoGapless = () => {
   )
 }
 
+export const Offset = () => {
+  return (
+    <Columns space="0">
+      <Column units={3}>
+        <Box csx={primaryStyles}>3 units</Box>
+      </Column>
+      <Column offset="both" units={3}>
+        <Box csx={invertedStyles}>3 units</Box>
+      </Column>
+      <Column units={3}>
+        <Box csx={primaryStyles}>3 units</Box>
+      </Column>
+    </Columns>
+  )
+}
+
 export const Units = () => {
   return (
-    <Columns spacing={1}>
+    <Columns space="$m">
       <Column units={3}>
         <Box csx={primaryStyles}>3 units</Box>
       </Column>
@@ -83,11 +99,14 @@ export const Units = () => {
 
 export const ResponsiveUnits = () => {
   return (
-    <Columns spacing={1}>
-      <Column units={6} offset="none">
+    <Columns space={{ mobile: '0', tablet: '$m' }}>
+      <Column
+        units={{ mobile: 12, tablet: 6 }}
+        offset={{ mobile: 'none', tablet: 'right' }}
+      >
         <Box csx={primaryStyles}>6 units</Box>
       </Column>
-      <Column units={3}>
+      <Column units={{ mobile: 12, tablet: 3 }}>
         <Box csx={invertedStyles}>3 units</Box>
       </Column>
     </Columns>
