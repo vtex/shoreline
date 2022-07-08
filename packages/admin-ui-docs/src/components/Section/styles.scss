@@ -1,5 +1,5 @@
 :root {
-  --ifm-h2-font-size:  1.75rem;
+  --ifm-h2-font-size: 1.75rem;
   --ifm-h3-font-size: 1.25rem;
   --ifm-table-cell-padding: 2rem 1.25rem;
 }
@@ -14,7 +14,11 @@
   display: flex;
   flex-direction: column;
 
-  & + & {
+  h3,
+  h4,
+  h5,
+  h6,
+  & + &:not(.section--row) h2 {
     margin-top: 4.5rem;
   }
 
@@ -48,7 +52,7 @@
     width: 100%;
 
     .token-line .token {
-      font-family: "MonoLisa","Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Dank Mono","Consolas","Monaco","Menlo",monospace !important;
+      font-family: "MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace !important;
       line-height: normal;
     }
 
@@ -68,7 +72,7 @@
 
   @media (min-width: 997px) {
 
-    & + & {
+    & + &:not(.section--row) h2 {
       margin-top: 7.5rem;
     }
 
@@ -86,6 +90,10 @@
 
 .section--row {
   flex-direction: row;
+
+  &:not(:first-child) {
+    margin-top: 4.5rem;
+  }
 
   .section-info {
     margin-bottom: 0;
