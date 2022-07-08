@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Columns, Column } from '../Columns'
+import { Columns, Column } from '../../columns'
 import { Card } from './index'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
