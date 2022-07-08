@@ -22,14 +22,14 @@ Cards are surfaces that display content and actions on a single topic.
 
 ```jsx live
 <Card>
-  <Set orientation="vertical" spacing={3} fluid>
+  <Stack space="$l" fluid>
     <Heading>Build for community</Heading>
     <Paragraph>
       It’s all about being ready to grow and reach new levels. Have a solid
       foundation, modular thinking and flexible essence, and you’re building for
       scale. We are global but we’re audacious enough to aim for the stars.
     </Paragraph>
-  </Set>
+  </Stack>
 </Card>
 ```
 
@@ -55,10 +55,10 @@ Cards are surfaces that display content and actions on a single topic.
 ```jsx isStatic
 import { Card, Set, Heading, Paragraph } from '@vtex/admin-ui'
 ;<Card>
-  <Set orientation="vertical" spacing={3} fluid>
+  <Stack space="$l" fluid>
     <Heading>Title</Heading>
     <Paragraph>Content.</Paragraph>
-  </Set>
+  </Stack>
 </Card>
 ```
 
