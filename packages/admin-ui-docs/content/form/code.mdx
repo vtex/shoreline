@@ -49,7 +49,7 @@ To understand how this library works you need first to understand some concepts.
 
 </Section>
 
-<Section>
+<Section hasExplanation>
 
 ### Name
 
@@ -57,20 +57,148 @@ This property specifies the name of the input, and it is used to subscribe to it
 
 </Section>
 
-<Section>
+<Section hasExplanation>
 
 ### Subscriptions
 
-Is the ability to watch individual inputs and formState updates without re-rendering the entire form. There are two ways of subscribing to an input element: by using the `Watch` component or the `useWatch` hook.
+The ability to watch individual inputs and formState updates without re-rendering the entire form. There are two ways of subscribing to an input element: using the `Watch` component or the `useWatch` hook. They can be used as a replacement for the `onChange` callback.
 
 </Section>
 
 <Section>
 
+#### Watch
+
+```jsx noInline live
+const { Form, Watch, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          label="Name"
+          name="input-name"
+          helpText="Enter your name"
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+        <Box as="p">
+          Name: <Watch form={form} name="input-name" />
+        </Box>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section>
+
+#### useWatch
+
+```jsx noInline live
+const { Form, useWatch, TextInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState()
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  const inputNameWatch = useWatch({
+    form,
+    name: 'input-name', // The value of the target's prop 'name': "input-name"
+  })
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          label="Name"
+          name="input-name"
+          helpText="Enter your name"
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+        <Box as="p">Name: {inputNameWatch}</Box>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
 ### State hook
 
 This hook is what makes it possible to subscribe to each form input and isolate the re-render at the hook level.
 It has its scope in terms of subscriptions, so it does not affect other `useFormState`.
+
+</Section>
+
+<Section hasExplanation>
+
+#### defaultValues
+
+Use the state prop `defaultValues` to load form components with initial values. The keys of this object must have the same name you set for the component.
+
+```jsx noInline live
+const { Form, Watch, TextInput, NumberInput, useFormState } = Forms
+
+function Example() {
+  const form = useFormState({
+    defaultValues: {
+      inputName: 'Initial Name',
+      inputAge: 18,
+    },
+  })
+
+  const handleSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  return (
+    <Form state={form} onSubmit={handleSubmit}>
+      <Stack space="$2xl">
+        <TextInput
+          label="Name"
+          name="inputName"
+          helpText="Enter your name"
+          state={form}
+        />
+
+        <NumberInput
+          label="Age"
+          name="inputAge"
+          helpText="Enter your age"
+          state={form}
+        />
+
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </Form>
+  )
+}
+
+render(<Example />)
+```
 
 </Section>
 
