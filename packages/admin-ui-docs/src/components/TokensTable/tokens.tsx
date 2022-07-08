@@ -8,7 +8,7 @@ import {
   get,
   extractTokenCall,
   textTokens,
-  Set,
+  Stack,
   Text,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
@@ -20,11 +20,11 @@ const colorFormatter = (color: string) => {
   return {
     stringfied: JSON.stringify(color),
     formatted: (
-      <Set orientation="vertical">
+      <Stack>
         {isHsla && <Text>{replaceHslForHex(color)}</Text>}
         {isRgba && <Text>{rgbaToHexA(color)}</Text>}
         <Text>{color}</Text>
-      </Set>
+      </Stack>
     ),
   }
 }
@@ -72,11 +72,11 @@ export const text = textTokens.map(
     return {
       stringfied: JSON.stringify(v),
       formatted: (
-        <Set orientation="vertical">
+        <Stack>
           {keys.map((key, index) => (
             <Text key={index}>{`${key}: ${v[key]}`}</Text>
           ))}
-        </Set>
+        </Stack>
       ),
     }
   })
