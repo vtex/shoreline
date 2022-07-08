@@ -116,13 +116,12 @@ export const rules = {
   bottom: 'space',
   left: 'space',
   gridGap: 'space',
-  gridColumnGap: 'space',
-  gridRowGap: 'space',
   gap: 'space',
   columnGap: 'space',
   rowGap: 'space',
 
   // hspace
+  gridColumnGap: 'hspace',
   marginRight: 'hspace',
   marginLeft: 'hspace',
   marginX: 'hspace',
@@ -134,6 +133,7 @@ export const rules = {
   scrollPaddingX: 'hspace',
 
   // vspace
+  gridRowGap: 'vspace',
   marginTop: 'vspace',
   marginBottom: 'vspace',
   marginY: 'vspace',
