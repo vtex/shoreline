@@ -37,9 +37,11 @@ export function SingleSearch() {
         <FilterSearchbox id="boxy" />
         <FilterListbox>
           {filterState.combobox.matches.map((item) => (
-            <FilterOptionRadio id={item.id} state={filterState}>
-              {item.label}
-            </FilterOptionRadio>
+            <FilterOptionRadio
+              id={item.id}
+              label={item.label}
+              state={filterState}
+            />
           ))}
         </FilterListbox>
         <FilterFooter state={filterState} />
@@ -62,13 +64,11 @@ export function MultiSearch() {
   return (
     <>
       <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-      <FilterPopover>
+      <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
         <FilterListbox state={filterState}>
           {filterState.combobox.matches.map((item) => (
-            <FilterOptionCheckbox id={item.id}>
-              {item.label}
-            </FilterOptionCheckbox>
+            <FilterOptionCheckbox id={item.id} label={item.label} />
           ))}
         </FilterListbox>
         <FilterFooter state={filterState} />
