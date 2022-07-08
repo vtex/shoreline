@@ -54,6 +54,10 @@ export type MenuItemOptions = {
    * Item label
    */
   label: ReactNode
+  /**
+   * Item click event
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 export type MenuItemProps = React.ComponentPropsWithoutRef<typeof MenuItem>
