@@ -39,10 +39,15 @@ export const option = style({
 })
 
 export const scrollableContainer = style({
-  marginTop: '$m',
   padding: '$l',
   maxHeight: 312,
   overflowY: 'auto',
+})
+
+export const list = style({
+  '> *:not(:first-child)': {
+    marginTop: '$xl',
+  },
 })
 
 export const disclosureStatusLabel = style({

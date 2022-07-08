@@ -1,64 +1,51 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
-import type { MenuState } from 'ariakit/menu'
-import { useMenuState } from 'ariakit/menu'
 import type { ComboboxState } from '../../combobox/combobox.state'
 import { useComboboxState } from '../../combobox/combobox.state'
-import type { AnyObject } from 'packages/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui-util'
+import type { MenuState } from 'ariakit'
+import { useMenuState } from 'ariakit'
 
 export function useFilterState<T extends AnyObject>(
-  props: UseFilterStateProps<T>
+  props?: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
-  const {
-    items = [],
-    label,
-    baseId,
-    getOptionLabel = (option) => option.label,
-    getOptionId = (option) => option.id,
-    onChange = () => {},
-  } = props
+  const { fullList = [] } = props || {}
 
-  const [appliedItem, setAppliedItem] = useState<T>()
+  const [appliedItem, setAppliedItem] = useState<FilterOption<T>>()
 
-  const combobox = useComboboxState({
+  const combobox = useComboboxState<FilterOption<T>>({
+    list: fullList,
     virtualFocus: false,
-    list: items,
-    getOptionValue: getOptionLabel,
+    getOptionValue: (option) => option.label,
   })
 
-  const menu = useMenuState({ ...combobox, gutter: 4 })
+  const menu = useMenuState(combobox)
 
-  const updateApplied = useCallback(
-    (item: T) => {
-      combobox.setSelectedItem(item)
-      setAppliedItem(item)
+  const updateApplied = (item: FilterOption<T>) => {
+    combobox.setSelectedItem(item)
+    setAppliedItem(item)
+  }
 
-      onChange({ selected: item })
-    },
-    [onChange]
-  )
-
-  const apply = useCallback(() => {
+  const apply = () => {
     setAppliedItem(combobox.selectedItem)
 
-    onChange({ selected: combobox.selectedItem || null })
     menu.hide()
-  }, [onChange])
+  }
 
-  const clear = useCallback(() => {
+  const clear = () => {
     setAppliedItem(undefined)
 
     combobox.setValue('')
     combobox.setSelectedItem(undefined)
 
-    onChange({ selected: null })
     menu.hide()
-  }, [onChange])
+  }
 
   useEffect(() => {
     // auto applies whenever a new value is selected
     if (combobox.selectedItem && combobox.selectedItem !== appliedItem) {
       apply()
+      combobox.setValue('')
     }
   }, [combobox.selectedItem])
 
@@ -70,56 +57,47 @@ export function useFilterState<T extends AnyObject>(
       combobox.setValue('')
       combobox.setSelectedItem(appliedItem || undefined)
     }
-  }, [menu.mounted])
+  }, [menu.mounted, appliedItem])
+
+  const getFromApplied = (key: string) => {
+    return (
+      appliedItem?.[key as keyof FilterOption<T>] || appliedItem?.value?.[key]
+    )
+  }
 
   return {
-    menu,
     combobox,
+    menu,
     onClear: clear,
     onChange: apply,
-    items,
     appliedItem,
     setAppliedItem: updateApplied,
-    label,
-    baseId,
-    getOptionLabel,
-    getOptionId,
+    getFromApplied,
   }
 }
 
-export interface FilterItem {
+export type ItemList<T> = Array<FilterOption<T>>
+
+export interface FilterOption<T> {
   id: string
   label: string
+  value?: T
 }
 
 export interface GenericFilterStateReturn<T> {
-  menu: MenuState<any>
   onClear: () => void
   onChange: () => void
-  label: string
-  items: T[]
-  combobox: ComboboxState<T>
-  baseId?: string
-  getOptionLabel: (option: T) => string
-  getOptionId: (option: T) => string
+  combobox: ComboboxState<FilterOption<T>>
+  menu: MenuState
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
-  appliedItem?: T | null
-  setAppliedItem: (option: T) => void
+  appliedItem?: FilterOption<T>
+  setAppliedItem: (option: FilterOption<T>) => void
+  getFromApplied: (key: string) => any
 }
 
 export interface UseFilterStateProps<T> {
-  /** Function for getting an id from the option object. */
-  getOptionId?: (option: T) => string
-  /** Function for getting a label from the option object. */
-  getOptionLabel?: (option: T) => string
-  /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: T | null }) => void
-  /** Filter button label. */
-  label: string
-  /** Base for component and it's children id. */
-  baseId?: string
   /** List of items to be showed on the list. */
-  items?: T[]
+  fullList?: ItemList<T>
 }

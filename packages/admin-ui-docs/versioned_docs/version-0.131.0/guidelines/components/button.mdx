@@ -6,8 +6,8 @@ hide_table_of_contents: true
 
 import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
+import { Section } from '@site/src/components/Section'
 import { IntroSection } from '@site/src/components/IntroSection'
-import { MultipleCodeSection } from '@site/src/components/MultipleCodeSection'
 import { BestPractices, Practice } from '@site/src/components/BestPractices'
 import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
@@ -127,30 +127,20 @@ where the user interacts with the screen, enabling actions or decisions.
 
 </IntroSection>
 
-<MultipleCodeSection
-  id={tabToc.overview[1].id}
-  title={tabToc.overview[1].value}
-  optionsTitle="Variant"
-  options={['Primary','Secondary','Tertiary']}
->
+<Section>
 
 ## Variants
 
-```jsx live optionId=primary layout=grid columnsCount=2 rowsCount=1
+```jsx live layout=grid columnsCount=2 rowsCount=2
 <>
   <Button variant="primary">Primary</Button>
   <Button variant="critical">Critical Primary</Button>
-</>
-```
-
-```jsx live optionId=secondary layout=grid columnsCount=2 rowsCount=1
-<>
   <Button variant="secondary">Secondary</Button>
   <Button variant="criticalSecondary">Critical Secondary</Button>
 </>
 ```
 
-```jsx live optionId=tertiary layout=grid columnsCount=3 rowsCount=1
+```jsx live layout=grid columnsCount=3 rowsCount=1
 <>
   <Button variant="tertiary">Tertiary</Button>
   <Button variant="criticalTertiary">Critical Tertiary</Button>
@@ -158,7 +148,7 @@ where the user interacts with the screen, enabling actions or decisions.
 </>
 ```
 
-</MultipleCodeSection>
+</Section>
 
 <PageSection
   id={tabToc.overview[2].id}

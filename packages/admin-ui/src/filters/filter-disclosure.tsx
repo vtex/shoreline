@@ -5,34 +5,41 @@ import { IconCaretUp } from '@vtex/phosphor-icons'
 import { MenuButton } from 'ariakit/menu'
 
 import * as style from './filter.style'
-import type { GenericFilterStateReturn } from '.'
 import { AppliedItemsLabel } from './filter-applied-items-label'
-import type { AnyObject } from '..'
+import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
+import type { UseFilterStateReturn } from './filter/filter.state'
+
+const isMulti = (
+  state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+) => {
+  return (state as UseFilterMultipleReturn<any>).appliedItems !== undefined
+}
+
+const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
+const asSingle = (state: any) => state as UseFilterStateReturn<any>
 
 export const FilterDisclosure = (props: FilterDisclosureProps) => {
-  const { state, children, appliedItems } = props
+  const { state, children, id } = props
 
-  const disclosureId = state.baseId ? `${state.baseId}-disclosure` : undefined
+  const { menu } = state
+
+  const appliedList = isMulti(state)
+    ? asMulti(state).appliedItems
+    : asSingle(state).appliedItem
+    ? [asSingle(state).appliedItem!]
+    : []
 
   return (
-    <Button
-      as={MenuButton as any}
-      state={state.menu}
-      csx={style.disclosure}
-      id={disclosureId}
-    >
+    <Button as={MenuButton as any} state={menu} csx={style.disclosure} id={id}>
       {children}
-      <AppliedItemsLabel
-        renderItemLabel={state.getOptionLabel}
-        appliedItems={appliedItems}
-      />
-      <IconCaretUp size="small" csx={style.caretIcon(state.menu.mounted)} />
+      <AppliedItemsLabel appliedItems={appliedList} />
+      <IconCaretUp size="small" csx={style.caretIcon(menu.mounted)} />
     </Button>
   )
 }
 
 interface FilterDisclosureProps {
-  state: GenericFilterStateReturn<any>
-  appliedItems: AnyObject[]
+  state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+  id?: string
   children: ReactNode
 }
