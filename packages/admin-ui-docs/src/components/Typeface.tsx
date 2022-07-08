@@ -4,7 +4,7 @@ import {
   Table,
   createColumns,
   Text,
-  Set,
+  Stack,
   get,
   theme,
 } from '@vtex/admin-ui'
@@ -38,7 +38,7 @@ export function Typeface() {
           const keys = Object.keys(cleanTokens)
 
           return (
-            <Set orientation="vertical">
+            <Stack>
               <Text
                 csx={{ fontWeight: 'bold' }}
               >{`$${column.item?.token}`}</Text>
@@ -50,7 +50,7 @@ export function Typeface() {
                   >{`${key}: ${cleanTokens[key]}`}</Text>
                 )
               })}
-            </Set>
+            </Stack>
           )
         },
       },

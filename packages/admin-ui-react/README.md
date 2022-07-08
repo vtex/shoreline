@@ -75,10 +75,10 @@ Square.defaultProps = {
 }
 
 render(
-  <Set>
+  <Stack>
     <Square />
     <Square color="red" />
-  </Set>
+  </Stack>
 )
 ```
 
@@ -157,12 +157,12 @@ Square.defaultProps = {
 }
 
 render(
-  <Set>
+  <Stack>
     <Square />
     <Square fill="outline" />
     <Square color="red" />
     <Square color="red" fill="outline" />
-  </Set>
+  </Stack>
 )
 ```
 
@@ -219,12 +219,12 @@ const Button = jsx('button')({
 })
 
 render(
-  <Set>
+  <Stack>
     <Button>Button</Button>
     <Button as="a" href="">
       Button that is a link
     </Button>
-  </Set>
+  </Stack>
 )
 ```
 
