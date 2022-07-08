@@ -30,14 +30,12 @@ function PlaygroundExample({ args }: any) {
       <FilterDisclosure state={state}>Status</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterListbox state={state}>
+        <FilterListbox>
           {args.items.map((item: { label: string; id: string }) => (
-            <FilterOptionCheckbox {...item} state={state}>
-              {item.label}
-            </FilterOptionCheckbox>
+            <FilterOptionCheckbox {...item}>{item.label}</FilterOptionCheckbox>
           ))}
         </FilterListbox>
-        <FilterFooter state={state} />
+        <FilterFooter />
       </FilterPopover>
     </>
   )
@@ -70,18 +68,12 @@ export function SingleFromScrach() {
       <FilterDisclosure state={filterState}>Example</FilterDisclosure>
 
       <FilterPopover state={filterState}>
-        <FilterListbox state={filterState}>
-          <FilterOptionRadio id="#1" state={filterState}>
-            Full
-          </FilterOptionRadio>
-          <FilterOptionRadio id="#2" state={filterState}>
-            Empty
-          </FilterOptionRadio>
-          <FilterOptionRadio id="#3" state={filterState}>
-            Half full
-          </FilterOptionRadio>
+        <FilterListbox>
+          <FilterOptionRadio id="#1">Full</FilterOptionRadio>
+          <FilterOptionRadio id="#2">Empty</FilterOptionRadio>
+          <FilterOptionRadio id="#3">Half full</FilterOptionRadio>
         </FilterListbox>
-        <FilterFooter state={filterState} />
+        <FilterFooter />
       </FilterPopover>
     </>
   )
@@ -192,12 +184,8 @@ export function Interationalization() {
 
         <FilterPopover state={state}>
           <FilterListbox state={state}>
-            <FilterOptionRadio id="#1" state={state}>
-              Available
-            </FilterOptionRadio>
-            <FilterOptionRadio id="#2" state={state}>
-              Unavailable
-            </FilterOptionRadio>
+            <FilterOptionRadio id="#1">Available</FilterOptionRadio>
+            <FilterOptionRadio id="#2">Unavailable</FilterOptionRadio>
           </FilterListbox>
           <FilterFooter state={state} />
         </FilterPopover>
