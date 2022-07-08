@@ -11,9 +11,11 @@ export const FilterFooter = createComponent<
   typeof Role,
   FilterPopoverFooterProps
 >((props) => {
-  const {
-    state: { onChange, onClear },
-  } = props
+  const { state: propState } = props
+
+  const { state } = usePopoverContext()
+
+  const { onChange, onClear } = propState ?? state
 
   const formatMessage = useMessageFormatter(messages.actions)
   const { isScrollableLayout } = usePopoverContext()
@@ -41,5 +43,5 @@ export const FilterFooter = createComponent<
 })
 
 interface FilterPopoverFooterProps {
-  state: GenericFilterStateReturn<any>
+  state?: Pick<GenericFilterStateReturn<any>, 'onChange' | 'onClear'>
 }
