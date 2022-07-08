@@ -20,6 +20,8 @@
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "@vtex/admin-formik": "^0.6.1",
+    "formik": "^2.2.9",
+    "react-intl": "^6.0.5",
     "@vtex/admin-ui": "^0.132.1",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.1",
