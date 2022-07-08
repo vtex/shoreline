@@ -12,7 +12,7 @@ import type { ComboboxState } from '../../combobox'
 
 export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
   const { state } = usePopoverContext()
-  const { state: propState, id, children, value } = props
+  const { state: propState, id, label, value } = props
 
   const combobox =
     propState?.combobox ?? (state.combobox as ComboboxState<FilterOption<any>>)
@@ -21,7 +21,7 @@ export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
 
   const isSelected = selectedItem?.id === id || false
 
-  const item = { id, label: children, value }
+  const item = { id, label, value }
 
   return (
     <Box
@@ -32,7 +32,7 @@ export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
       csx={style.option}
     >
       <FilterRadio checked={isSelected} />
-      {children}
+      {label}
     </Box>
   )
 }
@@ -40,6 +40,6 @@ export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
 interface FilterOptionRadioProps {
   state?: UseFilterStateReturn<any>
   id: string
-  children: string
+  label: string
   value?: any
 }

@@ -12,10 +12,10 @@ import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
 
 export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
-  const { state: propState, id, children, value } = props
+  const { state: propState, id, value, label } = props
   const { state } = usePopoverContext()
 
-  const item = { id, label: children, value }
+  const item = { id, label, value }
 
   const combobox =
     propState?.combobox ??
@@ -32,7 +32,7 @@ export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
       <Checkbox
         checked={combobox.isSelected(item)}
         aria-checked={undefined}
-        label={children}
+        label={label}
         readOnly
       />
     </Box>
@@ -42,6 +42,6 @@ export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
 interface FilterOptionCheckboxProps {
   state?: UseFilterMultipleReturn<any>
   id: string
-  children: string
+  label: string
   value?: any
 }
