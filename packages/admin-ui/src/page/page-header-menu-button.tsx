@@ -30,6 +30,7 @@ export const PageHeaderMenuButton = forwardRef(
     const {
       size = 'large',
       bleedY = true,
+      bleedX = true,
       variant = 'tertiary',
       labelHidden = true,
       ...menuButtonProps
@@ -39,6 +40,7 @@ export const PageHeaderMenuButton = forwardRef(
       <MenuButton
         size={size}
         bleedY={bleedY}
+        bleedX={bleedX}
         variant={variant}
         labelHidden={labelHidden}
         ref={ref}
