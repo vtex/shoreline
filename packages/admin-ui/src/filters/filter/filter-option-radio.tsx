@@ -5,19 +5,14 @@ import { ComboboxItem } from 'ariakit/combobox'
 import * as style from '../filter.style'
 
 import { Box } from '../..'
-import type { FilterOption, UseFilterStateReturn } from './filter.state'
 import { FilterRadio } from './filter-radio'
 import { usePopoverContext } from '../filter-popover-context'
-import type { ComboboxState } from '../../combobox'
 
 export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
   const { state } = usePopoverContext()
-  const { state: propState, id, label, value } = props
+  const { id, label, value } = props
 
-  const combobox =
-    propState?.combobox ?? (state.combobox as ComboboxState<FilterOption<any>>)
-
-  const { selectedItem, setSelectedItem } = combobox
+  const { selectedItem, setSelectedItem } = state.combobox
 
   const isSelected = selectedItem?.id === id || false
 
@@ -38,7 +33,6 @@ export const FilterOptionRadio = (props: FilterOptionRadioProps) => {
 }
 
 interface FilterOptionRadioProps {
-  state?: UseFilterStateReturn<any>
   id: string
   label: string
   value?: any
