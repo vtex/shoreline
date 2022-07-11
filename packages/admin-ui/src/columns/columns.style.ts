@@ -35,5 +35,5 @@ export const columnVariants = styleVariants({
   },
 })
 
-export const column = (units: number) =>
-  style({ width: `${(Number(units) / 12) * 100}%` })
+export const column = (units?: number) =>
+  style({ width: units ? `${(Number(units) / 12) * 100}%` : 'auto' })
