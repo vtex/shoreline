@@ -5,7 +5,7 @@ path: /formik/
 
 :::warning
 
-admin-ui-formik is a deprecated library. You should use [@vtex/admin-ui-form](/next/guidelines/components/form) instead.
+admin-ui-formik is a deprecated library and it will be removed in the next release. You should use [@vtex/admin-ui-form](/next/guidelines/components/form) instead.
 
 :::
 
@@ -634,7 +634,7 @@ function ExampleComplete() {
       validationSchema={schemaValidationError}
     >
       <Form>
-        <Set spacing={3} csx={{ marginY: 2 }}>
+        <Stack space="3" direction="row" csx={{ marginY: 2 }}>
           <Text variant="highlight" feedback="secondary">
             Start with:{' '}
           </Text>
@@ -652,12 +652,12 @@ function ExampleComplete() {
           >
             Pre-filled Forms
           </Button>
-        </Set>
+        </Stack>
         <Divider csx={{ marginY: 3 }} />
-        <Set spacing={8}>
+        <Stack space="8" direction="row">
           <Heading>Myself</Heading>
           <FormikToggle name="human" label="I'm human" />
-        </Set>
+        </Stack>
         <Flex wrap="wrap">
           <Box csx={{ width: '1/2', paddingRight: 2 }}>
             <FormikInput name="name" label="Full Name" />
@@ -689,7 +689,7 @@ function ExampleComplete() {
             </FormikRadioGroup>
           </Flex>
           <Flex csx={{ width: 'full', marginBottom: 3 }}>
-            <Set spacing={2} orientation="vertical">
+            <Stack space="2">
               <Label>How old are you?</Label>
               <FormikNumericStepper
                 name="age"
@@ -697,7 +697,7 @@ function ExampleComplete() {
                 helperText="We do not judge any age"
                 minValue={0}
               />
-            </Set>
+            </Stack>
             <FormikSelect
               name="civilStatus"
               label="Civil Status"
@@ -735,10 +735,10 @@ function ExampleComplete() {
             csx={{ width: 'full' }}
           >
             <TermsCheckbox />
-            <Set spacing={3} csx={{ marginY: 2 }}>
+            <Stack space="3" direction="row" csx={{ marginY: 2 }}>
               <Button type="submit">Submit</Button>
               <Button type="reset">Reset</Button>
-            </Set>
+            </Stack>
           </Flex>
         </Flex>
       </Form>
@@ -797,12 +797,12 @@ function Example() {
               helperText="Change de value to different of 2 to appear the error"
             />
           </Box>
-          <Set>
+          <Stack direction="row">
             <Text variant="title2">Current value in formik :</Text>
             <Text tone="secondary">
               <pre>{JSON.stringify(values)}</pre>
             </Text>
-          </Set>
+          </Stack>
         </Form>
       )}
     </Formik>
