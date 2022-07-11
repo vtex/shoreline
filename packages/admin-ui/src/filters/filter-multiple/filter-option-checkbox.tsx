@@ -3,20 +3,19 @@ import React from 'react'
 import { ComboboxItem } from 'ariakit/combobox'
 import { Checkbox } from '../../checkbox'
 
-import type { UseFilterMultipleReturn } from './filter-multiple.state'
-
 import * as style from '../filter.style'
 import { Box } from '../..'
+import { usePopoverContext } from '../filter-popover-context'
+import type { ComboboxMultipleState } from '../../combobox'
+import type { FilterOption } from '../filter/filter.state'
 
 export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
-  const {
-    state: { combobox },
-    id,
-    children,
-    value,
-  } = props
+  const { id, value, label } = props
+  const { state } = usePopoverContext()
 
-  const item = { id, label: children, value }
+  const item = { id, label, value }
+
+  const combobox = state.combobox as ComboboxMultipleState<FilterOption<any>>
 
   return (
     <Box
@@ -29,7 +28,7 @@ export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
       <Checkbox
         checked={combobox.isSelected(item)}
         aria-checked={undefined}
-        label={children}
+        label={label}
         readOnly
       />
     </Box>
@@ -37,8 +36,7 @@ export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
 }
 
 interface FilterOptionCheckboxProps {
-  state: UseFilterMultipleReturn<any>
   id: string
-  children: string
+  label: string
   value?: any
 }
