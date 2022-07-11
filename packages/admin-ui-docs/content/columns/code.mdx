@@ -1,0 +1,63 @@
+import { Section } from '@site/src/components/Section'
+
+<Section hasExplanation>
+
+## Usage
+
+```jsx
+import { Columns, Column } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Columns>
+      <Column>{content}</Column>
+      <Column>{content}</Column>
+      <Column>{content}</Column>
+    </Columns>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+## Composition
+
+| Name      | Description                                |
+| --------- | ------------------------------------------ |
+| `Columns` | A 12-column flexbox based columned layout. |
+| `Column`  | As the name says, it implements a column   |
+
+</Section>
+
+<Section>
+
+## Props
+
+</Section>
+
+<Section hasExplanation>
+
+### Columns
+
+Extends all the props of `div` JSX element.
+
+| Name  | Type                                               | Description                       | Required | Default |
+| ----- | -------------------------------------------------- | --------------------------------- | -------- | ------- |
+| space | `ResponsiveProp<CSSPropAutocomplete<SpaceTokens>>` | Defines the space between columns | 🚫       | `$m`    |
+
+</Section>
+
+<Section hasExplanation>
+
+### Column
+
+Extends all the props of `div` JSX element.
+
+| Name   | Type                                                | Description             | Required | Default  |
+| ------ | --------------------------------------------------- | ----------------------- | -------- | -------- |
+| units  | `ResponsiveProp<`number from 1 to 12`>`             | Units of space it takes | 🚫       | `12`     |
+| offset | `ResponsiveProp<`'left', 'right', 'both', 'none'`>` | Columns offset          | 🚫       | `'none'` |
+
+</Section>
