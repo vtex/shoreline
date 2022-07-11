@@ -5,18 +5,17 @@ import { ComboboxList } from 'ariakit/combobox'
 import { tag, useSystem } from '..'
 
 import * as style from './filter.style'
-import type { ComboboxState } from '../combobox'
 import { usePopoverContext } from './filter-popover-context'
-import type { FilterOption } from './filter/filter.state'
 
-export const FilterListbox = <T extends ComboboxState<FilterOption<any>>>(
-  props: FilterListboxProps<T>
-) => {
-  const { state: propState, children, id } = props
+export const FilterListbox = (props: FilterListboxProps) => {
+  const { children, id } = props
   const optionsContainerRef = useRef<HTMLDivElement>(null)
 
   const { cn } = useSystem()
-  const { setIsScrollableLayout, state } = usePopoverContext()
+  const {
+    setIsScrollableLayout,
+    state: { combobox },
+  } = usePopoverContext()
 
   const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
   const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
@@ -25,13 +24,12 @@ export const FilterListbox = <T extends ComboboxState<FilterOption<any>>>(
     setIsScrollableLayout(scrollHeight > containerHeight)
   }, [scrollHeight, containerHeight])
 
-  const comboboxState = propState?.combobox ?? state.combobox
-  const ariakitComboboxState = { ...comboboxState, matches: [] }
+  const ariakitcomboboxState = { ...combobox, matches: [] }
 
   return (
     <tag.span ref={optionsContainerRef} csx={style.scrollableContainer}>
       <ComboboxList
-        state={{ ...ariakitComboboxState, visible: true }}
+        state={{ ...ariakitcomboboxState, visible: true }}
         id={id}
         className={cn(style.list)}
       >
@@ -41,8 +39,7 @@ export const FilterListbox = <T extends ComboboxState<FilterOption<any>>>(
   )
 }
 
-interface FilterListboxProps<T extends ComboboxState<any>> {
-  state?: { combobox: T }
+interface FilterListboxProps {
   id?: string
   children: React.ReactNode
 }

@@ -93,12 +93,12 @@ export function MultipleFromScratch() {
       <FilterDisclosure state={filterState}>Example</FilterDisclosure>
 
       <FilterPopover state={filterState}>
-        <FilterListbox state={filterState}>
+        <FilterListbox>
           {items.map((item) => (
             <FilterOptionCheckbox value={item} {...item} />
           ))}
         </FilterListbox>
-        <FilterFooter state={filterState} />
+        <FilterFooter />
       </FilterPopover>
     </>
   )
@@ -142,23 +142,23 @@ export function BasicFilterGroup() {
       <FilterDisclosure state={state}>Status</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterListbox state={state}>
+        <FilterListbox>
           {list1.map((item) => (
-            <FilterOptionCheckbox {...item} state={state} />
+            <FilterOptionCheckbox {...item} />
           ))}
         </FilterListbox>
-        <FilterFooter state={state} />
+        <FilterFooter />
       </FilterPopover>
 
       <FilterDisclosure state={state2}>City</FilterDisclosure>
 
       <FilterPopover state={state2}>
-        <FilterListbox state={state2}>
+        <FilterListbox>
           {list2.map((item) => (
-            <FilterOptionRadio {...item} state={state2} />
+            <FilterOptionRadio {...item} />
           ))}
         </FilterListbox>
-        <FilterFooter state={state2} />
+        <FilterFooter />
       </FilterPopover>
     </FilterGroup>
   )
@@ -177,11 +177,11 @@ export function Interationalization() {
         <FilterDisclosure state={state}>Status</FilterDisclosure>
 
         <FilterPopover state={state}>
-          <FilterListbox state={state}>
+          <FilterListbox>
             <FilterOptionRadio id="#1" label="Available" />
             <FilterOptionRadio id="#2" label="Unavailable" />
           </FilterListbox>
-          <FilterFooter state={state} />
+          <FilterFooter />
         </FilterPopover>
       </FilterGroup>
     </I18nProvider>
