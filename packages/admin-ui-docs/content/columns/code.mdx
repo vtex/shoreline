@@ -5,17 +5,17 @@ import { Section } from '@site/src/components/Section'
 ## Usage
 
 ```jsx
-<Columns>
-  <Column>
-    <Box>6 units</Box>
-  </Column>
-  <Column>
-    <Box>6 units</Box>
-  </Column>
-  <Column>
-    <Box>6 units</Box>
-  </Column>
-</Columns>
+import { Columns, Column } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <Columns>
+      <Column>{content}</Column>
+      <Column>{content}</Column>
+      <Column>{content}</Column>
+    </Columns>
+  )
+}
 ```
 
 </Section>
