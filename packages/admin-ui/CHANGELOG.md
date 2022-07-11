@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.1...@vtex/admin-ui@0.132.2) (2022-07-11)
+
+### Bug Fixes
+
+- **menuitem:** add onClick to MenuItem props ([fbb173c](https://github.com/vtex/admin-ui/commit/fbb173cdf1d7dc91eca1b077f55aeb935eaecaac))
+
 ## [0.132.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.0...@vtex/admin-ui@0.132.1) (2022-07-05)
 
 ### Bug Fixes
