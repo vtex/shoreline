@@ -5,15 +5,13 @@ import { useCombobox } from 'ariakit/combobox'
 
 import { Search } from '..'
 import { usePopoverContext } from './filter-popover-context'
-import type { UseFilterStateReturn } from './filter/filter.state'
-import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 
 export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
   (props) => {
-    const { state: propState, id, ...htmlProps } = props
-    const { state } = usePopoverContext()
-
-    const combobox = propState?.combobox ?? state.combobox
+    const { id, ...htmlProps } = props
+    const {
+      state: { combobox },
+    } = usePopoverContext()
 
     const comboboxProps = useCombobox({
       state: { ...combobox, matches: [] },
@@ -46,5 +44,4 @@ export const FilterSearchbox = createComponent<'div', ComboboxFieldProps>(
 
 interface ComboboxFieldProps {
   id: string
-  state?: UseFilterStateReturn<any> | UseFilterMultipleReturn<any>
 }
