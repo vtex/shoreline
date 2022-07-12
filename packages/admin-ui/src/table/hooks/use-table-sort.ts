@@ -9,7 +9,7 @@ const clearState: SortState = {
 export function useTableSort<T>(params: UseTableSortParams<T>) {
   const {
     initialValue,
-    directions = ['ASC', 'DSC'],
+    directions = ['ASC', 'DESC'],
     reducer = sortReducer,
     callback = sortCallback,
   } = params
@@ -49,7 +49,7 @@ function sortReducer(state: SortState, action: SortAction) {
   switch (action.type) {
     case 'ASC':
 
-    case 'DSC': {
+    case 'DESC': {
       return {
         by: action.columnId,
         order: action.type,
@@ -76,9 +76,12 @@ function sortCallback<T>({
   }
 }
 
-export type SortOrder = 'ASC' | 'DSC'
+export type SortOrder = 'ASC' | 'DESC'
 
-export type SortDirections = ['ASC', 'DSC'] | ['DSC', 'ASC'] | ['ASC' | 'DSC']
+export type SortDirections =
+  | ['ASC', 'DESC']
+  | ['DESC', 'ASC']
+  | ['ASC' | 'DESC']
 
 export interface SortState {
   order?: SortOrder

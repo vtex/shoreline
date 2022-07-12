@@ -11,6 +11,11 @@ export const TableHead = createComponent<'div'>((props) => {
   const { children, ...headProps } = props
   const state = useStateContext()
 
+  const ariaSortLabel = {
+    ASC: 'ascending',
+    DESC: 'descending',
+  } as any
+
   return useElement('div', {
     baseStyle: styles.baseline,
     ...headProps,
@@ -26,6 +31,9 @@ export const TableHead = createComponent<'div'>((props) => {
           const cellProps = {
             column,
             role: 'columnheader',
+            ...(sortDirection && {
+              'aria-sort': ariaSortLabel[sortDirection],
+            }),
             onClick: isSortable
               ? () => state.sortState.sort(column.id)
               : undefined,
@@ -72,7 +80,7 @@ const SortIndicator = createComponent<'div', SortIndicatorOptions>((props) => {
     baseStyle: styles.sortIndicator,
     children: (
       <Fragment>
-        {direction !== 'DSC' ? (
+        {direction !== 'DESC' ? (
           <IconArrowUp
             size="small"
             csx={{
@@ -88,5 +96,5 @@ const SortIndicator = createComponent<'div', SortIndicatorOptions>((props) => {
 })
 
 interface SortIndicatorOptions {
-  direction?: 'ASC' | 'DSC' | null
+  direction?: 'ASC' | 'DESC' | null
 }
