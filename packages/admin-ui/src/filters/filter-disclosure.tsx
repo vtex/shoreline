@@ -8,7 +8,7 @@ import * as style from './filter.style'
 import { AppliedItemsLabel } from './filter-applied-items-label'
 import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 import type { UseFilterStateReturn } from './filter/filter.state'
-import { createComponent, useElement } from '..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 const isMulti = (
   state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
