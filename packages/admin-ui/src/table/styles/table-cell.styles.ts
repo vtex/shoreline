@@ -1,12 +1,10 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export const baseline = style({
-  flex: 1,
+  display: 'flex',
+  alignItems: 'center',
   text: '$body',
-  display: 'table-cell',
-  verticalAlign: 'middle',
   paddingX: '$xl',
-  size: '2.75rem',
   minHeight: '2.75rem',
 
   ':first-child': {
