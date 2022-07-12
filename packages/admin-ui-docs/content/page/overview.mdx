@@ -98,7 +98,6 @@ function Example() {
         <PageHeaderActions>
           <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
           <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
-          <PageHeaderButton>Create</PageHeaderButton>
           <PageHeaderMenuButton state={state} />
           <Menu state={state} aria-label="actions">
             <MenuItem label="Create" icon={<IconPlus />} />
@@ -152,7 +151,7 @@ function Example() {
 
 Example featuring [DataView](/guidelines/components/data-view/) and [Table](/guidelines/components/table/)
 
-```jsx noInline live
+```jsx noInline
 const items = [
   {
     id: 1,
