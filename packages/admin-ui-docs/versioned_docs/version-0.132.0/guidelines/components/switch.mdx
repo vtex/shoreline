@@ -247,14 +247,14 @@ function Example() {
 function Example() {
   return (
     <>
-      <Set>
+      <Stack direction="row">
         <Switch aria-label="label-1" label="Label" />
         <Switch aria-label="label-disabled-1" disabled label="Label" />
-      </Set>
-      <Set>
+      </Stack>
+      <Stack direction="row">
         <Switch aria-label="label-2" checked label="Label" />
         <Switch aria-label="label-disabled-2" checked disabled label="Label" />
-      </Set>
+      </Stack>
     </>
   )
 }

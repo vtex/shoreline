@@ -21,7 +21,7 @@ import { Set } from '@vtex/admin-ui'
 
 A `<Set>` can be used to list a set of components. It will automatically space out the components, and wrap them when they reach the width of the viewport.
 
-```jsx live
+```jsx
 <Set>
   <Button>Button 1</Button>
   <Button>Button 2</Button>
@@ -39,7 +39,7 @@ The spacing between components can be controlled using the `spacing` property.
 
 > 💡 Spacing consumes the 'space' values from the theme.
 
-```jsx live
+```jsx
 <Set spacing={5}>
   <Button>Button 1</Button>
   <Button>Button 2</Button>
@@ -53,7 +53,7 @@ The spacing between components can be controlled using the `spacing` property.
 
 Orientation can be either `vertical` or `horizontal` (default). It can be controlled with the `orientation` property.
 
-```jsx live
+```jsx
 <Set orientation="vertical">
   <Button>Button 1</Button>
   <Button>Button 2</Button>
@@ -67,7 +67,7 @@ Orientation can be either `vertical` or `horizontal` (default). It can be contro
 
 While on `vertical` orientation, you can alternatively use the `fluid` property. This will make the inner children, match the container width.
 
-```jsx live
+```jsx
 <Box csx={{ maxWidth: 320 }}>
   <Set orientation="vertical" fluid>
     <Button>Button 1</Button>
@@ -83,7 +83,7 @@ While on `vertical` orientation, you can alternatively use the `fluid` property.
 
 You can set items alignment (`start` [default], `end`) through the `align` prop.
 
-```jsx live
+```jsx
 <Set align="end">
   <Button>Button 1</Button>
   <Button>Button 2</Button>
@@ -97,7 +97,7 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 
 `orientation`, `spacing` and `align` are [`ResponsiveValues`](/guidelines/responsive-design/#responsive-values). It means that you can pass an array to them.
 
-```jsx live
+```jsx
 <Box csx={{ maxWidth: ['full', 'full', 560] }}>
   {' '}
   p<Set orientation={['vertical', 'vertical', 'horizontal']} fluid>
@@ -114,7 +114,7 @@ You can set items alignment (`start` [default], `end`) through the `align` prop.
 
 You can use the `csx` property to handle different styles.
 
-```jsx live
+```jsx
 <Set
   csx={{
     bg: 'muted',
