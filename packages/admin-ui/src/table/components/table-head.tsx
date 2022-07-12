@@ -1,19 +1,20 @@
 import React, { cloneElement, Fragment } from 'react'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconArrowDown, IconArrowUp } from '@vtex/phosphor-icons'
 
 import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
 import * as styles from '../styles/table-head.styles'
+import { Box } from '../../box'
 
-export const TableHead = createComponent<'thead'>((props) => {
-  const { children, role = 'rowgroup', ...headProps } = props
+export const TableHead = createComponent<'div'>((props) => {
+  const { children, ...headProps } = props
   const state = useStateContext()
 
-  return useElement('thead', {
+  return useElement('div', {
     baseStyle: styles.baseline,
     ...headProps,
-    role,
+    role: 'rowgroup',
     children: (
       <Row>
         {state.columns.map((column) => {
@@ -29,10 +30,10 @@ export const TableHead = createComponent<'thead'>((props) => {
               ? () => state.sortState.sort(column.id)
               : undefined,
             children: isSortable ? (
-              <tag.div csx={styles.sortableContainer}>
+              <Box csx={styles.sortableContainer}>
                 {content}
                 <SortIndicator direction={sortDirection} />
-              </tag.div>
+              </Box>
             ) : (
               content
             ),
@@ -53,9 +54,11 @@ export const TableHead = createComponent<'thead'>((props) => {
   })
 })
 
-const Row = createComponent<'tr'>((props) => {
-  return useElement('tr', {
-    baseStyle: styles.rowBaseline,
+const Row = createComponent<'div'>((props) => {
+  const state = useStateContext()
+
+  return useElement('div', {
+    baseStyle: styles.rowBaseline({ columns: state.columns }),
     role: 'row',
     ...props,
   })
