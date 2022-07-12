@@ -37,14 +37,10 @@ export function SingleSearch() {
         <FilterSearchbox id="boxy" />
         <FilterListbox>
           {filterState.combobox.matches.map((item) => (
-            <FilterOptionRadio
-              id={item.id}
-              label={item.label}
-              state={filterState}
-            />
+            <FilterOptionRadio id={item.id} label={item.label} />
           ))}
         </FilterListbox>
-        <FilterFooter state={filterState} />
+        <FilterFooter />
       </FilterPopover>
     </>
   )
@@ -66,12 +62,45 @@ export function MultiSearch() {
       <FilterDisclosure state={filterState}>Example</FilterDisclosure>
       <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
-        <FilterListbox state={filterState}>
+        <FilterListbox>
           {filterState.combobox.matches.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.label} />
           ))}
         </FilterListbox>
-        <FilterFooter state={filterState} />
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+export function CsxDemo() {
+  const items = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+  ]
+
+  const filterState = useFilterMultipleState({ fullList: items })
+
+  return (
+    <>
+      <FilterDisclosure state={filterState} csx={{ color: 'white' }}>
+        Example
+      </FilterDisclosure>
+      <FilterPopover state={filterState} csx={{ color: 'brown' }}>
+        <FilterSearchbox id="boxy" csx={{ backgroundColor: 'lightGray' }} />
+        <FilterListbox csx={{ color: 'pink' }}>
+          {filterState.combobox.matches.map((item) => (
+            <FilterOptionCheckbox
+              id={item.id}
+              label={item.label}
+              csx={{ fontWeight: 800 }}
+            />
+          ))}
+        </FilterListbox>
+        <FilterFooter state={filterState} csx={{ color: 'yellow' }} />
       </FilterPopover>
     </>
   )
