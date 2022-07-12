@@ -37,7 +37,7 @@ The Input is used in a form in order to retrieve data inputted by the user. It a
 The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx
-<Set spacing={3}>
+<Stack direction="row" space="$l">
   <Input label="Neutral" value="Neutral text field" helperText="Helpful text" />
   <Input
     tone="critical"
@@ -46,7 +46,7 @@ The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (def
     helperText="Helpful text"
     criticalText="Something is wrong"
   />
-</Set>
+</Stack>
 ```
 
 ### Icon
