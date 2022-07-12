@@ -4,7 +4,7 @@ import { ComboboxItem } from 'ariakit/combobox'
 
 import * as style from '../filter.style'
 
-import { createComponent, useElement } from '../..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { FilterRadio } from './filter-radio'
 import { usePopoverContext } from '../filter-popover-context'
 

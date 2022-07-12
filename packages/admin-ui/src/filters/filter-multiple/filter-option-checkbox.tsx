@@ -4,7 +4,7 @@ import { ComboboxItem } from 'ariakit/combobox'
 import { Checkbox } from '../../checkbox'
 
 import * as style from '../filter.style'
-import { createComponent, useElement } from '../..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
