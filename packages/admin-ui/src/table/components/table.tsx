@@ -6,12 +6,15 @@ import { TableBody } from './table-body'
 import type { TableState } from '../hooks/use-table-state'
 import { StateContext } from '../context'
 
-export const Table = createComponent<'table', TableOptions>((props) => {
-  const { children, state, ...dtgProps } = props
+export const Table = createComponent<'div', TableOptions>((props) => {
+  const { children, state, ...tableProps } = props
 
-  return useElement('table', {
-    ...dtgProps,
-    baseStyle: { display: 'table', width: '100%' },
+  return useElement('div', {
+    ...tableProps,
+    role: 'table',
+    baseStyle: {
+      width: '100%',
+    },
     children: (
       <StateContext.Provider value={state}>
         {children ?? (
