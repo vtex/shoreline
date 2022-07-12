@@ -13,17 +13,16 @@ import type { BaseResolvers } from '../resolvers/base'
 
 import * as styles from '../styles/table-body.styles'
 
-export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
-  const { children, role = 'rowgroup', ...restProps } = props
+export const TableBody = createComponent<'div', TableBodyOptions>((props) => {
+  const { children, ...restProps } = props
   const { status } = useDataViewContext()
   const { data, getRowKey } = useStateContext()
 
   const shouldRender = status === 'ready' || status === 'loading'
 
-  return useElement('tbody', {
+  return useElement('div', {
     ...restProps,
-    role,
-    baseStyle: styles.tbodyBaseline,
+    role: 'rowgroup',
     children: shouldRender && (
       <Fragment>
         {isFunction(children)
@@ -68,9 +67,9 @@ export interface TableBodyOptions {
     | ReactNode
 }
 
-export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
+export const TableBodyRow = createComponent<'div', TableBodyRowOptions>(
   (props) => {
-    const { item = {}, role = 'row', children, ...rowProps } = props
+    const { item = {}, children, ...rowProps } = props
 
     const { status } = useDataViewContext()
     const { onRowClick, columns } = useStateContext()
@@ -97,14 +96,14 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
       }
     }
 
-    return useElement('tr', {
+    return useElement('div', {
       ...rowProps,
       baseStyle: {
-        ...styles.rowBaseline,
+        ...styles.rowBaseline({ columns }),
         ...styles.variants({ clickable }),
         ...styles.variants({ selected: isRowSelected() }),
       },
-      role,
+      role: 'row',
       children: (
         <>
           {columns.map((column) => (

@@ -3,7 +3,6 @@ import { style } from '@vtex/admin-ui-core'
 export * from './table-row.styles'
 
 export const baseline = style({
-  display: 'table-header-group',
   color: '$secondary',
 })
 
