@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 
 import { ComboboxList } from 'ariakit/combobox'
 
-import { tag, useSystem } from '..'
+import { Box, tag } from '..'
 
 import * as style from './filter.style'
 import { usePopoverContext } from './filter-popover-context'
@@ -11,7 +11,6 @@ export const FilterListbox = (props: FilterListboxProps) => {
   const { children, id } = props
   const optionsContainerRef = useRef<HTMLDivElement>(null)
 
-  const { cn } = useSystem()
   const {
     setIsScrollableLayout,
     state: { combobox },
@@ -28,13 +27,14 @@ export const FilterListbox = (props: FilterListboxProps) => {
 
   return (
     <tag.span ref={optionsContainerRef} csx={style.scrollableContainer}>
-      <ComboboxList
+      <Box
+        as={ComboboxList as any}
         state={{ ...ariakitcomboboxState, visible: true }}
         id={id}
-        className={cn(style.list)}
+        csx={style.list}
       >
         {children}
-      </ComboboxList>
+      </Box>
     </tag.span>
   )
 }
