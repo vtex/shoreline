@@ -30,7 +30,7 @@ function Example() {
   const [value, setValue] = React.useState('today')
 
   return (
-    <Set spacing={3}>
+    <Stack direction="row" space="$l">
       <Select
         label="Neutral"
         helperText="Helpful text"
@@ -53,7 +53,7 @@ function Example() {
         <option value="today">Today</option>
         <option value="tomorrow">Tomorrow</option>
       </Select>
-    </Set>
+    </Stack>
   )
 }
 ```
