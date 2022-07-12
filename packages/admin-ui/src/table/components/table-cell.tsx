@@ -4,7 +4,7 @@ import * as styles from '../styles/table-cell.styles'
 import type { TableColumn } from '../types'
 
 export const TableCell = createComponent<'div', CellOptions>((props) => {
-  const { column, onClick, csx, role = 'cell', ...cellProps } = props
+  const { column, onClick, role = 'cell', ...cellProps } = props
 
   const clickable = !!onClick
 
@@ -14,12 +14,6 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
       ...styles.variants({ clickable }),
     },
     role,
-    csx: {
-      minWidth: column?.width,
-      maxWidth: column?.width,
-      width: column?.width,
-      ...csx,
-    },
     onClick,
     ...cellProps,
   })
