@@ -2,6 +2,60 @@ import { Section } from '@site/src/components/Section'
 
 <Section>
 
+## Usage
+
+<Section>
+
+### Import
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageHeaderTop,
+  PageHeaderTitle,
+  PageHeaderTags,
+  PageHeaderTag,
+  PageHeaderActions,
+  PageHeaderButton,
+  PageHeaderMenuButton,
+  PageHeaderBottom,
+  PageContent,
+} from '@vtex/admin-ui'
+```
+
+</Section>
+
+<Section>
+
+### Anatomy
+
+```txt
+Page
+|__ PageHeader
+|   |__ PageHeaderTop
+|   |   |__ PageHeaderTitle
+|   |   |  |__ PageHeaderTags
+|   |   |      |__ PageHeaderTag
+|   |   |__ PageHeaderActions
+|   |       |__ PageHeaderButton
+|   |       |__ PageHeaderMenuButton
+|   |       |__ Menu
+|   |           |__ MenuItem
+|   |__ PageHeaderBottom
+|       |__ TabList
+|           |__ Tab
+|
+|__PageContent
+   |__ (...Some view)
+```
+
+</Section>
+
+</Section>
+
+<Section>
+
 ## Props
 
 <Section hasExplanation>

@@ -11,86 +11,25 @@ Page is a pattern that represents a complete screen of an admin application. You
 
 <Section>
 
-## Import
+## Composition
 
-```jsx
-import {
-  Page,
-  PageHeader,
-  PageHeaderTop,
-  PageHeaderTitle,
-  PageHeaderTags,
-  PageHeaderTag,
-  PageHeaderActions,
-  PageHeaderButton,
-  PageHeaderMenuButton,
-  PageHeaderBottom,
-  PageContent,
-} from '@vtex/admin-ui'
-```
-
-</Section>
-
-<Section>
-
-### Anatomy
-
-```txt
-Page
-|__ PageHeader
-|   |__ PageHeaderTop
-|   |   |__ PageHeaderTitle
-|   |   |  |__ PageHeaderTags
-|   |   |      |__ PageHeaderTag
-|   |   |__ PageHeaderActions
-|   |       |__ PageHeaderButton
-|   |       |__ PageHeaderMenuButton
-|   |       |__ Menu
-|   |           |__ MenuItem
-|   |__ PageHeaderBottom
-|       |__ TabList
-|           |__ Tab
-|
-|__PageContent
-   |__ (...Some view)
-```
-
-</Section>
-
-<Section>
-
-## Behavior
-
-```jsx
-<Page>
-  <PageHeader>
-    <PageHeaderTop>
-      <PageHeaderTitle>Product #123</PageHeaderTitle>
-    </PageHeaderTop>
-  </PageHeader>
-  <PageContent csx={{ padding: 5 }}>
-    <tag.div>Page Content</tag.div>
-  </PageContent>
-</Page>
-```
+| Name             | Description                                                                      |
+| ---------------- | -------------------------------------------------------------------------------- |
+| Page             | Outlines the page area                                                           |
+| PageHeader       | Users rely on the page header to navigate and orient themselves within the admin |
+| PageHeaderTop    | This component is used to group elements to the top part of the PageHeader       |
+| PageHeaderBottom | This component is used to group elements to the bottom part of the PageHeader    |
+| PageContent      | Renders the content of the page                                                  |
 
 </Section>
 
 <Section hasExplanation>
 
-## PageHeader
-
-Users rely on the page header to navigate and orient themselves within the admin.
+## Variants
 
 <Section hasExplanation>
 
-### PageHeaderTop
-
-This component is used to group elements to the top part of the PageHeader.
-
-<Section hasExplanation>
-
-#### PageHeaderTitle
+### With title
 
 This is the basic usage. Use the `PageHeaderTitle` within the `PageHeaderTop` to render the page title.
 
@@ -101,26 +40,6 @@ This is the basic usage. Use the `PageHeaderTitle` within the `PageHeaderTop` to
   </PageHeaderTop>
 </PageHeader>
 ```
-
-<Section hasExplanation>
-
-You can also render components within the `PageHeaderTitle`, such as a `Tag` elements using the `PageHeaderTags` and `PageHeaderTag` composites.
-
-```jsx live
-<PageHeader>
-  <PageHeaderTop>
-    <PageHeaderTitle>
-      Product #123
-      <PageHeaderTags>
-        <PageHeaderTag label="Short text" />
-        <PageHeaderTag label="Short text" />
-      </PageHeaderTags>
-    </PageHeaderTitle>
-  </PageHeaderTop>
-</PageHeader>
-```
-
-</Section>
 
 </Section>
 
@@ -142,7 +61,29 @@ The back-link is present if the `onPopNavigation` property is passed.
 
 <Section hasExplanation>
 
-#### PageHeaderActions
+### With tags
+
+You can also render components within the `PageHeaderTitle`, such as a `Tag` elements using the `PageHeaderTags` and `PageHeaderTag` composites.
+
+```jsx live
+<PageHeader>
+  <PageHeaderTop>
+    <PageHeaderTitle>
+      Product #123
+      <PageHeaderTags>
+        <PageHeaderTag label="Short text" />
+        <PageHeaderTag label="Short text" />
+      </PageHeaderTags>
+    </PageHeaderTitle>
+  </PageHeaderTop>
+</PageHeader>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### With actions
 
 Use the `PageHeaderActions` composite within the `PageHeaderTop` to add actions that are relevant for the whole page. Actions can be either `PageHeaderButton` or `PageHeaderMenuButton`, along with the `Menu` composites.
 
@@ -172,21 +113,13 @@ function Example() {
 
 </Section>
 
-</Section>
-
-<Section hasExplanation>
-
-### PageHeaderBottom
-
-This component is used to group elements to the bottom part of the PageHeader.
-
 <Section hasExplanation>
 
 #### With tabs
 
 If you ever need tabs on your `PageHeader`, locate them within the `PageHeaderBottom` component.
 
-See the Full Blown Example section for a full example with tabs.
+See the _Full example section_ for a full example with tabs.
 
 ```jsx live
 function Example() {
@@ -213,17 +146,9 @@ function Example() {
 
 </Section>
 
-</Section>
-
 <Section hasExplanation>
 
-## PageContent
-
-Renders the content of the page.
-
-<Section hasExplanation>
-
-### With DataView
+### Full example
 
 Example featuring [DataView](/guidelines/components/data-view/) and [Table](/guidelines/components/table/)
 
@@ -333,7 +258,5 @@ function WithSearch() {
 
 render(<WithSearch />)
 ```
-
-</Section>
 
 </Section>
