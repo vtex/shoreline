@@ -28,7 +28,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
 
     return (
       <FormControl error={error}>
-        <Inline hSpace="$m" vSpace="">
+        <Inline hSpace="$m" vSpace="" spaceInside>
           <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
           <Stack space="$s">
             <Label htmlFor={baseId} csx={style.label}>
