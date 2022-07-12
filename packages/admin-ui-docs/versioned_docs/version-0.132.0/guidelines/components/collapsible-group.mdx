@@ -48,14 +48,14 @@ function Example() {
       <Collapsible state={marketing}>
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
-          <Set orientation="vertical">
+          <Stack direction="row">
             <Text variant="small" tone="muted">
               Partner - app_ios
             </Text>
             <Text variant="small" tone="muted">
               Campaign - Campaign Name
             </Text>
-          </Set>
+          </Stack>
         </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
@@ -94,14 +94,14 @@ function Example() {
       <Collapsible state={marketing}>
         <CollapsibleHeader label="Marketing" />
         <CollapsibleContent>
-          <Set orientation="vertical">
+          <Stack direction="row">
             <Text variant="small" tone="muted">
               Partner - app_ios
             </Text>
             <Text variant="small" tone="muted">
               Campaign - Campaing Name
             </Text>
-          </Set>
+          </Stack>
         </CollapsibleContent>
       </Collapsible>
     </CollapsibleGroup>
@@ -114,7 +114,7 @@ function Example() {
           <Collapsible state={index ? packageOne : packageTwo} key={index}>
             <CollapsibleHeader label={value} />
             <CollapsibleContent>
-              <Set orientation="vertical" spacing={2}>
+              <Stack>
                 <Text variant="small" tone="info">
                   N 00025755809
                 </Text>
@@ -125,7 +125,7 @@ function Example() {
                   Type - Total Express
                 </Text>
                 <Text tone="info">Tracking - XSDFE231675</Text>
-              </Set>
+              </Stack>
             </CollapsibleContent>
           </Collapsible>
         )
