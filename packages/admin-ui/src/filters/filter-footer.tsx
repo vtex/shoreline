@@ -7,7 +7,7 @@ import { messages } from './filter.i18n'
 import { usePopoverContext } from './filter-popover-context'
 import { Stack } from '../stack'
 
-export const FilterFooter = createComponent<typeof Role>(() => {
+export const FilterFooter = createComponent<typeof Role>((props) => {
   const { state } = usePopoverContext()
 
   const { onChange, onClear } = state
@@ -31,5 +31,6 @@ export const FilterFooter = createComponent<typeof Role>(() => {
         <Button onClick={onChange}>{formatMessage('apply')}</Button>
       </Stack>
     ),
+    ...props,
   })
 })
