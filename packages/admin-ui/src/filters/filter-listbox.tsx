@@ -1,15 +1,12 @@
-import type { HTMLProps } from 'react'
 import React, { useEffect, useRef } from 'react'
-
 import { ComboboxList } from 'ariakit/combobox'
-
-import { Box, createComponent, useElement } from '..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './filter.style'
 import { usePopoverContext } from './filter-popover-context'
-import type { Role } from 'ariakit'
+import { Box } from '..'
 
-export const FilterListbox = createComponent<typeof Role, FilterListboxProps>(
+export const FilterListbox = createComponent<'span', FilterListboxProps>(
   (props) => {
     const { children, id, ...restProps } = props
     const optionsContainerRef = useRef<HTMLDivElement>(null)
@@ -42,7 +39,7 @@ export const FilterListbox = createComponent<typeof Role, FilterListboxProps>(
       ),
       ref: optionsContainerRef as any,
       id,
-      ...(restProps as Omit<HTMLProps<'span'>, never>),
+      ...restProps,
     })
   }
 )
