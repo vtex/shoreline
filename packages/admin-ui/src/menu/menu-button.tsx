@@ -140,6 +140,10 @@ export type MenuButtonOptions = VariantProps<
    * Horizontal bleed
    */
   bleedX?: boolean
+  /**
+   * Button click event
+   */
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export type MenuButtonProps = React.ComponentPropsWithoutRef<typeof MenuButton>
