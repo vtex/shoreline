@@ -30,8 +30,6 @@ export * from './flex'
 export * from './grid'
 export * from './columns'
 
-export * from './deprecated-set'
-
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Collapsible'

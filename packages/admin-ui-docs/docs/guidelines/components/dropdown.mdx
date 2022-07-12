@@ -61,7 +61,7 @@ function Example() {
   })
 
   return (
-    <Set spacing={3}>
+    <Stack space="$l" direction="row">
       <Dropdown items={species} state={speciesState} label="Species" />
       <Dropdown
         variant="soft"
@@ -75,7 +75,7 @@ function Example() {
         state={recipesState}
         label="Recipes"
       />
-    </Set>
+    </Stack>
   )
 }
 ```
@@ -97,14 +97,14 @@ function Example() {
   })
 
   return (
-    <Set spacing={3}>
+    <Stack space="$l">
       <Dropdown
         variant="tertiary"
         items={species}
         state={speciesState}
         label="Recipes"
       />
-    </Set>
+    </Stack>
   )
 }
 ```

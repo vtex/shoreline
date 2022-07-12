@@ -46,7 +46,7 @@ The alert's [tone of voice](/foundations/colors/#tones) is either `info` (defaul
 ```jsx live
 function Example() {
   return (
-    <Set spacing={2} orientation="vertical" fluid>
+    <Stack fluid>
       <Alert visible tone="info">
         Info Alert
       </Alert>
@@ -59,7 +59,7 @@ function Example() {
       <Alert visible tone="critical">
         Critical Alert
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 ```
@@ -97,11 +97,11 @@ function Example() {
   const handleTertiaryAction = () => window.alert('tertiary action!')
 
   return (
-    <Set spacing={2} orientation="vertical" fluid>
+    <Stack fluid>
       <Alert tone="positive" icon={<IconCheckCircle />} visible>
         Order successfully placed <Anchor>See order.</Anchor>
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 ```
@@ -164,7 +164,7 @@ You can add an icon on the left side of the `Alert`. Just use the `icon` propert
 ```jsx live
 function Example() {
   return (
-    <Set spacing={2} orientation="vertical" fluid>
+    <Stack fluid>
       <Alert tone="info" icon={<IconQuestion />} visible>
         Info Alert
       </Alert>
@@ -177,7 +177,7 @@ function Example() {
       <Alert tone="critical" icon={<IconXOctagon />} visible>
         Critical Alert
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 ```
