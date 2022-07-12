@@ -103,12 +103,12 @@ export const tabToc = {
 >
 
 ```jsx live
-<Set spacing={2} orientation="vertical" fluid>
+<Stack fluid>
   <Alert variant="info">Info alert</Alert>
   <Alert variant="warning">Warning alert</Alert>
   <Alert variant="positive">Positive alert</Alert>
   <Alert variant="critical">Critical alert</Alert>
-</Set>
+</Stack>
 ```
 
 </PageSection >
@@ -122,7 +122,7 @@ export const tabToc = {
 ```jsx live
 function Example() {
   return (
-    <Set spacing={2} orientation="vertical" fluid>
+    <Stack fluid>
       <Alert
         variant="positive"
         action={{
@@ -132,7 +132,7 @@ function Example() {
       >
         Order successfully placed
       </Alert>
-    </Set>
+    </Stack>
   )
 }
 ```
