@@ -13,6 +13,7 @@ export const FilterListbox = createComponent<'div', FilterListboxProps>(
     const optionsContainerRef = useRef<HTMLDivElement>(null)
 
     const {
+      isScrollableLayout,
       setIsScrollableLayout,
       state: { combobox },
     } = usePopoverContext()
@@ -21,7 +22,11 @@ export const FilterListbox = createComponent<'div', FilterListboxProps>(
     const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
 
     useEffect(() => {
-      setIsScrollableLayout(scrollHeight > containerHeight)
+      const isScrollable = scrollHeight > containerHeight
+
+      if (isScrollableLayout !== isScrollable) {
+        setIsScrollableLayout(isScrollable)
+      }
     }, [scrollHeight, containerHeight])
 
     const ariakitcomboboxState = { ...combobox, matches: [] }
