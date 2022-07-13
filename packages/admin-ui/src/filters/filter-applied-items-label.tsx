@@ -1,6 +1,6 @@
 import React from 'react'
 import { tag } from '@vtex/admin-ui-react'
-import type { AnyObject } from '..'
+import type { AnyObject } from '@vtex/admin-ui-util'
 
 import * as style from './filter.style'
 

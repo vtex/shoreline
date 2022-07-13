@@ -4,7 +4,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './filter.style'
 import { usePopoverContext } from './filter-popover-context'
-import { Box } from '..'
+import { Box } from '../box'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
 export const FilterListbox = createComponent<'div', FilterListboxProps>(
