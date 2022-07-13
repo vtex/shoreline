@@ -4,36 +4,38 @@ import { ComboboxItem } from 'ariakit/combobox'
 import { Checkbox } from '../../checkbox'
 
 import * as style from '../filter.style'
-import { Box } from '../..'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
 
-export const FilterOptionCheckbox = (props: FilterOptionCheckboxProps) => {
-  const { id, value, label } = props
+export const FilterOptionCheckbox = createComponent<
+  typeof ComboboxItem,
+  FilterOptionCheckboxProps
+>((props) => {
+  const { id, value, label, ...restProps } = props
   const { state } = usePopoverContext()
 
   const item = { id, label, value }
 
   const combobox = state.combobox as ComboboxMultipleState<FilterOption<any>>
 
-  return (
-    <Box
-      as={ComboboxItem}
-      aria-selected={combobox.isSelected(item)}
-      onClick={() => combobox.onChange(item)}
-      id={id}
-      csx={style.option}
-    >
+  return useElement(ComboboxItem, {
+    baseStyle: style.option,
+    children: (
       <Checkbox
         checked={combobox.isSelected(item)}
         aria-checked={undefined}
         label={label}
         readOnly
       />
-    </Box>
-  )
-}
+    ),
+    'aria-selected': combobox.isSelected(item),
+    onClick: () => combobox.onChange(item),
+    id,
+    ...restProps,
+  })
+})
 
 interface FilterOptionCheckboxProps {
   id: string
