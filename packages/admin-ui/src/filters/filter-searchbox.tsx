@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import { Search } from '..'
+import { Search } from '../search'
 import { usePopoverContext } from './filter-popover-context'
 
 export const FilterSearchbox = createComponent<
