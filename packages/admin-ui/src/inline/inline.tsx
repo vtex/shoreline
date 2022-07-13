@@ -26,7 +26,7 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
         marginLeft: hSpace,
         marginTop: spaceInside ? 0 : vSpace,
       },
-      '&:first-child': {
+      '> *:is(:first-child)': {
         marginLeft: spaceInside ? 0 : hSpace,
         marginTop: spaceInside ? 0 : vSpace,
       },
