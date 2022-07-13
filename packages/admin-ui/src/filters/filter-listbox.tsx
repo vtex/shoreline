@@ -5,10 +5,11 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import * as style from './filter.style'
 import { usePopoverContext } from './filter-popover-context'
 import { Box } from '..'
+import { useForkRef } from '@vtex/admin-ui-hooks'
 
-export const FilterListbox = createComponent<'span', FilterListboxProps>(
+export const FilterListbox = createComponent<'div', FilterListboxProps>(
   (props) => {
-    const { children, id, ...restProps } = props
+    const { children, id, ref: htmlRef, ...restProps } = props
     const optionsContainerRef = useRef<HTMLDivElement>(null)
 
     const {
@@ -25,7 +26,7 @@ export const FilterListbox = createComponent<'span', FilterListboxProps>(
 
     const ariakitcomboboxState = { ...combobox, matches: [] }
 
-    return useElement('span', {
+    return useElement('div', {
       baseStyle: style.scrollableContainer,
       children: (
         <Box
@@ -37,7 +38,7 @@ export const FilterListbox = createComponent<'span', FilterListboxProps>(
           {children}
         </Box>
       ),
-      ref: optionsContainerRef as any,
+      ref: useForkRef(optionsContainerRef, htmlRef as any),
       id,
       ...restProps,
     })
