@@ -2,27 +2,85 @@ import { Section } from '@site/src/components/Section'
 
 <Section>
 
+## Usage
+
+<Section>
+
+### Import
+
+```jsx
+import {
+  Page,
+  PageHeader,
+  PageHeaderTop,
+  PageHeaderTitle,
+  PageHeaderTags,
+  PageHeaderTag,
+  PageHeaderActions,
+  PageHeaderButton,
+  PageHeaderMenuButton,
+  PageHeaderBottom,
+  PageContent,
+} from '@vtex/admin-ui'
+```
+
+</Section>
+
+<Section>
+
+### Anatomy
+
+```txt
+Page
+|__ PageHeader
+|   |__ PageHeaderTop
+|   |   |__ PageHeaderTitle
+|   |   |  |__ PageHeaderTags
+|   |   |      |__ PageHeaderTag
+|   |   |__ PageHeaderActions
+|   |       |__ PageHeaderButton
+|   |       |__ PageHeaderMenuButton
+|   |       |__ Menu
+|   |           |__ MenuItem
+|   |__ PageHeaderBottom
+|       |__ TabList
+|           |__ Tab
+|
+|__PageContent
+   |__ (...Some view)
+```
+
+</Section>
+
+</Section>
+
+<Section>
+
 ## Props
 
 <Section hasExplanation>
 
 ### Page
 
-All props of `div` jsx element
+All props of `div` JSX element
+
+| Name   | Type                            | Description                           | Required | Default    |
+| ------ | ------------------------------- | ------------------------------------- | -------- | ---------- |
+| layout | `wide`, `standard` and `narrow` | A set of paddings and maximum widths. | 🚫       | `standard` |
 
 </Section>
 <Section hasExplanation>
 
 ### PageContent
 
-All props of `div` jsx element
+All props of `div` JSX element
 
 </Section>
 <Section hasExplanation>
 
 ### PageHeader
 
-All props of `header` jsx element
+All props of `header` JSX element
 
 | Name            | Type         | Description                        | Required | Default |
 | --------------- | ------------ | ---------------------------------- | -------- | ------- |
@@ -33,21 +91,26 @@ All props of `header` jsx element
 
 ### PageHeaderTop
 
-All props of `div` jsx element
+All props of `div` JSX element
 
 </Section>
 <Section hasExplanation>
 
 ### PageHeaderTitle
 
-All props of `div` jsx element
+All props of `div` JSX element
 
 </Section>
 <Section hasExplanation>
 
 ### PageHeaderTags
 
-All props of `Stack` Admin UI component with overriden defaults (`direction='row'`, `space='$m'`).
+All props of `Stack` Admin UI component with overriden defaults:
+
+| Name      | Default |
+| --------- | ------- |
+| direction | `row`   |
+| space     | `$m`    |
 
 </Section>
 
@@ -55,7 +118,11 @@ All props of `Stack` Admin UI component with overriden defaults (`direction='row
 
 ### PageHeaderTag
 
-All props of `Tag` Admin UI component with overriden defaults (`size='large'`).
+All props of `Tag` Admin UI component with overriden defaults:
+
+| Name | Default |
+| ---- | ------- |
+| size | `large` |
 
 </Section>
 
@@ -63,7 +130,7 @@ All props of `Tag` Admin UI component with overriden defaults (`size='large'`).
 
 ### PageHeaderActions
 
-All props of `div` jsx element
+All props of `div` JSX element
 
 </Section>
 
@@ -71,7 +138,11 @@ All props of `div` jsx element
 
 ### PageHeaderButton
 
-All props of `Button` Admin UI component with overriden defaults (`size='large'`)
+All props of `Button` Admin UI component with overriden defaults:
+
+| Name | Default |
+| ---- | ------- |
+| size | `large` |
 
 </Section>
 
@@ -79,7 +150,13 @@ All props of `Button` Admin UI component with overriden defaults (`size='large'`
 
 ### PageHeaderMenuButton
 
-All props of `MenuButton` Admin UI component with overriden defaults (`size='large'`, `variant='tertiary'`, `labelHidden=true`)
+All props of `MenuButton` Admin UI component with overriden defaults:
+
+| Name        | Default    |
+| ----------- | ---------- |
+| size        | `large`    |
+| variant     | `tertiary` |
+| labelHidden | `true`     |
 
 </Section>
 
@@ -87,7 +164,7 @@ All props of `MenuButton` Admin UI component with overriden defaults (`size='lar
 
 ### PageHeaderBottom
 
-All props of `div` jsx element
+All props of `div` JSX element
 
 </Section>
 </Section>

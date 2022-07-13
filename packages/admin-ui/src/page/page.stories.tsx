@@ -22,14 +22,11 @@ import {
   useDataViewState,
 } from '../components/DataView'
 import { Search, useSearchState } from '../search'
-import {
-  DataGrid,
-  useDataGridState,
-  createColumns,
-} from '../components/DataGrid'
+import { useDataGridState, createColumns } from '../components/DataGrid'
 import { Box } from '../box'
 import { Menu, MenuItem, useMenuState } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
+import { Table, useTableState } from '../table'
 
 export default {
   title: 'admin-ui-review/page',
@@ -88,7 +85,7 @@ export function WithDataView() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items: data,
@@ -124,7 +121,7 @@ export function WithDataView() {
               placeholder="Search by name"
             />
           </DataViewControls>
-          <DataGrid state={grid} />
+          <Table state={grid} />
         </DataView>
       </PageContent>
     </Page>
@@ -197,7 +194,7 @@ export function FullFledged() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useDataGridState<Item>({
+  const grid = useTableState<Item>({
     view,
     columns,
     items: data,
@@ -258,7 +255,7 @@ export function FullFledged() {
                   placeholder="Search by name"
                 />
               </DataViewControls>
-              <DataGrid state={grid} />
+              <Table state={grid} />
             </DataView>
           </TabPanel>
           <TabPanel id="2">
