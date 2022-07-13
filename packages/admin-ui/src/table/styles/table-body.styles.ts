@@ -2,8 +2,6 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export * from './table-row.styles'
 
-export const tbodyBaseline = style({ display: 'table-row-group' })
-
 export const variants = styleVariants({
   clickable: {
     true: {
