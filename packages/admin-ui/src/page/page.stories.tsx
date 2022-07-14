@@ -22,7 +22,7 @@ import {
   useDataViewState,
 } from '../components/DataView'
 import { Search, useSearchState } from '../search'
-import { useDataGridState, createColumns } from '../components/DataGrid'
+import { createColumns } from '../components/DataGrid'
 import { Box } from '../box'
 import { Menu, MenuItem, useMenuState } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
@@ -80,53 +80,6 @@ const columns = createColumns<Item>([
     },
   },
 ])
-
-export function WithDataView() {
-  const [data, setData] = useState(items)
-  const view = useDataViewState()
-  const search = useSearchState()
-  const grid = useTableState<Item>({
-    view,
-    columns,
-    items: data,
-  })
-
-  useEffect(() => {
-    if (search.debouncedValue !== '') {
-      setData(
-        items.filter((item) =>
-          item.name
-            .toLowerCase()
-            .startsWith(search.debouncedValue.toLowerCase())
-        )
-      )
-    } else {
-      setData(items)
-    }
-  }, [search.debouncedValue])
-
-  return (
-    <Page>
-      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
-        <PageHeaderTop>
-          <PageHeaderTitle>Product #123</PageHeaderTitle>
-        </PageHeaderTop>
-      </PageHeader>
-      <PageContent>
-        <DataView state={view}>
-          <DataViewControls>
-            <Search
-              id="search"
-              aria-label="DataGrid Search"
-              placeholder="Search by name"
-            />
-          </DataViewControls>
-          <Table state={grid} />
-        </DataView>
-      </PageContent>
-    </Page>
-  )
-}
 
 function Placeholder() {
   return (
@@ -222,11 +175,9 @@ export function FullFledged() {
             Product #123{' '}
             <PageHeaderTags>
               <PageHeaderTag label="Short text" />
-              <PageHeaderTag label="Short text" />
             </PageHeaderTags>
           </PageHeaderTitle>
           <PageHeaderActions>
-            <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
             <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
             <PageHeaderButton>Create</PageHeaderButton>
             <PageHeaderMenuButton state={state} />
@@ -249,11 +200,7 @@ export function FullFledged() {
           <TabPanel id="1">
             <DataView state={view}>
               <DataViewControls>
-                <Search
-                  id="search"
-                  aria-label="DataGrid Search"
-                  placeholder="Search by name"
-                />
+                <Search id="search" aria-label="DataGrid Search" />
               </DataViewControls>
               <Table state={grid} />
             </DataView>
