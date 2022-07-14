@@ -24,10 +24,6 @@ import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
 
 const actionOptions: ButtonProps[] = [
   {
-    children: 'Delete item',
-    variant: 'critical',
-  },
-  {
     children: 'Edit',
     variant: 'secondary',
   },
@@ -36,10 +32,7 @@ const actionOptions: ButtonProps[] = [
   },
 ]
 
-const tagOptions: TagProps[] = [
-  { label: 'Short text' },
-  { label: 'Short text' },
-]
+const tagOptions: TagProps[] = [{ label: 'Short text' }]
 
 const tabOptions: TabProps[] = [
   {
@@ -223,11 +216,9 @@ export const FullFledged = () => {
             Product #123
             <PageHeaderTags>
               <PageHeaderTag label="Short text" />
-              <PageHeaderTag label="Short text" />
             </PageHeaderTags>
           </PageHeaderTitle>
           <PageHeaderActions>
-            <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
             <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
             <PageHeaderButton>Create</PageHeaderButton>
             <PageHeaderMenuButton state={state} />

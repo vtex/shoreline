@@ -72,7 +72,6 @@ You can also render components within the `PageHeaderTitle`, such as a `Tag` ele
       Product #123
       <PageHeaderTags>
         <PageHeaderTag label="Short text" />
-        <PageHeaderTag label="Short text" />
       </PageHeaderTags>
     </PageHeaderTitle>
   </PageHeaderTop>
@@ -96,8 +95,8 @@ function Example() {
       <PageHeaderTop>
         <PageHeaderTitle>Product #123</PageHeaderTitle>
         <PageHeaderActions>
-          <PageHeaderButton variant="critical">Delete item</PageHeaderButton>
           <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+          <PageHeaderButton>Create</PageHeaderButton>
           <PageHeaderMenuButton state={state} />
           <Menu state={state} aria-label="actions">
             <MenuItem label="Create" icon={<IconPlus />} />
@@ -246,7 +245,7 @@ function WithSearch() {
       <PageContent>
         <DataView state={view}>
           <DataViewControls>
-            <Search id="search" placeholder="Search" state={search} />
+            <Search id="search" state={search} />
           </DataViewControls>
           <Table state={table} />
         </DataView>
