@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.3...@vtex/admin-ui@0.132.4) (2022-07-14)
+
+### Bug Fixes
+
+- **inline:** space not applied correctly for the current first-child ([976dc57](https://github.com/vtex/admin-ui/commit/976dc57e2d309574c26ab304909bd2fc268dc424))
+
 ## [0.132.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.2...@vtex/admin-ui@0.132.3) (2022-07-13)
 
 ### Bug Fixes
