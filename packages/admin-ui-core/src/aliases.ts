@@ -22,6 +22,7 @@ export function convertChainedSelectors(key: string) {
 export const aliases = {
   // color
   bg: 'background',
+  fg: 'color',
 
   // responsive
   '@tablet': `@media (min-width: ${tablet})`,
