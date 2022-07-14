@@ -25,8 +25,8 @@ Design tokens can be consumed from specific properties within the `StyleObject`.
 ```jsx live
 <Box
   csx={{
-    color: '$base',
-    bg: '$base',
+    color: '$primary',
+    bg: '$primary',
     border: '$neutral',
     borderRadius: '$default',
     padding: '$3',
@@ -53,8 +53,8 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
     },
     header: {
       button: {
-        bg: color('gray60'),
-        color: color('white'),
+        bg: '$gray60',
+        color: '$white',
       },
     },
   }}
@@ -84,12 +84,12 @@ Scoped classNames can also be created and reused multiple times.
       },
     },
     '.light': {
-      bg: 'muted',
-      color: 'base',
+      bg: '$secondary',
+      color: '$secondary',
     },
     '.dark': {
-      bg: color('gray60'),
-      color: color('white'),
+      bg: '$gray60',
+      color: '$white',
     },
   }}
 >

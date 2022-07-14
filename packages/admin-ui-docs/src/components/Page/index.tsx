@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Tab, TabList, TabPanelList, useTabState, colors } from '@vtex/admin-ui'
+import { Tab, TabList, TabPanelList, useTabState } from '@vtex/admin-ui'
 import TOC from '@theme/TOC'
 
 import '@site/src/components/Page/styles.scss'
@@ -38,11 +38,11 @@ export function Page(props: PageProps) {
             id={key}
             csx={{
               '&[aria-selected="true"]': {
-                color: colors.pink40,
-                borderColor: colors.pink40,
+                color: '$pink40',
+                borderColor: '$pink40',
               },
               ':hover': {
-                color: colors.pink40,
+                color: '$pink40',
               },
             }}
           >
