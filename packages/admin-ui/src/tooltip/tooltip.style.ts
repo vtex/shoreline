@@ -1,4 +1,4 @@
-import { style, color } from '@vtex/admin-ui-core'
+import { style } from '@vtex/admin-ui-core'
 
 export const tooltipGutter = 0
 
@@ -23,7 +23,7 @@ export const tooltipTriggerWrapper = style({
 
 export const tooltipTrigger = style({
   size: '1rem',
-  bg: color('gray20'),
+  bg: '$gray20',
   color: '$primary',
   borderRadius: '100%',
   margin: 0,

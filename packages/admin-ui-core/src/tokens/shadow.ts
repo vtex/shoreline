@@ -1,4 +1,4 @@
-import { ring } from '../values'
+import { ring } from '../helpers'
 
 export const shadow = {
   ring: {
