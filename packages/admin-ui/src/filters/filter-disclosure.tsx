@@ -10,14 +10,15 @@ import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-const isMulti = (
+const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
+
+const convertAppliedToArray = (
   state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
 ) => {
-  return (state as UseFilterMultipleReturn<any>).appliedItems !== undefined
-}
+  const singleSelectState = state as UseFilterStateReturn<any>
 
-const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
-const asSingle = (state: any) => state as UseFilterStateReturn<any>
+  return singleSelectState.appliedItem ? [singleSelectState.appliedItem] : []
+}
 
 export const FilterDisclosure = createComponent<
   typeof MenuButton,
@@ -27,11 +28,8 @@ export const FilterDisclosure = createComponent<
 
   const { menu } = state
 
-  const appliedList = isMulti(state)
-    ? asMulti(state).appliedItems
-    : asSingle(state).appliedItem
-    ? [asSingle(state).appliedItem!]
-    : []
+  const appliedList =
+    asMulti(state)?.appliedItems ?? convertAppliedToArray(state)
 
   return useElement(MenuButton, {
     baseStyle: style.disclosure,
