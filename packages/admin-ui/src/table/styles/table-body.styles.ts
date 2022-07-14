@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { styleVariants } from '@vtex/admin-ui-core'
 
 export * from './table-row.styles'
 

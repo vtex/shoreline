@@ -12,6 +12,7 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
     baseStyle: {
       ...styles.baseline,
       ...styles.variants({ clickable }),
+      justifyContent: (role === 'cell' && column?.contentAlign) || 'left',
     },
     role,
     onClick,

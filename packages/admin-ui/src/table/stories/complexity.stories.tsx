@@ -1,7 +1,8 @@
 import React from 'react'
-import type { Meta } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import faker from 'faker'
 
+import type { TableColumn } from '../index'
 import {
   Table,
   TableBody,
@@ -42,10 +43,12 @@ const columns = createColumns<Item>([
   {
     id: 'lastSale',
     header: 'Last Sale',
+    contentAlign: 'right',
   },
   {
     id: 'price',
     header: 'Price',
+    contentAlign: 'left',
     resolver: {
       type: 'currency',
       locale: 'en-US',

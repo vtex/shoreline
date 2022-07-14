@@ -15,6 +15,7 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       accessor?: ((item: T) => ReactNode) | string
       resolver?: R
       width?: any
+      contentAlign?: 'left' | 'right'
       compare?: (a: T, b: T) => number
       sortable?: boolean
     }
@@ -25,6 +26,7 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       resolver?: R
       width?: any
       compare?: (a: T, b: T) => number
+      contentAlign?: 'left' | 'right'
       sortable?: boolean
     }
   | {
@@ -34,5 +36,6 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       resolver: R
       width?: any
       compare?: (a: T, b: T) => number
+      contentAlign?: 'left' | 'right'
       sortable?: boolean
     }

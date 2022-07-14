@@ -21,7 +21,6 @@ export const rowBaseline = ({ columns }: RowOptions) =>
   style({
     display: 'grid',
     bg: '$primary',
-    textAlign: 'left',
     borderBottom: '$neutral',
     gridTemplateColumns: columns.map(getColumnWidth).join(' '),
   })
