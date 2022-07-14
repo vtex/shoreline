@@ -25,13 +25,12 @@ import * as style from './page.style'
  */
 export const PageHeaderButton = forwardRef(
   (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
-    const { size = 'large', bleedY = true, ...buttonProps } = props
+    const { size = 'large', ...buttonProps } = props
 
     return (
       <Button
         csx={style.pageHeaderButton}
         size={size}
-        bleedY={bleedY}
         ref={ref}
         {...buttonProps}
       />
