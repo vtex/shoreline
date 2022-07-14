@@ -323,6 +323,10 @@ export interface AliasesCSSProperties {
    */
   bg?: BgTokens | CSS.Property.Background
   /**
+   * Shorthand for color
+   */
+  fg?: FgTokens | CSS.Property.Color
+  /**
    * Shorthand for marginLeft & marginRight
    */
   marginX?: HSpaceTokens | CSS.Property.MarginLeft | number
@@ -364,7 +368,7 @@ export interface OverwriteCSSProperties {
    * CSS **`backgroundColor`** property
    * @default transparent
    */
-  backround?: BgTokens | CSS.Property.BackgroundColor
+  background?: BgTokens | CSS.Property.BackgroundColor
   /**
    * CSS **`border`** property
    * @default currentColor
