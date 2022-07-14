@@ -24,6 +24,7 @@ export const global = {
   },
   'html, body': {
     text: '$body',
+    fontSize: '100%',
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
   },
@@ -32,7 +33,6 @@ export const global = {
     text: '$body',
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
-    fontWeight: 'normal',
   },
   '*, ::before, ::after': {
     boxSizing: 'border-box',

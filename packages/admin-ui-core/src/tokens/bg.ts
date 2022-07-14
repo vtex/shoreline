@@ -1,6 +1,7 @@
-import { colors } from '../values'
+import { colors } from './colors'
 
 export const bg = {
+  ...colors,
   primary: colors.white,
   secondary: colors.gray05,
   disabled: colors.gray10,
