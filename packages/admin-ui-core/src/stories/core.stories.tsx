@@ -15,14 +15,13 @@ export function FrameworkdAgnostic() {
   return (
     <div
       className={csx({
-        bg: '$action.neutral.tertiary',
-        color: '$primary',
         border: '$neutral',
         ':hover': {
           bg: '$action.neutral.tertiaryHover',
         },
         div: {
-          bg: '$secondary',
+          bg: '$info',
+          fg: '$info',
         },
         padding: 1,
         marginY: 2,

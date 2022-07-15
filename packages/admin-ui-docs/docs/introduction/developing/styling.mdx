@@ -36,6 +36,39 @@ Design tokens can be consumed from specific properties within the `StyleObject`.
 </Box>
 ```
 
+## Aliases
+
+It works as a shorthand to apply a value to one or more CSS properties, and you can use it within the `StyleObject`. In addition to the following aliases, you can also use the [Responsive Aliases](#responsive-aliases) explained further on this page.
+
+| Alias          | Description                                                                     |
+| -------------- | ------------------------------------------------------------------------------- |
+| `bg`           | A shorthand for background CSS property                                         |
+| `fg`           | A shorthand for color CSS property                                              |
+| `marginX`      | A shorthand for margin-left and margin-right CSS properties                     |
+| `marginY`      | A shorthand for margin-top and margin-bottom CSS properties                     |
+| `paddingX`     | A shorthand for padding-left and padding-right CSS properties                   |
+| `paddingY`     | A shorthand for padding-top and padding-bottom CSS properties                   |
+| `size`         | A shorthand for width and height CSS properties                                 |
+| `minSize`      | A shorthand for min-width and min-height CSS properties                         |
+| `maxSize`      | A shorthand for max-width and max-height CSS properties                         |
+| `absoluteSize` | A shorthand for min-width, min-height, max-Width, and max-Height CSS properties |
+
+### Example
+
+```jsx live
+<Center
+  csx={{
+    size: 100,
+    paddingX: '$m',
+    paddingY: '$l',
+    bg: '$blue40',
+    fg: '$white',
+  }}
+>
+  Aliases
+</Center>
+```
+
 ## Nesting
 
 Sometimes it’s useful to nest selectors to target elements inside the current class or React component. An example with an element selector is shown below.
