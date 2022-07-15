@@ -115,7 +115,7 @@ export function TopbarSkeleton() {
   return (
     <Fragment>
       <TopbarStart>
-        <Inline hSpace="$l" align="center">
+        <Inline hSpace="$l" spaceInside align="center">
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ size: '1.5rem' }} />
           </Center>
@@ -126,7 +126,7 @@ export function TopbarSkeleton() {
         <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
       </TopbarCenter>
       <TopbarEnd>
-        <Inline hSpace="$m" align="center">
+        <Inline hSpace="$m" spaceInside align="center">
           <Center csx={{ padding: '$xs' }}>
             <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
           </Center>
