@@ -1,5 +1,6 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
+import { palette } from './helpers'
 import type { Palette } from './types'
 
 export const utils: Record<string, (value: any) => AnyObject> = {
@@ -42,10 +43,7 @@ export const utils: Record<string, (value: any) => AnyObject> = {
   }),
 
   // Color
-  colorTheme: (value: Palette) => ({
-    bg: `$${value}10`,
-    fg: `$${value}60`,
-  }),
+  colorTheme: (value: Palette) => palette(value),
 }
 
 export function isUtil(prop: string) {
