@@ -1,0 +1,73 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Filters are designed to let the user choose parameters to filter data by.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+### Anatomy
+
+There are four types of filters that can be composed with admin-ui's filter 
+components. They are implemented by nesting the composable filter components 
+to form specific structures.
+
+Basic filter composable component anatomy
+
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterListbox
+    |   |__ FilterOptionRadio
+    |   |__ FilterOptionRadio 
+    |   |__ . . .  
+    |__ FilterFooter
+```
+
+Multiple selection filter composable component anatomy
+
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterListbox
+    |   |__ FilterOptionCheckbox
+    |   |__ FilterOptionCheckbox
+    |   |__ . . .  
+    |__ FilterFooter
+```
+
+Searchable filter is just an extension of the basic filter
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterSearchbox
+    |__ FilterListbox
+    |   |__ . . .  
+    |__ FilterFooter
+```
+
+Searchable filter with multiple option selection is just an extension of the multiple filter
+
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterSearchbox
+    |__ FilterListbox
+    |   |__ . . .  
+    |__ FilterFooter
+```
+
+</Section>
