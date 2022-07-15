@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import { FilterDisclosure } from '../filter-disclosure'
@@ -60,7 +60,7 @@ Playground.args = {
   label: 'Status',
 }
 
-export function SingleFromScrach() {
+export function Single() {
   const filterState = useFilterState()
 
   return (
@@ -79,13 +79,7 @@ export function SingleFromScrach() {
   )
 }
 
-export function MultipleFromScratch() {
-  const items = [
-    { label: 'Full', id: '#1' },
-    { label: 'Empty', id: '#2' },
-    { label: 'Half full', id: '#3' },
-  ]
-
+export function Multiple() {
   const filterState = useFilterMultipleState()
 
   return (
@@ -94,9 +88,9 @@ export function MultipleFromScratch() {
 
       <FilterPopover state={filterState}>
         <FilterListbox>
-          {items.map((item) => (
-            <FilterOptionCheckbox value={item} {...item} />
-          ))}
+          <FilterOptionCheckbox id="#1" label="Full" />
+          <FilterOptionCheckbox id="#2" label="Empty" />
+          <FilterOptionCheckbox id="#3" label="Half full" />
         </FilterListbox>
         <FilterFooter />
       </FilterPopover>
@@ -185,5 +179,45 @@ export function Interationalization() {
         </FilterPopover>
       </FilterGroup>
     </I18nProvider>
+  )
+}
+
+const getItems = (delay = 1000): Promise<Array<{ value: string }>> => {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+  ]
+
+  return new Promise((resolve) => setTimeout(resolve, delay, items))
+}
+
+export function Async() {
+  const [list, setList] = useState<Array<{ value: string }>>([])
+
+  const filterState = useFilterMultipleState()
+
+  useEffect(() => {
+    getItems(5000).then((res: any[]) => setList(res))
+  }, [])
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          {list.map((item) => (
+            <FilterOptionCheckbox id={item.value} label={item.value} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
   )
 }
