@@ -35,6 +35,7 @@ export const PageHeaderTitle = createComponent<'div'>((props) => {
       <>
         {onPopNavigation && (
           <Button
+            aria-label="Back"
             variant="tertiary"
             bleedX
             size="large"
