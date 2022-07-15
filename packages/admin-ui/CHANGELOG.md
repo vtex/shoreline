@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.4...@vtex/admin-ui@0.132.5) (2022-07-15)
+
+### Bug Fixes
+
+- **filter-bar:** state of statement menu not working when it has more than one statement ([99b0d4d](https://github.com/vtex/admin-ui/commit/99b0d4d704fec1af237d36950307cc6f24ea659e))
+- **topbar:** adjust skeleton space to be according with the design specs ([e49526c](https://github.com/vtex/admin-ui/commit/e49526c833c2fcc5056f081ce84118c2e2f3385c))
+
 ## [0.132.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.3...@vtex/admin-ui@0.132.4) (2022-07-14)
 
 ### Bug Fixes
