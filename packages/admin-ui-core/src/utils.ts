@@ -1,5 +1,6 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
+import type { Palette } from './types'
 
 export const utils: Record<string, (value: any) => AnyObject> = {
   /** Space */
@@ -38,6 +39,12 @@ export const utils: Record<string, (value: any) => AnyObject> = {
     minHeight: value,
     maxWidth: value,
     maxHeight: value,
+  }),
+
+  // Color
+  colorTheme: (value: Palette) => ({
+    bg: `$${value}10`,
+    fg: `$${value}60`,
   }),
 }
 
