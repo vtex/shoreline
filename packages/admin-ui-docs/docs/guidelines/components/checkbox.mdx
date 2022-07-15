@@ -156,21 +156,15 @@ function Example() {
 ```jsx live
 function Example() {
   return (
-    <>
-      <Inline>
-        <Checkbox label="Unchecked" state={{ value: false }} disabled />
-      </Inline>
-      <Inline>
-        <Checkbox label="Checked" state={{ value: true }} disabled />
-      </Inline>
-      <Inline>
-        <Checkbox
-          label="Indeterminate"
-          state={{ value: 'indeterminate' }}
-          disabled
-        />
-      </Inline>
-    </>
+    <Stack space="$m">
+      <Checkbox label="Unchecked " state={{ value: false }} disabled />
+      <Checkbox label="Checked" state={{ value: true }} disabled />
+      <Checkbox
+        label="Indeterminate"
+        state={{ value: 'indeterminate' }}
+        disabled
+      />
+    </Stack>
   )
 }
 ```
@@ -580,9 +574,9 @@ function Example() {
   </OrderedListItem>
 </OrderedList>
 
-</Section>
+  </Panel>
 
 👉 For UX Writing guidelines, access https://uxwriting.vtex.com
 
-  </Panel>
+
 </Page>
