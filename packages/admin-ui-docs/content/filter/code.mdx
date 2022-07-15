@@ -1,0 +1,305 @@
+import { Section } from '@site/src/components/Section'
+
+<Section hasExplanation>
+
+## Usage
+
+```jsx
+import {
+  experimental_FilterDisclosure as FilterDisclosure,
+  experimental_FilterPopover as FilterPopover,
+  experimental_FilterListbox as FilterListbox,
+  experimental_FilterOptionRadio as FilterOptionRadio,
+  experimental_FilterOptionCheckbox as FilterOptionCheckbox,
+  experimental_FilterFooter as FilterFooter,
+  experimental_useFilterMultipleState as useFilterMultipleState,
+  experimental_useFilterState as useFilterState,
+  experimental_useFilterGroupState as useFilterGroupState,
+  experimental_FilterGroup as FilterGroup,
+} from '@vtex/admin-ui'
+
+function Example() {
+  const filterState = useFilterState()
+  const multipleSelectState = useFilterMultipleState()
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state2, state],
+  })
+
+  return(
+    <FilterGroup>
+      // basic filter
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          <FilterOptionRadio id="#1" label="Full" />
+          <FilterOptionRadio id="#2" label="Empty" />
+          <FilterOptionRadio id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      // multiple selection filter
+      <FilterDisclosure state={multipleSelectState}>Example</FilterDisclosure>
+
+      <FilterPopover state={multipleSelectState}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="Full" />
+          <FilterOptionCheckbox id="#2" label="Empty" />
+          <FilterOptionCheckbox id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    <FilterGroup />
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## State
+
+The state hooks `useFilterState` and `useFilterMultipleState` contain all business logic needed for
+controlling individual filters. The two hooks are different, but they share many props in common.
+
+The state hook `useFilterGroupState` handles the "clear all" action for the `FilterGroup` component.
+
+</Section>
+
+<Section>
+
+### useFilterState and useFilterMultipleState props
+
+| Name           | Type                                           | Description                                                                      | Required | Default  |
+| -------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- | -------- | -------- |
+| fullList       | {id: string, label: string, value?: AnyObject} | Full option list that will be used for searching. Only use it if you need search.| 🚫       | -        |
+
+
+both filters return an object that extends the following type
+
+```ts
+interface GenericFilterState {
+  /**
+   * Function called when clear button on filter footer is clicked
+   */
+  onClear: () => void
+  /**
+   * Function called when apply button on filter footer is clicked
+   */
+  onChange: () => void
+  /**
+   * State that handles the popover menu
+   */
+  menu: MenuState
+}
+```
+
+With additional props for each type
+
+```ts
+export interface FilterOption<T> {
+  id: string
+  label: string
+  /**
+   * Object that may contain anything 
+   */
+  value?: T
+}
+
+interface FilterState<T> extends GenericFilterState {
+  /**
+   * State that handles rendered options and search
+   */
+  combobox: ComboboxState<FilterOption<T>>
+  /**
+   * Option that is currently applied
+   */
+  appliedItem?: FilterOption<T>
+  /**
+   * Setter for appliedItem
+   */
+  setAppliedItem: (option: FilterOption<T>) => void
+  /**
+   * Shorthand function for fetching any key from the attached object (value) on appliedItem
+   */
+  getFromApplied: (key: string) => any
+}
+
+interface FilterMultipleState<T> extends GenericFilterState {
+  /**
+   * State that handles rendered options and search
+   */
+  combobox: ComboboxMultipleState<FilterOption<T>>
+  /**
+   * Options that are currently applied
+   */
+  appliedItems: ItemList<T>
+  /**
+   * Options that are currently selected on popover, but not yet applied
+   */
+  selectedItems: ItemList<T>
+  /**
+   * Setter for appliedItems
+   */
+  setAppliedItems: (items: ItemList<T>) => void
+  /**
+   * Shorthand function for fetching any key from the attached object (value) on each applied option
+   */
+  getFromApplied: (key: string) => any[]
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Composable components
+
+Filters are built using combined components. We have components today that allow the creation of simple filters, multiple selection filters, 
+simple filters with search and multiple selection filters with search. The components are
+
+| Component             | Description                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| FilterDisclosure      |  Component for the buttons that triggers the menu                                  |
+| FilterPopover         |  Popover component, this is always a parent component                              |
+| FilterListbox         |  Component for the option list                                                     |
+| FilterFooter          |  Component for the footer with clear and apply buttons                             |
+| FilterOptionCheckbox  |  Checkbox option component, this should be used only on multiple selection filters |
+| FilterOptionRadio     |  Radio option component, this should be used only on single selection filters      |
+| FilterSearchbox       |  Search box component that should be used only when building searchable filters    |
+| FilterGroup           |  A grouping component that display the disclosures as cohesive bar                 |
+
+
+</Section>
+
+<Section hasExplanation>
+
+## Filter
+
+You can build a simple single select filter with the disclosure, popover, listbox, footer and optionRadio components.
+
+```jsx
+export function Filter() {
+  const filterState = useFilterState()
+
+    <>
+  return (
+      <div> The selected filter is: {filterState.appliedItem.label} </div>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          <FilterOptionRadio id="#1" label="Full" />
+          <FilterOptionRadio id="#2" label="Empty" />
+          <FilterOptionRadio id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+```
+
+## FilterMultiple
+
+For a multiple select filter you just have to use OptionCheckbox instead of OptionRadio. You'll be using the useFilterMultiple hook
+
+```jsx
+export function Multiple() {
+  const filterState = useFilterMultipleState()
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="Full" />
+          <FilterOptionCheckbox id="#2" label="Empty" />
+          <FilterOptionCheckbox id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+```
+
+## FilterSearch
+
+To add search to the basic filter you must add the searchbox component and also 
+start interacting with the combobox state returned by the hook. 
+
+To use the components native search you must provide the full list of items, 
+when the user performs a search operation `state.combobox.matches` will 
+contain the matching results list.
+
+```jsx
+const items = [
+  { label: 'Full', id: '#1' },
+  { label: 'Empty', id: '#2' },
+  { label: 'Half full', id: '#3' },
+  { label: 'Half empty', id: '#4' },
+  { label: 'Unknown', id: '#5' },
+]
+
+
+export function Filter() {
+  const filterState = useFilterState({fullList: items})
+
+  return (
+    <>
+      <div> The selected filter is: {filterState.appliedItem.label} </div>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          {filterState.matches.map(
+            (item) => <FilterOptionRadio {...item} />
+          )}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+```
+
+## FilterMultipleSearch
+
+To add search to the basic filter 
+
+```jsx
+const items = [
+  { label: 'Full', id: '#1' },
+  { label: 'Empty', id: '#2' },
+  { label: 'Half full', id: '#3' },
+  { label: 'Half empty', id: '#4' },
+  { label: 'Unknown', id: '#5' },
+]
+
+export function FilterSearch() {
+  
+  const filterState = useFilterMultipleState({fullList: items})
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {filterState.matches.map(
+            (item) => <FilterOptionCheckbox {...item} />
+          )}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+```
+</Section>
