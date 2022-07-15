@@ -6,6 +6,8 @@ import type { Conjunction } from '../typings'
 import type { StatementDropdownProps } from './StatementDropdown'
 import { StatementDropdown } from './StatementDropdown'
 import { ResolvedValue } from '../resolvers/core'
+import type { MenuState } from '../../../menu'
+import { useMenuState } from '../../../menu'
 
 /**
  * Statement container
@@ -52,6 +54,13 @@ const Conditions = StatementDropdown
  */
 const Value = ResolvedValue
 
+const Menu = (props: StatementMenuProps) => {
+  const { children } = props
+  const menuState = useMenuState()
+
+  return <>{children(menuState)}</>
+}
+
 interface StatementConjunctionProps
   extends StatementDropdownProps<Conjunction> {
   /** Current statement index */
@@ -60,9 +69,14 @@ interface StatementConjunctionProps
   whereLabel: string
 }
 
+interface StatementMenuProps {
+  children: (state: MenuState) => JSX.Element
+}
+
 export const Statement = Object.assign(_Statement, {
   Conjunction: StatementConjunction,
   Filter,
   Conditions,
   Value,
+  Menu,
 })
