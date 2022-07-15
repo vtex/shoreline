@@ -9,13 +9,17 @@ import {
   PageHeaderTag,
   PageHeaderActions,
   PageHeaderButton,
+  PageHeaderBottom,
 } from './index'
+import type { TabState } from '../tab'
+import { useTabState, TabList, Tab } from '../tab'
 
 import 'intersection-observer'
 
 interface Props {
   tags?: ReactNode
   actions?: ReactNode
+  bottom?: ReactNode
   onPopNavigation?: boolean
 }
 
@@ -32,11 +36,22 @@ const actions = (
   </PageHeaderActions>
 )
 
+const bottom = (state: TabState) => (
+  <PageHeaderBottom>
+    <TabList state={state}>
+      <Tab id="1">Label</Tab>
+      <Tab id="2">Label</Tab>
+      <Tab id="3">Label</Tab>
+    </TabList>
+  </PageHeaderBottom>
+)
+
 function Basic(props: Props) {
   const {
     tags = null,
     actions = null,
     onPopNavigation: onPopNavProp = false,
+    bottom = null,
   } = props
 
   const onPopNavigation = onPopNavProp ? () => null : undefined
@@ -47,6 +62,7 @@ function Basic(props: Props) {
         <PageHeaderTitle>Product #123 {tags}</PageHeaderTitle>
         {actions}
       </PageHeaderTop>
+      {bottom}
     </PageHeader>
   )
 }
@@ -87,9 +103,9 @@ describe('page-header', () => {
   })
 
   it("page-header's actions should be visible", async () => {
-    const { queryAllByRole } = render(<Basic actions={actions} />)
+    const { getAllByRole } = render(<Basic actions={actions} />)
 
-    const results = queryAllByRole('button')
+    const results = getAllByRole('button')
 
     expect(results).toHaveLength(2)
 
@@ -98,5 +114,23 @@ describe('page-header', () => {
     results.forEach((result, index) =>
       expect(result).toHaveTextContent(expects[index])
     )
+  })
+
+  it("page-header's tabs should be visible", () => {
+    const Test = () => {
+      const state = useTabState()
+
+      return <Basic bottom={bottom(state)} />
+    }
+
+    const { getAllByText } = render(<Test />)
+
+    const results = getAllByText('Label')
+
+    expect(results).toHaveLength(3)
+
+    results.forEach((result) => {
+      expect(result).toBeVisible()
+    })
   })
 })
