@@ -4,6 +4,8 @@ import { paletteMap } from './types'
 import type { Palette, Tone, ColorTokens, StyleProp, CSSUnit } from './types'
 import { colors } from './tokens/colors'
 
+const TOKEN_PREFIX = '$'
+
 export function ring(tone: Tone) {
   const lighterColor = get(colors, `${paletteMap[tone]}05`)
   const darkerColor = get(colors, `${paletteMap[tone]}30`)
@@ -22,7 +24,7 @@ export function palette(color: Palette): StyleProp {
 }
 
 export function color(token: ColorTokens) {
-  return get(colors, token, '')
+  return get(colors, extractTokenCall(token), '')
 }
 
 export function listBoxItem(tone: 'main' | 'critical', selected = false) {
@@ -62,7 +64,7 @@ export function focusVisible(
 }
 
 export function border(ct: ColorTokens, widthPx = 1): string {
-  return `${widthPx}px solid ${get(colors, ct)}`
+  return `${widthPx}px solid ${get(colors, extractTokenCall(ct))}`
 }
 
 export function withUnit(value: unknown, unit: CSSUnit): string {
@@ -72,3 +74,13 @@ export function withUnit(value: unknown, unit: CSSUnit): string {
 export function negative(token: string): string {
   return token.startsWith('$') ? `$-${token.substring(1)}` : `-${token}`
 }
+
+export function isToken(token: string) {
+  return typeof token === 'string' && token.startsWith(TOKEN_PREFIX)
+}
+
+export function extractTokenCall(token: string) {
+  return isToken(token) ? token.substring(1) : token
+}
+
+export const cx = (...args: string[]) => args.join(' ')
