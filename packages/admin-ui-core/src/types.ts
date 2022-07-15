@@ -350,6 +350,10 @@ export interface AliasesCSSProperties {
    * Admin-ui available text patterns
    */
   text?: TextTokens
+  /**
+   * Shorthand for applying color and background properties from the same palette while mantaining design consistency
+   */
+  colorTheme?: Palette
 }
 
 export interface ResponsiveAliases {
