@@ -11,7 +11,7 @@ import type {
   UseFilterBarStateParams,
   UseFilterBarStateReturn,
 } from './typings'
-import { MenuItem, Menu, MenuButton, useMenuState } from '../../menu'
+import { MenuItem, Menu, MenuButton } from '../../menu'
 
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
@@ -54,8 +54,6 @@ export function FilterBar<T, V extends { value: T }>(
     },
     ...htmlProps
   } = props
-
-  const menuState = useMenuState({ baseId: 'statement-menu' })
 
   return (
     <Box
@@ -114,28 +112,34 @@ export function FilterBar<T, V extends { value: T }>(
                   handleValueChange={changeValue}
                 />
               </Inline>
-              <>
-                <MenuButton
-                  state={menuState}
-                  variant="neutralTertiary"
-                  aria-label={`${statementMenuLabel} ${index}`}
-                />
-                <Menu
-                  state={menuState}
-                  aria-label={`${statementMenuLabel} ${index}`}
-                >
-                  <MenuItem
-                    onClick={() => duplicateStatement(index)}
-                    icon={<IconCopy />}
-                    label={duplicateStatementLabel}
-                  />
-                  <MenuItem
-                    onClick={() => deleteStatement(index)}
-                    icon={<IconTrash />}
-                    label={deleteStatementLabel}
-                  />
-                </Menu>
-              </>
+              <Statement.Menu>
+                {(menuState) => {
+                  return (
+                    <>
+                      <MenuButton
+                        state={menuState}
+                        variant="neutralTertiary"
+                        aria-label={`${statementMenuLabel} ${index}`}
+                      />
+                      <Menu
+                        state={menuState}
+                        aria-label={`${statementMenuLabel} ${index}`}
+                      >
+                        <MenuItem
+                          onClick={() => duplicateStatement(index)}
+                          icon={<IconCopy />}
+                          label={duplicateStatementLabel}
+                        />
+                        <MenuItem
+                          onClick={() => deleteStatement(index)}
+                          icon={<IconTrash />}
+                          label={deleteStatementLabel}
+                        />
+                      </Menu>
+                    </>
+                  )
+                }}
+              </Statement.Menu>
             </Statement>
           )
         })}
