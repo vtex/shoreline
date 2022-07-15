@@ -20,8 +20,7 @@ export function FrameworkdAgnostic() {
           bg: '$action.neutral.tertiaryHover',
         },
         div: {
-          bg: '$info',
-          fg: '$info',
+          colorTheme: 'blue',
         },
         padding: 1,
         marginY: 2,
