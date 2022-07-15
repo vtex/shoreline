@@ -16,7 +16,7 @@ export function ring(tone: Tone) {
 
 export function palette(color: Palette): StyleProp {
   return {
-    bg: get(colors, `${color}10`, ''),
+    background: get(colors, `${color}10`, ''),
     color: get(colors, `${color}60`, ''),
   }
 }
