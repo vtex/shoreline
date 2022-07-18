@@ -1,7 +1,9 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import { palette } from '@vtex/admin-ui-core'
-import { jsx, tag } from '@vtex/admin-ui-react'
+import type { VariantProps } from '@vtex/admin-ui-core'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import * as style from './avatar.style'
+import { Box } from '../../box'
 
 /**
  * Component to create a user avatar from a passed label
@@ -11,47 +13,21 @@ import { jsx, tag } from '@vtex/admin-ui-react'
  * <Avatar label="label" />
  * ```
  */
-export const Avatar = jsx('div')(
-  {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 24,
-    height: 24,
-    padding: 2,
-    borderRadius: 'circle',
-    textTransform: 'uppercase',
-    variants: {
-      palette: {
-        lightBlue: palette('lightBlue'),
-        green: palette('green'),
-        orange: palette('orange'),
-        cyan: palette('cyan'),
-        purple: palette('purple'),
-        teal: palette('teal'),
-        gray: palette('gray'),
-      },
+export const Avatar = createComponent<'div', AvatarOptions>((props) => {
+  const { label, palette = 'lightBlue', ...restProps } = props
+  const content = label?.charAt(0)
+
+  return useElement('div', {
+    baseStyle: {
+      ...style.baseline,
+      ...style.variants({ palette }),
     },
-  },
-  {
-    options: ['label'],
-    useOptions: (options: AvatarOptions, props) => {
-      const { label } = options
-      const content = label?.charAt(0)
+    ...restProps,
+    children: <Box csx={{ text: '$action1' }}>{content}</Box>,
+  })
+})
 
-      return {
-        ...props,
-        children: <tag.div csx={{ text: '$action1' }}>{content}</tag.div>,
-      }
-    },
-  }
-)
-
-Avatar.defaultProps = {
-  palette: 'lightBlue',
-}
-
-export interface AvatarOptions {
+export interface AvatarOptions extends VariantProps<typeof style.variants> {
   label: string
 }
 
