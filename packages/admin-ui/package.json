@@ -33,6 +33,7 @@
     "@types/react-window": "^1.8.2",
     "@vtex/babel-plugin-admin-ui-react": "^0.2.0",
     "faker": "^5.1.0",
+    "intersection-observer": "^0.12.2",
     "mutationobserver-shim": "^0.3.7",
     "react-beautiful-dnd": "^13.0.0",
     "react-window": "^1.8.5"
