@@ -120,8 +120,8 @@ export const tabToc = {
 
 Checkboxes are tools that customize configurations. This control has three states: unchecked, checked and indeterminate. They reflect the selection of an option and its execution usually requires another control, or confirmation.
 
-
 </IntroSection>
+
 
 <PageSection
   id={tabToc.overview[1].id}
@@ -132,15 +132,9 @@ Checkboxes are tools that customize configurations. This control has three state
 function Example() {
   return (
     <>
-      <Inline>
         <Checkbox label="Unchecked" state={{ value: false }} />
-      </Inline>
-      <Inline>
         <Checkbox label="Checked" state={{ value: true }} />
-      </Inline>
-      <Inline>
         <Checkbox label="Indeterminate" state={{ value: 'indeterminate' }} />
-      </Inline>
     </>
   )
 }
@@ -328,7 +322,7 @@ function Example() {
 <PageSection
   id={tabToc.overview[10].id}
   title={tabToc.overview[10].value}
-  explanation="To render multiple checkboxes and store the checked values in an array, you need to pass the hook return object to the checkboxes state property and define a unique value for each Checkbox."
+  explanation="To render multiple checkboxes and store the checked values in an array, you need to pass the hook return object to the checkbox's `state` property and define a unique value for each Checkbox."
 >
 
 ```jsx live
@@ -455,7 +449,7 @@ function Example() {
 | checked   | `boolean`           | Same as the HTML checked attribute      | 🚫       | -       |
 | helpText  | `ReactNode`         | Help text                               | 🚫       | -       |
 | errorText | `ReactNode`         | Error text                              | 🚫       | -       |
-| error     | `boolean`           | Whether the filed is error or not       | 🚫       | `false` |
+| error     | `boolean`           | Whether there is an error or not        | 🚫       | `false` |
 | state     | `CheckboxState`     | Return of `useCheckboxState` hook       | 🚫       | -       |
 | csx       | `StyleProp`         | Defines component styles                | 🚫       | `{}`    |
 
@@ -471,7 +465,7 @@ function Example() {
 | label     | `string`      | Group label                                   | ✅       | -       |
 | helpText  | `ReactNode`   | Help text                                     | 🚫       | -       |
 | errorText | `ReactNode`   | Error text                                    | 🚫       | -       |
-| error     | `boolean`     | Whether the filed is error or not             | 🚫       | `false` |
+| error     | `boolean`     | Whether there is an error or not              | 🚫       | `false` |
 | direction | `row, column` | Direction in which the children are displayed | 🚫       | `row`   |
 | optional  | `boolean`     | Whether the field is optional or not          | 🚫       | -       |
 | csx       | `StyleProp`   | Defines component styles                      | 🚫       | `{}`    |
