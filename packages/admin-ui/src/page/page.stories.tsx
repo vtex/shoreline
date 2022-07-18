@@ -22,11 +22,10 @@ import {
   useDataViewState,
 } from '../components/DataView'
 import { Search, useSearchState } from '../search'
-import { createColumns } from '../components/DataGrid'
+import { createColumns, Table, useTableState } from '../table'
 import { Box } from '../box'
 import { Menu, MenuItem, useMenuState } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
-import { Table, useTableState } from '../table'
 
 export default {
   title: 'admin-ui-review/page',

@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Box } from '../../../box'
 import type { Conjunction } from '../typings'
@@ -10,10 +10,15 @@ import { ResolvedValue } from '../resolvers/core'
 /**
  * Statement container
  */
-const _Statement = jsx('div')({
-  display: 'flex',
-  width: '100%',
-  justifyContent: 'space-between',
+const _Statement = createComponent<'div'>((props) => {
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      width: '100%',
+      justifyContent: 'space-between',
+    },
+    ...props,
+  })
 })
 
 /**
