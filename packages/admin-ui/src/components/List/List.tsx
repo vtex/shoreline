@@ -1,46 +1,24 @@
 import type { ComponentPropsWithRef } from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { VariantProps } from '@vtex/admin-ui-core'
+
+import * as listStyles from './list.style'
 
 import { ListItem } from './ListItem'
 
-const _List = jsx('ul')({
-  text: '$body',
-  listStylePosition: 'inside',
-  '> ul, ol': {
-    paddingLeft: 2,
-  },
-  '> :not(last-child)': {
-    paddingBottom: 1,
-  },
-  variants: {
-    style: {
-      disc: {
-        listStyleType: 'disc',
-      },
-      circle: {
-        listStyleType: 'circle',
-      },
-      none: {
-        listStyleType: 'none',
-      },
-      square: {
-        listStyleType: 'square',
-      },
-      decimal: {
-        listStyleType: 'decimal',
-      },
-      inherit: {
-        listStyleType: 'inherit',
-      },
-      initial: {
-        listStyleType: 'initial',
-      },
-      unset: {
-        listStyleType: 'unset',
-      },
+const _List = createComponent<'ul', ListOptions>((props) => {
+  const { style, ...restProps } = props
+
+  return useElement('ul', {
+    ...restProps,
+    baseStyle: {
+      ...listStyles.baseline,
+      ...listStyles.variants({ style }),
     },
-  },
+  })
 })
+
+export type ListOptions = VariantProps<typeof listStyles.variants>
 
 export const List = Object.assign(_List, { Item: ListItem })
 

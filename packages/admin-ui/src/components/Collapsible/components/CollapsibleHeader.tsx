@@ -1,45 +1,44 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
+
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
 import { Flex } from '../../../flex'
 import { Button } from '../../../button'
 import { useCollapsibleContext } from '../context'
 
-export const CollapsibleHeader = jsx('header')(
-  {
-    padding: 6,
-    paddingLeft: 2,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    'div > button:nth-of-type(n+2)': {
-      marginLeft: 1,
-    },
-  },
-  {
-    options: ['label'],
-    useOptions(options: CollapsibleHeaderOptions, props, system) {
-      const { label } = options
-      const { children, className, ...headerProps } = props
-      const { cx } = system
+export const CollapsibleHeader = createComponent<
+  'div',
+  CollapsibleHeaderOptions
+>((props) => {
+  const { label, className = '', children, ...restProps } = props
 
-      return {
-        ...headerProps,
-        className: cx('__admin-ui-collapsible--header', className),
-        children: (
-          <Fragment>
-            <Disclosure>{label}</Disclosure>
-            <Flex>{children}</Flex>
-          </Fragment>
-        ),
-      }
+  return useElement('div', {
+    baseStyle: {
+      padding: 6,
+      paddingLeft: 2,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      'div > button:nth-of-type(n+2)': {
+        marginLeft: 1,
+      },
     },
-  }
-)
+    className: cx('__admin-ui-collapsible--header', className),
+    children: (
+      <Fragment>
+        <Disclosure>{label}</Disclosure>
+        <Flex>{children}</Flex>
+      </Fragment>
+    ),
+    ...restProps,
+  })
+})
 
-function Disclosure({ children }: { children: ReactNode }) {
+function Disclosure(props: DisclosureProps) {
+  const { children } = props
   const { getToggleProps, visible, disabled } = useCollapsibleContext()
 
   return (
@@ -70,6 +69,10 @@ export interface CollapsibleHeaderOptions {
    * Disclosure Button label
    */
   label?: ReactNode
+}
+
+export interface DisclosureProps {
+  children: ReactNode
 }
 
 export type CollapsibleHeaderProps = ComponentPropsWithRef<

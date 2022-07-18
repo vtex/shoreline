@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Bleed } from '../../bleed'
 import { Inline } from '../../inline'
@@ -27,86 +27,75 @@ import { Skeleton } from '../Skeleton'
  * </Topbar>
  * ```
  */
-export const Topbar = jsx('div')(
-  {
-    display: 'grid',
-    gridTemplateAreas: '"start center end"',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    height: '3.5rem',
-    borderBottom: '$neutral',
-    zIndex: 'topbar',
-    paddingX: '$xl',
-    bg: '$primary',
-  },
-  {
-    options: ['loading'],
-    useOptions(options: TopbarOptions, props) {
-      const { children, ...topbarProps } = props
-      const { loading } = options
+export const Topbar = createComponent<'div', TopbarOptions>((props) => {
+  const { children, loading, ...restProps } = props
 
-      return {
-        ...topbarProps,
-        children: loading ? <TopbarSkeleton /> : children,
-      }
+  return useElement('div', {
+    baseStyle: {
+      display: 'grid',
+      gridTemplateAreas: '"start center end"',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      height: '3.5rem',
+      borderBottom: '$neutral',
+      zIndex: 'topbar',
+      paddingX: '$xl',
+      bg: '$primary',
     },
-  }
-)
+    ...restProps,
+    children: loading ? <TopbarSkeleton /> : children,
+  })
+})
 
 /**
  * Topbar content positioned in the start.
  */
-export const TopbarStart = jsx('div')(
-  {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    gridArea: 'start',
-  },
-  {
-    options: [],
-    useOptions(_, props) {
-      const { children, ...htmlProps } = props
+export const TopbarStart = createComponent<'div'>((props) => {
+  const { children, ...restProps } = props
 
-      return {
-        ...htmlProps,
-        children: <Bleed left="0.5rem">{children}</Bleed>,
-      }
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      gridArea: 'start',
     },
-  }
-)
+    children: <Bleed left="0.5rem">{children}</Bleed>,
+    ...restProps,
+  })
+})
 
 /**
  * Topbar content positioned in the center.
  */
-export const TopbarCenter = jsx('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gridArea: 'center',
+export const TopbarCenter = createComponent<'div'>((props) => {
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gridArea: 'center',
+    },
+    ...props,
+  })
 })
 
 /**
  * Topbar content positioned in the end.
  */
-export const TopbarEnd = jsx('div')(
-  {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    gridArea: 'end',
-  },
-  {
-    options: [],
-    useOptions(_, props) {
-      const { children, ...htmlProps } = props
+export const TopbarEnd = createComponent<'div'>((props) => {
+  const { children, ...restProps } = props
 
-      return {
-        ...htmlProps,
-        children: <Bleed right="0.5rem">{children}</Bleed>,
-      }
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      gridArea: 'end',
     },
-  }
-)
+    children: <Bleed right="0.5rem">{children}</Bleed>,
+    ...restProps,
+  })
+})
 
 /**
  * Topbar loading Skeleton

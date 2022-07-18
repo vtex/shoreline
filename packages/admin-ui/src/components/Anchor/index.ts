@@ -1,4 +1,4 @@
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
 
 /**
@@ -6,18 +6,23 @@ import type { ComponentPropsWithRef } from 'react'
  * @example
  * <Anchor href="#">Link to #</Anchor>
  */
-export const Anchor = jsx('a')({
-  font: 'inherit',
-  color: '$action.main.tertiary',
-  textDecoration: 'none',
-  cursor: 'pointer',
-  ':visited': {
-    color: '$action.main.tertiaryPressed',
-  },
-  ':hover': {
-    color: '$action.main.tertiaryHover',
-    textDecoration: 'underline',
-  },
+export const Anchor = createComponent<'a'>((props) => {
+  return useElement('a', {
+    baseStyle: {
+      font: 'inherit',
+      color: '$action.main.tertiary',
+      textDecoration: 'none',
+      cursor: 'pointer',
+      ':visited': {
+        color: '$action.main.tertiaryPressed',
+      },
+      ':hover': {
+        color: '$action.main.tertiaryHover',
+        textDecoration: 'underline',
+      },
+    },
+    ...props,
+  })
 })
 
 export type AnchorProps = ComponentPropsWithRef<typeof Anchor>

@@ -1,4 +1,4 @@
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
 
 /**
@@ -7,8 +7,13 @@ import type { ComponentPropsWithRef } from 'react'
  * @example
  * <Label>label</Label>
  */
-export const Label = jsx('label')({
-  text: '$body',
+export const Label = createComponent<'label'>((props) => {
+  return useElement('label', {
+    baseStyle: {
+      text: '$body',
+    },
+    ...props,
+  })
 })
 
 export type LabelProps = ComponentPropsWithRef<typeof Label>
