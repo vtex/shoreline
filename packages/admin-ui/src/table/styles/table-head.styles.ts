@@ -3,6 +3,9 @@ import { style } from '@vtex/admin-ui-core'
 export * from './table-row.styles'
 
 export const baseline = style({
+  position: 'sticky',
+  top: 0,
+  zIndex: 1000,
   color: '$secondary',
 })
 
