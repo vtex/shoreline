@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { tag, jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+
 import {
   CollectionEmpty,
   CollectionError,
@@ -7,58 +8,51 @@ import {
 } from '../../Illustrations'
 
 import { Flex } from '../../../flex'
+import { Box } from '../../../box'
 import { Anchor } from '../../Anchor'
 import { Text } from '../../Text'
 import { useDataViewContext } from '../context'
-
-interface ViewOptions {
-  illustration: JSX.Element
-}
 
 /**
  * Renders the illustrations
  * Must be under the DataViewContext
  */
-const View = jsx('div')(
-  {
-    display: 'flex',
-    justifyContent: 'center',
-    paddingY: '3.375rem',
-    overflow: 'auto',
-    width: '100%',
-    height: '100%',
-  },
-  {
-    options: ['illustration'],
-    useOptions(options: ViewOptions, props) {
-      const { illustration } = options
-      const { children, ...viewProps } = props
+export const View = createComponent<'div', ViewOptions>((props) => {
+  const { children, illustration, ...restProps } = props
 
-      return {
-        ...viewProps,
-        children: (
-          <tag.div
-            csx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              padding: 4,
-              maxWidth: '38.75rem',
-              minHeight: '11.375rem',
-              wordBreak: 'break-word',
-            }}
-          >
-            <tag.div csx={{ marginLeft: '-1.7rem', marginY: 5 }}>
-              {illustration}
-            </tag.div>
-            {children}
-          </tag.div>
-        ),
-      }
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      justifyContent: 'center',
+      paddingY: '3.375rem',
+      overflow: 'auto',
+      width: '100%',
+      height: '100%',
     },
-  }
-)
+    ...restProps,
+    children: (
+      <Box
+        csx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          padding: 4,
+          maxWidth: '38.75rem',
+          minHeight: '11.375rem',
+          wordBreak: 'break-word',
+        }}
+      >
+        <Box csx={{ marginLeft: '-1.7rem', marginY: 5 }}>{illustration}</Box>
+        {children}
+      </Box>
+    ),
+  })
+})
+
+interface ViewOptions {
+  illustration: JSX.Element
+}
 
 /**
  * Renders the DataView status

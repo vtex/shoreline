@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Inline } from '../../inline'
 import { Button } from '../../button'
@@ -9,68 +9,57 @@ import { Text } from '../Text'
 import { Tooltip } from '../../tooltip'
 import type { UsePaginationReturn } from './hooks/usePaginationState'
 
-export const Pagination = jsx('div')(
-  {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  {
-    options: [
-      'subject',
-      'preposition',
-      'prevLabel',
-      'nextLabel',
-      'loading',
-      'state',
-    ],
-    useOptions(options: PaginationOptions, props) {
-      const {
-        state: { range, paginate, prevDisabled, nextDisabled, total },
-        preposition = 'of',
-        subject = 'results',
-        prevLabel = 'Back',
-        nextLabel = 'Next',
-        loading,
-      } = options
+export const Pagination = createComponent<'div', PaginationOptions>((props) => {
+  const {
+    state: { range, paginate, prevDisabled, nextDisabled, total },
+    preposition = 'of',
+    subject = 'results',
+    prevLabel = 'Back',
+    nextLabel = 'Next',
+    loading,
+    ...restProps
+  } = props
 
-      return {
-        ...props,
-        children: (
-          <Fragment>
-            {!loading && (
-              <Text
-                tone="secondary"
-                variant="detail"
-                csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
-              >
-                {range[0]} — {range[1]} {preposition} {total} {subject}
-              </Text>
-            )}
-            <Inline align="center" noWrap>
-              <Tooltip text={prevLabel}>
-                <Button
-                  variant="neutralTertiary"
-                  disabled={loading || prevDisabled}
-                  onClick={() => paginate({ type: 'prev' })}
-                  icon={<IconCaretLeft />}
-                />
-              </Tooltip>
-
-              <Tooltip text={nextLabel}>
-                <Button
-                  variant="neutralTertiary"
-                  disabled={loading || nextDisabled}
-                  onClick={() => paginate({ type: 'next' })}
-                  icon={<IconCaretRight />}
-                />
-              </Tooltip>
-            </Inline>
-          </Fragment>
-        ),
-      }
+  return useElement('div', {
+    baseStyle: {
+      display: 'flex',
+      alignItems: 'center',
     },
-  }
-)
+    ...restProps,
+    children: (
+      <Fragment>
+        {!loading && (
+          <Text
+            tone="secondary"
+            variant="detail"
+            csx={{ marginRight: '1.25rem', whiteSpace: 'nowrap' }}
+          >
+            {range[0]} — {range[1]} {preposition} {total} {subject}
+          </Text>
+        )}
+        <Inline align="center" noWrap>
+          <Tooltip text={prevLabel}>
+            <Button
+              variant="neutralTertiary"
+              disabled={loading || prevDisabled}
+              onClick={() => paginate({ type: 'prev' })}
+              icon={<IconCaretLeft />}
+            />
+          </Tooltip>
+
+          <Tooltip text={nextLabel}>
+            <Button
+              variant="neutralTertiary"
+              disabled={loading || nextDisabled}
+              onClick={() => paginate({ type: 'next' })}
+              icon={<IconCaretRight />}
+            />
+          </Tooltip>
+        </Inline>
+      </Fragment>
+    ),
+  })
+})
 
 export interface PaginationOptions {
   /**
