@@ -136,15 +136,15 @@ interface FilterMultipleState<T> extends GenericFilterState {
   /**
    * Options that are currently applied
    */
-  appliedItems: ItemList<T>
+  appliedItems: FilterOption<T>[]
   /**
    * Options that are currently selected on popover, but not yet applied
    */
-  selectedItems: ItemList<T>
+  selectedItems: FilterOption<T>[]
   /**
    * Setter for appliedItems
    */
-  setAppliedItems: (items: ItemList<T>) => void
+  setAppliedItems: (items: FilterOption<T>[]) => void
   /**
    * Shorthand function for fetching any key from the attached object (value) on each applied option
    */
@@ -185,8 +185,8 @@ You can build a simple single select filter with the disclosure, popover, listbo
 export function Filter() {
   const filterState = useFilterState()
 
-    <>
   return (
+    <>
       <div> The selected filter is: {filterState.appliedItem.label} </div>
       <FilterDisclosure state={filterState}>Example</FilterDisclosure>
 
@@ -233,8 +233,8 @@ export function Multiple() {
 To add search to the basic filter you must add the searchbox component and also 
 start interacting with the combobox state returned by the hook. 
 
-To use the components native search you must provide the full list of items, 
-when the user performs a search operation `state.combobox.matches` will 
+To use the components native search you must provide the full list of items. 
+When the user performs a search operation, `state.combobox.matches` will 
 contain the matching results list.
 
 ```jsx
