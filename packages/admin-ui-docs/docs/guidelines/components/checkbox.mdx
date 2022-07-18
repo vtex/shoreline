@@ -119,7 +119,7 @@ export const tabToc = {
 ## What is this?
 
 Checkboxes are tools that customize configurations. This control has three states: unchecked, checked and indeterminate. They reflect the selection of an option and its execution usually requires another control, or confirmation.
-
+<br />
 </IntroSection>
 
 
@@ -131,11 +131,11 @@ Checkboxes are tools that customize configurations. This control has three state
 ```jsx live
 function Example() {
   return (
-    <>
+    <Stack space="$m">
         <Checkbox label="Unchecked" state={{ value: false }} />
         <Checkbox label="Checked" state={{ value: true }} />
         <Checkbox label="Indeterminate" state={{ value: 'indeterminate' }} />
-    </>
+    </Stack>
   )
 }
 ```
@@ -520,6 +520,7 @@ function Example() {
   </Panel>
     <Panel id="designReference">
 
+<Section direction="row">
 
 ## Best Practices
 
@@ -568,9 +569,11 @@ function Example() {
   </OrderedListItem>
 </OrderedList>
 
-  </Panel>
+</Section>
 
+<br />
 👉 For UX Writing guidelines, access https://uxwriting.vtex.com
 
+  </Panel>
 
 </Page>
