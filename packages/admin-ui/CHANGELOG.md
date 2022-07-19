@@ -3,11 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.132.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.5...@vtex/admin-ui@0.132.6) (2022-07-27)
-
 ### Bug Fixes
 
 - **tab:** use explict types instead of deep inheritance ([554ee82](https://github.com/vtex/admin-ui/commit/554ee827703e918e77c02ccf3f79643740e0e78f))
+
+## [0.132.6-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.5...@vtex/admin-ui@0.132.6-dev.0) (2022-07-19)
+
+### Bug Fixes
+
+- **alert:** action button alignment ([2c00672](https://github.com/vtex/admin-ui/commit/2c00672fcd2335e09dba50c460c4446b78d7530b))
+- **alert:** update icon margin style ([057df71](https://github.com/vtex/admin-ui/commit/057df712a53411efc44fc8ac130bb78e0da14dc8))
+- **checkbox:** remove margin left ([e889b78](https://github.com/vtex/admin-ui/commit/e889b784f3a60729e0a054e4b84b7542df3009f2))
+- **columns:** remove units default value ([73e81e2](https://github.com/vtex/admin-ui/commit/73e81e28c98cf9cd37d47948ffb26a776b1d6be1))
+- **filter searchable:** fix option stringification on filter multiple ([186bc4c](https://github.com/vtex/admin-ui/commit/186bc4c6269b542ea2f24dcf040e7ed82af3886f))
+- **filters:** fix imports to prevent circular dependencies ([2c7381d](https://github.com/vtex/admin-ui/commit/2c7381da75890f88660163278ea1705fa62808ed))
+- **filters:** fix style not updating on scrollable change ([741509f](https://github.com/vtex/admin-ui/commit/741509ff5bc4b0c1e949c060362f8ee8843a1003))
+- **flex:** remove old implementation ([b220346](https://github.com/vtex/admin-ui/commit/b220346eea43f3b344a3c678938b71e3d41c3d53))
+- **jsx:** replace jsx usage with createComponent and useElement ([752fdc6](https://github.com/vtex/admin-ui/commit/752fdc6a451e68665d9296de7a4a50a43a095f0e))
+- **modal:** replace responsive array usage with responsive aliases ([e3531bc](https://github.com/vtex/admin-ui/commit/e3531bc29f6532694dea0af06ca541fc101fc913))
+- **responsive-value:** remove deprecated responsive value approach ([e810945](https://github.com/vtex/admin-ui/commit/e81094508ded5e6c658a3327382206165210f8be))
+- **set:** remove deprecated set component ([1647101](https://github.com/vtex/admin-ui/commit/16471013842a525562fc8b396b0cd0fcb6b7192e))
+
+### Features
+
+- **columns:** add Columns component review ([5d6ccb0](https://github.com/vtex/admin-ui/commit/5d6ccb0de8343a975da4da73528ac29e7dc3d4af))
+- **core:** accept color tokens on bg and fg ([e755243](https://github.com/vtex/admin-ui/commit/e75524366e4c76e4d9506ac9eebafdd473b18070))
+- **filters:** enable csx on all composable filter components ([05f8ffd](https://github.com/vtex/admin-ui/commit/05f8ffd43e8187565709ecad50fff1e46028cf16))
+- **filters:** implement suggested composable API ([769a4d3](https://github.com/vtex/admin-ui/commit/769a4d3d0f83e514b0ae3da47c7c0090f9fed9de))
+- **filters:** make state available through context for composite components ([98cce4b](https://github.com/vtex/admin-ui/commit/98cce4be854322e7b24911d66d60eedb256b698e))
+- **flex:** add flex component review ([fb0f4d2](https://github.com/vtex/admin-ui/commit/fb0f4d20d0aa09ca00fb2f384eb98204b20133b1))
+- **grid:** add Grid component review ([bc0cecf](https://github.com/vtex/admin-ui/commit/bc0cecf81a199647703837b9e3a8618bffe0293f))
+- **responsive:** add solution that make component properties able to use responsive aliases ([02edd98](https://github.com/vtex/admin-ui/commit/02edd988ac4095d2eaa9adbde80636f10de89ac3))
+- **table:** stick table head on scroll ([77949fb](https://github.com/vtex/admin-ui/commit/77949fb328786cc2531521bb379a888aff6f09ac))
+
+### Performance Improvements
+
+- **filter popover:** prevent double rerender when scroll status changes ([6f7b629](https://github.com/vtex/admin-ui/commit/6f7b62998db3c585f88327c2eb558be5d2bb5862))
 
 ## [0.132.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.4...@vtex/admin-ui@0.132.5) (2022-07-15)
 
