@@ -94,4 +94,14 @@ export const messages = {
       noResultsSubtitle: 'Опитайте да използвате различни термини',
     },
   },
+  status: {
+    'en-US': {
+      errorTitle: 'Something went wrong',
+      retry: 'Try again',
+    },
+    'pt-BR': {
+      errorTitle: 'Algo deu errado',
+      retry: 'Tentar novamente',
+    },
+  },
 }
