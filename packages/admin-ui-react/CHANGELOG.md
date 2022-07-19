@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.8.0...@vtex/admin-ui-react@0.8.1-dev.0) (2022-07-19)
+
+### Bug Fixes
+
+- **responsive:** getResponsiveValue return type error ([a5b1d1f](https://github.com/vtex/admin-ui/commit/a5b1d1f70dc80217d9f7eb1cd9828854a5d0af33))
+- **responsive-value:** remove deprecated responsive value approach ([e810945](https://github.com/vtex/admin-ui/commit/e81094508ded5e6c658a3327382206165210f8be))
+- **set:** remove deprecated set component ([1647101](https://github.com/vtex/admin-ui/commit/16471013842a525562fc8b396b0cd0fcb6b7192e))
+
+### Features
+
+- **grid:** add Grid component review ([bc0cecf](https://github.com/vtex/admin-ui/commit/bc0cecf81a199647703837b9e3a8618bffe0293f))
+- **responsive:** add solution that make component properties able to use responsive aliases ([02edd98](https://github.com/vtex/admin-ui/commit/02edd988ac4095d2eaa9adbde80636f10de89ac3))
+
 # [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.7.2...@vtex/admin-ui-react@0.8.0) (2022-07-05)
 
 ### Bug Fixes
