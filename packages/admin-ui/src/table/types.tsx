@@ -17,6 +17,7 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
+      fixed?: boolean
     }
   | {
       id: Exclude<string, keyof T>
@@ -26,6 +27,7 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
+      fixed?: boolean
     }
   | {
       id: Exclude<string, keyof T>
@@ -35,4 +37,5 @@ export type TableColumn<T, R = BaseResolvers<T>> =
       width?: any
       compare?: (a: T, b: T) => number
       sortable?: boolean
+      fixed?: boolean
     }
