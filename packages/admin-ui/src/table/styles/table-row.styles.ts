@@ -7,7 +7,7 @@ interface RowOptions {
 
 const getColumnWidth = (column: TableColumn<any>) => {
   if (column.width === undefined) {
-    return '1fr'
+    return 'minmax(80px, 1fr)'
   }
 
   if (typeof column.width === 'number') {
