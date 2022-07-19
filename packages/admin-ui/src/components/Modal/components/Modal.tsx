@@ -73,7 +73,7 @@ export function Modal(props: ModalProps) {
         ...backdropCsx,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: ['flex-end', 'flex-end', 'center'],
+        justifyContent: 'flex-end',
         alignItems: 'center',
         bg: 'overlay',
         position: 'fixed',
@@ -86,6 +86,12 @@ export function Modal(props: ModalProps) {
         transition: 'fade',
         '&[data-enter]': {
           opacity: 1,
+        },
+        '@tablet': {
+          justifyContent: 'flex-end',
+        },
+        '@desktop': {
+          justifyContent: 'center',
         },
       }}
       state={state}
