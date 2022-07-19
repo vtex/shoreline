@@ -34,7 +34,7 @@ export const ModalFooter = createComponent<'footer'>((props) => {
       right: 0,
       bg: '$primary',
       padding: 6,
-      flexDirection: ['column-reverse', 'column-reverse', 'row'],
+      flexDirection: 'column-reverse',
       '> button': {
         width: 'full',
       },
@@ -61,6 +61,7 @@ export const ModalFooter = createComponent<'footer'>((props) => {
           marginLeft: 0,
           marginBottom: 4,
         },
+        flexDirection: 'column-reverse',
       },
       '@desktop': {
         '> button': {
@@ -70,6 +71,7 @@ export const ModalFooter = createComponent<'footer'>((props) => {
           marginLeft: 4,
           marginBottom: 0,
         },
+        flexDirection: 'row',
       },
     },
   })
