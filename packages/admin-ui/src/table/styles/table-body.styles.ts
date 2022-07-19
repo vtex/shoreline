@@ -7,17 +7,23 @@ export const variants = styleVariants({
     true: {
       cursor: 'pointer',
       ':hover': {
-        bg: '$action.neutral.tertiaryHover',
+        '> div[role=cell]': {
+          bg: '$action.neutral.tertiaryHover',
+        },
       },
     },
     false: {},
   },
   selected: {
     true: {
-      bg: '$action.main.tertiarySelected',
+      '> div[role=cell]': {
+        bg: '$action.main.tertiarySelected',
+      },
     },
     false: {
-      bg: '$primary',
+      '> div[role=cell]': {
+        bg: '$primary',
+      },
     },
   },
 })
