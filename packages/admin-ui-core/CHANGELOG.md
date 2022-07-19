@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.11.0...@vtex/admin-ui-core@0.11.1-dev.0) (2022-07-19)
+
+### Bug Fixes
+
+- **border:** helper function to apply border style not working as it should ([d1bb26a](https://github.com/vtex/admin-ui/commit/d1bb26a204e19a708ce6c555863b22d0e97df9f4))
+- **colortheme:** background and color properties not applied correctly ([493d805](https://github.com/vtex/admin-ui/commit/493d805870da7e2c6844cf97fa568919c416d60b))
+- **responsive-value:** fix styles function ([00fc224](https://github.com/vtex/admin-ui/commit/00fc224b2b9d3f6e0a454a6fe395d98767e0a0d3))
+- **responsive-value:** remove deprecated responsive value approach ([e810945](https://github.com/vtex/admin-ui/commit/e81094508ded5e6c658a3327382206165210f8be))
+
+### Features
+
+- **colortheme:** add colorTheme csx alias ([f53c7fe](https://github.com/vtex/admin-ui/commit/f53c7fe6cf7b21c1433ad6f31f6a832bbf6a8ead))
+- **core:** accept color tokens on bg and fg ([e755243](https://github.com/vtex/admin-ui/commit/e75524366e4c76e4d9506ac9eebafdd473b18070))
+- **fg-alias:** add fg alias as a shorthand to the color css property ([7076a07](https://github.com/vtex/admin-ui/commit/7076a0723aabe76a4fdbcdf28cae363b7622a45c))
+- **responsive:** add solution that make component properties able to use responsive aliases ([02edd98](https://github.com/vtex/admin-ui/commit/02edd988ac4095d2eaa9adbde80636f10de89ac3))
+
 # [0.11.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.10.2...@vtex/admin-ui-core@0.11.0) (2022-07-05)
 
 ### Bug Fixes

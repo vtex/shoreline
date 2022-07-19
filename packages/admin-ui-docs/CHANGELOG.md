@@ -11,6 +11,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
+## [0.15.6-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.5...@vtex/admin-ui-docs@0.15.6-dev.0) (2022-07-19)
+
+### Bug Fixes
+
+- **columns:** remove units default value ([73e81e2](https://github.com/vtex/admin-ui/commit/73e81e28c98cf9cd37d47948ffb26a776b1d6be1))
+- **formik:** remove deprecated admin-ui-formik library ([6fd7cc3](https://github.com/vtex/admin-ui/commit/6fd7cc3548467b1c561c3a0cf2e7c740a3c7df5f))
+- **responsive:** getResponsiveValue return type error ([a5b1d1f](https://github.com/vtex/admin-ui/commit/a5b1d1f70dc80217d9f7eb1cd9828854a5d0af33))
+- **responsive-value:** remove deprecated responsive value approach ([e810945](https://github.com/vtex/admin-ui/commit/e81094508ded5e6c658a3327382206165210f8be))
+- **set:** remove deprecated set component ([1647101](https://github.com/vtex/admin-ui/commit/16471013842a525562fc8b396b0cd0fcb6b7192e))
+
+### Features
+
+- **core:** accept color tokens on bg and fg ([e755243](https://github.com/vtex/admin-ui/commit/e75524366e4c76e4d9506ac9eebafdd473b18070))
+- **responsive:** add solution that make component properties able to use responsive aliases ([02edd98](https://github.com/vtex/admin-ui/commit/02edd988ac4095d2eaa9adbde80636f10de89ac3))
+
+### Performance Improvements
+
+- **filter popover:** prevent double rerender when scroll status changes ([6f7b629](https://github.com/vtex/admin-ui/commit/6f7b62998db3c585f88327c2eb558be5d2bb5862))
+
 ## [0.15.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.4...@vtex/admin-ui-docs@0.15.5) (2022-07-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
