@@ -53,6 +53,7 @@ export function Clickable() {
         {
           id: 'image',
           header: 'Image',
+          position: 'sticky',
           resolver: {
             type: 'image',
             preview: {
@@ -65,6 +66,7 @@ export function Clickable() {
         {
           id: 'name',
           header: 'Name',
+          position: 'sticky',
           resolver: {
             type: 'text',
             isNameCell: true,
@@ -74,9 +76,9 @@ export function Clickable() {
         {
           id: 'price',
           header: 'Price',
+          width: 650,
         },
         {
-          header: 'Actions',
           resolver: {
             type: 'root',
             render: () => {
@@ -113,5 +115,5 @@ export function Clickable() {
     onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ width: 800 }} />
+  return <Table state={state} csx={{ width: 800, height: 200 }} />
 }

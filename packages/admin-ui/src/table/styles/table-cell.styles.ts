@@ -6,6 +6,7 @@ export const baseline = style({
   text: '$body',
   paddingX: '$xl',
   minHeight: '2.75rem',
+  bg: '$primary',
 
   ':first-child': {
     paddingLeft: '$l',
