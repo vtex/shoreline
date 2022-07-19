@@ -31,8 +31,13 @@ export const FilterListbox = createComponent<'div', FilterListboxProps>(
 
     const ariakitcomboboxState = { ...combobox, matches: [] }
 
+    const display = Array.isArray(children) && children.length ? 'auto' : 'none'
+
     return useElement('div', {
-      baseStyle: style.scrollableContainer,
+      baseStyle: {
+        ...style.scrollableContainer,
+        display,
+      },
       children: (
         <Box
           as={ComboboxList as any}

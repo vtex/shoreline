@@ -94,7 +94,12 @@ export function useComboboxState<T>(
   }
 }
 
-type Status = 'loading' | 'error' | 'empty-search' | 'no-result' | 'ready'
+export type Status =
+  | 'loading'
+  | 'error'
+  | 'empty-search'
+  | 'no-result'
+  | 'ready'
 
 export type ComboboxStateProps<T> = Pick<
   AriakitComboboxStateProps,
