@@ -58,3 +58,15 @@ export const disclosureStatusLabel = style({
   whiteSpace: 'nowrap',
   maxWidth: '300px',
 })
+
+export const searchStatusLayout = style({ marginX: '$xl', height: '16em' })
+
+export const footer = (isScrollableLayout: boolean) =>
+  style({
+    borderTop: isScrollableLayout ? '$neutral' : 'none',
+    padding: '$l',
+    paddingTop: isScrollableLayout ? undefined : 0,
+    display: 'flex',
+    justifyContent: 'end',
+    order: 999,
+  })
