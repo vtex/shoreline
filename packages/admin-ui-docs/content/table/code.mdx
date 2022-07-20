@@ -248,11 +248,11 @@ All resolvers accept a render function, that returns a component. It controls th
 }
 ```
 
-| Name    | Type                                          | Description                                                         |
-| ------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| item    | `T`                                           | the item displayed for the row                                      |
-| data    | `unknown`                                     | extracted column data from the item, you need to cast it before use |
-| context | `{ loading: boolean }`                        | relevant global information about the table current state           |
+| Name    | Type                   | Description                                                         |
+| ------- | ---------------------- | ------------------------------------------------------------------- |
+| item    | `T`                    | the item displayed for the row                                      |
+| data    | `unknown`              | extracted column data from the item, you need to cast it before use |
+| context | `{ loading: boolean }` | relevant global information about the table current state           |
 
 </Section>
 
@@ -511,6 +511,135 @@ render(<Example />)
 | mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered        | ✅       | -       |
 | mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered | 🚫       | -       |
 | render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                      | 🚫       | -       |
+
+</Section>
+
+<Section hasExplanation>
+
+### Menu
+
+The menu resolver should be used when you want to easily render a Menu component and a set of actions.
+
+```jsx noInline live
+const defaultItems = [
+  {
+    id: 1,
+    productName: 'Orange',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 0,
+    price: 120,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+]
+
+function Example() {
+  const [items, setItems] = useState(defaultItems)
+
+  const state = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.productName,
+          mapDescription: (item) => item.description,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'text',
+          columnType: 'text',
+          mapText: (item) => item.price,
+          mapDescription: () => 'Recently updated',
+        },
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        resolver: {
+          type: 'plain',
+          /**
+           * this is how to use the render function
+           */
+          render: function Render({ data }) {
+            return (
+              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+            )
+          },
+        },
+      },
+      {
+        id: 'menu',
+        resolver: {
+          type: 'menu',
+          actions: [
+            {
+              label: 'Edit',
+              icon: <IconPencil />,
+              onClick: (item) => {
+                console.log(item)
+              },
+            },
+            {
+              label: 'Delete',
+              icon: <IconTrash />,
+              onClick: (item) => {
+                setItems(items.filter((i) => i.id !== item.id))
+              },
+            },
+          ],
+        },
+      },
+    ],
+    items,
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
+  })
+
+  return <Table state={state} />
+}
+
+render(<Example />)
+```
+
+| Name    | Type                                                        | Description                                  | Required | Default |
+| ------- | ----------------------------------------------------------- | -------------------------------------------- | -------- | ------- |
+| type    | `menu`                                                      | Menu resolver type                           | ✅       | -       |
+| actions | `MenuAction[]`                                              | A set of actions to be rendered as MenuItems | ✅       | -       |
+| render  | `(props: ResolverRenderProps<JSX.Element, T>) => ReactNode` | Resolver render function                     | 🚫       | -       |
+
+**MenuAction**
+
+| Name     | Type                | Description                             | Required | Default |
+| -------- | ------------------- | --------------------------------------- | -------- | ------- |
+| label    | `string`            | MenuItem label                          | ✅       | -       |
+| onClick  | `(item: T) => void` | MenuItem onClick handler                | ✅       | -       |
+| icon     | `ReactNode`         | MenuItem icon                           | 🚫       | -       |
+| disabled | `boolean`           | Whether the MenuItem is disabled or not | 🚫       | `false` |
+| critical | `boolean`           | Whether the MenuItem is critical or not | 🚫       | `false` |
 
 </Section>
 
