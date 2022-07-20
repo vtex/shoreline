@@ -22,4 +22,5 @@ export const rowBaseline = ({ columns }: RowOptions) =>
     display: 'grid',
     borderBottom: '$neutral',
     gridTemplateColumns: columns.map(getColumnWidth).join(' '),
+    overflowY: 'clip',
   })
