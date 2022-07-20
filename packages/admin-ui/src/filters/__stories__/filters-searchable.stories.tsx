@@ -13,7 +13,6 @@ import { FilterOptionRadio } from '../filter/filter-option-radio'
 
 import { FilterSearchbox } from '../filter-searchbox'
 import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
-import { FilterEmptyResult } from '../filter-empty-result'
 
 export default {
   title: 'admin-ui/FiltersSearch',
@@ -73,7 +72,6 @@ export function SingleSearch() {
             <FilterOptionRadio id={item.id} label={item.label} />
           ))}
         </FilterListbox>
-        <FilterEmptyResult status={filterState.combobox.status} />
         <FilterFooter />
       </FilterPopover>
     </>

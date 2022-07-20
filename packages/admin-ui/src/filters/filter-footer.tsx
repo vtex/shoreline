@@ -22,6 +22,7 @@ export const FilterFooter = createComponent<typeof Role>((props) => {
       paddingTop: isScrollableLayout ? undefined : 0,
       display: 'flex',
       justifyContent: 'end',
+      order: 999,
     },
     children: (
       <Stack direction="row" space="$m">
