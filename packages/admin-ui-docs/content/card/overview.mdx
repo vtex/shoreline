@@ -1,0 +1,151 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Cards, like any container, improves scannability of a design, providing a separate space for a user to focus on a specific task.
+
+</IntroSection>
+
+<Section>
+
+## Container
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <Center csx={{ width: '100%', height: 250, bg: '$secondary' }}>
+    Content
+  </Center>
+</Card>
+```
+
+</Section>
+
+<Section>
+
+## Title
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+  </CardHeader>
+  <CardContent csx={{ width: '100%', bg: '$secondary' }}>
+    <Center csx={{ height: 250 }}>Content</Center>
+  </CardContent>
+</Card>
+```
+
+</Section>
+
+<Section>
+
+## Actions
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardActions>
+      <Button variant="tertiary">Label</Button>
+      <Button variant="secondary">Label</Button>
+    </CardActions>
+  </CardHeader>
+  <CardContent csx={{ width: '100%', bg: '$secondary' }}>
+    <Center csx={{ height: 250 }}>Content</Center>
+  </CardContent>
+</Card>
+```
+
+</Section>
+
+<Section>
+
+## Card Info
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <CardHeader>
+    <CardInfo>
+      <IconImageSquare />
+      <CardTitle>Title</CardTitle>
+      <Tag label="Short text" />
+    </CardInfo>
+    <CardActions>
+      <Button variant="tertiary">Label</Button>
+      <Button variant="secondary">Label</Button>
+    </CardActions>
+  </CardHeader>
+  <CardContent csx={{ width: '100%', bg: '$secondary' }}>
+    <Center csx={{ height: 250 }}>Content</Center>
+  </CardContent>
+</Card>
+```
+
+</Section>
+
+<Section>
+
+## Image
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <CardHeader>
+    <CardInfo>
+      <CardImage
+        src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
+        alt="Image description"
+      />
+      <CardTitle>Title</CardTitle>
+      <Tag label="Short text" />
+    </CardInfo>
+    <CardActions>
+      <Button variant="tertiary">Label</Button>
+      <Button variant="secondary">Label</Button>
+    </CardActions>
+  </CardHeader>
+  <CardContent csx={{ bg: '$secondary' }}>
+    <Center csx={{ height: 250 }}>Content</Center>
+  </CardContent>
+</Card>
+```
+
+</Section>
+
+<Section>
+
+## Nested
+
+```jsx live
+<Card csx={{ width: '1/2', margin: 4 }}>
+  <CardHeader>
+    <CardInfo>
+      <IconImageSquare />
+      <CardTitle>Title</CardTitle>
+      <Tag label="Short text" />
+    </CardInfo>
+    <CardActions>
+      <Button variant="tertiary">Label</Button>
+      <Button variant="secondary">Label</Button>
+    </CardActions>
+  </CardHeader>
+  <CardContent>
+    <Card>
+      <CardHeader>
+        <CardTitle>Title</CardTitle>
+        <CardActions>
+          <Button variant="tertiary">Label</Button>
+          <Button variant="secondary">Label</Button>
+        </CardActions>
+      </CardHeader>
+      <CardContent csx={{ width: '100%', bg: '$secondary' }}>
+        <Center csx={{ height: 250 }}>Content</Center>
+      </CardContent>
+    </Card>
+  </CardContent>
+</Card>
+```
+
+</Section>
