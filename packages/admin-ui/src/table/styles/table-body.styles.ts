@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { styleVariants } from '@vtex/admin-ui-core'
 
 export * from './table-row.styles'
 
@@ -7,11 +7,11 @@ export const variants = styleVariants({
     true: {
       cursor: 'pointer',
       ':hover': {
-        '.fixed-cell > div': {
+        '.__admin-ui-fixed-cell > div': {
           bg: '$action.neutral.tertiaryHover',
         },
 
-        'div[role=cell]:not(.fixed-cell)': {
+        'div[role=cell]:not(.__admin-ui-fixed-cell)': {
           bg: '$action.neutral.tertiaryHover',
         },
       },
