@@ -7,7 +7,7 @@ interface RowOptions {
 
 const getColumnWidth = (column: TableColumn<any>) => {
   if (column.width === undefined) {
-    return '1fr'
+    return 'minmax(6.25rem, 1fr)'
   }
 
   if (typeof column.width === 'number') {
@@ -20,8 +20,6 @@ const getColumnWidth = (column: TableColumn<any>) => {
 export const rowBaseline = ({ columns }: RowOptions) =>
   style({
     display: 'grid',
-    bg: '$primary',
-    textAlign: 'left',
     borderBottom: '$neutral',
     gridTemplateColumns: columns.map(getColumnWidth).join(' '),
   })

@@ -13,8 +13,8 @@ export const Table = createComponent<'div', TableOptions>((props) => {
     ...tableProps,
     role: 'table',
     baseStyle: {
+      display: 'grid',
       width: '100%',
-      overflowY: 'auto',
     },
     children: (
       <StateContext.Provider value={state}>

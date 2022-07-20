@@ -76,7 +76,6 @@ export function Clickable() {
           header: 'Price',
         },
         {
-          header: 'Actions',
           resolver: {
             type: 'root',
             render: () => {
@@ -113,5 +112,12 @@ export function Clickable() {
     onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ width: 800 }} />
+  return (
+    <Table
+      state={state}
+      csx={{
+        width: 800,
+      }}
+    />
+  )
 }
