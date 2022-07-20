@@ -8,17 +8,17 @@ import React from 'react'
 import { ErrorStatus } from './error-status'
 import { Text } from '../components/Text'
 import { Stack } from '../stack'
-import type { Status } from '../combobox'
+import type { ComboboxStatus } from '../combobox'
 
 export const FilterEmptyResult = createComponent<
   typeof Role,
   FilterEmptyResultProps
 >((props) => {
-  const { onRetry, status = 'no-result', ...restProps } = props
+  const { onRetry, status = 'not-found', ...restProps } = props
 
   console.log({ status })
 
-  if (status !== 'no-result' && status !== 'error') {
+  if (status !== 'not-found' && status !== 'error') {
     return null
   }
 
@@ -27,7 +27,7 @@ export const FilterEmptyResult = createComponent<
   return useElement(Box, {
     baseStyle: { marginX: '$xl', height: 245 },
     children:
-      status === 'no-result' ? (
+      status === 'not-found' ? (
         <Stack space="$s">
           <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
           <Text variant="body" tone="secondary">
@@ -42,6 +42,6 @@ export const FilterEmptyResult = createComponent<
 })
 
 interface FilterEmptyResultProps {
-  status?: Status
+  status?: ComboboxStatus
   onRetry?: () => void
 }
