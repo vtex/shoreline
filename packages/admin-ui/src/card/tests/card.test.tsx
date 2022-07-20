@@ -3,22 +3,29 @@ import React from 'react'
 import { render, axe } from '../../test-utils'
 import { Button } from '../../button'
 import { Tag } from '../../tag'
-import { Card, CardTitle, CardHeader, CardActions, CardContent } from '..'
+import {
+  Card,
+  CardTitle,
+  CardHeader,
+  CardActions,
+  CardContent,
+  CardInfo,
+  CardImage,
+} from '..'
 
 describe('Card tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <Card csx={{ width: '1/2', margin: 4 }}>
         <CardHeader>
-          <CardTitle
-            label="Title"
-            thumbnail={{
-              src: 'https://careers.vtex.com/assets/media/perspectives03.jpg',
-              alt: 'Thumbnail description',
-            }}
-          >
+          <CardInfo>
+            <CardImage
+              src="https://careers.vtex.com/assets/media/perspectives03.jpg"
+              alt="Image description"
+            />
+            <CardTitle>Title</CardTitle>
             <Tag label="Short text" />
-          </CardTitle>
+          </CardInfo>
           <CardActions>
             <Button variant="tertiary">Label</Button>
             <Button variant="secondary">Label</Button>
@@ -27,7 +34,7 @@ describe('Card tests', () => {
         <CardContent>
           <Card>
             <CardHeader>
-              <CardTitle label="Title" />
+              <CardTitle>Title</CardTitle>
             </CardHeader>
             <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }}>
               Content

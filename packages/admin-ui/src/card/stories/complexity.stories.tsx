@@ -48,11 +48,11 @@ export const LevelTwo = () => {
   return (
     <Card csx={{ width: '1/2', margin: 4 }}>
       <CardHeader>
-        <CardInfo>
-          <IconImage />
-          <CardTitle>Title</CardTitle>
-          <Tag label="Short text" />
-        </CardInfo>
+        <CardTitle>Title</CardTitle>
+        <CardActions>
+          <Button variant="tertiary">Label</Button>
+          <Button variant="secondary">Label</Button>
+        </CardActions>
       </CardHeader>
       <CardContent csx={{ width: '100%', bg: '$secondary' }}>
         <Center csx={{ height: 250 }}>Content</Center>
