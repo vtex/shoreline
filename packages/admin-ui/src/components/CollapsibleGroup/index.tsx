@@ -3,7 +3,7 @@ import React, { Children, Fragment } from 'react'
 import { isElement } from 'react-is'
 
 import type { SystemComponent } from '../../types'
-import { Card } from '../Card'
+import { Card } from '../../card'
 import { Divider } from '../Divider'
 import { Group } from '../Group'
 
