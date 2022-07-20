@@ -7,6 +7,8 @@ import { messages } from './filter.i18n'
 import { usePopoverContext } from './filter-popover-context'
 import { Stack } from '../stack'
 
+import * as style from './filter.style'
+
 export const FilterFooter = createComponent<typeof Role>((props) => {
   const { state } = usePopoverContext()
 
@@ -16,14 +18,7 @@ export const FilterFooter = createComponent<typeof Role>((props) => {
   const { isScrollableLayout } = usePopoverContext()
 
   return useElement(Role, {
-    baseStyle: {
-      borderTop: isScrollableLayout ? '$neutral' : 'none',
-      padding: '$l',
-      paddingTop: isScrollableLayout ? undefined : 0,
-      display: 'flex',
-      justifyContent: 'end',
-      order: 999,
-    },
+    baseStyle: style.footer(isScrollableLayout),
     children: (
       <Stack direction="row" space="$m">
         <Button variant="tertiary" onClick={onClear}>

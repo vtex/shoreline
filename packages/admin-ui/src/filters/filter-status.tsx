@@ -7,6 +7,7 @@ import { useMessageFormatter } from '../i18n'
 import { Button } from '../button'
 import { Stack } from '../stack'
 import { Box } from '../box'
+import * as style from './filter.style'
 
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props
@@ -22,7 +23,7 @@ export function FilterStatus(props: FilterStatusProps) {
   return (
     <>
       {status === 'error' && (
-        <Box csx={{ marginX: '$xl', height: 256 }}>
+        <Box csx={style.searchStatusLayout}>
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
           <Button variant="tertiary" onClick={onRetry} bleedX>
             {formatMessage('retry')}
@@ -31,7 +32,7 @@ export function FilterStatus(props: FilterStatusProps) {
       )}
 
       {status === 'not-found' && (
-        <Box csx={{ marginX: '$xl', height: 256 }}>
+        <Box csx={style.searchStatusLayout}>
           <Stack space="$s">
             <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
             <Text variant="body" tone="secondary">
