@@ -515,7 +515,10 @@ export interface ExtendedCSSProps
 
 export type StylePropertyValue<T> =
   | ResponsiveStyleValue<Exclude<T, undefined>>
-  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>>)
+  | ((
+      theme: Theme,
+      cssProperty: string
+    ) => ResponsiveStyleValue<Exclude<T, undefined>>)
   | StyleProp
 
 export type CSSProps = {
