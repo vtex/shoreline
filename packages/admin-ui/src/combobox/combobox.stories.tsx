@@ -98,7 +98,7 @@ export const Loading = () => {
   const combobox = useComboboxState()
 
   useEffect(() => {
-    combobox.setLoading(true)
+    combobox.setStatus('loading')
     combobox.setVisible(true)
   }, [])
 
@@ -150,11 +150,12 @@ export const Async = () => {
   useEffect(() => {
     if (combobox.deferredValue === '') {
       combobox.setMatches([])
+      combobox.setStatus('empty')
     } else {
-      combobox.setLoading(true)
+      combobox.setStatus('loading')
       searchItems(combobox.deferredValue).then((res) => {
         combobox.setMatches(res.map((i) => i.value))
-        combobox.setLoading(false)
+        combobox.setStatus(res.length ? 'ready' : 'not-found')
       })
     }
   }, [combobox.deferredValue])
