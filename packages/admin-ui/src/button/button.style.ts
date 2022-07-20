@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { negative, style, styleVariants } from '@vtex/admin-ui-core'
 
 type ActionTone = 'main' | 'critical' | 'neutral'
 type ActionVariant = 'primary' | 'secondary' | 'tertiary'
@@ -52,10 +52,10 @@ export const buttonStyle = style({
 export const bleedY = styleVariants({
   size: {
     normal: {
-      marginY: '$-l',
+      marginY: negative('$l'),
     },
     large: {
-      marginY: '$-xl',
+      marginY: negative('$xl'),
     },
   },
 })
@@ -63,10 +63,10 @@ export const bleedY = styleVariants({
 export const bleedX = styleVariants({
   size: {
     normal: {
-      marginX: '$-l',
+      marginX: negative('$l'),
     },
     large: {
-      marginX: '$-xl',
+      marginX: negative('$xl'),
     },
   },
 })

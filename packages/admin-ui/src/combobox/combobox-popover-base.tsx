@@ -50,15 +50,7 @@ export const ComboboxPopoverBase = createComponent<
             <Text as="h2" variant="title2">
               {formatMessage('error')}
             </Text>
-            <Button
-              csx={{
-                // bleed
-                // TODO: remove after the button review
-                marginLeft: '-4',
-              }}
-              onClick={onRetry}
-              variant="tertiary"
-            >
+            <Button bleedX onClick={onRetry} variant="tertiary">
               {formatMessage('retry')}
             </Button>
           </tag.div>
