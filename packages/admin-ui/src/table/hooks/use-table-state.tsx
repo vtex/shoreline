@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, RefObject } from 'react'
 import { useMemo, useCallback } from 'react'
 import { get } from '@vtex/admin-ui-util'
 
@@ -203,6 +203,10 @@ export interface TableState<T> {
    * Action to take on click a row
    */
   onRowClick?: (item: T) => void
+  /**
+   * Table ref
+   */
+  tableRef?: RefObject<HTMLDivElement>
 }
 
 /**

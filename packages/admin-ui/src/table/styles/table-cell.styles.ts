@@ -54,8 +54,16 @@ export const variants = styleVariants({
       borderRight: '$neutral',
       zIndex: 1,
     },
+    false: {},
   },
-  false: {},
+  hasHorizontalScroll: {
+    true: {
+      boxShadow: '$overlay.center',
+    },
+    false: {
+      boxShadow: 'none',
+    },
+  },
 })
 
 export const fixedInnerContainer = style({
