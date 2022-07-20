@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { IconPencil, IconCopy, IconImage } from '@vtex/phosphor-icons'
+import { IconPencil, IconCopy, IconImageSquare } from '@vtex/phosphor-icons'
 
 import {
   Card,
@@ -27,14 +27,19 @@ export const Single = () => {
     <Card csx={{ width: '1/2', margin: 4 }}>
       <CardHeader>
         <CardInfo>
-          <IconImage />
+          <IconImageSquare />
           <CardTitle>Title</CardTitle>
           <Tag label="Short text" />
         </CardInfo>
         <CardActions>
           <Button variant="tertiary">Label</Button>
           <Button variant="secondary">Label</Button>
-          <MenuButton variant="neutralTertiary" labelHidden state={menu} />
+          <MenuButton
+            bleedY
+            variant="neutralTertiary"
+            labelHidden
+            state={menu}
+          />
           <Menu state={menu}>
             <MenuItem label="Edit" icon={<IconPencil />} />
             <MenuItem label="Duplicate" icon={<IconCopy />} disabled />

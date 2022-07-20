@@ -7,11 +7,13 @@ export const card = style({
   borderRadius: 'default',
   padding: '$xl',
   size: '100%',
+  boxSizing: 'border-box',
 })
 
 export const header = style({
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
   width: '100%',
 })
 
