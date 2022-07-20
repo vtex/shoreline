@@ -43,125 +43,6 @@ export function Clickable() {
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
         price: 10,
       },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
-      {
-        id: 3,
-        name: 'Color 3',
-        image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-        price: 10,
-      },
     ],
     []
   )
@@ -172,7 +53,6 @@ export function Clickable() {
         {
           id: 'image',
           header: 'Image',
-          fixed: true,
           resolver: {
             type: 'image',
             preview: {
@@ -185,8 +65,6 @@ export function Clickable() {
         {
           id: 'name',
           header: 'Name',
-          fixed: true,
-          width: 'minmax(100px, 2fr)',
           resolver: {
             type: 'text',
             isNameCell: true,
@@ -196,7 +74,6 @@ export function Clickable() {
         {
           id: 'price',
           header: 'Price',
-          width: 3500,
         },
         {
           resolver: {
@@ -238,11 +115,9 @@ export function Clickable() {
   return (
     <Table
       state={state}
-      csx={
-        {
-          // height: 200,
-        }
-      }
+      csx={{
+        width: 800,
+      }}
     />
   )
 }
