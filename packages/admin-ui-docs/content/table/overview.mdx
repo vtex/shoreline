@@ -83,29 +83,17 @@ function WithinDataView() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -217,29 +205,17 @@ function WithSearch() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -309,29 +285,17 @@ function WithToolbar() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -437,29 +401,17 @@ function WithPagination() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -553,33 +505,17 @@ function StatusExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -722,29 +658,17 @@ const columns = createColumns([
   {
     header: 'Actions',
     resolver: {
-      type: 'root',
-      render: () => {
-        const menu = useMenuState()
-
-        const handleClick = (event) => {
-          event.stopPropagation()
-        }
-
-        return (
-          <>
-            <MenuButton
-              state={menu}
-              variant="neutralTertiary"
-              onClick={handleClick}
-              labelHidden
-            />
-            <Menu state={menu}>
-              <MenuItem label="Add to cart" onClick={handleClick} />
-              <MenuItem label="Buy" onClick={handleClick} />
-            </Menu>
-          </>
-        )
-      },
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+          onClick: handleClick,
+        },
+        {
+          label: 'Buy',
+          onClick: handleClick,
+        },
+      ],
     },
   },
 ])
@@ -912,29 +836,17 @@ function WithFullTopbar() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -1061,33 +973,17 @@ function DataFetchExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
@@ -1185,33 +1081,17 @@ function DataFetchExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+              onClick: handleClick,
+            },
+            {
+              label: 'Buy',
+              onClick: handleClick,
+            },
+          ],
         },
       },
     ],
