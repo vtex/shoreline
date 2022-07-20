@@ -147,10 +147,10 @@ export function AsyncSearch() {
   )
 
   useEffect(() => {
-    state.combobox.setLoading(true)
+    state.combobox.setStatus('loading')
     api(state.combobox.deferredValue).then((res) => {
       setResult(res)
-      state.combobox.setLoading(false)
+      state.combobox.setStatus(res.length ? 'ready' : 'not-found')
     })
   }, [state.combobox.deferredValue])
 
