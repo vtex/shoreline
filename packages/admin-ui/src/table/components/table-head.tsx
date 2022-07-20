@@ -7,8 +7,13 @@ import { TableCell } from './table-cell'
 import * as styles from '../styles/table-head.styles'
 import { Box } from '../../box'
 
+import { useTableScroll } from '../hooks/use-table-scroll'
+
 export const TableHead = createComponent<'div'>((props) => {
   const { children, ...headProps } = props
+
+  const { hasVerticalScroll } = useTableScroll()
+
   const state = useStateContext()
 
   const ariaSortLabel = {
@@ -17,8 +22,11 @@ export const TableHead = createComponent<'div'>((props) => {
   } as any
 
   return useElement('div', {
-    baseStyle: styles.baseline,
     ...headProps,
+    baseStyle: {
+      ...styles.baseline,
+      ...styles.variant({ hasVerticalScroll }),
+    },
     role: 'rowgroup',
     children: (
       <Row>
@@ -68,6 +76,7 @@ const Row = createComponent<'div'>((props) => {
   return useElement('div', {
     baseStyle: styles.rowBaseline({ columns: state.columns }),
     role: 'row',
+    csx: { height: 50 },
     ...props,
   })
 })
