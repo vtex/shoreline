@@ -13,7 +13,6 @@ import { FilterOptionRadio } from '../filter/filter-option-radio'
 
 import { FilterSearchbox } from '../filter-searchbox'
 import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
-import { FilterEmptyResult } from '../filter-empty-result'
 
 export default {
   title: 'admin-ui/Filters/status',
@@ -73,7 +72,6 @@ export function SingleSearch() {
             <FilterOptionRadio id={item.id} label={item.label} />
           ))}
         </FilterListbox>
-        <FilterEmptyResult status={filterState.combobox.status} />
         <FilterFooter />
       </FilterPopover>
     </>
@@ -103,7 +101,6 @@ export function EmptySearchExample() {
             <FilterOptionCheckbox id={item.id} label={item.country} />
           ))}
         </FilterListbox>
-        {!result?.length && <FilterEmptyResult />}
         <FilterFooter />
       </FilterPopover>
     </>
@@ -136,9 +133,6 @@ export function ErrorSearchExample() {
               <FilterOptionCheckbox id={item.id} label={item.country} />
             ))}
         </FilterListbox>
-        {(!result?.length || error) && (
-          <FilterEmptyResult status={error ? 'error' : 'not-found'} />
-        )}
         <FilterFooter />
       </FilterPopover>
     </>
