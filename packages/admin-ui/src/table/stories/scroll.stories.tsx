@@ -53,7 +53,7 @@ export function VerticalScroll() {
     onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ width: 560 }} />
+  return <Table state={state} csx={{ height: '100vh' }} />
 }
 
 export function HorizontalScroll() {
@@ -76,7 +76,8 @@ export function HorizontalScroll() {
     {
       id: 'lastSale',
       header: 'Last Sale',
-      width: 900,
+      fixed: true,
+      width: 150,
     },
     {
       id: 'price',
@@ -86,7 +87,7 @@ export function HorizontalScroll() {
         locale: 'en-US',
         currency: 'USD',
       },
-      width: 150,
+      width: 900,
     },
   ])
 
@@ -96,5 +97,48 @@ export function HorizontalScroll() {
     onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} />
+  return <Table state={state} csx={{ width: '100vw' }} />
+}
+
+export function HorizontalAndVerticalScroll() {
+  const items = [...Array(100).keys()].map((id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+  const columns = createColumns<Item>([
+    {
+      id: 'name',
+      header: 'Product Name',
+      width: 200,
+      fixed: true,
+    },
+    {
+      id: 'lastSale',
+      header: 'Last Sale',
+      width: 550,
+    },
+    {
+      id: 'price',
+      header: 'Price',
+      resolver: {
+        type: 'currency',
+        locale: 'en-US',
+        currency: 'USD',
+      },
+      width: 400,
+    },
+  ])
+
+  const state = useTableState<Item>({
+    columns,
+    items,
+    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
+  })
+
+  return <Table state={state} csx={{ width: '100vw', height: '100vh' }} />
 }
