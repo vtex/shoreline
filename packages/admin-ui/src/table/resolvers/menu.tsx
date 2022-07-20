@@ -25,14 +25,11 @@ export function menuResolver<T>() {
 
       const state = useMenuState()
 
-      const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
-        event.stopPropagation()
-
       const data = (
         <>
           <MenuButton
             state={state}
-            onClick={handleClick}
+            onClick={(e) => e.stopPropagation()}
             variant="neutralTertiary"
             labelHidden
           />
