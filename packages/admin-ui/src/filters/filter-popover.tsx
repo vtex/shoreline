@@ -7,6 +7,8 @@ import { Menu } from 'ariakit'
 import { PopoverProvider } from './filter-popover-context'
 import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 import type { UseFilterStateReturn } from './filter/filter.state'
+import { Flex } from '../flex'
+import { FilterStatus } from './filter-status'
 
 export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
   (props) => {
@@ -30,7 +32,12 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
         ...focusVisible('neutral'),
       },
       children: (
-        <PopoverProvider value={contextState}>{children}</PopoverProvider>
+        <PopoverProvider value={contextState}>
+          <Flex direction="column">
+            {children}
+            <FilterStatus status={state.combobox.status} onRetry={() => {}} />
+          </Flex>
+        </PopoverProvider>
       ),
       state: state.menu,
       ...restProps,
