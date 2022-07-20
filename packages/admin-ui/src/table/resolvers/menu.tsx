@@ -25,16 +25,28 @@ export function menuResolver<T>() {
 
       const state = useMenuState()
 
+      const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
+        event.stopPropagation()
+
       const data = (
         <>
-          <MenuButton state={state} variant="neutralTertiary" labelHidden />
+          <MenuButton
+            state={state}
+            onClick={handleClick}
+            variant="neutralTertiary"
+            labelHidden
+          />
           <Menu state={state}>
             {actions.map((action, index) => {
               return (
                 <MenuItem
                   label={action.label}
-                  onClick={() => action.onClick(item)}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    action.onClick(item)
+                  }}
                   disabled={action?.disabled}
+                  critical={action?.critical}
                   icon={action?.icon}
                   key={`column-${String(column.id)}-menu-item-${index}`}
                 />
@@ -56,6 +68,7 @@ export interface MenuActions<T> {
   onClick: (item: T) => void
   icon?: ReactNode
   disabled?: boolean
+  critical?: boolean
 }
 
 export type MenuResolver<T> = {
