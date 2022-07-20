@@ -19,3 +19,11 @@ export const content = style({
   '.__admin-ui-card-nested-title': { text: '$title2' },
   size: '100%',
 })
+
+export const title = style({
+  text: '$title1',
+})
+
+export const image = style({
+  absoluteSize: '1.25rem',
+})

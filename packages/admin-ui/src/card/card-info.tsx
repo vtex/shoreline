@@ -3,21 +3,18 @@ import type { ComponentPropsWithRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Stack } from '../stack'
-import { Bleed } from '../bleed'
 
-export const CardActions = createComponent<'div'>((props) => {
+export const CardInfo = createComponent<'div'>((props) => {
   const { children, ...restProps } = props
 
   return useElement('div', {
     ...restProps,
     children: (
-      <Bleed top="$l" bottom="$l">
-        <Stack direction="row" space="$l">
-          {children}
-        </Stack>
-      </Bleed>
+      <Stack direction="row" space="$l">
+        {children}
+      </Stack>
     ),
   })
 })
 
-export type CardActionsProps = ComponentPropsWithRef<typeof CardActions>
+export type CardInfoProps = ComponentPropsWithRef<typeof CardInfo>
