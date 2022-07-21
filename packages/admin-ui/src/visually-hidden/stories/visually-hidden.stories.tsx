@@ -2,15 +2,15 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Flex } from '../../flex'
-import { Text } from '../Text'
-import { VisuallyHidden } from './index'
+import { Text } from '../../components/Text'
+import { VisuallyHidden } from '../index'
 
 export default {
-  title: 'admin-ui/VisuallyHidden',
+  title: 'admin-ui-review/visually-hidden',
   component: VisuallyHidden,
 } as Meta
 
-export function WithSimpleSearchField() {
+export function WithinSearchField() {
   return (
     <Flex direction="column" csx={{ width: 200 }}>
       <VisuallyHidden>

@@ -8,7 +8,7 @@ import { forwardRef } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../../button'
 import { Button } from '../../button'
-import { VisuallyHidden } from '../VisuallyHidden'
+import { VisuallyHidden } from '../../visually-hidden'
 import { Stack } from '../../stack'
 import type { SystemComponent } from '../../types'
 import * as style from './Dropdown.style'

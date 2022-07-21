@@ -8,7 +8,7 @@ import * as styles from './search.style'
 import { Center } from '../center'
 import { Button } from '../button'
 import { Spinner } from '../components/Spinner'
-import { VisuallyHidden } from '../components/VisuallyHidden'
+import { VisuallyHidden } from '../visually-hidden'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './search.i18n'
 
