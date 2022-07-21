@@ -10,7 +10,7 @@ export default {
   component: VisuallyHidden,
 } as Meta
 
-export function WithSimpleSearchField() {
+export function WithinSearchField() {
   return (
     <Flex direction="column" csx={{ width: 200 }}>
       <VisuallyHidden>
