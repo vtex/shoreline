@@ -45,7 +45,7 @@ export function menuResolver<T>() {
                   disabled={action?.disabled}
                   critical={action?.critical}
                   icon={action?.icon}
-                  key={`column-${String(column.id)}-menu-item-${index}`}
+                  key={index}
                 />
               )
             })}
