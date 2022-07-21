@@ -1,11 +1,11 @@
 import type { CSS as CSSObject } from '@stitches/react'
 import { css } from './stitches.config'
-import { isFunction } from '@vtex/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui-util'
+import { isFunction, get } from '@vtex/admin-ui-util'
 
 import { alias } from './aliases'
 import { resolveRule } from './rules'
 import { callUtil, isUtil } from './utils'
-import { createTransform } from './transforms'
 import type { StyleObject, StyleProp } from './types'
 import { theme as defaultTheme } from './theme'
 import { extractTokenCall } from './helpers'
@@ -20,7 +20,7 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
     const cssProperty = alias(key)
     const csxValue = csxObject[key as keyof typeof csxObject]
     const token = isFunction(csxValue)
-      ? (csxValue as Function)(theme)
+      ? (csxValue as Function)(theme, cssProperty)
       : csxValue
 
     if (token && typeof token === 'object') {
@@ -28,9 +28,7 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
       continue
     }
 
-    const rule = resolveRule(cssProperty, theme)
-    const transform = createTransform(cssProperty)
-    const value = transform(rule, extractTokenCall(token))
+    const value = getTokenValue(theme, cssProperty, token)
 
     if (!!value && typeof value === 'object') {
       Object.assign(cssObject, value)
@@ -42,6 +40,18 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
   }
 
   return cssObject
+}
+
+export function getTokenValue(
+  theme: AnyObject,
+  cssProperty: string,
+  token: any
+) {
+  const rule = resolveRule(cssProperty, theme)
+  const extractedToken = extractTokenCall(token)
+  const rawValue = get(rule, extractedToken, extractedToken)
+
+  return rawValue
 }
 
 export function createCsx(theme?: any) {

@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { negative, style, styleVariants } from '@vtex/admin-ui-core'
 import * as defaultButtonStyle from '../button/button.style'
 
 export const item = style({
@@ -73,7 +73,7 @@ export const popoverChildren = style({
 
 export const divider = style({
   marginY: '$l',
-  marginX: '$-l',
+  marginX: negative('$l'),
   borderBottom: '$neutral',
   width: 'auto',
   outline: 'none',

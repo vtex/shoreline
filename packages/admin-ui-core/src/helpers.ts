@@ -71,10 +71,6 @@ export function withUnit(value: unknown, unit: CSSUnit): string {
   return typeof value === 'number' ? `${value}${unit}` : `${value}`
 }
 
-export function negative(token: string): string {
-  return token.startsWith('$') ? `$-${token.substring(1)}` : `-${token}`
-}
-
 export function isToken(token: string) {
   return typeof token === 'string' && token.startsWith(TOKEN_PREFIX)
 }
