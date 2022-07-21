@@ -1,32 +1,22 @@
 ---
 title: VisuallyHidden
 path: /visually-hidden/
+hide_table_of_contents: true
 ---
 
-VisuallyHidden is a common technique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
+import { Page, Panel } from '@site/src/components/Page'
+import Code from '@site/content/visually-hidden/code.mdx'
+import Overview from '@site/content/visually-hidden/overview.mdx'
+import { tabToc } from '@site/content/visually-hidden/toc'
 
-## Import
-
-```jsx isStatic
-import { VisuallyHidden } from '@vtex/admin-ui'
-```
-
-## Behavior
-
-```jsx live
-<Box csx={{ display: 'flex', flexDirection: 'column', width: 200 }}>
-  <VisuallyHidden>
-    <label htmlFor="search">Hidden Label</label>
-  </VisuallyHidden>
-  <input id="search" type="search" placeholder="A11y Search Input" />
-  <Text variant="small" csx={{ alignSelf: 'flex-end', marginTop: 3 }}>
-    Use this input to search things
-  </Text>
-</Box>
-```
-
-## Props
-
-| Name     | Type        | Description             | Required | Default |
-| -------- | ----------- | ----------------------- | -------- | ------- |
-| children | `ReactNode` | VisuallyHidden children | 🚫       | -       |
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    <Overview />
+  </Panel>
+  <Panel id="codeReference">
+    <Code />
+  </Panel>
+  <Panel id="designReference">
+    <Design />
+  </Panel>
+</Page>

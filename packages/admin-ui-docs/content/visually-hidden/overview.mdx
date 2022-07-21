@@ -1,0 +1,40 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+VisuallyHidden is a common technique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Search
+
+A good usage example is the Search component, which we implement something similar like that internally.
+
+```jsx live
+<form
+  onSubmit={(e) => {
+    e.preventDefault()
+    alert('submitted')
+  }}
+>
+  <Box
+    as="input"
+    id="search"
+    type="search"
+    placeholder="A11y Search Input"
+    csx={{ border: '$neutral' }}
+  />
+  <VisuallyHidden>
+    <button type="submit" tabIndex={-1}>
+      Submit search
+    </button>
+  </VisuallyHidden>
+</form>
+```
+
+</Section>
