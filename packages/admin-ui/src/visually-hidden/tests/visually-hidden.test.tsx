@@ -2,7 +2,7 @@ import React from 'react'
 import { render, axe } from '../../test-utils'
 import { VisuallyHidden } from '..'
 
-describe('Tag tests', () => {
+describe('VisuallyHidden tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
       <div>
