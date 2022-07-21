@@ -1,9 +1,9 @@
-import { colors, style, styleVariants } from '@vtex/admin-ui-core'
+import { style, styleVariants } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
-function customPalette(color: string) {
+function customPalette(token: string) {
   return {
-    bg: get(colors, `${color}10`, ''),
+    bg: `${token}10`,
     color: '$primary',
   }
 }

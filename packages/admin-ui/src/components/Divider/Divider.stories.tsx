@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 import { Box } from '../../box'
 
 import { Divider } from './index'
-import { Card } from '../Card'
+import { Card } from '../../card'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
 

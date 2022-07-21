@@ -4,7 +4,7 @@ import type { Meta, Story } from '@storybook/react'
 import { Inline } from '../../inline'
 import type { DropdownProps } from './index'
 import { Dropdown, useDropdownState } from './index'
-import { Card } from '../Card'
+import { Card } from '../../card'
 
 export default {
   title: 'admin-ui/Dropdown',
