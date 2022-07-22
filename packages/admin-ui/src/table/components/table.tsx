@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from 'react'
+import React, { Fragment, useRef } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { TableHead } from './table-head'
@@ -6,19 +6,18 @@ import { TableBody } from './table-body'
 import type { TableState } from '../hooks/use-table-state'
 import { StateContext } from '../context'
 
-export const Table = createComponent<'div', TableOptions>((props) => {
+import * as styles from '../styles/table.styles'
+
+export const Table = createComponent<'table', TableOptions>((props) => {
   const { children, state, ...tableProps } = props
 
-  const tableRef = useRef<HTMLDivElement>(null)
+  const tableRef = useRef<HTMLTableElement>(null)
 
-  return useElement('div', {
+  return useElement('table', {
     ...tableProps,
     ref: tableRef as any,
     role: 'table',
-    baseStyle: {
-      display: 'grid',
-      overflow: 'auto',
-    },
+    baseStyle: styles.baseline({ columns: state?.columns }),
     children: (
       <StateContext.Provider value={{ ...state, tableRef }}>
         {children ?? (
