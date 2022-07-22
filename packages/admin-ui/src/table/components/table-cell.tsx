@@ -7,6 +7,7 @@ import React, { useRef, useEffect } from 'react'
 import { useStateContext } from '../context'
 import { Box } from '../../box'
 import { useForkRef } from '@vtex/admin-ui-hooks'
+import { useTableScroll } from '../hooks/use-table-scroll'
 
 export const TableCell = createComponent<'div', CellOptions>((props) => {
   const {
@@ -19,7 +20,7 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
     ...cellProps
   } = props
 
-  const { columns } = useStateContext()
+  const { columns, tableRef } = useStateContext()
 
   const clickable = !!onClick
 
@@ -29,12 +30,31 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
 
   const isLastFixedColumn = isFixed && lastFixedColumn?.id === column?.id
 
+  const hasHorizontalScroll = () => {
+    if (!isLastFixedColumn) {
+      return false
+    }
+
+    const { hasHorizontalScroll } = useTableScroll()
+
+    return hasHorizontalScroll
+  }
+
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (ref.current && isFixed) {
-      ref.current.style.left = `${ref.current.offsetLeft}px`
+    if (!tableRef?.current || !ref?.current || !isFixed) {
+      return
     }
+
+    const isBodyCell = ref.current.getAttribute('role') === 'cell'
+
+    const table = tableRef.current
+
+    // Remove the table left space when placing the fixed columns on the scroll
+    ref.current.style.left = isBodyCell
+      ? `${ref.current.offsetLeft - table.offsetLeft}px`
+      : `${ref.current.offsetLeft}px`
   }, [])
 
   return useElement('div', {
@@ -46,6 +66,7 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
         clickable,
         fixed: isFixed,
         lastFixed: isLastFixedColumn,
+        hasHorizontalScroll: hasHorizontalScroll(),
       }),
     },
     role,
