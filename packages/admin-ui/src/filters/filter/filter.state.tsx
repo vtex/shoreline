@@ -5,6 +5,7 @@ import { useComboboxState } from '../../combobox/combobox.state'
 import type { AnyObject } from '@vtex/admin-ui-util'
 import type { MenuState } from 'ariakit'
 import { useMenuState } from 'ariakit'
+import { useFilterStatus } from '../use-filter-status'
 
 export function useFilterState<T extends AnyObject>(
   props?: UseFilterStateProps<T>
@@ -20,6 +21,7 @@ export function useFilterState<T extends AnyObject>(
   })
 
   const menu = useMenuState(combobox)
+  const { status, setStatus } = useFilterStatus(combobox)
 
   const updateApplied = (item: FilterOption<T>) => {
     combobox.setSelectedItem(item)
@@ -65,6 +67,13 @@ export function useFilterState<T extends AnyObject>(
     )
   }
 
+  const {
+    matches,
+    setMatches,
+    deferredValue: deferredSearchValue,
+    value: searchValue,
+  } = combobox
+
   return {
     combobox,
     menu,
@@ -73,6 +82,12 @@ export function useFilterState<T extends AnyObject>(
     appliedItem,
     setAppliedItem: updateApplied,
     getFromApplied,
+    status,
+    setStatus,
+    matches,
+    setMatches,
+    deferredSearchValue,
+    searchValue,
   }
 }
 
@@ -84,11 +99,26 @@ export interface FilterOption<T> {
   value?: T
 }
 
+export type FilterStatus =
+  | 'error'
+  | 'loading'
+  | 'ready'
+  | 'empty'
+  | 'not-found'
+  | 'search-error'
+  | 'loading-search'
+
 export interface GenericFilterStateReturn<T> {
   onClear: () => void
   onChange: () => void
   combobox: ComboboxState<FilterOption<T>>
   menu: MenuState
+  status: FilterStatus
+  setStatus: (status: FilterStatus) => void
+  searchValue?: string
+  deferredSearchValue?: string
+  matches: ItemList<T>
+  setMatches: (items: ItemList<T>) => void
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {
