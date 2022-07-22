@@ -80,10 +80,10 @@ export function EmptySearchExample() {
   const [result, setResult] = useState<Array<{ id: string; country: string }>>()
 
   useEffect(() => {
-    state.combobox.setStatus('loading')
+    state.setStatus('loading-search')
     api(state.combobox.deferredValue).then((res) => {
       setResult(res)
-      state.combobox.setStatus(res.length ? 'ready' : 'not-found')
+      state.setStatus(res.length ? 'ready' : 'not-found')
     })
   }, [state.combobox.deferredValue])
 
@@ -110,11 +110,11 @@ export function ErrorSearchExample() {
   const [error, setError] = useState<string>()
 
   useEffect(() => {
-    state.combobox.setStatus('loading')
+    state.setStatus('loading-search')
     api(state.combobox.deferredValue).then((res) => {
       setResult(res)
       setError('bad error')
-      state.combobox.setStatus('error')
+      state.setStatus('search-error')
     })
   }, [state.combobox.deferredValue])
 
