@@ -25,7 +25,7 @@ export const FilterSearchbox = createComponent<
     onChange: (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
     },
-    baseStyle: { margin: '$l' },
+    baseStyle: { margin: '$l', order: -1 },
   })
 })
 

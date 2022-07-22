@@ -3,19 +3,16 @@ import type { Meta } from '@storybook/react'
 
 import { FilterDisclosure } from '../filter-disclosure'
 import { FilterPopover } from '../filter-popover'
-
 import { FilterFooter } from '../filter-footer'
 import { FilterListbox } from '../filter-listbox'
 import { useFilterMultipleState } from '../filter-multiple/filter-multiple.state'
 import { useFilterState } from '../filter/filter.state'
-
 import { FilterOptionRadio } from '../filter/filter-option-radio'
-
 import { FilterSearchbox } from '../filter-searchbox'
 import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
 
 export default {
-  title: 'admin-ui/FiltersSearch',
+  title: 'admin-ui/Filters/status',
   component: FilterSearchbox,
 } as Meta
 
@@ -78,71 +75,9 @@ export function SingleSearch() {
   )
 }
 
-export function MultiSearch() {
-  const items = [
-    { label: 'Full', id: '#1' },
-    { label: 'Empty', id: '#2' },
-    { label: 'Half full', id: '#3' },
-    { label: 'Half empty', id: '#4' },
-    { label: 'Unknown', id: '#5' },
-  ]
-
-  const filterState = useFilterMultipleState({ fullList: items })
-
-  return (
-    <>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-      <FilterPopover state={filterState}>
-        <FilterSearchbox id="boxy" />
-        <FilterListbox>
-          {filterState.combobox.matches.map((item) => (
-            <FilterOptionCheckbox id={item.id} label={item.label} />
-          ))}
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
-
-// problematic, there should be a way to update fulllist async
-// this is the case where the initial value is fetched but the
-// search is uncontrolled
-export function Async() {
-  const [fullList, setFullList] = useState<
-    Array<{ id: string; label: string }>
-  >([])
-
-  const filterState = useFilterMultipleState({ fullList })
-
-  useEffect(() => {
-    api('', 5000).then((res: any[]) =>
-      setFullList(res.map((i) => ({ id: i.id, label: i.country })))
-    )
-  }, [])
-
-  return (
-    <>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-
-      <FilterPopover state={filterState}>
-        <FilterSearchbox id="boxy" />
-        <FilterListbox>
-          {filterState.combobox.matches.map((item) => (
-            <FilterOptionCheckbox id={item.id} label={item.label} />
-          ))}
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
-
-export function AsyncSearch() {
+export function EmptySearchExample() {
   const state = useFilterMultipleState()
-  const [result, setResult] = useState<Array<{ id: string; country: string }>>(
-    []
-  )
+  const [result, setResult] = useState<Array<{ id: string; country: string }>>()
 
   useEffect(() => {
     state.combobox.setStatus('loading')
@@ -154,12 +89,12 @@ export function AsyncSearch() {
 
   return (
     <>
-      <FilterDisclosure state={state}>Example</FilterDisclosure>
+      <FilterDisclosure state={state}>Controlled empty state</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterSearchbox id="boxy" />
+        <FilterSearchbox id="s" />
         <FilterListbox>
-          {result.map((item) => (
+          {result?.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.country} />
           ))}
         </FilterListbox>
@@ -169,34 +104,33 @@ export function AsyncSearch() {
   )
 }
 
-export function CsxDemo() {
-  const items = [
-    { label: 'Full', id: '#1' },
-    { label: 'Empty', id: '#2' },
-    { label: 'Half full', id: '#3' },
-    { label: 'Half empty', id: '#4' },
-    { label: 'Unknown', id: '#5' },
-  ]
+export function ErrorSearchExample() {
+  const state = useFilterMultipleState()
+  const [result, setResult] = useState<Array<{ id: string; country: string }>>()
+  const [error, setError] = useState<string>()
 
-  const filterState = useFilterMultipleState({ fullList: items })
+  useEffect(() => {
+    state.combobox.setStatus('loading')
+    api(state.combobox.deferredValue).then((res) => {
+      setResult(res)
+      setError('bad error')
+      state.combobox.setStatus('error')
+    })
+  }, [state.combobox.deferredValue])
 
   return (
     <>
-      <FilterDisclosure state={filterState} csx={{ color: 'white' }}>
-        Example
-      </FilterDisclosure>
-      <FilterPopover state={filterState} csx={{ color: 'brown' }}>
-        <FilterSearchbox id="boxy" csx={{ backgroundColor: 'lightGray' }} />
-        <FilterListbox csx={{ color: 'pink' }}>
-          {filterState.combobox.matches.map((item) => (
-            <FilterOptionCheckbox
-              id={item.id}
-              label={item.label}
-              csx={{ fontWeight: 800 }}
-            />
-          ))}
+      <FilterDisclosure state={state}>Controlled empty state</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox id="error" />
+        <FilterListbox>
+          {!error &&
+            result?.map((item) => (
+              <FilterOptionCheckbox id={item.id} label={item.country} />
+            ))}
         </FilterListbox>
-        <FilterFooter state={filterState} csx={{ color: 'yellow' }} />
+        <FilterFooter />
       </FilterPopover>
     </>
   )

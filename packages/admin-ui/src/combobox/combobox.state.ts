@@ -34,8 +34,7 @@ export function useComboboxState<T>(
   const [selectedItem, setSelectedItem] = useState<T>()
 
   // data states
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+  const [userStatus, setStatus] = useState<ComboboxStatus>()
 
   // filters matches when input changes
   useEffect(() => {
@@ -57,44 +56,50 @@ export function useComboboxState<T>(
     }
   }, [state.value])
 
-  const status = useMemo<Status>(() => {
-    if (loading) {
-      return 'loading'
-    }
-
-    if (error) {
-      return 'error'
+  const status = useMemo<ComboboxStatus>(() => {
+    if (userStatus) {
+      return userStatus
     }
 
     const noMatches = !matches.length
 
     if (noMatches && state.value === '') {
-      return 'empty-search'
+      return 'empty'
     }
 
     if (noMatches) {
-      return 'no-result'
+      return 'not-found'
     }
 
     return 'ready'
-  }, [loading, error, matches, state.value])
+  }, [userStatus, matches, state.value])
 
   return {
     ...state,
     deferredValue,
-    setError,
-    setLoading,
     status,
+    setStatus,
     getOptionValue,
     renderOption,
     setSelectedItem,
     selectedItem,
     setMatches,
     matches,
+    setError: (bool) => {
+      setStatus(bool ? 'error' : undefined)
+    },
+    setLoading: (bool) => {
+      setStatus(bool ? 'loading' : undefined)
+    },
   }
 }
 
-type Status = 'loading' | 'error' | 'empty-search' | 'no-result' | 'ready'
+export type ComboboxStatus =
+  | 'ready'
+  | 'loading'
+  | 'not-found'
+  | 'empty'
+  | 'error'
 
 export type ComboboxStateProps<T> = Pick<
   AriakitComboboxStateProps,
@@ -118,7 +123,9 @@ export type ComboboxState<T> = Omit<AriakitComboboxState, 'matches'> & {
   /** Sets component state to loading */
   setLoading: Dispatch<SetStateAction<boolean>>
   /** Component status */
-  status: Status
+  status: ComboboxStatus
+  /** Sets component status */
+  setStatus: Dispatch<SetStateAction<ComboboxStatus | undefined>>
   /** Function that gets text value from the items in matches or list */
   getOptionValue: (item: T) => string
   /** Function that render items from matches or list */
