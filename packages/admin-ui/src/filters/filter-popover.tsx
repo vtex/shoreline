@@ -12,7 +12,7 @@ import { FilterStatus } from './filter-status'
 
 export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
   (props) => {
-    const { children, state, ...restProps } = props
+    const { children, state, onRetry = () => {}, ...restProps } = props
 
     const [isScrollableLayout, setIsScrollableLayout] = useState(false)
     const contextState = { isScrollableLayout, setIsScrollableLayout, state }
@@ -41,7 +41,7 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
         <PopoverProvider value={contextState}>
           <Flex direction="column">
             {shouldDisplayChildren && children}
-            <FilterStatus status={state.status} onRetry={() => {}} />
+            <FilterStatus status={state.status} onRetry={onRetry} />
           </Flex>
         </PopoverProvider>
       ),
@@ -53,4 +53,5 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
 
 type FilterPopoverOptions = Omit<MenuProps, 'state'> & {
   state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+  onRetry?: () => void
 }
