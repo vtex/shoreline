@@ -9,7 +9,7 @@ import { Box } from '../../box'
 
 import { useTableScroll } from '../hooks/use-table-scroll'
 
-export const TableHead = createComponent<'div'>((props) => {
+export const TableHead = createComponent<'thead'>((props) => {
   const { children, ...headProps } = props
 
   const { hasVerticalScroll } = useTableScroll()
@@ -21,12 +21,9 @@ export const TableHead = createComponent<'div'>((props) => {
     DESC: 'descending',
   } as any
 
-  return useElement('div', {
+  return useElement('thead', {
     ...headProps,
-    baseStyle: {
-      ...styles.baseline,
-      ...styles.variant({ hasVerticalScroll }),
-    },
+    baseStyle: styles.baseline,
     role: 'rowgroup',
     children: (
       <Row>
@@ -39,6 +36,10 @@ export const TableHead = createComponent<'div'>((props) => {
           const cellProps = {
             column,
             role: 'columnheader',
+            csx: {
+              ...styles.columnCell,
+              ...styles.variant({ hasVerticalScroll }),
+            },
             ...(sortDirection && {
               'aria-sort': ariaSortLabel[sortDirection],
             }),
@@ -70,13 +71,10 @@ export const TableHead = createComponent<'div'>((props) => {
   })
 })
 
-const Row = createComponent<'div'>((props) => {
-  const state = useStateContext()
-
-  return useElement('div', {
-    baseStyle: styles.rowBaseline({ columns: state.columns }),
+const Row = createComponent<'tr'>((props) => {
+  return useElement('tr', {
+    baseStyle: styles.rowBaseline,
     role: 'row',
-    csx: { height: 50 },
     ...props,
   })
 })
