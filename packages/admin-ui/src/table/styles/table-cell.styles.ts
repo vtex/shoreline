@@ -3,10 +3,11 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 export const baseline = style({
   display: 'flex',
   alignItems: 'center',
-  wordBreak: 'break-word',
   text: '$body',
   minHeight: '2.75rem',
   bg: '$primary',
+  borderBottom: '$neutral',
+  padding: 0,
 })
 
 export const variants = styleVariants({
@@ -27,7 +28,14 @@ export const variants = styleVariants({
   fixed: {
     true: {
       position: 'sticky',
-      zIndex: 2,
+
+      '[role=columnheader]': {
+        zIndex: 4,
+      },
+
+      '[role=cell]': {
+        zIndex: 2,
+      },
 
       ':first-child > div': {
         paddingLeft: '$l',
@@ -37,36 +45,39 @@ export const variants = styleVariants({
         paddingX: '$xl',
       },
     },
-    false: {
-      paddingX: '$xl',
-
-      ':first-child': {
-        paddingLeft: '$l',
-      },
-
-      ':last-child': {
-        paddingRight: '$l',
-      },
-    },
+    false: {},
   },
   lastFixed: {
     true: {
       borderRight: '$neutral',
-      zIndex: 1,
+
+      '[role=columnheader]': {
+        zIndex: 3,
+      },
+
+      '[role=cell]': {
+        overflowY: 'clip',
+        zIndex: 1,
+      },
     },
     false: {},
   },
   hasHorizontalScroll: {
     true: {
-      boxShadow: '$overlay.center',
+      '> div': {
+        boxShadow: '$overlay.center',
+        overflowY: 'clip',
+      },
     },
     false: {
-      boxShadow: 'none',
+      '> div': {
+        boxShadow: 'none',
+      },
     },
   },
 })
 
-export const fixedInnerContainer = style({
+export const innerContainer = style({
   display: 'flex',
   alignItems: 'center',
   paddingX: '$xl',

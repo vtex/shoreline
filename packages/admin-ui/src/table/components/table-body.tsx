@@ -13,16 +13,17 @@ import type { BaseResolvers } from '../resolvers/base'
 
 import * as styles from '../styles/table-body.styles'
 
-export const TableBody = createComponent<'div', TableBodyOptions>((props) => {
+export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
   const { children, ...restProps } = props
   const { status } = useDataViewContext()
   const { data, getRowKey } = useStateContext()
 
   const shouldRender = status === 'ready' || status === 'loading'
 
-  return useElement('div', {
+  return useElement('tbody', {
     ...restProps,
     role: 'rowgroup',
+    baseStyle: styles.baseline,
     children: shouldRender && (
       <Fragment>
         {isFunction(children)
@@ -67,7 +68,7 @@ export interface TableBodyOptions {
     | ReactNode
 }
 
-export const TableBodyRow = createComponent<'div', TableBodyRowOptions>(
+export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
   (props) => {
     const { item = {}, children, ...rowProps } = props
 
@@ -96,10 +97,10 @@ export const TableBodyRow = createComponent<'div', TableBodyRowOptions>(
       }
     }
 
-    return useElement('div', {
+    return useElement('tr', {
       ...rowProps,
       baseStyle: {
-        ...styles.rowBaseline({ columns }),
+        ...styles.rowBaseline,
         ...styles.variants({ clickable }),
         ...styles.variants({ selected: isRowSelected() }),
       },

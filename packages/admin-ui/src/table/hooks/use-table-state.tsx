@@ -206,7 +206,7 @@ export interface TableState<T> {
   /**
    * Table ref
    */
-  tableRef?: RefObject<HTMLDivElement>
+  tableRef?: RefObject<HTMLTableElement>
 }
 
 /**
