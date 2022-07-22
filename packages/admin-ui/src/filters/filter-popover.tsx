@@ -17,6 +17,12 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
     const [isScrollableLayout, setIsScrollableLayout] = useState(false)
     const contextState = { isScrollableLayout, setIsScrollableLayout, state }
 
+    const shouldDisplayChildren = !(
+      state.status === 'error' ||
+      state.status === 'loading' ||
+      state.status === 'empty'
+    )
+
     return useElement(Menu, {
       baseStyle: {
         text: '$body',
@@ -34,8 +40,8 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
       children: (
         <PopoverProvider value={contextState}>
           <Flex direction="column">
-            {children}
-            <FilterStatus status={state.combobox.status} onRetry={() => {}} />
+            {shouldDisplayChildren && children}
+            <FilterStatus status={state.status} onRetry={() => {}} />
           </Flex>
         </PopoverProvider>
       ),

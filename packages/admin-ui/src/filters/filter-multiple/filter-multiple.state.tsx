@@ -10,6 +10,7 @@ import type {
   FilterOption,
 } from '../filter/filter.state'
 import { useMenuState } from 'ariakit'
+import { useFilterStatus } from '../use-filter-status'
 
 export function useFilterMultipleState<T extends AnyObject>(
   props?: UseFilterMultipleStateProps<T>
@@ -25,6 +26,7 @@ export function useFilterMultipleState<T extends AnyObject>(
   })
 
   const menu = useMenuState(comboboxMultiple)
+  const { status, setStatus } = useFilterStatus(comboboxMultiple)
 
   useEffect(() => {
     comboboxMultiple.setSelectedItems([])
@@ -66,6 +68,13 @@ export function useFilterMultipleState<T extends AnyObject>(
       .filter((item) => item !== undefined)
   }
 
+  const {
+    matches,
+    setMatches,
+    deferredValue: deferredSearchValue,
+    value: searchValue,
+  } = comboboxMultiple
+
   return {
     combobox: comboboxMultiple,
     onClear: clear,
@@ -75,6 +84,12 @@ export function useFilterMultipleState<T extends AnyObject>(
     selectedItems,
     menu,
     getFromApplied,
+    status,
+    setStatus,
+    matches,
+    setMatches,
+    deferredSearchValue,
+    searchValue,
   }
 }
 

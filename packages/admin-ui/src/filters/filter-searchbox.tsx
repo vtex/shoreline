@@ -10,15 +10,15 @@ export const FilterSearchbox = createComponent<
 >((props) => {
   const { id, ...restProps } = props
   const {
-    state: { combobox },
+    state: { status, combobox },
   } = usePopoverContext()
 
-  const { setValue, value, status } = combobox
+  const { setValue, value } = combobox
 
   return useElement(Search, {
     ...restProps,
     value: value as string,
-    loading: status === 'loading',
+    loading: status === 'loading-search',
     onClear: () => {
       setValue('')
     },
