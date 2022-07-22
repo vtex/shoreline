@@ -1,15 +1,17 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { VariantProps } from '@vtex/admin-ui-core'
-import { cx } from '@vtex/admin-ui-core'
-import * as styles from '../styles/table-cell.styles'
-import type { TableColumn } from '../types'
 import React, { useRef, useEffect } from 'react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
+import type { VariantProps } from '@vtex/admin-ui-core'
+import { useForkRef } from '@vtex/admin-ui-hooks'
+
+import type { TableColumn } from '../types'
 import { useStateContext } from '../context'
 import { Box } from '../../box'
-import { useForkRef } from '@vtex/admin-ui-hooks'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
-export const TableCell = createComponent<'div', CellOptions>((props) => {
+import * as styles from '../styles/table-cell.styles'
+
+export const TableCell = createComponent<'td', CellOptions>((props) => {
   const {
     column,
     onClick,
@@ -20,7 +22,7 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
     ...cellProps
   } = props
 
-  const { columns, tableRef } = useStateContext()
+  const { columns } = useStateContext()
 
   const clickable = !!onClick
 
@@ -40,24 +42,17 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
     return hasHorizontalScroll
   }
 
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLTableCellElement>(null)
 
   useEffect(() => {
-    if (!tableRef?.current || !ref?.current || !isFixed) {
+    if (!ref?.current || !isFixed) {
       return
     }
 
-    const isBodyCell = ref.current.getAttribute('role') === 'cell'
-
-    const table = tableRef.current
-
-    // Remove the table left space when placing the fixed columns on the scroll
-    ref.current.style.left = isBodyCell
-      ? `${ref.current.offsetLeft - table.offsetLeft}px`
-      : `${ref.current.offsetLeft}px`
+    ref.current.style.left = `${ref.current.offsetLeft}px`
   }, [])
 
-  return useElement('div', {
+  return useElement('td', {
     ref: useForkRef(ref, htmlRef as any),
     className: isFixed ? cx('__admin-ui-fixed-cell', className) : className,
     baseStyle: {
@@ -72,11 +67,7 @@ export const TableCell = createComponent<'div', CellOptions>((props) => {
     role,
     onClick,
     ...cellProps,
-    children: isFixed ? (
-      <Box csx={styles.fixedInnerContainer}>{children}</Box>
-    ) : (
-      children
-    ),
+    children: <Box csx={styles.innerContainer}>{children}</Box>,
   })
 })
 

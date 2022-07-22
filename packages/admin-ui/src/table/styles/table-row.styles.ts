@@ -1,26 +1,5 @@
 import { style } from '@vtex/admin-ui-core'
-import type { TableColumn } from '../types'
 
-interface RowOptions {
-  columns: Array<TableColumn<any>>
-}
-
-const getColumnWidth = (column: TableColumn<any>) => {
-  if (column.width === undefined) {
-    return 'minmax(6.25rem, 1fr)'
-  }
-
-  if (typeof column.width === 'number') {
-    return `${column.width}px`
-  }
-
-  return column.width
-}
-
-export const rowBaseline = ({ columns }: RowOptions) =>
-  style({
-    display: 'grid',
-    borderBottom: '$neutral',
-    gridTemplateColumns: columns.map(getColumnWidth).join(' '),
-    overflowY: 'clip',
-  })
+export const rowBaseline = style({
+  display: 'contents',
+})
