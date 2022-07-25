@@ -1,6 +1,10 @@
-import { styleVariants } from '@vtex/admin-ui-core'
+import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export * from './table-row.styles'
+
+export const baseline = style({
+  display: 'contents',
+})
 
 export const variants = styleVariants({
   clickable: {
@@ -11,7 +15,7 @@ export const variants = styleVariants({
           bg: '$action.neutral.tertiaryHover',
         },
 
-        'div[role=cell]:not(.__admin-ui-fixed-cell)': {
+        'td[role=cell]:not(.__admin-ui-fixed-cell)': {
           bg: '$action.neutral.tertiaryHover',
         },
       },
@@ -20,12 +24,12 @@ export const variants = styleVariants({
   },
   selected: {
     true: {
-      'div[role=cell]': {
+      'td[role=cell]': {
         bg: '$action.main.tertiarySelected',
       },
     },
     false: {
-      'div[role=cell]': {
+      'td[role=cell]': {
         bg: '$primary',
       },
     },

@@ -3,11 +3,16 @@ import { style, styleVariants } from '@vtex/admin-ui-core'
 export * from './table-row.styles'
 
 export const baseline = style({
+  display: 'contents',
+})
+
+export const columnCell = style({
   position: 'sticky',
   top: 0,
-  zIndex: 3,
   color: '$secondary',
   background: '$primary',
+  overflowX: 'clip',
+  zIndex: 1,
 })
 
 export const sortableContainer = style({
@@ -31,10 +36,14 @@ export const sortIndicator = style({
 export const variant = styleVariants({
   hasVerticalScroll: {
     true: {
-      boxShadow: '$overlay.center',
+      '> div': {
+        boxShadow: '$overlay.center',
+      },
     },
     false: {
-      boxShadow: 'none',
+      '> div': {
+        boxShadow: 'none',
+      },
     },
   },
 })
