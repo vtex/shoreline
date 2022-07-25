@@ -87,11 +87,9 @@ function WithinDataView() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -209,11 +207,9 @@ function WithSearch() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -289,11 +285,9 @@ function WithToolbar() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -405,11 +399,9 @@ function WithPagination() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -509,11 +501,9 @@ function StatusExample() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -661,12 +651,10 @@ const columns = createColumns([
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-          onClick: handleClick,
+          label: 'Add to cart
         },
         {
-          label: 'Buy',
-          onClick: handleClick,
+          label: 'Buy
         },
       ],
     },
@@ -840,11 +828,9 @@ function WithFullTopbar() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -977,11 +963,9 @@ function DataFetchExample() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -1085,11 +1069,9 @@ function DataFetchExample() {
           actions: [
             {
               label: 'Add to cart',
-              onClick: handleClick,
             },
             {
               label: 'Buy',
-              onClick: handleClick,
             },
           ],
         },
@@ -1212,7 +1194,7 @@ function Dnd() {
   }
 
   return (
-    <Table state={state} csx={{ width: 'unset' }}>
+    <Table state={state}>
       <TableHead />
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
