@@ -53,7 +53,7 @@ export interface AdminUIElement<Type, Props extends {}>
   /**
    * Prioritize elements over components
    * @example
-   * const Button = jsx('button')()
+   * const Button = createComponent<'button'>()
    *
    * <Button href="" /> // 🚨 type error
    * <Button as="a" href="" /> // ✅ all good
@@ -71,7 +71,7 @@ export interface AdminUIElement<Type, Props extends {}>
   /**
    * Handle a component type
    * @example
-   * const Button = jsx('button')()
+   * const Button = createComponent<'button'>()
    *
    * <Button to="" /> // 🚨 type error
    * <Button as={GatsbyLink} to="" /> // ✅ all good
@@ -103,7 +103,7 @@ export interface AdminUIComponent<Type, Props extends {}>
   /**
    * Handle a component type
    * @example
-   * const Button = jsx('button')()
+   * const Button = createComponent<'button'>()
    *
    * <Button to="" /> // 🚨 type error
    * <Button as={GatsbyLink} to="" /> // ✅ all good
@@ -122,7 +122,7 @@ export interface AdminUIComponent<Type, Props extends {}>
   /**
    * Prioritize elements over components
    * @example
-   * const Button = jsx('button')()
+   * const Button = createComponent<'button'>()
    *
    * <Button href="" /> // 🚨 type error
    * <Button as="a" href="" /> // ✅ all good
