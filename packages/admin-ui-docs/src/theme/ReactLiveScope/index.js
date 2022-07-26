@@ -6,10 +6,7 @@
  */
 
 import React from 'react'
-
 import * as AdminUi from '@vtex/admin-ui'
-import * as AdminFormik from '@vtex/admin-formik'
-import * as Formik from 'formik'
 import * as Yup from 'yup'
 import * as Intl from 'react-intl'
 import * as dnd from 'react-beautiful-dnd'
@@ -30,8 +27,6 @@ const ReactLiveScope = {
   React,
   ...React,
   ...AdminUi,
-  ...AdminFormik,
-  ...Formik,
   ...dnd,
   Forms,
   Yup,

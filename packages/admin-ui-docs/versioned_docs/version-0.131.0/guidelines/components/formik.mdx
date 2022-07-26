@@ -79,7 +79,7 @@ All components of this package have a mandatory property called `name` in their 
 
 Note that in the example, the form data contains an object "name" that contains two fields: first and last. Therefore, the name property for the input that corresponds to the first name receives "name.first" and the one corresponding to the last name receives "name.last".
 
-```tsx live
+```tsx
 function Example() {
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true)
@@ -290,7 +290,7 @@ Note that in the example, the initial value is set to a value that generates an 
 
 Touch the fields or try submitting to see error messages.
 
-```tsx live
+```tsx
 function Example() {
   const messagesEN = {
     'myApp.erros.error3': 'This is error message formatted with react-intl',
@@ -410,7 +410,7 @@ In the example below we show both ways, using the [react-intl](https://formatjs.
 
 Touch the fields or try submitting to see error messages.
 
-```tsx live
+```tsx
 function Example() {
   const messagesEN = {
     'myApp.erros.myError': 'This is error message formatted with react-intl',
@@ -474,7 +474,7 @@ Below is a slightly more complete example that shows the possibilities that this
 - **Validation:** In the example, the data also undergoes a validation before being submitted. For this, in this example, [Yup](https://github.com/jquense/yup) is used, a package often used with `Formik`. It is observed that we can validate the fields by several criteria. There is an example of a case of conditional validation in the age field. The maximum exists only for human beings, for other creatures there is no age limit. More information about the possibilities of Yup can be found in its [documentation](https://github.com/jquense/yup). Also note that validation for negative ages is carried out in addition to limiting negative values by the `minValue` property. It is important to do this as the `minValue` and `maxValue` properties do not limit values that are entered by the keyboard.
 - **Localization:** In this example, error messages are not done with localization for simplicity. If you want to know how to do it, see the [Localization of error messages section](#localization-of-error-messages).
 
-```tsx live
+```tsx
 function ExampleComplete() {
   const [startWithSomeone, setStartWithSomeone] = React.useState(false)
 
