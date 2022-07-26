@@ -17,7 +17,7 @@ export default {
 } as Meta
 
 // just a sample API
-function api(search: string, delay = 1000): Promise<any[]> {
+function api(search?: string, delay = 1000): Promise<any[]> {
   const items = [
     { country: 'Brazil', id: '1' },
     { country: 'Bahamas', id: '2' },
@@ -41,9 +41,11 @@ function api(search: string, delay = 1000): Promise<any[]> {
     { country: 'Azerbaijan', id: '20' },
   ]
 
-  const res = items.filter((item) =>
-    item.country.toLowerCase().startsWith(search.toLowerCase())
-  )
+  const res = search
+    ? items.filter((item) =>
+        item.country.toLowerCase().startsWith(search.toLowerCase())
+      )
+    : items
 
   return new Promise((resolve) => setTimeout(resolve, delay, res))
 }
@@ -65,7 +67,7 @@ export function SingleSearch() {
       <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
         <FilterListbox>
-          {filterState.combobox.matches.map((item) => (
+          {filterState.matches.map((item) => (
             <FilterOptionRadio id={item.id} label={item.label} />
           ))}
         </FilterListbox>
@@ -78,21 +80,23 @@ export function SingleSearch() {
 export function EmptySearchExample() {
   const state = useFilterMultipleState()
   const [result, setResult] = useState<Array<{ id: string; country: string }>>()
+  const [loadingSearch, setLoadingSearch] = useState(false)
 
   useEffect(() => {
-    state.setStatus('loading-search')
-    api(state.combobox.deferredValue).then((res) => {
+    setLoadingSearch(true)
+    api(state.deferredSearchValue).then((res) => {
       setResult(res)
+      setLoadingSearch(false)
       state.setStatus(res.length ? 'ready' : 'not-found')
     })
-  }, [state.combobox.deferredValue])
+  }, [state.deferredSearchValue])
 
   return (
     <>
       <FilterDisclosure state={state}>Controlled empty state</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterSearchbox id="s" />
+        <FilterSearchbox id="s" loading={loadingSearch} />
         <FilterListbox>
           {result?.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.country} />
@@ -107,28 +111,27 @@ export function EmptySearchExample() {
 export function ErrorSearchExample() {
   const state = useFilterMultipleState()
   const [result, setResult] = useState<Array<{ id: string; country: string }>>()
-  const [error, setError] = useState<string>()
+  const [loadingSearch, setLoadingSearch] = useState(false)
 
   useEffect(() => {
-    state.setStatus('loading-search')
-    api(state.combobox.deferredValue).then((res) => {
+    setLoadingSearch(true)
+    api(state.deferredSearchValue).then((res) => {
       setResult(res)
-      setError('bad error')
-      state.setStatus('search-error')
+      setLoadingSearch(false)
+      state.setStatus('error')
     })
-  }, [state.combobox.deferredValue])
+  }, [state.deferredSearchValue])
 
   return (
     <>
       <FilterDisclosure state={state}>Controlled empty state</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterSearchbox id="error" />
+        <FilterSearchbox id="error" loading={loadingSearch} />
         <FilterListbox>
-          {!error &&
-            result?.map((item) => (
-              <FilterOptionCheckbox id={item.id} label={item.country} />
-            ))}
+          {result?.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.country} />
+          ))}
         </FilterListbox>
         <FilterFooter />
       </FilterPopover>

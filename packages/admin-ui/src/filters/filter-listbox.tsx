@@ -15,7 +15,7 @@ export const FilterListbox = createComponent<'div', FilterListboxProps>(
     const {
       isScrollableLayout,
       setIsScrollableLayout,
-      state: { combobox },
+      state: { combobox, status },
     } = usePopoverContext()
 
     const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
@@ -31,7 +31,7 @@ export const FilterListbox = createComponent<'div', FilterListboxProps>(
 
     const ariakitcomboboxState = { ...combobox, matches: [] }
 
-    const display = Array.isArray(children) && children.length ? 'auto' : 'none'
+    const display = status === 'ready' ? 'auto' : 'none'
 
     return useElement('div', {
       baseStyle: {
