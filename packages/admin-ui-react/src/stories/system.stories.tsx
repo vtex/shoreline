@@ -155,7 +155,7 @@ export function InternalState() {
           <TooltipReference
             state={tooltip}
             ref={children.ref}
-            {...children.props}
+            {...(children as any).props}
           >
             {(referenceProps) => React.cloneElement(children, referenceProps)}
           </TooltipReference>
