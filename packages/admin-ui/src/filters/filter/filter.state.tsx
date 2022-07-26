@@ -99,14 +99,7 @@ export interface FilterOption<T> {
   value?: T
 }
 
-export type FilterStatus =
-  | 'error'
-  | 'loading'
-  | 'ready'
-  | 'empty'
-  | 'not-found'
-  | 'search-error'
-  | 'loading-search'
+export type FilterStatus = 'error' | 'loading' | 'ready' | 'empty' | 'not-found'
 
 export interface GenericFilterStateReturn<T> {
   onClear: () => void

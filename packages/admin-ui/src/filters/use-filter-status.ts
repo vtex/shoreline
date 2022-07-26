@@ -15,15 +15,7 @@ export function useFilterStatus<T extends AnyObject>(props: ComboboxState<T>) {
       return status
     }
 
-    if (comboboxStatus === 'error') {
-      return 'search-error'
-    }
-
-    if (comboboxStatus === 'loading') {
-      return 'loading-search'
-    }
-
-    if (comboboxStatus === 'not-found') {
+    if (comboboxStatus === 'not-found' || comboboxStatus === 'error') {
       return comboboxStatus
     }
 
@@ -32,19 +24,8 @@ export function useFilterStatus<T extends AnyObject>(props: ComboboxState<T>) {
 
   const setStatusB = (newStatus: FilterStatus) => {
     setStatus(newStatus)
-    if (newStatus === 'loading-search') {
-      setComboboxStatus('loading')
 
-      return
-    }
-
-    if (newStatus === 'search-error') {
-      setComboboxStatus('error')
-
-      return
-    }
-
-    if (newStatus === 'not-found') {
+    if (newStatus === 'not-found' || newStatus === 'error') {
       setComboboxStatus(newStatus)
 
       return

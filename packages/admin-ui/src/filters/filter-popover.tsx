@@ -18,9 +18,7 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
     const contextState = { isScrollableLayout, setIsScrollableLayout, state }
 
     const shouldDisplayChildren = !(
-      state.status === 'error' ||
-      state.status === 'loading' ||
-      state.status === 'empty'
+      state.status === 'loading' || state.status === 'empty'
     )
 
     return useElement(Menu, {
