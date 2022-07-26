@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { cloneElement, Fragment } from 'react'
-import { IconContainer, tag } from '@vtex/admin-ui-react'
+import { IconContainer } from '@vtex/admin-ui-react'
 import { merge } from '@vtex/admin-ui-util'
 import {
   IconMagnifyingGlass,
@@ -9,6 +9,7 @@ import {
 } from '@vtex/phosphor-icons'
 import { keyframes } from '@vtex/admin-ui-core'
 
+import { Box } from '../../box'
 import { Button } from '../../button'
 import type { SystemComponent } from '../../types'
 import { useStateContext, StateContext } from './context'
@@ -34,14 +35,14 @@ function __SearchBox(props: SearchBoxProps) {
 
   return (
     <LocaleProvider value={locale}>
-      <tag.div csx={style.box}>
+      <Box csx={style.box}>
         <VisuallyHidden>
           <label {...labelProps}>
             <Intl id="comboboxLabel" />
           </label>
         </VisuallyHidden>
         <StateContext.Provider value={state}>{children}</StateContext.Provider>
-      </tag.div>
+      </Box>
     </LocaleProvider>
   )
 }
@@ -79,9 +80,10 @@ function Input(props: InputProps) {
   }
 
   return (
-    <tag.div {...comboboxProps} csx={style.inputContainer}>
+    <Box {...comboboxProps} csx={style.inputContainer}>
       <IconMagnifyingGlass csx={style.inputIcon} />
-      <tag.input
+      <Box
+        as="input"
         {...inputProps}
         {...elementProps}
         placeholder={intl('placeholder')}
@@ -96,7 +98,7 @@ function Input(props: InputProps) {
           onClick={handleClear}
         />
       )}
-    </tag.div>
+    </Box>
   )
 }
 
@@ -123,11 +125,12 @@ function Menu(props: MenuProps) {
   return (
     <Label>
       {displaySuggestions && (
-        <tag.p csx={style.label}>
-          <tag.span>{type !== 'search' && <Intl id="lastSearches" />}</tag.span>
-        </tag.p>
+        <Box as="p" csx={style.label}>
+          <Box as="span">{type !== 'search' && <Intl id="lastSearches" />}</Box>
+        </Box>
       )}
-      <tag.ul
+      <Box
+        as="ul"
         {...menuProps}
         {...elementProps}
         csx={merge(style.menu(displayScrollBar), csx)}
@@ -147,7 +150,7 @@ function Menu(props: MenuProps) {
               </Fragment>
             )
           })}
-      </tag.ul>
+      </Box>
     </Label>
   )
 }
@@ -156,19 +159,20 @@ function EmptyView() {
   const fadeIn = keyframes({ '0%': { opacity: 0 }, '100%': { opacity: 1 } })
 
   return (
-    <tag.li
+    <Box
+      as="li"
       csx={{
         ...style.emptyContainer,
         animation: `${fadeIn} 0.3s`,
       }}
     >
-      <tag.p csx={style.emptyTitle}>
+      <Box as="p" csx={style.emptyTitle}>
         <Intl id="emptyTitle" />
-      </tag.p>
-      <tag.p csx={style.emptySubtitle}>
+      </Box>
+      <Box as="p" csx={style.emptySubtitle}>
         <Intl id="emptySubtitle" />
-      </tag.p>
-    </tag.li>
+      </Box>
+    </Box>
   )
 }
 
@@ -205,7 +209,8 @@ function Suggestion(props: SuggestionProps) {
   const fadeIn = keyframes({ '0%': { opacity: 0 }, '100%': { opacity: 1 } })
 
   return (
-    <tag.li
+    <Box
+      as="li"
       {...liProps}
       {...elementProps}
       csx={{
@@ -229,7 +234,7 @@ function Suggestion(props: SuggestionProps) {
       >
         {children ? children(item) : item}
       </Paragraph>
-    </tag.li>
+    </Box>
   )
 }
 
@@ -241,7 +246,7 @@ type KbdProps = ComponentPropsWithoutRef<'kbd'>
  * <Kbd>enter</Kbd>
  */
 function Kbd(props: KbdProps) {
-  return <tag.kbd csx={style.kbd} {...(props as any)} />
+  return <Box as="kbd" csx={style.kbd} {...(props as any)} />
 }
 
 /**
@@ -258,17 +263,17 @@ function Footer() {
   } = useStateContext()
 
   return type !== 'seed' && isOpen ? (
-    <tag.footer csx={style.footer}>
-      <tag.div>
+    <Box as="footer" csx={style.footer}>
+      <Box>
         <Kbd>↓</Kbd> <Kbd>↑</Kbd> <Intl id="toNavigate" />
-      </tag.div>
-      <tag.div>
+      </Box>
+      <Box>
         <Kbd>enter</Kbd> <Intl id="toSelect" />
-      </tag.div>
-      <tag.div>
+      </Box>
+      <Box>
         <Kbd>esc</Kbd> <Intl id="toCancel" />
-      </tag.div>
-    </tag.footer>
+      </Box>
+    </Box>
   ) : null
 }
 

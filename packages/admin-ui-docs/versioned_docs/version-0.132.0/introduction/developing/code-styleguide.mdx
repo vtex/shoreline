@@ -188,7 +188,7 @@ Always prefer to use tokens instead of hardcoded values.
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     bg: '$primary',
     padding: '$xs',
@@ -196,7 +196,7 @@ Always prefer to use tokens instead of hardcoded values.
 />
 
 // 🚨 Bad
-<tag.div
+<Box
   csx={{
     bg: '#fff',
     padding: '8px',
@@ -210,7 +210,7 @@ Prefer props composition and shorthands.
 
 ```jsx isStatic
 // ✅ Preferred
-<tag.div
+<Box
   csx={{
     bg: '$primary',
     paddingX: '$xs',
@@ -219,7 +219,7 @@ Prefer props composition and shorthands.
 />
 
 // 🚨 Not wrong, but can be improved
-<tag.div
+<Box
   csx={{
     backgroundColor: '$primary',
     paddingLeft: '$xs',
@@ -236,7 +236,7 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     padding: '$xs',
     '@tablet': {
@@ -249,14 +249,14 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 />
 
 // 🚨 Bad, not semantic
-<tag.div
+<Box
   csx={{
     padding: ['$xs', '$s', '$m'],
   }}
 />
 
 // 🚨 Bad, not consistent
-<tag.div
+<Box
   csx={{
     padding: '$xs',
     '@media screen and (min-width: 40em)': {
@@ -275,18 +275,18 @@ While coding an app it doesn't matter, but if you are within a library this is a
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     padding: '$m',
   }}
 >
-  <tag.h1 csx={{ color: '$primary' }}>
+  <Box as="h1" csx={{ color: '$primary' }}>
     Title
-  </tag.h1>
-</tag.div>
+  </Box>
+</Box>
 
 // 🚨 Bad
-<tag.div
+<Box
   csx={{
     padding: '$m',
     h1: {
@@ -295,7 +295,7 @@ While coding an app it doesn't matter, but if you are within a library this is a
   }}
 >
   <h1>Title</h1>
-</tag.div>
+</Box>
 ```
 
 ## Documentation

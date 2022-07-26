@@ -21,7 +21,9 @@ Our design system provides an [accessible default palette](/foundations/colors) 
 The [StyleObject](styling) accepts the `text` prop. It combines `fontFamily`, `fontSize`, `fontVariationSettings`, and `lineHeight` css properties for a consistent font rendering throught the product.
 
 ```jsx live
-<tag.h1 csx={{ text: '$pageTitle' }}>Page title</tag.h1>
+<Box as="h1" csx={{ text: '$pageTitle' }}>
+  Page title
+</Box>
 ```
 
 | Value        | Description                                                                                                               |

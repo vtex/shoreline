@@ -1,5 +1,5 @@
 import React from 'react'
-import { tag, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
+import { Box, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
@@ -21,7 +21,7 @@ export function ColorCard(props: ColorCardProps) {
         },
       }}
     >
-      <tag.div
+      <Box
         csx={{
           bg: colorValue,
           borderTopLeftRadius: '8px',

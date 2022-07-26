@@ -42,7 +42,7 @@ function Example() {
   const showToast = useToast()
 
   return (
-    <tag.div csx={{ '> *:not(:last-child)': { marginRight: '0.5rem' } }}>
+    <Box csx={{ '> *:not(:last-child)': { marginRight: '0.5rem' } }}>
       <Button
         onClick={() =>
           showToast({
@@ -82,7 +82,7 @@ function Example() {
       >
         Critical toast
       </Button>
-    </tag.div>
+    </Box>
   )
 }
 ```

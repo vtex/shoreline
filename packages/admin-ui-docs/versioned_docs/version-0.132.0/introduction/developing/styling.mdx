@@ -208,7 +208,7 @@ Admin UI has five responsive aliases that guide you while authoring responsive l
 In the example - the text content changes, representing the current screen size. You can resize your browser window to see the result.
 
 ```jsx live
-<tag.div
+<Box
   csx={{
     ':before': {
       content: '"Mobile"',
@@ -261,7 +261,7 @@ The `Box` in the example has the `$s` padding for all screens:
 If we add the `@tablet` rule, the padding will be `$m` for tablets and above - which means that it will remain `$s` for screens smaller than `@tablet`. The logic is still the same for other breakpoints.
 
 ```jsx
-<tag.div
+<Box
   csx={{
     padding: '$s',
     '@tablet': {
