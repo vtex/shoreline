@@ -1,6 +1,7 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
-import { palette } from './helpers'
+import { parseValue } from './helpers'
+import { typography, palette } from './style-resolvers'
 import type { Palette } from './types'
 
 export const utils: Record<string, (value: any) => AnyObject> = {
@@ -42,16 +43,39 @@ export const utils: Record<string, (value: any) => AnyObject> = {
     maxHeight: value,
   }),
 
-  // Color
+  /** Color */
   colorTheme: (value: Palette) => palette(value),
+
+  /** Typography */
+  text: (value: string) => ({
+    fontFamily: typography(value),
+    fontSize: typography(value),
+    fontVariationSettings: typography(value),
+    lineHeight: typography(value),
+    letterSpacing: typography(value),
+  }),
 }
 
 export function isUtil(prop: string) {
   return prop in utils
 }
 
-export function callUtil(prop: string, value: any): AnyObject {
+export function callUtil(prop: string, value: any, theme: any): AnyObject {
   const util = get(utils, prop, () => {})
 
-  return util(value)
+  const utilReturn = util(value)
+
+  const parsedUtil = {}
+
+  for (const key in utilReturn) {
+    const { value: parsedValue, cssProperty } = parseValue(
+      utilReturn,
+      theme,
+      key
+    )
+
+    Object.assign(parsedUtil, { [cssProperty]: parsedValue })
+  }
+
+  return parsedUtil
 }

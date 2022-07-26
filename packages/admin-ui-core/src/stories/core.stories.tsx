@@ -11,7 +11,7 @@ export default {
 // join the parser w/ emotion.css
 const csx = createCsx(theme)
 
-export function FrameworkdAgnostic() {
+export function FrameworkAgnostic() {
   return (
     <div
       className={csx({

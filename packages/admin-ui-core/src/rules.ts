@@ -145,7 +145,11 @@ export const rules = {
   scrollPaddingY: 'vspace',
 
   // typography
-  text: 'text',
+  fontFamily: 'fonts',
+  fontSize: 'fontSizes',
+  lineHeight: 'lineHeights',
+  letterSpacing: 'letterSpacings',
+  fontVariationSettings: 'fontWeights',
 }
 
 export function resolveRule(prop: string, theme: any) {

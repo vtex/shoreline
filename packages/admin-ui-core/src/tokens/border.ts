@@ -1,4 +1,4 @@
-import { border as borderStyles } from '../helpers'
+import { border as borderStyles } from '../style-resolvers'
 
 export const border = {
   neutral: borderStyles('$gray20'),

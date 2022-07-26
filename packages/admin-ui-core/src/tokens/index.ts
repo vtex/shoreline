@@ -8,7 +8,7 @@ import { global } from './global'
 import { shadow } from './shadow'
 import { sizes } from './sizes'
 import { space, hspace, vspace } from './space'
-import { text } from './text'
+import { typography } from './typography'
 import { transitions } from './transitions'
 import { zIndices } from './zIndices'
 
@@ -25,7 +25,7 @@ export const tokens = {
   space,
   hspace,
   vspace,
-  text,
+  ...typography,
   transitions,
   zIndices,
 }

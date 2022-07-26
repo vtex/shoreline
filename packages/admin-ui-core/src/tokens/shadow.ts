@@ -1,4 +1,4 @@
-import { ring } from '../helpers'
+import { ring } from '../style-resolvers'
 
 export const shadow = {
   ring: {

@@ -1,71 +1,11 @@
-import { get } from '@vtex/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui-util'
+import { isFunction, get } from '@vtex/admin-ui-util'
 
-import { paletteMap } from './types'
-import type { Palette, Tone, ColorTokens, StyleProp, CSSUnit } from './types'
-import { colors } from './tokens/colors'
+import { resolveRule } from './rules'
+import type { StyleProp, CSSUnit } from './types'
+import { alias } from './aliases'
 
 const TOKEN_PREFIX = '$'
-
-export function ring(tone: Tone) {
-  const lighterColor = get(colors, `${paletteMap[tone]}05`)
-  const darkerColor = get(colors, `${paletteMap[tone]}30`)
-
-  const innerRing = `0rem 0rem 0rem 0.0625rem ${lighterColor}`
-  const outerRing = `0rem 0rem 0rem 0.1875rem ${darkerColor}`
-
-  return `${innerRing}, ${outerRing}`
-}
-
-export function palette(color: Palette): StyleProp {
-  return {
-    background: get(colors, `${color}10`, ''),
-    color: get(colors, `${color}60`, ''),
-  }
-}
-
-export function color(token: ColorTokens) {
-  return get(colors, extractTokenCall(token), '')
-}
-
-export function listBoxItem(tone: 'main' | 'critical', selected = false) {
-  return {
-    bg: `listBoxItem.${tone}${selected ? 'Selected' : ''}`,
-    color: `listBoxItem.${tone}${selected ? 'Selected' : ''}`,
-    ':hover': {
-      bg: `listBoxItem.${tone}Hover`,
-      color: `listBoxItem.${tone}Hover`,
-    },
-    ':pressed': {
-      bg: `listBoxItem.${tone}Pressed`,
-      color: `listBoxItem.${tone}Pressed`,
-    },
-  }
-}
-
-export function focusVisible(
-  tone: Tone,
-  styleProps?: {
-    focus?: StyleProp
-    polyfill?: StyleProp
-  }
-): StyleProp {
-  return {
-    ':focus': {
-      outline: 'none',
-      boxShadow: ring(tone),
-      ...styleProps?.focus,
-    },
-    ':focus:not([data-focus-visible-added])': {
-      outline: 'none',
-      boxShadow: 'none',
-      ...styleProps?.polyfill,
-    },
-  }
-}
-
-export function border(ct: ColorTokens, widthPx = 1): string {
-  return `${widthPx}px solid ${get(colors, extractTokenCall(ct))}`
-}
 
 export function withUnit(value: unknown, unit: CSSUnit): string {
   return typeof value === 'number' ? `${value}${unit}` : `${value}`
@@ -79,4 +19,32 @@ export function extractTokenCall(token: string) {
   return isToken(token) ? token.substring(1) : token
 }
 
+export function getTokenValue(
+  theme: AnyObject,
+  cssProperty: string,
+  token: any
+) {
+  const rule = resolveRule(cssProperty, theme)
+  const extractedToken = extractTokenCall(token)
+  const rawValue = get(rule, extractedToken, extractedToken)
+
+  return rawValue
+}
+
 export const cx = (...args: string[]) => args.join(' ')
+
+export const parseValue = (
+  csxObject: StyleProp,
+  theme: any,
+  rawProperty: string
+) => {
+  const cssProperty = alias(rawProperty)
+  const csxValue = csxObject[rawProperty as keyof typeof csxObject]
+  const token = isFunction(csxValue)
+    ? (csxValue as Function)(theme, cssProperty)
+    : csxValue
+
+  const value = getTokenValue(theme, cssProperty, token)
+
+  return { token, cssProperty, value }
+}
