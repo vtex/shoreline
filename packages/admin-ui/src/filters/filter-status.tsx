@@ -57,37 +57,3 @@ interface FilterStatusProps {
   onRetry: () => void
 }
 
-// import { Skeleton } from '../components/Skeleton'
-// import { Flex } from '../flex'
-// import { FilterFooter } from './filter-footer'
-
-// {status === 'empty' && (
-//   <Box csx={{ padding: '$l' }}>
-//     <Text variant="title2">{formatMessage('empty')}</Text>
-//   </Box>
-// )}
-
-//   <Box csx={{ padding: '$l' }}>
-//   <Stack space="$xl" csx={{ width: '3/4' }}>
-//     <Skeleton csx={{ height: 20 }} />
-//     <Skeleton csx={{ height: 20, width: '9/12' }} />
-//     <Skeleton csx={{ height: 20, width: '10/12' }} />
-//     <Skeleton csx={{ height: 20, width: '11/12' }} />
-//     <Skeleton csx={{ height: 20, width: '8/12' }} />
-//   </Stack>
-
-//   <Flex justify="end" csx={{ marginTop: '$2xl' }}>
-//     <Skeleton csx={{ height: 32, width: 62, marginRight: '$m' }} />
-//     <Skeleton csx={{ height: 32, width: 62 }} />
-//   </Flex>
-// </Box>
-
-// {status === 'error' && (
-//   <Box csx={{ padding: '$l' }}>
-//     <Text variant="title2">{formatMessage('errorTitle')}</Text>
-//     <Button variant="tertiary" onClick={onRetry} bleedX>
-//       {formatMessage('retry')}
-//     </Button>
-//     <FilterFooter csx={{ marginTop: '$l', padding: 0 }} />
-//   </Box>
-// )}
