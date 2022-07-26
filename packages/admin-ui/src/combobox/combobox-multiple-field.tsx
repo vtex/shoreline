@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Combobox } from 'ariakit/combobox'
 import { Composite, useCompositeState } from 'ariakit/composite'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import { messages } from './combobox.i18n'
@@ -165,7 +165,7 @@ export const ComboboxMultipleField = createComponent<
                       }}
                     />
                   ))}
-                <tag.input
+                <Box
                   as={Combobox as any}
                   ref={inputRef}
                   state={state}

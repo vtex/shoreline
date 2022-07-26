@@ -19,7 +19,7 @@ Admin UI has five responsive aliases that guide you while authoring responsive l
 In the example - the text content changes, representing the current screen size. You can resize your browser window to see the result.
 
 ```jsx live
-<tag.div
+<Box
   csx={{
     ':before': {
       content: '"Mobile"',
@@ -37,15 +37,20 @@ In the example - the text content changes, representing the current screen size.
     <p>
       The responsive alias string will be replaced by a media query.
       <br />
-      It replaces the pattern <strong>@[alias]</strong> by <strong>@media (min-width: theme.breakpoints.[alias])</strong>.
+      It replaces the pattern <strong>@[alias]</strong> by{' '}
+      <strong>@media (min-width: theme.breakpoints.[alias])</strong>.
       <br />
-      For exemple, <strong>@tablet</strong> will be replaced by <strong>@media (min-width: 48em)</strong>.
+      For exemple, <strong>@tablet</strong> will be replaced by{' '}
+      <strong>@media (min-width: 48em)</strong>.
     </p>
     <br />
     <p>
-      The same idea applies to the <strong>only</strong> aliases! The diference is that it set the next breakpoint's <strong>min-width</strong> as its <strong>max-width</strong>, creating a interval.
+      The same idea applies to the <strong>only</strong> aliases! The diference
+      is that it set the next breakpoint's <strong>min-width</strong> as its{' '}
+      <strong>max-width</strong>, creating a interval.
       <br />
-      For exemple, <strong>@tabletOnly</strong> will be replaced by <strong>@media (min-width: 48em) and (max-width: 64em)</strong>.
+      For exemple, <strong>@tabletOnly</strong> will be replaced by{' '}
+      <strong>@media (min-width: 48em) and (max-width: 64em)</strong>.
     </p>
   </div>
 </details>
@@ -67,7 +72,7 @@ The `Box` in the example has the `$s` padding for all screens:
 If we add the `@tablet` rule, the padding will be `$m` for tablets and above - which means that it will remain `$s` for screens smaller than `@tablet`. The logic is still the same for other breakpoints.
 
 ```jsx
-<tag.div
+<Box
   csx={{
     padding: '$s',
     '@tablet': {

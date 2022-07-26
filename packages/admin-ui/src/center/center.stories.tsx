@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { tag } from '@vtex/admin-ui-react'
 
 import { Center } from './center'
+import { Box } from '../box'
 
 export default {
   title: 'admin-ui/center',
@@ -25,7 +25,7 @@ export function Centralized() {
         bg: 'muted',
       }}
     >
-      <tag.h1>Center heading</tag.h1>
+      <Box as="h1">Center heading</Box>
     </Center>
   )
 }

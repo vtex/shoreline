@@ -1,9 +1,9 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
-import { tag } from '@vtex/admin-ui-react'
 import { keyframes } from '@vtex/admin-ui-core'
 
+import { Box } from '../../../box'
 import { Center } from '../../../center'
 import type { ButtonProps } from '../../../button'
 import { Button } from '../../../button'
@@ -83,7 +83,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
       />
 
       {!state.isReduced() && expandable && selected ? (
-        <tag.div
+        <Box
           csx={{
             animation: `${fadeIn} 0.4s`,
             position: 'absolute',

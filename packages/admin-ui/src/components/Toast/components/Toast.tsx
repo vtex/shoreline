@@ -7,9 +7,9 @@ import {
   IconCheckCircle,
   IconWarning,
 } from '@vtex/phosphor-icons'
-import { tag } from '@vtex/admin-ui-react'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
+import { Box } from '../../../box'
 import type { InternalToast } from '../types'
 import { ToastContainer } from './ToastContainer'
 import { Button } from '../../../button'
@@ -68,7 +68,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         csx={csx}
         {...divProps}
       >
-        <tag.div
+        <Box
           csx={{
             display: 'flex',
             alignItems: 'center',
@@ -76,10 +76,12 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           }}
         >
           {icons[tone]}
-          <tag.p csx={{ textAlign: 'start', text: '$body' }}>{message}</tag.p>
-        </tag.div>
+          <Box as="p" csx={{ textAlign: 'start', text: '$body' }}>
+            {message}
+          </Box>
+        </Box>
         {(dismissible || action) && (
-          <tag.div csx={{ display: 'flex', alignItems: 'center' }}>
+          <Box csx={{ display: 'flex', alignItems: 'center' }}>
             {action && (
               <Button
                 variant="neutralTertiary"
@@ -105,7 +107,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                 }}
               />
             )}
-          </tag.div>
+          </Box>
         )}
       </ToastContainer>
     )
