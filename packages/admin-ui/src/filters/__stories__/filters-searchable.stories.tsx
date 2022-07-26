@@ -20,7 +20,7 @@ export default {
 } as Meta
 
 // just a sample API
-function api(search: string, delay = 1000): Promise<any[]> {
+function api(search?: string, delay = 1000): Promise<any[]> {
   const items = [
     { country: 'Brazil', id: '1' },
     { country: 'Bahamas', id: '2' },
@@ -44,9 +44,11 @@ function api(search: string, delay = 1000): Promise<any[]> {
     { country: 'Azerbaijan', id: '20' },
   ]
 
-  const res = items.filter((item) =>
-    item.country.toLowerCase().startsWith(search.toLowerCase())
-  )
+  const res = search
+    ? items.filter((item) =>
+        item.country.toLowerCase().startsWith(search.toLowerCase())
+      )
+    : items
 
   return new Promise((resolve) => setTimeout(resolve, delay, res))
 }
@@ -144,20 +146,23 @@ export function AsyncSearch() {
     []
   )
 
+  const [loadingSearch, setLoadingSearch] = useState(false)
+
   useEffect(() => {
-    state.combobox.setStatus('loading')
-    api(state.combobox.deferredValue).then((res) => {
+    setLoadingSearch(true)
+    api(state.deferredSearchValue).then((res) => {
       setResult(res)
-      state.combobox.setStatus(res.length ? 'ready' : 'not-found')
+      state.setStatus(res.length ? 'ready' : 'not-found')
+      setLoadingSearch(false)
     })
-  }, [state.combobox.deferredValue])
+  }, [state.deferredSearchValue])
 
   return (
     <>
       <FilterDisclosure state={state}>Example</FilterDisclosure>
 
       <FilterPopover state={state}>
-        <FilterSearchbox id="boxy" />
+        <FilterSearchbox id="boxy" loading={loadingSearch} />
         <FilterListbox>
           {result.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.country} />

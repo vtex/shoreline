@@ -18,18 +18,11 @@ export function FilterStatus(props: FilterStatusProps) {
 
   if (!status) return null
 
-  // more filter status comming soon
-  if (
-    status === 'ready' ||
-    status === 'loading' ||
-    status === 'empty' ||
-    status === 'error'
-  )
-    return null
+  if (status === 'ready') return null
 
   return (
     <>
-      {status === 'search-error' && (
+      {status === 'error' && (
         <Box csx={style.searchStatusLayout}>
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
           <Button variant="tertiary" onClick={onRetry} bleedX>
@@ -56,4 +49,3 @@ interface FilterStatusProps {
   status: FilterStatusType
   onRetry: () => void
 }
-
