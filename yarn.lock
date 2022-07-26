@@ -6052,6 +6052,13 @@
   dependencies:
     "@babel/core" "^7.15.5"
 
+"@vtex/babel-plugin-admin-ui-react@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@vtex/babel-plugin-admin-ui-react/-/babel-plugin-admin-ui-react-0.2.0.tgz#90eec3dbae65ccd1b70b126810a7d57b9c2dbc81"
+  integrity sha512-N7FXEPC9micCQaGPqM/MQvzh5yijkYhiscg2bnB7tSBXOGPBQS1raEqvDLyEvgKszqrA7owa7c8t0ke3GI2OuQ==
+  dependencies:
+    "@babel/core" "^7.15.5"
+
 "@vtex/eslint-plugin-admin-ui@^0.2.9":
   version "0.2.21"
   resolved "https://registry.yarnpkg.com/@vtex/eslint-plugin-admin-ui/-/eslint-plugin-admin-ui-0.2.21.tgz#c78ad695ed3a14adfcee52ce786d4d975e6f0dd4"
