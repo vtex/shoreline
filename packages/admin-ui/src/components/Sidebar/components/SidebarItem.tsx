@@ -6,10 +6,9 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react'
-
 import { CompositeItem, useCompositeState } from 'reakit/Composite'
-import { tag } from '@vtex/admin-ui-react'
 
+import { Box } from '../../../box'
 import type { SidebarDisclosureProps } from './SidebarDisclosure'
 import { SidebarDisclosure } from './SidebarDisclosure'
 import { useSidebarContext, ItemProvider } from './SidebarContext'
@@ -136,7 +135,8 @@ export const SidebarItem = forwardRef(function SidebarItem(
             onClick={handleOnClick}
             onKeyDown={(event) => handleOnKeyDown(event, itemProps)}
           />
-          <tag.ul
+          <Box
+            as="ul"
             csx={{
               position: 'absolute',
               top: 0,
@@ -156,7 +156,8 @@ export const SidebarItem = forwardRef(function SidebarItem(
             data-testid={`${label}-ul`}
             {...(baseProps as any)}
           >
-            <tag.li
+            <Box
+              as="li"
               aria-label={`${label} menu`}
               csx={{
                 listStyle: 'none',
@@ -176,8 +177,8 @@ export const SidebarItem = forwardRef(function SidebarItem(
                   })
                 )}
               </ItemProvider>
-            </tag.li>
-          </tag.ul>
+            </Box>
+          </Box>
         </>
       )}
     </CompositeItem>
