@@ -1,4 +1,4 @@
-import { pick, omit, get } from '@vtex/admin-ui-util'
+import { pick, omit, get, merge } from '@vtex/admin-ui-util'
 
 const constants = {
   /**
@@ -113,6 +113,68 @@ function createRootStylesAsObject(cssVariables: CSSVariables) {
       [`${constants.rootElement}[data-theme='${mode}']`]: cssVariables[mode],
     }
   }, {})
+}
+
+/**
+ * Return the custom theme which will override the initial theme.
+ * The custom theme will be loaded from the admin-ui.config.js file found in the project.
+ */
+export function getCustomTheme(
+  configPath = 'admin-ui.config.js'
+): Record<string, any> {
+  let customTheme = {}
+
+  try {
+    // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+    const { theme } = require(`${process.cwd()}/${configPath}`)
+
+    customTheme = theme
+  } catch (err) {
+    console.log('There is no theme config file')
+  }
+
+  return customTheme
+}
+
+/**
+ * Merge deeply two theme objects, overriding the initial theme props by the other one props.
+ * @example
+ * mergeThemes(
+ * {
+ *  colors: {
+ *    background: 'blue',
+ *    fg: 'black',
+ *    text: 'black',
+ *  },
+ * },
+ * {
+ *  colors: {
+ *    background: 'red',
+ *    fg: 'red'
+ *  }
+ * })
+ *
+ * // returns:
+ * {
+ *  colors: {
+ *    background: 'red',
+ *    fg: 'red',
+ *    text: 'black',
+ *  }
+ * }
+ */
+export function mergeThemes(
+  initialTheme: Record<string, any>,
+  customTheme: Record<string, any>
+): Record<string, any> {
+  const mergedTheme = merge(initialTheme, customTheme)
+
+  // When global styles are disabled: '{ global: {} }'
+  if (customTheme.global && Object.keys(customTheme.global).length === 0) {
+    mergedTheme.global = customTheme.global
+  }
+
+  return mergedTheme
 }
 
 export function createTheme<T extends Record<string, any>>(
