@@ -187,13 +187,13 @@ function Example() {
   })
 
   return (
-    <tag.div csx={{ width: 400 }}>
+    <Box csx={{ width: 400 }}>
       <Search {...getInputProps()} />
-      <tag.div csx={{ marginTop: 4 }}>
-        <tag.p>Value: {value}</tag.p>
-        <tag.p>DebouncedValue: {debouncedValue}</tag.p>
-      </tag.div>
-    </tag.div>
+      <Box csx={{ marginTop: 4 }}>
+        <Box as="p">Value: {value}</Box>
+        <Box as="p">DebouncedValue: {debouncedValue}</Box>
+      </Box>
+    </Box>
   )
 }
 ```
@@ -212,13 +212,13 @@ function Example() {
     const { getInputProps, value, debouncedValue } = useQuerySearchState()
 
     return (
-      <tag.div csx={{ width: 500 }}>
+      <Box csx={{ width: 500 }}>
         <Search {...getInputProps()} />
-        <tag.div csx={{ marginTop: 4 }}>
-          <tag.p>Value: {value}</tag.p>
-          <tag.p>DebouncedValue: {debouncedValue}</tag.p>
-        </tag.div>
-      </tag.div>
+        <Box csx={{ marginTop: 4 }}>
+          <Box as="p">Value: {value}</Box>
+          <Box as="p">DebouncedValue: {debouncedValue}</Box>
+        </Box>
+      </Box>
     )
   }
 

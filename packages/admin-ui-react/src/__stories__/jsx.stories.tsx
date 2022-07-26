@@ -9,7 +9,7 @@ import type { Meta } from '@storybook/react'
 import { Button as ReakitButton, Separator, Role } from 'reakit'
 
 import { createSystem } from '../system'
-import { jsx, tag } from '../system-deprecated'
+import { jsx } from '../system-deprecated'
 
 const [SystemProvider] = createSystem()
 
@@ -73,9 +73,9 @@ export function WithFragments() {
       useOptions(options: WrapOptions, props) {
         return {
           children: (
-            <tag.div {...props}>
+            <div {...props}>
               {options.label} {props.children}
-            </tag.div>
+            </div>
           ),
         }
       },

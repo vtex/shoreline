@@ -1,11 +1,12 @@
 import React from 'react'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { negative } from '@vtex/admin-ui-core'
 import type {
   HSpaceTokens,
   VSpaceTokens,
   CSSPropAutocomplete,
 } from '@vtex/admin-ui-core'
+import { Box } from '../box'
 
 const defaultBleed = '0rem'
 
@@ -22,13 +23,13 @@ export const Bleed = createComponent<'div', BleedProps>((props) => {
   return useElement('div', {
     ...htmlProps,
     children: (
-      <tag.div
+      <Box
         csx={{
           position: 'relative',
         }}
       >
         {children}
-      </tag.div>
+      </Box>
     ),
     baseStyle: {
       marginTop: negative(top),

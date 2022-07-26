@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { tag } from '@vtex/admin-ui-react'
 
 import {
   SelectionTree,
@@ -8,6 +7,7 @@ import {
   SelectionTreeRoot,
   SelectionTreeItem,
 } from '../index'
+import { Box } from '../../../box'
 import { Checkbox } from '../../../checkbox'
 import { Label } from '../../Label'
 
@@ -93,7 +93,7 @@ export const BareStateHook = () => {
   })
 
   return (
-    <tag.div>
+    <Box>
       <Checkbox state={state.root} />
       {items.map((item) => (
         <Label
@@ -113,6 +113,6 @@ export const BareStateHook = () => {
           <Checkbox label={item.name} value={item.id} state={state.items} />
         </Label>
       ))}
-    </tag.div>
+    </Box>
   )
 }
