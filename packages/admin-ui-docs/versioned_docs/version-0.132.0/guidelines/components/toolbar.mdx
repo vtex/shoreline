@@ -63,7 +63,7 @@ function Example() {
   const modalState = useModalState()
 
   return (
-    <tag.div>
+    <Box>
       <Toolbar state={toolbar} aria-label="Toolbar Render Props">
         <ToolbarItem>
           {(itemProps) => (
@@ -104,7 +104,7 @@ function Example() {
           </Text>
         </ModalContent>
       </Modal>
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -147,8 +147,10 @@ const state = useToolbarState()
 
 ### Keyboard Navigation
 
-- <kbd>→</kbd> moves focus to the next `ToolbarItem` if orientation is horizontal or not defined.
-- <kbd>←</kbd> moves focus to the previous `ToolbarItem` if orientation is horizontal or not defined.
+- <kbd>→</kbd> moves focus to the next `ToolbarItem` if orientation is horizontal
+  or not defined.
+- <kbd>←</kbd> moves focus to the previous `ToolbarItem` if orientation is horizontal
+  or not defined.
 - <kbd>Home</kbd> or <kbd>PageUp</kbd> moves focus to the first `ToolbarItem`.
 - <kbd>End</kbd> or <kbd>PageDown</kbd> moves focus to the last `ToolbarItem`.
 

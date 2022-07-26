@@ -1,9 +1,9 @@
 import type { ReactElement, Ref } from 'react'
 import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
-import { tag } from '@vtex/admin-ui-react'
 import { CompositeGroup } from 'reakit/Composite'
 
 import type { BoxProps } from '../../../box'
+import { Box } from '../../../box'
 import { SidebarBackdrop } from './SidebarBackdrop'
 import { SidebarSkeleton } from './SidebarSkeleton'
 import type { SidebarState } from '../hooks/useSidebarState'
@@ -52,7 +52,7 @@ export const Sidebar = forwardRef(function Sidebar(
   const { showToggle, hideToggle } = state.layout
 
   return (
-    <tag.div
+    <Box
       csx={{ display: 'flex', maxWidth: SCALES.MAX_SIDEBAR_WIDTH }}
       onMouseLeave={() => {
         const { setSelectedItem, selectedItem, selectedItemFallback } = state
@@ -65,7 +65,7 @@ export const Sidebar = forwardRef(function Sidebar(
       }}
       onMouseEnter={showToggle}
     >
-      <tag.div
+      <Box
         csx={{
           position: 'relative',
           display: 'flex',
@@ -85,7 +85,8 @@ export const Sidebar = forwardRef(function Sidebar(
         }}
         {...rootProps}
       >
-        <tag.nav
+        <Box
+          as="nav"
           ref={ref}
           csx={{
             display: 'flex',
@@ -125,9 +126,9 @@ export const Sidebar = forwardRef(function Sidebar(
               <SidebarSkeleton amount={2} />
             </Fragment>
           )}
-        </tag.nav>
-      </tag.div>
-      <tag.div
+        </Box>
+      </Box>
+      <Box
         csx={{
           bg: '$secondary',
           width: '3.6775rem',
@@ -139,7 +140,7 @@ export const Sidebar = forwardRef(function Sidebar(
         onMouseEnter={showToggle}
       />
       <SidebarBackdrop state={state} loading={loading} />
-    </tag.div>
+    </Box>
   )
 })
 

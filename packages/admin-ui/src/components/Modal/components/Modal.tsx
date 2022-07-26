@@ -3,8 +3,8 @@ import React, { useCallback } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 import type { DialogOptions } from 'reakit/Dialog'
 import { Dialog, DialogBackdrop } from 'reakit/Dialog'
-import { tag } from '@vtex/admin-ui-react'
 
+import { Box } from '../../../box'
 import type { ModalStateReturn } from '../state'
 import { ModalProvider } from './ModalContext'
 import type { ModalSize } from '../types'
@@ -67,7 +67,7 @@ export function Modal(props: ModalProps) {
   }[size]
 
   return (
-    <tag.div
+    <Box
       as={DialogBackdrop}
       csx={{
         ...backdropCsx,
@@ -96,7 +96,7 @@ export function Modal(props: ModalProps) {
       }}
       state={state}
     >
-      <tag.div
+      <Box
         as={Dialog}
         csx={{
           width,
@@ -136,8 +136,8 @@ export function Modal(props: ModalProps) {
         >
           {children}
         </ModalProvider>
-      </tag.div>
-    </tag.div>
+      </Box>
+    </Box>
   )
 }
 

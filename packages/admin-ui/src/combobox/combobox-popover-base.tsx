@@ -1,8 +1,9 @@
 import React from 'react'
 import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './combobox.style'
+import { Box } from '../box'
 import { messages } from './combobox.i18n'
 import { Paragraph } from '../components/Paragraph'
 import { Text } from '../components/Text'
@@ -30,19 +31,19 @@ export const ComboboxPopoverBase = createComponent<
 
       case 'loading': {
         return (
-          <tag.div
+          <Box
             csx={{
               margin: 2,
             }}
           >
             <Spinner />
-          </tag.div>
+          </Box>
         )
       }
 
       case 'error': {
         return (
-          <tag.div
+          <Box
             csx={{
               margin: 2,
             }}
@@ -53,13 +54,13 @@ export const ComboboxPopoverBase = createComponent<
             <Button bleedX onClick={onRetry} variant="tertiary">
               {formatMessage('retry')}
             </Button>
-          </tag.div>
+          </Box>
         )
       }
 
       case 'empty-search': {
         return (
-          <tag.div
+          <Box
             csx={{
               margin: 2,
             }}
@@ -71,13 +72,13 @@ export const ComboboxPopoverBase = createComponent<
             >
               {formatMessage('searchPlaceholder')}
             </Paragraph>
-          </tag.div>
+          </Box>
         )
       }
 
       case 'no-result': {
         return (
-          <tag.div
+          <Box
             csx={{
               margin: 2,
             }}
@@ -92,7 +93,7 @@ export const ComboboxPopoverBase = createComponent<
             >
               {formatMessage('noResultsSubtitle')}
             </Paragraph>
-          </tag.div>
+          </Box>
         )
       }
     }

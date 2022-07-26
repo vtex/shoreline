@@ -1,7 +1,7 @@
 import React from 'react'
-import { tag } from '@vtex/admin-ui-react'
 import type { AnyObject } from '@vtex/admin-ui-util'
 
+import { Box } from '../box'
 import * as style from './filter.style'
 
 export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
@@ -18,12 +18,12 @@ export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
   const appliedValuesLabel = appliedItems.length ? (
     <>
       <span>:</span>
-      <tag.span csx={{ color: '$primary' }}>
-        <tag.span csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
+      <Box as="span" csx={{ color: '$primary' }}>
+        <Box as="span" csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
           {firstSelectedItemLabel}
-        </tag.span>
+        </Box>
         {remainingSelectedItemsCount}
-      </tag.span>
+      </Box>
     </>
   ) : null
 
