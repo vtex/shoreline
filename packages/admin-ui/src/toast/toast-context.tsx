@@ -8,8 +8,8 @@ import React, {
 } from 'react'
 import { Portal } from 'reakit/Portal'
 
-import { ToastQueue } from './ToastQueue'
-import type { Toast, InternalToast } from '../types'
+import { ToastQueue } from './toast-queue'
+import type { Toast, InternalToast } from './types'
 import invariant from 'tiny-invariant'
 
 let cachedCounter = 0
