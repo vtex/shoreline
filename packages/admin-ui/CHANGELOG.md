@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.5...@vtex/admin-ui@0.132.6) (2022-07-27)
+
+### Bug Fixes
+
+- **tab:** use explict types instead of deep inheritance ([554ee82](https://github.com/vtex/admin-ui/commit/554ee827703e918e77c02ccf3f79643740e0e78f))
+
 ## [0.132.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.4...@vtex/admin-ui@0.132.5) (2022-07-15)
 
 ### Bug Fixes
