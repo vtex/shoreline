@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.7-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.6...@vtex/admin-ui-docs@0.15.7-dev.0) (2022-07-27)
+
+### Bug Fixes
+
+- **columns:** remove units default value ([5abe803](https://github.com/vtex/admin-ui/commit/5abe803f439248923577c4e49682dc9c5418b7b8))
+- **formik:** remove deprecated admin-ui-formik library ([9e75949](https://github.com/vtex/admin-ui/commit/9e759492c2e4b955de39ed34cdaadc7b29795649))
+- **responsive:** getResponsiveValue return type error ([636c9e4](https://github.com/vtex/admin-ui/commit/636c9e442e5281281e4ee5bdd2131597239612d2))
+- **responsive-value:** remove deprecated responsive value approach ([e42fb6f](https://github.com/vtex/admin-ui/commit/e42fb6f7ee4db981003ad9a04183c40c78d2357a))
+- **set:** remove deprecated set component ([b73a3ce](https://github.com/vtex/admin-ui/commit/b73a3ce4a0497253461351f8f6e6826f040ad7f7))
+
+### Features
+
+- **admin-ui-react:** remove deprecated system ([e8ad427](https://github.com/vtex/admin-ui/commit/e8ad427550a6517fb0a930d6a7736324384298f8))
+- **core:** accept color tokens on bg and fg ([b66ffed](https://github.com/vtex/admin-ui/commit/b66ffed282a8c46a8fb850b15f19ffc44e247e3c))
+- **responsive:** add solution that make component properties able to use responsive aliases ([c31624b](https://github.com/vtex/admin-ui/commit/c31624bd2a9515000d92d45c335d0ee7802881c1))
+- **visually-hidden:** add VisuallyHidden component review ([a1e715b](https://github.com/vtex/admin-ui/commit/a1e715bacac70ee3fc5a21b76a6e03551cafa06b))
+
+### Performance Improvements
+
+- **filter popover:** prevent double rerender when scroll status changes ([9fe7a28](https://github.com/vtex/admin-ui/commit/9fe7a2865a2b84a3e7a3aa221ba740b785907ff9))
+
 ## [0.15.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.5...@vtex/admin-ui-docs@0.15.6) (2022-07-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
