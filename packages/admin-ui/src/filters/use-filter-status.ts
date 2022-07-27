@@ -6,33 +6,24 @@ import type { AnyObject } from '@vtex/admin-ui-util'
 import type { FilterStatus } from './filter/filter.state'
 
 export function useFilterStatus<T extends AnyObject>(props: ComboboxState<T>) {
-  const { status: comboboxStatus, setStatus: setComboboxStatus } = props
+  const { value, matches } = props
 
-  const [status, setStatus] = useState<FilterStatus>('ready')
+  const [status, setStatus] = useState<FilterStatus>()
 
   const reducedStatus = useMemo<FilterStatus>(() => {
     if (status) {
       return status
     }
 
-    if (comboboxStatus === 'not-found' || comboboxStatus === 'error') {
-      return comboboxStatus
+    if (!matches.length && value !== '') {
+      return 'not-found'
     }
 
     return 'ready'
-  }, [comboboxStatus, status])
+  }, [status, matches, value])
 
-  const setStatusB = (newStatus: FilterStatus) => {
-    setStatus(newStatus)
-
-    if (newStatus === 'not-found' || newStatus === 'error') {
-      setComboboxStatus(newStatus)
-
-      return
-    }
-
-    setComboboxStatus('ready')
+  return {
+    status: reducedStatus,
+    setStatus,
   }
-
-  return { status: reducedStatus, setStatus: setStatusB }
 }
