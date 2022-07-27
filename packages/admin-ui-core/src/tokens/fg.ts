@@ -1,7 +1,6 @@
 import { colors } from './colors'
 
 export const fg = {
-  ...colors,
   primary: colors.black,
   secondary: colors.gray50,
   disabled: colors.gray40,

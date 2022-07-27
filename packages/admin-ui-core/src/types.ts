@@ -558,7 +558,12 @@ export interface Theme {
     imports?: string[]
     styles?: StyleObject
   }
-  breakpoints?: string[]
+  breakpoints?: {
+    mobile: string
+    tablet: string
+    desktop: string
+    widescreen: string
+  }
   mediaQueries?: { [size: string]: string }
   space?: Scale<CSS.Property.Margin<number | string>>
   fontSizes?: Scale<CSS.Property.FontSize<number>>
