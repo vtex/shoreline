@@ -21,5 +21,5 @@ export function useTabPanelContext() {
 
 export interface TabPanelListProps {
   state: TabState
-  children: ReactNode
+  children?: ReactNode
 }
