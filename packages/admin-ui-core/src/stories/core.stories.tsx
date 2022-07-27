@@ -3,6 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { createCsx } from '../index'
 import { theme } from '../theme'
+import { generateVars } from '../createTheme'
 
 export default {
   title: 'admin-ui-core/core',
@@ -48,5 +49,20 @@ export const Utils = () => {
     >
       Utils
     </div>
+  )
+}
+
+export const Vars = () => {
+  return (
+    <button
+      className={csx({ cursor: 'pointer' })}
+      onClick={() =>
+        console.log({
+          vars: generateVars(theme),
+        })
+      }
+    >
+      Click to print vars
+    </button>
   )
 }
