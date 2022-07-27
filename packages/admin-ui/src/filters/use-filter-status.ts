@@ -1,9 +1,6 @@
 import { useState, useMemo } from 'react'
-
 import type { ComboboxState } from '../combobox/combobox.state'
-
 import type { AnyObject } from '@vtex/admin-ui-util'
-import type { FilterStatus } from './filter/filter.state'
 
 export function useFilterStatus<T extends AnyObject>(props: ComboboxState<T>) {
   const { value, matches } = props
@@ -27,3 +24,5 @@ export function useFilterStatus<T extends AnyObject>(props: ComboboxState<T>) {
     setStatus,
   }
 }
+
+export type FilterStatus = 'error' | 'loading' | 'ready' | 'empty' | 'not-found'
