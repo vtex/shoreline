@@ -9,7 +9,7 @@ import { Stack } from '../stack'
 import { Box } from '../box'
 import * as style from './filter.style'
 
-import type { FilterStatus as FilterStatusType } from './filter/filter.state'
+import { FilterStatus as FilterStatusType } from "./use-filter-status"
 
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props
