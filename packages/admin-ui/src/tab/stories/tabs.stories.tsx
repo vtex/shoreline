@@ -48,8 +48,8 @@ export function WithId() {
         <Tab id="2">Tab 2</Tab>
       </TabList>
       <TabPanelList state={state}>
-        <TabPanel id="1">Panel 1</TabPanel>
-        <TabPanel id="2">Panel 2</TabPanel>
+        <TabPanel tabId="1">Panel 1</TabPanel>
+        <TabPanel tabId="2">Panel 2</TabPanel>
       </TabPanelList>
     </>
   )
