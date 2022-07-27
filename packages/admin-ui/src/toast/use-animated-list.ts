@@ -1,64 +1,9 @@
 import { useMemo, useCallback } from 'react'
 import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
-const animationTimeout = 300
+import { animation } from './toast.style'
 
-const entranceTransition = 'transform 0.2s ease, opacity 0.2s ease'
-const exitTransition = 'opacity 0.1s ease'
-
-interface Transform {
-  property: 'opacity' | 'transform' | 'scale'
-  from?: string
-  to?: string
-}
-
-interface AnimateProps {
-  element: HTMLElement
-  transforms: Transform[]
-  transition: string
-  onAnimate?: () => void
-}
-
-const animate = (props: AnimateProps) => {
-  const { element, transforms, transition, onAnimate } = props
-
-  const fallbackTimeout = setTimeout(() => {
-    onAnimate?.()
-  }, animationTimeout)
-
-  transforms.forEach(({ property, from = '' }) => {
-    element.style.setProperty(property, from)
-  })
-  element.style.setProperty('transition', '')
-
-  const transitionEndHandler = (ev: TransitionEvent) => {
-    if (ev.target !== element) {
-      return
-    }
-
-    element.style.setProperty('transition', '')
-
-    onAnimate?.()
-
-    element.removeEventListener('transitionend', transitionEndHandler)
-
-    clearTimeout(fallbackTimeout)
-  }
-
-  element.addEventListener('transitionend', transitionEndHandler)
-
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => {
-      element.style.setProperty('transition', transition)
-
-      transforms.forEach(({ property, to = '' }) => {
-        element.style.setProperty(property, to)
-      })
-    })
-  })
-}
-
-export const useAnimatedList = () => {
+export function useAnimatedList() {
   const refs = useMemo(() => new Map<string, HTMLElement | null>(), [])
   const positions = useMemo(() => new Map<string, number>(), [])
 
@@ -78,7 +23,7 @@ export const useAnimatedList = () => {
           // Move animation
           animations.push({
             element,
-            transition: entranceTransition,
+            transition: animation.enterTransition,
             transforms: [
               {
                 property: 'transform',
@@ -90,7 +35,7 @@ export const useAnimatedList = () => {
           // Enter animation
           animations.push({
             element,
-            transition: entranceTransition,
+            transition: animation.enterTransition,
             transforms: [
               {
                 property: 'transform',
@@ -120,7 +65,7 @@ export const useAnimatedList = () => {
       const element = refs.get(id)
 
       if (element) {
-        // Removal animation
+        // Leave animation
         animate({
           element,
           transforms: [
@@ -129,7 +74,7 @@ export const useAnimatedList = () => {
               to: '0',
             },
           ],
-          transition: exitTransition,
+          transition: animation.leaveTransition,
           onAnimate,
         })
       }
@@ -148,4 +93,57 @@ export const useAnimatedList = () => {
     itemRef,
     remove,
   }
+}
+
+function animate(props: AnimateProps) {
+  const { element, transforms, transition, onAnimate } = props
+
+  const fallbackTimeout = setTimeout(() => {
+    onAnimate?.()
+  }, animation.timeoutMs)
+
+  transforms.forEach(({ property, from = '' }) => {
+    element.style.setProperty(property, from)
+  })
+
+  element.style.setProperty('transition', '')
+
+  const transitionEndHandler = (ev: TransitionEvent) => {
+    if (ev.target !== element) {
+      return
+    }
+
+    element.style.setProperty('transition', '')
+
+    onAnimate?.()
+
+    element.removeEventListener('transitionend', transitionEndHandler)
+
+    clearTimeout(fallbackTimeout)
+  }
+
+  element.addEventListener('transitionend', transitionEndHandler)
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      element.style.setProperty('transition', transition)
+
+      transforms.forEach(({ property, to = '' }) => {
+        element.style.setProperty(property, to)
+      })
+    })
+  })
+}
+
+interface Transform {
+  property: 'opacity' | 'transform' | 'scale'
+  from?: string
+  to?: string
+}
+
+interface AnimateProps {
+  element: HTMLElement
+  transforms: Transform[]
+  transition: string
+  onAnimate?: () => void
 }
