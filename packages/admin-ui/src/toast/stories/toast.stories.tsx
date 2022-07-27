@@ -2,9 +2,9 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
-import { Button } from '../../../button'
-import { Text } from '../../Text'
-import { Inline } from '../../../inline'
+import { Button } from '../../button'
+import { Text } from '../../components/Text'
+import { Inline } from '../../inline'
 
 export default {
   title: 'admin-ui/Toast',

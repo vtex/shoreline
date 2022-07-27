@@ -9,10 +9,10 @@ import {
 } from '@vtex/phosphor-icons'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
-import { Box } from '../../../box'
-import type { InternalToast } from '../types'
-import { ToastContainer } from './ToastContainer'
-import { Button } from '../../../button'
+import { Box } from '../box'
+import { Button } from '../button'
+import type { InternalToast } from './types'
+import { ToastContainer } from './toast-container'
 
 interface ToastProps extends InternalToast {
   onClear: (dedupeKey: string, id: string) => void
