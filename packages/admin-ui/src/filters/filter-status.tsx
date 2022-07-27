@@ -9,6 +9,8 @@ import { Stack } from '../stack'
 import { Box } from '../box'
 import * as style from './filter.style'
 
+import { FilterStatus as FilterStatusType } from "./use-filter-status"
+
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props
 
@@ -16,9 +18,7 @@ export function FilterStatus(props: FilterStatusProps) {
 
   if (!status) return null
 
-  // more filter status comming soon
-  if (status === 'ready' || status === 'loading' || status === 'empty')
-    return null
+  if (status === 'ready') return null
 
   return (
     <>
@@ -46,6 +46,6 @@ export function FilterStatus(props: FilterStatusProps) {
 }
 
 interface FilterStatusProps {
-  status: 'error' | 'loading' | 'ready' | 'not-found' | 'empty'
+  status: FilterStatusType
   onRetry: () => void
 }

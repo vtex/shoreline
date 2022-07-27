@@ -13,12 +13,11 @@ export const FilterSearchbox = createComponent<
     state: { combobox },
   } = usePopoverContext()
 
-  const { setValue, value, status } = combobox
+  const { setValue, value } = combobox
 
   return useElement(Search, {
     ...restProps,
     value: value as string,
-    loading: status === 'loading',
     onClear: () => {
       setValue('')
     },
@@ -30,5 +29,6 @@ export const FilterSearchbox = createComponent<
 })
 
 interface ComboboxFieldProps {
-  id: string
+  id?: string
+  loading?: boolean
 }
