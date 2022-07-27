@@ -4,6 +4,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useTabPanelContext } from './tab-panel-list'
 import type { TabState } from './tab.state'
 import * as style from './tabs.style'
+import type { ReactNode } from 'react'
 
 export const TabPanel = createComponent<
   typeof AriakitTabPanel,
@@ -23,6 +24,8 @@ export const TabPanel = createComponent<
 
 export interface TabPanelOptions {
   state?: TabState
+  tabId?: string
+  children?: ReactNode
 }
 
 export type TabPanelProps = React.ComponentPropsWithRef<typeof TabPanel>
