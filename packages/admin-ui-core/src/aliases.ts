@@ -1,7 +1,7 @@
 import { get } from '@vtex/admin-ui-util'
 import { breakpoints } from './tokens/breakpoints'
 
-const [_, tablet, desktop, widescreen] = breakpoints
+const { tablet, desktop, widescreen } = breakpoints
 
 export function convertChainedSelectors(key: string) {
   const selector = '&'

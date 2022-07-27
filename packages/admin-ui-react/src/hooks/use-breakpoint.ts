@@ -3,7 +3,12 @@ import { get } from '@vtex/admin-ui-util'
 import { tokens } from '@vtex/admin-ui-core'
 import { useMediaQuery } from './use-media-query'
 
-const queries = tokens.breakpoints.map((bp) => `(min-width: ${bp})`)
+const breakpoints = get(tokens, 'breakpoints', {})
+const breakpointsKeys = Object.keys(breakpoints)
+
+const queries = breakpointsKeys.map(
+  (key) => `(min-width: ${get(breakpoints, key)})`
+)
 
 /**
  * React hook that tracks state of a CSS media query
