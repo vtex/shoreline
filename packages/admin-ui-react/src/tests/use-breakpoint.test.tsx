@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { tokens } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
 
 import { useBreakpoint, getResponsiveValue } from '../hooks'
 
@@ -16,7 +17,9 @@ const createMockMediaMatcher =
       removeEventListener: () => {},
     } as unknown as MediaQueryList)
 
-const [mobile, tablet, desktop, widescreen] = tokens.breakpoints
+const breakpoints = get(tokens, 'breakpoints', {})
+
+const { mobile, tablet, desktop, widescreen } = breakpoints
 
 describe('useBreakpoint test', () => {
   describe('Desktop environment', () => {
