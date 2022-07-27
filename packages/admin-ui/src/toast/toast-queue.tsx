@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 
-import { Box } from '../../../box'
-import { Toast } from './Toast'
-import { useAnimatedList } from '../hooks/useAnimatedList'
-import type { InternalToast } from '../types'
+import { Box } from '../box'
+import { Toast } from './toast'
+import { useAnimatedList } from './use-animated-list'
+import type { InternalToast } from './types'
 
 export function ToastQueue(props: ToastQueueProps) {
   const { toasts, dequeue } = props
