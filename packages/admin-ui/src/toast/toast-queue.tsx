@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react'
 
-import { Box } from '../box'
+import { Stack } from '../stack'
 import { Toast } from './toast'
 import { useAnimatedList } from './use-animated-list'
 import type { InternalToast } from './types'
+import * as style from './toast.style'
 
 export function ToastQueue(props: ToastQueueProps) {
   const { toasts, dequeue } = props
@@ -19,33 +20,11 @@ export function ToastQueue(props: ToastQueueProps) {
   )
 
   return (
-    <Box
-      csx={{
-        position: 'fixed',
-        zIndex: '999',
-        pointerEvents: 'none',
-        paddingX: 2,
-        bottom: '3rem',
-        right: '0%',
-        textAlign: 'center',
-        marginLeft: 'auto',
-        width: '100%',
-        listStyle: 'none',
-        '> *:not(:last-child)': {
-          marginBottom: '0.75rem',
-        },
-        '@tablet': {
-          right: '2rem',
-          width: '23.375rem',
-        },
-      }}
-    >
+    <Stack space="$2xl" csx={style.toastQueue}>
       {toasts.map(({ id, ...rest }) => (
-        <Box key={id} csx={{ paddingBottom: 2 }}>
-          <Toast ref={itemRef(id)} id={id} onClear={onClear} {...rest} />
-        </Box>
+        <Toast ref={itemRef(id)} key={id} id={id} onClear={onClear} {...rest} />
       ))}
-    </Box>
+    </Stack>
   )
 }
 
