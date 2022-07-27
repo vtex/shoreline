@@ -1,5 +1,11 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
 
+export const animation = {
+  timeoutMs: 300,
+  enterTransition: 'transform 0.2s ease, opacity 0.2s ease',
+  leaveTransition: 'opacity 0.1s ease',
+}
+
 export const toastContainer = style({
   position: 'relative',
   display: 'flex',
