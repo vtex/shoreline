@@ -37,10 +37,10 @@ export interface Toast extends HTMLAttributes<HTMLDivElement> {
    */
   message: ReactNode
   /**
-   * The toast's tone.
+   * The toast's variant.
    * @default info
    */
-  tone?: 'critical' | 'info' | 'positive' | 'warning'
+  variant?: 'critical' | 'info' | 'positive' | 'warning'
   /**
    * Whether the toast can be dismissed or not.
    * @default false

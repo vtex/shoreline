@@ -7,7 +7,7 @@ import { Text } from '../../components/Text'
 import { Inline } from '../../inline'
 
 export default {
-  title: 'admin-ui/Toast',
+  title: 'admin-ui-review/toast',
   component: Button,
 } as Meta
 
@@ -37,7 +37,7 @@ const ToastButton = () => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            tone: 'positive',
+            variant: 'positive',
             action: {
               label: 'Action',
               onClick: () => {
@@ -54,7 +54,7 @@ const ToastButton = () => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            tone: 'critical',
+            variant: 'critical',
             action: {
               label: 'Action',
               onClick: () => {
@@ -71,7 +71,7 @@ const ToastButton = () => {
           showToast({
             message: 'This is a Toast!',
             dismissible: true,
-            tone: 'warning',
+            variant: 'warning',
             action: {
               label: 'Action',
               onClick: () => {
@@ -97,7 +97,7 @@ const ToastButton = () => {
               </>
             ),
             dismissible: true,
-            tone: 'positive',
+            variant: 'positive',
             csx: {
               maxHeight: 'auto',
               ':hover': {

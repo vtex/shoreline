@@ -111,10 +111,6 @@ export const rules = {
   insetInline: 'space',
   insetInlineEnd: 'space',
   insetInlineStart: 'space',
-  top: 'space',
-  right: 'space',
-  bottom: 'space',
-  left: 'space',
   gridGap: 'space',
   gap: 'space',
   columnGap: 'space',
@@ -131,6 +127,8 @@ export const rules = {
   scrollPaddingRight: 'hspace',
   scrollPaddingLeft: 'hspace',
   scrollPaddingX: 'hspace',
+  right: 'hspace',
+  left: 'hspace',
 
   // vspace
   gridRowGap: 'vspace',
@@ -143,6 +141,8 @@ export const rules = {
   scrollPaddingTop: 'vspace',
   scrollPaddingBottom: 'vspace',
   scrollPaddingY: 'vspace',
+  top: 'vspace',
+  bottom: 'vspace',
 
   // typography
   text: 'text',

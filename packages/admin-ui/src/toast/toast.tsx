@@ -10,13 +10,13 @@ import {
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
 import { Box } from '../box'
+import { Inline } from '../inline'
 import { Button } from '../button'
+import { Center } from '../center'
 import type { InternalToast } from './types'
 import { ToastContainer } from './toast-container'
-
-interface ToastProps extends InternalToast {
-  onClear: (dedupeKey: string, id: string) => void
-}
+import { Stack } from '../stack'
+import * as style from './toast.style'
 
 const icons = {
   positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
@@ -36,7 +36,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       action,
       csx = {},
       shouldRemove,
-      tone = 'info',
+      variant = 'info',
       duration = 10000,
       ...divProps
     } = props
@@ -64,26 +64,20 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         ref={ref}
         onMouseEnter={stopTimeout}
         onMouseLeave={startTimeout}
-        tone={tone}
+        variant={variant}
         csx={csx}
         {...divProps}
       >
-        <Box
-          csx={{
-            display: 'flex',
-            alignItems: 'center',
-            '> *:first-child': { marginRight: '0.75rem' },
-          }}
-        >
-          {icons[tone]}
-          <Box as="p" csx={{ textAlign: 'start', text: '$body' }}>
-            {message}
-          </Box>
-        </Box>
-        {(dismissible || action) && (
-          <Box csx={{ display: 'flex', alignItems: 'center' }}>
+        <Inline spaceInside align="start" hSpace="$l">
+          <Center>{icons[variant]}</Center>
+          <Stack space="$l" csx={style.toastInfo}>
+            <Box as="p" csx={style.toastMessage}>
+              {message}
+            </Box>
             {action && (
               <Button
+                bleedX
+                bleedY
                 variant="neutralTertiary"
                 key={action.label}
                 onClick={(event: MouseEvent<HTMLButtonElement>) => {
@@ -91,25 +85,30 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                   action.onClick()
                   event.stopPropagation()
                 }}
-                csx={{ color: '$action.main.tertiary' }}
               >
                 {action.label}
               </Button>
             )}
-            {dismissible && (
-              <Button
-                variant="neutralTertiary"
-                icon={<IconX />}
-                aria-label="Close toast"
-                onClick={(event: MouseEvent<HTMLButtonElement>) => {
-                  remove()
-                  event.stopPropagation()
-                }}
-              />
-            )}
-          </Box>
+          </Stack>
+        </Inline>
+        {dismissible && (
+          <Button
+            bleedX
+            bleedY
+            variant="neutralTertiary"
+            icon={<IconX />}
+            aria-label="Close toast"
+            onClick={(event: MouseEvent<HTMLButtonElement>) => {
+              remove()
+              event.stopPropagation()
+            }}
+          />
         )}
       </ToastContainer>
     )
   }
 )
+
+interface ToastProps extends InternalToast {
+  onClear: (dedupeKey: string, id: string) => void
+}
