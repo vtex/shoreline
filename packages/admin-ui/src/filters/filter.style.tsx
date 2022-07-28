@@ -60,18 +60,18 @@ export const disclosureStatusLabel = style({
 })
 
 export const searchbox = ({
-  omitBottomPadding,
+  omitBottomMargin,
 }: {
-  omitBottomPadding: boolean
+  omitBottomMargin: boolean
 }) =>
   style({
     margin: '$l',
-    marginBottom: omitBottomPadding ? '0' : undefined,
+    marginBottom: omitBottomMargin ? '0' : undefined,
     order: -1,
-    '& ~ .__admin-ui-filter-status': { minHeight: '16em' },
+    '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
   })
 
-export const errorStatusLayout = style({ padding: '$l' })
+export const statusLayout = style({ padding: '$l' })
 
 export const footer = (isScrollableLayout: boolean) =>
   style({
