@@ -5,8 +5,8 @@ import { useComboboxState } from '../../combobox/combobox.state'
 import type { AnyObject } from '@vtex/admin-ui-util'
 import type { MenuState } from 'ariakit'
 import { useMenuState } from 'ariakit'
+import type { FilterStatus } from '../use-filter-status'
 import { useFilterStatus } from '../use-filter-status'
-import { FilterStatus } from '../use-filter-status'
 
 export function useFilterState<T extends AnyObject>(
   props?: UseFilterStateProps<T>

@@ -50,12 +50,14 @@ export const messages = {
     'en-US': {
       errorTitle: 'Something went wrong',
       retry: 'Try again',
+      empty: 'No filters available',
       noResultsTitle: 'No filters match your search',
       noResultsSubtitle: 'Try using different terms',
     },
     'pt-BR': {
       errorTitle: 'Algo deu errado',
       retry: 'Tentar novamente',
+      empty: 'Nenhum filtro disponível',
       noResultsTitle: 'Nenhum filtro corresponde à sua busca',
       noResultsSubtitle: 'Tente usar termos diferentes',
     },
