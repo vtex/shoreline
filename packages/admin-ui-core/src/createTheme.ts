@@ -2,8 +2,8 @@ import { pick, omit, get } from '@vtex/admin-ui-util'
 
 const constants = {
   /**
-   * When converting tokens with those namespaces to CSS Variables the algorithm will look
-   * to the color values and replace all usage of color arbitrary values with its correspondent color variable.
+   * When converting tokens with those namespaces to CSS Variables, the algorithm will look
+   * to the color values and replace all usage of arbitrary values with their corresponding color variable.
    */
   colorNamespaces: ['bg', 'border', 'fg', 'shadows'],
   /**
@@ -281,9 +281,9 @@ function resolveValue(value: any, ruleId: string, theme: Record<string, any>) {
 }
 
 /**
- * Parses an theme recursivelly to css variables, joining the paths
+ * Parses a theme recursively to css variables, joining the paths
  * @example
- * convertToVars({
+ * generateVars({
  *  colors: {
  *    blue: 'blue',
  *    yellow: 'yellow'
@@ -302,15 +302,16 @@ function resolveValue(value: any, ruleId: string, theme: Record<string, any>) {
  *   '--admin-ui-bg-secondary': 'var(--admin-ui-colors-yellow)',
  * }
  */
-export function generateVars<T>(obj: T, theme = {}, ruleId = '', parent = '') {
+export function generateVars<T>(node: T, theme = {}, ruleId = '', accKey = '') {
   const vars: Record<string, object> = {}
 
-  const initialTheme = !parent ? obj : theme
+  const isRoot = !accKey
+  const initialTheme = !isRoot ? node : theme
 
-  for (const key in obj) {
-    const rule = !parent ? key : ruleId
-    const name = join(parent, key)
-    const value = obj[key]
+  for (const key in node) {
+    const rule = isRoot ? key : ruleId
+    const name = join(accKey, key)
+    const value = node[key]
 
     if (value && typeof value === 'object') {
       Object.assign(vars, generateVars(value, initialTheme, rule, name))
