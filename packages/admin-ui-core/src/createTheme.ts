@@ -306,7 +306,7 @@ export function generateVars<T>(node: T, theme = {}, ruleId = '', accKey = '') {
   const vars: Record<string, object> = {}
 
   const isRoot = !accKey
-  const initialTheme = !isRoot ? node : theme
+  const initialTheme = isRoot ? node : theme
 
   for (const key in node) {
     const rule = isRoot ? key : ruleId
