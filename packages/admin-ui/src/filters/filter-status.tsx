@@ -9,7 +9,6 @@ import { Stack } from '../stack'
 import { Box } from '../box'
 import * as style from './filter.style'
 import { Skeleton } from '../components/Skeleton'
-import { Flex } from '../flex'
 
 import type { FilterStatus as FilterStatusType } from './use-filter-status'
 
@@ -25,30 +24,37 @@ export function FilterStatus(props: FilterStatusProps) {
   return (
     <>
       {status === 'empty' && (
-        <Box csx={{ padding: '$l' }}>
+        <Box csx={style.statusLayout}>
           <Text variant="title2">{formatMessage('empty')}</Text>
         </Box>
       )}
 
       {status === 'loading' && (
-        <Box csx={{ padding: '$l' }}>
+        <Stack csx={style.statusLayout} space="$2xl">
           <Stack space="$xl" csx={{ width: '3/4' }}>
             <Skeleton csx={{ height: 20 }} />
-            <Skeleton csx={{ height: 20, width: '9/12' }} />
-            <Skeleton csx={{ height: 20, width: '10/12' }} />
-            <Skeleton csx={{ height: 20, width: '11/12' }} />
-            <Skeleton csx={{ height: 20, width: '8/12' }} />
+            <Skeleton csx={{ width: '9/12', height: 20 }} />
+            <Skeleton csx={{ width: '10/12', height: 20 }} />
+            <Skeleton csx={{ width: '11/12', height: 20 }} />
+            <Skeleton csx={{ width: '8/12', height: 20 }} />
           </Stack>
 
-          <Flex justify="end" csx={{ marginTop: '$2xl' }}>
-            <Skeleton csx={{ height: 32, width: 62, marginRight: '$m' }} />
-            <Skeleton csx={{ height: 32, width: 62 }} />
-          </Flex>
-        </Box>
+          <Stack
+            direction="row"
+            csx={{
+              width: '100%',
+              '> *': { height: 32, width: 62 },
+              justifyContent: 'flex-end',
+            }}
+          >
+            <Skeleton />
+            <Skeleton />
+          </Stack>
+        </Stack>
       )}
 
       {status === 'error' && (
-        <Box csx={style.errorStatusLayout} className="__admin-ui-filter-status">
+        <Box csx={style.statusLayout} className="__admin-ui-filter-status">
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
           <Button variant="tertiary" onClick={onRetry} bleedX>
             {formatMessage('retry')}
@@ -57,14 +63,16 @@ export function FilterStatus(props: FilterStatusProps) {
       )}
 
       {status === 'not-found' && (
-        <Box className="__admin-ui-filter-status">
-          <Stack space="$s">
-            <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
-            <Text variant="body" tone="secondary">
-              {formatMessage('noResultsSubtitle')}
-            </Text>
-          </Stack>
-        </Box>
+        <Stack
+          csx={{ paddingX: '$xl' }}
+          space="$s"
+          className="__admin-ui-filter-status"
+        >
+          <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
+          <Text variant="body" tone="secondary">
+            {formatMessage('noResultsSubtitle')}
+          </Text>
+        </Stack>
       )}
     </>
   )
