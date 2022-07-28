@@ -1,4 +1,4 @@
-import { createTheme, objectToVars, toCustomProperties } from '../createTheme'
+import { createTheme, generateVars } from '../createTheme'
 
 describe('createTheme', () => {
   it('should return a array of objects', () => {
@@ -50,79 +50,62 @@ describe('createTheme', () => {
     })
   })
 
-  it('parses object keys to css variables', () => {
-    const result = objectToVars({
+  it('parses both theme keys and values to css variables', () => {
+    const result = generateVars({
       colors: {
-        primary: {
-          default: 'red',
-          hover: 'blue',
-          pressed: 'green',
+        red: 'red',
+        blue: 'blue',
+        green: 'green',
+      },
+      bg: {
+        action: {
+          main: {
+            primary: 'red',
+            primaryHover: 'blue',
+            primaryPressed: 'green',
+          },
         },
       },
-      space: [0, 1, 2, 3],
+      border: {
+        primary: '1px solid blue',
+      },
     })
 
     expect(result).toEqual({
-      '--admin-ui-colors-primary-default': 'red',
-      '--admin-ui-colors-primary-hover': 'blue',
-      '--admin-ui-colors-primary-pressed': 'green',
-      '--admin-ui-space-0': 0,
-      '--admin-ui-space-1': 1,
-      '--admin-ui-space-2': 2,
-      '--admin-ui-space-3': 3,
+      '--admin-ui-colors-red': 'red',
+      '--admin-ui-colors-blue': 'blue',
+      '--admin-ui-colors-green': 'green',
+      '--admin-ui-border-primary': '1px solid var(--admin-ui-colors-blue)',
+      '--admin-ui-bg-action-main-primary': 'var(--admin-ui-colors-red)',
+      '--admin-ui-bg-action-main-primaryHover': 'var(--admin-ui-colors-blue)',
+      '--admin-ui-bg-action-main-primaryPressed':
+        'var(--admin-ui-colors-green)',
     })
   })
 
-  it('parses array values to css variables', () => {
-    const result = objectToVars({
+  it('parses to CSS Variables while maintaining arbitrary values', () => {
+    const result = generateVars({
       colors: {
-        primary: {
-          default: ['red', 'pink', 'teal'],
-          hover: 'blue',
-          pressed: 'green',
+        red: 'red',
+        blue: 'blue',
+      },
+      bg: {
+        action: {
+          main: {
+            primary: 'red',
+            primaryHover: 'blue',
+            primaryPressed: 'yellow',
+          },
         },
       },
     })
 
     expect(result).toEqual({
-      '--admin-ui-colors-primary-default-0': 'red',
-      '--admin-ui-colors-primary-default-1': 'pink',
-      '--admin-ui-colors-primary-default-2': 'teal',
-      '--admin-ui-colors-primary-hover': 'blue',
-      '--admin-ui-colors-primary-pressed': 'green',
-    })
-  })
-
-  it('should be able to parse values', () => {
-    const result = toCustomProperties({
-      colors: {
-        primary: {
-          default: ['red', 'pink', 'teal'],
-          hover: 'blue',
-          pressed: 'green',
-        },
-      },
-      space: [0, 1, 2, 3],
-    })
-
-    expect(result).toEqual({
-      colors: {
-        primary: {
-          default: [
-            'var(--admin-ui-colors-primary-default-0)',
-            'var(--admin-ui-colors-primary-default-1)',
-            'var(--admin-ui-colors-primary-default-2)',
-          ],
-          hover: 'var(--admin-ui-colors-primary-hover)',
-          pressed: 'var(--admin-ui-colors-primary-pressed)',
-        },
-      },
-      space: [
-        'var(--admin-ui-space-0)',
-        'var(--admin-ui-space-1)',
-        'var(--admin-ui-space-2)',
-        'var(--admin-ui-space-3)',
-      ],
+      '--admin-ui-colors-red': 'red',
+      '--admin-ui-colors-blue': 'blue',
+      '--admin-ui-bg-action-main-primary': 'var(--admin-ui-colors-red)',
+      '--admin-ui-bg-action-main-primaryHover': 'var(--admin-ui-colors-blue)',
+      '--admin-ui-bg-action-main-primaryPressed': 'yellow',
     })
   })
 })

@@ -2,6 +2,11 @@ import { pick, omit, get } from '@vtex/admin-ui-util'
 
 const constants = {
   /**
+   * When converting tokens with those namespaces to CSS Variables, the algorithm will look
+   * to the color values and replace all usage of arbitrary values with their corresponding color variable.
+   */
+  colorNamespaces: ['bg', 'border', 'fg', 'shadows'],
+  /**
    * The theme parsing algorithm will ignore theese entries
    * As we make the tokens stable, we can remove some values here
    */
@@ -230,6 +235,90 @@ export function objectToVars(obj: Record<string, any>, parent = '') {
       }
     } else {
       vars[toVarName(name)] = value
+    }
+  }
+
+  return vars
+}
+
+/**
+ * Returns the value as a CSS Variable if it matches a value from the colors theme, otherwise it will return the arbitrary value.
+ * @example
+ * const theme = {
+ *   colors: {
+ *     black: '#000'
+ *   },
+ *   fg: {
+ *     primary: '#000',
+ *     secondary: '#dedede',
+ *   }
+ * }
+ *
+ * resolveValue('#000', 'fg', theme)
+ * // returns: var(--admin-ui-colors-black)
+ *
+ * resolveValue('#dedede', 'fg', theme)
+ * // returns: #dedede
+ */
+function resolveValue(value: any, ruleId: string, theme: Record<string, any>) {
+  if (!constants.colorNamespaces.includes(ruleId)) return value
+
+  const colors = get(theme, 'colors', {})
+
+  const colorsKeys = Object.keys(colors)
+
+  let result = value
+
+  colorsKeys.forEach((key) => {
+    const colorValue = get(colors, key)
+
+    if (result.includes(colorValue)) {
+      result = result.replaceAll(colorValue, toVarValue(`colors-${key}`))
+    }
+  })
+
+  return result
+}
+
+/**
+ * Parses a theme recursively to css variables, joining the paths
+ * @example
+ * generateVars({
+ *  colors: {
+ *    blue: 'blue',
+ *    yellow: 'yellow'
+ *  },
+ *  bg: {
+ *    primary: colors.blue40,
+ *    secondary: colors.yellow40
+ *  }
+ * })
+ *
+ * // returns:
+ * {
+ *   '--admin-ui-colors-blue': 'blue',
+ *   '--admin-ui-colors-yellow': 'yellow',
+ *   '--admin-ui-bg-primary': 'var(--admin-ui-colors-blue)',
+ *   '--admin-ui-bg-secondary': 'var(--admin-ui-colors-yellow)',
+ * }
+ */
+export function generateVars<T>(node: T, theme = {}, ruleId = '', accKey = '') {
+  const vars: Record<string, object> = {}
+
+  const isRoot = !accKey
+  const initialTheme = isRoot ? node : theme
+
+  for (const key in node) {
+    const rule = isRoot ? key : ruleId
+    const name = join(accKey, key)
+    const value = node[key]
+
+    if (value && typeof value === 'object') {
+      Object.assign(vars, generateVars(value, initialTheme, rule, name))
+    } else {
+      Object.assign(vars, {
+        [toVarName(name)]: resolveValue(value, rule, initialTheme),
+      })
     }
   }
 
