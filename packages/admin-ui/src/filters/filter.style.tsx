@@ -59,7 +59,19 @@ export const disclosureStatusLabel = style({
   maxWidth: '300px',
 })
 
-export const searchStatusLayout = style({ marginX: '$xl', height: '16em' })
+export const searchbox = ({
+  omitBottomPadding,
+}: {
+  omitBottomPadding: boolean
+}) =>
+  style({
+    margin: '$l',
+    marginBottom: omitBottomPadding ? '0' : undefined,
+    order: -1,
+    '& ~ .__admin-ui-filter-status': { minHeight: '16em' },
+  })
+
+export const errorStatusLayout = style({ padding: '$l' })
 
 export const footer = (isScrollableLayout: boolean) =>
   style({
