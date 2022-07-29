@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.6...@vtex/admin-ui@0.132.7) (2022-07-29)
+
+### Bug Fixes
+
+- **sidebar:** change sidebar item skeleton render condition ([4d0ec86](https://github.com/vtex/admin-ui/commit/4d0ec8654b5728d5a15356d255a9f61d4f61a746))
+- **sidebar:** section item skeleton not showing in the loading state ([7bb770e](https://github.com/vtex/admin-ui/commit/7bb770e109f435767451c0ed91d123e8f72bcae8))
+
 ## [0.132.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.5...@vtex/admin-ui@0.132.6) (2022-07-27)
 
 ### Bug Fixes
