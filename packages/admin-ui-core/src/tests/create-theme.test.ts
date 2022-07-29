@@ -1,4 +1,12 @@
-import { createTheme, generateVars } from '../createTheme'
+import { merge } from '@vtex/admin-ui-util'
+import {
+  getCustomConfig,
+  createTheme,
+  generateVars,
+  resolveGlobal,
+} from '../createTheme'
+
+import { theme as mockCustomTheme } from './mock/admin-ui.config'
 
 describe('createTheme', () => {
   it('should return a array of objects', () => {
@@ -9,6 +17,101 @@ describe('createTheme', () => {
       cssVariables: {},
       rootStyleObject: {},
       rootStyleString: '',
+    })
+  })
+
+  it('should be able to load custom theme from admin-ui.config.js file', () => {
+    const { theme: customTheme } = getCustomConfig(
+      'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
+    )
+
+    expect(customTheme).toEqual(mockCustomTheme)
+  })
+
+  it('should be able to merge default and custom themes', () => {
+    const { theme: customTheme } = getCustomConfig(
+      'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
+    )
+
+    const initialTheme = {
+      bg: {
+        blue40: 'blue',
+        blue10: 'blue',
+        action: {
+          main: {
+            primary: 'blue',
+            primaryPressed: 'blue',
+          },
+        },
+        form: {
+          controlChecked: 'blue',
+        },
+      },
+    }
+
+    const mergedTheme = merge(initialTheme, customTheme)
+
+    expect(mergedTheme).toEqual({
+      bg: {
+        blue40: 'blue',
+        blue10: 'red',
+        action: {
+          main: {
+            primary: 'blue',
+            primaryPressed: 'white',
+          },
+        },
+        form: {
+          controlChecked: 'blue',
+        },
+      },
+    })
+  })
+
+  it('should be able to remove global styles from default theme', () => {
+    const { theme: customTheme, disableGlobalStyles } = getCustomConfig(
+      'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
+    )
+
+    const initialTheme = {
+      global: {
+        body: {
+          display: 'block',
+        },
+      },
+      bg: {
+        blue40: 'blue',
+        blue10: 'blue',
+        action: {
+          main: {
+            primary: 'blue',
+            primaryPressed: 'blue',
+          },
+        },
+        form: {
+          controlChecked: 'blue',
+        },
+      },
+    }
+
+    const updatedInitialTheme = resolveGlobal(initialTheme, disableGlobalStyles)
+
+    const mergedTheme = merge(updatedInitialTheme, customTheme)
+
+    expect(mergedTheme).toEqual({
+      bg: {
+        blue40: 'blue',
+        blue10: 'red',
+        action: {
+          main: {
+            primary: 'blue',
+            primaryPressed: 'white',
+          },
+        },
+        form: {
+          controlChecked: 'blue',
+        },
+      },
     })
   })
 

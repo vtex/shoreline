@@ -115,6 +115,62 @@ function createRootStylesAsObject(cssVariables: CSSVariables) {
   }, {})
 }
 
+/**
+ * Return the custom style config with the theme which will override the initial theme.
+ * The custom style cofnig will be loaded from the admin-ui.config.js file found in the project.
+ */
+export function getCustomConfig(
+  configPath = 'admin-ui.config.js'
+): Record<string, any> {
+  let customConfig = { disableGlobalStyles: false, theme: {} }
+
+  try {
+    // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+    customConfig = require(`${process.cwd()}/${configPath}`)
+  } catch (err) {
+    console.log('There is no theme config file')
+  }
+
+  return customConfig
+}
+
+/**
+ * Return the initial theme without the initial global style based on the boolean param initialGlobalStylesDisabled.
+ * @param initialTheme theme
+ * @param isGlobalDisabled boolean to indicate the global style removal
+ * @example
+ * resolveGlobal(
+ * {
+ *  global: {
+ *    body: {
+ *      display: 'block',
+ *    }
+ *  },
+ *  colors: {
+ *    background: 'blue',
+ *    fg: 'black',
+ *    text: 'black',
+ *  },
+ * },
+ * true)
+ *
+ * // returns:
+ * {
+ *  global: {},
+ *  colors: {
+ *    background: 'blue',
+ *    fg: 'black',
+ *    text: 'black',
+ *  },
+ * }
+ */
+export function resolveGlobal(
+  initialTheme: Record<string, any>,
+  isGlobalDisabled = false
+): Record<string, any> {
+  return isGlobalDisabled ? omit(initialTheme, ['global']) : initialTheme
+}
+
 export function createTheme<T extends Record<string, any>>(
   initialTheme: T,
   options?: ThemeOptions
