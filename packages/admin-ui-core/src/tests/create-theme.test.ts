@@ -1,8 +1,9 @@
+import { merge } from '@vtex/admin-ui-util'
 import {
-  getCustomTheme,
-  mergeThemes,
+  getCustomConfig,
   createTheme,
   generateVars,
+  resolveGlobal,
 } from '../createTheme'
 
 import { theme as mockCustomTheme } from './mock/admin-ui.config'
@@ -20,7 +21,7 @@ describe('createTheme', () => {
   })
 
   it('should be able to load custom theme from admin-ui.config.js file', () => {
-    const customTheme = getCustomTheme(
+    const { theme: customTheme } = getCustomConfig(
       'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
     )
 
@@ -28,7 +29,7 @@ describe('createTheme', () => {
   })
 
   it('should be able to merge default and custom themes', () => {
-    const customTheme = getCustomTheme(
+    const { theme: customTheme } = getCustomConfig(
       'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
     )
 
@@ -48,7 +49,7 @@ describe('createTheme', () => {
       },
     }
 
-    const mergedTheme = mergeThemes(initialTheme, customTheme)
+    const mergedTheme = merge(initialTheme, customTheme)
 
     expect(mergedTheme).toEqual({
       bg: {
@@ -67,8 +68,11 @@ describe('createTheme', () => {
     })
   })
 
-  it('should be remove global styles from default theme', () => {
-    const customTheme = { global: {} }
+  it('should be able to remove global styles from default theme', () => {
+    const { theme: customTheme, disableGlobalStyles } = getCustomConfig(
+      'packages/admin-ui-core/src/tests/mock/admin-ui.config.js'
+    )
+
     const initialTheme = {
       global: {
         body: {
@@ -84,14 +88,30 @@ describe('createTheme', () => {
             primaryPressed: 'blue',
           },
         },
+        form: {
+          controlChecked: 'blue',
+        },
       },
     }
 
-    const mergedTheme = mergeThemes(initialTheme, customTheme)
+    const updatedInitialTheme = resolveGlobal(initialTheme, disableGlobalStyles)
+
+    const mergedTheme = merge(updatedInitialTheme, customTheme)
 
     expect(mergedTheme).toEqual({
-      ...initialTheme,
-      global: {},
+      bg: {
+        blue40: 'blue',
+        blue10: 'red',
+        action: {
+          main: {
+            primary: 'blue',
+            primaryPressed: 'white',
+          },
+        },
+        form: {
+          controlChecked: 'blue',
+        },
+      },
     })
   })
 
