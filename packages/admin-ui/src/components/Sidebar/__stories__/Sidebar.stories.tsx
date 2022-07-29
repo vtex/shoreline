@@ -15,7 +15,6 @@ import {
   IconBell,
   IconArrowUUpLeft,
 } from '@vtex/phosphor-icons'
-import { tag } from '@vtex/admin-ui-react'
 import { Topbar, TopbarStart, TopbarEnd } from '../../Topbar'
 import { Box } from '../../../box'
 import { Inline } from '../../../inline'
@@ -57,7 +56,12 @@ const top = [
     icon: <IconChartBar />,
     onClick: () => console.log('Click me'),
     label: 'Home',
-    sections: [],
+    sections: [
+      {
+        title: 'Dashboards',
+        subItems: ['Overview', 'Sales Performance', 'Web Page Performance'],
+      },
+    ],
   },
   {
     icon: <IconShoppingCartSimple />,
@@ -270,14 +274,18 @@ export const Playground: Story<any> = (args) => {
           </SidebarGroup>
           <SidebarGroup>
             {bottom.map((item) => (
-              <tag.a href="https://www.google.com.br" csx={{ width: '100%' }}>
+              <Box
+                as="a"
+                href="https://www.google.com.br"
+                csx={{ width: '100%' }}
+              >
                 <SidebarItem
                   icon={item.icon}
                   label={item.label}
                   uniqueKey={item.label}
                   key={item.label}
                 />
-              </tag.a>
+              </Box>
             ))}
           </SidebarGroup>
         </Sidebar>
