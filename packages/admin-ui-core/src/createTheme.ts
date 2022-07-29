@@ -1,4 +1,4 @@
-import { pick, omit, get, merge } from '@vtex/admin-ui-util'
+import { pick, omit, get } from '@vtex/admin-ui-util'
 
 const constants = {
   /**
@@ -116,65 +116,59 @@ function createRootStylesAsObject(cssVariables: CSSVariables) {
 }
 
 /**
- * Return the custom theme which will override the initial theme.
- * The custom theme will be loaded from the admin-ui.config.js file found in the project.
+ * Return the custom style config with the theme which will override the initial theme.
+ * The custom style cofnig will be loaded from the admin-ui.config.js file found in the project.
  */
-export function getCustomTheme(
+export function getCustomConfig(
   configPath = 'admin-ui.config.js'
 ): Record<string, any> {
-  let customTheme = {}
+  let customConfig = { disableGlobalStyles: false, theme: {} }
 
   try {
     // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-    const { theme } = require(`${process.cwd()}/${configPath}`)
-
-    customTheme = theme
+    customConfig = require(`${process.cwd()}/${configPath}`)
   } catch (err) {
     console.log('There is no theme config file')
   }
 
-  return customTheme
+  return customConfig
 }
 
 /**
- * Merge deeply two theme objects, overriding the initial theme props by the other one props.
+ * Return the initial theme without the initial global style based on the boolean param initialGlobalStylesDisabled.
+ * @param initialTheme theme
+ * @param isGlobalDisabled boolean to indicate the global style removal
  * @example
- * mergeThemes(
+ * resolveGlobal(
  * {
+ *  global: {
+ *    body: {
+ *      display: 'block',
+ *    }
+ *  },
  *  colors: {
  *    background: 'blue',
  *    fg: 'black',
  *    text: 'black',
  *  },
  * },
- * {
- *  colors: {
- *    background: 'red',
- *    fg: 'red'
- *  }
- * })
+ * true)
  *
  * // returns:
  * {
+ *  global: {},
  *  colors: {
- *    background: 'red',
- *    fg: 'red',
+ *    background: 'blue',
+ *    fg: 'black',
  *    text: 'black',
- *  }
+ *  },
  * }
  */
-export function mergeThemes(
+export function resolveGlobal(
   initialTheme: Record<string, any>,
-  customTheme: Record<string, any>
+  isGlobalDisabled = false
 ): Record<string, any> {
-  const mergedTheme = merge(initialTheme, customTheme)
-
-  // When global styles are disabled: '{ global: {} }'
-  if (customTheme.global && Object.keys(customTheme.global).length === 0) {
-    mergedTheme.global = customTheme.global
-  }
-
-  return mergedTheme
+  return isGlobalDisabled ? omit(initialTheme, ['global']) : initialTheme
 }
 
 export function createTheme<T extends Record<string, any>>(
