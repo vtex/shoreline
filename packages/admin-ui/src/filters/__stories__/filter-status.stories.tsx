@@ -135,7 +135,7 @@ export function Error() {
   }, [])
 
   return (
-    <Stack space="$m">
+    <Stack>
       <FilterDisclosure state={state}>Search error state</FilterDisclosure>
 
       <FilterPopover state={state}>
