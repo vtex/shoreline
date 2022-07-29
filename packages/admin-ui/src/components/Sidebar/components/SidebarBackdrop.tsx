@@ -34,8 +34,9 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
     loading = false,
   } = props
 
-  const showSidebarItemSkeleton =
-    loading && selectedItem?.expandable && !reduced
+  const showSidebarItemSkeleton = selectedItem
+    ? loading && selectedItem.expandable
+    : loading
 
   return (
     <Fragment>
