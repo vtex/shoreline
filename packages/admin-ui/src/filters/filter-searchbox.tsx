@@ -25,7 +25,10 @@ export const FilterSearchbox = createComponent<
     onChange: (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
     },
-    baseStyle: style.searchbox({ omitBottomMargin: status === 'error' }),
+    baseStyle: {
+      ...style.searchbox,
+      ...style.searchboxVariants({ error: status === 'error' }),
+    },
   })
 })
 
