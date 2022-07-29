@@ -1,4 +1,5 @@
 module.exports = {
+  disableGlobalStyles: true,
   theme: {
     bg: {
       blue40: 'blue',
