@@ -2,7 +2,7 @@ import React from 'react'
 import { render, axe } from '../../test-utils'
 
 import { Toast } from '../toast'
-import { ToastProvider } from '../toast-context'
+import { ToastProvider } from '../use-toast'
 
 describe('toast', () => {
   it('should not have a11y violations', async () => {
