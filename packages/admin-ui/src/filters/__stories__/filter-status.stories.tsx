@@ -10,6 +10,7 @@ import { useFilterState } from '../filter/filter.state'
 import { FilterOptionRadio } from '../filter/filter-option-radio'
 import { FilterSearchbox } from '../filter-searchbox'
 import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
+import { Stack } from '../../stack'
 
 export default {
   title: 'admin-ui/Filters/status',
@@ -47,10 +48,13 @@ function api(search?: string, delay = 1000): Promise<any[]> {
       )
     : items
 
-  return new Promise((resolve) => setTimeout(resolve, delay, res))
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval
+  return new Promise((resolve: (value: any[] | PromiseLike<any[]>) => void) =>
+    setTimeout(resolve, delay, res)
+  )
 }
 
-export function SingleSearch() {
+export function UncontrolledSearch() {
   const items = [
     { label: 'Full', id: '#1' },
     { label: 'Empty', id: '#2' },
@@ -63,7 +67,9 @@ export function SingleSearch() {
 
   return (
     <>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+      <FilterDisclosure state={filterState}>
+        Uncontrolled search example
+      </FilterDisclosure>
       <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
         <FilterListbox>
@@ -77,7 +83,7 @@ export function SingleSearch() {
   )
 }
 
-export function EmptySearchExample() {
+export function ControlledSearchExample() {
   const state = useFilterMultipleState()
   const [result, setResult] = useState<Array<{ id: string; country: string }>>()
   const [loadingSearch, setLoadingSearch] = useState(false)
@@ -108,7 +114,7 @@ export function EmptySearchExample() {
   )
 }
 
-export function ErrorSearchExample() {
+export function Error() {
   const state = useFilterMultipleState()
   const [result, setResult] = useState<Array<{ id: string; country: string }>>()
   const [loadingSearch, setLoadingSearch] = useState(false)
@@ -122,12 +128,87 @@ export function ErrorSearchExample() {
     })
   }, [state.deferredSearchValue])
 
+  const stateSimple = useFilterMultipleState()
+
+  useEffect(() => {
+    stateSimple.setStatus('error')
+  }, [])
+
   return (
-    <>
-      <FilterDisclosure state={state}>Controlled empty state</FilterDisclosure>
+    <Stack>
+      <FilterDisclosure state={state}>Search error state</FilterDisclosure>
 
       <FilterPopover state={state}>
         <FilterSearchbox id="error" loading={loadingSearch} />
+        <FilterListbox>
+          {result?.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.country} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={stateSimple}>
+        Simple error state
+      </FilterDisclosure>
+
+      <FilterPopover state={stateSimple}>
+        <FilterListbox>
+          {result?.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.country} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </Stack>
+  )
+}
+
+export function GlobalLoading() {
+  const state = useFilterMultipleState()
+  const [result, setResult] = useState<Array<{ id: string; country: string }>>()
+
+  useEffect(() => {
+    state.setStatus('loading')
+    api(state.deferredSearchValue).then((res) => {
+      setResult(res)
+    })
+  }, [state.deferredSearchValue])
+
+  return (
+    <>
+      <FilterDisclosure state={state}>Loading state</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {result?.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.country} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+export function Empty() {
+  const state = useFilterMultipleState()
+  const [result, setResult] = useState<Array<{ id: string; country: string }>>()
+
+  useEffect(() => {
+    state.setStatus('empty')
+    api(state.deferredSearchValue).then((res) => {
+      setResult(res)
+    })
+  }, [state.deferredSearchValue])
+
+  return (
+    <>
+      <FilterDisclosure state={state}>Empty state</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox />
         <FilterListbox>
           {result?.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.country} />

@@ -3,6 +3,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Search } from '../search'
 import { usePopoverContext } from './filter-popover-context'
+import * as style from './filter.style'
 
 export const FilterSearchbox = createComponent<
   typeof Search,
@@ -10,7 +11,7 @@ export const FilterSearchbox = createComponent<
 >((props) => {
   const { id, ...restProps } = props
   const {
-    state: { combobox },
+    state: { combobox, status },
   } = usePopoverContext()
 
   const { setValue, value } = combobox
@@ -24,7 +25,10 @@ export const FilterSearchbox = createComponent<
     onChange: (e: ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
     },
-    baseStyle: { margin: '$l', order: -1 },
+    baseStyle: {
+      ...style.searchbox,
+      ...style.searchboxVariants({ error: status === 'error' }),
+    },
   })
 })
 
