@@ -1,4 +1,4 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { focusVisible, style, styleVariants } from '@vtex/admin-ui-core'
 
 import * as buttonStyle from '../button/button.style'
 
@@ -59,17 +59,17 @@ export const disclosureStatusLabel = style({
   maxWidth: '300px',
 })
 
-export const searchbox = ({
-  omitBottomMargin,
-}: {
-  omitBottomMargin: boolean
-}) =>
-  style({
-    margin: '$l',
-    marginBottom: omitBottomMargin ? '0' : undefined,
-    order: -1,
-    '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
-  })
+export const searchboxVariants = styleVariants({
+  error: {
+    true: { marginBottom: 0 },
+  },
+})
+
+export const searchbox = style({
+  margin: '$l',
+  order: -1,
+  '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
+})
 
 export const statusLayout = style({ padding: '$l' })
 
