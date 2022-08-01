@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from 'react'
 import { useState, useEffect } from 'react'
 
 import type { ComboboxState } from '../../combobox/combobox.state'
@@ -11,9 +12,10 @@ import { useFilterStatus } from '../use-filter-status'
 export function useFilterState<T extends AnyObject>(
   props?: UseFilterStateProps<T>
 ): UseFilterStateReturn<T> {
-  const { fullList = [] } = props || {}
+  const { fullList: initialFullList = [] } = props || {}
 
   const [appliedItem, setAppliedItem] = useState<FilterOption<T>>()
+  const [fullList, setFullList] = useState(initialFullList)
 
   const combobox = useComboboxState<FilterOption<T>>({
     list: fullList,
@@ -62,6 +64,10 @@ export function useFilterState<T extends AnyObject>(
     }
   }, [menu.mounted, appliedItem])
 
+  useEffect(() => {
+    combobox.setMatches(fullList)
+  }, [fullList])
+
   const getFromApplied = (key: string) => {
     return (
       appliedItem?.[key as keyof FilterOption<T>] || appliedItem?.value?.[key]
@@ -85,6 +91,7 @@ export function useFilterState<T extends AnyObject>(
     getFromApplied,
     status,
     setStatus,
+    setFullList,
     matches,
     setMatches,
     deferredSearchValue,
@@ -107,6 +114,7 @@ export interface GenericFilterStateReturn<T> {
   menu: MenuState
   status: FilterStatus
   setStatus: (status: FilterStatus) => void
+  setFullList: Dispatch<SetStateAction<ItemList<T>>>
   searchValue?: string
   deferredSearchValue?: string
   matches: ItemList<T>
