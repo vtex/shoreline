@@ -15,9 +15,10 @@ import { useFilterStatus } from '../use-filter-status'
 export function useFilterMultipleState<T extends AnyObject>(
   props?: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const { fullList = [] } = props || {}
+  const { fullList: initialFullList = [] } = props || {}
 
   const [appliedItems, setAppliedItems] = useState<ItemList<T>>([])
+  const [fullList, setFullList] = useState(initialFullList)
 
   const comboboxMultiple = useComboboxMultipleState<FilterOption<T>>({
     list: fullList,
@@ -62,6 +63,10 @@ export function useFilterMultipleState<T extends AnyObject>(
     }
   }, [menu.mounted])
 
+  useEffect(() => {
+    comboboxMultiple.setMatches(fullList)
+  }, [fullList])
+
   const getFromApplied = (key: string) => {
     return appliedItems
       .map((item) => item?.[key as keyof FilterOption<T>] || item?.value?.[key])
@@ -86,6 +91,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     getFromApplied,
     status,
     setStatus,
+    setFullList,
     matches,
     setMatches,
     deferredSearchValue,
