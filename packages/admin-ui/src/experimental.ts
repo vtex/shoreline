@@ -14,6 +14,13 @@ import {
   useFilterState as experimental_useFilterState,
   FilterGroup as experimental_FilterGroup,
   useFilterGroupState as experimental_useFilterGroupState,
+  FilterSearchbox as experimental_FilterSearchbox,
+  FilterOptionCheckbox as experimental_FilterOptionCheckbox,
+  FilterOptionRadio as experimental_FilterOptionRadio,
+  FilterDisclosure as experimental_FilterDisclosure,
+  FilterFooter as experimental_FilterFooter,
+  FilterPopover as experimental_FilterPopover,
+  FilterListbox as experimental_FilterListbox,
 } from './filters'
 
 import {
@@ -45,6 +52,13 @@ export {
   experimental_useFilterGroupState,
   experimental_useFilterMultipleState,
   experimental_useFilterState,
+  experimental_FilterSearchbox,
+  experimental_FilterOptionCheckbox,
+  experimental_FilterOptionRadio,
+  experimental_FilterDisclosure,
+  experimental_FilterFooter,
+  experimental_FilterPopover,
+  experimental_FilterListbox,
 }
 
 export type {
