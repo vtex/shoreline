@@ -107,21 +107,25 @@ export function MultiSearch() {
   )
 }
 
-// problematic, there should be a way to update fulllist async
-// this is the case where the initial value is fetched but the
-// search is uncontrolled
 export function Async() {
-  const [fullList, setFullList] = useState<
-    Array<{ id: string; label: string }>
-  >([])
-
-  const filterState = useFilterMultipleState({ fullList })
+  const filterState = useFilterMultipleState()
+  const { setFullList, setStatus, combobox, status } = filterState
 
   useEffect(() => {
-    api('', 5000).then((res: any[]) =>
+    setStatus('loading')
+    api('', 5000).then((res: any[]) => {
       setFullList(res.map((i) => ({ id: i.id, label: i.country })))
-    )
+      setStatus('ready')
+    })
   }, [])
+
+  useEffect(() => {
+    if (status === 'loading') return
+
+    combobox.value && !combobox.matches.length
+      ? setStatus('not-found')
+      : setStatus('ready')
+  }, [combobox.matches])
 
   return (
     <>
@@ -130,7 +134,7 @@ export function Async() {
       <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
         <FilterListbox>
-          {filterState.combobox.matches.map((item) => (
+          {combobox.matches.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.label} />
           ))}
         </FilterListbox>
