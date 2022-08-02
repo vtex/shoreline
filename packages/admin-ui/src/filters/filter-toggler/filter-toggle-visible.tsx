@@ -50,7 +50,7 @@ export const FilterToggleVisible = createComponent<
               </FilterOptionCheckbox>
             ))}
           </FilterListbox>
-          <FilterFooter />
+          <FilterFooter isClearable={false} />
         </FilterPopover>
       </>
     ),
