@@ -1,45 +1,54 @@
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { get } from '@vtex/admin-ui-util'
-import { palette } from './helpers'
+import { palette, resolveCssValue } from './helpers'
 import type { Palette } from './types'
 
 export const utils: Record<string, (value: any) => AnyObject> = {
   /** Space */
   marginX: (value: string | number) => ({
-    marginLeft: value,
-    marginRight: value,
+    marginLeft: resolveCssValue(value, 'marginLeft'),
+    marginRight: resolveCssValue(value, 'marginRight'),
   }),
   marginY: (value: string | number) => ({
-    marginTop: value,
-    marginBottom: value,
+    marginTop: resolveCssValue(value, 'marginTop'),
+    marginBottom: resolveCssValue(value, 'marginBottom'),
   }),
   paddingX: (value: string | number) => ({
-    paddingLeft: value,
-    paddingRight: value,
+    paddingLeft: resolveCssValue(value, 'paddingLeft'),
+    paddingRight: resolveCssValue(value, 'paddingRight'),
   }),
   paddingY: (value: string | number) => ({
-    paddingTop: value,
-    paddingBottom: value,
+    paddingTop: resolveCssValue(value, 'paddingTop'),
+    paddingBottom: resolveCssValue(value, 'paddingBottom'),
   }),
 
   /** Size */
   size: (value: string | number) => ({
-    width: value,
-    height: value,
+    width: resolveCssValue(value, 'width'),
+    height: resolveCssValue(value, 'height'),
   }),
   minSize: (value: string | number) => ({
-    minWidth: value,
-    minHeight: value,
+    minWidth: resolveCssValue(value, 'minWidth'),
+    minHeight: resolveCssValue(value, 'minHeight'),
   }),
   maxSize: (value: string | number) => ({
-    maxWidth: value,
-    maxHeight: value,
+    maxWidth: resolveCssValue(value, 'maxWidth'),
+    maxHeight: resolveCssValue(value, 'maxHeight'),
   }),
   absoluteSize: (value: string | number) => ({
-    minWidth: value,
-    minHeight: value,
-    maxWidth: value,
-    maxHeight: value,
+    minWidth: resolveCssValue(value, 'minWidth'),
+    minHeight: resolveCssValue(value, 'minHeight'),
+    maxWidth: resolveCssValue(value, 'maxWidth'),
+    maxHeight: resolveCssValue(value, 'maxHeight'),
+  }),
+
+  // Text
+  text: (value: string) => ({
+    fontFamily: resolveCssValue(value, 'fontFamily'),
+    fontVariationSettings: resolveCssValue(value, 'fontVariationSettings'),
+    fontSize: resolveCssValue(value, 'fontSize'),
+    lineHeight: resolveCssValue(value, 'lineHeight'),
+    letterSpacing: resolveCssValue(value, 'letterSpacing'),
   }),
 
   // Color

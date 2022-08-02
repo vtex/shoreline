@@ -9,6 +9,8 @@ import {
 
 import { theme as mockCustomTheme } from './mock/admin-ui.config'
 
+import { theme } from '../theme'
+
 describe('createTheme', () => {
   it('should return a array of objects', () => {
     expect(createTheme({})).toEqual({
@@ -204,10 +206,18 @@ describe('createTheme', () => {
   })
 
   it('should be able to generate the theme css vars', () => {
-    const { main } = generateCssObject({
+    const result = generateCssObject({
       global: {
         body: {
           display: 'block',
+          color: '$primary',
+        },
+        html: {
+          text: '$body',
+        },
+        button: {
+          bg: '$action.main.primary',
+          color: '$action.main.primary',
         },
       },
       colors: {
@@ -225,12 +235,29 @@ describe('createTheme', () => {
       },
     })
 
-    expect(main).toEqual({
-      '--admin-ui-colors-red': 'red',
-      '--admin-ui-colors-blue': 'blue',
-      '--admin-ui-bg-action-main-primary': 'var(--admin-ui-colors-red)',
-      '--admin-ui-bg-action-main-primaryHover': 'var(--admin-ui-colors-blue)',
-      '--admin-ui-bg-action-main-primaryPressed': 'yellow',
+    expect(result).toEqual({
+      root: {
+        '--admin-ui-colors-red': 'red',
+        '--admin-ui-colors-blue': 'blue',
+        '--admin-ui-bg-action-main-primary': 'var(--admin-ui-colors-red)',
+        '--admin-ui-bg-action-main-primaryHover': 'var(--admin-ui-colors-blue)',
+        '--admin-ui-bg-action-main-primaryPressed': 'yellow',
+      },
+      body: {
+        display: 'block',
+        color: 'var(--admin-ui-fg-primary)',
+      },
+      button: {
+        background: 'var(--admin-ui-bg-action-main-primary)',
+        color: 'var(--admin-ui-fg-action-main-primary)',
+      },
+      html: {
+        fontFamily: 'var(--admin-ui-fonts-body)',
+        fontSize: 'var(--admin-ui-fontSizes-body)',
+        fontVariationSettings: 'var(--admin-ui-fontWeights-body)',
+        letterSpacing: 'var(--admin-ui-letterSpacings-body)',
+        lineHeight: 'var(--admin-ui-lineHeights-body)',
+      },
     })
   })
 })

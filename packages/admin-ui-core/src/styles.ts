@@ -8,7 +8,7 @@ import { resolveRule } from './rules'
 import { callUtil, isUtil } from './utils'
 import type { StyleObject, StyleProp } from './types'
 import { theme as defaultTheme } from './theme'
-import { extractTokenCall } from './helpers'
+import { extractTokenCall, isToken, resolveCssValue } from './helpers'
 
 /**
  * Parses a style object
@@ -36,6 +36,50 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
       Object.assign(cssObject, callUtil(cssProperty, value))
     } else {
       cssObject[cssProperty] = value
+    }
+  }
+
+  return cssObject
+}
+
+function toKebabCase(csxProperty: string) {
+  return csxProperty.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+function resolveCssObject(csxObject: StyleProp) {
+  const cssObject: CSSObject = {}
+
+  for (const key in csxObject) {
+    cssObject[key] = csxObject[key as keyof typeof csxObject]
+  }
+
+  return cssObject
+}
+
+/**
+ * Parses a style object
+ */
+export function stylesCss(csxObject: StyleProp = {}) {
+  const cssObject: CSSObject = {}
+
+  for (const key in csxObject) {
+    const cssProperty = alias(key)
+    const csxValue = csxObject[key as keyof typeof csxObject]
+    const token = csxValue
+
+    if (token && typeof token === 'object') {
+      cssObject[cssProperty] = stylesCss(token as StyleObject)
+      continue
+    }
+
+    if (isUtil(cssProperty)) {
+      const csxTokenObject: StyleProp = callUtil(cssProperty, token)
+
+      Object.assign(cssObject, resolveCssObject(csxTokenObject))
+    } else if (isToken(token)) {
+      cssObject[cssProperty] = resolveCssValue(token, cssProperty)
+    } else {
+      cssObject[cssProperty] = token
     }
   }
 

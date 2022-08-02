@@ -1,5 +1,5 @@
 import { omit, get, merge } from '@vtex/admin-ui-util'
-import { styles } from './styles'
+import { stylesCss } from './styles'
 
 const constants = {
   /**
@@ -294,9 +294,9 @@ export function generateCssObject<T>(initialTheme: T) {
     enableModes: true,
   })
 
-  const global = generateVars(theme.global ? styles(theme.global, theme) : {})
+  const global = theme.global ? stylesCss(theme.global) : {}
 
   console.log(global)
 
-  return { ...cssVariables, ...global }
+  return { root: cssVariables.main, ...global }
 }

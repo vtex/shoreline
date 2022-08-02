@@ -3,6 +3,7 @@ import { get } from '@vtex/admin-ui-util'
 import { paletteMap } from './types'
 import type { Palette, Tone, ColorTokens, StyleProp, CSSUnit } from './types'
 import { colors } from './tokens/colors'
+import { rules } from './rules'
 
 const TOKEN_PREFIX = '$'
 
@@ -16,10 +17,10 @@ export function ring(tone: Tone) {
   return `${innerRing}, ${outerRing}`
 }
 
-export function palette(color: Palette): StyleProp {
+export function palette(color: Palette) {
   return {
-    background: get(colors, `${color}10`, ''),
-    color: get(colors, `${color}60`, ''),
+    background: resolveCssValue(`$${color}10`, 'background'),
+    color: resolveCssValue(`$${color}60`, 'color'),
   }
 }
 
@@ -80,3 +81,20 @@ export function extractTokenCall(token: string) {
 }
 
 export const cx = (...args: string[]) => args.join(' ')
+
+export function resolveTokenValue(value: string) {
+  const suffix = extractTokenCall(value).split('.').join('-')
+
+  return `var(--admin-ui-${suffix})`
+}
+
+export function resolveCssValue(value: string | number, cssProperty: string) {
+  if (typeof value === 'number' || !isToken(value)) {
+    return value
+  }
+
+  const ruleId = get(rules, cssProperty, cssProperty)
+  const tokenSuffix = extractTokenCall(value).split('.').join('-')
+
+  return `var(--admin-ui-${ruleId}-${tokenSuffix})`
+}
