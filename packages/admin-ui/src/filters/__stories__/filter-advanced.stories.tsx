@@ -102,7 +102,7 @@ export function BasicFilterGroup() {
         <GenericFilter
           list={list1}
           label="Rarely used filter"
-          startOpen={togState.lastSelected?.id === '#rare'}
+          startOpen={togState.firstNewFilter?.id === '#rare'}
         />
       </FilterOptional>
 
@@ -110,7 +110,7 @@ export function BasicFilterGroup() {
         <GenericFilter
           list={list2}
           label="Other city"
-          startOpen={togState.lastSelected?.id === '#othercity'}
+          startOpen={togState.firstNewFilter?.id === '#othercity'}
         />
       </FilterOptional>
 
@@ -118,7 +118,7 @@ export function BasicFilterGroup() {
         <GenericFilter
           list={list2}
           label="Cool"
-          startOpen={togState.lastSelected?.id === '#cool'}
+          startOpen={togState.firstNewFilter?.id === '#cool'}
         />
       </FilterOptional>
 

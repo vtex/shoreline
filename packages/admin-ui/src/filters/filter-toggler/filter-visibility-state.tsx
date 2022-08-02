@@ -9,30 +9,31 @@ export const useFilterShowState = (
 ): FilterVisibilityStateReturn => {
   const state = useFilterMultipleState()
   const {
-    combobox: { onChange, isSelected },
     appliedItems,
     setAppliedItems,
+    combobox: { isSelected },
   } = state
 
-  const [lastSelected, setLastSelected] = useState<FilterOption<any>>()
+  const [firstNewFilter, setFirstNewFilter] = useState<FilterOption<any>>()
 
-  const combobox = {
-    ...state.combobox,
-    onChange: (item: FilterOption<any>) => {
-      onChange(item)
+  const onChange = () => {
+    // action performed before new value for appliedItems is saved
+    const oldItems = appliedItems
+    const firstNewItem = props.items.find(
+      (item) => isSelected(item) && !oldItems.find((i) => i.id === item.id)
+    )
 
-      if (!isSelected(item) && !appliedItems.some((i) => i.id === item.id)) {
-        setLastSelected(item)
-      }
-    },
+    setFirstNewFilter(firstNewItem)
+
+    state.onChange()
   }
 
   return {
     items: props.items,
-    filterState: { ...state, combobox },
+    filterState: { ...state, onChange },
     visible: appliedItems,
     setVisible: setAppliedItems,
-    lastSelected,
+    firstNewFilter,
   }
 }
 
@@ -45,5 +46,5 @@ export interface FilterVisibilityStateReturn {
   filterState: UseFilterMultipleReturn<AnyObject>
   visible: Array<FilterOption<any>>
   setVisible: (newValue: Array<FilterOption<any>>) => void
-  lastSelected?: FilterOption<any>
+  firstNewFilter?: FilterOption<any>
 }
