@@ -11,6 +11,8 @@ import { FilterFooter } from '../filter-footer'
 import { MenuButton } from 'ariakit'
 
 import * as style from '../filter.style'
+import { messages } from '../filter.i18n'
+import { useMessageFormatter } from '../../i18n'
 
 import { Button } from '../../button'
 import { IconCaretUp, IconCheck } from '../..'
@@ -36,7 +38,7 @@ export const FilterToggleVisible = createComponent<
           variant="neutralTertiary"
           iconPosition="end"
         >
-          More filters
+          {formatMessage('moreFilters')}
         </Button>
 
         <FilterPopover state={state.filterState}>

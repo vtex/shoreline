@@ -70,7 +70,7 @@ function GenericFilter({
   )
 }
 
-export function BasicFilterGroup() {
+export function GroupWithHiddenFilters() {
   const togState = useFilterShowState({
     items: [
       {
@@ -123,6 +123,45 @@ export function BasicFilterGroup() {
       </FilterOptional>
 
       <FilterToggleVisible state={togState} />
+    </FilterGroup>
+  )
+}
+
+export function visibilityToggleStates() {
+  const togState = useFilterShowState({
+    items: [
+      {
+        id: '#cool',
+        label: 'Cool Filter',
+      },
+    ],
+  })
+
+  const errorState = useFilterShowState({ items: [] })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [],
+  })
+
+  useEffect(() => {
+    togState.filterState.setStatus('loading')
+    errorState.filterState.setStatus('error')
+  }, [])
+
+  return (
+    <FilterGroup state={filterGroupState}>
+      <GenericFilter list={list1} label="Important filter" />
+
+      <FilterOptional id="#cool" state={togState}>
+        <GenericFilter
+          list={list2}
+          label="Cool"
+          startOpen={togState.firstNewFilter?.id === '#cool'}
+        />
+      </FilterOptional>
+
+      <FilterToggleVisible state={togState} />
+      <FilterToggleVisible state={errorState} />
     </FilterGroup>
   )
 }
