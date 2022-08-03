@@ -11,16 +11,17 @@ import * as style from './bulk-actions.style'
 
 interface BulkActionsOptions {
   state: BulkActionsState<any>
-  children: ReactNode
+  children?: ReactNode
 }
 
 export const BulkActions = createComponent<'div', BulkActionsOptions>(
   (props) => {
-    const { children, state } = props
+    const { children, state, ...restProps } = props
 
     const { allSelected, totalItems, selectedItems, selectAll } = state
 
     return useElement('div', {
+      ...restProps,
       baseStyle: style.baseline,
       children: (
         <Inline hSpace="$2xl" spaceInside csx={style.container}>
