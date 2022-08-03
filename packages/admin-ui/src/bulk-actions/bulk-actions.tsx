@@ -1,19 +1,21 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-// import type { BulkActionsState } from './bulk-actions.state'
-import { Box } from '../box'
+import type { BulkActionsState } from './bulk-actions.state'
 import { Inline } from '../inline'
 import { Flex } from '../flex'
 import { Button } from '../button'
+import { Text } from '../components/Text'
 
 interface BulkActionsProps {
-  state: any
+  state: BulkActionsState<any>
   children: ReactNode
 }
 
 export function BulkActions(props: BulkActionsProps) {
   const { children, state } = props
+
+  const { allSelected, totalItems, selectedItems, selectAll } = state
 
   return (
     <Flex justify="center">
@@ -24,29 +26,43 @@ export function BulkActions(props: BulkActionsProps) {
           width: 'fit-content',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '$xl',
+          padding: '$l',
           bg: '$primary',
           border: '$neutral',
           borderRadius: '$default',
         }}
       >
         <Inline
-          hSpace="$xl"
+          hSpace="$m"
           spaceInside
           csx={{
             justifyContent: 'center',
             alignItems: 'center',
+            paddingX: '$l',
           }}
         >
-          <Box as="p">
-            {state.allSelected ? state.totalItems : state.selectedItems.length}{' '}
-            of {state.totalItems}
-          </Box>
-          <Button variant="neutralTertiary" onClick={state.selectAll}>
+          <Text tone="secondary">
+            {allSelected ? totalItems : selectedItems.length} of {totalItems}{' '}
+            selected
+          </Text>
+
+          <Button
+            variant="neutralTertiary"
+            onClick={selectAll}
+            disabled={allSelected}
+          >
             Select All
           </Button>
         </Inline>
-        <Inline hSpace="$xl" spaceInside>
+        <Inline
+          hSpace="$m"
+          spaceInside
+          csx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingX: '$l',
+          }}
+        >
           {children}
         </Inline>
       </Inline>

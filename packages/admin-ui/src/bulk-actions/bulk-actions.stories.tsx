@@ -9,7 +9,7 @@ import { Checkbox } from '../checkbox'
 import { Button } from '../button'
 import { Pagination, usePaginationState } from '../components/Pagination'
 
-import { IconTrash } from '@vtex/phosphor-icons'
+import { IconCopy, IconPencil, IconTrash } from '@vtex/phosphor-icons'
 
 export default {
   title: 'admin-ui-review/bulk-actions',
@@ -35,12 +35,10 @@ export const Basic: Story = () => {
   const pageItems = items.slice(pagination.range[0] - 1, pagination.range[1])
 
   const state = useBulkActions({
-    totalItems: items.length,
     pageItems,
     currentPage: pagination.currentPage,
+    totalItems: items.length,
   })
-
-  console.log('hey')
 
   return (
     <Box csx={{ margin: 8 }}>
@@ -69,6 +67,24 @@ export const Basic: Story = () => {
         ))}
       </Box>
       <BulkActions state={state}>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconPencil />}
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconCopy />}
+        >
+          Duplicate
+        </Button>
         <Button
           onClick={() => {
             // api call => state.selectedItems || allSelected
