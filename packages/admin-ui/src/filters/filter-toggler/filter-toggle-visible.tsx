@@ -22,7 +22,7 @@ export const FilterToggleVisible = createComponent<
   const { state } = props
   const { combobox, menu } = state.filterState
 
-  //   const formatMessage = useMessageFormatter(messages.actions)
+  const formatMessage = useMessageFormatter(messages.actions)
 
   return useElement(Role, {
     children: (
@@ -42,11 +42,18 @@ export const FilterToggleVisible = createComponent<
         <FilterPopover state={state.filterState}>
           <FilterListbox>
             {state.items.map((item) => (
-              <FilterOptionCheckbox id={item.id} label={item.label}>
+              <FilterOptionCheckbox
+                id={item.id}
+                label={item.label}
+                csx={{
+                  ...style.visibilitySelectorItem,
+                  ...style.visibilitySelectorItemVariants({
+                    selected: combobox.isSelected(item),
+                  }),
+                }}
+              >
                 {item.label}
-                {combobox.isSelected(item) && (
-                  <IconCheck csx={{ marginLeft: '$3xl' }} />
-                )}
+                {combobox.isSelected(item) && <IconCheck />}
               </FilterOptionCheckbox>
             ))}
           </FilterListbox>
