@@ -4,6 +4,7 @@ export const messages = {
       apply: 'Apply',
       clear: 'Clear',
       clearAll: 'Clear all',
+      moreFilters: 'More filters',
     },
     'fr-FR': {
       apply: 'Appliquer',
@@ -14,6 +15,7 @@ export const messages = {
       apply: 'Aplicar',
       clear: 'Limpar',
       clearAll: 'Limpar todos',
+      moreFilters: 'Mais filtros',
     },
     'ja-JP': {
       apply: '申し込み',
