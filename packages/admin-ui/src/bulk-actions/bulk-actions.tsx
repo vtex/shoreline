@@ -1,71 +1,48 @@
 import type { ReactNode } from 'react'
 import React from 'react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import type { BulkActionsState } from './bulk-actions.state'
 import { Inline } from '../inline'
-import { Flex } from '../flex'
 import { Button } from '../button'
 import { Text } from '../components/Text'
 
-interface BulkActionsProps {
+import * as style from './bulk-actions.style'
+
+interface BulkActionsOptions {
   state: BulkActionsState<any>
   children: ReactNode
 }
 
-export function BulkActions(props: BulkActionsProps) {
-  const { children, state } = props
+export const BulkActions = createComponent<'div', BulkActionsOptions>(
+  (props) => {
+    const { children, state } = props
 
-  const { allSelected, totalItems, selectedItems, selectAll } = state
+    const { allSelected, totalItems, selectedItems, selectAll } = state
 
-  return (
-    <Flex justify="center">
-      <Inline
-        hSpace="$2xl"
-        spaceInside
-        csx={{
-          width: 'fit-content',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '$l',
-          bg: '$primary',
-          border: '$neutral',
-          borderRadius: '$default',
-        }}
-      >
-        <Inline
-          hSpace="$m"
-          spaceInside
-          csx={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingX: '$l',
-          }}
-        >
-          <Text tone="secondary">
-            {allSelected ? totalItems : selectedItems.length} of {totalItems}{' '}
-            selected
-          </Text>
+    return useElement('div', {
+      baseStyle: style.baseline,
+      children: (
+        <Inline hSpace="$2xl" spaceInside csx={style.container}>
+          <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
+            <Text tone="secondary">
+              {allSelected ? totalItems : selectedItems.length} of {totalItems}{' '}
+              selected
+            </Text>
 
-          <Button
-            variant="neutralTertiary"
-            onClick={selectAll}
-            disabled={allSelected}
-          >
-            Select All
-          </Button>
+            <Button
+              variant="neutralTertiary"
+              onClick={selectAll}
+              disabled={allSelected}
+            >
+              Select All
+            </Button>
+          </Inline>
+          <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
+            {children}
+          </Inline>
         </Inline>
-        <Inline
-          hSpace="$m"
-          spaceInside
-          csx={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingX: '$l',
-          }}
-        >
-          {children}
-        </Inline>
-      </Inline>
-    </Flex>
-  )
-}
+      ),
+    })
+  }
+)
