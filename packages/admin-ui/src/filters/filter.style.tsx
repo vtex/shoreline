@@ -1,6 +1,7 @@
 import { focusVisible, style, styleVariants } from '@vtex/admin-ui-core'
 
 import * as buttonStyle from '../button/button.style'
+import * as menuStyle from '../menu/menu.style'
 
 export const disclosure = style({
   ...buttonStyle.buttonStyle,
@@ -82,3 +83,34 @@ export const footer = (isScrollableLayout: boolean) =>
     justifyContent: 'end',
     order: 999,
   })
+
+export const visibilitySelectorItem = style({
+  ...menuStyle.item,
+  ...menuStyle.itemVariants({
+    variant: 'neutral',
+  }),
+
+  justifyContent: 'space-between',
+
+  svg: {
+    marginRight: 0,
+    marginLeft: '$m',
+    size: '1.25rem',
+  },
+})
+
+export const visibilitySelectorItemVariants = styleVariants({
+  selected: {
+    true: {
+      color: `action.main.tertiary`,
+      ':hover': {
+        color: `action.main.tertiaryHover`,
+        bg: `action.neutral.tertiaryHover`,
+      },
+      ':focus-visible:not(:active)': {
+        color: `action.main.tertiaryHover`,
+        bg: `action.neutral.tertiaryHover`,
+      },
+    },
+  },
+})
