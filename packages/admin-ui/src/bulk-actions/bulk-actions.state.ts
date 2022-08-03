@@ -1,15 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useCheckboxState } from '../checkbox'
 
-interface UseBulkActionsParams {
-  totalItems: number
-  pageItems: any[]
-  currentPage: number
-}
-
-export function useBulkActions(props: UseBulkActionsParams) {
-  const { totalItems, pageItems = [], currentPage } = props
+export function useBulkActions<T extends { id: string | number }>(
+  props: UseBulkActionsParams<T>
+): BulkActionsState<T> {
+  const { pageItems = [], currentPage, totalItems } = props
 
   const [allSelected, setAllSelected] = useState<boolean>(false)
 
@@ -17,32 +13,46 @@ export function useBulkActions(props: UseBulkActionsParams) {
     initialValue: false,
   })
 
-  const [selectedItems, setSelectedItems] = useState<any[]>([])
+  const [selectedItems, setSelectedItems] = useState<T[]>([])
 
-  const isItemSelected = (item: any, items = selectedItems) => {
-    return items.some((i) => i.id === item.id)
-  }
+  useEffect(() => {
+    if (root === 'indeterminate' || Array.isArray(root)) return
 
-  const selectedPageItems = (selectedItems: any[]) => {
+    toggleItems(pageItems)
+  }, [root])
+
+  useEffect(() => {
+    setRoot(rootResolver(selectedItems))
+  }, [currentPage, selectedItems])
+
+  const isItemSelected = useCallback(
+    (item: T, items: T[] = selectedItems) => {
+      return items.some((i: T) => i.id === item.id)
+    },
+    [selectedItems]
+  )
+
+  const selectedPageItems = (selectedItems: T[]) => {
     return pageItems.filter((item) => isItemSelected(item, selectedItems))
-      .length
   }
 
-  const rootResolver = (selectedItems: any[]) => {
+  const rootResolver = (selectedItems: T[]) => {
     const pageSize = pageItems.length
 
-    if (selectedPageItems(selectedItems) === pageSize) {
+    const numberOfItems = selectedPageItems(selectedItems).length
+
+    if (numberOfItems === pageSize) {
       return true
     }
 
-    if (selectedPageItems(selectedItems) > 0) {
+    if (numberOfItems > 0) {
       return 'indeterminate'
     }
 
     return false
   }
 
-  const toggleRoot = (items: any[]) => {
+  const toggleItems = (items: T[]) => {
     const nextSelectedItems = root
       ? [...selectedItems, ...items.filter((i) => !isItemSelected(i))]
       : selectedItems.filter((i) => !isItemSelected(i, items))
@@ -50,25 +60,14 @@ export function useBulkActions(props: UseBulkActionsParams) {
     setSelectedItems(nextSelectedItems)
   }
 
-  useEffect(() => {
-    if (root === 'indeterminate' || Array.isArray(root)) return
-
-    toggleRoot(pageItems)
-  }, [root])
-
-  useEffect(() => {
-    setRoot(rootResolver(selectedItems))
-  }, [currentPage])
-
-  const toggleItem = (item: any) => {
-    const nextSelectedItems = isItemSelected(item)
-      ? selectedItems.filter((i) => i.id !== item.id)
-      : [...selectedItems, item]
-
-    const pageState = rootResolver(nextSelectedItems)
+  const toggleItem = (item: T) => {
+    const nextSelectedItems =
+      isItemSelected(item) || allSelected
+        ? selectedItems.filter((i) => i.id !== item.id)
+        : [...selectedItems, item]
 
     setSelectedItems(nextSelectedItems)
-    setRoot(pageState)
+    setRoot(rootResolver(nextSelectedItems))
     setAllSelected(false)
   }
 
@@ -87,6 +86,7 @@ export function useBulkActions(props: UseBulkActionsParams) {
     root,
     setRoot,
     selectedItems,
+    setSelectedItems,
     isItemSelected,
     toggleItem,
     isVisible,
@@ -94,15 +94,22 @@ export function useBulkActions(props: UseBulkActionsParams) {
   }
 }
 
-export interface BulkActionsState {
+export interface BulkActionsState<T> {
   selectAll: () => void
-  toggleItem: (item: any) => void
   setAllSelected: Dispatch<SetStateAction<boolean>>
   allSelected: boolean
-  pageSelected: boolean | any[] | 'indeterminate'
-  setPageSelected: Dispatch<SetStateAction<boolean | 'indeterminate' | any[]>>
-  selectedItems: any[]
-  isItemSelected: (item: any) => boolean
+  root: boolean | any[] | 'indeterminate'
+  setRoot: Dispatch<SetStateAction<boolean | 'indeterminate' | any[]>>
+  selectedItems: T[]
+  setSelectedItems: Dispatch<SetStateAction<T[]>>
+  isItemSelected: (item: T, items?: T[]) => boolean
+  toggleItem: (item: T) => void
   isVisible: boolean
+  totalItems: number
+}
+
+interface UseBulkActionsParams<T> {
+  pageItems: T[]
+  currentPage: number
   totalItems: number
 }
