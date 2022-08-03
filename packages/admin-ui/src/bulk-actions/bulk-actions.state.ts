@@ -110,6 +110,6 @@ export interface BulkActionsState<T> {
 
 interface UseBulkActionsParams<T> {
   pageItems: T[]
-  currentPage: number
+  currentPage?: number
   totalItems: number
 }

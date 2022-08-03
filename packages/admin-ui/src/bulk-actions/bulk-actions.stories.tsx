@@ -8,7 +8,7 @@ import { Flex } from '../flex'
 import { Checkbox } from '../checkbox'
 import { Button } from '../button'
 import { Pagination, usePaginationState } from '../components/Pagination'
-
+import { Center } from '../center'
 import { IconCopy, IconPencil, IconTrash } from '@vtex/phosphor-icons'
 
 export default {
@@ -37,7 +37,7 @@ export const Basic: Story = () => {
   const state = useBulkActions({
     pageItems,
     currentPage: pagination.currentPage,
-    totalItems: items.length,
+    totalItems: pagination.total,
   })
 
   return (
@@ -66,35 +66,37 @@ export const Basic: Story = () => {
           </Flex>
         ))}
       </Box>
-      <BulkActions state={state}>
-        <Button
-          onClick={() => {
-            // api call => state.selectedItems || allSelected
-          }}
-          variant="tertiary"
-          icon={<IconPencil />}
-        >
-          Edit
-        </Button>
-        <Button
-          onClick={() => {
-            // api call => state.selectedItems || allSelected
-          }}
-          variant="tertiary"
-          icon={<IconCopy />}
-        >
-          Duplicate
-        </Button>
-        <Button
-          onClick={() => {
-            // api call => state.selectedItems || allSelected
-          }}
-          variant="criticalTertiary"
-          icon={<IconTrash />}
-        >
-          Delete
-        </Button>
-      </BulkActions>
+      <Center>
+        <BulkActions state={state}>
+          <Button
+            onClick={() => {
+              // api call => state.selectedItems || allSelected
+            }}
+            variant="tertiary"
+            icon={<IconPencil />}
+          >
+            Edit
+          </Button>
+          <Button
+            onClick={() => {
+              // api call => state.selectedItems || allSelected
+            }}
+            variant="tertiary"
+            icon={<IconCopy />}
+          >
+            Duplicate
+          </Button>
+          <Button
+            onClick={() => {
+              // api call => state.selectedItems || allSelected
+            }}
+            variant="criticalTertiary"
+            icon={<IconTrash />}
+          >
+            Delete
+          </Button>
+        </BulkActions>
+      </Center>
       <Pagination
         state={pagination}
         preposition="of"
