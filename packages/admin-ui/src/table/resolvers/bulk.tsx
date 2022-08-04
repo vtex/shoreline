@@ -44,17 +44,19 @@ export function bulkResolver<T extends {}>() {
       )
 
       const {
-        state: { allSelected, isItemSelected, toggleItem },
+        state: { allSelected, selectedItemsIds, pageIds, setSelectedItemsIds },
       } = resolver
+
+      const selectedPageItems = allSelected ? pageIds : null
 
       return (
         <Checkbox
           value={get(item, 'id')}
-          checked={allSelected || isItemSelected(item)}
-          onChange={() => {
-            toggleItem(item)
+          state={{
+            value: selectedPageItems || selectedItemsIds,
+            setValue: setSelectedItemsIds,
           }}
-          disabled={context.status === 'loading'}
+          disabled={context.status === 'loading' || allSelected}
           onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }

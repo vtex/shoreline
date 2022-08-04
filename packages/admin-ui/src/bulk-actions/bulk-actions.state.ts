@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useCheckboxState } from '../checkbox'
+import type { SelectionTreeState } from '../components/SelectionTree'
 
 export function useBulkActions<T extends { id: string | number }>(
   props: UseBulkActionsParams<T>
@@ -13,33 +14,71 @@ export function useBulkActions<T extends { id: string | number }>(
     initialValue: false,
   })
 
-  const [selectedItems, setSelectedItems] = useState<T[]>([])
+  const { value: selectedItemsIds, setValue: setSelectedItemsIds } =
+    useCheckboxState({
+      initialValue: [],
+    })
+
+  const isItemSelected = (item: T) => {
+    return !!mapSelectedIds[item.id]
+  }
+
+  const getSelectedIds = useCallback(() => {
+    if (!Array.isArray(selectedItemsIds)) return []
+
+    return selectedItemsIds
+  }, [selectedItemsIds])
+
+  const { mapItem, ids: pageIds } = useMemo(() => {
+    return pageItems.reduce(
+      (
+        acc: {
+          ids: Array<number | string>
+          mapItem: Record<string | number, T>
+        },
+        item
+      ) => ({
+        ids: [...acc.ids, item.id],
+        mapItem: { ...acc.mapItem, [item.id]: item },
+      }),
+      { ids: [], mapItem: {} }
+    )
+  }, [currentPage])
+
+  const selectedItems = useMemo(
+    () =>
+      selectedItemsIds instanceof Array
+        ? selectedItemsIds.map((item) => mapItem[item])
+        : [],
+    [selectedItemsIds, mapItem]
+  )
+
+  const mapSelectedIds: Record<string | number, boolean> = useMemo(() => {
+    return getSelectedIds().reduce((acc, i) => ({ ...acc, [i]: true }), {})
+  }, [getSelectedIds])
 
   useEffect(() => {
     if (root === 'indeterminate' || Array.isArray(root)) return
 
-    toggleItems(pageItems)
+    toggleItems()
   }, [root])
 
   useEffect(() => {
-    setRoot(rootResolver(selectedItems))
-  }, [currentPage, selectedItems])
+    if (allSelected) return
 
-  const isItemSelected = useCallback(
-    (item: T, items: T[] = selectedItems) => {
-      return items.some((i: T) => i.id === item.id)
-    },
-    [selectedItems]
-  )
+    const rootState = resolveRootState()
 
-  const selectedPageItems = (selectedItems: T[]) => {
-    return pageItems.filter((item) => isItemSelected(item, selectedItems))
-  }
+    setRoot(rootState)
+  }, [currentPage, selectedItemsIds, allSelected])
 
-  const rootResolver = (selectedItems: T[]) => {
+  const selectedPageItems = useCallback(() => {
+    return pageItems.filter((item) => !!mapSelectedIds[item.id])
+  }, [currentPage, mapSelectedIds])
+
+  const resolveRootState = useCallback(() => {
     const pageSize = pageItems.length
 
-    const numberOfItems = selectedPageItems(selectedItems).length
+    const numberOfItems = selectedPageItems().length
 
     if (numberOfItems === pageSize) {
       return true
@@ -50,62 +89,58 @@ export function useBulkActions<T extends { id: string | number }>(
     }
 
     return false
-  }
+  }, [currentPage, selectedPageItems])
 
-  const toggleItems = (items: T[]) => {
+  const toggleItems = () => {
+    const filteredSelectedItems = getSelectedIds().filter((i) => !mapItem[i])
+
     const nextSelectedItems = root
-      ? [...selectedItems, ...items.filter((i) => !isItemSelected(i))]
-      : selectedItems.filter((i) => !isItemSelected(i, items))
+      ? [...filteredSelectedItems, ...pageIds]
+      : filteredSelectedItems
 
-    setSelectedItems(nextSelectedItems)
-  }
-
-  const toggleItem = (item: T) => {
-    const nextSelectedItems =
-      isItemSelected(item) || allSelected
-        ? selectedItems.filter((i) => i.id !== item.id)
-        : [...selectedItems, item]
-
-    setSelectedItems(nextSelectedItems)
-    setRoot(rootResolver(nextSelectedItems))
-    setAllSelected(false)
-  }
-
-  const selectAll = () => {
-    setAllSelected(true)
+    setSelectedItemsIds(nextSelectedItems)
   }
 
   const isVisible = useMemo(() => {
-    return allSelected || selectedItems.length > 0
-  }, [allSelected, selectedItems])
+    return allSelected || getSelectedIds().length > 0
+  }, [allSelected, getSelectedIds])
 
   return {
-    selectAll,
     setAllSelected,
+    pageIds,
     allSelected,
     root,
     setRoot,
     selectedItems,
-    setSelectedItems,
+    selectedItemsIds,
+    setSelectedItemsIds,
     isItemSelected,
-    toggleItem,
     isVisible,
     totalItems,
+    selectionTree: {
+      root: { value: root, setValue: setRoot },
+      items: { value: selectedItemsIds, setValue: setSelectedItemsIds },
+      selectedItems,
+      allSelected,
+    },
   }
 }
 
 export interface BulkActionsState<T> {
-  selectAll: () => void
   setAllSelected: Dispatch<SetStateAction<boolean>>
   allSelected: boolean
+  pageIds: Array<number | string>
   root: boolean | any[] | 'indeterminate'
   setRoot: Dispatch<SetStateAction<boolean | 'indeterminate' | any[]>>
   selectedItems: T[]
-  setSelectedItems: Dispatch<SetStateAction<T[]>>
-  isItemSelected: (item: T, items?: T[]) => boolean
-  toggleItem: (item: T) => void
+  selectedItemsIds: boolean | any[] | 'indeterminate'
+  setSelectedItemsIds: (
+    value: SetStateAction<boolean | any[] | 'indeterminate'>
+  ) => void
+  isItemSelected: (item: T) => boolean
   isVisible: boolean
   totalItems: number
+  selectionTree: SelectionTreeState<T>
 }
 
 interface UseBulkActionsParams<T> {

@@ -18,12 +18,24 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
   (props) => {
     const { children, state, ...restProps } = props
 
-    const { allSelected, totalItems, selectedItems, selectAll } = state
+    const {
+      allSelected,
+      totalItems,
+      selectedItems,
+      setAllSelected,
+      setSelectedItemsIds,
+      setRoot,
+      isVisible,
+    } = state
+
+    if (!isVisible) {
+      return null
+    }
 
     return useElement('div', {
       ...restProps,
       baseStyle: style.baseline,
-      children: (
+      children: isVisible ? (
         <Inline hSpace="$2xl" spaceInside csx={style.container}>
           <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
             <Text tone="secondary">
@@ -33,17 +45,23 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
 
             <Button
               variant="neutralTertiary"
-              onClick={selectAll}
-              disabled={allSelected}
+              onClick={() => {
+                if (allSelected) {
+                  setRoot(false)
+                  setSelectedItemsIds([])
+                }
+
+                setAllSelected((prev) => !prev)
+              }}
             >
-              Select All
+              {allSelected ? 'Deselect All' : 'Select All'}
             </Button>
           </Inline>
           <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
             {children}
           </Inline>
         </Inline>
-      ),
+      ) : null,
     })
   }
 )

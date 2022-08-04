@@ -12,7 +12,6 @@ import { Button } from '../../button'
 import { createColumns } from '../create-columns'
 import { IconTrash, IconPencil, IconCopy } from '@vtex/phosphor-icons'
 import { BulkActions, useBulkActions } from '../../bulk-actions'
-import { Center } from '../../center'
 import { usePaginationState, Pagination } from '../../components/Pagination'
 import { FlexSpacer } from '../../flex'
 import {
@@ -22,6 +21,7 @@ import {
   PageHeaderTop,
   PageContent,
 } from '../../page'
+import { SelectionTree } from '../../components/SelectionTree'
 
 export default {
   title: 'admin-ui-review/table',
@@ -50,7 +50,7 @@ export function Bulk() {
   const view = useDataViewState()
 
   const pagination = usePaginationState({
-    pageSize: 20,
+    pageSize: 25,
     total: items.length,
   })
 
@@ -114,22 +114,20 @@ export function Bulk() {
               nextLabel="Next"
             />
           </DataViewControls>
-          {bulk.isVisible ? (
-            <Center>
-              <BulkActions state={bulk} csx={{ position: 'fixed', bottom: 25 }}>
-                <Button variant="tertiary" icon={<IconPencil />}>
-                  Edit
-                </Button>
-                <Button variant="tertiary" icon={<IconCopy />}>
-                  Duplicate
-                </Button>
-                <Button variant="criticalTertiary" icon={<IconTrash />}>
-                  Delete
-                </Button>
-              </BulkActions>
-            </Center>
-          ) : null}
-          <Table state={grid} />
+          <BulkActions state={bulk}>
+            <Button variant="tertiary" icon={<IconPencil />}>
+              Edit
+            </Button>
+            <Button variant="tertiary" icon={<IconCopy />}>
+              Duplicate
+            </Button>
+            <Button variant="criticalTertiary" icon={<IconTrash />}>
+              Delete
+            </Button>
+          </BulkActions>
+          <SelectionTree state={bulk.selectionTree}>
+            <Table state={grid} />
+          </SelectionTree>
         </DataView>
       </PageContent>
     </Page>

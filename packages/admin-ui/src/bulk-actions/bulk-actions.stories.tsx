@@ -8,7 +8,6 @@ import { Flex } from '../flex'
 import { Checkbox } from '../checkbox'
 import { Button } from '../button'
 import { Pagination, usePaginationState } from '../components/Pagination'
-import { Center } from '../center'
 import { IconCopy, IconPencil, IconTrash } from '@vtex/phosphor-icons'
 
 export default {
@@ -57,46 +56,47 @@ export const Basic: Story = () => {
           <Flex as="li" key={item.id}>
             <Checkbox
               value={item.id}
-              checked={state.allSelected || state.isItemSelected(item)}
-              onChange={() => {
-                state.toggleItem(item)
+              state={{
+                value:
+                  (state.allSelected ? state.pageIds : null) ||
+                  state.selectedItemsIds,
+                setValue: state.setSelectedItemsIds,
               }}
+              disabled={state.allSelected}
               label={item.name}
             />
           </Flex>
         ))}
       </Box>
-      <Center>
-        <BulkActions state={state}>
-          <Button
-            onClick={() => {
-              // api call => state.selectedItems || allSelected
-            }}
-            variant="tertiary"
-            icon={<IconPencil />}
-          >
-            Edit
-          </Button>
-          <Button
-            onClick={() => {
-              // api call => state.selectedItems || allSelected
-            }}
-            variant="tertiary"
-            icon={<IconCopy />}
-          >
-            Duplicate
-          </Button>
-          <Button
-            onClick={() => {
-              // api call => state.selectedItems || allSelected
-            }}
-            variant="criticalTertiary"
-            icon={<IconTrash />}
-          >
-            Delete
-          </Button>
-        </BulkActions>
-      </Center>
+      <BulkActions state={state}>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconPencil />}
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconCopy />}
+        >
+          Duplicate
+        </Button>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="criticalTertiary"
+          icon={<IconTrash />}
+        >
+          Delete
+        </Button>
+      </BulkActions>
       <Pagination
         state={pagination}
         preposition="of"
@@ -104,7 +104,7 @@ export const Basic: Story = () => {
         prevLabel="Previous"
         nextLabel="Next"
       />
-      <Box>{state.selectedItems.map((i) => i.name).join(',')}</Box>
+      {/* <Box>{state.selectedItems.map((item) => item.name).join(',')}</Box> */}
       <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
     </Box>
   )

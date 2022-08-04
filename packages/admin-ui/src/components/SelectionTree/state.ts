@@ -129,6 +129,7 @@ export interface SelectionTreeState<T> {
    * Items state
    */
   items: ReturnType<typeof useCheckboxState>
+  allSelected?: boolean
 }
 
 export interface UseSelectionTreeStateParams<T> {
