@@ -79,16 +79,23 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
 
     const isRowSelected = () => {
       const isSelectable = columns.some(
-        (column) => column?.resolver?.type === 'selection'
+        (column) =>
+          column?.resolver?.type === 'selection' ||
+          column?.resolver?.type === 'bulk'
       )
 
       if (!isSelectable) {
         return false
       }
 
-      const { selectedItems } = useSelectionTreeContext()
+      const {
+        allSelected = false,
+        items: { value: selectedItemsIds },
+      } = useSelectionTreeContext()
 
-      return selectedItems.some((selectedItem) => selectedItem.id === item.id)
+      if (!Array.isArray(selectedItemsIds)) return false
+
+      return allSelected || selectedItemsIds.some((id) => id === item.id)
     }
 
     const handleClick = () => {
