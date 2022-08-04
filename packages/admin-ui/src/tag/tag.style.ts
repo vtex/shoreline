@@ -1,5 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
-import { get } from '@vtex/admin-ui-util'
+import { resolveTokenValue, style, styleVariants } from '@vtex/admin-ui-core'
 
 function customPalette(token: string) {
   return {
@@ -15,7 +14,7 @@ export const baseline = style({
   color: '$primary',
   border: 'none',
   paddingX: '0.75rem',
-  outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+  outlineColor: resolveTokenValue('bg.primary'),
   outlineWidth: '0.125rem',
   outlineStyle: 'solid',
 })

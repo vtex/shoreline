@@ -3,13 +3,12 @@ import {
   getCustomConfig,
   createTheme,
   generateVars,
+  parseToCss,
   resolveGlobal,
   generateCssObject,
 } from '../createTheme'
 
 import { theme as mockCustomTheme } from './mock/admin-ui.config'
-
-import { theme } from '../theme'
 
 describe('createTheme', () => {
   it('should return a array of objects', () => {
@@ -218,6 +217,7 @@ describe('createTheme', () => {
         button: {
           bg: '$action.main.primary',
           color: '$action.main.primary',
+          width: '$10/12',
         },
       },
       colors: {
@@ -250,6 +250,7 @@ describe('createTheme', () => {
       button: {
         background: 'var(--admin-ui-bg-action-main-primary)',
         color: 'var(--admin-ui-fg-action-main-primary)',
+        width: 'var(--admin-ui-sizes-10_12)',
       },
       html: {
         fontFamily: 'var(--admin-ui-fonts-body)',
@@ -259,5 +260,68 @@ describe('createTheme', () => {
         lineHeight: 'var(--admin-ui-lineHeights-body)',
       },
     })
+  })
+
+  it('should be able to generate the global css file content', () => {
+    const result = generateCssObject({
+      global: {
+        body: {
+          display: 'block',
+          color: '$primary',
+        },
+        html: {
+          text: '$body',
+        },
+        button: {
+          bg: '$action.main.primary',
+          color: '$action.main.primary',
+          width: '$10/12',
+        },
+      },
+      colors: {
+        red: 'red',
+        blue: 'blue',
+      },
+      bg: {
+        action: {
+          main: {
+            primary: 'red',
+            primaryHover: 'blue',
+            primaryPressed: 'yellow',
+          },
+        },
+      },
+    })
+
+    const cssText = parseToCss(result)
+
+    expect(cssText).toEqual(`:root {
+\t--admin-ui-colors-red: red;
+\t--admin-ui-colors-blue: blue;
+\t--admin-ui-bg-action-main-primary: var(--admin-ui-colors-red);
+\t--admin-ui-bg-action-main-primary-hover: var(--admin-ui-colors-blue);
+\t--admin-ui-bg-action-main-primary-pressed: yellow;
+}
+
+body {
+\tdisplay: block;
+\tcolor: var(--admin-ui-fg-primary);
+}
+
+html {
+\tfont-family: var(--admin-ui-fonts-body);
+\tfont-variation-settings: var(--admin-ui-fontWeights-body);
+\tfont-size: var(--admin-ui-fontSizes-body);
+\tline-height: var(--admin-ui-lineHeights-body);
+\tletter-spacing: var(--admin-ui-letterSpacings-body);
+}
+
+button {
+\tbackground: var(--admin-ui-bg-action-main-primary);
+\tcolor: var(--admin-ui-fg-action-main-primary);
+\twidth: var(--admin-ui-sizes-10_12);
+}
+
+`)
   })
 })

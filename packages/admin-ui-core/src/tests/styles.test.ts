@@ -1,18 +1,18 @@
 import { get } from '@vtex/admin-ui-util'
 
-import { stylesCss } from '../styles'
+import { styles } from '../styles'
 import { cx, resolveTokenValue } from '../helpers'
 
 describe('styles', () => {
   describe('edge cases', () => {
     it('should always return a object', () => {
-      expect(typeof stylesCss()).toBe('object')
-      expect(typeof stylesCss(undefined)).toBe('object')
-      expect(typeof stylesCss({})).toBe('object')
+      expect(typeof styles()).toBe('object')
+      expect(typeof styles(undefined)).toBe('object')
+      expect(typeof styles({})).toBe('object')
     })
 
     it('should not touch unkown properties', () => {
-      const result = stylesCss({
+      const result = styles({
         abc: 'cba',
       })
 
@@ -22,7 +22,7 @@ describe('styles', () => {
     })
 
     it('should ignore values that are not tokens', () => {
-      const result = stylesCss({
+      const result = styles({
         fontSize: 32,
         color: 'blue',
         borderRadius: 4,
@@ -38,7 +38,7 @@ describe('styles', () => {
 
   describe('basic rules', () => {
     it('should be able to consume rules', () => {
-      const result = stylesCss({
+      const result = styles({
         color: '$primary',
       })
 
@@ -48,7 +48,7 @@ describe('styles', () => {
     })
 
     it('goes literal if some rule does not match', () => {
-      const result = stylesCss({
+      const result = styles({
         padding: 20,
         margin: 100,
       })
@@ -60,7 +60,7 @@ describe('styles', () => {
     })
 
     it('should be able to handle aliases', () => {
-      const result = stylesCss({
+      const result = styles({
         bg: 'blue',
       })
 
@@ -70,7 +70,7 @@ describe('styles', () => {
     })
 
     it('should be able to handle splits', () => {
-      const result = stylesCss({
+      const result = styles({
         marginX: '$sm',
         size: 100,
       })
@@ -86,7 +86,7 @@ describe('styles', () => {
 
   describe('complex rules', () => {
     it('should consume object rules', () => {
-      const result = stylesCss({
+      const result = styles({
         text: '$detail',
       })
 
@@ -100,7 +100,7 @@ describe('styles', () => {
     })
 
     it('should be able to use tokens values of other rules (edge cases)', () => {
-      const result = stylesCss({
+      const result = styles({
         bg: resolveTokenValue('fg.primary'),
       })
 
@@ -112,7 +112,7 @@ describe('styles', () => {
 
   describe('chained selectors alias', () => {
     it('returns correct syntax for CSS selectors', () => {
-      const result = stylesCss({
+      const result = styles({
         ':hover': { color: 'blue' },
         '::before': { color: 'blue' },
         '[data]': { color: 'blue' },
@@ -141,7 +141,7 @@ describe('styles', () => {
   })
 
   it('returns correct syntax for deep CSS selectors', () => {
-    const result = stylesCss({
+    const result = styles({
       button: {
         ':hover': { color: 'blue' },
         '::before': { color: 'blue' },

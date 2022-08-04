@@ -94,7 +94,10 @@ export function resolveCssValue(value: string | number, cssProperty: string) {
   }
 
   const ruleId = get(rules, cssProperty, cssProperty)
-  const tokenSuffix = extractTokenCall(value).split('.').join('-')
+  const tokenSuffix = extractTokenCall(value)
+    .replace('/', '_')
+    .split('.')
+    .join('-')
 
   return `var(--admin-ui-${ruleId}-${tokenSuffix})`
 }

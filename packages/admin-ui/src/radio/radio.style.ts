@@ -1,11 +1,10 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
-import { get } from '@vtex/admin-ui-util'
+import { focusVisible, resolveTokenValue, style } from '@vtex/admin-ui-core'
 
 export const checkmark = style({
   content: '""',
   position: 'absolute',
   display: 'block',
-  borderRadius: 'circle',
+  borderRadius: '$circle',
   size: '0.5rem',
   bg: '$form.control',
 })
@@ -31,7 +30,7 @@ export const baseline = style({
   border: '$form.control',
   appearance: 'none',
   position: 'relative',
-  borderRadius: 'circle',
+  borderRadius: '$circle',
   cursor: 'pointer',
   display: 'flex',
   margin: 0,
@@ -54,7 +53,7 @@ export const checked = style({
 
   '&:after': {
     ...checkmark,
-    bg: (theme) => get(theme, 'fg.form.controlChecked', ''),
+    bg: resolveTokenValue('fg.form.controlChecked'),
   },
 
   ':hover:not(:disabled)': {
@@ -64,7 +63,7 @@ export const checked = style({
 
   '&[disabled]:after': {
     ...checkmark,
-    bg: (theme) => get(theme, 'fg.disabled', ''),
+    bg: resolveTokenValue('fg.disabled'),
   },
 
   ...disabled,

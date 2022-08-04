@@ -7,79 +7,30 @@ import { alias } from './aliases'
 import { resolveRule } from './rules'
 import { callUtil, isUtil } from './utils'
 import type { StyleObject, StyleProp } from './types'
-import { theme as defaultTheme } from './theme'
-import { extractTokenCall, isToken, resolveCssValue } from './helpers'
+import { extractTokenCall, resolveCssValue } from './helpers'
 
 /**
  * Parses a style object
  */
-export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
+export function styles(csxObject: StyleProp = {}) {
   const cssObject: CSSObject = {}
 
   for (const key in csxObject) {
     const cssProperty = alias(key)
     const csxValue = csxObject[key as keyof typeof csxObject]
     const token = isFunction(csxValue)
-      ? (csxValue as Function)(theme, cssProperty)
+      ? (csxValue as Function)(cssProperty)
       : csxValue
 
     if (token && typeof token === 'object') {
-      cssObject[cssProperty] = styles(token as StyleObject, theme)
-      continue
-    }
-
-    const value = getTokenValue(theme, cssProperty, token)
-
-    if (!!value && typeof value === 'object') {
-      Object.assign(cssObject, value)
-    } else if (isUtil(cssProperty)) {
-      Object.assign(cssObject, callUtil(cssProperty, value))
-    } else {
-      cssObject[cssProperty] = value
-    }
-  }
-
-  return cssObject
-}
-
-function toKebabCase(csxProperty: string) {
-  return csxProperty.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
-}
-
-function resolveCssObject(csxObject: StyleProp) {
-  const cssObject: CSSObject = {}
-
-  for (const key in csxObject) {
-    cssObject[key] = csxObject[key as keyof typeof csxObject]
-  }
-
-  return cssObject
-}
-
-/**
- * Parses a style object
- */
-export function stylesCss(csxObject: StyleProp = {}) {
-  const cssObject: CSSObject = {}
-
-  for (const key in csxObject) {
-    const cssProperty = alias(key)
-    const csxValue = csxObject[key as keyof typeof csxObject]
-    const token = csxValue
-
-    if (token && typeof token === 'object') {
-      cssObject[cssProperty] = stylesCss(token as StyleObject)
+      cssObject[cssProperty] = styles(token as StyleObject)
       continue
     }
 
     if (isUtil(cssProperty)) {
-      const csxTokenObject: StyleProp = callUtil(cssProperty, token)
-
-      Object.assign(cssObject, resolveCssObject(csxTokenObject))
-    } else if (isToken(token)) {
-      cssObject[cssProperty] = resolveCssValue(token, cssProperty)
+      Object.assign(cssObject, callUtil(cssProperty, token))
     } else {
-      cssObject[cssProperty] = token
+      cssObject[cssProperty] = resolveCssValue(token, cssProperty)
     }
   }
 
@@ -98,9 +49,9 @@ export function getTokenValue(
   return rawValue
 }
 
-export function createCsx(theme?: any) {
+export function createCsx() {
   function csx(csxObject: StyleProp) {
-    const stitchesCSSObject = styles(csxObject, theme)
+    const stitchesCSSObject = styles(csxObject)
     const className = css(stitchesCSSObject)
 
     return className().toString()

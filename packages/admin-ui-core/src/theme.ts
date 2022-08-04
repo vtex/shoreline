@@ -3,7 +3,7 @@ import type { ThemeOptions } from './createTheme'
 import { createTheme } from './createTheme'
 
 const themeOptions: ThemeOptions = {
-  enableModes: false,
+  enableModes: true,
 }
 
 const { theme, cssVariables, rootStyleObject, rootStyleString } = createTheme(

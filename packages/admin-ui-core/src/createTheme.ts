@@ -1,5 +1,6 @@
 import { omit, get, merge } from '@vtex/admin-ui-util'
-import { stylesCss } from './styles'
+import { styles } from './styles'
+import type { CSS as CSSObject } from '@stitches/react'
 
 const constants = {
   /**
@@ -31,7 +32,8 @@ const constants = {
  * @example
  * toVarName('blue') // => '--admin-ui-blue'
  */
-const toVarName = (key: string) => `--${constants.prefix}-${key}`
+const toVarName = (key: string) =>
+  `--${constants.prefix}-${key.replace('/', '_')}`
 
 /**
  * Creates the css variable consumption
@@ -180,7 +182,7 @@ export function createTheme<T extends Record<string, any>>(
 
   const theme = resolveThemeConfig(initialTheme)
 
-  const dynamicTheme = omit(theme, constants.reservedNamespaces)
+  const dynamicTheme = omit(theme, constants?.reservedNamespaces)
 
   const modes = get(dynamicTheme, 'modes', {})
 
@@ -289,14 +291,38 @@ export function generateVars<T>(node: T, theme = {}, ruleId = '', accKey = '') {
   return vars
 }
 
+function toKebabCase(csxProperty: string) {
+  return csxProperty.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
 export function generateCssObject<T>(initialTheme: T) {
   const { theme, cssVariables } = createTheme<T>(initialTheme, {
     enableModes: true,
   })
 
-  const global = theme.global ? stylesCss(theme.global) : {}
-
-  console.log(global)
+  const global = theme.global ? styles(theme.global) : {}
 
   return { root: cssVariables.main, ...global }
+}
+
+export function parseToCss(cssNode: CSSObject, hasToAddTab = false): string {
+  if (typeof cssNode !== 'object') {
+    return cssNode
+  }
+
+  return Object.entries(cssNode)
+    .map(([key, value]) => {
+      const isRoot = key === 'root'
+      const cssPropperty = isRoot ? ':root' : toKebabCase(key)
+
+      if (typeof value === 'object') {
+        const tab = hasToAddTab ? '\t' : ''
+        const innerCss = `${tab}${parseToCss(value, true)}${tab}`
+
+        return `${tab}${cssPropperty} {\n${innerCss}}\n\n`
+      }
+
+      return `\t${cssPropperty}: ${value};\n`
+    })
+    .join('')
 }
