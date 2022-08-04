@@ -4,7 +4,7 @@ import { FilterOptionalProvider } from './filter-optional-context'
 import type { FilterVisibilityStateReturn } from './filter-visibility-state'
 
 export const FilterOptional = (props: FilterOptionalProps) => {
-  const { state, id, children } = props
+  const { state, id, label, children } = props
 
   const [childMenuState, setChildMenuState] = useState<MenuState<any> | null>()
 
@@ -12,11 +12,10 @@ export const FilterOptional = (props: FilterOptionalProps) => {
   const childMounted = !!childMenuState
 
   useEffect(() => {
-    // clearing child state when unmounting
-    if (!isVisible && childMenuState) {
-      setChildMenuState(null)
-    }
-  }, [isVisible])
+    state.addFilter({ id, label })
+
+    return () => state.removeFilter({ id, label })
+  }, [])
 
   useEffect(() => {
     if (isVisible && childMenuState && state.shouldOpenOnMount(id)) {
@@ -34,5 +33,6 @@ export const FilterOptional = (props: FilterOptionalProps) => {
 interface FilterOptionalProps {
   state: FilterVisibilityStateReturn
   id: string
+  label: string
   children?: React.ReactNode
 }
