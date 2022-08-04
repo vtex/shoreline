@@ -35,6 +35,8 @@ export const FilterDisclosure = createComponent<
 
   useEffect(() => {
     setMenuState?.(state.menu)
+
+    return () => setMenuState?.(null)
   }, [])
 
   return useElement(MenuButton, {
