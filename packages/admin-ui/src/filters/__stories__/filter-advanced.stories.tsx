@@ -71,22 +71,7 @@ function GenericFilter({
 }
 
 export function GroupWithHiddenFilters() {
-  const togState = useFilterShowState({
-    items: [
-      {
-        id: '#rare',
-        label: 'Rare',
-      },
-      {
-        id: '#othercity',
-        label: 'Other city',
-      },
-      {
-        id: '#cool',
-        label: 'Cool Filter',
-      },
-    ],
-  })
+  const togState = useFilterShowState()
 
   const filterGroupState = useFilterGroupState({
     filterStates: [],
@@ -98,15 +83,15 @@ export function GroupWithHiddenFilters() {
       <GenericFilter list={list2} label="Price" />
       <GenericFilter list={list1} label="Status" />
 
-      <FilterOptional id="#rare" state={togState}>
+      <FilterOptional id="#rare" label="Rare" state={togState}>
         <GenericFilter list={list1} label="Rarely used filter" />
       </FilterOptional>
 
-      <FilterOptional id="#othercity" state={togState}>
+      <FilterOptional id="#othercity" label="Other city" state={togState}>
         <GenericFilter list={list2} label="Other city" />
       </FilterOptional>
 
-      <FilterOptional id="#cool" state={togState}>
+      <FilterOptional id="#cool" label="Cool filter" state={togState}>
         <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
@@ -116,16 +101,9 @@ export function GroupWithHiddenFilters() {
 }
 
 export function visibilityToggleStates() {
-  const togState = useFilterShowState({
-    items: [
-      {
-        id: '#cool',
-        label: 'Cool Filter',
-      },
-    ],
-  })
+  const togState = useFilterShowState()
 
-  const errorState = useFilterShowState({ items: [] })
+  const errorState = useFilterShowState()
 
   const filterGroupState = useFilterGroupState({
     filterStates: [],
@@ -140,7 +118,7 @@ export function visibilityToggleStates() {
     <FilterGroup state={filterGroupState}>
       <GenericFilter list={list1} label="Important filter" />
 
-      <FilterOptional id="#cool" state={togState}>
+      <FilterOptional id="#cool" label="Cool Filter" state={togState}>
         <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
