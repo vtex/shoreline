@@ -75,7 +75,7 @@ The state hook `useFilterGroupState` handles the "clear all" action for the `Fil
 
 | Name           | Type                                           | Description                                                                      | Required | Default  |
 | -------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- | -------- | -------- |
-| fullList       | {id: string, label: string, value?: AnyObject} | Full option list that will be used for searching. Only use it if you need search.| 🚫       | -        |
+| searchableList       | {id: string, label: string, value?: AnyObject} | Full option list that will be used for searching. Only use it if you need search.| 🚫       | -        |
 
 
 both filters return an object that extends the following type
@@ -248,7 +248,7 @@ const items = [
 
 
 export function Filter() {
-  const filterState = useFilterState({fullList: items})
+  const filterState = useFilterState({searchableList: items})
 
   return (
     <>
@@ -283,7 +283,7 @@ const items = [
 
 export function FilterSearch() {
   
-  const filterState = useFilterMultipleState({fullList: items})
+  const filterState = useFilterMultipleState({searchableList: items})
 
   return (
     <>
