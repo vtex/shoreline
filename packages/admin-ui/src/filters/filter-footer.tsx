@@ -9,33 +9,24 @@ import { Stack } from '../stack'
 
 import * as style from './filter.style'
 
-export const FilterFooter = createComponent<typeof Role, FilterFooterProps>(
-  (props) => {
-    const { isClearable = true } = props
-    const { state } = usePopoverContext()
+export const FilterFooter = createComponent<typeof Role>((props) => {
+  const { state } = usePopoverContext()
 
-    const { onChange, onClear } = state
+  const { onChange, onClear } = state
 
-    const formatMessage = useMessageFormatter(messages.actions)
-    const { isScrollableLayout } = usePopoverContext()
+  const formatMessage = useMessageFormatter(messages.actions)
+  const { isScrollableLayout } = usePopoverContext()
 
-    return useElement(Role, {
-      baseStyle: style.footer(isScrollableLayout),
-      children: (
-        <Stack direction="row" space="$m">
-          {isClearable && (
-            <Button variant="tertiary" onClick={onClear}>
-              {formatMessage('clear')}
-            </Button>
-          )}
-          <Button onClick={onChange}>{formatMessage('apply')}</Button>
-        </Stack>
-      ),
-      ...props,
-    })
-  }
-)
-
-interface FilterFooterProps {
-  isClearable?: boolean
-}
+  return useElement(Role, {
+    baseStyle: style.footer(isScrollableLayout),
+    children: (
+      <Stack direction="row" space="$m">
+        <Button variant="tertiary" onClick={onClear}>
+          {formatMessage('clear')}
+        </Button>
+        <Button onClick={onChange}>{formatMessage('apply')}</Button>
+      </Stack>
+    ),
+    ...props,
+  })
+})

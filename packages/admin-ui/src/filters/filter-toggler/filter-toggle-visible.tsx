@@ -22,7 +22,7 @@ export const FilterToggleVisible = createComponent<
   FilterToggleVisibleProps
 >((props) => {
   const { state } = props
-  const { combobox, menu } = state.filterState
+  const { combobox, menu, onChange } = state.filterState
 
   const formatMessage = useMessageFormatter(messages.actions)
 
@@ -59,7 +59,9 @@ export const FilterToggleVisible = createComponent<
               </FilterOptionCheckbox>
             ))}
           </FilterListbox>
-          <FilterFooter isClearable={false} />
+          <FilterFooter>
+            <Button onClick={onChange}>{formatMessage('apply')}</Button>
+          </FilterFooter>
         </FilterPopover>
       </>
     ),
