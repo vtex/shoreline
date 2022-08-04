@@ -15,13 +15,13 @@ import { useFilterStatus } from '../use-filter-status'
 export function useFilterMultipleState<T extends AnyObject>(
   props?: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const { fullList: initialFullList = [] } = props || {}
+  const { searchableList: initialSearchableList = [] } = props || {}
 
   const [appliedItems, setAppliedItems] = useState<ItemList<T>>([])
-  const [fullList, setFullList] = useState(initialFullList)
+  const [searchableList, setSearchableList] = useState(initialSearchableList)
 
   const comboboxMultiple = useComboboxMultipleState<FilterOption<T>>({
-    list: fullList,
+    list: searchableList,
     getOptionValue: (option) => option.label,
     compare: (optionA, optionB) => optionA.id === optionB.id,
   })
@@ -64,8 +64,8 @@ export function useFilterMultipleState<T extends AnyObject>(
   }, [menu.mounted])
 
   useEffect(() => {
-    comboboxMultiple.setMatches(fullList)
-  }, [fullList])
+    comboboxMultiple.setMatches(searchableList)
+  }, [searchableList])
 
   const getFromApplied = (key: string) => {
     return appliedItems
@@ -91,7 +91,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     getFromApplied,
     status,
     setStatus,
-    setFullList,
+    setSearchableList,
     matches,
     setMatches,
     deferredSearchValue,
@@ -110,5 +110,5 @@ export interface UseFilterMultipleReturn<T>
 
 export interface UseFilterMultipleStateProps<T> {
   /** List of items to be showed on the list. */
-  fullList?: ItemList<T>
+  searchableList?: ItemList<T>
 }

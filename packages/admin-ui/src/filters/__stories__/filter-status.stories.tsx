@@ -63,7 +63,7 @@ export function UncontrolledSearch() {
     { label: 'Unknown', id: '#5' },
   ]
 
-  const filterState = useFilterState({ fullList: items })
+  const filterState = useFilterState({ searchableList: items })
 
   return (
     <>

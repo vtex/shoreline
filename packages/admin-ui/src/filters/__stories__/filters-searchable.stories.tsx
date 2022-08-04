@@ -62,7 +62,7 @@ export function SingleSearch() {
     { label: 'Unknown', id: '#5' },
   ]
 
-  const filterState = useFilterState({ fullList: items })
+  const filterState = useFilterState({ searchableList: items })
 
   return (
     <>
@@ -89,7 +89,7 @@ export function MultiSearch() {
     { label: 'Unknown', id: '#5' },
   ]
 
-  const filterState = useFilterMultipleState({ fullList: items })
+  const filterState = useFilterMultipleState({ searchableList: items })
 
   return (
     <>
@@ -109,12 +109,12 @@ export function MultiSearch() {
 
 export function Async() {
   const filterState = useFilterMultipleState()
-  const { setFullList, setStatus, combobox, status } = filterState
+  const { setSearchableList, setStatus, combobox, status } = filterState
 
   useEffect(() => {
     setStatus('loading')
     api('', 5000).then((res: any[]) => {
-      setFullList(res.map((i) => ({ id: i.id, label: i.country })))
+      setSearchableList(res.map((i) => ({ id: i.id, label: i.country })))
       setStatus('ready')
     })
   }, [])
@@ -187,7 +187,7 @@ export function CsxDemo() {
     { label: 'Unknown', id: '#5' },
   ]
 
-  const filterState = useFilterMultipleState({ fullList: items })
+  const filterState = useFilterMultipleState({ searchableList: items })
 
   return (
     <>
