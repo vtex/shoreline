@@ -65,7 +65,7 @@ export const calendarDayTitle = style({
   text: '$body',
   textDecoration: 'none',
   color: '$secondary',
-  paddingY: 2,
+  paddingY: '$2',
   textAlign: 'center',
   size: '2.25rem',
 })

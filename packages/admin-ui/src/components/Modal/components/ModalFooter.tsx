@@ -33,14 +33,14 @@ export const ModalFooter = createComponent<'footer'>((props) => {
       left: 0,
       right: 0,
       bg: '$primary',
-      padding: 6,
+      padding: '$6',
       flexDirection: 'column-reverse',
       '> button': {
-        width: 'full',
+        width: '$full',
       },
       '* + button': {
         marginLeft: 0,
-        marginBottom: 4,
+        marginBottom: '$4',
       },
       minHeight: size === 'large' ? '5rem' : '3.5rem',
       ...(size === 'small'
@@ -48,18 +48,18 @@ export const ModalFooter = createComponent<'footer'>((props) => {
             borderTopWidth: '0px',
             pt: 0,
             '>button': {
-              width: 'full',
+              width: '$full',
             },
           }
         : {}),
 
       '@tablet': {
         '> button': {
-          width: 'full',
+          width: '$full',
         },
         '* + button': {
           marginLeft: 0,
-          marginBottom: 4,
+          marginBottom: '$4',
         },
         flexDirection: 'column-reverse',
       },
@@ -68,7 +68,7 @@ export const ModalFooter = createComponent<'footer'>((props) => {
           width: 'inherit',
         },
         '* + button': {
-          marginLeft: 4,
+          marginLeft: '$4',
           marginBottom: 0,
         },
         flexDirection: 'row',

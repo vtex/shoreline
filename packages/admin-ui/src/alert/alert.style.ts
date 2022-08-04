@@ -10,9 +10,9 @@ export const baseline = style({
   height: '100%',
   paddingY: '0.9375rem',
   paddingX: '1.188rem',
-  borderRadius: 'default',
+  borderRadius: '$default',
   zIndex: 999,
-  transition: 'pop',
+  transition: '$pop',
 })
 
 export const action = style({

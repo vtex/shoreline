@@ -157,7 +157,7 @@ export function TokensTable(props: TokensTableProps) {
                 csx={{
                   width: 100,
                   height: 60,
-                  borderRadius: 'default',
+                  borderRadius: '$default',
                   fontSize: 22,
                   ...column.item.csx,
                 }}

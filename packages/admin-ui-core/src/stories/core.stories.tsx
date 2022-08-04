@@ -23,10 +23,10 @@ export function FrameworkdAgnostic() {
         div: {
           colorTheme: 'blue',
         },
-        padding: 1,
-        marginY: 2,
+        padding: '$1',
+        marginY: '$2',
         size: 150,
-        borderRadius: 4,
+        borderRadius: '$default',
       })}
     >
       <div className={csx({ '+ button': { bg: '$action.critical.primary' } })}>

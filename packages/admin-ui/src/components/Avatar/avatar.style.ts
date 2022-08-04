@@ -16,9 +16,8 @@ export const baseline = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: 24,
-  height: 24,
-  padding: 2,
-  borderRadius: 'circle',
+  size: '1.5rem',
+  padding: '$2',
+  borderRadius: '$circle',
   textTransform: 'uppercase',
 })

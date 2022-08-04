@@ -16,7 +16,7 @@ import {
 describe('Card tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Card csx={{ width: '1/2', margin: 4 }}>
+      <Card csx={{ width: '$1/2', margin: '$4' }}>
         <CardHeader>
           <CardInfo>
             <CardImage

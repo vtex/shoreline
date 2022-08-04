@@ -11,12 +11,12 @@ export default {
 } as Meta
 
 const primaryStyles = {
-  padding: 2,
+  padding: '$2',
   ...palette('purple'),
 }
 
 const invertedStyles = {
-  padding: 2,
+  padding: '$2',
   ...palette('teal'),
 }
 

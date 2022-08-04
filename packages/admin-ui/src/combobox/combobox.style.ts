@@ -19,7 +19,7 @@ export const input = style({
   marginY: '$1',
   color: '$form.neutral',
   outline: 0,
-  transition: 'snap',
+  transition: '$snap',
   ':hover': {
     border: '$form.neutralHover',
   },
@@ -35,7 +35,7 @@ export const input = style({
 
 export const buttonContainer = style({
   right: 0,
-  top: 1,
+  top: '$1',
   height: '2.875rem',
   paddingRight: '$3',
   position: 'absolute',

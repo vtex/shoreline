@@ -3,7 +3,7 @@ import { style, focusVisible } from '@vtex/admin-ui-core'
 const tabBorderBottomWidth = '0.1875rem'
 
 export const tabList = style({
-  width: 'full',
+  width: '$full',
   display: 'inline-block',
 })
 

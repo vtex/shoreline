@@ -24,9 +24,9 @@ export const ToastContainer = createComponent<'div', ToastContainerOptions>(
         border: 'default',
         pointerEvents: 'all',
         overflow: 'hidden',
-        paddingY: '4',
+        paddingY: '$4',
         color: '$primary',
-        borderRadius: 'default',
+        borderRadius: '$default',
         ...variants({ tone }),
       },
     })

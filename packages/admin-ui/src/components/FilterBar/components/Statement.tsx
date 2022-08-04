@@ -39,7 +39,7 @@ function StatementConjunction(props: StatementConjunctionProps) {
       csx={{ minWidth: 100, maxWidth: 100 }}
     />
   ) : (
-    <Box csx={{ paddingLeft: 3, minWidth: 100, maxWidth: 100 }}>
+    <Box csx={{ paddingLeft: '$3', minWidth: 100, maxWidth: 100 }}>
       {index === 0 ? whereLabel : selectedItem?.label}
     </Box>
   )

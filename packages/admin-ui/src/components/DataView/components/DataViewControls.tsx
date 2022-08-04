@@ -22,10 +22,10 @@ export const DataViewControls = createComponent<'div', DataViewControlsOptions>(
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'start',
-        paddingY: '4',
+        paddingY: '$4',
         width: '100%',
         '> *:not(:first-child)': {
-          marginLeft: 3,
+          marginLeft: '$3',
         },
         ...variants({ sticky }),
       },

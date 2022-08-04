@@ -12,15 +12,15 @@ export function action(options: ActionOptions) {
   const { tone, variant } = options
 
   return style({
-    color: `action.${tone}.${variant}`,
-    bg: `action.${tone}.${variant}`,
+    color: `$action.${tone}.${variant}`,
+    bg: `$action.${tone}.${variant}`,
     ':hover': {
-      color: `action.${tone}.${variant}Hover`,
-      bg: `action.${tone}.${variant}Hover`,
+      color: `$action.${tone}.${variant}Hover`,
+      bg: `$action.${tone}.${variant}Hover`,
     },
     ':active': {
-      color: `action.${tone}.${variant}Pressed`,
-      bg: `action.${tone}.${variant}Pressed`,
+      color: `$action.${tone}.${variant}Pressed`,
+      bg: `$action.${tone}.${variant}Pressed`,
     },
     ':disabled': {
       bg: variant === 'tertiary' ? 'transparent' : '$disabled',
@@ -35,8 +35,8 @@ export function action(options: ActionOptions) {
       boxShadow: `$ring.${tone}`,
     },
     ':focus-visible:not(:active)': {
-      color: `action.${tone}.${variant}Hover`,
-      bg: `action.${tone}.${variant}Hover`,
+      color: `$action.${tone}.${variant}Hover`,
+      bg: `$action.${tone}.${variant}Hover`,
     },
   })
 }
@@ -44,7 +44,7 @@ export function action(options: ActionOptions) {
 export const buttonStyle = style({
   text: '$action1',
   border: 'none',
-  borderRadius: 'default',
+  borderRadius: '$default',
   cursor: 'pointer',
   position: 'relative',
 })

@@ -33,9 +33,9 @@ export const baseline = style({
   text: '$body',
   listStylePosition: 'inside',
   '> ul, ol': {
-    paddingLeft: 2,
+    paddingLeft: '$2',
   },
   '> :not(last-child)': {
-    paddingBottom: 1,
+    paddingBottom: '$1',
   },
 })

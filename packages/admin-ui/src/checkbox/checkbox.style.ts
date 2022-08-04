@@ -24,7 +24,7 @@ export const baseline = style({
   bg: '$form.control',
   border: '$form.control',
   appearance: 'none',
-  borderRadius: 'default',
+  borderRadius: '$default',
   cursor: 'pointer',
   margin: 0,
   boxSizing: 'border-box',
@@ -69,7 +69,7 @@ export const checkmark = style({
   },
 
   '&[disabled]:after': {
-    content: `url('data:image/svg+xml; utf8, ${checkmarkSvg('disabled')}')`,
+    content: `url("data:image/svg+xml; utf8, ${checkmarkSvg('disabled')}")`,
   },
 })
 

@@ -24,7 +24,7 @@ export function ToastQueue(props: ToastQueueProps) {
         position: 'fixed',
         zIndex: '999',
         pointerEvents: 'none',
-        paddingX: 2,
+        paddingX: '$2',
         bottom: '3rem',
         right: '0%',
         textAlign: 'center',

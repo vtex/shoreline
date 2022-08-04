@@ -18,7 +18,7 @@ export function listboxItem(options: { selected: boolean }) {
     display: 'flex',
     alignItems: 'center',
     height: 24,
-    paddingX: 4,
+    paddingX: '$4',
     cursor: 'pointer',
   })
 }
@@ -34,8 +34,8 @@ export function menu(options: { visible: boolean }) {
     boxShadow: '$overlay.center',
     cursor: 'pointer',
     outline: 'none',
-    marginTop: 1,
-    paddingY: 4,
+    marginTop: '$1',
+    paddingY: '$4',
     minWidth: 'inherit',
     width: 'max-content',
     position: 'absolute',

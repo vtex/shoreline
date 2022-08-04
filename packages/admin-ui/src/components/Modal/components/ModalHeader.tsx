@@ -50,10 +50,10 @@ export const ModalHeader = createComponent<'header', ModalHeaderOptions>(
         alignItems: 'center',
         borderBottom: '$neutral',
         'button + button': {
-          marginLeft: 4,
+          marginLeft: '$4',
         },
-        paddingY: 4,
-        paddingX: 6,
+        paddingY: '$4',
+        paddingX: '$6',
         h1: {
           lineHeight: 0,
         },

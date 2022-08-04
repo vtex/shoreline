@@ -37,7 +37,7 @@ export const Circle = () => {
 
 export const Fluid = () => {
   return (
-    <Box csx={{ width: 'full', height: 192 }}>
+    <Box csx={{ width: '$full', height: 192 }}>
       <Skeleton />
     </Box>
   )
@@ -47,16 +47,16 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(false)
 
   return (
-    <Box csx={{ width: 'sm' }}>
+    <Box csx={{ width: '$sm' }}>
       {loading ? (
         <Box>
-          <Skeleton csx={{ height: 24, width: '5/12' }} />
+          <Skeleton csx={{ height: 24, width: '$5/12' }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16, width: '1/2' }} />
+          <Skeleton csx={{ height: 16, width: '$1/2' }} />
         </Box>
       ) : (
         <Box>

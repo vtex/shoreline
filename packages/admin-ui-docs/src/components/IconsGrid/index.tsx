@@ -120,7 +120,7 @@ export function IconsGrid(props: IconsGridProps) {
               csx={{
                 height: 100,
                 maxWidth: 250,
-                borderRadius: 'default',
+                borderRadius: '$default',
                 border: '$neutral',
               }}
             >

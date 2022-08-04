@@ -229,7 +229,7 @@ function Suggestion(props: SuggestionProps) {
       </IconContainer>
       <Paragraph
         csx={{
-          marginLeft: 2,
+          marginLeft: '$2',
         }}
       >
         {children ? children(item) : item}

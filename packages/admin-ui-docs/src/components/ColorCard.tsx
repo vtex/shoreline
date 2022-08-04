@@ -33,7 +33,7 @@ export function ColorCard(props: ColorCardProps) {
       <Flex
         direction="column"
         csx={{
-          padding: 4,
+          padding: '$4',
           justifyContent: 'space-around',
         }}
       >

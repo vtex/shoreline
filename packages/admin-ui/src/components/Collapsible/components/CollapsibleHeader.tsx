@@ -17,13 +17,13 @@ export const CollapsibleHeader = createComponent<
 
   return useElement('div', {
     baseStyle: {
-      padding: 6,
-      paddingLeft: 2,
+      padding: '$6',
+      paddingLeft: '$2',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       'div > button:nth-of-type(n+2)': {
-        marginLeft: 1,
+        marginLeft: '$1',
       },
     },
     className: cx('__admin-ui-collapsible--header', className),

@@ -12,7 +12,7 @@ export const container = style({
   minHeight: `${MIN_TEXT_AREA_HEIGHT}px`,
   maxHeight: `${MAX_TEXT_AREA_HEIGHT}px`,
   resize: 'none',
-  transition: 'snap',
+  transition: '$snap',
 })
 
 export const containerVariants = inputStyle.containerVariants
@@ -23,5 +23,5 @@ export const input = style({
   display: 'block',
   text: '$body',
   resize: 'none',
-  transition: 'snap',
+  transition: '$snap',
 })

@@ -38,7 +38,7 @@ export const Vertical: Story = () => {
         justifyContent: 'center',
       }}
     >
-      <Box csx={{ width: '1/2' }}>
+      <Box csx={{ width: '$1/2' }}>
         <Heading csx={{ marginY: 2 }}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
@@ -46,7 +46,7 @@ export const Vertical: Story = () => {
         </Paragraph>
       </Box>
       <Divider orientation="vertical" csx={{ marginX: 6 }} />
-      <Box csx={{ width: '1/2' }}>
+      <Box csx={{ width: '$1/2' }}>
         <Heading csx={{ marginY: 2 }}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on

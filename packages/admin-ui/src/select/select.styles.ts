@@ -1,7 +1,7 @@
 import { style, styleVariants, focusVisible, ring } from '@vtex/admin-ui-core'
 
 export const baseline = style({
-  borderRadius: 'default',
+  borderRadius: '$default',
   appearance: 'none',
   cursor: 'pointer',
   bg: '$form.neutral',

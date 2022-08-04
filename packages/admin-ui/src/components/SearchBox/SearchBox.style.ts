@@ -33,7 +33,7 @@ const menu = (scrollable: boolean) =>
     maxHeight: 400,
     overflowY: scrollable ? 'auto' : 'hidden',
     overflowX: 'hidden',
-    paddingX: 2,
+    paddingX: '$2',
     ...scrollbar,
   })
 
@@ -43,7 +43,7 @@ const option = (highlighted: boolean) =>
     p: {
       text: '$body',
     },
-    paddingX: 3,
+    paddingX: '$3',
     height: 40,
     display: 'flex',
     alignItems: 'center',
@@ -52,7 +52,7 @@ const option = (highlighted: boolean) =>
     borderBottom: '$neutral',
     ':last-child': {
       border: 'none',
-      marginBottom: 2,
+      marginBottom: '$2',
     },
     bg: highlighted
       ? '$action.neutral.tertiaryHover'
@@ -97,21 +97,21 @@ const inputIcon = css({
   size: 28,
   position: 'absolute',
   top: '18px',
-  left: 4,
+  left: '$4',
 })
 
 const inputButton = css({
   position: 'absolute',
-  right: 4,
-  top: 3,
+  right: '$4',
+  top: '$3',
   color: '$secondary',
 })
 
 const label = css({
-  paddingLeft: 3,
+  paddingLeft: '$3',
   color: '$secondary',
   text: '$body',
-  marginY: 2,
+  marginY: '$2',
 })
 
 const footer = css({
@@ -126,7 +126,7 @@ const footer = css({
   borderBottomLeftRadius: 4,
   borderBottomRightRadius: 4,
   'div + div': {
-    marginLeft: 5,
+    marginLeft: '$5',
   },
   color: '$secondary',
 })
@@ -151,7 +151,7 @@ const kbd = css({
 
 const emptyContainer = css({
   textAlign: 'center',
-  marginY: 6,
+  marginY: '$6',
   border: 'none',
 })
 

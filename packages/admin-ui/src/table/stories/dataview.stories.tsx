@@ -101,7 +101,7 @@ export function SearchControls() {
         <Search
           {...search.getInputProps()}
           csx={{
-            width: 'full',
+            width: '$full',
           }}
         />
       </DataViewControls>
