@@ -99,27 +99,15 @@ export function GroupWithHiddenFilters() {
       <GenericFilter list={list1} label="Status" />
 
       <FilterOptional id="#rare" state={togState}>
-        <GenericFilter
-          list={list1}
-          label="Rarely used filter"
-          startOpen={togState.firstNewFilter?.id === '#rare'}
-        />
+        <GenericFilter list={list1} label="Rarely used filter" />
       </FilterOptional>
 
       <FilterOptional id="#othercity" state={togState}>
-        <GenericFilter
-          list={list2}
-          label="Other city"
-          startOpen={togState.firstNewFilter?.id === '#othercity'}
-        />
+        <GenericFilter list={list2} label="Other city" />
       </FilterOptional>
 
       <FilterOptional id="#cool" state={togState}>
-        <GenericFilter
-          list={list2}
-          label="Cool"
-          startOpen={togState.firstNewFilter?.id === '#cool'}
-        />
+        <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
       <FilterToggleVisible state={togState} />
@@ -153,11 +141,7 @@ export function visibilityToggleStates() {
       <GenericFilter list={list1} label="Important filter" />
 
       <FilterOptional id="#cool" state={togState}>
-        <GenericFilter
-          list={list2}
-          label="Cool"
-          startOpen={togState.firstNewFilter?.id === '#cool'}
-        />
+        <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
       <FilterToggleVisible state={togState} />

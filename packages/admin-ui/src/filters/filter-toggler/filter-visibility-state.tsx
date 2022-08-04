@@ -14,7 +14,12 @@ export const useFilterShowState = (
     combobox: { isSelected },
   } = state
 
-  const [firstNewFilter, setFirstNewFilter] = useState<FilterOption<any>>()
+  const [filterOpenOnMount, setFilterOpenOnMount] =
+    useState<FilterOption<any>>()
+
+  const shouldOpenOnMount = (id: string) => {
+    return filterOpenOnMount?.id === id
+  }
 
   const onChange = () => {
     // action performed before new value for appliedItems is saved
@@ -23,7 +28,7 @@ export const useFilterShowState = (
       (item) => isSelected(item) && !oldItems.find((i) => i.id === item.id)
     )
 
-    setFirstNewFilter(firstNewItem)
+    setFilterOpenOnMount(firstNewItem)
 
     state.onChange()
   }
@@ -33,7 +38,7 @@ export const useFilterShowState = (
     filterState: { ...state, onChange },
     visible: appliedItems,
     setVisible: setAppliedItems,
-    firstNewFilter,
+    shouldOpenOnMount,
   }
 }
 
@@ -46,5 +51,5 @@ export interface FilterVisibilityStateReturn {
   filterState: UseFilterMultipleReturn<AnyObject>
   visible: Array<FilterOption<any>>
   setVisible: (newValue: Array<FilterOption<any>>) => void
-  firstNewFilter?: FilterOption<any>
+  shouldOpenOnMount: (id: string) => boolean
 }
