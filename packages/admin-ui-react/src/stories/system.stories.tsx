@@ -14,21 +14,19 @@ import {
 } from 'reakit'
 
 import {
-  createSystem,
+  ThemeProvider,
   createComponent,
   createHook,
   useElement,
 } from '../system'
 
-const [SystemProvider] = createSystem()
-
 export default {
   title: 'admin-ui-react/system',
   decorators: [
     (Story) => (
-      <SystemProvider>
+      <ThemeProvider>
         <Story />
-      </SystemProvider>
+      </ThemeProvider>
     ),
   ],
 } as Meta

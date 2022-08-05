@@ -30,9 +30,7 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
 
     const value = getTokenValue(theme, cssProperty, token)
 
-    if (!!value && typeof value === 'object') {
-      Object.assign(cssObject, value)
-    } else if (isUtil(cssProperty)) {
+    if (isUtil(cssProperty)) {
       Object.assign(cssObject, callUtil(cssProperty, value))
     } else {
       cssObject[cssProperty] = value

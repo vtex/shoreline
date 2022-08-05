@@ -1,11 +1,5 @@
 import { createElement } from 'react'
-import { createSystem } from '@vtex/admin-ui'
-
-import theme from './theme'
-
-const [ThemeProvider] = createSystem({
-  experimentalTheme: theme,
-})
+import { ThemeProvider } from '@vtex/admin-ui'
 
 export function wrapRootElement(args) {
   const { element } = args
