@@ -37,22 +37,8 @@ const list2 = [
   { label: 'Tokyo', value: { grade: 9 }, id: '#4' },
 ]
 
-function GenericFilter({
-  list,
-  label,
-  startOpen,
-}: {
-  list: any[]
-  label: string
-  startOpen?: boolean
-}) {
+function GenericFilter({ list, label }: { list: any[]; label: string }) {
   const state = useFilterMultipleState()
-
-  useEffect(() => {
-    if (startOpen) {
-      state.menu.show()
-    }
-  }, [])
 
   return (
     <>
