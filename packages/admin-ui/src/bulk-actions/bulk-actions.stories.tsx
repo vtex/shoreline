@@ -104,7 +104,7 @@ export const Basic: Story = () => {
         prevLabel="Previous"
         nextLabel="Next"
       />
-      {/* <Box>{state.selectedItems.map((item) => item.name).join(',')}</Box> */}
+      <Box>{state.getSelectedIds().join(',')}</Box>
       <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
     </Box>
   )

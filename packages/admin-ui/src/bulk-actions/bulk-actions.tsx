@@ -6,7 +6,7 @@ import type { BulkActionsState } from './bulk-actions.state'
 import { Inline } from '../inline'
 import { Button } from '../button'
 import { Text } from '../components/Text'
-
+import { Bleed } from '../bleed'
 import * as style from './bulk-actions.style'
 
 interface BulkActionsOptions {
@@ -21,7 +21,7 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
     const {
       allSelected,
       totalItems,
-      selectedItems,
+      getSelectedIds,
       setAllSelected,
       setSelectedItemsIds,
       setRoot,
@@ -39,8 +39,8 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
         <Inline hSpace="$2xl" spaceInside csx={style.container}>
           <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
             <Text tone="secondary">
-              {allSelected ? totalItems : selectedItems.length} of {totalItems}{' '}
-              selected
+              {allSelected ? totalItems : getSelectedIds().length} of{' '}
+              {totalItems} selected
             </Text>
 
             <Button
@@ -57,9 +57,11 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
               {allSelected ? 'Deselect All' : 'Select All'}
             </Button>
           </Inline>
-          <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
-            {children}
-          </Inline>
+          <Bleed right="$l">
+            <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
+              {children}
+            </Inline>
+          </Bleed>
         </Inline>
       ) : null,
     })
