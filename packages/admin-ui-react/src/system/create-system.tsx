@@ -1,6 +1,13 @@
 import React from 'react'
-import { createCsx, theme, styles, globalCss, cx } from '@vtex/admin-ui-core'
-import type { ReactElement, PropsWithChildren } from 'react'
+import {
+  createCsx,
+  theme,
+  cssVariables,
+  styles,
+  globalCss,
+  cx,
+} from '@vtex/admin-ui-core'
+import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
 /** focus-visible polyfill  */
@@ -9,59 +16,47 @@ import 'focus-visible/dist/focus-visible'
 import { IconProvider } from './icons'
 import { SystemContext } from './context'
 
-export function createSystem(
-  spec: CreateSystemOptions = {}
-): CreateSystemReturn {
+interface ThemeProviderProps {
+  children?: ReactNode
+  experimentalTheme?: any
+  experimentalDisabledGlobalStyles?: boolean
+}
+
+export function ThemeProvider(props: ThemeProviderProps) {
   const {
+    children,
     experimentalTheme = theme,
     experimentalDisabledGlobalStyles = false,
-  } = spec
+  } = props
 
   const csx = createCsx(experimentalTheme)
 
   const global = experimentalDisabledGlobalStyles
     ? {}
-    : experimentalTheme.global
+    : styles(experimentalTheme?.global ?? {})
 
-  globalCss(styles(global) as any)()
+  globalCss({ ':root': cssVariables, ...global } as any)()
 
-  function SystemProvider(props: PropsWithChildren<{}>) {
-    const { children } = props
-
-    return (
-      <SystemContext.Provider
-        value={{
-          theme: experimentalTheme,
-          cn: csx,
-          cx,
-        }}
-      >
-        <IconProvider>
-          <Helmet>
-            <link
-              rel="preload"
-              href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF-May-5-2022.woff2"
-              as="font"
-              type="font/woff2"
-              crossOrigin="anonymous"
-            />
-          </Helmet>
-          {children}
-        </IconProvider>
-      </SystemContext.Provider>
-    )
-  }
-
-  return [SystemProvider]
+  return (
+    <SystemContext.Provider
+      value={{
+        theme: experimentalTheme,
+        cn: csx,
+        cx,
+      }}
+    >
+      <IconProvider>
+        <Helmet>
+          <link
+            rel="preload"
+            href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF-May-5-2022.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        </Helmet>
+        {children}
+      </IconProvider>
+    </SystemContext.Provider>
+  )
 }
-
-export interface CreateSystemOptions {
-  /** Custom theme */
-  experimentalTheme?: any
-  /** Disable global styles */
-  experimentalDisabledGlobalStyles?: boolean
-}
-
-export type CreateSystemReturn = [
-  (props: PropsWithChildren<{}>) => ReactElement
-]

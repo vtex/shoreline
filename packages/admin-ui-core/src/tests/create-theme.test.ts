@@ -15,8 +15,6 @@ describe('createTheme', () => {
         global: {},
       },
       cssVariables: {},
-      rootStyleObject: {},
-      rootStyleString: '',
     })
   })
 
@@ -116,21 +114,16 @@ describe('createTheme', () => {
   })
 
   it('should be able to parse the whole theme', () => {
-    const { theme, cssVariables } = createTheme(
-      {
-        colors: {
-          primary: {
-            default: 'red',
-            hover: 'blue',
-            pressed: 'green',
-          },
+    const { theme, cssVariables } = createTheme({
+      colors: {
+        primary: {
+          default: 'red',
+          hover: 'blue',
+          pressed: 'green',
         },
-        space: [0, 1, 2, 3],
       },
-      {
-        enableModes: true,
-      }
-    )
+      space: [0, 1, 2, 3],
+    })
 
     expect(theme).toEqual({
       global: {},
@@ -145,11 +138,9 @@ describe('createTheme', () => {
     })
 
     expect(cssVariables).toEqual({
-      main: {
-        '--admin-ui-colors-primary-default': 'red',
-        '--admin-ui-colors-primary-hover': 'blue',
-        '--admin-ui-colors-primary-pressed': 'green',
-      },
+      '--admin-ui-colors-primary-default': 'red',
+      '--admin-ui-colors-primary-hover': 'blue',
+      '--admin-ui-colors-primary-pressed': 'green',
     })
   })
 
