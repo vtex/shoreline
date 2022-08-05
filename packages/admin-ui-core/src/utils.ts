@@ -42,6 +42,15 @@ export const utils: Record<string, (value: any) => AnyObject> = {
     maxHeight: value,
   }),
 
+  // Text
+  text: (value: AnyObject) => ({
+    fontFamily: value.fontFamily,
+    fontVariationSettings: value.fontVariationSettings,
+    fontSize: value.fontSize,
+    lineHeight: value.lineHeight,
+    letterSpacing: value.letterSpacing,
+  }),
+
   // Color
   colorTheme: (value: Palette) => palette(value),
 }
