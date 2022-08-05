@@ -1,13 +1,9 @@
 import React from 'react'
 import {
-  createSystem,
+  ThemeProvider,
   ToastProvider,
   experimental_I18nProvider as I18nProvider,
 } from '@vtex/admin-ui'
-
-const [ThemeProvider] = createSystem({
-  experimentalDisabledGlobalStyles: false,
-})
 
 function Root({ children }) {
   return (

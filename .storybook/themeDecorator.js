@@ -1,7 +1,5 @@
 import React from 'react'
-import { createSystem } from '@vtex/admin-ui'
-
-const [ThemeProvider] = createSystem()
+import { ThemeProvider } from '@vtex/admin-ui'
 
 export function themeDecorator(storyFn) {
   return <ThemeProvider>{storyFn()}</ThemeProvider>
