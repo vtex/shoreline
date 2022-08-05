@@ -45,12 +45,9 @@ export function useBulkActions<T extends { id: string | number }>(
     )
   }, [currentPage])
 
-  const selectedItems = useMemo(
-    () =>
-      selectedItemsIds instanceof Array
-        ? selectedItemsIds.map((item) => mapItem[item])
-        : [],
-    [selectedItemsIds, mapItem]
+  const pageSelectedItems = useMemo(
+    () => getSelectedIds().map((item) => mapItem[item]),
+    [getSelectedIds, mapItem]
   )
 
   const mapSelectedIds: Record<string | number, boolean> = useMemo(() => {
@@ -107,11 +104,12 @@ export function useBulkActions<T extends { id: string | number }>(
 
   return {
     setAllSelected,
+    getSelectedIds,
     pageIds,
     allSelected,
     root,
     setRoot,
-    selectedItems,
+    pageSelectedItems,
     selectedItemsIds,
     setSelectedItemsIds,
     isItemSelected,
@@ -120,7 +118,7 @@ export function useBulkActions<T extends { id: string | number }>(
     selectionTree: {
       root: { value: root, setValue: setRoot },
       items: { value: selectedItemsIds, setValue: setSelectedItemsIds },
-      selectedItems,
+      selectedItems: pageSelectedItems,
       allSelected,
     },
   }
@@ -132,7 +130,8 @@ export interface BulkActionsState<T> {
   pageIds: Array<number | string>
   root: boolean | any[] | 'indeterminate'
   setRoot: Dispatch<SetStateAction<boolean | 'indeterminate' | any[]>>
-  selectedItems: T[]
+  pageSelectedItems: T[]
+  getSelectedIds: () => Array<number | string>
   selectedItemsIds: boolean | any[] | 'indeterminate'
   setSelectedItemsIds: (
     value: SetStateAction<boolean | any[] | 'indeterminate'>
