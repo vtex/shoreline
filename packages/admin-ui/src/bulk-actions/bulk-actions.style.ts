@@ -23,6 +23,6 @@ export const baseline = style({
   display: 'flex',
   width: '100%',
   position: 'fixed',
-  bottom: 25,
+  bottom: '$2xl',
   left: 0,
 })
