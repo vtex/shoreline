@@ -16,14 +16,12 @@ const constants = {
     'shadows',
     'sizes',
     'space',
+    'hspace',
+    'vspace',
     'breakpoints',
     'transitions',
-    'fonts',
-    'fontSizes',
     'border',
     'zIndices',
-    'fontSettings',
-    'lineHeights',
     'borderRadius',
   ],
   /**
@@ -79,8 +77,6 @@ export type CSSVariables = Record<string, Record<string, any>>
 export interface CreateThemeReturn<T> {
   theme: BaseTheme<T>
   cssVariables: CSSVariables
-  rootStyleString: string
-  rootStyleObject: Record<string, any>
 }
 
 function splitTheme(theme: Record<string, any>) {
@@ -91,28 +87,6 @@ function splitTheme(theme: Record<string, any>) {
     dynamicTheme,
     staticTheme,
   }
-}
-
-function createRootStylesAsString(cssVariables: CSSVariables) {
-  return Object.keys(cssVariables).reduce((stylesheets, mode) => {
-    return `${stylesheets} ${
-      constants.rootElement
-    }[data-theme='${mode}'] { ${Object.keys(cssVariables[mode]).reduce(
-      (variables, variable) => {
-        return `${variables} ${variable}: ${cssVariables[mode][variable]};`
-      },
-      ''
-    )} };`
-  }, '')
-}
-
-function createRootStylesAsObject(cssVariables: CSSVariables) {
-  return Object.keys(cssVariables).reduce((acc, mode) => {
-    return {
-      ...acc,
-      [`${constants.rootElement}[data-theme='${mode}']`]: cssVariables[mode],
-    }
-  }, {})
 }
 
 /**
@@ -172,8 +146,7 @@ export function resolveGlobal(
 }
 
 export function createTheme<T extends Record<string, any>>(
-  initialTheme: T,
-  options?: ThemeOptions
+  initialTheme: T
 ): CreateThemeReturn<T> {
   if (!initialTheme)
     return {
@@ -181,44 +154,19 @@ export function createTheme<T extends Record<string, any>>(
         global: {},
       } as BaseTheme<T>,
       cssVariables: {},
-      rootStyleString: '',
-      rootStyleObject: {},
     }
 
   const global = get(initialTheme, 'global', {})
 
-  if (!options?.enableModes) {
-    return {
-      theme: { global, ...initialTheme } as BaseTheme<T>,
-      cssVariables: {},
-      rootStyleString: '',
-      rootStyleObject: {},
-    }
-  }
-
   const { staticTheme, dynamicTheme } = splitTheme(initialTheme)
-  const modes = get(staticTheme, 'modes', {})
 
   const theme = toCustomProperties(dynamicTheme)
 
-  const cssVariables: CSSVariables = {
-    [constants.mainModeLabel]: objectToVars(dynamicTheme),
-    ...Object.keys(modes).reduce((acc, mode) => {
-      return {
-        ...acc,
-        [mode]: objectToVars(modes[mode]),
-      }
-    }, {}),
-  }
-
-  const rootStyleString = createRootStylesAsString(cssVariables)
-  const rootStyleObject = createRootStylesAsObject(cssVariables)
+  const cssVariables: CSSVariables = generateVars(dynamicTheme)
 
   return {
     theme: { global, ...theme, ...staticTheme } as BaseTheme<T>,
     cssVariables,
-    rootStyleString,
-    rootStyleObject,
   }
 }
 
@@ -329,7 +277,9 @@ function resolveValue(value: any, ruleId: string, theme: Record<string, any>) {
     const colorValue = get(colors, key)
 
     if (result.includes(colorValue)) {
-      result = result.replaceAll(colorValue, toVarValue(`colors-${key}`))
+      result = result
+        .toString()
+        .replaceAll(colorValue, toVarValue(`colors-${key}`))
     }
   })
 

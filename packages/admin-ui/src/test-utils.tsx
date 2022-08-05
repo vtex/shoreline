@@ -3,14 +3,12 @@ import React, { useRef } from 'react'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import type { RenderOptions } from '@testing-library/react'
 import { render as baseRender, fireEvent, screen } from '@testing-library/react'
-import { createSystem } from '@vtex/admin-ui-react'
+import { ThemeProvider } from '@vtex/admin-ui-react'
 import type { ReactElement } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
 import userEvent from '@testing-library/user-event'
 
 expect.extend(toHaveNoViolations)
-
-const [ThemeProvider] = createSystem()
 
 function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {
   return baseRender(ui, { wrapper: ThemeProvider, ...options })
