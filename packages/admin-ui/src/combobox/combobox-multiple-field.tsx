@@ -161,7 +161,7 @@ export const ComboboxMultipleField = createComponent<
                       value={renderTag(item)}
                       onKeyDown={(e) => onTagKeyDown(e, item)}
                       onDismiss={() => {
-                        unselect(getOptionValue(item))
+                        unselect(item)
                       }}
                     />
                   ))}
