@@ -10,6 +10,7 @@ import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useFilterOptionalContext } from './filter-toggler/filter-optional-context'
+import { shouldComponentUpdate } from 'react-window'
 
 const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
 
@@ -26,7 +27,7 @@ export const FilterDisclosure = createComponent<
   FilterDisclosureProps
 >((props: FilterDisclosureProps) => {
   const { state, children, id, ...restProps } = props
-  const { setMenuState } = useFilterOptionalContext()
+  const { shouldOpenOnMount = () => false } = useFilterOptionalContext()
 
   const { menu } = state
 
@@ -34,9 +35,9 @@ export const FilterDisclosure = createComponent<
     asMulti(state)?.appliedItems ?? convertAppliedToArray(state)
 
   useEffect(() => {
-    setMenuState?.(state.menu)
-
-    return () => setMenuState?.(null)
+    if (shouldOpenOnMount()) {
+      menu.show()
+    }
   }, [])
 
   return useElement(MenuButton, {

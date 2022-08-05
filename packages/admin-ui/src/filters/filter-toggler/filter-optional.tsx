@@ -6,10 +6,7 @@ import type { FilterVisibilityStateReturn } from './filter-visibility-state'
 export const FilterOptional = (props: FilterOptionalProps) => {
   const { state, id, label, children } = props
 
-  const [childMenuState, setChildMenuState] = useState<MenuState<any> | null>()
-
   const isVisible = state.visible.find((i) => i.id === id)
-  const childMounted = !!childMenuState
 
   useEffect(() => {
     state.addFilter({ id, label })
@@ -17,14 +14,10 @@ export const FilterOptional = (props: FilterOptionalProps) => {
     return () => state.removeFilter({ id, label })
   }, [])
 
-  useEffect(() => {
-    if (isVisible && childMenuState && state.shouldOpenOnMount(id)) {
-      childMenuState.show()
-    }
-  }, [isVisible, childMounted])
-
   return isVisible && children ? (
-    <FilterOptionalProvider value={{ setMenuState: setChildMenuState }}>
+    <FilterOptionalProvider
+      value={{ shouldOpenOnMount: () => state.shouldOpenOnMount(id) }}
+    >
       {children}
     </FilterOptionalProvider>
   ) : null
