@@ -20,7 +20,7 @@ import { IconCaretUp, IconCheck } from '../..'
 export const FilterControl = createComponent<typeof Role, FilterControlProps>(
   (props) => {
     const { state } = props
-    const { combobox, menu, onChange } = state.filterState
+    const { combobox, menu, onChange } = state
 
     const formatMessage = useMessageFormatter(messages.actions)
 
@@ -39,7 +39,7 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
             {formatMessage('moreFilters')}
           </Button>
 
-          <FilterPopover state={state.filterState}>
+          <FilterPopover state={state}>
             <FilterListbox>
               {state.items.map((item) => (
                 <FilterOptionCheckbox

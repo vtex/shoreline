@@ -43,21 +43,21 @@ export const useFilterControl = (): FilterControlState => {
   }
 
   return {
+    ...state,
+    onChange,
     addFilter,
     removeFilter,
     items,
-    filterState: { ...state, onChange },
     visible: appliedItems,
     setVisible: setAppliedItems,
     shouldOpenOnMount,
   }
 }
 
-export interface FilterControlState {
+export interface FilterControlState extends UseFilterMultipleReturn<AnyObject> {
   addFilter: (filter: FilterOption<any>) => void
   removeFilter: (filter: FilterOption<any>) => void
   items: Array<FilterOption<any>>
-  filterState: UseFilterMultipleReturn<AnyObject>
   visible: Array<FilterOption<any>>
   setVisible: (newValue: Array<FilterOption<any>>) => void
   shouldOpenOnMount: (id: string) => boolean
