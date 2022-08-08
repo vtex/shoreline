@@ -12,9 +12,9 @@ import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
 
 import { FilterGroup } from '../filter-group'
 import { useFilterGroupState } from '../filter-group.state'
-import { FilterToggleVisible } from '../filter-toggler/filter-toggle-visible'
-import { useFilterShowState } from '../filter-toggler/filter-visibility-state'
-import { FilterOptional } from '../filter-toggler/filter-optional'
+import { FilterControl } from '../filter-control/filter-control'
+import { useFilterControl } from '../filter-control/filter-control-state'
+import { FilterOptional } from '../filter-control/filter-optional'
 
 export default {
   title: 'admin-ui/Filters/advanced',
@@ -57,7 +57,7 @@ function GenericFilter({ list, label }: { list: any[]; label: string }) {
 }
 
 export function GroupWithHiddenFilters() {
-  const togState = useFilterShowState()
+  const togState = useFilterControl()
 
   const filterGroupState = useFilterGroupState({
     filterStates: [],
@@ -81,15 +81,15 @@ export function GroupWithHiddenFilters() {
         <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
-      <FilterToggleVisible state={togState} />
+      <FilterControl state={togState} />
     </FilterGroup>
   )
 }
 
 export function visibilityToggleStates() {
-  const togState = useFilterShowState()
+  const togState = useFilterControl()
 
-  const errorState = useFilterShowState()
+  const errorState = useFilterControl()
 
   const filterGroupState = useFilterGroupState({
     filterStates: [],
@@ -108,8 +108,8 @@ export function visibilityToggleStates() {
         <GenericFilter list={list2} label="Cool" />
       </FilterOptional>
 
-      <FilterToggleVisible state={togState} />
-      <FilterToggleVisible state={errorState} />
+      <FilterControl state={togState} />
+      <FilterControl state={errorState} />
     </FilterGroup>
   )
 }
