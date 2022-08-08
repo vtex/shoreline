@@ -7,6 +7,8 @@ import { Inline } from '../inline'
 import { Button } from '../button'
 import { Text } from '../components/Text'
 import { Bleed } from '../bleed'
+import { useMessageFormatter } from '../i18n'
+import { messages } from './bulk-actions.i18n'
 import * as style from './bulk-actions.style'
 
 interface BulkActionsOptions {
@@ -17,6 +19,7 @@ interface BulkActionsOptions {
 export const BulkActions = createComponent<'div', BulkActionsOptions>(
   (props) => {
     const { children, state, ...restProps } = props
+    const formatMessage = useMessageFormatter(messages)
 
     const {
       allSelected,
@@ -39,8 +42,10 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
         <Inline hSpace="$2xl" spaceInside csx={style.container}>
           <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
             <Text tone="secondary">
-              {allSelected ? totalItems : getSelectedIds().length} of{' '}
-              {totalItems} selected
+              {formatMessage('selected', {
+                current: allSelected ? totalItems : getSelectedIds().length,
+                total: totalItems,
+              })}
             </Text>
 
             <Button
@@ -54,7 +59,9 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
                 setAllSelected((prev) => !prev)
               }}
             >
-              {allSelected ? 'Deselect All' : 'Select All'}
+              {allSelected
+                ? formatMessage('deselectAll')
+                : formatMessage('selectAll')}
             </Button>
           </Inline>
           <Bleed right="$l">

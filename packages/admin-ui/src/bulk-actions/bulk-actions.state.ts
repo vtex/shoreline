@@ -19,9 +19,21 @@ export function useBulkActions<T extends { id: string | number }>(
       initialValue: [],
     })
 
-  const isItemSelected = (item: T) => {
-    return !!mapSelectedIds[item.id]
-  }
+  const { mapPageItem, ids: pageIds } = useMemo(() => {
+    return pageItems.reduce(
+      (
+        acc: {
+          ids: Array<number | string>
+          mapPageItem: Record<string | number, T>
+        },
+        item
+      ) => ({
+        ids: [...acc.ids, item.id],
+        mapPageItem: { ...acc.mapPageItem, [item.id]: item },
+      }),
+      { ids: [], mapPageItem: {} }
+    )
+  }, [currentPage])
 
   const getSelectedIds = useCallback(() => {
     if (!Array.isArray(selectedItemsIds)) return []
@@ -29,30 +41,21 @@ export function useBulkActions<T extends { id: string | number }>(
     return selectedItemsIds
   }, [selectedItemsIds])
 
-  const { mapItem, ids: pageIds } = useMemo(() => {
-    return pageItems.reduce(
-      (
-        acc: {
-          ids: Array<number | string>
-          mapItem: Record<string | number, T>
-        },
-        item
-      ) => ({
-        ids: [...acc.ids, item.id],
-        mapItem: { ...acc.mapItem, [item.id]: item },
-      }),
-      { ids: [], mapItem: {} }
-    )
-  }, [currentPage])
-
   const pageSelectedItems = useMemo(
-    () => getSelectedIds().map((item) => mapItem[item]),
-    [getSelectedIds, mapItem]
+    () => getSelectedIds().map((item) => mapPageItem[item]),
+    [getSelectedIds, mapPageItem]
   )
 
   const mapSelectedIds: Record<string | number, boolean> = useMemo(() => {
     return getSelectedIds().reduce((acc, i) => ({ ...acc, [i]: true }), {})
   }, [getSelectedIds])
+
+  const isItemSelected = useCallback(
+    (item: T) => {
+      return !!mapSelectedIds[item.id]
+    },
+    [mapSelectedIds]
+  )
 
   useEffect(() => {
     if (root === 'indeterminate' || Array.isArray(root)) return
@@ -69,8 +72,8 @@ export function useBulkActions<T extends { id: string | number }>(
   }, [currentPage, selectedItemsIds, allSelected])
 
   const selectedPageItems = useCallback(() => {
-    return pageItems.filter((item) => !!mapSelectedIds[item.id])
-  }, [currentPage, mapSelectedIds])
+    return pageItems.filter((item) => !!isItemSelected(item))
+  }, [currentPage, isItemSelected])
 
   const resolveRootState = useCallback(() => {
     const pageSize = pageItems.length
@@ -89,7 +92,9 @@ export function useBulkActions<T extends { id: string | number }>(
   }, [currentPage, selectedPageItems])
 
   const toggleItems = () => {
-    const filteredSelectedItems = getSelectedIds().filter((i) => !mapItem[i])
+    const filteredSelectedItems = getSelectedIds().filter(
+      (i) => !mapPageItem[i]
+    )
 
     const nextSelectedItems = root
       ? [...filteredSelectedItems, ...pageIds]
