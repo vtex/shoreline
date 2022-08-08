@@ -4,7 +4,7 @@ import type { UseFilterMultipleReturn } from '../filter-multiple/filter-multiple
 import { useFilterMultipleState } from '../filter-multiple/filter-multiple.state'
 import type { FilterOption } from '../filter/filter.state'
 
-export const useFilterShowState = (): FilterVisibilityStateReturn => {
+export const useFilterControl = (): FilterControlState => {
   const state = useFilterMultipleState()
   const {
     appliedItems,
@@ -53,7 +53,7 @@ export const useFilterShowState = (): FilterVisibilityStateReturn => {
   }
 }
 
-export interface FilterVisibilityStateReturn {
+export interface FilterControlState {
   addFilter: (filter: FilterOption<any>) => void
   removeFilter: (filter: FilterOption<any>) => void
   items: Array<FilterOption<any>>

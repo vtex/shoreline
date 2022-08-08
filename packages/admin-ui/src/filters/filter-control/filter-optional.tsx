@@ -1,7 +1,6 @@
-import type { MenuState } from 'ariakit'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { FilterOptionalProvider } from './filter-optional-context'
-import type { FilterVisibilityStateReturn } from './filter-visibility-state'
+import type { FilterControlState } from './filter-control-state'
 
 export const FilterOptional = (props: FilterOptionalProps) => {
   const { state, id, label, children } = props
@@ -24,7 +23,7 @@ export const FilterOptional = (props: FilterOptionalProps) => {
 }
 
 interface FilterOptionalProps {
-  state: FilterVisibilityStateReturn
+  state: FilterControlState
   id: string
   label: string
   children?: React.ReactNode

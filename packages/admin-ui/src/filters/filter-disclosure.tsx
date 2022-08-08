@@ -9,8 +9,7 @@ import { AppliedItemsLabel } from './filter-applied-items-label'
 import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { useFilterOptionalContext } from './filter-toggler/filter-optional-context'
-import { shouldComponentUpdate } from 'react-window'
+import { useFilterOptionalContext } from './filter-control/filter-optional-context'
 
 const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
 
