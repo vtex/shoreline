@@ -277,9 +277,10 @@ function resolveValue(value: any, ruleId: string, theme: Record<string, any>) {
     const colorValue = get(colors, key)
 
     if (result.includes(colorValue)) {
-      result = result
-        .toString()
-        .replaceAll(colorValue, toVarValue(`colors-${key}`))
+      result = result.replace(
+        new RegExp(colorValue, 'g'),
+        toVarValue(`colors-${key}`)
+      )
     }
   })
 
