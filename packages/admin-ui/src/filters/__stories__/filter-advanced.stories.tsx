@@ -96,8 +96,8 @@ export function visibilityToggleStates() {
   })
 
   useEffect(() => {
-    togState.filterState.setStatus('loading')
-    errorState.filterState.setStatus('error')
+    togState.setStatus('loading')
+    errorState.setStatus('error')
   }, [])
 
   return (
