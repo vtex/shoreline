@@ -43,7 +43,7 @@ export interface Toast extends HTMLAttributes<HTMLDivElement> {
   variant?: 'critical' | 'info' | 'positive' | 'warning'
   /**
    * Whether the toast can be dismissed or not.
-   * @default false
+   * @default true
    */
   dismissible?: boolean
   /**
