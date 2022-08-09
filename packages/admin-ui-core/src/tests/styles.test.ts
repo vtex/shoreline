@@ -75,48 +75,21 @@ describe('styles', () => {
         background: 'blue',
       })
     })
-
-    it('should be able to handle splits', () => {
-      const result = styles(
-        {
-          marginX: '$sm',
-          size: 100,
-        },
-        {
-          hspace: {
-            sm: 8,
-          },
-        }
-      )
-
-      expect(result).toEqual({
-        marginLeft: 8,
-        marginRight: 8,
-        height: 100,
-        width: 100,
-      })
-    })
   })
 
   describe('complex rules', () => {
     it('should consume object rules', () => {
-      const result = styles(
-        {
-          text: '$detail',
-        },
-        {
-          text: {
-            detail: {
-              fontSize: 14,
-              fontFamily: 'sans-serif',
-            },
-          },
-        }
-      )
+      const result = styles({
+        text: '$detail',
+      })
 
       expect(result).toEqual({
-        fontSize: 14,
-        fontFamily: 'sans-serif',
+        fontFamily: 'var(--admin-ui-text-detail-fontFamily)',
+        fontSize: 'var(--admin-ui-text-detail-fontSize)',
+        fontVariationSettings:
+          'var(--admin-ui-text-detail-fontVariationSettings)',
+        letterSpacing: 'var(--admin-ui-text-detail-letterSpacing)',
+        lineHeight: 'var(--admin-ui-text-detail-lineHeight)',
       })
     })
 
