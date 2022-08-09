@@ -48,17 +48,36 @@ export function useToast() {
 
   invariant(dispatch, 'No "ToastProvider" configured')
 
-  return useCallback(
+  const show = useCallback(
     (toast: Toast) => {
-      const id = `${cachedCounter++}`
+      const {
+        message,
+        key,
+        variant = 'info',
+        dismissible = true,
+        duration = 10000,
+        csx = {},
+        action,
+      } = toast
+
+      const generatedId = `${cachedCounter++}`
 
       dispatch({
-        ...toast,
-        id,
-        dedupeKey: toast.key ?? id,
         shouldRemove: false,
+        id: generatedId,
+        dedupeKey: key ?? generatedId,
+        message,
+        variant,
+        dismissible,
+        action,
+        duration,
+        csx,
       })
     },
     [dispatch]
   )
+
+  return {
+    show,
+  }
 }
