@@ -16,7 +16,7 @@ export const messages = {
   },
   'pt-BR': {
     selectAll: 'Selecione todos',
-    deselectAll: 'Deselect all',
+    deselectAll: 'Desselecione todos',
     selected: '{current} de {total} selecionados',
   },
   'ja-JP': {
