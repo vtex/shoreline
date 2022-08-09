@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react'
-import type { InternalToast } from './types'
+import type { InternalToastProps } from './types'
 
 export function useToastQueueState() {
   const [{ toasts }, dispatch] = useReducer(queueReducer, {
@@ -8,7 +8,7 @@ export function useToastQueueState() {
   })
 
   const add = useCallback(
-    (toast: InternalToast) => dispatch({ type: 'enqueue', toast }),
+    (toast: InternalToastProps) => dispatch({ type: 'enqueue', toast }),
     []
   )
 
@@ -89,12 +89,12 @@ function queueReducer(
 }
 
 type QueueActions =
-  | { type: 'enqueue'; toast: InternalToast }
+  | { type: 'enqueue'; toast: InternalToastProps }
   | { type: 'dequeue'; key: string }
 
 export interface ToastQueueState {
-  toasts: InternalToast[]
+  toasts: InternalToastProps[]
   queue: {
-    [key: string]: InternalToast | undefined
+    [key: string]: InternalToastProps | undefined
   }
 }

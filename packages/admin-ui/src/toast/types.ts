@@ -12,7 +12,7 @@ export interface ToastAction {
   onClick: () => void
 }
 
-export interface InternalToast extends Toast {
+export interface InternalToastProps extends ToastProps {
   /**
    * Toast's Id
    */
@@ -27,7 +27,7 @@ export interface InternalToast extends Toast {
   shouldRemove: boolean
 }
 
-export interface Toast extends HTMLAttributes<HTMLDivElement> {
+export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Toast's key
    */
