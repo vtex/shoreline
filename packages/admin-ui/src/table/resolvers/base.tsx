@@ -14,6 +14,8 @@ import type { TextResolver } from './text'
 import { textResolver } from './text'
 import type { MenuResolver } from './menu'
 import { menuResolver } from './menu'
+import type { BulkResolver } from './bulk'
+import { bulkResolver } from './bulk'
 
 /**
  * Table base resolvers
@@ -28,6 +30,7 @@ export function baseResolvers<T>() {
     selection: selectionResolver<T>(),
     text: textResolver<T>(),
     menu: menuResolver<T>(),
+    bulk: bulkResolver<T>(),
   }
 }
 
@@ -40,3 +43,4 @@ export type BaseResolvers<T> =
   | SelectionResolver<T>
   | TextResolver<T>
   | MenuResolver<T>
+  | BulkResolver<T>
