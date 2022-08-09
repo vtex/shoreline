@@ -21,7 +21,7 @@ export function useBulkActions<T extends { id: string | number }>(
 
   const { mapPageItem, ids: pageIds } = useMemo(() => {
     return pageItems.reduce(
-      (acc: MappedPageItems, item) => ({
+      (acc: MappedPageItems<T>, item) => ({
         ids: [...acc.ids, item.id],
         mapPageItem: { ...acc.mapPageItem, [item.id]: item },
       }),
@@ -147,7 +147,7 @@ interface UseBulkActionsParams<T> {
   totalItems: number
 }
 
-interface MappedPageItems {
+interface MappedPageItems<T> {
   ids: Array<number | string>
   mapPageItem: Record<string | number, T>
 }
