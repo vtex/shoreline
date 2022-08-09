@@ -15,14 +15,16 @@ export const container = style({
   border: '$neutral',
   borderRadius: '$default',
   boxShadow: '$overlay.center',
+  marginX: 'auto',
 })
 
 export const baseline = style({
-  alignItems: 'center',
-  justifyContent: 'center',
-  display: 'flex',
   width: '100%',
   position: 'fixed',
   bottom: '$2xl',
   left: 0,
+  pointerEvents: 'none',
+  '> *': {
+    pointerEvents: 'auto',
+  },
 })
