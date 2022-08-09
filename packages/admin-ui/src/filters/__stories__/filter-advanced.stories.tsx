@@ -60,7 +60,7 @@ export function GroupWithHiddenFilters() {
   const togState = useFilterControl()
 
   const filterGroupState = useFilterGroupState({
-    filterStates: [],
+    filterStates: [togState],
   })
 
   return (
@@ -92,7 +92,7 @@ export function visibilityToggleStates() {
   const errorState = useFilterControl()
 
   const filterGroupState = useFilterGroupState({
-    filterStates: [],
+    filterStates: [togState],
   })
 
   useEffect(() => {

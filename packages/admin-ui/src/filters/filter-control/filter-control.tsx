@@ -40,7 +40,13 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
           </Button>
 
           <FilterPopover state={state}>
-            <FilterListbox>
+            <FilterListbox
+              csx={{
+                '> * > *:not(:first-child)': {
+                  marginTop: 0,
+                },
+              }}
+            >
               {state.items.map((item) => (
                 <FilterOptionCheckbox
                   id={item.id}
