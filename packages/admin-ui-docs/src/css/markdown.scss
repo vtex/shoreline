@@ -1,4 +1,6 @@
 .markdown {
+  --fs-body: 1rem;
+
   margin-top: 3rem;
 
   .token-line .token {
@@ -8,8 +10,17 @@
 
   & > ul,
   & > ol {
+    font-size: var(--fs-body);
     margin: 0 0 var(--ifm-list-margin) !important;
     padding-left: var(--ifm-list-left-padding) !important;
+  }
+
+  & > ul > li {
+    font-size: var(--fs-body);
+  }
+
+  & > p {
+    font-size: var(--fs-body);
   }
 
   strong {
