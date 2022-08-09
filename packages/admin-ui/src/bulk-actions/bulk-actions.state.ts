@@ -21,13 +21,7 @@ export function useBulkActions<T extends { id: string | number }>(
 
   const { mapPageItem, ids: pageIds } = useMemo(() => {
     return pageItems.reduce(
-      (
-        acc: {
-          ids: Array<number | string>
-          mapPageItem: Record<string | number, T>
-        },
-        item
-      ) => ({
+      (acc: MappedPageItems, item) => ({
         ids: [...acc.ids, item.id],
         mapPageItem: { ...acc.mapPageItem, [item.id]: item },
       }),
@@ -46,7 +40,7 @@ export function useBulkActions<T extends { id: string | number }>(
     [getSelectedIds, mapPageItem]
   )
 
-  const mapSelectedIds: Record<string | number, boolean> = useMemo(() => {
+  const mapSelectedIds = useMemo<Record<string | number, boolean>>(() => {
     return getSelectedIds().reduce((acc, i) => ({ ...acc, [i]: true }), {})
   }, [getSelectedIds])
 
@@ -151,4 +145,9 @@ interface UseBulkActionsParams<T> {
   pageItems: T[]
   currentPage?: number
   totalItems: number
+}
+
+interface MappedPageItems {
+  ids: Array<number | string>
+  mapPageItem: Record<string | number, T>
 }
