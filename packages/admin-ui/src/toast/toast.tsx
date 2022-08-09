@@ -13,7 +13,7 @@ import { Box } from '../box'
 import { Inline } from '../inline'
 import { Button } from '../button'
 import { Center } from '../center'
-import type { InternalToast } from './types'
+import type { InternalToastProps } from './types'
 import { ToastContainer } from './toast-container'
 import { Stack } from '../stack'
 import * as style from './toast.style'
@@ -109,6 +109,6 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
   }
 )
 
-interface ToastProps extends InternalToast {
+interface ToastProps extends InternalToastProps {
   onClear: (dedupeKey: string, id: string) => void
 }

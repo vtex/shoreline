@@ -3,13 +3,16 @@ import React, { useContext, createContext, useCallback, Fragment } from 'react'
 import { Portal } from 'reakit/Portal'
 import invariant from 'tiny-invariant'
 
-import { ToastQueue } from './toast-queue'
-import type { Toast, InternalToast } from './types'
+import type { ToastProps, InternalToastProps } from './types'
+import { useAnimatedList } from './use-animated-list'
 import { useToastQueueState } from './use-toast-queue-state'
+import { Stack } from '../stack'
+import * as style from './toast.style'
+import { Toast } from './toast'
 
 let cachedCounter = 0
 
-type AddToast = (toast: InternalToast) => void
+type AddToast = (toast: InternalToastProps) => void
 
 const ToastControllerContext = createContext<AddToast | null>(null)
 
@@ -20,13 +23,33 @@ interface ToastProviderProps {
 function InternalToastProvider(props: ToastProviderProps) {
   const { children } = props
 
-  const queue = useToastQueueState()
+  const { add: enqueue, remove: dequeue, toasts } = useToastQueueState()
+  const { itemRef, remove } = useAnimatedList()
+
+  const onClear = useCallback(
+    (dedupeKey: string, id: string) => {
+      remove(id, () => {
+        dequeue(dedupeKey)
+      })
+    },
+    [remove, dequeue]
+  )
 
   return (
-    <ToastControllerContext.Provider value={queue.add}>
+    <ToastControllerContext.Provider value={enqueue}>
       {children}
       <Portal>
-        <ToastQueue toasts={queue.toasts} dequeue={queue.remove} />
+        <Stack space="$2xl" csx={style.toastQueue}>
+          {toasts.map(({ id, ...rest }) => (
+            <Toast
+              ref={itemRef(id)}
+              key={id}
+              id={id}
+              onClear={onClear}
+              {...rest}
+            />
+          ))}
+        </Stack>
       </Portal>
     </ToastControllerContext.Provider>
   )
@@ -49,7 +72,7 @@ export function useToast() {
   invariant(dispatch, 'No "ToastProvider" configured')
 
   const show = useCallback(
-    (toast: Toast) => {
+    (toast: ToastProps) => {
       const {
         message,
         key,
@@ -77,7 +100,5 @@ export function useToast() {
     [dispatch]
   )
 
-  return {
-    show,
-  }
+  return show
 }

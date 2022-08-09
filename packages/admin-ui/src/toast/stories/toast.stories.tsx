@@ -5,21 +5,35 @@ import { ToastProvider, useToast } from '../index'
 import { Button } from '../../button'
 import { Text } from '../../components/Text'
 import { Inline } from '../../inline'
-import type { Toast } from '../types'
+import type { ToastProps } from '../types'
 
 export default {
   title: 'admin-ui-review/toast',
-  component: Button,
 } as Meta
 
-const ToastButton = () => {
+function ToastDisclosure(props: { label: string; toast: ToastProps }) {
   const toast = useToast()
 
   return (
     <Inline>
       <Button
         onClick={() => {
-          toast.show({
+          toast(props.toast)
+        }}
+      >
+        {props.label}
+      </Button>
+    </Inline>
+  )
+}
+
+export function Playground() {
+  return (
+    <ToastProvider>
+      <Inline>
+        <ToastDisclosure
+          label="Info"
+          toast={{
             message: 'Type here a longer message but not much longer than that',
             action: {
               label: 'Action',
@@ -27,14 +41,11 @@ const ToastButton = () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Info
-      </Button>
-      <Button
-        onClick={() => {
-          toast.show({
+          }}
+        />
+        <ToastDisclosure
+          label="Positive"
+          toast={{
             message: 'This is a Toast!',
             variant: 'positive',
             action: {
@@ -43,14 +54,11 @@ const ToastButton = () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Positive
-      </Button>
-      <Button
-        onClick={() => {
-          toast.show({
+          }}
+        />
+        <ToastDisclosure
+          label="Critical"
+          toast={{
             message: 'This is a Toast!',
             variant: 'critical',
             action: {
@@ -59,14 +67,11 @@ const ToastButton = () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Critical
-      </Button>
-      <Button
-        onClick={() => {
-          toast.show({
+          }}
+        />
+        <ToastDisclosure
+          label="Warning"
+          toast={{
             message: 'This is a Toast!',
             variant: 'warning',
             action: {
@@ -75,14 +80,11 @@ const ToastButton = () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Warning
-      </Button>
-      <Button
-        onClick={() => {
-          toast.show({
+          }}
+        />
+        <ToastDisclosure
+          label="Custom"
+          toast={{
             message: (
               <>
                 <Text variant="pageTitle">Hi there!</Text>
@@ -102,36 +104,10 @@ const ToastButton = () => {
               },
             },
             onClick: () => alert('Hello world!'),
-          })
-        }}
-      >
-        Custom
-      </Button>
-    </Inline>
-  )
-}
-
-export function Playground() {
-  return (
-    <ToastProvider>
-      <ToastButton />
+          }}
+        />
+      </Inline>
     </ToastProvider>
-  )
-}
-
-function ToastDisclosure(props: { label: string; toast: Toast }) {
-  const toast = useToast()
-
-  return (
-    <Inline>
-      <Button
-        onClick={() => {
-          toast.show(props.toast)
-        }}
-      >
-        {props.label}
-      </Button>
-    </Inline>
   )
 }
 
