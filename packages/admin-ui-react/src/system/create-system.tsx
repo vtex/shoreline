@@ -22,14 +22,16 @@ interface ThemeProviderProps {
   experimentalDisabledGlobalStyles?: boolean
 }
 
+export const csx = createCsx(theme)
+
 export function ThemeProvider(props: ThemeProviderProps) {
   const {
     children,
-    experimentalTheme = theme,
+    experimentalTheme,
     experimentalDisabledGlobalStyles = false,
   } = props
 
-  const csx = createCsx(experimentalTheme)
+  const experimentalCsx = experimentalTheme ? createCsx(experimentalTheme) : csx
 
   const global = experimentalDisabledGlobalStyles
     ? {}
@@ -41,7 +43,7 @@ export function ThemeProvider(props: ThemeProviderProps) {
     <SystemContext.Provider
       value={{
         theme: experimentalTheme,
-        cn: csx,
+        cn: experimentalCsx,
         cx,
       }}
     >
