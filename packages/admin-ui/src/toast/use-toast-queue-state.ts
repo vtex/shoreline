@@ -40,16 +40,14 @@ function queueReducer(
         const { dedupeKey } = toast
 
         return {
-          toasts: state.toasts.map((t) => {
-            if (t.dedupeKey === dedupeKey) {
-              return {
-                ...t,
-                shouldRemove: true,
-              }
-            }
-
-            return t
-          }),
+          toasts: state.toasts.map((t) =>
+            t.dedupeKey === dedupeKey
+              ? {
+                  ...t,
+                  shouldRemove: true,
+                }
+              : t
+          ),
           queue: {
             ...state.queue,
             [dedupeKey]: toast,

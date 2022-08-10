@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React, { useContext, createContext, useCallback, Fragment } from 'react'
-import { Portal } from 'reakit/Portal'
+import { Portal } from 'ariakit'
 import invariant from 'tiny-invariant'
 
 import type { ToastProps, InternalToastProps } from './types'
