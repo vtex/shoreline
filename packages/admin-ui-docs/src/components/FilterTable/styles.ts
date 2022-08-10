@@ -9,7 +9,7 @@ style.dataView = {
 style.dataViewControls = {
   position: 'sticky',
   top: 0,
-  zIndex: '1',
+  zIndex: '5',
   background: '$primary',
 }
 

@@ -86,12 +86,10 @@ export function TokensTable(props: TokensTableProps) {
   }, [searchedItems.length])
 
   const table = useTableState({
-    density: 'variable',
     columns: [
       {
         id: 'name',
         header: 'Token',
-        width: 350,
         resolver: {
           type: 'root',
           render: (column) => {
@@ -113,7 +111,6 @@ export function TokensTable(props: TokensTableProps) {
       {
         id: 'type',
         header: 'Style prop',
-        width: 150,
         resolver: {
           type: 'root',
           render: (column) => {
@@ -127,9 +124,22 @@ export function TokensTable(props: TokensTableProps) {
         },
       },
       {
+        id: 'cssVar',
+        header: 'Css Variables',
+        resolver: {
+          type: 'root',
+          render: (column) => {
+            return (
+              <Flex direction="column">
+                <Text>{column.item.cssVar}</Text>
+              </Flex>
+            )
+          },
+        },
+      },
+      {
         id: 'values',
         header: 'Values',
-        width: 260,
         resolver: {
           type: 'root',
           render: (column) => {
@@ -193,6 +203,7 @@ interface TokensTableProps {
     token: string
     formattedToken: string
     description: string
+    cssVar: string | Node
     value: string | TextValueProp
     type: string
     csx: StyleProp
