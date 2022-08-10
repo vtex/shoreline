@@ -19,6 +19,7 @@ const getColumnWidth = (column: TableColumn<any>) => {
 
 export const baseline = ({ columns }: RowOptions) =>
   style({
+    position: 'relative',
     display: 'grid',
     overflow: 'auto',
     gridTemplateColumns: columns.map(getColumnWidth).join(' '),

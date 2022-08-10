@@ -11,8 +11,12 @@ export const variants = styleVariants({
     true: {
       cursor: 'pointer',
       ':hover': {
-        '.__admin-ui-fixed-cell > div': {
-          bg: '$action.neutral.tertiaryHover',
+        '.__admin-ui-fixed-cell': {
+          bg: '$primary',
+
+          '> div': {
+            bg: '$action.neutral.tertiaryHover',
+          },
         },
 
         'td[role=cell]:not(.__admin-ui-fixed-cell)': {

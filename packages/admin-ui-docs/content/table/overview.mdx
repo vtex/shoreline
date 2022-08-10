@@ -1111,3 +1111,108 @@ render(<DataFetchExample />)
 ```
 
 </Section>
+
+<Section hasExplanation>
+
+### Fixed columns
+
+It is possible to set columns to be fixed when scrolling horizontally. You just need to set the column prop `fixed` to `true`.
+```jsx noInline live
+function DataFetchExample() {
+  const grid = useTableState({
+    columns: [
+      {
+        id: 'id',
+        fixed: true,
+        resolver: {
+          type: 'selection',
+          mapId: (item) => item.id,
+        },
+      },
+      {
+        id: 'name',
+        header: 'Name',
+        fixed: true,
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+        width: 500,
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item, context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
+        },
+      },
+    ],
+    length: 3,
+    items: React.useMemo(
+      () =>
+        Array(3)
+          .fill()
+          .map((_, id) => {
+            return {
+              id: `${id}`,
+              name: faker.commerce.productName(),
+              lastSale: faker.date.past().toDateString(),
+              price: faker.commerce.price(),
+            }
+          }),
+      []
+    ),
+    onRowClick: (item) => alert(`Item: ${item.name}`),
+  })
+
+  const selection = useSelectionTreeState({
+    items: grid.data,
+    mapId: (item) => item.id,
+  })
+
+  return (
+    <SelectionTree state={selection}>
+      <Table state={grid} />
+    </SelectionTree>
+  )
+}
+
+render(<DataFetchExample />)
+```
+
+</Section>
