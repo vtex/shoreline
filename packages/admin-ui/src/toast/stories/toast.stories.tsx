@@ -2,90 +2,89 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
-import { Button } from '../../../button'
-import { Text } from '../../Text'
-import { Inline } from '../../../inline'
+import { Button } from '../../button'
+import { Text } from '../../components/Text'
+import { Inline } from '../../inline'
+import type { ToastProps } from '../types'
 
 export default {
-  title: 'admin-ui/Toast',
-  component: Button,
+  title: 'admin-ui-review/toast',
 } as Meta
 
-const ToastButton = () => {
-  const showToast = useToast()
+function ToastDisclosure(props: { label: string; toast: ToastProps }) {
+  const toast = useToast()
 
   return (
     <Inline>
       <Button
         onClick={() => {
-          showToast({
+          toast(props.toast)
+        }}
+      >
+        {props.label}
+      </Button>
+    </Inline>
+  )
+}
+
+export function Playground() {
+  return (
+    <ToastProvider>
+      <Inline>
+        <ToastDisclosure
+          label="Info"
+          toast={{
             message: 'Type here a longer message but not much longer than that',
-            dismissible: true,
             action: {
               label: 'Action',
               onClick: () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Info
-      </Button>
-      <Button
-        onClick={() => {
-          showToast({
+          }}
+        />
+        <ToastDisclosure
+          label="Positive"
+          toast={{
             message: 'This is a Toast!',
-            dismissible: true,
-            tone: 'positive',
+            variant: 'positive',
             action: {
               label: 'Action',
               onClick: () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Positive
-      </Button>
-      <Button
-        onClick={() => {
-          showToast({
+          }}
+        />
+        <ToastDisclosure
+          label="Critical"
+          toast={{
             message: 'This is a Toast!',
-            dismissible: true,
-            tone: 'critical',
+            variant: 'critical',
             action: {
               label: 'Action',
               onClick: () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Critical
-      </Button>
-      <Button
-        onClick={() => {
-          showToast({
+          }}
+        />
+        <ToastDisclosure
+          label="Warning"
+          toast={{
             message: 'This is a Toast!',
-            dismissible: true,
-            tone: 'warning',
+            variant: 'warning',
             action: {
               label: 'Action',
               onClick: () => {
                 alert('Some action!')
               },
             },
-          })
-        }}
-      >
-        Warning
-      </Button>
-      <Button
-        onClick={() => {
-          showToast({
+          }}
+        />
+        <ToastDisclosure
+          label="Custom"
+          toast={{
             message: (
               <>
                 <Text variant="pageTitle">Hi there!</Text>
@@ -96,8 +95,7 @@ const ToastButton = () => {
                 </Text>
               </>
             ),
-            dismissible: true,
-            tone: 'positive',
+            variant: 'positive',
             csx: {
               maxHeight: 'auto',
               ':hover': {
@@ -106,19 +104,33 @@ const ToastButton = () => {
               },
             },
             onClick: () => alert('Hello world!'),
-          })
-        }}
-      >
-        Custom
-      </Button>
-    </Inline>
+          }}
+        />
+      </Inline>
+    </ToastProvider>
   )
 }
 
-export function Playground() {
+export function Replace() {
   return (
     <ToastProvider>
-      <ToastButton />
+      <Inline>
+        <ToastDisclosure
+          label="creating"
+          toast={{
+            key: 'create',
+            message: 'Creating...',
+          }}
+        />
+        <ToastDisclosure
+          label="created"
+          toast={{
+            key: 'create',
+            message: 'Created!',
+            variant: 'positive',
+          }}
+        />
+      </Inline>
     </ToastProvider>
   )
 }
