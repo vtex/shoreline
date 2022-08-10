@@ -6,9 +6,15 @@ import { Center } from '../center'
 
 export const TooltipTrigger = createComponent<'button', TooltipTriggerOptions>(
   (props) => {
-    const { bleedX = false, bleedY = false, ...buttonProps } = props
+    const {
+      bleedX = false,
+      bleedY = false,
+      type = 'button',
+      ...buttonProps
+    } = props
 
     return useElement('button', {
+      type,
       ...buttonProps,
       baseStyle: {
         ...style.tooltipTriggerWrapper,
