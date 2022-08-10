@@ -21,6 +21,9 @@ import {
   FilterFooter as experimental_FilterFooter,
   FilterPopover as experimental_FilterPopover,
   FilterListbox as experimental_FilterListbox,
+  FilterControl as experimental_FilterControl,
+  FilterOptional as experimental_FilterOptional,
+  useFilterControl as experimental_useFilterControl,
 } from './filters'
 
 import {
@@ -59,6 +62,9 @@ export {
   experimental_FilterFooter,
   experimental_FilterPopover,
   experimental_FilterListbox,
+  experimental_FilterControl,
+  experimental_FilterOptional,
+  experimental_useFilterControl,
 }
 
 export type {
