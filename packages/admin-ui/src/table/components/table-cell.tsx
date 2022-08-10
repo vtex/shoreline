@@ -52,9 +52,17 @@ export const TableCell = createComponent<'td', CellOptions>((props) => {
     ref.current.style.left = `${ref.current.offsetLeft}px`
   }, [])
 
+  let updatedClassName = isFixed
+    ? cx('__admin-ui-fixed-cell', className)
+    : className
+
+  if (isLastFixedColumn) {
+    updatedClassName = cx('__admin-ui-last-fixed-cell', updatedClassName)
+  }
+
   return useElement('td', {
     ref: useForkRef(ref, htmlRef as any),
-    className: isFixed ? cx('__admin-ui-fixed-cell', className) : className,
+    className: updatedClassName,
     baseStyle: {
       ...styles.baseline,
       ...styles.variants({

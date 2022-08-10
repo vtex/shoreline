@@ -41,7 +41,7 @@
 
 .preview-default-container,
 .preview-grid-container,
-.__reakit-portal  {
+.__reakit-portal {
   table {
     margin: 0;
 
@@ -61,6 +61,7 @@
 
 .preview-default-container,
 .preview-grid-container {
+
   table td,
   table th {
     border-top: none;
@@ -68,7 +69,12 @@
     border-right: none;
     padding-top: 0;
     padding-bottom: 0;
+
+    &.__admin-ui-last-fixed-cell {
+      border-right: var(--ifm-table-border-width) solid var(--ifm-table-border-color);
+    }
   }
+
 }
 
 .__reakit-portal {
