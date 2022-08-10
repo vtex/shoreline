@@ -123,7 +123,7 @@ const items = [
 ]
 
 function Filter() {
-  const filterState = useFilterState({ fullList: items })
+  const filterState = useFilterState({ searchableList: items })
 
   return (
     <>
@@ -171,7 +171,7 @@ const items = [
 ]
 
 function FilterSearch() {
-  const filterState = useFilterMultipleState({ fullList: items })
+  const filterState = useFilterMultipleState({ searchableList: items })
 
   return (
     <>
@@ -231,7 +231,7 @@ function FilterGroupExample() {
 
   const state = useFilterMultipleState()
   const state2 = useFilterState()
-  const state3 = useFilterState({ fullList: list1 })
+  const state3 = useFilterState({ searchableList: list1 })
 
   const filterGroupState = useFilterGroupState({
     filterStates: [state2, state, state3],
@@ -272,6 +272,125 @@ function FilterGroupExample() {
         </FilterListbox>
         <FilterFooter />
       </FilterPopover>
+    </FilterGroup>
+  )
+}
+
+render(<FilterGroupExample />)
+```
+
+</Section>
+
+<Section>
+
+### Group with additional hidden filters
+
+```jsx noInline live
+const useFilterMultipleState = experimental_useFilterMultipleState
+const FilterOptionCheckbox = experimental_FilterOptionCheckbox
+const useFilterState = experimental_useFilterState
+const FilterOptionRadio = experimental_FilterOptionRadio
+const FilterDisclosure = experimental_FilterDisclosure
+const FilterPopover = experimental_FilterPopover
+const FilterListbox = experimental_FilterListbox
+const FilterFooter = experimental_FilterFooter
+const FilterSearchbox = experimental_FilterSearchbox
+const useFilterGroupState = experimental_useFilterGroupState
+const FilterGroup = experimental_FilterGroup
+const FilterControl = experimental_FilterControl
+const FilterOptional = experimental_FilterOptional
+const useFilterControl = experimental_useFilterControl
+
+function GenericFilter({ list, label }) {
+  const state = useFilterMultipleState()
+
+  return (
+    <>
+      <FilterDisclosure state={state}>{label}</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+function FilterGroupExample() {
+  const list1 = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+    { label: 'Half empty', id: '#10' },
+  ]
+
+  const list2 = [
+    { label: 'Rio de Janeiro', value: { grade: 10 }, id: '#1' },
+    { label: 'New York', value: { grade: 9 }, id: '#2' },
+    { label: 'Paris', value: { grade: 9 }, id: '#3' },
+    { label: 'Tokyo', value: { grade: 9 }, id: '#4' },
+  ]
+
+  const filterControlState = useFilterControl()
+  const state = useFilterMultipleState()
+  const state2 = useFilterState()
+  const state3 = useFilterState({ searchableList: list1 })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state2, state, state3, filterControlState],
+  })
+
+  return (
+    <FilterGroup state={filterGroupState}>
+      <FilterDisclosure state={state}>Status</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list1.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state2}>City</FilterDisclosure>
+
+      <FilterPopover state={state2}>
+        <FilterListbox>
+          {list2.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state3}>City status</FilterDisclosure>
+
+      <FilterPopover state={state3}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {state3.matches.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterOptional id="#other-city" label="Other city" state={filterControlState}>
+        <GenericFilter list={list2} label="Other city" />
+      </FilterOptional>
+
+      <FilterOptional id="#value" label="Value" state={filterControlState}>
+        <GenericFilter list={list1} label="Value" />
+      </FilterOptional>
+
+      <FilterControl state={filterControlState}/>
     </FilterGroup>
   )
 }
