@@ -1,48 +1,57 @@
 ---
 title: Toast
 path: /toast/
-hide_table_of_contents: true
 ---
-
-import { Page, Panel } from '@site/src/components/Page'
-
-export const tabToc = {
-  overview: toc.filter((item) =>
-    [
-      'Tone of voice',
-      'Action',
-      'Action + Dismissible',
-      'Dismissible',
-      'Examples',
-    ].includes(item.value)
-  ),
-  codeReference: toc.filter((item) => ['Usage', 'Props'].includes(item.value)),
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
-}
-
-<Page toc={tabToc} hasTabs>
-  <Panel id="overview">
 
 The toast is used to show alerts on top of an overlay. The toast will close itself when the dismiss button is clicked, or after a timeout. The toast component is used to give feedback to users after an action has taken place.
 
+## Usage
+
+To show toasts you must call the `useToast` hook.
+
+```jsx
+import { useToast } from '@vtex/admin-ui'
+
+function YourComponent() {
+  const showToast = useToast()
+
+  showToast({
+    message: '...',
+  })
+
+  // ...
+}
+```
+
+The hook consumes a context provided by the `ToastProvider`. You must wrap the app root by the provider, it show below your `ThemeProvider`.
+
+```jsx
+// App root file
+import { ToastProvider, ThemeProvider } from '@vtex/admin-ui'
+
+function Root() {
+  return (
+    <ThemeProvider>
+      <ToastProvider>
+        {...}
+      </ToastProvider>
+    </ThemeProvider>
+  )
+}
+```
+
 ## Examples
 
-<blockquote palette="blue">
+### Variants
 
-Make sure to call the `useToast` hook on component level below the `<ToastProvider>`. This is necessary in order for the Toast to work.
-
-</blockquote>
-
-### Tone of voice
-
-The toast's tone of voice is either `info` (default), `critical`, `warning`, or `positive`, and is adjustable using the `tone` prop.
+The toast's variant is either `info` (default), `critical`, `warning`, or `positive`, and is adjustable using the `variant` prop.
 
 ```jsx live
 function Example() {
   const showToast = useToast()
 
   return (
-    <Box csx={{ '> *:not(:last-child)': { marginRight: '0.5rem' } }}>
+    <Inline>
       <Button
         onClick={() =>
           showToast({
@@ -50,46 +59,46 @@ function Example() {
           })
         }
       >
-        Info toast (default)
+        Info (default)
       </Button>
       <Button
         onClick={() =>
           showToast({
-            tone: 'positive',
+            variant: 'positive',
             message: 'Type a short message here',
           })
         }
       >
-        Positive toast
+        Positive
       </Button>
       <Button
         onClick={() =>
           showToast({
-            tone: 'warning',
+            variant: 'warning',
             message: 'Type here a longer message but not much longer than that',
           })
         }
       >
-        Warning toast
+        Warning
       </Button>
       <Button
         onClick={() =>
           showToast({
-            tone: 'critical',
+            variant: 'critical',
             message: 'Type a short message here',
           })
         }
       >
-        Critical toast
+        Critical
       </Button>
-    </Box>
+    </Inline>
   )
 }
 ```
 
-### Dismissible
+### Non-dismissable
 
-Display a button to allow dismissing the toast when clicked.
+Toasts are dismissable by default. The `dismissable` prop controls this behavior.
 
 ```jsx live
 function Example() {
@@ -99,12 +108,12 @@ function Example() {
     <Button
       onClick={() =>
         showToast({
-          message: 'Type here a longer message but not much longer than that',
-          dismissible: true,
+          message: 'This is a non-dimissable toast',
+          dismissible: false,
         })
       }
     >
-      Dismissable
+      Non-Dismissable
     </Button>
   )
 }
@@ -122,11 +131,13 @@ function Example() {
     <Button
       onClick={() =>
         showToast({
-          tone: 'positive',
           message: 'Type a short message here',
           action: {
             label: 'Action',
-            onClick: () => alert('Toast callback'),
+            onClick: () => {
+              // ... do something
+              console.log('clicked')
+            },
           },
         })
       }
@@ -137,66 +148,38 @@ function Example() {
 }
 ```
 
-### Action + Dismissible
+### Replacing toasts
+
+You can assing a `key` to your toasts. Only a single toast with the given id is visible at once. Use it to reduce the number of toast on your app.
 
 ```jsx live
 function Example() {
   const showToast = useToast()
 
   return (
-    <Button
-      onClick={() =>
-        showToast({
-          tone: 'warning',
-          message: 'Type here a longer message but not much longer than that',
-          dismissible: true,
-          action: {
-            label: 'Action',
-            onClick: () => alert('Toast callback'),
-          },
-        })
-      }
-    >
-      Dismissable, with action
-    </Button>
-  )
-}
-```
-
-  </Panel>
-  <Panel id="codeReference">
-
-## Usage
-
-```jsx isStatic
-import { ToastProvider, useToast, createSystem } from '@vtex/admin-ui'
-
-const [SystemProvider] = createSystem()
-
-// You must always add the ToastProvider in the root of your application
-function Root() {
-  return (
-    <SystemProvider>
-      <ToastProvider>
-        {...}
-      </ToastProvider>
-    </SystemProvider>
-  )
-}
-
-function Example() {
-  const showToast = useToast()
-
-  return (
-    <Button
-      onClick={() =>
-        showToast({
-          message: 'This is the admin-ui toast!',
-        })
-      }
-    >
-      Show Toast
-    </Button>
+    <Inline>
+      <Button
+        onClick={() =>
+          showToast({
+            key: 'unique-key',
+            message: 'This info toast can be replaced',
+          })
+        }
+      >
+        Info
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            key: 'unique-key',
+            variant: 'positive',
+            message: 'This positive toast can be replaced',
+          })
+        }
+      >
+        Positive
+      </Button>
+    </Inline>
   )
 }
 ```
@@ -208,15 +191,11 @@ Because the way of rendering a Toast on admin-ui is by calling the function retu
 | Name        | Type                                     | Description                                             | Required | Default     |
 | ----------- | ---------------------------------------- | ------------------------------------------------------- | -------- | ----------- |
 | message     | `ReactNode`                              | Message displayed to the end-user.                      | ✅       | -           |
-| tone        | `critical, info, warning, positive`      | The toast's tone of voice.                              | 🚫       | `info`      |
+| variant     | `critical, info, warning, positive`      | Toast's variant.                                        | 🚫       | `info`      |
 | duration    | `number`                                 | How long the toast should be apparent, in milliseconds. | 🚫       | `10000`     |
 | dismissible | `boolean`                                | Whether the toast can be dismissed or not.              | 🚫       | `false`     |
 | action      | `{ label: string, onClick: () => void }` | Toast's actions' props.                                 | 🚫       | `undefined` |
 | key         | `string`                                 | Toast's key.                                            | 🚫       | `undefined` |
-
-</Panel>
-
-<Panel id="designReference">
 
 ## Do’s
 
@@ -228,6 +207,3 @@ Because the way of rendering a Toast on admin-ui is by calling the function retu
 6. Animation should pop from the bottom of the screen and rest on the lower right-hand corner.
 
 👉 For UX Writing guidelines, access https://uxwriting.vtex.com
-
-</Panel>
-</Page>
