@@ -54,7 +54,7 @@ export function useSelectionTreeState<T>(
     () =>
       selected.length && selected.length !== ids.length
         ? 'indeterminate'
-        : selected.length === ids.length,
+        : ids.length > 0 && selected.length === ids.length,
     [selected, ids]
   )
 
@@ -90,6 +90,7 @@ export function useSelectionTreeState<T>(
   useEffect(
     function updateRootOnToggleItems() {
       if (
+        ids.length > 0 &&
         selectedItems instanceof Array &&
         selectedItems.length === ids.length
       ) {
