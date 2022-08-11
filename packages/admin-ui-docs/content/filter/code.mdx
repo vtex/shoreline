@@ -69,237 +69,161 @@ The state hook `useFilterGroupState` handles the "clear all" action for the `Fil
 
 </Section>
 
+<Section hasExplanation>
+
+### Filter option type
+
+All filter states use the type FilterOption for the listed options. The type T used for value will affect the return type of all state that represents options.
+
+| Name  | Type           | Description                                                                                                              | Required | Default |
+| ----- | -------------- | ------------------------------------------------------------------------------------------------------------------------ | -------- | ------- |
+| id    | string         | Unique id for this option.                                                                                               | 🚫       | -       |
+| label | string         | Label that will be rendered for the option.                                                                              | 🚫       | -       |
+| value | T (any object) | This is an optional value that can have any type. You can use it to manage additional data asssociated with the options. | 🚫       | -       |
+
+</Section>
+
 <Section>
 
 ### useFilterState and useFilterMultipleState props
 
-| Name           | Type                                           | Description                                                                      | Required | Default  |
-| -------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- | -------- | -------- |
-| searchableList       | {id: string, label: string, value?: AnyObject} | Full option list that will be used for searching. Only use it if you need search.| 🚫       | -        |
-
-
-both filters return an object that extends the following type
-
-```ts
-interface GenericFilterState {
-  /**
-   * Function called when clear button on filter footer is clicked
-   */
-  onClear: () => void
-  /**
-   * Function called when apply button on filter footer is clicked
-   */
-  onChange: () => void
-  /**
-   * State that handles the popover menu
-   */
-  menu: MenuState
-}
-```
-
-With additional props for each type
-
-```ts
-export interface FilterOption<T> {
-  id: string
-  label: string
-  /**
-   * Object that may contain anything 
-   */
-  value?: T
-}
-
-interface FilterState<T> extends GenericFilterState {
-  /**
-   * State that handles rendered options and search
-   */
-  combobox: ComboboxState<FilterOption<T>>
-  /**
-   * Option that is currently applied
-   */
-  appliedItem?: FilterOption<T>
-  /**
-   * Setter for appliedItem
-   */
-  setAppliedItem: (option: FilterOption<T>) => void
-  /**
-   * Shorthand function for fetching any key from the attached object (value) on appliedItem
-   */
-  getFromApplied: (key: string) => any
-}
-
-interface FilterMultipleState<T> extends GenericFilterState {
-  /**
-   * State that handles rendered options and search
-   */
-  combobox: ComboboxMultipleState<FilterOption<T>>
-  /**
-   * Options that are currently applied
-   */
-  appliedItems: FilterOption<T>[]
-  /**
-   * Options that are currently selected on popover, but not yet applied
-   */
-  selectedItems: FilterOption<T>[]
-  /**
-   * Setter for appliedItems
-   */
-  setAppliedItems: (items: FilterOption<T>[]) => void
-  /**
-   * Shorthand function for fetching any key from the attached object (value) on each applied option
-   */
-  getFromApplied: (key: string) => any[]
-}
-```
+| Name           | Type           | Description                                                                       | Required | Default |
+| -------------- | -------------- | --------------------------------------------------------------------------------- | -------- | ------- |
+| searchableList | FilterOption[] | Full option list that will be used for searching. Only use it if you need search. | 🚫       | -       |
 
 </Section>
 
 <Section hasExplanation>
 
-## Composable components
+### Shared generic filter state
 
-Filters are built using combined components. We have components today that allow the creation of simple filters, multiple selection filters, 
-simple filters with search and multiple selection filters with search. The components are
+Both hooks return an object that extends the following type
 
-| Component             | Description                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------- |
-| FilterDisclosure      |  Component for the buttons that triggers the menu                                  |
-| FilterPopover         |  Popover component, this is always a parent component                              |
-| FilterListbox         |  Component for the option list                                                     |
-| FilterFooter          |  Component for the footer with clear and apply buttons                             |
-| FilterOptionCheckbox  |  Checkbox option component, this should be used only on multiple selection filters |
-| FilterOptionRadio     |  Radio option component, this should be used only on single selection filters      |
-| FilterSearchbox       |  Search box component that should be used only when building searchable filters    |
-| FilterGroup           |  A grouping component that display the disclosures as cohesive bar                 |
-
+| Name                | Type                                                | Description                                                                                                                               |
+| ------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| onClear             | () => void                                          | Function called when clear button on filter footer is clicked.                                                                            |
+| onChange            | () => void                                          | Function called when apply button on filter footer is clicked.                                                                            |
+| menu                | MenuState                                           | State that handles the popover menu.                                                                                                      |
+| status              | 'error', 'loading', 'ready', 'empty' or 'not-found' | Current status of the filter.                                                                                                             |
+| setStatus           | (status: FilterStatus) => void                      | Setter for current status. Only needed on controlled behavior                                                                             |
+| setFullList         | (list: FilterOption[]) => void                      | Setter for full option list that's used for searching                                                                                     |
+| searchValue         | string                                              | Current value in searchbox                                                                                                                |
+| deferredSearchValue | string                                              | Debounced search value                                                                                                                    |
+| matches             | FilterOption[]                                      | List of options that match the current search input. This can be set externally or by the filter when there is a fullList and searchValue |
+| setMatches          | (newMatches: FilterOption[]) => void                | Setter for matches                                                                                                                        |
 
 </Section>
 
 <Section hasExplanation>
 
-## Filter
+### Filter state
 
-You can build a simple single select filter with the disclosure, popover, listbox, footer and optionRadio components.
+The return of useFilterState can be used to implement filters with single selection. It contains the same props as the generic type and some more:
 
-```jsx
-export function Filter() {
-  const filterState = useFilterState()
+| Name           | Type                           | Description                                                                             |
+| -------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
+| combobox       | ComboboxState                  | State used internally that handles rendered options and search                          |
+| appliedItem    | FilterOption                   | Option that is currently applied.                                                       |
+| setAppliedItem | (option: FilterOption) => void | Setter for appliedItem                                                                  |
+| getFromApplied | (key: string) => T             | Shorthand function for fetching any key from the attached object (value) on appliedItem |
 
-  return (
-    <>
-      <div> The selected filter is: {filterState.appliedItem.label} </div>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+</Section>
 
-      <FilterPopover state={filterState}>
-        <FilterListbox>
-          <FilterOptionRadio id="#1" label="Full" />
-          <FilterOptionRadio id="#2" label="Empty" />
-          <FilterOptionRadio id="#3" label="Half full" />
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
+<Section hasExplanation>
+
+### Filter multiple state
+
+The return of useFilterMultipleState can be used to implement filters with multiple selection. It contains the same props as the generic type and some more:
+
+| Name            | Type                            | Description                                                                              |
+| --------------- | ------------------------------- | ---------------------------------------------------------------------------------------- |
+| combobox        | ComboboxMultipleState           | State used internally that handles rendered options and search                           |
+| appliedItems    | FilterOption[]                  | Options that are currently applied.                                                      |
+| setAppliedItems | (items: FilterOption[]) => void | Setter for appliedItems                                                                  |
+| getFromApplied  | (key: string) => T[]            | Shorthand function for fetching any key from the attached object (value) on appliedItems |
+
+</Section>
+
+<Section hasExplanation>
+
+## Anatomy
+
+There are four types of filters that can be composed with admin-ui's filter
+components. They are implemented by nesting the composable filter components
+to form specific structures.
+
+</Section>
+
+<Section>
+
+### Basic filter composable component anatomy
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterListbox
+    |   |__ FilterOptionRadio
+    |   |__ FilterOptionRadio
+    |   |__ . . .
+    |__ FilterFooter
 ```
 
-## FilterMultiple
+</Section>
 
-For a multiple select filter you just have to use OptionCheckbox instead of OptionRadio. You'll be using the useFilterMultiple hook
-
-```jsx
-export function Multiple() {
-  const filterState = useFilterMultipleState()
-
-  return (
-    <>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-
-      <FilterPopover state={filterState}>
-        <FilterListbox>
-          <FilterOptionCheckbox id="#1" label="Full" />
-          <FilterOptionCheckbox id="#2" label="Empty" />
-          <FilterOptionCheckbox id="#3" label="Half full" />
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
-```
-
-## FilterSearch
-
-To add search to the basic filter you must add the searchbox component and also 
-start interacting with the combobox state returned by the hook. 
-
-To use the components native search you must provide the full list of items. 
-When the user performs a search operation, `state.combobox.matches` will 
-contain the matching results list.
-
-```jsx
-const items = [
-  { label: 'Full', id: '#1' },
-  { label: 'Empty', id: '#2' },
-  { label: 'Half full', id: '#3' },
-  { label: 'Half empty', id: '#4' },
-  { label: 'Unknown', id: '#5' },
-]
-
-
-export function Filter() {
-  const filterState = useFilterState({searchableList: items})
-
-  return (
-    <>
-      <div> The selected filter is: {filterState.appliedItem.label} </div>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-
-      <FilterPopover state={filterState}>
-        <FilterListbox>
-          {filterState.matches.map(
-            (item) => <FilterOptionRadio {...item} />
-          )}
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
-```
-
-## FilterMultipleSearch
-
-To add search to the basic filter 
-
-```jsx
-const items = [
-  { label: 'Full', id: '#1' },
-  { label: 'Empty', id: '#2' },
-  { label: 'Half full', id: '#3' },
-  { label: 'Half empty', id: '#4' },
-  { label: 'Unknown', id: '#5' },
-]
-
-export function FilterSearch() {
+<Section>
   
-  const filterState = useFilterMultipleState({searchableList: items})
+### Multiple selection filter composable component anatomy
 
-  return (
-    <>
-      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
-
-      <FilterPopover state={filterState}>
-        <FilterSearchbox />
-        <FilterListbox>
-          {filterState.matches.map(
-            (item) => <FilterOptionCheckbox {...item} />
-          )}
-        </FilterListbox>
-        <FilterFooter />
-      </FilterPopover>
-    </>
-  )
-}
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterListbox
+    |   |__ FilterOptionCheckbox
+    |   |__ FilterOptionCheckbox
+    |   |__ . . .
+    |__ FilterFooter
 ```
+
+</Section>
+
+<Section hasExplanation>
+
+### Searchable filter composable component anatomy
+
+The searchable filter is just an extension of the simple filter, with the addition of a searchbox.
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterSearchbox
+    |__ FilterListbox
+    |   |__ FilterOptionRadio
+    |   |__ FilterOptionRadio
+    |   |__ . . .
+    |__ FilterFooter
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Searchable filter with multiple option selection anatomy
+
+Multiselect searchable filter is just an extension of the multiple selection filter.
+
+```txt
+FilterGroup
+|__ FilterDisclosure
+|__ FilterPopover
+    |__ FilterSearchbox
+    |__ FilterListbox
+    |   |__ FilterOptionCheckbox
+    |   |__ FilterOptionCheckbox
+    |   |__ . . .
+    |__ FilterFooter
+```
+
 </Section>
