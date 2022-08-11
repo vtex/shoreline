@@ -23,7 +23,7 @@ export function useFilterState<T extends AnyObject>(
     getOptionValue: (option) => option.label,
   })
 
-  const menu = useMenuState(combobox)
+  const menu = useMenuState({ ...combobox, gutter: 8 })
   const { status, setStatus } = useFilterStatus(combobox)
 
   const updateApplied = (item: FilterOption<T>) => {
