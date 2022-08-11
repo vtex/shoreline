@@ -22,15 +22,14 @@ export const disclosure = style({
     bg: '$action.neutral.secondaryPressed',
     color: '$secondary',
   },
-  svg: {
-    marginLeft: '$xs',
-  },
 })
 
 export const caretIcon = (isOpen: boolean) =>
   style({
-    transform: `rotate(${isOpen ? 0 : 180}deg)`,
     marginLeft: '$s',
+    svg: {
+      transform: `rotate(${isOpen ? 0 : 180}deg)`,
+    },
   })
 
 export const option = style({
@@ -41,11 +40,12 @@ export const option = style({
 
 export const scrollableContainer = style({
   padding: '$l',
-  maxHeight: 312,
+  maxHeight: 256,
   overflowY: 'auto',
 })
 
 export const list = style({
+  marginY: '$m',
   '> *:not(:first-child)': {
     marginTop: '$xl',
   },
@@ -68,6 +68,7 @@ export const searchboxVariants = styleVariants({
 
 export const searchbox = style({
   margin: '$l',
+  marginBottom: 0,
   order: -1,
   '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
 })

@@ -56,7 +56,12 @@ export function FilterStatus(props: FilterStatusProps) {
       {status === 'error' && (
         <Box csx={style.statusLayout} className="__admin-ui-filter-status">
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
-          <Button variant="tertiary" onClick={onRetry} bleedX>
+          <Button
+            variant="tertiary"
+            onClick={onRetry}
+            csx={{ marginTop: '$m' }}
+            bleedX
+          >
             {formatMessage('retry')}
           </Button>
         </Box>
