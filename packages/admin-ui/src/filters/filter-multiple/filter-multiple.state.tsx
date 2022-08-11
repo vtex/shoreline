@@ -26,7 +26,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     compare: (optionA, optionB) => optionA.id === optionB.id,
   })
 
-  const menu = useMenuState(comboboxMultiple)
+  const menu = useMenuState({ ...comboboxMultiple, gutter: 8 })
   const { status, setStatus } = useFilterStatus(comboboxMultiple)
 
   useEffect(() => {

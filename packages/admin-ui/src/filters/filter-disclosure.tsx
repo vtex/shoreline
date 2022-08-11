@@ -10,6 +10,7 @@ import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useFilterOptionalContext } from './filter-control/filter-optional-context'
+import { Flex } from '../flex'
 
 const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
 
@@ -45,7 +46,9 @@ export const FilterDisclosure = createComponent<
       <>
         {children}
         <AppliedItemsLabel appliedItems={appliedList} />
-        <IconCaretUp size="small" csx={style.caretIcon(menu.mounted)} />
+        <Flex csx={style.caretIcon(menu.mounted)}>
+          <IconCaretUp size="small" />
+        </Flex>
       </>
     ),
     state: menu,
