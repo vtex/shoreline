@@ -6,9 +6,90 @@ sidebar_position: 6
 
 The theme object is where you define your application's color palette, type scale, font stacks, breakpoints, border-radius values, and more.
 
-Theming with Admin UI is inspired by the [Styled System Theme Specification](https://system-ui.com/theme/).
+## ThemeProvider
 
-Our library provides a sensible default theme defined by the design system team.
+Import the `ThemeProvider` from `admin-ui` to be able to use the default theme and other internal features.
+
+```jsx isStatic
+// 1. import the ThemeProvider
+import { ThemeProvider } from '@vtex/admin-ui'
+
+function RootComponent() {
+  // 2. Use at the root of your app
+  return <ThemeProvider>{/** your app code here */}</ThemeProvider>
+}
+```
+
+## Csx
+
+Use the csx function to style native JSX elements by creating a `className` with the styles. The styles are defined through the `StyleObject` param.
+This function always use the default theme under the hood.
+
+```jsx isStatic
+// import the csx function
+import { csx } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <nav
+      className={csx({
+        bg: '$primary',
+        'button + button': {
+          marginLeft: '$s',
+        },
+      })}
+    />
+  )
+}
+```
+
+## Overriding
+
+### Theme
+
+The `ThemeProvider` provides a prop called `experimentalTheme` for thoses cases when you need to override the default theme and meet some specific design requirements. The `experimentalTheme` prop will receive the new theme object.
+
+```jsx isStatic
+function RootComponent() {
+  const customTheme = {
+    colors: {
+      // all colors styles
+    },
+    fonts: {
+      // all font styles
+    },
+    // other theme props...
+  }
+
+  // Use at the root of your app
+  return (
+    <ThemeProvider experimentalTheme={customTheme}>
+      {/** your app code here */}
+    </ThemeProvider>
+  )
+}
+```
+
+:::info
+
+When you override the default theme and you still want to style native JSX elements, instead of using the [**csx** function](theming#csx), as shown earlier, you should use the [**cn** function](hooks#cn), because the `csx` function only uses the default theme.
+
+:::
+
+### Global
+
+The `ThemeProvider` provides boolean a prop called `experimentalDisabledGlobalStyles` to disable all the default global styles and enabling the use of your own global styles.
+
+```jsx isStatic
+function RootComponent() {
+  // Use at the root of your app
+  return (
+    <ThemeProvider experimentalDisabledGlobalStyles>
+      {/** your app code here */}
+    </ThemeProvider>
+  )
+}
+```
 
 ## Colors
 
