@@ -123,7 +123,9 @@ export function Async() {
   useEffect(() => {
     if (status === 'loading') return
 
-    searchValue && !matches.length ? setStatus('not-found') : setStatus('ready')
+    const newStatus = searchValue && !matches.length ? 'not-found' : 'ready'
+
+    setStatus(newStatus)
   }, [matches])
 
   return (
@@ -155,7 +157,10 @@ export function AsyncSearch() {
     setLoadingSearch(true)
     api(state.deferredSearchValue).then((res) => {
       setResult(res)
-      state.setStatus(res.length ? 'ready' : 'not-found')
+      const newStatus =
+        state.searchValue && !state.matches.length ? 'not-found' : 'ready'
+
+      state.setStatus(newStatus)
       setLoadingSearch(false)
     })
   }, [state.deferredSearchValue])
