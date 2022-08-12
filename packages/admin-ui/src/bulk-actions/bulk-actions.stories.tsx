@@ -31,11 +31,14 @@ const items = [
 export const Basic: Story = () => {
   const pagination = usePaginationState({ pageSize: 4, total: items.length })
 
-  const pageItems = items.slice(pagination.range[0] - 1, pagination.range[1])
+  const pageItems = React.useMemo(
+    () => items.slice(pagination.range[0] - 1, pagination.range[1]),
+    [pagination.currentPage]
+  )
 
   const state = useBulkActions({
     pageItems,
-    currentPage: pagination.currentPage,
+    pageSize: pageItems.length,
     totalItems: pagination.total,
   })
 

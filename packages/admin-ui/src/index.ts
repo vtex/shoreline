@@ -32,6 +32,7 @@ export * from './columns'
 export * from './card'
 export * from './visually-hidden'
 export * from './toast'
+export * from './bulk-actions'
 
 export * from './components/Skeleton'
 export * from './components/Label'
