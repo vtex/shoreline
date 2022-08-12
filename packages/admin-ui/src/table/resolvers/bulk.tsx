@@ -5,12 +5,17 @@ import invariant from 'tiny-invariant'
 import type { BulkActionsState } from '../../bulk-actions'
 
 import type { ResolverRenderProps } from './resolver-core'
-import { createResolver } from './resolver-core'
+import { defaultRender, createResolver } from './resolver-core'
 import { Checkbox } from '../../checkbox'
+import { Skeleton } from '../../components/Skeleton'
 
 export function bulkResolver<T extends {}>() {
   return createResolver<T, 'bulk', BulkResolver<T>>({
     header: function BulkResolver({ context, column }) {
+      if (context.status === 'loading') {
+        return <Skeleton csx={{ size: '24px' }} />
+      }
+
       const { resolver } = column
 
       invariant(
@@ -28,7 +33,7 @@ export function bulkResolver<T extends {}>() {
             value: allSelected || root,
             setValue: setRoot,
           }}
-          disabled={context.status === 'loading' || allSelected}
+          disabled={allSelected}
           onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }
@@ -36,6 +41,10 @@ export function bulkResolver<T extends {}>() {
       )
     },
     cell: function BulkResolver({ context, column, item }) {
+      if (context.status === 'loading') {
+        return <Skeleton csx={{ size: '24px' }} />
+      }
+
       const { resolver } = column
 
       invariant(
@@ -49,19 +58,23 @@ export function bulkResolver<T extends {}>() {
 
       const selectedPageItems = allSelected ? pageIds : null
 
-      return (
+      const data = (
         <Checkbox
           value={get(item, 'id')}
           state={{
             value: selectedPageItems || selectedItemsIds,
             setValue: setSelectedItemsIds,
           }}
-          disabled={context.status === 'loading' || allSelected}
+          disabled={allSelected}
           onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }
         />
       )
+
+      const render = resolver.render ?? defaultRender
+
+      return render({ data, item, context })
     },
   })
 }

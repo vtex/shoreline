@@ -62,7 +62,7 @@ export function useTableState<T>(
       .fill(0)
       .map((_, id) => {
         const item = columns.reduce((acc, col) => {
-          return { ...acc, [col.id]: '__table_skeleton__' }
+          return { ...acc, [col.id]: `__table_skeleton-${id}__` }
         }, {})
 
         return { id, ...item } as unknown as T
