@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { focusVisible } from '@vtex/admin-ui-core'
 
 import type { MenuProps } from 'ariakit'
 import { Menu } from 'ariakit'
@@ -33,7 +32,6 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
         justifyContent: 'space-between',
         width: 256,
         zIndex: 999,
-        ...focusVisible('neutral'),
       },
       children: (
         <PopoverProvider value={contextState}>

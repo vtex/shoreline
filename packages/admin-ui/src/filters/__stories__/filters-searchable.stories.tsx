@@ -109,7 +109,8 @@ export function MultiSearch() {
 
 export function Async() {
   const filterState = useFilterMultipleState()
-  const { setSearchableList, setStatus, combobox, status } = filterState
+  const { setSearchableList, setStatus, matches, searchValue, status } =
+    filterState
 
   useEffect(() => {
     setStatus('loading')
@@ -122,10 +123,10 @@ export function Async() {
   useEffect(() => {
     if (status === 'loading') return
 
-    combobox.value && !combobox.matches.length
-      ? setStatus('not-found')
-      : setStatus('ready')
-  }, [combobox.matches])
+    const newStatus = searchValue && !matches.length ? 'not-found' : 'ready'
+
+    setStatus(newStatus)
+  }, [matches])
 
   return (
     <>
@@ -134,7 +135,7 @@ export function Async() {
       <FilterPopover state={filterState}>
         <FilterSearchbox id="boxy" />
         <FilterListbox>
-          {combobox.matches.map((item) => (
+          {matches.map((item) => (
             <FilterOptionCheckbox id={item.id} label={item.label} />
           ))}
         </FilterListbox>
@@ -156,7 +157,10 @@ export function AsyncSearch() {
     setLoadingSearch(true)
     api(state.deferredSearchValue).then((res) => {
       setResult(res)
-      state.setStatus(res.length ? 'ready' : 'not-found')
+      const newStatus =
+        state.searchValue && !state.matches.length ? 'not-found' : 'ready'
+
+      state.setStatus(newStatus)
       setLoadingSearch(false)
     })
   }, [state.deferredSearchValue])

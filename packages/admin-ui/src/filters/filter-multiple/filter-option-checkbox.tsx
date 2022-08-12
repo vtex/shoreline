@@ -23,12 +23,15 @@ export const FilterOptionCheckbox = createComponent<
   return useElement(ComboboxItem, {
     baseStyle: style.option,
     children: (
-      <Checkbox
-        checked={combobox.isSelected(item)}
-        aria-checked={undefined}
-        label={label}
-        readOnly
-      />
+      <>
+        <Checkbox
+          checked={combobox.isSelected(item)}
+          aria-checked={undefined}
+          csx={{ marginRight: '$m' }}
+          readOnly
+        />
+        {label}
+      </>
     ),
     'aria-selected': combobox.isSelected(item),
     onClick: () => combobox.onChange(item),
