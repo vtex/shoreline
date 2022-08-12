@@ -43,28 +43,22 @@ export function FilterStatus(props: FilterStatusProps) {
             direction="row"
             csx={{
               width: '100%',
-              '> *': { height: 32, width: 62 },
               justifyContent: 'flex-end',
             }}
           >
-            <Skeleton />
-            <Skeleton />
+            <Skeleton csx={{ height: 32, width: 62 }} />
+            <Skeleton csx={{ height: 32, width: 62 }} />
           </Stack>
         </Stack>
       )}
 
       {status === 'error' && (
-        <Box csx={style.statusLayout} className="__admin-ui-filter-status">
+        <Stack csx={style.statusLayout} className="__admin-ui-filter-status">
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
-          <Button
-            variant="tertiary"
-            onClick={onRetry}
-            csx={{ marginTop: '$m' }}
-            bleedX
-          >
+          <Button variant="tertiary" onClick={onRetry} bleedX>
             {formatMessage('retry')}
           </Button>
-        </Box>
+        </Stack>
       )}
 
       {status === 'not-found' && (
