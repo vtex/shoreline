@@ -27,4 +27,5 @@ export const baseline = style({
   '> *': {
     pointerEvents: 'auto',
   },
+  zIndex: 999,
 })
