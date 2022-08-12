@@ -928,6 +928,126 @@ function Example() {
 
 <Section hasExplanation>
 
+### Bulk
+
+The bulk resolver should be used when you want to add a bulk actions to the table. It is a easier way of using the [BulkActions](/bulk-actions) component within the Table.
+When using this resolver there are two things you should follow in order to work properly: Wrap the Table component with the `SelectionTree` component (Details in the example below); Avoid adding more than 25 items per page.
+
+```jsx noInline live
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const defaultItems = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
+function request(init, end, delay = 500) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, delay, defaultItems.slice(init, end))
+  })
+}
+
+function Example() {
+  const [items, setItems] = React.useState([])
+  const view = useDataViewState()
+  const pagination = usePaginationState({
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
+  })
+
+  const bulk = useBulkActions({
+    totalItems: pagination.total,
+    pageItems: items,
+    pageSize: ITEMS_PER_PAGE,
+  })
+
+  const table = useTableState({
+    view,
+    columns: [
+      { id: 'id', resolver: { type: 'bulk', state: bulk } },
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  React.useEffect(() => {
+    view.setStatus({ type: 'loading' })
+    request(pagination.range[0] - 1, pagination.range[1]).then((pageItems) => {
+      setItems(pageItems)
+      view.setStatus({ type: 'ready' })
+    })
+  }, [pagination.currentPage])
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+        <BulkActions state={bulk}>
+          <Button variant="tertiary" icon={<IconPencil />}>
+            Edit
+          </Button>
+          <Button variant="tertiary" icon={<IconCopySimple />}>
+            Duplicate
+          </Button>
+          <Button variant="criticalTertiary" icon={<IconTrash />}>
+            Delete
+          </Button>
+        </BulkActions>
+      </DataViewControls>
+      <SelectionTree state={bulk.selectionTree}>
+        <Table state={table} />
+      </SelectionTree>
+    </DataView>
+  )
+}
+
+render(<Example />)
+```
+
+| Name   | Type                                                      | Description                          | Required |
+| ------ | --------------------------------------------------------- | ------------------------------------ | -------- |
+| type   | `bulk`                                                    | Bulk resolver type                   | ✅       |
+| state  | `BulkActionsState<T>`                                     | The useBulkActions hook state return | ✅       |
+| render | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function             | 🚫       |
+
+</Section>
+
+<Section hasExplanation>
+
 ### Selection
 
 The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.

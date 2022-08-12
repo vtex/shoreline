@@ -6,7 +6,7 @@ import type { SelectionTreeState } from '../components/SelectionTree'
 export function useBulkActions<T extends { id: string | number }>(
   props: UseBulkActionsParams<T>
 ): BulkActionsState<T> {
-  const { pageItems = [], currentPage, totalItems } = props
+  const { pageItems = [], pageSize, totalItems } = props
 
   const [allSelected, setAllSelected] = useState<boolean>(false)
 
@@ -27,7 +27,7 @@ export function useBulkActions<T extends { id: string | number }>(
       }),
       { ids: [], mapPageItem: {} }
     )
-  }, [currentPage])
+  }, [pageItems])
 
   const getSelectedIds = useCallback(() => {
     if (!Array.isArray(selectedItemsIds)) return []
@@ -63,15 +63,13 @@ export function useBulkActions<T extends { id: string | number }>(
     const rootState = resolveRootState()
 
     setRoot(rootState)
-  }, [currentPage, selectedItemsIds, allSelected])
+  }, [pageItems, selectedItemsIds, allSelected])
 
   const selectedPageItems = useCallback(() => {
     return pageItems.filter((item) => !!isItemSelected(item))
-  }, [currentPage, isItemSelected])
+  }, [pageItems, isItemSelected])
 
   const resolveRootState = useCallback(() => {
-    const pageSize = pageItems.length
-
     const numberOfItems = selectedPageItems().length
 
     if (numberOfItems === pageSize) {
@@ -83,7 +81,7 @@ export function useBulkActions<T extends { id: string | number }>(
     }
 
     return false
-  }, [currentPage, selectedPageItems])
+  }, [selectedPageItems, pageSize])
 
   const toggleItems = () => {
     const filteredSelectedItems = getSelectedIds().filter(
@@ -143,8 +141,8 @@ export interface BulkActionsState<T> {
 
 interface UseBulkActionsParams<T> {
   pageItems: T[]
-  currentPage?: number
   totalItems: number
+  pageSize: number
 }
 
 interface MappedPageItems<T> {

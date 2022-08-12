@@ -32,7 +32,7 @@ interface Item {
   id: string
   name: string
   lastSale: string
-  price: string
+  price: number
   brand: string
 }
 
@@ -41,7 +41,7 @@ const items: Item[] = [...Array(100).keys()].map((id) => {
     id: `${id}`,
     name: faker.commerce.productName(),
     lastSale: faker.date.recent().toDateString(),
-    price: faker.commerce.price(),
+    price: faker.datatype.number(),
     brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
   }
 })
@@ -54,12 +54,15 @@ export function Bulk() {
     total: items.length,
   })
 
-  const pageItems = items.slice(pagination.range[0] - 1, pagination.range[1])
+  const pageItems = React.useMemo(
+    () => items.slice(pagination.range[0] - 1, pagination.range[1]),
+    [pagination.currentPage]
+  )
 
   const bulk = useBulkActions({
     totalItems: pagination.total,
     pageItems,
-    currentPage: pagination.currentPage,
+    pageSize: pageItems.length,
   })
 
   const columns = createColumns<Item>([
@@ -131,5 +134,87 @@ export function Bulk() {
         </DataView>
       </PageContent>
     </Page>
+  )
+}
+
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
+function request(init: number, end: number, delay = 500) {
+  return new Promise<Item[]>(function (resolve) {
+    setTimeout(resolve, delay, items.slice(init, end))
+  })
+}
+
+export function BulkWithLoading() {
+  const [items, setItems] = React.useState<Item[]>([])
+  const view = useDataViewState()
+  const pagination = usePaginationState({
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
+  })
+
+  const bulk = useBulkActions({
+    totalItems: pagination.total,
+    pageItems: items,
+    pageSize: ITEMS_PER_PAGE,
+  })
+
+  const table = useTableState({
+    view,
+    columns: [
+      { id: 'id', resolver: { type: 'bulk', state: bulk } },
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  React.useEffect(() => {
+    view.setStatus({ type: 'loading' })
+    request(pagination.range[0] - 1, pagination.range[1]).then((d: Item[]) => {
+      setItems(d)
+      view.setStatus({ type: 'ready' })
+    })
+  }, [pagination.currentPage])
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+        <BulkActions state={bulk}>
+          <Button variant="tertiary"> Apply 50% discount</Button>
+        </BulkActions>
+      </DataViewControls>
+      <SelectionTree state={bulk.selectionTree}>
+        <Table state={table} />
+      </SelectionTree>
+    </DataView>
   )
 }

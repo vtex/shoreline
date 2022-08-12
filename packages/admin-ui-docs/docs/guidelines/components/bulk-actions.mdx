@@ -1,0 +1,242 @@
+---
+title: Bulk Actions
+path: /bulk-actions/
+hide_table_of_contents: true
+---
+
+## What is this?
+
+Bulk actions allows the user to perform actions in one or more selected items.
+
+## Usage
+
+```jsx
+import { useBulkActions, BulkActions } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useBulkActions({ pageItems, totalItems })
+
+  return (
+    <BulkActions state={state}>
+      <Button>Action 1</Button>
+      <Button>Action 2</Button>
+    </BulkActions>
+  )
+}
+```
+
+## Examples
+
+### Without pagination
+
+```jsx live
+function Example() {
+  const pageItems = React.useMemo(
+    () => [
+      { id: 1, name: 'Pineapple' },
+      { id: 2, name: 'Peach' },
+      { id: 3, name: 'Cherry' },
+      { id: 4, name: 'Guava' },
+      { id: 5, name: 'Banana' },
+    ],
+    []
+  )
+
+  const state = useBulkActions({
+    pageItems,
+    pageSize: pageItems.length,
+    totalItems: pageItems.length,
+  })
+
+  return (
+    <Stack space="$xl">
+      <Checkbox
+        state={{
+          value: state.allSelected || state.root,
+          setValue: state.setRoot,
+        }}
+        disabled={state.allSelected}
+        label="Fruits"
+      />
+      <Box as="ul">
+        {pageItems.map((item) => (
+          <Flex as="li" key={item.id}>
+            <Checkbox
+              value={item.id}
+              state={{
+                value: state.allSelected
+                  ? state.pageIds
+                  : state.selectedItemsIds,
+                setValue: state.setSelectedItemsIds,
+              }}
+              disabled={state.allSelected}
+              label={item.name}
+            />
+          </Flex>
+        ))}
+      </Box>
+      <BulkActions state={state}>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconPencil />}
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="criticalTertiary"
+          icon={<IconTrash />}
+        >
+          Delete
+        </Button>
+      </BulkActions>
+      <Box>Selected IDs: {state.getSelectedIds().join(',')}</Box>
+      <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
+    </Stack>
+  )
+}
+```
+
+### With Pagination
+
+```jsx live
+function Example() {
+  const items = React.useMemo(
+    () => [
+      { id: 1, name: 'Pineapple' },
+      { id: 2, name: 'Peach' },
+      { id: 3, name: 'Cherry' },
+      { id: 4, name: 'Guava' },
+      { id: 5, name: 'Banana' },
+      { id: 6, name: 'Apple' },
+      { id: 7, name: 'Avocado' },
+      { id: 8, name: 'Melon' },
+      { id: 9, name: 'Orange' },
+      { id: 10, name: 'Strawberry' },
+      { id: 11, name: 'Watermelon' },
+    ],
+    []
+  )
+
+  const pagination = usePaginationState({ pageSize: 4, total: items.length })
+
+  const pageItems = React.useMemo(
+    () => items.slice(pagination.range[0] - 1, pagination.range[1]),
+    [pagination.currentPage]
+  )
+
+  const state = useBulkActions({
+    pageItems,
+    pageSize: pageItems.length,
+    totalItems: pagination.total,
+  })
+
+  return (
+    <Stack space="$xl">
+      <Checkbox
+        state={{
+          value: state.allSelected || state.root,
+          setValue: state.setRoot,
+        }}
+        disabled={state.allSelected}
+        label="Fruits"
+      />
+      <Box as="ul">
+        {pageItems.map((item) => (
+          <Flex as="li" key={item.id}>
+            <Checkbox
+              value={item.id}
+              state={{
+                value: state.allSelected
+                  ? state.pageIds
+                  : state.selectedItemsIds,
+                setValue: state.setSelectedItemsIds,
+              }}
+              disabled={state.allSelected}
+              label={item.name}
+            />
+          </Flex>
+        ))}
+      </Box>
+      <BulkActions state={state}>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="tertiary"
+          icon={<IconPencil />}
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => {
+            // api call => state.selectedItems || allSelected
+          }}
+          variant="criticalTertiary"
+          icon={<IconTrash />}
+        >
+          Delete
+        </Button>
+      </BulkActions>
+      <Pagination
+        state={pagination}
+        preposition="of"
+        subject="results"
+        prevLabel="Previous"
+        nextLabel="Next"
+      />
+      <Box>Selected IDs: {state.getSelectedIds().join(',')}</Box>
+      <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
+    </Stack>
+  )
+}
+```
+
+## Props
+
+### UseBulkActionsParams
+
+The props you can pass as a parameter to the `useBulkActions` hook.
+
+| Name       | Type                                        | Description                  | Required | Default |
+| ---------- | ------------------------------------------- | ---------------------------- | -------- | ------- |
+| pageItems  | `T[] where T extends { id: string,number }` | Items of the Page            | ✅       | -       |
+| totalItems | `number`                                    | The total number of items    | ✅       | -       |
+| pageSize   | `number`                                    | The number of items per page | ✅       | -       |
+
+### BulkActionState
+
+The props returned by the `useBulkActions` hook.
+
+| Name                | Type                                              | Description                                                    | Default |
+| ------------------- | ------------------------------------------------- | -------------------------------------------------------------- | ------- |
+| totalItems          | `number`                                          | The total number of items                                      | -       |
+| pageIds             | `Array<string,number>`                            | IDs from the page items                                        | -       |
+| getSelectedIds      | `() => Array<string,number>`                      | Returns the IDs from the selected items                        | -       |
+| pageSelectedItems   | `T[]`                                             | Return the selected items from the current page                | -       |
+| isItemSelected      | `(item: T) => boolean`                            | Returns whether the item is selected or not                    | -       |
+| isVisible           | `boolean`                                         | Whether the BulkAction component is visible or not             | -       |
+| allSelected         | `boolean`                                         | Whether all the items are selected or not                      | -       |
+| setAllSelected      | `Dispatch<SetStateAction<boolean>>`               | Sets the allSelected state                                     | -       |
+| root                | `boolean, 'indeterminate'`                        | Represents the root checkbox state                             | -       |
+| setRoot             | `Dispatch<SetStateAction<boolean>>`               | Sets the root checkbox state                                   | -       |
+| selectedItemsIds    | `Array<string, number>`                           | Represents the state of the checkboxes                         | -       |
+| setSelectedItemsIds | `Dispatch<SetStateAction<Array<string, number>>>` | Sets the checkboxes state                                      | -       |
+| selectionTree       | `SelectionTreeState<T>`                           | Selection tree state to be used within SelectionTree component | -       |
+
+### BulkActions
+
+It also receives the same properties as the `div` JSX element.
+
+| Name  | Type                  | Description        | Required | Default |
+| ----- | --------------------- | ------------------ | -------- | ------- |
+| state | `BulkActionsState<T>` | Bulk actions state | ✅       | -       |
+
+## Do’s
+
+1. The actions must always have an `Icon` and be of `tertiary` or `criticalTertiary` variants.
