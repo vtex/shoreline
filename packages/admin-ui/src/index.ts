@@ -33,7 +33,7 @@ export * from './card'
 export * from './visually-hidden'
 export * from './toast'
 export * from './bulk-actions'
-
+export * from './filters'
 export * from './components/Skeleton'
 export * from './components/Label'
 export * from './components/Collapsible'
