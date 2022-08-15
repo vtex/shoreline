@@ -34,12 +34,6 @@ simple filters with search and multiple selection filters with search. The compo
 ## Filter
 
 ```jsx noInline live
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
 
 function Filter() {
   const filterState = useFilterState()
@@ -70,12 +64,6 @@ render(Filter)
 ## Filter with multiple selection
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
 
 function Multiple() {
   const filterState = useFilterMultipleState()
@@ -106,13 +94,6 @@ render(Multiple)
 ## Filter with search
 
 ```jsx noInline live
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
 
 const items = [
   { label: 'Full', id: '#1' },
@@ -154,13 +135,6 @@ render(Filter)
 Allows user to search and to select more than one option.
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
 
 const items = [
   { label: 'Full', id: '#1' },
@@ -200,17 +174,6 @@ render(FilterSearch)
 ### Filter group
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
-const useFilterGroupState = experimental_useFilterGroupState
-const FilterGroup = experimental_FilterGroup
 
 function FilterGroupExample() {
   const list1 = [
@@ -286,20 +249,6 @@ render(<FilterGroupExample />)
 ### Group with additional hidden filters
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
-const useFilterGroupState = experimental_useFilterGroupState
-const FilterGroup = experimental_FilterGroup
-const FilterControl = experimental_FilterControl
-const FilterOptional = experimental_FilterOptional
-const useFilterControl = experimental_useFilterControl
 
 function GenericFilter({ list, label }) {
   const state = useFilterMultipleState()
@@ -405,17 +354,6 @@ render(<FilterGroupExample />)
 ### Error status
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
-const useFilterGroupState = experimental_useFilterGroupState
-const FilterGroup = experimental_FilterGroup
 
 function Error() {
   const state = useFilterMultipleState()
@@ -462,15 +400,6 @@ render(<Error />)
 ### Other status
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
 
 function OtherStatus() {
   const stateEmpty = useFilterMultipleState()
@@ -536,15 +465,6 @@ This section presents a series of examples that may be useful.
 Filter supports internationalization of its native messages.
 
 ```jsx noInline live
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const useFilterGroupState = experimental_useFilterGroupState
-const FilterGroup = experimental_FilterGroup
-
 const I18nProvider = experimental_I18nProvider
 
 function Interationalization() {
@@ -584,13 +504,6 @@ When fetching the option list asynchronously you just need to render your obtain
 Providing values for `id` and `label`. You can control the status (loading/ready) with setStatus.
 
 ```jsx noInline live
-const useFilterState = experimental_useFilterState
-const FilterOptionRadio = experimental_FilterOptionRadio
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-
 const getItemsAPICall = (delay = 1000) => {
   const items = [
     { value: 'Brazil' },
@@ -649,13 +562,6 @@ You can control the status with setStatus, to indicate the search is loading use
 prop on FilterSearchbox.
 
 ```jsx noInline live
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterOptionCheckbox = experimental_FilterOptionCheckbox
-const FilterDisclosure = experimental_FilterDisclosure
-const FilterPopover = experimental_FilterPopover
-const FilterListbox = experimental_FilterListbox
-const FilterFooter = experimental_FilterFooter
-const FilterSearchbox = experimental_FilterSearchbox
 
 // just a sample API
 function api(search, delay = 1000) {
