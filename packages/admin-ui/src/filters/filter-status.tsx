@@ -63,7 +63,7 @@ export function FilterStatus(props: FilterStatusProps) {
 
       {status === 'not-found' && (
         <Stack
-          csx={{ paddingX: '$xl' }}
+          csx={{ padding: '$l' }}
           space="$s"
           className="__admin-ui-filter-status"
         >
