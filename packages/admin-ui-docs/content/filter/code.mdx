@@ -6,16 +6,16 @@ import { Section } from '@site/src/components/Section'
 
 ```jsx
 import {
-  experimental_FilterDisclosure as FilterDisclosure,
-  experimental_FilterPopover as FilterPopover,
-  experimental_FilterListbox as FilterListbox,
-  experimental_FilterOptionRadio as FilterOptionRadio,
-  experimental_FilterOptionCheckbox as FilterOptionCheckbox,
-  experimental_FilterFooter as FilterFooter,
-  experimental_useFilterMultipleState as useFilterMultipleState,
-  experimental_useFilterState as useFilterState,
-  experimental_useFilterGroupState as useFilterGroupState,
-  experimental_FilterGroup as FilterGroup,
+  FilterDisclosure,
+  FilterPopover,
+  FilterListbox,
+  FilterOptionRadio,
+  FilterOptionCheckbox,
+  FilterFooter,
+  useFilterMultipleState,
+  useFilterState,
+  useFilterGroupState,
+  FilterGroup,
 } from '@vtex/admin-ui'
 
 function Example() {
@@ -77,8 +77,8 @@ All filter states use the type FilterOption for the listed options. The type T u
 
 | Name  | Type           | Description                                                                                                              | Required | Default |
 | ----- | -------------- | ------------------------------------------------------------------------------------------------------------------------ | -------- | ------- |
-| id    | string         | Unique id for this option.                                                                                               | 🚫       | -       |
-| label | string         | Label that will be rendered for the option.                                                                              | 🚫       | -       |
+| id    | string         | Unique id for this option.                                                                                               | ✅       | -       |
+| label | string         | Label that will be rendered for the option.                                                                              | ✅       | -       |
 | value | T (any object) | This is an optional value that can have any type. You can use it to manage additional data asssociated with the options. | 🚫       | -       |
 
 </Section>
@@ -146,6 +146,47 @@ The return of useFilterMultipleState can be used to implement filters with multi
 
 <Section hasExplanation>
 
+<Section hasExplanation>
+
+### useFilterGroupState props
+
+Filter group state will control the `clear all` button, the action should trigger the onClear of each individual filter.
+
+| Name         | Type          | Description                                                                                           | Required | Default |
+| ------------ | ------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| filterStates | FilterState[] | List of filter states for all filters inside the filter group. States can be any of the filter states | ✅       | -       |
+| onClear      | () => void    | Optional onClear callback, will be triggered when the `Clear all` button is clicked                   | 🚫       | -       |
+
+</Section>
+
+<Section >
+
+### Filter group state
+
+| Name    | Type       | Description                                     |
+| ------- | ---------- | ----------------------------------------------- |
+| onClear | () => void | Function triggered when `clear all` is clicked. |
+
+</Section>
+
+<Section hasExplanation >
+
+### Filter control state
+
+The filter control state extends `FilterMultipleState` and adds some more parameters.
+The state controls the filter that allows selection of additional hidden filters (`FilterControl` component) and the visibility of `FilterOptional`
+
+| Name              | Type                           | Description                                                                                        |
+| ----------------- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
+| addFilter         | (filter: FilterOption) => void | Function for adding one of the optional filters into the visible filters list.                     |
+| removeFilter      | (filter: FilterOption) => void | Function for removing one of the optional filters into the visible filters list.                   |
+| items             | FilterOption[]                 | List of all optional filters (visible or not).                                                     |
+| visible           | FilterOption[]                 | List of all optional currently visible filters.                                                    |
+| setVisible        | (list: FilterOption[]) => void | Setter for visible filters list.                                                                   |
+| shouldOpenOnMount | (filterId: string) => boolean  | Function that calculates if some filter (with id `filterId`) should be mounted with its menu open. |
+
+</Section>
+
 ## Anatomy
 
 There are four types of filters that can be composed with admin-ui's filter
@@ -172,7 +213,7 @@ FilterGroup
 </Section>
 
 <Section>
-  
+
 ### Multiple selection filter composable component anatomy
 
 ```txt
@@ -224,6 +265,29 @@ FilterGroup
     |   |__ FilterOptionCheckbox
     |   |__ . . .
     |__ FilterFooter
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Filter group with optional filters
+
+Optional filters are initially hidden on the group bar and are enabled through the filter control filter. A filter is considered optional when it's wrapped with FilterOptional
+
+```txt
+FilterGroup
+|__ . . . (normal filter)
+|__ . . .
+|__ . . .
+|__ FilterOptional
+|    |__ FilterDisclosure
+|    |__ FilterPopover
+|    |  |__ FilterListbox
+|    |  |__ FilterOption
+|    |  |__ . . .
+|    |__ FilterFooter
+|_ FilterControl
 ```
 
 </Section>

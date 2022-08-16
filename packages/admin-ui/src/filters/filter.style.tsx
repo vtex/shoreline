@@ -28,6 +28,7 @@ export const caretIcon = (isOpen: boolean) =>
   style({
     marginLeft: '$s',
     svg: {
+      margin: 0,
       transform: `rotate(${isOpen ? 0 : 180}deg)`,
     },
   })

@@ -15,7 +15,7 @@ import { messages } from '../filter.i18n'
 import { useMessageFormatter } from '../../i18n'
 
 import { Button } from '../../button'
-import { IconCaretUp, IconCheck } from '../..'
+import { Flex, IconCaretUp, IconCheck } from '../..'
 
 export const FilterControl = createComponent<typeof Role, FilterControlProps>(
   (props) => {
@@ -24,19 +24,15 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
 
     const formatMessage = useMessageFormatter(messages.actions)
 
+
     return useElement(Role, {
       children: (
         <>
-          <Button
-            as={MenuButton as any}
-            icon={
-              <IconCaretUp size="small" csx={style.caretIcon(menu.mounted)} />
-            }
-            state={menu}
-            variant="neutralTertiary"
-            iconPosition="end"
-          >
+          <Button as={MenuButton as any} state={menu} variant="neutralTertiary">
             {formatMessage('moreFilters')}
+            <Flex csx={style.caretIcon(menu.mounted)}>
+              <IconCaretUp size="small" />
+            </Flex>
           </Button>
 
           <FilterPopover state={state}>
