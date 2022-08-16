@@ -16,6 +16,10 @@ import { MenuItem, Menu, MenuButton } from '../../menu'
 import { baseResolvers } from './resolvers/base'
 import { useFilterBarState } from './useFilterBarState'
 
+/**
+ * @deprecated Use composable filters instead
+ * @see https://admin-ui.vercel.app/guidelines/components/filter
+ */
 export function FilterBar<T, V extends { value: T }>(
   props: FilterBarProps<T, V>
 ) {
