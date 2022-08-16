@@ -16,15 +16,15 @@
   }
 
   & > ul > li {
-    font-size: var(--fs-body);
+    font-size: var(--fs-body) !important;
   }
 
   & > ol > li {
-    font-size: var(--fs-body);
+    font-size: var(--fs-body) !important;
   }
 
   & > p {
-    font-size: var(--fs-body);
+    font-size: var(--fs-body) !important;
   }
 
   strong {
