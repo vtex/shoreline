@@ -69,16 +69,30 @@ const config = {
         },
         items: [
           {
-            label: 'Documentation',
-            to: '/',
+            type: 'doc',
+            position: 'left',
+            docId: 'documentation/introduction/about',
+            label: 'Docs',
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
+            type: 'doc',
+            position: 'left',
+            docId: 'components/alert',
+            label: 'Components',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'experimental/about',
+            label: 'Experimental',
           },
           {
             label: 'Release Notes',
             to: 'releases',
+            position: 'right',
+          },
+          {
+            type: 'docsVersionDropdown',
             position: 'right',
           },
         ],
