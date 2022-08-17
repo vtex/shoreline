@@ -28,6 +28,13 @@ const config = {
             'https://github.com/vtex/admin-ui/edit/main/packages/admin-ui-docs/',
           breadcrumbs: true,
         },
+        blog: {
+          routeBasePath: 'releases',
+          showReadingTime: true,
+          blogSidebarTitle: 'All releases',
+          blogSidebarCount: 'ALL',
+          blogTitle: 'Release Notes',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -62,7 +69,16 @@ const config = {
         },
         items: [
           {
+            label: 'Documentation',
+            to: '/',
+          },
+          {
             type: 'docsVersionDropdown',
+            position: 'right',
+          },
+          {
+            label: 'Release Notes',
+            to: 'releases',
             position: 'right',
           },
         ],
