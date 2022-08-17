@@ -9,7 +9,7 @@ import {
   Dropdown,
   Grid,
   Search,
-  Set,
+  Stack,
   Text,
   Alert,
   Center,
@@ -97,7 +97,7 @@ export function IconsGrid(props: IconsGridProps) {
         />
       </DataViewControls>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
-        <Alert visible csx={{ marginBottom: 4 }}>
+        <Alert csx={{ marginBottom: 4 }}>
           Some icons below are opaque because they still don’t have a use case
           mapped. If you need to use one of them, please{' '}
           <Anchor href="https://github.com/vtex/admin-ui/issues/new/choose">
@@ -147,7 +147,7 @@ function IconPreview(props: IconPreviewProps) {
   const { item, weight, size, opacity } = props
 
   return (
-    <Set spacing={4} orientation="vertical" csx={{ alignItems: 'center' }}>
+    <Stack space="$xl" csx={{ alignItems: 'center' }}>
       {cloneElement(item.icon, {
         ...props,
         size,
@@ -159,7 +159,7 @@ function IconPreview(props: IconPreviewProps) {
       <Text tone="secondary" csx={{ opacity }}>
         {`<Icon${item.name} />`}
       </Text>
-    </Set>
+    </Stack>
   )
 }
 

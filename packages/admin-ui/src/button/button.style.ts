@@ -1,4 +1,4 @@
-import { focusVisible, style, styleVariants } from '@vtex/admin-ui-core'
+import { negative, style, styleVariants } from '@vtex/admin-ui-core'
 
 type ActionTone = 'main' | 'critical' | 'neutral'
 type ActionVariant = 'primary' | 'secondary' | 'tertiary'
@@ -26,7 +26,18 @@ export function action(options: ActionOptions) {
       bg: variant === 'tertiary' ? 'transparent' : '$disabled',
       color: '$disabled',
     },
-    ...focusVisible(tone),
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'none',
+    },
+    ':focus-visible': {
+      outline: 'none',
+      boxShadow: `$ring.${tone}`,
+    },
+    ':focus-visible:not(:active)': {
+      color: `action.${tone}.${variant}Hover`,
+      bg: `action.${tone}.${variant}Hover`,
+    },
   })
 }
 
@@ -41,10 +52,10 @@ export const buttonStyle = style({
 export const bleedY = styleVariants({
   size: {
     normal: {
-      marginY: '$-l',
+      marginY: negative('$l'),
     },
     large: {
-      marginY: '$-xl',
+      marginY: negative('$xl'),
     },
   },
 })
@@ -52,10 +63,10 @@ export const bleedY = styleVariants({
 export const bleedX = styleVariants({
   size: {
     normal: {
-      marginX: '$-l',
+      marginX: negative('$l'),
     },
     large: {
-      marginX: '$-xl',
+      marginX: negative('$xl'),
     },
   },
 })

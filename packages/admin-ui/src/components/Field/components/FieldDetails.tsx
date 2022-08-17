@@ -1,45 +1,42 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit/Role'
 
 import { Text } from '../../Text'
 
-export const FieldDetails = jsx(Role)(
-  {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: '',
-    paddingTop: 1,
-  },
-  {
-    options: ['message', 'charLimit', 'value', 'tone'],
-    useOptions(options: FieldDetailsOptions, props) {
-      const { message, tone, charLimit, value } = options
+export const FieldDetails = createComponent<typeof Role, FieldDetailsOptions>(
+  (props) => {
+    const { message, tone, charLimit, value, ...restProps } = props
 
-      return {
-        ...props,
-        children: (
-          <>
-            {message ? (
-              <Text
-                variant="detail"
-                tone={tone === 'critical' ? 'critical' : 'secondary'}
-              >
-                {message}
-              </Text>
-            ) : (
-              <div>{/** spacer element */}</div>
-            )}
-            {!!charLimit && (
-              <Text variant="detail" tone="secondary">
-                {`${value?.toString().length}/${charLimit}`}
-              </Text>
-            )}
-          </>
-        ),
-      }
-    },
+    return useElement(Role, {
+      baseStyle: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: '',
+        paddingTop: 1,
+      },
+      children: (
+        <>
+          {message ? (
+            <Text
+              variant="detail"
+              tone={tone === 'critical' ? 'critical' : 'secondary'}
+            >
+              {message}
+            </Text>
+          ) : (
+            <div>{/** spacer element */}</div>
+          )}
+          {!!charLimit && (
+            <Text variant="detail" tone="secondary">
+              {`${value?.toString().length}/${charLimit}`}
+            </Text>
+          )}
+        </>
+      ),
+      ...restProps,
+    })
   }
 )
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { tag } from '@vtex/admin-ui-react'
+import { Box } from '@vtex/admin-ui'
 import { useSidebarBreadcrumbs } from '@docusaurus/theme-common'
 
 import { PAGE_LINK } from './links'
@@ -21,27 +21,33 @@ export function PageHeader(props: PageHeaderProps) {
   const pathGithub = PAGE_LINK?.[props.title]?.github ?? ''
 
   return (
-    <tag.header csx={styles.container}>
-      <tag.div csx={styles.caption}>
-        <tag.p csx={styles.breadcrumb}>{firstBreadcrumb}</tag.p>
+    <Box as="header" csx={styles.container}>
+      <Box csx={styles.caption}>
+        <Box as="p" csx={styles.breadcrumb}>
+          {firstBreadcrumb}
+        </Box>
         {pathGithub && (
-          <tag.span csx={styles.logosContainer}>
-            <tag.a
+          <Box as="span" csx={styles.logosContainer}>
+            <Box
+              as="a"
               csx={styles.gitHubUrl}
               href={`${GITHUB_BASE_URL}${pathGithub}`}
               target="_blank"
               aria-label="Component url in the GitHub repository"
             />
-            <tag.a
+            <Box
+              as="a"
               csx={styles.figma}
               href={FIGMA_URL}
               target="_blank"
               aria-label="Component url in the Figma"
             />
-          </tag.span>
+          </Box>
         )}
-      </tag.div>
-      <tag.h1 csx={styles.title}>{props.title}</tag.h1>
-    </tag.header>
+      </Box>
+      <Box as="h1" csx={styles.title}>
+        {props.title}
+      </Box>
+    </Box>
   )
 }

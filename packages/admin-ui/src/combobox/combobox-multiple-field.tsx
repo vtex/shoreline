@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import { Combobox } from 'ariakit/combobox'
 import { Composite, useCompositeState } from 'ariakit/composite'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import { messages } from './combobox.i18n'
 import { useMessageFormatter } from '../i18n'
 import { Inline } from '../inline'
 import { Bleed } from '../bleed'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import { Button } from '../button'
 import { Box } from '../box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
@@ -161,11 +161,11 @@ export const ComboboxMultipleField = createComponent<
                       value={renderTag(item)}
                       onKeyDown={(e) => onTagKeyDown(e, item)}
                       onDismiss={() => {
-                        unselect(getOptionValue(item))
+                        unselect(item)
                       }}
                     />
                   ))}
-                <tag.input
+                <Box
                   as={Combobox as any}
                   ref={inputRef}
                   state={state}

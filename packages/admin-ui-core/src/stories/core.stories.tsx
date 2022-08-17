@@ -3,6 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { createCsx } from '../index'
 import { theme } from '../theme'
+import { generateVars } from '../createTheme'
 
 export default {
   title: 'admin-ui-core/core',
@@ -15,14 +16,12 @@ export function FrameworkdAgnostic() {
   return (
     <div
       className={csx({
-        bg: '$action.neutral.tertiary',
-        color: '$primary',
         border: '$neutral',
         ':hover': {
           bg: '$action.neutral.tertiaryHover',
         },
         div: {
-          bg: '$secondary',
+          colorTheme: 'blue',
         },
         padding: 1,
         marginY: 2,
@@ -50,5 +49,20 @@ export const Utils = () => {
     >
       Utils
     </div>
+  )
+}
+
+export const Vars = () => {
+  return (
+    <button
+      className={csx({ cursor: 'pointer' })}
+      onClick={() =>
+        console.log({
+          vars: generateVars(theme),
+        })
+      }
+    >
+      Click to print vars
+    </button>
   )
 }

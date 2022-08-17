@@ -1,226 +1,216 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import type { Meta } from '@storybook/react'
 
-import {
-  useFilterMultipleState,
-  useFilterState,
-  FilterSearch,
-  useFilterGroupState,
-  FilterGroup,
-  FilterMultipleSearch,
-} from '../index'
+import { FilterDisclosure } from '../filter-disclosure'
+import { FilterPopover } from '../filter-popover'
+
+import { FilterFooter } from '../filter-footer'
+import { FilterListbox } from '../filter-listbox'
+import { useFilterMultipleState } from '../filter-multiple/filter-multiple.state'
+import { useFilterState } from '../filter/filter.state'
+
+import { FilterOptionRadio } from '../filter/filter-option-radio'
+
+import { FilterSearchbox } from '../filter-searchbox'
+import { FilterOptionCheckbox } from '../filter-multiple/filter-option-checkbox'
 
 export default {
   title: 'admin-ui/FiltersSearch',
-  component: FilterSearch,
+  component: FilterSearchbox,
 } as Meta
 
-export function SingleSearch() {
-  const state = useFilterState({
-    items: [
-      { label: 'Rio de Janeiro', id: '#1' },
-      { label: 'Rio de Janeiro', id: '#01' },
-      { label: 'New York', id: '#2' },
-      { label: 'Paris', id: '#3' },
-      { label: 'Tokyo', id: '#4' },
-      { label: 'São Paulo', id: '#5' },
-      { label: 'Berlin', id: '#7' },
-      { label: 'Washington', id: '#8' },
-      { label: 'Lisboa', id: '#9' },
-      { label: 'Porto', id: '#10' },
-      { label: 'João Pessoa', id: '#11' },
-      { label: 'Salvador', id: '#12' },
-      { label: 'Barcelona', id: '#13' },
-    ],
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'City',
-  })
-
-  return <FilterSearch state={state} />
-}
-
-export function MultipleSearch() {
-  const state = useFilterMultipleState({
-    items: [
-      { label: 'Rio de Janeiro', id: '#1' },
-      { label: 'Rio de Janeiro', id: '#01' },
-      { label: 'New York', id: '#2' },
-      { label: 'Paris', id: '#3' },
-      { label: 'Tokyo', id: '#4' },
-      { label: 'São Paulo', id: '#5' },
-      { label: 'Berlin', id: '#7' },
-      { label: 'Washington', id: '#8' },
-      { label: 'Lisboa', id: '#9' },
-      { label: 'Porto', id: '#10' },
-      { label: 'João Pessoa', id: '#11' },
-      { label: 'Salvador', id: '#12' },
-      { label: 'Barcelona', id: '#13' },
-    ],
-    onChange: ({ selected }) => console.log({ selected }),
-    label: 'City',
-  })
-
-  return <FilterMultipleSearch state={state} />
-}
-
-// fake request
-const searchItems = (search: string, delay = 1000) => {
+// just a sample API
+function api(search?: string, delay = 1000): Promise<any[]> {
   const items = [
-    { value: 'Brazil' },
-    { value: 'Bahamas' },
-    { value: 'Belarus' },
-    { value: 'France' },
-    { value: 'Ukraine' },
-    { value: 'Australia' },
-    { value: 'Afghanistan' },
-    { value: 'Albania' },
-    { value: 'Algeria' },
-    { value: 'American Samoa' },
-    { value: 'Andorra' },
-    { value: 'Angola' },
-    { value: 'Anguilla' },
-    { value: 'Antarctica' },
-    { value: 'Antigua and Barbuda' },
-    { value: 'Argentina' },
-    { value: 'Armenia' },
-    { value: 'Aruba' },
-    { value: 'Austria' },
-    { value: 'Azerbaijan' },
+    { country: 'Brazil', id: '1' },
+    { country: 'Bahamas', id: '2' },
+    { country: 'Belarus', id: '3' },
+    { country: 'France', id: '4' },
+    { country: 'Ukraine', id: '5' },
+    { country: 'Australia', id: '6' },
+    { country: 'Afghanistan', id: '7' },
+    { country: 'Albania', id: '8' },
+    { country: 'Algeria', id: '9' },
+    { country: 'American Samoa', id: '10' },
+    { country: 'Andorra', id: '11' },
+    { country: 'Angola', id: '12' },
+    { country: 'Anguilla', id: '13' },
+    { country: 'Antarctica', id: '14' },
+    { country: 'Antigua and Barbuda', id: '15' },
+    { country: 'Argentina', id: '16' },
+    { country: 'Armenia', id: '17' },
+    { country: 'Aruba', id: '18' },
+    { country: 'Austria', id: '19' },
+    { country: 'Azerbaijan', id: '20' },
   ]
 
-  const res = !search
-    ? items
-    : items.filter((item) =>
-        item.value.toLowerCase().includes(search.toLowerCase())
+  const res = search
+    ? items.filter((item) =>
+        item.country.toLowerCase().startsWith(search.toLowerCase())
       )
+    : items
 
-  const realDelay = !search ? 200 : delay
+  return new Promise((resolve) => setTimeout(resolve, delay, res))
+}
 
-  return new Promise<any[]>((resolve) =>
-    setTimeout(resolve, realDelay, res as any[])
+export function SingleSearch() {
+  const items = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+  ]
+
+  const filterState = useFilterState({ searchableList: items })
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+      <FilterPopover state={filterState}>
+        <FilterSearchbox id="boxy" />
+        <FilterListbox>
+          {filterState.combobox.matches.map((item) => (
+            <FilterOptionRadio id={item.id} label={item.label} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
   )
 }
 
-export const Async = () => {
-  const state = useFilterState<{ value: string }>({
-    items: [],
-    label: 'City',
-    getOptionId: (option) => option.value,
-    getOptionLabel: (option) => option.value,
-  })
-
-  const { combobox } = state
-
-  useEffect(() => {
-    if (state.combobox.deferredValue === '') {
-      combobox.setLoading(true)
-      searchItems('').then((res) => {
-        combobox.setMatches(res)
-        state.combobox.setLoading(false)
-      })
-    } else {
-      state.combobox.setLoading(true)
-      searchItems(state.combobox.deferredValue).then((res) => {
-        combobox.setMatches(res)
-        combobox.setLoading(false)
-      })
-    }
-  }, [combobox.deferredValue])
-
-  return <FilterSearch state={state} />
-}
-
-export const AsyncMultiple = () => {
-  const state = useFilterMultipleState<{ label: string; id: string }>({
-    items: [],
-    label: 'Async city',
-  })
-
-  useEffect(() => {
-    if (state.combobox.deferredValue === '') {
-      searchItems('').then((res) => {
-        state.combobox.setMatches(
-          res.map(({ value }) => ({ label: value, id: value }))
-        )
-        state.combobox.setLoading(false)
-      })
-    } else {
-      state.combobox.setLoading(true)
-      searchItems(state.combobox.deferredValue).then((res) => {
-        state.combobox.setMatches(
-          res.map(({ value }) => ({ label: value, id: value }))
-        )
-        state.combobox.setLoading(false)
-      })
-    }
-  }, [state.combobox.deferredValue])
-
-  return <FilterMultipleSearch state={state} />
-}
-
-export const Group = () => {
-  const fullList = [
-    { name: 'Rio de Janeiro', uniqueId: '#1' },
-    { name: 'New York', uniqueId: '#2' },
-    { name: 'Paris', uniqueId: '#3' },
-    { name: 'Tokyo', uniqueId: '#4' },
-    { name: 'São Paulo', uniqueId: '#5' },
-    { name: 'Berlin', uniqueId: '#7' },
-    { name: 'Washington', uniqueId: '#8' },
-    { name: 'Lisboa', uniqueId: '#9' },
-    { name: 'Porto', uniqueId: '#10' },
-    { name: 'João Pessoa', uniqueId: '#11' },
-    { name: 'Salvador', uniqueId: '#12' },
-    { name: 'Barcelona', uniqueId: '#13' },
+export function MultiSearch() {
+  const items = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
   ]
 
-  const state = useFilterMultipleState({
-    items: fullList,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'Multiple',
-    getOptionId: (option) => option.uniqueId,
-    getOptionLabel: (option) => option.name,
-  })
-
-  const state2 = useFilterState({
-    items: fullList,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'Simple',
-    getOptionId: (option) => option.uniqueId,
-    getOptionLabel: (option) => option.name,
-  })
-
-  const state3 = useFilterMultipleState({
-    items: fullList,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'Multiple with initial',
-    getOptionId: (option) => option.uniqueId,
-    getOptionLabel: (option) => option.name,
-  })
-
-  const state4 = useFilterState({
-    items: fullList,
-    onChange: ({ selected }) => console.log(`applied: ${selected}`),
-    label: 'Simple with initial',
-    getOptionId: (option) => option.uniqueId,
-    getOptionLabel: (option) => option.name,
-  })
-
-  const filterGroupState = useFilterGroupState({
-    filterStates: [state, state2, state3, state4],
-  })
-
-  useEffect(() => {
-    state3.setAppliedItems([fullList[0], fullList[3]])
-    state4.setAppliedItem(fullList[2])
-  }, [])
+  const filterState = useFilterMultipleState({ searchableList: items })
 
   return (
-    <FilterGroup state={filterGroupState}>
-      <FilterMultipleSearch state={state} />
-      <FilterSearch state={state2} />
-      <FilterMultipleSearch state={state3} />
-      <FilterSearch state={state4} />
-    </FilterGroup>
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+      <FilterPopover state={filterState}>
+        <FilterSearchbox id="boxy" />
+        <FilterListbox>
+          {filterState.combobox.matches.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.label} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+export function Async() {
+  const filterState = useFilterMultipleState()
+  const { setSearchableList, setStatus, matches, searchValue, status } =
+    filterState
+
+  useEffect(() => {
+    setStatus('loading')
+    api('', 5000).then((res: any[]) => {
+      setSearchableList(res.map((i) => ({ id: i.id, label: i.country })))
+      setStatus('ready')
+    })
+  }, [])
+
+  useEffect(() => {
+    if (status === 'loading') return
+
+    const newStatus = searchValue && !matches.length ? 'not-found' : 'ready'
+
+    setStatus(newStatus)
+  }, [matches])
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterSearchbox id="boxy" />
+        <FilterListbox>
+          {matches.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.label} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+export function AsyncSearch() {
+  const state = useFilterMultipleState()
+  const [result, setResult] = useState<Array<{ id: string; country: string }>>(
+    []
+  )
+
+  const [loadingSearch, setLoadingSearch] = useState(false)
+
+  useEffect(() => {
+    setLoadingSearch(true)
+    api(state.deferredSearchValue).then((res) => {
+      setResult(res)
+      const newStatus =
+        state.searchValue && !state.matches.length ? 'not-found' : 'ready'
+
+      state.setStatus(newStatus)
+      setLoadingSearch(false)
+    })
+  }, [state.deferredSearchValue])
+
+  return (
+    <>
+      <FilterDisclosure state={state}>Example</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox id="boxy" loading={loadingSearch} />
+        <FilterListbox>
+          {result.map((item) => (
+            <FilterOptionCheckbox id={item.id} label={item.country} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+export function CsxDemo() {
+  const items = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+  ]
+
+  const filterState = useFilterMultipleState({ searchableList: items })
+
+  return (
+    <>
+      <FilterDisclosure state={filterState} csx={{ color: 'white' }}>
+        Example
+      </FilterDisclosure>
+      <FilterPopover state={filterState} csx={{ color: 'brown' }}>
+        <FilterSearchbox id="boxy" csx={{ backgroundColor: 'lightGray' }} />
+        <FilterListbox csx={{ color: 'pink' }}>
+          {filterState.combobox.matches.map((item) => (
+            <FilterOptionCheckbox
+              id={item.id}
+              label={item.label}
+              csx={{ fontWeight: 800 }}
+            />
+          ))}
+        </FilterListbox>
+        <FilterFooter state={filterState} csx={{ color: 'yellow' }} />
+      </FilterPopover>
+    </>
   )
 }

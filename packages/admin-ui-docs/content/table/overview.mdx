@@ -83,29 +83,15 @@ function WithinDataView() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -217,29 +203,15 @@ function WithSearch() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -309,29 +281,15 @@ function WithToolbar() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -437,29 +395,15 @@ function WithPagination() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -553,33 +497,15 @@ function StatusExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -663,7 +589,7 @@ This section presents a series of examples that may be useful.
 
 Displaying filters and filtering data
 
-```jsx noInline live
+```jsx
 const FilterMultiple = experimental_FilterMultiple
 const useFilterMultipleState = experimental_useFilterMultipleState
 const FilterGroup = experimental_FilterGroup
@@ -722,29 +648,15 @@ const columns = createColumns([
   {
     header: 'Actions',
     resolver: {
-      type: 'root',
-      render: () => {
-        const menu = useMenuState()
-
-        const handleClick = (event) => {
-          event.stopPropagation()
-        }
-
-        return (
-          <>
-            <MenuButton
-              state={menu}
-              variant="neutralTertiary"
-              onClick={handleClick}
-              labelHidden
-            />
-            <Menu state={menu}>
-              <MenuItem label="Add to cart" onClick={handleClick} />
-              <MenuItem label="Buy" onClick={handleClick} />
-            </Menu>
-          </>
-        )
-      },
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart
+        },
+        {
+          label: 'Buy
+        },
+      ],
     },
   },
 ])
@@ -912,29 +824,15 @@ function WithFullTopbar() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: () => {
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -1061,33 +959,15 @@ function DataFetchExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -1185,33 +1065,15 @@ function DataFetchExample() {
       {
         header: 'Actions',
         resolver: {
-          type: 'root',
-          render: ({ context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            const menu = useMenuState()
-
-            const handleClick = (event) => {
-              event.stopPropagation()
-            }
-
-            return (
-              <>
-                <MenuButton
-                  state={menu}
-                  variant="neutralTertiary"
-                  onClick={handleClick}
-                  labelHidden
-                />
-                <Menu state={menu}>
-                  <MenuItem label="Add to cart" onClick={handleClick} />
-                  <MenuItem label="Buy" onClick={handleClick} />
-                </Menu>
-              </>
-            )
-          },
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
         },
       },
     ],
@@ -1252,127 +1114,105 @@ render(<DataFetchExample />)
 
 <Section hasExplanation>
 
-### Drag and Drop
+### Fixed columns
 
-Simple and accessible drag and drop reordering using [Atlassian's react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). The idea here is to use the rendering complexity to access the Table's table internals.
-
+It is possible to set columns to be fixed when scrolling horizontally. You just need to set the column prop `fixed` to `true`.
 ```jsx noInline live
-const fakeData = Array(5)
-  .fill()
-  .map((_, id) => {
-    return {
-      id: `${id}`,
-      name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
-      price: faker.commerce.price(),
-    }
-  })
-
-function Dnd() {
-  console.log(fakeData)
-  const [items, setItems] = useState(fakeData)
-  const state = useTableState({
+function DataFetchExample() {
+  const grid = useTableState({
     columns: [
       {
-        id: 'draggable',
-        header: '',
-        width: 36,
+        id: 'id',
+        fixed: true,
         resolver: {
-          type: 'root',
-          render: function RenderIcon() {
-            return <IconDotsSixVertical />
-          },
+          type: 'selection',
+          mapId: (item) => item.id,
         },
       },
       {
         id: 'name',
-        width: 200,
-        header: 'Product Name',
+        header: 'Name',
+        fixed: true,
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.name,
+        },
       },
       {
         id: 'lastSale',
-        width: 200,
         header: 'Last Sale',
+        width: 500,
       },
       {
         id: 'price',
         header: 'Price',
-        width: 100,
         resolver: {
           type: 'currency',
           locale: 'en-US',
           currency: 'USD',
         },
       },
+      {
+        id: 'status',
+        header: 'Status',
+        resolver: {
+          type: 'root',
+          render: ({ item, context }) => {
+            if (context.status === 'loading') {
+              return <Skeleton csx={{ height: 24 }} />
+            }
+
+            return <Tag label="Good" size="normal" />
+          },
+        },
+      },
+      {
+        header: 'Actions',
+        resolver: {
+          type: 'menu',
+          actions: [
+            {
+              label: 'Add to cart',
+            },
+            {
+              label: 'Buy',
+            },
+          ],
+        },
+      },
     ],
-    items,
+    length: 3,
+    items: React.useMemo(
+      () =>
+        Array(3)
+          .fill()
+          .map((_, id) => {
+            return {
+              id: `${id}`,
+              name: faker.commerce.productName(),
+              lastSale: faker.date.past().toDateString(),
+              price: faker.commerce.price(),
+            }
+          }),
+      []
+    ),
+    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
-  function reorder(list, startIndex, endIndex) {
-    const result = Array.from(list)
-    const [removed] = result.splice(startIndex, 1)
-
-    result.splice(endIndex, 0, removed)
-
-    return result
-  }
-
-  function onDragEnd(result) {
-    if (!result.destination) {
-      return
-    }
-
-    const orderedItems = reorder(
-      items,
-      result.source.index,
-      result.destination.index
-    )
-
-    setItems(orderedItems)
-  }
+  const selection = useSelectionTreeState({
+    items: grid.data,
+    mapId: (item) => item.id,
+  })
 
   return (
-    <Table state={state} csx={{ width: 'unset' }}>
-      <TableHead />
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
-          {(droppableProvided) => (
-            <TableBody ref={droppableProvided.innerRef}>
-              {(render) => (
-                <Fragment>
-                  {render(({ key, item, index }) => {
-                    return (
-                      <Draggable draggableId={key} index={index}>
-                        {(draggableProvided, draggableSnapshot) => (
-                          <TableBodyRow
-                            id={key}
-                            item={item}
-                            ref={draggableProvided.innerRef}
-                            {...draggableProvided.draggableProps}
-                            {...draggableProvided.dragHandleProps}
-                            csx={{
-                              ...draggableProvided.draggableProps.style,
-                              boxShadow: draggableSnapshot.isDragging
-                                ? '$overlay.center'
-                                : 'none',
-                            }}
-                          />
-                        )}
-                      </Draggable>
-                    )
-                  })}
-                  {droppableProvided.placeholder}
-                </Fragment>
-              )}
-            </TableBody>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </Table>
+    <SelectionTree state={selection}>
+      <Table state={grid} />
+    </SelectionTree>
   )
 }
 
-render(<Dnd />)
+render(<DataFetchExample />)
 ```
 
 </Section>

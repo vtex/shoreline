@@ -37,7 +37,7 @@ The Input is used in a form in order to retrieve data inputted by the user. It a
 The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable using the `tone` prop.
 
 ```jsx
-<Set spacing={3}>
+<Stack direction="row" space="$l">
   <Input label="Neutral" value="Neutral text field" helperText="Helpful text" />
   <Input
     tone="critical"
@@ -46,7 +46,7 @@ The `Input` [tone of voice](/foundations/colors/#tones) is either `neutral` (def
     helperText="Helpful text"
     criticalText="Something is wrong"
   />
-</Set>
+</Stack>
 ```
 
 ### Icon
@@ -58,14 +58,14 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         label="Label"
         icon={<IconQuestion />}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -79,14 +79,14 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         label="Label"
         suffix="Kg"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -100,14 +100,14 @@ function Example() {
   const [value, setValue] = React.useState('Clear me!')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         label="Label"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onClear={() => setValue('')}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -121,7 +121,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         label="Label"
         charLimit={120}
@@ -129,7 +129,7 @@ function Example() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -143,7 +143,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         disabled
         label="Weight"
@@ -155,7 +155,7 @@ function Example() {
         onChange={(e) => setValue(e.target.value)}
         onClear={() => setValue('')}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -169,7 +169,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         label="Weight"
         icon={<IconPackage />}
@@ -180,7 +180,7 @@ function Example() {
         onChange={(e) => setValue(e.target.value)}
         onClear={() => setValue('')}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```
@@ -194,7 +194,7 @@ function Example() {
   const [value, setValue] = React.useState('')
 
   return (
-    <tag.div csx={{ width: 300 }}>
+    <Box csx={{ width: 300 }}>
       <Input
         buttonElements={
           <Flex justify="center" align="center">
@@ -211,7 +211,7 @@ function Example() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-    </tag.div>
+    </Box>
   )
 }
 ```

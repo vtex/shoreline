@@ -1,136 +1,37 @@
 :root {
-  --ifm-navbar-shadow: unset;
-  --ifm-navbar-sidebar-width: var(--doc-sidebar-width);
-  --docsearch-text-color: #545454 !important;
   --docsearch-muted-color: #545454 !important;
   --docsearch-searchbox-background: #f4f4f4 !important;
   --ifm-color-emphasis-600: #000000;
 }
 
 .navbar {
-  &.navbar--fixed-top {
-    height: fit-content;
+  z-index: 99999999;
+  box-shadow: none;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 1rem;
+
+  .navbar__title {
+    font-size: 1.2rem;
   }
 
-  &__logo {
-    width: 28px;
-    height: 24px;
+  .navbar__link {
+    font-size: 1rem;
+    color: #545454;
   }
 
-  &__title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding-top: 3px;
+  .navbar__link--active {
+    color: var(--ifm-navbar-link-hover-color) !important;
   }
 
-  .DocSearch-Button {
-    border-radius: 4px;
-    padding: 8px;
-    background-color: unset;
-
-    &:hover {
-      background-color: #e6e6e6;
-      box-shadow: none !important;
-    }
+  .navbar__brand {
+    transform: scale(0.9);
   }
 
-  .DocSearch-Search-Icon {
-    height: 16px;
-    width: 16px;
-  }
-
-  .DocSearch-Button-Placeholder {
-    padding: 0 12px 0 8px;
-  }
-
-  @media (min-width: 751px) {
-    &__logo {
-      width: 32px;
-      height: 28px;
-    }
-
-    &__title {
-      font-size: 1.25rem;
-    }
-
-    .DocSearch-Button {
-      width: 100%;
-
-      &-Keys,
-      &-Placeholder {
-        display: none;
-      }
-    }
-  }
-
-  @media (min-width: 997px) {
-    border-right: 1px solid var(--ifm-toc-border-color);
-    width: var(--doc-sidebar-width);
-    height: fit-content;
-    padding: 32px 24px;
-
-    &__inner {
-      flex-flow: column;
-    }
-
-    &__brand {
-      margin-right: 0;
-      margin-bottom: 24px;
-    }
-
-    &__logo {
-      width: 37px;
-      height: 32px;
-    }
-
-    &__title {
-      font-size: 1.5rem;
-    }
-
-    &__items {
-      width: fit-content;
-    }
-
-    &__items--right {
-      justify-content: left;
-      display: flex;
-      flex-flow: column;
-      width: 100%;
-
-      .dropdown {
-        position: absolute;
-        top: 49px;
-        display: flex;
-        right: 24px;
-        width: 62px;
-        font-size: 0.75rem;
-
-        a::after {
-          border-width: 0.5em 0.5em 0;
-        }
-      }
-
-      & > div {
-        width: 100%;
-        padding: 0;
-      }
-    }
-
-    .DocSearch-Button {
-      background-color: revert;
-
-      &-Keys,
-      &-Placeholder {
-        display: flex;
-      }
-    }
-  }
 }
 
 .navbar .DocSearch-Button {
   border-radius: 4px;
   padding: 10px 12px;
-  height: fit-content;
 
   &-Key:first-child {
     text-indent: -9999px;
@@ -141,37 +42,5 @@
       height: 16px;
       width: 12.6px;
     }
-  }
-}
-
-.navbar-sidebar {
-  &__brand {
-    margin-right: 0;
-    height: fit-content;
-    padding: 32px 24px;
-  }
-
-  .navbar__logo {
-    width: 37px;
-    height: 32px;
-  }
-
-  .navbar__title {
-    font-size: 1.5rem;
-  }
-
-  &__close svg {
-    width: 12.75px;
-    height: 12.75px;
-    stroke-linecap: round;
-    margin-right: 4px;
-
-    g {
-      stroke-width: 1.5;
-    }
-  }
-
-  &__backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
   }
 }

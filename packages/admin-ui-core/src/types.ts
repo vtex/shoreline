@@ -36,7 +36,93 @@ export function asLiterals<T extends string>(array: T[]): T[] {
   return array
 }
 
+export const colorTokens = asLiterals([
+  '$white',
+  '$black',
+  '$blue05',
+  '$blue10',
+  '$blue20',
+  '$blue30',
+  '$blue40',
+  '$blue50',
+  '$blue60',
+  '$lightBlue05',
+  '$lightBlue10',
+  '$lightBlue20',
+  '$lightBlue30',
+  '$lightBlue40',
+  '$lightBlue50',
+  '$lightBlue60',
+  '$red05',
+  '$red10',
+  '$red20',
+  '$red30',
+  '$red40',
+  '$red50',
+  '$red60',
+  '$green05',
+  '$green10',
+  '$green20',
+  '$green30',
+  '$green40',
+  '$green50',
+  '$green60',
+  '$orange05',
+  '$orange10',
+  '$orange20',
+  '$orange30',
+  '$orange40',
+  '$orange50',
+  '$orange60',
+  '$cyan05',
+  '$cyan10',
+  '$cyan20',
+  '$cyan30',
+  '$cyan40',
+  '$cyan50',
+  '$cyan60',
+  '$purple05',
+  '$purple10',
+  '$purple20',
+  '$purple30',
+  '$purple40',
+  '$purple50',
+  '$purple60',
+  '$pink05',
+  '$pink10',
+  '$pink20',
+  '$pink30',
+  '$pink40',
+  '$pink50',
+  '$pink60',
+  '$teal05',
+  '$teal10',
+  '$teal20',
+  '$teal30',
+  '$teal40',
+  '$teal50',
+  '$teal60',
+  '$gray05',
+  '$gray10',
+  '$gray20',
+  '$gray30',
+  '$gray40',
+  '$gray50',
+  '$gray60',
+  '$grayTransparent05',
+  '$grayTransparent10',
+  '$grayTransparent20',
+  '$grayTransparent30',
+  '$grayTransparent40',
+  '$grayTransparent50',
+  '$grayTransparent60',
+  '$grayTransparent70',
+  '$grayTransparent80',
+  '$grayTransparent90',
+])
+
 export const bgTokens = asLiterals([
+  ...colorTokens,
   '$primary',
   '$secondary',
   '$disabled',
@@ -92,6 +178,7 @@ export const bgTokens = asLiterals([
 ])
 
 export const fgTokens = asLiterals([
+  ...colorTokens,
   '$primary',
   '$secondary',
   '$disabled',
@@ -171,91 +258,6 @@ export const textTokens = asLiterals([
   '$detail',
 ])
 
-export const colorTokens = asLiterals([
-  'white',
-  'black',
-  'blue05',
-  'blue10',
-  'blue20',
-  'blue30',
-  'blue40',
-  'blue50',
-  'blue60',
-  'lightBlue05',
-  'lightBlue10',
-  'lightBlue20',
-  'lightBlue30',
-  'lightBlue40',
-  'lightBlue50',
-  'lightBlue60',
-  'red05',
-  'red10',
-  'red20',
-  'red30',
-  'red40',
-  'red50',
-  'red60',
-  'green05',
-  'green10',
-  'green20',
-  'green30',
-  'green40',
-  'green50',
-  'green60',
-  'orange05',
-  'orange10',
-  'orange20',
-  'orange30',
-  'orange40',
-  'orange50',
-  'orange60',
-  'cyan05',
-  'cyan10',
-  'cyan20',
-  'cyan30',
-  'cyan40',
-  'cyan50',
-  'cyan60',
-  'purple05',
-  'purple10',
-  'purple20',
-  'purple30',
-  'purple40',
-  'purple50',
-  'purple60',
-  'pink05',
-  'pink10',
-  'pink20',
-  'pink30',
-  'pink40',
-  'pink50',
-  'pink60',
-  'teal05',
-  'teal10',
-  'teal20',
-  'teal30',
-  'teal40',
-  'teal50',
-  'teal60',
-  'gray05',
-  'gray10',
-  'gray20',
-  'gray30',
-  'gray40',
-  'gray50',
-  'gray60',
-  'grayTransparent05',
-  'grayTransparent10',
-  'grayTransparent20',
-  'grayTransparent30',
-  'grayTransparent40',
-  'grayTransparent50',
-  'grayTransparent60',
-  'grayTransparent70',
-  'grayTransparent80',
-  'grayTransparent90',
-])
-
 export const spaceTokens = asLiterals([
   '$xs',
   '$s',
@@ -321,6 +323,10 @@ export interface AliasesCSSProperties {
    */
   bg?: BgTokens | CSS.Property.Background
   /**
+   * Shorthand for color
+   */
+  fg?: FgTokens | CSS.Property.Color
+  /**
    * Shorthand for marginLeft & marginRight
    */
   marginX?: HSpaceTokens | CSS.Property.MarginLeft | number
@@ -344,6 +350,10 @@ export interface AliasesCSSProperties {
    * Admin-ui available text patterns
    */
   text?: TextTokens
+  /**
+   * Shorthand for applying color and background properties from the same palette while mantaining design consistency
+   */
+  colorTheme?: Palette
 }
 
 export interface ResponsiveAliases {
@@ -362,7 +372,7 @@ export interface OverwriteCSSProperties {
    * CSS **`backgroundColor`** property
    * @default transparent
    */
-  backround?: BgTokens | CSS.Property.BackgroundColor
+  background?: BgTokens | CSS.Property.BackgroundColor
   /**
    * CSS **`border`** property
    * @default currentColor
@@ -505,7 +515,10 @@ export interface ExtendedCSSProps
 
 export type StylePropertyValue<T> =
   | ResponsiveStyleValue<Exclude<T, undefined>>
-  | ((theme: Theme) => ResponsiveStyleValue<Exclude<T, undefined>>)
+  | ((
+      theme: Theme,
+      cssProperty: string
+    ) => ResponsiveStyleValue<Exclude<T, undefined>>)
   | StyleProp
 
 export type CSSProps = {
@@ -545,7 +558,12 @@ export interface Theme {
     imports?: string[]
     styles?: StyleObject
   }
-  breakpoints?: string[]
+  breakpoints?: {
+    mobile: string
+    tablet: string
+    desktop: string
+    widescreen: string
+  }
   mediaQueries?: { [size: string]: string }
   space?: Scale<CSS.Property.Margin<number | string>>
   fontSizes?: Scale<CSS.Property.FontSize<number>>

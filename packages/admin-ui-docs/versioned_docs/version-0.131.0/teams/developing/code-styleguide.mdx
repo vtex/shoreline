@@ -197,7 +197,7 @@ Always prefer to use tokens instead of hardcoded values
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     color: 'base',
     padding: 2,
@@ -205,7 +205,7 @@ Always prefer to use tokens instead of hardcoded values
 />
 
 // 🚨 Bad
-<tag.div
+<Box
   csx={{
     color: '#fff',
     padding: '8px',
@@ -219,7 +219,7 @@ Prefer props composition and shorthands.
 
 ```jsx isStatic
 // ✅ Preferred
-<tag.div
+<Box
   csx={{
     bg: 'base',
     paddingX: 2,
@@ -228,7 +228,7 @@ Prefer props composition and shorthands.
 />
 
 // 🚨 Not wrong, but can improve
-<tag.div
+<Box
   csx={{
     backgroundColor: 'base',
     paddingLeft: 2,
@@ -245,7 +245,7 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     padding: 2,
     '@tablet': {
@@ -258,14 +258,14 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 />
 
 // 🚨 Bad, not semantic
-<tag.div
+<Box
   csx={{
     padding: [2, 3, 4],
   }}
 />
 
 // 🚨 Bad, not consistent
-<tag.div
+<Box
   csx={{
     padding: 2,
     '@media screen and (min-width: 40em)': {
@@ -284,18 +284,18 @@ Avoiding parent styles while coding an app does not matter much, but if you are 
 
 ```jsx isStatic
 // ✅ Good
-<tag.div
+<Box
   csx={{
     padding: 2,
   }}
 >
-  <tag.h1 csx={{ color: 'base' }}>
+  <Box as="h1" csx={{ color: 'base' }}>
     Title
-  </tag.h1>
-</tag.div>
+  </Box>
+</Box>
 
 // 🚨 Bad
-<tag.div
+<Box
   csx={{
     padding: 2,
     h1: {
@@ -304,7 +304,7 @@ Avoiding parent styles while coding an app does not matter much, but if you are 
   }}
 >
   <h1>Title</h1>
-</tag.div>
+</Box>
 ```
 
 ## Documentation

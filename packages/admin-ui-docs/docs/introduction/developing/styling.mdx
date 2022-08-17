@@ -25,8 +25,8 @@ Design tokens can be consumed from specific properties within the `StyleObject`.
 ```jsx live
 <Box
   csx={{
-    color: '$base',
-    bg: '$base',
+    color: '$primary',
+    bg: '$primary',
     border: '$neutral',
     borderRadius: '$default',
     padding: '$3',
@@ -34,6 +34,40 @@ Design tokens can be consumed from specific properties within the `StyleObject`.
 >
   styled box
 </Box>
+```
+
+## Aliases
+
+It works as a shorthand to apply a value to one or more CSS properties, and you can use it within the `StyleObject`. In addition to the following aliases, you can also use the [Responsive Aliases](#responsive-aliases) explained further on this page.
+
+| Alias          | Description                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `bg`           | A shorthand for background CSS property                                                                            |
+| `fg`           | A shorthand for color CSS property                                                                                 |
+| `colorTheme`   | A shorthand for applying color and background properties from the same palette while mantaining design consistency |
+| `marginX`      | A shorthand for margin-left and margin-right CSS properties                                                        |
+| `marginY`      | A shorthand for margin-top and margin-bottom CSS properties                                                        |
+| `paddingX`     | A shorthand for padding-left and padding-right CSS properties                                                      |
+| `paddingY`     | A shorthand for padding-top and padding-bottom CSS properties                                                      |
+| `size`         | A shorthand for width and height CSS properties                                                                    |
+| `minSize`      | A shorthand for min-width and min-height CSS properties                                                            |
+| `maxSize`      | A shorthand for max-width and max-height CSS properties                                                            |
+| `absoluteSize` | A shorthand for min-width, min-height, max-Width, and max-Height CSS properties                                    |
+
+### Example
+
+```jsx live
+<Center
+  csx={{
+    size: 100,
+    paddingX: '$m',
+    paddingY: '$l',
+    bg: '$blue40',
+    fg: '$white',
+  }}
+>
+  Aliases
+</Center>
 ```
 
 ## Nesting
@@ -53,8 +87,8 @@ Sometimes it’s useful to nest selectors to target elements inside the current 
     },
     header: {
       button: {
-        bg: color('gray60'),
-        color: color('white'),
+        bg: '$gray60',
+        color: '$white',
       },
     },
   }}
@@ -84,12 +118,12 @@ Scoped classNames can also be created and reused multiple times.
       },
     },
     '.light': {
-      bg: 'muted',
-      color: 'base',
+      bg: '$secondary',
+      color: '$secondary',
     },
     '.dark': {
-      bg: color('gray60'),
-      color: color('white'),
+      bg: '$gray60',
+      color: '$white',
     },
   }}
 >
@@ -208,7 +242,7 @@ Admin UI has five responsive aliases that guide you while authoring responsive l
 In the example - the text content changes, representing the current screen size. You can resize your browser window to see the result.
 
 ```jsx live
-<tag.div
+<Box
   csx={{
     ':before': {
       content: '"Mobile"',
@@ -227,7 +261,7 @@ In the example - the text content changes, representing the current screen size.
       The responsive alias string will be replaced by a media query.
       <br />
       It replaces the pattern <strong>@[alias]</strong> by{' '}
-      <strong>@media (min-width: theme.breakpoints.[alias])</strong>.
+      <strong>@media (min-width: theme.breakpoints[alias])</strong>.
       <br />
       For exemple, <strong>@tablet</strong> will be replaced by{' '}
       <strong>@media (min-width: 48em)</strong>.
@@ -261,7 +295,7 @@ The `Box` in the example has the `$s` padding for all screens:
 If we add the `@tablet` rule, the padding will be `$m` for tablets and above - which means that it will remain `$s` for screens smaller than `@tablet`. The logic is still the same for other breakpoints.
 
 ```jsx
-<tag.div
+<Box
   csx={{
     padding: '$s',
     '@tablet': {
@@ -294,71 +328,34 @@ const layout = style({
 })
 ```
 
-### Responsive values [deprecated]
+### Responsive Prop
 
-A responsive value is a `deprecated` approach in which properties can accept an array of values. Each position of the array correspond to the value on each breakpoint, following the sequence:
+Properties of components with the type `ResponsiveProp<T>` indicate that you can use them to behave similarly to responsive aliases by passing different values ​​depending on the screen size
+You can [check the mental model section](#mental-model) to see how the responsiveness works in these cases.
 
-```sh
-[mobile, tablet, desktop, widescreen]
+```ts
+interface ResponsiveProp<T> = T | {
+  mobile: T
+  tablet?: T
+  desktop?: T
+  widescreen?: T
+}
 ```
 
-To have a `<Box>` full width while on `mobile`, and half on tablet and above:
+#### Example
 
 ```jsx live
-<Box
-  csx={{
-    width: ['full', '1/2'],
-    padding: 4,
-    bg: 'grey',
-  }}
-/>
-```
-
-You can use the value `null` to skip breakpoints:
-
-```jsx live
-<Box
-  csx={{
-    width: [null, null, 'full'],
-    padding: 4,
-    bg: 'grey',
-  }}
-/>
-```
-
-#### Why are we deprecating this?
-
-The main reasons are:
-
-- Multiple responsive styles are harder to write, learn, and understand.
-- Less performant to parse.
-- Library complexity overhead.
-
-To migrate to the aliases, you need to place the styles in the correct category.
-
-```js
-// with responsive values
-const style = {
-  bg: '$primary',
-  color: '$primary',
-  padding: [10, null, null, 20],
-  margin: [5, null, 10, 15],
-}
-
-// with aliases
-const style = {
-  bg: '$primary',
-  color: '$primary',
-  padding: 10,
-  margin: 5,
-  '@desktop': {
-    margin: 10,
-  },
-  '@widescreen': {
-    padding: 20,
-    margin: 15,
-  },
-}
+<Stack
+  space={{ mobile: '$l', desktop: '$2xl' }}
+  fluid={{ mobile: true, tablet: false }}
+  direction={{ mobile: 'column', tablet: 'row' }}
+>
+  <Button>First</Button>
+  <Button>Second</Button>
+  <Button>Third</Button>
+  <Button>Fourth</Button>
+  <Button>Fifth</Button>
+</Stack>
 ```
 
 ### Additional resources

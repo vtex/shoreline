@@ -1,0 +1,96 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+A component that represents a flexbox layout.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Spacer
+
+You can combine `Flex` and `FlexSpacer` to adjust spacing.
+
+```jsx live
+<Flex justify="space-around">
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+  <FlexSpacer />
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+</Flex>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Flexbox layout shorthands
+
+Flex provides a set of properties to help you building flexbox layouts.
+
+```jsx live
+<Flex
+  align="center"
+  direction="column"
+  justify="space-around"
+  csx={{ size: 300, border: '$neutral', borderRadius: 'default' }}
+>
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+</Flex>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Responsive Prop
+
+To make it easy applying flexbox layouts, all props provided by `Flex` are [Responsive Props](/next/introduction/developing/styling#responsive-prop).
+
+```jsx live
+<Flex
+  align={{ mobile: 'center', tablet: 'flex-start', desktop: 'flex-end' }}
+  direction={{ mobile: 'column', tablet: 'row' }}
+  justify="space-around"
+  csx={{ size: 300, border: '$neutral', borderRadius: 'default' }}
+>
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+  <Box
+    csx={{
+      bg: '$info',
+      size: 100,
+    }}
+  />
+</Flex>
+```
+
+</Section>

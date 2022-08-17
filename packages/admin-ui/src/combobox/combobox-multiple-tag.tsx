@@ -2,13 +2,13 @@ import type { KeyboardEventHandler, ReactNode } from 'react'
 import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
-import { tag } from '@vtex/admin-ui-react'
 import { CompositeItem } from 'ariakit/composite'
 
+import { Box } from '../box'
 import { messages } from './combobox.i18n'
 import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../components/Paragraph'
-import { Flex } from '../components/Flex'
+import { Flex } from '../flex'
 import * as style from './combobox.style'
 
 export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
@@ -18,19 +18,20 @@ export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
   return (
     <CompositeItem {...htmlProps}>
       {(compositeProps) => (
-        <tag.div as={Focusable} csx={style.fieldTag} {...compositeProps}>
+        <Box as={Focusable} csx={style.fieldTag} {...compositeProps}>
           <Flex justify="space-between" align="center">
             <Paragraph>{value}</Paragraph>
-            <tag.button
+            <Box
+              as="button"
               tabIndex={-1}
               onClick={onDismiss}
               csx={style.fieldTagDismiss}
               aria-label={formatMessage('removeLabel')}
             >
               <IconX size="small" />
-            </tag.button>
+            </Box>
           </Flex>
-        </tag.div>
+        </Box>
       )}
     </CompositeItem>
   )

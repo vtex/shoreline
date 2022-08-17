@@ -111,18 +111,13 @@ export const rules = {
   insetInline: 'space',
   insetInlineEnd: 'space',
   insetInlineStart: 'space',
-  top: 'space',
-  right: 'space',
-  bottom: 'space',
-  left: 'space',
   gridGap: 'space',
-  gridColumnGap: 'space',
-  gridRowGap: 'space',
   gap: 'space',
   columnGap: 'space',
   rowGap: 'space',
 
   // hspace
+  gridColumnGap: 'hspace',
   marginRight: 'hspace',
   marginLeft: 'hspace',
   marginX: 'hspace',
@@ -132,8 +127,11 @@ export const rules = {
   scrollPaddingRight: 'hspace',
   scrollPaddingLeft: 'hspace',
   scrollPaddingX: 'hspace',
+  right: 'hspace',
+  left: 'hspace',
 
   // vspace
+  gridRowGap: 'vspace',
   marginTop: 'vspace',
   marginBottom: 'vspace',
   marginY: 'vspace',
@@ -143,9 +141,16 @@ export const rules = {
   scrollPaddingTop: 'vspace',
   scrollPaddingBottom: 'vspace',
   scrollPaddingY: 'vspace',
+  top: 'vspace',
+  bottom: 'vspace',
 
   // typography
   text: 'text',
+  fontFamily: 'fonts',
+  fontSize: 'fontSizes',
+  lineHeight: 'lineHeights',
+  letterSpacing: 'letterSpacings',
+  fontVariationSettings: 'fontWeights',
 }
 
 export function resolveRule(prop: string, theme: any) {

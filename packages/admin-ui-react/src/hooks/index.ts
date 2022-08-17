@@ -1,2 +1,2 @@
 export * from './use-media-query'
-export * from './use-responsive-value'
+export * from './use-breakpoint'

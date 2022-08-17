@@ -191,7 +191,9 @@ export function accessCell<T>(column: TableColumn<T>, item: T) {
 
       warning(
         resolved,
-        `The data is undefined. Make sure that you are using the correct resolver/accessor for the cell: ${column.id}`
+        `The data is undefined. Make sure that you are using the correct resolver/accessor for the cell: ${String(
+          column.id
+        )}`
       )
 
       return resolved
@@ -207,7 +209,9 @@ export function accessCell<T>(column: TableColumn<T>, item: T) {
 
       warning(
         resolved !== undefined,
-        `The data is undefined. Make sure that you are using the correct resolver/acessor for the cell: ${column.id}`
+        `The data is undefined. Make sure that you are using the correct resolver/acessor for the cell: ${String(
+          column.id
+        )}`
       )
 
       return resolved ?? ''

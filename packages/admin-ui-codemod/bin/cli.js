@@ -102,6 +102,11 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     value: 'set-to-stack',
   },
   {
+    name: 'tag-to-box: Migrate tag.[el] to Box',
+    value: 'tag-to-box',
+  },
+
+  {
     name: 'radio-review: Update Radio & RadioGroup props to the latest specs (0.126.0+)',
     value: 'radio-review',
   },

@@ -1,0 +1,95 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+A component that represents a grid layout.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Template Areas
+
+Example of using grid template areas and applying a gap or space between the items. You can combine with the `GridItem` `area` property.
+
+```jsx live
+<Grid
+  templateAreas={['orange blue-1 blue-2', 'orange red red']}
+  templateColumns="1fr 2fr 2fr"
+  templateRows="1fr 2fr"
+  gap="$xl"
+  csx={{ height: 400, div: { borderRadius: 'default' } }}
+>
+  <GridItem area="orange" csx={palette('orange')} />
+  <GridItem area="blue-1" csx={palette('lightBlue')} />
+  <GridItem area="blue-2" csx={palette('lightBlue')} />
+  <GridItem area="red" csx={palette('red')} />
+</Grid>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Template Columns
+
+Example of using grid template columns and applying a gap or space between the columns.
+
+```jsx live
+<Grid
+  templateColumns="repeat(4, 1fr)"
+  columnGap="$xl"
+  csx={{ height: 100, div: { borderRadius: 'default' } }}
+>
+  <Box csx={palette('cyan')} />
+  <Box csx={palette('green')} />
+  <Box csx={palette('orange')} />
+  <Box csx={palette('teal')} />
+</Grid>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Template Rows
+
+Example of using grid template rows and applying a gap or space between the rows.
+
+```jsx live
+<Grid
+  templateRows="repeat(4, 1fr)"
+  rowGap="$xl"
+  csx={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
+>
+  <Box csx={palette('cyan')} />
+  <Box csx={palette('green')} />
+  <Box csx={palette('orange')} />
+  <Box csx={palette('teal')} />
+</Grid>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Responsive Prop
+
+To make it easy applying grid layouts, all props provided by `Grid` are [Responsive Props](/next/introduction/developing/styling#responsive-prop).
+
+```jsx live
+<Grid
+  templateColumns={{ mobile: '1fr', tablet: 'repeat(3, 1fr)' }}
+  gap={{ mobile: '$m', tablet: '$l', desktop: '$2xl' }}
+  csx={{ height: 500, width: 500 }}
+>
+  <Box csx={{ bg: '$info' }} />
+  <Box csx={{ bg: '$info' }} />
+  <Box csx={{ bg: '$info' }} />
+</Grid>
+```
+
+</Section>

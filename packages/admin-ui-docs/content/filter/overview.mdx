@@ -1,0 +1,632 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Filters are designed to let the user choose parameters to filter data by.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Composition
+
+Filters are built using combined components. We have components that allow the creation of simple filters, multiple selection filters,
+simple filters with search and multiple selection filters with search. The components are
+
+| Component            | Description                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| FilterDisclosure     | Component for the buttons that triggers the menu                                                           |
+| FilterPopover        | Popover component, this is always a parent component                                                       |
+| FilterListbox        | Component for the option list                                                                              |
+| FilterFooter         | Component for the footer with clear and apply buttons                                                      |
+| FilterOptionCheckbox | Checkbox option component, this should be used only on multiple selection filters                          |
+| FilterOptionRadio    | Radio option component, this should be used only on single selection filters                               |
+| FilterSearchbox      | Search box component that should be used only when building searchable filters                             |
+| FilterGroup          | A grouping component that displays the disclosures as cohesive bar                                         |
+| FilterControl        | A filter for toggling visibility of optional filters. Should be used when some of the filters are optional |
+| FilterOptional       | Wrapper component that mounts and unmounts a filter, making it optional. Controlled by FilterControl       |
+
+</Section>
+
+<Section>
+
+## Filter
+
+```jsx noInline live
+function Filter() {
+  const filterState = useFilterState()
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          <FilterOptionRadio id="#1" label="Full" />
+          <FilterOptionRadio id="#2" label="Empty" />
+          <FilterOptionRadio id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(Filter)
+```
+
+</Section>
+
+<Section>
+
+## Filter with multiple selection
+
+```jsx noInline live
+function Multiple() {
+  const filterState = useFilterMultipleState()
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="Full" />
+          <FilterOptionCheckbox id="#2" label="Empty" />
+          <FilterOptionCheckbox id="#3" label="Half full" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(Multiple)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Filter with search
+
+```jsx noInline live
+const items = [
+  { label: 'Full', id: '#1' },
+  { label: 'Empty', id: '#2' },
+  { label: 'Half full', id: '#3' },
+  { label: 'Half empty', id: '#4' },
+  { label: 'Unknown', id: '#5' },
+]
+
+function Filter() {
+  const filterState = useFilterState({ searchableList: items })
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {filterState.matches.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(Filter)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Filter with multiple selection and search
+
+Allows user to search and to select more than one option.
+
+```jsx noInline live
+const items = [
+  { label: 'Full', id: '#1' },
+  { label: 'Empty', id: '#2' },
+  { label: 'Half full', id: '#3' },
+  { label: 'Half empty', id: '#4' },
+  { label: 'Unknown', id: '#5' },
+]
+
+function FilterSearch() {
+  const filterState = useFilterMultipleState({ searchableList: items })
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {filterState.matches.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(FilterSearch)
+```
+
+</Section>
+
+<Section>
+
+### Filter group
+
+```jsx noInline live
+function FilterGroupExample() {
+  const list1 = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+    { label: 'Half empty', id: '#10' },
+  ]
+
+  const list2 = [
+    { label: 'Rio de Janeiro', value: { grade: 10 }, id: '#1' },
+    { label: 'New York', value: { grade: 9 }, id: '#2' },
+    { label: 'Paris', value: { grade: 9 }, id: '#3' },
+    { label: 'Tokyo', value: { grade: 9 }, id: '#4' },
+  ]
+
+  const state = useFilterMultipleState()
+  const state2 = useFilterState()
+  const state3 = useFilterState({ searchableList: list1 })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state2, state, state3],
+  })
+
+  return (
+    <FilterGroup state={filterGroupState}>
+      <FilterDisclosure state={state}>Status</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list1.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state2}>City</FilterDisclosure>
+
+      <FilterPopover state={state2}>
+        <FilterListbox>
+          {list2.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state3}>City status</FilterDisclosure>
+
+      <FilterPopover state={state3}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {state3.matches.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </FilterGroup>
+  )
+}
+
+render(<FilterGroupExample />)
+```
+
+</Section>
+
+<Section>
+
+### Group with additional hidden filters
+
+```jsx noInline live
+function GenericFilter({ list, label }) {
+  const state = useFilterMultipleState()
+
+  return (
+    <>
+      <FilterDisclosure state={state}>{label}</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+function FilterGroupExample() {
+  const list1 = [
+    { label: 'Full', id: '#1' },
+    { label: 'Empty', id: '#2' },
+    { label: 'Half full', id: '#3' },
+    { label: 'Half empty', id: '#4' },
+    { label: 'Unknown', id: '#5' },
+    { label: 'Half empty', id: '#10' },
+  ]
+
+  const list2 = [
+    { label: 'Rio de Janeiro', value: { grade: 10 }, id: '#1' },
+    { label: 'New York', value: { grade: 9 }, id: '#2' },
+    { label: 'Paris', value: { grade: 9 }, id: '#3' },
+    { label: 'Tokyo', value: { grade: 9 }, id: '#4' },
+  ]
+
+  const filterControlState = useFilterControl()
+  const state = useFilterMultipleState()
+  const state2 = useFilterState()
+  const state3 = useFilterState({ searchableList: list1 })
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state2, state, state3, filterControlState],
+  })
+
+  return (
+    <FilterGroup state={filterGroupState}>
+      <FilterDisclosure state={state}>Status</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list1.map((item) => (
+            <FilterOptionCheckbox {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state2}>City</FilterDisclosure>
+
+      <FilterPopover state={state2}>
+        <FilterListbox>
+          {list2.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={state3}>City status</FilterDisclosure>
+
+      <FilterPopover state={state3}>
+        <FilterSearchbox />
+        <FilterListbox>
+          {state3.matches.map((item) => (
+            <FilterOptionRadio {...item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterOptional
+        id="#other-city"
+        label="Other city"
+        state={filterControlState}
+      >
+        <GenericFilter list={list2} label="Other city" />
+      </FilterOptional>
+
+      <FilterOptional id="#value" label="Value" state={filterControlState}>
+        <GenericFilter list={list1} label="Value" />
+      </FilterOptional>
+
+      <FilterControl state={filterControlState} />
+    </FilterGroup>
+  )
+}
+
+render(<FilterGroupExample />)
+```
+
+</Section>
+
+<Section>
+
+### Error status
+
+```jsx noInline live
+function Error() {
+  const state = useFilterMultipleState()
+  const stateSimple = useFilterMultipleState()
+
+  useEffect(() => {
+    state.setStatus('error')
+    stateSimple.setStatus('error')
+  }, [])
+
+  return (
+    <Stack>
+      <FilterDisclosure state={state}>Search error status</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox />
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="label" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={stateSimple}>
+        Simple error status
+      </FilterDisclosure>
+
+      <FilterPopover state={stateSimple}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="label" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </Stack>
+  )
+}
+
+render(<Error />)
+```
+
+</Section>
+
+<Section>
+
+### Other status
+
+```jsx noInline live
+function OtherStatus() {
+  const stateEmpty = useFilterMultipleState()
+  const stateLoading = useFilterMultipleState()
+  const stateNotFound = useFilterMultipleState()
+
+  useEffect(() => {
+    stateEmpty.setStatus('empty')
+    stateLoading.setStatus('loading')
+    stateNotFound.setStatus('not-found')
+  }, [])
+
+  return (
+    <Stack>
+      <FilterDisclosure state={stateNotFound}>Not found</FilterDisclosure>
+
+      <FilterPopover state={stateNotFound}>
+        <FilterSearchbox />
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="label" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={stateLoading}>Loading</FilterDisclosure>
+
+      <FilterPopover state={stateLoading}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="label" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+
+      <FilterDisclosure state={stateEmpty}>Empty</FilterDisclosure>
+
+      <FilterPopover state={stateEmpty}>
+        <FilterListbox>
+          <FilterOptionCheckbox id="#1" label="label" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </Stack>
+  )
+}
+
+render(<OtherStatus />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Examples
+
+This section presents a series of examples that may be useful.
+
+</Section>
+
+<Section hasExplanation>
+
+### Internationalization
+
+Filter supports internationalization of its native messages.
+
+```jsx noInline live
+const I18nProvider = experimental_I18nProvider
+
+function Interationalization() {
+  const state = useFilterState()
+
+  const filterGroupState = useFilterGroupState({
+    filterStates: [state],
+  })
+
+  return (
+    <I18nProvider locale="pt-BR">
+      <FilterGroup state={filterGroupState}>
+        <FilterDisclosure state={state}>Status</FilterDisclosure>
+
+        <FilterPopover state={state}>
+          <FilterListbox>
+            <FilterOptionRadio id="#1" label="Available" />
+            <FilterOptionRadio id="#2" label="Unavailable" />
+          </FilterListbox>
+          <FilterFooter />
+        </FilterPopover>
+      </FilterGroup>
+    </I18nProvider>
+  )
+}
+
+render(<Interationalization />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Filter with async data fetching
+
+When fetching the option list asynchronously you just need to render your obtained list with a map.
+Providing values for `id` and `label`. You can control the status (loading/ready) with setStatus.
+
+```jsx noInline live
+const getItemsAPICall = (delay = 1000) => {
+  const items = [
+    { value: 'Brazil' },
+    { value: 'Bahamas' },
+    { value: 'Belarus' },
+    { value: 'France' },
+    { value: 'Ukraine' },
+    { value: 'Australia' },
+    { value: 'Afghanistan' },
+    { value: 'Albania' },
+  ]
+
+  return new Promise((resolve) => setTimeout(resolve, delay, items))
+}
+
+function Async() {
+  const [list, setList] = useState([])
+
+  const filterState = useFilterState()
+
+  useEffect(() => {
+    filterState.setStatus('loading')
+    getItemsAPICall(5000).then((res) => {
+      setList(res)
+      filterState.setStatus('ready')
+    })
+  }, [])
+
+  return (
+    <>
+      <FilterDisclosure state={filterState}>Async example</FilterDisclosure>
+
+      <FilterPopover state={filterState}>
+        <FilterListbox>
+          {list.map((item) => (
+            <FilterOptionRadio id={item.value} label={item.value} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(<Async />)
+```
+
+</Section>
+
+<Section hasExplanation>
+
+### Filter with async searching
+
+When performing searches asynchronously you need to render the search result list with a map.
+You can control the status with setStatus, to indicate the search is loading use the `loading`
+prop on FilterSearchbox.
+
+```jsx noInline live
+// just a sample API
+function api(search, delay = 1000) {
+  const items = [
+    { country: 'Brazil', id: '1' },
+    { country: 'Bahamas', id: '2' },
+    { country: 'Belarus', id: '3' },
+    { country: 'France', id: '4' },
+    { country: 'Ukraine', id: '5' },
+    { country: 'Australia', id: '6' },
+    { country: 'Afghanistan', id: '7' },
+    { country: 'Albania', id: '8' },
+    { country: 'Algeria', id: '9' },
+    { country: 'American Samoa', id: '10' },
+    { country: 'Andorra', id: '11' },
+    { country: 'Angola', id: '12' },
+    { country: 'Anguilla', id: '13' },
+    { country: 'Antarctica', id: '14' },
+    { country: 'Antigua and Barbuda', id: '15' },
+    { country: 'Argentina', id: '16' },
+    { country: 'Armenia', id: '17' },
+    { country: 'Aruba', id: '18' },
+    { country: 'Austria', id: '19' },
+    { country: 'Azerbaijan', id: '20' },
+  ]
+
+  const res = search
+    ? items.filter((item) =>
+        item.country.toLowerCase().startsWith(search.toLowerCase())
+      )
+    : items
+
+  return new Promise((resolve) => setTimeout(resolve, delay, res))
+}
+
+function ControlledSearchExample() {
+  const state = useFilterMultipleState()
+  const [result, setResult] = useState()
+  const [loadingSearch, setLoadingSearch] = useState(false)
+
+  useEffect(() => {
+    setLoadingSearch(true)
+    api(state.deferredSearchValue).then((res) => {
+      setResult(res)
+      setLoadingSearch(false)
+      state.setStatus(res.length ? 'ready' : 'not-found')
+    })
+  }, [state.deferredSearchValue])
+
+  return (
+    <>
+      <FilterDisclosure state={state}>Controlled search</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterSearchbox loading={loadingSearch} />
+        <FilterListbox>
+          {result &&
+            result.map((item) => (
+              <FilterOptionCheckbox id={item.id} label={item.country} />
+            ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+render(<ControlledSearchExample />)
+```
+
+</Section>

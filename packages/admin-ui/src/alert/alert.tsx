@@ -21,6 +21,7 @@ import { Button } from '../button'
 import { Inline } from '../inline'
 import { Paragraph } from '../components/Paragraph'
 import * as styles from './alert.style'
+import { Stack } from '../stack'
 
 export const useAlert = createHook<'div', AlertOptions>((props) => {
   const { children, onDismiss, variant = 'info', action, ...htmlProps } = props
@@ -37,13 +38,13 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
     },
     children: (
       <Fragment>
-        <Inline noWrap vSpace="unset" hSpace="$l">
+        <Inline noWrap vSpace="unset" hSpace="$l" spaceInside>
           <IconContainer size="regular" csx={styles.iconContainer({ variant })}>
             {icon}
           </IconContainer>
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
-        <Inline noWrap vSpace="unset" hSpace="unset" csx={styles.rightInline}>
+        <Stack direction="row" csx={styles.rightInline}>
           {action ? (
             <Button
               {...action}
@@ -53,7 +54,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
               csx={styles.button({ dismissible: !!onDismiss })}
             />
           ) : null}
-          {onDismiss && (
+          {onDismiss ? (
             <Button
               variant="neutralTertiary"
               icon={<IconX />}
@@ -61,8 +62,8 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
               bleedY
               bleedX
             />
-          )}
-        </Inline>
+          ) : null}
+        </Stack>
       </Fragment>
     ),
   }

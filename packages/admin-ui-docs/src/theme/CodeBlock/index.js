@@ -11,20 +11,10 @@ import ReactLiveScope from '@theme/ReactLiveScope'
 import CodeBlock from '@theme-init/CodeBlock'
 import { TabPanel } from '@vtex/admin-ui'
 
-import FormikPreview from '../../components/FormikPreview'
-
 import CustomCodeBlock from './CustomCodeBlock'
 
 const withLiveEditor = (Component) => {
   function WrappedComponent(props) {
-    if (props.isFormik) {
-      return (
-        <FormikPreview>
-          <Playground scope={ReactLiveScope} {...props} />
-        </FormikPreview>
-      )
-    }
-
     if (props.live) {
       const Wrapper = props.optionId ? TabPanel : Fragment
 

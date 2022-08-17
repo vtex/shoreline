@@ -45,7 +45,7 @@ export const pageHeaderTop = style({
   alignItems: 'center',
   width: '100%',
   maxWidth: '95rem',
-  minHeight: '2.6875rem',
+  minHeight: '2.75rem',
 })
 
 export const pageHeaderBottomBase = style({
@@ -120,12 +120,12 @@ export const pageContentVariants = styleVariants({
       paddingBottom: '3rem',
     },
     standard: {
-      maxWidth: '73rem',
+      maxWidth: '77rem',
       paddingTop: '2.5rem',
       paddingBottom: '5rem',
     },
     narrow: {
-      maxWidth: '48rem',
+      maxWidth: '52rem',
       paddingTop: '3rem',
       paddingBottom: '8rem',
     },

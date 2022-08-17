@@ -1,1 +1,6 @@
-export const breakpoints = ['40em', '48em', '64em', '75em']
+export const breakpoints = {
+  mobile: '40em',
+  tablet: '48em',
+  desktop: '64em',
+  widescreen: '75em',
+}

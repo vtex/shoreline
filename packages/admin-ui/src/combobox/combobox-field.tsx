@@ -1,16 +1,12 @@
 import React from 'react'
-import {
-  createComponent,
-  useElement,
-  tag,
-  useSystem,
-} from '@vtex/admin-ui-react'
+import { createComponent, useElement, useSystem } from '@vtex/admin-ui-react'
 import { Combobox, ComboboxCancel } from 'ariakit/combobox'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import type { ComboboxState } from './combobox.state'
 import { FieldContainer, FloatingLabel } from '../components/Field'
 import { Button } from '../button'
+import { Box } from '../box'
 import * as style from './combobox.style'
 
 const fixUp: any = {
@@ -36,7 +32,7 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
           />
           <FloatingLabel htmlFor={id}>{label}</FloatingLabel>
           {state.value !== '' && (
-            <tag.div csx={style.buttonContainer}>
+            <Box csx={style.buttonContainer}>
               <Button
                 variant="neutralTertiary"
                 as={ComboboxCancel as any}
@@ -44,7 +40,7 @@ export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
                 icon={<IconXCircle />}
                 csx={style.clearButton}
               />
-            </tag.div>
+            </Box>
           )}
         </FieldContainer>
       ),

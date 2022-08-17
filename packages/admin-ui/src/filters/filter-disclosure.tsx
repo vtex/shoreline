@@ -1,38 +1,64 @@
 import type { ReactNode } from 'react'
-import React from 'react'
-import { Button } from '../button'
+import React, { useEffect } from 'react'
+
 import { IconCaretUp } from '@vtex/phosphor-icons'
 import { MenuButton } from 'ariakit/menu'
 
 import * as style from './filter.style'
-import type { GenericFilterStateReturn } from '.'
 import { AppliedItemsLabel } from './filter-applied-items-label'
-import type { AnyObject } from '..'
+import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
+import type { UseFilterStateReturn } from './filter/filter.state'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { useFilterOptionalContext } from './filter-control/filter-optional-context'
+import { Flex } from '../flex'
 
-export const FilterDisclosure = (props: FilterDisclosureProps) => {
-  const { state, children, appliedItems } = props
+const asMulti = (state: any) => state as UseFilterMultipleReturn<any>
 
-  const disclosureId = state.baseId ? `${state.baseId}-disclosure` : undefined
+const convertAppliedToArray = (
+  state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+) => {
+  const singleSelectState = state as UseFilterStateReturn<any>
 
-  return (
-    <Button
-      as={MenuButton as any}
-      state={state.menu}
-      csx={style.disclosure}
-      id={disclosureId}
-    >
-      {children}
-      <AppliedItemsLabel
-        renderItemLabel={state.getOptionLabel}
-        appliedItems={appliedItems}
-      />
-      <IconCaretUp size="small" csx={style.caretIcon(state.menu.mounted)} />
-    </Button>
-  )
+  return singleSelectState.appliedItem ? [singleSelectState.appliedItem] : []
 }
 
+export const FilterDisclosure = createComponent<
+  typeof MenuButton,
+  FilterDisclosureProps
+>((props: FilterDisclosureProps) => {
+  const { state, children, id, ...restProps } = props
+  const { shouldOpenOnMount = () => false } = useFilterOptionalContext()
+
+  const { menu } = state
+
+  const appliedList =
+    asMulti(state)?.appliedItems ?? convertAppliedToArray(state)
+
+  useEffect(() => {
+    if (shouldOpenOnMount()) {
+      menu.show()
+    }
+  }, [])
+
+  return useElement(MenuButton, {
+    baseStyle: style.disclosure,
+    children: (
+      <>
+        {children}
+        <AppliedItemsLabel appliedItems={appliedList} />
+        <Flex csx={style.caretIcon(menu.mounted)}>
+          <IconCaretUp size="small" />
+        </Flex>
+      </>
+    ),
+    state: menu,
+    id,
+    ...restProps,
+  })
+})
+
 interface FilterDisclosureProps {
-  state: GenericFilterStateReturn<any>
-  appliedItems: AnyObject[]
+  state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+  id?: string
   children: ReactNode
 }

@@ -3,9 +3,9 @@ import React, { forwardRef } from 'react'
 import { Tabbable } from 'reakit/Tabbable'
 import { useComposite } from 'reakit/Composite'
 import type { ComponentStyleProps } from '@vtex/admin-ui-react'
-import { tag } from '@vtex/admin-ui-react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
+import { Box } from '../../../box'
 import { Text } from '../../Text'
 import { useItemContext } from './SidebarContext'
 
@@ -36,7 +36,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
       }
 
   return (
-    <tag.div
+    <Box
       as={Tabbable}
       csx={{
         zIndex: 'sidebarUl',
@@ -47,13 +47,13 @@ export const SidebarSection = forwardRef(function SidebarSection(
       {...divProps}
       ref={ref}
     >
-      <tag.div csx={{ padding: '$s', marginY: firstSection ? '$l' : '' }}>
+      <Box csx={{ padding: '$s', marginY: firstSection ? '$l' : '' }}>
         <Text csx={sectionTitleStyle} tone="primary">
           {title}
         </Text>
-      </tag.div>
+      </Box>
       {children}
-    </tag.div>
+    </Box>
   )
 })
 

@@ -248,11 +248,11 @@ All resolvers accept a render function, that returns a component. It controls th
 }
 ```
 
-| Name    | Type                                          | Description                                                         |
-| ------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| item    | `T`                                           | the item displayed for the row                                      |
-| data    | `unknown`                                     | extracted column data from the item, you need to cast it before use |
-| context | `{ loading: boolean }`                        | relevant global information about the table current state           |
+| Name    | Type                   | Description                                                         |
+| ------- | ---------------------- | ------------------------------------------------------------------- |
+| item    | `T`                    | the item displayed for the row                                      |
+| data    | `unknown`              | extracted column data from the item, you need to cast it before use |
+| context | `{ loading: boolean }` | relevant global information about the table current state           |
 
 </Section>
 
@@ -511,6 +511,135 @@ render(<Example />)
 | mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered        | ✅       | -       |
 | mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered | 🚫       | -       |
 | render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                      | 🚫       | -       |
+
+</Section>
+
+<Section hasExplanation>
+
+### Menu
+
+The menu resolver should be used when you want to easily render a Menu component and a set of actions.
+
+```jsx noInline live
+const defaultItems = [
+  {
+    id: 1,
+    productName: 'Orange',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 0,
+    price: 120,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+  {
+    id: 3,
+    productName: 'Tomato',
+    description: 'Fruit',
+    inStock: 380,
+    skus: 26,
+    price: 120,
+  },
+]
+
+function Example() {
+  const [items, setItems] = useState(defaultItems)
+
+  const state = useTableState({
+    columns: [
+      {
+        id: 'productName',
+        header: 'Name',
+        resolver: {
+          type: 'text',
+          columnType: 'name',
+          mapText: (item) => item.productName,
+          mapDescription: (item) => item.description,
+        },
+      },
+      {
+        id: 'inStock',
+        header: 'In Stock',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'text',
+          columnType: 'text',
+          mapText: (item) => item.price,
+          mapDescription: () => 'Recently updated',
+        },
+      },
+      {
+        id: 'skus',
+        header: 'SKUs',
+        resolver: {
+          type: 'plain',
+          /**
+           * this is how to use the render function
+           */
+          render: function Render({ data }) {
+            return (
+              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+            )
+          },
+        },
+      },
+      {
+        id: 'menu',
+        resolver: {
+          type: 'menu',
+          actions: [
+            {
+              label: 'Edit',
+              icon: <IconPencil />,
+              onClick: (item) => {
+                console.log(item)
+              },
+            },
+            {
+              label: 'Delete',
+              icon: <IconTrash />,
+              onClick: (item) => {
+                setItems(items.filter((i) => i.id !== item.id))
+              },
+            },
+          ],
+        },
+      },
+    ],
+    items,
+    onRowClick: (item) => alert(`Item: ${item.productName}`),
+  })
+
+  return <Table state={state} />
+}
+
+render(<Example />)
+```
+
+| Name    | Type                                                        | Description                                  | Required | Default |
+| ------- | ----------------------------------------------------------- | -------------------------------------------- | -------- | ------- |
+| type    | `menu`                                                      | Menu resolver type                           | ✅       | -       |
+| actions | `MenuAction[]`                                              | A set of actions to be rendered as MenuItems | ✅       | -       |
+| render  | `(props: ResolverRenderProps<JSX.Element, T>) => ReactNode` | Resolver render function                     | 🚫       | -       |
+
+**MenuAction**
+
+| Name     | Type                | Description                             | Required | Default |
+| -------- | ------------------- | --------------------------------------- | -------- | ------- |
+| label    | `string`            | MenuItem label                          | ✅       | -       |
+| onClick  | `(item: T) => void` | MenuItem onClick handler                | ✅       | -       |
+| icon     | `ReactNode`         | MenuItem icon                           | 🚫       | -       |
+| disabled | `boolean`           | Whether the MenuItem is disabled or not | 🚫       | `false` |
+| critical | `boolean`           | Whether the MenuItem is critical or not | 🚫       | `false` |
 
 </Section>
 
@@ -799,6 +928,126 @@ function Example() {
 
 <Section hasExplanation>
 
+### Bulk
+
+The bulk resolver should be used when you want to add a bulk actions to the table. It is a easier way of using the [BulkActions](bulk-actions) component within the Table.
+When using this resolver there are two things you should follow in order to work properly: wrap the Table component with the `SelectionTree` component and avoid adding more than 25 items per page.
+
+```jsx noInline live
+const NUMBER_OF_ITEMS = 100
+const ITEMS_PER_PAGE = 5
+
+const defaultItems = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+/**
+ * Function to simulate a request
+ * You can configure the delay and numberOfItems here
+ */
+function request(init, end, delay = 500) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, delay, defaultItems.slice(init, end))
+  })
+}
+
+function Example() {
+  const [items, setItems] = React.useState([])
+  const view = useDataViewState()
+  const pagination = usePaginationState({
+    pageSize: ITEMS_PER_PAGE,
+    total: NUMBER_OF_ITEMS,
+  })
+
+  const bulk = useBulkActions({
+    totalItems: pagination.total,
+    pageItems: items,
+    pageSize: ITEMS_PER_PAGE,
+  })
+
+  const table = useTableState({
+    view,
+    columns: [
+      { id: 'id', resolver: { type: 'bulk', state: bulk } },
+      {
+        id: 'name',
+        header: 'Product Name',
+      },
+      {
+        id: 'lastSale',
+        header: 'Last Sale',
+      },
+      {
+        id: 'price',
+        header: 'Price',
+        resolver: {
+          type: 'currency',
+          locale: 'en-US',
+          currency: 'USD',
+        },
+      },
+    ],
+    items,
+  })
+
+  React.useEffect(() => {
+    view.setStatus({ type: 'loading' })
+    request(pagination.range[0] - 1, pagination.range[1]).then((pageItems) => {
+      setItems(pageItems)
+      view.setStatus({ type: 'ready' })
+    })
+  }, [pagination.currentPage])
+
+  return (
+    <DataView state={view}>
+      <DataViewControls>
+        <FlexSpacer />
+        <Pagination
+          state={pagination}
+          preposition="of"
+          subject="results"
+          prevLabel="Previous"
+          nextLabel="Next"
+        />
+        <BulkActions state={bulk}>
+          <Button variant="tertiary" icon={<IconPencil />}>
+            Edit
+          </Button>
+          <Button variant="tertiary" icon={<IconCopySimple />}>
+            Duplicate
+          </Button>
+          <Button variant="criticalTertiary" icon={<IconTrash />}>
+            Delete
+          </Button>
+        </BulkActions>
+      </DataViewControls>
+      <SelectionTree state={bulk.selectionTree}>
+        <Table state={table} />
+      </SelectionTree>
+    </DataView>
+  )
+}
+
+render(<Example />)
+```
+
+| Name   | Type                                                      | Description                          | Required |
+| ------ | --------------------------------------------------------- | ------------------------------------ | -------- |
+| type   | `bulk`                                                    | Bulk resolver type                   | ✅       |
+| state  | `BulkActionsState<T>`                                     | The useBulkActions hook state return | ✅       |
+| render | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function             | 🚫       |
+
+</Section>
+
+<Section hasExplanation>
+
 ### Selection
 
 The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.
@@ -956,7 +1205,7 @@ render(<CompareExample />)
 
 #### initialValue
 
-- Defines the table's initial sorting value. `{ order?: 'ASC' | 'DSC', by?: string }`
+- Defines the table's initial sorting value. `{ order?: 'ASC' | 'DESC', by?: string }`
 
 - The `order` prop is related to the sorting order and `by` indicates which column is being sorted, this value should be the id of the column.
 
@@ -967,7 +1216,7 @@ render(<CompareExample />)
 #### directions
 
 - Defines the sorting order of the table.
-- It accepts an array with `ASC` and `DSC` as possible values.
+- It accepts an array with `ASC` and `DESC` as possible values.
   You can pass an array with one or two sorting directions. If you pass an array with only one sorting direction the table will only sort in one direction.
 
 </Section>

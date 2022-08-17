@@ -1,0 +1,34 @@
+import { Section } from '@site/src/components/Section'
+
+<Section>
+
+## Usage
+
+```jsx
+import { VisuallyHidden } from '@vtex/admin-ui'
+
+export function Example() {
+  return (
+    <div>
+      <VisuallyHidden>
+        <label htmlFor="search">Hidden Label</label>
+      </VisuallyHidden>
+      <input id="search" type="search" placeholder="A11y Search Input" />
+    </div>
+  )
+}
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Props
+
+Extends all the props of `span` JSX element.
+
+| Name | Type        | Description              | Required | Default |
+| ---- | ----------- | ------------------------ | -------- | ------- |
+| csx  | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+
+</Section>

@@ -1,50 +1,53 @@
-import { Role } from 'reakit'
+import React, { useState } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { focusVisible } from '@vtex/admin-ui-core'
 
+import type { MenuProps } from 'ariakit'
 import { Menu } from 'ariakit'
+import { PopoverProvider } from './filter-popover-context'
+import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
+import type { UseFilterStateReturn } from './filter/filter.state'
+import { Flex } from '../flex'
+import { FilterStatus } from './filter-status'
 
-// TODO investigate arikit buggy typing
-export const FilterPopover = createComponent<typeof Menu, any>((props) => {
-  return useElement(Menu, {
-    baseStyle: {
-      text: '$body',
-      boxShadow: '$overlay.bottom',
-      border: '$neutral',
-      borderRadius: 'default',
-      bg: '$primary',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      width: 256,
-      zIndex: 999,
-      ...focusVisible('neutral'),
-    },
-    ...props,
-  })
-})
+export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
+  (props) => {
+    const { children, state, onRetry = () => {}, ...restProps } = props
 
-export const FilterPopoverFooter = createComponent<
-  typeof Role,
-  FilterPopoverFooterProps
->((props) => {
-  const { isContentScrollable = false, ...restProps } = props
+    const [isScrollableLayout, setIsScrollableLayout] = useState(false)
+    const contextState = { isScrollableLayout, setIsScrollableLayout, state }
 
-  return useElement(Role, {
-    baseStyle: {
-      borderTop: isContentScrollable ? '$neutral' : 'none',
-      padding: '$l',
-      paddingTop: isContentScrollable ? undefined : 0,
-      display: 'flex',
-      justifyContent: 'end',
-      'button:not(:first-child)': {
-        marginLeft: '$l',
+    const shouldDisplayChildren = !(
+      state.status === 'loading' || state.status === 'empty'
+    )
+
+    return useElement(Menu, {
+      baseStyle: {
+        text: '$body',
+        boxShadow: '$overlay.bottom',
+        border: '$neutral',
+        borderRadius: 'default',
+        bg: '$primary',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        width: 256,
+        zIndex: 999,
       },
-    },
-    ...restProps,
-  })
-})
+      children: (
+        <PopoverProvider value={contextState}>
+          <Flex direction="column">
+            {shouldDisplayChildren && children}
+            <FilterStatus status={state.status} onRetry={onRetry} />
+          </Flex>
+        </PopoverProvider>
+      ),
+      state: state.menu,
+      ...restProps,
+    })
+  }
+)
 
-interface FilterPopoverFooterProps {
-  isContentScrollable?: boolean
+type FilterPopoverOptions = Omit<MenuProps, 'state'> & {
+  state: UseFilterMultipleReturn<any> | UseFilterStateReturn<any>
+  onRetry?: () => void
 }

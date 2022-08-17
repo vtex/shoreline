@@ -4,11 +4,10 @@
   --ifm-menu-color-active: #000000 !important;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-menu-link-padding-vertical: 8px;
-  --ifm-navbar-height: 170.59px !important;
 }
 
 .menu {
-  padding: 0 0 32px 0 !important;
+  padding: 24px 0 32px 0 !important;
 
   &__list-item {
     margin-top: 0 !important;
@@ -104,8 +103,6 @@
     }
   }
 }
-
-
 
 .menu__list-item--collapsed .menu__link--sublist:after {
   transform: rotateZ(360deg);

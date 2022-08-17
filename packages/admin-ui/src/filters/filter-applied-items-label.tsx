@@ -1,17 +1,14 @@
 import React from 'react'
-import { tag } from '@vtex/admin-ui-react'
-import type { AnyObject } from '..'
+import type { AnyObject } from '@vtex/admin-ui-util'
 
+import { Box } from '../box'
 import * as style from './filter.style'
 
-export const AppliedItemsLabel = (props: {
-  appliedItems: AnyObject[]
-  renderItemLabel: (item: AnyObject) => string
-}) => {
-  const { appliedItems, renderItemLabel } = props
+export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
+  const { appliedItems } = props
 
   const separator = appliedItems.length > 1 ? ',' : ''
-  const firstOptionLabel = renderItemLabel(appliedItems[0] || {}) || ''
+  const firstOptionLabel = appliedItems[0]?.label || ''
 
   const firstSelectedItemLabel = `${firstOptionLabel}${separator}`
 
@@ -21,12 +18,12 @@ export const AppliedItemsLabel = (props: {
   const appliedValuesLabel = appliedItems.length ? (
     <>
       <span>:</span>
-      <tag.span csx={{ color: '$primary' }}>
-        <tag.span csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
+      <Box as="span" csx={{ color: '$primary' }}>
+        <Box as="span" csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
           {firstSelectedItemLabel}
-        </tag.span>
+        </Box>
         {remainingSelectedItemsCount}
-      </tag.span>
+      </Box>
     </>
   ) : null
 

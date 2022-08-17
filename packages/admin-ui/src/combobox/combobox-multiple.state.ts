@@ -27,6 +27,7 @@ export function useComboboxMultipleState<T>(
     // is on the combobox input, so we set `virtualFocus` to `false` to disable
     // this behavior and put DOM focus on the items.
     virtualFocus: false,
+    getOptionValue,
     list,
   })
 

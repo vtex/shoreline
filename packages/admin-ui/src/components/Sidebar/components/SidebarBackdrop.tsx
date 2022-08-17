@@ -1,8 +1,8 @@
 import type { Ref } from 'react'
 import React, { Fragment, forwardRef } from 'react'
 import { IconCaretRight } from '@vtex/phosphor-icons'
-import { tag } from '@vtex/admin-ui-react'
 
+import { Box } from '../../../box'
 import { Button } from '../../../button'
 import type { SidebarState } from '../hooks/useSidebarState'
 import { SidebarItemSkeleton } from './SidebarItemSkeleton'
@@ -40,7 +40,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
 
   return (
     <Fragment>
-      <tag.div
+      <Box
         ref={ref}
         csx={{
           maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
@@ -55,10 +55,10 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         }}
       >
         {showSidebarItemSkeleton && <SidebarItemSkeleton />}
-      </tag.div>
+      </Box>
 
       {loading ? null : (
-        <tag.div
+        <Box
           csx={{
             position: 'absolute',
             zIndex: 'sidebarOverlay',
@@ -101,7 +101,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
             onMouseEnter={showToggle}
             onMouseLeave={hideToggle}
           />
-        </tag.div>
+        </Box>
       )}
     </Fragment>
   )

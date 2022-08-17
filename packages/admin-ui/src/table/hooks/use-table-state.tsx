@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, RefObject } from 'react'
 import { useMemo, useCallback } from 'react'
 import { get } from '@vtex/admin-ui-util'
 
@@ -62,7 +62,7 @@ export function useTableState<T>(
       .fill(0)
       .map((_, id) => {
         const item = columns.reduce((acc, col) => {
-          return { ...acc, [col.id]: '__table_skeleton__' }
+          return { ...acc, [col.id]: `__table_skeleton-${id}__` }
         }, {})
 
         return { id, ...item } as unknown as T
@@ -203,6 +203,10 @@ export interface TableState<T> {
    * Action to take on click a row
    */
   onRowClick?: (item: T) => void
+  /**
+   * Table ref
+   */
+  tableRef?: RefObject<HTMLTableElement>
 }
 
 /**

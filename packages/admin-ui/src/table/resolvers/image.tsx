@@ -133,6 +133,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
           boxShadow: '$overlay.center',
           borderRadius: '$default',
           background: '$primary',
+          zIndex: 999,
           img: {
             borderRadius: '$default',
             willChange: 'transform',

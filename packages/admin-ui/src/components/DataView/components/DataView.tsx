@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { DataViewContext } from '../context'
 import type { DataViewState } from '../state'
 import { DataViewStatus } from './DataViewStatus'
@@ -11,29 +11,23 @@ import { DataViewStatus } from './DataViewStatus'
  *
  * <DataView state={view} />
  */
-export const DataView = jsx('div')(
-  {
-    paddingY: '4',
-    overflow: 'auto',
-  },
-  {
-    options: ['state'],
-    useOptions(options: DataViewOptions, props) {
-      const { state } = options
-      const { children, ...divProps } = props
+export const DataView = createComponent<'div', DataViewOptions>((props) => {
+  const { children, state, ...restProps } = props
 
-      return {
-        ...divProps,
-        children: (
-          <DataViewContext.Provider value={state}>
-            {children}
-            <DataViewStatus />
-          </DataViewContext.Provider>
-        ),
-      }
+  return useElement('div', {
+    baseStyle: {
+      paddingY: '4',
+      overflow: 'auto',
     },
-  }
-)
+    children: (
+      <DataViewContext.Provider value={state}>
+        {children}
+        <DataViewStatus />
+      </DataViewContext.Provider>
+    ),
+    ...restProps,
+  })
+})
 
 export interface DataViewOptions {
   state: DataViewState

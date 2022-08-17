@@ -1,64 +1,56 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import type { ComboboxMultipleState } from '../../combobox'
 import { useComboboxMultipleState } from '../../combobox'
-import { useMenuState } from 'ariakit/menu'
-import type { GenericFilterStateReturn } from '../Filter/filter.state'
-import type { AnyObject } from 'packages/admin-ui-util'
+
+import type { AnyObject } from '@vtex/admin-ui-util'
+import type {
+  GenericFilterStateReturn,
+  ItemList,
+  FilterOption,
+} from '../filter/filter.state'
+import { useMenuState } from 'ariakit'
+import { useFilterStatus } from '../use-filter-status'
 
 export function useFilterMultipleState<T extends AnyObject>(
-  props: UseFilterMultipleStateProps<T>
+  props?: UseFilterMultipleStateProps<T>
 ): UseFilterMultipleReturn<T> {
-  const {
-    items = [],
-    label,
-    baseId,
-    onChange = () => {},
-    getOptionLabel = (option) => option.label,
-    getOptionId = (option) => option.id,
-  } = props
+  const { searchableList: initialSearchableList = [] } = props || {}
 
-  const [appliedItems, setAppliedItems] = useState<T[]>([])
+  const [appliedItems, setAppliedItems] = useState<ItemList<T>>([])
+  const [searchableList, setSearchableList] = useState(initialSearchableList)
 
-  const comboboxMultiple = useComboboxMultipleState<T>({
-    list: items,
-    getOptionValue: getOptionLabel,
-    compare: (optionA, optionB) =>
-      getOptionId(optionA) === getOptionId(optionB),
+  const comboboxMultiple = useComboboxMultipleState<FilterOption<T>>({
+    list: searchableList,
+    getOptionValue: (option) => option.label,
+    compare: (optionA, optionB) => optionA.id === optionB.id,
   })
+
+  const menu = useMenuState({ ...comboboxMultiple, gutter: 8 })
+  const { status, setStatus } = useFilterStatus(comboboxMultiple)
 
   useEffect(() => {
     comboboxMultiple.setSelectedItems([])
   }, [])
 
-  const menu = useMenuState(comboboxMultiple)
-
   const { selectedItems } = comboboxMultiple
 
-  const updateApplied = useCallback(
-    (items: T[]) => {
-      comboboxMultiple.setSelectedItems(items)
-      setAppliedItems(items)
+  const updateApplied = (items: ItemList<T>) => {
+    comboboxMultiple.setSelectedItems(items)
+    setAppliedItems(items)
+  }
 
-      onChange({ selected: items })
-    },
-    [onChange]
-  )
-
-  const apply = useCallback(() => {
+  const apply = () => {
     setAppliedItems(selectedItems)
-
-    onChange({ selected: selectedItems })
     menu.hide()
-  }, [onChange])
+  }
 
-  const clear = useCallback(() => {
+  const clear = () => {
     comboboxMultiple.clearSelected()
 
     setAppliedItems([])
-    onChange({ selected: [] })
     menu.hide()
-  }, [onChange])
+  }
 
   useEffect(() => {
     const isMenuClosed = !menu.mounted
@@ -71,41 +63,52 @@ export function useFilterMultipleState<T extends AnyObject>(
     }
   }, [menu.mounted])
 
+  useEffect(() => {
+    comboboxMultiple.setMatches(searchableList)
+  }, [searchableList])
+
+  const getFromApplied = (key: string) => {
+    return appliedItems
+      .map((item) => item?.[key as keyof FilterOption<T>] || item?.value?.[key])
+      .filter((item) => item !== undefined)
+  }
+
+  const {
+    matches,
+    setMatches,
+    deferredValue: deferredSearchValue,
+    value: searchValue,
+  } = comboboxMultiple
+
   return {
-    menu,
     combobox: comboboxMultiple,
     onClear: clear,
     onChange: apply,
-    items,
     appliedItems,
     setAppliedItems: updateApplied,
     selectedItems,
-    label,
-    baseId,
-    getOptionId,
-    getOptionLabel,
+    menu,
+    getFromApplied,
+    status,
+    setStatus,
+    setSearchableList,
+    matches,
+    setMatches,
+    deferredSearchValue,
+    searchValue,
   }
 }
 
 export interface UseFilterMultipleReturn<T>
   extends GenericFilterStateReturn<T> {
-  combobox: ComboboxMultipleState<T>
-  appliedItems: T[]
-  selectedItems: T[]
-  setAppliedItems: (items: T[]) => void
+  combobox: ComboboxMultipleState<FilterOption<T>>
+  appliedItems: ItemList<T>
+  selectedItems: ItemList<T>
+  setAppliedItems: (items: ItemList<T>) => void
+  getFromApplied: (key: string) => any[]
 }
 
 export interface UseFilterMultipleStateProps<T> {
-  /** Function for getting a label from the option object. */
-  getOptionLabel?: (option: T) => string
-  /** Function for getting an id from the option object. */
-  getOptionId?: (option: T) => string
-  /** Function called when a change is applied. */
-  onChange?: ({ selected }: { selected: T[] }) => void
-  /** Filter button label. */
-  label: string
-  /** Base for component and it's children id. */
-  baseId?: string
   /** List of items to be showed on the list. */
-  items?: T[]
+  searchableList?: ItemList<T>
 }

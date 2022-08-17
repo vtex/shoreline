@@ -1,14 +1,15 @@
 import type { ChangeEventHandler } from 'react'
 import React, { useMemo } from 'react'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
 import { useFieldFocus } from '@vtex/admin-ui-hooks'
 
+import { Box } from '../box'
 import * as styles from './search.style'
 import { Center } from '../center'
 import { Button } from '../button'
 import { Spinner } from '../components/Spinner'
-import { VisuallyHidden } from '../components/VisuallyHidden'
+import { VisuallyHidden } from '../visually-hidden'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './search.i18n'
 
@@ -52,7 +53,8 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     children: (
       <>
         <Center csx={styles.innerContainer('start')}>{icon}</Center>
-        <tag.input
+        <Box
+          as="input"
           ref={inputRef}
           csx={styles.input}
           placeholder={label}

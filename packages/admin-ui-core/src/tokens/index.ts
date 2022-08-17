@@ -1,3 +1,4 @@
+import { colors } from './colors'
 import { bg } from './bg'
 import { border } from './border'
 import { borderRadius } from './borderRadius'
@@ -10,8 +11,10 @@ import { space, hspace, vspace } from './space'
 import { text } from './text'
 import { transitions } from './transitions'
 import { zIndices } from './zIndices'
+import { typography } from './typography'
 
 export const tokens = {
+  colors,
   bg,
   border,
   borderRadius,
@@ -24,6 +27,7 @@ export const tokens = {
   hspace,
   vspace,
   text,
+  ...typography,
   transitions,
   zIndices,
 }

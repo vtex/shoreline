@@ -35,7 +35,7 @@ NumericSteppers represent a control for regular numerical input, where you expec
 The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neutral` (default) or `critical`, and is adjustable with the `tone` prop.
 
 ```jsx
-<Set spacing={3}>
+<Stack direction="row" space="$l">
   <NumericStepper
     value={10}
     minValue={0}
@@ -53,7 +53,7 @@ The `NumericStepper` [tone of voice](/foundations/colors/#tones) is either `neut
     criticalText="Critical text"
     label="numeric-stepper"
   />
-</Set>
+</Stack>
 ```
 
 ### Step Multiplier

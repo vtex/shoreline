@@ -1,8 +1,9 @@
 import React from 'react'
 import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement, tag } from '@vtex/admin-ui-react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconArrowLeft } from '@vtex/phosphor-icons'
 
+import { Box } from '../box'
 import { Button } from '../button'
 import { usePageHeaderContext } from './page-header-context'
 import * as style from './page.style'
@@ -35,6 +36,7 @@ export const PageHeaderTitle = createComponent<'div'>((props) => {
       <>
         {onPopNavigation && (
           <Button
+            aria-label="Back"
             variant="tertiary"
             bleedX
             size="large"
@@ -44,7 +46,7 @@ export const PageHeaderTitle = createComponent<'div'>((props) => {
             csx={style.popNavigationButton}
           />
         )}
-        <tag.div csx={style.pageHeaderTitle}>{children}</tag.div>
+        <Box csx={style.pageHeaderTitle}>{children}</Box>
       </>
     ),
     ...htmlProps,

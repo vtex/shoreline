@@ -1,7 +1,9 @@
-import { jsx } from '@vtex/admin-ui-react'
 import type { ComponentPropsWithRef } from 'react'
+import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { VariantProps } from '@vtex/admin-ui-core'
 import { keyframes } from '@vtex/admin-ui-core'
 
+import * as style from './skeleton.style'
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
  * It show users that content is loading, offering a vague preview of how content will look once it fully loads.
@@ -17,50 +19,23 @@ import { keyframes } from '@vtex/admin-ui-core'
  * }
  *
  */
-export const Skeleton = jsx('div')(
-  {
-    display: 'inline-block',
-    width: 'full',
-    height: 'full',
-    bg: '$skeleton',
-    backgroundSize: `200px 100%`,
-    backgroundRepeat: 'no-repeat',
-    lineHeight: 1,
-    borderRadius: 3,
+export const Skeleton = createComponent<'div', SkeletonOptions>((props) => {
+  const { shape = 'rect', ...restProps } = props
+  const load = keyframes({
+    '0%': { backgroundPosition: '-200px 0' },
+    '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
+  })
 
-    variants: {
-      shape: {
-        rect: {
-          borderRadius: 'default',
-        },
-        circle: {
-          borderRadius: 'circle',
-        },
-      },
+  return useElement('div', {
+    ...restProps,
+    baseStyle: {
+      ...style.baseline,
+      ...style.variants({ shape }),
+      animation: `${load} 1.2s ease-in-out infinite`,
     },
-  },
-  {
-    useOptions: (_, props) => {
-      const { csx, ...restProps } = props
+  })
+})
 
-      const load = keyframes({
-        '0%': { backgroundPosition: '-200px 0' },
-        '100%': { backgroundPosition: 'calc(200px + 100%) 0' },
-      })
-
-      return {
-        ...restProps,
-        csx: {
-          animation: `${load} 1.2s ease-in-out infinite`,
-          ...csx,
-        },
-      }
-    },
-  }
-)
-
-Skeleton.defaultProps = {
-  shape: 'rect',
-}
+export type SkeletonOptions = VariantProps<typeof style.variants>
 
 export type SkeletonProps = ComponentPropsWithRef<typeof Skeleton>

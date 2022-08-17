@@ -5,33 +5,41 @@ import {
   borderTokens,
   shadowTokens,
   theme as defaultTheme,
-  get,
   extractTokenCall,
   textTokens,
-  Set,
+  Stack,
   Text,
+  tokens as themeTokens,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
-const colorFormatter = (color: string) => {
+const getCssValue = (token) =>
+  token.split('.').reduce((acc, cur) => acc?.[cur], themeTokens)
+
+const colorFormatter = (token: string) => {
+  const color = getCssValue(token)
   const isHsla = /.*hsl|hsla.*/gi.test(color)
   const isRgba = /.*rgba.*/gi.test(color)
 
   return {
     stringfied: JSON.stringify(color),
     formatted: (
-      <Set orientation="vertical">
+      <Stack>
         {isHsla && <Text>{replaceHslForHex(color)}</Text>}
         {isRgba && <Text>{rgbaToHexA(color)}</Text>}
         <Text>{color}</Text>
-      </Set>
+      </Stack>
     ),
   }
 }
 
-const cssWithColorFormatter = (text: string) => {
-  return replaceHslForHex(text, { keepBothValues: true })
+const cssWithColorFormatter = (token: string) => {
+  const value = getCssValue(token)
+
+  return replaceHslForHex(value, { keepBothValues: true })
 }
+
+const getCssVar = (token: string) => `--admin-ui-${token.replace(/\./g, '-')}`
 
 function createMap(
   prop: string,
@@ -41,11 +49,15 @@ function createMap(
   return function map(token: string) {
     const formattedToken = `${tokenCall}.${extractTokenCall(token)}`
 
+    const value = formatValue(formattedToken)
+    const cssVar = value?.cssVar ?? getCssVar(formattedToken)
+
     return {
       token: `$${extractTokenCall(token)}`,
       formattedToken,
       description: '',
-      value: formatValue(get(defaultTheme, formattedToken, '-')),
+      cssVar,
+      value,
       type: prop,
       csx: {
         [`${prop}`]: token,
@@ -66,17 +78,26 @@ export const shadow = shadowTokens.map(
 )
 
 export const text = textTokens.map(
-  createMap('text', 'text', (v) => {
-    const keys = Object.keys(v)
+  createMap('text', 'text', (token) => {
+    const keys = Object.keys(defaultTheme.text.body)
+    const cssVar = getCssVar(token)
+    const textObject = getCssValue(token)
 
     return {
-      stringfied: JSON.stringify(v),
-      formatted: (
-        <Set orientation="vertical">
+      stringfied: JSON.stringify(textObject),
+      cssVar: (
+        <Stack>
           {keys.map((key, index) => (
-            <Text key={index}>{`${key}: ${v[key]}`}</Text>
+            <Text key={index}>{`${key}: ${cssVar}`}</Text>
           ))}
-        </Set>
+        </Stack>
+      ),
+      formatted: (
+        <Stack>
+          {keys.map((key, index) => (
+            <Text key={index}>{`${key}: ${textObject[key]}`}</Text>
+          ))}
+        </Stack>
       ),
     }
   })
