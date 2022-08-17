@@ -1,0 +1,156 @@
+---
+title: Tag
+path: /tag/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 3,
+    },
+    {
+      id: 'sizes',
+      value: 'Sizes',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: "Do's",
+      level: 2,
+    },
+  ],
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+<IntroSection>
+
+## What is this?
+
+Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
+
+</IntroSection>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  explanation="By default, the variant property has the 'lightBlue' value, but you can also set it to the following values: 'red', 'orange', 'green', 'cyan', 'teal', 'gray', 'purple' and 'pink'."
+>
+
+```jsx live
+<Inline>
+  <Tag label="Short text" />
+  <Tag label="Short text" variant="red" />
+  <Tag label="Short text" variant="orange" />
+  <Tag label="Short text" variant="green" />
+  <Tag label="Short text" variant="cyan" />
+  <Tag label="Short text" variant="teal" />
+  <Tag label="Short text" variant="gray" />
+  <Tag label="Short text" variant="purple" />
+  <Tag label="Short text" variant="pink" />
+</Inline>
+```
+
+</PageSection >
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+  explanation="By default, the size property has a 'normal' value, but you can also set it to 'large'."
+>
+
+```jsx live
+<Inline>
+  <Tag label="Short text" size="normal" />
+  <Tag label="Short text" size="large" />
+</Inline>
+```
+
+</PageSection>
+</PageSection>
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx isStatic
+import { Tag } from '@vtex/admin-ui'
+
+function Example() {
+  return <Tag label="Short text" />
+}
+```
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
+
+| Name    | Type                                                                      | Description   | Required | Default  |
+| ------- | ------------------------------------------------------------------------- | ------------- | -------- | -------- |
+| label   | `string`                                                                  | Tag label     | ✅       | -        |
+| csx     | `StyleObject`                                                             | Custom styles | 🚫       | `{}`     |
+| variant | `lightBlue`, `green`, `red`, `orange`, `cyan`, `teal`, `purple` or `pink` | Tag theme     | 🚫       | `gray`   |
+| size    | `normal`, `large`                                                         | Tag size      | 🚫       | `normal` |
+
+</PageSection >
+</PageSection >
+</Panel>
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+1. Use semantic colors that have a clear and contextualized meaning in your application, such as green for success and red for errors. However, if your application employs a richer palette with unambiguous usage of colors don't hesitate to use your Tags with them.
+2. They should always be read-only.
+
+👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+
+</PageSection>
+</Panel>
+
+</Page>
