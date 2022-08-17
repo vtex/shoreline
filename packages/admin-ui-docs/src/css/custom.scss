@@ -61,7 +61,7 @@ header>h1:first-child {
 
 @media (min-width: 997px) {
   main {
-    margin-top: -171px;
+    margin-top: -2rem;
     padding-top: 0;
 
     &>.container {
@@ -77,4 +77,8 @@ header>h1:first-child {
     padding-top: 0 !important;
     padding-bottom: 8rem !important;
   }
+}
+
+.DocSearch-Container {
+  z-index: 99999999999 !important;
 }
