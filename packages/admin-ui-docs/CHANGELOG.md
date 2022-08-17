@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.7...@vtex/admin-ui-docs@0.16.0) (2022-08-17)
+
+### Bug Fixes
+
+- **columns:** remove units default value ([5d5575d](https://github.com/vtex/admin-ui/commit/5d5575d04bc4114cd48d931515879228f53eea07))
+- **formik:** remove deprecated admin-ui-formik library ([64e874b](https://github.com/vtex/admin-ui/commit/64e874b21491c244b946229b1a85c5937a7b505f))
+- **responsive:** getResponsiveValue return type error ([59d9209](https://github.com/vtex/admin-ui/commit/59d920902e8dde75bfb6d8581a14a35b16c0b0e5))
+- **responsive-value:** remove deprecated responsive value approach ([bf4450a](https://github.com/vtex/admin-ui/commit/bf4450ab316d10031fef88b46185a076881a007c))
+- **set:** remove deprecated set component ([28cb624](https://github.com/vtex/admin-ui/commit/28cb624e7133bb156067d3b5daaa0a66c443ca64))
+
+### Features
+
+- **admin-ui-react:** remove deprecated system ([a59723f](https://github.com/vtex/admin-ui/commit/a59723f8cee7fce4f479b26d95a5e94bd3f8ac28))
+- **core:** accept color tokens on bg and fg ([1040656](https://github.com/vtex/admin-ui/commit/1040656e7bbad85beb7af58999be6f6cba952fd0))
+- **css-vars:** add function to convert the theme into css variables ([888d347](https://github.com/vtex/admin-ui/commit/888d34715123e506e5284a48396a3fcc8285e511))
+- **filters:** get filters out of experimental ([d0284a0](https://github.com/vtex/admin-ui/commit/d0284a0470d372cd580eb23b1f625338c9787b62))
+- **responsive:** add solution that make component properties able to use responsive aliases ([6725c55](https://github.com/vtex/admin-ui/commit/6725c55bd8667051df569d6551dfb527ad8f8060))
+- **visually-hidden:** add VisuallyHidden component review ([5949795](https://github.com/vtex/admin-ui/commit/594979574016858e1f9b2450953fcc3027772f9e))
+
+### Performance Improvements
+
+- **filter popover:** prevent double rerender when scroll status changes ([a49b459](https://github.com/vtex/admin-ui/commit/a49b459688348bb69bb76622a57d6fcfe71f2a15))
+
 ## [0.15.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.15.6...@vtex/admin-ui-docs@0.15.7) (2022-07-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs

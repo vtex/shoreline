@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.5.0...@vtex/admin-ui-codemod@0.6.0) (2022-08-17)
+
+### Features
+
+- **codemod:** add tag to box transform ([aa9846d](https://github.com/vtex/admin-ui/commit/aa9846dcdd2f1ca84189c14594e54565a1724b57))
+
 ## [0.5.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.5.0...@vtex/admin-ui-codemod@0.5.1-dev.0) (2022-07-27)
 
 ### Features
