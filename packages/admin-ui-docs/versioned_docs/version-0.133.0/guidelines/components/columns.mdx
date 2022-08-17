@@ -1,0 +1,19 @@
+---
+title: Columns
+path: /columns/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import Code from '@site/content/columns/code.mdx'
+import Overview from '@site/content/columns/overview.mdx'
+import { tabToc } from '@site/content/columns/toc'
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    <Overview />
+  </Panel>
+  <Panel id="codeReference">
+    <Code />
+  </Panel>
+</Page>
