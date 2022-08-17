@@ -6,6 +6,27 @@
 
 .navbar {
   z-index: 99999999;
+  box-shadow: none;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 1rem;
+
+  .navbar__title {
+    font-size: 1.2rem;
+  }
+
+  .navbar__link {
+    font-size: 1rem;
+    color: #545454;
+  }
+
+  .navbar__link--active {
+    color: var(--ifm-navbar-link-hover-color) !important;
+  }
+
+  .navbar__brand {
+    transform: scale(0.9);
+  }
+
 }
 
 .navbar .DocSearch-Button {
