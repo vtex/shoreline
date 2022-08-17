@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.11.0...@vtex/admin-ui-core@0.12.0) (2022-08-17)
+
+### Bug Fixes
+
+- **border:** helper function to apply border style not working as it should ([b16cc91](https://github.com/vtex/admin-ui/commit/b16cc911d56ff056e0850fd3bca706184d024be5))
+- **colortheme:** background and color properties not applied correctly ([fd97405](https://github.com/vtex/admin-ui/commit/fd974056bb1b9683a54b3e712ac21348ca737638))
+- **css-vars:** fix generateVars function ([e3872a3](https://github.com/vtex/admin-ui/commit/e3872a381e6d910d4c2730e4c35985cdac5017dc))
+- **responsive-value:** fix styles function ([32cbfae](https://github.com/vtex/admin-ui/commit/32cbfae6522dc233a5d325d392506aa87e84b16c))
+- **responsive-value:** remove deprecated responsive value approach ([bf4450a](https://github.com/vtex/admin-ui/commit/bf4450ab316d10031fef88b46185a076881a007c))
+
+### Features
+
+- **colortheme:** add colorTheme csx alias ([3a2906a](https://github.com/vtex/admin-ui/commit/3a2906a51553ec2d79f87fec6162595ad2314d94))
+- **core:** accept color tokens on bg and fg ([1040656](https://github.com/vtex/admin-ui/commit/1040656e7bbad85beb7af58999be6f6cba952fd0))
+- **core:** add style resolvers ([ccce4c4](https://github.com/vtex/admin-ui/commit/ccce4c41c502f7f5ecb756a7fb9f2299ba4dc761))
+- **css-vars:** add function to convert the theme into css variables ([888d347](https://github.com/vtex/admin-ui/commit/888d34715123e506e5284a48396a3fcc8285e511))
+- **fg-alias:** add fg alias as a shorthand to the color css property ([96d302d](https://github.com/vtex/admin-ui/commit/96d302d75d4bb1384d9cca11c4c0994a71d6d06c))
+- **responsive:** add solution that make component properties able to use responsive aliases ([6725c55](https://github.com/vtex/admin-ui/commit/6725c55bd8667051df569d6551dfb527ad8f8060))
+
 ## [0.11.1-dev.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.11.0...@vtex/admin-ui-core@0.11.1-dev.1) (2022-07-27)
 
 ### Bug Fixes

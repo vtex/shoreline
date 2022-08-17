@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.133.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.7...@vtex/admin-ui@0.133.0) (2022-08-17)
+
+### Bug Fixes
+
+- **alert:** action button alignment ([9a9c3e3](https://github.com/vtex/admin-ui/commit/9a9c3e3dcdfff91470fcbd3b8459710abe825f29))
+- **alert:** update icon margin style ([a3e8654](https://github.com/vtex/admin-ui/commit/a3e8654d82b969c119fb506e38f5557186918f42))
+- **bulk-actions:** allow pointer events on components rendered below the bulk actions ([423e354](https://github.com/vtex/admin-ui/commit/423e354e4df87fa89d2c2e011d1329f79beb494a))
+- **button:** :focus-visible state must include :hover state ([fc5c7c5](https://github.com/vtex/admin-ui/commit/fc5c7c5e05314d5fff418e7fc818e014b7ced6f6))
+- **checkbox:** remove margin left ([a758270](https://github.com/vtex/admin-ui/commit/a7582702da81836eead0dbf2f29fad44966a2acc))
+- **columns:** remove units default value ([5d5575d](https://github.com/vtex/admin-ui/commit/5d5575d04bc4114cd48d931515879228f53eea07))
+- **combobox multiple:** delete button not unselecting custom items ([a6812c8](https://github.com/vtex/admin-ui/commit/a6812c89e5701da66b4ece7bf0a17f121d497360))
+- **filter components:** ui fixes ([373cc43](https://github.com/vtex/admin-ui/commit/373cc43d15c65c495a8d5dd5e4d4b20b5da13376))
+- **filter control:** unnecessary margin on filter controls popover options ([c60bdd7](https://github.com/vtex/admin-ui/commit/c60bdd7bc9da3ccef134dc5a89c286962ce2666a))
+- **filter searchable:** fix option stringification on filter multiple ([baf1f7c](https://github.com/vtex/admin-ui/commit/baf1f7c183d543b2be412e84491caf236cb6b4d3))
+- **filter status:** avoid circular dependency ([b9ffdd1](https://github.com/vtex/admin-ui/commit/b9ffdd19c5fe0f06287ef2a457925def5859447e))
+- **filters:** fix imports to prevent circular dependencies ([1aeb7d9](https://github.com/vtex/admin-ui/commit/1aeb7d945afaaf6e6317d543744d346a8121cd36))
+- **filters:** fix style not updating on scrollable change ([a776cfd](https://github.com/vtex/admin-ui/commit/a776cfd3ad9d1574b72279389165eced17d840dd))
+- **flex:** remove old implementation ([b2fb789](https://github.com/vtex/admin-ui/commit/b2fb78963cf8f5112e999b3a660665a068ee1965))
+- **jsx:** replace jsx usage with createComponent and useElement ([b4e4715](https://github.com/vtex/admin-ui/commit/b4e4715d004c36c1461cf3b9c31de97331408c8a))
+- **modal:** replace responsive array usage with responsive aliases ([9788987](https://github.com/vtex/admin-ui/commit/9788987d0e7c38d529cfbecc200db1545e5e6a2b))
+- **responsive-value:** remove deprecated responsive value approach ([bf4450a](https://github.com/vtex/admin-ui/commit/bf4450ab316d10031fef88b46185a076881a007c))
+- **selection tree:** avoid infinite re-render when the items list is empty ([572d538](https://github.com/vtex/admin-ui/commit/572d538c9b7c747c8c579c69d953543dc8669dbb))
+- **set:** remove deprecated set component ([28cb624](https://github.com/vtex/admin-ui/commit/28cb624e7133bb156067d3b5daaa0a66c443ca64))
+- **table:** add pr suggestion ([efceefc](https://github.com/vtex/admin-ui/commit/efceefcbdfdaadb457c5f2a41621c991caed884a))
+- **tooltip:** avoid "submit" as the default type of the trigger button ([8bbcffd](https://github.com/vtex/admin-ui/commit/8bbcffdeca285c784767a0ed454627bc2f7742a1))
+- **visually-hidden:** add pr suggestions ([f6d6294](https://github.com/vtex/admin-ui/commit/f6d6294a01de827db9c99a1a737303f68f722f56))
+
+### Features
+
+- **admin-ui-react:** remove deprecated system ([a59723f](https://github.com/vtex/admin-ui/commit/a59723f8cee7fce4f479b26d95a5e94bd3f8ac28))
+- **bulk-actions:** add bleed to the buttons to match design specs ([b76dd52](https://github.com/vtex/admin-ui/commit/b76dd52b19cb307001750c3de95ba55325d86542))
+- **bulk-actions:** add bulk actions draft ([3559e8c](https://github.com/vtex/admin-ui/commit/3559e8ccd98039f62ad728e09f0e233b5cd8b30f))
+- **bulk-actions:** add bulk actions resolver draft to the table ([c3ac704](https://github.com/vtex/admin-ui/commit/c3ac704d684df5ba7967379901ba3b128ebdbd96))
+- **bulk-actions:** add intl messages ([1d6d53f](https://github.com/vtex/admin-ui/commit/1d6d53f3c9e887c1579016dc2259e6c11c0b30a9))
+- **bulk-actions:** improve typescript ([0220942](https://github.com/vtex/admin-ui/commit/02209428568ae3f89d79fa836ae93c7d3ff715f2))
+- **card:** add card component review ([84ce301](https://github.com/vtex/admin-ui/commit/84ce301100a679435309a9dfebb6a34c262387b7))
+- **card:** change Card component API ([ccb293d](https://github.com/vtex/admin-ui/commit/ccb293dada478c39df54aad0aa7fec87f7d8038b))
+- **columns:** add Columns component review ([f78b226](https://github.com/vtex/admin-ui/commit/f78b226288967a57f7eb3c41b04193709fa962df))
+- **core:** accept color tokens on bg and fg ([1040656](https://github.com/vtex/admin-ui/commit/1040656e7bbad85beb7af58999be6f6cba952fd0))
+- **filter:** add onRetry prop to filter ([2f4befc](https://github.com/vtex/admin-ui/commit/2f4befce9b32df8ab6e968dcdfbc81d631ce20fd))
+- **filter:** change newly visible filters opening order ([774928d](https://github.com/vtex/admin-ui/commit/774928d5e2e5fb64122aee2b70affe96934875f8))
+- **filter:** export composable filter components ([9797139](https://github.com/vtex/admin-ui/commit/9797139d203d0cd9ff4b0cec82a5608559240572))
+- **filter:** small style fixes ([8201b95](https://github.com/vtex/admin-ui/commit/8201b956689b79a3518907820cf2742f038d6043))
+- **filter control:** export components ([36fb705](https://github.com/vtex/admin-ui/commit/36fb705b2647deccf6d45c27a2bd8a06000957ad))
+- **filter i18n:** add translation to mostlanguages ([48cd39b](https://github.com/vtex/admin-ui/commit/48cd39b2d52961fc590c6f1bf95102f1319127e5))
+- **filter search:** add empty and error state to filter search ([87c543d](https://github.com/vtex/admin-ui/commit/87c543d1e2ca96c130928cf415644532ab8d88d0))
+- **filter search:** enable getting full search list after initialization ([ef1ae67](https://github.com/vtex/admin-ui/commit/ef1ae67224d65906e3da3641347b216d8d767fd8))
+- **filter state:** move main combobox controllers to root of filter state ([64312ec](https://github.com/vtex/admin-ui/commit/64312ec392c95c61a8922001041333a42e838da6))
+- **filter status:** add all filter status ([64fbd3b](https://github.com/vtex/admin-ui/commit/64fbd3ba72779d6c68c926bf4785d27d4403f00c))
+- **filtergroup:** add onclear prop to filter group state ([f3f6e95](https://github.com/vtex/admin-ui/commit/f3f6e9555bf7eb1b8368e4fa98a8a1c4a8e6fa5f))
+- **filters:** add components that enable filter visibility toggling ([c9d841c](https://github.com/vtex/admin-ui/commit/c9d841c4ba65a08e34b651789d471e892ef7fee9))
+- **filters:** enable csx on all composable filter components ([02e3c20](https://github.com/vtex/admin-ui/commit/02e3c20bd18b098440dfbf5818d5bd84a2fc8304))
+- **filters:** get filters out of experimental ([d0284a0](https://github.com/vtex/admin-ui/commit/d0284a0470d372cd580eb23b1f625338c9787b62))
+- **filters:** implement suggested composable API ([882f425](https://github.com/vtex/admin-ui/commit/882f42565b60f78eb17a09b4ad98eb6ce2eb9d5e))
+- **filters:** make state available through context for composite components ([9d180dc](https://github.com/vtex/admin-ui/commit/9d180dc26af403f8fd40a2538f744b2f8929fba3))
+- **flex:** add flex component review ([1bd41b2](https://github.com/vtex/admin-ui/commit/1bd41b2e9a7236d9e94a5e15f5420f0fb66d36d6))
+- **grid:** add Grid component review ([318487b](https://github.com/vtex/admin-ui/commit/318487be60cf01ba556711387ecdf8a674c797cd))
+- **hidden filters:** add i18n ([5d60f48](https://github.com/vtex/admin-ui/commit/5d60f481d8c2ad94ae67726c26aad65baaf958d7))
+- **hidden filters:** auto open popover on show ([6f1ff84](https://github.com/vtex/admin-ui/commit/6f1ff84cf47adc5debc4257426051e8dffbb55bf))
+- **hidden filters:** implement special style for filter selector ([d5ecaa2](https://github.com/vtex/admin-ui/commit/d5ecaa2b9def2b39836a43715bc0d25f906c6f74))
+- **responsive:** add solution that make component properties able to use responsive aliases ([6725c55](https://github.com/vtex/admin-ui/commit/6725c55bd8667051df569d6551dfb527ad8f8060))
+- **table:** add box-shadow on vertical scroll ([edbad80](https://github.com/vtex/admin-ui/commit/edbad80e9c2f7f474d0271d6579e1acea0b0b7f0))
+- **table:** add menu resolver ([9996b49](https://github.com/vtex/admin-ui/commit/9996b49ebce3a85aba445a46c04dd9822008a768))
+- **table:** add style to the last fixed column on the horizontal scroll ([e05afde](https://github.com/vtex/admin-ui/commit/e05afde693e8605cb6e926066c9512e1df0861c8))
+- **table:** enable columns to be fixed on horizontal scroll ([393ce63](https://github.com/vtex/admin-ui/commit/393ce633d5ef599e728eca136693b541afc02337))
+- **table:** stick table head on scroll ([c62e550](https://github.com/vtex/admin-ui/commit/c62e550e627f5dd60bd1d5453baa5c625c8b0d36))
+- **toast:** review design specs ([b692fd1](https://github.com/vtex/admin-ui/commit/b692fd144733019f09e5499675ab7a2cda8e2ebe))
+- **visually-hidden:** add VisuallyHidden component review ([5949795](https://github.com/vtex/admin-ui/commit/594979574016858e1f9b2450953fcc3027772f9e))
+
+### Performance Improvements
+
+- **bulk-actions:** improve state logic performance ([7c64747](https://github.com/vtex/admin-ui/commit/7c64747736bf92c9af6ea44daaa96a32fb52cb91))
+- **filter popover:** prevent double rerender when scroll status changes ([a49b459](https://github.com/vtex/admin-ui/commit/a49b459688348bb69bb76622a57d6fcfe71f2a15))
+
 ## [0.132.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.6...@vtex/admin-ui@0.132.7) (2022-07-29)
 
 ### Bug Fixes
