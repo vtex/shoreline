@@ -23,6 +23,15 @@ export const disclosure = style({
   },
 })
 
+export const disclosureVariants = styleVariants({
+  open: {
+    true: {
+      bg: '$action.neutral.secondaryPressed',
+      color: '$secondary',
+    },
+  },
+})
+
 export const caretIcon = (isOpen: boolean) =>
   style({
     marginLeft: '$s',
