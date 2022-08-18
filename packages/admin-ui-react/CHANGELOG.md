@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.9.2...@vtex/admin-ui-react@0.9.3) (2022-08-18)
+
+### Bug Fixes
+
+- **react:** export theme-provider props ([b4414df](https://github.com/vtex/admin-ui/commit/b4414df2a03ac6f3f071b82aee09cc1f86b0e500))
+
 ## [0.9.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.9.1...@vtex/admin-ui-react@0.9.2) (2022-08-18)
 
 **Note:** Version bump only for package @vtex/admin-ui-react
