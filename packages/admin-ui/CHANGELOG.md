@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.0...@vtex/admin-ui@0.133.1) (2022-08-18)
+
+### Bug Fixes
+
+- **admin-ui:** update ariakit version ([25fef9c](https://github.com/vtex/admin-ui/commit/25fef9c4c15ea1371821acfa54200d0d6566b483))
+
 # [0.133.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.7...@vtex/admin-ui@0.133.0) (2022-08-17)
 
 ### Bug Fixes
