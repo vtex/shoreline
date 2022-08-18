@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.12.0...@vtex/admin-ui-core@0.12.1) (2022-08-18)
+
+### Bug Fixes
+
+- **admin-ui:** remove unused babel plugin ([f2e0bea](https://github.com/vtex/admin-ui/commit/f2e0beaf0c7f9a3b1d09bc89c496782078e20980))
+
 # [0.12.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.11.0...@vtex/admin-ui-core@0.12.0) (2022-08-17)
 
 ### Bug Fixes
