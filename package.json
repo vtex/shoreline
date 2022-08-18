@@ -17,14 +17,13 @@
     "turbo": "turbo",
     "build": "yarn turbo run build",
     "dev": "yarn turbo run dev --no-cache --parallel --continue",
-    "watch": "preconstruct watch",
     "test": "jest --color --runInBand --ci",
-    "version": "lerna run version",
+    "version": "yarn lerna run version",
     "prepublish:main": "yarn && yarn build && yarn check --integrity",
     "prepublish:dev": "yarn && yarn build",
-    "publish:main": "lerna publish",
+    "publish:main": "yarn lerna publish",
     "publish:dev": "yarn lerna publish prerelease --preid dev --dist-tag dev",
-    "clean": "turbo clean && turbo run clean",
+    "clean": "yarn turbo clean && turbo run clean",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint packages/ --ext .js,.ts,.jsx,.tsx",
     "storybook": "start-storybook -p 6006",
@@ -34,7 +33,7 @@
     "build:docs": "yarn --cwd packages/admin-ui-docs build-docs",
     "version:docs": "yarn --cwd packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
-    "build:ci": "preconstruct build",
+    "build:ci": "yarn turbo run build",
     "test:ci": "jest --color --runInBand --ci",
     "lint:ci": "yarn lint"
   },
@@ -54,7 +53,6 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/prompt": "^9.1.2",
-    "@preconstruct/cli": "^2.1.5",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
@@ -128,13 +126,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*",
-      "!packages/admin-ui-docs",
-      "!packages/admin-ui-codemod",
-      "!packages/gatsby-plugin-admin-ui"
-    ]
   }
 }
