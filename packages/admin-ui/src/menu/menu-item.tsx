@@ -5,7 +5,7 @@ import {
   useElement,
   IconContainer,
 } from '@vtex/admin-ui-react'
-import { MenuItem as AriakitMenuItem } from 'ariakit/menu'
+import { MenuItem as AriakitMenuItem } from 'ariakit'
 
 import { MenuItemWrapper } from './menu-item-wrapper'
 import { Center } from '../center'

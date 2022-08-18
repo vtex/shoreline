@@ -15,7 +15,7 @@ export const baseline = style({
   color: '$primary',
   border: 'none',
   paddingX: '0.75rem',
-  outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+  outlineColor: (theme: any) => get(theme, 'bg.primary', 'bg.primary'),
   outlineWidth: '0.125rem',
   outlineStyle: 'solid',
 })

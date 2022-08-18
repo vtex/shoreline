@@ -1,8 +1,7 @@
 import type { KeyboardEventHandler, ReactNode } from 'react'
 import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
-import { Focusable } from 'ariakit/focusable'
-import { CompositeItem } from 'ariakit/composite'
+import { Focusable, CompositeItem } from 'ariakit'
 
 import { Box } from '../box'
 import { messages } from './combobox.i18n'

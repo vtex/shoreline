@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import { Combobox } from 'ariakit/combobox'
-import { Composite, useCompositeState } from 'ariakit/composite'
+import { Combobox, Composite, useCompositeState } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 

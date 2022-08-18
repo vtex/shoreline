@@ -1,7 +1,4 @@
-import type {
-  CheckboxProps as ReakitProps,
-  CheckboxStateReturn,
-} from 'reakit/Checkbox'
+import type { CheckboxProps as ReakitProps, CheckboxStateReturn } from 'reakit'
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 import type { SwitchButton } from './switch-button'

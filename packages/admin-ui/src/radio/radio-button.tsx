@@ -1,4 +1,4 @@
-import { Radio as AriakitRadio } from 'ariakit/radio'
+import { Radio as AriakitRadio } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './radio.style'

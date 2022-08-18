@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 
 import { createComponent } from '@vtex/admin-ui-react'
-import { unstable_useId as useId } from 'reakit/Id'
+import { unstable_useId as useId } from 'reakit'
 
 import { Label } from '../components/Label'
 import { Stack } from '../stack'

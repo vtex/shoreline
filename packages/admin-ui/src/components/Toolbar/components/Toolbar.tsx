@@ -1,5 +1,5 @@
 import React from 'react'
-import { Toolbar as ReakitToolbar } from 'reakit/Toolbar'
+import { Toolbar as ReakitToolbar } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Inline } from '../../../inline'

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Clickable } from 'reakit/Clickable'
+import { Clickable } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { callAllHandlers } from '@vtex/admin-ui-util'
 

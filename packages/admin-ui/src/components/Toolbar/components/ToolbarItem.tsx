@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { ToolbarItem as BaseToolbarItem } from 'reakit/Toolbar'
+import { ToolbarItem as BaseToolbarItem } from 'reakit'
 
 import { useToolbarContext } from '../context'
 

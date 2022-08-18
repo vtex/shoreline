@@ -1,5 +1,5 @@
 import React from 'react'
-import type { DialogStateReturn } from 'reakit/Dialog'
+import type { DialogStateReturn } from 'reakit'
 import invariant from 'tiny-invariant'
 
 import type { ModalSize } from '../types'

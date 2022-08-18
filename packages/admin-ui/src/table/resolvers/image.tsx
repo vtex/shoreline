@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
-import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
+import { Tooltip, TooltipReference, useTooltipState } from 'reakit'
 import invariant from 'tiny-invariant'
 import type { StyleObject } from '@vtex/admin-ui-core'
 import { style, focusVisible } from '@vtex/admin-ui-core'
@@ -23,7 +23,7 @@ const imageStyles = style({
   minSize: '2.75rem',
   verticalAlign: 'middle',
   borderRadius: '$default',
-  outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+  outlineColor: (theme: any) => get(theme, 'bg.primary', 'bg.primary'),
   outlineWidth: '0.125rem',
   outlineStyle: 'solid',
 })

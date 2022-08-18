@@ -3,9 +3,12 @@
   "description": "admin-ui shared hooks",
   "license": "MIT",
   "version": "0.4.1",
-  "main": "dist/vtex-admin-ui-hooks.cjs.js",
-  "module": "dist/vtex-admin-ui-hooks.esm.js",
-  "types": "dist/vtex-admin-ui-hooks.cjs.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react react-dom @vtex/admin-ui-util --legacy-output"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -27,10 +30,13 @@
   },
   "peerDependencies": {
     "react": "^16.9 || ^17.0",
-    "react-dom": "^16.9 || ^17.0"
+    "react-dom": "^16.9 || ^17.0",
+    "@vtex/admin-ui-util": ">=0.x"
+  },
+  "devDependencies": {
+    "@vtex/admin-ui-util": "^0.4.1"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.4.1",
     "tiny-invariant": "^1.2.0",
     "use-debounce": "^7.0.0"
   }

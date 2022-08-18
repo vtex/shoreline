@@ -1,5 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { MenuSeparator } from 'ariakit/menu'
+import { MenuSeparator } from 'ariakit'
 
 import * as style from './menu.style'
 

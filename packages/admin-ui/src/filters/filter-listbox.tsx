@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { ComboboxList } from 'ariakit/combobox'
+import { ComboboxList } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './filter.style'

@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { merge } from '@vtex/admin-ui-util'
-import { useCompositeItem } from 'reakit/Composite'
+import { useCompositeItem } from 'reakit'
 
 import type { ButtonProps } from '../../../button'
 import { Button } from '../../../button'

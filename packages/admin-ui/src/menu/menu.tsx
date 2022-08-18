@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu as AriakitMenu } from 'ariakit/menu'
+import { Menu as AriakitMenu } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './menu.style'

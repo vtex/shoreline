@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
+import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './combobox.style'

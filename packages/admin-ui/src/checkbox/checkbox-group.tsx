@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
-import { Group as AriaCheckboxGroup } from 'ariakit/group'
+import { Group as AriaCheckboxGroup } from 'ariakit'
 
 import { Stack } from '../stack'
 

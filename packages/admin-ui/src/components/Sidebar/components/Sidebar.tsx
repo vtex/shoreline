@@ -1,6 +1,6 @@
 import type { ReactElement, Ref } from 'react'
 import React, { Children, cloneElement, Fragment, forwardRef } from 'react'
-import { CompositeGroup } from 'reakit/Composite'
+import { CompositeGroup } from 'reakit'
 
 import type { BoxProps } from '../../../box'
 import { Box } from '../../../box'

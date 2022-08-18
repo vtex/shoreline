@@ -40,7 +40,7 @@ export const MenuButton = createComponent<
     variant,
   })
 
-  const colorVariantsStyle = state.visible
+  const colorVariantsStyle = state.open
     ? buttonColorVariants[':active' as keyof StyleProp]
     : buttonColorVariants
 
@@ -61,7 +61,7 @@ export const MenuButton = createComponent<
       size: 'regular',
     },
     custom: {
-      icon: state.visible ? <IconCaretUp /> : <IconCaretDown />,
+      icon: state.open ? <IconCaretUp /> : <IconCaretDown />,
       position: 'end',
       size: 'small',
     },
@@ -82,8 +82,12 @@ export const MenuButton = createComponent<
       })
     : {}
 
-  return useElement(AriakitMenuButton, {
+  const ariaLabels: any = {
     'aria-label': menuLabel,
+  }
+
+  return useElement(AriakitMenuButton, {
+    ...ariaLabels,
     ...buttonProps,
     baseStyle: {
       ...style.buttonStyle,

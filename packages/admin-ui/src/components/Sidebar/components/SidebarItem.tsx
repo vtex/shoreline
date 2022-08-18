@@ -6,7 +6,7 @@ import React, {
   useMemo,
   forwardRef,
 } from 'react'
-import { CompositeItem, useCompositeState } from 'reakit/Composite'
+import { CompositeItem, useCompositeState } from 'reakit'
 
 import { Box } from '../../../box'
 import type { SidebarDisclosureProps } from './SidebarDisclosure'

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { RadioState } from 'ariakit/radio'
-import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
+import type { RadioState } from 'ariakit'
+import { RadioGroup as AriakitRadioGroup } from 'ariakit'
 
 import {
   FormControl,
@@ -77,5 +77,5 @@ export interface RadioGroupOptions {
   optional?: boolean
 }
 
-export { useRadioState } from 'ariakit/radio'
-export type { RadioState } from 'ariakit/radio'
+export { useRadioState } from 'ariakit'
+export type { RadioState } from 'ariakit'

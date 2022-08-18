@@ -1,5 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { Role } from 'reakit/Role'
+import { Role } from 'reakit'
 import { ariaAttr, callAllHandlers } from '@vtex/admin-ui-util'
 import { useOnKeyDown } from '@vtex/admin-ui-hooks'
 

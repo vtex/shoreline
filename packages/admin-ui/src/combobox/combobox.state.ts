@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from 'react'
 import type {
   ComboboxStateProps as AriakitComboboxStateProps,
   ComboboxState as AriakitComboboxState,
-} from 'ariakit/combobox'
-import { useComboboxState as useAriakitComboboxState } from 'ariakit/combobox'
+} from 'ariakit'
+import { useComboboxState as useAriakitComboboxState } from 'ariakit'
 import { useDebounce } from '@vtex/admin-ui-hooks'
 
 // TODO: allow dev to customize the matches func

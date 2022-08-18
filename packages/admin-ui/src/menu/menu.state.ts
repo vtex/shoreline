@@ -1,4 +1,4 @@
-import { useMenuState as useAriakitMenuState } from 'ariakit/menu'
+import { useMenuState as useAriakitMenuState } from 'ariakit'
 
 export const useMenuState: MenuStateReturn = (props?) =>
   useAriakitMenuState({
@@ -7,4 +7,4 @@ export const useMenuState: MenuStateReturn = (props?) =>
   })
 
 export type MenuStateReturn = typeof useAriakitMenuState
-export type { MenuState } from 'ariakit/menu'
+export type { MenuState } from 'ariakit'

@@ -1,7 +1,7 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import type { ComponentPropsWithRef } from 'react'
-import { Separator as ReakitSeparator } from 'reakit/Separator'
+import { Separator as ReakitSeparator } from 'reakit'
 
 import * as style from './divider.style'
 

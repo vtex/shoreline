@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { Role } from 'reakit/Role'
+import { Role } from 'reakit'
 
 import { Text } from '../../Text'
 

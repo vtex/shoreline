@@ -1,6 +1,6 @@
 import React from 'react'
 import { createComponent, useElement, useSystem } from '@vtex/admin-ui-react'
-import { Combobox, ComboboxCancel } from 'ariakit/combobox'
+import { Combobox, ComboboxCancel } from 'ariakit'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import type { ComboboxState } from './combobox.state'

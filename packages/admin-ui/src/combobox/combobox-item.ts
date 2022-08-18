@@ -1,6 +1,6 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { ComboboxItemOptions } from 'ariakit/combobox'
-import { useComboboxItem } from 'ariakit/combobox'
+import type { ComboboxItemOptions } from 'ariakit'
+import { useComboboxItem } from 'ariakit'
 import type { HTMLProps } from 'react'
 import type { AnyObject } from '@vtex/admin-ui-util'
 

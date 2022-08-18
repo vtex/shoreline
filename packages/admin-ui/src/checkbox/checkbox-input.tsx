@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import type { CheckboxOptions as AriakitCheckboxOptions } from 'ariakit/checkbox'
-import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
+import type { CheckboxOptions as AriakitCheckboxOptions } from 'ariakit'
+import { Checkbox as AriakitCheckbox } from 'ariakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 

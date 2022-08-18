@@ -1,7 +1,6 @@
 import { useState, useCallback, useMemo } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { CompositeItem } from 'reakit/Composite'
-import { unstable_useId as useId } from 'reakit/Id'
+import { CompositeItem, unstable_useId as useId } from 'reakit'
 import { callAllHandlers } from '@vtex/admin-ui-util'
 import { useSpinButton } from '@react-aria/spinbutton'
 import { mergeProps } from '@react-aria/utils'

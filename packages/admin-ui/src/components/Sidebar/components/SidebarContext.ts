@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
-import type { CompositeStateReturn } from 'reakit/Composite'
+import type { CompositeStateReturn } from 'reakit'
 
 import type { SidebarState } from '../hooks/useSidebarState'
 

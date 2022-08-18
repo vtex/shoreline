@@ -1,5 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { Popover } from 'reakit/Popover'
+import { Popover } from 'reakit'
 
 import type { PickerStateReturn } from './picker-state'
 import * as style from './picker.style'

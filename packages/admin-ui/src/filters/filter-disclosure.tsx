@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React, { useEffect } from 'react'
 
 import { IconCaretUp } from '@vtex/phosphor-icons'
-import { MenuButton } from 'ariakit/menu'
+import { MenuButton } from 'ariakit'
 
 import * as style from './filter.style'
 import { AppliedItemsLabel } from './filter-applied-items-label'

@@ -1,34 +1,9 @@
 {
   "name": "onda",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "turbo": {
-    "baseBranch": "origin/main",
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": []
-      },
-      "test": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": []
-      },
-      "lint": {
-        "outputs": []
-      },
-      "dev": {
-        "cache": false
-      }
-    }
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vtex/admin-ui.git"
@@ -40,11 +15,10 @@
   "scripts": {
     "lerna": "lerna",
     "turbo": "turbo",
-    "build": "preconstruct build",
+    "build": "yarn turbo run build",
+    "dev": "yarn turbo run dev --no-cache --parallel --continue",
     "watch": "preconstruct watch",
-    "postinstall": "preconstruct dev",
     "test": "jest --color --runInBand --ci",
-    "dev": "turbo run dev --parallel --no-cache",
     "version": "lerna run version",
     "prepublish:main": "yarn && yarn build && yarn check --integrity",
     "prepublish:dev": "yarn && yarn build",
@@ -127,7 +101,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
-    "turbo": "^1.0.3",
+    "turbo": "1.4.3",
+    "tsup": "6.2.2",
     "typescript": "^4.0.2",
     "url-loader": "^4.1.0",
     "@rollup/plugin-url": "^5.0.1",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconCaretLeft, IconCaretRight } from '@vtex/phosphor-icons'
-import { Role } from 'reakit/Role'
+import { Role } from 'reakit'
 
 import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'

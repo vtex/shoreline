@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ComboboxItem } from 'ariakit/combobox'
+import { ComboboxItem } from 'ariakit'
 
 import * as style from '../filter.style'
 

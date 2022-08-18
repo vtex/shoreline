@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { Tabbable } from 'reakit/Tabbable'
-import { useComposite } from 'reakit/Composite'
+import { Tabbable, useComposite } from 'reakit'
 import type { ComponentStyleProps } from '@vtex/admin-ui-react'
 import type { StyleProp } from '@vtex/admin-ui-core'
 

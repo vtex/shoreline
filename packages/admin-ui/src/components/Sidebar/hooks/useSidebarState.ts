@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import { useCallback, useState } from 'react'
 import { isElement } from 'react-is'
-import type { CompositeStateReturn } from 'reakit/Composite'
-import { useCompositeState } from 'reakit/Composite'
+import type { CompositeStateReturn } from 'reakit'
+import { useCompositeState } from 'reakit'
 
 import { useReducedState } from './useReducedState'
 

@@ -1,5 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { PopoverDisclosure } from 'reakit/Popover'
+import { PopoverDisclosure } from 'reakit'
 import { callAllHandlers } from '@vtex/admin-ui-util'
 
 import type { PickerStateReturn } from './picker-state'

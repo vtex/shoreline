@@ -1,7 +1,7 @@
 import type { FunctionComponentElement } from 'react'
 import React, { cloneElement } from 'react'
 import { useSystem } from '@vtex/admin-ui-react'
-import type { TooltipStateProps } from 'ariakit/Tooltip'
+import type { TooltipStateProps } from 'ariakit'
 import {
   useTooltipState,
   Tooltip as TooltipPopover,
@@ -34,7 +34,7 @@ export function Tooltip(props: TooltipProps) {
     placement,
     visible,
     gutter: hasChildren ? 2 : 0,
-  })
+  } as any)
 
   const tooltipAnchorChildren: FunctionComponentElement<unknown> = children ?? (
     <TooltipTrigger bleedX={bleedX} bleedY={bleedY} />

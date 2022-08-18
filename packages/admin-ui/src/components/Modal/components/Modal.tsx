@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import React, { useCallback } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
-import type { DialogOptions } from 'reakit/Dialog'
-import { Dialog, DialogBackdrop } from 'reakit/Dialog'
+import type { DialogOptions } from 'reakit'
+import { Dialog, DialogBackdrop } from 'reakit'
 
 import { Box } from '../../../box'
 import type { ModalStateReturn } from '../state'

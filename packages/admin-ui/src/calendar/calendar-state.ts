@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useMemo, useState, useCallback } from 'react'
-import { unstable_useId as useId } from 'reakit/Id'
+import { unstable_useId as useId } from 'reakit'
 import { useControllableState } from '@vtex/admin-ui-hooks'
 import {
   addDays,

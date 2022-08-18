@@ -1,4 +1,4 @@
-import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
+import { Checkbox as ReakitCheckbox } from 'reakit'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './switch.style'

@@ -1,6 +1,6 @@
 import type { FunctionComponentElement } from 'react'
 import React, { Children, cloneElement } from 'react'
-import { DialogDisclosure } from 'reakit/Dialog'
+import { DialogDisclosure } from 'reakit'
 
 import type { ModalStateReturn } from '../state'
 
@@ -24,7 +24,11 @@ export function ModalDisclosure(props: ModalDisclosureProps) {
   Children.only(children)
 
   return (
-    <DialogDisclosure state={state} ref={children.ref} {...children.props}>
+    <DialogDisclosure
+      state={state}
+      ref={children.ref}
+      {...(children as any).props}
+    >
       {(enhancedProps) => cloneElement(children, enhancedProps)}
     </DialogDisclosure>
   )

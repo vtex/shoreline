@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { CheckboxCheck } from 'ariakit/checkbox'
-import type { ComboboxItemProps } from 'ariakit/combobox'
+import { CheckboxCheck } from 'ariakit'
+import type { ComboboxItemProps } from 'ariakit'
 import { ComboboxItem } from './combobox-item'
 
 import * as style from './combobox.style'

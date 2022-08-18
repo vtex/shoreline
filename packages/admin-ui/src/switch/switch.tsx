@@ -1,8 +1,7 @@
 import React from 'react'
-import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { useCheckboxState } from 'reakit/Checkbox'
+import type { Checkbox as ReakitCheckbox } from 'reakit'
+import { useCheckboxState, unstable_useId as useId } from 'reakit'
 import { createComponent } from '@vtex/admin-ui-react'
-import { unstable_useId as useId } from 'reakit/Id'
 
 import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
