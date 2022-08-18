@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.133.3",
+  "version": "0.133.4",
   "main": "dist/vtex-admin-ui.cjs.js",
   "module": "dist/vtex-admin-ui.esm.js",
   "types": "dist/vtex-admin-ui.cjs.d.ts",
@@ -47,7 +47,7 @@
     "@react-stately/list": "^3.4.1",
     "@vtex/admin-ui-core": "^0.12.2",
     "@vtex/admin-ui-hooks": "^0.4.1",
-    "@vtex/admin-ui-react": "^0.9.2",
+    "@vtex/admin-ui-react": "^0.9.3",
     "@vtex/admin-ui-util": "^0.4.1",
     "@vtex/phosphor-icons": "0.2.8",
     "ariakit": "2.0.0-next.39",
