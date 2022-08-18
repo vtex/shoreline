@@ -6,6 +6,7 @@ import {
   styles,
   globalCss,
   cx,
+  csx,
 } from '@vtex/admin-ui-core'
 import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
@@ -21,8 +22,6 @@ interface ThemeProviderProps {
   experimentalTheme?: any
   experimentalDisabledGlobalStyles?: boolean
 }
-
-export const csx = createCsx(theme)
 
 export function ThemeProvider(props: ThemeProviderProps) {
   const {
