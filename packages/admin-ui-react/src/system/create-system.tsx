@@ -17,7 +17,7 @@ import 'focus-visible/dist/focus-visible'
 import { IconProvider } from './icons'
 import { SystemContext } from './context'
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children?: ReactNode
   experimentalTheme?: any
   experimentalDisabledGlobalStyles?: boolean
