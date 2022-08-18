@@ -41,7 +41,12 @@ export const FilterDisclosure = createComponent<
   }, [])
 
   return useElement(MenuButton, {
-    baseStyle: style.disclosure,
+    baseStyle: {
+      ...style.disclosure,
+      ...style.disclosureVariants({
+        open: menu.mounted,
+      }),
+    },
     children: (
       <>
         {children}
