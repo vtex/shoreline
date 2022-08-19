@@ -7,7 +7,7 @@
   "loglevel": "success",
   "command": {
     "publish": {
-      "allowBranch": ["main", "dev"],
+      "allowBranch": ["main", "dev", "build/tsup-turbo"],
       "conventionalCommits": true,
       "message": "chore(release): publish [skip ci]"
     }
