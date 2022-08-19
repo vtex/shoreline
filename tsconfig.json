@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "declarationMap": true,
-    "noEmit": true
+    "noEmit": true,
+    "emitDecoratorMetadata": false
   },
   "exclude": ["node_modules", "dist", "stories", "test"]
 }

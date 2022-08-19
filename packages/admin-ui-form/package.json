@@ -7,7 +7,7 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react react-dom @vtex/admin-ui --legacy-output"
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react,react-dom,@vtex/admin-ui --legacy-output"
   },
   "publishConfig": {
     "access": "public",

@@ -1,7 +1,7 @@
-export * from '@vtex/admin-ui-core'
-export * from '@vtex/admin-ui-react'
-export * from '@vtex/admin-ui-hooks'
-export * from '@vtex/admin-ui-util'
+export * from './internals.core'
+export * from './internals.hooks'
+export * from './internals.react'
+export * from './internals.util'
 
 export * from './experimental'
 
