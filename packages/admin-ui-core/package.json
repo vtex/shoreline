@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
-  "version": "0.12.3-canary.0",
+  "version": "0.12.3-canary.1",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui-util": "^0.4.2-canary.0"
+    "@vtex/admin-ui-util": "^0.4.2-canary.1"
   },
   "dependencies": {
     "@stitches/react": "1.2.8",

@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui-form",
   "description": "Admin UI form library",
   "license": "MIT",
-  "version": "0.4.2-canary.0",
+  "version": "0.4.2-canary.1",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -34,7 +34,7 @@
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.133.5-canary.0",
+    "@vtex/admin-ui": "^0.133.5-canary.1",
     "yup": "0.32.11"
   },
   "dependencies": {
