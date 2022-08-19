@@ -49,7 +49,9 @@ export const option = style({
 
 export const scrollableContainer = style({
   padding: '$l',
-  maxHeight: 256,
+  paddingTop: 0,
+  marginTop: '$xl',
+  maxHeight: 240,
   overflowY: 'auto',
 })
 
