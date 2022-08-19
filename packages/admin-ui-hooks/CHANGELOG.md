@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.1...@vtex/admin-ui-hooks@0.4.2-canary.0) (2022-08-19)
+
+### Bug Fixes
+
+- **build:** add turborepo & tsup ([988deb7](https://github.com/vtex/admin-ui/commit/988deb70a71cc8ed5446194f70e039b18eb76ed4))
+
 ## [0.4.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.0...@vtex/admin-ui-hooks@0.4.1) (2022-08-18)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks

@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
-  "version": "0.12.2",
+  "version": "0.12.3-canary.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -28,12 +28,12 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "peerDependencies": {
+    "@vtex/admin-ui-util": ">=0.x",
     "react": "^16.9 || ^17.0",
-    "react-dom": "^16.9 || ^17.0",
-    "@vtex/admin-ui-util": ">=0.x"
+    "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui-util": "^0.4.1"
+    "@vtex/admin-ui-util": "^0.4.2-canary.0"
   },
   "dependencies": {
     "@stitches/react": "1.2.8",

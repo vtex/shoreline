@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-util",
   "license": "MIT",
-  "version": "0.4.1",
+  "version": "0.4.2-canary.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",

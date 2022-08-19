@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.5-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.4...@vtex/admin-ui@0.133.5-canary.0) (2022-08-19)
+
+### Bug Fixes
+
+- **build:** add turborepo & tsup ([988deb7](https://github.com/vtex/admin-ui/commit/988deb70a71cc8ed5446194f70e039b18eb76ed4))
+- **build:** remove pre-construct ([c0b8795](https://github.com/vtex/admin-ui/commit/c0b87953e6156fac5a12d51e1bc4d7105ab327cc))
+
 ## [0.133.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.3...@vtex/admin-ui@0.133.4) (2022-08-18)
 
 **Note:** Version bump only for package @vtex/admin-ui

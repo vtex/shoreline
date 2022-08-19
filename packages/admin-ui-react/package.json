@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.9.3",
+  "version": "0.9.4-canary.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -29,16 +29,16 @@
   },
   "peerDependencies": {
     "@vtex/admin-ui-core": ">=0.x",
-    "@vtex/phosphor-icons": ">=0.x",
     "@vtex/admin-ui-util": ">=0.x",
+    "@vtex/phosphor-icons": ">=0.x",
     "react": "^16.9 || ^17.0",
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
-    "@vtex/admin-ui-core": "^0.12.2",
-    "@vtex/phosphor-icons": "0.2.8",
-    "@vtex/admin-ui-util": "^0.4.1"
+    "@vtex/admin-ui-core": "^0.12.3-canary.0",
+    "@vtex/admin-ui-util": "^0.4.2-canary.0",
+    "@vtex/phosphor-icons": "0.2.8"
   },
   "dependencies": {
     "focus-visible": "^5.2.0",
