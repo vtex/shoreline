@@ -3,12 +3,10 @@ import { merge } from '@vtex/admin-ui-util'
 import { render } from '@testing-library/react'
 import { theme } from '@vtex/admin-ui-core'
 
-import { createSystem, useSystem } from '../system'
+import { ThemeProvider as Provider, useSystem } from '../system'
 
 describe.skip('createSystem', () => {
   it('should execute the system', () => {
-    const [Provider] = createSystem()
-
     function Div() {
       const { cn } = useSystem()
 
@@ -32,14 +30,6 @@ describe.skip('createSystem', () => {
   })
 
   it('should be able to create a custom theme', () => {
-    const [Provider] = createSystem({
-      experimentalTheme: {
-        space: {
-          xxl: '200px',
-        },
-      },
-    })
-
     function Div() {
       const { cn } = useSystem()
 
@@ -54,7 +44,15 @@ describe.skip('createSystem', () => {
     }
 
     const { getByTestId } = render(
-      <Provider>
+      <Provider
+        experimentalTheme={{
+          experimentalTheme: {
+            space: {
+              xxl: '200px',
+            },
+          },
+        }}
+      >
         <Div />
       </Provider>
     )
@@ -63,14 +61,6 @@ describe.skip('createSystem', () => {
   })
 
   it('should be able to create a custom theme using theme as base', () => {
-    const [Provider] = createSystem({
-      experimentalTheme: merge(theme, {
-        space: {
-          xxl: '200px',
-        },
-      }),
-    })
-
     function Div() {
       const { cn } = useSystem()
 
@@ -86,7 +76,15 @@ describe.skip('createSystem', () => {
     }
 
     const { getByTestId } = render(
-      <Provider>
+      <Provider
+        experimentalTheme={{
+          experimentalTheme: merge(theme, {
+            space: {
+              xxl: '200px',
+            },
+          }),
+        }}
+      >
         <Div />
       </Provider>
     )

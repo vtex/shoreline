@@ -127,6 +127,10 @@ export type ButtonOptions = VariantProps<typeof style.variants> & {
    * Horizontal bleed
    */
   bleedX?: boolean
+  /**
+   * Children of the button
+   */
+  children?: ReactNode
 }
 
 export type ButtonProps = React.ComponentPropsWithoutRef<typeof Button>
