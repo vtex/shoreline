@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.9.0...@vtex/admin-ui-react@0.9.1-canary.0) (2022-08-23)
+
+### Bug Fixes
+
+- fix types fo some components ([73544a9](https://github.com/vtex/admin-ui/commit/73544a94479ae3f51136f53313359b0c40e45143))
+
 # [0.9.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-react@0.8.0...@vtex/admin-ui-react@0.9.0) (2022-08-17)
 
 ### Bug Fixes

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.0...@vtex/admin-ui-codemod@0.6.1-canary.0) (2022-08-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
 # [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.5.0...@vtex/admin-ui-codemod@0.6.0) (2022-08-17)
 
 ### Features

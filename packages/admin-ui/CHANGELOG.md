@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.2-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.1...@vtex/admin-ui@0.133.2-canary.0) (2022-08-23)
+
+### Bug Fixes
+
+- fix types fo some components ([73544a9](https://github.com/vtex/admin-ui/commit/73544a94479ae3f51136f53313359b0c40e45143))
+
 ## [0.133.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.0...@vtex/admin-ui@0.133.1) (2022-08-18)
 
 ### Bug Fixes
