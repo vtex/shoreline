@@ -1,3 +1,4 @@
+import type { Theme } from '@vtex/admin-ui-core'
 import { focusVisible, style } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
@@ -23,14 +24,14 @@ const thumbDimensions = style({
 
   '&:disabled': {
     '&:after': {
-      bg: (theme) => get(theme, 'fg.disabled', ''),
+      bg: (theme: Theme) => get(theme, 'fg.disabled', ''),
       margin: '0.2rem',
     },
   },
 })
 
 export const thumb = style({
-  bg: (theme) => get(theme, 'fg.form.neutralChecked'),
+  bg: (theme: Theme) => get(theme, 'fg.form.neutralChecked'),
   content: '""',
   display: 'block',
   position: 'absolute',
@@ -56,7 +57,7 @@ const disabled = style({
     },
 
     ':after': {
-      bg: (theme) => get(theme, 'fg.disabled'),
+      bg: (theme: Theme) => get(theme, 'fg.disabled'),
     },
   },
 })

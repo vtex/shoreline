@@ -40,7 +40,7 @@ export const MenuButton = createComponent<
     variant,
   })
 
-  const colorVariantsStyle = state.visible
+  const colorVariantsStyle = state.open
     ? buttonColorVariants[':active' as keyof StyleProp]
     : buttonColorVariants
 
@@ -61,14 +61,14 @@ export const MenuButton = createComponent<
       size: 'regular',
     },
     custom: {
-      icon: state.visible ? <IconCaretUp /> : <IconCaretDown />,
+      icon: state.open ? <IconCaretUp /> : <IconCaretDown />,
       position: 'end',
       size: 'small',
     },
   }[menuType] as IconConfig
 
   const formatMessage = useMessageFormatter(messages.menu)
-  const menuLabel = label ?? formatMessage('buttonLabel')
+  const menuLabel = (label ?? formatMessage('buttonLabel')) as string
 
   const bleedYStyle = bleedY
     ? style.bleedY({

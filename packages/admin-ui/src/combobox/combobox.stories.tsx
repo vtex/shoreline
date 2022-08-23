@@ -83,7 +83,7 @@ export const Error = () => {
 
   useEffect(() => {
     combobox.setError(true)
-    combobox.setVisible(true)
+    combobox.setOpen(true)
   }, [])
 
   return (
@@ -99,7 +99,7 @@ export const Loading = () => {
 
   useEffect(() => {
     combobox.setStatus('loading')
-    combobox.setVisible(true)
+    combobox.setOpen(true)
   }, [])
 
   return (
