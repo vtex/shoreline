@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.6-canary.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.6-canary.0...@vtex/admin-ui@0.133.6-canary.1) (2022-08-23)
+
+### Bug Fixes
+
+- update modal disclosure inner type ([76243b1](https://github.com/vtex/admin-ui/commit/76243b1cd44e7af60bf50154c5f6405a0268c9a9))
+
 ## [0.133.6-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.5...@vtex/admin-ui@0.133.6-canary.0) (2022-08-23)
 
 ### Bug Fixes
