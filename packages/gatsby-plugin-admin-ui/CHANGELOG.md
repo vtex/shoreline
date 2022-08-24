@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.14-canary.0](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.7.13...@vtex/gatsby-plugin-admin-ui@0.7.14-canary.0) (2022-08-24)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
 ## [0.7.13](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.7.12...@vtex/gatsby-plugin-admin-ui@0.7.13) (2022-07-11)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
