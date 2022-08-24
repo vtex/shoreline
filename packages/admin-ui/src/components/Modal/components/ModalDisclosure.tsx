@@ -24,7 +24,11 @@ export function ModalDisclosure(props: ModalDisclosureProps) {
   Children.only(children)
 
   return (
-    <DialogDisclosure state={state} ref={children.ref} {...children.props}>
+    <DialogDisclosure
+      state={state}
+      ref={children.ref}
+      {...(children.props as Object)}
+    >
       {(enhancedProps) => cloneElement(children, enhancedProps)}
     </DialogDisclosure>
   )

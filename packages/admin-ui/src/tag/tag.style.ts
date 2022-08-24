@@ -1,3 +1,4 @@
+import type { Theme } from '@vtex/admin-ui-core'
 import { style, styleVariants } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
@@ -15,7 +16,7 @@ export const baseline = style({
   color: '$primary',
   border: 'none',
   paddingX: '0.75rem',
-  outlineColor: (theme) => get(theme, 'bg.primary', 'bg.primary'),
+  outlineColor: (theme: Theme) => get(theme, 'bg.primary', 'bg.primary'),
   outlineWidth: '0.125rem',
   outlineStyle: 'solid',
 })

@@ -26,7 +26,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
   const rootState = useSidebarContext()
   const { state, id, selected: parentSelected } = useItemContext()
 
-  const compositeProps = useCompositeItem({
+  const { wrapElement, ...compositeProps } = useCompositeItem({
     ...state,
     baseId: 'section-item--',
   })
