@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.9.5-canary.5",
+  "version": "0.9.5-canary.6",
   "main": "dist/vtex-admin-ui-react.cjs.js",
   "module": "dist/vtex-admin-ui-react.esm.js",
   "types": "dist/vtex-admin-ui-react.cjs.d.ts",
@@ -32,11 +32,11 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
-    "@vtex/admin-ui-core": "^0.12.4-canary.5",
+    "@vtex/admin-ui-core": "^0.12.4-canary.6",
     "@vtex/phosphor-icons": "0.2.8"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.4.3-canary.5",
+    "@vtex/admin-ui-util": "^0.4.3-canary.6",
     "focus-visible": "^5.2.0",
     "react-helmet": "^6.1.0",
     "react-is": "^17.0.2",

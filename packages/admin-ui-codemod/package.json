@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-codemod",
-  "version": "0.6.3-canary.5",
+  "version": "0.6.3-canary.6",
   "description": "Admin UI codemod scripts",
   "license": "MIT",
   "publishConfig": {
