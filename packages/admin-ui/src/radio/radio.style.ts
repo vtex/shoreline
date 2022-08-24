@@ -1,3 +1,4 @@
+import type { Theme } from '@vtex/admin-ui-core'
 import { focusVisible, style } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
@@ -54,7 +55,7 @@ export const checked = style({
 
   '&:after': {
     ...checkmark,
-    bg: (theme) => get(theme, 'fg.form.controlChecked', ''),
+    bg: (theme: Theme) => get(theme, 'fg.form.controlChecked', ''),
   },
 
   ':hover:not(:disabled)': {
@@ -64,7 +65,7 @@ export const checked = style({
 
   '&[disabled]:after': {
     ...checkmark,
-    bg: (theme) => get(theme, 'fg.disabled', ''),
+    bg: (theme: Theme) => get(theme, 'fg.disabled', ''),
   },
 
   ...disabled,

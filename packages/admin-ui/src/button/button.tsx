@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { Button as AriakitButton } from 'ariakit'
+import { Button as ReakitButton } from 'reakit/Button'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import {
   createComponent,
@@ -18,7 +18,7 @@ import * as style from './button.style'
  * @example
  * const buttonProps = useButton({})
  */
-export const useButton = createHook<typeof AriakitButton, ButtonOptions>(
+export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
   ({
     icon,
     size = 'normal',
@@ -96,11 +96,11 @@ export const useButton = createHook<typeof AriakitButton, ButtonOptions>(
  * import { Button } from `@vtex/admin-ui`
  * <Button>Button text</Button>
  */
-export const Button = createComponent<typeof AriakitButton, ButtonOptions>(
+export const Button = createComponent<typeof ReakitButton, ButtonOptions>(
   (props) => {
     const elementProps = useButton(props)
 
-    return useElement(AriakitButton, elementProps)
+    return useElement(ReakitButton, elementProps)
   }
 )
 
