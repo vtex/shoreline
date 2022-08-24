@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --no-eslintrc -c .eslintrc.json",
+    "example": "yarn lint src/example.tsx"
+  },
+  "devDependencies": {
+    "@vtex/eslint-plugin-admin-ui": "file:..",
+    "eslint": "^7.31.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "plugins": ["@vtex/admin-ui"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "@vtex/admin-ui/create-tag-component-outside-render-phase": "error"
+  }
+}
