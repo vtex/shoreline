@@ -32,7 +32,7 @@ export function Tooltip(props: TooltipProps) {
   const { cn } = useSystem()
   const state = useTooltipState({
     placement,
-    visible,
+    open: visible,
     gutter: hasChildren ? 2 : 0,
   })
 
