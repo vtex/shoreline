@@ -58,7 +58,7 @@ export const ComboboxPopoverBase = createComponent<
         )
       }
 
-      case 'empty-search': {
+      case 'empty': {
         return (
           <Box
             csx={{
@@ -76,7 +76,7 @@ export const ComboboxPopoverBase = createComponent<
         )
       }
 
-      case 'no-result': {
+      case 'not-found': {
         return (
           <Box
             csx={{

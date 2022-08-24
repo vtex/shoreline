@@ -24,7 +24,6 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
 
     const formatMessage = useMessageFormatter(messages.actions)
 
-
     return useElement(Role, {
       children: (
         <>

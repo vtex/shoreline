@@ -2,6 +2,7 @@ import { get } from '@vtex/admin-ui-util'
 
 import { styles } from '../styles'
 import { cx } from '../helpers'
+import type { Theme } from '../types'
 
 describe('styles', () => {
   describe('edge cases', () => {
@@ -96,7 +97,7 @@ describe('styles', () => {
     it('should accept functional rules', () => {
       const result = styles(
         {
-          bg: (theme) => theme.bg.primary,
+          bg: (theme: Theme) => theme.bg.primary,
         },
         {
           bg: {
