@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.4-canary.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.12.4-canary.6...@vtex/admin-ui-core@0.12.4-canary.7) (2022-08-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-core
+
 ## [0.12.4-canary.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.12.4-canary.5...@vtex/admin-ui-core@0.12.4-canary.6) (2022-08-24)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
