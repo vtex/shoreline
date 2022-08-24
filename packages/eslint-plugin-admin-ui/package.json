@@ -1,7 +1,7 @@
 {
   "name": "@vtex/eslint-plugin-admin-ui",
   "license": "MIT",
-  "version": "0.4.13",
+  "version": "0.4.14-test.0",
   "main": "dist/vtex-eslint-plugin-admin-ui.cjs.js",
   "module": "dist/vtex-eslint-plugin-admin-ui.esm.js",
   "types": "dist/vtex-eslint-plugin-admin-ui.cjs.d.ts",

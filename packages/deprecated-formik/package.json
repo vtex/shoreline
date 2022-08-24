@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-formik",
-  "version": "0.6.2",
+  "version": "0.6.3-test.0",
   "main": "dist/vtex-admin-formik.cjs.js",
   "module": "dist/vtex-admin-formik.esm.js",
   "types": "dist/vtex-admin-formik.cjs.d.ts",

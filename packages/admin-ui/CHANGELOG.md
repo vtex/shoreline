@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.132.3-test.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.3-test.0...@vtex/admin-ui@0.132.3-test.1) (2022-08-24)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
 ## [0.132.3-test.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.132.3-canary.0...@vtex/admin-ui@0.132.3-test.0) (2022-08-24)
 
 **Note:** Version bump only for package @vtex/admin-ui

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-codemod",
-  "version": "0.5.1-test.0",
+  "version": "0.5.1-test.1",
   "description": "Admin UI codemod scripts",
   "license": "MIT",
   "publishConfig": {

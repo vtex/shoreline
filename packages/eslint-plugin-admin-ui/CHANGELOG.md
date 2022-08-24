@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.14-test.0](https://github.com/vtex/admin-ui/compare/@vtex/eslint-plugin-admin-ui@0.4.13...@vtex/eslint-plugin-admin-ui@0.4.14-test.0) (2022-08-24)
+
+### Reverts
+
+- Revert "refactor: step1 - remove unused modules" ([225c205](https://github.com/vtex/admin-ui/commit/225c205714a419f2960d8a8eaceb0e3b50daf2b3))
+
 ## [0.4.13](https://github.com/vtex/admin-ui/compare/@vtex/eslint-plugin-admin-ui@0.4.12...@vtex/eslint-plugin-admin-ui@0.4.13) (2022-07-11)
 
 **Note:** Version bump only for package @vtex/eslint-plugin-admin-ui

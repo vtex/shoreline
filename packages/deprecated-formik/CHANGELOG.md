@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-test.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.6.2...@vtex/admin-formik@0.6.3-test.0) (2022-08-24)
+
+### Reverts
+
+- Revert "refactor: step1 - remove unused modules" ([225c205](https://github.com/vtex/admin-ui/commit/225c205714a419f2960d8a8eaceb0e3b50daf2b3))
+
 ## [0.6.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-formik@0.6.1...@vtex/admin-formik@0.6.2) (2022-07-11)
 
 **Note:** Version bump only for package @vtex/admin-formik
