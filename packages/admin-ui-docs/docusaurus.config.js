@@ -77,6 +77,12 @@ const config = {
           {
             type: 'doc',
             position: 'left',
+            docId: 'foundations/design-tokens',
+            label: 'Foundations',
+          },
+          {
+            type: 'doc',
+            position: 'left',
             docId: 'components/alert',
             label: 'Components',
           },
