@@ -94,41 +94,31 @@ Bleed.args = {
 
 export function UITests() {
   return (
-    <Box>
-      <Box>
-        <Button disabled>Disabled</Button>
-        <Button loading>Loading</Button>
-      </Box>
+    <>
+      <Button disabled>Disabled</Button>
+      <Button loading>Loading</Button>
 
-      <Box>
-        <Button>Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="tertiary">Tertiary</Button>
-        <Button variant="neutralTertiary">Neutral Tertiary</Button>
-        <Button variant="critical">critical</Button>
-        <Button variant="criticalSecondary">Secondary</Button>
-        <Button variant="criticalTertiary">Tertiary</Button>
-      </Box>
+      <Button>Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+      <Button variant="neutralTertiary">Neutral Tertiary</Button>
+      <Button variant="critical">critical</Button>
+      <Button variant="criticalSecondary">Secondary</Button>
+      <Button variant="criticalTertiary">Tertiary</Button>
 
-      <Box>
-        <Button>Normal</Button>
-        <Button size="large">Large</Button>
-      </Box>
+      <Button>Normal</Button>
+      <Button size="large">Large</Button>
 
-      <Box>
-        <Button icon={<IconX />}>Icon start</Button>
-        <Button icon={<IconX />} iconPosition="end">
-          Icon end
-        </Button>
-        <Button aria-label="Icon only test" icon={<IconX />} />
-      </Box>
+      <Button icon={<IconX />}>Icon start</Button>
+      <Button icon={<IconX />} iconPosition="end">
+        Icon end
+      </Button>
+      <Button aria-label="Icon only test" icon={<IconX />} />
 
-      <Box csx={{ padding: '$xl' }}>
-        <Button bleedX bleedY>
-          Bleed
-        </Button>
-      </Box>
-    </Box>
+      <Button bleedX bleedY>
+        Bleed
+      </Button>
+    </>
   )
 }
 
