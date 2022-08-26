@@ -83,7 +83,7 @@ export const variants = styleVariants({
     }),
     tertiary: action({
       tone: 'main',
-      variant: 'tertiary',
+      variant: 'secondary',
     }),
     critical: action({
       tone: 'critical',
@@ -109,7 +109,7 @@ export const variants = styleVariants({
     },
     large: {
       padding: '$m',
-      height: '2.75rem',
+      height: '4rem',
     },
   },
 })
