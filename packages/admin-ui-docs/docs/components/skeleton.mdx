@@ -8,23 +8,17 @@ path: /skeleton/
 - It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
 - It is also used internally by AdminUI to handle the loading state of specific components.
 
-## Import
+## Usage
 
-```jsx isStatic
+```jsx
 import { Skeleton } from '@vtex/admin-ui'
+
+export Example() {
+  return <Skeleton />
+}
 ```
 
-## Behavior
-
-By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
-
-```jsx live
-<Box csx={{ width: 'full', height: 192 }}>
-  <Skeleton />
-</Box>
-```
-
-## Variations
+## Examples
 
 ### Rectangle
 
@@ -42,10 +36,23 @@ The shape can also be circular. To use this variation, the `shape` property has 
 <Skeleton shape="circle" csx={{ size: 100 }} />
 ```
 
+### Fluid
+
+By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
+
+```jsx live
+<Box csx={{ width: 'full', height: 192 }}>
+  <Skeleton />
+</Box>
+```
+
 ## Props
 
-| Name    | Type              | Description       | Required | Default  |
-| ------- | ----------------- | ----------------- | -------- | -------- |
-| csx     | `StyleObject`     | Custom styles     | 🚫       | `{}`     |
-| shape   | `rect, or circle` | Skeleton's shape  | 🚫       | `circle` |
-| element | `ElementType`     | Element to render | 🚫       | `'div'`  |
+| Name  | Type           | Description      | Required | Default |
+| ----- | -------------- | ---------------- | -------- | ------- |
+| csx   | `StyleObject`  | Custom styles    | 🚫       | `{}`    |
+| shape | `rect, circle` | Skeleton's shape | 🚫       | `rect`  |
+
+## Best Practices
+
+1. You should only use `Skeleton` with dynamic elements. This means that, you should not use `Skeleton` if you already have the data information.
