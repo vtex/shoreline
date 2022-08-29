@@ -11,7 +11,7 @@ export const bg = {
   info: colors.lightBlue10,
   inverted: colors.black,
   overlay: colors.grayTransparent50,
-  skeleton: `linear-gradient(90deg, ${colors.gray10}, ${colors.gray20}), ${colors.gray10}`,
+  skeleton: `linear-gradient(90deg, transparent, ${colors.gray10}, transparent)`,
   action: {
     neutral: {
       secondary: colors.gray05,
