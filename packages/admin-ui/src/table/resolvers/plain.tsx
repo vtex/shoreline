@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 
