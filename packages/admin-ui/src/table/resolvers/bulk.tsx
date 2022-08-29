@@ -7,7 +7,7 @@ import type { BulkActionsState } from '../../bulk-actions'
 import type { ResolverRenderProps } from './resolver-core'
 import { defaultRender, createResolver } from './resolver-core'
 import { Checkbox } from '../../checkbox'
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 
 export function bulkResolver<T extends {}>() {
   return createResolver<T, 'bulk', BulkResolver<T>>({
