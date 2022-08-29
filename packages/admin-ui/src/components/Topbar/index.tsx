@@ -5,7 +5,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Bleed } from '../../bleed'
 import { Inline } from '../../inline'
 import { Center } from '../../center'
-import { Skeleton } from '../Skeleton'
+import { Skeleton } from '../../skeleton'
 
 /**
  * Topbar component.

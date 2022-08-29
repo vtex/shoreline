@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Box } from '../../../box'
-import { Skeleton } from '../../Skeleton'
+import { Skeleton } from '../../../skeleton'
 import { SCALES } from '../consts'
 
 const skeletonWidth = {

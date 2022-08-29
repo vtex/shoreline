@@ -2,30 +2,29 @@ import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
 import { Box } from '../../box'
-import type { SkeletonProps } from './index'
-import { Skeleton } from './index'
+import type { SkeletonProps } from '../index'
+import { Skeleton } from '../index'
 import { Button } from '../../button'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Heading } from '../../components/Heading'
+import { Paragraph } from '../../components/Paragraph'
+import { Stack } from '../../stack'
 
 export default {
-  title: 'admin-ui/Skeleton',
+  title: 'admin-ui-review/skeleton',
   component: Skeleton,
 } as Meta
 
 export const Playground: Story<SkeletonProps> = (args) => {
-  return (
-    <Skeleton
-      csx={{
-        width: 128,
-        height: 128,
-      }}
-      {...args}
-    />
-  )
+  return <Skeleton {...args} />
 }
 
-Playground.args = {}
+Playground.args = {
+  shape: 'rect',
+  csx: {
+    height: 128,
+    width: 128,
+  },
+}
 
 export const Rect = () => {
   return <Skeleton csx={{ height: 128, width: 128 }} />
@@ -44,12 +43,12 @@ export const Fluid = () => {
 }
 
 export const TextExample = () => {
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(true)
 
   return (
     <Box csx={{ width: 'sm' }}>
       {loading ? (
-        <Box>
+        <Stack>
           <Skeleton csx={{ height: 24, width: '5/12' }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
@@ -57,7 +56,7 @@ export const TextExample = () => {
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16 }} />
           <Skeleton csx={{ height: 16, width: '1/2' }} />
-        </Box>
+        </Stack>
       ) : (
         <Box>
           <Heading>Developing</Heading>
