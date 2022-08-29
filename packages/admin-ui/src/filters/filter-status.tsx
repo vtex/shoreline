@@ -8,7 +8,7 @@ import { Button } from '../button'
 import { Stack } from '../stack'
 import { Box } from '../box'
 import * as style from './filter.style'
-import { Skeleton } from '../components/Skeleton'
+import { Skeleton } from '../skeleton'
 
 import type { FilterStatus as FilterStatusType } from './use-filter-status'
 

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
 
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 import { Text } from '../../components/Text'
 import { Stack } from '../../stack'
 import type { ResolverRenderProps } from './resolver-core'
