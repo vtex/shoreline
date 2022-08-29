@@ -3,10 +3,10 @@ import { keyframes, style, styleVariants } from '@vtex/admin-ui-core'
 export const variants = styleVariants({
   shape: {
     rect: {
-      borderRadius: 'default',
+      borderRadius: '$default',
     },
     circle: {
-      borderRadius: 'circle',
+      borderRadius: '$circle',
     },
   },
 })
@@ -26,8 +26,7 @@ const waveKeyframe = keyframes({
 export const baseline = style({
   display: 'block',
   position: 'relative',
-  width: 'full',
-  height: 'full',
+  size: '100%',
   bg: `$secondary`,
   overflow: 'hidden',
   '&::after': {
