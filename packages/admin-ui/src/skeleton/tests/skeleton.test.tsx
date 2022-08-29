@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, axe } from '../../test-utils'
 
-import { Skeleton } from './index'
+import { Skeleton } from '../index'
 
 describe('Skeleton tests', () => {
   it('should not have a11y violations', async () => {
