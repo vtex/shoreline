@@ -22,14 +22,18 @@ function Example() {
 ### Loading
 
 ```jsx live
-function Loading() {
+function Example() {
   const state = usePaginationState({ pageSize: 5, total: 35 })
 
-  return <Pagination state={state} loading />
+  return (
+    <Flex justify="end">
+      <Pagination state={state} loading />
+    </Flex>
+  )
 }
 ```
 
-### Query pagination
+### Query string pagination
 
 You can persist the pagination state within the browser's query params using the `useQueryPaginationState` hook, instead of `usePaginationState`. Both hooks are used in the same way. The application should be wrapped by `QueryStateProvider`.
 
@@ -45,7 +49,9 @@ function Example() {
 
   return (
     <QueryStateProvider>
-      <Content />
+      <Flex justify="end">
+        <Content />
+      </Flex>
     </QueryStateProvider>
   )
 }
@@ -54,13 +60,13 @@ function Example() {
 ### Actions
 
 ```jsx live
-function Loading() {
+function Example() {
   const state = usePaginationState({ pageSize: 5, total: 35 })
 
   const { paginate } = state
 
   return (
-    <Stack>
+    <Flex justify="space-between">
       <Inline>
         <Button onClick={() => paginate({ type: 'navigate', page: 3 })}>
           Navigate
@@ -73,7 +79,7 @@ function Loading() {
         </Button>
       </Inline>
       <Pagination state={state} />
-    </Stack>
+    </Flex>
   )
 }
 ```
@@ -81,13 +87,15 @@ function Loading() {
 ### Internationalization
 
 ```jsx live
-function Loading() {
+function Example() {
   const state = usePaginationState({ pageSize: 5, total: 35 })
   const I18nProvider = experimental_I18nProvider
 
   return (
     <I18nProvider locale="pt-BR">
-      <Pagination state={state} />
+      <Flex justify="end">
+        <Pagination state={state} />
+      </Flex>
     </I18nProvider>
   )
 }
@@ -98,7 +106,7 @@ function Loading() {
 | Name    | Type                  | Description                         | Required | Default |
 | ------- | --------------------- | ----------------------------------- | -------- | ------- |
 | state   | `UsePaginationReturn` | Component State                     | ✅       | -       |
-| loading | `boolean`             | Whether the table is loading or not | 🚫       | -       |
+| loading | `boolean`             | Whether the table is loading or not | 🚫       | `false` |
 
 ## State
 
@@ -109,7 +117,7 @@ The pagination state object is composed of the `currentPage` prop and the `range
 | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
 | pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
-| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize`                           |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
 | stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
 | initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | `1`                                  |
 
@@ -118,22 +126,22 @@ The pagination state object is composed of the `currentPage` prop and the `range
 | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
 | pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
-| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize`                           |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
 | stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
 
 ### UsePaginationReturn
 
 This represents the type of the props returned by both `usePaginationState` and `useQueryPaginationState`.
 
-| Name          | Type                                   | Description                                                           | Required | Default |
-| ------------- | -------------------------------------- | --------------------------------------------------------------------- | -------- | ------- |
-| numberOfPages | `number`                               | The total number of pages                                             | ✅       | -       |
-| currentPage   | `number`                               | The current page state                                                | ✅       | -       |
-| range         | `[number, number]`                     | It represents the positions of the first and last items in the page   | ✅       | -       |
-| total         | `number`                               | It represents the total number of items                               | ✅       | -       |
-| prevDisabled  | `boolean`                              | Whether the navigation to the previous page should be disabled or not | ✅       | -       |
-| nextDisabled  | `boolean`                              | Whether the navigation to the next page should be disabled or not     | ✅       | -       |
-| paginate      | `(args: PaginationActionType) => void` | The initial state of pagination                                       | ✅       | -       |
+| Name          | Type                                   | Description                                                         | Required | Default |
+| ------------- | -------------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
+| numberOfPages | `number`                               | The total number of pages                                           | ✅       | -       |
+| currentPage   | `number`                               | The current page state                                              | ✅       | -       |
+| range         | `[number, number]`                     | It represents the positions of the first and last items in the page | ✅       | -       |
+| total         | `number`                               | It represents the total number of items                             | ✅       | -       |
+| prevDisabled  | `boolean`                              | Whether the navigation to the previous page is disabled or not      | ✅       | -       |
+| nextDisabled  | `boolean`                              | Whether the navigation to the next page is disabled or not          | ✅       | -       |
+| paginate      | `(args: PaginationActionType) => void` | The initial state of pagination                                     | ✅       | -       |
 
 ### PaginationActionType
 

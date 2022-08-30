@@ -7,6 +7,7 @@ import {
   useQueryPaginationState,
 } from '../index'
 import { Stack } from '../../stack'
+import { Flex } from '../../flex'
 import { TextInput } from '../../text-input'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
@@ -18,7 +19,11 @@ export default {
 export function Basic() {
   const state = usePaginationState({ pageSize: 5, total: 74 })
 
-  return <Pagination state={state} />
+  return (
+    <Flex justify="flex-end" csx={{ width: 400 }}>
+      <Pagination state={state} />
+    </Flex>
+  )
 }
 
 export function InitialState() {
@@ -28,7 +33,11 @@ export function InitialState() {
     total: 74,
   })
 
-  return <Pagination state={state} />
+  return (
+    <Flex justify="flex-end" csx={{ width: 400 }}>
+      <Pagination state={state} />
+    </Flex>
+  )
 }
 
 export function Loading() {
@@ -38,7 +47,11 @@ export function Loading() {
     total: 74,
   })
 
-  return <Pagination loading state={state} />
+  return (
+    <Flex justify="flex-end" csx={{ width: 400 }}>
+      <Pagination loading state={state} />
+    </Flex>
+  )
 }
 
 export function SinglePage() {
@@ -47,7 +60,11 @@ export function SinglePage() {
     total: 25,
   })
 
-  return <Pagination state={state} />
+  return (
+    <Flex justify="flex-end" csx={{ width: 400 }}>
+      <Pagination state={state} />
+    </Flex>
+  )
 }
 
 export function PersistedPaginationWithQuery() {
@@ -67,7 +84,9 @@ export function PersistedPaginationWithQuery() {
           helpText="You can copy the part with page in your URL to see the page
             load directly on choosed page"
         />
-        <Pagination state={state} />
+        <Flex justify="flex-end" csx={{ width: 500 }}>
+          <Pagination state={state} />
+        </Flex>
       </Stack>
     )
   }
