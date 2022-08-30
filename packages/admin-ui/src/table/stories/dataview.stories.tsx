@@ -12,10 +12,7 @@ import { Table, useTableState } from '../index'
 import { Button } from '../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../search'
 import { createColumns } from '../create-columns'
-import {
-  Pagination,
-  useQueryPaginationState,
-} from '../../components/Pagination'
+import { Pagination, useQueryPaginationState } from '../../pagination'
 import { Stack } from '../../stack'
 import { TextInput } from '../../text-input'
 import { FlexSpacer } from '../../flex'
@@ -227,13 +224,7 @@ export function QueryState() {
           <DataViewControls>
             <Search {...search.getInputProps()} />
             <FlexSpacer />
-            <Pagination
-              state={pagination}
-              preposition="of"
-              subject="results"
-              prevLabel="Previous"
-              nextLabel="Next"
-            />
+            <Pagination state={pagination} />
           </DataViewControls>
           <Table state={grid} />
         </DataView>

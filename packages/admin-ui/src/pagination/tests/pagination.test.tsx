@@ -53,7 +53,7 @@ describe('Pagination', () => {
       <PaginationWithInitialValue data-testid="pagination" />
     )
 
-    expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50 results')
+    expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50')
   })
 
   // window.history.back() not work (test pass because there is not await before waitFor)
@@ -64,7 +64,7 @@ describe('Pagination', () => {
       </QueryStateProvider>
     )
 
-    expect(getByTestId('pagination')).toHaveTextContent('11 — 15 of 50 results')
+    expect(getByTestId('pagination')).toHaveTextContent('11 — 15 of 50')
     expect(window.location.href).toContain(`page=3`)
 
     const nextButton = screen
@@ -79,9 +79,7 @@ describe('Pagination', () => {
     )
 
     await waitFor(() =>
-      expect(getByTestId('pagination')).toHaveTextContent(
-        '16 — 20 of 50 results'
-      )
+      expect(getByTestId('pagination')).toHaveTextContent('16 — 20 of 50')
     )
     waitFor(() => expect(window.location.href).toContain('?page=4'))
   })
