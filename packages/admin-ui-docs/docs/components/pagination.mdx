@@ -78,6 +78,21 @@ function Loading() {
 }
 ```
 
+### Internationalization
+
+```jsx live
+function Loading() {
+  const state = usePaginationState({ pageSize: 5, total: 35 })
+  const I18nProvider = experimental_I18nProvider
+
+  return (
+    <I18nProvider locale="pt-BR">
+      <Pagination state={state} />
+    </I18nProvider>
+  )
+}
+```
+
 ## Props
 
 | Name    | Type                  | Description                         | Required | Default |
