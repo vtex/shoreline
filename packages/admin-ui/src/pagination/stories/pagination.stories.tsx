@@ -78,3 +78,37 @@ export function PersistedPaginationWithQuery() {
     </QueryStateProvider>
   )
 }
+
+export function UITests() {
+  const singlePage = usePaginationState({
+    pageSize: 25,
+    total: 25,
+  })
+
+  const firstPage = usePaginationState({
+    pageSize: 5,
+    total: 25,
+  })
+
+  const lastPage = usePaginationState({
+    pageSize: 5,
+    total: 10,
+    initialPage: 2,
+  })
+
+  return (
+    <>
+      <Pagination state={singlePage} />
+      <br />
+      <Pagination state={firstPage} loading />
+      <br />
+      <Pagination state={firstPage} />
+      <br />
+      <Pagination state={lastPage} />
+    </>
+  )
+}
+
+UITests.parameters = {
+  chromatic: { disableSnapshot: false },
+}
