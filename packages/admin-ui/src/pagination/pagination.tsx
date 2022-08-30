@@ -10,12 +10,12 @@ import { useMessageFormatter } from '../i18n'
 import { messages } from './pagination.i18n'
 import type { UsePaginationReturn } from './hooks/use-pagination-state'
 import * as style from './pagination.style'
-import { Skeleton } from '../components/Skeleton'
+import { Skeleton } from '../skeleton'
 
 export const Pagination = createComponent<'div', PaginationOptions>((props) => {
   const {
     state: {
-      range,
+      range: [firstPosition, lastPosition],
       paginate,
       prevDisabled,
       nextDisabled,
@@ -30,20 +30,21 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
 
   const hasOnlyOnePage = numberOfPages === 1
   const currentPageLabel = hasOnlyOnePage
-    ? range[1]
-    : `${range[0]} — ${range[1]}`
+    ? total
+    : `${firstPosition} — ${lastPosition}`
 
   return useElement('div', {
     ...restProps,
     children: (
       <Inline align="center" hSpace="$m" spaceInside noWrap>
         {loading ? (
-          <Skeleton csx={{ height: '0.75rem', width: '4rem' }} />
+          <Skeleton csx={style.loading} />
         ) : (
           <Text tone="secondary" variant="detail" csx={style.label}>
             {currentPageLabel} {formatMessage('preposition')} {total}
           </Text>
         )}
+
         <Inline align="center" noWrap spaceInside>
           <Button
             aria-label={formatMessage('prevLabel')}

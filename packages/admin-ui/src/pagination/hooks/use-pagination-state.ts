@@ -42,7 +42,7 @@ export function getState(
     Math.min(page * pageSize, total),
   ]
 
-  const numberOfPages = Math.floor(total / pageSize)
+  const numberOfPages = Math.ceil(total / pageSize)
 
   return {
     currentPage: page,
