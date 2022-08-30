@@ -5,6 +5,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Inline } from '../inline'
 import { Button } from '../button'
+import { Flex } from '../flex'
 import { Text } from '../components/Text'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './pagination.i18n'
@@ -45,7 +46,7 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
           </Text>
         )}
 
-        <Inline align="center" noWrap spaceInside>
+        <Flex align="center">
           <Button
             aria-label={formatMessage('prevLabel')}
             variant="neutralTertiary"
@@ -61,7 +62,7 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
             onClick={() => paginate({ type: 'next' })}
             icon={<IconCaretRight />}
           />
-        </Inline>
+        </Flex>
       </Inline>
     ),
   })
