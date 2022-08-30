@@ -12,7 +12,7 @@ import { Button } from '../../button'
 import { createColumns } from '../create-columns'
 import { IconTrash, IconPencil, IconCopy } from '@vtex/phosphor-icons'
 import { BulkActions, useBulkActions } from '../../bulk-actions'
-import { usePaginationState, Pagination } from '../../components/Pagination'
+import { usePaginationState, Pagination } from '../../pagination'
 import { FlexSpacer } from '../../flex'
 import {
   Page,
@@ -109,13 +109,7 @@ export function Bulk() {
         <DataView state={view}>
           <DataViewControls>
             <FlexSpacer />
-            <Pagination
-              state={pagination}
-              preposition="of"
-              subject="results"
-              prevLabel="Previous"
-              nextLabel="Next"
-            />
+            <Pagination state={pagination} />
           </DataViewControls>
           <BulkActions state={bulk}>
             <Button variant="tertiary" icon={<IconPencil />}>
@@ -201,13 +195,7 @@ export function BulkWithLoading() {
     <DataView state={view}>
       <DataViewControls>
         <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-        />
+        <Pagination state={pagination} />
         <BulkActions state={bulk}>
           <Button variant="tertiary"> Apply 50% discount</Button>
         </BulkActions>
