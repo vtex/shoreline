@@ -2,9 +2,9 @@
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
   "version": "0.9.4",
-  "main": "dist/vtex-admin-ui-react.cjs.js",
-  "module": "dist/vtex-admin-ui-react.esm.js",
-  "types": "dist/vtex-admin-ui-react.cjs.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -15,6 +15,11 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "rollup-watch": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
   },
   "repository": {
     "directory": "packages/react",

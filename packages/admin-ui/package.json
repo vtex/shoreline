@@ -1,9 +1,9 @@
 {
   "name": "@vtex/admin-ui",
   "version": "0.133.6",
-  "main": "dist/vtex-admin-ui.cjs.js",
-  "module": "dist/vtex-admin-ui.esm.js",
-  "types": "dist/vtex-admin-ui.cjs.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -13,6 +13,11 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "rollup-watch": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
   },
   "repository": {
     "directory": "packages/admin-ui",
@@ -61,11 +66,6 @@
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
     "use-debounce": "^7.0.0"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
   },
   "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }
