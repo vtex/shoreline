@@ -1,6 +1,6 @@
 export const messages = {
   'en-US': {
-    pagination: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
@@ -10,7 +10,7 @@ export const messages = {
     nextLabel: 'Advance to next page',
   },
   'fr-FR': {
-    pagination: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
