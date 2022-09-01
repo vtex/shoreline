@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { AnyObject } from '../..'
+import type { AnyObject } from '@vtex/admin-ui-util'
 import type { UseFilterMultipleReturn } from '../filter-multiple/filter-multiple.state'
 import { useFilterMultipleState } from '../filter-multiple/filter-multiple.state'
 import type { FilterOption } from '../filter/filter.state'
