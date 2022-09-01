@@ -1,51 +1,51 @@
 export const messages = {
   'en-US': {
-    preposition: 'of',
+    pagination: 'of',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'es-AR': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'fr-FR': {
-    preposition: 'of',
+    pagination: 'of',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'pt-BR': {
-    preposition: 'de',
+    pagination: '{currentPage} de {total}',
     prevLabel: 'Retorne para página anterior',
     nextLabel: 'Avance para página seguinte',
   },
   'ja-JP': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'ko-KR': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'it-IT': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'nl-NL': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'ro-RO': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
   'bg-BG': {
-    preposition: 'of',
+    pagination: '{currentPage} of {total}',
     prevLabel: 'Return to previous page',
     nextLabel: 'Advance to next page',
   },
