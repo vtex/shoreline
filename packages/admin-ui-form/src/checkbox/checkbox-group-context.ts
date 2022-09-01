@@ -1,4 +1,4 @@
-import type { AnyObject } from '@vtex/admin-ui'
+import type { AnyObject } from '@vtex/admin-ui-util'
 import { createContext, useContext } from 'react'
 
 interface CheckboxGroupContextType {

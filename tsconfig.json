@@ -4,13 +4,13 @@
     "baseUrl": "./",
     "stripInternal": true,
     "isolatedModules": true,
-    "declaration": true,
     "strict": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
-    "incremental": true,
+    "declaration": true,
     "declarationMap": true,
-    "noEmit": true
+    "noEmit": true,
+    "outDir": "dist"
   },
   "exclude": ["node_modules", "dist", "stories", "test"]
 }
