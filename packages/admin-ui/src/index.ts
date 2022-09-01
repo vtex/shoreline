@@ -35,6 +35,7 @@ export * from './toast'
 export * from './bulk-actions'
 export * from './filters'
 export * from './skeleton'
+export * from './pagination'
 
 export * from './components/Label'
 export * from './components/Collapsible'
@@ -52,7 +53,6 @@ export * from './components/Spinner'
 export * from './components/Sidebar'
 export * from './components/Topbar'
 export * from './components/Toolbar'
-export * from './components/Pagination'
 export * from './components/FilterBar'
 export {
   isMobile,

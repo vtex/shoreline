@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { Pagination } from '../index'
-import { usePaginationState } from '../hooks/usePaginationState'
-import { jestMatchMedia, withState, render } from '../../../test-utils'
-import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
+import {
+  Pagination,
+  usePaginationState,
+  useQueryPaginationState,
+} from '../index'
+import { jestMatchMedia, withState, render } from '../../test-utils'
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useQueryStateContext, QueryStateProvider } from '@vtex/admin-ui-hooks'
@@ -40,16 +42,7 @@ const PersistedPaginationWithInitialValue = () => {
     total: 50,
   })
 
-  return (
-    <Pagination
-      state={state}
-      data-testid="pagination"
-      preposition="of"
-      subject="results"
-      prevLabel="Previous"
-      nextLabel="Next"
-    />
-  )
+  return <Pagination state={state} data-testid="pagination" />
 }
 
 describe('Pagination', () => {
@@ -57,16 +50,10 @@ describe('Pagination', () => {
 
   it('should starts in a specific page', () => {
     const { getByTestId } = render(
-      <PaginationWithInitialValue
-        data-testid="pagination"
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
+      <PaginationWithInitialValue data-testid="pagination" />
     )
 
-    expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50 results')
+    expect(getByTestId('pagination')).toHaveTextContent('6 — 10 of 50')
   })
 
   // window.history.back() not work (test pass because there is not await before waitFor)
@@ -77,7 +64,7 @@ describe('Pagination', () => {
       </QueryStateProvider>
     )
 
-    expect(getByTestId('pagination')).toHaveTextContent('11 — 15 of 50 results')
+    expect(getByTestId('pagination')).toHaveTextContent('11 — 15 of 50')
     expect(window.location.href).toContain(`page=3`)
 
     const nextButton = screen
@@ -92,9 +79,7 @@ describe('Pagination', () => {
     )
 
     await waitFor(() =>
-      expect(getByTestId('pagination')).toHaveTextContent(
-        '16 — 20 of 50 results'
-      )
+      expect(getByTestId('pagination')).toHaveTextContent('16 — 20 of 50')
     )
     waitFor(() => expect(window.location.href).toContain('?page=4'))
   })

@@ -1,4 +1,4 @@
-import { useQueryPaginationState } from '../hooks/useQueryPaginationState'
+import { useQueryPaginationState } from '../hooks/use-query-pagination-state'
 import { renderHook, act } from '@testing-library/react-hooks'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 

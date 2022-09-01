@@ -32,24 +32,23 @@ export function checkDisabled(range: [number, number], total: number) {
   }
 }
 
-export function setMax(value: number, max: number) {
-  return value <= max ? value : max
-}
-
 export function getState(
   page: number,
   pageSize: number,
   total: number
 ): PaginationState {
   const range: [number, number] = [
-    setMax((page - 1) * pageSize + 1, total),
-    setMax(page * pageSize, total),
+    Math.min((page - 1) * pageSize + 1, total),
+    Math.min(page * pageSize, total),
   ]
+
+  const numberOfPages = Math.ceil(total / pageSize)
 
   return {
     currentPage: page,
     range,
     total,
+    numberOfPages,
     ...checkDisabled(range, total),
   }
 }
@@ -80,7 +79,7 @@ export function defaultReducer(
     }
 
     case 'setTotal': {
-      return getState(1, action.pageSize, action.total)
+      return getState(state.currentPage, action.pageSize, action.total)
     }
 
     default:
@@ -103,7 +102,7 @@ export type PaginationActionType =
 
 export interface UsePaginationParams {
   /**
-   * Amount of itens that will be displayed in a page
+   * Amount of items that will be displayed in a page
    */
   pageSize: number
   /**
@@ -126,6 +125,7 @@ export interface UsePaginationParams {
 }
 
 export interface PaginationState {
+  numberOfPages: number
   currentPage: number
   range: [number, number]
   total: number

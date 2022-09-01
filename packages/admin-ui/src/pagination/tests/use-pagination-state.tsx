@@ -1,9 +1,8 @@
 import {
   checkDisabled,
   getState,
-  setMax,
   usePaginationState,
-} from '../hooks/usePaginationState'
+} from '../hooks/use-pagination-state'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('usePaginationState tests', () => {
@@ -32,13 +31,6 @@ describe('usePaginationState tests', () => {
       prevDisabled: false,
       nextDisabled: true,
     })
-  })
-
-  it('setMax', () => {
-    expect(setMax(0, 0)).toBe(0)
-    expect(setMax(10, 0)).toBe(0)
-    expect(setMax(10, 50)).toBe(10)
-    expect(setMax(50, 45)).toBe(45)
   })
 
   it('getState', () => {

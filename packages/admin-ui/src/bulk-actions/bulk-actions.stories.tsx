@@ -7,7 +7,7 @@ import { Box } from '../box'
 import { Flex } from '../flex'
 import { Checkbox } from '../checkbox'
 import { Button } from '../button'
-import { Pagination, usePaginationState } from '../components/Pagination'
+import { Pagination, usePaginationState } from '../pagination'
 import { IconCopy, IconPencil, IconTrash } from '@vtex/phosphor-icons'
 
 export default {
@@ -100,13 +100,7 @@ export const Basic: Story = () => {
           Delete
         </Button>
       </BulkActions>
-      <Pagination
-        state={pagination}
-        preposition="of"
-        subject="results"
-        prevLabel="Previous"
-        nextLabel="Next"
-      />
+      <Pagination state={pagination} />
       <Box>{state.getSelectedIds().join(',')}</Box>
       <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
     </Box>

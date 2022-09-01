@@ -5,8 +5,8 @@ import type {
   PaginationState,
   UsePaginationParams,
   UsePaginationReturn,
-} from './usePaginationState'
-import { defaultReducer, usePaginationState } from './usePaginationState'
+} from './use-pagination-state'
+import { defaultReducer, usePaginationState } from './use-pagination-state'
 
 export function useQueryPaginationState(
   props: UsePersistedPaginationStateProps
