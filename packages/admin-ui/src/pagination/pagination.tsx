@@ -42,7 +42,10 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
           <Skeleton csx={style.loading} />
         ) : (
           <Text tone="secondary" variant="detail" csx={style.label}>
-            {currentPageLabel} {formatMessage('preposition')} {total}
+            {formatMessage('pagination', {
+              currentPage: currentPageLabel,
+              total,
+            })}
           </Text>
         )}
 
