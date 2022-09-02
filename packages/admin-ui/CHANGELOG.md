@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.133.7-dev.0 (2022-09-15)
+## [0.133.7-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.6...@vtex/admin-ui@0.133.7-experimental.0) (2022-09-02)
 
-**Note:** Version bump only for package @vtex/admin-ui
+### Bug Fixes
 
+- **skeleton:** update skeleton internal imports ([2c58332](https://github.com/vtex/admin-ui/commit/2c58332a1979754b5433963b07bc3ce1924ebf81))
 
+### Features
 
-
+- **skeleton:** add skeleton component review ([8ea293d](https://github.com/vtex/admin-ui/commit/8ea293d5c4b5d0a3a2ba75fa5fc6b567bc0bea6f))
 
 ## [0.133.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.5...@vtex/admin-ui@0.133.6) (2022-08-24)
 
