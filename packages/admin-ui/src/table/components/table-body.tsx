@@ -5,7 +5,7 @@ import { isFunction } from '@vtex/admin-ui-util'
 
 import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
-import { useDataViewContext } from '../../components/DataView'
+import { useDataViewContext } from '../../data-view'
 import { useSelectionTreeContext } from '../../components/SelectionTree'
 
 import type { TableColumn } from '../types'

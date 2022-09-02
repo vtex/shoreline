@@ -5,10 +5,7 @@ import { get } from '@vtex/admin-ui-util'
 
 import type { TableColumn } from '../types'
 import type { SortOrder, SortState } from '../hooks/use-table-sort'
-import type {
-  DataViewStatus,
-  DataViewStatusObject,
-} from '../../components/DataView'
+import type { DataViewStatus, DataViewStatusObject } from '../../data-view'
 
 /**
  * Used to recursive define resolver

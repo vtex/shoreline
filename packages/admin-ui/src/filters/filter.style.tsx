@@ -6,7 +6,6 @@ import * as menuStyle from '../menu/menu.style'
 export const disclosure = style({
   ...buttonStyle.buttonStyle,
   ...buttonStyle.variants({ size: 'normal' }),
-  marginRight: '$m',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

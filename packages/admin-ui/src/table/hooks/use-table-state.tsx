@@ -17,7 +17,7 @@ import { baseResolvers } from '../resolvers/base'
 import type { TableColumn } from '../types'
 import type { UseSortReturn, UseTableSortParams } from './use-table-sort'
 import { useTableSort } from './use-table-sort'
-import type { DataViewState } from '../../components/DataView'
+import type { DataViewState } from '../../data-view'
 
 export function useTableState<T>(
   params: UseTableStateParams<T>,

@@ -3,11 +3,7 @@ import type { Meta } from '@storybook/react'
 import faker from 'faker'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
-import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import { Table, useTableState } from '../index'
 import { Button } from '../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../search'
@@ -94,14 +90,14 @@ export function SearchControls() {
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Search
           {...search.getInputProps()}
           csx={{
             width: 'full',
           }}
         />
-      </DataViewControls>
+      </DataViewHeader>
       <Table state={grid} />
     </DataView>
   )
@@ -117,7 +113,7 @@ export function Status() {
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
@@ -161,7 +157,7 @@ export function Status() {
         >
           Empty
         </Button>
-      </DataViewControls>
+      </DataViewHeader>
       <Table state={grid} />
     </DataView>
   )
@@ -221,11 +217,11 @@ export function QueryState() {
           helpText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
         />
         <DataView csx={{ width: 500 }} state={view}>
-          <DataViewControls>
+          <DataViewHeader>
             <Search {...search.getInputProps()} />
             <FlexSpacer />
             <Pagination state={pagination} />
-          </DataViewControls>
+          </DataViewHeader>
           <Table state={grid} />
         </DataView>
       </Stack>
@@ -310,12 +306,12 @@ export function FilterControls() {
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <FilterGroup state={filterGroupState}>
           <FilterMultiple state={brandFilterState} />
           <Filter state={qualityFilterState} />
         </FilterGroup>
-      </DataViewControls>
+      </DataViewHeader>
       <Table state={grid} />
     </DataView>
   )
