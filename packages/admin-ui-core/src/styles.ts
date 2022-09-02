@@ -62,3 +62,5 @@ export function createCsx(theme?: any) {
 
   return csx
 }
+
+export const csx = createCsx(defaultTheme)
