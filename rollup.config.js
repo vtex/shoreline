@@ -2,8 +2,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import external from 'rollup-plugin-peer-deps-external'
-import { terser } from 'rollup-plugin-terser'
-import babel from '@rollup/plugin-babel'
+// import babel from '@rollup/plugin-babel'
 import dts from 'rollup-plugin-dts'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
@@ -16,35 +15,34 @@ export default [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: true,
+        sourcemap: false,
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [
       external(),
       resolve(),
       commonjs(),
-      babel({
-        exclude: 'node_modules/**',
-        babelHelpers: 'bundled',
-        compact: true,
-        configFile: '../../babel.config.js',
-      }),
+      // babel({
+      //   exclude: 'node_modules/**',
+      //   babelHelpers: 'bundled',
+      //   compact: true,
+      //   configFile: '../../babel.config.js',
+      // }),
       typescript({
         tsconfig: './tsconfig.json',
         exclude: ['**/*.test.*', '**/*.stories.*'],
       }),
-      terser(),
     ],
     external: ['react', 'react-dom'],
   },
   {
-    input: 'src/index.ts',
-    output: [{ file: packageJson.types, format: 'esm' }],
+    input: 'dist/index.d.ts',
+    output: [{ file: packageJson.types }],
     plugins: [dts()],
   },
 ]
