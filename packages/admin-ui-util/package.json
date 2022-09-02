@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-util",
   "license": "MIT",
-  "version": "0.4.3-experimental.0",
+  "version": "0.4.3-experimental.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
