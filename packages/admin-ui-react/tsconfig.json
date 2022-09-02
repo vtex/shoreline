@@ -1,7 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src", "./typings/vtex.phosphor.d.ts"],
-  "compilerOptions": {
-    "resolveJsonModule": true
-  }
+  "include": ["./src", "./typings/vtex.phosphor.d.ts"]
 }
