@@ -11,7 +11,7 @@ import {
   createColumns,
 } from '../index'
 import { useTableState } from '../hooks/use-table-state'
-import { DataView, useDataViewState } from '../../components/DataView'
+import { DataView, useDataViewState } from '../../data-view'
 
 export default {
   title: 'admin-ui-review/table/complexity',
