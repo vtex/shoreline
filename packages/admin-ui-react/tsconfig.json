@@ -1,4 +1,16 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "stripInternal": true,
+    "isolatedModules": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "dist/declarations"
+  },
+  "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.stories.*"],
   "include": ["./src", "./typings/vtex.phosphor.d.ts"]
 }
