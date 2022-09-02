@@ -38,8 +38,6 @@ export const View = createComponent<'div', ViewOptions>((props) => {
           alignItems: 'center',
           flexWrap: 'wrap',
           padding: 4,
-          maxWidth: '38.75rem',
-          minHeight: '11.375rem',
           wordBreak: 'break-word',
         }}
       >
