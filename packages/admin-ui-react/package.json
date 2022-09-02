@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-react",
   "license": "MIT",
-  "version": "0.9.4",
+  "version": "0.9.5-experimental.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -31,15 +31,15 @@
   },
   "peerDependencies": {
     "@vtex/admin-ui-core": ">=0.x",
-    "@vtex/phosphor-icons": ">=0.x",
     "@vtex/admin-ui-util": ">=0.x",
+    "@vtex/phosphor-icons": ">=0.x",
     "react": "^16.9 || ^17.0",
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
-    "@vtex/admin-ui-core": "^0.12.3",
-    "@vtex/admin-ui-util": "^0.4.2",
+    "@vtex/admin-ui-core": "^0.12.4-experimental.0",
+    "@vtex/admin-ui-util": "^0.4.3-experimental.0",
     "@vtex/phosphor-icons": "0.2.8"
   },
   "dependencies": {
