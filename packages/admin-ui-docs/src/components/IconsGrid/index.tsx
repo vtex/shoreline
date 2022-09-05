@@ -5,7 +5,7 @@ import {
   useSearchState,
   useDropdownState,
   DataView,
-  DataViewControls,
+  DataViewHeader,
   Dropdown,
   Grid,
   Search,
@@ -65,10 +65,7 @@ export function IconsGrid(props: IconsGridProps) {
 
   useEffect(() => {
     if (!searchedItems.length) {
-      dataView.setStatus({
-        type: 'not-found',
-        message: 'The icon you are looking for does not exist',
-      })
+      dataView.setStatus({ type: 'not-found' })
     } else {
       dataView.setStatus({
         type: 'ready',
@@ -81,7 +78,7 @@ export function IconsGrid(props: IconsGridProps) {
 
   return (
     <DataView state={dataView} csx={{ marginX: 2 }}>
-      <DataViewControls>
+      <DataViewHeader>
         <Search {...search.getInputProps()} />
         <Dropdown
           label="Sizes"
@@ -95,7 +92,7 @@ export function IconsGrid(props: IconsGridProps) {
           items={weights}
           variant="neutralTertiary"
         />
-      </DataViewControls>
+      </DataViewHeader>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
         <Alert csx={{ marginBottom: 4 }}>
           Some icons below are opaque because they still don’t have a use case

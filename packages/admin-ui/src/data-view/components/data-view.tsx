@@ -7,7 +7,7 @@ import * as styles from './data-view.styles'
 import { Stack } from '../../stack'
 
 /**
- * Layout to organize DataTables, DataGrids and its controls
+ * Layout to organize Tables and its controllers
  * @example
  * const view = useDataViewState()
  *
@@ -16,12 +16,14 @@ import { Stack } from '../../stack'
 export const DataView = createComponent<'div', DataViewOptions>((props) => {
   const { children, state, ...restProps } = props
 
+  const isEmpty = state.status === 'empty'
+
   return useElement('div', {
     baseStyle: styles.baseline,
     children: (
       <DataViewContext.Provider value={state}>
         <Stack space="$2xl">
-          {children}
+          {isEmpty ? null : children}
           <DataViewStatus />
         </Stack>
       </DataViewContext.Provider>

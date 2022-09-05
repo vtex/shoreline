@@ -8,13 +8,16 @@ import * as styles from '../styles/table-head.styles'
 import { Box } from '../../box'
 
 import { useTableScroll } from '../hooks/use-table-scroll'
+import { useDataViewContext } from '../../data-view'
 
 export const TableHead = createComponent<'thead'>((props) => {
   const { children, ...headProps } = props
 
   const { hasVerticalScroll } = useTableScroll()
-
   const state = useStateContext()
+  const { status } = useDataViewContext()
+
+  const shouldRender = status === 'ready' || status === 'loading'
 
   const ariaSortLabel = {
     ASC: 'ascending',
@@ -25,7 +28,7 @@ export const TableHead = createComponent<'thead'>((props) => {
     ...headProps,
     baseStyle: styles.baseline,
     role: 'rowgroup',
-    children: (
+    children: shouldRender && (
       <Row>
         {state.columns.map((column) => {
           const { content, isSortable, sortDirection } = state.resolveHeader({

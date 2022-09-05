@@ -1011,15 +1011,9 @@ function Example() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-        />
+        <Pagination state={pagination} />
         <BulkActions state={bulk}>
           <Button variant="tertiary" icon={<IconPencil />}>
             Edit
@@ -1031,7 +1025,7 @@ function Example() {
             Delete
           </Button>
         </BulkActions>
-      </DataViewControls>
+      </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
         <Table state={table} />
       </SelectionTree>

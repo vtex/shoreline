@@ -58,7 +58,6 @@ export function StatusTable(props: StatusTableProps) {
     if (!searchedItems.length) {
       dataView.setStatus({
         type: 'not-found',
-        message: 'The component you are looking for does not exist',
       })
     } else {
       dataView.setStatus({
@@ -68,7 +67,6 @@ export function StatusTable(props: StatusTableProps) {
   }, [searchedItems.length])
 
   const table = useTableState({
-    density: 'variable',
     columns: [
       {
         id: 'component',

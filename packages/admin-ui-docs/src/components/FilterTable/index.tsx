@@ -9,7 +9,7 @@ import type {
 import {
   Table,
   DataView,
-  DataViewControls,
+  DataViewHeader,
   Search,
   Dropdown,
   FlexSpacer,
@@ -23,7 +23,7 @@ export function FilterTable<T>(props: TableFilterProps<T>) {
 
   return (
     <DataView state={dataView} csx={style.dataView}>
-      <DataViewControls csx={style.dataViewControls}>
+      <DataViewHeader csx={style.dataViewHeader}>
         <Search {...search.getInputProps()} />
         <Dropdown
           label="Filters"
@@ -32,16 +32,8 @@ export function FilterTable<T>(props: TableFilterProps<T>) {
           variant="neutralTertiary"
         />
         <FlexSpacer />
-        {pagination && (
-          <Pagination
-            state={pagination}
-            preposition="of"
-            subject="results"
-            prevLabel="Previous"
-            nextLabel="Next"
-          />
-        )}
-      </DataViewControls>
+        {pagination && <Pagination state={pagination} />}
+      </DataViewHeader>
       <Table state={table} csx={style.table} />
     </DataView>
   )

@@ -1,15 +1,15 @@
 import { style, styleVariants } from '@vtex/admin-ui-core'
 
 export const baseline = style({
-  overflow: 'auto',
+  overflow: 'visible',
   width: '100%',
 })
 
 export const header = style({
   display: 'flex',
   alignItems: 'flex-start',
-  justifyContent: 'space-between',
   width: '100%',
+  order: -1,
 })
 
 export const status = style({
@@ -17,7 +17,10 @@ export const status = style({
   textAlign: 'center',
   flexWrap: 'wrap',
   overflow: 'auto',
-  minHeight: '21.875rem',
+  minHeight: '29.813rem',
+  order: -1,
+  bg: '$secondary',
+  borderRadius: '$default',
 })
 
 export const statusMessage = styleVariants({

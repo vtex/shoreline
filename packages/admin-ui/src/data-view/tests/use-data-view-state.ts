@@ -7,7 +7,7 @@ describe('useDataViewState', () => {
       useDataViewState({
         loading: true,
         empty: null,
-        notFound: null,
+        notFound: false,
         error: null,
       })
     )
@@ -51,12 +51,7 @@ describe('useDataViewState', () => {
     expect(result.current.status).toBe('ready')
 
     // distatch not-found
-    act(() =>
-      result.current.setStatus({
-        type: 'not-found',
-        suggestion: 'not found suggestion',
-      })
-    )
+    act(() => result.current.setStatus({ type: 'not-found' }))
     expect(result.current.status).toBe('not-found')
   })
 

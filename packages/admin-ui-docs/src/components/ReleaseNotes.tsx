@@ -22,7 +22,7 @@ export function ReleaseNotes() {
     loading: true,
     error: null,
     empty: null,
-    notFound: null,
+    notFound: false,
   })
 
   const columns = createColumns<ReleaseNote>([

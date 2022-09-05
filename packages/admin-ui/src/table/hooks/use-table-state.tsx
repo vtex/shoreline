@@ -25,7 +25,7 @@ export function useTableState<T>(
 ): TableState<T> {
   const {
     columns,
-    length = 5,
+    length = 10,
     items = [],
     sort = {},
     getRowKey = (item: T) =>
@@ -37,7 +37,7 @@ export function useTableState<T>(
         loading: false,
         empty: null,
         error: null,
-        notFound: null,
+        notFound: false,
       },
     },
   } = params
