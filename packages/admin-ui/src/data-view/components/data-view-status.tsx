@@ -49,7 +49,9 @@ export function DataViewStatus() {
 
       {status === 'error' && (
         <Stack space="$xs" fluid>
-          <CollectionError />
+          <Center>
+            <CollectionError />
+          </Center>
 
           <Stack space="$l" fluid>
             <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
