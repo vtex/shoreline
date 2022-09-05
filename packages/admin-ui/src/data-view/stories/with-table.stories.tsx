@@ -5,7 +5,6 @@ import {
   DataView,
   useDataViewState,
   DataViewHeader,
-  DataViewReady,
   DataViewActions,
 } from '../index'
 import { Button } from '../../button'
@@ -14,7 +13,7 @@ import faker from 'faker'
 import { Page, PageContent, PageHeader } from '../../page'
 import { Search } from '../../search'
 import { Flex } from '../../flex'
-import { Stack } from '../../stack'
+import { IconPlus } from '@vtex/phosphor-icons'
 import { Inline } from '../../inline'
 import { Pagination, usePaginationState } from '../../pagination'
 import {
@@ -81,6 +80,14 @@ const filterItems = [
   { label: 'Almost full', id: '#9' },
 ]
 
+const allStatus = [
+  { type: 'ready' },
+  { type: 'loading' },
+  { type: 'not-found' },
+  { type: 'empty', action: { text: 'Create item', onClick: () => {} } },
+  { type: 'error', action: { text: 'Try again', onClick: () => {} } },
+]
+
 export function WithTable() {
   const view = useDataViewState()
   const table = useTableState<Item>({
@@ -94,112 +101,74 @@ export function WithTable() {
     total: 100,
   })
 
-  const filterStatus = useFilterMultipleState()
-  const filterLabel = useFilterMultipleState()
+  const firstFilter = useFilterMultipleState()
+  const secondFilter = useFilterMultipleState()
 
   return (
     <Page>
       <PageHeader>
         <Inline spaceInside hSpace="$m">
-          <Button
-            variant="neutralTertiary"
-            onClick={() => view.setStatus({ type: 'ready' })}
-          >
-            Ready
-          </Button>
-          <Button
-            variant="neutralTertiary"
-            onClick={() => view.setStatus({ type: 'loading' })}
-          >
-            Loading
-          </Button>
-          <Button
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'error',
-                action: {
-                  text: 'Try again',
-                  onClick: () => alert('Clicked'),
-                },
-              })
-            }
-          >
-            Error
-          </Button>
-          <Button
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'not-found',
-                suggestion: 'Try a different text',
-              })
-            }
-          >
-            Not Found
-          </Button>
-          <Button
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'empty',
-                action: {
-                  text: 'Try again',
-                  onClick: () => {},
-                },
-              })
-            }
-          >
-            Empty
-          </Button>
+          {allStatus.map((item, index) => {
+            return (
+              <Button
+                variant="neutralTertiary"
+                key={index}
+                onClick={() => view.setStatus(item as any)}
+              >
+                {item.type}
+              </Button>
+            )
+          })}
         </Inline>
       </PageHeader>
 
       <PageContent>
         <DataView state={view}>
           <DataViewHeader>
-            <Stack space="$xl">
+            <Flex justify="space-between" csx={{ width: '100%' }}>
               <Search />
-              <Inline spaceInside hSpace="$m">
-                <FilterDisclosure state={filterStatus}>Status</FilterDisclosure>
 
-                <FilterPopover state={filterStatus}>
-                  <FilterListbox>
-                    {filterItems.map((item: { label: string; id: string }) => (
-                      <FilterOptionCheckbox {...item} />
-                    ))}
-                  </FilterListbox>
-                  <FilterFooter />
-                </FilterPopover>
+              <DataViewActions>
+                <Button variant="neutralTertiary" icon={<IconPlus />}>
+                  Label
+                </Button>
+                <Button variant="neutralTertiary" icon={<IconPlus />}>
+                  Label
+                </Button>
+                <Pagination state={pagination} />
+              </DataViewActions>
+            </Flex>
 
-                <FilterDisclosure state={filterLabel}>Label</FilterDisclosure>
+            <Inline spaceInside hSpace="$m">
+              <FilterDisclosure state={firstFilter}>Label</FilterDisclosure>
 
-                <FilterPopover state={filterLabel}>
-                  <FilterListbox>
-                    {filterItems.map((item: { label: string; id: string }) => (
-                      <FilterOptionCheckbox {...item} />
-                    ))}
-                  </FilterListbox>
-                  <FilterFooter />
-                </FilterPopover>
-              </Inline>
-            </Stack>
+              <FilterPopover state={firstFilter}>
+                <FilterListbox>
+                  {filterItems.map((item: { label: string; id: string }) => (
+                    <FilterOptionCheckbox {...item} />
+                  ))}
+                </FilterListbox>
+                <FilterFooter />
+              </FilterPopover>
 
-            <DataViewActions>
-              <Button variant="neutralTertiary">Label</Button>
-              <Button variant="neutralTertiary">Label</Button>
-              <Button variant="neutralTertiary">Label</Button>
-              <Pagination state={pagination} />
-            </DataViewActions>
+              <FilterDisclosure state={secondFilter}>Label</FilterDisclosure>
+
+              <FilterPopover state={secondFilter}>
+                <FilterListbox>
+                  {filterItems.map((item: { label: string; id: string }) => (
+                    <FilterOptionCheckbox {...item} />
+                  ))}
+                </FilterListbox>
+                <FilterFooter />
+              </FilterPopover>
+            </Inline>
           </DataViewHeader>
 
           <Table state={table} csx={{ width: '100%' }} />
 
-          <DataViewReady>
-            <Flex justify="flex-end" csx={{ width: '100%' }}>
-              <Pagination state={pagination} />
-            </Flex>
-          </DataViewReady>
+          <Flex justify="flex-end" csx={{ width: '100%' }}>
+            <Pagination state={pagination} />
+          </Flex>
         </DataView>
       </PageContent>
     </Page>

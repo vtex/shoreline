@@ -122,7 +122,6 @@ export function Status() {
           onClick={() =>
             view.setStatus({
               type: 'error',
-              message: 'Something went wrong',
               action: {
                 text: 'Try again',
                 onClick: () => alert('Clicked'),
@@ -132,22 +131,13 @@ export function Status() {
         >
           Error
         </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'not-found',
-              message: 'The params do not match',
-              suggestion: 'Try a different text',
-            })
-          }
-        >
+        <Button onClick={() => view.setStatus({ type: 'not-found' })}>
           Not Found
         </Button>
         <Button
           onClick={() =>
             view.setStatus({
               type: 'empty',
-              message: 'You do not have any product yet',
               action: {
                 text: 'Create one',
                 onClick: () => alert('Clicked'),

@@ -28,9 +28,9 @@ export function DataViewStatus() {
           <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
             {formatMessage('notFound')}
           </Box>
-          {statusObject.notFound?.suggestion && (
+          {statusObject.notFound && (
             <Box as="span" csx={styles.statusMessage({ type: 'description' })}>
-              {statusObject.notFound?.suggestion}
+              {formatMessage('suggestion')}
             </Box>
           )}
         </Stack>
@@ -48,7 +48,7 @@ export function DataViewStatus() {
       )}
 
       {status === 'error' && (
-        <Stack space="$xl" fluid>
+        <Stack space="$xs" fluid>
           <CollectionError />
 
           <Stack space="$l" fluid>
