@@ -94,6 +94,7 @@ export function WithTable() {
     view,
     columns,
     items,
+    length: 25,
   })
 
   const pagination = usePaginationState({
@@ -103,6 +104,17 @@ export function WithTable() {
 
   const firstFilter = useFilterMultipleState()
   const secondFilter = useFilterMultipleState()
+
+  React.useEffect(() => {
+    const total = pagination.total
+    const status = view.status
+
+    if (status === 'not-found' || status === 'error') {
+      if (total > 0) pagination.paginate({ type: 'setTotal', total: 0 })
+    } else if (pagination.total === 0) {
+      pagination.paginate({ type: 'setTotal', total: 100 })
+    }
+  }, [view.status, pagination.total])
 
   return (
     <Page csx={{ height: '100vh' }}>
