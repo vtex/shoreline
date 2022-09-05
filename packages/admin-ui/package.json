@@ -16,7 +16,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "rollup-watch": "rollup -c -w",
+    "dev": "rollup -c -w",
     "build": "npm run prebuild && rollup -c"
   },
   "repository": {

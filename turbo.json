@@ -13,7 +13,9 @@
       "outputs": []
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "outputs": ["dist/**"],
+      "dependsOn": ["^dev"]
     },
     "clean": {
       "cache": false

@@ -17,7 +17,6 @@
   "scripts": {
     "lerna": "lerna",
     "turbo": "turbo",
-    "prebuild": "rm -rf dist",
     "build": "yarn turbo run build",
     "dev": "yarn turbo run dev --no-cache --parallel --continue",
     "test": "jest --color --runInBand --ci",
