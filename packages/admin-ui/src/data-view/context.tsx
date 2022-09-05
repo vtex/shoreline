@@ -8,7 +8,7 @@ export const DataViewContext = createContext<DataViewState>({
     loading: false,
     empty: null,
     error: null,
-    notFound: null,
+    notFound: false,
   },
   setStatus: () => null,
 })

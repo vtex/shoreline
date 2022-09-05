@@ -6,7 +6,7 @@ const defaultState: DataViewStatusObject = {
   loading: false,
   error: null,
   empty: null,
-  notFound: null,
+  notFound: false,
 }
 
 /**
@@ -54,7 +54,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
         loading: true,
         error: null,
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -63,7 +63,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
         loading: false,
         error: null,
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -74,7 +74,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
           action: action.action,
         },
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -85,7 +85,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
         empty: {
           action: action.action,
         },
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -94,9 +94,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
         loading: false,
         error: null,
         empty: null,
-        notFound: {
-          suggestion: action.suggestion,
-        },
+        notFound: true,
       }
     }
 
@@ -111,7 +109,7 @@ function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
 
 export interface DataViewStatusObject {
   loading: boolean
-  notFound: NotFoundState | null
+  notFound: boolean
   error: ErrorState | null
   empty: EmptyState | null
 }
@@ -143,10 +141,6 @@ export type StatusAction =
       onClick?: () => void
     }
 
-interface NotFoundState {
-  suggestion?: string
-}
-
 interface ErrorState {
   action?: StatusAction
 }
@@ -159,8 +153,7 @@ type AliasedState<T, S> = { type: T } & S
 
 type StatusReducerAction =
   | {
-      type: 'ready' | 'loading'
+      type: 'ready' | 'loading' | 'not-found'
     }
-  | AliasedState<'not-found', NotFoundState>
   | AliasedState<'error', ErrorState>
   | AliasedState<'empty', EmptyState>

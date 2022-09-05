@@ -8,14 +8,14 @@ DataView is a pattern used for rendering and controlling a set of data. It is de
 ## Import
 
 ```jsx
-import { DataView, DataViewControls, useDataViewState } from '@vtex/admin-ui'
+import { DataView, DataViewHeader, useDataViewState } from '@vtex/admin-ui'
 ```
 
 ## Anatomy
 
 ```txt
 DataView
-|__ DataViewControls
+|__ DataViewHeader
 |   |__ Search
 |   |__ Toolbar
 |   |   |__ Button
@@ -39,7 +39,7 @@ function Example() {
 
 ## Controls
 
-The `DataViewControls` arranges all the components that control or changes the displayed data. These components can be buttons, search forms, pagination, menus, and so on.
+The `DataViewHeader` arranges all the components that control or changes the displayed data. These components can be buttons, search forms, pagination, menus, and so on.
 
 ```jsx live
 function Example() {
@@ -49,14 +49,14 @@ function Example() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar}>
           <ToolbarButton variant="neutralTertiary">Button 1</ToolbarButton>
           <ToolbarButton variant="neutralTertiary">Button 2</ToolbarButton>
           <ToolbarButton variant="neutralTertiary">Button 3</ToolbarButton>
         </Toolbar>
-      </DataViewControls>
+      </DataViewHeader>
     </DataView>
   )
 }
@@ -94,7 +94,7 @@ function RenderingData() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Toolbar state={toolbar}>
           <ToolbarButton
             size="small"
@@ -124,7 +124,6 @@ function RenderingData() {
             onClick={() =>
               view.setStatus({
                 type: 'error',
-                message: 'Something went wrong',
               })
             }
           >
@@ -136,7 +135,6 @@ function RenderingData() {
             onClick={() =>
               view.setStatus({
                 type: 'not-found',
-                message: 'The search term was not found',
               })
             }
           >
@@ -148,14 +146,13 @@ function RenderingData() {
             onClick={() =>
               view.setStatus({
                 type: 'empty',
-                message: 'The collection is empty',
               })
             }
           >
             Empty
           </ToolbarButton>
         </Toolbar>
-      </DataViewControls>
+      </DataViewHeader>
       {content}
     </DataView>
   )
@@ -219,7 +216,7 @@ function SkeletonCollection() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Search id="search" placeholder="Search" state={search} />
         <Toolbar state={toolbar}>
           <ToolbarButton
@@ -251,7 +248,6 @@ function SkeletonCollection() {
             onClick={() =>
               view.setStatus({
                 type: 'error',
-                message: 'Something went wrong',
               })
             }
           >
@@ -263,7 +259,6 @@ function SkeletonCollection() {
             onClick={() =>
               view.setStatus({
                 type: 'not-found',
-                message: 'The search term was not found',
               })
             }
           >
@@ -275,14 +270,13 @@ function SkeletonCollection() {
             onClick={() =>
               view.setStatus({
                 type: 'empty',
-                message: 'The collection is empty',
               })
             }
           >
             Empty
           </ToolbarButton>
         </Toolbar>
-      </DataViewControls>
+      </DataViewHeader>
       {(view.status === 'loading' || view.status === 'ready') &&
         data.map((item) => (
           <Flex
@@ -315,7 +309,7 @@ All props of JSX div element.
 | ----- | --------------- | -------------- | -------- | ------- |
 | state | `DataViewState` | DataView state | ✅       | -       |
 
-### DataViewControls props
+### DataViewHeader props
 
 All props of JSX div element.
 
