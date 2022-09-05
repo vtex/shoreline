@@ -105,7 +105,7 @@ export function WithTable() {
   const secondFilter = useFilterMultipleState()
 
   return (
-    <Page>
+    <Page csx={{ height: '100vh' }}>
       <PageHeader>
         <Inline spaceInside hSpace="$m">
           {allStatus.map((item, index) => {
@@ -122,7 +122,7 @@ export function WithTable() {
         </Inline>
       </PageHeader>
 
-      <PageContent>
+      <PageContent layout="wide" csx={{ minHeight: 'calc(100vh - 92px)' }}>
         <DataView state={view}>
           <DataViewHeader>
             <Flex justify="space-between" csx={{ width: '100%' }}>
