@@ -139,7 +139,7 @@ export const tabToc = {
 
 ## What is this?
 
-Checkboxes allow merchants to make multiple independent choices in a form where there are at most five options and each option is binary.
+Checkbox controls allow merchants to make multiple independent choices in a form where there are at most five options and each option is binary.
 <br />
 </IntroSection>
 
@@ -547,14 +547,12 @@ function Example() {
   title={tabToc.designReference[0].value}
 >
 
-<details><summary>When to use the Radio, Switch, or Combobox Multiple components instead of the Checkbox component?</summary>
+<details><summary>When to use the Switch, Radio, or Combobox Multiple components instead of the Checkbox component?</summary>
 <p>
   <ul>
-    <li>Use the Checkbox component to allow multiple choices, in scenarios where options are not mutually exclusive and you wish to allow one or more selection.</li>
-    <li>Use the Checkbox component to provide binary options, such as yes or no choices, where checking the Checkbox means yes and not checking it means no. Never use a radio component in this scenario.</li>
-    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than 5 available options.</li>
     <li>Choose the Switch component if the action is instant and does not require confirmation. For example, use a switch in a product form to show a new form section only if the product has variants.</li>
-    <li>Choose the Radio component if only one option can be selected at a time.</li>
+    <li>Choose the Radio component if only one option can be selected at a time and there are up to five options.</li>
+    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than 5 available options.</li>
   </ul>
 </p>
 </details>
@@ -601,9 +599,14 @@ The indeterminate state should be displayed in these scenarios when only a few o
 </p>
 </details>
 
-<details><summary>What should be the default state of a Checkbox?</summary>
+<details><summary>What should be the default value of a Checkbox?</summary>
 <p>
-When a Checkbox serves as confirmation, leave it unchecked by default and make it required to direct the attention of merchants. For example, the choice to accept terms and conditions.
+  <ul>
+<li>When possible, present a preselected option as default. Usually, it will be the most common or recommended option. If the default option is not the most common, its selection might confuse merchants.</li>
+<li>If the information comes from elsewhere and there is a high chance that this value will be reused, it should be preselected. However, there are cases when having a preselected option is unnecessary, such as filter scenarios.</li>
+<li>When you preselect an option, this might give an impression that the merchant itself selected it. Keep in mind there are cases when this is not desirable. For example, in a form, if a value is preselected, the merchant might ignore that control.</li>
+<li>Always add (Recommended) to the preselected option’s label.</li>
+  </ul>
 </p>
 </details>
 
@@ -624,6 +627,7 @@ When a Checkbox serves as confirmation, leave it unchecked by default and make i
   What to avoid:
   <ul>
     <li>Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.</li>
+    <li>Don't write labels that vary a lot in length between options.</li>
     <li>Don't use personal pronouns. For example, write <em>Receive promotional emails</em> instead of <em>I want to receive emails</em>.</li>
     <li>Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L </em>instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.</li>
     <li>Don't include negative words. For example, write <em>Receive promotional emails</em> instead of <em>I don't want to receive emails</em>.</li>
