@@ -25,7 +25,7 @@ export function useTableState<T>(
 ): TableState<T> {
   const {
     columns,
-    length = 10,
+    length = 5,
     items = [],
     sort = {},
     getRowKey = (item: T) =>
