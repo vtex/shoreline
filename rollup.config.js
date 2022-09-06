@@ -1,7 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
-import external from 'rollup-plugin-peer-deps-external'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
@@ -19,17 +18,14 @@ export default [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: true,
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: true,
       },
     ],
     plugins: [
-      external(),
-      resolve(),
+      resolve({ moduleDirectories: ['ariakit', 'reakit'] }),
       commonjs(),
       babel({
         exclude: 'node_modules/**',
@@ -42,7 +38,10 @@ export default [
         tsconfig: './tsconfig.json',
       }),
     ],
-    external: ['react', 'react-dom'],
+    external: Object.keys({
+      ...packageJson.dependencies,
+      ...packageJson.peerDependencies,
+    }),
   },
   {
     input: 'dist/declarations/index.d.ts',
