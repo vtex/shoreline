@@ -10,6 +10,7 @@ module.exports = {
       {
         bugfixes: true,
         modules: cjs ? 'commonjs' : false,
+        loose: true,
       },
     ],
   ],
