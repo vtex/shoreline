@@ -1,7 +1,7 @@
 {
   "name": "@vtex/admin-ui-core",
   "license": "MIT",
-  "version": "0.12.4-experimental.8",
+  "version": "0.12.4-experimental.9",
   "main": "dist/vtex-admin-ui-core.cjs.js",
   "module": "dist/vtex-admin-ui-core.esm.js",
   "types": "dist/vtex-admin-ui-core.cjs.d.ts",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@stitches/react": "1.2.8",
-    "@vtex/admin-ui-util": "^0.4.3-experimental.8",
+    "@vtex/admin-ui-util": "^0.4.3-experimental.9",
     "csstype": "3.0.10"
   }
 }
