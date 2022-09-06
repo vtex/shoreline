@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.7-experimental.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.9...@vtex/admin-ui@0.133.7-experimental.10) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
 ## [0.133.7-experimental.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.8...@vtex/admin-ui@0.133.7-experimental.9) (2022-09-06)
 
 **Note:** Version bump only for package @vtex/admin-ui
