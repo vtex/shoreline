@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.7-experimental.11](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-experimental.10...@vtex/gatsby-plugin-admin-ui@0.8.7-experimental.11) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
 ## [0.8.7-experimental.10](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-experimental.9...@vtex/gatsby-plugin-admin-ui@0.8.7-experimental.10) (2022-09-06)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
