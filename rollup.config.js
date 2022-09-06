@@ -5,6 +5,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
+import del from 'rollup-plugin-delete'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const packageJson = require('./package.json')
@@ -18,10 +19,12 @@ export default [
       {
         file: packageJson.main,
         format: 'cjs',
+        sourcemap: true,
       },
       {
         file: packageJson.module,
         format: 'esm',
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -42,8 +45,8 @@ export default [
     external: ['react', 'react-dom'],
   },
   {
-    input: 'src/index.ts',
+    input: 'dist/declarations/index.d.ts',
     output: [{ file: packageJson.types, format: 'esm' }],
-    plugins: [dts()],
+    plugins: [dts(), del({ hook: 'buildEnd', targets: './dist/declarations' })],
   },
 ]
