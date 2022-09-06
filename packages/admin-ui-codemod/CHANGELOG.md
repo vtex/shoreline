@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-experimental.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.3-experimental.5...@vtex/admin-ui-codemod@0.6.3-experimental.6) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
 ## [0.6.3-experimental.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.3-experimental.4...@vtex/admin-ui-codemod@0.6.3-experimental.5) (2022-09-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
