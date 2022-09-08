@@ -31,6 +31,9 @@ export const input = style({
       color: '$disabled',
     },
   },
+  '@desktop': {
+    minWidth: '18rem',
+  },
 })
 
 export const form = style({
