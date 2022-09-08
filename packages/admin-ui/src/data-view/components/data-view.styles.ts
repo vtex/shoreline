@@ -17,7 +17,7 @@ export const status = style({
   textAlign: 'center',
   flexWrap: 'wrap',
   overflow: 'auto',
-  minHeight: '12rem',
+  minHeight: '75vh',
   order: -1,
   bg: '$secondary',
   borderRadius: '$default',

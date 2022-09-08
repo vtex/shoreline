@@ -15,16 +15,13 @@ import * as styles from '../styles/table-body.styles'
 
 export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
   const { children, ...restProps } = props
-  const { status } = useDataViewContext()
   const { data, getRowKey } = useStateContext()
-
-  const shouldRender = status === 'ready' || status === 'loading'
 
   return useElement('tbody', {
     ...restProps,
     role: 'rowgroup',
     baseStyle: styles.baseline,
-    children: shouldRender && (
+    children: (
       <Fragment>
         {isFunction(children)
           ? children(function render(callback: RenderFunction) {
