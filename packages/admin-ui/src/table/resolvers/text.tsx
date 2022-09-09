@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
+import { style } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
 import { Text } from '../../components/Text'
-import { Stack } from '../../stack'
+import { Grid } from '../../grid'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 
@@ -25,14 +26,31 @@ export function textResolver<T>() {
       const isNameColumn = resolver?.columnType === 'name' ?? 'text'
       const textVariant = isNameColumn ? 'action1' : 'body'
 
+      const hasOverflow = resolver?.overflow ?? false
+      const descriptionStyle = style(
+        hasOverflow
+          ? {
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: resolver.overflow,
+            }
+          : {}
+      )
+
       const data = resolver?.mapDescription ? (
-        <Stack
-          space={isNameColumn ? '$s' : '0'}
-          csx={{ height: '4rem', justifyContent: 'center' }}
+        <Grid
+          csx={{
+            minHeight: '4rem',
+            rowGap: isNameColumn ? '0.125rem' : '0',
+          }}
         >
-          <Text variant={textVariant}>{resolver?.mapText(item)}</Text>
-          <Text tone="secondary">{resolver.mapDescription(item)}</Text>
-        </Stack>
+          <Text variant={textVariant} csx={{ alignSelf: 'flex-end' }}>
+            {resolver?.mapText(item)}
+          </Text>
+          <Text tone="secondary" csx={descriptionStyle}>
+            {resolver.mapDescription(item)}
+          </Text>
+        </Grid>
       ) : (
         <Text variant={textVariant}>{resolver?.mapText(item)}</Text>
       )
@@ -47,6 +65,7 @@ export function textResolver<T>() {
 export type TextResolver<T> = {
   type: 'text'
   columnType?: 'name' | 'text'
+  overflow?: 'ellipsis' | 'auto'
   mapText: (item: T) => ReactNode
   mapDescription?: (item: T) => ReactNode
   render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
