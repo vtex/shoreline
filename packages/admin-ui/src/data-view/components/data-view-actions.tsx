@@ -1,4 +1,3 @@
-import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as styles from './data-view.styles'
@@ -18,11 +17,8 @@ import * as styles from './data-view.styles'
  * </DataView>
  */
 export const DataViewActions = createComponent<'div'>((props) => {
-  const { children, ...restProps } = props
-
   return useElement('div', {
-    ...restProps,
+    ...props,
     baseStyle: styles.headerActions,
-    children: <>{children}</>,
   })
 })
