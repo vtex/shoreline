@@ -29,10 +29,8 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
 
   const formatMessage = useMessageFormatter(messages)
 
-  const hasOnlyOnePage = numberOfPages <= 1
-  const currentPageLabel = hasOnlyOnePage
-    ? total
-    : `${firstPosition} — ${lastPosition}`
+  const currentPageLabel =
+    numberOfPages <= 1 ? total : `${firstPosition} — ${lastPosition}`
 
   return useElement('div', {
     ...restProps,
