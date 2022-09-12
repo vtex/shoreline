@@ -17,9 +17,7 @@ export function DataViewStatus() {
 
   const formatMessage = useMessageFormatter(messages)
 
-  if (!status) return null
-
-  if (status === 'loading' || status === 'ready') return null
+  if (!status || status === 'loading' || status === 'ready') return null
 
   return (
     <Center csx={styles.status}>
