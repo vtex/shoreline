@@ -421,14 +421,16 @@ render(<Example />)
 
 ### Text
 
-The text resolver should be mainly used to render a text and an optional description just below it. It must be used for cells belonging to a `name` column.
+The text resolver should be mainly used to render a text and an optional description just below it. For descriptions that are too long, it is possible to truncante it by setting the `overflow` prop.
+This resolver must be used on the `name` column of the table.
+
 
 ```jsx noInline live
 const items = [
   {
     id: 1,
     productName: 'Orange',
-    description: 'Fruit',
+    description: 'An orange is a fruit of various citrus species in the family Rutaceae (see list of plants known as orange);',
     inStock: 380,
     skus: 0,
     price: 120,
@@ -436,7 +438,7 @@ const items = [
   {
     id: 2,
     productName: 'Lemon',
-    description: 'Fruit',
+    description: 'The lemon (Citrus limon) is a species of small evergreen trees in the flowering plant family Rutaceae, native to Asia, primarily Northeast India (Assam), Northern Myanmar or China',
     inStock: 380,
     skus: 26,
     price: 120,
@@ -444,7 +446,7 @@ const items = [
   {
     id: 3,
     productName: 'Tomato',
-    description: 'Fruit',
+    description: 'The tomato is the edible berry of the plant Solanum lycopersicum,[1][2] commonly known as the tomato plant.',
     inStock: 380,
     skus: 26,
     price: 120,
@@ -460,6 +462,7 @@ function Example() {
         resolver: {
           type: 'text',
           columnType: 'name',
+          overflow: 'ellipsis',
           mapText: (item) => item.productName,
           mapDescription: (item) => item.description,
         },
@@ -504,13 +507,14 @@ function Example() {
 render(<Example />)
 ```
 
-| Name           | Type                                                      | Description                                                   | Required | Default |
-| -------------- | --------------------------------------------------------- | ------------------------------------------------------------- | -------- | ------- |
-| type           | `text`                                                    | Text resolver type                                            | ✅       | -       |
-| columnType     | `name or text`                                            | Column text type                                              | 🚫       | `text`  |
-| mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered        | ✅       | -       |
-| mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered | 🚫       | -       |
-| render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                      | 🚫       | -       |
+| Name           | Type                                                      | Description                                                     | Required | Default |
+| -------------- | --------------------------------------------------------- | --------------------------------------------------------------- | -------- | ------- |
+| type           | `text`                                                    | Text resolver type                                              | ✅       | -       |
+| columnType     | `name or text`                                            | Column text type                                                | 🚫       | `text`  |
+| mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered          | ✅       | -       |
+| mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered   | 🚫       | -       |
+| overflow       | `ellipsis or auto`                                        | It specifies how overflowed text should be signaled to the user.| 🚫       | -       |
+| render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                        | 🚫       | -       |
 
 </Section>
 
@@ -631,7 +635,7 @@ render(<Example />)
 | actions | `MenuAction[]`                                              | A set of actions to be rendered as MenuItems | ✅       | -       |
 | render  | `(props: ResolverRenderProps<JSX.Element, T>) => ReactNode` | Resolver render function                     | 🚫       | -       |
 
-**MenuAction**
+#### MenuAction
 
 | Name     | Type                | Description                             | Required | Default |
 | -------- | ------------------- | --------------------------------------- | -------- | ------- |
