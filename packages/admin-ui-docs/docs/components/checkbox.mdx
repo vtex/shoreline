@@ -552,7 +552,7 @@ function Example() {
   <ul>
     <li>Choose the Switch component if the action is instant and does not require confirmation. For example, use a switch in a product form to show a new form section only if the product has variants.</li>
     <li>Choose the Radio component if only one option can be selected at a time and there are up to five options.</li>
-    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than 5 available options.</li>
+    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than five available options.</li>
   </ul>
 </p>
 </details>
@@ -562,7 +562,7 @@ function Example() {
 </details>
 
 <details><summary>When to use a vertical or a horizontal Checkbox Group?</summary>
-<p>The vertical option is more scalable, but the horizontal option can be used when, considering localization, options don't require a line break and the length of their label does not vary a lot between options, including up to 20 characters.</p>
+<p>It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.</p>
 </details>
 
 </PageSection>
@@ -602,10 +602,9 @@ The indeterminate state should be displayed in these scenarios when only a few o
 <details><summary>What should be the default value of a Checkbox?</summary>
 <p>
   <ul>
-<li>When possible, present a preselected option as default. Usually, it will be the most common or recommended option. If the default option is not the most common, its selection might confuse merchants.</li>
-<li>If the information comes from elsewhere and there is a high chance that this value will be reused, it should be preselected. However, there are cases when having a preselected option is unnecessary, such as filter scenarios.</li>
-<li>When you preselect an option, this might give an impression that the merchant itself selected it. Keep in mind there are cases when this is not desirable. For example, in a form, if a value is preselected, the merchant might ignore that control.</li>
-<li>Always add (Recommended) to the preselected option’s label.</li>
+<li>Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.</li>
+<li>Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.</li>
+<li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
   </ul>
 </p>
 </details>
@@ -627,7 +626,7 @@ The indeterminate state should be displayed in these scenarios when only a few o
   What to avoid:
   <ul>
     <li>Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.</li>
-    <li>Don't write labels that vary a lot in length between options.</li>
+    <li>Don't write Checkbox labels that vary a lot in length between options.</li>
     <li>Don't use personal pronouns. For example, write <em>Receive promotional emails</em> instead of <em>I want to receive emails</em>.</li>
     <li>Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L </em>instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.</li>
     <li>Don't include negative words. For example, write <em>Receive promotional emails</em> instead of <em>I don't want to receive emails</em>.</li>
@@ -663,9 +662,9 @@ The indeterminate state should be displayed in these scenarios when only a few o
   <br /><br />
   What to avoid:
   <ul>
-    <li>Avoid including links. Use an alert component if this is necessary.</li>
-    <li>Avoid writing more than one sentence.</li>
-    <li>Avoid using periods or commas.</li>
+    <li>Don't include links. Use an alert component if this is necessary.</li>
+    <li>Don't write more than one sentence.</li>
+    <li>Don't use periods or commas.</li>
   </ul>
 </p>
 </details>
