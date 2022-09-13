@@ -1,7 +1,7 @@
 aliases:
   [
     &filter-default-branches {
-      filters: { branches: { ignore: ^(ci/test-automate-release|main)$ } },
+      filters: { branches: { ignore: ^(ci\/test-automate-release|main)$ } },
     },
 
     &experimental-release-branch-only {
@@ -90,6 +90,8 @@ jobs:
             - run:
                 name: Authenticate with registry
                 command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN	" > ~/repo/.npmrc
+            - run: yarn install
+            - run: yarn build
             - run: yarn publish:experimental
 
   publish-main:
@@ -133,7 +135,6 @@ workflows:
       - confirm-release:
           type: approval
           requires:
-            - build
             - test
       - publish-experimental:
           requires:
