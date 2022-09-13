@@ -47,7 +47,7 @@
     "dev": "turbo run dev --parallel --no-cache",
     "version": "lerna run version",
     "prepublish:main": "yarn && yarn build && yarn check --integrity",
-    "prepublish:dev": "yarn && yarn build",
+    "prepublish:dev": "yarn && yarn build && yarn check --integrity",
     "publish:main": "lerna publish",
     "publish:dev": "yarn lerna publish prerelease --preid dev --dist-tag dev",
     "clean": "turbo clean && turbo run clean",

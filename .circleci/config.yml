@@ -1,3 +1,12 @@
+aliases:
+  [
+    &filter-default-branches {
+      filters: { branches: { ignore: ^(dev|main)$ } },
+    },
+
+    &dev-release-branch-only { filters: { branches: { only: 'dev' } } },
+    &main-release-branch-only { filters: { branches: { only: 'main' } } },
+  ]
 # Javascript Node CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
@@ -63,6 +72,42 @@ jobs:
       - run: yarn build
       - run: yarn test:ci
 
+  publish-dev:
+    docker:
+      - image: circleci/node:16
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - when:
+          condition:
+            equal: [dev, << pipeline.git.branch >>]
+
+          steps:
+            - run:
+                name: Authenticate with registry
+                command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN	" > ~/repo/.npmrc
+            - run: yarn publish:dev
+
+  publish-main:
+    docker:
+      - image: circleci/node:16
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - when:
+          condition:
+            equal: [main, << pipeline.git.branch >>]
+
+          steps:
+            - run:
+                name: Authenticate with registry
+                command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN	" > ~/repo/.npmrc
+            - run: yarn publish:main
+
 workflows:
   version: 2
 
@@ -70,10 +115,38 @@ workflows:
     jobs:
       - chromatic-deployment
 
-  build_and_test:
+  build-and-test:
     jobs:
-      - build
+      - build: *filter-default-branches
       - test:
           name: '@vtex/admin-ui test'
           requires:
             - build
+  publish-dev:
+    jobs:
+      - build: *dev-release-branch-only
+      - test:
+          requires:
+            - build
+      - confirm-release:
+          type: approval
+          requires:
+            - build
+            - test
+      - publish-dev:
+          requires:
+            - confirm-release
+  publish-main:
+    jobs:
+      - build: *main-release-branch-only
+      - test:
+          requires:
+            - build
+      - confirm-release:
+          type: approval
+          requires:
+            - build
+            - test
+      - publish-main:
+          requires:
+            - confirm-release
