@@ -1,10 +1,12 @@
 aliases:
   [
     &filter-default-branches {
-      filters: { branches: { ignore: ^(dev|main)$ } },
+      filters: { branches: { ignore: ^(ci/test-automate-release|main)$ } },
     },
 
-    &dev-release-branch-only { filters: { branches: { only: 'dev' } } },
+    &experimental-release-branch-only {
+      filters: { branches: { only: 'ci/test-automate-release' } },
+    },
     &main-release-branch-only { filters: { branches: { only: 'main' } } },
   ]
 # Javascript Node CircleCI 2.0 configuration file
@@ -72,7 +74,7 @@ jobs:
       - run: yarn build
       - run: yarn test:ci
 
-  publish-dev:
+  publish-experimental:
     docker:
       - image: circleci/node:16
 
@@ -82,13 +84,13 @@ jobs:
       - checkout
       - when:
           condition:
-            equal: [dev, << pipeline.git.branch >>]
+            equal: [ci/test-automate-release, << pipeline.git.branch >>]
 
           steps:
             - run:
                 name: Authenticate with registry
                 command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN	" > ~/repo/.npmrc
-            - run: yarn publish:dev
+            - run: yarn publish:experimental
 
   publish-main:
     docker:
@@ -122,9 +124,9 @@ workflows:
           name: '@vtex/admin-ui test'
           requires:
             - build
-  publish-dev:
+  publish-experimental:
     jobs:
-      - build: *dev-release-branch-only
+      - build: *experimental-release-branch-only
       - test:
           requires:
             - build
@@ -133,7 +135,7 @@ workflows:
           requires:
             - build
             - test
-      - publish-dev:
+      - publish-experimental:
           requires:
             - confirm-release
   publish-main:
