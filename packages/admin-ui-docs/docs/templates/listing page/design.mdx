@@ -1,0 +1,92 @@
+---
+title: Design
+path: /listing-page/design/
+---
+
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { Box, IconArrowUpRight } from '@vtex/admin-ui'
+
+
+## Figma file
+
+<Box csx={{ border: '$neutral', padding: '$m'}}>
+    <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213" vertical-align="middle">
+      <img src="https://user-images.githubusercontent.com/77292838/190232388-90d6e8e1-01b1-43e2-955c-12c4fc35efd1.png" width="24"></img> Listing page template <IconArrowUpRight />
+    </a>
+</Box>
+
+
+## How to start
+
+Follow these instructions to use the template on Figma:
+
+<OrderedList>
+  <OrderedListItem>
+    Read the template's documentation.
+  </OrderedListItem>
+  <OrderedListItem>
+    Create a copy of the <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213">Figma file</a>, so you can get started with your own version.
+  </OrderedListItem>
+  <OrderedListItem>
+Make the desired changes to content and components. Make sure you access our components' documentation to learn more about each one.
+  </OrderedListItem>
+  <OrderedListItem>
+    Share your version of the prototype with the developers in your team.
+  </OrderedListItem>
+</OrderedList>
+
+<br />
+
+
+:::info
+The template is flexible, which means you can make customizations according to your specific scenario. Use the Admin UI components to make adjustments and, if you have any questions, [contact us](https://admin-ui.vercel.app/documentation/introduction/contact-us).
+:::
+
+
+## Content
+
+#### What should be the page title, URL route and Admin navigation entry?
+
+  - Include the name of the object that is being listed in the page title, URL route and Admin navigation entry.
+  - Use only nouns in the plural form and in title case, such as *Products* and *Orders*.
+  - Do not add a prefix, such as *All Products*, or a suffix, such as *Orders listing*.
+
+#### What should be the order of Table columns?
+
+  - Position properties that identify list items first, such as *Name* and *ID*.
+  - Position the Menu as the last column and immediately before it a tag with the item’s status, when it exists.
+
+#### What should be the format of data?
+
+  Dates and values should be in the most common format according to each location. Go to the [Table documentation](https://admin-ui.vercel.app/components/table) to learn more about our patterns.
+
+#### What actions should be in the header of a listing page?
+
+  - Lists of objects should include a primary action to create items with the name of the listed object, such as *Create product*.
+  - Lists of records should not include any actions in their header.
+
+#### What actions should be in the Menu of each list item?
+
+  The Menu should include actions related to the list item globally, also present in the header of its internal page, such as *Duplicate* and *Export*. It should also include a copy button next to frequently copied data.
+
+#### When should the table row be taller?
+
+  The table row height should only be taller when there is content that occupies the additional space. It is not recommended to customize the table row height for aesthetic and standardization reasons.
+
+
+## Behavior
+
+#### How should filters and search behave?
+
+  - Order filters by their usage but keep those with predefined values first.
+  - Support searching for all list properties that users expect, so as not to require instructions.
+  - Add query parameters, such as search query and sort order, to the URL so users can bookmark and share their view with others.
+  - Go to the the [Data View](https://admin-ui.vercel.app/components/data-view) documentation for more details.
+
+#### How should pagination behave?
+
+  - Retrieve list items for the previous or next page starting from the set of items currently being viewed.
+  - Update list items only upon user action, such as changing the filters or pressing a refresh button.
+  - Go to the the [Data View](https://admin-ui.vercel.app/components/data-view) documentation for more details.
+
+
