@@ -61,6 +61,7 @@
     "version:docs": "yarn --cwd packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
     "build:ci": "preconstruct build",
+    "build-storybook:ci": "yarn run build-storybook",
     "test:ci": "jest --color --runInBand --ci",
     "lint:ci": "yarn lint"
   },
