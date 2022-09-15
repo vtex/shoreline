@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.7-test.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-test.2...@vtex/admin-ui@0.133.7-test.3) (2022-09-15)
+
+
+### Bug Fixes
+
+* **release:** change npm setup ([d069413](https://github.com/vtex/admin-ui/commit/d0694134d1893c07d53bf4350d7cd26aafe1c8c6))
+
+
+
+
+
 ## [0.133.7-test.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-test.1...@vtex/admin-ui@0.133.7-test.2) (2022-09-15)
 
 
