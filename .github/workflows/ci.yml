@@ -6,6 +6,7 @@ on:
     branches-ignore:
       - main
       - dev
+      - ci/test-release-npm
 
 jobs:
   build:

@@ -13,7 +13,7 @@ export const card = style({
 export const header = style({
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  alignItems: 'end',
   width: '100%',
 })
 
