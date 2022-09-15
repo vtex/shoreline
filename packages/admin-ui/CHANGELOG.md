@@ -7,9 +7,59 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @vtex/admin-ui
 
+## [0.133.7-experimental.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.10...@vtex/admin-ui@0.133.7-experimental.11) (2022-09-06)
 
+**Note:** Version bump only for package @vtex/admin-ui
 
+## [0.133.7-experimental.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.9...@vtex/admin-ui@0.133.7-experimental.10) (2022-09-06)
 
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.8...@vtex/admin-ui@0.133.7-experimental.9) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.7...@vtex/admin-ui@0.133.7-experimental.8) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.6...@vtex/admin-ui@0.133.7-experimental.7) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.5...@vtex/admin-ui@0.133.7-experimental.6) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.4...@vtex/admin-ui@0.133.7-experimental.5) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.3...@vtex/admin-ui@0.133.7-experimental.4) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.2...@vtex/admin-ui@0.133.7-experimental.3) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.1...@vtex/admin-ui@0.133.7-experimental.2) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-experimental.0...@vtex/admin-ui@0.133.7-experimental.1) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.6...@vtex/admin-ui@0.133.7-experimental.0) (2022-09-02)
+
+### Bug Fixes
+
+- **skeleton:** update skeleton internal imports ([2c58332](https://github.com/vtex/admin-ui/commit/2c58332a1979754b5433963b07bc3ce1924ebf81))
+
+### Features
+
+- **skeleton:** add skeleton component review ([8ea293d](https://github.com/vtex/admin-ui/commit/8ea293d5c4b5d0a3a2ba75fa5fc6b567bc0bea6f))
 
 ## [0.133.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.5...@vtex/admin-ui@0.133.6) (2022-08-24)
 

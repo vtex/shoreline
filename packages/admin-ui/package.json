@@ -14,6 +14,11 @@
   "engines": {
     "node": ">=10"
   },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
   "repository": {
     "directory": "packages/admin-ui",
     "type": "git",
@@ -61,11 +66,6 @@
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
     "use-debounce": "^7.0.0"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
   },
   "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }

@@ -16,6 +16,11 @@
   "engines": {
     "node": ">=10"
   },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
   "repository": {
     "directory": "packages/core-next",
     "type": "git",

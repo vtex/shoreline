@@ -1,7 +1,8 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src"],
   "compilerOptions": {
-    "resolveJsonModule": true
-  }
+    "declarationDir": "declarations"
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.stories.*"]
 }

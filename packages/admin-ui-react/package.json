@@ -16,6 +16,11 @@
   "engines": {
     "node": ">=10"
   },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
   "repository": {
     "directory": "packages/react",
     "type": "git",
@@ -26,6 +31,7 @@
   },
   "peerDependencies": {
     "@vtex/admin-ui-core": ">=0.x",
+    "@vtex/admin-ui-util": ">=0.x",
     "@vtex/phosphor-icons": ">=0.x",
     "react": "^16.9 || ^17.0",
     "react-dom": "^16.9 || ^17.0"
@@ -33,10 +39,10 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
     "@vtex/admin-ui-core": "^0.12.4-dev.0",
+    "@vtex/admin-ui-util": "^0.4.3-dev.0",
     "@vtex/phosphor-icons": "0.2.8"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.4.3-dev.0",
     "focus-visible": "^5.2.0",
     "react-helmet": "^6.1.0",
     "react-is": "^17.0.2",

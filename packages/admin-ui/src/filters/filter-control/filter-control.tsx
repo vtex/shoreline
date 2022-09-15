@@ -15,7 +15,8 @@ import { messages } from '../filter.i18n'
 import { useMessageFormatter } from '../../i18n'
 
 import { Button } from '../../button'
-import { Flex, IconCaretUp, IconCheck } from '../..'
+import { Flex } from '../../flex'
+import { IconCaretUp, IconCheck } from '@vtex/phosphor-icons'
 
 export const FilterControl = createComponent<typeof Role, FilterControlProps>(
   (props) => {
