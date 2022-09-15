@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.7-test.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-test.3...@vtex/admin-ui@0.133.7-test.4) (2022-09-15)
+
+
+### Bug Fixes
+
+* **release:** 403 on lerna publish ([9700e1a](https://github.com/vtex/admin-ui/commit/9700e1aba91da907d5cb70390b206c97488b773f))
+
+
+
+
+
 ## [0.133.7-test.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-test.2...@vtex/admin-ui@0.133.7-test.3) (2022-09-15)
 
 
