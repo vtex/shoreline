@@ -35,6 +35,11 @@ jobs:
           git config user.name vtexgithubbot
           git config user.email vtexgithubbot@github.com
 
+      - name: "Setup npm"
+        run: |
+          npm set @vtex:registry=https://npm.pkg.github.com/vtex
+          npm set "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}"
+
       - name: Install dependencies
         run: yarn
 
