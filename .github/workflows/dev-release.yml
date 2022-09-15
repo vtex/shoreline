@@ -52,6 +52,6 @@ jobs:
           exitOnceUploaded: true
 
       - name: Publish
-        run: yarn lerna publish prerelease --preid dev --dist-tag dev --yes
+        run: yarn lerna publish prerelease --preid dev --dist-tag dev --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
