@@ -1,0 +1,50 @@
+# This Action should run on dev branch and verify test, and then publish the version on npm
+name: CD
+
+on:
+  push:
+    branches:
+      - ci/test-release-npm
+
+jobs:
+  build:
+    name: Admin UI
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    # env:
+    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    #  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
+          fetch-depth: 2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Configure CI Git User
+        run: |
+          git config user.name vtexgithubbot
+          git config user.email vtexgithubbot@github.com
+
+      - name: Authenticate with Registry
+        run: echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish
+        run: yarn lerna publish prerelease --preid test --dist-tag test --yes
