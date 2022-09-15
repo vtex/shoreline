@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.133.7-test.1 (2022-09-15)
+
+
+### Bug Fixes
+
+* **release:** force publishing version ([0e03bf0](https://github.com/vtex/admin-ui/commit/0e03bf0d137c5680547185c26e7d255c045ae2b3))
+* **release:** update npm setup ([f9bf5e5](https://github.com/vtex/admin-ui/commit/f9bf5e5a75f990c52ae9d4156304a11799619622))
+
+
+
+
+
 ## 0.133.7-test.0 (2022-09-15)
 
 
