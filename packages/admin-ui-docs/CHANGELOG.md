@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.16.7-test.0 (2022-09-15)
+
+
+### Bug Fixes
+
+* **release:** test automated npm release ([4f7661b](https://github.com/vtex/admin-ui/commit/4f7661b0d0a6989643786036f75086de7e5b5016))
+
+
+
+
+
 ## 0.16.7-dev.0 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
