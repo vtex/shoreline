@@ -35,11 +35,6 @@ jobs:
           git config user.name vtexgithubbot
           git config user.email vtexgithubbot@github.com
 
-      - name: Authenticate with Registry
-        run: echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
       - name: Install dependencies
         run: yarn
 
@@ -48,3 +43,5 @@ jobs:
 
       - name: Publish
         run: yarn lerna publish prerelease --preid test --dist-tag test --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
