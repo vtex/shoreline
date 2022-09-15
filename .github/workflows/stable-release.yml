@@ -58,6 +58,6 @@ jobs:
           exitOnceUploaded: true
 
       - name: Publish
-        run: lerna publish --yes
+        run: lerna publish --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
