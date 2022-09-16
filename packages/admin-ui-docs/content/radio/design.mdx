@@ -5,26 +5,29 @@ import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
 ## Components
 
-<details>
-  <summary>When to use the Select, Checkbox, or Combobox Single components instead of the Radio component?</summary>
-  <p>
-    <ul>
-      <li>Choose the Select component if a single option can be selected and more than five options are available.</li>
-      <li>Choose the Checkbox component if more than one option can be selected and there are up to five options.</li>
-      <li>Choose the Combobox Single component if a single option can be selected and there are more than five available options.</li>
-    </ul>
-  </p>
-</details>
+#### When to use the Select, Checkbox, or Combobox Single components instead of the Radio component?
+< br />
 
-<details>
-  <summary>When to use a vertical or a horizontal Radio Group?</summary>
-  <p>It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.</p>
-</details>
+- Choose the Select component if a single option can be selected and more than five options are available.
+- Choose the Checkbox component if more than one option can be selected and there are up to five options.
+- Choose the Combobox Single component if a single option can be selected and there are more than five available options.
 
-<details>
-  <summary>When to use a Radio instead of a Radio Group?</summary>
-  <p>Never use a single Radio control. It only exists as a separate component to make the component construction and design documentation easier to understand.</p>
-</details>
+
+#### When to use the Select, Checkbox, or Combobox Single components instead of the Radio component?
+< br />
+
+- Choose the Select component if a single option can be selected and more than five options are available.
+- Choose the Checkbox component if more than one option can be selected and there are up to five options.
+- Choose the Combobox Single component if a single option can be selected and there are more than five available options.
+
+
+#### When to use a vertical or a horizontal Radio Group?
+< br />
+It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.
+
+#### When to use a Radio instead of a Radio Group?
+< br />
+Never use a single Radio control. It only exists as a separate component to make the component construction and design documentation easier to understand.
 
 </Section>
 
@@ -32,10 +35,9 @@ import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
 ## Position
 
-<details>
-  <summary>How should a Radio component be positioned in a form?</summary>
-  <p>Prefer placing a Radio at the start or end of a form section. However, if the selection affects the state of other fields, place the Radio Group close to the fields it will affect.</p>
-</details>
+#### How should a Radio component be positioned in a form?
+< br />
+Prefer placing a Radio at the start or end of a form section. However, if the selection affects the state of other fields, place the Radio Group close to the fields it will affect.
 
 </Section>
 
@@ -43,31 +45,23 @@ import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
 ## Behavior
 
-<details>
-  <summary>What should be the default value of a Radio?</summary>
-  <p>
-    <ul>
-      <li>Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.</li>
-      <li>Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.</li>
-      <li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
-    </ul>
-  </p>
-</details>
 
-<details>
-  <summary>When should a Radio be disabled?</summary>
-  <p>
-    <ul>
-      <li>Use a disabled Radio only if, in some condition, it becomes enabled. For example, when an option is incompatible with another option in a form.</li>
-      <li>Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Radio is disabled. Display the information when hovering over the tooltip trigger — not the Radio itself.</li>
-    </ul>
-  </p>
-</details>
+#### What should be the default value of a Radio?
+< br />
 
-<details>
-  <summary>When should a Radio Group be optional?</summary>
-  <p>A Radio Group should be optional when its options may not apply. For example, preferences for notifications can be left unselected if the merchant doesn’t want to receive them. Consider adding a <em>Custom</em> option together with fields to capture the merchant’s needs.</p>
-</details>
+- Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.
+- Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.
+- When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.
+
+#### When should a Radio be disabled?
+< br />
+
+- Use a disabled Radio only if, in some condition, it becomes enabled. For example, when an option is incompatible with another option in a form.
+- Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Radio is disabled. Display the information when hovering over the tooltip trigger — not the Radio itself.
+
+#### When should a Radio Group be optional?
+< br />
+A Radio Group should be optional when its options may not apply. For example, preferences for notifications can be left unselected if the merchant doesn’t want to receive them. Consider adding a <em>Custom</em> option together with fields to capture the merchant’s needs.
 
 </Section>
 
@@ -75,86 +69,79 @@ import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 
 ## Content
 
-<details><summary>What should be the label of a Radio Group?</summary>
-<p>
-  <ul>
-    <li>Include the name of the entity that is being listed. For example, use the label <em>Fruits</em> when the options are <em>Apple</em>, <em>Orange</em>, and <em>Banana</em>.</li>
-    <li>Visually hide the label of the Radio Group when the form section title already contains the name of the entity being listed.</li>
-    <li>Use sentence case, but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't include redundant words. For example, don't use <em>Product characteristics</em> as the label for a Radio Group inside a form page that includes <em>Product</em> in its title – use only <em>Characteristics</em>.</li>
-    <li>Don't use verbs. For example, instead of <em>Select characteristics</em>, use only <em>Characteristics</em>.</li>
-    <li>Don't use interrogations.</li>
-  </ul>
-</p>
-</details>
+#### What should be the label of a Radio Group?
+< br />
+
+- Include the name of the entity that is being listed. For example, use the label <em>Fruits</em> when the options are <em>Apple</em>, <em>Orange</em>, and <em>Banana</em>.
+- Visually hide the label of the Radio Group when the form section title already contains the name of the entity being listed.
+- Use sentence case, but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don't include redundant words. For example, don't use <em>Product characteristics</em> as the label for a Radio Group inside a form page that includes <em>Product</em> in its title – use only <em>Characteristics</em>.
+- Don't use verbs. For example, instead of <em>Select characteristics</em>, use only <em>Characteristics</em>.
+- Don't use interrogations.
 
 
-<details><summary>What should be the order of options in a Radio Group?</summary>
-<p>
-  Order them using one of the following criteria:
-  <ul>
-    <li>Most to least frequently used.</li>
-    <li>Simplest to most complex.</li>
-    <li>Least to most risky.</li>
-    <li>Alphabetical order.</li>
-  </ul>
-</p>
-</details>
+#### What should be the order of options in a Radio Group?
+<br />
 
-<details><summary>What should be the label of a Radio?</summary>
-<p>
-  <ul>
-    <li>Write the label so that it corresponds to the value of the Radio.</li>
-    <li>Use sentence case, but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't write Radio labels that vary a lot in length between options.</li>
-    <li>Don't write long Radio labels. Use the help text or the Radio Group label to provide additional context when necessary.</li>
-    <li>Don't use personal pronouns. For example, write <em>Personal email</em> instead of <em>My email</em>.</li>
-    <li>Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L</em> instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.</li>
-  </ul>
-</p>
-</details>
+Order them using one of the following criteria:
+<br />
+
+- Most to least frequently used.
+- Simplest to most complex.
+- Least to most risky.
+- Alphabetical order.
+
+#### What should be the label of a Radio?
+<br />
+
+- Write the label so that it corresponds to the value of the Radio.
+- Use sentence case, but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don't write Radio labels that vary a lot in length between options.
+- Don't write long Radio labels. Use the help text or the Radio Group label to provide additional context when necessary.
+- Don't use personal pronouns. For example, write <em>Personal email</em> instead of <em>My email</em>.
+- Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L</em> instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.
 
 
-<details><summary>What should be the help text of a Radio or a Radio Group?</summary>
-<p>
-  <ul>
-    <li>Include a help text only for critical choices where the consequences of choosing the option need to be explained in more detail.</li>
-    <li>Write the help text as if completing the following sentence: <em>If you check this option, you or the system will [help text]</em>.</li>
-    <li>Start with verbs in the simple present tense. For example, for the value <em>Fragile</em> the help text should be <em>Prints this information on the shipping label</em> and not <em>Print this information on the shipping label</em>.</li>
-    <li>Use sentence case but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don’t include links. Use an alert component if this is necessary.</li>
-    <li>Don’t write more than one sentence.</li>
-    <li>Don’t use periods or commas.</li>
-  </ul>
-</p>
-</details>
+#### What should be the help text of a Radio or a Radio Group?
+<br />
 
-<details><summary>What should be the error text of a Radio or a Radio Group?</summary>
-<p>
-  <ul>
-    <li>Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.</li>
-    <li>In a Radio Group, if at least one option needs to be selected and none is chosen, the error text should be <em>Select at least one option.</em></li>
-    <li>Use the imperative form. For example, write <em>Select at least one option</em> instead of <em>At least one option needs to be selected</em>.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don’t use periods or commas.</li>
-    <li>Don't use incomplete sentences. For example, write <em>Select at least one option</em> instead of <em>Select at least one</em>.</li>
-  </ul>
-</p>
-</details>
+- Include a help text only for critical choices where the consequences of choosing the option need to be explained in more detail.
+- Write the help text as if completing the following sentence: <em>If you check this option, you or the system will [help text]</em>.
+- Start with verbs in the simple present tense. For example, for the value <em>Fragile</em> the help text should be <em>Prints this information on the shipping label</em> and not <em>Print this information on the shipping label</em>.
+- Use sentence case but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don’t include links. Use an alert component if this is necessary.
+- Don’t write more than one sentence.
+- Don’t use periods or commas.
+
+
+#### What should be the error text of a Radio or a Radio Group?
+<br />
+
+- Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.
+- In a Radio Group, if at least one option needs to be selected and none is chosen, the error text should be <em>Select at least one option.</em>
+- Use the imperative form. For example, write <em>Select at least one option</em> instead of <em>At least one option needs to be selected</em>.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don’t use periods or commas.
+- Don't use incomplete sentences. For example, write <em>Select at least one option</em> instead of <em>Select at least one</em>.
+
 
 </Section>
