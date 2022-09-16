@@ -547,23 +547,27 @@ function Example() {
   title={tabToc.designReference[0].value}
 >
 
-<details><summary>When to use the Switch, Radio, or Combobox Multiple components instead of the Checkbox component?</summary>
-<p>
-  <ul>
-    <li>Choose the Switch component if the action is instant and does not require confirmation. For example, use a Switch in a User Settings page for the option to <em>Activate notifications</em>.</li>
-    <li>Choose the Radio component if only one option can be selected at a time and there are up to five options.</li>
-    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than five available options.</li>
-  </ul>
-</p>
-</details>
+#### When to use the Switch, Radio, or Combobox Multiple components instead of the Checkbox component?
+<br />
 
-<details><summary>When to use a Checkbox Group instead of a Checkbox?</summary>
-<p>Since the Checkbox label should only correspond to its value, the choice should be contextualized using the label of a Checkbox Group or the title of a form section. This is why the Checkbox Group is usually the right choice even for binary choices where there is only a single Checkbox.</p>
-</details>
+- Choose the Switch component if the action is instant and does not require confirmation. For example, use a Switch in a User Settings page for the option to <em>Activate notifications</em>.
+- Choose the Radio component if only one option can be selected at a time and there are up to five options.
+- Choose the Combobox Multiple component if multiple options can be selected and there are more than five available options.
 
-<details><summary>When to use a vertical or a horizontal Checkbox Group?</summary>
-<p>It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.</p>
-</details>
+<br /><br /><br />
+
+#### When to use a Checkbox Group instead of a Checkbox?
+<br />
+
+Since the Checkbox label should only correspond to its value, the choice should be contextualized using the label of a Checkbox Group or the title of a form section. This is why the Checkbox Group is usually the right choice even for binary choices where there is only a single Checkbox.
+
+<br /><br /><br />
+
+#### When to use a vertical or a horizontal Checkbox Group?
+<br />
+
+It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.
+
 
 </PageSection>
 
@@ -572,9 +576,11 @@ function Example() {
   title={tabToc.designReference[1].value}
 >
 
-<details><summary>How should a Checkbox component be positioned in a form?</summary>
-<p>Prefer placing a Checkbox at the start or end of a form section.</p>
-</details>
+#### How should a Checkbox component be positioned in a form?
+<br />
+
+Prefer placing a Checkbox at the start or end of a form section.
+
 
 </PageSection>
 
@@ -583,31 +589,28 @@ function Example() {
   title={tabToc.designReference[2].value}
 >
 
-<details><summary>When should a Checkbox be disabled?</summary>
-<p>
-  <ul>
-    <li>Use a disabled Checkbox only if in some condition it becomes enabled. Example: when an option is incompatible with another option in a form.</li>
-    <li>Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Checkbox is disabled. Display the information when hovering over the tooltip trigger — not the Checkbox itself.</li>
-  </ul>
-</p>
-</details>
+#### When should a Checkbox be disabled?
+<br />
 
-<details><summary>When should the indeterminate state be used?</summary>
-<p>
+- Use a disabled Checkbox only if in some condition it becomes enabled. Example: when an option is incompatible with another option in a form.
+- Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Checkbox is disabled. Display the information when hovering over the tooltip trigger — not the Checkbox itself.
+
+<br /><br /><br />
+
+#### When should the indeterminate state be used?
+<br />
+
 In scenarios where it might be necessary to check or uncheck all options, a Checkbox can be placed in the beginning of the group with the <em>Select all</em> label. Make sure options below are nested and vertically aligned with the <em>Select all</em> label.<br /><br />
 The indeterminate state should be displayed in these scenarios when only a few options (not all) are checked. When clicking the indeterminate state, all options must be checked. When clicking for a second time, all options must be unchecked.
-</p>
-</details>
 
-<details><summary>What should be the default value of a Checkbox?</summary>
-<p>
-  <ul>
-<li>Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.</li>
-<li>Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.</li>
-<li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
-  </ul>
-</p>
-</details>
+<br /><br /><br />
+
+#### What should be the default value of a Checkbox?
+<br />
+
+- Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.
+- Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.
+- When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.
 
 </PageSection>
 
@@ -616,74 +619,75 @@ The indeterminate state should be displayed in these scenarios when only a few o
   title={tabToc.designReference[3].value}
 >
 
-<details><summary>What should be the label of a Checkbox?</summary>
-<p>
-  <ul>
-    <li>Write the label so it corresponds to the value of the Checkbox.</li>
-    <li>Use sentence case but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.</li>
-    <li>Don't write Checkbox labels that vary a lot in length between options.</li>
-    <li>Don't use personal pronouns. For example, write <em>Receive promotional emails</em> instead of <em>I want to receive emails</em>.</li>
-    <li>Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L </em>instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.</li>
-    <li>Don't include negative words. For example, write <em>Receive promotional emails</em> instead of <em>I don't want to receive emails</em>.</li>
-  </ul>
-</p>
-</details>
+#### What should be the label of a Checkbox?
+<br />
 
-<details><summary>What should be the label of a Checkbox Group?</summary>
-<p>
-  <ul>
-    <li>Include the name of the entity that is being listed. For example, use the label <em>Fruits </em>when the options are <em>Apple</em>, <em>Orange </em>and <em>Banana</em>.</li>
-    <li>Visually hide the label of the Checkbox Group when the form section title already contains the name of the entity that is being listed.</li>
-    <li>Use sentence case, but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't include redundant words. For example, don't use <em>Product characteristics</em> as the label for a Checkbox Group inside a form page that includes <em>Product</em> in its title – use only <em>Characteristics</em>.</li>
-    <li>Don't use verbs. For example, instead of <em>Select characteristics</em>, use only <em>Characteristics</em>.</li>
-    <li>Don't use interrogations.</li>
-  </ul>
-</p>
-</details>
+- Write the label so it corresponds to the value of the Checkbox.
+- Use sentence case but capitalize proper nouns.
 
-<details><summary>What should be the help text of a Checkbox?</summary>
-<p>
-  <ul>
-    <li>Include a help text only for critical choices where the consequences of checking the option need to be explained in more detail.</li>
-    <li>Write the help text as if you are completing the following sentence: <em>If you check this option, you or the system will [help text]</em>.</li>
-    <li>Start with verbs in the simple present tense. For example, for the value <em>Fragile</em> the help text should be<em> Prints this information on the shipping label</em> and not <em>Print this information on the shipping label</em>.</li>
-    <li>Use sentence case, but capitalize proper nouns.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't include links. Use an alert component if this is necessary.</li>
-    <li>Don't write more than one sentence.</li>
-    <li>Don't use periods or commas.</li>
-  </ul>
-</p>
-</details>
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
 
-<details><summary>What should be the error text of a Checkbox or a Checkbox Group?</summary>
-<p>
-  <ul>
-    <li>Prevent errors whenever possible. When an option is checked, disable other incompatible fields or options automatically.</li>
-    <li>In a Checkbox Group, if at least one option needs to be checked and none is checked by the merchant, the error text should be <em>Check at least one option</em>.</li>
-    <li>Use the imperative form. For example, write <em>Check at least one option</em> instead of <em>At least one option needs to be checked</em>.</li>
-  </ul>
-  <br /><br />
-  What to avoid:
-  <ul>
-    <li>Don't use periods or commas.</li>
-    <li>Don't use incomplete sentences. For example, write <em>Check at least one option</em> instead of <em>Check at least one</em>.</li>
-  </ul>
-</p>
-</details>
+- Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.
+- Don't write Checkbox labels that vary a lot in length between options.
+- Don't use personal pronouns. For example, write <em>Receive promotional emails</em> instead of <em>I want to receive emails</em>.
+- Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L </em>instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.
+- Don't include negative words. For example, write <em>Receive promotional emails</em> instead of <em>I don't want to receive emails</em>.
+
+<br /><br /><br />
+
+
+#### What should be the label of a Checkbox Group?
+<br />
+
+- Include the name of the entity that is being listed. For example, use the label <em>Fruits </em>when the options are <em>Apple</em>, <em>Orange </em>and <em>Banana</em>.
+- Visually hide the label of the Checkbox Group when the form section title already contains the name of the entity that is being listed.
+- Use sentence case, but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don't include redundant words. For example, don't use <em>Product characteristics</em> as the label for a Checkbox Group inside a form page that includes <em>Product</em> in its title – use only <em>Characteristics</em>.
+- Don't use verbs. For example, instead of <em>Select characteristics</em>, use only <em>Characteristics</em>.
+- Don't use interrogations.
+
+<br /><br /><br />
+
+
+#### What should be the help text of a Checkbox?
+<br />
+
+- Include a help text only for critical choices where the consequences of checking the option need to be explained in more detail.
+- Write the help text as if you are completing the following sentence: <em>If you check this option, you or the system will [help text]</em>.
+- Start with verbs in the simple present tense. For example, for the value <em>Fragile</em> the help text should be<em> Prints this information on the shipping label</em> and not <em>Print this information on the shipping label</em>.
+- Use sentence case, but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don't include links. Use an alert component if this is necessary.
+- Don't write more than one sentence.
+- Don't use periods or commas.
+
+<br /><br /><br />
+
+#### What should be the error text of a Checkbox or a Checkbox Group?
+<br />
+
+- Prevent errors whenever possible. When an option is checked, disable other incompatible fields or options automatically.
+- In a Checkbox Group, if at least one option needs to be checked and none is checked by the merchant, the error text should be <em>Check at least one option</em>.
+- Use the imperative form. For example, write <em>Check at least one option</em> instead of <em>At least one option needs to be checked</em>.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+- Don't use periods or commas.
+- Don't use incomplete sentences. For example, write <em>Check at least one option</em> instead of <em>Check at least one</em>.
+
 
 </PageSection>
 
