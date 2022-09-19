@@ -35,6 +35,11 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Bundle Size
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: './packages/admin-ui/dist/**/*.{js,ts,css}'
+
       - name: Test
         run: yarn test:ci
 
