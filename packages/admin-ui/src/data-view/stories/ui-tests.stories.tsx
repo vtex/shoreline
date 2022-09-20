@@ -98,3 +98,7 @@ export function UITests() {
     </div>
   )
 }
+
+UITests.parameters = {
+  chromatic: { disableSnapshot: false },
+}
