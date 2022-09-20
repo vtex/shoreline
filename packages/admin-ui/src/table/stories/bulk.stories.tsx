@@ -2,11 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import { Table, useTableState } from '../index'
 import { Button } from '../../button'
 import { createColumns } from '../create-columns'
@@ -107,10 +103,10 @@ export function Bulk() {
       </PageHeader>
       <PageContent layout="wide">
         <DataView state={view}>
-          <DataViewControls>
+          <DataViewHeader>
             <FlexSpacer />
             <Pagination state={pagination} />
-          </DataViewControls>
+          </DataViewHeader>
           <BulkActions state={bulk}>
             <Button variant="tertiary" icon={<IconPencil />}>
               Edit
@@ -193,13 +189,13 @@ export function BulkWithLoading() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <FlexSpacer />
         <Pagination state={pagination} />
         <BulkActions state={bulk}>
           <Button variant="tertiary"> Apply 50% discount</Button>
         </BulkActions>
-      </DataViewControls>
+      </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
         <Table state={table} />
       </SelectionTree>

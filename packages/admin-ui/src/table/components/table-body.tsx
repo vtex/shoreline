@@ -5,7 +5,7 @@ import { isFunction } from '@vtex/admin-ui-util'
 
 import { useStateContext } from '../context'
 import { TableCell } from './table-cell'
-import { useDataViewContext } from '../../components/DataView'
+import { useDataViewContext } from '../../data-view'
 import { useSelectionTreeContext } from '../../components/SelectionTree'
 
 import type { TableColumn } from '../types'
@@ -15,16 +15,13 @@ import * as styles from '../styles/table-body.styles'
 
 export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
   const { children, ...restProps } = props
-  const { status } = useDataViewContext()
   const { data, getRowKey } = useStateContext()
-
-  const shouldRender = status === 'ready' || status === 'loading'
 
   return useElement('tbody', {
     ...restProps,
     role: 'rowgroup',
     baseStyle: styles.baseline,
-    children: shouldRender && (
+    children: (
       <Fragment>
         {isFunction(children)
           ? children(function render(callback: RenderFunction) {

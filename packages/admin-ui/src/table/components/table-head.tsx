@@ -13,7 +13,6 @@ export const TableHead = createComponent<'thead'>((props) => {
   const { children, ...headProps } = props
 
   const { hasVerticalScroll } = useTableScroll()
-
   const state = useStateContext()
 
   const ariaSortLabel = {

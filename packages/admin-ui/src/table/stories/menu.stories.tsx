@@ -2,11 +2,7 @@ import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import { Table, useTableState } from '../index'
 import { Button } from '../../button'
 import { createColumns } from '../create-columns'
@@ -89,12 +85,12 @@ export function WithMenu() {
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
         </Button>
-      </DataViewControls>
+      </DataViewHeader>
       <Table state={grid} />
     </DataView>
   )

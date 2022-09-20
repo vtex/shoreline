@@ -1,5 +1,5 @@
-import { renderHook, act } from '../../../test-utils'
-import { useDataViewState } from '../state'
+import { renderHook, act } from '../../test-utils'
+import { useDataViewState } from '../data-view.state'
 
 describe('useDataViewState', () => {
   it('should initialize correctly', () => {
@@ -7,7 +7,7 @@ describe('useDataViewState', () => {
       useDataViewState({
         loading: true,
         empty: null,
-        notFound: null,
+        notFound: false,
         error: null,
       })
     )
@@ -40,7 +40,7 @@ describe('useDataViewState', () => {
     expect(result.current.status).toBe('ready')
 
     // distatch error
-    act(() => result.current.setStatus({ type: 'error', message: 'Error msg' }))
+    act(() => result.current.setStatus({ type: 'error' }))
     expect(result.current.status).toBe('error')
   })
 
@@ -51,13 +51,7 @@ describe('useDataViewState', () => {
     expect(result.current.status).toBe('ready')
 
     // distatch not-found
-    act(() =>
-      result.current.setStatus({
-        type: 'not-found',
-        message: 'msg',
-        suggestion: 'not found suggestion',
-      })
-    )
+    act(() => result.current.setStatus({ type: 'not-found' }))
     expect(result.current.status).toBe('not-found')
   })
 
@@ -71,7 +65,6 @@ describe('useDataViewState', () => {
     act(() =>
       result.current.setStatus({
         type: 'empty',
-        message: 'msg',
       })
     )
     expect(result.current.status).toBe('empty')
