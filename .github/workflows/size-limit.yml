@@ -1,0 +1,15 @@
+name: Size Limit
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Admin UI
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Size Limit
+      uses: preactjs/compressed-size-action@v2
+      with:
+        pattern: './packages/admin-ui/dist/**/*.{js,ts,css}'
