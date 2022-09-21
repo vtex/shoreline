@@ -1,12 +1,16 @@
 ---
 title: Templates
 path: /getting-started/overview/
+sidebar_label: Templates Overview
+
 ---
 
 import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
-import { Columns, Column, Box, Flex, FlexSpacer, IconArrowUpRight, Tag } from '@vtex/admin-ui'
+import { Columns, Column, Box, Flex, FlexSpacer, IconArrowUpRight, Tag, Text, Inline } from '@vtex/admin-ui'
 
 A template is a page-level combination of components that addresses a recurrent interface of the VTEX Admin. It can be used as an inspiration or as a starting point to derive a more business-specific solution.
+
+<br />
 
 ## Available Templates
 
@@ -18,11 +22,12 @@ Check out the available templates:
   justify="flex-start"
   csx={{borderRadius: 'default', margin:'0px 0px 20px 0px'}}
 >
+<a href="https://admin-ui.vercel.app/templates/listing%20page/overview">
 <Flex
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default', margin:'0px 20px 0px 0px'}}
+  csx={{border: '$neutral', borderRadius: 'default', margin:'0 0 0 0', overflow: 'hidden'}}
 >
   <Box>
       <Box><a href="https://admin-ui.vercel.app/templates/listing%20page/overview"><img src="https://user-images.githubusercontent.com/77292838/191286878-ab93116f-8150-4875-8914-2e70d1345995.png"></img></a></Box>
@@ -33,17 +38,24 @@ Check out the available templates:
     direction="column"
     justify="space-between"
     >
-      <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">Listing page <IconArrowUpRight csx={{ float: 'right'}} /></a>
+      <Flex
+      align="center"
+      direction="row"
+      justify="space-between"
+      >
+      <Text variant="action1">Listing page</Text><Flex align="center"><p>View</p><IconArrowUpRight csx={{ float: 'right', height:'24px'}} /></Flex>
+      </Flex>
       <br />
-      <p>Merchants scan, sort, filter, compare, and take action on items of a specific object type, such as products, or record type, such as orders.</p>
+      <Text>Merchants scan, sort, filter, compare, and take action on items of a specific object type, such as products, or record type, such as orders.</Text>
     </Flex>
   </Box>
 </Flex>
+</a>
 <Flex
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default', margin:'0px 20px 0px 0px', background: '#F8F8F8'}}
+  csx={{border: '$neutral', borderRadius: 'default',  margin:'0 0 0 10px', background: '#F8F8F8', overflow: 'hidden'}}
 >
   <Box>
       <Box><img src="https://user-images.githubusercontent.com/77292838/191287023-05017691-c8f0-493e-9592-00e9b626cff9.png"></img></Box>
@@ -54,9 +66,15 @@ Check out the available templates:
     direction="column"
     justify="space-between"
     >
-      <p>Form page <Tag label="Soon" variant="gray" csx={{ float: 'right' }}/></p>
+      <Flex
+      align="center"
+      direction="row"
+      justify="space-between"
+      >
+      <Text variant="action1" tone="secondary">Form page</Text><Tag label="Soon" variant="gray" csx={{ float: 'right' }}/>
+      </Flex>
       <br />
-      <p>Merchants submit data to create and edit objects, like products, sellers or promotions.</p>
+      <Text tone="secondary">Merchants submit data to create and edit objects, like products, sellers or promotions. Merchants submit data to create and edit objects, like products, sellers.</Text>
     </Flex>
   </Box>
 </Flex>
@@ -71,7 +89,7 @@ Check out the available templates:
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default', margin:'0px 20px 0px 0px', background: '#F8F8F8'}}
+  csx={{border: '$neutral', borderRadius: 'default', margin:'0 0 0 0', background: '#F8F8F8', overflow: 'hidden'}}
 >
   <Box>
       <Box><img src="https://user-images.githubusercontent.com/77292838/191287240-fe8ad296-4f1b-4ffd-8a3f-1610171a948d.png"></img></Box>
@@ -82,9 +100,15 @@ Check out the available templates:
     direction="column"
     justify="space-between"
     >
-      <p>Details page <Tag label="Soon" variant="gray" csx={{ float: 'right' }}/></p>
+      <Flex
+      align="center"
+      direction="row"
+      justify="space-between"
+      >
+      <Text variant="action1" tone="secondary">Details page</Text><Tag label="Soon" variant="gray" csx={{ float: 'right' }}/>
+      </Flex>
       <br />
-      <p>Merchants dive deep into an object or record's information, unlocking specific data and actions.</p>
+      <Text tone="secondary">Merchants dive deep into an object or record's information, unlocking specific data and actions.</Text>
     </Flex>
   </Box>
 </Flex>
@@ -92,7 +116,7 @@ Check out the available templates:
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default', margin:'0px 20px 0px 0px', background: '#F8F8F8'}}
+  csx={{border: '$neutral', borderRadius: 'default', margin:'0 0 0 10px', background: '#F8F8F8',  overflow: 'hidden'}}
 >
   <Box>
       <Box><img src="https://user-images.githubusercontent.com/77292838/191287297-6248f168-0c70-4124-9215-5ca8195d6835.png"></img></Box>
@@ -103,14 +127,21 @@ Check out the available templates:
     direction="column"
     justify="space-between"
     >
-      <p>Settings page <Tag label="Soon" variant="gray" csx={{ float: 'right' }}/></p>
+      <Flex
+      align="center"
+      direction="row"
+      justify="space-between"
+      >
+      <Text variant="action1" tone="secondary">Settings page</Text><Tag label="Soon" variant="gray" csx={{ float: 'right' }}/>
+      </Flex>
       <br />
-      <p>Merchants set up their ecommerce configurations in a unified experience.</p>
+      <Text tone="secondary">Merchants set up their ecommerce configurations in a unified experience.</Text>
     </Flex>
   </Box>
 </Flex>
 </Flex>
 
+<br /><br />
 
 ## FAQ
 
