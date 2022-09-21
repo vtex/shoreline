@@ -1,10 +1,10 @@
 ---
 title: Overview
 path: /listing-page/overview/
+sidebar_position: 1
 ---
 
-import { Columns, Column, Box, IconArrowUpRight } from '@vtex/admin-ui'
-import { Flex, FlexSpacer } from '@vtex/admin-ui'
+import { Columns, Column, Box, IconArrowUpRight, Text, Flex, FlexSpacer } from '@vtex/admin-ui'
 
 Merchants use Listing pages to scan, sort, compare and take action on items of a specific object type, such as products, or record type, such as orders.
 
@@ -14,10 +14,10 @@ Merchants use Listing pages to scan, sort, compare and take action on items of a
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{ border: '$neutral', borderRadius: 'default'}}
+  csx={{ border: '$neutral', borderRadius: 'default', overflow: 'hidden'}}
 >
-  <Box>
-      <Box><a href="#"><img src="https://user-images.githubusercontent.com/77292838/191260988-e792a049-286a-4d9d-83fa-de9a431dcb3c.png"></img></a></Box>
+  <Box csx={{ borderRadius: 'inherit'}} >
+      <Box csx={{ borderRadius: 'inherit'}}><a href="#"><img src="https://user-images.githubusercontent.com/77292838/191526389-e0a97572-e01b-422a-8a96-56410d1f1e68.png"></img></a></Box>
   </Box>
   <Box csx={{ padding: '20px' }}>
     <Flex
@@ -30,6 +30,7 @@ Merchants use Listing pages to scan, sort, compare and take action on items of a
   </Box>
 </Flex>
 
+<br />
 
 ## Examples
 
@@ -41,48 +42,54 @@ Check out examples of Listing pages in tune with our design system.
   justify="flex-start"
   csx={{borderRadius: 'default'}}
 >
-<Flex
-  align="stretch"
-  direction="column"
-  justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default', margin:'0px 20px 0px 0px'}}
->
-  <Box>
-      <Box><a href="#"><img src="https://user-images.githubusercontent.com/77292838/191267058-1657dee1-3607-4da0-a6b9-2ef08b1ae33d.png"></img></a></Box>
-  </Box>
-  <Box csx={{ padding: '20px' }}>
+    <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=572%3A266701">
     <Flex
-    align="stretch"
-    direction="row"
-    justify="space-between"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{border: '$neutral', borderRadius: 'default', margin:'0 4px 0 0', overflow: 'hidden'}}
     >
-      <a href="#">Transactions</a>
-      <a href="#" csx={{ float: 'right'}}>Figma<IconArrowUpRight csx={{ float: 'right'}} /></a>
+      <Box>
+          <img src="https://user-images.githubusercontent.com/77292838/191532716-35e7cd00-0635-4bcd-957b-f9bcdb453a07.png"></img>
+      </Box>
+      <Box csx={{ padding: '20px' }}>
+        <Flex
+        align="stretch"
+        direction="row"
+        justify="space-between"
+        >
+          <Text variant="action1">Transactions</Text>
+          <p csx={{ float: 'right'}}>Figma<IconArrowUpRight csx={{ float: 'right'}} /></p>
+        </Flex>
+      </Box>
     </Flex>
-  </Box>
-</Flex>
-<Flex
-  align="stretch"
-  direction="column"
-  justify="space-around"
-  csx={{border: '$neutral', borderRadius: 'default'}}
->
-  <Box>
-      <Box><a href="https://storecomponents.myvtex.com/admin/sku-binding/"><img src="https://user-images.githubusercontent.com/77292838/191266818-d9d6b43e-a986-4b1e-8db1-918412d80f5c.png"></img></a></Box>
-  </Box>
-  <Box csx={{ padding: '20px' }}>
+  </a>
+  <a href="https://storecomponents.myvtex.com/admin/sku-binding/">
     <Flex
-    align="stretch"
-    direction="row"
-    justify="space-between"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{border: '$neutral', borderRadius: 'default', margin:'0 0 0 4px',overflow: 'hidden'}}
     >
-      <a href="https://storecomponents.myvtex.com/admin/sku-binding/">SKU Bindings</a>
-      <a href="https://storecomponents.myvtex.com/admin/sku-binding/" csx={{ float: 'right'}}>Demo<IconArrowUpRight csx={{ float: 'right'}} /></a>
+      <Box>
+          <img src="https://user-images.githubusercontent.com/77292838/191532881-15be5b13-8f8e-4bc4-99a9-1086e1aa51e3.png"></img>
+      </Box>
+      <Box csx={{ padding: '20px' }}>
+        <Flex
+        align="stretch"
+        direction="row"
+        justify="space-between"
+        >
+          <Text variant="action1">SKU Bindings</Text>
+          <p csx={{ float: 'right'}}>Demo<IconArrowUpRight csx={{ float: 'right'}} /></p>
+        </Flex>
+      </Box>
     </Flex>
-  </Box>
-</Flex>
+  </a>
 </Flex>
 
+<br />
+<br />
 
 ## FAQ
 
@@ -121,17 +128,17 @@ A listing page usually includes:
     direction="row"
     justify="flex-start"
     >
-      <Box><a href="https://admin-ui.vercel.app/components/page"><img src="https://user-images.githubusercontent.com/77292838/191269243-63ad95c3-3bb7-46d9-86ae-51435a67f70c.png"></img></a></Box>
-      <Box csx={{ padding: '30px'}}>
-        <Flex
-        align="flex-start"
-        direction="column"
-        justify="flex-end"
-        >
-          <a href="https://admin-ui.vercel.app/components/page" csx={{ float: 'right'}}>Page<IconArrowUpRight csx={{ float: 'right'}} /></a>
-          <p>Merchants identify where they are, perform main actions and view content.</p>
-        </Flex>
-      </Box>
+        <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/page"><img src="https://user-images.githubusercontent.com/77292838/191536013-c0245589-139a-423d-928a-d13cad37d57b.png"></img></a></Box>
+        <Box csx={{ padding: '30px'}}>
+          <Flex
+          align="flex-start"
+          direction="column"
+          justify="flex-end"
+          >
+            <a href="https://admin-ui.vercel.app/components/page" csx={{ float: 'right'}}>Page<IconArrowUpRight csx={{ float: 'right'}} /></a>
+            <p>Merchants identify where they are, perform main actions and view content.</p>
+          </Flex>
+        </Box>
     </Flex>
   </Box>
     <Box>
@@ -140,7 +147,7 @@ A listing page usually includes:
     direction="row"
     justify="flex-start"
     >
-      <Box><a href="https://admin-ui.vercel.app/components/data-view"><img src="https://user-images.githubusercontent.com/77292838/191270799-687c0642-81ba-4448-8051-2ef44f515154.png"></img></a></Box>
+      <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/data-view"><img src="https://user-images.githubusercontent.com/77292838/191536027-945041fc-6f1b-4aef-94a5-3edddf9717bc.png"></img></a></Box>
       <Box csx={{ padding: '30px'}}>
         <Flex
         align="flex-start"
@@ -159,7 +166,7 @@ A listing page usually includes:
     direction="row"
     justify="flex-start"
     >
-      <Box><a href="https://admin-ui.vercel.app/components/table"><img src="https://user-images.githubusercontent.com/77292838/191270916-c843795d-b4e0-44c2-9515-48ca05e8c17e.png"></img></a></Box>
+      <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/table"><img src="https://user-images.githubusercontent.com/77292838/191536020-026aee3f-1356-4d05-9e79-224ab3268039.png"></img></a></Box>
       <Box csx={{ padding: '30px'}}>
         <Flex
         align="flex-start"
