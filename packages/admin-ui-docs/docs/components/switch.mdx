@@ -90,6 +90,28 @@ export const tabToc = {
       level: 2,
     },
   ],
+    designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+        {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
 }
 
 <Page toc={tabToc} hasTabs>
@@ -99,14 +121,20 @@ export const tabToc = {
 
 ## What is this?
 
-Switch is a component for customizing configurations. It represents a physical switch that allows users to turn things on or off, providing control over actions and preferences. Tapping a toggle switch is a two-step action: selection and execution. It should reflect an action that triggers a state, never both at once.
+Switch triggers allow merchants to instantly turn on or off the state of a feature or item.
+
+<br/>
 
 </IntroSection>
+
+<br/>
 
 <PageSection
   id={tabToc.overview[1].id}
   title={tabToc.overview[1].value}
 >
+
+<br/>
 
 <PageSection
   id={tabToc.overview[2].id}
@@ -114,6 +142,9 @@ Switch is a component for customizing configurations. It represents a physical s
 >
 
 When using a standalone `Switch` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
+
+<br/>
+
 
 ```jsx live
 function Example() {
@@ -129,6 +160,8 @@ function Example() {
   )
 }
 ```
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[3].id}
@@ -150,8 +183,10 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[4].id}
@@ -174,8 +209,10 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[5].id}
@@ -199,8 +236,10 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[6].id}
@@ -234,14 +273,19 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[7].id}
   title={tabToc.overview[7].value}
-  explanation="There are two checked states: `checked`, and `not checked`."
 >
+
+There are two checked states: `checked`, and `not checked`.
+
+<br/>
 
 ```jsx live
 function Example() {
@@ -259,14 +303,19 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.overview[8].id}
   title={tabToc.overview[8].value}
-  explanation="Oftentimes we need to render multiple switches and store the checked values in an array. It can be easily done using our `useSwitchState` hook, you just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`."
 >
+
+It is sometimes necessary to render multiple switches and store the checked values in an array. It can be done using our `useSwitchState` hook. You just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`.
+
+<br/>
 
 ```jsx live
 function Example() {
@@ -282,7 +331,6 @@ function Example() {
   )
 }
 ```
-
 </PageSection>
 </PageSection>
 </PageSection>
@@ -304,14 +352,21 @@ import { Switch } from '@vtex/admin-ui'
 <PageSection
   id={tabToc.codeReference[1].id}
   title={tabToc.codeReference[1].value}
-  explanation="There are two ways of handling the state in the Switch."
 >
+
+There are two ways of handling the state in the Switch.
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.codeReference[2].id}
   title={tabToc.codeReference[2].value}
-  explanation="You can use the properties checked and onChange to handle if the Switch is checked and its values have changed."
 >
+
+You can use the properties checked and onChange to handle if the Switch is checked and its values have changed."
+
+<br/>
 
 ```jsx live
 function Example() {
@@ -326,12 +381,19 @@ function Example() {
   )
 }
 ```
+</PageSection >
+
+<br/>
+<br/>
 
 <PageSection
   id={tabToc.codeReference[3].id}
   title={tabToc.codeReference[3].value}
-  explanation="For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the state property and also define a value for each Switch."
 >
+
+For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the state property and also define a value for each Switch.
+
+<br/>
 
 ```jsx live
 function Example() {
@@ -340,8 +402,6 @@ function Example() {
   return <Switch state={switchState} label="Label" />
 }
 ```
-
-</PageSection >
 </PageSection >
 
 <PageSection
@@ -361,7 +421,9 @@ function Example() {
 | state     | `SwtichState`    | Return of `useSwitchState` hook. You can also provide these props from your own state logic.                                                  | 🚫       | -       |
 | csx       | `StyleProp`      | Defines component styles                                                                                                                      | 🚫       | `{}`    |
 
-> The Switch component also supports all HTML props from the `<input />` HTML tag.
+<br/>
+
+The Switch component also supports all HTML props from the `<input />` HTML tag.
 
 </PageSection >
 </PageSection >
@@ -373,16 +435,110 @@ function Example() {
   title={tabToc.designReference[0].value}
 >
 
-1. Instant response that triggers a state, and require no further confirmation.
-2. List of independent items that represent different features or behaviors.
-3. Multually exclusive states, usually on/off type of decision.
-4. Use titles to group related controls.
-5. Choose words that are aligned with our ecommerce vocabulary.
-6. Write the current state of the control, to improve accessibility.
-7. Add descriptions if the control is critical, or complex.
-8. Lists of controls should be vertical for better scannability.
+#### When to use the Checkbox, the Button, or the Menu components instead of the Switch component?
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+<br />
+
+* Choose the Checkbox component for choices that need to be saved afterwards through a form.
+* Choose the Button component if the action requires confirmation or doesn’t represent an on and off semantic.
+* Choose the Menu component when the feature or item has more than two states.
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+#### How should a Switch component be positioned on a page?
+
+<br />
+
+* In left-to-right languages, a Switch component should be left-aligned.
+* In a table where switching the items’ states is a common action, Switch components can be used in the last column to both display the item’s state and allow turning it on and off.
+* When there are multiple Switches in a list, and they have different default states, the first sorting criteria should be their default state, from active to inactive.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+* Don’t place a Switch component inside the Page Header component.
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+#### When should a Switch be disabled?
+
+<br />
+
+* Use a disabled Switch only if, in some condition, it becomes enabled. For example, when the action is incompatible with an existing setting.
+* Use a [tooltip](https://admin-ui.vercel.app/components/tooltip) trigger to explain why the Switch is disabled. Display the information when hovering over the tooltip trigger — not the Switch itself.
+
+<br /><br /><br />
+
+#### What should be the default state of a Switch?
+
+<br />
+
+Recommended settings can be active by default. When a setting is recommended, add _(Recommended) _to the end of its label so it can still be identified after any actions.
+
+<br /><br /><br />
+
+#### When should a Switch component display an error?
+
+<br />
+
+Never. Errors can be prevented by disabling incompatible settings automatically.
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+#### What should be the label of a Switch?
+
+<br />
+
+* Start the label with a verb in the infinitive. For example, use _Distribute products in marketplaces_ instead of _Products should be distributed in marketplaces_.
+* Write the label so that it corresponds to the default state of the Switch.
+* Use sentence case but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+* Don't use generic verbs. For example, write _Distribute products in marketplaces_ or _Sell products from sellers_ instead of _Enable marketplace_ or _Enable Sellers._
+* Don't leave entities implicit. For example, write _Suggest pages for search engine results_ instead of _Suggest for results_.
+* Don't use personal pronouns. For example, write _Send to personal email_ instead of _Send to my email_.
+* Don't write long labels. Use the help text to provide additional context.
+* Don't write labels that vary a lot in length between options
+* Don't write more than one sentence.
+* Don't use periods or commas.
+
+<br /><br /><br />
+
+#### What should be the help text of a Switch?
+
+<br />
+
+* Include a help text only for critical choices where the consequences of switching the state need to be explained in more detail.
+* Write the help text as if you are completing the following sentence: _If you switch the default state, you or the system will [help text]_.
+* Start with verbs in the simple present tense. For example, for the label _Distribute products in marketplaces_, the help text should be _Sends active products to connected marketplaces_ and not _Send active products to connected marketplaces_.
+* Use sentence case but capitalize proper nouns.
+
+<br />
+<strong>What to avoid:</strong>
+<br /><br />
+
+* Avoid including links. Use an Alert component if this is necessary.
+* Avoid writing more than one sentence.
+* Avoid using periods or commas.
 
 </PageSection>
 </Panel>
