@@ -1,55 +1,57 @@
-import React, { cloneElement, Fragment } from 'react'
+import React, { cloneElement, Fragment, memo, useCallback } from 'react'
 import type { ReactNode } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { isFunction } from '@vtex/admin-ui-util'
 
-import { useStateContext } from '../context'
-import { TableCell } from './table-cell'
 import { useDataViewContext } from '../../data-view'
 import { useSelectionTreeContext } from '../../components/SelectionTree'
-
+import type {
+  TableBodyState,
+  TableBodyRowState,
+} from '../hooks/use-table-state'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
-
+import { TableCell } from './table-cell'
 import * as styles from '../styles/table-body.styles'
 
-export const TableBody = createComponent<'tbody', TableBodyOptions>((props) => {
-  const { children, ...restProps } = props
-  const { data, getRowKey } = useStateContext()
+export const TableBody = memo(
+  createComponent<'tbody', TableBodyOptions>((props) => {
+    const { children, state, ...restProps } = props
 
-  return useElement('tbody', {
-    ...restProps,
-    role: 'rowgroup',
-    baseStyle: styles.baseline,
-    children: (
-      <Fragment>
-        {isFunction(children)
-          ? children(function render(callback: RenderFunction) {
-              return data.map((item, index) => {
-                const key = String(getRowKey(item))
+    const { data, getRowKey } = state
 
-                return (
-                  <Fragment key={key}>
-                    {callback({ item, key, index })}
-                  </Fragment>
-                )
+    return useElement('tbody', {
+      ...restProps,
+      role: 'rowgroup',
+      baseStyle: styles.baseline,
+      children: (
+        <Fragment>
+          {isFunction(children)
+            ? children(function render(callback: RenderFunction) {
+                return data.map((item, index) => {
+                  const key = String(getRowKey(item))
+
+                  return (
+                    <Fragment key={key}>
+                      {callback({ item, key, index })}
+                    </Fragment>
+                  )
+                })
               })
-            })
-          : data.map((item) => (
-              <Fragment key={String(getRowKey(item))}>
-                {children ? (
-                  cloneElement(children as any, {
+            : data.map((item) => (
+                <Fragment key={String(getRowKey(item))}>
+                  {cloneElement(children as any, {
                     item,
-                  })
-                ) : (
-                  <TableBodyRow item={item} />
-                )}
-              </Fragment>
-            ))}
-      </Fragment>
-    ),
+                  })}
+                </Fragment>
+              ))}
+        </Fragment>
+      ),
+    })
   })
-})
+)
+
+TableBody.displayName = 'TableBody'
 
 type RenderParams = {
   key: string
@@ -63,18 +65,24 @@ export interface TableBodyOptions {
   children?:
     | ((render: (callbackFunction: RenderFunction) => void) => ReactNode)
     | ReactNode
+  state: TableBodyState
 }
 
-export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
-  (props) => {
-    const { item = {}, children, ...rowProps } = props
+export interface TableBodyRowOptions {
+  item?: Record<string, any>
+  state: TableBodyRowState
+}
 
+export const TableBodyRow = memo(
+  createComponent<'tr', TableBodyRowOptions>((props) => {
+    const { item = {}, state, children, ...rowProps } = props
+
+    const { onRowClick, columns, resolveCell, cell } = state
     const { status } = useDataViewContext()
-    const { onRowClick, columns } = useStateContext()
 
     const clickable = onRowClick && !(status === 'loading')
 
-    const isRowSelected = () => {
+    const isRowSelected = useCallback(() => {
       const isSelectable = columns.some(
         (column) =>
           column?.resolver?.type === 'selection' ||
@@ -93,7 +101,7 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
       if (!Array.isArray(selectedItemsIds)) return false
 
       return allSelected || selectedItemsIds.some((id) => id === item.id)
-    }
+    }, [columns])
 
     const handleClick = () => {
       if (clickable) {
@@ -111,49 +119,32 @@ export const TableBodyRow = createComponent<'tr', TableBodyRowOptions>(
       role: 'row',
       children: (
         <>
-          {columns.map((column) => (
-            <TableBodyCell
-              item={item}
-              column={column}
-              key={`${String(item.id)}-${String(column.id)}`}
-            >
-              {children}
-            </TableBodyCell>
-          ))}
+          {columns.map((column) => {
+            const content = resolveCell({ item, column })
+
+            return (
+              <TableCell
+                state={cell}
+                fixed={column?.fixed}
+                columnId={column.id}
+                key={`${String(item.id)}-${String(column.id)}`}
+              >
+                {content}
+              </TableCell>
+            )
+          })}
         </>
       ),
       onClick: handleClick,
     })
-  }
+  })
 )
 
-const TableBodyCell = (props: TableBodyCellOptions) => {
-  const { resolveCell } = useStateContext()
-
-  const { item, column, children } = props
-
-  const content = resolveCell({ item, column })
-
-  return (
-    <>
-      {children ? (
-        cloneElement(children as any, {
-          column,
-          children: content,
-        })
-      ) : (
-        <TableCell column={column}>{content}</TableCell>
-      )}
-    </>
-  )
-}
+TableBodyRow.displayName = 'TableBodyRow'
 
 export interface TableBodyCellOptions {
   item?: Record<string, any>
   column: TableColumn<any, BaseResolvers<any>>
+  content: ReactNode
   children: ReactNode
-}
-
-export interface TableBodyRowOptions {
-  item?: Record<string, any>
 }
