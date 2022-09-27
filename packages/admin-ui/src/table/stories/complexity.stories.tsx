@@ -25,7 +25,7 @@ interface Item {
   price: string
 }
 
-const items = [...Array(10).keys()].map((id) => {
+const items = [...Array(100).keys()].map((id) => {
   return {
     id: `${id}`,
     name: faker.commerce.productName(),
@@ -54,58 +54,20 @@ const columns = createColumns<Item>([
   },
 ])
 
-export function Zero() {
-  const state = useTableState<Item>({
-    columns,
-    items,
-  })
-
-  return <Table state={state} csx={{ width: 560 }} />
-}
-
-export function LevelOne() {
-  const view = useDataViewState()
-  const grid = useTableState<Item>({
-    columns,
-    items,
-    view,
-  })
-
-  return (
-    <DataView state={view}>
-      <Table state={grid} csx={{ width: 560 }} />
-    </DataView>
-  )
-}
-
-export function LevelTwo() {
-  const state = useTableState<Item>({
-    columns,
-    items,
-  })
-
-  return (
-    <Table state={state} csx={{ width: 560 }}>
-      <TableHead />
-      <TableBody />
-    </Table>
-  )
-}
-
 export function Full() {
-  const state = useTableState<Item>({
+  const { body, bodyRow, head, cell, ...state } = useTableState<Item>({
     columns,
     items,
   })
 
   return (
     <Table state={state} csx={{ width: 560 }}>
-      <TableHead>
-        <TableCell />
+      <TableHead state={head}>
+        <TableCell state={cell} />
       </TableHead>
-      <TableBody>
-        <TableBodyRow>
-          <TableCell />
+      <TableBody state={body}>
+        <TableBodyRow state={bodyRow}>
+          <TableCell state={cell} />
         </TableBodyRow>
       </TableBody>
     </Table>

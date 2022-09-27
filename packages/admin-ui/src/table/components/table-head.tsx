@@ -1,74 +1,83 @@
-import React, { cloneElement, Fragment } from 'react'
+import React, { Fragment, memo } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconArrowDown, IconArrowUp } from '@vtex/phosphor-icons'
 
-import { useStateContext } from '../context'
-import { TableCell } from './table-cell'
 import * as styles from '../styles/table-head.styles'
 import { Box } from '../../box'
 
 import { useTableScroll } from '../hooks/use-table-scroll'
+import type { TableHeadState } from '../hooks/use-table-state'
+import { TableCell } from './table-cell'
 
-export const TableHead = createComponent<'thead'>((props) => {
-  const { children, ...headProps } = props
+export interface TableHeadOptions {
+  state: TableHeadState
+}
 
-  const { hasVerticalScroll } = useTableScroll()
-  const state = useStateContext()
+export const TableHead = memo(
+  createComponent<'thead', TableHeadOptions>((props) => {
+    const { children, state, ...headProps } = props
+    const { columns, data, resolveHeader, sortState, tableRef, cell } = state
 
-  const ariaSortLabel = {
-    ASC: 'ascending',
-    DESC: 'descending',
-  } as any
+    const { hasVerticalScroll } = useTableScroll({ tableRef })
 
-  return useElement('thead', {
-    ...headProps,
-    baseStyle: styles.baseline,
-    role: 'rowgroup',
-    children: (
-      <Row>
-        {state.columns.map((column) => {
-          const { content, isSortable, sortDirection } = state.resolveHeader({
-            column,
-            items: state.data,
-          })
+    const ariaSortLabel = {
+      ASC: 'ascending',
+      DESC: 'descending',
+    } as any
 
-          const cellProps = {
-            column,
-            role: 'columnheader',
-            csx: {
-              ...styles.columnCell,
-              ...styles.variant({ hasVerticalScroll }),
-            },
-            ...(sortDirection && {
-              'aria-sort': ariaSortLabel[sortDirection],
-            }),
-            onClick: isSortable
-              ? () => state.sortState.sort(column.id)
-              : undefined,
-            children: isSortable ? (
-              <Box csx={styles.sortableContainer}>
-                {content}
-                <SortIndicator direction={sortDirection} />
-              </Box>
-            ) : (
-              content
-            ),
-          } as any
+    return useElement('thead', {
+      ...headProps,
+      baseStyle: styles.baseline,
+      role: 'rowgroup',
+      children: (
+        <Row>
+          {columns.map((column) => {
+            const { content, isSortable, sortDirection } = resolveHeader({
+              column,
+              items: data,
+            })
 
-          return (
-            <Fragment key={String(column.id)}>
-              {children ? (
-                cloneElement(children as any, cellProps)
-              ) : (
-                <TableCell {...cellProps} />
-              )}
-            </Fragment>
-          )
-        })}
-      </Row>
-    ),
+            const ariaSort = {
+              ...(sortDirection && {
+                'aria-sort': ariaSortLabel[sortDirection],
+              }),
+            }
+
+            return (
+              <TableCell
+                state={cell}
+                {...ariaSort}
+                role="columnheader"
+                csx={{
+                  ...styles.columnCell,
+                  ...styles.variant({ hasVerticalScroll }),
+                }}
+                columnId={column.id}
+                onClick={() => {
+                  if (!isSortable) return
+
+                  sortState.sort(column.id)
+                }}
+                key={String(column.id)}
+              >
+                {isSortable ? (
+                  <Box csx={styles.sortableContainer}>
+                    {content}
+                    <SortIndicator direction={sortDirection} />
+                  </Box>
+                ) : (
+                  content
+                )}
+              </TableCell>
+            )
+          })}
+        </Row>
+      ),
+    })
   })
-})
+)
+
+TableHead.displayName = 'TableHead'
 
 const Row = createComponent<'tr'>((props) => {
   return useElement('tr', {

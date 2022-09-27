@@ -1,86 +1,87 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, memo } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { cx } from '@vtex/admin-ui-core'
 import type { VariantProps } from '@vtex/admin-ui-core'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
-import type { TableColumn } from '../types'
-import { useStateContext } from '../context'
+import type { TableCellState } from '../hooks/use-table-state'
 import { Box } from '../../box'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
 import * as styles from '../styles/table-cell.styles'
 
-export const TableCell = createComponent<'td', CellOptions>((props) => {
-  const {
-    column,
-    onClick,
-    role = 'cell',
-    ref: htmlRef,
-    children,
-    className = '',
-    ...cellProps
-  } = props
+export const TableCell = memo(
+  createComponent<'td', CellOptions>((props) => {
+    const {
+      fixed = false,
+      columnId,
+      onClick,
+      role = 'cell',
+      ref: htmlRef,
+      children,
+      className = '',
+      state,
+      ...cellProps
+    } = props
 
-  const { columns } = useStateContext()
+    const { lastFixedColumn, tableRef } = state
 
-  const clickable = !!onClick
+    const isLastFixedColumn = fixed && lastFixedColumn?.id === columnId
 
-  const isFixed = Boolean(column?.fixed)
+    const hasHorizontalScroll = () => {
+      if (!isLastFixedColumn) {
+        return false
+      }
 
-  const [lastFixedColumn] = columns.filter((col) => !!col?.fixed).slice(-1)
+      const { hasHorizontalScroll } = useTableScroll({ tableRef })
 
-  const isLastFixedColumn = isFixed && lastFixedColumn?.id === column?.id
-
-  const hasHorizontalScroll = () => {
-    if (!isLastFixedColumn) {
-      return false
+      return hasHorizontalScroll
     }
 
-    const { hasHorizontalScroll } = useTableScroll()
+    const ref = useRef<HTMLTableCellElement>(null)
 
-    return hasHorizontalScroll
-  }
+    useEffect(() => {
+      if (!ref?.current || !fixed) {
+        return
+      }
 
-  const ref = useRef<HTMLTableCellElement>(null)
+      ref.current.style.left = `${ref.current.offsetLeft}px`
+    }, [])
 
-  useEffect(() => {
-    if (!ref?.current || !isFixed) {
-      return
-    }
+    const resolvedClassName = fixed
+      ? cx(
+          '__admin-ui-fixed-cell',
+          className,
+          isLastFixedColumn ? '__admin-ui-last-fixed-cell' : ''
+        )
+      : className
 
-    ref.current.style.left = `${ref.current.offsetLeft}px`
-  }, [])
-
-  let updatedClassName = isFixed
-    ? cx('__admin-ui-fixed-cell', className)
-    : className
-
-  if (isLastFixedColumn) {
-    updatedClassName = cx('__admin-ui-last-fixed-cell', updatedClassName)
-  }
-
-  return useElement('td', {
-    ref: useForkRef(ref, htmlRef as any),
-    className: updatedClassName,
-    baseStyle: {
-      ...styles.baseline,
-      ...styles.variants({
-        clickable,
-        fixed: isFixed,
-        lastFixed: isLastFixedColumn,
-        hasHorizontalScroll: hasHorizontalScroll(),
-      }),
-    },
-    role,
-    onClick,
-    ...cellProps,
-    children: <Box csx={styles.innerContainer}>{children}</Box>,
+    return useElement('td', {
+      ref: useForkRef(ref, htmlRef as any),
+      className: resolvedClassName,
+      baseStyle: {
+        ...styles.baseline,
+        ...styles.variants({
+          clickable: !!onClick,
+          fixed,
+          lastFixed: isLastFixedColumn,
+          hasHorizontalScroll: hasHorizontalScroll(),
+        }),
+      },
+      role,
+      onClick,
+      ...cellProps,
+      children: <Box csx={styles.innerContainer}>{children}</Box>,
+    })
   })
-})
+)
+
+TableCell.displayName = 'TableCell'
 
 export interface CellOptions extends VariantProps<typeof styles.variants> {
-  column?: TableColumn<any>
+  columnId?: string | number | symbol | undefined
+  fixed?: boolean
+  state: TableCellState
 }
 
 export type CellProps = React.ComponentPropsWithRef<typeof TableCell>

@@ -3,7 +3,14 @@ import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
 import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
-import { Table, useTableState } from '../index'
+import {
+  Table,
+  TableBody,
+  TableBodyRow,
+  TableCell,
+  TableHead,
+  useTableState,
+} from '../index'
 import { Button } from '../../button'
 import { createColumns } from '../create-columns'
 import { IconTrash, IconPencil, IconCopy } from '@vtex/phosphor-icons'
@@ -46,7 +53,7 @@ export function Bulk() {
   const view = useDataViewState()
 
   const pagination = usePaginationState({
-    pageSize: 25,
+    pageSize: 100,
     total: items.length,
   })
 
@@ -88,7 +95,7 @@ export function Bulk() {
     },
   ])
 
-  const grid = useTableState<Item>({
+  const { body, bodyRow, head, ...table } = useTableState<Item>({
     view,
     columns,
     items: pageItems,
@@ -119,7 +126,12 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table state={grid} />
+            <Table state={table} csx={{ width: '100%' }}>
+              <TableHead state={head} />
+              <TableBody state={body}>
+                <TableBodyRow state={bodyRow} />
+              </TableBody>
+            </Table>
           </SelectionTree>
         </DataView>
       </PageContent>
@@ -154,7 +166,7 @@ export function BulkWithLoading() {
     pageSize: ITEMS_PER_PAGE,
   })
 
-  const table = useTableState({
+  const { body, bodyRow, head, cell, ...table } = useTableState({
     view,
     columns: [
       { id: 'id', resolver: { type: 'bulk', state: bulk } },
@@ -197,7 +209,16 @@ export function BulkWithLoading() {
         </BulkActions>
       </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
-        <Table state={table} />
+        <Table state={table}>
+          <TableHead state={head}>
+            <TableCell state={cell} />
+          </TableHead>
+          <TableBody state={body}>
+            <TableBodyRow state={bodyRow}>
+              <TableCell state={cell} />
+            </TableBodyRow>
+          </TableBody>
+        </Table>
       </SelectionTree>
     </DataView>
   )
