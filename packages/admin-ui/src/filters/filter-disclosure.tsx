@@ -58,6 +58,7 @@ export const FilterDisclosure = createComponent<
     ),
     state: menu,
     id,
+    className: '__admin-ui-filter-disclosure',
     ...restProps,
   })
 })
