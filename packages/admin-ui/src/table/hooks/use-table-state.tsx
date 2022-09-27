@@ -1,5 +1,5 @@
 import type { ReactNode, RefObject } from 'react'
-import { useMemo, useCallback } from 'react'
+import { useRef, useMemo, useCallback } from 'react'
 import { get } from '@vtex/admin-ui-util'
 
 import type {
@@ -13,6 +13,7 @@ import {
   resolveCell as unstableResolveCell,
   resolveHeader as unstableResolveHeader,
 } from '../resolvers/resolver-core'
+import type { BaseResolvers } from '../resolvers/base'
 import { baseResolvers } from '../resolvers/base'
 import type { TableColumn } from '../types'
 import type { UseSortReturn, UseTableSortParams } from './use-table-sort'
@@ -22,7 +23,7 @@ import type { DataViewState } from '../../data-view'
 export function useTableState<T>(
   params: UseTableStateParams<T>,
   resolvers: Record<string, Resolver<T>> | undefined = baseResolvers<T>()
-): TableState<T> {
+): UseTableStateReturn<T> {
   const {
     columns,
     length = 5,
@@ -43,6 +44,8 @@ export function useTableState<T>(
   } = params
 
   const { status, statusObject } = view
+
+  const tableRef = useRef<HTMLTableElement>(null)
 
   /**
    * resolver's context
@@ -118,6 +121,32 @@ export function useTableState<T>(
     columns,
   ])
 
+  const body: TableBodyState<T> = useMemo(
+    () => ({ data, getRowKey }),
+    [data, getRowKey]
+  )
+
+  const lastFixedColumn = useMemo(() => {
+    const [column] = columns.filter((col) => !!col?.fixed).slice(-1)
+
+    return column
+  }, [columns])
+
+  const cell: TableCellState<T> = useMemo(
+    () => ({ lastFixedColumn, tableRef }),
+    [lastFixedColumn, tableRef]
+  )
+
+  const bodyRow: TableBodyRowState<T> = useMemo(
+    () => ({ onRowClick, columns, resolveCell, cell }),
+    [onRowClick, columns, resolveCell, cell]
+  )
+
+  const head: TableHeadState<T> = useMemo(
+    () => ({ columns, resolveHeader, sortState, data, cell }),
+    [columns, resolveHeader, sortState, data, cell]
+  )
+
   return {
     skeletonCollection,
     resolveCell,
@@ -127,6 +156,10 @@ export function useTableState<T>(
     sortState,
     getRowKey,
     onRowClick,
+    body,
+    bodyRow,
+    head,
+    tableRef,
   }
 }
 
@@ -168,7 +201,7 @@ export interface UseTableStateParams<T> {
   onRowClick?: (item: T) => void
 }
 
-export interface TableState<T> {
+export interface UseTableStateReturn<T> {
   /**
    * Collection rendered while loading
    */
@@ -206,10 +239,47 @@ export interface TableState<T> {
   /**
    * Table ref
    */
-  tableRef?: RefObject<HTMLTableElement>
+  tableRef: RefObject<HTMLTableElement>
+  body: TableBodyState
+  bodyRow: TableBodyRowState
+  head: TableHeadState
 }
+
+export type TableState<T> = Omit<
+  UseTableStateReturn<T>,
+  'body' | 'bodyRow' | 'head'
+>
 
 /**
  * Caller of a resolver
  */
-type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
+export type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
+
+export interface TableBodyRowState<T = any> {
+  onRowClick?: (item: T) => void
+  columns: Array<TableColumn<T, BaseResolvers<T>>>
+  resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
+  tableRef?: RefObject<HTMLTableElement>
+  cell: TableCellState
+}
+
+export interface TableBodyState<T = any> {
+  data: T[]
+  getRowKey: (item: T) => unknown
+}
+
+export interface TableHeadState<T = any> {
+  columns: Array<TableColumn<T, BaseResolvers<T>>>
+  data: T[]
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
+  sortState: UseSortReturn
+  tableRef?: RefObject<HTMLTableElement>
+  cell: TableCellState
+}
+
+export interface TableCellState<T = any> {
+  lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
+  tableRef?: RefObject<HTMLTableElement>
+}
