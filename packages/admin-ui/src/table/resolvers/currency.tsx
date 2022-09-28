@@ -9,7 +9,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({
     cell: function CurrencyResolver({ getData, item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 

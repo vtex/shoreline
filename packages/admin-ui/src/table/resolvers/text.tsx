@@ -12,7 +12,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function textResolver<T>() {
   return createResolver<T, 'text', TextResolver<T>>({
     cell: function TextResolver({ item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 

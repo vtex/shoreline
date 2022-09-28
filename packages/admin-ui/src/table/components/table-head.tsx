@@ -9,14 +9,21 @@ import { useTableScroll } from '../hooks/use-table-scroll'
 import type { TableHeadState } from '../hooks/use-table-state'
 import { TableCell } from './table-cell'
 
-export interface TableHeadOptions {
-  state: TableHeadState
-}
+export type TableHeadOptions = TableHeadState
 
 export const TableHead = memo(
   createComponent<'thead', TableHeadOptions>((props) => {
-    const { children, state, ...headProps } = props
-    const { columns, data, resolveHeader, sortState, tableRef, cell } = state
+    const {
+      children,
+      columns,
+      data,
+      resolveHeader,
+      sortState,
+      tableRef,
+      lastFixedColumn,
+      ...headProps
+    } = props
+    // const { columns, data, resolveHeader, sortState, tableRef, cell } = state
 
     const { hasVerticalScroll } = useTableScroll({ tableRef })
 
@@ -37,27 +44,31 @@ export const TableHead = memo(
               items: data,
             })
 
-            const ariaSort = {
+            const cellProps = {
               ...(sortDirection && {
                 'aria-sort': ariaSortLabel[sortDirection],
               }),
+              ...(isSortable && {
+                onClick: () => sortState.sort(column.id),
+              }),
             }
+
+            const csx = React.useMemo(
+              () => ({
+                ...styles.columnCell,
+                ...styles.variant({ hasVerticalScroll }),
+              }),
+              [hasVerticalScroll]
+            )
 
             return (
               <TableCell
-                state={cell}
-                {...ariaSort}
+                {...cellProps}
+                lastFixedColumn={lastFixedColumn}
+                tableRef={tableRef}
                 role="columnheader"
-                csx={{
-                  ...styles.columnCell,
-                  ...styles.variant({ hasVerticalScroll }),
-                }}
+                csx={csx as any}
                 columnId={column.id}
-                onClick={() => {
-                  if (!isSortable) return
-
-                  sortState.sort(column.id)
-                }}
                 key={String(column.id)}
               >
                 {isSortable ? (

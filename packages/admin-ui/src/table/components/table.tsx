@@ -1,14 +1,12 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { ReactNode } from 'react'
 
-import { useDataViewContext } from '../../data-view'
-import type { TableState } from '../hooks/use-table-state'
+import type { TableStateReturn } from '../hooks/use-table-state'
 
 import * as styles from '../styles/table.styles'
 
 export const Table = createComponent<'table', TableOptions>((props) => {
-  const { children, state, ...tableProps } = props
-  const { status } = useDataViewContext()
+  const { children, status, tableRef, columns, ...tableProps } = props
 
   const shouldRender = status === 'ready' || status === 'loading'
 
@@ -16,17 +14,15 @@ export const Table = createComponent<'table', TableOptions>((props) => {
 
   return useElement('table', {
     ...tableProps,
-    ref: state.tableRef as any,
+    ref: tableRef as any,
     role: 'table',
-    baseStyle: styles.baseline({ columns: state?.columns }),
+    baseStyle: styles.baseline({ columns }),
     children,
   })
 })
 
-export interface TableOptions {
-  /**
-   * Table state
-   */
-  state: TableState<any>
+Table.displayName = 'Table'
+
+export interface TableOptions extends TableStateReturn {
   children?: ReactNode
 }

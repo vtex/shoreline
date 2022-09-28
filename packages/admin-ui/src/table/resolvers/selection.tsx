@@ -13,7 +13,7 @@ export function selectionResolver<T>() {
     header: function Resolve({ context }) {
       return (
         <SelectionTreeRoot
-          disabled={context.status === 'loading'}
+          disabled={context === 'loading'}
           onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }
@@ -26,7 +26,7 @@ export function selectionResolver<T>() {
       return (
         <SelectionTreeItem
           value={resolver?.mapId(item)}
-          disabled={context.status === 'loading'}
+          disabled={context === 'loading'}
           onClick={(e: React.MouseEvent<HTMLInputElement>) =>
             e.stopPropagation()
           }

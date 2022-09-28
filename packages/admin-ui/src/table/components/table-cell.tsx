@@ -20,11 +20,12 @@ export const TableCell = memo(
       ref: htmlRef,
       children,
       className = '',
-      state,
+      lastFixedColumn,
+      tableRef,
       ...cellProps
     } = props
 
-    const { lastFixedColumn, tableRef } = state
+    // const { lastFixedColumn, tableRef } = state
 
     const isLastFixedColumn = fixed && lastFixedColumn?.id === columnId
 
@@ -78,10 +79,11 @@ export const TableCell = memo(
 
 TableCell.displayName = 'TableCell'
 
-export interface CellOptions extends VariantProps<typeof styles.variants> {
+export interface CellOptions
+  extends VariantProps<typeof styles.variants>,
+    TableCellState {
   columnId?: string | number | symbol | undefined
   fixed?: boolean
-  state: TableCellState
 }
 
 export type CellProps = React.ComponentPropsWithRef<typeof TableCell>
