@@ -1,6 +1,5 @@
 import React, { cloneElement, Fragment, useCallback, memo } from 'react'
 import type { ReactNode } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { isFunction } from '@vtex/admin-ui-util'
 
 import { useSelectionTreeContext } from '../../components/SelectionTree'
@@ -11,49 +10,42 @@ import type {
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
 import * as styles from '../styles/table-body.styles'
+import { Box } from '../../box'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
-export const TableBody = memo(
-  createComponent<'tbody', TableBodyOptions>((props) => {
-    const { children, data, getRowKey, ...restProps } = props
+export const TableBody = memo((props: TableBodyProps) => {
+  const { children, data, getRowKey, ...restProps } = props
 
-    // const { data, getRowKey } = state
+  // const { data, getRowKey } = state
 
-    React.useEffect(() => {
-      console.log('children updated')
-    }, [children])
+  return (
+    <Box as="tbody" role="rowgroup" {...restProps} csx={styles.baseline}>
+      <Fragment>
+        {isFunction(children)
+          ? children(function render(callback: RenderFunction) {
+              return data.map((item, index) => {
+                const key = String(getRowKey(item))
 
-    return useElement('tbody', {
-      ...restProps,
-      role: 'rowgroup',
-      baseStyle: styles.baseline,
-      children: (
-        <Fragment>
-          {isFunction(children)
-            ? children(function render(callback: RenderFunction) {
-                return data.map((item, index) => {
-                  const key = String(getRowKey(item))
-
-                  return (
-                    <Fragment key={key}>
-                      {callback({ item, key, index })}
-                    </Fragment>
-                  )
-                })
-              })
-            : data.map((item) => {
                 return (
-                  <Fragment key={String(getRowKey(item))}>
-                    {cloneElement(children as any, {
-                      item,
-                    })}
+                  <Fragment key={key}>
+                    {callback({ item, key, index })}
                   </Fragment>
                 )
-              })}
-        </Fragment>
-      ),
-    })
-  })
-)
+              })
+            })
+          : data.map((item) => {
+              return (
+                <Fragment key={String(getRowKey(item))}>
+                  {cloneElement(children as any, {
+                    item,
+                  })}
+                </Fragment>
+              )
+            })}
+      </Fragment>
+    </Box>
+  )
+})
 
 TableBody.displayName = 'TableBody'
 
@@ -71,82 +63,87 @@ export interface TableBodyOptions extends TableBodyState {
     | ReactNode
 }
 
+export type TableBodyProps = TableBodyOptions & {
+  csx?: StyleProp
+} & React.ComponentPropsWithoutRef<'tbody'>
 export interface TableBodyRowOptions extends TableBodyRowState {
   item?: Record<string, any>
 }
 
-export const TableBodyRow = memo(
-  createComponent<'tr', TableBodyRowOptions>((props) => {
-    const {
-      item = {},
-      onRowClick,
-      columns,
-      resolveCell,
-      status,
-      children,
-      ...rowProps
-    } = props
+export type TableBodyRowProps = TableBodyRowOptions & {
+  csx?: StyleProp
+} & React.ComponentPropsWithoutRef<'tr'>
 
-    // const { onRowClick, columns, resolveCell, cell } = state
+export const TableBodyRow = memo((props: TableBodyRowProps) => {
+  const {
+    item = {},
+    onRowClick,
+    columns,
+    resolveCell,
+    status,
+    children,
+    ...rowProps
+  } = props
 
-    const clickable = onRowClick && !(status === 'loading')
+  // const { onRowClick, columns, resolveCell, cell } = state
 
-    const isRowSelected = useCallback(() => {
-      const isSelectable = columns.some(
-        (column) =>
-          column?.resolver?.type === 'selection' ||
-          column?.resolver?.type === 'bulk'
-      )
+  const clickable = onRowClick && !(status === 'loading')
 
-      if (!isSelectable) {
-        return false
-      }
+  const isRowSelected = useCallback(() => {
+    const isSelectable = columns.some(
+      (column) =>
+        column?.resolver?.type === 'selection' ||
+        column?.resolver?.type === 'bulk'
+    )
 
-      const {
-        allSelected = false,
-        items: { value: selectedItemsIds },
-      } = useSelectionTreeContext()
-
-      if (!Array.isArray(selectedItemsIds)) return false
-
-      return allSelected || selectedItemsIds.some((id) => id === item.id)
-    }, [columns])
-
-    const handleClick = () => {
-      if (clickable) {
-        onRowClick?.(item)
-      }
+    if (!isSelectable) {
+      return false
     }
 
-    return useElement('tr', {
-      ...rowProps,
-      baseStyle: {
+    const {
+      allSelected = false,
+      items: { value: selectedItemsIds },
+    } = useSelectionTreeContext()
+
+    if (!Array.isArray(selectedItemsIds)) return false
+
+    return allSelected || selectedItemsIds.some((id) => id === item.id)
+  }, [columns])
+
+  const handleClick = useCallback(() => {
+    if (clickable) {
+      onRowClick?.(item)
+    }
+  }, [onRowClick])
+
+  return (
+    <Box
+      as="tr"
+      {...rowProps}
+      role="row"
+      csx={{
         ...styles.rowBaseline,
         ...styles.variants({ clickable }),
         ...styles.variants({ selected: isRowSelected() }),
-      },
-      role: 'row',
-      children: (
-        <>
-          {columns.map((column) => {
-            const content = resolveCell({ item, column })
+      }}
+      onClick={handleClick}
+    >
+      {columns.map((column) => {
+        const content = resolveCell({ item, column })
 
-            return (
-              <Fragment key={`${String(item.id)}-${String(column.id)}`}>
-                {cloneElement(children as any, {
-                  fixed: column?.fixed,
-                  columnId: column.id,
-                  children: content,
-                })}
-              </Fragment>
-            )
-          })}
-        </>
-      ),
-      onClick: handleClick,
-    })
-  })
-)
+        return (
+          <Fragment key={`${String(item.id)}-${String(column.id)}`}>
+            {cloneElement(children as any, {
+              fixed: column?.fixed,
+              columnId: column.id,
+              children: content,
+            })}
+          </Fragment>
+        )
+      })}
+    </Box>
+  )
+})
 
 TableBodyRow.displayName = 'TableBodyRow'
 
