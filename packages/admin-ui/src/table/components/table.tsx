@@ -1,25 +1,32 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import React from 'react'
 import type { ReactNode } from 'react'
+
+import type { BoxProps } from '../../box'
+import { Box } from '../../box'
 
 import type { TableStateReturn } from '../hooks/use-table-state'
 
 import * as styles from '../styles/table.styles'
 
-export const Table = createComponent<'table', TableOptions>((props) => {
-  const { children, status, tableRef, columns, ...tableProps } = props
+export const Table = (props: BoxProps & TableOptions) => {
+  const { children, status, csx, tableRef, columns, ...tableProps } = props
 
   const shouldRender = status === 'ready' || status === 'loading'
 
   if (!shouldRender) return null
 
-  return useElement('table', {
-    ...tableProps,
-    ref: tableRef as any,
-    role: 'table',
-    baseStyle: styles.baseline({ columns }),
-    children,
-  })
-})
+  return (
+    <Box
+      {...tableProps}
+      ref={tableRef}
+      as="table"
+      role="table"
+      csx={{ ...csx, ...styles.baseline({ columns }) }}
+    >
+      {children}
+    </Box>
+  )
+}
 
 Table.displayName = 'Table'
 
