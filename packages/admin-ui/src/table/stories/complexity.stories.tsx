@@ -11,7 +11,6 @@ import {
   createColumns,
 } from '../index'
 import { useTableState } from '../hooks/use-table-state'
-import { DataView, useDataViewState } from '../../data-view'
 
 export default {
   title: 'admin-ui-review/table/complexity',
@@ -81,6 +80,17 @@ const Example = React.memo(() => {
 export function Full() {
   const [count, setCount] = React.useState(0)
 
+  const {
+    getBodyState,
+    getBodyRowState,
+    getHeadState,
+    getCellState,
+    getTableState,
+  } = useTableState<Item>({
+    columns,
+    items,
+  })
+
   return (
     <>
       <button
@@ -91,7 +101,14 @@ export function Full() {
         click {count}
       </button>
 
-      <Example />
+      <Table {...getTableState()}>
+        <TableHead {...getHeadState()} />
+        <TableBody {...getBodyState()}>
+          <TableBodyRow {...getBodyRowState()}>
+            <TableCell {...getCellState()} />
+          </TableBodyRow>
+        </TableBody>
+      </Table>
     </>
   )
 }
