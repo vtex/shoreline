@@ -95,8 +95,14 @@ export function Bulk() {
     },
   ])
 
-  const { body, bodyRow, head, ...table } = useTableState<Item>({
-    view,
+  const {
+    getBodyState,
+    getBodyRowState,
+    getHeadState,
+    getCellState,
+    getTableState,
+  } = useTableState<Item>({
+    status: view.status,
     columns,
     items: pageItems,
   })
@@ -126,10 +132,12 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table state={table} csx={{ width: '100%' }}>
-              <TableHead state={head} />
-              <TableBody state={body}>
-                <TableBodyRow state={bodyRow} />
+            <Table {...getTableState()} csx={{ width: '100%' }}>
+              <TableHead {...getHeadState()} />
+              <TableBody {...getBodyState()}>
+                <TableBodyRow {...getBodyRowState()}>
+                  <TableCell {...getCellState()} />
+                </TableBodyRow>
               </TableBody>
             </Table>
           </SelectionTree>
@@ -166,8 +174,14 @@ export function BulkWithLoading() {
     pageSize: ITEMS_PER_PAGE,
   })
 
-  const { body, bodyRow, head, cell, ...table } = useTableState({
-    view,
+  const {
+    getBodyState,
+    getBodyRowState,
+    getHeadState,
+    getCellState,
+    getTableState,
+  } = useTableState({
+    status: view.status,
     columns: [
       { id: 'id', resolver: { type: 'bulk', state: bulk } },
       {
@@ -209,13 +223,11 @@ export function BulkWithLoading() {
         </BulkActions>
       </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
-        <Table state={table}>
-          <TableHead state={head}>
-            <TableCell state={cell} />
-          </TableHead>
-          <TableBody state={body}>
-            <TableBodyRow state={bodyRow}>
-              <TableCell state={cell} />
+        <Table {...getTableState()}>
+          <TableHead {...getHeadState()} />
+          <TableBody {...getBodyState()}>
+            <TableBodyRow {...getBodyRowState()}>
+              <TableCell {...getCellState()} />
             </TableBodyRow>
           </TableBody>
         </Table>

@@ -10,7 +10,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function menuResolver<T>() {
   return createResolver<T, 'menu', MenuResolver<T>>({
     cell: function MenuResolver({ item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ size: 24 }} />
       }
 

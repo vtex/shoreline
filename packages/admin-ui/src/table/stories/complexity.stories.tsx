@@ -54,22 +54,44 @@ const columns = createColumns<Item>([
   },
 ])
 
-export function Full() {
-  const { body, bodyRow, head, cell, ...state } = useTableState<Item>({
+const Example = React.memo(() => {
+  const {
+    getBodyState,
+    getBodyRowState,
+    getHeadState,
+    getCellState,
+    getTableState,
+  } = useTableState<Item>({
     columns,
     items,
   })
 
   return (
-    <Table state={state} csx={{ width: 560 }}>
-      <TableHead state={head}>
-        <TableCell state={cell} />
-      </TableHead>
-      <TableBody state={body}>
-        <TableBodyRow state={bodyRow}>
-          <TableCell state={cell} />
+    <Table {...getTableState()}>
+      <TableHead {...getHeadState()} />
+      <TableBody {...getBodyState()}>
+        <TableBodyRow {...getBodyRowState()}>
+          <TableCell {...getCellState()} />
         </TableBodyRow>
       </TableBody>
     </Table>
+  )
+})
+
+export function Full() {
+  const [count, setCount] = React.useState(0)
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          setCount((p) => p + 1)
+        }}
+      >
+        click {count}
+      </button>
+
+      <Example />
+    </>
   )
 }

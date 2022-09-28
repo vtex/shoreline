@@ -9,7 +9,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
     cell: function DateResolver({ getData, item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 

@@ -12,7 +12,7 @@ import { Skeleton } from '../../skeleton'
 export function bulkResolver<T extends {}>() {
   return createResolver<T, 'bulk', BulkResolver<T>>({
     header: function BulkResolver({ context, column }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ size: '24px' }} />
       }
 
@@ -41,7 +41,7 @@ export function bulkResolver<T extends {}>() {
       )
     },
     cell: function BulkResolver({ context, column, item }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ size: '24px' }} />
       }
 
