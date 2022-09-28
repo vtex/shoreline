@@ -1,9 +1,8 @@
-import React, { cloneElement, Fragment, memo, useCallback } from 'react'
+import React, { cloneElement, Fragment, useCallback, memo } from 'react'
 import type { ReactNode } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { isFunction } from '@vtex/admin-ui-util'
 
-import { useDataViewContext } from '../../data-view'
 import { useSelectionTreeContext } from '../../components/SelectionTree'
 import type {
   TableBodyState,
@@ -11,14 +10,17 @@ import type {
 } from '../hooks/use-table-state'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
-import { TableCell } from './table-cell'
 import * as styles from '../styles/table-body.styles'
 
 export const TableBody = memo(
   createComponent<'tbody', TableBodyOptions>((props) => {
-    const { children, state, ...restProps } = props
+    const { children, data, getRowKey, ...restProps } = props
 
-    const { data, getRowKey } = state
+    // const { data, getRowKey } = state
+
+    React.useEffect(() => {
+      console.log('children updated')
+    }, [children])
 
     return useElement('tbody', {
       ...restProps,
@@ -38,13 +40,15 @@ export const TableBody = memo(
                   )
                 })
               })
-            : data.map((item) => (
-                <Fragment key={String(getRowKey(item))}>
-                  {cloneElement(children as any, {
-                    item,
-                  })}
-                </Fragment>
-              ))}
+            : data.map((item) => {
+                return (
+                  <Fragment key={String(getRowKey(item))}>
+                    {cloneElement(children as any, {
+                      item,
+                    })}
+                  </Fragment>
+                )
+              })}
         </Fragment>
       ),
     })
@@ -61,24 +65,29 @@ type RenderParams = {
 
 type RenderFunction = (params: RenderParams) => ReactNode
 
-export interface TableBodyOptions {
+export interface TableBodyOptions extends TableBodyState {
   children?:
     | ((render: (callbackFunction: RenderFunction) => void) => ReactNode)
     | ReactNode
-  state: TableBodyState
 }
 
-export interface TableBodyRowOptions {
+export interface TableBodyRowOptions extends TableBodyRowState {
   item?: Record<string, any>
-  state: TableBodyRowState
 }
 
 export const TableBodyRow = memo(
   createComponent<'tr', TableBodyRowOptions>((props) => {
-    const { item = {}, state, children, ...rowProps } = props
+    const {
+      item = {},
+      onRowClick,
+      columns,
+      resolveCell,
+      status,
+      children,
+      ...rowProps
+    } = props
 
-    const { onRowClick, columns, resolveCell, cell } = state
-    const { status } = useDataViewContext()
+    // const { onRowClick, columns, resolveCell, cell } = state
 
     const clickable = onRowClick && !(status === 'loading')
 
@@ -123,14 +132,13 @@ export const TableBodyRow = memo(
             const content = resolveCell({ item, column })
 
             return (
-              <TableCell
-                state={cell}
-                fixed={column?.fixed}
-                columnId={column.id}
-                key={`${String(item.id)}-${String(column.id)}`}
-              >
-                {content}
-              </TableCell>
+              <Fragment key={`${String(item.id)}-${String(column.id)}`}>
+                {cloneElement(children as any, {
+                  fixed: column?.fixed,
+                  columnId: column.id,
+                  children: content,
+                })}
+              </Fragment>
             )
           })}
         </>
