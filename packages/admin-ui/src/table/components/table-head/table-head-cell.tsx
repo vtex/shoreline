@@ -91,7 +91,6 @@ function SortIndicator(props: BoxProps & SortIndicatorOptions) {
 
   return (
     <Box csx={styles.sortIndicator} {...restProps}>
-      (
       <Fragment>
         {direction !== 'DESC' ? (
           <IconArrowUp
@@ -104,7 +103,6 @@ function SortIndicator(props: BoxProps & SortIndicatorOptions) {
           <IconArrowDown size="small" />
         )}
       </Fragment>
-      ),
     </Box>
   )
 }
