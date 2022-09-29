@@ -7,8 +7,9 @@ import {
   TableBody,
   TableBodyRow,
   TableHead,
-  TableCell,
   createColumns,
+  TableHeadCell,
+  TableBodyCell,
 } from '../index'
 import { useTableState } from '../hooks/use-table-state'
 
@@ -53,43 +54,44 @@ const columns = createColumns<Item>([
   },
 ])
 
-const Example = React.memo(() => {
-  const {
-    getBodyState,
-    getBodyRowState,
-    getHeadState,
-    getCellState,
-    getTableState,
-  } = useTableState<Item>({
-    columns,
-    items,
-  })
+// const Example = React.memo(() => {
+//   const {
+//     getBodyState,
+//     getBodyRowState,
+//     getHeadState,
+//     getCellState,
+//     getTableState,
+//   } = useTableState<Item>({
+//     columns,
+//     items,
+//   })
 
-  return (
-    <Table {...getTableState()}>
-      <TableHead {...getHeadState()} />
-      <TableBody {...getBodyState()}>
-        <TableBodyRow {...getBodyRowState()}>
-          <TableCell {...getCellState()} />
-        </TableBodyRow>
-      </TableBody>
-    </Table>
-  )
-})
+//   return (
+//     <Table {...getTableState()}>
+//       <TableHead {...getHeadState()} />
+//       <TableBody {...getBodyState()}>
+//         {({ item }) => {
+//           return (
+//             <TableBodyRow item={item} {...getBodyRowState()}>
+//               <TableCell {...getCellState()} />
+//             </TableBodyRow>
+//           )
+//         }}
+//       </TableBody>
+//     </Table>
+//   )
+// })
 
 export function Full() {
   const [count, setCount] = React.useState(0)
 
-  const {
-    getBodyState,
-    getBodyRowState,
-    getHeadState,
-    getCellState,
-    getTableState,
-  } = useTableState<Item>({
-    columns,
-    items,
-  })
+  const { getBodyRowState, getHeadState, getTableState, data, getRowKey } =
+    useTableState<Item>({
+      columns,
+      items,
+    })
+
+  const [name, lastSale, price] = columns
 
   return (
     <>
@@ -102,11 +104,23 @@ export function Full() {
       </button>
 
       <Table {...getTableState()}>
-        <TableHead {...getHeadState()} />
-        <TableBody {...getBodyState()}>
-          <TableBodyRow {...getBodyRowState()}>
-            <TableCell {...getCellState()} />
-          </TableBodyRow>
+        <TableHead state={getHeadState()}>
+          <TableHeadCell column={name} />
+          <TableHeadCell column={lastSale} />
+          <TableHeadCell column={price} />
+        </TableHead>
+        <TableBody>
+          {data.map((item) => {
+            const key = String(getRowKey(item))
+
+            return (
+              <TableBodyRow item={item} key={key} state={getBodyRowState()}>
+                <TableBodyCell column={name} />
+                <TableBodyCell column={lastSale} />
+                <TableBodyCell column={price} />
+              </TableBodyRow>
+            )
+          })}
         </TableBody>
       </Table>
     </>

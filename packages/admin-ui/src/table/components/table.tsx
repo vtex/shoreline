@@ -6,7 +6,7 @@ import { Box } from '../../box'
 
 import type { TableStateReturn } from '../hooks/use-table-state'
 
-import * as styles from '../styles/table.styles'
+import * as styles from './styles/table.styles'
 
 export const Table = (props: BoxProps & TableOptions) => {
   const { children, status, csx, tableRef, columns, ...tableProps } = props

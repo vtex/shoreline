@@ -7,12 +7,13 @@ import type { TableCellState } from '../hooks/use-table-state'
 import { Box } from '../../box'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
-import * as styles from '../styles/table-cell.styles'
+import * as styles from './styles/table-cell.styles'
+import type { TableColumn } from '../types'
+import type { BaseResolvers } from '../resolvers/base'
 
-export const TableCell = memo((props: CellProps) => {
+function _TableCell<T>(props: CellProps<T>) {
   const {
-    fixed = false,
-    columnId,
+    column,
     onClick,
     role = 'cell',
     ref: htmlRef,
@@ -20,12 +21,11 @@ export const TableCell = memo((props: CellProps) => {
     className = '',
     lastFixedColumn,
     tableRef,
+    csx,
     ...cellProps
   } = props
 
-  // const { lastFixedColumn, tableRef } = state
-
-  const isLastFixedColumn = fixed && lastFixedColumn?.id === columnId
+  const isLastFixedColumn = column?.fixed && lastFixedColumn?.id === column?.id
 
   const hasHorizontalScroll = () => {
     if (!isLastFixedColumn) {
@@ -40,14 +40,14 @@ export const TableCell = memo((props: CellProps) => {
   const ref = useRef<HTMLTableCellElement>(null)
 
   useEffect(() => {
-    if (!ref?.current || !fixed) {
+    if (!ref?.current || !column?.fixed) {
       return
     }
 
     ref.current.style.left = `${ref.current.offsetLeft}px`
   }, [])
 
-  const resolvedClassName = fixed
+  const resolvedClassName = column?.fixed
     ? cx(
         '__admin-ui-fixed-cell',
         className,
@@ -66,26 +66,26 @@ export const TableCell = memo((props: CellProps) => {
         ...styles.baseline,
         ...styles.variants({
           clickable: !!onClick,
-          fixed,
+          fixed: column?.fixed,
           lastFixed: isLastFixedColumn,
           hasHorizontalScroll: hasHorizontalScroll(),
         }),
+        ...csx,
       }}
       className={resolvedClassName}
     >
       <Box csx={styles.innerContainer}>{children}</Box>
     </Box>
   )
-})
-
-TableCell.displayName = 'TableCell'
-
-export interface CellOptions
-  extends VariantProps<typeof styles.variants>,
-    TableCellState {
-  columnId?: string | number | symbol | undefined
-  fixed?: boolean
 }
 
-export type CellProps = React.ComponentPropsWithRef<'td'> &
-  CellOptions & { csx?: StyleProp }
+export const TableCell = memo(_TableCell) as typeof _TableCell
+
+export interface CellOptions<T>
+  extends VariantProps<typeof styles.variants>,
+    TableCellState<T> {
+  column: TableColumn<T, BaseResolvers<T>>
+}
+
+export type CellProps<T> = React.ComponentPropsWithRef<'td'> &
+  CellOptions<T> & { csx?: StyleProp }
