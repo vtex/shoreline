@@ -4,12 +4,12 @@ import faker from 'faker'
 
 import {
   Table,
-  TableBody,
-  TableBodyRow,
-  TableHead,
+  TBody,
+  TBodyRow,
+  THead,
   createColumns,
-  TableHeadCell,
-  TableBodyCell,
+  THeadCell,
+  TBodyCell,
 } from '../index'
 import { useTableState } from '../hooks/use-table-state'
 
@@ -101,22 +101,22 @@ export function Full() {
       </button>
 
       <Table {...getTable()}>
-        <TableHead>
+        <THead>
           {columns.map((column) => {
-            return <TableHeadCell {...getHeadCell(column)} />
+            return <THeadCell {...getHeadCell(column)} />
           })}
-        </TableHead>
-        <TableBody>
+        </THead>
+        <TBody>
           {data.map((item) => {
             return (
-              <TableBodyRow key={item.id}>
+              <TBodyRow key={item.id}>
                 {columns.map((column) => {
-                  return <TableBodyCell {...getBodyCell(column, item)} />
+                  return <TBodyCell {...getBodyCell(column, item)} />
                 })}
-              </TableBodyRow>
+              </TBodyRow>
             )
           })}
-        </TableBody>
+        </TBody>
       </Table>
     </>
   )

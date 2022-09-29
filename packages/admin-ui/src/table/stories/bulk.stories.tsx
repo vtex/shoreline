@@ -5,11 +5,11 @@ import faker from 'faker'
 import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import {
   Table,
-  TableBody,
-  TableBodyRow,
-  TableHeadCell,
-  TableHead,
-  TableBodyCell,
+  TBody,
+  TBodyRow,
+  THeadCell,
+  THead,
+  TBodyCell,
   useTableState,
 } from '../index'
 import { Button } from '../../button'
@@ -102,8 +102,6 @@ export function Bulk() {
     items: pageItems,
   })
 
-  const [id, name, lastSale, price] = columns
-
   return (
     <Page>
       <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
@@ -129,26 +127,26 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table {...getTable()} csx={{ width: '100%' }}>
-              <TableHead>
+            <Table {...getTable()}>
+              <THead>
                 {columns.map((column) => {
-                  return <TableHeadCell {...getHeadCell(column)} />
+                  return <THeadCell {...getHeadCell(column)} />
                 })}
-              </TableHead>
-              <TableBody>
+              </THead>
+              <TBody>
                 {data.map((item) => {
                   return (
-                    <TableBodyRow
+                    <TBodyRow
                       key={item.id}
                       selected={bulk.isItemSelected(item)}
                     >
                       {columns.map((column) => {
-                        return <TableBodyCell {...getBodyCell(column, item)} />
+                        return <TBodyCell {...getBodyCell(column, item)} />
                       })}
-                    </TableBodyRow>
+                    </TBodyRow>
                   )
                 })}
-              </TableBody>
+              </TBody>
             </Table>
           </SelectionTree>
         </DataView>

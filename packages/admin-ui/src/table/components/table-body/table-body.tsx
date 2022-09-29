@@ -5,7 +5,7 @@ import { Box } from '../../../box'
 
 import * as styles from '../styles/table-body.styles'
 
-export const TableBody = memo((props: TableBodyProps) => {
+function TableBody(props: TableBodyProps) {
   const { children, ...restProps } = props
 
   return (
@@ -13,9 +13,9 @@ export const TableBody = memo((props: TableBodyProps) => {
       {children}
     </Box>
   )
-})
+}
 
-TableBody.displayName = 'TableBody'
+export const TBody = memo(TableBody) as typeof TableBody
 
 export type TableBodyProps = {
   csx?: StyleProp
