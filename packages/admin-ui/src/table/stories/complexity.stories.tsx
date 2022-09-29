@@ -57,7 +57,7 @@ const columns = createColumns<Item>([
 // const Example = React.memo(() => {
 //   const {
 //     getBodyState,
-//     getBodyRowState,
+//     getBodyCell,
 //     getHeadState,
 //     getCellState,
 //     getTableState,
@@ -72,7 +72,7 @@ const columns = createColumns<Item>([
 //       <TableBody {...getBodyState()}>
 //         {({ item }) => {
 //           return (
-//             <TableBodyRow item={item} {...getBodyRowState()}>
+//             <TableBodyRow item={item} {...getBodyCell()}>
 //               <TableCell {...getCellState()} />
 //             </TableBodyRow>
 //           )
@@ -85,13 +85,10 @@ const columns = createColumns<Item>([
 export function Full() {
   const [count, setCount] = React.useState(0)
 
-  const { getBodyRowState, getHeadState, getTableState, data, getRowKey } =
-    useTableState<Item>({
-      columns,
-      items,
-    })
-
-  const [name, lastSale, price] = columns
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    columns,
+    items,
+  })
 
   return (
     <>
@@ -103,21 +100,19 @@ export function Full() {
         click {count}
       </button>
 
-      <Table {...getTableState()}>
-        <TableHead state={getHeadState()}>
-          <TableHeadCell column={name} />
-          <TableHeadCell column={lastSale} />
-          <TableHeadCell column={price} />
+      <Table {...getTable()}>
+        <TableHead>
+          {columns.map((column) => {
+            return <TableHeadCell {...getHeadCell(column)} />
+          })}
         </TableHead>
         <TableBody>
           {data.map((item) => {
-            const key = String(getRowKey(item))
-
             return (
-              <TableBodyRow item={item} key={key} state={getBodyRowState()}>
-                <TableBodyCell column={name} />
-                <TableBodyCell column={lastSale} />
-                <TableBodyCell column={price} />
+              <TableBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TableBodyCell {...getBodyCell(column, item)} />
+                })}
               </TableBodyRow>
             )
           })}
