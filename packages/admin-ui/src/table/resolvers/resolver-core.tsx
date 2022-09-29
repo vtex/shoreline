@@ -50,7 +50,6 @@ export interface Resolver<T = any, I = any, S = any> {
   header?: (helpers: {
     getData: CallableFunction
     context: ResolverContext
-    items: T[]
     column: TableColumn<T, ResolverShorcut<I, S>>
   }) => ReactNode
 }
@@ -71,7 +70,6 @@ export function createResolver<T, I, S = Record<string, unknown>>(
 export type ResolveHeaderArgs<T> = {
   column: TableColumn<T>
   context: ResolverContext
-  items: T[]
   sortState?: SortState
 }
 
@@ -88,7 +86,7 @@ export type ResolveHeaderReturn = {
 export function resolveHeader<T>(
   args: ResolveHeaderArgs<T>
 ): ResolveHeaderReturn {
-  const { column, context, items, sortState = {} } = args
+  const { column, context, sortState = {} } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
@@ -104,7 +102,6 @@ export function resolveHeader<T>(
     ? header({
         getData: () => accessHeader(column),
         context,
-        items,
         column,
       })
     : accessHeader(column)
