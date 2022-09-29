@@ -9,7 +9,7 @@ import type {
 import type { TableCellProps } from '../table-cell'
 import { TableCell } from '../table-cell'
 
-function _TableBodyCell<T>(props: TableBodyCellProps<T>) {
+function TableBodyCell<T>(props: TableBodyCellProps<T>) {
   const { column, item, resolveCell, tableRef, lastFixedColumn, ...restProps } =
     props
 
@@ -34,4 +34,4 @@ export interface TableBodyCellProps<T> extends TableCellProps<T> {
   key: React.Key
 }
 
-export const TableBodyCell = memo(_TableBodyCell) as typeof _TableBodyCell
+export const TBodyCell = memo(TableBodyCell) as typeof TableBodyCell

@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { Box } from '../../../box'
 import * as styles from '../styles/table-head.styles'
 
-function _TableHead(props: TableHeadProps) {
+function TableHead(props: TableHeadProps) {
   const { children, ...headProps } = props
 
   return (
@@ -19,4 +19,4 @@ export type TableHeadProps = React.ComponentPropsWithoutRef<'thead'> & {
   csx?: StyleProp
 }
 
-export const TableHead = memo(_TableHead) as typeof _TableHead
+export const THead = memo(TableHead) as typeof TableHead

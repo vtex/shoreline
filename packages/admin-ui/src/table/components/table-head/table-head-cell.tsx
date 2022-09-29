@@ -1,4 +1,4 @@
-import React, { useMemo, Fragment } from 'react'
+import React, { useMemo, Fragment, memo } from 'react'
 import { IconArrowUp, IconArrowDown } from '@vtex/phosphor-icons'
 
 import type { TableCellProps } from '../table-cell'
@@ -21,7 +21,7 @@ const ariaSortLabel = {
   DESC: 'descending',
 } as any
 
-export function TableHeadCell<T>(props: TableHeadCellProps<T>) {
+function TableHeadCell<T>(props: TableHeadCellProps<T>) {
   const {
     column,
     lastFixedColumn,
@@ -77,6 +77,7 @@ export function TableHeadCell<T>(props: TableHeadCellProps<T>) {
   )
 }
 
+export const THeadCell = memo(TableHeadCell) as typeof TableHeadCell
 export interface TableHeadCellProps<T> extends TableCellProps<T> {
   resolveHeader: (
     args: ResolverCallee<ResolveHeaderArgs<T>>
