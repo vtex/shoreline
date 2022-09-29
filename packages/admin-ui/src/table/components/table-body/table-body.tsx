@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
+import type { StyleProp } from '@vtex/admin-ui-core'
 
 import { Box } from '../../../box'
-import type { TableBodyProps } from './types'
 
 import * as styles from '../styles/table-body.styles'
 
@@ -16,3 +16,7 @@ export const TableBody = memo((props: TableBodyProps) => {
 })
 
 TableBody.displayName = 'TableBody'
+
+export type TableBodyProps = {
+  csx?: StyleProp
+} & React.ComponentPropsWithoutRef<'tbody'>

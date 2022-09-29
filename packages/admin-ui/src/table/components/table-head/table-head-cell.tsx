@@ -1,16 +1,20 @@
 import React, { useMemo, Fragment } from 'react'
 import { IconArrowUp, IconArrowDown } from '@vtex/phosphor-icons'
 
-import type { CellProps } from '../table-cell'
+import type { TableCellProps } from '../table-cell'
 import { TableCell } from '../table-cell'
 import { useTableScroll } from '../../hooks/use-table-scroll'
+
+import type {
+  ResolveHeaderArgs,
+  ResolveHeaderReturn,
+  ResolverCallee,
+} from '../../resolvers/resolver-core'
 import type { BoxProps } from '../../../box'
 import { Box } from '../../../box'
 
 import * as styles from '../styles/table-head.styles'
-import { useTableHeadContext } from './context'
-
-export type TableHeadCellProps<T> = CellProps<T>
+import type { UseSortReturn } from '../../hooks/use-table-sort'
 
 const ariaSortLabel = {
   ASC: 'ascending',
@@ -18,10 +22,14 @@ const ariaSortLabel = {
 } as any
 
 export function TableHeadCell<T>(props: TableHeadCellProps<T>) {
-  const { children, column, ...restProps } = props
-
-  const { lastFixedColumn, resolveHeader, sortState, tableRef } =
-    useTableHeadContext<T>()
+  const {
+    column,
+    lastFixedColumn,
+    tableRef,
+    resolveHeader,
+    sortState,
+    ...restProps
+  } = props
 
   const { hasVerticalScroll } = useTableScroll({ tableRef })
 
@@ -67,6 +75,14 @@ export function TableHeadCell<T>(props: TableHeadCellProps<T>) {
       )}
     </TableCell>
   )
+}
+
+export interface TableHeadCellProps<T> extends TableCellProps<T> {
+  resolveHeader: (
+    args: ResolverCallee<ResolveHeaderArgs<T>>
+  ) => ResolveHeaderReturn
+  sortState: UseSortReturn
+  key: React.Key
 }
 
 function SortIndicator(props: BoxProps & SortIndicatorOptions) {

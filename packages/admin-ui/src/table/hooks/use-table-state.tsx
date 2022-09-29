@@ -1,12 +1,12 @@
 import type { ReactNode, RefObject } from 'react'
 import { useRef, useMemo, useCallback } from 'react'
-import { get } from '@vtex/admin-ui-util'
 
 import type {
   ResolverContext,
   ResolveCellArgs,
   ResolveHeaderArgs,
   ResolveHeaderReturn,
+  ResolverCallee,
 } from '../resolvers/resolver-core'
 import {
   resolveCell as unstableResolveCell,
@@ -17,6 +17,11 @@ import type { TableColumn } from '../types'
 import type { UseSortReturn, UseTableSortParams } from './use-table-sort'
 import { useTableSort } from './use-table-sort'
 import type { DataViewStatus } from '../../data-view'
+import { get } from '@vtex/admin-ui-util'
+
+import type { TableProps } from '../components/table'
+import type { TableHeadCellProps } from '../components/table-head/table-head-cell'
+import type { TableBodyCellProps } from '../components/table-body/table-body-cell'
 
 export function useTableState<T extends {}>(
   params: UseTableStateParams<T>
@@ -26,8 +31,6 @@ export function useTableState<T extends {}>(
     length = 5,
     items = [],
     sort = {},
-    getRowKey = defaultGetRowKey,
-    onRowClick,
     status = 'ready',
   } = params
 
@@ -101,37 +104,32 @@ export function useTableState<T extends {}>(
     return column
   }, [])
 
-  const isSelectable = useMemo(() => {
-    return columns.some(
-      (column) =>
-        column?.resolver?.type === 'selection' ||
-        column?.resolver?.type === 'bulk'
-    )
-  }, [columns])
-
-  const getBodyRowState = useCallback(
-    () => ({
-      isSelectable,
-      onRowClick,
+  const getBodyCell = useCallback(
+    (column: TableColumn<T, BaseResolvers<T>>, item: T) => ({
+      column,
+      item,
       resolveCell,
       lastFixedColumn,
       tableRef,
       status,
+      key: `${String(column.id)}-${String(get(item, 'id'))}`,
     }),
-    [onRowClick, resolveCell, lastFixedColumn, status, isSelectable]
+    [resolveCell, lastFixedColumn, status]
   )
 
-  const getHeadState = useCallback(
-    () => ({
+  const getHeadCell = useCallback(
+    (column: TableColumn<T, BaseResolvers<T>>) => ({
+      column,
       resolveHeader,
       sortState,
       lastFixedColumn,
       tableRef,
+      key: String(column.id),
     }),
     [resolveHeader, sortState, lastFixedColumn]
   )
 
-  const getTableState = useCallback(
+  const getTable = useCallback(
     () => ({
       columns,
       status,
@@ -147,17 +145,12 @@ export function useTableState<T extends {}>(
     data,
     columns,
     sortState,
-    getRowKey,
-    getBodyRowState,
-    getHeadState,
-    getTableState,
+    getBodyCell,
+    getHeadCell,
+    getTable,
     tableRef,
     status,
   }
-}
-
-function defaultGetRowKey<T>(item: T): string {
-  return String(get(item as unknown as Record<string, unknown>, 'id', ''))
 }
 
 export interface UseTableStateParams<T> {
@@ -174,11 +167,6 @@ export interface UseTableStateParams<T> {
    */
   context?: ResolverContext
   /**
-   * Key extractor
-   * @default (item)=>item.id
-   */
-  getRowKey?: (item: T) => string
-  /**
    * Table items
    * @default []
    */
@@ -192,10 +180,6 @@ export interface UseTableStateParams<T> {
    * Object used in sort hook
    */
   sort?: UseTableSortParams<T>
-  /**
-   * Action to dispatch on a row click
-   */
-  onRowClick?: (item: T) => void
 }
 
 export interface UseTableStateReturn<T> {
@@ -226,57 +210,16 @@ export interface UseTableStateReturn<T> {
    */
   sortState: UseSortReturn
   /**
-   * Key extractor
-   */
-  getRowKey: (item: T) => string | unknown
-  /**
-   * Action to take on click a row
-   */
-  onRowClick?: (item: T) => void
-  /**
    * Table ref
    */
   tableRef: RefObject<HTMLTableElement>
-  getBodyRowState: () => TableBodyRowState<T>
-  getHeadState: () => TableHeadState<T>
-  getTableState: () => TableStateReturn
+  getBodyCell: (
+    column: TableColumn<T, BaseResolvers<T>>,
+    item: T
+  ) => TableBodyCellProps<T>
+  getHeadCell: (
+    column: TableColumn<T, BaseResolvers<T>>
+  ) => TableHeadCellProps<T>
+  getTable: () => TableProps<T>
   status: DataViewStatus
-}
-
-export type TableState<T = any> = Omit<
-  UseTableStateReturn<T>,
-  'body' | 'bodyRow' | 'head'
->
-
-/**
- * Caller of a resolver
- */
-export type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
-
-export interface TableBodyRowState<T> {
-  onRowClick?: (item: T) => void
-  status: DataViewStatus
-  resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
-  lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
-  tableRef?: RefObject<HTMLTableElement>
-  isSelectable: boolean
-}
-
-export interface TableStateReturn<T = any> {
-  columns: Array<TableColumn<T, BaseResolvers<T>>>
-  status: DataViewStatus
-  tableRef?: RefObject<HTMLTableElement>
-}
-
-export interface TableHeadState<T> extends TableCellState<T> {
-  resolveHeader: (
-    args: ResolverCallee<ResolveHeaderArgs<T>>
-  ) => ResolveHeaderReturn
-  sortState: UseSortReturn
-  tableRef?: RefObject<HTMLTableElement>
-}
-
-export interface TableCellState<T> {
-  lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
-  tableRef?: RefObject<HTMLTableElement>
 }

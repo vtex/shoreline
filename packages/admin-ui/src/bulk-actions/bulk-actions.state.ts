@@ -46,9 +46,9 @@ export function useBulkActions<T extends { id: string | number }>(
 
   const isItemSelected = useCallback(
     (item: T) => {
-      return !!mapSelectedIds[item.id]
+      return allSelected || !!mapSelectedIds[item.id]
     },
-    [mapSelectedIds]
+    [mapSelectedIds, allSelected]
   )
 
   useEffect(() => {
