@@ -4,7 +4,7 @@ import { Box } from '../../../box'
 
 import * as styles from '../styles/table-body.styles'
 
-function _TableBodyRow(props: TableBodyRowProps) {
+function TableBodyRow(props: TableBodyRowProps) {
   const { selected, children, onClick, ...rowProps } = props
 
   return (
@@ -29,4 +29,4 @@ export type TableBodyRowProps = {
   selected?: boolean
 } & React.ComponentPropsWithoutRef<'tr'>
 
-export const TableBodyRow = memo(_TableBodyRow) as typeof _TableBodyRow
+export const TBodyRow = memo(TableBodyRow) as typeof TableBodyRow
