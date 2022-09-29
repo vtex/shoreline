@@ -1,13 +1,17 @@
+import type { ReactNode } from 'react'
 import React, { memo } from 'react'
-import type { CellProps } from '../table-cell'
+import type { DataViewStatus } from '../../../data-view'
+import type {
+  ResolverCallee,
+  ResolveCellArgs,
+} from '../../resolvers/resolver-core'
+
+import type { TableCellProps } from '../table-cell'
 import { TableCell } from '../table-cell'
-import { useTableBodyRowContext } from './context'
 
-function _TableBodyCell<T>(props: CellProps<T>) {
-  const { column, ...restProps } = props
-
-  const { item, resolveCell, tableRef, lastFixedColumn } =
-    useTableBodyRowContext<T>()
+function _TableBodyCell<T>(props: TableBodyCellProps<T>) {
+  const { column, item, resolveCell, tableRef, lastFixedColumn, ...restProps } =
+    props
 
   const content = resolveCell({ item, column })
 
@@ -21,6 +25,13 @@ function _TableBodyCell<T>(props: CellProps<T>) {
       {content}
     </TableCell>
   )
+}
+
+export interface TableBodyCellProps<T> extends TableCellProps<T> {
+  item: T
+  status: DataViewStatus
+  resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
+  key: React.Key
 }
 
 export const TableBodyCell = memo(_TableBodyCell) as typeof _TableBodyCell

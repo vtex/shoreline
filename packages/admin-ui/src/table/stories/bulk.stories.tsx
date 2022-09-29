@@ -96,12 +96,11 @@ export function Bulk() {
     },
   ])
 
-  const { getBodyRowState, getHeadState, getTableState, getRowKey, data } =
-    useTableState<Item>({
-      status: view.status,
-      columns,
-      items: pageItems,
-    })
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
+    columns,
+    items: pageItems,
+  })
 
   const [id, name, lastSale, price] = columns
 
@@ -130,27 +129,22 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table {...getTableState()}>
-              <TableHead state={getHeadState()}>
-                <TableHeadCell column={id} />
-                <TableHeadCell column={name} />
-                <TableHeadCell column={lastSale} />
-                <TableHeadCell column={price} />
+            <Table {...getTable()} csx={{ width: '100%' }}>
+              <TableHead>
+                {columns.map((column) => {
+                  return <TableHeadCell {...getHeadCell(column)} />
+                })}
               </TableHead>
               <TableBody>
                 {data.map((item) => {
-                  const key = String(getRowKey(item))
-
                   return (
                     <TableBodyRow
-                      item={item}
-                      key={key}
-                      state={getBodyRowState()}
+                      key={item.id}
+                      selected={bulk.isItemSelected(item)}
                     >
-                      <TableBodyCell column={id} />
-                      <TableBodyCell column={name} />
-                      <TableBodyCell column={lastSale} />
-                      <TableBodyCell column={price} />
+                      {columns.map((column) => {
+                        return <TableBodyCell {...getBodyCell(column, item)} />
+                      })}
                     </TableBodyRow>
                   )
                 })}
@@ -192,7 +186,7 @@ export function Bulk() {
 
 //   const {
 //     getBodyState,
-//     getBodyRowState,
+//     getBodyCell,
 //     getHeadState,
 //     getCellState,
 //     getTableState,
@@ -242,7 +236,7 @@ export function Bulk() {
 //         <Table {...getTableState()}>
 //           <TableHead {...getHeadState()} />
 //           <TableBody {...getBodyState()}>
-//             <TableBodyRow {...getBodyRowState()}>
+//             <TableBodyRow {...getBodyCell()}>
 //               <TableCell {...getCellState()} />
 //             </TableBodyRow>
 //           </TableBody>

@@ -1,9 +1,9 @@
+import type { RefObject } from 'react'
 import React, { useRef, useEffect, memo } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 import type { VariantProps, StyleProp } from '@vtex/admin-ui-core'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
-import type { TableCellState } from '../hooks/use-table-state'
 import { Box } from '../../box'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
@@ -11,7 +11,7 @@ import * as styles from './styles/table-cell.styles'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
 
-function _TableCell<T>(props: CellProps<T>) {
+function _TableCell<T>(props: TableCellProps<T>) {
   const {
     column,
     onClick,
@@ -81,11 +81,12 @@ function _TableCell<T>(props: CellProps<T>) {
 
 export const TableCell = memo(_TableCell) as typeof _TableCell
 
-export interface CellOptions<T>
-  extends VariantProps<typeof styles.variants>,
-    TableCellState<T> {
+export interface TableCellOptions<T>
+  extends VariantProps<typeof styles.variants> {
   column: TableColumn<T, BaseResolvers<T>>
+  lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
+  tableRef?: RefObject<HTMLTableElement>
 }
 
-export type CellProps<T> = React.ComponentPropsWithRef<'td'> &
-  CellOptions<T> & { csx?: StyleProp }
+export type TableCellProps<T> = React.ComponentPropsWithRef<'td'> &
+  TableCellOptions<T> & { csx?: StyleProp }

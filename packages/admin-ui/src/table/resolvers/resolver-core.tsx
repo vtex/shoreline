@@ -30,6 +30,8 @@ export type ResolverRenderProps<D, T> = {
   context: ResolverContext
 }
 
+export type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
+
 /**
  * Fields resolver
  * @generic T: Type of the item
