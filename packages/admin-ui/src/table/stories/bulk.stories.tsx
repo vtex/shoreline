@@ -7,8 +7,9 @@ import {
   Table,
   TableBody,
   TableBodyRow,
-  TableCell,
+  TableHeadCell,
   TableHead,
+  TableBodyCell,
   useTableState,
 } from '../index'
 import { Button } from '../../button'
@@ -95,17 +96,14 @@ export function Bulk() {
     },
   ])
 
-  const {
-    getBodyState,
-    getBodyRowState,
-    getHeadState,
-    getCellState,
-    getTableState,
-  } = useTableState<Item>({
-    status: view.status,
-    columns,
-    items: pageItems,
-  })
+  const { getBodyRowState, getHeadState, getTableState, getRowKey, data } =
+    useTableState<Item>({
+      status: view.status,
+      columns,
+      items: pageItems,
+    })
+
+  const [id, name, lastSale, price] = columns
 
   return (
     <Page>
@@ -132,12 +130,30 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table {...getTableState()} csx={{ width: '100%' }}>
-              <TableHead {...getHeadState()} />
-              <TableBody {...getBodyState()}>
-                <TableBodyRow {...getBodyRowState()}>
-                  <TableCell {...getCellState()} />
-                </TableBodyRow>
+            <Table {...getTableState()}>
+              <TableHead state={getHeadState()}>
+                <TableHeadCell column={id} />
+                <TableHeadCell column={name} />
+                <TableHeadCell column={lastSale} />
+                <TableHeadCell column={price} />
+              </TableHead>
+              <TableBody>
+                {data.map((item) => {
+                  const key = String(getRowKey(item))
+
+                  return (
+                    <TableBodyRow
+                      item={item}
+                      key={key}
+                      state={getBodyRowState()}
+                    >
+                      <TableBodyCell column={id} />
+                      <TableBodyCell column={name} />
+                      <TableBodyCell column={lastSale} />
+                      <TableBodyCell column={price} />
+                    </TableBodyRow>
+                  )
+                })}
               </TableBody>
             </Table>
           </SelectionTree>
@@ -147,91 +163,91 @@ export function Bulk() {
   )
 }
 
-const NUMBER_OF_ITEMS = 100
-const ITEMS_PER_PAGE = 5
+// const NUMBER_OF_ITEMS = 100
+// const ITEMS_PER_PAGE = 5
 
-/**
- * Function to simulate a request
- * You can configure the delay and numberOfItems here
- */
-function request(init: number, end: number, delay = 500) {
-  return new Promise<Item[]>(function (resolve) {
-    setTimeout(resolve, delay, items.slice(init, end))
-  })
-}
+// /**
+//  * Function to simulate a request
+//  * You can configure the delay and numberOfItems here
+//  */
+// function request(init: number, end: number, delay = 500) {
+//   return new Promise<Item[]>(function (resolve) {
+//     setTimeout(resolve, delay, items.slice(init, end))
+//   })
+// }
 
-export function BulkWithLoading() {
-  const [items, setItems] = React.useState<Item[]>([])
-  const view = useDataViewState()
-  const pagination = usePaginationState({
-    pageSize: ITEMS_PER_PAGE,
-    total: NUMBER_OF_ITEMS,
-  })
+// export function BulkWithLoading() {
+//   const [items, setItems] = React.useState<Item[]>([])
+//   const view = useDataViewState()
+//   const pagination = usePaginationState({
+//     pageSize: ITEMS_PER_PAGE,
+//     total: NUMBER_OF_ITEMS,
+//   })
 
-  const bulk = useBulkActions({
-    totalItems: pagination.total,
-    pageItems: items,
-    pageSize: ITEMS_PER_PAGE,
-  })
+//   const bulk = useBulkActions({
+//     totalItems: pagination.total,
+//     pageItems: items,
+//     pageSize: ITEMS_PER_PAGE,
+//   })
 
-  const {
-    getBodyState,
-    getBodyRowState,
-    getHeadState,
-    getCellState,
-    getTableState,
-  } = useTableState({
-    status: view.status,
-    columns: [
-      { id: 'id', resolver: { type: 'bulk', state: bulk } },
-      {
-        id: 'name',
-        header: 'Product Name',
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-    ],
-    items,
-  })
+//   const {
+//     getBodyState,
+//     getBodyRowState,
+//     getHeadState,
+//     getCellState,
+//     getTableState,
+//   } = useTableState({
+//     status: view.status,
+//     columns: [
+//       { id: 'id', resolver: { type: 'bulk', state: bulk } },
+//       {
+//         id: 'name',
+//         header: 'Product Name',
+//       },
+//       {
+//         id: 'lastSale',
+//         header: 'Last Sale',
+//       },
+//       {
+//         id: 'price',
+//         header: 'Price',
+//         resolver: {
+//           type: 'currency',
+//           locale: 'en-US',
+//           currency: 'USD',
+//         },
+//       },
+//     ],
+//     items,
+//   })
 
-  React.useEffect(() => {
-    view.setStatus({ type: 'loading' })
-    request(pagination.range[0] - 1, pagination.range[1]).then((d: Item[]) => {
-      setItems(d)
-      view.setStatus({ type: 'ready' })
-    })
-  }, [pagination.currentPage])
+//   React.useEffect(() => {
+//     view.setStatus({ type: 'loading' })
+//     request(pagination.range[0] - 1, pagination.range[1]).then((d: Item[]) => {
+//       setItems(d)
+//       view.setStatus({ type: 'ready' })
+//     })
+//   }, [pagination.currentPage])
 
-  return (
-    <DataView state={view}>
-      <DataViewHeader>
-        <FlexSpacer />
-        <Pagination state={pagination} />
-        <BulkActions state={bulk}>
-          <Button variant="tertiary"> Apply 50% discount</Button>
-        </BulkActions>
-      </DataViewHeader>
-      <SelectionTree state={bulk.selectionTree}>
-        <Table {...getTableState()}>
-          <TableHead {...getHeadState()} />
-          <TableBody {...getBodyState()}>
-            <TableBodyRow {...getBodyRowState()}>
-              <TableCell {...getCellState()} />
-            </TableBodyRow>
-          </TableBody>
-        </Table>
-      </SelectionTree>
-    </DataView>
-  )
-}
+//   return (
+//     <DataView state={view}>
+//       <DataViewHeader>
+//         <FlexSpacer />
+//         <Pagination state={pagination} />
+//         <BulkActions state={bulk}>
+//           <Button variant="tertiary"> Apply 50% discount</Button>
+//         </BulkActions>
+//       </DataViewHeader>
+//       <SelectionTree state={bulk.selectionTree}>
+//         <Table {...getTableState()}>
+//           <TableHead {...getHeadState()} />
+//           <TableBody {...getBodyState()}>
+//             <TableBodyRow {...getBodyRowState()}>
+//               <TableCell {...getCellState()} />
+//             </TableBodyRow>
+//           </TableBody>
+//         </Table>
+//       </SelectionTree>
+//     </DataView>
+//   )
+// }

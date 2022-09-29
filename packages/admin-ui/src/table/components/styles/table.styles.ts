@@ -1,5 +1,5 @@
 import { style } from '@vtex/admin-ui-core'
-import type { TableColumn } from '../types'
+import type { TableColumn } from '../../types'
 
 interface RowOptions {
   columns: Array<TableColumn<any>>
