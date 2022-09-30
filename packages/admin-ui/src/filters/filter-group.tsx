@@ -23,7 +23,11 @@ export function FilterGroup(props: FilterGroupProps) {
       {...rest}
     >
       {children}
-      <Button onClick={state.onClear} variant="neutralTertiary">
+      <Button
+        onClick={state.onClear}
+        variant="neutralTertiary"
+        csx={{ marginLeft: '$m' }}
+      >
         {formatMessage('clearAll')}
       </Button>
     </Flex>
