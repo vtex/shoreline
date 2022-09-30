@@ -45,7 +45,7 @@ export default function ListingPage() {
           <PageHeaderActions>
             <PageHeaderButton
               icon={<IconPlus />}
-              onClick={() => console.log("Redirect to create item action")}
+              onClick={() => alert("Redirect to create item action")}
             >
               Create item
             </PageHeaderButton>
@@ -244,7 +244,7 @@ const DeleteConfirmationModal = ({ state }) => {
       message: "Items could not be deleted because of a technical issue.",
       action: {
         label: "Try again",
-        onClick: () => console.log("just tried again")
+        onClick: () => alert("just tried again")
       }
     });
   };
@@ -316,7 +316,7 @@ const ExportButton = () => {
       message: "Items could not be exported because of a technical issue",
       action: {
         label: "Try again",
-        onClick: () => console.log("just tried again")
+        onClick: () => alert("just tried again")
       }
     });
   };
@@ -391,7 +391,7 @@ const ImportButton = () => {
       message: "Items could not be imported because of a technical issue.",
       action: {
         label: "Try again",
-        onClick: () => console.log("just tried again")
+        onClick: () => alert("just tried again")
       }
     });
   };
@@ -523,21 +523,21 @@ const BulkActionsPanel = ({ state }) => {
       <Button
         variant="tertiary"
         icon={<IconPencil />}
-        onClick={() => console.log("Should edit items")}
+        onClick={() => alert("Should edit items")}
       >
         Edit
       </Button>
       <Button
         variant="tertiary"
         icon={<IconCopySimple />}
-        onClick={() => console.log("Should clone items")}
+        onClick={() => alert("Should clone items")}
       >
         Clone
       </Button>
       <Button
         variant="criticalTertiary"
         icon={<IconTrash />}
-        onClick={() => console.log("Should delete items")}
+        onClick={() => alert("Should delete items")}
       >
         Delete
       </Button>
