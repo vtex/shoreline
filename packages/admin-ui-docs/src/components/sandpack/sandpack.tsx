@@ -22,7 +22,7 @@ export default function Sandpack({ children, dependencies = {} }: Props) {
       }}
       customSetup={{
         dependencies: {
-          '@vtex/admin-ui': 'dev',
+          '@vtex/admin-ui': 'latest',
           ...dependencies,
         },
         entry: '/index.js',
