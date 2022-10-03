@@ -6,10 +6,15 @@ import { Box } from '../../../box'
 import * as styles from '../styles/table-body.styles'
 
 function TableBody(props: TableBodyProps) {
-  const { children, ...restProps } = props
+  const { children, csx, ...restProps } = props
 
   return (
-    <Box as="tbody" role="rowgroup" {...restProps} csx={styles.baseline}>
+    <Box
+      as="tbody"
+      role="rowgroup"
+      {...restProps}
+      csx={{ ...styles.baseline, ...csx }}
+    >
       {children}
     </Box>
   )

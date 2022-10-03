@@ -5,7 +5,7 @@ import { Box } from '../../../box'
 import * as styles from '../styles/table-body.styles'
 
 function TableBodyRow(props: TableBodyRowProps) {
-  const { selected, children, onClick, ...rowProps } = props
+  const { selected, children, onClick, csx, ...rowProps } = props
 
   return (
     <Box
@@ -16,6 +16,7 @@ function TableBodyRow(props: TableBodyRowProps) {
         ...styles.rowBaseline,
         ...styles.variants({ clickable: !!onClick }),
         ...styles.variants({ selected }),
+        ...csx,
       }}
       onClick={onClick}
     >
