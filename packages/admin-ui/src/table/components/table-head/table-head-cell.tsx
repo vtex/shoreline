@@ -1,4 +1,4 @@
-import React, { useMemo, Fragment, memo } from 'react'
+import React, { useMemo, memo } from 'react'
 import { IconArrowUp, IconArrowDown } from '@vtex/phosphor-icons'
 
 import type { TableCellProps } from '../table-cell'
@@ -19,7 +19,7 @@ import type { UseSortReturn } from '../../hooks/use-table-sort'
 const ariaSortLabel = {
   ASC: 'ascending',
   DESC: 'descending',
-} as any
+} as Record<'ASC' | 'DESC', 'descending' | 'ascending'>
 
 function TableHeadCell<T>(props: TableHeadCellProps<T>) {
   const {
@@ -28,6 +28,7 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
     tableRef,
     resolveHeader,
     sortState,
+    csx,
     ...restProps
   } = props
 
@@ -46,12 +47,13 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
     }),
   }
 
-  const csx = useMemo(
+  const resolvedStyles = useMemo(
     () => ({
       ...styles.columnCell,
       ...styles.variant({ hasVerticalScroll }),
+      ...csx,
     }),
-    [hasVerticalScroll]
+    [hasVerticalScroll, csx]
   )
 
   return (
@@ -62,7 +64,7 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
       tableRef={tableRef}
       column={column}
       role="columnheader"
-      csx={csx}
+      csx={resolvedStyles}
       key={String(column.id)}
     >
       {isSortable ? (
@@ -91,18 +93,16 @@ function SortIndicator(props: BoxProps & SortIndicatorOptions) {
 
   return (
     <Box csx={styles.sortIndicator} {...restProps}>
-      <Fragment>
-        {direction !== 'DESC' ? (
-          <IconArrowUp
-            size="small"
-            csx={{
-              opacity: direction === 'ASC' ? 1 : 0,
-            }}
-          />
-        ) : (
-          <IconArrowDown size="small" />
-        )}
-      </Fragment>
+      {direction !== 'DESC' ? (
+        <IconArrowUp
+          size="small"
+          csx={{
+            opacity: direction === 'ASC' ? 1 : 0,
+          }}
+        />
+      ) : (
+        <IconArrowDown size="small" />
+      )}
     </Box>
   )
 }

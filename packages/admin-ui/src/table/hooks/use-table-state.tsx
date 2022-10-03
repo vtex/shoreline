@@ -111,10 +111,9 @@ export function useTableState<T extends {}>(
       resolveCell,
       lastFixedColumn,
       tableRef,
-      status,
       key: `${String(column.id)}-${String(get(item, 'id'))}`,
     }),
-    [resolveCell, lastFixedColumn, status]
+    [resolveCell, lastFixedColumn]
   )
 
   const getHeadCell = useCallback(
@@ -136,7 +135,7 @@ export function useTableState<T extends {}>(
       tableRef,
     }),
     [columns, status]
-  ) as any
+  )
 
   return {
     skeletonCollection,
