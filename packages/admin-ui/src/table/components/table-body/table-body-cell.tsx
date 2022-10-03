@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import React, { memo } from 'react'
-import type { DataViewStatus } from '../../../data-view'
 import type {
   ResolverCallee,
   ResolveCellArgs,
@@ -29,7 +28,6 @@ function TableBodyCell<T>(props: TableBodyCellProps<T>) {
 
 export interface TableBodyCellProps<T> extends TableCellProps<T> {
   item: T
-  status: DataViewStatus
   resolveCell: (args: ResolverCallee<ResolveCellArgs<T>>) => ReactNode
   key: React.Key
 }
