@@ -41,7 +41,4 @@ export const headerActions = style({
   '> button:not(:last-of-type)': {
     marginRight: '$m',
   },
-  '> button + div': {
-    marginLeft: '$xl',
-  },
 })
