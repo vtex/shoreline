@@ -81,6 +81,7 @@ export const searchbox = style({
   margin: '$l',
   marginBottom: 0,
   order: -1,
+  '> input': { minWidth: 'auto' },
   '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
 })
 
