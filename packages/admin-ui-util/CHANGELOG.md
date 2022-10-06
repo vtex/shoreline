@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3-dev.3 (2022-10-06)
+
+
+### Bug Fixes
+
+* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
+
+
+
+
+
 ## 0.4.3-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
