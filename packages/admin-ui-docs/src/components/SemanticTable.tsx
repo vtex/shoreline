@@ -2,6 +2,11 @@ import React from 'react'
 import {
   useTableState,
   Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
   Text,
   createColumns,
   color as getColor,
@@ -91,13 +96,31 @@ export function SemanticTable(props: SemanticTableProps) {
     },
   ])
 
-  const state = useTableState({
-    density: 'variable',
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     columns,
     items,
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item, id) => {
+          return (
+            <TBodyRow key={`semantic-table-row-${id}`}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 function Tone(props: ToneProps) {

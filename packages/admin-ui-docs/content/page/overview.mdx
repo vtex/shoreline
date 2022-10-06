@@ -175,6 +175,25 @@ const items = [
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Product Name',
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+])
+
 function WithSearch() {
   const view = useDataViewState()
   const search = useSearchState()
@@ -191,26 +210,9 @@ function WithSearch() {
     )
   }, [search])
 
-  const table = useTableState({
-    view,
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product Name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     items: searchedItems,
     length: 5,
   })
@@ -247,7 +249,24 @@ function WithSearch() {
           <DataViewHeader>
             <Search id="search" state={search} />
           </DataViewHeader>
-          <Table state={table} />
+          <Table {...getTable()}>
+            <THead>
+              {columns.map((column) => (
+                <THeadCell {...getHeadCell(column)} />
+              ))}
+            </THead>
+            <TBody>
+              {data.map((item) => {
+                return (
+                  <TBodyRow key={item.id}>
+                    {columns.map((column) => {
+                      return <TBodyCell {...getBodyCell(column, item)} />
+                    })}
+                  </TBodyRow>
+                )
+              })}
+            </TBody>
+          </Table>
         </DataView>
       </PageContent>
     </Page>

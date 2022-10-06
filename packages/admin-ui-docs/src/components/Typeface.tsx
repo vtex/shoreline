@@ -2,6 +2,11 @@ import React from 'react'
 import {
   useTableState,
   Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
   createColumns,
   Text,
   Stack,
@@ -57,22 +62,38 @@ export function Typeface() {
     },
   ])
 
-  const state = useTableState<TypefaceItem>({
-    density: 'regular',
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     columns,
     items,
   })
 
   return (
     <Table
+      {...getTable()}
       csx={{
         tr: {
           bg: 'white !important',
           td: { padding: 6, verticalAlign: 'initial' },
         },
       }}
-      state={state}
-    />
+    >
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow key={item.token}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
   )
 }
 
