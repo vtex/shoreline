@@ -42,6 +42,8 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
   }
 )
 
+Checkbox.displayName = 'Checkbox'
+
 export interface CheckboxOptions extends CheckboxInputOptions {
   /**
    * Checkbox error text. It appears when error property is set to true.

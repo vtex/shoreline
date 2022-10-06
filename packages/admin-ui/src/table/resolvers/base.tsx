@@ -17,23 +17,6 @@ import { menuResolver } from './menu'
 import type { BulkResolver } from './bulk'
 import { bulkResolver } from './bulk'
 
-/**
- * Table base resolvers
- */
-export function baseResolvers<T>() {
-  return {
-    plain: plainResolver<T>(),
-    date: dateResolver<T>(),
-    currency: currencyResolver<T>(),
-    image: imageResolver<T>(),
-    root: rootResolver<T>(),
-    selection: selectionResolver<T>(),
-    text: textResolver<T>(),
-    menu: menuResolver<T>(),
-    bulk: bulkResolver<T>(),
-  }
-}
-
 export type BaseResolvers<T> =
   | PlainResolver<T>
   | ImageResolver<T>
@@ -44,3 +27,15 @@ export type BaseResolvers<T> =
   | TextResolver<T>
   | MenuResolver<T>
   | BulkResolver<T>
+
+export const resolvers = {
+  plain: plainResolver(),
+  date: dateResolver(),
+  currency: currencyResolver(),
+  image: imageResolver(),
+  root: rootResolver(),
+  selection: selectionResolver(),
+  text: textResolver(),
+  menu: menuResolver(),
+  bulk: bulkResolver(),
+}

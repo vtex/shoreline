@@ -3,9 +3,18 @@ import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
 import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
-import { Table, useTableState } from '../index'
+import {
+  useTableState,
+  Table,
+  TBody,
+  TBodyRow,
+  THead,
+  createColumns,
+  THeadCell,
+  TBodyCell,
+} from '../index'
 import { Button } from '../../button'
-import { createColumns } from '../create-columns'
+
 import { IconTrash, IconPencil } from '@vtex/phosphor-icons'
 
 export default {
@@ -77,8 +86,8 @@ export function WithMenu() {
     },
   ])
 
-  const grid = useTableState<Item>({
-    view,
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
     columns,
     items,
   })
@@ -91,7 +100,24 @@ export function WithMenu() {
           Loading
         </Button>
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => {
+            return <THeadCell {...getHeadCell(column)} />
+          })}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }

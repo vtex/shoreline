@@ -1,17 +1,17 @@
-import React, { useRef, useEffect } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { RefObject } from 'react'
+import React, { useRef, useEffect, memo } from 'react'
 import { cx } from '@vtex/admin-ui-core'
-import type { VariantProps } from '@vtex/admin-ui-core'
+import type { VariantProps, StyleProp } from '@vtex/admin-ui-core'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
-import type { TableColumn } from '../types'
-import { useStateContext } from '../context'
 import { Box } from '../../box'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
-import * as styles from '../styles/table-cell.styles'
+import * as styles from './styles/table-cell.styles'
+import type { TableColumn } from '../types'
+import type { BaseResolvers } from '../resolvers/base'
 
-export const TableCell = createComponent<'td', CellOptions>((props) => {
+function _TableCell<T>(props: TableCellProps<T>) {
   const {
     column,
     onClick,
@@ -19,25 +19,20 @@ export const TableCell = createComponent<'td', CellOptions>((props) => {
     ref: htmlRef,
     children,
     className = '',
+    lastFixedColumn,
+    tableRef,
+    csx,
     ...cellProps
   } = props
 
-  const { columns } = useStateContext()
-
-  const clickable = !!onClick
-
-  const isFixed = Boolean(column?.fixed)
-
-  const [lastFixedColumn] = columns.filter((col) => !!col?.fixed).slice(-1)
-
-  const isLastFixedColumn = isFixed && lastFixedColumn?.id === column?.id
+  const isLastFixedColumn = column?.fixed && lastFixedColumn?.id === column?.id
 
   const hasHorizontalScroll = () => {
     if (!isLastFixedColumn) {
       return false
     }
 
-    const { hasHorizontalScroll } = useTableScroll()
+    const { hasHorizontalScroll } = useTableScroll({ tableRef })
 
     return hasHorizontalScroll
   }
@@ -45,42 +40,53 @@ export const TableCell = createComponent<'td', CellOptions>((props) => {
   const ref = useRef<HTMLTableCellElement>(null)
 
   useEffect(() => {
-    if (!ref?.current || !isFixed) {
+    if (!ref?.current || !column?.fixed) {
       return
     }
 
     ref.current.style.left = `${ref.current.offsetLeft}px`
   }, [])
 
-  let updatedClassName = isFixed
-    ? cx('__admin-ui-fixed-cell', className)
+  const resolvedClassName = column?.fixed
+    ? cx(
+        '__admin-ui-fixed-cell',
+        className,
+        isLastFixedColumn ? '__admin-ui-last-fixed-cell' : ''
+      )
     : className
 
-  if (isLastFixedColumn) {
-    updatedClassName = cx('__admin-ui-last-fixed-cell', updatedClassName)
-  }
-
-  return useElement('td', {
-    ref: useForkRef(ref, htmlRef as any),
-    className: updatedClassName,
-    baseStyle: {
-      ...styles.baseline,
-      ...styles.variants({
-        clickable,
-        fixed: isFixed,
-        lastFixed: isLastFixedColumn,
-        hasHorizontalScroll: hasHorizontalScroll(),
-      }),
-    },
-    role,
-    onClick,
-    ...cellProps,
-    children: <Box csx={styles.innerContainer}>{children}</Box>,
-  })
-})
-
-export interface CellOptions extends VariantProps<typeof styles.variants> {
-  column?: TableColumn<any>
+  return (
+    <Box
+      {...cellProps}
+      as="td"
+      ref={useForkRef(ref, htmlRef)}
+      onClick={onClick}
+      role={role}
+      csx={{
+        ...styles.baseline,
+        ...styles.variants({
+          clickable: !!onClick,
+          fixed: column?.fixed,
+          lastFixed: isLastFixedColumn,
+          hasHorizontalScroll: hasHorizontalScroll(),
+        }),
+        ...csx,
+      }}
+      className={resolvedClassName}
+    >
+      <Box csx={styles.innerContainer}>{children}</Box>
+    </Box>
+  )
 }
 
-export type CellProps = React.ComponentPropsWithRef<typeof TableCell>
+export const TableCell = memo(_TableCell) as typeof _TableCell
+
+export interface TableCellOptions<T>
+  extends VariantProps<typeof styles.variants> {
+  column: TableColumn<T, BaseResolvers<T>>
+  lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
+  tableRef?: RefObject<HTMLTableElement>
+}
+
+export type TableCellProps<T> = React.ComponentPropsWithRef<'td'> &
+  TableCellOptions<T> & { csx?: StyleProp }

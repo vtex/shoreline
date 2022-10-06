@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useStateContext } from '../context'
 
-export function useTableScroll() {
-  const { tableRef } = useStateContext()
+export interface UseTableScrollParams {
+  tableRef: React.RefObject<HTMLTableElement> | undefined
+}
+
+export function useTableScroll(props: UseTableScrollParams) {
+  const { tableRef } = props
 
   const [hasVerticalScroll, setHasVerticalScroll] = useState(false)
   const [hasHorizontalScroll, setHasHorizontalScroll] = useState(false)
