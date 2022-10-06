@@ -39,81 +39,102 @@ DataView
             |__ .Cell
 ```
 
-```jsx live
-function WithinDataView() {
+```jsx noInline live
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
+const items = [
+  {
+    id: 1,
+    name: 'Orange',
+    inStock: 380,
+    skus: 0,
+    status: 'Good',
+    price: 80,
+  },
+]
+
+function Example() {
   const view = useDataViewState()
-  const grid = useTableState({
-    /**
-     * For easier usage, you can define the related view
-     * within inside of the Table state hook
-     */
-    view,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item }) => {
-            return <Tag label={item.status} size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
-    items: [
-      {
-        id: 1,
-        name: 'Orange',
-        inStock: 380,
-        skus: 0,
-        status: 'Good',
-        price: 80,
-      },
-    ],
-    onRowClick: (item) => alert(`Item: ${item.name}`),
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
+    items,
   })
 
   return (
     <DataView state={view}>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
+
+render(<Example />)
 ```
 
 </Section>
@@ -152,6 +173,54 @@ const items = [
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
 function WithSearch() {
   const view = useDataViewState()
   const search = useSearchState()
@@ -166,58 +235,11 @@ function WithSearch() {
     )
   }, [search])
 
-  const grid = useTableState({
-    view,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item }) => {
-            return <Tag label={item.status} size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     items: searchedItems,
     length: 5,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return (
@@ -225,7 +247,27 @@ function WithSearch() {
       <DataViewHeader>
         <Search id="search" placeholder="Search" state={search} />
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -241,69 +283,72 @@ render(<WithSearch />)
 
 Example using the [Toolbar](toolbar/) component.
 
-```jsx live
+```jsx noInline live
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
+const items = [
+  {
+    id: 1,
+    name: 'Orange',
+    inStock: 380,
+    skus: 0,
+    status: 'Good',
+    price: 80,
+  },
+]
+
 function WithToolbar() {
   const toolbar = useToolbarState()
   const view = useDataViewState()
-  const grid = useTableState({
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item }) => {
-            return <Tag label={item.status} size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
-    items: [
-      {
-        id: 1,
-        name: 'Orange',
-        inStock: 380,
-        skus: 0,
-        status: 'Good',
-        price: 80,
-      },
-    ],
-    onRowClick: (item) => alert(`Item: ${item.name}`),
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items,
   })
 
   return (
@@ -322,10 +367,32 @@ function WithToolbar() {
           </ToolbarButton>
         </Toolbar>
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
+
+render(<WithToolbar />)
 ```
 
 </Section>
@@ -351,65 +418,67 @@ const items = Array(NUMBER_OF_ITEMS)
     }
   })
 
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label="Good" size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
 function WithPagination() {
   const view = useDataViewState()
   const pagination = usePaginationState({
     pageSize: ITEMS_PER_PAGE,
     total: NUMBER_OF_ITEMS,
   })
-  const grid = useTableState({
-    view,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item }) => {
-            return <Tag label="Good" size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
+
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     items: items.slice(pagination.range[0] - 1, pagination.range[1]),
     length: ITEMS_PER_PAGE,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return (
@@ -418,7 +487,27 @@ function WithPagination() {
         <FlexSpacer />
         <Pagination state={pagination} />
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -446,117 +535,140 @@ const items = Array(3)
     }
   })
 
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item, context }) => {
+        if (context.status === 'loading') {
+          return <Skeleton csx={{ height: 24 }} />
+        }
+
+        return <Tag label="Good" size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
 function StatusExample() {
   const view = useDataViewState()
-  const grid = useTableState({
-    view,
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
     items,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item, context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            return <Tag label="Good" size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
+    columns,
     length: 3,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'ready',
-            })
-          }
-        >
-          Ready
-        </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'loading',
-            })
-          }
-        >
-          Loading
-        </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'error',
-            })
-          }
-        >
-          Error
-        </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'not-found',
-            })
-          }
-        >
-          Not Found
-        </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'empty',
-            })
-          }
-        >
-          Empty
-        </Button>
+        <Flex>
+          <Button
+            onClick={() =>
+              view.setStatus({
+                type: 'ready',
+              })
+            }
+          >
+            Ready
+          </Button>
+          <Button
+            onClick={() =>
+              view.setStatus({
+                type: 'loading',
+              })
+            }
+          >
+            Loading
+          </Button>
+          <Button
+            onClick={() =>
+              view.setStatus({
+                type: 'error',
+              })
+            }
+          >
+            Error
+          </Button>
+          <Button
+            onClick={() =>
+              view.setStatus({
+                type: 'not-found',
+              })
+            }
+          >
+            Not Found
+          </Button>
+          <Button
+            onClick={() =>
+              view.setStatus({
+                type: 'empty',
+              })
+            }
+          >
+            Empty
+          </Button>
+        </Flex>
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -642,10 +754,10 @@ const columns = createColumns([
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart
+          label: 'Add to cart',
         },
         {
-          label: 'Buy
+          label: 'Buy',
         },
       ],
     },
@@ -656,11 +768,10 @@ function FilterControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
 
-  const grid = useTableState({
-    view,
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
     columns,
     items: data,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   const [quality, setQuality] = useState()
@@ -726,7 +837,27 @@ function FilterControls() {
           <Filter state={qualityFilterState} />
         </FilterGroup>
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -757,6 +888,55 @@ const items = Array(NUMBER_OF_ITEMS)
     }
   })
 
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Tag label="Good" size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
 function WithFullTopbar() {
   const toolbar = useToolbarState()
   const view = useDataViewState()
@@ -777,62 +957,14 @@ function WithFullTopbar() {
     )
   }, [search.debouncedValue])
 
-  const grid = useTableState({
-    view,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item }) => {
-            return <Tag label="Good" size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     items: [...paginatedItems].slice(
       pagination.range[0] - 1,
       pagination.range[1]
     ),
     length: ITEMS_PER_PAGE,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   return (
@@ -860,7 +992,27 @@ function WithFullTopbar() {
           nextLabel="Next"
         />
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -900,6 +1052,59 @@ function request(delay = 3000, numberOfItems = 3) {
   })
 }
 
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item, context }) => {
+        if (context.status === 'loading') {
+          return <Skeleton csx={{ height: 24 }} />
+        }
+
+        return <Tag label="Good" size="normal" />
+      },
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
+        },
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
 function DataFetchExample() {
   const [items, setItems] = React.useState([])
   /**
@@ -908,63 +1113,11 @@ function DataFetchExample() {
   const [update, setUpdate] = React.useState(false)
 
   const view = useDataViewState()
-  const grid = useTableState({
-    view,
-    columns: [
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item, context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
-
-            return <Tag label="Good" size="normal" />
-          },
-        },
-      },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     length: 3,
     items,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
   React.useEffect(() => {
@@ -990,7 +1143,27 @@ function DataFetchExample() {
           Simulate data fetching
         </Button>
       </DataViewHeader>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -1007,93 +1180,112 @@ render(<DataFetchExample />)
 Example with a simulated data fetching
 
 ```jsx noInline live
-function DataFetchExample() {
-  const grid = useTableState({
-    columns: [
-      {
-        id: 'id',
-        resolver: {
-          type: 'selection',
-          mapId: (item) => item.id,
-        },
-      },
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item, context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
+const columns = createColumns([
+  {
+    id: 'id',
+    resolver: {
+      type: 'selection',
+      mapId: (item) => item.id,
+    },
+  },
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item, context }) => {
+        if (context.status === 'loading') {
+          return <Skeleton csx={{ height: 24 }} />
+        }
 
-            return <Tag label="Good" size="normal" />
-          },
-        },
+        return <Tag label="Good" size="normal" />
       },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
         },
-      },
-    ],
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function DataFetchExample() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     length: 3,
-    items: React.useMemo(
-      () =>
-        Array(3)
-          .fill()
-          .map((_, id) => {
-            return {
-              id: `${id}`,
-              name: faker.commerce.productName(),
-              lastSale: faker.date.past().toDateString(),
-              price: faker.commerce.price(),
-            }
-          }),
-      []
-    ),
-    onRowClick: (item) => alert(`Item: ${item.name}`),
+    items,
   })
 
   const selection = useSelectionTreeState({
-    items: grid.data,
+    items: data,
     mapId: (item) => item.id,
   })
 
   return (
     <SelectionTree state={selection}>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </SelectionTree>
   )
 }
@@ -1110,96 +1302,115 @@ render(<DataFetchExample />)
 It is possible to set columns to be fixed when scrolling horizontally. You just need to set the column prop `fixed` to `true`.
 
 ```jsx noInline live
-function DataFetchExample() {
-  const grid = useTableState({
-    columns: [
-      {
-        id: 'id',
-        fixed: true,
-        resolver: {
-          type: 'selection',
-          mapId: (item) => item.id,
-        },
-      },
-      {
-        id: 'name',
-        header: 'Name',
-        fixed: true,
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-        width: 500,
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        resolver: {
-          type: 'root',
-          render: ({ item, context }) => {
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
+const columns = createColumns([
+  {
+    id: 'id',
+    fixed: true,
+    resolver: {
+      type: 'selection',
+      mapId: (item) => item.id,
+    },
+  },
+  {
+    id: 'name',
+    header: 'Name',
+    fixed: true,
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+    width: 500,
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    resolver: {
+      type: 'root',
+      render: ({ item, context }) => {
+        if (context.status === 'loading') {
+          return <Skeleton csx={{ height: 24 }} />
+        }
 
-            return <Tag label="Good" size="normal" />
-          },
-        },
+        return <Tag label="Good" size="normal" />
       },
-      {
-        header: 'Actions',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Add to cart',
-            },
-            {
-              label: 'Buy',
-            },
-          ],
+    },
+  },
+  {
+    header: 'Actions',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Add to cart',
         },
-      },
-    ],
+        {
+          label: 'Buy',
+        },
+      ],
+    },
+  },
+])
+
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
+function DataFetchExample() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     length: 3,
-    items: React.useMemo(
-      () =>
-        Array(3)
-          .fill()
-          .map((_, id) => {
-            return {
-              id: `${id}`,
-              name: faker.commerce.productName(),
-              lastSale: faker.date.past().toDateString(),
-              price: faker.commerce.price(),
-            }
-          }),
-      []
-    ),
-    onRowClick: (item) => alert(`Item: ${item.name}`),
+    items,
   })
 
   const selection = useSelectionTreeState({
-    items: grid.data,
+    items: data,
     mapId: (item) => item.id,
   })
 
   return (
     <SelectionTree state={selection}>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.name}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </SelectionTree>
   )
 }

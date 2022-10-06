@@ -6,16 +6,19 @@ import {
   useSearchState,
   useDropdownState,
   Tag,
+  createColumns,
 } from '@vtex/admin-ui'
 import { FilterTable } from '../FilterTable'
 
 interface StatusTableProps {
-  items: Array<{
-    component: string
-    status: string
-    notes: ReactNode
-    type: string
-  }>
+  items: Item[]
+}
+
+interface Item {
+  component: string
+  status: string
+  notes: ReactNode
+  type: string
 }
 
 const filters = [
@@ -25,6 +28,38 @@ const filters = [
   'In Development',
   'Upcoming',
 ]
+
+const columns = createColumns<Item>([
+  {
+    id: 'component',
+    header: 'Component',
+    width: 250,
+  },
+  {
+    id: 'status',
+    header: 'Status',
+    width: 250,
+    resolver: {
+      type: 'root',
+      render: (column) => {
+        const { status } = column.item
+
+        const palette = {
+          supported: 'green',
+          'in development': 'lightBlue',
+          experimental: 'orange',
+          upcoming: 'purple',
+        }[status]
+
+        return <Tag label={column?.item?.status} variant={palette as any} />
+      },
+    },
+  },
+  {
+    id: 'notes',
+    header: 'notes',
+  },
+])
 
 export function StatusTable(props: StatusTableProps) {
   const dataView = useDataViewState()
@@ -67,37 +102,7 @@ export function StatusTable(props: StatusTableProps) {
   }, [searchedItems.length])
 
   const table = useTableState({
-    columns: [
-      {
-        id: 'component',
-        header: 'Component',
-        width: 250,
-      },
-      {
-        id: 'status',
-        header: 'Status',
-        width: 250,
-        resolver: {
-          type: 'root',
-          render: (column) => {
-            const { status } = column.item
-
-            const palette = {
-              supported: 'green',
-              'in development': 'lightBlue',
-              experimental: 'orange',
-              upcoming: 'purple',
-            }[status]
-
-            return <Tag label={column?.item?.status} variant={palette as any} />
-          },
-        },
-      },
-      {
-        id: 'notes',
-        header: 'notes',
-      },
-    ],
+    columns,
     items: searchedItems,
   })
 
