@@ -79,19 +79,21 @@ export function IconsGrid(props: IconsGridProps) {
   return (
     <DataView state={dataView} csx={{ marginX: 2 }}>
       <DataViewHeader>
-        <Search {...search.getInputProps()} />
-        <Dropdown
-          label="Sizes"
-          state={sizeDropdown}
-          items={sizes}
-          variant="neutralTertiary"
-        />
-        <Dropdown
-          label="Weight"
-          state={weightDropdown}
-          items={weights}
-          variant="neutralTertiary"
-        />
+        <Stack direction="row">
+          <Search {...search.getInputProps()} />
+          <Dropdown
+            label="Sizes"
+            state={sizeDropdown}
+            items={sizes}
+            variant="neutralTertiary"
+          />
+          <Dropdown
+            label="Weight"
+            state={weightDropdown}
+            items={weights}
+            variant="neutralTertiary"
+          />
+        </Stack>
       </DataViewHeader>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
         <Alert csx={{ marginBottom: 4 }}>

@@ -6,20 +6,18 @@ path: /listing page/code/
 <Sandpack>
 
 ```jsx App.js
-import ListingPage from "./ListingPage";
-import {
-  ToastProvider
-} from "@vtex/admin-ui";
-import { I18nProvider } from "@react-aria/i18n";
+import ListingPage from './ListingPage'
+import { ToastProvider } from '@vtex/admin-ui'
+import { I18nProvider } from '@react-aria/i18n'
 
 export default function App() {
   return (
-      <I18nProvider locale="en-US">
-        <ToastProvider>
-          <ListingPage />
-        </ToastProvider>
-      </I18nProvider>
-  );
+    <I18nProvider locale="en-US">
+      <ToastProvider>
+        <ListingPage />
+      </ToastProvider>
+    </I18nProvider>
+  )
 }
 ```
 
@@ -32,9 +30,9 @@ import {
   PageHeaderTitle,
   PageHeaderTop,
   PageHeaderButton,
-  IconPlus
-} from "@vtex/admin-ui";
-import ItemsDataView from "./ItemsDataView";
+  IconPlus,
+} from '@vtex/admin-ui'
+import ItemsDataView from './ItemsDataView'
 
 export default function ListingPage() {
   return (
@@ -45,7 +43,7 @@ export default function ListingPage() {
           <PageHeaderActions>
             <PageHeaderButton
               icon={<IconPlus />}
-              onClick={() => alert("Redirect to create item action")}
+              onClick={() => alert('Redirect to create item action')}
             >
               Create item
             </PageHeaderButton>
@@ -56,7 +54,7 @@ export default function ListingPage() {
         <ItemsDataView />
       </PageContent>
     </Page>
-  );
+  )
 }
 ```
 
@@ -82,114 +80,114 @@ import {
   useModalState,
   useBulkActions,
   useToast,
-  DataViewActions
-} from "@vtex/admin-ui";
-import { useMemo } from "react";
-import BulkActionsPanel from "./BulkActionsPanel";
-import { getPage, items } from "./data";
-import DeleteConfirmationModal from "./DeleteConfirmationModal";
-import ExportButton from "./ExportButton";
-import Filters from "./Filters";
-import ImportButton from "./ImportButton";
+  DataViewActions,
+} from '@vtex/admin-ui'
+import { useMemo } from 'react'
+import BulkActionsPanel from './BulkActionsPanel'
+import { getPage, items } from './data'
+import DeleteConfirmationModal from './DeleteConfirmationModal'
+import ExportButton from './ExportButton'
+import Filters from './Filters'
+import ImportButton from './ImportButton'
 
-const ITEMS_PER_PAGE = 25;
+const ITEMS_PER_PAGE = 25
 
 export default function ItemsDataView() {
-  const view = useDataViewState();
-  const deleteModalState = useModalState();
-  const showToast = useToast();
+  const view = useDataViewState()
+  const deleteModalState = useModalState()
+  const showToast = useToast()
 
   const pagination = usePaginationState({
     pageSize: ITEMS_PER_PAGE,
-    total: items.length
-  });
+    total: items.length,
+  })
 
   const currentPageItems = useMemo(() => {
     return getPage({
       pageLength: ITEMS_PER_PAGE,
-      currentPage: pagination.currentPage
-    });
-  }, [pagination.currentPage]);
+      currentPage: pagination.currentPage,
+    })
+  }, [pagination.currentPage])
 
   const bulkActionState = useBulkActions({
     totalItems: pagination.total,
     pageItems: currentPageItems,
-    pageSize: ITEMS_PER_PAGE
-  });
+    pageSize: ITEMS_PER_PAGE,
+  })
 
   const columns = createColumns([
     {
-      id: "id",
-      resolver: { type: "bulk", state: bulkActionState },
-      width: "3rem"
+      id: 'id',
+      resolver: { type: 'bulk', state: bulkActionState },
+      width: '3rem',
     },
     {
-      id: "name",
-      header: "Name"
+      id: 'name',
+      header: 'Name',
     },
     {
-      id: "textField",
-      header: "Label",
-      width: "5rem"
+      id: 'textField',
+      header: 'Label',
+      width: '5rem',
     },
     {
-      id: "tagField",
-      header: "Label",
+      id: 'tagField',
+      header: 'Label',
       sortable: true,
-      width: "8rem",
+      width: '8rem',
       resolver: {
-        type: "root",
+        type: 'root',
         render: ({ item }) => {
-          return <Tag label={item.tagField} />;
-        }
-      }
+          return <Tag label={item.tagField} />
+        },
+      },
     },
     {
-      width: "5rem",
+      width: '5rem',
       resolver: {
-        type: "menu",
+        type: 'menu',
         actions: [
           {
-            label: "View details",
-            icon: <IconEye />
+            label: 'View details',
+            icon: <IconEye />,
           },
           {
-            label: "Edit",
-            icon: <IconPencil />
+            label: 'Edit',
+            icon: <IconPencil />,
           },
           {
-            label: "Copy URL",
+            label: 'Copy URL',
             icon: <IconLink />,
             onClick: () =>
               showToast({
-                message: "Link copied to clipboard",
-                variant: "positive"
-              })
+                message: 'Link copied to clipboard',
+                variant: 'positive',
+              }),
           },
           {
-            label: "Delete",
+            label: 'Delete',
             icon: <IconTrash />,
             onClick: () => {
-              deleteModalState.show();
+              deleteModalState.show()
             },
-            critical: true
-          }
-        ]
-      }
-    }
-  ]);
+            critical: true,
+          },
+        ],
+      },
+    },
+  ])
 
-  const table = useTableState({
-    view,
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
     columns,
     items: currentPageItems,
-    length: ITEMS_PER_PAGE
-  });
+    length: ITEMS_PER_PAGE,
+  })
 
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: "100%" }}>
+        <Flex justify="space-between" csx={{ width: '100%' }}>
           <Search />
           <FlexSpacer />
           <DataViewActions>
@@ -205,16 +203,32 @@ export default function ItemsDataView() {
       <Filters />
 
       <SelectionTree state={bulkActionState.selectionTree}>
-        <Table state={table} csx={{ width: "100%" }} />
+        <Table {...getTable()} csx={{ width: '100%' }}>
+          <THead>
+            {columns.map((column) => (
+              <THeadCell {...getHeadCell(column)} />
+            ))}
+          </THead>
+          <TBody>
+            {data.map((item) => {
+              return (
+                <TBodyRow key={item.id}>
+                  {columns.map((column) => {
+                    return <TBodyCell {...getBodyCell(column, item)} />
+                  })}
+                </TBodyRow>
+              )
+            })}
+          </TBody>
+        </Table>
       </SelectionTree>
 
-      <Flex justify="flex-end" csx={{ width: "100%", paddingTop: "$l" }}>
+      <Flex justify="flex-end" csx={{ width: '100%', paddingTop: '$l' }}>
         <Pagination state={pagination} />
       </Flex>
     </DataView>
-  );
+  )
 }
-
 ```
 
 ```jsx DeleteConfirmationModal.js
@@ -225,36 +239,36 @@ import {
   ModalContent,
   ModalHeader,
   Text,
-  useToast
-} from "@vtex/admin-ui";
+  useToast,
+} from '@vtex/admin-ui'
 
 const DeleteConfirmationModal = ({ state }) => {
-  const showToast = useToast();
+  const showToast = useToast()
 
   const onSuccess = () => {
     showToast({
-      variant: "positive",
-      message: "Items successfully deleted"
-    });
-  };
+      variant: 'positive',
+      message: 'Items successfully deleted',
+    })
+  }
 
   const onError = () => {
     showToast({
-      variant: "critical",
-      message: "Items could not be deleted because of a technical issue.",
+      variant: 'critical',
+      message: 'Items could not be deleted because of a technical issue.',
       action: {
-        label: "Try again",
-        onClick: () => alert("just tried again")
-      }
-    });
-  };
+        label: 'Try again',
+        onClick: () => alert('just tried again'),
+      },
+    })
+  }
 
   return (
     <Modal
       aria-label="Delete action confirmation"
       state={state}
       size="small"
-      csx={{ maxWidth: "368px" }}
+      csx={{ maxWidth: '368px' }}
     >
       <ModalHeader title="Delete" />
       <ModalContent>
@@ -270,8 +284,8 @@ const DeleteConfirmationModal = ({ state }) => {
         <Button
           variant="critical"
           onClick={() => {
-            state.hide();
-            onSuccess();
+            state.hide()
+            onSuccess()
             // onError()
           }}
         >
@@ -279,10 +293,10 @@ const DeleteConfirmationModal = ({ state }) => {
         </Button>
       </ModalFooter>
     </Modal>
-  );
-};
+  )
+}
 
-export default DeleteConfirmationModal;
+export default DeleteConfirmationModal
 ```
 
 ```jsx ExportButton.js
@@ -296,30 +310,30 @@ import {
   IconArrowLineUp,
   ModalDisclosure,
   useModalState,
-  useToast
-} from "@vtex/admin-ui";
+  useToast,
+} from '@vtex/admin-ui'
 
 const ExportButton = () => {
-  const modal = useModalState();
-  const showToast = useToast();
+  const modal = useModalState()
+  const showToast = useToast()
 
   const onSuccess = () => {
     showToast({
-      variant: "positive",
-      message: "Items successfully exported"
-    });
-  };
+      variant: 'positive',
+      message: 'Items successfully exported',
+    })
+  }
 
   const onError = () => {
     showToast({
-      variant: "critical",
-      message: "Items could not be exported because of a technical issue",
+      variant: 'critical',
+      message: 'Items could not be exported because of a technical issue',
       action: {
-        label: "Try again",
-        onClick: () => alert("just tried again")
-      }
-    });
-  };
+        label: 'Try again',
+        onClick: () => alert('just tried again'),
+      },
+    })
+  }
 
   return (
     <>
@@ -332,7 +346,7 @@ const ExportButton = () => {
         aria-label="Export confirmation"
         state={modal}
         size="small"
-        csx={{ maxWidth: "368px" }}
+        csx={{ maxWidth: '368px' }}
       >
         <ModalHeader title="Export" />
         <ModalContent>
@@ -344,8 +358,8 @@ const ExportButton = () => {
           </Button>
           <Button
             onClick={() => {
-              modal.hide();
-              onSuccess();
+              modal.hide()
+              onSuccess()
               // onError()
             }}
           >
@@ -354,10 +368,10 @@ const ExportButton = () => {
         </ModalFooter>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ExportButton;
+export default ExportButton
 ```
 
 ```jsx ImportButton.js
@@ -371,30 +385,30 @@ import {
   IconArrowLineDown,
   ModalDisclosure,
   useModalState,
-  useToast
-} from "@vtex/admin-ui";
+  useToast,
+} from '@vtex/admin-ui'
 
 const ImportButton = () => {
-  const modal = useModalState();
-  const showToast = useToast();
+  const modal = useModalState()
+  const showToast = useToast()
 
   const onSuccess = () => {
     showToast({
-      variant: "positive",
-      message: "Items successfully imported"
-    });
-  };
+      variant: 'positive',
+      message: 'Items successfully imported',
+    })
+  }
 
   const onError = () => {
     showToast({
-      variant: "critical",
-      message: "Items could not be imported because of a technical issue.",
+      variant: 'critical',
+      message: 'Items could not be imported because of a technical issue.',
       action: {
-        label: "Try again",
-        onClick: () => alert("just tried again")
-      }
-    });
-  };
+        label: 'Try again',
+        onClick: () => alert('just tried again'),
+      },
+    })
+  }
 
   return (
     <>
@@ -407,7 +421,7 @@ const ImportButton = () => {
         aria-label="Import confirmation"
         state={modal}
         size="small"
-        csx={{ maxWidth: "368px" }}
+        csx={{ maxWidth: '368px' }}
       >
         <ModalHeader title="Import" />
         <ModalContent>
@@ -419,8 +433,8 @@ const ImportButton = () => {
           </Button>
           <Button
             onClick={() => {
-              modal.hide();
-              onSuccess();
+              modal.hide()
+              onSuccess()
               // onError();
             }}
           >
@@ -429,10 +443,10 @@ const ImportButton = () => {
         </ModalFooter>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ImportButton;
+export default ImportButton
 ```
 
 ```jsx Filters.js
@@ -446,26 +460,26 @@ import {
   FilterGroup,
   useFilterState,
   useFilterMultipleState,
-  useFilterGroupState
-} from "@vtex/admin-ui";
-import { filterOptions } from "./data";
+  useFilterGroupState,
+} from '@vtex/admin-ui'
+import { filterOptions } from './data'
 
 const Filters = () => {
-  const radioFilter = useFilterState();
-  const checkboxFilter = useFilterMultipleState();
-  const dateFilter = useFilterState();
+  const radioFilter = useFilterState()
+  const checkboxFilter = useFilterMultipleState()
+  const dateFilter = useFilterState()
 
   const filterGroupState = useFilterGroupState({
-    filterStates: [radioFilter, checkboxFilter, dateFilter]
-  });
+    filterStates: [radioFilter, checkboxFilter, dateFilter],
+  })
 
   return (
     <FilterGroup
       state={filterGroupState}
       csx={{
-        "> *:not(:first-child)": {
-          marginLeft: "$m"
-        }
+        '> *:not(:first-child)': {
+          marginLeft: '$m',
+        },
       }}
     >
       <FilterDisclosure state={radioFilter}>Label</FilterDisclosure>
@@ -502,10 +516,10 @@ const Filters = () => {
         <FilterFooter />
       </FilterPopover>
     </FilterGroup>
-  );
-};
+  )
+}
 
-export default Filters;
+export default Filters
 ```
 
 ```jsx BulkActionsPanel.js
@@ -514,8 +528,8 @@ import {
   BulkActions,
   IconPencil,
   IconCopySimple,
-  IconTrash
-} from "@vtex/admin-ui";
+  IconTrash,
+} from '@vtex/admin-ui'
 
 const BulkActionsPanel = ({ state }) => {
   return (
@@ -523,56 +537,54 @@ const BulkActionsPanel = ({ state }) => {
       <Button
         variant="tertiary"
         icon={<IconPencil />}
-        onClick={() => alert("Should edit items")}
+        onClick={() => alert('Should edit items')}
       >
         Edit
       </Button>
       <Button
         variant="tertiary"
         icon={<IconCopySimple />}
-        onClick={() => alert("Should clone items")}
+        onClick={() => alert('Should clone items')}
       >
         Clone
       </Button>
       <Button
         variant="criticalTertiary"
         icon={<IconTrash />}
-        onClick={() => alert("Should delete items")}
+        onClick={() => alert('Should delete items')}
       >
         Delete
       </Button>
     </BulkActions>
-  );
-};
+  )
+}
 
-export default BulkActionsPanel;
-
+export default BulkActionsPanel
 ```
 
 ```js data.js
 export const items = [...Array(74).keys()].map((id) => {
   return {
     id: `${id}`,
-    name: "Name",
-    textField: "Text",
-    tagField: "Short text"
-  };
-});
+    name: 'Name',
+    textField: 'Text',
+    tagField: 'Short text',
+  }
+})
 
 export const getPage = ({ currentPage, pageLength }) => {
-  const startingIndex = (currentPage - 1) * pageLength;
+  const startingIndex = (currentPage - 1) * pageLength
 
   return items.slice(
     startingIndex,
     Math.min(items.length, startingIndex + pageLength)
-  );
-};
+  )
+}
 
 export const filterOptions = [...Array(5).keys()].map((id) => ({
   id,
-  label: "label"
-}));
-
+  label: 'label',
+}))
 ```
 
 </Sandpack>
