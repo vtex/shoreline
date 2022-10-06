@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui-hooks",
   "description": "admin-ui shared hooks",
   "license": "MIT",
-  "version": "0.4.3-dev.3",
+  "version": "0.4.3-dev.4",
   "main": "dist/vtex-admin-ui-hooks.cjs.js",
   "module": "dist/vtex-admin-ui-hooks.esm.js",
   "types": "dist/vtex-admin-ui-hooks.cjs.d.ts",
@@ -35,7 +35,7 @@
     "react-dom": "^16.9 || ^17.0"
   },
   "dependencies": {
-    "@vtex/admin-ui-util": "^0.4.3-dev.3",
+    "@vtex/admin-ui-util": "^0.4.3-dev.4",
     "tiny-invariant": "^1.2.0",
     "use-debounce": "^7.0.0"
   }
