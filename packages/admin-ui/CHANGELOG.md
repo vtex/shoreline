@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.7-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.4...@vtex/admin-ui@0.133.7-dev.5) (2022-10-07)
+
+
+### Bug Fixes
+
+* **table:** set fixed column position when window is resized ([0267b60](https://github.com/vtex/admin-ui/commit/0267b60f6eb69a55c6fb306cb49033caad6cae96))
+
+
+
+
+
 ## 0.133.7-dev.4 (2022-10-06)
 
 
