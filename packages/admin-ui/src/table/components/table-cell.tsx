@@ -40,11 +40,25 @@ function _TableCell<T>(props: TableCellProps<T>) {
   const ref = useRef<HTMLTableCellElement>(null)
 
   useEffect(() => {
-    if (!ref?.current || !column?.fixed) {
-      return
+    const setCellPosition = () => {
+      if (!ref?.current || !column?.fixed) {
+        return
+      }
+
+      const { previousElementSibling } = ref.current
+      const relativeLeftPosition =
+        previousElementSibling?.getBoundingClientRect().width ?? 0
+
+      ref.current.style.left = `${relativeLeftPosition}px`
     }
 
-    ref.current.style.left = `${ref.current.offsetLeft}px`
+    setCellPosition()
+
+    window.addEventListener('resize', setCellPosition, false)
+
+    return () => {
+      window.removeEventListener('resize', setCellPosition, false)
+    }
   }, [])
 
   const resolvedClassName = column?.fixed
