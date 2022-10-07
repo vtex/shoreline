@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui-form",
   "description": "Admin UI form library",
   "license": "MIT",
-  "version": "0.4.3-dev.5",
+  "version": "0.4.3-dev.6",
   "main": "dist/vtex-admin-ui-form.cjs.js",
   "module": "dist/vtex-admin-ui-form.esm.js",
   "types": "dist/vtex-admin-ui-form.cjs.d.ts",
