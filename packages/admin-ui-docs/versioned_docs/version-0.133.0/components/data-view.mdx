@@ -29,7 +29,7 @@ DataView
 
 The `useDataViewState` handles the `DataView` behavior.
 
-```jsx live
+```jsx
 function Example() {
   const view = useDataViewState()
 
@@ -41,7 +41,7 @@ function Example() {
 
 The `DataViewControls` arranges all the components that control or changes the displayed data. These components can be buttons, search forms, pagination, menus, and so on.
 
-```jsx live
+```jsx
 function Example() {
   const view = useDataViewState()
   const search = useSearchState()
@@ -66,7 +66,7 @@ function Example() {
 
 The `useDataViewState` keeps track of `ready`, `loading`, `empty`, `error`, and `not-found` states. It also has default illustrations for `empty`, `error`, and `not-found` so that you only need to handle the `ready` and `loading` states.
 
-```jsx live
+```jsx
 function RenderingData() {
   const view = useDataViewState()
   const toolbar = useToolbarState()
@@ -166,7 +166,7 @@ function RenderingData() {
 
 Example of a skeleton collection.
 
-```jsx noInline live
+```jsx noInline
 const NUMBER_OF_ITEMS = 5
 
 const items = Array(NUMBER_OF_ITEMS)
