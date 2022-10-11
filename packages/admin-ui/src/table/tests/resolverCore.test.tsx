@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   accessHeader,
   accessCell,
@@ -104,12 +105,6 @@ describe('table resolver core tests', () => {
 
   describe('resolveHeader', () => {
     it('resolves a header without a resolver.header filed', () => {
-      const plain = createResolver({
-        cell: function cellResolver() {
-          return '_blank_'
-        },
-      })
-
       const { content } = resolveHeader({
         column: {
           id: 'test',
@@ -118,34 +113,13 @@ describe('table resolver core tests', () => {
             type: 'plain',
           },
         },
-        resolvers: {
-          plain,
-        },
-        items: [],
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
       })
 
       expect(content).toBe('Correct')
     })
 
     it('chooses the resolver type correctly', () => {
-      const plain = createResolver({
-        header: function headerResolver({ getData }) {
-          return getData()
-        },
-        cell: function cellResolver() {
-          return '_blank_'
-        },
-      })
-
       const { content } = resolveHeader({
         column: {
           id: 'test',
@@ -154,19 +128,7 @@ describe('table resolver core tests', () => {
             type: 'plain',
           },
         },
-        items: [],
-        resolvers: {
-          plain,
-        },
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
       })
 
       expect(content).toBe('Correct')
@@ -175,12 +137,6 @@ describe('table resolver core tests', () => {
 
   describe('resolveCell', () => {
     it('should be able to resolve a field', () => {
-      const plain = createResolver({
-        cell: function cellResolver({ getData }) {
-          return getData()
-        },
-      })
-
       const result = resolveCell({
         column: {
           id: 'location',
@@ -190,18 +146,7 @@ describe('table resolver core tests', () => {
             type: 'plain',
           },
         },
-        resolvers: {
-          plain,
-        },
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         item: {
           id: 1,
           name: 'Miles morales',
@@ -210,14 +155,14 @@ describe('table resolver core tests', () => {
         },
       })
 
-      expect(result).toBe('NY')
+      expect(result).toStrictEqual(<React.Fragment>NY</React.Fragment>)
     })
   })
 
   describe('resolver factory - header', () => {
     const resolver = createResolver({
       header: function headerResolver({ getData, context }) {
-        if (context.status === 'loading') {
+        if (context === 'loading') {
           return 'loading...'
         }
 
@@ -231,20 +176,11 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         column: {
           id: 'image',
           accessor: 'image',
         },
-        items: [],
       })
 
       expect(result).toBe('data')
@@ -253,20 +189,11 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a header function', () => {
       const result = resolver?.header?.({
         getData: () => 'data',
-        context: {
-          status: 'loading',
-          statusObject: {
-            loading: true,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'loading',
         column: {
           id: 'image',
           accessor: 'image',
         },
-        items: [],
       })
 
       expect(result).toBe('loading...')
@@ -276,7 +203,7 @@ describe('table resolver core tests', () => {
   describe('resolver factory - cell', () => {
     const resolver = createResolver({
       cell: function cellResolver({ getData, context, item, column }) {
-        if (context.status === 'loading') {
+        if (context === 'loading') {
           return 'loading...'
         }
 
@@ -296,15 +223,7 @@ describe('table resolver core tests', () => {
     it('should be able to access data within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         item: {
           name: 'Name',
         },
@@ -320,15 +239,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle loading within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: {
-          status: 'loading',
-          statusObject: {
-            loading: true,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'loading',
         item: {
           name: 'Name',
         },
@@ -344,15 +255,7 @@ describe('table resolver core tests', () => {
     it('should be able to handle item values within a cell function', () => {
       const result = resolver.cell({
         getData: () => 'data',
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         item: {
           image: 'image',
         },
@@ -369,15 +272,7 @@ describe('table resolver core tests', () => {
       expect(() =>
         resolver.cell({
           getData: () => 'data',
-          context: {
-            status: 'ready',
-            statusObject: {
-              loading: false,
-              error: null,
-              empty: null,
-              notFound: null,
-            },
-          },
+          context: 'ready',
           item: {
             name: 'name',
           },

@@ -2,8 +2,16 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
-import { Table, createColumns } from '../index'
-import { useTableState } from '../hooks/use-table-state'
+import {
+  Table,
+  createColumns,
+  useTableState,
+  TBody,
+  TBodyRow,
+  THead,
+  THeadCell,
+  TBodyCell,
+} from '../index'
 
 export default {
   title: 'admin-ui-review/table/scroll',
@@ -47,13 +55,31 @@ export function VerticalScroll() {
     },
   ])
 
-  const state = useTableState<Item>({
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
-    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ height: '100vh' }} />
+  return (
+    <Table {...getTable()} csx={{ height: '100vh' }}>
+      <THead>
+        {columns.map((column) => {
+          return <THeadCell {...getHeadCell(column)} />
+        })}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow key={item.id}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 export function HorizontalScroll() {
@@ -91,13 +117,31 @@ export function HorizontalScroll() {
     },
   ])
 
-  const state = useTableState<Item>({
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
-    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ width: '100vw' }} />
+  return (
+    <Table {...getTable()} csx={{ width: '100vw' }}>
+      <THead>
+        {columns.map((column) => {
+          return <THeadCell {...getHeadCell(column)} />
+        })}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow key={item.id}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 export function HorizontalAndVerticalScroll() {
@@ -134,11 +178,29 @@ export function HorizontalAndVerticalScroll() {
     },
   ])
 
-  const state = useTableState<Item>({
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
-    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
-  return <Table state={state} csx={{ width: '100vw', height: '100vh' }} />
+  return (
+    <Table {...getTable()} csx={{ height: '100vh', width: '100vw' }}>
+      <THead>
+        {columns.map((column) => {
+          return <THeadCell {...getHeadCell(column)} />
+        })}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow key={item.id}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }

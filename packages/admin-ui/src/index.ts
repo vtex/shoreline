@@ -34,7 +34,10 @@ export * from './visually-hidden'
 export * from './toast'
 export * from './bulk-actions'
 export * from './filters'
-export * from './components/Skeleton'
+export * from './skeleton'
+export * from './pagination'
+export * from './data-view'
+
 export * from './components/Label'
 export * from './components/Collapsible'
 export * from './components/CollapsibleGroup'
@@ -51,7 +54,6 @@ export * from './components/Spinner'
 export * from './components/Sidebar'
 export * from './components/Topbar'
 export * from './components/Toolbar'
-export * from './components/Pagination'
 export * from './components/FilterBar'
 export {
   isMobile,
@@ -61,7 +63,6 @@ export {
   isEdge,
 } from 'react-device-detect'
 export * from './components/SearchBox'
-export * from './components/DataView'
 export * from './components/SelectionTree'
 export * from './components/Field'
 export * from './components/Illustrations'

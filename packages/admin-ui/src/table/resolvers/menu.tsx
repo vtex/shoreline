@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
 
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 import { Menu, MenuButton, MenuItem, useMenuState } from '../../menu'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
@@ -10,7 +10,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function menuResolver<T>() {
   return createResolver<T, 'menu', MenuResolver<T>>({
     cell: function MenuResolver({ item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ size: 24 }} />
       }
 

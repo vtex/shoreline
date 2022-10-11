@@ -6,10 +6,12 @@ const clearState: SortState = {
   order: undefined,
 }
 
+const defaultDirections = ['ASC', 'DESC'] as SortDirections
+
 export function useTableSort<T>(params: UseTableSortParams<T>) {
   const {
     initialValue,
-    directions = ['ASC', 'DESC'],
+    directions = defaultDirections,
     reducer = sortReducer,
     callback = sortCallback,
   } = params

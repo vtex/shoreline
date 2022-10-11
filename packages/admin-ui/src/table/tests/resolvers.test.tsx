@@ -2,15 +2,15 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { rootResolver } from '../resolvers/root'
+import { resolvers } from '../resolvers/base'
 import { plainResolver } from '../resolvers/plain'
 
 describe('Resolvers tests', () => {
   describe('root', () => {
     it('should render a ReactNode', () => {
-      const resolver = rootResolver()
+      const { root } = resolvers
 
-      const result = resolver.cell({
+      const result = root.cell({
         item: { id: '1', name: 'name' },
         column: {
           id: 'name',
@@ -21,15 +21,7 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         getData: () => 'root',
       })
 
@@ -41,9 +33,9 @@ describe('Resolvers tests', () => {
 
   describe('plain', () => {
     it('should return the correct data', () => {
-      const resolver = plainResolver()
+      const { plain } = resolvers
 
-      const result = resolver.cell({
+      const result = plain.cell({
         item: { id: '1', name: 'name' },
         column: {
           id: 'name',
@@ -51,15 +43,7 @@ describe('Resolvers tests', () => {
             type: 'plain',
           },
         },
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         getData: () => 'data',
       })
 
@@ -69,9 +53,9 @@ describe('Resolvers tests', () => {
     })
 
     it('should render a ReactNode', () => {
-      const resolver = plainResolver()
+      const { plain } = resolvers
 
-      const result = resolver.cell({
+      const result = plain.cell({
         item: { id: '1', name: 'name' },
         column: {
           id: 'name',
@@ -82,15 +66,7 @@ describe('Resolvers tests', () => {
             },
           },
         },
-        context: {
-          status: 'ready',
-          statusObject: {
-            loading: false,
-            error: null,
-            empty: null,
-            notFound: null,
-          },
-        },
+        context: 'ready',
         getData: () => 'data',
       })
 

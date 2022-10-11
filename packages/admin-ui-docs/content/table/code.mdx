@@ -5,34 +5,44 @@ import { Section } from '@site/src/components/Section'
 ## Usage
 
 ```jsx
-import { Table, useTableState } from '@vtex/admin-ui'
+import {
+  Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
+  useTableState,
+} from '@vtex/admin-ui'
+
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Product name',
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+  },
+])
 
 function Example() {
   /**
    * The hook returns the Table state
    */
-  const state = useTableState({
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     /**
      * Columns shape, read more about it on the rendering section
      */
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-      },
-    ],
+    columns,
     /**
      * List of items to render
      */
@@ -50,7 +60,29 @@ function Example() {
    * You must use the `state` prop so that your Table comes to life
    * This is the only prop that is required
    */
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 ```
 
@@ -68,22 +100,19 @@ The state hook `useTableState` contains all business logic needed for the compon
 
 ### useTableState
 
-| Name       | Type                          | Description                                                                | Required | Default                       |
-| ---------- | ----------------------------- | -------------------------------------------------------------------------- | -------- | ----------------------------- |
-| columns    | `Column<T>[]`                 | Table column spec                                                          | ✅       | -                             |
-| view       | `DataViewState`               | Related DataView state                                                     | 🚫       | -                             |
-| context    | `ResolverContext`             | Resolver context                                                           | 🚫       | -                             |
-| resolvers  | `Record<string, Resolver<T>>` | Table field resolvers                                                      | 🚫       | Table's default resolvers     |
-| items      | `T[]`                         | Table items                                                                | 🚫       | `[]`                          |
-| length     | `number`                      | Expected items length, this will also control the number of skeleton items | 🚫       | `5`                           |
-| sort       | `UseTableSortParams<T>`       | useTableSort hook params                                                   | 🚫       | -                             |
-| getRowKey  | `(item: T) => string`         | Key extractor                                                              | 🚫       | Table's default key extractor |
-| onRowClick | `(item: T) => void`           | Action to dispatch on a row click                                          | 🚫       | -                             |
+| Name    | Type                    | Description                                                                | Required | Default |
+| ------- | ----------------------- | -------------------------------------------------------------------------- | -------- | ------- |
+| columns | `Column<T>[]`           | Table column spec                                                          | ✅       | -       |
+| status  | `DataViewStatus`        | Related DataView status                                                    | 🚫       | -       |
+| context | `ResolverContext`       | Resolver context                                                           | 🚫       | -       |
+| items   | `T[]`                   | Table items                                                                | 🚫       | `[]`    |
+| length  | `number`                | Expected items length, this will also control the number of skeleton items | 🚫       | `5`     |
+| sort    | `UseTableSortParams<T>` | useTableSort hook params                                                   | 🚫       | -       |
 
 It returns an object with the following types
 
 ```ts
-interface TableState<T> {
+export interface UseTableStateReturn<T> {
   /**
    * Collection rendered while loading
    */
@@ -105,29 +134,37 @@ interface TableState<T> {
   /**
    * Grid columns
    */
-  columns: Array<Column<T>>
-  /**
-   * Providers from the resolvers
-   */
-  Providers: (props: PropsWithChildren<unknown>) => JSX.Element
+  columns: Array<TableColumn<T>>
   /**
    * Current sorting state
    */
   sortState: UseSortReturn
   /**
-   * Key extractor
+   * Table ref
    */
-  getRowKey: (item: T) => string | unknown
+  tableRef: RefObject<HTMLTableElement>
   /**
-   * Action to take on click a row
-   */
-  onRowClick?: (item: T) => void
+    TBody cell props
+  */
+  getBodyCell: (
+    column: TableColumn<T, BaseResolvers<T>>,
+    item: T
+  ) => TableBodyCellProps<T>
+  /**
+    THead cell props
+  */
+  getHeadCell: (
+    column: TableColumn<T, BaseResolvers<T>>
+  ) => TableHeadCellProps<T>
+  /**
+    Table props
+  */
+  getTable: () => TableProps<T>
+  /** 
+  DataView related status
+  */
+  status: DataViewStatus
 }
-
-/**
- * Caller of a resolver
- */
-type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 ```
 
 </Section>
@@ -175,45 +212,68 @@ const items = [
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'product.name',
+    header: 'Name',
+    accessor: 'product.name',
+  },
+  {
+    id: 'product.type',
+    header: 'Type',
+    accessor: 'product.type',
+  },
+  {
+    id: 'qty',
+    header: 'In Stock',
+    accessor: (item) => {
+      const {
+        qty: { total, sold },
+      } = item
+      return total - sold
+    },
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    accessor: 'price.0',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+    accessor: 'skus.value.2',
+  },
+])
+
 function Example() {
-  const state = useTableState({
-    columns: [
-      {
-        id: 'product.name',
-        header: 'Name',
-        accessor: 'product.name',
-      },
-      {
-        id: 'product.type',
-        header: 'Type',
-        accessor: 'product.type',
-      },
-      {
-        id: 'qty',
-        header: 'In Stock',
-        accessor: (item) => {
-          const {
-            qty: { total, sold },
-          } = item
-          return total - sold
-        },
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        accessor: 'price.0',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-        accessor: 'skus.value.2',
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     items,
-    onRowClick: (item) => alert(`Item: ${item.product.name}`),
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.product.name}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 render(<Example />)
@@ -262,73 +322,100 @@ All resolvers accept a render function, that returns a component. It controls th
 
 This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
 
-```jsx live
-function Example() {
-  const state = useTableState({
-    columns: [
-      {
-        id: 'id',
-        header: 'Id',
-      },
+```jsx noInline live
+const columns = createColumns([
+  {
+    id: 'id',
+    header: 'Id',
+  },
+  /**
+   * The great thing about the root resolver is that you can infer new columns from
+   * multiple properties of the item.
+   */
+  {
+    id: 'description',
+    header: 'Description',
+    resolver: {
+      type: 'root',
       /**
-       * The great thing about the root resolver is that you can infer new columns from
-       * multiple properties of the item.
+       * { data } here would be null, because the is no such prop in the item
        */
-      {
-        id: 'description',
-        header: 'Description',
-        resolver: {
-          type: 'root',
-          /**
-           * { data } here would be null, because the is no such prop in the item
-           */
-          render: function Description({ item, context }) {
-            /**
-             * You should declare the render while loading
-             * this is only required by the root resolver
-             * the other ones, take care of this for you
-             */
-            if (context.status === 'loading') {
-              return <Skeleton csx={{ height: 24 }} />
-            }
+      render: function Description({ item, context }) {
+        /**
+         * You should declare the render while loading
+         * this is only required by the root resolver
+         * the other ones, take care of this for you
+         */
+        if (context.status === 'loading') {
+          return <Skeleton csx={{ height: 24 }} />
+        }
 
-            return (
-              <Stack
-                orientation="vertical"
-                csx={{ justifyContent: 'center', height: 64 }}
-              >
-                <Text variant="highlight">
-                  {item.productName} ({item.category})
-                </Text>
-              </Stack>
-            )
-          },
-        },
+        return (
+          <Stack
+            orientation="vertical"
+            csx={{ justifyContent: 'center', height: 64 }}
+          >
+            <Text variant="highlight">
+              {item.productName} ({item.category})
+            </Text>
+          </Stack>
+        )
       },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-    ],
-    items: [
-      {
-        id: 1,
-        productName: 'Orange',
-        category: 'fruit',
-        inStock: 380,
-      },
-      {
-        id: 2,
-        productName: 'Lemon',
-        category: 'fruit',
-        inStock: 380,
-      },
-    ],
-    onRowClick: (item) => alert(`Item: ${item.productName}`),
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+])
+
+const items = [
+  {
+    id: 1,
+    productName: 'Orange',
+    category: 'fruit',
+    inStock: 380,
+  },
+  {
+    id: 2,
+    productName: 'Lemon',
+    category: 'fruit',
+    inStock: 380,
+  },
+]
+
+function Example() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items,
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
+
+render(<Example />)
 ```
 
 | Name   | Type                                                  | Description              | Required |
@@ -369,42 +456,63 @@ const items = [
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Product name',
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+    resolver: {
+      type: 'plain',
+      /**
+       * this is how to use the render function
+       */
+      render: function Render({ data }) {
+        return <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+      },
+    },
+  },
+])
+
 function Example() {
-  const state = useTableState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Product name',
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-        resolver: {
-          type: 'plain',
-          /**
-           * this is how to use the render function
-           */
-          render: function Render({ data }) {
-            return (
-              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
-            )
-          },
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     items,
-    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 render(<Example />)
@@ -421,14 +529,16 @@ render(<Example />)
 
 ### Text
 
-The text resolver should be mainly used to render a text and an optional description just below it. It must be used for cells belonging to a `name` column.
+The text resolver should be mainly used to render a text and an optional description just below it. For descriptions that are too long, it is possible to truncante it by setting the `overflow` prop.
+This resolver must be used on the `name` column of the table.
 
 ```jsx noInline live
 const items = [
   {
     id: 1,
     productName: 'Orange',
-    description: 'Fruit',
+    description:
+      'An orange is a fruit of various citrus species in the family Rutaceae (see list of plants known as orange);',
     inStock: 380,
     skus: 0,
     price: 120,
@@ -436,7 +546,8 @@ const items = [
   {
     id: 2,
     productName: 'Lemon',
-    description: 'Fruit',
+    description:
+      'The lemon (Citrus limon) is a species of small evergreen trees in the flowering plant family Rutaceae, native to Asia, primarily Northeast India (Assam), Northern Myanmar or China',
     inStock: 380,
     skus: 26,
     price: 120,
@@ -444,73 +555,97 @@ const items = [
   {
     id: 3,
     productName: 'Tomato',
-    description: 'Fruit',
+    description:
+      'The tomato is the edible berry of the plant Solanum lycopersicum,[1][2] commonly known as the tomato plant.',
     inStock: 380,
     skus: 26,
     price: 120,
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      overflow: 'ellipsis',
+      mapText: (item) => item.productName,
+      mapDescription: (item) => item.description,
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'text',
+      columnType: 'text',
+      mapText: (item) => item.price,
+      mapDescription: () => 'Recently updated',
+    },
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+    resolver: {
+      type: 'plain',
+      /**
+       * this is how to use the render function
+       */
+      render: function Render({ data }) {
+        return <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+      },
+    },
+  },
+])
+
 function Example() {
-  const state = useTableState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.productName,
-          mapDescription: (item) => item.description,
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'text',
-          columnType: 'text',
-          mapText: (item) => item.price,
-          mapDescription: () => 'Recently updated',
-        },
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-        resolver: {
-          type: 'plain',
-          /**
-           * this is how to use the render function
-           */
-          render: function Render({ data }) {
-            return (
-              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
-            )
-          },
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     items,
-    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 render(<Example />)
 ```
 
-| Name           | Type                                                      | Description                                                   | Required | Default |
-| -------------- | --------------------------------------------------------- | ------------------------------------------------------------- | -------- | ------- |
-| type           | `text`                                                    | Text resolver type                                            | ✅       | -       |
-| columnType     | `name or text`                                            | Column text type                                              | 🚫       | `text`  |
-| mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered        | ✅       | -       |
-| mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered | 🚫       | -       |
-| render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                      | 🚫       | -       |
+| Name           | Type                                                      | Description                                                      | Required | Default |
+| -------------- | --------------------------------------------------------- | ---------------------------------------------------------------- | -------- | ------- |
+| type           | `text`                                                    | Text resolver type                                               | ✅       | -       |
+| columnType     | `name or text`                                            | Column text type                                                 | 🚫       | `text`  |
+| mapText        | `(item: T) => ReactNode`                                  | The map function which returns the text to be rendered           | ✅       | -       |
+| mapDescription | `(item: T) => ReactNode`                                  | The map Function which returns the description to be rendered    | 🚫       | -       |
+| overflow       | `ellipsis or auto`                                        | It specifies how overflowed text should be signaled to the user. | 🚫       | -       |
+| render         | `(props: ResolverRenderProps<ReactNode, T>) => ReactNode` | Resolver render function                                         | 🚫       | -       |
 
 </Section>
 
@@ -548,78 +683,99 @@ const defaultItems = [
   },
 ]
 
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.productName,
+      mapDescription: (item) => item.description,
+    },
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'text',
+      columnType: 'text',
+      mapText: (item) => item.price,
+      mapDescription: () => 'Recently updated',
+    },
+  },
+  {
+    id: 'skus',
+    header: 'SKUs',
+    resolver: {
+      type: 'plain',
+      /**
+       * this is how to use the render function
+       */
+      render: function Render({ data }) {
+        return <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
+      },
+    },
+  },
+  {
+    id: 'menu',
+    resolver: {
+      type: 'menu',
+      actions: [
+        {
+          label: 'Edit',
+          icon: <IconPencil />,
+          onClick: (item) => {
+            console.log(item)
+          },
+        },
+        {
+          label: 'Delete',
+          icon: <IconTrash />,
+          onClick: (item) => {
+            setItems(items.filter((i) => i.id !== item.id))
+          },
+        },
+      ],
+    },
+  },
+])
+
 function Example() {
   const [items, setItems] = useState(defaultItems)
 
-  const state = useTableState({
-    columns: [
-      {
-        id: 'productName',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.productName,
-          mapDescription: (item) => item.description,
-        },
-      },
-      {
-        id: 'inStock',
-        header: 'In Stock',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'text',
-          columnType: 'text',
-          mapText: (item) => item.price,
-          mapDescription: () => 'Recently updated',
-        },
-      },
-      {
-        id: 'skus',
-        header: 'SKUs',
-        resolver: {
-          type: 'plain',
-          /**
-           * this is how to use the render function
-           */
-          render: function Render({ data }) {
-            return (
-              <Text tone={Number(data) > 0 ? 'info' : 'critical'}>{data}</Text>
-            )
-          },
-        },
-      },
-      {
-        id: 'menu',
-        resolver: {
-          type: 'menu',
-          actions: [
-            {
-              label: 'Edit',
-              icon: <IconPencil />,
-              onClick: (item) => {
-                console.log(item)
-              },
-            },
-            {
-              label: 'Delete',
-              icon: <IconTrash />,
-              onClick: (item) => {
-                setItems(items.filter((i) => i.id !== item.id))
-              },
-            },
-          ],
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     items,
-    onRowClick: (item) => alert(`Item: ${item.productName}`),
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 render(<Example />)
@@ -631,7 +787,7 @@ render(<Example />)
 | actions | `MenuAction[]`                                              | A set of actions to be rendered as MenuItems | ✅       | -       |
 | render  | `(props: ResolverRenderProps<JSX.Element, T>) => ReactNode` | Resolver render function                     | 🚫       | -       |
 
-**MenuAction**
+#### MenuAction
 
 | Name     | Type                | Description                             | Required | Default |
 | -------- | ------------------- | --------------------------------------- | -------- | ------- |
@@ -647,53 +803,78 @@ render(<Example />)
 
 ### Currency
 
-```jsx live
-function Example() {
-  const currencies = [
-    {
-      id: 1,
-      brl: 120,
-      usd: 24,
-      cny: 100,
-    },
-  ]
+```jsx noInline live
+const items = [
+  {
+    id: 1,
+    brl: 120,
+    usd: 24,
+    cny: 100,
+  },
+]
 
-  const state = useTableState({
-    columns: [
-      {
-        id: 'brl',
-        header: 'Preço',
-        resolver: {
-          type: 'currency',
-          locale: 'pt-BR',
-          currency: 'BRL',
-        },
-      },
-      {
-        id: 'usd',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-      {
-        id: 'cny',
-        header: '价格',
-        resolver: {
-          type: 'currency',
-          locale: 'zh-CN',
-          currency: 'CNY',
-        },
-      },
-    ],
-    items: currencies,
-    onRowClick: (item) => alert(`Item: ${item.id}`),
+const columns = createColumns([
+  {
+    id: 'brl',
+    header: 'Preço',
+    resolver: {
+      type: 'currency',
+      locale: 'pt-BR',
+      currency: 'BRL',
+    },
+  },
+  {
+    id: 'usd',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+  {
+    id: 'cny',
+    header: '价格',
+    resolver: {
+      type: 'currency',
+      locale: 'zh-CN',
+      currency: 'CNY',
+    },
+  },
+])
+
+function Example() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items,
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
+
+render(<Example />)
 ```
 
 | Name     | Type                                                   | Description              | Required |
@@ -709,9 +890,9 @@ function Example() {
 
 ### Date
 
-```jsx live
+```jsx noInline live
 function Example() {
-  const dates = [
+  const items = [
     {
       id: 1,
       pt: '5/7/2020, 13:04',
@@ -721,67 +902,92 @@ function Example() {
     },
   ]
 
-  const state = useTableState({
-    columns: [
-      {
-        id: 'pt',
-        header: 'Data',
-        resolver: {
-          type: 'date',
-          locale: 'pt-BR',
-          options: {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          },
+  const columns = createColumns([
+    {
+      id: 'pt',
+      header: 'Data',
+      resolver: {
+        type: 'date',
+        locale: 'pt-BR',
+        options: {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
         },
       },
-      {
-        id: 'ar',
-        header: 'تاريخ',
-        resolver: {
-          type: 'date',
-          locale: 'ar-AE',
-          options: {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          },
+    },
+    {
+      id: 'ar',
+      header: 'تاريخ',
+      resolver: {
+        type: 'date',
+        locale: 'ar-AE',
+        options: {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
         },
       },
-      {
-        id: 'en',
-        header: 'Date',
-        resolver: {
-          type: 'date',
-          locale: 'en-US',
-          options: {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          },
+    },
+    {
+      id: 'en',
+      header: 'Date',
+      resolver: {
+        type: 'date',
+        locale: 'en-US',
+        options: {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
         },
       },
-      {
-        id: 'cn',
-        header: '日期',
-        resolver: {
-          type: 'date',
-          locale: 'zh-CN',
-          options: {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          },
+    },
+    {
+      id: 'cn',
+      header: '日期',
+      resolver: {
+        type: 'date',
+        locale: 'zh-CN',
+        options: {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
         },
       },
-    ],
-    items: dates,
-    onRowClick: (item) => alert(`Item: ${item.id}`),
+    },
+  ])
+
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items,
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
+
+render(<Example />)
 ```
 
 | Name    | Type                                                   | Description              | Required |
@@ -797,125 +1003,93 @@ function Example() {
 
 ### Image
 
-```jsx live
-function Example() {
-  const fruits = [
-    {
-      id: 1,
-      image:
-        'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
-      productName: 'Orange',
-      stock: 26900,
-      price: 120,
-    },
-    {
-      id: 2,
-      image:
-        'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-      productName: 'Lemon',
-      stock: 12905,
-      price: 120,
-    },
-    {
-      id: 3,
-      image:
-        'https://images.unsplash.com/photo-1587486938113-d6d38d424efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
-      productName: 'Tomato',
-      stock: 199001,
-      price: 120,
-    },
-  ]
+```jsx noInline live
+const items = [
+  {
+    id: 1,
+    image:
+      'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80',
+    productName: 'Orange',
+    stock: 26900,
+    price: 120,
+  },
+  {
+    id: 2,
+    image:
+      'https://images.unsplash.com/flagged/photo-1587302164675-820fe61bbd55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+    productName: 'Lemon',
+    stock: 12905,
+    price: 120,
+  },
+  {
+    id: 3,
+    image:
+      'https://images.unsplash.com/photo-1587486938113-d6d38d424efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80',
+    productName: 'Tomato',
+    stock: 199001,
+    price: 120,
+  },
+]
 
-  const state = useTableState({
-    columns: [
-      {
-        id: 'image',
-        header: 'Image',
-        resolver: {
-          type: 'image',
-        },
-      },
-      {
-        id: 'productName',
-        header: 'Name',
-      },
-      {
-        id: 'stock',
-        header: 'Stock',
-      },
-      {
-        id: 'price',
-        header: 'Stock',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-    ],
-    items: fruits,
-    onRowClick: (item) => alert(`Item: ${item.productName}`),
+const columns = createColumns([
+  {
+    id: 'image',
+    header: 'Image',
+    resolver: {
+      type: 'image',
+    },
+  },
+  {
+    id: 'productName',
+    header: 'Name',
+  },
+  {
+    id: 'stock',
+    header: 'Stock',
+  },
+  {
+    id: 'price',
+    header: 'Stock',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+])
+
+function Example() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items,
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
-```
 
-```jsx live
-function Example() {
-  const fruits = [
-    {
-      id: 1,
-      name: 'Color 1',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_gD9Fm-5bttYHoJ-wxD2W8kK2boZsQItYw&usqp=CAU',
-      price: 100,
-    },
-    {
-      id: 2,
-      name: 'Color 2',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsvxLXJ3jW2hQox375iMAcaScYMpUmXk1dFw&usqp=CAU',
-      price: 30,
-    },
-    {
-      id: 3,
-      name: 'Color 3',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
-      price: 10,
-    },
-  ]
-
-  const state = useTableState({
-    columns: [
-      {
-        id: 'image',
-        header: 'Image',
-        resolver: {
-          type: 'image',
-        },
-      },
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          isNameCell: true,
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'price',
-        header: 'Price',
-      },
-    ],
-    items: fruits,
-    onRowClick: (item) => alert(`Item: ${item.name}`),
-  })
-
-  return <Table state={state} />
-}
+render(<Example />)
 ```
 
 | Name   | Type                                                        | Description              | Required |
@@ -972,28 +1146,30 @@ function Example() {
     pageSize: ITEMS_PER_PAGE,
   })
 
-  const table = useTableState({
-    view,
-    columns: [
-      { id: 'id', resolver: { type: 'bulk', state: bulk } },
-      {
-        id: 'name',
-        header: 'Product Name',
+  const columns = createColumns([
+    { id: 'id', resolver: { type: 'bulk', state: bulk } },
+    {
+      id: 'name',
+      header: 'Product Name',
+    },
+    {
+      id: 'lastSale',
+      header: 'Last Sale',
+    },
+    {
+      id: 'price',
+      header: 'Price',
+      resolver: {
+        type: 'currency',
+        locale: 'en-US',
+        currency: 'USD',
       },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-    ],
+    },
+  ])
+
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    status: view.status,
+    columns,
     items,
   })
 
@@ -1007,15 +1183,9 @@ function Example() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition="of"
-          subject="results"
-          prevLabel="Previous"
-          nextLabel="Next"
-        />
+        <Pagination state={pagination} />
         <BulkActions state={bulk}>
           <Button variant="tertiary" icon={<IconPencil />}>
             Edit
@@ -1027,9 +1197,26 @@ function Example() {
             Delete
           </Button>
         </BulkActions>
-      </DataViewControls>
+      </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
-        <Table state={table} />
+        <Table {...getTable()}>
+          <THead>
+            {columns.map((column) => (
+              <THeadCell {...getHeadCell(column)} />
+            ))}
+          </THead>
+          <TBody>
+            {data.map((item) => {
+              return (
+                <TBodyRow key={item.id} selected={bulk.isItemSelected(item)}>
+                  {columns.map((column) => {
+                    return <TBodyCell {...getBodyCell(column, item)} />
+                  })}
+                </TBodyRow>
+              )
+            })}
+          </TBody>
+        </Table>
       </SelectionTree>
     </DataView>
   )
@@ -1053,65 +1240,84 @@ render(<Example />)
 The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.
 
 ```jsx noInline live
+const columns = createColumns([
+  {
+    id: 'id',
+    resolver: {
+      type: 'selection',
+      mapId: (item) => item.id,
+    },
+  },
+  {
+    id: 'name',
+    header: 'Name',
+    resolver: {
+      type: 'text',
+      columnType: 'name',
+      mapText: (item) => item.name,
+    },
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+  },
+])
+
+const items = Array(3)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+    }
+  })
+
 function Example() {
-  const grid = useTableState({
-    columns: [
-      {
-        id: 'id',
-        resolver: {
-          type: 'selection',
-          mapId: (item) => item.id,
-        },
-      },
-      {
-        id: 'name',
-        header: 'Name',
-        resolver: {
-          type: 'text',
-          columnType: 'name',
-          mapText: (item) => item.name,
-        },
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-    ],
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     length: 3,
-    items: React.useMemo(
-      () =>
-        Array(3)
-          .fill()
-          .map((_, id) => {
-            return {
-              id: `${id}`,
-              name: faker.commerce.productName(),
-              lastSale: faker.date.past().toDateString(),
-              price: faker.commerce.price(),
-            }
-          }),
-      []
-    ),
-    onRowClick: (item) => alert(`Item: ${item.name}`),
+    items,
   })
 
   const selection = useSelectionTreeState({
-    items: grid.data,
+    items: data,
     mapId: (item) => item.id,
   })
 
   return (
     <SelectionTree state={selection}>
-      <Table state={grid} />
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow
+                key={item.id}
+                onClick={() => alert(`Item: ${item.productName}`)}
+              >
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </SelectionTree>
   )
 }
@@ -1157,43 +1363,66 @@ const items = Array(3)
     }
   })
 
-function CompareExample() {
-  const state = useTableState({
-    columns: [
-      {
-        id: 'name',
-        header: 'Product Name',
-        compare: (a, b) => b.name.localeCompare(a.name),
-      },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-        compare: (a, b) => {
-          const aLastSale = new Date(a.lastSale).valueOf()
-          const bLastSale = new Date(b.lastSale).valueOf()
+const columns = createColumns([
+  {
+    id: 'name',
+    header: 'Product Name',
+    compare: (a, b) => b.name.localeCompare(a.name),
+  },
+  {
+    id: 'lastSale',
+    header: 'Last Sale',
+    compare: (a, b) => {
+      const aLastSale = new Date(a.lastSale).valueOf()
+      const bLastSale = new Date(b.lastSale).valueOf()
 
-          return bLastSale - aLastSale
-        },
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-        compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
-      },
-    ],
+      return bLastSale - aLastSale
+    },
+  },
+  {
+    id: 'price',
+    header: 'Price',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
+    compare: (a, b) => parseInt(b.price, 10) - parseInt(a.price, 10),
+  },
+])
+
+function CompareExample() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
     items,
     sort: {
       initialValue: { order: 'ASC' },
     },
-    onRowClick: (item) => alert(`Item: ${item.name}`),
   })
 
-  return <Table state={state} />
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Item: ${item.productName}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }
 
 render(<CompareExample />)

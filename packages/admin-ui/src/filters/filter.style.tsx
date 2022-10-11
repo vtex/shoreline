@@ -6,7 +6,6 @@ import * as menuStyle from '../menu/menu.style'
 export const disclosure = style({
   ...buttonStyle.buttonStyle,
   ...buttonStyle.variants({ size: 'normal' }),
-  marginRight: '$m',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -21,6 +20,15 @@ export const disclosure = style({
   ':active': {
     bg: '$action.neutral.secondaryPressed',
     color: '$secondary',
+  },
+})
+
+export const disclosureVariants = styleVariants({
+  open: {
+    true: {
+      bg: '$action.neutral.secondaryPressed',
+      color: '$secondary',
+    },
   },
 })
 
@@ -41,7 +49,9 @@ export const option = style({
 
 export const scrollableContainer = style({
   padding: '$l',
-  maxHeight: 256,
+  paddingTop: 0,
+  marginTop: '$xl',
+  maxHeight: 240,
   overflowY: 'auto',
 })
 
@@ -71,6 +81,7 @@ export const searchbox = style({
   margin: '$l',
   marginBottom: 0,
   order: -1,
+  '> input': { minWidth: 'auto' },
   '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
 })
 

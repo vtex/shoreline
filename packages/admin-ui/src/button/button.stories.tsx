@@ -91,3 +91,37 @@ Bleed.args = {
   disabled: false,
   loading: false,
 }
+
+export function UITests() {
+  return (
+    <>
+      <Button disabled>Disabled</Button>
+      <Button loading>Loading</Button>
+
+      <Button>Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+      <Button variant="neutralTertiary">Neutral Tertiary</Button>
+      <Button variant="critical">critical</Button>
+      <Button variant="criticalSecondary">Secondary</Button>
+      <Button variant="criticalTertiary">Tertiary</Button>
+
+      <Button>Normal</Button>
+      <Button size="large">Large</Button>
+
+      <Button icon={<IconX />}>Icon start</Button>
+      <Button icon={<IconX />} iconPosition="end">
+        Icon end
+      </Button>
+      <Button aria-label="Icon only test" icon={<IconX />} />
+
+      <Button bleedX bleedY>
+        Bleed
+      </Button>
+    </>
+  )
+}
+
+UITests.parameters = {
+  chromatic: { disableSnapshot: false },
+}

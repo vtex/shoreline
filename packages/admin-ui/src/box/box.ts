@@ -6,4 +6,6 @@ export const Box = createComponent<typeof Role>((props) =>
   useElement(Role, props)
 )
 
+Box.displayName = 'Box'
+
 export type BoxProps = ComponentPropsWithRef<typeof Box>

@@ -6,7 +6,7 @@ style.dataView = {
   overflow: 'unset',
 }
 
-style.dataViewControls = {
+style.dataViewHeader = {
   position: 'sticky',
   top: 0,
   zIndex: '5',

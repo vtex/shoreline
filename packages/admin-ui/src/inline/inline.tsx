@@ -34,6 +34,8 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
   })
 })
 
+Inline.displayName = 'Inline'
+
 export interface InlineProps {
   /**
    * Vertical space

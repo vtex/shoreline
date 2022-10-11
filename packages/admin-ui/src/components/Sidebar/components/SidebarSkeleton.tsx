@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Stack } from '../../../stack'
-import { Skeleton } from '../../Skeleton'
+import { Skeleton } from '../../../skeleton'
 import { Center } from '../../../center'
 
 const size = 20

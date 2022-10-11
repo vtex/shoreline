@@ -3,12 +3,10 @@ import React, { Fragment } from 'react'
 import warning from 'tiny-warning'
 import { get } from '@vtex/admin-ui-util'
 
+import { resolvers } from './base'
 import type { TableColumn } from '../types'
 import type { SortOrder, SortState } from '../hooks/use-table-sort'
-import type {
-  DataViewStatus,
-  DataViewStatusObject,
-} from '../../components/DataView'
+import type { DataViewStatus } from '../../data-view'
 
 /**
  * Used to recursive define resolver
@@ -19,16 +17,7 @@ export type ResolverShorcut<I, T = unknown> = T & { type: I }
 /**
  * Table context
  */
-export type ResolverContext = {
-  /**
-   * Grid current status
-   */
-  status: DataViewStatus
-  /**
-   * Grid current status-object
-   */
-  statusObject: DataViewStatusObject
-}
+export type ResolverContext = DataViewStatus
 
 /**
  * Render props of the resolver
@@ -40,6 +29,8 @@ export type ResolverRenderProps<D, T> = {
   item: T
   context: ResolverContext
 }
+
+export type ResolverCallee<T> = Omit<T, 'resolvers' | 'context' | 'sortState'>
 
 /**
  * Fields resolver
@@ -61,7 +52,6 @@ export interface Resolver<T = any, I = any, S = any> {
   header?: (helpers: {
     getData: CallableFunction
     context: ResolverContext
-    items: T[]
     column: TableColumn<T, ResolverShorcut<I, S>>
   }) => ReactNode
 }
@@ -81,9 +71,7 @@ export function createResolver<T, I, S = Record<string, unknown>>(
 
 export type ResolveHeaderArgs<T> = {
   column: TableColumn<T>
-  resolvers: Record<string, Resolver<T>>
   context: ResolverContext
-  items: T[]
   sortState?: SortState
 }
 
@@ -96,20 +84,19 @@ export type ResolveHeaderReturn = {
 /**
  * Resolve current header within a loop
  * @param column
- * @param resolvers
  */
 export function resolveHeader<T>(
   args: ResolveHeaderArgs<T>
 ): ResolveHeaderReturn {
-  const { column, resolvers, context, items, sortState = {} } = args
+  const { column, context, sortState = {} } = args
 
   const id = get(column, 'resolver.type', 'plain')
 
-  const { header } = resolvers[id]
+  const { header } = get(resolvers, id)
 
   const isSortable =
     (Boolean(column.compare) || Boolean(column.sortable)) &&
-    !(context.status === 'loading')
+    !(context === 'loading')
 
   const sortDirection = sortState.by === column.id ? sortState.order : null
 
@@ -117,7 +104,6 @@ export function resolveHeader<T>(
     ? header({
         getData: () => accessHeader(column),
         context,
-        items,
         column,
       })
     : accessHeader(column)
@@ -128,7 +114,6 @@ export function resolveHeader<T>(
 export type ResolveCellArgs<T> = {
   column: TableColumn<T>
   item: T
-  resolvers: Record<string, Resolver<T>>
   context: ResolverContext
 }
 
@@ -136,12 +121,11 @@ export type ResolveCellArgs<T> = {
  * Resolve current cell within a loop
  * @param column
  * @param item
- * @param resolvers
  */
 export function resolveCell<T>(args: ResolveCellArgs<T>) {
-  const { column, item, resolvers, context } = args
+  const { column, item, context } = args
   const id = get(column, 'resolver.type', 'plain')
-  const { cell } = resolvers[id]
+  const { cell } = get(resolvers, id)
 
   return cell({
     getData: () => accessCell(column, item),

@@ -1,39 +1,37 @@
-import React, { Fragment, useRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { StyleProp } from '@vtex/admin-ui-core'
+import type { RefObject } from 'react'
+import React from 'react'
 
-import { TableHead } from './table-head'
-import { TableBody } from './table-body'
-import type { TableState } from '../hooks/use-table-state'
-import { StateContext } from '../context'
+import type { DataViewStatus } from '../../data-view'
+import type { BaseResolvers } from '../resolvers/base'
+import type { TableColumn } from '../types'
+import { Box } from '../../box'
 
-import * as styles from '../styles/table.styles'
+import * as styles from './styles/table.styles'
 
-export const Table = createComponent<'table', TableOptions>((props) => {
-  const { children, state, ...tableProps } = props
+export function Table<T>(props: TableProps<T>) {
+  const { children, status, csx, tableRef, columns, ...tableProps } = props
 
-  const tableRef = useRef<HTMLTableElement>(null)
+  const shouldRender = status === 'ready' || status === 'loading'
 
-  return useElement('table', {
-    ...tableProps,
-    ref: tableRef as any,
-    role: 'table',
-    baseStyle: styles.baseline({ columns: state?.columns }),
-    children: (
-      <StateContext.Provider value={{ ...state, tableRef }}>
-        {children ?? (
-          <Fragment>
-            <TableHead />
-            <TableBody />
-          </Fragment>
-        )}
-      </StateContext.Provider>
-    ),
-  })
-})
+  if (!shouldRender) return null
 
-export interface TableOptions {
-  /**
-   * Table state
-   */
-  state: TableState<any>
+  return (
+    <Box
+      {...tableProps}
+      ref={tableRef}
+      as="table"
+      role="table"
+      csx={{ ...csx, ...styles.baseline({ columns: columns as any }) }}
+    >
+      {children}
+    </Box>
+  )
+}
+
+export interface TableProps<T> extends React.ComponentPropsWithoutRef<'table'> {
+  columns: Array<TableColumn<T, BaseResolvers<T>>>
+  status: DataViewStatus
+  tableRef?: RefObject<HTMLTableElement>
+  csx?: StyleProp
 }

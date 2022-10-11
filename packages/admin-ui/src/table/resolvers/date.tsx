@@ -2,14 +2,14 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
 
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 
 export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
     cell: function DateResolver({ getData, item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 

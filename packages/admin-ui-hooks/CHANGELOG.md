@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3-dev.4 (2022-10-06)
+
+
+### Bug Fixes
+
+* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
+
+
+
+
+
+## 0.4.3-dev.3 (2022-10-06)
+
+
+### Bug Fixes
+
+* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
+
+
+
+
+
+## 0.4.3-dev.2 (2022-09-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+
+
+
+
+## 0.4.3-dev.1 (2022-09-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+
+
+
+
+## 0.4.3-dev.0 (2022-09-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.10...@vtex/admin-ui-hooks@0.4.3-experimental.11) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.9...@vtex/admin-ui-hooks@0.4.3-experimental.10) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.8...@vtex/admin-ui-hooks@0.4.3-experimental.9) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.7...@vtex/admin-ui-hooks@0.4.3-experimental.8) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.6...@vtex/admin-ui-hooks@0.4.3-experimental.7) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.5...@vtex/admin-ui-hooks@0.4.3-experimental.6) (2022-09-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.4...@vtex/admin-ui-hooks@0.4.3-experimental.5) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.3...@vtex/admin-ui-hooks@0.4.3-experimental.4) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.2...@vtex/admin-ui-hooks@0.4.3-experimental.3) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.3-experimental.1...@vtex/admin-ui-hooks@0.4.3-experimental.2) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.2...@vtex/admin-ui-hooks@0.4.3-experimental.1) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+## [0.4.3-experimental.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.2...@vtex/admin-ui-hooks@0.4.3-experimental.0) (2022-09-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
 ## [0.4.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.4.1...@vtex/admin-ui-hooks@0.4.2) (2022-08-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks

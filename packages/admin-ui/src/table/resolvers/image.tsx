@@ -9,7 +9,7 @@ import { get } from '@vtex/admin-ui-util'
 
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
-import { Skeleton } from '../../components/Skeleton'
+import { Skeleton } from '../../skeleton'
 import { Stack } from '../../stack'
 
 const defaultPreview: ImagePreview = {
@@ -35,7 +35,7 @@ const imageStyles = style({
 export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 
