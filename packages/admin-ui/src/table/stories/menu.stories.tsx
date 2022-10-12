@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
-import { Table, useTableState } from '../index'
+  useTableState,
+  Table,
+  TBody,
+  TBodyRow,
+  THead,
+  createColumns,
+  THeadCell,
+  TBodyCell,
+} from '../index'
 import { Button } from '../../button'
-import { createColumns } from '../create-columns'
+
 import { IconTrash, IconPencil } from '@vtex/phosphor-icons'
 
 export default {
@@ -81,21 +86,38 @@ export function WithMenu() {
     },
   ])
 
-  const grid = useTableState<Item>({
-    view,
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
     columns,
     items,
   })
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
         </Button>
-      </DataViewControls>
-      <Table state={grid} />
+      </DataViewHeader>
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => {
+            return <THeadCell {...getHeadCell(column)} />
+          })}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }

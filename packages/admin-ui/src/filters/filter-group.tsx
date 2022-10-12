@@ -12,9 +12,22 @@ export function FilterGroup(props: FilterGroupProps) {
   const formatMessage = useMessageFormatter(messages.actions)
 
   return (
-    <Flex wrap="wrap" role="group" {...rest}>
+    <Flex
+      wrap="wrap"
+      role="group"
+      csx={{
+        '> .__admin-ui-filter-disclosure:not(:first-child)': {
+          marginLeft: '$m',
+        },
+      }}
+      {...rest}
+    >
       {children}
-      <Button onClick={state.onClear} variant="neutralTertiary">
+      <Button
+        onClick={state.onClear}
+        variant="neutralTertiary"
+        csx={{ marginLeft: '$m' }}
+      >
         {formatMessage('clearAll')}
       </Button>
     </Flex>

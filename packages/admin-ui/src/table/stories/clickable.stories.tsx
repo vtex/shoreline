@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Table } from '../index'
+import { Table, TBody, TBodyRow, THead, THeadCell, TBodyCell } from '../index'
 import { useTableState } from '../hooks/use-table-state'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
@@ -106,18 +106,32 @@ export function Clickable() {
     []
   )
 
-  const state = useTableState<Item>({
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
-    onRowClick: (item) => alert(`Row clicked: ${item.name}`),
   })
 
   return (
-    <Table
-      state={state}
-      csx={{
-        width: 800,
-      }}
-    />
+    <Table {...getTable()} csx={{ width: 800 }}>
+      <THead>
+        {columns.map((column) => {
+          return <THeadCell {...getHeadCell(column)} />
+        })}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => alert(`Row clicked: ${item.name}`)}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
   )
 }

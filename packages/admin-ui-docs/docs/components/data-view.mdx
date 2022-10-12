@@ -5,41 +5,67 @@ path: /patterns/data-view/
 
 DataView is a pattern used for rendering and controlling a set of data. It is deeply related to the [Page pattern](/patterns/page/), acting as the view of the `PageContent`.
 
-## Import
+## Usage
 
 ```jsx
-import { DataView, DataViewControls, useDataViewState } from '@vtex/admin-ui'
+import { DataView, DataViewHeader, useDataViewState } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useDataViewState()
+
+  return (
+    <DataView state={state}>
+      <DataViewHeader>
+        <Flex>
+          <Search />
+          <DataViewActions>{actions}</DataViewActions>
+        </Flex>
+
+        {filters}
+      </DataViewHeader>
+
+      {content}
+    </DataView>
+  )
+}
 ```
 
-## Anatomy
-
-```txt
-DataView
-|__ DataViewControls
-|   |__ Search
-|   |__ Toolbar
-|   |   |__ Button
-|   |__ Pagination
-|   |__ (Other controls)
-|
-|__ (Data rendering section)
-```
-
-## State
+## Initial State
 
 The `useDataViewState` handles the `DataView` behavior.
 
 ```jsx live
 function Example() {
-  const view = useDataViewState()
+  const view = useDataViewState({
+    loading: true,
+    notFound: false,
+    error: null,
+    empty: null,
+  })
 
-  return <DataView state={view}>Data</DataView>
+  const content = useMemo(() => {
+    switch (view.status) {
+      case 'loading': {
+        return <Spinner size={50} />
+      }
+
+      case 'ready': {
+        return <p>Data View Content</p>
+      }
+
+      default: {
+        return null
+      }
+    }
+  }, [view.status])
+
+  return <DataView state={view}>{content}</DataView>
 }
 ```
 
-## Controls
+## Header
 
-The `DataViewControls` arranges all the components that control or changes the displayed data. These components can be buttons, search forms, pagination, menus, and so on.
+The `DataViewHeader` arranges all the components that control or changes the displayed data. These components can be buttons, search forms, pagination, menus, filters, and so on.
 
 ```jsx live
 function Example() {
@@ -49,14 +75,19 @@ function Example() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
-        <Search id="search" placeholder="Search" state={search} />
-        <Toolbar state={toolbar}>
-          <ToolbarButton variant="neutralTertiary">Button 1</ToolbarButton>
-          <ToolbarButton variant="neutralTertiary">Button 2</ToolbarButton>
-          <ToolbarButton variant="neutralTertiary">Button 3</ToolbarButton>
-        </Toolbar>
-      </DataViewControls>
+      <DataViewHeader>
+        <Flex justify="space-between" csx={{ width: '100%' }}>
+          <Search id="search" placeholder="Search" state={search} />
+          <DataViewActions>
+            <Button variant="neutralTertiary" icon={<IconPlus />}>
+              Label
+            </Button>
+            <Button variant="neutralTertiary" icon={<IconPlus />}>
+              Label
+            </Button>
+          </DataViewActions>
+        </Flex>
+      </DataViewHeader>
     </DataView>
   )
 }
@@ -94,9 +125,9 @@ function RenderingData() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
-        <Toolbar state={toolbar}>
-          <ToolbarButton
+      <DataViewHeader>
+        <DataViewActions>
+          <Button
             size="small"
             variant="neutralTertiary"
             onClick={() =>
@@ -106,8 +137,8 @@ function RenderingData() {
             }
           >
             Ready
-          </ToolbarButton>
-          <ToolbarButton
+          </Button>
+          <Button
             size="small"
             variant="neutralTertiary"
             onClick={() =>
@@ -117,45 +148,50 @@ function RenderingData() {
             }
           >
             Loading
-          </ToolbarButton>
-          <ToolbarButton
+          </Button>
+          <Button
             size="small"
             variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'error',
-                message: 'Something went wrong',
+                action: {
+                  text: 'Try again!',
+                  onClick: () => alert('Trying again'),
+                },
               })
             }
           >
             Error
-          </ToolbarButton>
-          <ToolbarButton
+          </Button>
+          <Button
             size="small"
             variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'not-found',
-                message: 'The search term was not found',
               })
             }
           >
             Not found
-          </ToolbarButton>
-          <ToolbarButton
+          </Button>
+          <Button
             size="small"
             variant="neutralTertiary"
             onClick={() =>
               view.setStatus({
                 type: 'empty',
-                message: 'The collection is empty',
+                action: {
+                  text: 'Create item',
+                  onClick: () => alert('Item created'),
+                },
               })
             }
           >
             Empty
-          </ToolbarButton>
-        </Toolbar>
-      </DataViewControls>
+          </Button>
+        </DataViewActions>
+      </DataViewHeader>
       {content}
     </DataView>
   )
@@ -219,70 +255,77 @@ function SkeletonCollection() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
-        <Search id="search" placeholder="Search" state={search} />
-        <Toolbar state={toolbar}>
-          <ToolbarButton
-            size="small"
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'ready',
-              })
-            }
-          >
-            Ready
-          </ToolbarButton>
+      <DataViewHeader>
+        <Flex justify="space-between" csx={{ width: '100%' }}>
+          <Search id="search" placeholder="Search" state={search} />
+          <DataViewActions>
+            <Button
+              size="small"
+              variant="neutralTertiary"
+              onClick={() =>
+                view.setStatus({
+                  type: 'ready',
+                })
+              }
+            >
+              Ready
+            </Button>
 
-          <ToolbarButton
-            size="small"
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'loading',
-              })
-            }
-          >
-            Loading
-          </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'error',
-                message: 'Something went wrong',
-              })
-            }
-          >
-            Error
-          </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'not-found',
-                message: 'The search term was not found',
-              })
-            }
-          >
-            Not found
-          </ToolbarButton>
-          <ToolbarButton
-            size="small"
-            variant="neutralTertiary"
-            onClick={() =>
-              view.setStatus({
-                type: 'empty',
-                message: 'The collection is empty',
-              })
-            }
-          >
-            Empty
-          </ToolbarButton>
-        </Toolbar>
-      </DataViewControls>
+            <Button
+              size="small"
+              variant="neutralTertiary"
+              onClick={() =>
+                view.setStatus({
+                  type: 'loading',
+                })
+              }
+            >
+              Loading
+            </Button>
+            <Button
+              size="small"
+              variant="neutralTertiary"
+              onClick={() =>
+                view.setStatus({
+                  type: 'error',
+                  action: {
+                    text: 'Try again!',
+                    onClick: () => alert('Trying again'),
+                  },
+                })
+              }
+            >
+              Error
+            </Button>
+            <Button
+              size="small"
+              variant="neutralTertiary"
+              onClick={() =>
+                view.setStatus({
+                  type: 'not-found',
+                })
+              }
+            >
+              Not found
+            </Button>
+            <Button
+              size="small"
+              variant="neutralTertiary"
+              onClick={() =>
+                view.setStatus({
+                  type: 'empty',
+                  action: {
+                    text: 'Create item',
+                    onClick: () => alert('Item created'),
+                  },
+                })
+              }
+            >
+              Empty
+            </Button>
+          </DataViewActions>
+        </Flex>
+      </DataViewHeader>
       {(view.status === 'loading' || view.status === 'ready') &&
         data.map((item) => (
           <Flex
@@ -315,7 +358,11 @@ All props of JSX div element.
 | ----- | --------------- | -------------- | -------- | ------- |
 | state | `DataViewState` | DataView state | ✅       | -       |
 
-### DataViewControls props
+### DataViewHeader props
+
+All props of JSX div element.
+
+### DataViewActions props
 
 All props of JSX div element.
 

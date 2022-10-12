@@ -89,6 +89,12 @@ const config = {
           {
             type: 'doc',
             position: 'left',
+            docId: 'templates/listing page/design',
+            label: 'Templates',
+          },
+          {
+            type: 'doc',
+            position: 'left',
             docId: 'experimental/about',
             label: 'Experimental',
           },

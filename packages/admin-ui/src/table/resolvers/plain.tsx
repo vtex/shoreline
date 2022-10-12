@@ -8,7 +8,7 @@ import { createResolver, defaultRender } from './resolver-core'
 export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({
     cell: function PlainResolver({ getData, item, column, context }) {
-      if (context.status === 'loading') {
+      if (context === 'loading') {
         return <Skeleton csx={{ height: 24 }} />
       }
 

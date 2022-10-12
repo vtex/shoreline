@@ -16,11 +16,7 @@ import {
   PageHeaderTag,
 } from './index'
 import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
-import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../components/DataView'
+import { DataView, DataViewHeader, useDataViewState } from '../data-view'
 import { Search, useSearchState } from '../search'
 import { createColumns, Table, useTableState } from '../table'
 import { Box } from '../box'
@@ -198,9 +194,9 @@ export function FullFledged() {
         <TabPanelList state={tabs}>
           <TabPanel id="1">
             <DataView state={view}>
-              <DataViewControls>
+              <DataViewHeader>
                 <Search id="search" aria-label="DataGrid Search" />
-              </DataViewControls>
+              </DataViewHeader>
               <Table state={grid} />
             </DataView>
           </TabPanel>

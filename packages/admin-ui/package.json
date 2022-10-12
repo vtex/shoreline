@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui",
-  "version": "0.133.6",
+  "version": "0.133.7-dev.6",
   "main": "dist/vtex-admin-ui.cjs.js",
   "module": "dist/vtex-admin-ui.esm.js",
   "types": "dist/vtex-admin-ui.cjs.d.ts",
@@ -13,6 +13,11 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
   },
   "repository": {
     "directory": "packages/admin-ui",
@@ -45,10 +50,10 @@
     "@react-aria/utils": "^3.3.5",
     "@react-stately/collections": "^3.3.5",
     "@react-stately/list": "^3.4.1",
-    "@vtex/admin-ui-core": "^0.12.3",
-    "@vtex/admin-ui-hooks": "^0.4.2",
-    "@vtex/admin-ui-react": "^0.9.4",
-    "@vtex/admin-ui-util": "^0.4.2",
+    "@vtex/admin-ui-core": "^0.12.4-dev.5",
+    "@vtex/admin-ui-hooks": "^0.4.3-dev.5",
+    "@vtex/admin-ui-react": "^0.9.5-dev.5",
+    "@vtex/admin-ui-util": "^0.4.3-dev.5",
     "@vtex/phosphor-icons": "0.2.8",
     "ariakit": "2.0.0-next.39",
     "csstype": "3.0.10",
@@ -61,11 +66,6 @@
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3",
     "use-debounce": "^7.0.0"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts"
-    ]
   },
   "gitHead": "201e6a0149b4eb0b836a5f5f69b2497475877a71"
 }

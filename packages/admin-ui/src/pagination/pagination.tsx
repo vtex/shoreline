@@ -27,12 +27,12 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
     ...restProps
   } = props
 
+  const sizeVariant = resolveSize(total)
+
   const formatMessage = useMessageFormatter(messages)
 
-  const hasOnlyOnePage = numberOfPages === 1
-  const currentPageLabel = hasOnlyOnePage
-    ? total
-    : `${firstPosition} — ${lastPosition}`
+  const currentPageLabel =
+    numberOfPages <= 1 ? total : `${firstPosition} — ${lastPosition}`
 
   return useElement('div', {
     ...restProps,
@@ -41,7 +41,11 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
         {loading ? (
           <Skeleton csx={style.loading} />
         ) : (
-          <Text tone="secondary" variant="detail" csx={style.label}>
+          <Text
+            tone="secondary"
+            variant="detail"
+            csx={{ ...style.label, ...style.variants({ size: sizeVariant }) }}
+          >
             {formatMessage('pagination', {
               currentPage: currentPageLabel,
               total,
@@ -70,6 +74,14 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
     ),
   })
 })
+
+function resolveSize(total: number) {
+  if (total < 1000) return 'small'
+  if (total < 10000) return 'medium'
+  if (total < 100000) return 'large'
+
+  return 'xlarge'
+}
 
 export interface PaginationOptions {
   /**

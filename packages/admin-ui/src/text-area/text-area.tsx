@@ -10,7 +10,7 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
-import { Flex, FlexSpacer } from '..'
+import { Flex, FlexSpacer } from '../flex'
 
 import { useTextarea } from './use-text-area'
 

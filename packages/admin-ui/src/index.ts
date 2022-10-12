@@ -36,7 +36,6 @@ export * from './bulk-actions'
 export * from './filters'
 export * from './skeleton'
 export * from './pagination'
-
 export * from './components/Label'
 export * from './components/Collapsible'
 export * from './components/CollapsibleGroup'
@@ -62,7 +61,6 @@ export {
   isEdge,
 } from 'react-device-detect'
 export * from './components/SearchBox'
-export * from './components/DataView'
 export * from './components/SelectionTree'
 export * from './components/Field'
 export * from './components/Illustrations'

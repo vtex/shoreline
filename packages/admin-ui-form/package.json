@@ -2,10 +2,10 @@
   "name": "@vtex/admin-ui-form",
   "description": "Admin UI form library",
   "license": "MIT",
-  "version": "0.4.2",
+  "version": "0.4.3-dev.7",
   "main": "dist/vtex-admin-ui-form.cjs.js",
   "module": "dist/vtex-admin-ui-form.esm.js",
-  "typings": "dist/vtex-admin-ui-form.cjs.d.ts",
+  "types": "dist/vtex-admin-ui-form.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -16,6 +16,11 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
   },
   "repository": {
     "directory": "packages/admin-ui-form",
@@ -31,6 +36,7 @@
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
+    "@vtex/admin-ui": "^0.133.7-dev.6",
     "yup": "0.32.11"
   },
   "dependencies": {

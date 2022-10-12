@@ -1,16 +1,16 @@
 {
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
-    "baseUrl": "./",
     "stripInternal": true,
     "isolatedModules": true,
-    "declaration": true,
     "strict": true,
     "resolveJsonModule": true,
     "downlevelIteration": true,
-    "incremental": true,
+    "outDir": "dist",
+    "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "noEmit": true
   },
-  "exclude": ["node_modules", "dist", "stories", "test"]
+  "exclude": ["node_modules", "dist", "test", "stories"]
 }

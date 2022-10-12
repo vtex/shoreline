@@ -4,14 +4,14 @@ import faker from 'faker'
 
 import {
   Table,
-  TableBody,
-  TableBodyRow,
-  TableHead,
-  TableCell,
+  TBody,
+  TBodyRow,
+  THead,
   createColumns,
+  THeadCell,
+  TBodyCell,
 } from '../index'
 import { useTableState } from '../hooks/use-table-state'
-import { DataView, useDataViewState } from '../../components/DataView'
 
 export default {
   title: 'admin-ui-review/table/complexity',
@@ -25,7 +25,7 @@ interface Item {
   price: string
 }
 
-const items = [...Array(10).keys()].map((id) => {
+const items = [...Array(100).keys()].map((id) => {
   return {
     id: `${id}`,
     name: faker.commerce.productName(),
@@ -54,60 +54,42 @@ const columns = createColumns<Item>([
   },
 ])
 
-export function Zero() {
-  const state = useTableState<Item>({
-    columns,
-    items,
-  })
-
-  return <Table state={state} csx={{ width: 560 }} />
-}
-
-export function LevelOne() {
-  const view = useDataViewState()
-  const grid = useTableState<Item>({
-    columns,
-    items,
-    view,
-  })
-
-  return (
-    <DataView state={view}>
-      <Table state={grid} csx={{ width: 560 }} />
-    </DataView>
-  )
-}
-
-export function LevelTwo() {
-  const state = useTableState<Item>({
-    columns,
-    items,
-  })
-
-  return (
-    <Table state={state} csx={{ width: 560 }}>
-      <TableHead />
-      <TableBody />
-    </Table>
-  )
-}
-
 export function Full() {
-  const state = useTableState<Item>({
+  const [count, setCount] = React.useState(0)
+
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
   })
 
   return (
-    <Table state={state} csx={{ width: 560 }}>
-      <TableHead>
-        <TableCell />
-      </TableHead>
-      <TableBody>
-        <TableBodyRow>
-          <TableCell />
-        </TableBodyRow>
-      </TableBody>
-    </Table>
+    <>
+      <button
+        onClick={() => {
+          setCount((p) => p + 1)
+        }}
+      >
+        click {count}
+      </button>
+
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => {
+            return <THeadCell {...getHeadCell(column)} />
+          })}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
+    </>
   )
 }
