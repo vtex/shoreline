@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3-dev.6 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
 ## 0.4.3-dev.5 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
