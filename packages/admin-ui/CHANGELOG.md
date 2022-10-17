@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.133.7-dev.6 (2022-10-11)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## [0.133.7-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.4...@vtex/admin-ui@0.133.7-dev.5) (2022-10-07)
+
+
+### Bug Fixes
+
+* **table:** set fixed column position when window is resized ([0267b60](https://github.com/vtex/admin-ui/commit/0267b60f6eb69a55c6fb306cb49033caad6cae96))
+
+
+
+
+
+## 0.133.7-dev.4 (2022-10-06)
+
+
+### Bug Fixes
+
+* **filter:** fix filter search box oversized on desktop ([70084a3](https://github.com/vtex/admin-ui/commit/70084a3a2c5fab441579dbb97098567f25d70bc5))
+* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
+
+
+
+
+
+## 0.133.7-dev.3 (2022-10-06)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## 0.133.7-dev.2 (2022-09-20)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
 ## 0.133.7-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui

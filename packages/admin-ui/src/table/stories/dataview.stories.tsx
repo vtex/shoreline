@@ -3,27 +3,24 @@ import type { Meta } from '@storybook/react'
 import faker from 'faker'
 import { QueryStateProvider } from '@vtex/admin-ui-hooks'
 
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
-import { Table, useTableState } from '../index'
+  useTableState,
+  Table,
+  TBody,
+  TBodyRow,
+  THead,
+  createColumns,
+  THeadCell,
+  TBodyCell,
+} from '../index'
+
 import { Button } from '../../button'
 import { useSearchState, Search, useQuerySearchState } from '../../search'
-import { createColumns } from '../create-columns'
 import { Pagination, useQueryPaginationState } from '../../pagination'
 import { Stack } from '../../stack'
 import { TextInput } from '../../text-input'
 import { FlexSpacer } from '../../flex'
-import {
-  FilterGroup,
-  FilterMultiple,
-  Filter,
-  useFilterGroupState,
-  useFilterMultipleState,
-  useFilterState,
-} from '../../filters'
 
 export default {
   title: 'admin-ui-review/table/WithDataView',
@@ -72,8 +69,14 @@ export function SearchControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useTableState<Item>({
-    view,
+
+  const {
+    getBodyCell,
+    getHeadCell,
+    getTable,
+    data: tableData,
+  } = useTableState<Item>({
+    status: view.status,
     columns,
     items: data,
   })
@@ -94,30 +97,49 @@ export function SearchControls() {
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Search
           {...search.getInputProps()}
           csx={{
             width: 'full',
           }}
         />
-      </DataViewControls>
-      <Table state={grid} />
+      </DataViewHeader>
+
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => {
+            return <THeadCell {...getHeadCell(column)} />
+          })}
+        </THead>
+        <TBody>
+          {tableData.map((item) => {
+            return (
+              <TBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
 
 export function Status() {
   const view = useDataViewState()
-  const grid = useTableState<Item>({
-    view,
+
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
     columns,
     items,
   })
 
   return (
     <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>
           Loading
@@ -126,7 +148,6 @@ export function Status() {
           onClick={() =>
             view.setStatus({
               type: 'error',
-              message: 'Something went wrong',
               action: {
                 text: 'Try again',
                 onClick: () => alert('Clicked'),
@@ -136,22 +157,13 @@ export function Status() {
         >
           Error
         </Button>
-        <Button
-          onClick={() =>
-            view.setStatus({
-              type: 'not-found',
-              message: 'The params do not match',
-              suggestion: 'Try a different text',
-            })
-          }
-        >
+        <Button onClick={() => view.setStatus({ type: 'not-found' })}>
           Not Found
         </Button>
         <Button
           onClick={() =>
             view.setStatus({
               type: 'empty',
-              message: 'You do not have any product yet',
               action: {
                 text: 'Create one',
                 onClick: () => alert('Clicked'),
@@ -161,8 +173,26 @@ export function Status() {
         >
           Empty
         </Button>
-      </DataViewControls>
-      <Table state={grid} />
+      </DataViewHeader>
+
+      <Table {...getTable()}>
+        <THead>
+          {columns.map((column) => {
+            return <THeadCell {...getHeadCell(column)} />
+          })}
+        </THead>
+        <TBody>
+          {data.map((item) => {
+            return (
+              <TBodyRow key={item.id}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
@@ -187,8 +217,14 @@ export function QueryState() {
     })
 
     const search = useQuerySearchState({})
-    const grid = useTableState<Item>({
-      view,
+
+    const {
+      getBodyCell,
+      getHeadCell,
+      getTable,
+      data: tableData,
+    } = useTableState<Item>({
+      status: view.status,
       columns,
       items: data.slice(pagination.range[0] - 1, pagination.range[1]),
     })
@@ -221,12 +257,30 @@ export function QueryState() {
           helpText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
         />
         <DataView csx={{ width: 500 }} state={view}>
-          <DataViewControls>
+          <DataViewHeader>
             <Search {...search.getInputProps()} />
             <FlexSpacer />
             <Pagination state={pagination} />
-          </DataViewControls>
-          <Table state={grid} />
+          </DataViewHeader>
+
+          <Table {...getTable()}>
+            <THead>
+              {columns.map((column) => {
+                return <THeadCell {...getHeadCell(column)} />
+              })}
+            </THead>
+            <TBody>
+              {tableData.map((item) => {
+                return (
+                  <TBodyRow key={item.id}>
+                    {columns.map((column) => {
+                      return <TBodyCell {...getBodyCell(column, item)} />
+                    })}
+                  </TBodyRow>
+                )
+              })}
+            </TBody>
+          </Table>
         </DataView>
       </Stack>
     )
@@ -239,84 +293,105 @@ export function QueryState() {
   )
 }
 
-export function FilterControls() {
-  const [data, setData] = useState(items)
-  const view = useDataViewState()
+// TODO: Improve this story, because it's broken
+// export function FilterControls() {
+//   const [data, setData] = useState(items)
+//   const view = useDataViewState()
 
-  const grid = useTableState<Item>({
-    view,
-    columns,
-    items: data,
-  })
+//   const {
+//     getBodyCell,
+//     getHeadCell,
+//     getTable,
+//     data: tableData,
+//   } = useTableState<Item>({
+//     status: view.status,
+//     columns,
+//     items: data,
+//   })
 
-  const [quality, setQuality] = useState<string | number | null>()
-  const [brand, setBrand] = useState<Array<string | number> | null>()
+//   const [quality, setQuality] = useState<string | number | null>()
+//   const [brand, setBrand] = useState<Array<string | number> | null>()
 
-  const brandFilterState = useFilterMultipleState({
-    items: [
-      { label: 'Mistery brand', id: 'mistery_id' },
-      { label: 'Cool brand', id: 'cool_id' },
-    ],
-    onChange: ({ selected }) => {
-      const brands = selected.map((brand) => brand.id)
+//   const brandFilterState = useFilterMultipleState({
+//     items: [
+//       { label: 'Mistery brand', id: 'mistery_id' },
+//       { label: 'Cool brand', id: 'cool_id' },
+//     ],
+//     onChange: ({ selected }) => {
+//       const brands = selected.map((brand) => brand.id)
 
-      setBrand(brands)
-    },
-    label: 'Brand',
-  })
+//       setBrand(brands)
+//     },
+//     label: 'Brand',
+//   })
 
-  const qualityFilterState = useFilterState({
-    items: [
-      { label: 'Normal', id: 'norm' },
-      { label: 'Premium', id: 'prem' },
-    ],
-    onChange: ({ selected }) => {
-      if (!selected) return
+//   const qualityFilterState = useFilterState({
 
-      setQuality(selected.id)
-    },
-    label: 'Quality',
-  })
+//     onChange: ({ selected }) => {
+//       if (!selected) return
 
-  const filterGroupState = useFilterGroupState({
-    filterStates: [qualityFilterState, brandFilterState],
-  })
+//       setQuality(selected.id)
+//     },
+//     label: 'Quality',
+//   })
 
-  useEffect(() => {
-    const filtered = items.filter((item) => {
-      if (quality === 'norm' && Number(item.price) > 510) {
-        return false
-      }
+//   const filterGroupState = useFilterGroupState({
+//     filterStates: [qualityFilterState, brandFilterState],
+//   })
 
-      if (quality === 'prem' && Number(item.price) <= 510) {
-        return false
-      }
+//   useEffect(() => {
+//     const filtered = items.filter((item) => {
+//       if (quality === 'norm' && Number(item.price) > 510) {
+//         return false
+//       }
 
-      if (brand?.length) {
-        if (!brand?.includes('cool_id') && item.brand === 'cool_id') {
-          return false
-        }
+//       if (quality === 'prem' && Number(item.price) <= 510) {
+//         return false
+//       }
 
-        if (!brand?.includes('mistery_id') && item.brand === 'mistery_id') {
-          return false
-        }
-      }
+//       if (brand?.length) {
+//         if (!brand?.includes('cool_id') && item.brand === 'cool_id') {
+//           return false
+//         }
 
-      return true
-    })
+//         if (!brand?.includes('mistery_id') && item.brand === 'mistery_id') {
+//           return false
+//         }
+//       }
 
-    setData(filtered)
-  }, [quality, brand])
+//       return true
+//     })
 
-  return (
-    <DataView csx={{ width: 500 }} state={view}>
-      <DataViewControls>
-        <FilterGroup state={filterGroupState}>
-          <FilterMultiple state={brandFilterState} />
-          <Filter state={qualityFilterState} />
-        </FilterGroup>
-      </DataViewControls>
-      <Table state={grid} />
-    </DataView>
-  )
-}
+//     setData(filtered)
+//   }, [quality, brand])
+
+//   return (
+//     <DataView csx={{ width: 500 }} state={view}>
+//       <DataViewHeader>
+//         <FilterGroup state={filterGroupState}>
+//           <FilterMultiple state={brandFilterState} />
+//           <Filter state={qualityFilterState} />
+//         </FilterGroup>
+//       </DataViewHeader>
+
+//       <Table {...getTable()}>
+//         <THead>
+//           {columns.map((column) => {
+//             return <THeadCell {...getHeadCell(column)} />
+//           })}
+//         </THead>
+//         <TBody>
+//           {tableData.map((item) => {
+//             return (
+//               <TBodyRow key={item.id}>
+//                 {columns.map((column) => {
+//                   return <TBodyCell {...getBodyCell(column, item)} />
+//                 })}
+//               </TBodyRow>
+//             )
+//           })}
+//         </TBody>
+//       </Table>
+//     </DataView>
+//   )
+// }

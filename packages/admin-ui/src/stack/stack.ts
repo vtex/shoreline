@@ -68,6 +68,8 @@ export const Stack = createComponent<'div', StackOptions>((props) => {
   return useElement('div', stackProps)
 })
 
+Stack.displayName = 'Stack'
+
 export interface StackOptions {
   /**
    * direction of items

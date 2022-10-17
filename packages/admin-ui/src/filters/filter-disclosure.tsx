@@ -41,7 +41,12 @@ export const FilterDisclosure = createComponent<
   }, [])
 
   return useElement(MenuButton, {
-    baseStyle: style.disclosure,
+    baseStyle: {
+      ...style.disclosure,
+      ...style.disclosureVariants({
+        open: menu.mounted,
+      }),
+    },
     children: (
       <>
         {children}
@@ -53,6 +58,7 @@ export const FilterDisclosure = createComponent<
     ),
     state: menu,
     id,
+    className: '__admin-ui-filter-disclosure',
     ...restProps,
   })
 })

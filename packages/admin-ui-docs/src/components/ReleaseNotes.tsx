@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import {
-  useTableState,
   createColumns,
   Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
+  useTableState,
   Anchor,
   Heading,
   Box,
@@ -22,7 +27,7 @@ export function ReleaseNotes() {
     loading: true,
     error: null,
     empty: null,
-    notFound: null,
+    notFound: false,
   })
 
   const columns = createColumns<ReleaseNote>([
@@ -54,10 +59,10 @@ export function ReleaseNotes() {
     },
   ])
 
-  const table = useTableState({
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     items: releases,
     columns,
-    view,
+    status: view.status,
   })
 
   useEffect(() => {
@@ -82,7 +87,24 @@ export function ReleaseNotes() {
         }}
       >
         <Heading>Releases table</Heading>
-        <Table state={table} />
+        <Table {...getTable()}>
+          <THead>
+            {columns.map((column) => (
+              <THeadCell {...getHeadCell(column)} />
+            ))}
+          </THead>
+          <TBody>
+            {data.map((item) => {
+              return (
+                <TBodyRow key={item.html_url}>
+                  {columns.map((column) => {
+                    return <TBodyCell {...getBodyCell(column, item)} />
+                  })}
+                </TBodyRow>
+              )
+            })}
+          </TBody>
+        </Table>
       </Box>
     </DataView>
   )

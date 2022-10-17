@@ -4,12 +4,18 @@ import type {
   SearchFormState,
   UsePaginationReturn,
   UseDropdownReturnValue,
-  TableState,
+  UseTableStateReturn,
 } from '@vtex/admin-ui'
 import {
+  Flex,
   Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
   DataView,
-  DataViewControls,
+  DataViewHeader,
   Search,
   Dropdown,
   FlexSpacer,
@@ -21,35 +27,48 @@ import style from './styles'
 export function FilterTable<T>(props: TableFilterProps<T>) {
   const { pagination, table, filters, dataView, search, dropdown } = props
 
+  const { data, getBodyCell, getHeadCell, getTable, columns } = table
+
   return (
     <DataView state={dataView} csx={style.dataView}>
-      <DataViewControls csx={style.dataViewControls}>
-        <Search {...search.getInputProps()} />
-        <Dropdown
-          label="Filters"
-          state={dropdown}
-          items={filters}
-          variant="neutralTertiary"
-        />
-        <FlexSpacer />
-        {pagination && (
-          <Pagination
-            state={pagination}
-            preposition="of"
-            subject="results"
-            prevLabel="Previous"
-            nextLabel="Next"
+      <DataViewHeader csx={style.dataViewHeader}>
+        <Flex>
+          <Search {...search.getInputProps()} />
+          <Dropdown
+            label="Filters"
+            state={dropdown}
+            items={filters}
+            variant="neutralTertiary"
           />
-        )}
-      </DataViewControls>
-      <Table state={table} csx={style.table} />
+        </Flex>
+        <FlexSpacer />
+        {pagination && <Pagination state={pagination} />}
+      </DataViewHeader>
+      <Table {...getTable()} csx={style.table}>
+        <THead>
+          {columns.map((column) => (
+            <THeadCell {...getHeadCell(column)} />
+          ))}
+        </THead>
+        <TBody>
+          {data.map((item, id) => {
+            return (
+              <TBodyRow key={`filter-table-row-${id}`}>
+                {columns.map((column) => {
+                  return <TBodyCell {...getBodyCell(column, item)} />
+                })}
+              </TBodyRow>
+            )
+          })}
+        </TBody>
+      </Table>
     </DataView>
   )
 }
 
 interface TableFilterProps<T> {
   pagination?: UsePaginationReturn
-  table: TableState<T>
+  table: UseTableStateReturn<T>
   filters: string[]
   dataView: DataViewState
   search: SearchFormState

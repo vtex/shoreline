@@ -1,10 +1,16 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
-
-import { Table } from '../index'
-import { useTableState } from '../hooks/use-table-state'
-import { createColumns } from '../create-columns'
+import {
+  useTableState,
+  Table,
+  TBody,
+  TBodyRow,
+  THead,
+  createColumns,
+  THeadCell,
+  TBodyCell,
+} from '../index'
 
 export default {
   title: 'admin-ui-review/table/sortable',
@@ -50,10 +56,29 @@ const columns = createColumns<Item>([
 ])
 
 export function CompareFunction() {
-  const grid = useTableState<Item>({
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
     columns,
     items,
   })
 
-  return <Table state={grid} csx={{ width: 560 }} />
+  return (
+    <Table {...getTable()} csx={{ width: 560 }}>
+      <THead>
+        {columns.map((column) => {
+          return <THeadCell {...getHeadCell(column)} />
+        })}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow key={item.id}>
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
 }

@@ -1,11 +1,13 @@
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { DataViewContext } from '../context'
-import type { DataViewState } from '../state'
-import { DataViewStatus } from './DataViewStatus'
+import type { DataViewState } from '../data-view.state'
+import { DataViewStatus } from './data-view-status'
+import * as styles from './data-view.styles'
+import { Stack } from '../../stack'
 
 /**
- * Layout to organize DataTables, DataGrids and its controls
+ * Layout to organize Tables and its controllers
  * @example
  * const view = useDataViewState()
  *
@@ -14,15 +16,16 @@ import { DataViewStatus } from './DataViewStatus'
 export const DataView = createComponent<'div', DataViewOptions>((props) => {
   const { children, state, ...restProps } = props
 
+  const isEmpty = state.status === 'empty'
+
   return useElement('div', {
-    baseStyle: {
-      paddingY: '4',
-      overflow: 'auto',
-    },
+    baseStyle: styles.baseline,
     children: (
       <DataViewContext.Provider value={state}>
-        {children}
-        <DataViewStatus />
+        <Stack space="$2xl" csx={{ height: '100%' }}>
+          {isEmpty ? null : children}
+          <DataViewStatus />
+        </Stack>
       </DataViewContext.Provider>
     ),
     ...restProps,

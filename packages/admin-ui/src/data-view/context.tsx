@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-import type { DataViewState } from './state'
+import type { DataViewState } from './data-view.state'
 
 export const DataViewContext = createContext<DataViewState>({
   status: 'ready',
@@ -8,7 +8,7 @@ export const DataViewContext = createContext<DataViewState>({
     loading: false,
     empty: null,
     error: null,
-    notFound: null,
+    notFound: false,
   },
   setStatus: () => null,
 })

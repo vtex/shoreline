@@ -1,11 +1,12 @@
 import type { Dispatch } from 'react'
 import { useCallback, useMemo, useReducer } from 'react'
+import invariant from 'tiny-invariant'
 
 const defaultState: DataViewStatusObject = {
   loading: false,
   error: null,
   empty: null,
-  notFound: null,
+  notFound: false,
 }
 
 /**
@@ -46,14 +47,14 @@ export function useDataViewState(
 /**
  * State reducer
  */
-function reducer(_: DataViewStatusObject, action: Action) {
+function reducer(_: DataViewStatusObject, action: StatusReducerAction) {
   switch (action.type) {
     case 'loading': {
       return {
         loading: true,
         error: null,
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -62,7 +63,7 @@ function reducer(_: DataViewStatusObject, action: Action) {
         loading: false,
         error: null,
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -70,11 +71,10 @@ function reducer(_: DataViewStatusObject, action: Action) {
       return {
         loading: false,
         error: {
-          message: action.message,
           action: action.action,
         },
         empty: null,
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -83,10 +83,9 @@ function reducer(_: DataViewStatusObject, action: Action) {
         loading: false,
         error: null,
         empty: {
-          message: action.message,
           action: action.action,
         },
-        notFound: null,
+        notFound: false,
       }
     }
 
@@ -95,15 +94,13 @@ function reducer(_: DataViewStatusObject, action: Action) {
         loading: false,
         error: null,
         empty: null,
-        notFound: {
-          message: action.message,
-          suggestion: action.suggestion,
-        },
+        notFound: true,
       }
     }
 
     default: {
-      throw new Error(
+      invariant(
+        false,
         'Pass one of the valid types: ready | loading | empty | error | not-found'
       )
     }
@@ -112,7 +109,7 @@ function reducer(_: DataViewStatusObject, action: Action) {
 
 export interface DataViewStatusObject {
   loading: boolean
-  notFound: NotFoundState | null
+  notFound: boolean
   error: ErrorState | null
   empty: EmptyState | null
 }
@@ -124,7 +121,7 @@ export type DataViewStatus =
   | 'empty'
   | 'error'
 
-export type DataViewStatusDispatch = Dispatch<Action>
+export type DataViewStatusDispatch = Dispatch<StatusReducerAction>
 
 export interface DataViewState {
   status: DataViewStatus
@@ -132,47 +129,31 @@ export interface DataViewState {
   setStatus: DataViewStatusDispatch
 }
 
-interface NotFoundState {
-  message: string
-  suggestion?: string
-}
+export type StatusAction =
+  | {
+      text: string
+      onClick: () => void
+      href?: string
+    }
+  | {
+      text: string
+      href: string
+      onClick?: () => void
+    }
 
 interface ErrorState {
-  message: string
-  action?:
-    | {
-        text: string
-        onClick: () => void
-        href?: string
-      }
-    | {
-        text: string
-        href: string
-        onClick?: () => void
-      }
+  action?: StatusAction
 }
 
 interface EmptyState {
-  message: string
-  action?:
-    | {
-        text: string
-        onClick: () => void
-        href?: string
-      }
-    | {
-        text: string
-        href: string
-        onClick?: () => void
-      }
+  action?: StatusAction
 }
 
 type AliasedState<T, S> = { type: T } & S
 
-type Action =
+type StatusReducerAction =
   | {
-      type: 'ready' | 'loading'
+      type: 'ready' | 'loading' | 'not-found'
     }
-  | AliasedState<'not-found', NotFoundState>
   | AliasedState<'error', ErrorState>
   | AliasedState<'empty', EmptyState>

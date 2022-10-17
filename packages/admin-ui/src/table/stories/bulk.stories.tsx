@@ -2,12 +2,16 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import faker from 'faker'
 
+import { DataView, DataViewHeader, useDataViewState } from '../../data-view'
 import {
-  DataView,
-  DataViewControls,
-  useDataViewState,
-} from '../../components/DataView'
-import { Table, useTableState } from '../index'
+  Table,
+  TBody,
+  TBodyRow,
+  THeadCell,
+  THead,
+  TBodyCell,
+  useTableState,
+} from '../index'
 import { Button } from '../../button'
 import { createColumns } from '../create-columns'
 import { IconTrash, IconPencil, IconCopy } from '@vtex/phosphor-icons'
@@ -50,7 +54,7 @@ export function Bulk() {
   const view = useDataViewState()
 
   const pagination = usePaginationState({
-    pageSize: 25,
+    pageSize: 100,
     total: items.length,
   })
 
@@ -92,8 +96,8 @@ export function Bulk() {
     },
   ])
 
-  const grid = useTableState<Item>({
-    view,
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
     columns,
     items: pageItems,
   })
@@ -107,10 +111,10 @@ export function Bulk() {
       </PageHeader>
       <PageContent layout="wide">
         <DataView state={view}>
-          <DataViewControls>
+          <DataViewHeader>
             <FlexSpacer />
             <Pagination state={pagination} />
-          </DataViewControls>
+          </DataViewHeader>
           <BulkActions state={bulk}>
             <Button variant="tertiary" icon={<IconPencil />}>
               Edit
@@ -123,7 +127,27 @@ export function Bulk() {
             </Button>
           </BulkActions>
           <SelectionTree state={bulk.selectionTree}>
-            <Table state={grid} />
+            <Table {...getTable()}>
+              <THead>
+                {columns.map((column) => {
+                  return <THeadCell {...getHeadCell(column)} />
+                })}
+              </THead>
+              <TBody>
+                {data.map((item) => {
+                  return (
+                    <TBodyRow
+                      key={item.id}
+                      selected={bulk.isItemSelected(item)}
+                    >
+                      {columns.map((column) => {
+                        return <TBodyCell {...getBodyCell(column, item)} />
+                      })}
+                    </TBodyRow>
+                  )
+                })}
+              </TBody>
+            </Table>
           </SelectionTree>
         </DataView>
       </PageContent>
@@ -158,28 +182,30 @@ export function BulkWithLoading() {
     pageSize: ITEMS_PER_PAGE,
   })
 
-  const table = useTableState({
-    view,
-    columns: [
-      { id: 'id', resolver: { type: 'bulk', state: bulk } },
-      {
-        id: 'name',
-        header: 'Product Name',
+  const columns = createColumns([
+    { id: 'id', resolver: { type: 'bulk', state: bulk } },
+    {
+      id: 'name',
+      header: 'Product Name',
+    },
+    {
+      id: 'lastSale',
+      header: 'Last Sale',
+    },
+    {
+      id: 'price',
+      header: 'Price',
+      resolver: {
+        type: 'currency',
+        locale: 'en-US',
+        currency: 'USD',
       },
-      {
-        id: 'lastSale',
-        header: 'Last Sale',
-      },
-      {
-        id: 'price',
-        header: 'Price',
-        resolver: {
-          type: 'currency',
-          locale: 'en-US',
-          currency: 'USD',
-        },
-      },
-    ],
+    },
+  ])
+
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState<Item>({
+    status: view.status,
+    columns,
     items,
   })
 
@@ -193,15 +219,32 @@ export function BulkWithLoading() {
 
   return (
     <DataView state={view}>
-      <DataViewControls>
+      <DataViewHeader>
         <FlexSpacer />
         <Pagination state={pagination} />
         <BulkActions state={bulk}>
           <Button variant="tertiary"> Apply 50% discount</Button>
         </BulkActions>
-      </DataViewControls>
+      </DataViewHeader>
       <SelectionTree state={bulk.selectionTree}>
-        <Table state={table} />
+        <Table {...getTable()}>
+          <THead>
+            {columns.map((column) => {
+              return <THeadCell {...getHeadCell(column)} />
+            })}
+          </THead>
+          <TBody>
+            {data.map((item) => {
+              return (
+                <TBodyRow key={item.id} selected={bulk.isItemSelected(item)}>
+                  {columns.map((column) => {
+                    return <TBodyCell {...getBodyCell(column, item)} />
+                  })}
+                </TBodyRow>
+              )
+            })}
+          </TBody>
+        </Table>
       </SelectionTree>
     </DataView>
   )

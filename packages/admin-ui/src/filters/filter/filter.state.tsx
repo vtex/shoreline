@@ -47,14 +47,6 @@ export function useFilterState<T extends AnyObject>(
   }
 
   useEffect(() => {
-    // auto applies whenever a new value is selected
-    if (combobox.selectedItem && combobox.selectedItem !== appliedItem) {
-      apply()
-      combobox.setValue('')
-    }
-  }, [combobox.selectedItem])
-
-  useEffect(() => {
     const isMenuClosed = !menu.mounted
 
     if (isMenuClosed && combobox.value) {
