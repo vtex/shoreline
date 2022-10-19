@@ -259,35 +259,23 @@ export const textTokens = asLiterals([
 ])
 
 export const spaceTokens = asLiterals([
-  '$xs',
-  '$s',
-  '$m',
-  '$l',
-  '$xl',
-  '$2xl',
-  '$narrow.s',
-  '$narrow.m',
-  '$narrow.l',
-])
-
-export const hspaceTokens = asLiterals([
-  '$xs',
-  '$s',
-  '$m',
-  '$l',
-  '$xl',
-  '$2xl',
-  '$3xl',
-])
-
-export const vspaceTokens = asLiterals([
-  '$xs',
-  '$s',
-  '$m',
-  '$l',
-  '$xl',
-  '$2xl',
-  '$3xl',
+  '$space-0',
+  '$space-05',
+  '$space-1',
+  '$space-2',
+  '$space-3',
+  '$space-4',
+  '$space-5',
+  '$space-6',
+  '$space-7',
+  '$space-8',
+  '$space-10',
+  '$space-12',
+  '$space-16',
+  '$space-20',
+  '$space-24',
+  '$space-28',
+  '$space-32',
 ])
 
 export type ColorTokens = typeof colorTokens[number]
@@ -297,8 +285,6 @@ export type BorderTokens = typeof borderTokens[number]
 export type ShadowTokens = typeof shadowTokens[number]
 export type TextTokens = typeof textTokens[number]
 export type SpaceTokens = typeof spaceTokens[number]
-export type HSpaceTokens = typeof hspaceTokens[number]
-export type VSpaceTokens = typeof vspaceTokens[number]
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
@@ -329,19 +315,19 @@ export interface AliasesCSSProperties {
   /**
    * Shorthand for marginLeft & marginRight
    */
-  marginX?: HSpaceTokens | CSS.Property.MarginLeft | number
+  marginX?: SpaceTokens | CSS.Property.MarginLeft | number
   /**
    * Shorthand for marginTop & marginBottom
    */
-  marginY?: VSpaceTokens | CSS.Property.MarginTop | number
+  marginY?: SpaceTokens | CSS.Property.MarginTop | number
   /**
    * Shorthand for paddingLeft & paddingRight
    */
-  paddingX?: HSpaceTokens | CSS.Property.PaddingLeft | number
+  paddingX?: SpaceTokens | CSS.Property.PaddingLeft | number
   /**
    * Shorthand for paddingTop & paddingBottom
    */
-  paddingY?: VSpaceTokens | CSS.Property.PaddingTop | number
+  paddingY?: SpaceTokens | CSS.Property.PaddingTop | number
   /**
    * Shorthand for width & height
    */
@@ -469,19 +455,19 @@ export interface OverwriteCSSProperties {
   /**
    * CSS **paddingTop** property
    */
-  paddingTop?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
+  paddingTop?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingBottom** property
    */
-  paddingBottom?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
+  paddingBottom?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingLeft** property
    */
-  paddingLeft?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
+  paddingLeft?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **paddingRight** property
    */
-  paddingRight?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
+  paddingRight?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **margin** property
    */
@@ -489,19 +475,19 @@ export interface OverwriteCSSProperties {
   /**
    * CSS **marginTop** property
    */
-  marginTop?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
+  marginTop?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginBottom** property
    */
-  marginBottom?: CSSPropAutocomplete<VSpaceTokens> | CSS.Globals | number
+  marginBottom?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginLeft** property
    */
-  marginLeft?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
+  marginLeft?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
   /**
    * CSS **marginRight** property
    */
-  marginRight?: CSSPropAutocomplete<HSpaceTokens> | CSS.Globals | number
+  marginRight?: CSSPropAutocomplete<SpaceTokens> | CSS.Globals | number
 }
 
 /**

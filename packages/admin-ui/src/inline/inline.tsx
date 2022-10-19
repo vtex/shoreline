@@ -1,7 +1,6 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type {
-  HSpaceTokens,
-  VSpaceTokens,
+  SpaceTokens,
   CSSPropAutocomplete,
 } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
@@ -41,12 +40,12 @@ export interface InlineProps {
    * Vertical space
    * @default '$s'
    */
-  vSpace?: CSSPropAutocomplete<VSpaceTokens>
+  vSpace?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Horizontal space
    * @default '$s'
    */
-  hSpace?: CSSPropAutocomplete<HSpaceTokens>
+  hSpace?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Disable wrap
    * @default false
