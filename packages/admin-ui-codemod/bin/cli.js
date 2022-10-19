@@ -122,6 +122,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'alert-review: Update Alert props to the latest specs (0.133.0+)',
     value: 'alert-review',
   },
+  {
+    name: 'tokens review',
+    value: 'space-tokens-review',
+  },
 ]
 
 // tsx or jsx
