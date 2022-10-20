@@ -27,6 +27,10 @@ const spacingProps = {
   scrollPaddingY: 'vspace',
   top: 'vspace',
   bottom: 'vspace',
+
+  hSpace: 'hspace',
+  vSpace: 'vspace',
+  space: 'hspace', // columns have prop space for paddingLeft
 }
 
 function replaceConditional(j, key, value) {
@@ -41,6 +45,49 @@ function replaceConditional(j, key, value) {
   }
 }
 
+function replaceNegative(j, key, callExp) {
+  const tokenVal = callExp.arguments[0].value
+
+  if (callExp.callee.name !== 'negative' || typeof tokenVal !== 'string') {
+    return
+  }
+
+  const transform = getContextualSpaceTransform(key.name)
+
+  callExp.arguments[0] = j.stringLiteral(transform(tokenVal))
+}
+
+function transformValue(j, propKey, value) {
+  // case {padding: true ? '$xs' : '$l'}
+  if (value.type === 'ConditionalExpression') {
+    replaceConditional(j, propKey, value)
+  }
+
+  // case {padding: negative('$l')}
+  if (value.type === 'CallExpression') {
+    replaceNegative(j, propKey, value)
+  }
+
+  // case {paddingY: { mobile: '$l', tablet: '$m' } }
+  if (value.type === 'ObjectExpression') {
+    // recursive call for each object entry
+    value.properties.forEach((responsiveExpression) => {
+      if (responsiveExpression.value.type !== 'ObjectExpression') {
+        // using parent key for context, that is the actual css prop
+        transformValue(j, propKey, responsiveExpression.value)
+      }
+    })
+  }
+
+  if (typeof value.value !== 'string') {
+    return
+  }
+
+  const transform = getContextualSpaceTransform(propKey.name)
+
+  value.value = transform(value.value)
+}
+
 function replace(source, j) {
   return j(source)
     .find(j.ObjectExpression)
@@ -49,29 +96,62 @@ function replace(source, j) {
 
       csxProps.forEach(({ key, value }) => {
         if (key && key.name in spacingProps) {
-          if (value.type === 'ConditionalExpression') {
-            replaceConditional(j, key, value)
-          }
-
-          if (typeof value.value !== 'string') {
-            return
-          }
-
-          const transform = getContextualSpaceTransform(key.name)
-
-          value.value = transform(value.value)
+          // changes token value for many value types
+          transformValue(j, key, value)
         }
       })
     })
     .toSource({ quote: 'single' })
 }
 
+function replaceAttributes(source, j, componentName) {
+  return j(source)
+    .find(j.JSXOpeningElement, { name: { name: componentName } })
+    .forEach((JSX) => {
+      const { attributes } = JSX.value
+
+      // stack is an exception
+      const directionContextualKey =
+        componentName === 'Stack' ? getStackDirection(attributes) : ''
+
+      attributes.forEach((attribute) => {
+        if (attribute?.name?.name in spacingProps) {
+          const value = extractExpression(attribute.value)
+
+          const contextualKey = directionContextualKey || attribute.name
+
+          transformValue(j, contextualKey, value)
+        }
+      })
+    })
+    .toSource({})
+}
+
 const formatValue = (prop) => {
   return prop.replace('$', '')
 }
 
-function getContextualSpaceTransform(cssKey) {
-  const spaceType = spacingProps[cssKey]
+function extractExpression(jsxAttribute) {
+  if (jsxAttribute.type !== 'JSXExpressionContainer') {
+    return jsxAttribute
+  }
+
+  return jsxAttribute.expression
+}
+
+function getStackDirection(stackAttributes) {
+  const defaultValue = 'vSpace'
+  const directionAtt = stackAttributes.find(
+    (att) => att.name?.name === 'direction'
+  )
+
+  return {
+    name: directionAtt?.value?.value === 'row' ? 'hSpace' : defaultValue,
+  }
+}
+
+function getContextualSpaceTransform(cssContextKey) {
+  const spaceType = spacingProps[cssContextKey]
 
   return {
     space: transformToSpace,
@@ -134,6 +214,10 @@ module.exports = function (file, { jscodeshift: j }) {
   let { source } = file
 
   source = replace(source, j)
+  source = replaceAttributes(source, j, 'Inline')
+  source = replaceAttributes(source, j, 'Bleed')
+  source = replaceAttributes(source, j, 'Columns')
+  source = replaceAttributes(source, j, 'Stack') // special case
 
   return source
 }

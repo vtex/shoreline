@@ -7,7 +7,7 @@ describe('Other token interactions', () => {
     {},
     "<div csx={{color: '$blue'}} />",
     "<div csx={{color: '$blue'}} />",
-    'preserve non-spacing tokens'
+    'preserves non-spacing tokens'
   )
 
   defineInlineTest(
@@ -15,7 +15,7 @@ describe('Other token interactions', () => {
     {},
     "<div csx={{color: '#000002', margin: '2rem 4rem', paddingBottom: '2rem', height: 1}} />",
     "<div csx={{color: '#000002', margin: '2rem 4rem', paddingBottom: '2rem', height: 1}} />",
-    'preserve raw values'
+    'preserves raw values'
   )
 
   defineInlineTest(
@@ -23,7 +23,7 @@ describe('Other token interactions', () => {
     {},
     "<div csx={{margin: '2rem 4rem', paddingBottom: '$xs', paddingRight: '$space-1'}} />",
     "<div csx={{margin: '2rem 4rem', paddingBottom: '$space-0', paddingRight: '$space-1'}} />",
-    'change only deprecated space tokens'
+    'changes only deprecated space tokens'
   )
 
   defineInlineTest(
@@ -40,6 +40,32 @@ describe('Other token interactions', () => {
     "const styles = {...other, padding: '$xs'}; <div csx={styles} />",
     "const styles = {...other, padding: '$space-1 $space-2'}; <div csx={styles} />",
     'handles spread operator'
+  )
+})
+
+describe('Responsive tokens', () => {
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ padding: {mobile: '$xs', tablet: '$l'} })",
+    "export const baseline = style({ padding: {mobile: '$space-1 $space-2', tablet: '$space-4 $space-5'} })",
+    'transforms responsive token based on css key'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ paddingY: {mobile: negative('$s'), tablet: '$l'} })",
+    "export const baseline = style({ paddingY: {mobile: negative('$space-05'), tablet: '$space-2'} })",
+    'handles negative tokens'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ paddingY: {mobile: condition ? '$s' : '$xs', tablet: '$l'} })",
+    "export const baseline = style({ paddingY: {mobile: condition ? '$space-05' : '$space-0', tablet: '$space-2'} })",
+    'handles negative tokens'
   )
 })
 
@@ -114,5 +140,87 @@ describe('Token transform', () => {
     "export const baseline = style({ padding: true ? '$xs' : '$l' })",
     "export const baseline = style({ padding: true ? '$space-1 $space-2' : '$space-4 $space-5' })",
     'handles conditional expressions'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ paddingX: negative('xs') })",
+    "export const baseline = style({ paddingX: negative('$space-05') })",
+    'handles negative tokens'
+  )
+})
+
+describe('Tokens as jsx attributes', () => {
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Bleed top="$xl" left="$xs"/>',
+    '<Bleed top="$space-4" left="$space-05"/>',
+    'transforms bleed props'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Stack space="$l"/>',
+    '<Stack space="$space-2"/>',
+    'transforms stack props'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Inline vSpace="$xl" hSpace="$xl"/>',
+    '<Inline vSpace="$space-4" hSpace="$space-5"/>',
+    'transforms inline props'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Columns space="$m"/>',
+    '<Columns space="$space-2"/>',
+    'transforms columns props'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Stack direction="row" space="$l"/>',
+    '<Stack direction="row" space="$space-3"/>',
+    'uses stacks direction for context'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "<Columns space={{mobile: negative('$s'), tablet: '$l'}}/>",
+    "<Columns space={{mobile: negative(\"$space-1\"), tablet: \"$space-3\"}}/>",
+    'handles responsive values'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "<Columns space={negative('$s')} />",
+    "<Columns space={negative(\"$space-1\")} />",
+    'handles negative values'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "<Columns space={condition ? '$xs' : '$s'} />",
+    "<Columns space={condition ? \"$space-05\" : \"$space-1\"} />",
+    'handles conditional values'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    '<Bleed bottom={"$xs"} />',
+    '<Bleed bottom={"$space-0"} />',
+    'handles string inside expression'
   )
 })
