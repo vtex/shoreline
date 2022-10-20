@@ -33,14 +33,27 @@ const spacingProps = {
   space: 'hspace', // columns have prop space for paddingLeft
 }
 
+const legacyTokens = {
+  0: '$space-0',
+  1: '$space-1',
+  2: '$space-2',
+  3: '$space-3',
+  4: '$space-4',
+  5: '$space-5',
+  6: '$space-6',
+  7: '$space-7',
+  8: '$space-8',
+  '2px': '$space-05',
+}
+
 function replaceConditional(j, key, value) {
   const transform = getContextualSpaceTransform(key.name)
 
-  if (typeof value.consequent.value === 'string') {
+  if (typeof value.consequent.value === 'string' || typeof value.consequent.value === 'number') {
     value.consequent = j.stringLiteral(transform(value.consequent.value))
   }
 
-  if (typeof value.alternate.value === 'string') {
+  if (typeof value.alternate.value === 'string' || typeof value.alternate.value === 'number') {
     value.alternate = j.stringLiteral(transform(value.alternate.value))
   }
 }
@@ -48,7 +61,7 @@ function replaceConditional(j, key, value) {
 function replaceNegative(j, key, callExp) {
   const tokenVal = callExp.arguments[0].value
 
-  if (callExp.callee.name !== 'negative' || typeof tokenVal !== 'string') {
+  if (callExp.callee.name !== 'negative' || (typeof tokenVal !== 'string' && typeof tokenVal !== 'number')) {
     return
   }
 
@@ -79,13 +92,17 @@ function transformValue(j, propKey, value) {
     })
   }
 
-  if (typeof value.value !== 'string') {
+  // if (typeof value.value === 'integer') {
+
+  // }
+
+  if (typeof value.value !== 'string' && typeof value.value !== 'number') {
     return
   }
 
   const transform = getContextualSpaceTransform(propKey.name)
 
-  value.value = transform(value.value)
+  value.value = transform(value.value.toString())
 }
 
 function replace(source, j) {
@@ -128,7 +145,7 @@ function replaceAttributes(source, j, componentName) {
 }
 
 const formatValue = (prop) => {
-  return prop.replace('$', '')
+  return prop.toString().replace('$', '')
 }
 
 function extractExpression(jsxAttribute) {
@@ -165,6 +182,7 @@ function transformToSpace(rawValue) {
 
   return (
     {
+      ...legacyTokens,
       xs: '$space-1 $space-2',
       s: '$space-2 $space-3',
       m: '$space-3 $space-4',
@@ -183,6 +201,7 @@ function transformToHspace(rawValue) {
 
   return (
     {
+      ...legacyTokens,
       xs: '$space-05',
       s: '$space-1',
       m: '$space-2',
@@ -199,6 +218,7 @@ function transformToVspace(rawValue) {
 
   return (
     {
+      ...legacyTokens,
       xs: '$space-0',
       s: '$space-05',
       m: '$space-1',
