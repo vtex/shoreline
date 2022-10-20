@@ -29,18 +29,62 @@ describe('Other token interactions', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    'export const baseline = style({ padding: true ? 1 : 2 })',
-    'export const baseline = style({ padding: true ? 1 : 2 })',
+    "const styles = {...other, padding: '$xs'}; <div csx={styles} />",
+    "const styles = {...other, padding: '$space-1 $space-2'}; <div csx={styles} />",
+    'handles spread operator'
+  )
+})
+
+describe('Number tokens transform', () => {
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    'export const baseline = style({ padding: 1 })',
+    "export const baseline = style({ padding: '$space-1' })",
+    'handles expression with integer tokens'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ padding: '1', margin: '2px', bottom: '$1', left: '$2px' })",
+    "export const baseline = style({ padding: '$space-1', margin: '$space-05', bottom: '$space-1', left: '$space-05' })",
+    'handles expression with string tokens'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ padding: true ? 1 : 2 })",
+    "export const baseline = style({ padding: true ? '$space-1' : '$space-2' })",
     'handles conditional expression with integer tokens'
   )
 
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "const styles = {...other, padding: '$xs'}; <div csx={styles} />",
-    "const styles = {...other, padding: '$space-1 $space-2'}; <div csx={styles} />",
-    'handles spread operator'
+    "export const baseline = style({ padding: negative(2) })",
+    "export const baseline = style({ padding: negative('$space-2') })",
+    'handles conditional expression with integer tokens'
   )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ padding: negative(2) })",
+    "export const baseline = style({ padding: negative('$space-2') })",
+    'handles negative expression with integer tokens'
+  )
+
+  defineInlineTest(
+    spaceTokenTransform,
+    {},
+    "export const baseline = style({ padding: {mobile: 1, tablet: 2} })",
+    "export const baseline = style({ padding: {mobile: '$space-1', tablet: '$space-2'} })",
+    'handles responsive token with integer values'
+  )
+
+
 })
 
 describe('Responsive tokens', () => {
@@ -129,8 +173,8 @@ describe('Token transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({width: '100%', position: 'fixed', bottom: '$2xl', left: 0, '> *': { padding: '$xs', }})",
-    "export const baseline = style({width: '100%', position: 'fixed', bottom: '$space-6', left: 0, '> *': { padding: '$space-1 $space-2', }})",
+    "export const baseline = style({width: '100%', position: 'fixed', bottom: '$2xl', '> *': { padding: '$xs', }})",
+    "export const baseline = style({width: '100%', position: 'fixed', bottom: '$space-6', '> *': { padding: '$space-1 $space-2', }})",
     'handles selectors'
   )
 
