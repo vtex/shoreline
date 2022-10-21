@@ -92,17 +92,19 @@ function transformValue(j, propKey, value) {
     })
   }
 
-  // if (typeof value.value === 'integer') {
-
-  // }
-
   if (typeof value.value !== 'string' && typeof value.value !== 'number') {
     return
   }
 
   const transform = getContextualSpaceTransform(propKey.name)
 
-  value.value = transform(value.value.toString())
+  const transformedValue = transform(value.value)
+
+
+  value.value = transformedValue
+  if (value.type === 'NumericLiteral' && typeof transformedValue === 'string') {
+    value.type = 'StringLiteral'
+  }
 }
 
 function replace(source, j) {
