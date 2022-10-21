@@ -1,0 +1,22 @@
+---
+title: Flex
+path: /flex/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import Code from '@site/content/flex/code.mdx'
+import Overview from '@site/content/flex/overview.mdx'
+import { tabToc } from '@site/content/flex/toc'
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    <Overview />
+  </Panel>
+  <Panel id="codeReference">
+    <Code />
+  </Panel>
+  <Panel id="designReference">
+    <Design />
+  </Panel>
+</Page>
