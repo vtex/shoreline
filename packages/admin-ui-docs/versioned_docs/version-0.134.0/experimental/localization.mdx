@@ -1,0 +1,121 @@
+---
+title: Localization
+path: /localization/
+---
+
+Some components are localized by default. It involves both language translation and `rtl/ltr` layouts.
+
+## I18nProvider
+
+The `I18nProvider` allows you to change the default locale from the localized components, which is `en-US` by default.
+
+```jsx
+import { experimental_I18nProvider as I18nProvider } from '@vtex/admin-ui'
+
+function Example() {
+  return (
+    <I18nProvider locale="pt-BR">
+      <RootApp />
+    </I18nProvider>
+  )
+}
+```
+
+## Props
+
+| Name     | Type        | Description                 | Required | Default |
+| -------- | ----------- | --------------------------- | -------- | ------- |
+| locale   | `string`    | Current locale              | 🚫       | -       |
+| children | `ReactNode` | Content to apply the locale | 🚫       | -       |
+
+
+## Recommendations
+
+Consider the following linguistic and cultural issues that affect localization when developing a new feature, product or app.
+
+### Text expansion
+
+The amount of space required for the same content written in different languages varies greatly. Most European languages are usually longer than English, for example.
+
+You should leave room to allow for at least 30% of text expansion. However, in short sentences, such as text on a UI button, expansion can reach 300% or more.
+
+The design team can help and find ways to adjust font size or spacing, but the best approach is to ask content creators to always leave some white space available.
+
+Please note vertical space should also be considered. For example, Chinese is usually shorter on the horizontal axis than English, but it may require a little more space vertically.
+
+Also pay attention to font sizes, as most characters in languages such as English can still be readable at a 7-point size, but some characters in Chinese will be harder to decipher. In other words, make better use of the space, as this will make your content more enjoyable for all users.
+
+### Bidirectionality
+
+This term applies to languages that are read and written from right to left, such as Arabic or Hebrew. But what happens when an English word is embedded in Arabic content?
+
+That kind of situation usually depends on a lot of factors, so your best choice is to always trust a language specialist and use invisible Unicode control tags accordingly. but which also use words from other languages, written from left to right.
+
+
+### Forms used to collect personal information
+
+Ideally, registration and similar forms should be dynamic to allow the embracing of different rules for each country or region, such as an address, phone number, postal code, etc.
+
+It's not a good idea to simply force people to provide a zipcode or a phone number with certain area codes. This may mark the content as foreign.
+
+Also always account for non-ASCII characters, such as a letter c with a cedilla (ç), a letter n with a tilde (ñ), or a letter u with an umlaut (ü). They are perfectly valid in several languages and may be used in names, addresses, etc.
+
+
+### Sorting (Collation)
+
+Different languages may have their own rules for sorting information, and that will affect drop-down menus and any other component that includes lists of terms.
+
+You should not use a static sorting order based in a single language. Instead, dynamically sort items in any list based on the user’s language rules.
+
+### Gender and Possessive Forms
+
+:::caution
+
+Always check with a language engineer or specialist to make sure you account for all possible gender variations.
+
+:::
+
+Some languages, like English, are almost gender-neutral and do not require any kind of gender (or number) agreement between adjectives and nouns.
+
+Because of that, a single sentence in English may have several different translations in other languages. For example, in French:
+
+- *Dear <first name\>*:
+    - *Cher <male first name\>*
+    - *Chère <female first name\>*
+
+Similarly, two different strings in English can have a single translation, due to the lack of variation in a different language. In French, for example, the possessive pronoun agrees in gender with the possessed item, regardless of the owner’s gender.
+
+- *His car* or *Her car*:
+  - *Sa voiture*
+- *His boat* or *Her boat*:
+  - *Son bateau*
+
+
+### Plural Forms
+
+:::caution
+
+Always check with a language engineer or specialist to make sure you account for all possible plural variations.
+
+:::
+
+Some languages are very simple when forming their plural and include only two options: the **singular** for a single unit, and the **plural** for all other numbers.
+
+However, there are languages with a much more detailed plural system that may include up to six different plural forms.
+
+Here, too, [Unicode](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html) is your friend, as it presents everything there is to know about it in its technical reports.
+
+### Concatenation and placeholders
+
+Word order is highly different from one language to another. A phrase like "Results 11-20 of 136" will become “結果136の11~20” in Japanese, with the *136* before *11 to 20.*
+
+If your strings are segmented as “Results” and “from” and concatenated at runtime as “Results <*range start*>-<*range end*> of <*total*>”, the Japanese content would mimic the English order, which would be incorrect.
+
+Ideally, this should be a single string “Results {0}-{1} of {2}”, so translators can put the placeholder variables in the right position in the translated version.
+
+Although many languages use grammatical constructions based on the Subject-Verb-Object (SVO) order of English, for example, Japanese uses Subject-Object-Verb (SOV), which is actually the most common type among natural languages with a preference for word order.
+
+
+### Additional resources
+
+- [Globalization Strategy Playbook](https://github.com/GILT-Forum/Globalization-Strategy-Playbook/blob/main/english/playbook.md)
