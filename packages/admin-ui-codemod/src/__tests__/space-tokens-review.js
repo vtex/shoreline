@@ -47,8 +47,8 @@ describe('Number tokens transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({ padding: '1', margin: '2px', bottom: '$1', left: '$2px' })",
-    "export const baseline = style({ padding: '$space-1', margin: '$space-05', bottom: '$space-1', left: '$space-05' })",
+    "export const baseline = style({ padding: '1', margin: '2px', bottom: '$1', left: '$px' })",
+    "export const baseline = style({ padding: '$space-1', margin: '$space-05', bottom: '$space-1', left: '0.0625rem' })",
     'handles expression with string tokens'
   )
 

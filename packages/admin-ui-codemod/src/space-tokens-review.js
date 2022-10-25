@@ -43,17 +43,18 @@ const legacyTokens = {
   6: '$space-6',
   7: '$space-7',
   8: '$space-8',
+  px: '0.0625rem',
   '2px': '$space-05',
 }
 
 function replaceConditional(j, key, value) {
   const transform = getContextualSpaceTransform(key.name)
 
-  if (typeof value.consequent.value === 'string' || typeof value.consequent.value === 'number') {
+  if (isStringOrNumber(value.consequent.value)) {
     value.consequent = j.stringLiteral(transform(value.consequent.value))
   }
 
-  if (typeof value.alternate.value === 'string' || typeof value.alternate.value === 'number') {
+  if (isStringOrNumber(value.alternate.value)) {
     value.alternate = j.stringLiteral(transform(value.alternate.value))
   }
 }
@@ -61,7 +62,7 @@ function replaceConditional(j, key, value) {
 function replaceNegative(j, key, callExp) {
   const tokenVal = callExp.arguments[0].value
 
-  if (callExp.callee.name !== 'negative' || (typeof tokenVal !== 'string' && typeof tokenVal !== 'number')) {
+  if (callExp.callee.name !== 'negative' || !isStringOrNumber(tokenVal)) {
     return
   }
 
@@ -92,14 +93,13 @@ function transformValue(j, propKey, value) {
     })
   }
 
-  if (typeof value.value !== 'string' && typeof value.value !== 'number') {
+  if (!isStringOrNumber(value.value)) {
     return
   }
 
   const transform = getContextualSpaceTransform(propKey.name)
 
   const transformedValue = transform(value.value)
-
 
   value.value = transformedValue
   if (value.type === 'NumericLiteral' && typeof transformedValue === 'string') {
@@ -144,6 +144,10 @@ function replaceAttributes(source, j, componentName) {
       })
     })
     .toSource({})
+}
+
+function isStringOrNumber(value) {
+  return typeof value === 'string' || typeof value === 'number'
 }
 
 const formatValue = (prop) => {
