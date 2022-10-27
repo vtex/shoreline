@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.3-dev.7...@vtex/admin-ui-codemod@0.6.3-dev.8) (2022-10-27)
+
+
+### Features
+
+* **space tokens codemod:** handle px token ([944dbae](https://github.com/vtex/admin-ui/commit/944dbae8b4a7240bab0ea271c532a4ad7c50d99e))
+
+
+
+
+
 ## 0.6.3-dev.7 (2022-10-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
