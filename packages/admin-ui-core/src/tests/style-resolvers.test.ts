@@ -12,7 +12,7 @@ describe('negative style-resolver', () => {
 
   it('should resolve tokens', () => {
     const theme = {
-      hspace: {
+      space: {
         test: '1rem',
       },
     }

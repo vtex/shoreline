@@ -43,7 +43,7 @@ export const Basic: Story = () => {
   })
 
   return (
-    <Box csx={{ margin: 8 }}>
+    <Box csx={{ margin: '$space-8' }}>
       <Flex>
         <Checkbox
           state={{
@@ -104,5 +104,5 @@ export const Basic: Story = () => {
       <Box>{state.getSelectedIds().join(',')}</Box>
       <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
     </Box>
-  )
+  );
 }

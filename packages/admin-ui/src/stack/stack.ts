@@ -19,7 +19,7 @@ export const useStack = createHook<'div', StackOptions>((props) => {
     direction = 'column',
     fluid = false,
     align = 'start',
-    space = '$m',
+    space = '$space-1',
     ...htmlProps
   } = props
 

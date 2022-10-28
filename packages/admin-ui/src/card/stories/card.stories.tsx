@@ -24,7 +24,7 @@ export const Single = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardInfo>
           <IconImageSquare />
@@ -48,14 +48,14 @@ export const Single = () => {
       </CardHeader>
       <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
     </Card>
-  )
+  );
 }
 
 export const Nested = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardInfo>
           <CardTitle>Title</CardTitle>
@@ -89,14 +89,14 @@ export const Nested = () => {
         </Card>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export const WithImage = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardInfo>
           <CardImage
@@ -118,5 +118,5 @@ export const WithImage = () => {
       </CardHeader>
       <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
     </Card>
-  )
+  );
 }

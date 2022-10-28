@@ -68,9 +68,9 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         csx={csx}
         {...divProps}
       >
-        <Inline spaceInside align="start" hSpace="$l">
+        <Inline spaceInside align="start" hSpace="$space-3">
           <Center>{icons[variant]}</Center>
-          <Stack space="$l" csx={style.toastInfo}>
+          <Stack space="$space-2" csx={style.toastInfo}>
             <Box as="p" csx={style.toastMessage}>
               {message}
             </Box>
@@ -105,7 +105,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           />
         )}
       </ToastContainer>
-    )
+    );
   }
 )
 

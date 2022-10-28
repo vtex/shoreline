@@ -13,7 +13,7 @@ export const toastContainer = style({
   alignItems: 'start',
   justifyContent: 'space-between',
   size: 'auto',
-  padding: '$l',
+  padding: '$space-4 $space-5',
   pointerEvents: 'all',
   overflow: 'hidden',
   borderRadius: '$default',
@@ -44,11 +44,11 @@ export const toastQueue = style({
   position: 'fixed',
   zIndex: '999',
   pointerEvents: 'none',
-  bottom: '$3xl',
+  bottom: '$space-12',
   marginLeft: 'auto',
   width: '100%',
   '@tablet': {
-    right: '$3xl',
+    right: '$space-10',
     width: 'auto',
   },
 })

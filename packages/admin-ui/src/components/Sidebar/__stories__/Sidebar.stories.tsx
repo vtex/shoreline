@@ -216,10 +216,10 @@ export const Playground: Story<any> = (args) => {
     >
       <Topbar loading={loading}>
         <TopbarStart>
-          <Inline hSpace="$l" align="center" noWrap>
+          <Inline hSpace="$space-3" align="center" noWrap>
             <Button
               variant="neutralTertiary"
-              csx={{ padding: '$xs' }}
+              csx={{ padding: '$space-1 $space-2' }}
               icon={<IconVtex />}
             />
             <Text variant="action1">dpsppinheiros</Text>
@@ -324,7 +324,7 @@ export const Playground: Story<any> = (args) => {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 Playground.args = {

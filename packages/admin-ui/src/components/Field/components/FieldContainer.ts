@@ -26,14 +26,14 @@ export const FieldContainer = createComponent<'div'>((props) => {
         transform: 'translate(1px, 4px) scale(0.875)',
       },
       [`input:${rules.placeholder}, textarea:${rules.placeholder}`]: {
-        paddingTop: 1,
+        paddingTop: '$space-1',
       },
       [`input:${rules.placeholderShown}, textarea:${rules.placeholderShown}`]: {
         transform: 'translate(1px, 4px) scale(0.875)',
       },
     },
     ...props,
-  })
+  });
 })
 
 export type FieldContainerProps = ComponentPropsWithRef<typeof FieldContainer>

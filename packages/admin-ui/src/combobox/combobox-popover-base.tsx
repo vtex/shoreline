@@ -33,19 +33,19 @@ export const ComboboxPopoverBase = createComponent<
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Spinner />
           </Box>
-        )
+        );
       }
 
       case 'error': {
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Text as="h2" variant="title2">
@@ -55,14 +55,14 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('retry')}
             </Button>
           </Box>
-        )
+        );
       }
 
       case 'empty': {
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Paragraph
@@ -73,14 +73,14 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('searchPlaceholder')}
             </Paragraph>
           </Box>
-        )
+        );
       }
 
       case 'not-found': {
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Text as="h2" variant="title2">
@@ -94,7 +94,7 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('noResultsSubtitle')}
             </Paragraph>
           </Box>
-        )
+        );
       }
     }
   }

@@ -14,14 +14,14 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
   const { amount = 7 } = props
 
   return (
-    <Stack space="$l" csx={{ width: '100%' }}>
+    <Stack space="$space-2" csx={{ width: '100%' }}>
       {Array.from(new Array(amount)).map(() => (
         <Center
-          csx={{ zIndex: 'sidebarOverlay', paddingX: '$s', width: '100%' }}
+          csx={{ zIndex: 'sidebarOverlay', paddingX: '$space-1', width: '100%' }}
         >
           <Skeleton
             csx={{
-              margin: '$s',
+              margin: '$space-2 $space-3',
               minHeight: size,
               maxHeight: size,
               minWidth: size,
@@ -31,7 +31,7 @@ export function SidebarSkeleton(props: SidebarSkeletonProps) {
         </Center>
       ))}
     </Stack>
-  )
+  );
 }
 
 export interface SidebarSkeletonProps {

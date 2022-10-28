@@ -7,8 +7,8 @@ import type * as CSS from 'csstype'
 
 export const Inline = createComponent<'div', InlineProps>((props) => {
   const {
-    vSpace = '$s',
-    hSpace = '$s',
+    vSpace = '$space-05',
+    hSpace = '$space-1',
     noWrap = false,
     align = 'start',
     spaceInside = false,
@@ -23,14 +23,14 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
       alignItems: align,
       '> *:not(:first-child)': {
         marginLeft: hSpace,
-        marginTop: spaceInside ? 0 : vSpace,
+        marginTop: spaceInside ? '$space-0' : vSpace,
       },
       '> *:is(:first-child)': {
-        marginLeft: spaceInside ? 0 : hSpace,
-        marginTop: spaceInside ? 0 : vSpace,
+        marginLeft: spaceInside ? '$space-0' : hSpace,
+        marginTop: spaceInside ? '$space-0' : vSpace,
       },
     },
-  })
+  });
 })
 
 Inline.displayName = 'Inline'
@@ -38,12 +38,12 @@ Inline.displayName = 'Inline'
 export interface InlineProps {
   /**
    * Vertical space
-   * @default '$s'
+   * @default '$space-05'
    */
   vSpace?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Horizontal space
-   * @default '$s'
+   * @default '$space-1'
    */
   hSpace?: CSSPropAutocomplete<SpaceTokens>
   /**

@@ -12,17 +12,17 @@ export default {
 
 export const Uncontrolled = () => {
   return (
-    <Stack space="$l" csx={{ padding: '$s' }} fluid>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput label="Uncontrolled" />
     </Stack>
-  )
+  );
 }
 
 export const Controlled = () => {
   const [value, setValue] = useState<string>('')
 
   return (
-    <Stack space="$l" csx={{ padding: '$s' }} fluid>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput
         label="Controlled"
         value={value}
@@ -30,12 +30,12 @@ export const Controlled = () => {
         helpText={<>State: {value}</>}
       />
     </Stack>
-  )
+  );
 }
 
 export const Terms = () => {
   return (
-    <Stack space="$l" csx={{ padding: '$s' }} fluid>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput label="URL" prefix="https://" />
       <TextInput label="URL" suffix=".com.br" />
       <TextInput label="URL" prefix="https://" suffix=".com.br" />
@@ -49,12 +49,12 @@ export const Terms = () => {
         }
       />
     </Stack>
-  )
+  );
 }
 
 export const UIStates = () => {
   return (
-    <Stack space="$l" csx={{ padding: '$s' }} fluid>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput label="Without error" />
       <TextInput
         label="With Error"
@@ -65,7 +65,7 @@ export const UIStates = () => {
       />
       <TextInput label="disabled" disabled />
     </Stack>
-  )
+  );
 }
 
 export const ForwardRef = () => {
@@ -79,8 +79,8 @@ export const ForwardRef = () => {
   }, [])
 
   return (
-    <Stack space="$l" csx={{ padding: '$s' }} fluid>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput ref={ref} />
     </Stack>
-  )
+  );
 }

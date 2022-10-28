@@ -9,7 +9,7 @@ export const radioGroupStyles = style({
   display: 'flex',
   flexDirection: 'column',
   '> :not(:last-child)': {
-    marginBottom: '$l',
+    marginBottom: '$space-2',
   },
 })
 
@@ -18,13 +18,13 @@ export const variants = styleVariants({
     vertical: {
       flexDirection: 'column',
       '> :not(:last-child)': {
-        marginBottom: '$l',
+        marginBottom: '$space-2',
       },
     },
     horizontal: {
       flexDirection: 'row',
       '> :not(:last-child)': {
-        marginRight: '$xl',
+        marginRight: '$space-5',
       },
     },
   },

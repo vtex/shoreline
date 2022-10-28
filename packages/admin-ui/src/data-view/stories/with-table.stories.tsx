@@ -119,7 +119,7 @@ export function WithTable() {
   return (
     <Page csx={{ height: '100vh' }}>
       <PageHeader>
-        <Inline spaceInside hSpace="$m">
+        <Inline spaceInside hSpace="$space-2">
           {allStatus.map((item, index) => {
             return (
               <Button
@@ -151,7 +151,7 @@ export function WithTable() {
               </DataViewActions>
             </Flex>
 
-            <Inline spaceInside hSpace="$m">
+            <Inline spaceInside hSpace="$space-2">
               <FilterDisclosure state={firstFilter}>Label</FilterDisclosure>
 
               <FilterPopover state={firstFilter}>
@@ -184,5 +184,5 @@ export function WithTable() {
         </DataView>
       </PageContent>
     </Page>
-  )
+  );
 }

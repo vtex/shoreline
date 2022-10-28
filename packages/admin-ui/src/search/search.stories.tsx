@@ -28,13 +28,13 @@ export const Playground: Story<PlaygroundProps> = (args) => {
   return (
     <I18nProvider locale={args.locale}>
       <Search
-        csx={{ margin: 4, width: 400 }}
+        csx={{ margin: '$space-4', width: 400 }}
         {...args}
         loading={args.loading}
         {...getInputProps()}
       />
     </I18nProvider>
-  )
+  );
 }
 
 Playground.args = {
@@ -49,12 +49,12 @@ export const WithoutHook = () => {
 
   return (
     <Search
-      csx={{ margin: 4, width: 400 }}
+      csx={{ margin: '$space-4', width: 400 }}
       value={value}
       onChange={(e) => {
         setValue(e.target.value)
       }}
       onClear={() => setValue('')}
     />
-  )
+  );
 }

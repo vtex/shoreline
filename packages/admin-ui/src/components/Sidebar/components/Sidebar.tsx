@@ -76,7 +76,7 @@ export const Sidebar = forwardRef(function Sidebar(
           outline: 'none',
           borderRight: '$neutral',
           bg: '$primary',
-          paddingY: '$xl',
+          paddingY: '$space-4',
           boxShadow:
             state.selectedItem?.expandable && state.layout.reduced
               ? '$overlay.center'
@@ -93,7 +93,7 @@ export const Sidebar = forwardRef(function Sidebar(
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingBottom: '$m',
+            paddingBottom: '$space-1',
             maxWidth: '16rem',
             height: '100%',
             width: '100%',
@@ -132,8 +132,8 @@ export const Sidebar = forwardRef(function Sidebar(
         csx={{
           bg: '$secondary',
           width: '3.6775rem',
-          top: 0,
-          bottom: 0,
+          top: '$space-0',
+          bottom: '$space-0',
           position: 'fixed',
           maxHeight: '100%',
         }}
@@ -141,7 +141,7 @@ export const Sidebar = forwardRef(function Sidebar(
       />
       <SidebarBackdrop state={state} loading={loading} />
     </Box>
-  )
+  );
 })
 
 export interface SidebarProps extends BoxProps {

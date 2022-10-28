@@ -14,7 +14,7 @@ export const FieldDetails = createComponent<typeof Role, FieldDetailsOptions>(
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: '',
-        paddingTop: 1,
+        paddingTop: '$space-1',
       },
       children: (
         <>
@@ -36,7 +36,7 @@ export const FieldDetails = createComponent<typeof Role, FieldDetailsOptions>(
         </>
       ),
       ...restProps,
-    })
+    });
   }
 )
 

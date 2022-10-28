@@ -69,11 +69,11 @@ export const iconContainer = styleVariants({
 export const button = styleVariants({
   dismissible: {
     true: {
-      marginLeft: '$2xl',
-      marginRight: '$xxs',
+      marginLeft: '$space-7',
+      marginRight: '$space-05',
     },
     false: {
-      marginLeft: '$2xl',
+      marginLeft: '$space-7',
     },
   },
 })

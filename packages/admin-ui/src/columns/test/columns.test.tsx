@@ -8,7 +8,7 @@ describe('Columns', () => {
 
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Columns space="$l">
+      <Columns space="$space-3">
         <Column units={6}>
           <button>element 1</button>
         </Column>

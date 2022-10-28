@@ -41,13 +41,13 @@ export const Basic = () => {
 
 export const WithInline = () => {
   return (
-    <Bleed top="$xl" left="$xl">
-      <Inline vSpace="$xl" hSpace="$xl">
+    <Bleed top="$space-4" left="$space-5">
+      <Inline vSpace="$space-4" hSpace="$space-5">
         <Tag label="Brazil" />
         <Tag label="Argentina" />
         <Tag label="Chile" />
         <Tag label="Uruguai" />
       </Inline>
     </Bleed>
-  )
+  );
 }

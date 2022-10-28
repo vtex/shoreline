@@ -16,7 +16,7 @@ export const disclosure = style({
     bg: '$action.neutral.tertiaryPressed',
     color: '$action.neutral.tertiaryPressed',
   },
-  padding: '$narrow.s',
+  padding: '$space-1 $space-3',
   height: '2.25rem',
   ...focusVisible('neutral'),
 })

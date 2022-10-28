@@ -31,14 +31,14 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
         <FormControl error={error} optional={optional}>
           <FormControlLabel as="legend">{label}</FormControlLabel>
           <AriakitRadioGroup state={state}>
-            <Stack direction={direction} space="$xl" csx={{ marginY: '$m' }}>
+            <Stack direction={direction} space="$space-4" csx={{ marginY: '$space-1' }}>
               {children}
             </Stack>
           </AriakitRadioGroup>
           <FormControlMessage helpText={helpText} errorText={errorText} />
         </FormControl>
       ),
-    })
+    });
   }
 )
 

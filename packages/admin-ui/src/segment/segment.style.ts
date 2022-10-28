@@ -7,7 +7,7 @@ export const segmentList = style({
 export const segment = style({
   cursor: 'pointer',
   text: '$body',
-  paddingY: 0,
+  paddingY: '$space-0',
   bg: '$action.neutral.tertiary',
   color: '$action.neutral.tertiary',
   ':disabled': {
@@ -18,10 +18,10 @@ export const segment = style({
 export const segmentVariants = styleVariants({
   literal: {
     true: {
-      paddingX: '$xs',
+      paddingX: '$space-05',
     },
     false: {
-      paddingX: '$s',
+      paddingX: '$space-1',
       ':hover': {
         bg: '$action.neutral.tertiaryHover',
         color: '$action.neutral.tertiaryHover',

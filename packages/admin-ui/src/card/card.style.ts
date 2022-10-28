@@ -5,7 +5,7 @@ export const card = style({
   color: '$primary',
   border: '$neutral',
   borderRadius: 'default',
-  padding: '$xl',
+  padding: '$space-6 $space-7',
   size: '100%',
   boxSizing: 'border-box',
 })

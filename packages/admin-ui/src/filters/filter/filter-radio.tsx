@@ -9,12 +9,12 @@ export const FilterRadio = (props: FilterRadioProps) => {
     baseStyle: {
       ...style.radioButtonStyle,
       ariaChecked: undefined,
-      marginRight: '$m',
+      marginRight: '$space-2',
     },
     checked,
     type: 'radio',
     readOnly: true,
-  })
+  });
 }
 
 interface FilterRadioProps {

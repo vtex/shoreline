@@ -167,35 +167,33 @@ export const WithTabs: Story<{
 }> = ({ title, onPopNavigation, tabOptions }) => {
   const tabs = useTabState()
 
-  return (
-    <>
-      <PageHeader onPopNavigation={onPopNavigation}>
-        <PageHeaderTop>
-          <PageHeaderTitle>{title}</PageHeaderTitle>
-        </PageHeaderTop>
-        <PageHeaderBottom>
-          <TabList state={tabs}>
-            {tabOptions.map((options) => (
-              <Tab {...options} />
-            ))}
-          </TabList>
-        </PageHeaderBottom>
-      </PageHeader>
-      <Box>
-        <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-          </TabPanel>
-          <TabPanel id="2" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-          </TabPanel>
-          <TabPanel id="3" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-          </TabPanel>
-        </TabPanelList>
-      </Box>
-    </>
-  )
+  return <>
+    <PageHeader onPopNavigation={onPopNavigation}>
+      <PageHeaderTop>
+        <PageHeaderTitle>{title}</PageHeaderTitle>
+      </PageHeaderTop>
+      <PageHeaderBottom>
+        <TabList state={tabs}>
+          {tabOptions.map((options) => (
+            <Tab {...options} />
+          ))}
+        </TabList>
+      </PageHeaderBottom>
+    </PageHeader>
+    <Box>
+      <TabPanelList state={tabs}>
+        <TabPanel id="1" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+        </TabPanel>
+        <TabPanel id="2" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+        </TabPanel>
+        <TabPanel id="3" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+        </TabPanel>
+      </TabPanelList>
+    </Box>
+  </>;
 }
 
 WithTabs.args = {
@@ -208,47 +206,45 @@ export const FullFledged = () => {
   const tabs = useTabState()
   const state = useMenuState()
 
-  return (
-    <>
-      <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
-        <PageHeaderTop>
-          <PageHeaderTitle>
-            Product #123
-            <PageHeaderTags>
-              <PageHeaderTag label="Short text" />
-            </PageHeaderTags>
-          </PageHeaderTitle>
-          <PageHeaderActions>
-            <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
-            <PageHeaderButton>Create</PageHeaderButton>
-            <PageHeaderMenuButton state={state} />
-            <Menu state={state} aria-label="actions">
-              <MenuItem label="Create" icon={<IconPlus />} />
-              <MenuItem label="Edit" icon={<IconPencil />} />
-            </Menu>
-          </PageHeaderActions>
-        </PageHeaderTop>
-        <PageHeaderBottom>
-          <TabList state={tabs}>
-            <Tab id="1">Label</Tab>
-            <Tab id="2">Label</Tab>
-            <Tab id="3">Label</Tab>
-          </TabList>
-        </PageHeaderBottom>
-      </PageHeader>
-      <Box>
-        <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-          </TabPanel>
-          <TabPanel id="2" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-          </TabPanel>
-          <TabPanel id="3" csx={{ padding: 3 }}>
-            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-          </TabPanel>
-        </TabPanelList>
-      </Box>
-    </>
-  )
+  return <>
+    <PageHeader onPopNavigation={() => alert('onPopNavigation')}>
+      <PageHeaderTop>
+        <PageHeaderTitle>
+          Product #123
+          <PageHeaderTags>
+            <PageHeaderTag label="Short text" />
+          </PageHeaderTags>
+        </PageHeaderTitle>
+        <PageHeaderActions>
+          <PageHeaderButton variant="secondary">Edit</PageHeaderButton>
+          <PageHeaderButton>Create</PageHeaderButton>
+          <PageHeaderMenuButton state={state} />
+          <Menu state={state} aria-label="actions">
+            <MenuItem label="Create" icon={<IconPlus />} />
+            <MenuItem label="Edit" icon={<IconPencil />} />
+          </Menu>
+        </PageHeaderActions>
+      </PageHeaderTop>
+      <PageHeaderBottom>
+        <TabList state={tabs}>
+          <Tab id="1">Label</Tab>
+          <Tab id="2">Label</Tab>
+          <Tab id="3">Label</Tab>
+        </TabList>
+      </PageHeaderBottom>
+    </PageHeader>
+    <Box>
+      <TabPanelList state={tabs}>
+        <TabPanel id="1" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+        </TabPanel>
+        <TabPanel id="2" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+        </TabPanel>
+        <TabPanel id="3" csx={{ padding: '$space-3' }}>
+          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+        </TabPanel>
+      </TabPanelList>
+    </Box>
+  </>;
 }

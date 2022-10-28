@@ -6,7 +6,7 @@ import { Bleed } from './bleed'
 describe('Bleed', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Bleed right="$xl">
+      <Bleed right="$space-5">
         <button>Button 1</button>
       </Bleed>
     )

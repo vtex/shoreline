@@ -39,8 +39,8 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
       ...restProps,
       baseStyle: style.baseline,
       children: isVisible ? (
-        <Inline hSpace="$2xl" spaceInside csx={style.container}>
-          <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
+        <Inline hSpace="$space-7" spaceInside csx={style.container}>
+          <Inline hSpace="$space-2" spaceInside csx={style.innerContainer}>
             <Text tone="secondary">
               {formatMessage('selected', {
                 current: allSelected ? totalItems : getSelectedIds().length,
@@ -64,13 +64,13 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
                 : formatMessage('selectAll')}
             </Button>
           </Inline>
-          <Bleed right="$l">
-            <Inline hSpace="$m" spaceInside csx={style.innerContainer}>
+          <Bleed right="$space-3">
+            <Inline hSpace="$space-2" spaceInside csx={style.innerContainer}>
               {children}
             </Inline>
           </Bleed>
         </Inline>
       ) : null,
-    })
+    });
   }
 )

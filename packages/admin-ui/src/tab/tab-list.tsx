@@ -14,12 +14,12 @@ export const TabList = createComponent<typeof AriakitTabList, TabListOptions>(
     return useElement(AriakitTabList, {
       baseStyle: style.tabList,
       children: (
-        <Inline hSpace="$m" spaceInside>
+        <Inline hSpace="$space-2" spaceInside>
           {children}
         </Inline>
       ),
       ...tabListProps,
-    })
+    });
   }
 )
 

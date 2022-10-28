@@ -85,7 +85,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               border: '$neutral',
               height: '100%',
               width: '100%',
-              padding: 0,
+              padding: '$space-0',
             }}
             icon={
               <IconCaretRight
@@ -104,7 +104,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         </Box>
       )}
     </Fragment>
-  )
+  );
 })
 
 export interface SidebarBackdropProps {

@@ -23,17 +23,17 @@ export default {
 
 export const Zero = () => {
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <Center csx={{ width: '100%', height: 250, bg: '$secondary' }}>
         Content
       </Center>
     </Card>
-  )
+  );
 }
 
 export const LevelOne = () => {
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardTitle>Title</CardTitle>
       </CardHeader>
@@ -41,12 +41,12 @@ export const LevelOne = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export const LevelTwo = () => {
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardTitle>Title</CardTitle>
         <CardActions>
@@ -58,14 +58,14 @@ export const LevelTwo = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export const Full = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: 4 }}>
+    <Card csx={{ width: '1/2', margin: '$space-4' }}>
       <CardHeader>
         <CardInfo>
           <IconImageSquare />
@@ -86,5 +86,5 @@ export const Full = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  )
+  );
 }

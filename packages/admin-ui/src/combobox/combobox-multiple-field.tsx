@@ -118,7 +118,7 @@ export const ComboboxMultipleField = createComponent<
       input: {
         border: 'none',
         outline: 'none',
-        paddingY: shouldReduceLabel ? '$m' : 0,
+        paddingY: shouldReduceLabel ? '$space-1' : '$space-0',
       },
     },
     onClick: (e) => {
@@ -146,14 +146,14 @@ export const ComboboxMultipleField = createComponent<
             {label}
           </Label>
           <Bleed
-            left="$m"
+            left="$space-2"
             csx={{
               paddingTop: '0.75rem',
               bg: 'transparent',
             }}
           >
             <Composite state={composite}>
-              <Inline hSpace="$m" vSpace="$l">
+              <Inline hSpace="$space-2" vSpace="$space-2">
                 {selectedItems.length > 0 &&
                   selectedItems.map((item: any) => (
                     <ComboboxMultipleTag
@@ -201,5 +201,5 @@ export const ComboboxMultipleField = createComponent<
         </Flex>
       </>
     ),
-  })
+  });
 })

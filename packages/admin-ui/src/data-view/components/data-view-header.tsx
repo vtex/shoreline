@@ -22,9 +22,9 @@ export const DataViewHeader = createComponent<'div'>((props) => {
     ...restProps,
     baseStyle: styles.header,
     children: (
-      <Stack space="$xl" csx={{ width: '100%' }}>
+      <Stack space="$space-4" csx={{ width: '100%' }}>
         {children}
       </Stack>
     ),
-  })
+  });
 })

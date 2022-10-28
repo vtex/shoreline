@@ -34,12 +34,12 @@ export const PageHeaderActions = createComponent<'div'>((props) => {
   return useElement('div', {
     baseStyle: style.pageHeaderActions,
     children: (
-      <Stack space="$l" direction="row">
+      <Stack space="$space-3" direction="row">
         {children}
       </Stack>
     ),
     ...htmlProps,
-  })
+  });
 })
 
 export type PageHeaderActions = ComponentPropsWithRef<typeof PageHeaderActions>

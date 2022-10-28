@@ -38,7 +38,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
     },
     children: (
       <Fragment>
-        <Inline noWrap vSpace="unset" hSpace="$l" spaceInside>
+        <Inline noWrap vSpace="unset" hSpace="$space-3" spaceInside>
           <IconContainer size="regular" csx={styles.iconContainer({ variant })}>
             {icon}
           </IconContainer>
@@ -66,7 +66,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
         </Stack>
       </Fragment>
     ),
-  }
+  };
 })
 
 /**

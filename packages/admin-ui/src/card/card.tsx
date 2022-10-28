@@ -11,8 +11,8 @@ export const Card = createComponent<'div'>((props) => {
   return useElement('div', {
     ...restProps,
     baseStyle: style.card,
-    children: <Stack space="$2xl">{children}</Stack>,
-  })
+    children: <Stack space="$space-6">{children}</Stack>,
+  });
 })
 
 export type CardProps = ComponentPropsWithRef<typeof Card>

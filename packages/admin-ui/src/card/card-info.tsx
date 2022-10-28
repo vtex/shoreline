@@ -10,11 +10,11 @@ export const CardInfo = createComponent<'div'>((props) => {
   return useElement('div', {
     ...restProps,
     children: (
-      <Stack direction="row" space="$l">
+      <Stack direction="row" space="$space-3">
         {children}
       </Stack>
     ),
-  })
+  });
 })
 
 export type CardInfoProps = ComponentPropsWithRef<typeof CardInfo>

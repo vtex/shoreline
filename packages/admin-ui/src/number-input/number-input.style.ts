@@ -13,7 +13,7 @@ export const input = style({
   '-moz-appearance': 'textfield',
   '::-webkit-inner-spin-button ': {
     WebkitAppearance: 'none',
-    margin: 0,
+    margin: '$space-0',
   },
 
   '::placeholder': {
@@ -26,11 +26,11 @@ export const input = style({
 })
 
 export const spinButton = style({
-  marginTop: '$m',
-  marginBottom: '$m',
+  marginTop: '$space-1',
+  marginBottom: '$space-1',
 })
 
 export const incrementButton = style({
-  marginRight: '$s',
+  marginRight: '$space-1',
   ...spinButton,
 })

@@ -24,10 +24,10 @@ export function SidebarItemSkeleton() {
     <Box
       csx={{
         width: SCALES.COLLAPSIBLE_AREA_WIDTH,
-        padding: '$s',
+        padding: '$space-2 $space-3',
       }}
     >
-      <Box csx={{ size: '100%', margin: '$s', paddingY: '$l' }}>
+      <Box csx={{ size: '100%', margin: '$space-2 $space-3', paddingY: '$space-2' }}>
         <Skeleton
           key="section-title"
           csx={{
@@ -40,7 +40,7 @@ export function SidebarItemSkeleton() {
         const width = skeletonWidth[index as SkeletonIndex]
 
         return (
-          <Box csx={{ size: '100%', padding: '$s' }}>
+          <Box csx={{ size: '100%', padding: '$space-2 $space-3' }}>
             <Skeleton
               key={`section-item-${index}`}
               csx={{
@@ -49,8 +49,8 @@ export function SidebarItemSkeleton() {
               }}
             />
           </Box>
-        )
+        );
       })}
     </Box>
-  )
+  );
 }

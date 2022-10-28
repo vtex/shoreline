@@ -39,7 +39,7 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
             <FilterListbox
               csx={{
                 '> * > *:not(:first-child)': {
-                  marginTop: 0,
+                  marginTop: '$space-0',
                 },
               }}
             >
@@ -66,7 +66,7 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
         </>
       ),
       ...props,
-    })
+    });
   }
 )
 

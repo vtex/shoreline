@@ -125,8 +125,8 @@ function ImageWithPreview(props: PreviewComponentProps) {
         className={cn({
           display: 'flex',
           outline: 'none',
-          paddingY: '$l',
-          paddingX: '$m',
+          paddingY: '$space-2',
+          paddingX: '$space-2',
           transition: `opacity 100ms ease-in ${preview.delay}ms`,
           willChange: 'opacity',
           opacity: 0,
@@ -172,7 +172,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
         />
       </Tooltip>
     </Fragment>
-  )
+  );
 }
 
 interface ImageContainerProps {

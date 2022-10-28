@@ -35,7 +35,7 @@ export function DataViewStatus() {
       )}
 
       {status === 'empty' && (
-        <Stack space="$l" fluid>
+        <Stack space="$space-2" fluid>
           <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
             {formatMessage('empty')}
           </Box>
@@ -46,12 +46,12 @@ export function DataViewStatus() {
       )}
 
       {status === 'error' && (
-        <Stack space="$xs" fluid>
+        <Stack space="$space-0" fluid>
           <Center>
             <CollectionError />
           </Center>
 
-          <Stack space="$l" fluid>
+          <Stack space="$space-2" fluid>
             <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
               {formatMessage('error')}
             </Box>
@@ -62,7 +62,7 @@ export function DataViewStatus() {
         </Stack>
       )}
     </Center>
-  )
+  );
 }
 
 function Action(props: StatusAction) {

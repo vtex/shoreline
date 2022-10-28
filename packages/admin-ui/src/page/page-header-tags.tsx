@@ -24,7 +24,7 @@ import { Stack } from '../stack'
  */
 export const PageHeaderTags = forwardRef(
   (props: StackProps, ref: Ref<HTMLDivElement>) => {
-    const { direction = 'row', space = '$m', ...stackProps } = props
+    const { direction = 'row', space = '$space-1', ...stackProps } = props
 
     return (
       <Stack direction={direction} space={space} ref={ref} {...stackProps} />

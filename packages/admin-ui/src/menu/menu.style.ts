@@ -6,8 +6,8 @@ export const item = style({
   alignItems: 'center',
   text: '$action2',
   height: '2.25rem',
-  paddingY: '$l',
-  paddingX: '$m',
+  paddingY: '$space-2',
+  paddingX: '$space-2',
   border: 'none',
   borderRadius: '$default',
   cursor: 'pointer',
@@ -17,7 +17,7 @@ export const item = style({
   },
 
   svg: {
-    marginRight: '$m',
+    marginRight: '$space-2',
     size: '1.25rem',
   },
 })
@@ -55,7 +55,7 @@ export const itemVariants = styleVariants({
 })
 
 export const popoverContainer = style({
-  marginY: '$m',
+  marginY: '$space-1',
   minWidth: '9rem',
   borderRadius: '$default',
   bg: '$primary',
@@ -65,15 +65,15 @@ export const popoverContainer = style({
 })
 
 export const popoverChildren = style({
-  marginY: '$m',
+  marginY: '$space-1',
   display: 'flex',
   flexDirection: 'column',
-  padding: '$s',
+  padding: '$space-2 $space-3',
 })
 
 export const divider = style({
-  marginY: '$l',
-  marginX: negative('$l'),
+  marginY: '$space-2',
+  marginX: negative('$space-3'),
   borderBottom: '$neutral',
   width: 'auto',
   outline: 'none',
@@ -107,13 +107,13 @@ export const buttonColorVariants = styleVariants({
 export const defaultMenuButtonSizeVariants = styleVariants({
   size: {
     normal: {
-      padding: '$s',
-      paddingX: '$m',
+      padding: '$space-2 $space-3',
+      paddingX: '$space-2',
       height: '2.25rem',
     },
     large: {
-      padding: '$m',
-      paddingX: '$l',
+      padding: '$space-3 $space-4',
+      paddingX: '$space-3',
       height: '2.75rem',
     },
   },
@@ -122,11 +122,11 @@ export const defaultMenuButtonSizeVariants = styleVariants({
 export const customMenuButtonSizeVariants = styleVariants({
   size: {
     normal: {
-      padding: '$s',
+      padding: '$space-2 $space-3',
       height: '2.25rem',
     },
     large: {
-      padding: '$m',
+      padding: '$space-3 $space-4',
       height: '2.75rem',
     },
   },
@@ -138,12 +138,12 @@ export const buttonInnerContainerVariants = styleVariants({
   iconPosition: {
     start: {
       flexDirection: 'row',
-      paddingRight: '$s',
+      paddingRight: '$space-1',
     },
     end: {
       flexDirection: 'row-reverse',
       svg: {
-        marginLeft: '$xs',
+        marginLeft: '$space-05',
       },
     },
     center: {},
