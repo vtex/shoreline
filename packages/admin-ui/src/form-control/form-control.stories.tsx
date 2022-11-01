@@ -36,7 +36,7 @@ export const FormControlPlayground: Story<FormControlPlaygroundProps> = (
         </FormControl>
       </Box>
     </I18nProvider>
-  );
+  )
 }
 
 FormControlPlayground.args = {

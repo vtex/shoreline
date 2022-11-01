@@ -46,7 +46,7 @@ export const Auto = () => {
         <Box csx={primaryStyles}>4 units</Box>
       </Column>
     </Columns>
-  );
+  )
 }
 
 export const AutoGapless = () => {
@@ -62,7 +62,7 @@ export const AutoGapless = () => {
         <Box csx={primaryStyles}>6 units</Box>
       </Column>
     </Columns>
-  );
+  )
 }
 
 export const Offset = () => {
@@ -78,7 +78,7 @@ export const Offset = () => {
         <Box csx={primaryStyles}>3 units</Box>
       </Column>
     </Columns>
-  );
+  )
 }
 
 export const Units = () => {
@@ -94,12 +94,12 @@ export const Units = () => {
         <Box csx={primaryStyles}>3 units</Box>
       </Column>
     </Columns>
-  );
+  )
 }
 
 export const ResponsiveUnits = () => {
   return (
-    <Columns space={{ mobile: "$space-0", tablet: "$space-2" }}>
+    <Columns space={{ mobile: '$space-0', tablet: '$space-2' }}>
       <Column
         units={{ mobile: 12, tablet: 6 }}
         offset={{ mobile: 'none', tablet: 'right' }}
@@ -110,5 +110,5 @@ export const ResponsiveUnits = () => {
         <Box csx={invertedStyles}>3 units</Box>
       </Column>
     </Columns>
-  );
+  )
 }

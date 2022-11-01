@@ -203,54 +203,56 @@ export const Bleed = () => {
   const bleedMenuState = useMenuState()
   const menuState = useMenuState()
 
-  return <>
-    <Box
-      csx={{
-        padding: '$space-3 $space-4',
-        bg: '$secondary',
-      }}
-    >
+  return (
+    <>
       <Box
         csx={{
-          bg: '$primary',
+          padding: '$space-3 $space-4',
+          bg: '$secondary',
         }}
       >
-        <Flex align="center" justify="space-between">
-          <Heading>With bleed</Heading>
-          <MenuButton state={bleedMenuState} bleedY bleedX />
-          <Menu state={bleedMenuState}>
-            <MenuItem label="Create" icon={<IconPlus />} disabled />
-            <MenuItem label="Edit" icon={<IconPencil />} />
-            <MenuItem label="Download" icon={<IconArrowLineDown />} />
-            <MenuDivider />
-            <MenuItem label="Delete" icon={<IconTrash />} critical />
-          </Menu>
-        </Flex>
+        <Box
+          csx={{
+            bg: '$primary',
+          }}
+        >
+          <Flex align="center" justify="space-between">
+            <Heading>With bleed</Heading>
+            <MenuButton state={bleedMenuState} bleedY bleedX />
+            <Menu state={bleedMenuState}>
+              <MenuItem label="Create" icon={<IconPlus />} disabled />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+              <MenuItem label="Download" icon={<IconArrowLineDown />} />
+              <MenuDivider />
+              <MenuItem label="Delete" icon={<IconTrash />} critical />
+            </Menu>
+          </Flex>
+        </Box>
       </Box>
-    </Box>
-    <Box
-      csx={{
-        padding: '$space-3 $space-4',
-        bg: '$secondary',
-      }}
-    >
       <Box
         csx={{
-          bg: '$primary',
+          padding: '$space-3 $space-4',
+          bg: '$secondary',
         }}
       >
-        <Flex align="center" justify="space-between">
-          <Heading>Without bleed</Heading>
-          <MenuButton state={menuState} />
-          <Menu state={menuState}>
-            <MenuItem label="Create" icon={<IconPlus />} disabled />
-            <MenuItem label="Edit" icon={<IconPencil />} />
-            <MenuItem label="Download" icon={<IconArrowLineDown />} />
-            <MenuDivider />
-            <MenuItem label="Delete" icon={<IconTrash />} critical />
-          </Menu>
-        </Flex>
+        <Box
+          csx={{
+            bg: '$primary',
+          }}
+        >
+          <Flex align="center" justify="space-between">
+            <Heading>Without bleed</Heading>
+            <MenuButton state={menuState} />
+            <Menu state={menuState}>
+              <MenuItem label="Create" icon={<IconPlus />} disabled />
+              <MenuItem label="Edit" icon={<IconPencil />} />
+              <MenuItem label="Download" icon={<IconArrowLineDown />} />
+              <MenuDivider />
+              <MenuItem label="Delete" icon={<IconTrash />} critical />
+            </Menu>
+          </Flex>
+        </Box>
       </Box>
-    </Box>
-  </>;
+    </>
+  )
 }

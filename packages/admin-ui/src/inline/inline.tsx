@@ -1,8 +1,5 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type {
-  SpaceTokens,
-  CSSPropAutocomplete,
-} from '@vtex/admin-ui-core'
+import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
 
 export const Inline = createComponent<'div', InlineProps>((props) => {
@@ -30,7 +27,7 @@ export const Inline = createComponent<'div', InlineProps>((props) => {
         marginTop: spaceInside ? '$space-0' : vSpace,
       },
     },
-  });
+  })
 })
 
 Inline.displayName = 'Inline'

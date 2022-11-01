@@ -7,8 +7,13 @@ packages/icons/native
 **/build
 storybook-static
 
+
 # Resolve: Parsing error: Unexpected token <
 **/gatsby-browser.js
 **/gatsby-ssr.js
 **/404.js
 **/src/theme/**/*.js
+
+# Resolve: Parsing error: Unexpected token .
+# not accepting conditional chaining
+packages/admin-ui-codemod/src/space-tokens-review.js

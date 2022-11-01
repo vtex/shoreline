@@ -15,7 +15,7 @@ export function FormControl(props: FormGroupOptions) {
         {children}
       </Stack>
     </FormControlProvider>
-  );
+  )
 }
 
 export type FormControlProps = React.ComponentPropsWithoutRef<

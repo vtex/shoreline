@@ -38,7 +38,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
           </Stack>
         </Inline>
       </FormControl>
-    );
+    )
   }
 )
 

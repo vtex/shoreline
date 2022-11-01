@@ -29,7 +29,7 @@ export function FormControlMessage(props: FormControlMessageProps) {
     </Stack>
   ) : (
     <></>
-  );
+  )
 }
 
 export interface FormControlMessageProps {

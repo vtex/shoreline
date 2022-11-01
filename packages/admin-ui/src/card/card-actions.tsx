@@ -17,7 +17,7 @@ export const CardActions = createComponent<'div'>((props) => {
         </Stack>
       </Bleed>
     ),
-  });
+  })
 })
 
 export type CardActionsProps = ComponentPropsWithRef<typeof CardActions>

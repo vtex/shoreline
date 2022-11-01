@@ -62,7 +62,7 @@ export function DataViewStatus() {
         </Stack>
       )}
     </Center>
-  );
+  )
 }
 
 function Action(props: StatusAction) {

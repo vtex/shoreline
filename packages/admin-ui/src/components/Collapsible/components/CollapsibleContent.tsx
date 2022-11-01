@@ -31,5 +31,5 @@ export const CollapsibleContent = createComponent<'div'>((props) => {
         {children}
       </Box>
     ),
-  });
+  })
 })

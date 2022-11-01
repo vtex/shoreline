@@ -20,7 +20,7 @@ export function listboxItem(options: { selected: boolean }) {
     height: 24,
     paddingX: '$space-4',
     cursor: 'pointer',
-  });
+  })
 }
 
 export function menu(options: { visible: boolean }) {
@@ -40,5 +40,5 @@ export function menu(options: { visible: boolean }) {
     width: 'max-content',
     position: 'absolute',
     zIndex: 999,
-  });
+  })
 }

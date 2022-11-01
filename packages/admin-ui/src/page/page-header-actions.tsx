@@ -39,7 +39,7 @@ export const PageHeaderActions = createComponent<'div'>((props) => {
       </Stack>
     ),
     ...htmlProps,
-  });
+  })
 })
 
 export type PageHeaderActions = ComponentPropsWithRef<typeof PageHeaderActions>

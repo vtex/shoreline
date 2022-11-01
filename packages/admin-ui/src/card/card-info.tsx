@@ -14,7 +14,7 @@ export const CardInfo = createComponent<'div'>((props) => {
         {children}
       </Stack>
     ),
-  });
+  })
 })
 
 export type CardInfoProps = ComponentPropsWithRef<typeof CardInfo>

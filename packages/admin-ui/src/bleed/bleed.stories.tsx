@@ -49,5 +49,5 @@ export const WithInline = () => {
         <Tag label="Uruguai" />
       </Inline>
     </Bleed>
-  );
+  )
 }

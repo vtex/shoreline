@@ -47,14 +47,19 @@ export const SidebarSection = forwardRef(function SidebarSection(
       {...divProps}
       ref={ref}
     >
-      <Box csx={{ padding: '$space-2 $space-3', marginY: firstSection ? '$space-2' : '' }}>
+      <Box
+        csx={{
+          padding: '$space-2 $space-3',
+          marginY: firstSection ? '$space-2' : '',
+        }}
+      >
         <Text csx={sectionTitleStyle} tone="primary">
           {title}
         </Text>
       </Box>
       {children}
     </Box>
-  );
+  )
 })
 
 type DivWithCsx = Omit<

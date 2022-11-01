@@ -324,7 +324,7 @@ export const Playground: Story<any> = (args) => {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
 
 Playground.args = {

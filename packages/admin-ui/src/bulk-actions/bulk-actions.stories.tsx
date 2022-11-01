@@ -104,5 +104,5 @@ export const Basic: Story = () => {
       <Box>{state.getSelectedIds().join(',')}</Box>
       <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
     </Box>
-  );
+  )
 }

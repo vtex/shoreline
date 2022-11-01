@@ -4,27 +4,27 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useState, useCallback } from 'react';
-import { MDXProvider } from '@mdx-js/react';
-import renderRoutes from '@docusaurus/renderRoutes';
-import Layout from '@theme/Layout';
-import DocSidebar from '@theme/DocSidebar';
-import MDXComponents from '@theme/MDXComponents';
-import NotFound from '@theme/NotFound';
-import IconArrow from '@theme/IconArrow';
-import BackToTopButton from '@theme/BackToTopButton';
-import { matchPath } from '@docusaurus/router';
-import { translate } from '@docusaurus/Translate';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React, { useState, useCallback } from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import renderRoutes from '@docusaurus/renderRoutes'
+import Layout from '@theme/Layout'
+import DocSidebar from '@theme/DocSidebar'
+import MDXComponents from '@theme/MDXComponents'
+import NotFound from '@theme/NotFound'
+import IconArrow from '@theme/IconArrow'
+import BackToTopButton from '@theme/BackToTopButton'
+import { matchPath } from '@docusaurus/router'
+import { translate } from '@docusaurus/Translate'
+import clsx from 'clsx'
+import styles from './styles.module.css'
 import {
   ThemeClassNames,
   docVersionSearchTag,
   DocsSidebarProvider,
   useDocsSidebar,
   DocsVersionProvider,
-} from '@docusaurus/theme-common';
-import Head from '@docusaurus/Head';
+} from '@docusaurus/theme-common'
+import Head from '@docusaurus/Head'
 
 import { PageHeader } from '@site/src/components/PageHeader'
 
@@ -34,19 +34,20 @@ function DocPageContent({
   children,
   sidebarName,
 }) {
-  const sidebar = useDocsSidebar();
-  const { pluginId, version } = versionMetadata;
-  const [hiddenSidebarContainer, setHiddenSidebarContainer] = useState(false);
-  const [hiddenSidebar, setHiddenSidebar] = useState(false);
+  const sidebar = useDocsSidebar()
+  const { pluginId, version } = versionMetadata
+  const [hiddenSidebarContainer, setHiddenSidebarContainer] = useState(false)
+  const [hiddenSidebar, setHiddenSidebar] = useState(false)
   const toggleSidebar = useCallback(() => {
     if (hiddenSidebar) {
-      setHiddenSidebar(false);
+      setHiddenSidebar(false)
     }
 
-    setHiddenSidebarContainer((value) => !value);
-  }, [hiddenSidebar]);
+    setHiddenSidebarContainer((value) => !value)
+  }, [hiddenSidebar])
 
-  const routeKey = currentDocRoute.path.replace('/next', '').slice(1) || 'introduction/about'
+  const routeKey =
+    currentDocRoute.path.replace('/next', '').slice(1) || 'introduction/about'
 
   return (
     <Layout
@@ -55,7 +56,8 @@ function DocPageContent({
       searchMetadata={{
         version,
         tag: docVersionSearchTag(pluginId, version),
-      }}>
+      }}
+    >
       <div className={styles.docPage}>
         <BackToTopButton />
 
@@ -66,19 +68,20 @@ function DocPageContent({
               styles.docSidebarContainer,
               {
                 [styles.docSidebarContainerHidden]: hiddenSidebarContainer,
-              },
+              }
             )}
             onTransitionEnd={(e) => {
               if (
                 !e.currentTarget.classList.contains(styles.docSidebarContainer)
               ) {
-                return;
+                return
               }
 
               if (hiddenSidebarContainer) {
-                setHiddenSidebar(true);
+                setHiddenSidebar(true)
               }
-            }}>
+            }}
+          >
             <DocSidebar
               key={
                 // Reset sidebar state on sidebar changes
@@ -109,7 +112,8 @@ function DocPageContent({
                 tabIndex={0}
                 role="button"
                 onKeyDown={toggleSidebar}
-                onClick={toggleSidebar}>
+                onClick={toggleSidebar}
+              >
                 <IconArrow className={styles.expandSidebarButtonIcon} />
               </div>
             )}
@@ -119,22 +123,24 @@ function DocPageContent({
           className={clsx(styles.docMainContainer, {
             [styles.docMainContainerEnhanced]:
               hiddenSidebarContainer || !sidebar,
-          })}>
+          })}
+        >
           <div
             className={clsx(
               'container padding-top--md padding-bottom--lg',
               styles.docItemWrapper,
               {
                 [styles.docItemWrapperEnhanced]: hiddenSidebarContainer,
-              },
-            )}>
+              }
+            )}
+          >
             <PageHeader title={versionMetadata?.docs[routeKey]?.title} />
             <MDXProvider components={MDXComponents}>{children}</MDXProvider>
           </div>
         </main>
       </div>
     </Layout>
-  );
+  )
 }
 
 export default function DocPage(props) {
@@ -142,20 +148,18 @@ export default function DocPage(props) {
     route: { routes: docRoutes },
     versionMetadata,
     location,
-  } = props;
+  } = props
   console.log(versionMetadata)
   const currentDocRoute = docRoutes.find((docRoute) =>
-    matchPath(location.pathname, docRoute),
-  );
+    matchPath(location.pathname, docRoute)
+  )
 
   if (!currentDocRoute) {
-    return <NotFound />;
+    return <NotFound />
   } // For now, the sidebarName is added as route config: not ideal!
 
-  const sidebarName = currentDocRoute.sidebar;
-  const sidebar = sidebarName
-    ? versionMetadata.docsSidebars[sidebarName]
-    : null;
+  const sidebarName = currentDocRoute.sidebar
+  const sidebar = sidebarName ? versionMetadata.docsSidebars[sidebarName] : null
   return (
     <>
       <Head>
@@ -167,7 +171,8 @@ export default function DocPage(props) {
           <DocPageContent
             currentDocRoute={currentDocRoute}
             versionMetadata={versionMetadata}
-            sidebarName={sidebarName}>
+            sidebarName={sidebarName}
+          >
             {renderRoutes(docRoutes, {
               versionMetadata,
             })}
@@ -175,5 +180,5 @@ export default function DocPage(props) {
         </DocsSidebarProvider>
       </DocsVersionProvider>
     </>
-  );
+  )
 }

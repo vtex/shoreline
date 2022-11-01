@@ -182,7 +182,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
         </>
       )}
     </CompositeItem>
-  );
+  )
 })
 
 type HTMLAttributesWithRef<T = any> = React.HTMLAttributes<T> &

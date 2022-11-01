@@ -45,7 +45,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
           </Stack>
         </Inline>
       </FormControl>
-    );
+    )
   }
 )
 

@@ -48,7 +48,7 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
         />
       </Box>
     </I18nProvider>
-  );
+  )
 }
 
 Playground.args = {
@@ -90,7 +90,7 @@ export const ControlledState: Story<NumberInputProps> = () => {
         />
       </Box>
     </I18nProvider>
-  );
+  )
 }
 
 export const WithTerms: Story<NumberInputProps> = () => {
@@ -116,5 +116,5 @@ export const WithTerms: Story<NumberInputProps> = () => {
         />
       </Box>
     </I18nProvider>
-  );
+  )
 }

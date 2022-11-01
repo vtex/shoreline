@@ -201,5 +201,5 @@ export const ComboboxMultipleField = createComponent<
         </Flex>
       </>
     ),
-  });
+  })
 })

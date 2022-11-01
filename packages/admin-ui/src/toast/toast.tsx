@@ -105,7 +105,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           />
         )}
       </ToastContainer>
-    );
+    )
   }
 )
 

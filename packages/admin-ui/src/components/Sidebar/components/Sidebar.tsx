@@ -141,7 +141,7 @@ export const Sidebar = forwardRef(function Sidebar(
       />
       <SidebarBackdrop state={state} loading={loading} />
     </Box>
-  );
+  )
 })
 
 export interface SidebarProps extends BoxProps {

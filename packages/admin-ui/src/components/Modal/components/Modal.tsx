@@ -138,7 +138,7 @@ export function Modal(props: ModalProps) {
         </ModalProvider>
       </Box>
     </Box>
-  );
+  )
 }
 
 export interface ModalProps

@@ -51,7 +51,7 @@ export const innerContainer = (position: string) => {
     top: '$space-0',
     height: '100%',
     ...positionStyle,
-  });
+  })
 }
 
 export const icon = (disabled: boolean) =>

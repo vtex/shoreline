@@ -21,58 +21,60 @@ export function FilterStatus(props: FilterStatusProps) {
 
   if (status === 'ready') return null
 
-  return <>
-    {status === 'empty' && (
-      <Box csx={style.statusLayout}>
-        <Text variant="title2">{formatMessage('empty')}</Text>
-      </Box>
-    )}
+  return (
+    <>
+      {status === 'empty' && (
+        <Box csx={style.statusLayout}>
+          <Text variant="title2">{formatMessage('empty')}</Text>
+        </Box>
+      )}
 
-    {status === 'loading' && (
-      <Stack csx={style.statusLayout} space="$space-6">
-        <Stack space="$space-4" csx={{ width: '3/4' }}>
-          <Skeleton csx={{ height: 20 }} />
-          <Skeleton csx={{ width: '9/12', height: 20 }} />
-          <Skeleton csx={{ width: '10/12', height: 20 }} />
-          <Skeleton csx={{ width: '11/12', height: 20 }} />
-          <Skeleton csx={{ width: '8/12', height: 20 }} />
+      {status === 'loading' && (
+        <Stack csx={style.statusLayout} space="$space-6">
+          <Stack space="$space-4" csx={{ width: '3/4' }}>
+            <Skeleton csx={{ height: 20 }} />
+            <Skeleton csx={{ width: '9/12', height: 20 }} />
+            <Skeleton csx={{ width: '10/12', height: 20 }} />
+            <Skeleton csx={{ width: '11/12', height: 20 }} />
+            <Skeleton csx={{ width: '8/12', height: 20 }} />
+          </Stack>
+
+          <Stack
+            direction="row"
+            csx={{
+              width: '100%',
+              justifyContent: 'flex-end',
+            }}
+          >
+            <Skeleton csx={{ height: 32, width: 62 }} />
+            <Skeleton csx={{ height: 32, width: 62 }} />
+          </Stack>
         </Stack>
+      )}
 
+      {status === 'error' && (
+        <Stack csx={style.statusLayout} className="__admin-ui-filter-status">
+          <Text variant="title2">{formatMessage('errorTitle')}</Text>
+          <Button variant="tertiary" onClick={onRetry} bleedX>
+            {formatMessage('retry')}
+          </Button>
+        </Stack>
+      )}
+
+      {status === 'not-found' && (
         <Stack
-          direction="row"
-          csx={{
-            width: '100%',
-            justifyContent: 'flex-end',
-          }}
+          csx={{ padding: '$space-4 $space-5' }}
+          space="$space-05"
+          className="__admin-ui-filter-status"
         >
-          <Skeleton csx={{ height: 32, width: 62 }} />
-          <Skeleton csx={{ height: 32, width: 62 }} />
+          <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
+          <Text variant="body" tone="secondary">
+            {formatMessage('noResultsSubtitle')}
+          </Text>
         </Stack>
-      </Stack>
-    )}
-
-    {status === 'error' && (
-      <Stack csx={style.statusLayout} className="__admin-ui-filter-status">
-        <Text variant="title2">{formatMessage('errorTitle')}</Text>
-        <Button variant="tertiary" onClick={onRetry} bleedX>
-          {formatMessage('retry')}
-        </Button>
-      </Stack>
-    )}
-
-    {status === 'not-found' && (
-      <Stack
-        csx={{ padding: '$space-4 $space-5' }}
-        space="$space-05"
-        className="__admin-ui-filter-status"
-      >
-        <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
-        <Text variant="body" tone="secondary">
-          {formatMessage('noResultsSubtitle')}
-        </Text>
-      </Stack>
-    )}
-  </>;
+      )}
+    </>
+  )
 }
 
 interface FilterStatusProps {

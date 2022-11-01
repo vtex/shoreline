@@ -72,7 +72,7 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
         </Flex>
       </Inline>
     ),
-  });
+  })
 })
 
 function resolveSize(total: number) {

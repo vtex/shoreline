@@ -14,7 +14,7 @@ export const Uncontrolled = () => {
     <Box csx={{ padding: '$space-2 $space-3', width: '300px' }}>
       <TextArea label="Uncontrolled" />
     </Box>
-  );
+  )
 }
 
 export const Controlled = () => {
@@ -31,7 +31,7 @@ export const Controlled = () => {
         error
       />
     </Stack>
-  );
+  )
 }
 
 export const States = () => {
@@ -61,7 +61,7 @@ export const States = () => {
       />
       <TextArea label="disabled" disabled />
     </Stack>
-  );
+  )
 }
 
 export const ForwardRef = () => {
@@ -78,5 +78,5 @@ export const ForwardRef = () => {
     <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
       <TextArea ref={ref} />
     </Stack>
-  );
+  )
 }

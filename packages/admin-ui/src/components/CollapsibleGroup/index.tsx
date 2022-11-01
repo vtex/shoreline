@@ -49,7 +49,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
         ))}
       </Group>
     </Card>
-  );
+  )
 }
 
 export interface CollapsibleGroupProps extends SystemComponent {

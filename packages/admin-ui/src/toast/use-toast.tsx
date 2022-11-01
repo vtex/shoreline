@@ -52,7 +52,7 @@ function InternalToastProvider(props: ToastProviderProps) {
         </Stack>
       </Portal>
     </ToastControllerContext.Provider>
-  );
+  )
 }
 
 export function ToastProvider(props: ToastProviderProps) {

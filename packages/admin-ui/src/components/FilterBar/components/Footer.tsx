@@ -11,5 +11,5 @@ export const Footer = createComponent<'div'>((props) => {
       bg: 'container',
     },
     ...props,
-  });
+  })
 })

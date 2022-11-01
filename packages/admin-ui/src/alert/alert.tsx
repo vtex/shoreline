@@ -66,7 +66,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
         </Stack>
       </Fragment>
     ),
-  };
+  }
 })
 
 /**

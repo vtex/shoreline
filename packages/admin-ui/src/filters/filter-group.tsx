@@ -31,7 +31,7 @@ export function FilterGroup(props: FilterGroupProps) {
         {formatMessage('clearAll')}
       </Button>
     </Flex>
-  );
+  )
 }
 
 export interface FilterGroupProps extends SystemComponentProps<{}> {

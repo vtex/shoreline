@@ -43,7 +43,7 @@ export const Topbar = createComponent<'div', TopbarOptions>((props) => {
     },
     ...restProps,
     children: loading ? <TopbarSkeleton /> : children,
-  });
+  })
 })
 
 /**
@@ -131,7 +131,7 @@ export function TopbarSkeleton() {
         </Inline>
       </TopbarEnd>
     </Fragment>
-  );
+  )
 }
 
 export interface TopbarOptions {

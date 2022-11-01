@@ -235,7 +235,7 @@ function Suggestion(props: SuggestionProps) {
         {children ? children(item) : item}
       </Paragraph>
     </Box>
-  );
+  )
 }
 
 type KbdProps = ComponentPropsWithoutRef<'kbd'>

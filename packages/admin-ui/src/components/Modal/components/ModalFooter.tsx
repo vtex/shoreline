@@ -74,7 +74,7 @@ export const ModalFooter = createComponent<'footer'>((props) => {
         flexDirection: 'row',
       },
     },
-  });
+  })
 })
 
 export type ModalFooterProps = ComponentPropsWithRef<typeof ModalFooter>

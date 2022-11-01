@@ -71,6 +71,6 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
           </Bleed>
         </Inline>
       ) : null,
-    });
+    })
   }
 )

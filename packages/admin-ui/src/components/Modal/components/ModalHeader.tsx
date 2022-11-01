@@ -86,7 +86,7 @@ export const ModalHeader = createComponent<'header', ModalHeaderOptions>(
           </Box>
         </>
       ),
-    });
+    })
   }
 )
 

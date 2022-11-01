@@ -34,7 +34,7 @@ export const CollapsibleHeader = createComponent<
       </Fragment>
     ),
     ...restProps,
-  });
+  })
 })
 
 function Disclosure(props: DisclosureProps) {

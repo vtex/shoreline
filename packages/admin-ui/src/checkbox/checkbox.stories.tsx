@@ -38,7 +38,7 @@ export const CheckboxPlayground: Story<CheckboxPlaygroundProps> = (args) => {
     <Box csx={{ margin: '$space-1 $space-2' }}>
       <Checkbox state={checkbox} {...remainingProps} />
     </Box>
-  );
+  )
 }
 
 CheckboxPlayground.args = {
@@ -58,7 +58,7 @@ export const CheckboxExample = () => {
         helpText="You must select this option to use our services"
       />
     </Box>
-  );
+  )
 }
 
 interface CheckboxGroupPlaygroundProps
@@ -79,7 +79,7 @@ export const CheckboxGroupPlayground: Story<CheckboxGroupPlaygroundProps> = (
         ))}
       </CheckboxGroup>
     </Box>
-  );
+  )
 }
 
 CheckboxGroupPlayground.args = {
@@ -109,5 +109,5 @@ export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
         />
       </CheckboxGroup>
     </Box>
-  );
+  )
 }

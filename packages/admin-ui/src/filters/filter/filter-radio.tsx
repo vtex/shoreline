@@ -14,7 +14,7 @@ export const FilterRadio = (props: FilterRadioProps) => {
     checked,
     type: 'radio',
     readOnly: true,
-  });
+  })
 }
 
 interface FilterRadioProps {

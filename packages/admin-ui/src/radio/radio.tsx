@@ -28,7 +28,7 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
           </Stack>
         </Inline>
       </FormControl>
-    );
+    )
   }
 )
 

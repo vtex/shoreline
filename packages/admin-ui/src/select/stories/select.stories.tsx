@@ -61,7 +61,11 @@ export const UIStates: Story<SelectProps> = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Stack space="$space-12" csx={{ width: '288px', margin: '$space-3 $space-4' }} fluid>
+    <Stack
+      space="$space-12"
+      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      fluid
+    >
       <Select
         value={value}
         helpText="Help text"
@@ -96,7 +100,7 @@ export const UIStates: Story<SelectProps> = () => {
         <option value="option-3">Option 3</option>
       </Select>
     </Stack>
-  );
+  )
 }
 
 export const ForwardRef: Story<SelectProps> = () => {
@@ -109,7 +113,11 @@ export const ForwardRef: Story<SelectProps> = () => {
   }, [])
 
   return (
-    <Stack space="$space-12" csx={{ width: '288px', margin: '$space-3 $space-4' }} fluid>
+    <Stack
+      space="$space-12"
+      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      fluid
+    >
       <Select ref={ref}>
         <option value="option-1">Option 1</option>
         <option value="option-2">Option 2</option>
@@ -125,5 +133,5 @@ export const ForwardRef: Story<SelectProps> = () => {
         Change value to Option 2
       </Button>
     </Stack>
-  );
+  )
 }

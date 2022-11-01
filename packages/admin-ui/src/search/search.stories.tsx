@@ -34,7 +34,7 @@ export const Playground: Story<PlaygroundProps> = (args) => {
         {...getInputProps()}
       />
     </I18nProvider>
-  );
+  )
 }
 
 Playground.args = {
@@ -56,5 +56,5 @@ export const WithoutHook = () => {
       }}
       onClear={() => setValue('')}
     />
-  );
+  )
 }

@@ -28,5 +28,5 @@ export const FilterFooter = createComponent<typeof Role>((props) => {
       </Stack>
     ),
     ...props,
-  });
+  })
 })

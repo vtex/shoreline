@@ -27,7 +27,13 @@ export function SidebarItemSkeleton() {
         padding: '$space-2 $space-3',
       }}
     >
-      <Box csx={{ size: '100%', margin: '$space-2 $space-3', paddingY: '$space-2' }}>
+      <Box
+        csx={{
+          size: '100%',
+          margin: '$space-2 $space-3',
+          paddingY: '$space-2',
+        }}
+      >
         <Skeleton
           key="section-title"
           csx={{
@@ -49,8 +55,8 @@ export function SidebarItemSkeleton() {
               }}
             />
           </Box>
-        );
+        )
       })}
     </Box>
-  );
+  )
 }

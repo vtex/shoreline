@@ -15,7 +15,7 @@ export const Uncontrolled = () => {
     <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput label="Uncontrolled" />
     </Stack>
-  );
+  )
 }
 
 export const Controlled = () => {
@@ -30,7 +30,7 @@ export const Controlled = () => {
         helpText={<>State: {value}</>}
       />
     </Stack>
-  );
+  )
 }
 
 export const Terms = () => {
@@ -49,7 +49,7 @@ export const Terms = () => {
         }
       />
     </Stack>
-  );
+  )
 }
 
 export const UIStates = () => {
@@ -65,7 +65,7 @@ export const UIStates = () => {
       />
       <TextInput label="disabled" disabled />
     </Stack>
-  );
+  )
 }
 
 export const ForwardRef = () => {
@@ -82,5 +82,5 @@ export const ForwardRef = () => {
     <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
       <TextInput ref={ref} />
     </Stack>
-  );
+  )
 }

@@ -37,7 +37,7 @@ export const RadioGroupPlayground: Story<RadioGroupPlaygroundProps> = (
       </RadioGroup>
       <span>Current value: {state.value}</span>
     </Stack>
-  );
+  )
 }
 
 RadioGroupPlayground.args = {
@@ -67,7 +67,7 @@ export function Example() {
         />
       </RadioGroup>
     </Box>
-  );
+  )
 }
 
 export const RadioAppearenceStates: Story<RadioProps> = (args) => {

@@ -48,7 +48,7 @@ export const Single = () => {
       </CardHeader>
       <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
     </Card>
-  );
+  )
 }
 
 export const Nested = () => {
@@ -89,7 +89,7 @@ export const Nested = () => {
         </Card>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export const WithImage = () => {
@@ -118,5 +118,5 @@ export const WithImage = () => {
       </CardHeader>
       <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
     </Card>
-  );
+  )
 }

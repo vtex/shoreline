@@ -172,7 +172,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
         />
       </Tooltip>
     </Fragment>
-  );
+  )
 }
 
 interface ImageContainerProps {

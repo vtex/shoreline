@@ -36,7 +36,7 @@ export const FieldDetails = createComponent<typeof Role, FieldDetailsOptions>(
         </>
       ),
       ...restProps,
-    });
+    })
   }
 )
 

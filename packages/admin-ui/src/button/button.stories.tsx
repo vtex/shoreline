@@ -79,7 +79,7 @@ export const Bleed: Story<ButtonProps> = (args) => {
         </Flex>
       </Box>
     </Box>
-  );
+  )
 }
 
 Bleed.args = {

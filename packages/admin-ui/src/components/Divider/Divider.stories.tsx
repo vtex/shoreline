@@ -21,12 +21,14 @@ export const Horizontal: Story = () => {
         limit. Tolerance is set per account.
       </Paragraph>
       <Divider orientation="horizontal" csx={{ marginY: '$space-6' }} />
-      <Heading csx={{ marginBottom: '$space-2' }}>Automatic account creation</Heading>
+      <Heading csx={{ marginBottom: '$space-2' }}>
+        Automatic account creation
+      </Heading>
       <Paragraph>
         Allows users who have not been previously credited to close a purchase.
       </Paragraph>
     </Card>
-  );
+  )
 }
 
 export const Vertical: Story = () => {
@@ -54,5 +56,5 @@ export const Vertical: Story = () => {
         </Paragraph>
       </Box>
     </Card>
-  );
+  )
 }

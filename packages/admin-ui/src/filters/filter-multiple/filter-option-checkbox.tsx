@@ -37,7 +37,7 @@ export const FilterOptionCheckbox = createComponent<
     onClick: () => combobox.onChange(item),
     id,
     ...restProps,
-  });
+  })
 })
 
 interface FilterOptionCheckboxProps {

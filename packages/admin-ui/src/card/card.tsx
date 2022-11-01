@@ -12,7 +12,7 @@ export const Card = createComponent<'div'>((props) => {
     ...restProps,
     baseStyle: style.card,
     children: <Stack space="$space-6">{children}</Stack>,
-  });
+  })
 })
 
 export type CardProps = ComponentPropsWithRef<typeof Card>

@@ -20,13 +20,17 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
       <FormControl error={error} optional={optional}>
         <FormControlLabel as="span">{label}</FormControlLabel>
         <AriaCheckboxGroup>
-          <Stack direction={direction} space="$space-4" csx={{ marginY: '$space-1' }}>
+          <Stack
+            direction={direction}
+            space="$space-4"
+            csx={{ marginY: '$space-1' }}
+          >
             {children}
           </Stack>
         </AriaCheckboxGroup>
         <FormControlMessage helpText={helpText} errorText={errorText} />
       </FormControl>
-    );
+    )
   }
 )
 

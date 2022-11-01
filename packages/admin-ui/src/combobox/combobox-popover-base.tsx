@@ -38,7 +38,7 @@ export const ComboboxPopoverBase = createComponent<
           >
             <Spinner />
           </Box>
-        );
+        )
       }
 
       case 'error': {
@@ -55,7 +55,7 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('retry')}
             </Button>
           </Box>
-        );
+        )
       }
 
       case 'empty': {
@@ -73,7 +73,7 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('searchPlaceholder')}
             </Paragraph>
           </Box>
-        );
+        )
       }
 
       case 'not-found': {
@@ -94,7 +94,7 @@ export const ComboboxPopoverBase = createComponent<
               {formatMessage('noResultsSubtitle')}
             </Paragraph>
           </Box>
-        );
+        )
       }
     }
   }

@@ -26,5 +26,5 @@ export const DataViewHeader = createComponent<'div'>((props) => {
         {children}
       </Stack>
     ),
-  });
+  })
 })

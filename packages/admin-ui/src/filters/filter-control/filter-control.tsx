@@ -66,7 +66,7 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
         </>
       ),
       ...props,
-    });
+    })
   }
 )
 

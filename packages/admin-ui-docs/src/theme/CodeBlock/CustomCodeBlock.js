@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import {
   CodeBlockWrapper,
   useCollapsibleCodeBlock,
-  useCopyCodeBlock
+  useCopyCodeBlock,
 } from '../../components/CodeBlockWrapper'
 
 import styles from './styles.module.scss'
@@ -12,12 +12,7 @@ import styles from './styles.module.scss'
 const MAX_CODE_TOKENS = 20
 
 const CustomCodeBlock = (props) => {
-  const {
-    children,
-    className,
-    Component,
-    ...remainingProps
-  } = props
+  const { children, className, Component, ...remainingProps } = props
 
   const isCollapsibleModeOn = children.split(' ').length > MAX_CODE_TOKENS
 
@@ -37,12 +32,10 @@ const CustomCodeBlock = (props) => {
           isCodeBlockCollapsed,
         }}
       >
-        <Component className={
-          clsx(
-            updatedClassName,
-            styles.codeBlock,
-          )}
-          {...remainingProps}>
+        <Component
+          className={clsx(updatedClassName, styles.codeBlock)}
+          {...remainingProps}
+        >
           {children}
         </Component>
       </CodeBlockWrapper>

@@ -97,7 +97,7 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
     >
       {children}
     </Button>
-  );
+  )
 })
 
 type IntrinsicProps = Omit<ButtonProps, 'ref'>

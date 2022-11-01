@@ -23,7 +23,7 @@ export const FloatingLabel = createComponent<'label'>((props) => {
       transition: 'all 0.2s ease-out;',
     },
     ...props,
-  });
+  })
 })
 
 export type FloatingLabelProps = ComponentPropsWithRef<typeof FloatingLabel>

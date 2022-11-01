@@ -19,7 +19,7 @@ export const TabList = createComponent<typeof AriakitTabList, TabListOptions>(
         </Inline>
       ),
       ...tabListProps,
-    });
+    })
   }
 )
 

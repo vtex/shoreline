@@ -1,10 +1,7 @@
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { negative } from '@vtex/admin-ui-core'
-import type {
-  SpaceTokens,
-  CSSPropAutocomplete,
-} from '@vtex/admin-ui-core'
+import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import { Box } from '../box'
 
 const defaultBleed = '0rem'

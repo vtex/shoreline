@@ -33,7 +33,7 @@ export const FieldContainer = createComponent<'div'>((props) => {
       },
     },
     ...props,
-  });
+  })
 })
 
 export type FieldContainerProps = ComponentPropsWithRef<typeof FieldContainer>

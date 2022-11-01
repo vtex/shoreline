@@ -99,7 +99,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
         />
       ) : null}
     </Center>
-  );
+  )
 })
 
 export interface SidebarDisclosureProps

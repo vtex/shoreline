@@ -184,5 +184,5 @@ export function WithTable() {
         </DataView>
       </PageContent>
     </Page>
-  );
+  )
 }

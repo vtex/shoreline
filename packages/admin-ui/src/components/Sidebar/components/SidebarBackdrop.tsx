@@ -104,7 +104,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         </Box>
       )}
     </Fragment>
-  );
+  )
 })
 
 export interface SidebarBackdropProps {

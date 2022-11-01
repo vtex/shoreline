@@ -66,7 +66,7 @@ export const ModalContent = createComponent<'section'>((props) => {
       overflowY: 'auto',
       ...get(scrollbarSizeStyles, scrollSize, {}),
     },
-  });
+  })
 })
 
 export type ModelContentProps = ComponentPropsWithRef<typeof ModalContent>

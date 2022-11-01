@@ -29,7 +29,7 @@ export const DataView = createComponent<'div', DataViewOptions>((props) => {
       </DataViewContext.Provider>
     ),
     ...restProps,
-  });
+  })
 })
 
 export interface DataViewOptions {

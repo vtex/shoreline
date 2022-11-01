@@ -28,7 +28,7 @@ export const Zero = () => {
         Content
       </Center>
     </Card>
-  );
+  )
 }
 
 export const LevelOne = () => {
@@ -41,7 +41,7 @@ export const LevelOne = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export const LevelTwo = () => {
@@ -58,7 +58,7 @@ export const LevelTwo = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export const Full = () => {
@@ -86,5 +86,5 @@ export const Full = () => {
         <Center csx={{ height: 250 }}>Content</Center>
       </CardContent>
     </Card>
-  );
+  )
 }

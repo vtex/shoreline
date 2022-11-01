@@ -286,5 +286,5 @@ export function parseNumber(str: string): number {
  * Keep this in sync with `parseNumber` above.
  */
 export function isNumeric(str: string) {
-  return /^[0-9\u0660-\u0669\u06f0-\u06f9]+$/.test(str);
+  return /^[0-9\u0660-\u0669\u06f0-\u06f9]+$/.test(str)
 }
