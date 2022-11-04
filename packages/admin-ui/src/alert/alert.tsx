@@ -44,7 +44,7 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
           </IconContainer>
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
-        <Stack direction="row" csx={styles.rightInline}>
+        <Stack direction="row" space="$space-2" csx={styles.rightInline}>
           {action ? (
             <Button
               {...action}
