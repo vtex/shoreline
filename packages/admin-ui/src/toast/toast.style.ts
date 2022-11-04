@@ -44,11 +44,11 @@ export const toastQueue = style({
   position: 'fixed',
   zIndex: '999',
   pointerEvents: 'none',
-  bottom: '$space-12',
+  bottom: '$space-10',
   marginLeft: 'auto',
   width: '100%',
   '@tablet': {
-    right: '$space-10',
+    right: '$space-12',
     width: 'auto',
   },
 })

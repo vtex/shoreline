@@ -55,7 +55,7 @@ export const bleedY = styleVariants({
       marginY: negative('$space-2'),
     },
     large: {
-      marginY: negative('$space-4'),
+      marginY: negative('$space-3'),
     },
   },
 })
@@ -66,7 +66,7 @@ export const bleedX = styleVariants({
       marginX: negative('$space-3'),
     },
     large: {
-      marginX: negative('$space-5'),
+      marginX: negative('$space-4'),
     },
   },
 })
