@@ -1,0 +1,50 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use the Tab, the Button, or a group of Buttons instead of the Menu?
+</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Tab component for navigation triggers that alternate between related views within the same container.</li>
+        <li>Choose the Button when there is only one action trigger.</li>
+        <li>Choose a group of Buttons when the group will not be repeated in a list and all its actions are frequently used.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
