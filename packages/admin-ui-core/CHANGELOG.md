@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.12.4-dev.9 (2022-11-07)
+
+
+### Features
+
+* change some spacing values requested by the designer ([2b9f5b0](https://github.com/vtex/admin-ui/commit/2b9f5b04967e0ed8ac38ee9f1856ff71998d1478))
+
+
+
+
+
 ## 0.12.4-dev.8 (2022-10-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
