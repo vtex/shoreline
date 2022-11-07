@@ -5,10 +5,10 @@ describe('styleVariants', () => {
     const button = styleVariants({
       size: {
         regular: {
-          padding: 2,
+          padding: '$space-2',
         },
         small: {
-          padding: 3,
+          padding: '$space-3',
         },
       },
       variant: {
@@ -22,7 +22,7 @@ describe('styleVariants', () => {
     })
 
     expect(button({ size: 'regular', variant: 'primary' })).toEqual({
-      padding: 2,
+      padding: '$space-2',
       color: 'blue',
     })
   })
