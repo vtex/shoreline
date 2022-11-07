@@ -83,7 +83,7 @@ export function ReleaseNotes() {
     <DataView state={view}>
       <Box
         csx={{
-          padding: 'm',
+          padding: '$space-3 $space-4',
         }}
       >
         <Heading>Releases table</Heading>
