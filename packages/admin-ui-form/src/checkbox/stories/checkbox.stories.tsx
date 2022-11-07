@@ -15,7 +15,7 @@ export const Standalone = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <Checkbox
               state={form}
@@ -24,7 +24,7 @@ export const Standalone = () => {
               helpText="You must select this option to use our services"
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -39,7 +39,7 @@ export const Group = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <CheckboxGroup name="features" state={form} label="Features">
             <Checkbox value="dark-mode" label="Dark Mode" />
             <Checkbox value="a11y-theme" label="Accessible Theme" />
@@ -48,7 +48,7 @@ export const Group = () => {
               label="Component Composition"
             />
           </CheckboxGroup>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -63,7 +63,7 @@ export const StandaloneValidation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <Checkbox
               state={form}
@@ -75,7 +75,7 @@ export const StandaloneValidation = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -90,7 +90,7 @@ export const GroupValidation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <CheckboxGroup
             name="features"
             state={form}
@@ -106,7 +106,7 @@ export const GroupValidation = () => {
               label="Component Composition"
             />
           </CheckboxGroup>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>

@@ -15,14 +15,14 @@ export const Basic = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Switch
             state={form}
             name="terms-of-service"
             label="I agree to the Terms of Service"
             helpText="You must select this option to use our services"
           />
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -41,14 +41,14 @@ export const DefaultValue = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Switch
             state={form}
             name="enabled"
             label="Search enabled"
             helpText="Enables the search feature on the system"
           />
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -63,7 +63,7 @@ export const Validation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Switch
             state={form}
             name="terms-of-service"
@@ -73,7 +73,7 @@ export const Validation = () => {
               required: 'This is required',
             }}
           />
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>

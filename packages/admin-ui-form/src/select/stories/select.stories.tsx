@@ -19,7 +19,7 @@ export const Basic = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Select label="Role" name="role" state={form}>
             <option value="member">Member</option>
             <option value="owner">Owner</option>
@@ -28,7 +28,7 @@ export const Basic = () => {
             <option value="brazil">Brazil</option>
             <option value="usa">USA</option>
           </Select>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -43,7 +43,7 @@ export const Validation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Select
             label="Role"
             name="role"
@@ -55,7 +55,7 @@ export const Validation = () => {
             <option value="member">Member</option>
             <option value="owner">Owner</option>
           </Select>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>

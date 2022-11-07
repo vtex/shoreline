@@ -15,7 +15,7 @@ export const Basic = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <TextInput
               autoComplete="off"
@@ -31,7 +31,7 @@ export const Basic = () => {
               state={form}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -46,7 +46,7 @@ export const Validation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <TextInput
               label="First Name"
@@ -71,7 +71,7 @@ export const Validation = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
