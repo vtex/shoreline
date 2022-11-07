@@ -38,7 +38,7 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$xs' }}>
+      <Box csx={{ margin: '$space-1 $space-2' }}>
         <NumberInput
           label={hasLabel && label}
           helpText={hasHelpText && helpText}
@@ -77,7 +77,7 @@ export const ControlledState: Story<NumberInputProps> = () => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$xs' }}>
+      <Box csx={{ margin: '$space-1 $space-2' }}>
         <NumberInput
           label="Label"
           min={min}
@@ -98,7 +98,7 @@ export const WithTerms: Story<NumberInputProps> = () => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$xs' }}>
+      <Box csx={{ margin: '$space-1 $space-2' }}>
         <NumberInput
           prefix={<IconMagnifyingGlass />}
           value={value}

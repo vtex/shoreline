@@ -4,7 +4,7 @@ export const dateField = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignContent: 'center',
-  padding: '$s',
+  padding: '$space-2 $space-3',
   height: 52,
   width: 288,
   borderRadius: 4,

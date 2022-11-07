@@ -62,7 +62,7 @@ export const Bleed: Story<ButtonProps> = (args) => {
   return (
     <Box
       csx={{
-        padding: '$m',
+        padding: '$space-3 $space-4',
         bg: '$secondary',
       }}
     >

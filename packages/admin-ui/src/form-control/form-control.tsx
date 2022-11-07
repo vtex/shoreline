@@ -11,7 +11,7 @@ export function FormControl(props: FormGroupOptions) {
 
   return (
     <FormControlProvider {...remainingProps}>
-      <Stack space="$m" csx={csx}>
+      <Stack space="$space-1" csx={csx}>
         {children}
       </Stack>
     </FormControlProvider>

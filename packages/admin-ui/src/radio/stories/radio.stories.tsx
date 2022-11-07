@@ -29,7 +29,7 @@ export const RadioGroupPlayground: Story<RadioGroupPlaygroundProps> = (
   const state = useRadioState()
 
   return (
-    <Stack space="$xl">
+    <Stack space="$space-4">
       <RadioGroup {...restProps} state={state}>
         {[...Array(numberOfRadios)].map((_, index) => (
           <Radio value={`radio-${index}`} label={`Radio ${index}`} />
@@ -53,7 +53,7 @@ export function Example() {
   const state = useRadioState()
 
   return (
-    <Box csx={{ margin: '$xl' }}>
+    <Box csx={{ margin: '$space-6 $space-7' }}>
       <RadioGroup state={state} label="Account Type" direction="column">
         <Radio
           label="Accounts are disabled"

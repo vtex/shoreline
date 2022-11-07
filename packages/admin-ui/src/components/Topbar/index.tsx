@@ -38,7 +38,7 @@ export const Topbar = createComponent<'div', TopbarOptions>((props) => {
       height: '3.5rem',
       borderBottom: '$neutral',
       zIndex: 'topbar',
-      paddingX: '$xl',
+      paddingX: '$space-5',
       bg: '$primary',
     },
     ...restProps,
@@ -104,8 +104,8 @@ export function TopbarSkeleton() {
   return (
     <Fragment>
       <TopbarStart>
-        <Inline hSpace="$l" spaceInside align="center">
-          <Center csx={{ padding: '$xs' }}>
+        <Inline hSpace="$space-3" spaceInside align="center">
+          <Center csx={{ padding: '$space-1 $space-2' }}>
             <Skeleton csx={{ size: '1.5rem' }} />
           </Center>
           <Skeleton csx={{ width: '8rem', height: '1rem' }} />
@@ -115,17 +115,17 @@ export function TopbarSkeleton() {
         <Skeleton csx={{ width: '13.75rem', height: '2rem' }} />
       </TopbarCenter>
       <TopbarEnd>
-        <Inline hSpace="$m" spaceInside align="center">
-          <Center csx={{ padding: '$xs' }}>
+        <Inline hSpace="$space-2" spaceInside align="center">
+          <Center csx={{ padding: '$space-1 $space-2' }}>
             <Skeleton csx={{ height: '1.25rem', width: '5.563rem' }} />
           </Center>
-          <Center csx={{ padding: '$xs' }}>
+          <Center csx={{ padding: '$space-1 $space-2' }}>
             <Skeleton csx={{ size: '1.25rem' }} />
           </Center>
-          <Center csx={{ padding: '$xs' }}>
+          <Center csx={{ padding: '$space-1 $space-2' }}>
             <Skeleton csx={{ size: '1.25rem' }} />
           </Center>
-          <Center csx={{ padding: '$xs' }}>
+          <Center csx={{ padding: '$space-1 $space-2' }}>
             <Skeleton csx={{ size: '1.5rem' }} />
           </Center>
         </Inline>

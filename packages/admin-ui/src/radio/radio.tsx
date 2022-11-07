@@ -18,9 +18,9 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
 
     return (
       <FormControl>
-        <Inline hSpace="$m" vSpace="">
+        <Inline hSpace="$space-2" vSpace="">
           <RadioButton {...radioButtonProps} id={baseId} />
-          <Stack space="$s">
+          <Stack space="$space-05">
             <Label htmlFor={baseId} csx={style.label}>
               {label}
             </Label>

@@ -1,11 +1,7 @@
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { negative } from '@vtex/admin-ui-core'
-import type {
-  HSpaceTokens,
-  VSpaceTokens,
-  CSSPropAutocomplete,
-} from '@vtex/admin-ui-core'
+import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import { Box } from '../box'
 
 const defaultBleed = '0rem'
@@ -45,20 +41,20 @@ export interface BleedProps {
    * Top bleed
    * @default 0
    */
-  top?: CSSPropAutocomplete<VSpaceTokens>
+  top?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Bottom bleed
    * @default 0
    */
-  bottom?: CSSPropAutocomplete<VSpaceTokens>
+  bottom?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Left bleed
    * @default 0
    */
-  left?: CSSPropAutocomplete<HSpaceTokens>
+  left?: CSSPropAutocomplete<SpaceTokens>
   /**
    * Right bleed
    * @default 0
    */
-  right?: CSSPropAutocomplete<HSpaceTokens>
+  right?: CSSPropAutocomplete<SpaceTokens>
 }

@@ -27,7 +27,7 @@ export const FormControlPlayground: Story<FormControlPlaygroundProps> = (
 
   return (
     <I18nProvider locale="en-US">
-      <Box csx={{ margin: '$xs' }}>
+      <Box csx={{ margin: '$space-1 $space-2' }}>
         <FormControl {...remainingProps}>
           {hasLabel && <FormControlLabel>{label}</FormControlLabel>}
           <Checkbox label="Checkbox 1" />

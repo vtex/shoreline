@@ -38,13 +38,13 @@ export const useAlert = createHook<'div', AlertOptions>((props) => {
     },
     children: (
       <Fragment>
-        <Inline noWrap vSpace="unset" hSpace="$l" spaceInside>
+        <Inline noWrap vSpace="unset" hSpace="$space-3" spaceInside>
           <IconContainer size="regular" csx={styles.iconContainer({ variant })}>
             {icon}
           </IconContainer>
           <Paragraph csx={styles.paragraph}>{children}</Paragraph>
         </Inline>
-        <Stack direction="row" csx={styles.rightInline}>
+        <Stack direction="row" space="$space-2" csx={styles.rightInline}>
           {action ? (
             <Button
               {...action}

@@ -39,7 +39,7 @@ export function CollapsibleGroup(props: CollapsibleGroupProps) {
   )
 
   return (
-    <Card csx={{ padding: 0, ...csx }} {...cardProps}>
+    <Card csx={{ padding: '$space-0', ...csx }} {...cardProps}>
       <Group>
         {Children.map(validChildren, (child, index) => (
           <Fragment>

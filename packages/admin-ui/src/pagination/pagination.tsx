@@ -37,7 +37,7 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
   return useElement('div', {
     ...restProps,
     children: (
-      <Inline align="center" hSpace="$m" spaceInside noWrap>
+      <Inline align="center" hSpace="$space-2" spaceInside noWrap>
         {loading ? (
           <Skeleton csx={style.loading} />
         ) : (

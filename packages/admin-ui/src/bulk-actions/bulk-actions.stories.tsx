@@ -43,7 +43,7 @@ export const Basic: Story = () => {
   })
 
   return (
-    <Box csx={{ margin: 8 }}>
+    <Box csx={{ margin: '$space-8' }}>
       <Flex>
         <Checkbox
           state={{

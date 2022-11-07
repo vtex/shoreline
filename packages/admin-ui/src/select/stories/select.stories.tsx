@@ -51,7 +51,7 @@ Playground.args = {
   error: false,
   errorText: 'Error text',
   csx: {
-    margin: '$l',
+    margin: '$space-4 $space-5',
   },
   disabled: false,
   locale: 'en-US',
@@ -61,7 +61,11 @@ export const UIStates: Story<SelectProps> = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Stack space="$3xl" csx={{ width: '288px', margin: '$m' }} fluid>
+    <Stack
+      space="$space-12"
+      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      fluid
+    >
       <Select
         value={value}
         helpText="Help text"
@@ -109,7 +113,11 @@ export const ForwardRef: Story<SelectProps> = () => {
   }, [])
 
   return (
-    <Stack space="$3xl" csx={{ width: '288px', margin: '$m' }} fluid>
+    <Stack
+      space="$space-12"
+      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      fluid
+    >
       <Select ref={ref}>
         <option value="option-1">Option 1</option>
         <option value="option-2">Option 2</option>

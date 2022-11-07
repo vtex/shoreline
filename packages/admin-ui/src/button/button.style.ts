@@ -52,10 +52,10 @@ export const buttonStyle = style({
 export const bleedY = styleVariants({
   size: {
     normal: {
-      marginY: negative('$l'),
+      marginY: negative('$space-2'),
     },
     large: {
-      marginY: negative('$xl'),
+      marginY: negative('$space-3'),
     },
   },
 })
@@ -63,10 +63,10 @@ export const bleedY = styleVariants({
 export const bleedX = styleVariants({
   size: {
     normal: {
-      marginX: negative('$l'),
+      marginX: negative('$space-3'),
     },
     large: {
-      marginX: negative('$xl'),
+      marginX: negative('$space-4'),
     },
   },
 })
@@ -104,11 +104,11 @@ export const variants = styleVariants({
   },
   size: {
     normal: {
-      padding: '$s',
+      padding: '$space-2 $space-3',
       height: '2.25rem',
     },
     large: {
-      padding: '$m',
+      padding: '$space-3 $space-4',
       height: '2.75rem',
     },
   },
@@ -131,13 +131,13 @@ export const innerContainerVariants = styleVariants({
     start: {
       flexDirection: 'row',
       svg: {
-        marginRight: '$s',
+        marginRight: '$space-1',
       },
     },
     end: {
       flexDirection: 'row-reverse',
       svg: {
-        marginLeft: '$xs',
+        marginLeft: '$space-05',
       },
     },
     center: {},
@@ -147,10 +147,10 @@ export const innerContainerVariants = styleVariants({
 export const spinnerContainerStyle = style({
   text: '$action1',
   position: 'absolute',
-  bottom: 0,
-  top: 0,
-  left: 0,
-  right: 0,
+  bottom: '$space-0',
+  top: '$space-0',
+  left: '$space-0',
+  right: '$space-0',
   svg: {
     size: '1.3rem',
   },

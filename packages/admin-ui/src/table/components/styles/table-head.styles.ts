@@ -8,7 +8,7 @@ export const baseline = style({
 
 export const columnCell = style({
   position: 'sticky',
-  top: 0,
+  top: '$space-0',
   color: '$secondary',
   background: '$primary',
   overflowX: 'clip',
@@ -29,7 +29,7 @@ export const sortIndicator = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  margin: 1,
+  margin: '$space-1',
   minHeight: '0.75rem',
 })
 

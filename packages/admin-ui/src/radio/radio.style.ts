@@ -35,7 +35,7 @@ export const baseline = style({
   borderRadius: 'circle',
   cursor: 'pointer',
   display: 'flex',
-  margin: 0,
+  margin: '$space-0',
   alignItems: 'center',
   justifyContent: 'center',
 

@@ -10,13 +10,13 @@ export const container = style({
 export const input = style({
   width,
   height,
-  paddingX: '$3',
+  paddingX: '$space-3',
   text: '$body',
-  paddingTop: '$4',
+  paddingTop: '$space-4',
   bg: '$form.neutral',
   border: '$form.neutral',
   borderRadius: '$default',
-  marginY: '$1',
+  marginY: '$space-1',
   color: '$form.neutral',
   outline: 0,
   transition: 'snap',
@@ -34,24 +34,24 @@ export const input = style({
 })
 
 export const buttonContainer = style({
-  right: 0,
-  top: 1,
+  right: '$space-0',
+  top: '$space-1',
   height: '2.875rem',
-  paddingRight: '$3',
+  paddingRight: '$space-3',
   position: 'absolute',
   display: 'flex',
   color: '$primary',
 })
 
 export const clearButton = style({
-  marginTop: '$2',
-  marginRight: '$1',
+  marginTop: '$space-2',
+  marginRight: '$space-1',
   color: '$secondary',
 })
 
 export const popover = style({
   width,
-  padding: '$3',
+  padding: '$space-3',
   bg: '$primary',
   boxShadow: '$overlay.center',
   border: '$neutral',
@@ -62,8 +62,8 @@ export const popover = style({
 export const item = style({
   text: '$body',
   borderRadius: '$default',
-  paddingY: '$2',
-  paddingX: '$3',
+  paddingY: '$space-2',
+  paddingX: '$space-3',
   cursor: 'pointer',
   '&[data-active-item]': {
     bg: '$action.neutral.tertiaryPressed',
@@ -87,8 +87,8 @@ export const fieldTag = style({
   bg: '$action.neutral.secondary',
   color: '$primary',
   text: '$body',
-  paddingY: '$m',
-  paddingX: '$m',
+  paddingY: '$space-1',
+  paddingX: '$space-2',
   borderRadius: '$default',
   ':hover': {
     bg: '$action.neutral.secondaryHover',
@@ -99,8 +99,8 @@ export const fieldTag = style({
 })
 
 export const fieldTagDismiss = style({
-  padding: 0,
-  marginLeft: '$m',
+  padding: '$space-0',
+  marginLeft: '$space-2',
   bg: 'transparent',
   display: 'flex',
   alignItems: 'center',
@@ -115,8 +115,8 @@ export const fieldMultipleContainer = style({
   position: 'relative',
   border: '$form.neutral',
   borderRadius: '$default',
-  paddingY: '$l',
-  paddingX: '$l',
+  paddingY: '$space-2',
+  paddingX: '$space-3',
 
   ':hover': {
     border: '$form.neutralHover',

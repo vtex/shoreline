@@ -7,7 +7,7 @@ export const baseline = style({
   minHeight: '2.75rem',
   bg: '$primary',
   borderBottom: '$neutral',
-  padding: 0,
+  padding: '$space-0',
 })
 
 export const variants = styleVariants({
@@ -38,11 +38,11 @@ export const variants = styleVariants({
       },
 
       ':first-child > div': {
-        paddingLeft: '$l',
+        paddingLeft: '$space-3',
       },
 
       ':last-child > div': {
-        paddingX: '$xl',
+        paddingX: '$space-5',
       },
     },
     false: {},
@@ -80,7 +80,7 @@ export const variants = styleVariants({
 export const innerContainer = style({
   display: 'flex',
   alignItems: 'center',
-  paddingX: '$xl',
+  paddingX: '$space-5',
   width: '100%',
   height: '100%',
 })

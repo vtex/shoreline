@@ -35,9 +35,9 @@ export const baseline = style({
     content: '',
     position: 'absolute',
     transform: 'translateX(-100%)',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
+    bottom: '$space-0',
+    left: '$space-0',
+    right: '$space-0',
+    top: '$space-0',
   },
 })

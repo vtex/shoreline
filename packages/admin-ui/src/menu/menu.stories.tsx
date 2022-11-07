@@ -207,7 +207,7 @@ export const Bleed = () => {
     <>
       <Box
         csx={{
-          padding: '$m',
+          padding: '$space-3 $space-4',
           bg: '$secondary',
         }}
       >
@@ -231,7 +231,7 @@ export const Bleed = () => {
       </Box>
       <Box
         csx={{
-          padding: '$m',
+          padding: '$space-3 $space-4',
           bg: '$secondary',
         }}
       >

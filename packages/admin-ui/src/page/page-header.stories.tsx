@@ -183,13 +183,13 @@ export const WithTabs: Story<{
       </PageHeader>
       <Box>
         <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: 3 }}>
+          <TabPanel id="1" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
           </TabPanel>
-          <TabPanel id="2" csx={{ padding: 3 }}>
+          <TabPanel id="2" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
           </TabPanel>
-          <TabPanel id="3" csx={{ padding: 3 }}>
+          <TabPanel id="3" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
           </TabPanel>
         </TabPanelList>
@@ -238,13 +238,13 @@ export const FullFledged = () => {
       </PageHeader>
       <Box>
         <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: 3 }}>
+          <TabPanel id="1" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
           </TabPanel>
-          <TabPanel id="2" csx={{ padding: 3 }}>
+          <TabPanel id="2" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
           </TabPanel>
-          <TabPanel id="3" csx={{ padding: 3 }}>
+          <TabPanel id="3" csx={{ padding: '$space-3' }}>
             <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
           </TabPanel>
         </TabPanelList>

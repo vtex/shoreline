@@ -5,7 +5,7 @@ export const calendar = style({
   maxWidth: '19.75rem',
   display: 'flex',
   flexDirection: 'column',
-  padding: '$l',
+  padding: '$space-4 $space-5',
   '[aria-disabled="true"]': {
     color: '$disabled',
     bg: 'transparent',
@@ -21,7 +21,7 @@ export const calendarHeader = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   width: '100%',
-  marginBottom: '$xl',
+  marginBottom: '$space-4',
 })
 
 export const calendarButton = style({
@@ -45,8 +45,8 @@ export const calendarCellButton = style({
     size: 'normal',
     variant: 'neutralTertiary',
   }),
-  padding: 0,
-  marginBottom: '$s',
+  padding: '$space-0',
+  marginBottom: '$space-05',
   text: '$action1',
   border: 'none',
   cursor: 'pointer',
@@ -65,7 +65,7 @@ export const calendarDayTitle = style({
   text: '$body',
   textDecoration: 'none',
   color: '$secondary',
-  paddingY: 2,
+  paddingY: '$space-2',
   textAlign: 'center',
   size: '2.25rem',
 })

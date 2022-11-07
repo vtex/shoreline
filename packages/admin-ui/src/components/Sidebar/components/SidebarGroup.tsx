@@ -12,7 +12,7 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   props: SidebarGroupProps,
   ref: Ref<HTMLDivElement>
 ) {
-  const { children, space = '$l', csx } = props
+  const { children, space = '$space-2', csx } = props
 
   return (
     <Stack

@@ -50,7 +50,7 @@ export const containerVariants = styleVariants({
 
 export const input = style({
   height,
-  padding: '$m',
+  padding: '$space-3 $space-4',
   width: '100%',
   borderRadius: '$default',
   bg: '$form.neutral',
@@ -60,7 +60,7 @@ export const input = style({
 })
 
 export const term = style({
-  padding: '$m',
+  padding: '$space-3 $space-4',
   color: '$secondary',
   display: 'flex',
   alignItems: 'center',

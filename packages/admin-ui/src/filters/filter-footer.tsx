@@ -20,7 +20,7 @@ export const FilterFooter = createComponent<typeof Role>((props) => {
   return useElement(Role, {
     baseStyle: style.footer(isScrollableLayout),
     children: (
-      <Stack direction="row" space="$m">
+      <Stack direction="row" space="$space-2">
         <Button variant="tertiary" onClick={onClear}>
           {formatMessage('clear')}
         </Button>

@@ -6,7 +6,7 @@ export const tooltipPopover = style({
   bg: '$inverted',
   color: '$inverted',
   text: '$detail',
-  padding: '$s',
+  padding: '$space-2 $space-3',
   borderRadius: '$default',
   maxWidth: '16rem',
   zIndex: 'over',
@@ -15,7 +15,7 @@ export const tooltipPopover = style({
 export const tooltipTriggerWrapper = style({
   size: '1.5rem',
   bg: 'transparent',
-  padding: 0,
+  padding: '$space-0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -26,8 +26,8 @@ export const tooltipTrigger = style({
   bg: '$gray20',
   color: '$primary',
   borderRadius: '100%',
-  margin: 0,
-  padding: 0,
+  margin: '$space-0',
+  padding: '$space-0',
   display: 'flex',
 })
 

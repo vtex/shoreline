@@ -18,7 +18,7 @@ export const Columns = createComponent<'div', ColumnsOptions>((props) => {
 })
 
 export const useColumns = createHook<'div', ColumnsOptions>((props) => {
-  const { space = '$l', ...restProps } = props
+  const { space = '$space-3', ...restProps } = props
 
   const { breakpoint } = useBreakpoint()
 

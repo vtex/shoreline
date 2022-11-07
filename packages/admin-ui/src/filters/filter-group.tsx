@@ -17,7 +17,7 @@ export function FilterGroup(props: FilterGroupProps) {
       role="group"
       csx={{
         '> .__admin-ui-filter-disclosure:not(:first-child)': {
-          marginLeft: '$m',
+          marginLeft: '$space-2',
         },
       }}
       {...rest}
@@ -26,7 +26,7 @@ export function FilterGroup(props: FilterGroupProps) {
       <Button
         onClick={state.onClear}
         variant="neutralTertiary"
-        csx={{ marginLeft: '$m' }}
+        csx={{ marginLeft: '$space-2' }}
       >
         {formatMessage('clearAll')}
       </Button>

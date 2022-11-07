@@ -49,9 +49,9 @@ export const ModalContent = createComponent<'section'>((props) => {
   return useElement('section', {
     ...props,
     baseStyle: {
-      paddingTop: 4,
-      paddingX: 6,
-      paddingBottom: 6,
+      paddingTop: '$space-4',
+      paddingX: '$space-6',
+      paddingBottom: '$space-6',
       scrollbarWidth: 'thin',
       scrollbarColor: 'base',
       '::-webkit-scrollbar': {

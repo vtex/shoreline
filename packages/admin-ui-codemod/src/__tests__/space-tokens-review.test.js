@@ -55,7 +55,7 @@ describe('Number tokens transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({ padding: true ? 1 : 2 })",
+    'export const baseline = style({ padding: true ? 1 : 2 })',
     "export const baseline = style({ padding: true ? '$space-1' : '$space-2' })",
     'handles conditional expression with integer tokens'
   )
@@ -63,7 +63,7 @@ describe('Number tokens transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({ padding: negative(2) })",
+    'export const baseline = style({ padding: negative(2) })',
     "export const baseline = style({ padding: negative('$space-2') })",
     'handles conditional expression with integer tokens'
   )
@@ -71,7 +71,7 @@ describe('Number tokens transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({ padding: negative(2) })",
+    'export const baseline = style({ padding: negative(2) })',
     "export const baseline = style({ padding: negative('$space-2') })",
     'handles negative expression with integer tokens'
   )
@@ -79,12 +79,10 @@ describe('Number tokens transform', () => {
   defineInlineTest(
     spaceTokenTransform,
     {},
-    "export const baseline = style({ padding: {mobile: 1, tablet: 2} })",
+    'export const baseline = style({ padding: {mobile: 1, tablet: 2} })',
     "export const baseline = style({ padding: {mobile: '$space-1', tablet: '$space-2'} })",
     'handles responsive token with integer values'
   )
-
-
 })
 
 describe('Responsive tokens', () => {
@@ -240,7 +238,7 @@ describe('Tokens as jsx attributes', () => {
     spaceTokenTransform,
     {},
     "<Columns space={{mobile: negative('$s'), tablet: '$l'}}/>",
-    "<Columns space={{mobile: negative(\"$space-1\"), tablet: \"$space-3\"}}/>",
+    '<Columns space={{mobile: negative("$space-1"), tablet: "$space-3"}}/>',
     'handles responsive values'
   )
 
@@ -248,7 +246,7 @@ describe('Tokens as jsx attributes', () => {
     spaceTokenTransform,
     {},
     "<Columns space={negative('$s')} />",
-    "<Columns space={negative(\"$space-1\")} />",
+    '<Columns space={negative("$space-1")} />',
     'handles negative values'
   )
 
@@ -256,7 +254,7 @@ describe('Tokens as jsx attributes', () => {
     spaceTokenTransform,
     {},
     "<Columns space={condition ? '$xs' : '$s'} />",
-    "<Columns space={condition ? \"$space-05\" : \"$space-1\"} />",
+    '<Columns space={condition ? "$space-05" : "$space-1"} />',
     'handles conditional values'
   )
 

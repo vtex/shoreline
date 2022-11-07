@@ -3,14 +3,14 @@ import { style } from '@vtex/admin-ui-core'
 export const innerContainer = style({
   justifyContent: 'center',
   alignItems: 'center',
-  paddingX: '$l',
+  paddingX: '$space-3',
 })
 
 export const container = style({
   justifyContent: 'center',
   alignItems: 'center',
   width: 'fit-content',
-  padding: '$l',
+  padding: '$space-4 $space-5',
   bg: '$primary',
   border: '$neutral',
   borderRadius: '$default',
@@ -21,8 +21,8 @@ export const container = style({
 export const baseline = style({
   width: '100%',
   position: 'fixed',
-  bottom: '$2xl',
-  left: 0,
+  bottom: '$space-6',
+  left: '$space-0',
   pointerEvents: 'none',
   '> *': {
     pointerEvents: 'auto',

@@ -11,7 +11,7 @@ export default {
 
 export const Uncontrolled = () => {
   return (
-    <Box csx={{ padding: '$s', width: '300px' }}>
+    <Box csx={{ padding: '$space-2 $space-3', width: '300px' }}>
       <TextArea label="Uncontrolled" />
     </Box>
   )
@@ -21,7 +21,7 @@ export const Controlled = () => {
   const [value, setValue] = useState<string>('')
 
   return (
-    <Stack space="$l" csx={{ padding: '$s' }}>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
       <TextArea
         label="Controlled"
         value={value}
@@ -36,7 +36,7 @@ export const Controlled = () => {
 
 export const States = () => {
   return (
-    <Stack space="$l" csx={{ padding: '$s' }}>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
       <TextArea label="Plain" />
       <TextArea
         label="With Error and help"
@@ -75,7 +75,7 @@ export const ForwardRef = () => {
   }, [])
 
   return (
-    <Stack space="$l" csx={{ padding: '$s' }}>
+    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
       <TextArea ref={ref} />
     </Stack>
   )

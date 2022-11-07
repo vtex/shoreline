@@ -26,7 +26,7 @@ export const baseline = style({
   appearance: 'none',
   borderRadius: 'default',
   cursor: 'pointer',
-  margin: 0,
+  margin: '$space-0',
   boxSizing: 'border-box',
 
   ':hover:not(:disabled)': {
