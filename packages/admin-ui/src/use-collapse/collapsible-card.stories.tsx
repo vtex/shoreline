@@ -24,33 +24,15 @@ export default {
   component: Card,
 } as Meta
 
-const CardWrapper = ({ children, csx }: any) => {
-  return (
-    <Box
-      csx={{
-        bg: '$primary',
-        color: '$primary',
-        border: '$neutral',
-        borderRadius: 'default',
-        size: '100%',
-        boxSizing: 'border-box',
-        ...csx,
-      }}
-    >
-      {children}
-    </Box>
-  )
-}
-
 export const SingleCollapsible = () => {
   const {
     getToggleProps,
     getCollapseProps,
-    visible: isExpanded,
+    visible,
   } = useCollapsible()
 
   return (
-    <CardWrapper
+    <Card
       csx={{
         width: '500px',
         margin: '$space-4',
@@ -60,14 +42,13 @@ export const SingleCollapsible = () => {
         {...getToggleProps()}
         csx={{
           cursor: 'pointer',
-          padding: '$space-6 $space-7',
           ':hover': {
             bg: '$action.neutral.tertiaryHover',
           },
         }}
       >
         <CardInfo>
-          {isExpanded ? (
+          {visible ? (
             <IconCaretDown size="small" />
           ) : (
             <IconCaretRight size="small" />
@@ -83,7 +64,7 @@ export const SingleCollapsible = () => {
       <Box csx={{ width: '100%' }} {...getCollapseProps()}>
         <CardContent
           csx={{
-            padding: '$space-6 $space-7',
+            paddingTop: '$space-6',
           }}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -97,7 +78,7 @@ export const SingleCollapsible = () => {
           including versions of Lorem Ipsum.
         </CardContent>
       </Box>
-    </CardWrapper>
+    </Card>
   )
 }
 
@@ -105,7 +86,7 @@ const AccordionItem = ({ title, children }: any) => {
   const {
     getToggleProps,
     getCollapseProps,
-    visible: isExpanded,
+    visible,
   } = useCollapsible()
 
   return (
@@ -114,27 +95,25 @@ const AccordionItem = ({ title, children }: any) => {
         {...getToggleProps()}
         csx={{
           cursor: 'pointer',
-          padding: '$space-6 $space-7',
           ':hover': {
             bg: '$action.neutral.tertiaryHover',
           },
         }}
       >
         <CardInfo>
-          {isExpanded ? (
+          {visible ? (
             <IconCaretDown size="small" />
           ) : (
             <IconCaretRight size="small" />
           )}
           <IconImageSquare />
           <CardTitle>{title}</CardTitle>
-          <Tag label="Short text" />
         </CardInfo>
       </CardHeader>
       <Box csx={{ width: '100%' }} {...getCollapseProps()}>
         <CardContent
           csx={{
-            padding: '$space-6 $space-7',
+            paddingTop: '$space-6',
           }}
         >
           {children}
@@ -146,7 +125,7 @@ const AccordionItem = ({ title, children }: any) => {
 
 export const Accordion = () => {
   return (
-    <CardWrapper
+    <Card
       csx={{
         width: '500px',
         margin: '$space-4',
@@ -184,108 +163,6 @@ export const Accordion = () => {
         publishing software like Aldus PageMaker including versions of Lorem
         Ipsum.
       </AccordionItem>
-    </CardWrapper>
+    </Card>
   )
-
-  // return (
-  //   <AccordionItem id="single" state={state}>
-  //     <AccordionHeader>
-  //       <CardImage
-  //         src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
-  //         alt="Image description"
-  //       />
-  //       <CardTitle>Title</CardTitle>
-  //       <Tag label="Short texto" />
-  //       <FlexSpacer />
-
-  //       <MenuButton
-  //         variant="neutralTertiary"
-  //         state={menu}
-  //         onClick={(e) => e.stopPropagation()}
-  //         labelHidden
-  //         bleedY
-  //       />
-  //       <Menu state={menu}>
-  //         <MenuItem label="abca" />
-  //       </Menu>
-  //     </AccordionHeader>
-  //     <AccordionContent>
-  //       It’s all about being ready to grow and reach new levels. Have a solid
-  //       foundation, modular thinking and flexible essence, and you’re building
-  //       for scale. We are global but we’re audacious enough to aim for the
-  //       stars.
-  //     </AccordionContent>
-  //   </AccordionItem>
-  // )
 }
-
-// export const InitiallyVisible = () => {
-//   // const state = useAccordionState({ visible: true })
-//   const state = useAccordionStateGlobal()
-
-//   return (
-//     <AccordionItem initiallyVisible id="dosd" state={state}>
-//       <AccordionHeader>
-//         <CardTitle>Title</CardTitle>
-//       </AccordionHeader>
-//       <AccordionContent>
-//         It’s all about being ready to grow and reach new levels. Have a solid
-//         foundation, modular thinking and flexible essence, and you’re building
-//         for scale. We are global but we’re audacious enough to aim for the
-//         stars.
-//       </AccordionContent>
-//     </AccordionItem>
-//   )
-// }
-
-// export const Nested = () => {
-//   const root = useAccordionStateGlobal()
-
-//   return (
-//     <AccordionItem id="raa" state={root}>
-//       <AccordionHeader>
-//         <CardTitle>Root Accordion</CardTitle>
-//       </AccordionHeader>
-//       <AccordionContent>
-//         <Card>
-//           <CardHeader>
-//             <CardInfo>
-//               <CardTitle>Title</CardTitle>
-//             </CardInfo>
-//           </CardHeader>
-//           <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
-//         </Card>
-//       </AccordionContent>
-//     </AccordionItem>
-//   )
-// }
-
-// export const Group = () => {
-//   const state = useAccordionStateGlobal()
-
-//   return (
-//     <>
-//       <Button onClick={() => state.toggle('2')}>Open first</Button>
-//       <AccordionGroup csx={{ width: 400 }}>
-//         <AccordionItem id="1" state={state} initiallyVisible>
-//           <AccordionHeader>
-//             <CardTitle>Title</CardTitle>
-//           </AccordionHeader>
-//           <AccordionContent>Some content</AccordionContent>
-//         </AccordionItem>
-//         <AccordionItem id="2" state={state}>
-//           <AccordionHeader>
-//             <CardTitle>Title</CardTitle>
-//           </AccordionHeader>
-//           <AccordionContent>Some content</AccordionContent>
-//         </AccordionItem>
-//         <AccordionItem id="3" state={state}>
-//           <AccordionHeader>
-//             <CardTitle>Title</CardTitle>
-//           </AccordionHeader>
-//           <AccordionContent>Some content</AccordionContent>
-//         </AccordionItem>
-//       </AccordionGroup>
-//     </>
-//   )
-// }

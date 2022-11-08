@@ -8,7 +8,7 @@ import type {
 } from 'react-collapsed/dist/types'
 
 export const useCollapsible = (
-  props?: UseCollapsibleStateParams
+  props?: UseCollapsibleParams
 ): CollapsibleState => {
   const { getCollapseProps, getToggleProps, isExpanded, setExpanded } =
     useCollapse({
@@ -28,7 +28,7 @@ export const useCollapsible = (
   }
 }
 
-export interface UseCollapsibleStateParams {
+export interface UseCollapsibleParams {
   onCollapseStart?: () => void
   onCollapseEnd?: () => void
   onExpandStart?: () => void

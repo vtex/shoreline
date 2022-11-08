@@ -5,7 +5,6 @@ export const card = style({
   color: '$primary',
   border: '$neutral',
   borderRadius: 'default',
-  padding: '$space-6 $space-7',
   size: '100%',
   boxSizing: 'border-box',
 })
@@ -14,11 +13,13 @@ export const header = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  padding: '$space-6 $space-7',
   width: '100%',
 })
 
 export const content = style({
   '.__admin-ui-card-nested-title': { text: '$title2' },
+  padding: '$space-0 $space-7 $space-6',
   size: '100%',
 })
 
