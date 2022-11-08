@@ -15,14 +15,16 @@ import { modalContentTheme } from './modal.css'
  */
 const ModalContent = forwardRef(
   (props: ModalContentProps, ref: Ref<HTMLDivElement>) => {
-    const { className = '', ...htmlProps } = props
+    const { className = '', children, ...htmlProps } = props
 
     return (
-      <header
+      <div
         ref={ref}
         className={cx(modalContentTheme, className)}
         {...htmlProps}
-      />
+      >
+        <div data-modal-scrollable-content>{children}</div>
+      </div>
     )
   }
 )

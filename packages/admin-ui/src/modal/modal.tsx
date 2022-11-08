@@ -7,7 +7,13 @@ import { cx } from '@vtex/admin-ui-core'
 import { modalTheme, modalBackdropTheme } from './modal.css'
 
 const Modal = forwardRef((props: ModalProps, ref: Ref<HTMLDivElement>) => {
-  const { className = '', backdropProps, ...htmlProps } = props
+  const {
+    className = '',
+    fluid = false,
+    size = 'medium',
+    backdropProps,
+    ...htmlProps
+  } = props
 
   return (
     <Dialog
@@ -18,13 +24,20 @@ const Modal = forwardRef((props: ModalProps, ref: Ref<HTMLDivElement>) => {
         className: cx(modalBackdropTheme, backdropProps?.className ?? ''),
       }}
       {...htmlProps}
+      data-fluid={fluid}
+      data-size={size}
     />
   )
 })
 
 Modal.displayName = 'Modal'
 
-type ModalProps = ComponentPropsWithoutRef<typeof Dialog>
+type ModalSize = 'small' | 'medium' | 'large'
+
+interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
+  fluid?: boolean
+  size?: ModalSize
+}
 
 export { Modal }
-export type { ModalProps }
+export type { ModalProps, ModalSize }
