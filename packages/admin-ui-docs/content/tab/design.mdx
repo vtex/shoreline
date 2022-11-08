@@ -1,29 +1,146 @@
-import { Section } from '@site/src/components/Section'
-import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { PageSection } from '@site/src/components/PageSection'
 
-<Section direction="row">
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+        {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
 
-## Best Practices
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-<OrderedList>
-  <OrderedListItem>Use short labels. Prefer two words maximum.</OrderedListItem>
-  <OrderedListItem>
-    Use tabs in multiple places of your page hierarchy: as a top-level
-    navigation or inside another component.
-  </OrderedListItem>
-  <OrderedListItem>
-    Avoid using icons as the single source of information to characterize tabs.
-  </OrderedListItem>
-  <OrderedListItem>
-    Do not nest tabs, the user should be always aware of where they’re standing.
-  </OrderedListItem>
-  <OrderedListItem>
-    Avoid using more than five tabs per page, or component.
-  </OrderedListItem>
-  <OrderedListItem>
-    Avoid forcing the user to alternate back-and-forth between tabs to execute
-    an important task.
-  </OrderedListItem>
-</OrderedList>
+<details>
+  <summary><h4>When to use a Select Inline, Filter, Button, or Radio Group instead of a Tab?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Select Inline component when there are over five views, and they should be less prominent.</li>
+        <li>Choose the Filter component when there is a complete set of data that can be narrowed according to specific criteria to help find relevant information.</li>
+        <li>Choose the Button component to lead to a separate page when the content should not be in the same hierarchy level.</li>
+        <li>Choose Radio Group component to allow merchants to make a single choice that fills in information that will be submitted in a form.</li>        
+    </ul>
+  </div>
+</details>
 
-</Section>
+<details>
+  <summary><h4>When to separate the content of a container in different views?</h4></summary>
+  <div>
+    <ul>
+        <li>Use Tabs to navigate between distinct but related content that is in the same level of hierarchy.</li>
+        <li>Use Tabs to separate the general from the specific, when there’s a lot of content. For example, in a product form, there can be a <em>General</em> view and an <em>SKUs</em> view.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don’t use Tabs for content that is related to different main jobs. For example, Contracts should not be on the same page as Invoices, since they won’t be needed at the same time.</li>
+        <li>Don’t use Tabs to indicate progress. The merchant should always be able to alternate between views freely.</li>
+        <li>Don’t use Tabs for content that is usually compared. For example, order items should not be separate from order total value.</li>
+        <li>Don’t use Tabs in containers that are inside a page which already uses Tabs.</li>
+        <li>Don't reload the page when switching between tabs.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>Where should a Tab be positioned in a container?</h4></summary>
+  <div>
+    Considering left-to-right interfaces, follow these recommendations:
+    <ul>
+        <li>Position Tabs in the header of a container, below an existing title and above the content that can be alternated.</li>
+        <li>Align Tabs to the left.</li>    
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Which Tab should be preselected?</h4></summary>
+  <div>
+    The first Tab should always be preselected, to simplify the flow of an user who wants to go through all Tabs and avoid confusion.
+  </div>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a Tab?</h4></summary>
+  <div>
+    <ul>
+        <li>Write the label so that it describes the content of the view.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+        <li>Use short labels. Prefer two words maximum.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't write Tab labels that vary a lot in length between options.</li>
+        <li>Don't use personal pronouns. For example, write <em>Application keys</em> instead of <em>My application keys</em>.</li>
+        <li>Don't include redundant words. For example, use only <em>Products</em> and <em>Categories</em> instead of <em>Product permissions</em> and <em>Category permissions</em>.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to use icons in a Tab?</h4></summary>
+  <div>
+    Never use icons in a Tab, even when there is a label next to them. The main reasons for this are maintaining consistency across the product, keeping the interface visually simple and avoiding confusion when a Tab’s subject is difficult to represent through an icon.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the order of Tabs?</h4></summary>
+  <div>
+    Order Tabs using one of the following criteria:
+    <ul>
+        <li>General to specific.</li>
+        <li>Most to least frequently used.</li>
+        <li>Alphabetical order.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
