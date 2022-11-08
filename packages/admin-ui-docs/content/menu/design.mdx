@@ -1,0 +1,257 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use the Tab, the Button, or a group of Buttons instead of the Menu?
+</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Tab component for navigation triggers that alternate between related views within the same container.</li>
+        <li>Choose the Button when there is only one action trigger.</li>
+        <li>Choose a group of Buttons when the group will not be repeated in a list and all its actions are frequently used.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+
+<details>
+  <summary><h4>When should a Menu be primary, secondary, or tertiary?</h4></summary>
+  <div>
+    This answer depends on research to understand how frequently merchants use an action. Even so, there are patterns you can follow:
+    <ul>
+        <li>When the most frequent action of the page leads to a menu with complementary options, use a primary Menu. For example, a Menu with the <em>Create page</em> label that leads to options such as Landing page and Category page.</li>
+        <li>There should be only one primary action visible at a time.</li>
+        <li>A Menu should never be secondary.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a Menu be neutral tertiary?</h4></summary>
+  <div>
+    <ul>
+        <li>When the same Menu is repeated, such as for each list item.</li>
+        <li>When there is a group of tertiary Buttons and a Menu, they all should be neutral.</li>
+        <li>When the container background uses the <code>$bg.secondary</code> color.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a Menu Item be critical?</h4></summary>
+  <div>
+    A Menu Item should be critical when the Menu Item triggers an irreversible action. Actions should be reversible whenever possible and not require a critical color.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <br /><br />
+    Don’t use critical colors for Move to trash triggers that imply the possibility of reverting the action.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the Menu’s size?</h4></summary>
+  <div>
+    Use the large size for all primary Menu components. Use the normal size for tertiary Menu components.
+  </div>
+</details>
+
+<details>
+  <summary><h4>Where should an icon be positioned in a Menu?</h4></summary>
+  <div>
+    <ul>
+        <li>When using the default <em>More actions</em> label, position the icon to the left.</li>
+        <li>When using a custom label, position the icon to the right.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>When should I use more than one Menu?</h4></summary>
+  <div>
+    Use more than one Menu component in a list when it is necessary to repeat the same set of actions for different objects. For example, in each row of a table.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <br /><br />
+    Don't use more than one Menu in the same container.
+  </div>
+</details>
+
+<details>
+  <summary><h4>Where should the Menu be positioned in a container?</h4></summary>
+  <div>
+    Considering left-to-right interfaces, follow these recommendations:
+    <ul>
+        <li>Align the Menu to the right. For example, a Menu in the header of a Card should be vertically-centered and aligned to the right.</li>
+        <li>In a group of actions, position the Menu as the last action.</li>
+        <li>When a tertiary Menu is next to other content, ignore the Menu's box to align based on the Menu's icon and/or label. Use the bleed prop to implement this alignment.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When to use a disabled Menu?</h4></summary>
+  <div>
+    Never use a disabled Menu. Leave the Menu enabled and disable the items inside according to our recommendations.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to use a disabled Menu Item?</h4></summary>
+  <div>
+    <ul>
+        <li>Use a disabled Menu Item only if, in some condition, it becomes enabled. For example, a <em>Publish</em> button that is only enabled when edits have been made.</li>
+        <li>When the reason why an action is disabled might be unclear, leave the action enabled and show a modal explaining the reason on trigger.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't display a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> when hovering a disabled Menu Item.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a Menu?</h4></summary>
+  <div>
+    The default label of a menu is <em>More actions</em>. A custom label should only be used when the Menu represents an action with complementary options. For example, a Menu with the label <em>Create page</em> that includes the options <em>Landing page</em> and <em>Category page</em>.<br /><br />
+    When writing a custom label, consider the following recommendations:
+    <ul>
+        <li>Reuse existing labels.</li>
+        <li>Always include a verb in the infinitive and an object. For example, <em>Create product</em>.</li>
+        <li>Use a verb that reflects the exact action that the Menu triggers for every Menu Item. For example, use the label <em>Create promotion</em> for a Menu where the items are the different promotion types that can be created.</li>
+        <li>Use sentence case but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don’t use punctuation.</li>
+        <li>Don’t use more than three words.</li>
+        <li>Don’t use personal pronouns.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the label of a Menu?</h4></summary>
+  <div>
+    <ul>
+        <li>Reuse existing labels.</li>
+        <li>Always include a verb in the infinitive, except for when the Menu Item is inside a Menu with a custom label where the action is already defined in the Menu label.</li>
+        <li>When the context already has a label for the object, remove the object from the label. For example, use <em>Edit</em> instead of <em>Edit product</em>.</li>
+        <li>Leave the object explicit when the Menu has the same action for different objects, such as <em>Edit product</em> and <em>Edit SKUs</em>.</li>
+        <li>Use a verb that reflects the exact action that the Menu Item triggers. For example, use <em>Rename</em> instead of <em>Change name</em>.</li>
+        <li>Use sentence case but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don’t use punctuation.</li>
+        <li>Don’t use more than three words.</li>
+        <li>Don’t use personal pronouns.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should I hide Menu Items icons?</h4></summary>
+  <div>
+    Hide icons of Menu Items whenever they are in a Menu with a custom label, since they will always trigger variations of the action that is in the Menu label.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a Menu have a hidden label and only an icon visible?</h4></summary>
+  <div>
+    When the same Menu is repeated multiple times on a screen, such as for each list item.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't hide the label of a Menu with a custom label.</li>
+        <li>Don’t use a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> to display the label.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to use a divider to separate Menu Items?</h4></summary>
+  <div>
+    Use a divider to separate regular actions from destructive actions. For example, a <em>Delete</em> action in a Menu should be the last one, and there should be a divider above it.
+  </div>
+</details>
+
+</PageSection>
