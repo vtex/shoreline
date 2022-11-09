@@ -1,0 +1,83 @@
+import { Section } from '@site/src/components/Section'
+
+<Section hasExplanation>
+
+## Usage
+
+```jsx
+import {
+  useCollapsible,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  Box,
+} from '@vtex/admin-ui'
+
+function Example = () => {
+  const { getToggleProps, getCollapseProps, visible } = useCollapsible()
+
+  return (
+    <Card>
+      <CardHeader
+        {...getToggleProps()}
+        csx={{
+          cursor: 'pointer',
+          ':hover': {
+            bg: '$action.neutral.tertiaryHover',
+          },
+        }}
+      >
+        <CardInfo>
+          <CardTitle>Title</CardTitle>
+        </CardInfo>
+      </CardHeader>
+      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+        <CardContent
+          csx={{
+            paddingTop: '$space-6',
+          }}
+        >
+          Text.
+        </CardContent>
+      </Box>
+    </Card>
+  )
+}
+```
+
+</Section>
+
+<Section>
+
+### useCollapsible props
+
+| Name            | Type       | Description                                     | Required | Default |
+| --------------- | ---------- | ----------------------------------------------- | -------- | ------- |
+| onCollapseStart | () => void | Function called when collapse animation starts. | 🚫       | -       |
+| onCollapseEnd   | () => void | Function called when collapse animation ends.   | 🚫       | -       |
+| onExpandStart   | () => void | Function called when expand animation starts.   | 🚫       | -       |
+| onExpandEnd     | () => void | Function called when expand animation ends.     | 🚫       | -       |
+| visible         | boolean    | Whether the content is visible at first or not. | 🚫       | -       |
+
+</Section>
+
+<Section>
+
+### useCollapsible returned state
+
+getToggleProps: (config?: GetTogglePropsInput) => GetTogglePropsOutput
+getCollapseProps: (config?: GetCollapsePropsInput) => GetCollapsePropsOutput
+/** Is true if content is currently visible \*/
+visible: boolean
+/** Toggle collapsible expansion \*/
+toggle: () => void
+
+| Name             | Type                                                                 | Description                                                                       |
+| ---------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| getToggleProps   | (config?: {onClick?: () => void, disabled?: boolean}) => ToggleProps | Function that provides props for the toggle trigger.                              |
+| getCollapseProps | () => CollapsingProps                                                | Function that provides props for the content that will be collapsed and expanded. |
+| visible          | boolean                                                              | Whether the content is visible currently or not.                                  |
+| toggle           | () => void                                                           | Function that toggles the visisibilty of the collapsible content.                 |
+
+</Section>
