@@ -7,7 +7,7 @@ describe('modal util - variant', () => {
     })
 
     expect(result).toStrictEqual({
-      'data-variant="value"': {
+      '[data-variant="value"]': {
         padding: '1px',
       },
     })

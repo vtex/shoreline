@@ -116,18 +116,6 @@ export function CompoundComponents() {
             dolor. Proin nec ipsum id lectus efficitur consequat. Donec vitae
             dui consectetur, fringilla risus in, maximus dolor.
           </p>
-          <p>
-            Proin volutpat est quis viverra aliquam. Aliquam consequat libero ut
-            convallis vulputate. Integer tempus nunc et nisi volutpat, vel
-            mollis nulla aliquam. Sed vel efficitur libero. Praesent dapibus,
-            purus eget pellentesque euismod, orci lacus sagittis tellus, et
-            bibendum purus urna eu lorem. Aliquam ultrices gravida semper.
-            Vivamus sed scelerisque ante. Nullam sollicitudin faucibus eros et
-            porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur sit amet erat purus. Cras quam orci, porta ut est ornare,
-            porttitor pulvinar dolor. Sed dapibus lacinia ante nec dictum.
-            Phasellus non purus tellus.
-          </p>
         </ModalContent>
         <ModalFooter>
           <ModalDismiss>OK</ModalDismiss>
