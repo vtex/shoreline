@@ -26,7 +26,7 @@ const styles: Record<string, StyleProp> = {
   list: {
     listStyle: 'none',
     counterReset: 'li',
-    paddingLeft: 0,
+    paddingLeft: '$space-0',
   },
   listItem: {
     text: '$title2',
@@ -44,7 +44,7 @@ const styles: Record<string, StyleProp> = {
       text: '$title2',
       bg: '$secondary',
       position: 'absolute',
-      left: 0,
+      left: '$space-0',
     },
   },
 }

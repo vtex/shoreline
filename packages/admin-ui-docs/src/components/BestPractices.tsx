@@ -40,7 +40,7 @@ export function Practice(props: PracticeProps) {
   return (
     <Flex direction="column">
       <Flex csx={styles.previewContainer}>{children}</Flex>
-      <Stack csx={styles.practice(token)} direction="row" space="$m">
+      <Stack csx={styles.practice(token)} direction="row" space="$space-2">
         <Icon weight="fill" csx={{ color: token }} />
         <Paragraph>{label}</Paragraph>
       </Stack>
@@ -63,7 +63,7 @@ const styles = {
   }),
   previewContainer: style({
     '> *': {
-      margin: 0,
+      margin: '$space-0',
       '.preview-grid-container': { height: '100%' },
       '.wrapper-container': { height: '216px' },
     },
@@ -72,8 +72,8 @@ const styles = {
     style({
       borderTop: token,
       borderTopWidth: '2px',
-      paddingY: '$xl',
-      paddingRight: '$m',
+      paddingY: '$space-4',
+      paddingRight: '$space-2',
       width: '100%',
       alignItems: 'flex-start',
     }),

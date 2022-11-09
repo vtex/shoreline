@@ -23,8 +23,8 @@ export function FrameworkdAgnostic() {
         div: {
           colorTheme: 'blue',
         },
-        padding: 1,
-        marginY: 2,
+        padding: '$space-1',
+        marginY: '$space-2',
         size: 150,
         borderRadius: 4,
       })}
@@ -43,8 +43,8 @@ export const Utils = () => {
       className={csx({
         bg: '$critical',
         size: 200,
-        marginX: '$xl',
-        paddingY: '$xl',
+        marginX: '$space-5',
+        paddingY: '$space-4',
       })}
     >
       Utils

@@ -74,7 +74,7 @@ export function Styled() {
       csx={{
         width: 500,
         border: '$neutral',
-        padding: '$narrow.l',
+        padding: '$space-4 $space-7',
       }}
     >
       <button>Button in the center</button>
@@ -86,10 +86,10 @@ export function StyleVariants() {
   const buttonVariants = styleVariants({
     size: {
       small: {
-        padding: '$narrow.s',
+        padding: '$space-1 $space-3',
       },
       regular: {
-        padding: '$narrow.m',
+        padding: '$space-3 $space-5',
       },
     },
   })
@@ -102,7 +102,7 @@ export function StyleVariants() {
         baseStyle: {
           bg: '$action.critical.primary',
           color: '$action.critical.primary',
-          margin: '$narrow.s',
+          margin: '$space-1 $space-3',
           ...buttonVariants({
             size,
           }),
@@ -199,7 +199,7 @@ const MenuBox = createComponent<typeof ReakitMenu>((props) => {
       bg: '$primary',
       color: '$primary',
       border: '$neutral',
-      padding: '$s',
+      padding: '$space-2 $space-3',
       display: 'flex',
       flexDirection: 'column',
     },

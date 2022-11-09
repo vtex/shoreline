@@ -8,7 +8,7 @@ style.dataView = {
 
 style.dataViewHeader = {
   position: 'sticky',
-  top: 0,
+  top: '$space-0',
   zIndex: '5',
   background: '$primary',
 }

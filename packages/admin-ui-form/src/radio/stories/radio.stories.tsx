@@ -15,7 +15,7 @@ export const Basic = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <RadioGroup label="Label" name="account" state={form}>
             <Radio
               label="Accounts are disabled"
@@ -28,7 +28,7 @@ export const Basic = () => {
               value="optional"
             />
           </RadioGroup>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -47,7 +47,7 @@ export const DefaultSelected = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <RadioGroup label="Label" name="account" state={form}>
             <Radio
               label="Accounts are disabled"
@@ -60,7 +60,7 @@ export const DefaultSelected = () => {
               value="optional"
             />
           </RadioGroup>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -75,7 +75,7 @@ export const Validation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <RadioGroup
             validation={{
               required: 'This field is required',
@@ -95,7 +95,7 @@ export const Validation = () => {
               value="optional"
             />
           </RadioGroup>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
