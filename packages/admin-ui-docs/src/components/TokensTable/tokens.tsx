@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
   tokens as themeTokens,
+  spaceTokens,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
@@ -51,6 +52,7 @@ function createMap(
 
     const value = formatValue(formattedToken)
     const cssVar = value?.cssVar ?? getCssVar(formattedToken)
+    const type = value?.type ?? prop
 
     return {
       token: `$${extractTokenCall(token)}`,
@@ -58,7 +60,7 @@ function createMap(
       description: '',
       cssVar,
       value,
-      type: prop,
+      type,
       csx: {
         [`${prop}`]: token,
       },
@@ -75,6 +77,19 @@ export const border = borderTokens.map(
 )
 export const shadow = shadowTokens.map(
   createMap('boxShadow', 'shadow', cssWithColorFormatter)
+)
+
+export const spacing = spaceTokens.map(
+  createMap('margin', 'space', (token) => {
+    const value = getCssValue(token)
+
+    return {
+      stringfied: value,
+      cssVar: '-',
+      type: 'space',
+      formatted: value,
+    }
+  })
 )
 
 export const text = textTokens.map(
@@ -109,6 +124,7 @@ export const tokens = [
   ...border,
   ...shadow,
   ...text,
+  ...spacing,
 ].map((token, index) => ({
   id: index,
   ...token,

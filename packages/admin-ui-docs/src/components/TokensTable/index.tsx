@@ -171,7 +171,9 @@ export function TokensTable(props: TokensTableProps) {
                   ...column.item.csx,
                 }}
               >
-                AA
+                {
+                  column.item.type !== 'space' ? "AA" : null
+                }
               </Center>
             )
           },
