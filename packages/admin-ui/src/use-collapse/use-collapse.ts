@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import useCollapse from 'react-collapsed'
+import externalUseCollapse from 'react-collapsed'
 import type {
   GetCollapsePropsInput,
   GetCollapsePropsOutput,
@@ -7,11 +7,9 @@ import type {
   GetTogglePropsOutput,
 } from 'react-collapsed/dist/types'
 
-export const useCollapsible = (
-  props?: UseCollapsibleParams
-): CollapsibleState => {
+export const useCollapse = (props?: UseCollapsibleParams): CollapsibleState => {
   const { getCollapseProps, getToggleProps, isExpanded, setExpanded } =
-    useCollapse({
+    externalUseCollapse({
       ...props,
       defaultExpanded: props?.visible,
     })

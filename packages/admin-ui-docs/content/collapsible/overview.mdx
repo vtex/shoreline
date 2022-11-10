@@ -5,7 +5,7 @@ import { IntroSection } from '@site/src/components/IntroSection'
 
 ## What is this?
 
-useCollapsible is a hook that enables the creation of custom collapsible components. The hook deals with the hide/show logic and the animation.
+You can build collapsible components with the useCollapse hook. It enables the creation of custom collapsible components by dealing with the hide/show logic and the animation.
 
 </IntroSection>
 
@@ -14,9 +14,8 @@ useCollapsible is a hook that enables the creation of custom collapsible compone
 ## Collapsible card
 
 ```jsx noInline live
-
 const SingleCollapsible = () => {
-  const { getToggleProps, getCollapseProps, visible } = useCollapsible()
+  const { getToggleProps, getCollapseProps, visible } = useCollapse()
 
   return (
     <Card
@@ -79,13 +78,8 @@ render(SingleCollapsible)
 ## Accordion
 
 ```jsx noInline live
-
 const AccordionItem = ({ title, children }) => {
-  const {
-    getToggleProps,
-    getCollapseProps,
-    visible,
-  } = useCollapsible()
+  const { getToggleProps, getCollapseProps, visible } = useCollapse()
 
   return (
     <>
@@ -167,6 +161,5 @@ const Accordion = () => {
 
 render(Accordion)
 ```
-
 
 </Section>

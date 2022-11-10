@@ -6,7 +6,7 @@ import { Section } from '@site/src/components/Section'
 
 ```jsx
 import {
-  useCollapsible,
+  useCollapse,
   Card,
   CardHeader,
   CardTitle,
@@ -15,7 +15,7 @@ import {
 } from '@vtex/admin-ui'
 
 function Example = () => {
-  const { getToggleProps, getCollapseProps, visible } = useCollapsible()
+  const { getToggleProps, getCollapseProps, visible } = useCollapse()
 
   return (
     <Card>
@@ -65,13 +65,6 @@ function Example = () => {
 <Section>
 
 ### useCollapsible returned state
-
-getToggleProps: (config?: GetTogglePropsInput) => GetTogglePropsOutput
-getCollapseProps: (config?: GetCollapsePropsInput) => GetCollapsePropsOutput
-/** Is true if content is currently visible \*/
-visible: boolean
-/** Toggle collapsible expansion \*/
-toggle: () => void
 
 | Name             | Type                                                                 | Description                                                                       |
 | ---------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------- |

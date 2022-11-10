@@ -15,7 +15,7 @@ import {
   IconCaretDown,
   IconCaretRight,
 } from '@vtex/phosphor-icons'
-import { useCollapsible } from './use-collapsible'
+import { useCollapse } from './use-collapse'
 import { Box } from '../box'
 import { Divider } from '../components/Divider'
 
@@ -25,11 +25,7 @@ export default {
 } as Meta
 
 export const SingleCollapsible = () => {
-  const {
-    getToggleProps,
-    getCollapseProps,
-    visible,
-  } = useCollapsible()
+  const { getToggleProps, getCollapseProps, visible } = useCollapse()
 
   return (
     <Card
@@ -83,11 +79,7 @@ export const SingleCollapsible = () => {
 }
 
 const AccordionItem = ({ title, children }: any) => {
-  const {
-    getToggleProps,
-    getCollapseProps,
-    visible,
-  } = useCollapsible()
+  const { getToggleProps, getCollapseProps, visible } = useCollapse()
 
   return (
     <>
