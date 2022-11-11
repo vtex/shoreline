@@ -12,6 +12,7 @@ import {
   ModalDismiss,
   ModalContent,
   ModalFooter,
+  ModalButton,
 } from '../index'
 
 export default {
@@ -55,13 +56,10 @@ export function Dimensions() {
   return (
     <Stack>
       <Abstraction label="Small" size="small" />
-      <Abstraction label="Small fluid" size="small" fluid />
 
       <Abstraction label="Medium" size="medium" />
-      <Abstraction label="Medium fluid" size="medium" fluid />
 
       <Abstraction label="Large" size="large" />
-      <Abstraction label="Large fluid" size="large" fluid />
     </Stack>
   )
 }
@@ -72,9 +70,12 @@ export function CompoundComponents() {
   return (
     <>
       <Button onClick={modal.toggle}>Show modal</Button>
+
       <Modal state={modal}>
         <ModalHeader>
           <ModalTitle>Success</ModalTitle>
+          <ModalDismiss />
+          {/* <ModalButton dismissModal>Dismiss Modal</ModalButton> */}
         </ModalHeader>
         <ModalContent>
           <p>
@@ -116,9 +117,24 @@ export function CompoundComponents() {
             dolor. Proin nec ipsum id lectus efficitur consequat. Donec vitae
             dui consectetur, fringilla risus in, maximus dolor.
           </p>
+          <p>
+            Mauris commodo purus vehicula ex malesuada rhoncus. Nunc bibendum
+            massa eget nulla dignissim, vitae interdum massa pretium. Interdum
+            et malesuada fames ac ante ipsum primis in faucibus. Nulla gravida,
+            enim sit amet finibus sollicitudin, ligula quam varius ex, eget
+            vestibulum lacus quam a nisl. Curabitur sodales diam non commodo
+            auctor. Nunc tempor vulputate augue a pharetra. Etiam vel pulvinar
+            enim. Etiam at leo vitae nulla viverra dignissim ac ac arcu. Nunc
+            auctor est felis, quis auctor erat vulputate vitae. Praesent
+            sagittis eros et libero cursus, at ornare leo posuere. Quisque
+            mollis porta ante, vel iaculis quam tempus at. Morbi at magna
+            elementum, mollis diam non, aliquet augue. Praesent eget nulla
+            libero. Etiam nec sollicitudin tellus. In hac habitasse platea
+            dictumst.
+          </p>
         </ModalContent>
         <ModalFooter>
-          <ModalDismiss>OK</ModalDismiss>
+          <ModalButton>Confirm</ModalButton>
         </ModalFooter>
       </Modal>
     </>
