@@ -11,6 +11,8 @@ import {
   Text,
   tokens as themeTokens,
   spaceTokens,
+  Center,
+  Box,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
@@ -50,20 +52,30 @@ function createMap(
   return function map(token: string) {
     const formattedToken = `${tokenCall}.${extractTokenCall(token)}`
 
-    const value = formatValue(formattedToken)
-    const cssVar = value?.cssVar ?? getCssVar(formattedToken)
-    const type = value?.type ?? prop
+    const value = formatValue(formattedToken) || {}
+    const cssVar = getCssVar(formattedToken)
 
     return {
       token: `$${extractTokenCall(token)}`,
       formattedToken,
       description: '',
-      cssVar,
       value,
-      type,
-      csx: {
-        [`${prop}`]: token,
-      },
+      cssVar,
+      type: prop,
+      example: (
+        <Center
+          csx={{
+            width: 100,
+            height: 60,
+            borderRadius: 'default',
+            fontSize: 22,
+            [`${prop}`]: token,
+          }}
+        >
+          AA
+        </Center>
+      ),
+      ...value,
     }
   }
 }
@@ -88,6 +100,22 @@ export const spacing = spaceTokens.map(
       cssVar: '-',
       type: 'space',
       formatted: value,
+      example: (
+        <Box
+          csx={{
+            paddingY: 10,
+            height: 60,
+          }}
+        >
+          <Box
+            csx={{
+              width: value,
+              height: 10,
+              backgroundColor: '$action.main.secondary',
+            }}
+          />
+        </Box>
+      ),
     }
   })
 )

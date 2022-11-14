@@ -9,7 +9,6 @@ import {
   Text,
   Flex,
   useDropdownState,
-  Center,
 } from '@vtex/admin-ui'
 import { FilterTable } from '../FilterTable'
 
@@ -168,21 +167,7 @@ export function TokensTable(props: TokensTableProps) {
         header: 'Example',
         resolver: {
           type: 'root',
-          render: (column) => {
-            return (
-              <Center
-                csx={{
-                  width: 100,
-                  height: 60,
-                  borderRadius: 'default',
-                  fontSize: 22,
-                  ...column.item.csx,
-                }}
-              >
-                AA
-              </Center>
-            )
-          },
+          render: (column) => column.item.example,
         },
       },
     ],
@@ -214,6 +199,7 @@ interface TokensTableProps {
     value: string | TextValueProp
     type: string
     csx: StyleProp
+    example: any
   }>
 }
 
