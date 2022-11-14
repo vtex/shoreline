@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.133.7-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.13...@vtex/admin-ui@0.133.7-dev.14) (2022-11-14)
+
+
+### Features
+
+* **modal:** depreate modal 1.0, use 2.0 ([35d0566](https://github.com/vtex/admin-ui/commit/35d0566ed31f8c0abf156dec1bf21c782db7ff37))
+
+
+
+
+
 ## 0.133.7-dev.13 (2022-11-14)
 
 **Note:** Version bump only for package @vtex/admin-ui
