@@ -1,5 +1,5 @@
 import React from 'react'
-import type { Story, Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { Stack } from '../../stack'
 import { Button } from '../../button'
@@ -56,26 +56,47 @@ export function Dimensions() {
   return (
     <Stack>
       <Abstraction label="Small" size="small" />
-
       <Abstraction label="Medium" size="medium" />
-
       <Abstraction label="Large" size="large" />
     </Stack>
   )
 }
 
 export function CompoundComponents() {
-  const modal = useModalState()
+  const smallContent = useModalState()
+  const longContent = useModalState()
 
   return (
     <>
-      <Button onClick={modal.toggle}>Show modal</Button>
-
-      <Modal state={modal}>
+      <Stack>
+        <Button onClick={smallContent.toggle}>Small content</Button>
+        <Button onClick={longContent.toggle}>Long content</Button>
+      </Stack>
+      <Modal state={smallContent}>
         <ModalHeader>
-          <ModalTitle>Success</ModalTitle>
+          <ModalTitle>Small content</ModalTitle>
           <ModalDismiss />
-          {/* <ModalButton dismissModal>Dismiss Modal</ModalButton> */}
+        </ModalHeader>
+        <ModalContent>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            fringilla pulvinar tortor, at dapibus nunc mollis ac. Donec sit amet
+            fermentum justo. Vivamus tellus libero, varius et enim nec, feugiat
+            facilisis est. Etiam et eros ac sapien convallis vestibulum at eget
+            turpis. Curabitur semper cursus leo quis mollis. Maecenas vel nisl
+            non eros pretium cursus sed a ante. Ut malesuada sem quis mi
+            ultricies pellentesque. Pellentesque eget lectus viverra, tincidunt
+            urna sit amet, tincidunt lacus.
+          </p>
+        </ModalContent>
+        <ModalFooter>
+          <ModalButton>Confirm</ModalButton>
+        </ModalFooter>
+      </Modal>
+      <Modal state={longContent}>
+        <ModalHeader>
+          <ModalTitle>Long content</ModalTitle>
+          <ModalDismiss />
         </ModalHeader>
         <ModalContent>
           <p>
@@ -134,6 +155,7 @@ export function CompoundComponents() {
           </p>
         </ModalContent>
         <ModalFooter>
+          <ModalButton variant="secondary">Cancel</ModalButton>
           <ModalButton>Confirm</ModalButton>
         </ModalFooter>
       </Modal>

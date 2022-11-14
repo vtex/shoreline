@@ -11,7 +11,7 @@ import { modalFooterTheme } from './modal.css'
  * @example
  * <Modal>
  *  <ModalFooter>
- *    <ModalDismiss>Close modal</ModalDismiss>
+ *    <ModalButton>Okay</ModalButton>
  *  </ModalFooter>
  * </Modal>
  */

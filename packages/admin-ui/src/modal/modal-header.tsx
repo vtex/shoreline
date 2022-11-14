@@ -7,11 +7,11 @@ import { modalHeaderTheme } from './modal.css'
 import { isScrollableAtom, isScrollingAtom } from './util'
 
 /**
- * Component responsible for rendering the ModalHeader
+ * Component responsible for rendering the Modal header
  * @example
  * <Modal>
  *  <ModalHeader>
- *    <ModalHeading>Title</ModalHeading>
+ *    <ModalTitle>Title</ModalTitle>
  *  </ModalHeader>
  * </Modal>
  */

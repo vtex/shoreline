@@ -6,6 +6,17 @@ import { cx } from '@vtex/admin-ui-core'
 import { modalTheme, modalBackdropTheme } from './modal.css'
 import { Provider } from 'jotai'
 
+/**
+ * Renders a modal
+ * @example
+ * cosnt modal = useModalState()
+ *
+ * <button onClick={modal.toggle}>open modal</button>
+ *
+ * <Modal state={modal}>
+ *  any content
+ * </Modal>
+ */
 const Modal = forwardRef((props: ModalProps, ref: Ref<HTMLDivElement>) => {
   const { className = '', size = 'medium', backdropProps, ...htmlProps } = props
 

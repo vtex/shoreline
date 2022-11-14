@@ -45,6 +45,12 @@ export const modalFooterTheme = csx({
   borderBottomRightRadius: '$default',
   borderBottomLeftRadius: '$default',
   width: '100%',
+  display: 'flex',
+  alignContent: 'center',
+  justifyContent: 'flex-end',
+  'button + button': {
+    marginLeft: '$space-3',
+  },
   ...variant('compact', 'true', {
     border: 'none',
     paddingX: '$space-7',
