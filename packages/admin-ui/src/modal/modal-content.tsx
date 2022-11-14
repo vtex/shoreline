@@ -5,7 +5,12 @@ import { useAtom } from 'jotai'
 import { useForkRef, useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
 import { modalContentTheme } from './modal.css'
-import { isScrollableAtom, isElementScrollable, isScrollingAtom } from './util'
+import {
+  isContentScrollableAtom,
+  isElementScrollable,
+  isHeaderFixedAtom,
+  FIXED_HEADER_THRESHOLD,
+} from './util'
 
 /**
  * Component responsible for rendering the modal content
@@ -20,20 +25,21 @@ const ModalContent = forwardRef(
   (props: ModalContentProps, ref: Ref<HTMLDivElement>) => {
     const { className = '', children, ...htmlProps } = props
     const innerRef = useRef<HTMLDivElement>(null)
-    const [, setScrollable] = useAtom(isScrollableAtom)
-    const [, setScrolling] = useAtom(isScrollingAtom)
+    const [, setContentScrollable] = useAtom(isContentScrollableAtom)
+    const [, setHeaderFixed] = useAtom(isHeaderFixedAtom)
 
     const handleScroll = useCallback(() => {
       const scrollTop = innerRef.current?.scrollTop ?? 0
+      const isFixed = scrollTop > FIXED_HEADER_THRESHOLD
 
-      setScrolling(scrollTop > 24)
+      setHeaderFixed(isFixed)
     }, [])
 
     useSafeLayoutEffect(() => {
       const div = innerRef.current
 
       if (div) {
-        setScrollable(() => isElementScrollable(div))
+        setContentScrollable(() => isElementScrollable(div))
       }
     })
 

@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 import { useAtom } from 'jotai'
 
 import { modalHeaderTheme } from './modal.css'
-import { isScrollableAtom, isScrollingAtom } from './util'
+import { isHeaderFixedAtom, isContentScrollableAtom } from './util'
 
 /**
  * Component responsible for rendering the Modal header
@@ -19,16 +19,19 @@ const ModalHeader = forwardRef(
   (props: ModalHeaderProps, ref: Ref<HTMLDivElement>) => {
     const { className = '', ...htmlProps } = props
 
-    const [scrollable] = useAtom(isScrollableAtom)
-    const [scrolling] = useAtom(isScrollingAtom)
+    const [isContentScrollable] = useAtom(isContentScrollableAtom)
+    const [isHeaderFixed] = useAtom(isHeaderFixedAtom)
+
+    const isCompact = !isContentScrollable
+    const hasShadow = isContentScrollable && isHeaderFixed
 
     return (
       <header
         {...htmlProps}
         ref={ref}
         className={cx(modalHeaderTheme, className)}
-        data-compact={!scrollable}
-        data-has-shadow={scrollable && scrolling}
+        data-compact={isCompact}
+        data-has-shadow={hasShadow}
       />
     )
   }

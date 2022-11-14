@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 import { useAtom } from 'jotai'
 
-import { isScrollableAtom } from './util'
+import { isContentScrollableAtom } from './util'
 import { modalFooterTheme } from './modal.css'
 
 /**
@@ -18,14 +18,16 @@ import { modalFooterTheme } from './modal.css'
 const ModalFooter = forwardRef(
   (props: ModalFooterProps, ref: Ref<HTMLDivElement>) => {
     const { className = '', ...htmlProps } = props
-    const [scrollable] = useAtom(isScrollableAtom)
+    const [isContentScrollable] = useAtom(isContentScrollableAtom)
+
+    const isCompact = !isContentScrollable
 
     return (
       <footer
         {...htmlProps}
         ref={ref}
         className={cx(modalFooterTheme, className)}
-        data-compact={!scrollable}
+        data-compact={isCompact}
       />
     )
   }
