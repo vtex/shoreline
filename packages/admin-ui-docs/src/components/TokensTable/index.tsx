@@ -18,7 +18,15 @@ type Item = {
   formattedToken: string
 }
 
-const filters = ['All', 'Background', 'Color', 'Border', 'BoxShadow', 'Text']
+const filters = [
+  'All',
+  'Background',
+  'Color',
+  'Border',
+  'BoxShadow',
+  'Text',
+  'Space',
+]
 
 const includesSearchedText = (columnText: string, searchedText: string) =>
   columnText.toLowerCase().includes(searchedText)
@@ -70,7 +78,7 @@ export function TokensTable(props: TokensTableProps) {
         isSearchedTextInValueColumn
       )
     })
-  }, [searchLowerCase])
+  }, [searchLowerCase, filter])
 
   useEffect(() => {
     if (!searchedItems.length) {
@@ -171,9 +179,7 @@ export function TokensTable(props: TokensTableProps) {
                   ...column.item.csx,
                 }}
               >
-                {
-                  column.item.type !== 'space' ? "AA" : null
-                }
+                AA
               </Center>
             )
           },
