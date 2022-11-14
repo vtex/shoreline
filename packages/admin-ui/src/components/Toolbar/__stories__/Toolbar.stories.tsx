@@ -17,12 +17,12 @@ import {
   useMenuState,
 } from '../../../menu'
 import {
-  ModalDisclosure,
   Modal,
   ModalHeader,
+  ModalTitle,
   ModalContent,
   useModalState,
-} from '../../Modal'
+} from '../../../modal'
 import { Text } from '../../Text'
 import { ToolbarButton } from '../components/ToolbarButton'
 
@@ -95,17 +95,13 @@ export const WithModal = () => {
             </>
           )}
         </ToolbarItem>
-        <ToolbarItem>
-          {(itemProps) => (
-            <ModalDisclosure state={modalState}>
-              <Button {...itemProps}>Open modal</Button>
-            </ModalDisclosure>
-          )}
-        </ToolbarItem>
+        <ToolbarButton onClick={modalState.toggle}>Open Modal</ToolbarButton>
       </Toolbar>
 
-      <Modal aria-label="Seneca's modal" state={modalState} size="small">
-        <ModalHeader title="Item 6" />
+      <Modal state={modalState} size="small">
+        <ModalHeader>
+          <ModalTitle>Item 6</ModalTitle>
+        </ModalHeader>
         <ModalContent>
           <Text>
             True happiness is to enjoy the present, without anxious dependence
