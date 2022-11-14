@@ -134,7 +134,7 @@ function DocPageContent({
               }
             )}
           >
-            <PageHeader title={versionMetadata?.docs[routeKey]?.title} />
+            {/* <PageHeader title={versionMetadata?.docs[routeKey]?.title} /> */}
             <MDXProvider components={MDXComponents}>{children}</MDXProvider>
           </div>
         </main>

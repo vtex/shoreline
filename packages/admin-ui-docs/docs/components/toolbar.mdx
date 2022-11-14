@@ -54,13 +54,12 @@ function Example() {
 
 ## ToolbarItem
 
-For composition, you can use `ToolbarItem`. It has the item props as callback so that the render can be customized. This is useful to trigger Menus, Modals and so on.
+For composition, you can use `ToolbarItem`. It has the item props as callback so that the render can be customized. This is useful to trigger Menus.
 
 ```jsx live
 function Example() {
   const toolbar = useToolbarState()
   const menuState = useMenuState()
-  const modalState = useModalState()
 
   return (
     <Box>
@@ -80,30 +79,7 @@ function Example() {
             </Menu>
           )}
         </ToolbarItem>
-        <ToolbarItem>
-          {(itemProps) => (
-            <ModalDisclosure state={modalState}>
-              <Button {...itemProps} variant="tertiary">
-                Open modal
-              </Button>
-            </ModalDisclosure>
-          )}
-        </ToolbarItem>
       </Toolbar>
-
-      <Modal aria-label="Seneca's modal" state={modalState} size="small">
-        <ModalHeader title="Item 6" />
-        <ModalContent>
-          <Text>
-            True happiness is to enjoy the present, without anxious dependence
-            upon the future, not to amuse ourselves with either hopes or fears
-            but to rest satisfied with what we have, which is sufficient, for he
-            that is so wants nothing. The greatest blessings of mankind are
-            within us and within our reach. A wise man is content with his lot,
-            whatever it may be, without wishing for what he has not.
-          </Text>
-        </ModalContent>
-      </Modal>
     </Box>
   )
 }
