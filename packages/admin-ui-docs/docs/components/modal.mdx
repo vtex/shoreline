@@ -1,19 +1,17 @@
 ---
-title: Modal
 path: /modal/
+title: Modal
 ---
-
-🚧 Under construction 🚧
 
 A Modal (Dialog) is used to represent information that demands attention and/or action from the users, preventing them from interacting with the rest of the page. It follows the [WAI-ARIA Dialog (Modal) Pattern](w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
-# Composability
+## Composability
 
-🚧 Under construction 🚧
+The modal is built to be composable.
 
-## Modal header
+### Modal header
 
-🚧 Under construction 🚧
+The header gives the modal context, its usually composed by the `ModalTitle` and `ModalDismiss`.
 
 ```jsx live
 function Example() {
@@ -33,10 +31,134 @@ function Example() {
 }
 ```
 
-# Abstracting
+### ModalContent
 
-🚧 Under construction 🚧
+```jsx live
+function Example() {
+  const modal = useModalState()
 
-# Styling
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
+          tincidunt lacus. Vivamus sed ullamcorper ipsum, vitae pharetra sem.
+          Quisque dapibus tellus ex, vehicula suscipit quam scelerisque egestas.
+          Donec feugiat pulvinar fringilla. Morbi sed risus a augue interdum
+          imperdiet. Maecenas fermentum felis quis sollicitudin cursus.
+          Vestibulum massa felis, laoreet at turpis vel, ornare tristique mi.
+          Fusce ultrices auctor neque dapibus consequat. Fusce eu sagittis dui,
+          quis gravida augue. Aenean dignissim odio ac nibh volutpat porta.
+          Integer at pretium justo.
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
+```
 
-🚧 Under construction 🚧
+### ModalFooter
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
+          tincidunt lacus. Vivamus sed ullamcorper ipsum, vitae pharetra sem.
+          Quisque dapibus tellus ex, vehicula suscipit quam scelerisque egestas.
+          Donec feugiat pulvinar fringilla. Morbi sed risus a augue interdum
+          imperdiet. Maecenas fermentum felis quis sollicitudin cursus.
+          Vestibulum massa felis, laoreet at turpis vel, ornare tristique mi.
+          Fusce ultrices auctor neque dapibus consequat. Fusce eu sagittis dui,
+          quis gravida augue. Aenean dignissim odio ac nibh volutpat porta.
+          Integer at pretium justo.
+        </ModalContent>
+        <ModalFooter>
+          <ModalButton variant="secondary">Cancel</ModalButton>
+          <ModalButton>Confirm</ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Abstracting
+
+```jsx noInline live
+function Confirm(props) {
+  const { label, title, children, onCancel, onConfirm } = props
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>{label}</Button>
+      <Modal size="small" state={modal}>
+        <ModalHeader>
+          <ModalTitle>{title}</ModalTitle>
+        </ModalHeader>
+        <ModalContent>{children}</ModalContent>
+        <ModalFooter>
+          <ModalButton variant="secondary" dismissModal onClick={onCancel}>
+            Cancel
+          </ModalButton>
+          <ModalButton dismissModal onClick={onConfirm}>
+            Confirm
+          </ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+
+function Example() {
+  return (
+    <Confirm label="Create" title="Create new collection">
+      Are you sure?
+    </Confirm>
+  )
+}
+
+render(<Example />)
+```
+
+## Styling
+
+```jsx live noInline
+const customContent = csx({
+  color: '$red40',
+})
+
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent className={customContent}>Your content</ModalContent>
+      </Modal>
+    </>
+  )
+}
+
+render(<Example />)
+```
