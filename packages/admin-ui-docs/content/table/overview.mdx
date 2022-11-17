@@ -44,27 +44,39 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'inStock',
-    header: 'In Stock',
-  },
-  {
-    id: 'skus',
-    header: 'SKUs',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '6rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
   },
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
@@ -73,15 +85,12 @@ const columns = createColumns([
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -90,12 +99,25 @@ const columns = createColumns([
 
 const items = [
   {
-    id: 1,
-    name: 'Orange',
-    inStock: 380,
-    skus: 0,
-    status: 'Good',
-    price: 80,
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    price: 42.14,
+  },
+  {
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    price: 38.52,
+  },
+  {
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    price: 23.49,
   },
 ]
 
@@ -108,7 +130,7 @@ function Example() {
   })
 
   return (
-    <DataView state={view}>
+    <DataView state={view} csx={{ paddingX: '$space-3' }}>
       <Table {...getTable()}>
         <THead>
           {columns.map((column) => (
@@ -148,28 +170,25 @@ Example using the [Search](search/) component to filter the data.
 ```jsx noInline live
 const items = [
   {
-    id: 1,
-    name: 'Orange',
-    inStock: 380,
-    skus: 0,
-    status: 'Good',
-    price: 80,
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    price: 42.14,
   },
   {
-    id: 2,
-    name: 'Lemon',
-    inStock: 380,
-    skus: 26,
-    status: 'Good',
-    price: 500,
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    price: 38.52,
   },
   {
-    id: 3,
-    name: 'Tomato',
-    inStock: 380,
-    skus: 25,
-    status: 'Good',
-    price: 100,
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    price: 23.49,
   },
 ]
 
@@ -177,27 +196,33 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'inStock',
-    header: 'In Stock',
-  },
-  {
-    id: 'skus',
-    header: 'SKUs',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
   },
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
@@ -206,15 +231,12 @@ const columns = createColumns([
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -245,7 +267,7 @@ function WithSearch() {
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Search id="search" placeholder="Search" state={search} />
+        <Search id="search" {...search.getInputProps()} />
       </DataViewHeader>
       <Table {...getTable()}>
         <THead>
@@ -284,31 +306,61 @@ render(<WithSearch />)
 Example using the [Toolbar](toolbar/) component.
 
 ```jsx noInline live
+const items = [
+  {
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    price: 42.14,
+  },
+  {
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    price: 38.52,
+  },
+  {
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    price: 23.49,
+  },
+]
+
 const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'inStock',
-    header: 'In Stock',
-  },
-  {
-    id: 'skus',
-    header: 'SKUs',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
+    resolver: {
+      type: 'currency',
+      locale: 'en-US',
+      currency: 'USD',
+    },
   },
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
@@ -317,31 +369,17 @@ const columns = createColumns([
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
   },
 ])
-
-const items = [
-  {
-    id: 1,
-    name: 'Orange',
-    inStock: 380,
-    skus: 0,
-    status: 'Good',
-    price: 80,
-  },
-]
 
 function WithToolbar() {
   const toolbar = useToolbarState()
@@ -355,11 +393,7 @@ function WithToolbar() {
     <DataView state={view}>
       <DataViewHeader>
         <Toolbar state={toolbar}>
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconArrowLineDown />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconEye />}>
             Import
           </ToolbarButton>
           <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
@@ -413,8 +447,16 @@ const items = Array(NUMBER_OF_ITEMS)
     return {
       id: `${id}`,
       name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
+      brand: faker.random.arrayElement([
+        'Revolution',
+        'Desire Spirit',
+        'Pathway',
+        'AeroSmart',
+        'Quality Prints',
+        'Traction Race',
+      ]),
       price: faker.commerce.price(),
+      status: 'Inactive',
     }
   })
 
@@ -422,19 +464,29 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '6rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -444,23 +496,21 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
-        return <Tag label="Good" size="normal" />
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -524,34 +574,51 @@ render(<WithPagination />)
 By dispatch the `setStatus` function of the `DataView`, the `Table` reacts to it.
 
 ```jsx noInline live
-const items = Array(3)
-  .fill()
-  .map((_, id) => {
-    return {
-      id: `${id}`,
-      name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
-      price: faker.commerce.price(),
-    }
-  })
+const items = [
+  {
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    price: 42.14,
+  },
+  {
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    price: 38.52,
+  },
+  {
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    price: 23.49,
+  },
+]
 
 const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -561,27 +628,21 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
-      render: ({ item, context }) => {
-        if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
-        }
-
-        return <Tag label="Good" size="normal" />
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -692,46 +753,98 @@ This section presents a series of examples that may be useful.
 
 Displaying filters and filtering data
 
-```jsx
-const FilterMultiple = experimental_FilterMultiple
-const useFilterMultipleState = experimental_useFilterMultipleState
-const FilterGroup = experimental_FilterGroup
-const useFilterGroupState = experimental_useFilterGroupState
-const Filter = experimental_Filter
-const useFilterState = experimental_useFilterState
+```jsx noInline live
+const StatusFilter = ({ state }) => {
 
-const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-const items = ids.map((id) => {
-  return {
-    id: `${id}`,
-    name: faker.commerce.productName(),
-    lastSale: faker.date.past().toDateString(),
-    price: faker.commerce.price(),
-    brand: faker.random.arrayElement(['mistery_id', 'cool_id']),
-  }
-})
+  return (
+    <>
+      <FilterDisclosure state={state}>Status</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          <FilterOptionRadio label={'Active'} id="active" />
+          <FilterOptionRadio label={'Inactive'} id="inactive" />
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+const BrandFilter = ({ state }) => {
+  const list = [
+    'Revolution',
+    'Desire Spirit',
+    'Pathway',
+    'AeroSmart',
+    'Quality Prints',
+    'Traction Race',
+  ]
+
+  return (
+    <>
+      <FilterDisclosure state={state}>Brand</FilterDisclosure>
+
+      <FilterPopover state={state}>
+        <FilterListbox>
+          {list.map((item) => (
+            <FilterOptionCheckbox label={item} id={item} />
+          ))}
+        </FilterListbox>
+        <FilterFooter />
+      </FilterPopover>
+    </>
+  )
+}
+
+const NUMBER_OF_ITEMS = 15
+
+const items = Array(NUMBER_OF_ITEMS)
+  .fill()
+  .map((_, id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      brand: faker.random.arrayElement([
+        'Revolution',
+        'Desire Spirit',
+        'Pathway',
+        'AeroSmart',
+        'Quality Prints',
+        'Traction Race',
+      ]),
+      price: faker.commerce.price(),
+      status: faker.random.arrayElement(['Active', 'Inactive']),
+    }
+  })
 
 const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
     id: 'brand',
-    header: 'Brand ID',
-  },
-  {
-    id: 'lastSale',
-    header: 'Last Sale',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '6rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -741,23 +854,21 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
-        return <Tag label="Good" size="normal" />
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -768,73 +879,44 @@ function FilterControls() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
 
-  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+  const { getBodyCell, getHeadCell, getTable } = useTableState({
     status: view.status,
     columns,
     items: data,
   })
 
-  const [quality, setQuality] = useState()
-  const [brand, setBrand] = useState()
-
-  const brandFilterState = useFilterMultipleState({
-    items: [
-      { label: 'Mistery brand', id: 'mistery_id' },
-      { label: 'Cool brand', id: 'cool_id' },
-    ],
-    onChange: ({ selected }) => {
-      setBrand(selected)
-    },
-    label: 'Brand',
-  })
-
-  const qualityFilterState = useFilterState({
-    items: [
-      { label: 'Normal', id: 'norm' },
-      { label: 'Premium', id: 'prem' },
-    ],
-    onChange: ({ selected }) => {
-      setQuality(selected)
-    },
-    label: 'Quality',
-  })
+  const statusState = useFilterState()
+  const brandState = useFilterMultipleState()
 
   const filterGroupState = useFilterGroupState({
-    filterStates: [qualityFilterState, brandFilterState],
+    filterStates: [statusState, brandState],
   })
 
   useEffect(() => {
     const filtered = items.filter((item) => {
-      if (quality === 'norm' && Number(item.price) > 510) {
+      if (statusState.appliedItem && statusState.appliedItem.label !== item.status) {
         return false
       }
 
-      if (quality === 'prem' && Number(item.price) <= 510) {
+      if (
+        brandState.appliedItems &&
+        brandState.appliedItems.length &&
+        !brandState.appliedItems.find(i => i.label === item.brand)
+      ) {
         return false
-      }
-
-      if (brand && brand.length) {
-        if (!brand.includes('cool_id') && item.brand === 'cool_id') {
-          return false
-        }
-
-        if (!brand.includes('mistery_id') && item.brand === 'mistery_id') {
-          return false
-        }
       }
 
       return true
     })
-
     setData(filtered)
-  }, [quality, brand])
+  }, [statusState.appliedItem, brandState.appliedItems])
 
   return (
     <DataView state={view}>
       <DataViewHeader>
         <FilterGroup state={filterGroupState}>
-          <FilterMultiple state={brandFilterState} />
-          <Filter state={qualityFilterState} />
+          <StatusFilter state={statusState} />
+          <BrandFilter state={brandState} />
         </FilterGroup>
       </DataViewHeader>
       <Table {...getTable()}>
@@ -883,8 +965,16 @@ const items = Array(NUMBER_OF_ITEMS)
     return {
       id: `${id}`,
       name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
+      brand: faker.random.arrayElement([
+        'Revolution',
+        'Desire Spirit',
+        'Pathway',
+        'AeroSmart',
+        'Quality Prints',
+        'Traction Race',
+      ]),
       price: faker.commerce.price(),
+      status: 'Inactive',
     }
   })
 
@@ -892,19 +982,29 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '6rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -914,23 +1014,21 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
       render: ({ item }) => {
-        return <Tag label="Good" size="normal" />
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -970,13 +1068,9 @@ function WithFullTopbar() {
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Search id="search" placeholder="Search" state={search} />
+        <Search id="search" {...search.getInputProps()} />
         <Toolbar state={toolbar} aria-label="Toolbar">
-          <ToolbarButton
-            size="small"
-            variant="text"
-            icon={<IconArrowLineDown />}
-          >
+          <ToolbarButton size="small" variant="text" icon={<IconEye />}>
             Import
           </ToolbarButton>
           <ToolbarButton size="small" variant="text" icon={<IconArrowLineUp />}>
@@ -1044,8 +1138,16 @@ function request(delay = 3000, numberOfItems = 3) {
           return {
             id: `${id}`,
             name: faker.commerce.productName(),
-            lastSale: faker.date.past().toDateString(),
+            brand: faker.random.arrayElement([
+              'Revolution',
+              'Desire Spirit',
+              'Pathway',
+              'AeroSmart',
+              'Quality Prints',
+              'Traction Race',
+            ]),
             price: faker.commerce.price(),
+            status: 'Inactive',
           }
         })
     )
@@ -1056,19 +1158,23 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '3fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
+    id: 'brand',
+    header: 'Brand',
+    width: '2fr',
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -1078,27 +1184,21 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
-      render: ({ item, context }) => {
-        if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
-        }
-
-        return <Tag label="Good" size="normal" />
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
@@ -1177,7 +1277,7 @@ render(<DataFetchExample />)
 
 ### Selectable row
 
-Example with a simulated data fetching
+Example with selectable rows
 
 ```jsx noInline live
 const columns = createColumns([
@@ -1191,19 +1291,29 @@ const columns = createColumns([
   {
     id: 'name',
     header: 'Name',
+    width: '2fr',
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '5rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -1213,45 +1323,52 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
-      render: ({ item, context }) => {
-        if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
-        }
-
-        return <Tag label="Good" size="normal" />
+      render: ({ item }) => {
+        return <Tag label={item.status} size="normal" />
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
   },
 ])
 
-const items = Array(3)
-  .fill()
-  .map((_, id) => {
-    return {
-      id: `${id}`,
-      name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
-      price: faker.commerce.price(),
-    }
-  })
+const items = [
+  {
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    price: 42.14,
+  },
+  {
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    price: 38.52,
+  },
+  {
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    price: 23.49,
+  },
+]
 
-function DataFetchExample() {
+function SelectableExample() {
   const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     columns,
     length: 3,
@@ -1290,7 +1407,7 @@ function DataFetchExample() {
   )
 }
 
-render(<DataFetchExample />)
+render(<SelectableExample />)
 ```
 
 </Section>
@@ -1304,31 +1421,48 @@ It is possible to set columns to be fixed when scrolling horizontally. You just 
 ```jsx noInline live
 const columns = createColumns([
   {
-    id: 'id',
-    fixed: true,
-    resolver: {
-      type: 'selection',
-      mapId: (item) => item.id,
-    },
-  },
-  {
     id: 'name',
     header: 'Name',
+    width: '3fr',
     fixed: true,
     resolver: {
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
+      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
     },
   },
   {
-    id: 'lastSale',
-    header: 'Last Sale',
-    width: 500,
+    id: 'id',
+    header: 'ID',
+    width: '1fr',
+  },
+  {
+    id: 'label',
+    header: 'Label',
+    width: '2fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '10rem' }}>{item.label}</Box>
+      },
+    },
+  },
+  {
+    id: 'brand',
+    header: 'Brand',
+    width: '1fr',
+    resolver: {
+      type: 'root',
+      render: ({ item }) => {
+        return <Box csx={{ minWidth: '5rem' }}>{item.brand}</Box>
+      },
+    },
   },
   {
     id: 'price',
     header: 'Price',
+    width: '1fr',
     resolver: {
       type: 'currency',
       locale: 'en-US',
@@ -1338,45 +1472,59 @@ const columns = createColumns([
   {
     id: 'status',
     header: 'Status',
+    width: '1fr',
     resolver: {
       type: 'root',
-      render: ({ item, context }) => {
-        if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
-        }
-
-        return <Tag label="Good" size="normal" />
+      render: ({ item }) => {
+        return (
+          <Box csx={{ minWidth: '5rem' }}>
+            <Tag label={item.status} size="normal" />
+          </Box>
+        )
       },
     },
   },
   {
-    header: 'Actions',
     resolver: {
       type: 'menu',
       actions: [
         {
-          label: 'Add to cart',
-        },
-        {
-          label: 'Buy',
+          label: 'View details',
+          icon: <IconEye />,
         },
       ],
     },
   },
 ])
 
-const items = Array(3)
-  .fill()
-  .map((_, id) => {
-    return {
-      id: `${id}`,
-      name: faker.commerce.productName(),
-      lastSale: faker.date.past().toDateString(),
-      price: faker.commerce.price(),
-    }
-  })
+const items = [
+  {
+    id: 495953,
+    name: 'Wooden Eyeglasses',
+    status: 'Inactive',
+    brand: 'Revolution',
+    label: 'Apparel & Accessories',
+    price: 42.14,
+  },
+  {
+    id: 429048,
+    name: 'Brazil Straw Hat',
+    status: 'Inactive',
+    brand: 'Pathway',
+    label: 'Apparel & Accessories',
+    price: 38.52,
+  },
+  {
+    id: 495954,
+    name: 'Striped Beach Short',
+    status: 'Inactive',
+    brand: 'Desire Spirit',
+    label: 'Apparel & Accessories',
+    price: 23.49,
+  },
+]
 
-function DataFetchExample() {
+function FixedColumnsExample() {
   const { data, getBodyCell, getHeadCell, getTable } = useTableState({
     columns,
     length: 3,
@@ -1415,7 +1563,7 @@ function DataFetchExample() {
   )
 }
 
-render(<DataFetchExample />)
+render(<FixedColumnsExample />)
 ```
 
 </Section>
