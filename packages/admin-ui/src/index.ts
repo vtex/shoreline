@@ -5,6 +5,7 @@ export * from '@vtex/admin-ui-util'
 
 export * from './experimental'
 
+export * from './use-collapse'
 export * from './center'
 export * from './inline'
 export * from './bleed'
@@ -40,7 +41,6 @@ export * from './data-view'
 export * from './modal'
 
 export * from './components/Label'
-export * from './components/Collapsible'
 export * from './components/CollapsibleGroup'
 export * from './components/Avatar'
 export * from './components/Anchor'
