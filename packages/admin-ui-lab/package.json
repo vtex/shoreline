@@ -1,0 +1,43 @@
+{
+  "name": "@vtex/admin-ui-lab",
+  "version": "0.0.0",
+  "main": "dist/vtex-admin-ui-lab.cjs.js",
+  "module": "dist/vtex-admin-ui-lab.esm.js",
+  "types": "dist/vtex-admin-ui-lab.cjs.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
+  "repository": {
+    "directory": "packages/admin-ui-lab",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.9 || ^17.0",
+    "react-dom": "^16.9 || ^17.0",
+    "@vtex/admin-ui": "0.x"
+  },
+  "devDependencies": {
+    "@vtex/admin-ui": "*"
+  },
+  "dependencies": {
+    "react-stately": "3.19.0",
+    "react-aria": "3.21.0",
+    "@internationalized/date": "3.0.1"
+  }
+}
