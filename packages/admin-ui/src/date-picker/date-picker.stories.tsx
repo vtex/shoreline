@@ -105,6 +105,7 @@ Internationalized.argTypes = {
   locale: {
     options: [
       'en-US',
+      'en-GB',
       'pt-BR',
       'ko-KR',
       'ja-JP',

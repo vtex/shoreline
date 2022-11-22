@@ -67,9 +67,8 @@ export function generateDaysInMonthArray(
     .reduce((weeks: Date[][], _, weekIndex) => {
       const daysInWeek = [0, 1, 2, 3, 4, 5, 6].reduce(
         (days: Date[], dayIndex) => {
-          const day = weekIndex * 7 + dayIndex - monthStartsAt + 2
-          const utcDate = toUTCString(new Date(year, month, day))
-          const cellDate = new Date(utcDate)
+          const day = weekIndex * 7 + (dayIndex - monthStartsAt) + 1
+          const cellDate = new Date(year, month, day)
 
           return [...days, cellDate]
         },

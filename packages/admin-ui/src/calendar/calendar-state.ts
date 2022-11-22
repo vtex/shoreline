@@ -71,7 +71,7 @@ export function useCalendarState(
 
   // Get 2D Date arrays in 7 days a week format
   const daysInMonth = useMemo(() => {
-    let monthStartsAt = (startOfMonth(currentMonth).getDay() - weekStart) % 7
+    let monthStartsAt = (startOfMonth(currentMonth).getDay() % 7) - weekStart
 
     if (monthStartsAt < 0) {
       monthStartsAt += 7
@@ -79,8 +79,14 @@ export function useCalendarState(
 
     const days = getDaysInMonth(currentMonth)
     const weeksInMonth = Math.ceil((monthStartsAt + days) / 7)
+    const daysInMonthArray = generateDaysInMonthArray(
+      month,
+      monthStartsAt,
+      weeksInMonth,
+      year
+    )
 
-    return generateDaysInMonthArray(month, monthStartsAt, weeksInMonth, year)
+    return daysInMonthArray
   }, [month, year, currentMonth, weekStart])
 
   const isInvalidDateRange = useCallback(
