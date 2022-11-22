@@ -1,6 +1,5 @@
 export const borderRadius = {
-  default: '4px',
-  flat: '0px',
-  pill: '100px',
-  circle: '100%',
+  'border-radius-none': '0rem',
+  'border-radius-base': '0.25rem',
+  'border-radius-pill': '100%',
 }

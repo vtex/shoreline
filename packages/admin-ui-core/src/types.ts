@@ -291,6 +291,12 @@ export const elevationTokens = asLiterals([
   'z-10',
 ])
 
+export const borderRadiusTokens = asLiterals([
+  '$border-radius-none',
+  '$border-radius-pill',
+  '$border-radius-base',
+])
+
 export type ColorTokens = typeof colorTokens[number]
 export type FgTokens = typeof fgTokens[number]
 export type BgTokens = typeof bgTokens[number]
@@ -299,6 +305,7 @@ export type ShadowTokens = typeof shadowTokens[number]
 export type TextTokens = typeof textTokens[number]
 export type SpaceTokens = typeof spaceTokens[number]
 export type ElevationTokens = typeof elevationTokens[number]
+export type BorderRadiusTokens = typeof borderRadiusTokens[number]
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
@@ -456,7 +463,9 @@ export interface OverwriteCSSProperties {
   /**
    * CSS **`border-radius`** property
    */
-  borderRadius?: CSS.Property.BorderRadius<string | number>
+  borderRadius?:
+    | CSS.Property.BorderRadius<string | number>
+    | CSSPropAutocomplete<BorderRadiusTokens>
   /**
    * CSS **`z-index`** property
    * @default auto
