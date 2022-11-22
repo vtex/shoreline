@@ -25,7 +25,7 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
         text: '$body',
         boxShadow: '$overlay.bottom',
         border: '$neutral',
-        borderRadius: 'default',
+        borderRadius: '$border-radius-base',
         bg: '$primary',
         display: 'flex',
         flexDirection: 'column',

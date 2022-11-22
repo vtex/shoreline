@@ -2,7 +2,7 @@ import { focusVisible, style } from '@vtex/admin-ui-core'
 
 export const input = style({
   border: '$form.neutral',
-  borderRadius: 'default',
+  borderRadius: '$border-radius-base',
   size: '100%',
   bg: '$primary',
   color: '$primary',

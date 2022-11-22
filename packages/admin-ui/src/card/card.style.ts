@@ -4,7 +4,7 @@ export const card = style({
   bg: '$primary',
   color: '$primary',
   border: '$neutral',
-  borderRadius: 'default',
+  borderRadius: '$border-radius-base',
   size: '100%',
   boxSizing: 'border-box',
 })

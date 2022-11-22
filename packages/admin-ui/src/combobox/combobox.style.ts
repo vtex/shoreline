@@ -15,7 +15,7 @@ export const input = style({
   paddingTop: '$space-4',
   bg: '$form.neutral',
   border: '$form.neutral',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
   marginY: '$space-1',
   color: '$form.neutral',
   outline: 0,
@@ -55,13 +55,13 @@ export const popover = style({
   bg: '$primary',
   boxShadow: '$overlay.center',
   border: '$neutral',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
   zIndex: 9999999,
 })
 
 export const item = style({
   text: '$body',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
   paddingY: '$space-2',
   paddingX: '$space-3',
   cursor: 'pointer',
@@ -89,7 +89,7 @@ export const fieldTag = style({
   text: '$body',
   paddingY: '$space-1',
   paddingX: '$space-2',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
   ':hover': {
     bg: '$action.neutral.secondaryHover',
   },
@@ -114,7 +114,7 @@ export const fieldMultipleContainer = style({
   cursor: 'text',
   position: 'relative',
   border: '$form.neutral',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
   paddingY: '$space-2',
   paddingX: '$space-3',
 

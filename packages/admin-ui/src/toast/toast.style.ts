@@ -16,7 +16,7 @@ export const toastContainer = style({
   padding: '$space-4 $space-5',
   pointerEvents: 'all',
   overflow: 'hidden',
-  borderRadius: '$default',
+  borderRadius: '$border-radius-base',
 })
 
 export const toastContainerVariants = styleVariants({
