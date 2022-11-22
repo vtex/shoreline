@@ -126,6 +126,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'tokens review',
     value: 'space-tokens-review',
   },
+  {
+    name: 'border radius tokens review',
+    value: 'radius-tokens-review',
+  },
 ]
 
 // tsx or jsx
