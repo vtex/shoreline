@@ -10,5 +10,6 @@ export const messages = {
     'nl-NL': { placeholder: 'Select' },
     'ro-RO': { placeholder: 'Selectează' },
     'bg-BG': { placeholder: 'Избор' },
+    'th-TH': { placeholder: 'เลือก' },
   },
 }

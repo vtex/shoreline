@@ -10,5 +10,6 @@ export const messages = {
     'nl-NL': { optional: 'optioneel' },
     'ro-RO': { optional: 'opțional' },
     'bg-BG': { optional: 'по избор' },
+    'th-TH': { optional: 'ไม่บังคับ' },
   },
 }

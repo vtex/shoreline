@@ -71,6 +71,13 @@ export const messages = {
       noResultsSubtitle: 'Опитайте да използвате различни термини',
       searchPlaceholder: 'Започнете да пишете, за да търсите',
     },
+    'th-TH': {
+      error: 'มีบางอย่างผิดปกติ',
+      retry: 'โปรดลองอีกครั้ง',
+      noResultsTitle: 'ไม่มีตัวเลือกที่ตรงกับการค้นหาของคุณ',
+      noResultsSubtitle: 'ลองใช้คำอื่นที่ต่างออกไป',
+      searchPlaceholder: 'เริ่มพิมพ์เพื่อค้นหา',
+    },
   },
   tag: {
     'en-US': {
@@ -103,6 +110,9 @@ export const messages = {
     'bg-BG': {
       removeLabel: 'Премахни артикул',
     },
+    'th-TH': {
+      removeLabel: 'ลบสินค้าออก',
+    },
   },
   fieldMultiple: {
     'en-US': {
@@ -134,6 +144,9 @@ export const messages = {
     },
     'bg-BG': {
       placeholder: 'Продължавайте да пишете...',
+    },
+    'th-TH': {
+      placeholder: 'พิมพ์ต่อ...',
     },
   },
 }
