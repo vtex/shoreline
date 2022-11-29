@@ -5,148 +5,81 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.4.3-dev.17 (2022-11-29)
 
+## [0.4.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3...@vtex/admin-ui-form@0.4.4) (2022-11-29)
+
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## [0.4.3-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.15...@vtex/admin-ui-form@0.4.3-dev.16) (2022-11-17)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.4.3-dev.15](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.14...@vtex/admin-ui-form@0.4.3-dev.15) (2022-11-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.4.3-dev.14 (2022-11-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.4.3-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.12...@vtex/admin-ui-form@0.4.3-dev.13) (2022-11-09)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.4.3-dev.12 (2022-11-08)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.4.3-dev.11 (2022-11-07)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.4.3-dev.10 (2022-10-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.4.3-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.8...@vtex/admin-ui-form@0.4.3-dev.9) (2022-10-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.4.3-dev.8 (2022-10-13)
 
+## 0.4.3 (2022-10-13)
+
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.4.3-dev.7 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.4.3-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.5...@vtex/admin-ui-form@0.4.3-dev.6) (2022-10-07)
-
 
 ### Features
 
-* **form:** export useFieldArray to improve the validation step ([0e62b7e](https://github.com/vtex/admin-ui/commit/0e62b7e3d8adcc69989de622b01c01f20bc8bf09))
-
-
-
-
+- **form:** export useFieldArray to improve the validation step ([0e62b7e](https://github.com/vtex/admin-ui/commit/0e62b7e3d8adcc69989de622b01c01f20bc8bf09))
 
 ## [0.4.3-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3-dev.4...@vtex/admin-ui-form@0.4.3-dev.5) (2022-10-07)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.4.3-dev.4 (2022-10-06)
-
 
 ### Bug Fixes
 
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## 0.4.3-dev.3 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
-
-
-
-
+- **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
 
 ## 0.4.3-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.4.3-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.4.3-dev.0 (2022-09-15)
 
