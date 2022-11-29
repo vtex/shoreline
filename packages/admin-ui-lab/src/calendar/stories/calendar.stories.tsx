@@ -1,16 +1,16 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { DateField } from '../index'
+import { Calendar } from '../index'
 
 export default {
-  title: 'admin-ui-lab/date-field',
+  title: 'admin-ui-lab/calendar',
 } as Meta
 
 export function Basic() {
   return (
     <div style={{ margin: '1rem' }}>
-      <DateField />
+      <Calendar />
     </div>
   )
 }

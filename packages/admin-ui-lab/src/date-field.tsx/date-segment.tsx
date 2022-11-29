@@ -4,6 +4,9 @@ import type {
   DateSegment as DataSegmentType,
   DateFieldState,
 } from 'react-stately'
+import { cx } from '@vtex/admin-ui'
+
+import { dateSegmentTheme } from './date-field.css'
 
 interface DateSegmentProps {
   segment: DataSegmentType
@@ -19,7 +22,11 @@ export function DateSegment(props: DateSegmentProps) {
     <div
       {...segmentProps}
       ref={ref}
-      className={`segment ${segment.isPlaceholder ? 'placeholder' : ''}`}
+      className={cx(
+        `segment ${segment.isPlaceholder ? 'placeholder' : ''}`,
+        dateSegmentTheme
+      )}
+      data-is-placeholder={segment.isPlaceholder}
     >
       {segment.text}
     </div>

@@ -14,5 +14,20 @@ export const fieldTheme = csx({
   bg: '$primary',
   ':focus-within': {
     border: '$form.neutralFocus',
+    boxShadow: '$ring.neutral',
+  },
+})
+
+export const dateSegmentTheme = csx({
+  text: '$body',
+  marginX: '$space-1',
+  borderRadius: '$default',
+  textTransform: 'uppercase',
+  '[data-is-placeholder=true]': {
+    color: '$secondary',
+  },
+  ':focus-visible': {
+    outline: 'none',
+    boxShadow: '$ring.neutral',
   },
 })
