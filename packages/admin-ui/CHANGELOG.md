@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.134.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.0...@vtex/admin-ui@0.134.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
+
+
+
+
+
 # 0.134.0 (2022-10-13)
 
 
