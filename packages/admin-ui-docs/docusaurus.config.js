@@ -89,7 +89,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'templates/getting started/overview',
+            docId: 'templates/getting-started/overview',
             label: 'Templates',
           },
           {
