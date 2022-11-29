@@ -646,14 +646,6 @@ const columns = createColumns([
        * this is how to use the render function
        */
       render: function Render({ data }) {
-        const icon =
-          data.trend > 0 ? (
-            <IconCaretUp size="small" />
-          ) : data.trend < 0 ? (
-            <IconCaretDown size="small" />
-          ) : (
-            <></>
-          )
         const color =
           data.trend > 0
             ? '$positive'
@@ -680,14 +672,11 @@ const columns = createColumns([
                 justifyContent: 'end',
               }}
             >
-              <span>
                 <FormattedNumber
                   value={Math.abs(data.trend)}
                   style="percent"
                   minimumFractionDigits="2"
                 />
-              </span>
-              {icon}
             </Stack>
           </Stack>
         )
@@ -1636,8 +1625,6 @@ const items = [
     price: 23.49,
   },
 ]
-
-console.log({ items })
 
 const columns = createColumns([
   {

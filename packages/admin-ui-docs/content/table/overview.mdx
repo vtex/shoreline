@@ -130,7 +130,7 @@ function Example() {
   })
 
   return (
-    <DataView state={view} csx={{ paddingX: '$space-3' }}>
+    <DataView state={view}>
       <Table {...getTable()}>
         <THead>
           {columns.map((column) => (
