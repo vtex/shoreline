@@ -7,7 +7,13 @@ export const messages = {
   'ko-KR': { search: '검색', clearButton: '검색 입력 지우기' },
   'it-IT': { search: 'Cerca', clearButton: 'Rimuovi input di ricerca' },
   'nl-NL': { search: 'Zoek', clearButton: 'Verwijder zoekgeschiedenis' },
-  'ro-RO': { search: 'Căutare', clearButton: 'Șterge datele introduse pentru căutare' },
-  'bg-BG': { search: 'Търсене', clearButton: 'Изчистване на въведените данни за търсене' },
+  'ro-RO': {
+    search: 'Căutare',
+    clearButton: 'Șterge datele introduse pentru căutare',
+  },
+  'bg-BG': {
+    search: 'Търсене',
+    clearButton: 'Изчистване на въведените данни за търсене',
+  },
   'th-TH': { search: 'ค้นหา', clearButton: 'ล้างอินพุตการค้นหา' },
-} 
+}
