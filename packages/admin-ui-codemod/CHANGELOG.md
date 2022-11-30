@@ -5,11 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.6.4-dev.0 (2022-11-30)
 
+## 0.6.3 (2022-10-13)
+
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
+## 0.6.3-dev.5 (2022-10-11)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui-codemod
 
 ## 0.6.3-dev.10 (2022-11-08)
 

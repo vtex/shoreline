@@ -5,11 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.4.5-dev.0 (2022-11-30)
 
+## [0.4.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.3...@vtex/admin-ui-form@0.4.4) (2022-11-29)
+
 **Note:** Version bump only for package @vtex/admin-ui-form
 
+## 0.4.3 (2022-10-13)
 
+**Note:** Version bump only for package @vtex/admin-ui-form
 
+## 0.4.3-dev.7 (2022-10-11)
 
+**Note:** Version bump only for package @vtex/admin-ui-form
 
 ## 0.4.3-dev.17 (2022-11-29)
 

@@ -3,13 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
 ## 0.134.2-dev.0 (2022-11-30)
 
+## [0.134.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.0...@vtex/admin-ui@0.134.1) (2022-11-29)
+
+### Bug Fixes
+
+* **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
+
+# 0.134.0 (2022-10-13)
+
+
+### Features
+
+* **admin-ui:** force package minor version bump ([6864570](https://github.com/vtex/admin-ui/commit/6864570a5f32f3f07ab082094d3182dbf8630d95))
+
+## 0.133.7-dev.6 (2022-10-11)
+
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## 0.133.7-dev.16 (2022-11-29)
 
