@@ -50,8 +50,8 @@ export const messages = {
     nextLabel: 'Напред към следващата страница',
   },
   'th-TH': {
-      pagination: '{currentPage} จาก {total}',
-      prevLabel: 'กลับไปยังหน้าก่อนหน้า',
-      nextLabel: 'เลื่อนไปยังหน้าถัดไป',
-    },
+    pagination: '{currentPage} จาก {total}',
+    prevLabel: 'กลับไปยังหน้าก่อนหน้า',
+    nextLabel: 'เลื่อนไปยังหน้าถัดไป',
+  },
 }

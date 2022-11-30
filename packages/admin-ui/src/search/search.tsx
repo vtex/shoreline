@@ -26,6 +26,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     loading = false,
     onSubmit,
     onClear = () => {},
+    placeholder = label,
     ...formProps
   } = props
 
@@ -57,7 +58,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
           as="input"
           ref={inputRef}
           csx={styles.input}
-          placeholder={label}
+          placeholder={placeholder}
           aria-label={ariaLabel}
           disabled={disabled}
           value={value}
@@ -90,6 +91,7 @@ export interface SearchOptions {
   onClear?: () => void
   value?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
+  placeholder?: string
 }
 
 export type SearchProps = React.ComponentPropsWithRef<typeof Search>
