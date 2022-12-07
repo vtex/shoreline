@@ -10,7 +10,7 @@ export const baseline = style({
   height: '100%',
   paddingY: '0.9375rem',
   paddingX: '1.188rem',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
   zIndex: 999,
   transition: 'pop',
 })

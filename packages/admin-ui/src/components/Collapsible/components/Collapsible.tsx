@@ -38,7 +38,7 @@ export const Collapsible = createComponent<'div', CollapsibleOptions>(
       baseStyle: {
         bg: '$primary',
         border: '$neutral',
-        borderRadius: '$border-radius-base',
+        borderRadius: '$base',
         borderWidth: grouped ? 0 : 1,
       },
       children: (

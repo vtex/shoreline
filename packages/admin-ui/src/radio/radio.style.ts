@@ -6,7 +6,7 @@ export const checkmark = style({
   content: '""',
   position: 'absolute',
   display: 'block',
-  borderRadius: '$border-radius-pill',
+  borderRadius: '$pill',
   size: '0.5rem',
   bg: '$form.control',
 })
@@ -32,7 +32,7 @@ export const baseline = style({
   border: '$form.control',
   appearance: 'none',
   position: 'relative',
-  borderRadius: '$border-radius-pill',
+  borderRadius: '$pill',
   cursor: 'pointer',
   display: 'flex',
   margin: '$space-0',

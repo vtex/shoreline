@@ -64,7 +64,7 @@ export function FilterBar<T, V extends { value: T }>(
       csx={{
         border: '$neutral',
         bg: '$secondary',
-        borderRadius: '$border-radius-base',
+        borderRadius: '$base',
         ...csx,
       }}
       {...htmlProps}

@@ -9,7 +9,7 @@ export const container = style({
   alignItems: 'center',
   text: '$body',
   border: '$form.neutral',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
   bg: '$form.neutral',
   cursor: 'text',
   ':hover': {
@@ -52,7 +52,7 @@ export const input = style({
   height,
   padding: '$space-3 $space-4',
   width: '100%',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
   bg: '$form.neutral',
   ':focus': {
     outline: 'none',

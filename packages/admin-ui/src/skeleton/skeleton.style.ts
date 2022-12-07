@@ -3,10 +3,10 @@ import { keyframes, style, styleVariants } from '@vtex/admin-ui-core'
 export const variants = styleVariants({
   shape: {
     rect: {
-      borderRadius: '$border-radius-base',
+      borderRadius: '$base',
     },
     circle: {
-      borderRadius: '$border-radius-pill',
+      borderRadius: '$pill',
     },
   },
 })

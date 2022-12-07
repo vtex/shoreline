@@ -291,11 +291,7 @@ export const elevationTokens = asLiterals([
   'z-10',
 ])
 
-export const borderRadiusTokens = asLiterals([
-  '$border-radius-none',
-  '$border-radius-pill',
-  '$border-radius-base',
-])
+export const borderRadiusTokens = asLiterals(['$none', '$pill', '$base'])
 
 export type ColorTokens = typeof colorTokens[number]
 export type FgTokens = typeof fgTokens[number]

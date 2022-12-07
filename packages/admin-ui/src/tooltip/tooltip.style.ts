@@ -7,7 +7,7 @@ export const tooltipPopover = style({
   color: '$inverted',
   text: '$detail',
   padding: '$space-2 $space-3',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
   maxWidth: '16rem',
   zIndex: '$z-10',
 })

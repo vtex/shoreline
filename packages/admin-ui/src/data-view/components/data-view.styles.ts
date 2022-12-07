@@ -20,7 +20,7 @@ export const status = style({
   minHeight: '75vh',
   order: -1,
   bg: '$secondary',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
 })
 
 export const statusMessage = styleVariants({

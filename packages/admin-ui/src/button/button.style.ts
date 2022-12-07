@@ -44,7 +44,7 @@ export function action(options: ActionOptions) {
 export const buttonStyle = style({
   text: '$action1',
   border: 'none',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
   cursor: 'pointer',
   position: 'relative',
 })

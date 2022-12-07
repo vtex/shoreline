@@ -4,5 +4,5 @@ export const popoverStyle = style({
   bg: '$primary',
   boxShadow: '$overlay.center',
   border: '$neutral',
-  borderRadius: '$border-radius-base',
+  borderRadius: '$base',
 })
