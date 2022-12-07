@@ -22,7 +22,7 @@ describe('Other token interactions', () => {
     borderRadiusTokenTransform,
     {},
     "const styles = {...other, borderRadius: '$default'}; <div csx={styles} />",
-    "const styles = {...other, borderRadius: '$border-radius-base'}; <div csx={styles} />",
+    "const styles = {...other, borderRadius: '$base'}; <div csx={styles} />",
     'handles spread operator'
   )
 })
@@ -32,7 +32,7 @@ describe('Responsive tokens', () => {
     borderRadiusTokenTransform,
     {},
     "export const baseline = style({ borderRadius: {mobile: '$flat', tablet: '$circle'} })",
-    "export const baseline = style({ borderRadius: {mobile: '$border-radius-none', tablet: '$border-radius-pill'} })",
+    "export const baseline = style({ borderRadius: {mobile: '$none', tablet: '$pill'} })",
     'handles responsive token'
   )
 
@@ -40,7 +40,7 @@ describe('Responsive tokens', () => {
     borderRadiusTokenTransform,
     {},
     "export const baseline = style({ borderRadius: {mobile: condition ? 'default' : 'pill', tablet: 'default'} })",
-    "export const baseline = style({ borderRadius: {mobile: condition ? '$border-radius-base' : '100px', tablet: '$border-radius-base'} })",
+    "export const baseline = style({ borderRadius: {mobile: condition ? '$base' : '100px', tablet: '$base'} })",
     'handles responsive conditional tokens'
   )
 })
@@ -50,7 +50,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "<Button csx={{ borderRadius: '$default' }} />",
-    "<Button csx={{ borderRadius: '$border-radius-base' }} />",
+    "<Button csx={{ borderRadius: '$base' }} />",
     'transforms with single prop'
   )
 
@@ -58,7 +58,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "<div csx={{ borderRadius: 'pill', borderBottomLeftRadius: 'flat' }} />",
-    "<div csx={{ borderRadius: '100px', borderBottomLeftRadius: '$border-radius-none' }} />",
+    "<div csx={{ borderRadius: '100px', borderBottomLeftRadius: '$none' }} />",
     'handles tokens without $'
   )
 
@@ -66,7 +66,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "<div csx={{ color: '$blue', width: '2rem', margin: '5rem 6rem', borderBottomLeftRadius: 'flat' }} />",
-    "<div csx={{ color: '$blue', width: '2rem', margin: '5rem 6rem', borderBottomLeftRadius: '$border-radius-none' }} />",
+    "<div csx={{ color: '$blue', width: '2rem', margin: '5rem 6rem', borderBottomLeftRadius: '$none' }} />",
     'handles mixed css'
   )
 
@@ -74,7 +74,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "const styles = {borderRadius: '$default'}; <div csx={styles} />",
-    "const styles = {borderRadius: '$border-radius-base'}; <div csx={styles} />",
+    "const styles = {borderRadius: '$base'}; <div csx={styles} />",
     'handles csx as variable'
   )
 
@@ -82,7 +82,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "export const baseline = style({width: '100%', position: 'fixed', '> *': { borderRadius: '$flat', }})",
-    "export const baseline = style({width: '100%', position: 'fixed', '> *': { borderRadius: '$border-radius-none', }})",
+    "export const baseline = style({width: '100%', position: 'fixed', '> *': { borderRadius: '$none', }})",
     'handles selectors'
   )
 
@@ -90,7 +90,7 @@ describe('Token transform', () => {
     borderRadiusTokenTransform,
     {},
     "export const baseline = style({ borderRadius: true ? 'default' : 'pill' })",
-    "export const baseline = style({ borderRadius: true ? '$border-radius-base' : '100px' })",
+    "export const baseline = style({ borderRadius: true ? '$base' : '100px' })",
     'handles conditional expression'
   )
 })

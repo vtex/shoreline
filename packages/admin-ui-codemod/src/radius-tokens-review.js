@@ -74,10 +74,10 @@ function transform(rawValue) {
 
   return (
     {
-    default: '$border-radius-base',
-    flat: '$border-radius-none',
+    default: '$base',
+    flat: '$none',
     pill: '100px',
-    circle: '$border-radius-pill',
+  circle: '$pill',
     }[value] || rawValue
   )
 }
