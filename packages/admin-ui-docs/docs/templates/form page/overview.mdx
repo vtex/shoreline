@@ -1,0 +1,188 @@
+---
+title: Overview
+path: /form-page/overview/
+sidebar_position: 1
+---
+
+import { Columns, Column, Box, IconArrowUpRight, Text, Flex, FlexSpacer } from '@vtex/admin-ui'
+
+Merchants use Form pages to make changes and submit data to create objects or edit existing ones such as products, sellers or promotions.
+
+<br />
+
+<Flex
+  align="stretch"
+  direction="column"
+  justify="space-around"
+  csx={{ border: '$neutral', borderRadius: 'default', overflow: 'hidden'}}
+>
+  <Box csx={{ borderRadius: 'inherit'}} >
+      <Box csx={{ borderRadius: 'inherit'}}><img src="https://user-images.githubusercontent.com/77292838/207400270-332fe32c-4d05-49af-afbb-d04cb8253f6b.png"></img></Box>
+  </Box>
+</Flex>
+
+<br />
+
+## Examples
+
+Check out examples of Form pages in tune with our design system.
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="flex-start"
+  csx={{borderRadius: 'default'}}
+>
+    <a href="https://www.figma.com/file/wQNCm8Tbo1PHg2ITv8lx2p/Admin-V4-Promotions?node-id=1%3A3&t=NzLe8jbeSjTpPkS8-1">
+    <Flex
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{border: '$neutral', borderRadius: 'default', margin:'0 4px 0 0', overflow: 'hidden'}}
+    >
+      <Box>
+          <img src="https://user-images.githubusercontent.com/77292838/207400684-53ccdb3e-724a-4c53-a753-f277fa10576b.png"></img>
+      </Box>
+      <Box csx={{ padding: '20px' }}>
+        <Flex
+        align="stretch"
+        direction="row"
+        justify="space-between"
+        >
+          <Text variant="action1">Promotions</Text>
+          <p csx={{ float: 'right'}}>Figma<IconArrowUpRight csx={{ float: 'right'}} /></p>
+        </Flex>
+      </Box>
+    </Flex>
+  </a>
+  <a href="https://www.figma.com/file/M4O0WAcWAZ7eUDPPWH6mu3/Form-Page-Template?node-id=532%3A329153&t=zLVGmlcZxsuJe7JY-1">
+    <Flex
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{border: '$neutral', borderRadius: 'default', margin:'0 0 0 4px',overflow: 'hidden'}}
+    >
+      <Box>
+          <img src="https://user-images.githubusercontent.com/77292838/207400836-18132fac-062f-4fd0-befa-b7233eb516d3.png"></img>
+      </Box>
+      <Box csx={{ padding: '20px' }}>
+        <Flex
+        align="stretch"
+        direction="row"
+        justify="space-between"
+        >
+          <Text variant="action1">Categories</Text>
+          <p csx={{ float: 'right'}}>Figma<IconArrowUpRight csx={{ float: 'right'}} /></p>
+        </Flex>
+      </Box>
+    </Flex>
+  </a>
+</Flex>
+
+<br />
+<br />
+
+## FAQ
+
+<br />
+
+<details>
+  <summary><h4>When should I use a Form page on my project?</h4></summary>
+  <div>
+    Use a Form page when merchants need to create or edit an object, such as products, sellers or promotions. They will define an object by inputting data, selecting options and submitting them.
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>What are the basic features of a Form page?</h4></summary>
+  <div>
+    <p>A Form page usually includes:
+      <ul>
+        <li>A <em>Save</em> Button for merchants to submit data when creating or editing an object.</li>
+        <li>A <em>Cancel</em> Button for merchants to discard any changes and leave the form.</li>
+        <li>A <em>Back</em> Button for merchants to go back to the previous screen and leave the form.</li>
+        <li>A <a href="https://admin-ui.vercel.app/components/menu">Menu</a> with default actions like <em>Copy URL, Export</em> and <em>Delete</em> that usually appears in the Edit view, when the object already exists in the system. They can be adjusted according the the context you are working with.</li>
+        <li>Static validation, which happens on the front end right after the user types anything.</li>
+        <li>Dynamic validation, which happens on the back end after data is submitted.</li>
+        <li>Form sections to separate different moments of the form, which may include:
+          <ul>
+            <li><strong>Input fields</strong>: <a href="https://admin-ui.vercel.app/components/text-input">TextInput</a>, <a href="https://admin-ui.vercel.app/components/text-area">TextArea</a>, <a href="https://admin-ui.vercel.app/components/number-input">NumberInput</a>, <a href="https://admin-ui.vercel.app/experimental/date-picker">DatePicker</a> and <a href="https://admin-ui.vercel.app/experimental/combobox">Combobox</a>.</li>
+            <li><strong>Controls</strong>: <a href="https://admin-ui.vercel.app/components/checkbox">Checkbox</a>, <a href="https://admin-ui.vercel.app/components/radio">Radio</a>, <a href="https://admin-ui.vercel.app/components/select">Select</a> and <a href="https://admin-ui.vercel.app/components/switch">Switch</a>.</li>
+            <li><strong>List</strong>: <a href="https://admin-ui.vercel.app/components/data-view">DataView</a></li>
+        </ul>
+      </li>
+    </ul>
+    </p>
+  </div>
+</details>
+
+
+<br />
+
+## Related components
+
+<Flex
+  align="stretch"
+  direction="column"
+  justify="flex-start"
+  csx={{ borderRadius: 'default'}}
+>
+  <Box>
+    <Flex
+    align="center"
+    direction="row"
+    justify="flex-start"
+    >
+        <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/page"><img src="https://user-images.githubusercontent.com/77292838/191536013-c0245589-139a-423d-928a-d13cad37d57b.png"></img></a></Box>
+        <Box csx={{ padding: '30px'}}>
+          <Flex
+          align="flex-start"
+          direction="column"
+          justify="flex-end"
+          >
+            <a href="https://admin-ui.vercel.app/components/page" csx={{ float: 'right'}}>Page<IconArrowUpRight csx={{ float: 'right'}} /></a>
+            <p>Merchants identify where they are, have access to the main actions and view content.</p>
+          </Flex>
+        </Box>
+    </Flex>
+  </Box>
+    <Box>
+    <Flex
+    align="center"
+    direction="row"
+    justify="flex-start"
+    >
+      <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/form"><img src="https://user-images.githubusercontent.com/77292838/207406473-1bea300e-1a65-49a7-a398-48a1061134ea.png"></img></a></Box>
+      <Box csx={{ padding: '30px'}}>
+        <Flex
+        align="flex-start"
+        direction="column"
+        justify="flex-end"
+        >
+          <a href="https://admin-ui.vercel.app/components/form" csx={{ float: 'right'}}>Form<IconArrowUpRight csx={{ float: 'right'}} /></a>
+          <p>Merchants use the Form to submit data to create items and edit existing objects such as <br /> products, sellers or promotions.</p>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+    <Box>
+    <Flex
+    align="center"
+    direction="row"
+    justify="flex-start"
+    >
+      <Box csx={{ width: '115px', height: '64px', left: '336px', top: '1884px'}}><a href="https://admin-ui.vercel.app/components/data-view"><img src="https://user-images.githubusercontent.com/77292838/191536027-945041fc-6f1b-4aef-94a5-3edddf9717bc.png"></img></a></Box>
+      <Box csx={{ padding: '30px'}}>
+        <Flex
+        align="flex-start"
+        direction="column"
+        justify="flex-end"
+        >
+          <a href="https://admin-ui.vercel.app/components/data-view" csx={{ float: 'right'}}>DataView<IconArrowUpRight csx={{ float: 'right'}} /></a>
+          <p>Merchants view a list of items with search, filters and pagination.</p>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+</Flex>
