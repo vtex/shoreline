@@ -28,18 +28,20 @@ Check out the available templates:
 <Flex
   align="flex-start"
   direction="row"
-  justify="flex-start"
-  csx={{ borderRadius: 'default', margin: '0px 0px 20px 0px' }}
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
+  <Box>
   <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">
     <Flex
+      display="flex"
       align="stretch"
       direction="column"
       justify="space-around"
       csx={{
         border: '$neutral',
         borderRadius: 'default',
-        margin: '0 0 0 0',
+        margin: '0 0.5rem 0 0',
         overflow: 'hidden',
       }}
     >
@@ -61,23 +63,26 @@ Check out the available templates:
           </Flex>
           <br />
           <Text>
-            Merchants scan, sort, filter, compare, and take action on items of a
-            specific object type, such as products, or record type, such as
+            Merchants scan, sort, filter, compare, and take action on items of a specific object type, such as products, or record type, such as
             orders.
           </Text>
         </Flex>
       </Box>
     </Flex>
   </a>
+  </Box>
+  <Box>
   <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
     <Flex
+      href="https://admin-ui.vercel.app/templates/form%20page/overview"
+      display="flex"
       align="stretch"
       direction="column"
-      justify="space-around"
+      justify="space-between"
       csx={{
         border: '$neutral',
         borderRadius: 'default',
-        margin: '0 0 0 10px',
+        margin: '0 0 0 0.5rem',
         overflow: 'hidden',
       }}
     >
@@ -107,6 +112,7 @@ Check out the available templates:
       </Box>
     </Flex>
 </a>
+</Box>
   </Flex>
 <Flex
   align="flex-start"
@@ -121,7 +127,7 @@ Check out the available templates:
     csx={{
       border: '$neutral',
       borderRadius: 'default',
-      margin: '0 0 0 0',
+      margin: '0 0.5rem 0 0',
       background: '#F8F8F8',
       overflow: 'hidden',
     }}
@@ -141,8 +147,7 @@ Check out the available templates:
         </Flex>
         <br />
         <Text tone="secondary">
-          Merchants dive deep into an object or record's information, unlocking
-          specific data and actions.
+          Merchants dive deep into an object or record's information, unlocking specific data and actions.
         </Text>
       </Flex>
     </Box>
@@ -154,7 +159,7 @@ Check out the available templates:
     csx={{
       border: '$neutral',
       borderRadius: 'default',
-      margin: '0 0 0 10px',
+      margin: '0 0 0 0.5rem',
       background: '#F8F8F8',
       overflow: 'hidden',
     }}
@@ -174,8 +179,7 @@ Check out the available templates:
         </Flex>
         <br />
         <Text tone="secondary">
-          Merchants set up their ecommerce configurations in a unified
-          experience.
+          Merchants set up their ecommerce configurations in a unified experience.
         </Text>
       </Flex>
     </Box>
