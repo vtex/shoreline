@@ -9,7 +9,7 @@ export const tooltipPopover = style({
   padding: '$space-2 $space-3',
   borderRadius: '$default',
   maxWidth: '16rem',
-  zIndex: 'over',
+  zIndex: '$z-10',
 })
 
 export const tooltipTriggerWrapper = style({

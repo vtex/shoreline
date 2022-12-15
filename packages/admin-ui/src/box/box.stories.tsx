@@ -16,7 +16,7 @@ export const CsxProp: Story = () => {
     <Box
       csx={{
         fontSize: 64,
-        zIndex: 'over',
+        zIndex: '$z-10',
       }}
     >
       Huge Text
