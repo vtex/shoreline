@@ -39,7 +39,7 @@ export const SidebarSection = forwardRef(function SidebarSection(
     <Box
       as={Tabbable}
       csx={{
-        zIndex: 'sidebarUl',
+        zIndex: -999,
         marginBottom: '$space-4',
         ...csx,
       }}

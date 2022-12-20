@@ -9,17 +9,4 @@ export const zIndices = {
   'z-8': 700,
   'z-9': 800,
   'z-10': 900,
-  // under: -1,
-  // plain: 0,
-  // over: 999,
-  // '1': 1,
-  // '2': 2,
-  // '3': 3,
-  // '4': 4,
-  // '5': 5,
-  // should these be kept?
-  topbar: 9999,
-  sidebarDisclosure: 999,
-  sidebarOverlay: 99,
-  sidebarUl: -999,
 }
