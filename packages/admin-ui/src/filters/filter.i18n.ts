@@ -8,7 +8,7 @@ export const messages = {
     },
     'fr-FR': {
       apply: 'Appliquer',
-      clear: 'Dégager',
+      clear: 'Effacer',
       clearAll: 'Tout effacer',
       moreFilters: 'Plus de filtres',
     },
