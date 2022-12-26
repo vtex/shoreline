@@ -13,7 +13,7 @@ export const container = style({
   padding: '$space-4 $space-5',
   bg: '$primary',
   border: '$neutral',
-  borderRadius: '$default',
+  borderRadius: '$base',
   boxShadow: '$overlay.center',
   marginX: 'auto',
 })

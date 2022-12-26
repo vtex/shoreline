@@ -9,7 +9,7 @@ export const item = style({
   paddingY: '$space-2',
   paddingX: '$space-2',
   border: 'none',
-  borderRadius: '$default',
+  borderRadius: '$base',
   cursor: 'pointer',
 
   '> div': {
@@ -57,7 +57,7 @@ export const itemVariants = styleVariants({
 export const popoverContainer = style({
   marginY: '$space-1',
   minWidth: '9rem',
-  borderRadius: '$default',
+  borderRadius: '$base',
   bg: '$primary',
   border: '$neutral',
   boxShadow: '$overlay.center',

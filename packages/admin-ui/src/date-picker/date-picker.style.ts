@@ -3,7 +3,7 @@ import { focusVisible, style } from '@vtex/admin-ui-core'
 export const disclosure = style({
   text: '$action1',
   border: 'none',
-  borderRadius: 'default',
+  borderRadius: '$base',
   cursor: 'pointer',
   position: 'relative',
   bg: '$action.neutral.tertiary',

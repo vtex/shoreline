@@ -19,6 +19,6 @@ export const baseline = style({
   width: 24,
   height: 24,
   padding: '$space-2',
-  borderRadius: 'circle',
+  borderRadius: '$pill',
   textTransform: 'uppercase',
 })

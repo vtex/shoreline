@@ -10,8 +10,8 @@ const modalContentMaxHeight = `calc(${modalHeight} - calc(${modalHeaderHeight} +
 export const modalHeaderTheme = csx({
   bg: '$primary',
   padding: '$space-6 $space-7',
-  borderTopLeftRadius: '$default',
-  borderTopRightRadius: '$default',
+  borderTopLeftRadius: '$base',
+  borderTopRightRadius: '$base',
   width: '100%',
   display: 'flex',
   flexDirection: 'row',
@@ -42,8 +42,8 @@ export const modalContentTheme = csx({
 
 export const modalFooterTheme = csx({
   bg: '$primary',
-  borderBottomRightRadius: '$default',
-  borderBottomLeftRadius: '$default',
+  borderBottomRightRadius: '$base',
+  borderBottomLeftRadius: '$base',
   width: '100%',
   display: 'flex',
   alignContent: 'center',
@@ -78,7 +78,7 @@ export const modalTheme = csx({
   margin: '$space-8',
   position: 'relative',
   bg: '$primary',
-  borderRadius: '$default',
+  borderRadius: '$base',
   ...variant('size', 'small', {
     width: '23rem',
   }),

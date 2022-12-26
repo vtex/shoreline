@@ -30,7 +30,7 @@ export function menu(options: { visible: boolean }) {
     visibility: visible ? 'visible' : 'hidden',
     bg: '$primary',
     border: '$neutral',
-    borderRadius: '$default',
+    borderRadius: '$base',
     boxShadow: '$overlay.center',
     cursor: 'pointer',
     outline: 'none',
