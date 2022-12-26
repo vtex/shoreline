@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.134.2-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2-dev.4...@vtex/admin-ui@0.134.2-dev.5) (2022-12-26)
+
+
+### Bug Fixes
+
+* add mouse event to the table's menu resolver onClick function ([14452d9](https://github.com/vtex/admin-ui/commit/14452d9f37ee42d4afeccd66854dc8a41978f4eb))
+
+
+
+
+
 ## 0.134.2-dev.4 (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
