@@ -278,6 +278,19 @@ export const spaceTokens = asLiterals([
   '$space-32',
 ])
 
+export const elevationTokens = asLiterals([
+  'z-1',
+  'z-2',
+  'z-3',
+  'z-4',
+  'z-5',
+  'z-6',
+  'z-7',
+  'z-8',
+  'z-9',
+  'z-10',
+])
+
 export type ColorTokens = typeof colorTokens[number]
 export type FgTokens = typeof fgTokens[number]
 export type BgTokens = typeof bgTokens[number]
@@ -285,6 +298,7 @@ export type BorderTokens = typeof borderTokens[number]
 export type ShadowTokens = typeof shadowTokens[number]
 export type TextTokens = typeof textTokens[number]
 export type SpaceTokens = typeof spaceTokens[number]
+export type ElevationTokens = typeof elevationTokens[number]
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
@@ -447,7 +461,7 @@ export interface OverwriteCSSProperties {
    * CSS **`z-index`** property
    * @default auto
    */
-  zIndex?: CSS.Property.ZIndex | string
+  zIndex?: CSSPropAutocomplete<ElevationTokens> | CSS.Property.ZIndex | string
   /**
    * CSS **padding** property
    */

@@ -37,7 +37,7 @@ export const Topbar = createComponent<'div', TopbarOptions>((props) => {
       gridTemplateColumns: 'repeat(3, 1fr)',
       height: '3.5rem',
       borderBottom: '$neutral',
-      zIndex: 'topbar',
+      zIndex: 9999,
       paddingX: '$space-5',
       bg: '$primary',
     },
