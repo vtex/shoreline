@@ -7,9 +7,43 @@ A Modal (Dialog) is used to represent information that demands attention and/or 
 
 ## Composability
 
-The modal is built to be composable.
+The modal is composed by many parts: Modal, ModalHeader, ModalTitle, ModalDismimiss, ModalContent, ModalFooter, and ModalButton.
 
-### Modal header
+### Modal
+
+The main component, responsible for holding the state.
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>The modal content</ModalContent>
+        <ModalFooter>
+          <ModalButton>Modal button</ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `div` JSX element, and:
+
+| Name  | Type         | Description               | Required | Default |
+| ----- | ------------ | ------------------------- | -------- | ------- |
+| state | `ModalState` | Return of `useModalState` | ✅       | null    |
+
+### ModalHeader
 
 The header gives the modal context, its usually composed by the `ModalTitle` and `ModalDismiss`.
 
@@ -31,7 +65,63 @@ function Example() {
 }
 ```
 
+#### Props
+
+Same as `header` JSX element.
+
+### ModalTitle
+
+Modal heading component.
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+        </ModalHeader>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `h1` JSX element.
+
+### ModalDismiss
+
+Dismisses the modal.
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalDismiss />
+        </ModalHeader>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `button` JSX element.
+
 ### ModalContent
+
+The `ModalContent` is the main part of the modal.
 
 ```jsx live
 function Example() {
@@ -62,7 +152,13 @@ function Example() {
 }
 ```
 
+#### Props
+
+Same as `div` JSX element.
+
 ### ModalFooter
+
+The footer usually contains actions.
 
 ```jsx live
 function Example() {
@@ -97,7 +193,23 @@ function Example() {
 }
 ```
 
+#### Props
+
+Same as `footer` JSX element.
+
+### ModalButton
+
+#### Props
+
+Same as [Admin UI Button](/components/button), and:
+
+| Name         | Type      | Description                     | Required | Default |
+| ------------ | --------- | ------------------------------- | -------- | ------- |
+| dismissModal | `boolean` | If dismisses the modal on click | 🚫       | `false` |
+
 ## Abstracting
+
+The main reason the modal is composable is to enable abstractions. You can create specific modals using the small pieces admin-ui provides. In the example, you can see a confirmation modal that uses this approach:
 
 ```jsx noInline live
 function Confirm(props) {
@@ -137,6 +249,8 @@ render(<Example />)
 ```
 
 ## Styling
+
+Every modal component can receive a className to customize styling.
 
 ```jsx live noInline
 const customContent = csx({
