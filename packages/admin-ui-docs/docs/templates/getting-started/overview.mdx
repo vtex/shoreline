@@ -28,18 +28,20 @@ Check out the available templates:
 <Flex
   align="flex-start"
   direction="row"
-  justify="flex-start"
-  csx={{ borderRadius: 'default', margin: '0px 0px 20px 0px' }}
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
+  <Box>
   <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">
     <Flex
+      display="flex"
       align="stretch"
       direction="column"
       justify="space-around"
       csx={{
         border: '$neutral',
         borderRadius: 'default',
-        margin: '0 0 0 0',
+        margin: '0 0.5rem 0 0',
         overflow: 'hidden',
       }}
     >
@@ -61,49 +63,57 @@ Check out the available templates:
           </Flex>
           <br />
           <Text>
-            Merchants scan, sort, filter, compare, and take action on items of a
-            specific object type, such as products, or record type, such as
+            Merchants scan, sort, filter, compare, and take action on items of a specific object type, such as products, or record type, such as
             orders.
           </Text>
         </Flex>
       </Box>
     </Flex>
   </a>
-  <Flex
-    align="stretch"
-    direction="column"
-    justify="space-around"
-    csx={{
-      border: '$neutral',
-      borderRadius: 'default',
-      margin: '0 0 0 10px',
-      background: '#F8F8F8',
-      overflow: 'hidden',
-    }}
-  >
-    <Box>
+  </Box>
+  <Box>
+  <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
+    <Flex
+      href="https://admin-ui.vercel.app/templates/form%20page/overview"
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '$neutral',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
       <Box>
-        <img src="https://user-images.githubusercontent.com/77292838/191287023-05017691-c8f0-493e-9592-00e9b626cff9.png"></img>
+        <Box>
+          <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
+            <img src="https://user-images.githubusercontent.com/77292838/207896064-a8460638-bead-42af-bc63-60c37daf6b3a.png"></img>
+          </a>
+        </Box>
       </Box>
-    </Box>
-    <Box csx={{ padding: '20px' }}>
-      <Flex align="stretch" direction="column" justify="space-between">
-        <Flex align="center" direction="row" justify="space-between">
-          <Text variant="action1" tone="secondary">
-            Form page
+      <Box csx={{ padding: '20px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Flex align="center" direction="row" justify="space-between">
+            <Text variant="action1" tone="primary">
+              Form page
+            </Text>
+              <Flex align="center">
+                <p>View</p>
+                <IconArrowUpRight csx={{ float: 'right', height: '24px' }} />
+              </Flex>
+          </Flex>
+          <br />
+          <Text tone="primary">
+            Merchants make changes and submit data to create objects or edit existing ones such as products, sellers or promotions.
           </Text>
-          <Tag label="Soon" variant="gray" csx={{ float: 'right' }} />
         </Flex>
-        <br />
-        <Text tone="secondary">
-          Merchants submit data to create and edit objects, like products,
-          sellers or promotions. Merchants submit data to create and edit
-          objects, like products, sellers.
-        </Text>
-      </Flex>
-    </Box>
+      </Box>
+    </Flex>
+</a>
+</Box>
   </Flex>
-</Flex>
 <Flex
   align="flex-start"
   direction="row"
@@ -117,7 +127,7 @@ Check out the available templates:
     csx={{
       border: '$neutral',
       borderRadius: 'default',
-      margin: '0 0 0 0',
+      margin: '0 0.5rem 0 0',
       background: '#F8F8F8',
       overflow: 'hidden',
     }}
@@ -137,8 +147,7 @@ Check out the available templates:
         </Flex>
         <br />
         <Text tone="secondary">
-          Merchants dive deep into an object or record's information, unlocking
-          specific data and actions.
+          Merchants dive deep into an object or record's information, unlocking specific data and actions.
         </Text>
       </Flex>
     </Box>
@@ -150,7 +159,7 @@ Check out the available templates:
     csx={{
       border: '$neutral',
       borderRadius: 'default',
-      margin: '0 0 0 10px',
+      margin: '0 0 0 0.5rem',
       background: '#F8F8F8',
       overflow: 'hidden',
     }}
@@ -170,8 +179,7 @@ Check out the available templates:
         </Flex>
         <br />
         <Text tone="secondary">
-          Merchants set up their ecommerce configurations in a unified
-          experience.
+          Merchants set up their ecommerce configurations in a unified experience.
         </Text>
       </Flex>
     </Box>
@@ -183,30 +191,34 @@ Check out the available templates:
 
 ## FAQ
 
-<br />
+<details>
+  <summary><h4>Why should I use a template?</h4></summary>
+  <div>
+    Templates work as a tool to ensure consistency across the VTEX Admin and thus provide a great experience for the merchant. For designers and developers, templates make it easier to understand the patterns to structure recurrent page types and save time when designing or implementing.
+    <br />
+    <br />
+    Using templates can help achieve the following outcomes:
+    <ul>
+        <li>Migrate pages to Admin UI faster.</li>
+        <li>Test new features with more agility.</li>
+        <li>Reduce time to launch.</li>
+    </ul>
+  </div>
+</details>
 
-#### Why should I use a template?
-
-Templates work as a tool to ensure consistency across the VTEX Admin and thus provide a great experience for the merchant. For designers and developers, templates make it easier to understand the patterns to structure recurrent page types and save time when designing or implementing.
-
-Using templates can help achieve the following outcomes:
-
-- Migrate pages to Admin UI faster.
-- Test new features with more agility.
-- Reduce time to launch.
-
-<br />
-
-#### How can I start my project from a template?
-
-Templates are pre-configured starting kits made available as:
-
-- Reusable Figma files, with the states, interactions, and messages.
-- Reusable boilerplate code, with the dependencies, files, and folder structure already set up.
-
-**Designers:**
-
-<OrderedList>
+<details>
+  <summary><h4>How can I start my project from a template?</h4></summary>
+  <div>
+    Templates are pre-configured starting kits made available as:
+    <ul>
+        <li>Reusable Figma files, with the states, interactions, and messages.</li>
+        <li>Reusable boilerplate code, with the dependencies, files, and folder structure already set up.</li>
+    </ul>
+    <br />
+    <br />
+    <strong>Designers:</strong>
+    <br /><br />
+  <OrderedList>
   <OrderedListItem>
     Choose the template that fits your use case:
     <br />
@@ -217,7 +229,11 @@ Templates are pre-configured starting kits made available as:
           Listing page
         </a>
       </li>
-      <li>Forms (coming soon)</li>
+      <li>
+        <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
+          Form page
+        </a>
+      </li>
       <li>Details (coming soon)</li>
       <li>Settings (coming soon)</li>
     </ul>
@@ -235,12 +251,10 @@ Templates are pre-configured starting kits made available as:
     Share your version of the prototype with the developers in your team.
   </OrderedListItem>
 </OrderedList>
-
-<br />
-
-**Developers:**
-
-<OrderedList>
+    <br /><br />
+    <strong>Developers:</strong>
+    <br /><br />
+    <OrderedList>
   <OrderedListItem>
     If there is a designer on your team, reach out to them to get the finalized
     interface. If not, choose the template that fits your use case.
@@ -252,7 +266,11 @@ Templates are pre-configured starting kits made available as:
           Listing page
         </a>
       </li>
-      <li>Forms (coming soon)</li>
+      <li>
+        <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
+          Form page
+        </a>
+      </li>
       <li>Details (coming soon)</li>
       <li>Settings (coming soon)</li>
     </ul>
@@ -265,15 +283,19 @@ Templates are pre-configured starting kits made available as:
     to learn more about development with Admin UI.
   </OrderedListItem>
 </OrderedList>
+  </div>
+</details>
 
-<br />
+<details>
+  <summary><h4>Are templates mandatory to design new pages with Admin UI?</h4></summary>
+  <div>
+    We understand that ecommerce operations come with a diversity of scenarios and use cases, so using the templates is not mandatory. The goal of templates is to speed up your implementation of Admin UI, based on the most frequent pages in the platform.
+  </div>
+</details>
 
-#### Are templates mandatory to design new pages with Admin UI?
-
-We understand that ecommerce operations come with a diversity of scenarios and use cases, so using the templates is not mandatory. The goal of templates is to speed up your implementation of Admin UI, based on the most frequent pages in the platform.
-
-<br />
-
-#### What if my use case does not fit into a template?
-
-The templates cover the most recurrent interfaces, but some edge cases might occur. If you find a scenario that is not covered by our templates, [reach out to us](https://admin-ui.vercel.app/documentation/introduction/contact-us).
+<details>
+  <summary><h4> What if my use case does not fit into a template?</h4></summary>
+  <div>
+    The templates cover the most recurrent interfaces, but some edge cases might occur. If you find a scenario that is not covered by our templates, <a href="https://admin-ui.vercel.app/documentation/introduction/contact-us">reach out to us</a>.
+  </div>
+</details>
