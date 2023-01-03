@@ -3,45 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.6.4 (2023-01-03)
+# [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.4...@vtex/admin-ui-codemod@0.7.0) (2023-01-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
+## 0.6.4 (2023-01-03)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui-codemod
 
 ## 0.6.4-dev.4 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
-
-
-
-
 ## 0.6.4-dev.3 (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
-
-
-
-
 
 ## [0.6.4-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.4-dev.1...@vtex/admin-ui-codemod@0.6.4-dev.2) (2022-12-12)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
-
-
-
-
 ## 0.6.4-dev.1 (2022-11-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
-
-
-
-
 
 ## 0.6.4-dev.0 (2022-11-30)
 

@@ -3,65 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.134.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.1...@vtex/admin-ui@0.134.2) (2023-01-03)
+# [0.135.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2...@vtex/admin-ui@0.135.0) (2023-01-03)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
+## [0.134.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.1...@vtex/admin-ui@0.134.2) (2023-01-03)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui
 
 ## 0.134.2-dev.6 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.134.2-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2-dev.4...@vtex/admin-ui@0.134.2-dev.5) (2022-12-26)
-
 
 ### Bug Fixes
 
-* add mouse event to the table's menu resolver onClick function ([14452d9](https://github.com/vtex/admin-ui/commit/14452d9f37ee42d4afeccd66854dc8a41978f4eb))
-
-
-
-
+- add mouse event to the table's menu resolver onClick function ([14452d9](https://github.com/vtex/admin-ui/commit/14452d9f37ee42d4afeccd66854dc8a41978f4eb))
 
 ## 0.134.2-dev.4 (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.134.2-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2-dev.2...@vtex/admin-ui@0.134.2-dev.3) (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## 0.134.2-dev.2 (2022-12-22)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.134.2-dev.1 (2022-11-30)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
-
 
 ## 0.134.2-dev.0 (2022-11-30)
 
@@ -69,14 +43,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
+- **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
 
 # 0.134.0 (2022-10-13)
 
-
 ### Features
 
-* **admin-ui:** force package minor version bump ([6864570](https://github.com/vtex/admin-ui/commit/6864570a5f32f3f07ab082094d3182dbf8630d95))
+- **admin-ui:** force package minor version bump ([6864570](https://github.com/vtex/admin-ui/commit/6864570a5f32f3f07ab082094d3182dbf8630d95))
 
 ## 0.133.7-dev.6 (2022-10-11)
 

@@ -3,86 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.16.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.9...@vtex/admin-ui-docs@0.16.9) (2023-01-03)
+# [0.17.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9...@vtex/admin-ui-docs@0.17.0) (2023-01-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
+## [0.16.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.9...@vtex/admin-ui-docs@0.16.9) (2023-01-03)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui-docs
 
 ## [0.16.9-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.8...@vtex/admin-ui-docs@0.16.9-dev.9) (2022-12-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.16.9-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.7...@vtex/admin-ui-docs@0.16.9-dev.8) (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## 0.16.9-dev.7 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.16.9-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.5...@vtex/admin-ui-docs@0.16.9-dev.6) (2022-12-28)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.16.9-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.4...@vtex/admin-ui-docs@0.16.9-dev.5) (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.9-dev.4 (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.16.9-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.2...@vtex/admin-ui-docs@0.16.9-dev.3) (2022-12-26)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.9-dev.2 (2022-12-22)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.9-dev.1 (2022-11-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
-
 
 ## [0.16.9-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.26...@vtex/admin-ui-docs@0.16.9-dev.0) (2022-11-30)
 
