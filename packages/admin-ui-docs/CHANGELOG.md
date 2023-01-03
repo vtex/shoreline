@@ -3,91 +3,208 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.16.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7...@vtex/admin-ui-docs@0.16.8) (2022-11-29)
+## [0.16.9-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.8...@vtex/admin-ui-docs@0.16.9-dev.9) (2022-12-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
 
 
 
+
+## [0.16.9-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.7...@vtex/admin-ui-docs@0.16.9-dev.8) (2022-12-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## 0.16.9-dev.7 (2022-12-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## [0.16.9-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.5...@vtex/admin-ui-docs@0.16.9-dev.6) (2022-12-28)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## [0.16.9-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.4...@vtex/admin-ui-docs@0.16.9-dev.5) (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## 0.16.9-dev.4 (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## [0.16.9-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9-dev.2...@vtex/admin-ui-docs@0.16.9-dev.3) (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## 0.16.9-dev.2 (2022-12-22)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## 0.16.9-dev.1 (2022-11-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+
+## [0.16.9-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.26...@vtex/admin-ui-docs@0.16.9-dev.0) (2022-11-30)
+
+## [0.16.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7...@vtex/admin-ui-docs@0.16.8) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
 
 ## 0.16.7 (2022-10-13)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
+## 0.16.7-dev.8 (2022-10-11)
 
+**Note:** Version bump only for package @vtex/admin-ui-docs
 
+## [0.16.7-dev.26](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.25...@vtex/admin-ui-docs@0.16.7-dev.26) (2022-11-29)
 
+## [0.16.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7...@vtex/admin-ui-docs@0.16.8) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.24...@vtex/admin-ui-docs@0.16.7-dev.25) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.23...@vtex/admin-ui-docs@0.16.7-dev.24) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.22...@vtex/admin-ui-docs@0.16.7-dev.23) (2022-11-18)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.22](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.21...@vtex/admin-ui-docs@0.16.7-dev.22) (2022-11-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.20...@vtex/admin-ui-docs@0.16.7-dev.21) (2022-11-17)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.20](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.19...@vtex/admin-ui-docs@0.16.7-dev.20) (2022-11-14)
+
+### Features
+
+- **modal:** depreate modal 1.0, use 2.0 ([35d0566](https://github.com/vtex/admin-ui/commit/35d0566ed31f8c0abf156dec1bf21c782db7ff37))
+
+## [0.16.7-dev.19](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.18...@vtex/admin-ui-docs@0.16.7-dev.19) (2022-11-14)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.18](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.17...@vtex/admin-ui-docs@0.16.7-dev.18) (2022-11-10)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.17](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.16...@vtex/admin-ui-docs@0.16.7-dev.17) (2022-11-09)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.16.7-dev.16 (2022-11-08)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.16.7-dev.15 (2022-11-07)
+
+### Features
+
+- change some spacing values requested by the designer ([2b9f5b0](https://github.com/vtex/admin-ui/commit/2b9f5b04967e0ed8ac38ee9f1856ff71998d1478))
+
+## 0.16.7-dev.14 (2022-10-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.12...@vtex/admin-ui-docs@0.16.7-dev.13) (2022-10-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.11...@vtex/admin-ui-docs@0.16.7-dev.12) (2022-10-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.10...@vtex/admin-ui-docs@0.16.7-dev.11) (2022-10-21)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.16.7-dev.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.9...@vtex/admin-ui-docs@0.16.7-dev.10) (2022-10-14)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.16.7-dev.9 (2022-10-13)
+
+## 0.16.7 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
 
 ## 0.16.7-dev.8 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.16.7-dev.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.6...@vtex/admin-ui-docs@0.16.7-dev.7) (2022-10-07)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.7-dev.6 (2022-10-06)
-
 
 ### Bug Fixes
 
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## [0.16.7-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.4...@vtex/admin-ui-docs@0.16.7-dev.5) (2022-10-06)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.7-dev.4 (2022-10-06)
-
 
 ### Bug Fixes
 
-* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
-
-
-
-
+- **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
 
 ## 0.16.7-dev.3 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.16.7-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.7-dev.1...@vtex/admin-ui-docs@0.16.7-dev.2) (2022-09-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.16.7-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## 0.16.7-dev.0 (2022-09-15)
 

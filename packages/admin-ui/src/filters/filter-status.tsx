@@ -30,8 +30,8 @@ export function FilterStatus(props: FilterStatusProps) {
       )}
 
       {status === 'loading' && (
-        <Stack csx={style.statusLayout} space="$2xl">
-          <Stack space="$xl" csx={{ width: '3/4' }}>
+        <Stack csx={style.statusLayout} space="$space-6">
+          <Stack space="$space-4" csx={{ width: '3/4' }}>
             <Skeleton csx={{ height: 20 }} />
             <Skeleton csx={{ width: '9/12', height: 20 }} />
             <Skeleton csx={{ width: '10/12', height: 20 }} />
@@ -63,8 +63,8 @@ export function FilterStatus(props: FilterStatusProps) {
 
       {status === 'not-found' && (
         <Stack
-          csx={{ padding: '$l' }}
-          space="$s"
+          csx={{ padding: '$space-4 $space-5' }}
+          space="$space-05"
           className="__admin-ui-filter-status"
         >
           <Text variant="title2">{formatMessage('noResultsTitle')}</Text>

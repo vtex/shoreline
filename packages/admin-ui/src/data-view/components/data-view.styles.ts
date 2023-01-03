@@ -20,7 +20,7 @@ export const status = style({
   minHeight: '75vh',
   order: -1,
   bg: '$secondary',
-  borderRadius: '$default',
+  borderRadius: '$base',
 })
 
 export const statusMessage = styleVariants({
@@ -39,6 +39,6 @@ export const statusMessage = styleVariants({
 export const headerActions = style({
   display: 'flex',
   '> button:not(:last-of-type)': {
-    marginRight: '$m',
+    marginRight: '$space-2',
   },
 })

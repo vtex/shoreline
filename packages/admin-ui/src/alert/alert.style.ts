@@ -10,7 +10,7 @@ export const baseline = style({
   height: '100%',
   paddingY: '0.9375rem',
   paddingX: '1.188rem',
-  borderRadius: 'default',
+  borderRadius: '$base',
   zIndex: 999,
   transition: 'pop',
 })
@@ -69,11 +69,11 @@ export const iconContainer = styleVariants({
 export const button = styleVariants({
   dismissible: {
     true: {
-      marginLeft: '$2xl',
-      marginRight: '$xxs',
+      marginLeft: '$space-7',
+      marginRight: '$space-0',
     },
     false: {
-      marginLeft: '$2xl',
+      marginLeft: '$space-7',
     },
   },
 })

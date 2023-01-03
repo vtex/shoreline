@@ -77,7 +77,7 @@ export function IconsGrid(props: IconsGridProps) {
   const { selectedItem: selectedWeight } = weightDropdown
 
   return (
-    <DataView state={dataView} csx={{ marginX: 2 }}>
+    <DataView state={dataView} csx={{ marginX: '$space-2' }}>
       <DataViewHeader>
         <Stack direction="row">
           <Search {...search.getInputProps()} />
@@ -96,7 +96,7 @@ export function IconsGrid(props: IconsGridProps) {
         </Stack>
       </DataViewHeader>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
-        <Alert csx={{ marginBottom: 4 }}>
+        <Alert csx={{ marginBottom: '$space-4' }}>
           Some icons below are opaque because they still don’t have a use case
           mapped. If you need to use one of them, please{' '}
           <Anchor href="https://github.com/vtex/admin-ui/issues/new/choose">
@@ -146,7 +146,7 @@ function IconPreview(props: IconPreviewProps) {
   const { item, weight, size, opacity } = props
 
   return (
-    <Stack space="$xl" csx={{ alignItems: 'center' }}>
+    <Stack space="$space-4" csx={{ alignItems: 'center' }}>
       {cloneElement(item.icon, {
         ...props,
         size,

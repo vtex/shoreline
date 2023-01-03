@@ -10,6 +10,9 @@ import {
   Stack,
   Text,
   tokens as themeTokens,
+  spaceTokens,
+  Center,
+  Box,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
@@ -49,19 +52,30 @@ function createMap(
   return function map(token: string) {
     const formattedToken = `${tokenCall}.${extractTokenCall(token)}`
 
-    const value = formatValue(formattedToken)
-    const cssVar = value?.cssVar ?? getCssVar(formattedToken)
+    const value = formatValue(formattedToken) || {}
+    const cssVar = getCssVar(formattedToken)
 
     return {
       token: `$${extractTokenCall(token)}`,
       formattedToken,
       description: '',
-      cssVar,
       value,
+      cssVar,
       type: prop,
-      csx: {
-        [`${prop}`]: token,
-      },
+      example: (
+        <Center
+          csx={{
+            width: 100,
+            height: 60,
+            borderRadius: 'default',
+            fontSize: 22,
+            [`${prop}`]: token,
+          }}
+        >
+          AA
+        </Center>
+      ),
+      ...value,
     }
   }
 }
@@ -75,6 +89,35 @@ export const border = borderTokens.map(
 )
 export const shadow = shadowTokens.map(
   createMap('boxShadow', 'shadow', cssWithColorFormatter)
+)
+
+export const spacing = spaceTokens.map(
+  createMap('margin', 'space', (token) => {
+    const value = getCssValue(token)
+
+    return {
+      stringfied: value,
+      cssVar: '-',
+      type: 'space',
+      formatted: value,
+      example: (
+        <Box
+          csx={{
+            paddingY: 10,
+            height: 60,
+          }}
+        >
+          <Box
+            csx={{
+              width: value,
+              height: 10,
+              backgroundColor: '$action.main.secondary',
+            }}
+          />
+        </Box>
+      ),
+    }
+  })
 )
 
 export const text = textTokens.map(
@@ -109,6 +152,7 @@ export const tokens = [
   ...border,
   ...shadow,
   ...text,
+  ...spacing,
 ].map((token, index) => ({
   id: index,
   ...token,

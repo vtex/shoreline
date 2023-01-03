@@ -3,75 +3,141 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.8.8](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7...@vtex/gatsby-plugin-admin-ui@0.8.8) (2022-11-29)
+## 0.8.9-dev.6 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
 
 
 
+
+## [0.8.9-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.9-dev.4...@vtex/gatsby-plugin-admin-ui@0.8.9-dev.5) (2022-12-26)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
+## 0.8.9-dev.4 (2022-12-26)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
+## [0.8.9-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.9-dev.2...@vtex/gatsby-plugin-admin-ui@0.8.9-dev.3) (2022-12-26)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
+## 0.8.9-dev.2 (2022-12-22)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
+## 0.8.9-dev.1 (2022-11-30)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+
+
+
+
+
+## 0.8.9-dev.0 (2022-11-30)
+
+## [0.8.8](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7...@vtex/gatsby-plugin-admin-ui@0.8.8) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
 ## 0.8.7 (2022-10-13)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
 
+## 0.8.7-dev.6 (2022-10-11)
 
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
+## 0.8.7-dev.16 (2022-11-29)
+
+## [0.8.8](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7...@vtex/gatsby-plugin-admin-ui@0.8.8) (2022-11-29)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.8.7-dev.15](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-dev.14...@vtex/gatsby-plugin-admin-ui@0.8.7-dev.15) (2022-11-17)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.8.7-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-dev.13...@vtex/gatsby-plugin-admin-ui@0.8.7-dev.14) (2022-11-14)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## 0.8.7-dev.13 (2022-11-14)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.8.7-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-dev.11...@vtex/gatsby-plugin-admin-ui@0.8.7-dev.12) (2022-11-09)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## 0.8.7-dev.11 (2022-11-08)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## 0.8.7-dev.10 (2022-11-07)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## 0.8.7-dev.9 (2022-10-26)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## [0.8.7-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-dev.7...@vtex/gatsby-plugin-admin-ui@0.8.7-dev.8) (2022-10-14)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
+
+## 0.8.7-dev.7 (2022-10-13)
+
+## 0.8.7 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
 ## 0.8.7-dev.6 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
-
-
-
-
 ## [0.8.7-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/gatsby-plugin-admin-ui@0.8.7-dev.4...@vtex/gatsby-plugin-admin-ui@0.8.7-dev.5) (2022-10-07)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
-
-
-
-
 ## 0.8.7-dev.4 (2022-10-06)
-
 
 ### Bug Fixes
 
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## 0.8.7-dev.3 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
-
-
-
-
+- **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
 
 ## 0.8.7-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
 
-
-
-
-
 ## 0.8.7-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/gatsby-plugin-admin-ui
-
-
-
-
 
 ## 0.8.7-dev.0 (2022-09-15)
 

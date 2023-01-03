@@ -11,13 +11,6 @@ import {
 import { Stack } from '../stack'
 import { Box } from '../box'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
-import {
-  Modal,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useModalState,
-} from '../components/Modal'
 import { Text } from '../components/Text'
 import { Button } from '../button'
 import { Flex } from '../flex'
@@ -164,7 +157,6 @@ export const Variants = () => {
 
 export const HandleOnClickItem = () => {
   const menuState = useMenuState()
-  const modalState = useModalState()
 
   return (
     <>
@@ -173,7 +165,7 @@ export const HandleOnClickItem = () => {
         <Menu state={menuState}>
           <MenuItem
             label="Open custom dialog"
-            onClick={() => modalState.show()}
+            onClick={() => alert('Native dialog')}
           />
           <MenuItem
             label="Open native dialog"
@@ -181,20 +173,6 @@ export const HandleOnClickItem = () => {
           />
         </Menu>
       </Stack>
-      <Box>
-        <Modal aria-label="Publish modal" state={modalState} size="small">
-          <ModalHeader title="Publish content" />
-          <ModalContent>
-            <Text>
-              Are you sure you want to publish this content? These action cannot
-              be undone.
-            </Text>
-          </ModalContent>
-          <ModalFooter>
-            <Button>Confirm</Button>
-          </ModalFooter>
-        </Modal>
-      </Box>
     </>
   )
 }
@@ -207,7 +185,7 @@ export const Bleed = () => {
     <>
       <Box
         csx={{
-          padding: '$m',
+          padding: '$space-3 $space-4',
           bg: '$secondary',
         }}
       >
@@ -231,7 +209,7 @@ export const Bleed = () => {
       </Box>
       <Box
         csx={{
-          padding: '$m',
+          padding: '$space-3 $space-4',
           bg: '$secondary',
         }}
       >

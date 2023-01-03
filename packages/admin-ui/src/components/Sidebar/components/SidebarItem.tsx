@@ -139,12 +139,12 @@ export const SidebarItem = forwardRef(function SidebarItem(
             as="ul"
             csx={{
               position: 'absolute',
-              top: 0,
+              top: '$space-0',
               left: '0.75rem',
               maxWidth: SCALES.COLLAPSIBLE_AREA_WIDTH,
               height: '100%',
               width: SCALES.COLLAPSIBLE_AREA_WIDTH,
-              padding: '$s',
+              padding: '$space-2 $space-3',
               outline: 'none',
               overflow: 'auto',
               backgroundColor: 'transparent',

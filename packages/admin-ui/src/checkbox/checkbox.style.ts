@@ -24,9 +24,9 @@ export const baseline = style({
   bg: '$form.control',
   border: '$form.control',
   appearance: 'none',
-  borderRadius: 'default',
+  borderRadius: '$base',
   cursor: 'pointer',
-  margin: 0,
+  margin: '$space-0',
   boxSizing: 'border-box',
 
   ':hover:not(:disabled)': {

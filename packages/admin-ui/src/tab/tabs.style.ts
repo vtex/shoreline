@@ -9,8 +9,8 @@ export const tabList = style({
 
 export const tab = style({
   text: '$action1',
-  paddingX: '$l',
-  paddingY: '$xl',
+  paddingX: '$space-3',
+  paddingY: '$space-4',
   borderBottomStyle: 'solid',
   borderBottomColor: 'transparent',
   borderBottomWidth: tabBorderBottomWidth,
@@ -33,6 +33,6 @@ export const tab = style({
 })
 
 export const tabPanel = style({
-  padding: '$s',
+  padding: '$space-2 $space-3',
   ...focusVisible('neutral'),
 })

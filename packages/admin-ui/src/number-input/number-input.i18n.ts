@@ -10,5 +10,6 @@ export const messages = {
     'nl-NL': { decrement: 'Verlagen', increment: 'Increment' },
     'ro-RO': { decrement: 'Scăderea', increment: 'Creştere' },
     'bg-BG': { decrement: 'Намаляване', increment: 'Увеличение' },
+    'th-TH': { decrement: 'การลดลง', increment: 'การเพิ่มขึ้น' },
   },
 }

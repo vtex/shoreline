@@ -8,7 +8,7 @@ export const messages = {
     },
     'fr-FR': {
       apply: 'Appliquer',
-      clear: 'Dégager',
+      clear: 'Effacer',
       clearAll: 'Tout effacer',
       moreFilters: 'Plus de filtres',
     },
@@ -53,6 +53,12 @@ export const messages = {
       clear: 'ясно',
       clearAll: 'изчисти всичко',
       moreFilters: 'Още филтри',
+    },
+    'th-TH': {
+      apply: 'ใช้',
+      clear: 'ล้าง',
+      clearAll: 'ล้างทั้งหมด',
+      moreFilters: 'ตัวกรองเพิ่มเติม',
     },
   },
   status: {
@@ -119,6 +125,13 @@ export const messages = {
       empty: 'Няма налични филтри',
       noResultsTitle: 'Няма филтри, отговарящи на вашето търсене',
       noResultsSubtitle: 'Опитайте да използвате различни термини',
+    },
+    'th-TH': {
+      errorTitle: 'มีบางอย่างผิดปกติ',
+      retry: 'โปรดลองอีกครั้ง',
+      empty: 'ไม่มีตัวกรองที่พร้อมใช้งาน',
+      noResultsTitle: 'ไม่มีตัวกรองที่ตรงกับการค้นหาของคุณ',
+      noResultsSubtitle: 'ลองใช้คำอื่นที่ต่างออกไป',
     },
   },
 }

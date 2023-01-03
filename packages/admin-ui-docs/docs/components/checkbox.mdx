@@ -108,7 +108,28 @@ export const tabToc = {
       level: 2,
     },
   ],
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+        {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
 }
 
 <Page toc={tabToc} hasTabs>
@@ -118,8 +139,8 @@ export const tabToc = {
 
 ## What is this?
 
-Checkboxes are tools that customize configurations. This control has three states: checked, unchecked and indeterminate. They reflect the selection of an option and its execution usually requires another control, or confirmation.
-
+Checkbox controls allow merchants to make multiple independent choices in a form where there are at most five options and each option is binary.
+<br />
 </IntroSection>
 
 <PageSection
@@ -132,7 +153,7 @@ function Example() {
   return (
     <>
       <Inline>
-        <Checkbox label="Unchecked " state={{ value: false }} />
+        <Checkbox label="Unchecked" state={{ value: false }} />
       </Inline>
       <Inline>
         <Checkbox label="Checked" state={{ value: true }} />
@@ -156,7 +177,7 @@ function Example() {
 function Example() {
   return (
     <Stack space="$m">
-      <Checkbox label="Unchecked " state={{ value: false }} disabled />
+      <Checkbox label="Unchecked" state={{ value: false }} disabled />
       <Checkbox label="Checked" state={{ value: true }} disabled />
       <Checkbox
         label="Indeterminate"
@@ -323,7 +344,7 @@ function Example() {
 <PageSection
   id={tabToc.overview[10].id}
   title={tabToc.overview[10].value}
-  explanation="To render multiple checkboxes and store the checked values in an array, you just need to pass the hook return object to the checkboxes state property and define a unique value for each Checkbox."
+  explanation="To render multiple checkboxes and store the checked values in an array, you need to pass the hook return object to the checkbox's `state` property and define a unique value for each Checkbox."
 >
 
 ```jsx live
@@ -351,7 +372,7 @@ function Example() {
 <PageSection
   id={tabToc.overview[11].id}
   title={tabToc.overview[11].value}
-  explanation="To implement a checkbox that controls the state of a set of checkboxes you'll need to combine the checkbox tri-state: checked, not checked, and indeterminate."
+  explanation="To implement a checkbox that controls the state of a set of checkboxes you will need to combine the checkbox's three states: checked, unchecked, and indeterminate."
 >
 
 ```jsx live
@@ -450,8 +471,8 @@ function Example() {
 | checked   | `boolean`           | Same as the HTML checked attribute  | 🚫       | -       |
 | helpText  | `ReactNode`         | Help text                           | 🚫       | -       |
 | errorText | `ReactNode`         | Error text                          | 🚫       | -       |
-| error     | `boolean`           | Whether the filed is error or not   | 🚫       | `false` |
-| state     | `CheckboxState`     | Return of useCheckboxState hook     | 🚫       | -       |
+| error     | `boolean`           | Whether there is an error or not    | 🚫       | `false` |
+| state     | `CheckboxState`     | Return of `useCheckboxState` hook     | 🚫       | -       |
 | csx       | `StyleProp`         | Defines component styles            | 🚫       | `{}`    |
 
 </PageSection>
@@ -466,7 +487,7 @@ function Example() {
 | label     | `string`      | Group label                                | ✅       | -       |
 | helpText  | `ReactNode`   | Help text                                  | 🚫       | -       |
 | errorText | `ReactNode`   | Error text                                 | 🚫       | -       |
-| error     | `boolean`     | Whether the filed is error or not          | 🚫       | `false` |
+| error     | `boolean`     | Whether the there is an error or not       | 🚫       | `false` |
 | direction | `row, column` | Direction which the children are displayed | 🚫       | `row`   |
 | optional  | `boolean`     | Whether the field is optional or not       | 🚫       | -       |
 | csx       | `StyleProp`   | Defines component styles                   | 🚫       | `{}`    |
@@ -499,7 +520,7 @@ function Example() {
 | Name     | Type                                       | Description                                                                                                           | Required | Default |
 | -------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | value    | `boolean, "indeterminate", any[]`          | Stores the state of the checkbox. If checkboxes that share this state have a value prop defined, it will be an array. | -        | -       |
-| setValue | `SetStateAction< CheckboxState["value"] >` | Sets state                                                                                                            | -        | -       |
+| setValue | `SetStateAction< CheckboxState["value"] >` | Sets the checkbox's state                                                                                             | -        | -       |
 
 </PageSection>
 
@@ -511,31 +532,189 @@ function Example() {
   direction="row"
 >
 
-- Checkbox has role `checkbox`.
+- Checkbox has the `checkbox` role.
 - When checked, Checkbox has `aria-checked` set to `true`.
-- When not checked, Checkbox has `aria-checked` set to `false`.
-- When partially checked, Checkbox has `aria-checked` set to `mixed`.
+- When unchecked, Checkbox has `aria-checked` set to `false`.
+- When indeterminate, Checkbox has `aria-checked` set to `mixed`.
 
 </PageSection>
 
   </Panel>
     <Panel id="designReference">
 
-## Do’s
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-1. Settings confirmation, that require an additional action to activate.
-2. Multiple choices.
-3. Undetermined state, when multiple sub-options are grouped under a parent option.
-4. Clear visual state for selected and unselected options.
-5. List of related items.
-6. Binary options are available, like yes/no choices.
-7. Use titles to group related controls.
-8. Choose words that are aligned with our ecommerce vocabulary.
-9. Write the current state of the control, to improve accessibility.
-10. Add descriptions if the control is critical, or complex.
-11. Lists of controls should be vertical for better scannability
+<details>
+  <summary><h4>When to use the Switch, Radio, or Combobox Multiple components instead of the Checkbox component?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Switch component if the action is instant and does not require confirmation. For example, use a Switch in a User Settings page for the option to <em>Activate notifications</em>.</li>
+        <li>Choose the Radio component if only one option can be selected at a time and there are up to five options.</li>
+        <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than five available options.</li>
+    </ul>
+  </div>
+</details>
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+<details>
+  <summary><h4>When to use a Checkbox Group instead of a Checkbox?</h4></summary>
+  <div>
+    Since the Checkbox label should only correspond to its value, the choice should be contextualized using the label of a Checkbox Group or the title of a form section. This is why the Checkbox Group is usually the right choice even for binary choices where there is only a single Checkbox.
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>When to use a vertical or a horizontal Checkbox Group?</h4></summary>
+  <div>
+    It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>How should a Checkbox component be positioned in a form?</h4></summary>
+  <div>Prefer placing a Checkbox at the start or end of a form section.</div>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>When should a Checkbox be disabled?</h4></summary>
+  <div>
+    <ul>
+        <li>Use a disabled Checkbox only if in some condition it becomes enabled. Example: when an option is incompatible with another option in a form.</li>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Checkbox is disabled. Display the information when hovering over the tooltip trigger — not the Checkbox itself.</li>
+    </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>When should the indeterminate state be used?</h4></summary>
+  <div>
+    In scenarios where it might be necessary to check or uncheck all options, a Checkbox can be placed in the beginning of the group with the <em>Select all</em> label. Make sure options below are nested and vertically aligned with the <em>Select all</em> label.<br /><br />
+    The indeterminate state should be displayed in these scenarios when only a few options (not all) are checked. When clicking the indeterminate state, all options must be checked. When clicking for a second time, all options must be unchecked.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the default value of a Checkbox?</h4></summary>
+  <div>
+    <ul>
+        <li>Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.</li>
+        <li>Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.</li>
+        <li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
+    </ul>
+  </div>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a Checkbox?</h4></summary>
+  <div>
+    <ul>
+        <li>Write the label so it corresponds to the value of the Checkbox.</li>
+        <li>Use sentence case but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.</li>
+        <li>Don't write Checkbox labels that vary a lot in length between options.</li>
+        <li>Don't use personal pronouns. For example, write <em>Receive promotional emails</em> instead of <em>I want to receive emails</em>.</li>
+        <li>Don't include redundant words. For example, use only <em>S</em>, <em>M</em>, and <em>L </em>instead of <em>Size S</em>, <em>Size M</em>, and <em>Size L</em>.</li>
+        <li>Don't include negative words. For example, write <em>Receive promotional emails</em> instead of <em>I don't want to receive emails</em>.</li>
+      </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>What should be the label of a Checkbox Group?</h4></summary>
+  <div>
+    <ul>
+        <li>Include the name of the entity that is being listed. For example, use the label <em>Fruits </em>when the options are <em>Apple</em>, <em>Orange </em>and <em>Banana</em>.</li>
+        <li>Visually hide the label of the Checkbox Group when the form section title already contains the name of the entity that is being listed.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't include redundant words. For example, don't use <em>Product characteristics</em> as the label for a Checkbox Group inside a form page that includes <em>Product</em> in its title – use only <em>Characteristics</em>.</li>
+        <li>Don't use verbs. For example, instead of <em>Select characteristics</em>, use only <em>Characteristics</em>.</li>
+        <li>Don't use interrogations.</li>
+      </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>What should be the help text of a Checkbox?</h4></summary>
+  <div>
+    <ul>
+        <li>Include a help text only for critical choices where the consequences of checking the option need to be explained in more detail.</li>
+        <li>Write the help text as if you are completing the following sentence: <em>If you check this option, you or the system will [help text]</em>.</li>
+        <li>Start with verbs in the simple present tense. For example, for the value <em>Fragile</em> the help text should be<em> Prints this information on the shipping label</em> and not <em>Print this information on the shipping label</em>.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't include links. Use an alert component if this is necessary.</li>
+        <li>Don't write more than one sentence.</li>
+        <li>Don't use periods or commas.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the error text of a Checkbox or a Checkbox Group?</h4></summary>
+  <div>
+    <ul>
+        <li>Prevent errors whenever possible. When an option is checked, disable other incompatible fields or options automatically.</li>
+        <li>In a Checkbox Group, if at least one option needs to be checked and none is checked by the merchant, the error text should be <em>Check at least one option</em>.</li>
+        <li>Use the imperative form. For example, write <em>Check at least one option</em> instead of <em>At least one option needs to be checked</em>.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't use periods or commas.</li>
+        <li>Don't use incomplete sentences. For example, write <em>Check at least one option</em> instead of <em>Check at least one</em>.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
 
   </Panel>
 </Page>

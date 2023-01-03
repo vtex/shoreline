@@ -63,6 +63,10 @@ describe('createTheme', () => {
           controlChecked: 'blue',
         },
       },
+      space: {
+        1: '1rem',
+        3: '3rem',
+      },
     })
   })
 
@@ -109,6 +113,10 @@ describe('createTheme', () => {
         form: {
           controlChecked: 'blue',
         },
+      },
+      space: {
+        1: '1rem',
+        3: '3rem',
       },
     })
   })

@@ -14,5 +14,5 @@ export const variants = styleVariants({
 
 export const baseline = style({
   border: '$neutral',
-  margin: 0,
+  margin: '$space-0',
 })

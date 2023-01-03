@@ -61,7 +61,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
         <Box
           csx={{
             position: 'absolute',
-            zIndex: 'sidebarOverlay',
+            zIndex: '$z-2',
             top: '4.85rem',
             height: '1.75rem',
             width: '1.75rem',
@@ -85,7 +85,7 @@ export const SidebarBackdrop = forwardRef(function SidebarBackdrop(
               border: '$neutral',
               height: '100%',
               width: '100%',
-              padding: 0,
+              padding: '$space-0',
             }}
             icon={
               <IconCaretRight

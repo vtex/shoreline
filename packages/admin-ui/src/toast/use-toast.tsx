@@ -39,7 +39,7 @@ function InternalToastProvider(props: ToastProviderProps) {
     <ToastControllerContext.Provider value={enqueue}>
       {children}
       <Portal>
-        <Stack space="$2xl" csx={style.toastQueue}>
+        <Stack space="$space-6" csx={style.toastQueue}>
           {toasts.map(({ id, ...rest }) => (
             <Toast
               ref={itemRef(id)}

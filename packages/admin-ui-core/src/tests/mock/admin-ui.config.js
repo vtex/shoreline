@@ -11,5 +11,9 @@ module.exports = {
         },
       },
     },
+    space: {
+      1: '1rem',
+      3: '3rem',
+    },
   },
 }

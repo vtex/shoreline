@@ -30,14 +30,14 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
 
     return (
       <FormControl error={error}>
-        <Inline hSpace="$m" vSpace="">
+        <Inline hSpace="$space-2" vSpace="">
           <SwitchButton
             id={baseId}
             state={state}
             disabled={disabled}
             {...htmlProps}
           />
-          <Stack space="$s">
+          <Stack space="$space-05">
             <Label htmlFor={baseId} csx={style.label}>
               {label}
             </Label>

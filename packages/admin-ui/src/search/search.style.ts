@@ -2,7 +2,7 @@ import { focusVisible, style } from '@vtex/admin-ui-core'
 
 export const input = style({
   border: '$form.neutral',
-  borderRadius: 'default',
+  borderRadius: '$base',
   size: '100%',
   bg: '$primary',
   color: '$primary',
@@ -48,7 +48,7 @@ export const innerContainer = (position: string) => {
 
   return style({
     position: 'absolute',
-    top: 0,
+    top: '$space-0',
     height: '100%',
     ...positionStyle,
   })
@@ -60,8 +60,8 @@ export const icon = (disabled: boolean) =>
   })
 
 export const clearButton = style({
-  padding: 0,
-  paddingY: '$s',
-  paddingX: '$s',
+  padding: '$space-0',
+  paddingY: '$space-05',
+  paddingX: '$space-1',
   height: 'fit-content',
 })

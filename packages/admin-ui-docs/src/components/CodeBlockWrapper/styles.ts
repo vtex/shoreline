@@ -8,7 +8,7 @@ style.container = {
 
 style.overlay = {
   position: 'absolute',
-  bottom: '0',
+  bottom: '$space-0',
   height: '80%',
   width: '100%',
   background:

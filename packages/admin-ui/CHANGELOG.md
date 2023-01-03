@@ -3,16 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.134.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.0...@vtex/admin-ui@0.134.1) (2022-11-29)
+## 0.134.2-dev.6 (2022-12-29)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## [0.134.2-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2-dev.4...@vtex/admin-ui@0.134.2-dev.5) (2022-12-26)
 
 
 ### Bug Fixes
 
+* add mouse event to the table's menu resolver onClick function ([14452d9](https://github.com/vtex/admin-ui/commit/14452d9f37ee42d4afeccd66854dc8a41978f4eb))
+
+
+
+
+
+## 0.134.2-dev.4 (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## [0.134.2-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.2-dev.2...@vtex/admin-ui@0.134.2-dev.3) (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## 0.134.2-dev.2 (2022-12-22)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+## 0.134.2-dev.1 (2022-11-30)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+
+
+
+
+
+## 0.134.2-dev.0 (2022-11-30)
+
+## [0.134.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.0...@vtex/admin-ui@0.134.1) (2022-11-29)
+
+### Bug Fixes
+
 * **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
-
-
-
-
 
 # 0.134.0 (2022-10-13)
 
@@ -21,64 +70,92 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **admin-ui:** force package minor version bump ([6864570](https://github.com/vtex/admin-ui/commit/6864570a5f32f3f07ab082094d3182dbf8630d95))
 
+## 0.133.7-dev.6 (2022-10-11)
 
+**Note:** Version bump only for package @vtex/admin-ui
 
+## 0.133.7-dev.16 (2022-11-29)
 
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-dev.15](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.14...@vtex/admin-ui@0.133.7-dev.15) (2022-11-17)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.13...@vtex/admin-ui@0.133.7-dev.14) (2022-11-14)
+
+## [0.134.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.134.0...@vtex/admin-ui@0.134.1) (2022-11-29)
+
+### Bug Fixes
+
+- **datepicker:** make datepicker i18n depend only on the passed locale ([4bc5bb3](https://github.com/vtex/admin-ui/commit/4bc5bb3af0d8e926b18476384ae4d7b1f62b2feb))
+
+# 0.134.0 (2022-10-13)
+
+### Features
+
+- **modal:** depreate modal 1.0, use 2.0 ([35d0566](https://github.com/vtex/admin-ui/commit/35d0566ed31f8c0abf156dec1bf21c782db7ff37))
+
+## 0.133.7-dev.13 (2022-11-14)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.11...@vtex/admin-ui@0.133.7-dev.12) (2022-11-09)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## 0.133.7-dev.11 (2022-11-08)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## 0.133.7-dev.10 (2022-11-07)
+
+### Features
+
+- change some spacing values requested by the designer ([2b9f5b0](https://github.com/vtex/admin-ui/commit/2b9f5b04967e0ed8ac38ee9f1856ff71998d1478))
+
+## 0.133.7-dev.9 (2022-10-26)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## [0.133.7-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.7...@vtex/admin-ui@0.133.7-dev.8) (2022-10-14)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+## 0.133.7-dev.7 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui
+
+- **admin-ui:** force package minor version bump ([6864570](https://github.com/vtex/admin-ui/commit/6864570a5f32f3f07ab082094d3182dbf8630d95))
 
 ## 0.133.7-dev.6 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## [0.133.7-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.133.7-dev.4...@vtex/admin-ui@0.133.7-dev.5) (2022-10-07)
-
 
 ### Bug Fixes
 
-* **table:** set fixed column position when window is resized ([0267b60](https://github.com/vtex/admin-ui/commit/0267b60f6eb69a55c6fb306cb49033caad6cae96))
-
-
-
-
+- **table:** set fixed column position when window is resized ([0267b60](https://github.com/vtex/admin-ui/commit/0267b60f6eb69a55c6fb306cb49033caad6cae96))
 
 ## 0.133.7-dev.4 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filter:** fix filter search box oversized on desktop ([70084a3](https://github.com/vtex/admin-ui/commit/70084a3a2c5fab441579dbb97098567f25d70bc5))
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filter:** fix filter search box oversized on desktop ([70084a3](https://github.com/vtex/admin-ui/commit/70084a3a2c5fab441579dbb97098567f25d70bc5))
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## 0.133.7-dev.3 (2022-10-06)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.133.7-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.133.7-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## 0.133.7-dev.0 (2022-09-15)
 

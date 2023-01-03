@@ -1,7 +1,0 @@
-export * from './components/Modal'
-export * from './components/ModalDisclosure'
-export * from './components/ModalContent'
-export * from './components/ModalFooter'
-export * from './components/ModalButton'
-export * from './components/ModalHeader'
-export * from './state'

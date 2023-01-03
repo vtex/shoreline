@@ -11,12 +11,12 @@ export default {
 } as Meta
 
 const primaryStyles = {
-  padding: 2,
+  padding: '$space-2',
   ...palette('purple'),
 }
 
 const invertedStyles = {
-  padding: 2,
+  padding: '$space-2',
   ...palette('teal'),
 }
 
@@ -35,7 +35,7 @@ export const Playground: Story = (args) => {
 
 export const Auto = () => {
   return (
-    <Columns space="$m">
+    <Columns space="$space-2">
       <Column>
         <Box csx={primaryStyles}>4 units</Box>
       </Column>
@@ -51,7 +51,7 @@ export const Auto = () => {
 
 export const AutoGapless = () => {
   return (
-    <Columns space="0">
+    <Columns space="$space-0">
       <Column>
         <Box csx={primaryStyles}>6 units</Box>
       </Column>
@@ -67,7 +67,7 @@ export const AutoGapless = () => {
 
 export const Offset = () => {
   return (
-    <Columns space="0">
+    <Columns space="$space-0">
       <Column units={3}>
         <Box csx={primaryStyles}>3 units</Box>
       </Column>
@@ -83,7 +83,7 @@ export const Offset = () => {
 
 export const Units = () => {
   return (
-    <Columns space="$m">
+    <Columns space="$space-2">
       <Column units={3}>
         <Box csx={primaryStyles}>3 units</Box>
       </Column>
@@ -99,7 +99,7 @@ export const Units = () => {
 
 export const ResponsiveUnits = () => {
   return (
-    <Columns space={{ mobile: '0', tablet: '$m' }}>
+    <Columns space={{ mobile: '$space-0', tablet: '$space-2' }}>
       <Column
         units={{ mobile: 12, tablet: 6 }}
         offset={{ mobile: 'none', tablet: 'right' }}

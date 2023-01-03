@@ -15,7 +15,7 @@ export const Basic = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <NumberInput label="Age" name="age" state={form} />
             <NumberInput
@@ -28,7 +28,7 @@ export const Basic = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>
@@ -48,7 +48,7 @@ export const Validation = () => {
   return (
     <Box>
       <Form onSubmit={(data) => console.log(data)} state={form}>
-        <Stack space="$l">
+        <Stack space="$space-2">
           <Inline>
             <NumberInput
               label="Age"
@@ -68,7 +68,7 @@ export const Validation = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$s' }} type="submit">
+          <Button csx={{ marginLeft: '$space-1' }} type="submit">
             Submit
           </Button>
         </Stack>

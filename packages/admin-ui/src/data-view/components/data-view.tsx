@@ -22,7 +22,7 @@ export const DataView = createComponent<'div', DataViewOptions>((props) => {
     baseStyle: styles.baseline,
     children: (
       <DataViewContext.Provider value={state}>
-        <Stack space="$2xl" csx={{ height: '100%' }}>
+        <Stack space="$space-6" csx={{ height: '100%' }}>
           {isEmpty ? null : children}
           <DataViewStatus />
         </Stack>

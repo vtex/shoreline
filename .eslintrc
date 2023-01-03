@@ -11,10 +11,13 @@
     "__mocks__/",
     "__generated__/"
   ],
+  "env": {
+    "es2022": true
+  },
   "overrides": [
     {
       "files": ["**/*.tsx"],
-      "extends": ["vtex-react"], 
+      "extends": ["vtex-react"],
       "settings": {
         "react": {
           "version": "detect"

@@ -27,7 +27,7 @@ export const FilterOptionCheckbox = createComponent<
         <Checkbox
           checked={combobox.isSelected(item)}
           aria-checked={undefined}
-          csx={{ marginRight: '$m' }}
+          csx={{ marginRight: '$space-2' }}
           readOnly
         />
         {label}

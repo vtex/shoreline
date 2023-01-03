@@ -10,6 +10,13 @@ import type { StyleObject, StyleProp } from './types'
 import { theme as defaultTheme } from './theme'
 import { extractTokenCall } from './helpers'
 
+const COMPOUND_PROPS: Record<string, boolean> = {
+  padding: true,
+  margin: true,
+}
+
+const SPACE = ' '
+
 /**
  * Parses a style object
  */
@@ -40,16 +47,49 @@ export function styles(csxObject: StyleProp = {}, theme: any = defaultTheme) {
   return cssObject
 }
 
+/**
+ * Check if token might be a compound property
+ */
+function isCompoundProp(cssProperty: string, token: string) {
+  return cssProperty in COMPOUND_PROPS && typeof token === 'string'
+}
+
+/**
+ * Get css value from possibly compound token value
+ */
+function getCompoundTokenValue(token: string, rule: AnyObject) {
+  const rawValues = token
+    .split(SPACE)
+    .map((tk: string) => getValueFromRule(tk, rule))
+
+  return rawValues.join(SPACE)
+}
+
+/**
+ * Get css value for a token based on a rule object
+ */
+function getValueFromRule(token: string, rule: AnyObject) {
+  const extractedToken = extractTokenCall(token)
+  const value = get(rule, extractedToken, extractedToken)
+
+  return value
+}
+
+/**
+ * Get css value from a token for a css property
+ */
 export function getTokenValue(
   theme: AnyObject,
   cssProperty: string,
   token: any
 ) {
   const rule = resolveRule(cssProperty, theme)
-  const extractedToken = extractTokenCall(token)
-  const rawValue = get(rule, extractedToken, extractedToken)
 
-  return rawValue
+  const value = isCompoundProp(cssProperty, token)
+    ? getCompoundTokenValue(token, rule)
+    : getValueFromRule(token, rule)
+
+  return value
 }
 
 export function createCsx(theme?: any) {

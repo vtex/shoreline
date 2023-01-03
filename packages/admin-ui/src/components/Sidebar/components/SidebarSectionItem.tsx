@@ -60,10 +60,10 @@ export const SidebarSectionItem = forwardRef(function SidebarSectionItem(
         {
           width: '100%',
           minHeight: 20,
-          padding: '$s',
+          padding: '$space-2 $space-3',
           height: 'auto',
           textAlign: 'left',
-          zIndex: 'sidebarOverlay',
+          zIndex: '$z-2',
           bg: 'transparent',
           '> div': {
             justifyContent: 'start',

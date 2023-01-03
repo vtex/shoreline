@@ -20,7 +20,7 @@ export const Toolbar = createComponent<typeof ReakitToolbar, ToolbarOptions>(
     return useElement(ReakitToolbar, {
       baseStyle: {
         // avoid focus cut-out
-        paddingX: '2px',
+        paddingX: '$space-05',
       },
       children: (
         <Inline>

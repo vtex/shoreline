@@ -11,8 +11,8 @@ export const CardActions = createComponent<'div'>((props) => {
   return useElement('div', {
     ...restProps,
     children: (
-      <Bleed top="$l" bottom="$l">
-        <Stack direction="row" space="$l">
+      <Bleed top="$space-2" bottom="$space-2">
+        <Stack direction="row" space="$space-3">
           {children}
         </Stack>
       </Bleed>

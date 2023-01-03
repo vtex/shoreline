@@ -15,7 +15,7 @@ export function FormControlMessage(props: FormControlMessageProps) {
   const hasMessage = hasError || helpText
 
   return hasMessage ? (
-    <Stack space="$xs">
+    <Stack space="$space-0">
       {helpText ? (
         <Text variant="detail" tone="secondary">
           {helpText}

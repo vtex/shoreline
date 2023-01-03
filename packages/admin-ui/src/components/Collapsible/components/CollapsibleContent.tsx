@@ -14,15 +14,15 @@ export const CollapsibleContent = createComponent<'div'>((props) => {
       <Box
         className="__admin-ui-collapsible--content"
         csx={{
-          paddingX: 4,
-          paddingBottom: 4,
+          paddingX: '$space-4',
+          paddingBottom: '$space-4',
           '.__admin-ui-collapsible--header': {
-            padding: 4,
-            paddingLeft: 0,
+            padding: '$space-4',
+            paddingLeft: '$space-0',
           },
           '.__admin-ui-collapsible--content': {
-            paddingX: 4,
-            paddingBottom: 4,
+            paddingX: '$space-4',
+            paddingBottom: '$space-4',
           },
           ...csx,
         }}

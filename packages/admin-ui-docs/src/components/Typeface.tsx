@@ -73,7 +73,7 @@ export function Typeface() {
       csx={{
         tr: {
           bg: 'white !important',
-          td: { padding: 6, verticalAlign: 'initial' },
+          td: { padding: '$space-6', verticalAlign: 'initial' },
         },
       }}
     >

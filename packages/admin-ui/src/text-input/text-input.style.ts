@@ -9,7 +9,7 @@ export const container = style({
   alignItems: 'center',
   text: '$body',
   border: '$form.neutral',
-  borderRadius: '$default',
+  borderRadius: '$base',
   bg: '$form.neutral',
   cursor: 'text',
   ':hover': {
@@ -50,9 +50,9 @@ export const containerVariants = styleVariants({
 
 export const input = style({
   height,
-  padding: '$m',
+  padding: '$space-3 $space-4',
   width: '100%',
-  borderRadius: '$default',
+  borderRadius: '$base',
   bg: '$form.neutral',
   ':focus': {
     outline: 'none',
@@ -60,7 +60,7 @@ export const input = style({
 })
 
 export const term = style({
-  padding: '$m',
+  padding: '$space-3 $space-4',
   color: '$secondary',
   display: 'flex',
   alignItems: 'center',

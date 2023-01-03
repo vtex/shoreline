@@ -1,7 +1,7 @@
 import { style, styleVariants, focusVisible, ring } from '@vtex/admin-ui-core'
 
 export const baseline = style({
-  borderRadius: 'default',
+  borderRadius: '$base',
   appearance: 'none',
   cursor: 'pointer',
   bg: '$form.neutral',
@@ -66,8 +66,8 @@ export const variants = styleVariants({
 
 export const caret = style({
   position: 'absolute',
-  top: 0,
-  bottom: 0,
+  top: '$space-0',
+  bottom: '$space-0',
   margin: 'auto',
   pointerEvents: 'none',
   right: '1rem',

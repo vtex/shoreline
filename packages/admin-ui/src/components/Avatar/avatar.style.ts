@@ -18,7 +18,7 @@ export const baseline = style({
   justifyContent: 'center',
   width: 24,
   height: 24,
-  padding: 2,
-  borderRadius: 'circle',
+  padding: '$space-2',
+  borderRadius: '$pill',
   textTransform: 'uppercase',
 })

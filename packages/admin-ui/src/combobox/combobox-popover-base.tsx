@@ -33,7 +33,7 @@ export const ComboboxPopoverBase = createComponent<
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Spinner />
@@ -45,7 +45,7 @@ export const ComboboxPopoverBase = createComponent<
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Text as="h2" variant="title2">
@@ -62,7 +62,7 @@ export const ComboboxPopoverBase = createComponent<
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Paragraph
@@ -80,7 +80,7 @@ export const ComboboxPopoverBase = createComponent<
         return (
           <Box
             csx={{
-              margin: 2,
+              margin: '$space-2',
             }}
           >
             <Text as="h2" variant="title2">

@@ -40,8 +40,8 @@ export const thumb = style({
   width: '0.75rem',
   height: '0.75rem',
   margin: 'auto 0.25rem',
-  bottom: 0,
-  top: 0,
+  bottom: '$space-0',
+  top: '$space-0',
 })
 
 const disabled = style({

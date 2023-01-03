@@ -222,14 +222,14 @@ function Suggestion(props: SuggestionProps) {
         {type === 'storage' && (
           <IconClockCounterClockwise
             csx={{
-              marginTop: '2px',
+              marginTop: '$space-05',
             }}
           />
         )}
       </IconContainer>
       <Paragraph
         csx={{
-          marginLeft: 2,
+          marginLeft: '$space-2',
         }}
       >
         {children ? children(item) : item}

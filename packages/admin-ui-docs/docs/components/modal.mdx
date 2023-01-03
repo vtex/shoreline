@@ -1,241 +1,278 @@
 ---
-title: Modal
 path: /modal/
-hide_table_of_contents: true
+title: Modal
 ---
 
-import { Page, Panel } from '@site/src/components/Page'
+A Modal (Dialog) is used to represent information that demands attention and/or action from the users, preventing them from interacting with the rest of the page. It follows the [WAI-ARIA Dialog (Modal) Pattern](w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
-export const tabToc = {
-  overview: toc.filter((item) =>
-    ['Behavior', 'Examples', 'Sizes'].includes(item.value)
-  ),
-  codeReference: toc.filter((item) =>
-    [
-      'Usage',
-      'Accessibility',
-      'Props',
-      'Modal',
-      'useModalState',
-      'ModalHeader',
-      'ModalButton',
-      'ModalContent',
-      'ModalFooter',
-    ].includes(item.value)
-  ),
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
-}
+## Composability
 
-<Page toc={tabToc} hasTabs>
-  <Panel id="overview">
-
-A Modal Dialog is used to represent information that demands attention and/or action from the users, preventing them from interacting with the rest of the page. It follows the [WAI-ARIA Dialog (Modal) Pattern](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
-
-## Behavior
-
-Modal is a compound component with the following composites:
-
-| Name           | Description                                       |
-| -------------- | ------------------------------------------------- |
-| `ModalHeader`  | Modal header. Renders `header` element            |
-| `ModalContent` | Content of the modal. Renders a `section` element |
-| `ModalFooter`  | Modal footer. Renders a `footer` element          |
-| `ModalButton`  | Renders a admin-ui/Button                         |
-
-```jsx live
-function ModalDialog() {
-  const modal = useModalState()
-
-  return (
-    <Box>
-      <ModalDisclosure state={modal}>
-        <Button>Publish</Button>
-      </ModalDisclosure>
-      <Modal aria-label="Publish modal" state={modal} size="small">
-        <ModalHeader title="Publish content" />
-        <ModalContent>
-          <Text>
-            Are you sure you want to publish this content? This action cannot be
-            undone.
-          </Text>
-        </ModalContent>
-        <ModalFooter>
-          <Button variant="secondary">Cancel</Button>
-          <Button>Confirm</Button>
-        </ModalFooter>
-      </Modal>
-    </Box>
-  )
-}
-```
-
-## Examples
-
-### Sizes
-
-The modal comes in three different sizes: `small`, `regular`, and `large`.
-
-#### Small
-
-```jsx live
-function SmallModal() {
-  const modal = useModalState()
-
-  return (
-    <Box>
-      <ModalDisclosure state={modal}>
-        <Button>Small</Button>
-      </ModalDisclosure>
-      <Modal aria-label="Small" state={modal} size="small">
-        <ModalHeader title="Small" />
-        <ModalContent>
-          <Text>Small Modal</Text>
-        </ModalContent>
-        <ModalFooter>
-          <Button>Confirm</Button>
-        </ModalFooter>
-      </Modal>
-    </Box>
-  )
-}
-```
-
-#### Regular (default)
-
-```jsx live
-function RegularModal() {
-  const modal = useModalState()
-
-  return (
-    <Box>
-      <ModalDisclosure state={modal}>
-        <Button>Regular</Button>
-      </ModalDisclosure>
-      <Modal aria-label="Regular" state={modal}>
-        <ModalHeader title="Regular" />
-        <ModalContent>
-          <Text>Regular Modal</Text>
-        </ModalContent>
-        <ModalFooter>
-          <Button>Confirm</Button>
-        </ModalFooter>
-      </Modal>
-    </Box>
-  )
-}
-```
-
-#### Large
-
-```jsx live
-function LargeModal() {
-  const modal = useModalState()
-
-  return (
-    <Box>
-      <ModalDisclosure state={modal}>
-        <Button>Large</Button>
-      </ModalDisclosure>
-      <Modal aria-label="Large" state={modal} size="large">
-        <ModalHeader title="Large" />
-        <ModalContent>
-          <Text>Large Modal</Text>
-        </ModalContent>
-        <ModalFooter>
-          <Button>Confirm</Button>
-        </ModalFooter>
-      </Modal>
-    </Box>
-  )
-}
-```
-
-  </Panel>
-  <Panel id="codeReference">
-
-## Usage
-
-```jsx isStatic
-import {
-  Modal,
-  ModalHeader,
-  ModalContent,
-  ModalFooter,
-  ModalButton,
-  ModalDisclosure,
-  useModalState,
-} from '@vtex/admin-ui'
-```
-
-## Accessibility
-
-- `Modal` has the `dialog` role.
-- `Modal` has `aria-modal` set to true.
-- When `Modal` opens, focus moves to an element inside of it.
-- Focus is trapped within the `Modal`.
-- <kbd>ESC</kbd> closes `Modal` unless hideOnEsc is set to false.
-- Clicking outside the `Modal` closes it unless hideOnClickOutside is set to false.
-
-## Props
+The modal is composed by many parts: Modal, ModalHeader, ModalTitle, ModalDismimiss, ModalContent, ModalFooter, and ModalButton.
 
 ### Modal
 
-| Name                 | Type                      | Description                                                       | Required | Default   |
-| -------------------- | ------------------------- | ----------------------------------------------------------------- | -------- | --------- |
-| `aria-label`         | `string`                  | Modal aria-label                                                  | ✅       | -         |
-| `state`              | `ModalState`              | Return of useModalState                                           | ✅       | -         |
-| `size`               | `small, regular or large` | Modal size                                                        | 🚫       | `regular` |
-| `hideOnClickOutside` | `boolean`                 | When enabled, user can hide the dialog by clicking outside it     | 🚫       | `true`    |
-| `hideOnEsc`          | `boolean`                 | When enabled, user can hide the dialog by pressing <kbd>ESC</kbd> | 🚫       | `true`    |
+The main component, responsible for holding the state.
 
-### useModalState
+```jsx live
+function Example() {
+  const modal = useModalState()
 
-| Name    | Type      | Description             | Required | Default |
-| ------- | --------- | ----------------------- | -------- | ------- |
-| visible | `boolean` | If is initially visible | 🚫       | `false` |
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>The modal content</ModalContent>
+        <ModalFooter>
+          <ModalButton>Modal button</ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `div` JSX element, and:
+
+| Name  | Type         | Description               | Required | Default |
+| ----- | ------------ | ------------------------- | -------- | ------- |
+| state | `ModalState` | Return of `useModalState` | ✅       | null    |
 
 ### ModalHeader
 
-All props of `header` JSX element, and:
+The header gives the modal context, its usually composed by the `ModalTitle` and `ModalDismiss`.
 
-| Name         | Type          | Description                     | Required | Default |
-| ------------ | ------------- | ------------------------------- | -------- | ------- |
-| title        | `ReactNode`   | Title of the modal              | 🚫       | `null`  |
-| containerCsx | `SxStyleProp` | Styles of the buttons container | 🚫       | `{}`    |
+```jsx live
+function Example() {
+  const modal = useModalState()
 
-### ModalButton
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+      </Modal>
+    </>
+  )
+}
+```
 
-_Props_
+#### Props
 
-All props of [Button](button/), and:
+Same as `header` JSX element.
 
-| Name              | Type      | Description                        | Required | Default |
-| ----------------- | --------- | ---------------------------------- | -------- | ------- |
-| closeModalOnClick | `boolean` | If should close the modal on click | 🚫       | `false` |
+### ModalTitle
+
+Modal heading component.
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+        </ModalHeader>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `h1` JSX element.
+
+### ModalDismiss
+
+Dismisses the modal.
+
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalDismiss />
+        </ModalHeader>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `button` JSX element.
 
 ### ModalContent
 
-_Props_
+The `ModalContent` is the main part of the modal.
 
-All props of `section` JSX element.
+```jsx live
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
+          tincidunt lacus. Vivamus sed ullamcorper ipsum, vitae pharetra sem.
+          Quisque dapibus tellus ex, vehicula suscipit quam scelerisque egestas.
+          Donec feugiat pulvinar fringilla. Morbi sed risus a augue interdum
+          imperdiet. Maecenas fermentum felis quis sollicitudin cursus.
+          Vestibulum massa felis, laoreet at turpis vel, ornare tristique mi.
+          Fusce ultrices auctor neque dapibus consequat. Fusce eu sagittis dui,
+          quis gravida augue. Aenean dignissim odio ac nibh volutpat porta.
+          Integer at pretium justo.
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
+```
+
+#### Props
+
+Same as `div` JSX element.
 
 ### ModalFooter
 
-_Props_
+The footer usually contains actions.
 
-All props of `footer` JSX element.
+```jsx live
+function Example() {
+  const modal = useModalState()
 
-  </Panel>
-  <Panel id="designReference">
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
+          tincidunt lacus. Vivamus sed ullamcorper ipsum, vitae pharetra sem.
+          Quisque dapibus tellus ex, vehicula suscipit quam scelerisque egestas.
+          Donec feugiat pulvinar fringilla. Morbi sed risus a augue interdum
+          imperdiet. Maecenas fermentum felis quis sollicitudin cursus.
+          Vestibulum massa felis, laoreet at turpis vel, ornare tristique mi.
+          Fusce ultrices auctor neque dapibus consequat. Fusce eu sagittis dui,
+          quis gravida augue. Aenean dignissim odio ac nibh volutpat porta.
+          Integer at pretium justo.
+        </ModalContent>
+        <ModalFooter>
+          <ModalButton variant="secondary">Cancel</ModalButton>
+          <ModalButton>Confirm</ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+```
 
-## Do’s
+#### Props
 
-1. Keep it simple. The content of a modal should represent one, clear action from the user - even if it takes multiple steps to be completed.
-2. Always use a modal to confirm any destructive actions.
-3. Modals are not the same as error, success, or warning messages. Assess the information that goes within it, what action it is triggering, and if a modal is really necessary.
-4. Avoid nesting modals.
+Same as `footer` JSX element.
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+### ModalButton
 
-  </Panel>
-</Page>
+#### Props
+
+Same as [Admin UI Button](/components/button), and:
+
+| Name         | Type      | Description                     | Required | Default |
+| ------------ | --------- | ------------------------------- | -------- | ------- |
+| dismissModal | `boolean` | If dismisses the modal on click | 🚫       | `false` |
+
+## Abstracting
+
+The main reason the modal is composable is to enable abstractions. You can create specific modals using the small pieces admin-ui provides. In the example, you can see a confirmation modal that uses this approach:
+
+```jsx noInline live
+function Confirm(props) {
+  const { label, title, children, onCancel, onConfirm } = props
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>{label}</Button>
+      <Modal size="small" state={modal}>
+        <ModalHeader>
+          <ModalTitle>{title}</ModalTitle>
+        </ModalHeader>
+        <ModalContent>{children}</ModalContent>
+        <ModalFooter>
+          <ModalButton variant="secondary" dismissModal onClick={onCancel}>
+            Cancel
+          </ModalButton>
+          <ModalButton dismissModal onClick={onConfirm}>
+            Confirm
+          </ModalButton>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+
+function Example() {
+  return (
+    <Confirm label="Create" title="Create new collection">
+      Are you sure?
+    </Confirm>
+  )
+}
+
+render(<Example />)
+```
+
+## Styling
+
+Every modal component can receive a className to customize styling.
+
+```jsx live noInline
+const customContent = csx({
+  color: '$red40',
+})
+
+function Example() {
+  const modal = useModalState()
+
+  return (
+    <>
+      <Button onClick={modal.toggle}>Toggle modal</Button>
+      <Modal state={modal}>
+        <ModalHeader>
+          <ModalTitle>Modal title</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
+        <ModalContent className={customContent}>Your content</ModalContent>
+      </Modal>
+    </>
+  )
+}
+
+render(<Example />)
+```

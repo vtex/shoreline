@@ -3,59 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.4.3 (2022-10-13)
+## 0.4.4-dev.3 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
 
 
 
 
+
+## 0.4.4-dev.2 (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.4.4-dev.1 (2022-11-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.4.4-dev.0 (2022-11-30)
+
+## 0.4.3 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
 
 ## 0.4.3-dev.5 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
 
+## 0.4.3-dev.8 (2022-11-08)
 
+**Note:** Version bump only for package @vtex/admin-ui-util
 
+## 0.4.3-dev.7 (2022-10-26)
 
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+## 0.4.3-dev.6 (2022-10-13)
+
+## 0.4.3 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+## 0.4.3-dev.5 (2022-10-11)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
 
 ## 0.4.3-dev.4 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## 0.4.3-dev.3 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
-
-
-
-
+- **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
 
 ## 0.4.3-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
 
-
-
-
-
 ## 0.4.3-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-util
-
-
-
-
 
 ## 0.4.3-dev.0 (2022-09-15)
 

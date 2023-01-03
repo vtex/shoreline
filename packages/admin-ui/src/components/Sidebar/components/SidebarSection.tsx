@@ -39,15 +39,20 @@ export const SidebarSection = forwardRef(function SidebarSection(
     <Box
       as={Tabbable}
       csx={{
-        zIndex: 'sidebarUl',
-        marginBottom: '$xl',
+        zIndex: -999,
+        marginBottom: '$space-4',
         ...csx,
       }}
       {...compositeProps}
       {...divProps}
       ref={ref}
     >
-      <Box csx={{ padding: '$s', marginY: firstSection ? '$l' : '' }}>
+      <Box
+        csx={{
+          padding: '$space-2 $space-3',
+          marginY: firstSection ? '$space-2' : '',
+        }}
+      >
         <Text csx={sectionTitleStyle} tone="primary">
           {title}
         </Text>

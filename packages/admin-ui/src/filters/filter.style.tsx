@@ -12,7 +12,7 @@ export const disclosure = style({
   text: '$action2',
   bg: '$action.neutral.secondary',
   color: '$secondary',
-  padding: '$s',
+  padding: '$space-2 $space-3',
   ':hover': {
     bg: '$action.neutral.secondaryHover',
     color: '$secondary',
@@ -34,9 +34,9 @@ export const disclosureVariants = styleVariants({
 
 export const caretIcon = (isOpen: boolean) =>
   style({
-    marginLeft: '$s',
+    marginLeft: '$space-1',
     svg: {
-      margin: 0,
+      margin: '$space-0',
       transform: `rotate(${isOpen ? 0 : 180}deg)`,
     },
   })
@@ -48,23 +48,23 @@ export const option = style({
 })
 
 export const scrollableContainer = style({
-  padding: '$l',
-  paddingTop: 0,
-  marginTop: '$xl',
+  padding: '$space-4 $space-5',
+  paddingTop: '$space-0',
+  marginTop: '$space-4',
   maxHeight: 240,
   overflowY: 'auto',
 })
 
 export const list = style({
-  marginY: '$m',
+  marginY: '$space-1',
   '> *:not(:first-child)': {
-    marginTop: '$xl',
+    marginTop: '$space-4',
   },
 })
 
 export const disclosureStatusLabel = style({
   color: '$primary',
-  marginLeft: '$s',
+  marginLeft: '$space-1',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
@@ -73,25 +73,25 @@ export const disclosureStatusLabel = style({
 
 export const searchboxVariants = styleVariants({
   error: {
-    true: { marginBottom: 0 },
+    true: { marginBottom: '$space-0' },
   },
 })
 
 export const searchbox = style({
-  margin: '$l',
-  marginBottom: 0,
+  margin: '$space-4 $space-5',
+  marginBottom: '$space-0',
   order: -1,
   '> input': { minWidth: 'auto' },
   '& ~ .__admin-ui-filter-status': { minHeight: '16rem' },
 })
 
-export const statusLayout = style({ padding: '$l' })
+export const statusLayout = style({ padding: '$space-4 $space-5' })
 
 export const footer = (isScrollableLayout: boolean) =>
   style({
     borderTop: isScrollableLayout ? '$neutral' : 'none',
-    padding: '$l',
-    paddingTop: isScrollableLayout ? undefined : 0,
+    padding: '$space-4 $space-5',
+    paddingTop: isScrollableLayout ? undefined : '$space-0',
     display: 'flex',
     justifyContent: 'end',
     order: 999,
@@ -106,8 +106,8 @@ export const visibilitySelectorItem = style({
   justifyContent: 'space-between',
 
   svg: {
-    marginRight: 0,
-    marginLeft: '$m',
+    marginRight: '$space-0',
+    marginLeft: '$space-2',
     size: '1.25rem',
   },
 })

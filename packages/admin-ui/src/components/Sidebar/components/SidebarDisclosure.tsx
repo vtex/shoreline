@@ -74,7 +74,7 @@ export const SidebarDisclosure = forwardRef(function SidebarDisclosure(
             },
             size: 'auto',
             padding: '0.5rem',
-            svg: { margin: 0 },
+            svg: { margin: '$space-0' },
             ...(selectedFallback && selectedStyle),
           },
           csx

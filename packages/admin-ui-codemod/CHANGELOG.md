@@ -3,59 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.6.3 (2022-10-13)
+## 0.6.4-dev.4 (2022-12-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
 
 
 
+
+## 0.6.4-dev.3 (2022-12-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## [0.6.4-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.4-dev.1...@vtex/admin-ui-codemod@0.6.4-dev.2) (2022-12-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.6.4-dev.1 (2022-11-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.6.4-dev.0 (2022-11-30)
+
+## 0.6.3 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
 
 ## 0.6.3-dev.5 (2022-10-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
+## 0.6.3-dev.10 (2022-11-08)
 
+**Note:** Version bump only for package @vtex/admin-ui-codemod
 
+## [0.6.3-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.3-dev.8...@vtex/admin-ui-codemod@0.6.3-dev.9) (2022-11-07)
 
+### Features
+
+- change some spacing values requested by the designer ([2b9f5b0](https://github.com/vtex/admin-ui/commit/2b9f5b04967e0ed8ac38ee9f1856ff71998d1478))
+
+## [0.6.3-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.3-dev.7...@vtex/admin-ui-codemod@0.6.3-dev.8) (2022-10-27)
+
+### Features
+
+- **space tokens codemod:** handle px token ([944dbae](https://github.com/vtex/admin-ui/commit/944dbae8b4a7240bab0ea271c532a4ad7c50d99e))
+
+## 0.6.3-dev.7 (2022-10-26)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+## 0.6.3-dev.6 (2022-10-13)
+
+## 0.6.3 (2022-10-13)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+## 0.6.3-dev.5 (2022-10-11)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
 
 ## 0.6.3-dev.4 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
-
-
-
-
+- **filtergroup:** add space to clear button ([07a9d93](https://github.com/vtex/admin-ui/commit/07a9d936de8a5b1d8cde725251d12c12a9506323))
 
 ## 0.6.3-dev.3 (2022-10-06)
 
-
 ### Bug Fixes
 
-* **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
-
-
-
-
+- **filter popover:** fix internal spacing ([201e3be](https://github.com/vtex/admin-ui/commit/201e3be897ecaaccc410b7e83815fddf43135b39))
 
 ## 0.6.3-dev.2 (2022-09-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
 
-
-
-
-
 ## 0.6.3-dev.1 (2022-09-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
-
-
-
-
 
 ## 0.6.3-dev.0 (2022-09-15)
 

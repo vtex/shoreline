@@ -142,7 +142,7 @@ function Tone(props: ToneProps) {
         borderColor: getColor(`${color}40` as any),
         border: 'solid 1px',
         borderRadius: 'pill',
-        padding: 2,
+        padding: '$space-2',
         fontSettings: 'medium',
         width: '100%',
         display: 'flex',

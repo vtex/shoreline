@@ -8,8 +8,8 @@ export const page = style({
 export const pageHeaderViewportRef = style({
   height: '1rem',
   position: 'absolute',
-  left: 0,
-  right: 0,
+  left: '$space-0',
+  right: '$space-0',
   zIndex: -2147483638,
 })
 
@@ -23,7 +23,7 @@ export const pageHeaderBase = style({
   width: '100%',
   borderBottom: '$neutral',
   position: 'sticky',
-  top: 0,
+  top: '$space-0',
   minHeight: '5.75rem',
   paddingX: '2rem',
   paddingY: '1.5rem',
@@ -50,7 +50,7 @@ export const pageHeaderTop = style({
 
 export const pageHeaderBottomBase = style({
   width: '100%',
-  marginTop: '$l',
+  marginTop: '$space-2',
   '> div': {
     paddingX: 'unset',
   },

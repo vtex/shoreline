@@ -40,7 +40,7 @@ export function menuResolver<T>() {
                   label={action.label}
                   onClick={(e) => {
                     e.stopPropagation()
-                    action.onClick(item)
+                    action.onClick(item, e)
                   }}
                   disabled={action?.disabled}
                   critical={action?.critical}
@@ -62,7 +62,7 @@ export function menuResolver<T>() {
 
 export interface MenuActions<T> {
   label: string
-  onClick: (item: T) => void
+  onClick: (item: T, event: React.MouseEvent<HTMLDivElement>) => void
   icon?: ReactNode
   disabled?: boolean
   critical?: boolean

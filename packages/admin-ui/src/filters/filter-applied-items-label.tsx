@@ -19,7 +19,10 @@ export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
     <>
       <span>:</span>
       <Box as="span" csx={{ color: '$primary' }}>
-        <Box as="span" csx={{ ...style.disclosureStatusLabel, marginX: '$s' }}>
+        <Box
+          as="span"
+          csx={{ ...style.disclosureStatusLabel, marginX: '$space-1' }}
+        >
           {firstSelectedItemLabel}
         </Box>
         {remainingSelectedItemsCount}
