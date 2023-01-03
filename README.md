@@ -1,22 +1,24 @@
 <p align="center">
   <a href="https://admin-ui.vercel.app">
-  <img alt="AdminUI Design System" src="./assets/cover.png" width="100%" />
+  <img alt="Admin UI Design System" src="./assets/cover.png" width="100%" />
   </a>
 </p>
 
-<h1 align="center">
-  AdminUI Design System
+<h1 align="left">
+  Admin UI Design System
 </h1>
 
-<p align="center" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
-  AdminUI is a design system created by VTEX to help teams build a high-quality and consistent experience for Admin products.
-  <br />
+<p align="left" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+  Admin UI is a design system created by VTEX to help teams build a high-quality and consistent experience for Admin products. It replaces the previous <a href="https://styleguide.vtex.com/">Styleguide<a/>. Documentation is available with a <a href="https://admin-ui.vercel.app/documentation/developing/migrating">detailed comparison between the two libraries<a/>.
+  <br /><br />
+This new design system is still under development and should be used only by VTEX internal products. We are hoping to have a stable release soon. If you're a third-party apps developer, we advise you to keep using the previous <a href="https://styleguide.vtex.com/">Styleguide<a/> for now. 
+  <br /><br />
   <a href="https://admin-ui.vercel.app" style="font-size: 1.2rem; font-weight: bold">
     📚 Documentation
   </a>
 </p>
 
-<p align="center" style="padding-bottom: 1.5rem;">
+<p align="left" style="padding-bottom: 1.5rem;">
   <a href="http://commitizen.github.io/cz-cli/">
     <img src="https://img.shields.io/badge/commitizen-friendly-E6175C.svg" alt="Commitizen friendly" />
   </a>
@@ -27,6 +29,8 @@
     <img src="https://img.shields.io/badge/PRs-welcome-E6175C.svg" alt="PRs welcome" />
   </a>
 </p>
+
+<br />
 
 ## Packages
 
@@ -46,7 +50,9 @@ The fastest way to start is to install [`@vtex/admin-ui`](./packages/admin-ui) -
 | [`@vtex/eslint-plugin-admin-ui`](./packages/eslint-plugin-admin-ui)           | Eslint rules.                                                                             |
 | [`@vtex/gatsby-plugin-admin-ui`](./packages/gatsby-plugin-admin-ui)           | The easiest way to use admin-ui with gatsby.                                              |
 
+<br />
+
 ## Contributing
 
-AdminUI is a colaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing Guide](https://admin-ui.vercel.app/teams/contributing/onboarding) and our
-[Developer Guide](https://admin-ui.vercel.app/teams/developing/getting-started)!
+Admin UI is a colaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing](https://admin-ui.vercel.app/documentation/developing/contributing) guide and our
+[Developing](https://admin-ui.vercel.app/documentation/developing/quick-start) guide!
