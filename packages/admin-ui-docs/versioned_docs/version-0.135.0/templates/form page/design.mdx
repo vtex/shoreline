@@ -1,0 +1,217 @@
+---
+title: Design
+path: /form-page/design/
+---
+
+import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { Columns, Column, Box, IconArrowUpRight } from '@vtex/admin-ui'
+
+
+## Figma file
+
+Includes reusable patterns such as all the states, interactions and messages, and examples of the template applied on real scenarios.
+
+<Box csx={{ border: '$neutral', padding: '20px'}}>
+  <Columns>
+    <Column units={0.5}>
+      <Box csx={{ padding: 1}}><a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213"><img src="https://user-images.githubusercontent.com/77292838/190273217-c19158d0-f00c-4dda-9a03-42e124f85dc5.png" width="30px"></img></a></Box>
+    </Column>
+    <Column units={10.5}>
+      <Box csx={{ padding: 7 }}><a href="https://www.figma.com/file/M4O0WAcWAZ7eUDPPWH6mu3/Form-Page-Template?node-id=504%3A208847&t=LucYA5v4whGFbT5q-1" csx={{ float: 'left'}}>Form page template</a></Box>
+    </Column>
+    <Column units={1}>
+      <Box csx={{ padding: 7 }}><a href="https://www.figma.com/file/M4O0WAcWAZ7eUDPPWH6mu3/Form-Page-Template?node-id=504%3A208847&t=LucYA5v4whGFbT5q-1"><IconArrowUpRight csx={{ float: 'right'}} /></a></Box>
+    </Column>
+  </Columns>
+</Box>
+
+
+## How to start
+
+Follow these instructions to use the template on Figma:
+
+<OrderedList>
+  <OrderedListItem>
+    Read the template's documentation.
+  </OrderedListItem>
+  <OrderedListItem>
+    Create a copy of the <a href="https://www.figma.com/file/M4O0WAcWAZ7eUDPPWH6mu3/Form-Page-Template?node-id=504%3A208847&t=LucYA5v4whGFbT5q-1">Figma file</a>, so you can get started with your own version.
+  </OrderedListItem>
+  <OrderedListItem>
+Make the desired changes to content and components. Make sure you access our components' documentation to learn more about each one.
+  </OrderedListItem>
+  <OrderedListItem>
+    Share your version of the prototype with the developers in your team.
+  </OrderedListItem>
+</OrderedList>
+
+<br />
+<br />
+
+:::info
+The template is flexible, which means you can make customizations according to your specific scenario. Use the Admin UI components to make adjustments and, if you have any questions, [contact us](https://admin-ui.vercel.app/documentation/introduction/contact-us).
+:::
+
+<br />
+
+## Variants
+
+<details>
+  <summary><h4>When to use sections in a form?</h4></summary>
+  <div>
+    <ul>
+        <li>Use sections for forms with more than five fields, when the fields can grouped in a way that makes sense to merchants and won't disrupt their experience. For example, it makes sense to group the fields for an address in a section.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't include fields and lists with referenced objects in the same section.</li>
+        <li>Don't include conditional fields and non-conditional fields in the same section.</li>
+      </ul>
+  </div>
+</details>
+
+<br />
+
+## Position
+
+<details>
+  <summary><h4>What should be the order of the form sections?</h4></summary>
+  <div>
+    Order them using the following criteria:
+    <ul>
+        <li>More general to more specific.</li>
+        <li>Required to optional.</li>
+        <li>Most important to least important.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the order of input fields and controls in a section?</h4></summary>
+  <div>
+    Order them using the following criteria:
+    <ul>
+        <li>More general to more specific.</li>
+        <li>Required to optional.</li>
+        <li>Most important to least important.</li>
+    </ul>
+    Read each field or control component’s documentation for further information.
+  </div>
+</details>
+
+<br />
+
+## Behavior
+
+<details>
+  <summary><h4>What is the input fields' behavior?</h4></summary>
+  <div>
+      If you want to know what is the behavior of input fields in a Form, read the <strong>Behavior</strong> section in the component’s documentation.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What is the controls’ behavior?</h4></summary>
+  <div>
+      If you want to know what is the behavior of controls in a Form, read the <strong>Behavior</strong> section in the component’s documentation.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to use conditional fields?</h4></summary>
+  <div>
+    <ul>
+        <li>Conditional fields are fields that become visible or are hidden depending on the value of a control field.</li>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/switch">Switch</a> to control the visibility of sections and fields during a progressive fill.</li>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/radio">Radio</a> to choose among options that will affect the following fields to be filled. For example, the form for creating a promotion can have conditional fields based on the type of promotion that was chosen.</li>
+    </ul>
+  </div>
+</details>
+
+<br />
+
+## Content
+
+<details>
+  <summary><h4>What should be the page title, URL route and Admin navigation entry?</h4></summary>
+  <div>
+    <ul>
+        <li>When an existing object is being edited, include the name of the object in the page title, URL route and Admin navigation entry, such as <em>Christmas Discount</em>.</li>
+        <li>When a new object is being created, use the word *New* and the name of the entity, such as <em>New Product</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What actions should be in the header of a form page?</h4></summary>
+  <div>
+    <ul>
+        <li>Include a tertiary <a href="https://admin-ui.vercel.app/components/button">Button</a> that leads back to the first-level page with the icon <em>ArrowLeft</em> and the hidden label <em>Back</em>.</li>
+        <li>Include a primary <a href="https://admin-ui.vercel.app/components/button">Button</a> to save the data with the label <em>Save</em>.</li>
+        <li>Include a secondary <a href="https://admin-ui.vercel.app/components/button">Button</a> to discard unsaved changes and leave the flow with the label <em>Cancel</em>.</li>
+        <li>For objects that have already been created, include a <a href="https://admin-ui.vercel.app/components/menu">Menu</a> with actions such as <em>Export</em> and <em>Delete</em> when editing.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the title of a form section?</h4></summary>
+  <div>
+    <ul>
+        <li>When the form has more than one section, it is recommended to use a title in all sections to describe the content of each one.</li>
+        <li>A form section title should explain the type of information the merchant will input or select in the following group of fields and controls. For example, use the <em>Address</em> label to group address-related fields.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>When the form has only one section, do not use the title in the section, use the page title to describe it.</li>
+        <li>Don't include redundant words. Example: in a Form called <em>New Store</em>, do not name the form section <em>Store Address</em>, use only <em>Address</em>.</li>
+        <li>Don't use verbs. For example, instead of <em>Select address</em>, use only <em>Address</em>.</li>
+        <li>Don't use punctuation.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the description of a form section?</h4></summary>
+  <div>
+    <ul>
+        <li>In most cases, the form section title should be self explanatory. Add a description if the form section is critical or complex.</li>
+        <li>Write the description text as if you are answering the following question: <em>What does this mean?</em> For example, for an <em>Address</em> section, the description text can be <em>Location of the store</em>.</li>
+        <li>Start with a noun followed by additional information, such as conditions and definitions.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+        <li>Prefer using a single sentence that is short and direct.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don’t write text longer than 110 characters.</li>
+        <li>Don’t repeat the form title.</li>
+        <li>Don’t explain the benefits of the content, only its meaning.</li>
+        <li>Don’t use periods.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the content of a form section?</h4></summary>
+  <div>
+      <ul>
+        <li>The content of a form section is basically input fields and controls. Access each component’s documentation for further information:
+          <ul>
+            <li><strong>Input fields</strong>: <a href="https://admin-ui.vercel.app/components/text-input">TextInput</a>, <a href="https://admin-ui.vercel.app/components/text-area">TextArea</a>, <a href="https://admin-ui.vercel.app/components/number-input">NumberInput</a>, <a href="https://admin-ui.vercel.app/experimental/date-picker">DatePicker</a> and <a href="https://admin-ui.vercel.app/experimental/combobox">Combobox</a>.</li>
+            <li><strong>Controls</strong>: <a href="https://admin-ui.vercel.app/components/checkbox">Checkbox</a>, <a href="https://admin-ui.vercel.app/components/radio">Radio</a>, <a href="https://admin-ui.vercel.app/components/select">Select</a> and <a href="https://admin-ui.vercel.app/components/switch">Switch</a>.</li>
+          </ul>
+        </li>
+        <li>Use a list section when the merchant can add sub-items or references to the main form. In that case, use <a href="https://admin-ui.vercel.app/components/modal">Modals</a> to add or select items for the list. Such as, when the merchant adds a user in a list of users when create a user role.</li>
+      </ul>
+  </div>
+</details>
