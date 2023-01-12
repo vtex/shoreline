@@ -29,46 +29,213 @@ During handoff, it's not necessary to specify spacing inside Admin UI components
 
 ### Containers
 
-| Container type | Description | Examples |
-|---|---|---|
-| Wide | Horizontal padding much larger than vertical padding. | Tag <br /> Page Header |
-| Narrow | Vertical padding much larger than horizontal padding. | Tabs |
-| Even | The same value for vertical and horizontal paddings. | Card <br /> Modal |
-| Optical | Horizontal padding is slightly larger than vertical padding to account for the visual weight of the container. | Alert <br /> Toast |
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Container type</th>
+            <th>Description</th>
+            <th width="200px">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Wide</td>
+            <td>Horizontal padding much larger than vertical padding.</td>
+            <td>Tag <br /> Page Header</td>
+        </tr>
+        <tr>
+            <td>Narrow</td>
+            <td>Vertical padding much larger than horizontal padding.</td>
+            <td>Tabs</td>
+        </tr>
+        <tr>
+            <td>Even</td>
+            <td>The same value for vertical and horizontal paddings.</td>
+            <td>Card <br /> Modal</td>
+        </tr>
+        <tr>
+            <td>Optical</td>
+            <td>Horizontal padding is slightly larger than vertical padding to account for the visual weight of the
+                container.</td>
+            <td>Alert <br /> Toast</td>
+        </tr>
+    </tbody>
+</table>
 
 <br />
 
 ### Actions
 
-| Action size | Height | Examples |
-|---|---|---|
-| Small | Up to 28px height. | Selected option in a Combobox |
-| Medium | Between 28px and 44px height. | Normal Button <br /> Normal Menu <br /> Filter <br /> Select Inline |
-| Large | More than 44px height. | Large Button <br /> Large Menu <br /> Tab |
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Action size</th>
+            <th width="300px">Height</th>
+            <th width="400px">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Small</td>
+            <td>Up to 28px height.</td>
+            <td>Selected option in a Combobox</td>
+        </tr>
+        <tr>
+            <td>Medium</td>
+            <td>Between 28px and 44px height.</td>
+            <td>Normal Button <br /> Normal Menu <br /> Filter <br /> Select Inline</td>
+        </tr>
+        <tr>
+            <td>Large</td>
+            <td>More than 44px height.</td>
+            <td>Large Button <br /> Large Menu <br /> Tab</td>
+        </tr>
+    </tbody>
+</table>
 
 <br />
 
 ### Tokens
 
-| Token | px | rem | Examples |
-|---|---|---|---|
-| `$space-0` | 0 | 0 | **Vertical space between:**<br />• `$body` Texts<br />• `$detail` Texts (Input Field, Control Field) |
-| `$space-05` | 2 | 0.125 | **Vertical space between:**<br />• `$body` Text → `$detail` Text (Control Field label and help text)<br />• Label → $body Text (Table cell with a 2 lines) |
-| `$space-1` | 4 | 0.25 | **Vertical space between:**<br />• `$title2` Text → `$body` Text (Filter and Combobox empty states)<br />• Label → Input (Input Fields)<br />• Input → `$detail` Text (Input Fields help or error texts) |
-| `$space-2` | 8 | 0.5 | **Vertical space between:**<br />• Trigger → Overlay (Date Picker, Combobox, Filter, Select Inline, Menu)<br />• Label → Tag Normal<br /><br />**Horizontal space between:**<br />• Control → `$body` Text (Checkbox, Radio)<br />• Trigger → Overlay (Filter, Select Inline, Menu, Combobox, Date Picker)<br />• Icon → Short text (Search, Combobox)<br />• Medium Actions with a background (FilterBar)<br />• Large Actions without a background (Tabs)<br />• Short text → Normal Action without background (Toast, Pagination) |
-| `$space-3` | 12 | 0.75 | **Vertical space between:**<br />• Control Fields → `$detail` Text (Checkbox or Radio Group help text)<br /><br />**Horizontal space between:**<br />• `$body` Text → Control Fields (Checkbox Group, Radio Group)<br />• Icon → Long Text (Toast, Alert)<br />• `$pageTitle` → Tag Large (Page Header)<br />• `$title1` → Tag Normal (Card, Modal)<br />• `$body` Text → Tertiary Button (Toast, Alert)<br />• Small wide container, left and right paddings (Tag) |
-| `$space-4` | 16 | 1 | **Vertical space between:**<br />• Control Fields<br />• Input Fields<br />• Cards<br />• Toolbars<br /><br />**Horizontal space between:**<br />• Input fields<br />• Cards |
-| `$space-5` | 20 | 1.25 | **Horizontal space between:**<br />• Control fields<br />• Toolbars (Data View Pagination and Actions)<br /><br />**Horizontal space:** <br />• Medium optical container (Alert and Toast padding-left and right) |
-| `$space-` | 24 | 1.5 | **Vertical space between:** <br />• Section Header → Section Content (Search and Table in DataView) <br />• Section Content → Section Footer (Table and Pagination in Data View)<br /><br />**Vertical space:** <br />• Large wide containers (Card Header and Footer, Modal Header and Footer top and bottom paddings) |
-| `$space-7` | 28 | 1.75 | **Vertical space:** <br />• Large optical containers (Card and Modal top and bottom paddings) |
-| `$space-8` | 32 | 2 | **Vertical and Horizontal space:** <br />• Large even containers (Card and Modal paddings) <br /><br />**Horizontal space:** <br />• Large wide containers (Card Header and Footer, Modal Header and Footer left and right paddings) <br />• Large optical containers (Card and Modal left and right paddings) |
-| `$space-10` | 40 | 2.5 | **Vertical space:** <br />• Standard Pages margin-top <br />• Vertical and Horizontal space: <br />• Toast bottom and right margins |
-| `$space-12` | 48 | 3 | **Vertical space:** <br />• Wide Pages margin-bottom <br />• Narrow Pages margin-top |
-| `$space-16` | 64 | 4 | **Vertical space between:** <br />• Form sections |
-| `$space-20` | 80 | 5 | **Vertical space:** <br />• Standard pages margin-bottom |
-| `$space-24` | 96 | 6 |   |
-| `$space-28` | 112 | 7 |   |
-| `$space-32` | 128 | 8 | **Vertical space:**<br />• Narrow pages margin-bottom |
+<table>
+    <thead>
+        <tr>
+            <th width="150px">Token</th>
+            <th>px</th>
+            <th>rem</th>
+            <th>Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>$space-0</code></td>
+            <td>0</td>
+            <td>0</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$body</code> Texts<br />• <code>$detail</code> Texts
+                (Input Field, Control Field)</td>
+        </tr>
+        <tr>
+            <td><code>$space-05</code></td>
+            <td>2</td>
+            <td>0.125</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$body</code> Text → <code>$detail</code> Text
+                (Control Field label and help text)<br />• Label → $body Text (Table cell with a 2 lines)</td>
+        </tr>
+        <tr>
+            <td><code>$space-1</code></td>
+            <td>4</td>
+            <td>0.25</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$title2</code> Text → <code>$body</code> Text
+                (Filter and Combobox empty states)<br />• Label → Input (Input Fields)<br />• Input → <code>$detail</code>
+                Text (Input Fields help or error texts)</td>
+        </tr>
+        <tr>
+            <td><code>$space-2</code></td>
+            <td>8</td>
+            <td>0.5</td>
+            <td><strong>Vertical space between:</strong><br />• Trigger → Overlay (Date Picker, Combobox, Filter, Select
+                Inline, Menu)<br />• Label → Tag Normal<br /><br /><strong>Horizontal space between:</strong><br />• Control →
+                <code>$body</code> Text (Checkbox, Radio)<br />• Trigger → Overlay (Filter, Select Inline, Menu, Combobox,
+                Date Picker)<br />• Icon → Short text (Search, Combobox)<br />• Medium Actions with a background
+                (FilterBar)<br />• Large Actions without a background (Tabs)<br />• Short text → Normal Action without
+                background (Toast, Pagination)</td>
+        </tr>
+        <tr>
+            <td><code>$space-3</code></td>
+            <td>12</td>
+            <td>0.75</td>
+            <td><strong>Vertical space between:</strong><br />• Control Fields → <code>$detail</code> Text (Checkbox or
+                Radio Group help text)<br /><br /><strong>Horizontal space between:</strong><br />• <code>$body</code> Text →
+                Control Fields (Checkbox Group, Radio Group)<br />• Icon → Long Text (Toast, Alert)<br />•
+                <code>$pageTitle</code> → Tag Large (Page Header)<br />• <code>$title1</code> → Tag Normal (Card,
+                Modal)<br />• <code>$body</code> Text → Tertiary Button (Toast, Alert)<br />• Small wide container, left and
+                right paddings (Tag)</td>
+        </tr>
+        <tr>
+            <td><code>$space-4</code></td>
+            <td>16</td>
+            <td>1</td>
+            <td><strong>Vertical space between:</strong><br />• Control Fields<br />• Input Fields<br />• Cards<br />•
+                Toolbars<br /><br /><strong>Horizontal space between:</strong><br />• Input fields<br />• Cards</td>
+        </tr>
+        <tr>
+            <td><code>$space-5</code></td>
+            <td>20</td>
+            <td>1.25</td>
+            <td><strong>Horizontal space between:</strong><br />• Control fields<br />• Toolbars (Data View Pagination and
+                Actions)<br /><br /><strong>Horizontal space:</strong> <br />• Medium optical container (Alert and Toast
+                padding-left and right)</td>
+        </tr>
+        <tr>
+            <td><code>$space-6</code></td>
+            <td>24</td>
+            <td>1.5</td>
+            <td><strong>Vertical space between:</strong> <br />• Section Header → Section Content (Search and Table in
+                DataView) <br />• Section Content → Section Footer (Table and Pagination in Data
+                View)<br /><br /><strong>Vertical space:</strong> <br />• Large wide containers (Card Header and Footer, Modal
+                Header and Footer top and bottom paddings)</td>
+        </tr>
+        <tr>
+            <td><code>$space-7</code></td>
+            <td>28</td>
+            <td>1.75</td>
+            <td><strong>Vertical space:</strong> <br />• Large optical containers (Card and Modal top and bottom paddings)
+            </td>
+        </tr>
+        <tr>
+            <td><code>$space-8</code></td>
+            <td>32</td>
+            <td>2</td>
+            <td><strong>Vertical and Horizontal space:</strong> <br />• Large even containers (Card and Modal paddings)
+                <br /><br /><strong>Horizontal space:</strong> <br />• Large wide containers (Card Header and Footer, Modal
+                Header and Footer left and right paddings) <br />• Large optical containers (Card and Modal left and right
+                paddings)</td>
+        </tr>
+        <tr>
+            <td><code>$space-10</code></td>
+            <td>40</td>
+            <td>2.5</td>
+            <td><strong>Vertical space:</strong> <br />• Standard Pages margin-top <br />• Vertical and Horizontal space:
+                <br />• Toast bottom and right margins</td>
+        </tr>
+        <tr>
+            <td><code>$space-12</code></td>
+            <td>48</td>
+            <td>3</td>
+            <td><strong>Vertical space:</strong> <br />• Wide Pages margin-bottom <br />• Narrow Pages margin-top</td>
+        </tr>
+        <tr>
+            <td><code>$space-16</code></td>
+            <td>64</td>
+            <td>4</td>
+            <td><strong>Vertical space between:</strong> <br />• Form sections</td>
+        </tr>
+        <tr>
+            <td><code>$space-20</code></td>
+            <td>80</td>
+            <td>5</td>
+            <td><strong>Vertical space:</strong> <br />• Standard pages margin-bottom</td>
+        </tr>
+        <tr>
+            <td><code>$space-24</code></td>
+            <td>96</td>
+            <td>6</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>$space-28</code></td>
+            <td>112</td>
+            <td>7</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>$space-32</code></td>
+            <td>128</td>
+            <td>8</td>
+            <td><strong>Vertical space:</strong><br />• Narrow pages margin-bottom</td>
+        </tr>
+    </tbody>
+</table>
 
 <br />
 
