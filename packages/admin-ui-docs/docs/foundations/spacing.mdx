@@ -5,6 +5,18 @@ hide_table_of_contents: false
 sidebar_position: 4
 ---
 
+import {
+  Columns,
+  Column,
+  Box,
+  Flex,
+  FlexSpacer,
+  IconArrowUpRight,
+  Tag,
+  Text,
+  Inline,
+} from '@vtex/admin-ui'
+
 Spacing defines the relationship between elements and makes the content more easily scannable.
 
 ![](https://user-images.githubusercontent.com/77292838/211928050-76df5a7b-381f-46b9-9b03-ae9ef4358653.png)
@@ -24,6 +36,8 @@ During handoff, it's not necessary to specify spacing inside Admin UI components
 | Even | The same value for vertical and horizontal paddings. | Card <br /> Modal |
 | Optical | Horizontal padding is slightly larger than vertical padding to account for the visual weight of the container. | Alert <br /> Toast |
 
+<br />
+
 ### Actions
 
 | Action size | Height | Examples |
@@ -31,6 +45,8 @@ During handoff, it's not necessary to specify spacing inside Admin UI components
 | Small | Up to 28px height. | Selected option in a Combobox |
 | Medium | Between 28px and 44px height. | Normal Button <br /> Normal Menu <br /> Filter <br /> Select Inline |
 | Large | More than 44px height. | Large Button <br /> Large Menu <br /> Tab |
+
+<br />
 
 ### Tokens
 
@@ -54,6 +70,7 @@ During handoff, it's not necessary to specify spacing inside Admin UI components
 | `$space-28` | 112 | 7 |   |
 | `$space-32` | 128 | 8 | **Vertical space:**<br />• Narrow pages margin-bottom |
 
+<br />
 
 ## Principles
 
@@ -67,10 +84,68 @@ Humans instinctively look for patterns, so it is important to keep the [Gestalt 
 * Elements arranged in the same spacing pattern are usually perceived as having similar weight, for example, options in a Checkbox Group.
 * Spacing can also define the relationships between groups of elements. For example, the space between form sections should have a higher value than the space between the form section title and a field.
 * Elements with more spacing around them are usually perceived as having a higher relevance on the interface, for example, the spacing around an error state of a DataView.
+<br /><br />
 
-|![img-form](https://user-images.githubusercontent.com/77292838/211933680-7497fb3d-f5d5-4902-ba95-a9784c91ce49.png) |![img-error-state](https://user-images.githubusercontent.com/77292838/211933831-b9841d8c-8c72-4c67-a25a-052b8da30bbd.png) |
-|-|-|
-|Examples of spacing within a checkbox group and between form sections. | Example of spacing around the error state in a DataView.|
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211933680-7497fb3d-f5d5-4902-ba95-a9784c91ce49.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Examples of spacing within a Checkbox group and between form sections.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211933831-b9841d8c-8c72-4c67-a25a-052b8da30bbd.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of spacing around the error state in a DataView.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
 
 
 ### Visual rhythm
@@ -79,13 +154,68 @@ The visual rhythm of an interface is defined by pattern repetition. Spacing is a
 
 * The rhythm can be more predictable when elements within a screen have the same level of importance, such as in a Table.
 * The rhythm can also help organize elements that may have different levels of importance, such as in a Dashboard.
+<br /><br />
 
-
-
-|![img-table](https://user-images.githubusercontent.com/77292838/211934024-78f71482-5fff-40f5-af60-1832ee618f3a.png) | ![img-dashboard](https://user-images.githubusercontent.com/77292838/211934281-afbee946-dd48-4047-9b7b-091f99e43872.png) |
-|-|-|
-|Example of elements with the same level of importance. | Example of elements with different levels of importance.|
-
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934024-78f71482-5fff-40f5-af60-1832ee618f3a.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of elements with the same level of importance.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934281-afbee946-dd48-4047-9b7b-091f99e43872.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of elements with different levels of importance.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
 
 ### Consistent density within the Admin
 
@@ -94,9 +224,68 @@ Blank spaces are used up to the point that makes it easier to consume informatio
 * Tighter spacing – more dense – increases the level of scannability for large sets of data, such as in a Table.
 * Looser spacing – less dense – increases the level of hierarchy or helps define groups within an interface, such as Form sections.
 
-|![img table 44px](https://user-images.githubusercontent.com/77292838/211934412-40dc2402-6c65-4d99-a639-2d13eb20c66b.png) | ![img form sections](https://user-images.githubusercontent.com/77292838/211934418-9f678547-5a77-47cb-a20c-26140cae74cd.png) |
-|-|-|
-| Example of tighter spacing. | Example of looser spacing.|
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934412-40dc2402-6c65-4d99-a639-2d13eb20c66b.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of tighter spacing.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934418-9f678547-5a77-47cb-a20c-26140cae74cd.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of looser spacing.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
 
 ### Visual weight
 
@@ -104,6 +293,65 @@ The spacing scale can be applied horizontally or vertically. Depending on the vi
 
 Observe if the components have a well-defined background (filled or with stroke) or not. For example, the spacing value between primary and secondary Buttons should be larger than the spacing value between two tertiary Buttons.
 
-|![img buttons](https://user-images.githubusercontent.com/77292838/211934660-75bd7b59-72d9-4902-9b80-cb60f85f3ff8.png) | ![img button](https://user-images.githubusercontent.com/77292838/211934662-a66fbdfa-7773-4001-8bb3-cdeb450c4036.png) |
-|-|-|
-| Example of different spacing between components with filled background and without background. | Example of optical adjustment with the horizontal padding larger than the vertical padding. |
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934660-75bd7b59-72d9-4902-9b80-cb60f85f3ff8.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of different spacing between components with filled background and without background.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934662-a66fbdfa-7773-4001-8bb3-cdeb450c4036.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of optical adjustment with the horizontal padding larger than the vertical padding.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
