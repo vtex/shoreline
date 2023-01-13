@@ -8,11 +8,11 @@ sidebar_position: 2
 import { Text, color as getColor } from '@vtex/admin-ui'
 import { StatusTable, componentsStatus } from '@site/src/components/StatusTable'
 
-All of Admin UI component status:
+- <Text csx={{ color: getColor('gray50') }}>Proposed</Text> – Example not yet validated by the Admin UI team that was contributed. The design is in the Team Components library and the code, when it exists, is in the shared Code Sandbox team (WIP). Teams should use these examples for inspiration.
+- <Text csx={{ color: getColor('purple50') }}>Designed</Text> – Solution being validated by the Admin UI team with no official implementation yet. The design, including specifications, is in the Components library. Teams should conduct usability test, implement the specifications and give feedback on the design.
+- <Text tone="warning">Experimental</Text> – Solution validated by the Admin UI team that is only partially implemented. The design is in the Components library and the unstable code is in a separate Lab package. Teams should test and give feedback on the code, but support is not guaranteed.
+- <Text tone="positive">Stable</Text> – Solution validated and implemented by the Admin UI team. The design is in the Components library and the code is in the main package. Team should use the component freely, request fixes for bugs and continue to suggest improvements.
+- <Text tone="critical">Deprecated</Text> – Solution invalidated by the Admin UI team. The design was removed from any library and the code, if it existed, will be removed from any package soon. Team should use the alternative provided in the documentation.
 
-- <Text tone="positive">Supported</Text>: The safest components to use. You shouldn't expect many breaking changes. Bugs are a priority on the team.
-- <Text tone="warning">Experimental</Text>: Developed recently, may present unexpected behavior. Can also be removed without warning. The documentation may not be precise.
-- <Text tone="info">In Development</Text>: Currently under construction
-- <Text csx={{ color: getColor('purple50') }}>Upcoming</Text>: Will be added in the future.
 
 <StatusTable items={componentsStatus}/>
