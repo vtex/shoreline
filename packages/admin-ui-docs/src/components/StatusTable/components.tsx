@@ -74,7 +74,7 @@ const dataDisplay = [
   {
     component: 'Table',
     status: 'stable',
-    notes: 'Old DataGrid component',
+    notes: '-',
     type: 'dataDisplay',
   },
   {
