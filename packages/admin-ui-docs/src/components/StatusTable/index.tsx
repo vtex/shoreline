@@ -23,10 +23,11 @@ interface Item {
 
 const filters = [
   'All',
-  'Supported',
+  'Proposed',
+  'Designed',
   'Experimental',
-  'In Development',
-  'Upcoming',
+  'Stable',
+  'Deprecated',
 ]
 
 const columns = createColumns<Item>([
@@ -45,10 +46,11 @@ const columns = createColumns<Item>([
         const { status } = column.item
 
         const palette = {
-          supported: 'green',
-          'in development': 'lightBlue',
+          proposed: 'gray',
+          designed: 'purple',
           experimental: 'orange',
-          upcoming: 'purple',
+          stable: 'green',
+          deprecated: 'red',
         }[status]
 
         return <Tag label={column?.item?.status} variant={palette as any} />
