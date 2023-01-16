@@ -1,0 +1,212 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to add content in a Tab or a Modal instead of in a Page?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose a Tab to divide a lot of content related to a single main job when it is not usually compared. For example, in a product form, there can be a <em>General</em> view and an <em>SKUs</em> view.</li>
+        <li>Choose a Modal to display a small amount of content related to a minor job within a Page's main job. Minor jobs can be filling in a small form before performing an action (e.g. to schedule a new release) or viewing additional information (e.g. technical details of an order or logs).</li>
+        <li>Also choose a Modal when the content will be reused in more than one Page. For example, create a release starting from different pages.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When should the Page Content have a wide, standard or narrow width?</h4></summary>
+    <div>
+        In general, the width of the Page should be chosen so its content can be comfortably consumed. Considering this, follow the recommendations below:
+    </div>
+    <div>
+    <ul>
+        <li>Use the wide width for Listing Pages and Dashboards.</li>
+        <li>Use the standard width for Detail Pages with two columns.</li>
+        <li>Use the narrow width for Details Pages with a single column and for Form Pages.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the Page Header include a Tag?</h4></summary>
+    <div>
+        Include a Tag in the header of second-level pages such as Form Pages and Detail Pages that mirror the item status shown in the Listing Page.
+    </div>
+    <br />
+    <div>
+        <strong>What to avoid:</strong>
+    </div>
+    <div>
+        Don't include a Tag in the header of Listing Pages.
+    </div>
+</details>
+
+<details>
+  <summary><h4>When should the Page Header include Tabs?</h4></summary>
+    <div>
+        <ul>
+            <li>Use Tabs when appropriate, according to the Tab component documentation.</li>
+        </ul>
+    </div>
+    <br />
+    <div>
+        <strong>What to avoid:</strong>
+    </div>    
+    <div>
+        <ul>
+            <li>Don't use a Tab for content that is related to different main jobs. For example, Contracts should not be on the same page as Invoices, since they won't be needed at the same time.</li>
+            <li>Don't use the Tab to indicate progress. The merchant should always be able to alternate between views freely.</li>
+            <li>Don't use different views for content that is usually compared. For example, order items should not be separate from order total value.</li>
+            <li>Don't use Tabs on a Page with containers that already use Tabs.</li>
+            <li>Don't reload the page when switching between Tabs.</li>
+        </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the Page have a secondary background?</h4></summary>
+    <div>
+        Apply <code>$bg.secondary</code> in pages with a grid of Cards to highlight its structure, such as Detail Pages and Dashboard Pages.
+    </div>
+    <br />
+    <div>
+        <strong>What to avoid:</strong>
+    </div>
+    <div>
+        Don't place content directly on the secondary background.
+    </div>
+</details>
+
+<details>
+  <summary><h4>When should the Page Header include a Title?</h4></summary>
+    <div>
+        Always. The title should be the same in the URL, in the Title meta tag and, when it applies, it should also be the same in Admin navigation.
+    </div>
+</details>
+
+<details>
+  <summary><h4>When should the Page Header include actions?</h4></summary>
+  <div>
+    <ul>
+        <li>Include Buttons (or Buttons and a Custom-label Menu) for the two most important global actions, that are related to all the content on the page.</li>
+        <li>Include a <em>More actions</em> Menu when there is a destructive global action or when the primary and secondary buttons have already been added and there are other global actions of tertiary importance.</li>
+        <li>Include a Back Button when the Page is in the second level, to direct merchants to the first-level Page. For example, a Product form page should have a Back Button that leads to the Product listing page.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position of content in a Page?</h4></summary>
+  <div>
+    If you want to know how to position components in a Page, read the Position section in the design documentation of a specific component or template.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a Page be added to the Admin Navigation?</h4></summary>
+    <div>
+        Only Listing Pages and Dashboard pages should be included directly in the Admin Navigation.
+    </div>
+    <br />
+    <div>
+        <strong>What to avoid:</strong>
+    </div>
+    <div>
+        Don't include Form pages or specific actions such as Import and Export in the Admin Navigation. This content should be accessed through a top-level page.
+    </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+    
+<details>
+  <summary><h4>What should be the page title, URL route and Admin navigation entry?</h4></summary>
+    <div>
+        The title should describe the content of the page. It should be the same in the URL, in the Title meta tag and, when it applies, in Admin navigation.
+    </div>
+    <br />
+    <div>
+        Read the Page <a href="https://admin-ui.vercel.app/templates/getting-started/overview">Templates documentation</a> for more specific recommendations.
+    </div>
+</details>
+
+<details>
+  <summary><h4>What should be the content of a Page?</h4></summary>
+    <div>
+        Conduct UX research to understand the merchants' needs and organize content in a way that all information related to a main job is in a single page.
+    </div>
+    <br />
+    <div>
+        Read the Page <a href="https://admin-ui.vercel.app/templates/getting-started/overview">Templates documentation</a> for more specific recommendations.
+    </div>    
+    <br />
+    <div>
+        <strong>What to avoid:</strong>
+    </div>
+        <div>
+            <ul>
+                <li>Don't create pages for very specific jobs, because they make it hard for merchants to navigate. For example, merchants should export products through a Modal in the Product listing page.</li>
+                <li>Don't create pages that contain different main jobs, because they make it hard for merchants to navigate. For example, managing the account profile is a different job from managing the stores of the account.</li>
+            </ul>
+        </div>
+</details>
+
+</PageSection>
