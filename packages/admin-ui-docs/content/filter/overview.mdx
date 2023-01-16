@@ -5,7 +5,7 @@ import { IntroSection } from '@site/src/components/IntroSection'
 
 ## What is this?
 
-Filters are designed to let the user choose parameters to filter data by.
+Filter triggers allow merchants to find relevant information by choosing criteria and refining results.
 
 </IntroSection>
 
@@ -13,21 +13,21 @@ Filters are designed to let the user choose parameters to filter data by.
 
 ## Composition
 
-Filters are built using combined components. We have components that allow the creation of simple filters, multiple selection filters,
-simple filters with search and multiple selection filters with search. The components are
+Filters are built using combined components. There are components that allow the creation of simple filters, multiple selection filters,
+simple filters with search and multiple selection filters with search:
 
 | Component            | Description                                                                                                |
 | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| FilterDisclosure     | Component for the buttons that triggers the menu                                                           |
-| FilterPopover        | Popover component, this is always a parent component                                                       |
-| FilterListbox        | Component for the option list                                                                              |
-| FilterFooter         | Component for the footer with clear and apply buttons                                                      |
-| FilterOptionCheckbox | Checkbox option component, this should be used only on multiple selection filters                          |
-| FilterOptionRadio    | Radio option component, this should be used only on single selection filters                               |
-| FilterSearchbox      | Search box component that should be used only when building searchable filters                             |
-| FilterGroup          | A grouping component that displays the disclosures as cohesive bar                                         |
-| FilterControl        | A filter for toggling visibility of optional filters. Should be used when some of the filters are optional |
-| FilterOptional       | Wrapper component that mounts and unmounts a filter, making it optional. Controlled by FilterControl       |
+| `FilterDisclosure`     | Component for the buttons that trigger the menu.                                                         |
+| `FilterPopover`        | Popover component, which is always a parent component.                                                       |
+| `FilterListbox`        | Component for the option list.                                                                              |
+| `FilterFooter`         | Component for the footer with clear and apply buttons.                                                      |
+| `FilterOptionCheckbox` | Checkbox option component, this should be used only on multiple selection filters.                          |
+| `FilterOptionRadio`    | Radio option component, this should be used only on single selection filters.                               |
+| `FilterSearchbox`      | Search box component that should be used only when building searchable filters.                             |
+| `FilterGroup`          | A grouping component that displays the disclosures as cohesive bar.                                         |
+| `FilterControl`        | A filter for toggling visibility of optional filters. Should be used when some of the filters are optional. |
+| `FilterOptional`       | Wrapper component that mounts and unmounts a filter, making it optional. Controlled by `FilterControl`.       |
 
 </Section>
 
