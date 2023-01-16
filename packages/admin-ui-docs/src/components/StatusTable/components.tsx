@@ -4,25 +4,25 @@ import { Text, Anchor } from '@vtex/admin-ui'
 const components = [
   {
     component: 'Button',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'components',
   },
   {
     component: 'Box',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'components',
   },
   {
     component: 'Flex',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'components',
   },
   {
     component: 'Grid',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'components',
   },
@@ -37,98 +37,86 @@ const components = [
 const dataDisplay = [
   {
     component: 'Tag',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Divider',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'VisuallyHidden',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Card',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'CollapsibleGroup',
-    status: 'supported',
-    notes: 'Will be deprecated',
+    status: 'deprecated',
+    notes: 'Use the useCollapsible hook instead',
     type: 'dataDisplay',
   },
   {
     component: 'Collapsible',
-    status: 'supported',
-    notes: '-',
+    status: 'deprecated',
+    notes: 'Use the useCollapsible hook instead',
     type: 'dataDisplay',
   },
   {
     component: 'Table',
-    status: 'in review',
-    notes: 'Old DataGrid component',
+    status: 'stable',
+    notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'DataView',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Filter',
-    status: 'experimental',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'FilterMultiple',
-    status: 'experimental',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'FilterGroup',
-    status: 'experimental',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Toolbar',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'Pagination',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'dataDisplay',
   },
   {
     component: 'FilterBar',
-    status: 'supported',
-    notes: 'Will be deprecated in favor of the new filter components',
-    type: 'dataDisplay',
-  },
-  {
-    component: 'Autocomplete',
-    status: 'upcoming',
-    notes: '-',
-    type: 'dataDisplay',
-  },
-  {
-    component: 'Charts library',
-    status: 'upcoming',
-    notes: '-',
+    status: 'deprecated',
+    notes: 'Use the new Filter components instead',
     type: 'dataDisplay',
   },
 ]
@@ -136,42 +124,25 @@ const dataDisplay = [
 const overlay = [
   {
     component: 'Tooltip',
-    status: 'supported',
-    notes: (
-      <Text>
-        We have some zIndex issues.{' '}
-        <Anchor href="https://github.com/vtex/onda/issues/495" target="_blank">
-          Issue #495
-        </Anchor>
-        <br />
-        Will be deprecated in favor of the List, Heading, Label and Paragraph
-        components.
-      </Text>
-    ),
+    status: 'stable',
+    notes: '-',
     type: 'overlay',
   },
   {
     component: 'Modal',
-    status: 'supported',
-    notes: (
-      <Text>
-        We have some zIndex issues.{' '}
-        <Anchor href="https://github.com/vtex/onda/issues/495" target="_blank">
-          Issue #495
-        </Anchor>
-      </Text>
-    ),
+    status: 'stable',
+    notes: '-',
     type: 'overlay',
   },
   {
     component: 'Menu',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'overlay',
   },
   {
     component: 'Popover',
-    status: 'upcoming',
+    status: 'proposed',
     notes: '-',
     type: 'overlay',
   },
@@ -180,19 +151,7 @@ const overlay = [
 export const media = [
   {
     component: 'Avatar',
-    status: 'supported',
-    notes: '-',
-    type: 'media',
-  },
-  {
-    component: 'Icons',
-    status: 'supported',
-    notes: '-',
-    type: 'media',
-  },
-  {
-    component: 'Image',
-    status: 'upcoming',
+    status: 'experimental',
     notes: '-',
     type: 'media',
   },
@@ -201,31 +160,25 @@ export const media = [
 const feedback = [
   {
     component: 'Alert',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'feedback',
   },
   {
     component: 'Spinner',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'feedback',
   },
   {
     component: 'Skeleton',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'feedback',
   },
   {
     component: 'Toast',
-    status: 'supported',
-    notes: '-',
-    type: 'feedback',
-  },
-  {
-    component: 'Progress',
-    status: 'upcoming',
+    status: 'stable',
     notes: '-',
     type: 'feedback',
   },
@@ -234,31 +187,31 @@ const feedback = [
 const typography = [
   {
     component: 'Anchor',
-    status: 'supported',
+    status: 'experimental',
     notes: 'Will be renamed to Link',
     type: 'typography',
   },
   {
     component: 'Heading',
-    status: 'supported',
+    status: 'experimental',
     notes: 'Levels are not dynamic yet',
     type: 'typography',
   },
   {
     component: 'List',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'typography',
   },
   {
     component: 'Paragraph',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'typography',
   },
   {
     component: 'Text',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'typography',
   },
@@ -266,26 +219,26 @@ const typography = [
 
 const layout = [
   {
-    component: 'Set',
-    status: 'supported',
-    notes: 'Will be renamed to Stack',
+    component: 'Stack',
+    status: 'stable',
+    notes: '-',
     type: 'layout',
   },
   {
     component: 'Columns',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'layout',
   },
   {
     component: 'Center',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'layout',
   },
   {
     component: 'Bleed',
-    status: 'experimental',
+    status: 'stable',
     notes: '-',
     type: 'layout',
   },
@@ -300,55 +253,19 @@ const layout = [
 const page = [
   {
     component: 'Tab',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'page',
   },
   {
     component: 'Stats',
-    status: 'upcoming',
+    status: 'proposed',
     notes: 'Some teams currently refer to this component as Totalizer',
     type: 'page',
   },
   {
-    component: 'Sidebar',
-    status: 'experimental',
-    notes: 'Will be renamed to Left Nav',
-    type: 'page',
-  },
-  {
-    component: 'Topbar',
-    status: 'experimental',
-    notes: '-',
-    type: 'page',
-  },
-  {
-    component: 'PageHeader',
-    status: 'supported',
-    notes: '-',
-    type: 'page',
-  },
-  {
     component: 'Page',
-    status: 'supported',
-    notes: '-',
-    type: 'page',
-  },
-  {
-    component: 'PageContent',
-    status: 'supported',
-    notes: '-',
-    type: 'page',
-  },
-  {
-    component: 'PageTitle',
-    status: 'supported',
-    notes: '-',
-    type: 'page',
-  },
-  {
-    component: 'PageActions',
-    status: 'supported',
+    status: 'experimental',
     notes: '-',
     type: 'page',
   },
@@ -356,76 +273,45 @@ const page = [
 
 const forms = [
   {
-    component: 'CheckboxGroup',
-    status: 'supported',
-    notes: 'Will be merged with the RadioGroup in a new ChoiceList component',
-    type: 'forms',
-  },
-  {
     component: 'Checkbox',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'forms',
   },
   {
     component: 'Dropdown',
-    status: 'supported',
+    status: 'experimental',
     notes:
-      'Will be deprecated in favor of a future Inline variant in the Select',
+      'Will be deprecated in favor of a future Select Inline',
     type: 'forms',
   },
   {
     component: 'Label',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'RadioGroup',
-    status: 'supported',
-    notes:
-      'Will be merged with the CheckboxGroup in a new ChoiceList component',
     type: 'forms',
   },
   {
     component: 'Radio',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
     type: 'forms',
   },
   {
-    component: 'Toggle',
-    status: 'supported',
-    notes: 'Will be renamed to Switch',
+    component: 'Switch',
+    status: 'stable',
+    notes: '-',
     type: 'forms',
   },
   {
     component: 'Search',
-    status: 'supported',
+    status: 'stable',
     notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'Formik library',
-    status: 'supported',
-    notes: 'Will be deprecated, it should be a separate library',
     type: 'forms',
   },
   {
     component: 'Combobox',
     status: 'experimental',
-    notes: '-',
-    type: 'forms',
-  },
-  {
-    component: 'SearchBox',
-    status: 'supported',
-    notes: 'Will be renamed to GlobalSearch',
-    type: 'forms',
-  },
-  {
-    component: 'FormGroup',
-    status: 'upcoming',
     notes: '-',
     type: 'forms',
   },
@@ -436,8 +322,8 @@ const forms = [
     type: 'forms',
   },
   {
-    component: 'Dropzone',
-    status: 'upcoming',
+    component: 'File Input',
+    status: 'proposed',
     notes: '-',
     type: 'forms',
   },
