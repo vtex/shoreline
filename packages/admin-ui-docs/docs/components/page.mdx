@@ -7,6 +7,7 @@ hide_table_of_contents: true
 import { Page, Panel } from '@site/src/components/Page'
 import Overview from '@site/content/page/overview.mdx'
 import Code from '@site/content/page/code.mdx'
+import Design from '@site/content/page/design.mdx'
 import { tabToc } from '@site/content/page/toc'
 
 <Page toc={tabToc} hasTabs>
@@ -15,5 +16,8 @@ import { tabToc } from '@site/content/page/toc'
   </Panel>
   <Panel id="codeReference">
     <Code />
+  </Panel>
+  <Panel id="designReference">
+    <Design />
   </Panel>
 </Page>
