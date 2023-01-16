@@ -1,0 +1,162 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+        {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use Tab, Filter, Menu, Select, or Combobox Single instead of Select Inline?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose a Tab when there are less than five options or they should be more prominent.</li>
+        <li>Choose a Filter when there is a complete set of data that can be narrowed according to specific criteria to help find relevant information.</li>
+        <li>Choose a Menu when the options are actions that modify data or lead the merchant to other containers.</li>
+        <li>Choose a Select when there are up to five options and they need to be saved afterwards through a form.</li>
+        <li>Choose a Combobox Single when there are more than five options and they need to be saved afterwards through a form.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to include Search in a Select Inline?</h4></summary>
+  <div>When there are more than five Select Inline options.</div>
+</details>
+
+<details>
+  <summary><h4>When to include a <em>Create view</em> button in a Select Inline?</h4></summary>
+  <div>When the merchant can save their customized views as Select Inline options to reuse later.</div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Where should a Select Inline be positioned in a container?</h4></summary>
+  <div>Considering left-to-right interfaces, position the Select Inline in the top left of the container, in its header, either replacing the title or below it.</div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When to use loading Select Inline options?</h4></summary>
+  <div>
+    When options take more than one second to load for the first time or during a search.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <div>
+        Don't show the loading state after an option is triggered. The popover should immediately close and a loading state should be displayed in the parent container if necessary.
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should Select Inline have a preselected option?</h4></summary>
+  <div>The first Select Inline option should always be preselected, to simplify the flow of an user who wants to go through all views and avoid confusion.</div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4> What should be the label of a Select Inline?</h4></summary>
+  <div>
+    In most cases, the Select Inline options should have self-explanatory labels that describe the information being displayed. When there's already a title that serves this purpose, the Select Inline label can be hidden to avoid redundancy.
+  </div>
+  <br />
+  <div>
+    When the purpose is not only to switch between views, but to customize a view in some way, add a label to the Select Inline to describe the customization. In this case, the option label complements the Select Inline label. For example, a <em>Sort by</em> Select Inline label with the options <em>Alphabetical order</em>, <em>Most recent</em>, and <em>Least recent</em>.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <div>
+       Don't leave a Select Inline without an alternative label. Add it for accessibility in the implementation through the <code>aria-label</code> prop.
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the label of each Select Inline option?</h4></summary>
+  <div>
+    <ul>
+        <li>Write the label so that it describes the content of the view or the customization option.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+        <li>Use short labels. Prefer two words maximum.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't write labels that vary a lot in length between options.</li>
+        <li>Don't use personal pronouns. For example, write <em>Highest grossing products</em> instead of <em>My highest grossing products</em>.</li>
+        <li>Don't include redundant words. For example, use only <em>Most recent</em> and <em>Least recent</em> instead of <em>Sort by most recent</em> and <em>Sort by least recent</em>.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4> What should be the order of Select Inline options?</h4></summary>
+  <div>
+    Order them using one of the following criteria:
+      <ul>
+        <li>Most to least frequently used.</li>
+        <li>Alphabetical order.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
