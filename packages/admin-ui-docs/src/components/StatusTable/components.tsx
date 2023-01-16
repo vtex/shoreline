@@ -265,7 +265,7 @@ const page = [
   },
   {
     component: 'Page',
-    status: 'stable',
+    status: 'experimental',
     notes: '-',
     type: 'page',
   },
