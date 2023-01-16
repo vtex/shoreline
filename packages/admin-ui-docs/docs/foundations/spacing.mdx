@@ -1,0 +1,524 @@
+---
+title: Spacing
+path: /spacing/
+hide_table_of_contents: false
+sidebar_position: 4
+---
+
+import {
+  Columns,
+  Column,
+  Box,
+  Flex,
+  FlexSpacer,
+  IconArrowUpRight,
+  Tag,
+  Text,
+  Inline,
+} from '@vtex/admin-ui'
+
+Spacing defines the relationship between elements and makes the content more easily scannable.
+
+![](https://user-images.githubusercontent.com/77292838/211928050-76df5a7b-381f-46b9-9b03-ae9ef4358653.png)
+
+## Values and examples
+
+The spacing scale uses multiples of 4px and offers a wide range of values. It was designed to be easily applied and to be able to distance both large and small elements.
+
+During handoff, it's not necessary to specify spacing inside Admin UI components. To specify spacing elsewhere, use the utilities in the [Admin UI – File Organization](https://www.figma.com/file/dcd9JbVqXdgJ4RlKMWGWt5/Admin-UI-%E2%80%93-File-Organization) Figma library or the [Measure](https://www.figma.com/community/plugin/739918456607459153/Measure) Figma plugin.
+
+### Containers
+
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Container type</th>
+            <th>Padding</th>
+            <th width="200px">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Wide</td>
+            <td>Horizontal padding much larger than vertical padding.</td>
+            <td>Tag <br /> Page Header</td>
+        </tr>
+        <tr>
+            <td>Narrow</td>
+            <td>Vertical padding much larger than horizontal padding.</td>
+            <td>Tabs</td>
+        </tr>
+        <tr>
+            <td>Even</td>
+            <td>The same value for vertical and horizontal paddings.</td>
+            <td>Card <br /> Modal</td>
+        </tr>
+        <tr>
+            <td>Optical</td>
+            <td>Horizontal padding is slightly larger than vertical padding to account for the visual weight of the
+                container.</td>
+            <td>Alert <br /> Toast</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Actions
+
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Action size</th>
+            <th width="300px">Height</th>
+            <th width="400px">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Small</td>
+            <td>Up to 28px height.</td>
+            <td>Selected option in a Combobox</td>
+        </tr>
+        <tr>
+            <td>Medium</td>
+            <td>Between 28px and 44px height.</td>
+            <td>Normal Button <br /> Normal Menu <br /> Filter <br /> Select Inline</td>
+        </tr>
+        <tr>
+            <td>Large</td>
+            <td>More than 44px height.</td>
+            <td>Large Button <br /> Large Menu <br /> Tab</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Tokens
+
+<table>
+    <thead>
+        <tr>
+            <th width="150px">Token</th>
+            <th>px</th>
+            <th>rem</th>
+            <th>Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>$space-0</code></td>
+            <td>0</td>
+            <td>0</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$body</code> Texts<br />• <code>$detail</code> Texts
+                (Input Field, Control Field)</td>
+        </tr>
+        <tr>
+            <td><code>$space-05</code></td>
+            <td>2</td>
+            <td>0.125</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$body</code> Text → <code>$detail</code> Text
+                (Control Field label and help text)<br />• Label → $body Text (Table cell with a 2 lines)</td>
+        </tr>
+        <tr>
+            <td><code>$space-1</code></td>
+            <td>4</td>
+            <td>0.25</td>
+            <td><strong>Vertical space between:</strong><br />• <code>$title2</code> Text → <code>$body</code> Text
+                (Filter and Combobox empty states)<br />• Label → Input (Input Fields)<br />• Input → <code>$detail</code>
+                Text (Input Fields help or error texts)</td>
+        </tr>
+        <tr>
+            <td><code>$space-2</code></td>
+            <td>8</td>
+            <td>0.5</td>
+            <td><strong>Vertical space between:</strong><br />• Trigger → Overlay (Date Picker, Combobox, Filter, Select
+                Inline, Menu)<br />• Label → Tag Normal<br /><br /><strong>Horizontal space between:</strong><br />• Control →
+                <code>$body</code> Text (Checkbox, Radio)<br />• Trigger → Overlay (Filter, Select Inline, Menu, Combobox,
+                Date Picker)<br />• Icon → Short text (Search, Combobox)<br />• Medium Actions with a background
+                (FilterBar)<br />• Large Actions without a background (Tabs)<br />• Short text → Normal Action without
+                background (Toast, Pagination)</td>
+        </tr>
+        <tr>
+            <td><code>$space-3</code></td>
+            <td>12</td>
+            <td>0.75</td>
+            <td><strong>Vertical space between:</strong><br />• Control Fields → <code>$detail</code> Text (Checkbox or
+                Radio Group help text)<br /><br /><strong>Horizontal space between:</strong><br />• <code>$body</code> Text →
+                Control Fields (Checkbox Group, Radio Group)<br />• Icon → Long Text (Toast, Alert)<br />•
+                <code>$pageTitle</code> → Tag Large (Page Header)<br />• <code>$title1</code> → Tag Normal (Card,
+                Modal)<br />• <code>$body</code> Text → Tertiary Button (Toast, Alert)<br />• Small wide container, left and
+                right paddings (Tag)</td>
+        </tr>
+        <tr>
+            <td><code>$space-4</code></td>
+            <td>16</td>
+            <td>1</td>
+            <td><strong>Vertical space between:</strong><br />• Control Fields<br />• Input Fields<br />• Cards<br />•
+                Toolbars<br /><br /><strong>Horizontal space between:</strong><br />• Input fields<br />• Cards</td>
+        </tr>
+        <tr>
+            <td><code>$space-5</code></td>
+            <td>20</td>
+            <td>1.25</td>
+            <td><strong>Horizontal space between:</strong><br />• Control fields<br />• Toolbars (Data View Pagination and
+                Actions)<br /><br /><strong>Horizontal space:</strong> <br />• Medium optical container (Alert and Toast
+                padding-left and right)</td>
+        </tr>
+        <tr>
+            <td><code>$space-6</code></td>
+            <td>24</td>
+            <td>1.5</td>
+            <td><strong>Vertical space between:</strong> <br />• Section Header → Section Content (Search and Table in
+                DataView) <br />• Section Content → Section Footer (Table and Pagination in Data
+                View)<br /><br /><strong>Vertical space:</strong> <br />• Large wide containers (Card Header and Footer, Modal
+                Header and Footer top and bottom paddings)</td>
+        </tr>
+        <tr>
+            <td><code>$space-7</code></td>
+            <td>28</td>
+            <td>1.75</td>
+            <td><strong>Vertical space:</strong> <br />• Large optical containers (Card and Modal top and bottom paddings)
+            </td>
+        </tr>
+        <tr>
+            <td><code>$space-8</code></td>
+            <td>32</td>
+            <td>2</td>
+            <td><strong>Vertical and Horizontal space:</strong> <br />• Large even containers (Card and Modal paddings)
+                <br /><br /><strong>Horizontal space:</strong> <br />• Large wide containers (Card Header and Footer, Modal
+                Header and Footer left and right paddings) <br />• Large optical containers (Card and Modal left and right
+                paddings)</td>
+        </tr>
+        <tr>
+            <td><code>$space-10</code></td>
+            <td>40</td>
+            <td>2.5</td>
+            <td><strong>Vertical space:</strong> <br />• Standard Pages margin-top <br />• Vertical and Horizontal space:
+                <br />• Toast bottom and right margins</td>
+        </tr>
+        <tr>
+            <td><code>$space-12</code></td>
+            <td>48</td>
+            <td>3</td>
+            <td><strong>Vertical space:</strong> <br />• Wide Pages margin-bottom <br />• Narrow Pages margin-top</td>
+        </tr>
+        <tr>
+            <td><code>$space-16</code></td>
+            <td>64</td>
+            <td>4</td>
+            <td><strong>Vertical space between:</strong> <br />• Form sections</td>
+        </tr>
+        <tr>
+            <td><code>$space-20</code></td>
+            <td>80</td>
+            <td>5</td>
+            <td><strong>Vertical space:</strong> <br />• Standard pages margin-bottom</td>
+        </tr>
+        <tr>
+            <td><code>$space-24</code></td>
+            <td>96</td>
+            <td>6</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>$space-28</code></td>
+            <td>112</td>
+            <td>7</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>$space-32</code></td>
+            <td>128</td>
+            <td>8</td>
+            <td><strong>Vertical space:</strong><br />• Narrow pages margin-bottom</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+## Principles
+
+The choice of which spacing value to use should be intentional, just like every other aspect of the user interface. Consider the following principles when designing with spacing:
+
+### Relationships and hierarchy
+
+Humans instinctively look for patterns, so it is important to keep the [Gestalt principles](https://www.interaction-design.org/literature/topics/gestalt-principles) in mind, such as similarity, proximity, continuity, closure and common region.
+
+* Elements that are meaningfully related should be closer to each other, for example, a Checkbox and its label.
+* Elements arranged in the same spacing pattern are usually perceived as having similar weight, for example, options in a Checkbox Group.
+* Spacing can also define the relationships between groups of elements. For example, the space between form sections should have a higher value than the space between the form section title and a field.
+* Elements with more spacing around them are usually perceived as having a higher relevance on the interface, for example, the spacing around an error state of a DataView.
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211933680-7497fb3d-f5d5-4902-ba95-a9784c91ce49.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Examples of spacing within a Checkbox group and between form sections.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211933831-b9841d8c-8c72-4c67-a25a-052b8da30bbd.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of spacing around the error state in a DataView.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
+
+
+### Visual rhythm
+
+The visual rhythm of an interface is defined by pattern repetition. Spacing is a valuable resource to create rhythm in a design, improving predictability, scannability and hierarchy. It also allows you to draw the user’s attention to specific points by intentionally breaking the pattern.
+
+* The rhythm can be more predictable when elements within a screen have the same level of importance, such as in a Table.
+* The rhythm can also help organize elements that may have different levels of importance, such as in a Dashboard.
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934024-78f71482-5fff-40f5-af60-1832ee618f3a.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of elements with the same level of importance.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934281-afbee946-dd48-4047-9b7b-091f99e43872.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of elements with different levels of importance.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
+
+### Consistent density within the Admin
+
+Blank spaces are used up to the point that makes it easier to consume information, since the Admin is a tool for work. The density adopted in an interface needs to follow the Admin pattern.
+
+* Tighter spacing – more dense – increases the level of scannability for large sets of data, such as in a Table.
+* Looser spacing – less dense – increases the level of hierarchy or helps define groups within an interface, such as Form sections.
+
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934412-40dc2402-6c65-4d99-a639-2d13eb20c66b.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of tighter spacing.	
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934418-9f678547-5a77-47cb-a20c-26140cae74cd.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of looser spacing.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
+
+### Visual weight
+
+The spacing scale can be applied horizontally or vertically. Depending on the visual weight of the element, sometimes using the same value on both axes doesn't result in a balanced composition. In these scenarios, it's necessary to optically adjust the spacing.
+
+Observe if the components have a well-defined background (filled or with stroke) or not. For example, the spacing value between primary and secondary Buttons should be larger than the spacing value between two tertiary Buttons.
+
+<br /><br />
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="space-evenly"
+  csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
+>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0.5rem 0 0',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <img src="https://user-images.githubusercontent.com/77292838/211934660-75bd7b59-72d9-4902-9b80-cb60f85f3ff8.png"></img>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of different spacing between components with filled background and without background.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  </Box>
+  <Box>
+    <Flex
+      display="flex"
+      align="stretch"
+      direction="column"
+      justify="space-between"
+      csx={{
+        border: '#fff',
+        borderRadius: 'default',
+        margin: '0 0 0 0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <Box>
+        <Box>
+            <img src="https://user-images.githubusercontent.com/77292838/211934662-a66fbdfa-7773-4001-8bb3-cdeb450c4036.png"></img>
+        </Box>
+      </Box>
+      <Box csx={{ paddingTop: '5px' }}>
+        <Flex align="stretch" direction="column" justify="space-between">
+          <Text tone="secondary">
+            Example of optical adjustment with the horizontal padding larger than the vertical padding.
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+</Box>
+  </Flex>
+<br />
