@@ -27,6 +27,7 @@ export function FilterGroup(props: FilterGroupProps) {
         onClick={state.onClear}
         variant="neutralTertiary"
         csx={{ marginLeft: '$space-2' }}
+        hidden={!state.hasFilterApplied}
       >
         {formatMessage('clearAll')}
       </Button>
@@ -36,5 +37,5 @@ export function FilterGroup(props: FilterGroupProps) {
 
 export interface FilterGroupProps extends SystemComponentProps<{}> {
   children?: ReactNode
-  state: { onClear: () => void }
+  state: { onClear: () => void; hasFilterApplied: boolean }
 }
