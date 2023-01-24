@@ -16,7 +16,7 @@ Dividers serve the purpose of separating and distinguishing sections of content 
 By default, the orientation property has a `horizontal`.
 
 ```jsx live
-<Card csx={{ width: 500 }}>
+<Box>
   <Box
     csx={{
       bg: '$info',
@@ -34,42 +34,41 @@ By default, the orientation property has a `horizontal`.
       width: '100%',
     }}
   />
-</Card>
+</Box>
 ```
+
 </Section>
 
 <Section hasExplanation>
 
 ## Vertical
 
- The value can also be set to `vertical`
+The value can also be set to `vertical`
 
 ```jsx live
-<Card csx={{ width: 600 }}>
-  <Columns>
-    <Column>
-      <Box
-    csx={{
-      bg: '$info',
-      height: '100px',
-      width: '100%',
-    }}
-  />
-    </Column>
+<Columns>
+  <Column>
+    <Box
+      csx={{
+        bg: '$info',
+        height: '100px',
+        width: '100%',
+      }}
+    />
+  </Column>
 
-    <Divider orientation="vertical" />
+  <Divider orientation="vertical" />
 
-    <Column>
-      <Box
-    csx={{
-      bg: '$info',
-      height: '100px',
-      width: '100%',
-    }}
-  />
-    </Column>
-  </Columns>
-</Card>
+  <Column>
+    <Box
+      csx={{
+        bg: '$info',
+        height: '100px',
+        width: '100%',
+      }}
+    />
+  </Column>
+</Columns>
 ```
 
 </Section>
