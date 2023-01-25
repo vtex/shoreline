@@ -88,6 +88,7 @@ export function useFilterState<T extends AnyObject>(
     setMatches,
     deferredSearchValue,
     searchValue,
+    hasFilterValueApplied: !!appliedItem,
   }
 }
 
@@ -111,6 +112,7 @@ export interface GenericFilterStateReturn<T> {
   deferredSearchValue?: string
   matches: ItemList<T>
   setMatches: (items: ItemList<T>) => void
+  hasFilterValueApplied: boolean
 }
 
 export interface UseFilterStateReturn<T> extends GenericFilterStateReturn<T> {

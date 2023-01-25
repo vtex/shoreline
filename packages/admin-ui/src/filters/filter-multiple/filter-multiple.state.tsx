@@ -96,6 +96,7 @@ export function useFilterMultipleState<T extends AnyObject>(
     setMatches,
     deferredSearchValue,
     searchValue,
+    hasFilterValueApplied: !!appliedItems?.length,
   }
 }
 
