@@ -6,6 +6,7 @@ import { Divider } from './index'
 import { Card } from '../../card'
 import { Heading } from '../Heading'
 import { Paragraph } from '../Paragraph'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/Divider',
@@ -20,7 +21,10 @@ export const Horizontal: Story = () => {
         Allows orders to be placed even if they pass X% of the account`s credit
         limit. Tolerance is set per account.
       </Paragraph>
-      <Divider orientation="horizontal" csx={{ marginY: '$space-6' }} />
+      <Divider
+        orientation="horizontal"
+        className={csx({ marginY: '$space-6' })}
+      />
       <Heading csx={{ marginBottom: '$space-2' }}>
         Automatic account creation
       </Heading>
@@ -33,11 +37,10 @@ export const Horizontal: Story = () => {
 
 export const Vertical: Story = () => {
   return (
-    <Card
+    <Box
       csx={{
         display: 'flex',
         width: 500,
-        justifyContent: 'center',
       }}
     >
       <Box csx={{ width: '1/2' }}>
@@ -47,7 +50,10 @@ export const Vertical: Story = () => {
           related to his account, and can add, remove or edit credit card data.
         </Paragraph>
       </Box>
-      <Divider orientation="vertical" csx={{ marginX: '$space-6' }} />
+      <Divider
+        orientation="vertical"
+        className={csx({ marginX: '$space-6' })}
+      />
       <Box csx={{ width: '1/2' }}>
         <Heading csx={{ marginY: '$space-2' }}>Personal data</Heading>
         <Paragraph>
@@ -55,6 +61,6 @@ export const Vertical: Story = () => {
           the store site.
         </Paragraph>
       </Box>
-    </Card>
+    </Box>
   )
 }
