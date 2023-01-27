@@ -1,27 +1,32 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { VariantProps } from '@vtex/admin-ui-core'
-import type { ComponentPropsWithRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { Separator as ReakitSeparator } from 'reakit/Separator'
 
-import * as style from './divider.style'
+import * as style from './divider.css'
 
 /**
  * It renders an hr element and grants accessibility as described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
  */
-export const Divider = createComponent<typeof ReakitSeparator, DividerOptions>(
-  (props) => {
-    const { orientation = 'horizontal', ...restProps } = props
+export const Divider = forwardRef(
+  (props: DividerProps, ref: Ref<HTMLHRElement>) => {
+    const { orientation = 'horizontal', className = '', ...restProps } = props
 
-    return useElement(ReakitSeparator, {
-      baseStyle: {
-        ...style.baseline,
-        ...style.variants({ orientation }),
-      },
-      ...restProps,
-    })
+    return (
+      <ReakitSeparator
+        ref={ref}
+        className={cx(className, style.dividerTheme)}
+        orientation={orientation}
+        data-orientation={orientation}
+        {...restProps}
+      />
+    )
   }
 )
 
-export type DividerOptions = VariantProps<typeof style.variants>
+type DividerOrientation = 'vertical' | 'horizontal'
+interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
+  orientation?: DividerOrientation
+}
 
-export type DividerProps = ComponentPropsWithRef<typeof Divider>
+export type { DividerOrientation, DividerProps }
