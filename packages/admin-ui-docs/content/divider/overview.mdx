@@ -25,7 +25,7 @@ By default, the orientation property has a `horizontal`.
     }}
   />
 
-  <Divider csx={{ marginY: 6 }} />
+  <Divider className={csx({ marginY: 6 })} />
 
   <Box
     csx={{
@@ -46,29 +46,25 @@ By default, the orientation property has a `horizontal`.
 The value can also be set to `vertical`
 
 ```jsx live
-<Columns>
-  <Column>
+<Flex>
     <Box
       csx={{
         bg: '$info',
         height: '100px',
-        width: '100%',
+        width: '1/2',
       }}
     />
-  </Column>
 
-  <Divider orientation="vertical" />
+  <Divider orientation="vertical" className={csx({ marginX: 6 })} />
 
-  <Column>
     <Box
       csx={{
         bg: '$info',
         height: '100px',
-        width: '100%',
+        width: '1/2',
       }}
     />
-  </Column>
-</Columns>
+</Flex>
 ```
 
 </Section>
