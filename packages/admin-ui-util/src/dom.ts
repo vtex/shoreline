@@ -1,7 +1,7 @@
 import type { LooseBoolean } from './types'
 import { get } from './object'
 
-export const dataAttr = (condition: boolean | undefined) =>
+export const htmlDataAttr = (condition: boolean | undefined) =>
   (condition ? '' : undefined) as LooseBoolean
 
 export const ariaAttr = (condition: boolean | undefined) =>
