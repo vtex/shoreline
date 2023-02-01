@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.3...@vtex/admin-ui@0.135.1-dev.4) (2023-02-01)
+
+
+### Bug Fixes
+
+* **util:** rename dataAttr function to htmlDataAttr ([b712b35](https://github.com/vtex/admin-ui/commit/b712b3535b826d91b5f65e0d26ed924dae30173e))
+
+
+
+
+
 ## [0.135.1-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.2...@vtex/admin-ui@0.135.1-dev.3) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui
