@@ -1,6 +1,6 @@
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit/Role'
-import { ariaAttr, dataAttr } from '@vtex/admin-ui-util'
+import { ariaAttr, htmlDataAttr } from '@vtex/admin-ui-util'
 import { isSameDay, isWeekend } from 'date-fns'
 
 import * as style from './calendar.style'
@@ -17,7 +17,7 @@ export const CalendarCell = createComponent<typeof Role, CalendarCellOptions>(
     const isSelected = dateValue ? isSameDay(date, dateValue) : false
 
     const customDataAttr = {
-      'data-weekend': dataAttr(isWeekend(date)),
+      'data-weekend': htmlDataAttr(isWeekend(date)),
     } as any
 
     return useElement(Role, {
