@@ -4,16 +4,12 @@ import { useDebouncedCache } from '@vtex/admin-ui-hooks'
 
 const DEFAULT_TIMEOUT_MS = 250
 
-export function useSearchState(
-  params: UseSearchStateParams = {
-    initialValue: '',
-    timeout: DEFAULT_TIMEOUT_MS,
-  }
-): SearchFormState {
+export function useSearchState(params: UseSearchStateParams): SearchFormState {
   const {
     initialValue = '',
     defaultValue = '',
     timeout = DEFAULT_TIMEOUT_MS,
+    onChange,
   } = params
 
   const [value, debouncedValue, setValue] = useDebouncedCache({
@@ -25,9 +21,10 @@ export function useSearchState(
     setValue(defaultValue)
   }, [setValue, defaultValue])
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
+  const resolvedOnChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       setValue(event.target.value)
+      onChange?.(event)
     },
     []
   )
@@ -35,7 +32,7 @@ export function useSearchState(
   const getInputProps = () => {
     return {
       value,
-      onChange,
+      onChange: resolvedOnChange,
       onClear,
     }
   }
@@ -45,7 +42,7 @@ export function useSearchState(
     debouncedValue,
     setValue,
     value,
-    onChange,
+    onChange: resolvedOnChange,
     onClear,
   }
 }
