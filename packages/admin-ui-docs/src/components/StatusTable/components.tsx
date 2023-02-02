@@ -281,8 +281,7 @@ const forms = [
   {
     component: 'Dropdown',
     status: 'experimental',
-    notes:
-      'Will be deprecated in favor of a future Select Inline',
+    notes: 'Will be deprecated in favor of a future Select Inline',
     type: 'forms',
   },
   {
