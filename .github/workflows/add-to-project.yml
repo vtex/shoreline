@@ -1,0 +1,20 @@
+name: Adds all issues to project board
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request:
+    types:
+      - opened
+
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/vtex/projects/51
+          github-token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
