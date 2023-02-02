@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.4...@vtex/admin-ui@0.135.1-dev.5) (2023-02-02)
+
+
+### Bug Fixes
+
+* **modal-divider:** use dataAttr instead of variant ([23ce892](https://github.com/vtex/admin-ui/commit/23ce892fa5e9b1ee10fcd1c4a7bdbf47f89bd699))
+
+
+
+
+
 ## [0.135.1-dev.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.3...@vtex/admin-ui@0.135.1-dev.4) (2023-02-01)
 
 
