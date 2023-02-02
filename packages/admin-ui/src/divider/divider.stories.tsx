@@ -1,11 +1,11 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Box } from '../../box'
+import { Box } from '../box'
 
 import { Divider } from './index'
-import { Card } from '../../card'
-import { Heading } from '../Heading'
-import { Paragraph } from '../Paragraph'
+import { Card } from '../card'
+import { Heading } from '../components/Heading'
+import { Paragraph } from '../components/Paragraph'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {

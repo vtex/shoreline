@@ -1,5 +1,4 @@
-import { csx } from '@vtex/admin-ui-core'
-import { variant } from './util'
+import { csx, dataAttr } from '@vtex/admin-ui-core'
 
 const modalPaddingHeight = '64px'
 const modalHeight = `calc(100vh - ${modalPaddingHeight})`
@@ -17,17 +16,17 @@ export const modalHeaderTheme = csx({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  ...variant('compact', 'true', {
+  [dataAttr('compact', true)]: {
     border: 'none',
-  }),
-  ...variant('compact', 'false', {
+  },
+  [dataAttr('compact', false)]: {
     borderBottom: '$neutral',
     position: 'sticky',
     top: 0,
-  }),
-  ...variant('has-shadow', 'true', {
+  },
+  [dataAttr('has-shadow', true)]: {
     boxShadow: '$overlay.bottom',
-  }),
+  },
 })
 
 export const modalTitleTheme = csx({
@@ -51,17 +50,17 @@ export const modalFooterTheme = csx({
   'button + button': {
     marginLeft: '$space-3',
   },
-  ...variant('compact', 'true', {
+  [dataAttr('compact', true)]: {
     border: 'none',
     paddingX: '$space-7',
     paddingBottom: '$space-7',
-  }),
-  ...variant('compact', 'false', {
+  },
+  [dataAttr('compact', false)]: {
     borderTop: '$neutral',
     padding: '$space-7',
     position: 'sticky',
     bottom: 0,
-  }),
+  },
 })
 
 export const modalBackdropTheme = csx({
@@ -79,13 +78,13 @@ export const modalTheme = csx({
   position: 'relative',
   bg: '$primary',
   borderRadius: '$base',
-  ...variant('size', 'small', {
+  [dataAttr('size', 'small')]: {
     width: '23rem',
-  }),
-  ...variant('size', 'medium', {
+  },
+  [dataAttr('size', 'medium')]: {
     width: '35rem',
-  }),
-  ...variant('size', 'large', {
+  },
+  [dataAttr('size', 'large')]: {
     width: '50rem',
-  }),
+  },
 })

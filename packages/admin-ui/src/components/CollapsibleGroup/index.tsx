@@ -4,7 +4,7 @@ import { isElement } from 'react-is'
 
 import type { SystemComponent } from '../../types'
 import { Card } from '../../card'
-import { Divider } from '../Divider'
+import { Divider } from '../../divider'
 import { Group } from '../Group'
 
 const FIRST_CHILD_INDEX = 0

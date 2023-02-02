@@ -17,7 +17,7 @@ import {
 } from '@vtex/phosphor-icons'
 import { useCollapse } from './use-collapse'
 import { Box } from '../box'
-import { Divider } from '../components/Divider'
+import { Divider } from '../divider'
 
 export default {
   title: 'admin-ui/CollapsibleCard',
@@ -44,11 +44,7 @@ export const SingleCollapsible = () => {
         }}
       >
         <CardInfo>
-          {visible ? (
-            <IconCaretDown size="small" />
-          ) : (
-            <IconCaretRight size="small" />
-          )}
+          {visible ? <IconCaretDown /> : <IconCaretRight />}
           <CardImage
             src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
             alt="Image description"
@@ -93,11 +89,7 @@ const AccordionItem = ({ title, children }: any) => {
         }}
       >
         <CardInfo>
-          {visible ? (
-            <IconCaretDown size="small" />
-          ) : (
-            <IconCaretRight size="small" />
-          )}
+          {visible ? <IconCaretDown /> : <IconCaretRight />}
           <IconImageSquare />
           <CardTitle>{title}</CardTitle>
         </CardInfo>
