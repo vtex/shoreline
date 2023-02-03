@@ -1,0 +1,246 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use a Tab, Search, or Button instead of a Filter?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Tab component to draw attention to a particular Filter that is relevant for every merchant and has up to five options, when there is no need to have a single view containing all information.</li>
+        <li>Choose the Search component to filter by free-form content that can't be classified into predefined options.</li>
+        <li>Choose the Button component to lead to a separate list when certain items should not be displayed together. For example, to view archived items separate from active items.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use a Checkbox or a Radio for Filter options?</h4></summary>
+  <div>
+    <ul>
+        <li>Use a Checkbox when merchants can choose multiple Filter options.</li>
+        <li>Use a Radio when merchants can choose a single Filter option.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include the Footer in a Filter?</h4></summary>
+  <div>
+    Always, for both Radio and Checkbox Filter options, to ensure consistent behavior.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include Search in a Filter?</h4></summary>
+  <div>
+    When there are more than five Filter options.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include a control to show or hide additional Filters?</h4></summary>
+  <div>
+    When there are more than five Filters available, allow merchants to show the remaining filters on demand.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Where should Filters be positioned in a container?</h4></summary>
+  <div>
+    Considering left-to-right interfaces, follow these recommendations:
+    <ul>
+        <li>Position Filters directly above the content that will be filtered.</li>
+        <li>Use the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> component for adequate positioning.</li>
+        <li>When there are multiple Filters in a group, align them to the left.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should the list state be stored in the URL or in a saved view?</h4></summary>
+  <div>
+    <ul>
+        <li>The complete search query, which includes the Filters, the current page, and the search terms, should be reflected in the URL. This allows the merchant to return to the customized view and share it easily.</li>
+        <li>If merchants recurrently use a filtered view, consider implementing the option to save views while retaining the search query in the URL.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+      <li>Don't use local storage or cookies to store the query.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to truncate multiple selected Filter options or Filter options with long labels?</h4></summary>
+  <div>
+    By default, the component shows the first option and the count of other selected options. When the Filters in a group don't fit in a single line, they should break a line.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to use a loading Filter?</h4></summary>
+  <div>
+    When options take more than one second to load for the first time or during a search.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    Don't show the loading state after a Filter is selected or applied. The popover should be immediately closed after a filter is applied and the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> loading state should be displayed if necessary.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the Filter have a preselected value?</h4></summary>
+  <div>
+    Filters shouldn't have a preselected value.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    Don't pre-filter items due to system limitations. API requests should be paginated to avoid overload.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of Filters?</h4></summary>
+  <div>
+    <ul>
+        <li>Include the name of the property that is being listed. For example, use the label <em>Status</em> when the options are <em>Active</em>, <em>Inactive</em> and <em>Archived</em>.</li>
+        <li>If the name of the property is already shown in a column label of a Table, for example, reuse the same name.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+      <li>Don't include redundant words. For example, don't use <em>Product status</em> as the label for a Filter in a page that includes <em>Products</em> in its title – use only <em>Status</em>.</li>
+      <li>Don't use verbs. For example, instead of <em>Select status</em>, use only <em>Status</em>.</li>
+      <li>Don't use interrogations.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the order of Filters in a group?</h4></summary>
+  <div>
+    Order Filters from most to least frequently used.
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>What should be the label of Filter options?</h4></summary>
+  <div>
+    When the Filter options are categorized property values, such as a date Filter with dates categorized into ranges, follow these recommendations:
+  </div>
+  <div>
+    <ul>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+      <li>Don't write long Filter option labels.</li>
+      <li>Don't include redundant words. For example, use only <em>Permanent</em> and <em>Temporary</em> instead of <em>Permanent error</em> and <em>Temporary error</em>.</li>
+      <li>Don't include negative words. For example, write <em>More than 6 months</em> instead of <em>Not in the last 6 months</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Current account</em> instead of <em>My account</em></li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the order of options in a Filter?</h4></summary>
+  <div>
+    Order options using the following criteria:
+  </div>
+  <div>
+    <ul>
+        <li>Option with most items to option with least items.</li>
+        <li>Most recent to least recent.</li>
+        <li>Most to least frequently used.</li>
+        <li>Alphabetical order.</li>        
+    </ul>
+  </div>
+</details>
+
+</PageSection>
