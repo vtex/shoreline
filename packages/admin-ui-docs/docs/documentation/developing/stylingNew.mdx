@@ -1,0 +1,125 @@
+---
+title: Styling
+path: /developing/styling/
+sidebar_position: 4
+---
+
+Admin UI enables custom styling of all exported components through the `className` prop and `csx` function.
+
+```jsx live
+<Box
+  className={csx({
+    ...palette('pink'),
+    padding: '10px',
+  })}
+>
+  styled box
+</Box>
+```
+
+## Summary
+
+The `csx` function transforms a `StyleObject` into a className. It also resolves design tokens and aliases (shorthand notations for css attributes).
+
+```jsx
+import { csx } from '@vtex/admin-ui'
+
+<Heading className={csx({ marginX: '$space-2', marginY: '$space-4', bg: '$blue40' })}>
+```
+
+## Customizing native elements
+
+`csx` can also be used to style native components using our tokens and aliases.
+
+```jsx live
+
+<div className={csx({ size: '100px', bg: '$blue40' })}>
+```
+
+## Customizing different variants for a component
+
+Currently we use data attributes to apply different styles to a component based on certain props. We call different styled component instances `varints`.
+So for example if a component has different sizes configured by a prop, each size is set through a data attribute like so:
+
+```
+{
+  text: "$action1",
+  border: "none",
+  borderRadius: "$base",
+  cursor: "pointer",
+  position: "relative",
+  // variant styling
+  '[data-size="normal"]': {
+    padding: "$space-2 $space-3",
+    height: "2.25rem"
+  },
+  '[data-size="large"]': {
+    padding: "$space-3 $space-4",
+    height: "2.75rem"
+  },
+}
+```
+
+In that case, in order to change variant specific css attributes, in this case padding and height, it's necessary to include the specific data attribute selector
+to your own custom css.
+
+```jsx
+// WRONG - wont have an effect
+
+<Component
+    className={csx({
+        height: "100%"
+    })}
+/>
+
+<Component
+    size="large"
+    className={csx({
+        height: "100%"
+    })}
+/>
+
+// CORRECT
+
+<Component
+    className={csx({
+        '[data-size="normal"]': {
+            height: "100%"
+        }
+    })}
+/>
+
+<Component
+    size="large"
+    className={csx({
+        '[data-size="large"]': {
+            height: "100%"
+        }
+    })}
+/>
+
+```
+
+## Data attribute helper
+
+You can use `htmlDataAttr` to generate data attribute selectors more easily.
+
+```jsx
+<Component
+    className={csx({
+        [dataAttr('size', 'normal')]: {
+            height: "100%"
+        }
+    })}
+/>
+
+<Component
+    size="large"
+    className={csx({
+        [dataAttr('size', 'large')]: {
+            height: "100%"
+        }
+    })}
+/>
+
+```
