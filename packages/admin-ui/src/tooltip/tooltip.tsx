@@ -15,7 +15,7 @@ import { TooltipTrigger } from './tooltip-trigger'
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse)
  * @example
- * <Tooltip label="Label" />
+ * <Tooltip text="Text" />
  */
 export function Tooltip(props: TooltipProps) {
   const {
