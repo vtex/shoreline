@@ -38,6 +38,25 @@ export function WithPanel() {
   )
 }
 
+export function WithDisabledHint() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab>Tab 1</Tab>
+        <Tab disabled disabledHint="You don't have permission">
+          Tab 2
+        </Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel>Panel 1</TabPanel>
+        <TabPanel>Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
+
 export function WithId() {
   const state = useTabState()
 
