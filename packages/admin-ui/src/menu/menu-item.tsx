@@ -16,10 +16,19 @@ export const MenuItem = createComponent<
   typeof AriakitMenuItem,
   MenuItemOptions
 >((props) => {
-  const { icon, label, critical, disabled, onClick, ...itemProps } = props
+  const {
+    icon,
+    label,
+    critical,
+    disabled,
+    disabledHint,
+    onClick,
+    ...itemProps
+  } = props
 
   return useElement(MenuItemWrapper, {
     disabled,
+    disabledHint,
     children: useElement(AriakitMenuItem, {
       disabled,
       onClick,
@@ -54,6 +63,10 @@ export type MenuItemOptions = {
    * Item label
    */
   label: ReactNode
+  /**
+   * Text to show on hover at disabled menu
+   */
+  disabledHint?: string
   /**
    * Item click event
    */

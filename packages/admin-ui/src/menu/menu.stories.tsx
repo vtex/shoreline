@@ -75,7 +75,12 @@ export const IconOnly = () => {
       <>
         <MenuButton state={menuState} labelHidden />
         <Menu state={menuState}>
-          <MenuItem label="Create" icon={<IconPlus />} disabled />
+          <MenuItem
+            label="Create"
+            icon={<IconPlus />}
+            disabled
+            disabledHint="You don't have permission"
+          />
           <MenuItem label="Edit" icon={<IconPencil />} />
           <MenuItem label="Download" icon={<IconArrowLineDown />} />
           <MenuDivider />
