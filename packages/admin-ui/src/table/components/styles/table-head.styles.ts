@@ -12,7 +12,7 @@ export const columnCell = style({
   color: '$secondary',
   background: '$primary',
   overflowX: 'clip',
-  zIndex: 1,
+  zIndex: '$z-2',
 })
 
 export const sortableContainer = style({

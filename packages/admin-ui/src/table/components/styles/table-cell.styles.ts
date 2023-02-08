@@ -30,11 +30,11 @@ export const variants = styleVariants({
       position: 'sticky',
 
       '[role=columnheader]': {
-        zIndex: 4,
+        zIndex: '$z-4',
       },
 
       '[role=cell]': {
-        zIndex: 2,
+        zIndex: '$z-2',
       },
 
       ':first-child > div': {
@@ -52,12 +52,12 @@ export const variants = styleVariants({
       borderRight: '$neutral',
 
       '[role=columnheader]': {
-        zIndex: 3,
+        zIndex: '$z-3',
       },
 
       '[role=cell]': {
         overflowY: 'clip',
-        zIndex: 1,
+        zIndex: '$z-1',
       },
     },
     false: {},

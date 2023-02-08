@@ -42,7 +42,7 @@ export const toastContainerVariants = styleVariants({
 
 export const toastQueue = style({
   position: 'fixed',
-  zIndex: '999',
+  zIndex: '$z-10',
   pointerEvents: 'none',
   bottom: '$space-10',
   marginLeft: 'auto',

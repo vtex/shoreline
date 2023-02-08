@@ -27,7 +27,7 @@ export const pageHeaderBase = style({
   minHeight: '5.75rem',
   paddingX: '2rem',
   paddingY: '1.5rem',
-  zIndex: 999,
+  zIndex: '$z-9',
 })
 
 export const pageHeader = styleVariants({

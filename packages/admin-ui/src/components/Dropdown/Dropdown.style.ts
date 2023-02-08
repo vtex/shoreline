@@ -39,6 +39,6 @@ export function menu(options: { visible: boolean }) {
     minWidth: 'inherit',
     width: 'max-content',
     position: 'absolute',
-    zIndex: 999,
+    zIndex: '$z-4',
   })
 }

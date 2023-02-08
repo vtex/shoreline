@@ -31,7 +31,7 @@ export const FilterPopover = createComponent<typeof Menu, FilterPopoverOptions>(
         flexDirection: 'column',
         justifyContent: 'space-between',
         width: 256,
-        zIndex: 999,
+        zIndex: '$z-4',
       },
       children: (
         <PopoverProvider value={contextState}>
