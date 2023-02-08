@@ -42,14 +42,19 @@ import { Anchor } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to customize any style.
+You can use the `className` property to customize any style.
+
+```jsx live
+<Anchor className={csx({ color: 'red' })} href="anchor/#behavior">
+  Link
+</Anchor>
+```
 
 ## Props
 
-| Name     | Type        | Description              | Required | Default |
-| -------- | ----------- | ------------------------ | -------- | ------- |
-| children | `ReactNode` | Component children       | 🚫       | -       |
-| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+| Name     | Type        | Description        | Required | Default |
+| -------- | ----------- | ------------------ | -------- | ------- |
+| children | `ReactNode` | Component children | 🚫       | -       |
 
 The Anchor component also has all anchor HTML attributes
 
