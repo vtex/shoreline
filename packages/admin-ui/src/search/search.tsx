@@ -8,10 +8,11 @@ import { Box } from '../box'
 import * as styles from './search.style'
 import { Center } from '../center'
 import { Button } from '../button'
-import { Spinner } from '../components/Spinner'
+import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './search.i18n'
+import { csx } from '@vtex/admin-ui-core'
 
 export const Search = createComponent<'form', SearchOptions>((props) => {
   const formatMessage = useMessageFormatter(messages)
@@ -35,7 +36,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
   const hasClearButton = hasValue && !disabled
 
   const icon = loading ? (
-    <Spinner size={16} csx={styles.icon(disabled)} />
+    <Spinner size={16} className={csx(styles.icon(disabled))} />
   ) : (
     <IconMagnifyingGlass size="small" csx={styles.icon(disabled)} />
   )

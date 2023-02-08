@@ -10,7 +10,7 @@ import {
 } from '@vtex/admin-ui-react'
 
 import { Center } from '../center'
-import { Spinner } from '../components/Spinner'
+import { Spinner } from '../spinner'
 import * as style from './button.style'
 
 /**
