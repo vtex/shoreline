@@ -342,6 +342,7 @@ export function HorizontalAndVerticalScroll() {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
     }
   })
+
   const modal = useModalState()
 
   const columns = createColumns([
@@ -439,6 +440,81 @@ export function HorizontalAndVerticalScroll() {
           })}
         </TBody>
       </Table>
+    </>
+  )
+}
+
+export function TableInModal() {
+  const items = [...Array(100).keys()].map((id) => {
+    return {
+      id: `${id}`,
+      name: faker.commerce.productName(),
+      lastSale: faker.date.past().toDateString(),
+      price: faker.commerce.price(),
+      image:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0FyiZM7bDPsDEMtg0Zs2HXNwe2xbVh55IZA&usqp=CAU',
+    }
+  })
+
+  const modal = useModalState()
+
+  const columns = createColumns([
+    {
+      id: 'name',
+      header: 'Product Name',
+      width: 200,
+      fixed: true,
+    },
+    {
+      id: 'image',
+      header: 'Image',
+      resolver: {
+        type: 'image',
+        preview: {
+          display: true,
+          size: 'regular',
+          delay: 0,
+        },
+      },
+    },
+
+    {
+      id: 'lastSale',
+      header: 'Last Sale',
+      width: 550,
+    },
+  ])
+
+  const { getBodyCell, getHeadCell, getTable, data } = useTableState({
+    columns,
+    items,
+  })
+
+  return (
+    <>
+      <Modal state={modal}>
+        <ModalContent>
+          <Table {...getTable()} csx={{ height: '100vh', width: '100vw' }}>
+            <THead>
+              {columns.map((column) => {
+                return <THeadCell {...getHeadCell(column)} />
+              })}
+            </THead>
+            <TBody>
+              {data.map((item) => {
+                return (
+                  <TBodyRow key={item.id}>
+                    {columns.map((column) => {
+                      return <TBodyCell {...getBodyCell(column, item)} />
+                    })}
+                  </TBodyRow>
+                )
+              })}
+            </TBody>
+          </Table>
+        </ModalContent>
+      </Modal>
+      <Button onClick={modal.toggle}>Show modal</Button>
     </>
   )
 }
