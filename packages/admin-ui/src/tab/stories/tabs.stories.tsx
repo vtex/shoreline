@@ -54,3 +54,20 @@ export function WithId() {
     </>
   )
 }
+
+export function WithDisabled() {
+  const state = useTabState()
+
+  return (
+    <>
+      <TabList state={state}>
+        <Tab disabled>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanelList state={state}>
+        <TabPanel>Panel 1</TabPanel>
+        <TabPanel>Panel 2</TabPanel>
+      </TabPanelList>
+    </>
+  )
+}
