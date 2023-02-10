@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.7...@vtex/admin-ui@0.135.1-dev.8) (2023-02-10)
+
+
+### Features
+
+* **spinner:** use component model ([fdd6923](https://github.com/vtex/admin-ui/commit/fdd69235652e8f7059ca046693ca0b109e5f9134))
+
+
+
+
+
 ## 0.135.1-dev.7 (2023-02-03)
 
 **Note:** Version bump only for package @vtex/admin-ui
