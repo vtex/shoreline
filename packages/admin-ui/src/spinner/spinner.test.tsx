@@ -1,7 +1,7 @@
 import React from 'react'
 import { axe } from 'jest-axe'
 
-import { render } from '../../test-utils'
+import { render } from '../test-utils'
 import { Spinner } from './index'
 
 describe('Spinner tests', () => {

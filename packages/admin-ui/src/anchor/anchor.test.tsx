@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../test-utils'
 
 import { Anchor } from './index'
 

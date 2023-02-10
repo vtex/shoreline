@@ -8,7 +8,7 @@ import {
   DataViewActions,
 } from '../index'
 import { Button } from '../../button'
-import { Spinner } from '../../components/Spinner'
+import { Spinner } from '../../spinner'
 import { Stack } from '../../stack'
 import { Pagination, usePaginationState } from '../../pagination'
 import { Flex } from '../../flex'
