@@ -1,0 +1,70 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Dividers serve the purpose of separating and distinguishing sections of content or groups of items. The divider component renders an `hr` element and grants accessibility described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).
+
+</IntroSection>
+
+<Section hasExplanation>
+
+## Horizontal
+
+By default, the orientation property has a `horizontal`.
+
+```jsx live
+<Box>
+  <Box
+    csx={{
+      bg: '$info',
+      height: '100px',
+      width: '100%',
+    }}
+  />
+
+  <Divider className={csx({ marginY: 6 })} />
+
+  <Box
+    csx={{
+      bg: '$info',
+      height: '100px',
+      width: '100%',
+    }}
+  />
+</Box>
+```
+
+</Section>
+
+<Section hasExplanation>
+
+## Vertical
+
+The value can also be set to `vertical`
+
+```jsx live
+<Flex>
+    <Box
+      csx={{
+        bg: '$info',
+        height: '100px',
+        width: '1/2',
+      }}
+    />
+
+  <Divider orientation="vertical" className={csx({ marginX: 6 })} />
+
+    <Box
+      csx={{
+        bg: '$info',
+        height: '100px',
+        width: '1/2',
+      }}
+    />
+</Flex>
+```
+
+</Section>
