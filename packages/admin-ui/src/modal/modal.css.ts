@@ -78,6 +78,7 @@ export const modalTheme = csx({
   position: 'relative',
   bg: '$primary',
   borderRadius: '$base',
+  zIndex: '$z-9',
   [dataAttr('size', 'small')]: {
     width: '23rem',
   },

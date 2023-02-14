@@ -11,7 +11,6 @@ export const baseline = style({
   paddingY: '0.9375rem',
   paddingX: '1.188rem',
   borderRadius: '$base',
-  zIndex: 999,
   transition: 'pop',
 })
 

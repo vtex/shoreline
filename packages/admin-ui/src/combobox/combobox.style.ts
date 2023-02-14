@@ -56,7 +56,7 @@ export const popover = style({
   boxShadow: '$overlay.center',
   border: '$neutral',
   borderRadius: '$base',
-  zIndex: 9999999,
+  zIndex: '$z-4',
 })
 
 export const item = style({
@@ -129,7 +129,7 @@ export const fieldMultipleContainer = style({
 export const label = style({
   position: 'absolute',
   text: '$body',
-  zIndex: 2,
+  zIndex: '$z-2',
   left: 12,
   color: '$secondary',
   transformOrigin: 'top left',

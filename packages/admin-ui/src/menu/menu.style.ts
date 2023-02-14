@@ -61,7 +61,7 @@ export const popoverContainer = style({
   bg: '$primary',
   border: '$neutral',
   boxShadow: '$overlay.center',
-  zIndex: 999,
+  zIndex: '$z-3',
 })
 
 export const popoverChildren = style({
