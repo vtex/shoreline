@@ -1,13 +1,19 @@
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 
-import * as style from './card.style'
+import { contentTheme } from './card.css'
+import { cx } from '@vtex/admin-ui-core'
 
-export const CardContent = createComponent<'div'>((props) => {
-  return useElement('div', {
-    baseStyle: style.content,
-    ...props,
-  })
-})
+export const CardContent = forwardRef(
+  (props: CardContentProps, ref: Ref<HTMLDivElement>) => {
+    const { className = '', ...restProps } = props
 
-export type CardContentProps = ComponentPropsWithRef<typeof CardContent>
+    return (
+      <div ref={ref} className={cx(className, contentTheme)} {...restProps} />
+    )
+  }
+)
+
+type CardContentProps = ComponentPropsWithoutRef<'div'>
+
+export type { CardContentProps }

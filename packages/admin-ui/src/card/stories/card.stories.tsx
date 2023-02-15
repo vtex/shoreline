@@ -14,6 +14,7 @@ import {
 import { Button } from '../../button'
 import { Menu, MenuItem, MenuButton, useMenuState } from '../../menu'
 import { Tag } from '../../tag'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/card/usage',
@@ -24,7 +25,7 @@ export const Single = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardInfo>
           <IconImageSquare />
@@ -46,7 +47,9 @@ export const Single = () => {
           </Menu>
         </CardActions>
       </CardHeader>
-      <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
+      <CardContent
+        className={csx({ width: '100%', height: 250, bg: '$secondary' })}
+      />
     </Card>
   )
 }
@@ -55,7 +58,7 @@ export const Nested = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardInfo>
           <CardTitle>Title</CardTitle>
@@ -85,7 +88,9 @@ export const Nested = () => {
               </Menu>
             </CardActions>
           </CardHeader>
-          <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
+          <CardContent
+            className={csx({ width: '100%', height: 250, bg: '$secondary' })}
+          />
         </Card>
       </CardContent>
     </Card>
@@ -96,7 +101,7 @@ export const WithImage = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardInfo>
           <CardImage
@@ -116,7 +121,9 @@ export const WithImage = () => {
           </Menu>
         </CardActions>
       </CardHeader>
-      <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }} />
+      <CardContent
+        className={csx({ width: '100%', height: 250, bg: '$secondary' })}
+      />
     </Card>
   )
 }
