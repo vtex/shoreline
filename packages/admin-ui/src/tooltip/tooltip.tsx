@@ -1,6 +1,5 @@
 import type { FunctionComponentElement } from 'react'
 import React, { cloneElement } from 'react'
-import { useSystem } from '@vtex/admin-ui-react'
 import type { TooltipStateProps } from 'ariakit/Tooltip'
 import {
   useTooltipState,
@@ -9,8 +8,8 @@ import {
   TooltipArrow,
 } from 'ariakit'
 
-import * as style from './tooltip.style'
 import { TooltipTrigger } from './tooltip-trigger'
+import { tooltipArrowStyle, tooltipPopoverTheme } from './tooltip.css'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse)
@@ -29,7 +28,6 @@ export function Tooltip(props: TooltipProps) {
 
   const hasChildren = children
 
-  const { cn } = useSystem()
   const state = useTooltipState({
     placement,
     open: visible,
@@ -51,8 +49,8 @@ export function Tooltip(props: TooltipProps) {
           cloneElement(tooltipAnchorChildren, { ...referenceProps })
         }
       </TooltipAnchor>
-      <TooltipPopover state={state} className={cn(style.tooltipPopover)}>
-        <TooltipArrow style={style.tooltipArrow} />
+      <TooltipPopover state={state} className={tooltipPopoverTheme}>
+        <TooltipArrow style={tooltipArrowStyle} />
         {text}
       </TooltipPopover>
     </>

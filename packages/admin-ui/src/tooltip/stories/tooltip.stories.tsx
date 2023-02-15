@@ -45,7 +45,12 @@ export default {
   },
 } as Meta
 
-export const Playground: Story<TooltipProps> = (args) => <Tooltip {...args} />
+export const Playground: Story<TooltipProps> = (args) => (
+  <div>
+    What is up
+    <Tooltip {...args} text="Basic tooltip" />
+  </div>
+)
 
 Playground.args = {
   text: 'Tooltip text',
