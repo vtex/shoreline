@@ -6,18 +6,20 @@ import { titleTheme } from './card.css'
 
 export const CardTitle = forwardRef(
   (props: CardTitleProps, ref: Ref<HTMLParagraphElement>) => {
-    const { className = '', ...restProps } = props
+    const { className = '', children, ...restProps } = props
 
     return (
-      <p
+      <h1
         ref={ref}
         className={cx('__admin-ui-card-nested-title', titleTheme, className)}
         {...restProps}
-      />
+      >
+        {children}
+      </h1>
     )
   }
 )
 
-type CardTitleProps = ComponentPropsWithoutRef<'p'>
+type CardTitleProps = ComponentPropsWithoutRef<'h1'>
 
 export type { CardTitleProps }

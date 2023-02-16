@@ -6,13 +6,13 @@ import { cx } from '@vtex/admin-ui-core'
 
 export const CardImage = forwardRef(
   (props: CardImageProps, ref: Ref<HTMLImageElement>) => {
-    const { className = '', alt, ...restProps } = props
+    const { className = '', alt = '', ...restProps } = props
 
     return (
       <img
         ref={ref}
         alt={alt}
-        className={cx(className, imageTheme)}
+        className={cx(imageTheme, className)}
         {...restProps}
       />
     )

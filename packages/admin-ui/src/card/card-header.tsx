@@ -9,7 +9,7 @@ export const CardHeader = forwardRef(
     const { className = '', ...restProps } = props
 
     return (
-      <div ref={ref} className={cx(className, headerTheme)} {...restProps} />
+      <div ref={ref} className={cx(headerTheme, className)} {...restProps} />
     )
   }
 )

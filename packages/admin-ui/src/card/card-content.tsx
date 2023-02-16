@@ -9,7 +9,7 @@ export const CardContent = forwardRef(
     const { className = '', ...restProps } = props
 
     return (
-      <div ref={ref} className={cx(className, contentTheme)} {...restProps} />
+      <div ref={ref} className={cx(contentTheme, className)} {...restProps} />
     )
   }
 )
