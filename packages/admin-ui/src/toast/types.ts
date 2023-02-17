@@ -27,6 +27,8 @@ export interface InternalToastProps extends ToastProps {
   shouldRemove: boolean
 }
 
+export type ToastVariant = 'info' | 'critical' | 'positive' | 'warning'
+
 export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Toast's key
@@ -40,7 +42,7 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
    * The toast's variant.
    * @default info
    */
-  variant?: 'critical' | 'info' | 'positive' | 'warning'
+  variant?: ToastVariant
   /**
    * Whether the toast can be dismissed or not.
    * @default true
@@ -55,9 +57,4 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
    * @default 10000
    */
   duration?: number
-  /**
-   * `csx` properties
-   * @default {}
-   */
-  csx?: StyleProp
 }

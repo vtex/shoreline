@@ -16,7 +16,7 @@ import { Center } from '../center'
 import type { InternalToastProps } from './types'
 import { ToastContainer } from './toast-container'
 import { Stack } from '../stack'
-import * as style from './toast.style'
+import { toastInfoTheme, toastMessageTheme } from './toast.style'
 
 const icons = {
   positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
@@ -34,7 +34,6 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
       onClear,
       dismissible,
       action,
-      csx = {},
       shouldRemove,
       variant = 'info',
       duration = 10000,
@@ -65,13 +64,12 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         onMouseEnter={stopTimeout}
         onMouseLeave={startTimeout}
         variant={variant}
-        csx={csx}
         {...divProps}
       >
         <Inline spaceInside align="start" hSpace="$space-3">
           <Center>{icons[variant]}</Center>
-          <Stack space="$space-2" csx={style.toastInfo}>
-            <Box as="p" csx={style.toastMessage}>
+          <Stack space="$space-2" className={toastInfoTheme}>
+            <Box as="p" className={toastMessageTheme}>
               {message}
             </Box>
             {action && (

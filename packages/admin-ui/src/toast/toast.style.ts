@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, dataAttr } from '@vtex/admin-ui-core'
 
 export const animation = {
   timeoutMs: 300,
@@ -6,7 +6,7 @@ export const animation = {
   leaveTransition: 'opacity 0.1s ease',
 }
 
-export const toastContainer = style({
+export const toastContainerTheme = csx({
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',
@@ -17,30 +17,25 @@ export const toastContainer = style({
   pointerEvents: 'all',
   overflow: 'hidden',
   borderRadius: '$base',
-})
-
-export const toastContainerVariants = styleVariants({
-  variant: {
-    critical: {
-      bg: '$critical',
-      border: '$critical',
-    },
-    positive: {
-      bg: '$positive',
-      border: '$positive',
-    },
-    warning: {
-      bg: '$warning',
-      border: '$warning',
-    },
-    info: {
-      bg: '$info',
-      border: '$info',
-    },
+  [dataAttr('variant', 'critical')]: {
+    bg: '$critical',
+    border: '$critical',
+  },
+  [dataAttr('variant', 'positive')]: {
+    bg: '$positive',
+    border: '$positive',
+  },
+  [dataAttr('variant', 'warning')]: {
+    bg: '$warning',
+    border: '$warning',
+  },
+  [dataAttr('variant', 'info')]: {
+    bg: '$info',
+    border: '$info',
   },
 })
 
-export const toastQueue = style({
+export const toastQueueTheme = csx({
   position: 'fixed',
   zIndex: '$z-10',
   pointerEvents: 'none',
@@ -53,11 +48,11 @@ export const toastQueue = style({
   },
 })
 
-export const toastInfo = style({
+export const toastInfoTheme = csx({
   width: '16rem',
 })
 
-export const toastMessage = style({
+export const toastMessageTheme = csx({
   textAlign: 'start',
   text: '$body',
 })

@@ -1,22 +1,25 @@
-import type { VariantProps } from '@vtex/admin-ui-core'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
+import type { Ref, ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import * as style from './toast.style'
+import { toastContainerTheme } from './toast.style'
+import type { ToastVariant } from './types'
 
-export const ToastContainer = createComponent<'div', ToastContainerOptions>(
-  (props) => {
-    const { variant = 'info', ...restProps } = props
+export const ToastContainer = forwardRef(
+  (props: ToastContainerProps, ref: Ref<HTMLDivElement>) => {
+    const { variant = 'info', className = '', ...restProps } = props
 
-    return useElement('div', {
-      ...restProps,
-      baseStyle: {
-        ...style.toastContainer,
-        ...style.toastContainerVariants({ variant }),
-      },
-    })
+    return (
+      <div
+        ref={ref}
+        data-variant={variant}
+        className={cx(toastContainerTheme, className)}
+        {...restProps}
+      />
+    )
   }
 )
 
-export type ToastContainerOptions = VariantProps<
-  typeof style.toastContainerVariants
->
+interface ToastContainerProps extends ComponentPropsWithoutRef<'div'> {
+  variant?: ToastVariant
+}
