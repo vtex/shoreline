@@ -5,7 +5,7 @@ import { Box } from '../../box'
 import type { SkeletonProps } from '../index'
 import { Skeleton } from '../index'
 import { Button } from '../../button'
-import { Heading } from '../../components/Heading'
+import { Heading } from '../../heading'
 import { Paragraph } from '../../components/Paragraph'
 import { Stack } from '../../stack'
 

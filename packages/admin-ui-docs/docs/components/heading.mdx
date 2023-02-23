@@ -3,23 +3,50 @@ title: Heading
 path: /heading/
 ---
 
-By default, `<Heading>` renders a `<h1>` with reset styles.
+Add automatic hierarchy to your page contents so users can easily navigate them. This component is based on the [WAI-ARIA Heading Role](https://w3c.github.io/aria/#heading)
 
 ## Behavior
 
 ```jsx live
-<Heading>Heading 1</Heading>
+<HeadingLevel>
+  <Heading>Heading 1</Heading>
+</HeadingLevel>
 ```
 
 ## Import
 
 ```jsx isStatic
-import { Heading } from '@vtex/admin-ui'
+import { Heading, HeadingLevel } from '@vtex/admin-ui'
 ```
 
-## Variation
+## Examples
 
-### Headers
+### Heading level
+
+```jsx live
+<HeadingLevel>
+  <Heading>Heading 1</Heading>
+  <HeadingLevel>
+    <Heading>Heading 2</Heading>
+    <HeadingLevel>
+      <Heading>Heading 3</Heading>
+      <HeadingLevel>
+        <Heading>Heading 4</Heading>
+        <HeadingLevel>
+          <Heading>Heading 5</Heading>
+          <HeadingLevel>
+            <Heading>Heading 6</Heading>
+          </HeadingLevel>
+        </HeadingLevel>
+      </HeadingLevel>
+    </HeadingLevel>
+  </HeadingLevel>
+</HeadingLevel>
+```
+
+### Deprecated as
+
+The `as` prop is deprecated. Consider using `HeadingLevel` instead.
 
 ```jsx live
 <Stack>
@@ -34,8 +61,13 @@ import { Heading } from '@vtex/admin-ui'
 
 ## Props
 
-Besides the props listed bellow, you can use all the props accepted by the `h` JSX element.
+### Heading
 
-| Name | Type                  | Description       | Required | Default |
-| ---- | --------------------- | ----------------- | -------- | ------- |
-| as   | `React.ComponentType` | Element to render | 🚫       | `'h1'`  |
+All props of `h` jsx element.
+
+### HeadingLevel
+
+| Name     | Type                         | Description    | Required | Default |
+| -------- | ---------------------------- | -------------- | -------- | ------- |
+| level    | `1 or 2 or 3 or 4 or 5 or 6` | Optional level | 🚫       | -       |
+| children | `Reactnode`                  | -              | 🚫       | -       |

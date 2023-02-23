@@ -11,10 +11,8 @@ import {
 import { Stack } from '../stack'
 import { Box } from '../box'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
-import { Text } from '../components/Text'
-import { Button } from '../button'
 import { Flex } from '../flex'
-import { Heading } from '../components/Heading'
+import { Heading } from '../heading'
 
 export default {
   title: 'admin-ui-review/menu',
