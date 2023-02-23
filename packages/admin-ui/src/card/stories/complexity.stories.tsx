@@ -15,6 +15,7 @@ import { Menu, MenuItem, MenuButton, useMenuState } from '../../menu'
 import { Button } from '../../button'
 import { Center } from '../../center'
 import { Tag } from '../../tag'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/card/complexity',
@@ -23,8 +24,8 @@ export default {
 
 export const Zero = () => {
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
-      <Center csx={{ width: '100%', height: 250, bg: '$secondary' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
+      <Center className={csx({ width: '100%', height: 250, bg: '$secondary' })}>
         Content
       </Center>
     </Card>
@@ -33,12 +34,12 @@ export const Zero = () => {
 
 export const LevelOne = () => {
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardTitle>Title</CardTitle>
       </CardHeader>
-      <CardContent csx={{ width: '100%', bg: '$secondary' }}>
-        <Center csx={{ height: 250 }}>Content</Center>
+      <CardContent className={csx({ width: '100%', bg: '$secondary' })}>
+        <Center className={csx({ height: 250 })}>Content</Center>
       </CardContent>
     </Card>
   )
@@ -46,7 +47,7 @@ export const LevelOne = () => {
 
 export const LevelTwo = () => {
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardTitle>Title</CardTitle>
         <CardActions>
@@ -54,8 +55,8 @@ export const LevelTwo = () => {
           <Button variant="secondary">Label</Button>
         </CardActions>
       </CardHeader>
-      <CardContent csx={{ width: '100%', bg: '$secondary' }}>
-        <Center csx={{ height: 250 }}>Content</Center>
+      <CardContent className={csx({ width: '100%', bg: '$secondary' })}>
+        <Center className={csx({ height: 250 })}>Content</Center>
       </CardContent>
     </Card>
   )
@@ -65,7 +66,7 @@ export const Full = () => {
   const menu = useMenuState()
 
   return (
-    <Card csx={{ width: '1/2', margin: '$space-4' }}>
+    <Card className={csx({ width: '1/2', margin: '$space-4' })}>
       <CardHeader>
         <CardInfo>
           <IconImageSquare />
@@ -82,8 +83,8 @@ export const Full = () => {
           </Menu>
         </CardActions>
       </CardHeader>
-      <CardContent csx={{ width: '100%', bg: '$secondary' }}>
-        <Center csx={{ height: 250 }}>Content</Center>
+      <CardContent className={csx({ width: '100%', bg: '$secondary' })}>
+        <Center className={csx({ height: 250 })}>Content</Center>
       </CardContent>
     </Card>
   )

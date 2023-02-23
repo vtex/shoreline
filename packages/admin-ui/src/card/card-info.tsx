@@ -1,20 +1,22 @@
-import React from 'react'
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import React, { forwardRef } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
 
 import { Stack } from '../stack'
 
-export const CardInfo = createComponent<'div'>((props) => {
-  const { children, ...restProps } = props
+export const CardInfo = forwardRef(
+  (props: CardInfoProps, ref: Ref<HTMLDivElement>) => {
+    const { children, ...restProps } = props
 
-  return useElement('div', {
-    ...restProps,
-    children: (
-      <Stack direction="row" space="$space-3">
-        {children}
-      </Stack>
-    ),
-  })
-})
+    return (
+      <div ref={ref} {...restProps}>
+        <Stack direction="row" space="$space-3">
+          {children}
+        </Stack>
+      </div>
+    )
+  }
+)
 
-export type CardInfoProps = ComponentPropsWithRef<typeof CardInfo>
+type CardInfoProps = ComponentPropsWithoutRef<'div'>
+
+export type { CardInfoProps }
