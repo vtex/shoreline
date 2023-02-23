@@ -7,7 +7,7 @@ import type { ToastProps, InternalToastProps } from './types'
 import { useAnimatedList } from './use-animated-list'
 import { useToastQueueState } from './use-toast-queue-state'
 import { Stack } from '../stack'
-import * as style from './toast.style'
+import { toastQueueTheme } from './toast.style'
 import { Toast } from './toast'
 
 let cachedCounter = 0
@@ -39,7 +39,7 @@ function InternalToastProvider(props: ToastProviderProps) {
     <ToastControllerContext.Provider value={enqueue}>
       {children}
       <Portal>
-        <Stack space="$space-6" csx={style.toastQueue}>
+        <Stack space="$space-6" className={toastQueueTheme}>
           {toasts.map(({ id, ...rest }) => (
             <Toast
               ref={itemRef(id)}
@@ -79,7 +79,7 @@ export function useToast() {
         variant = 'info',
         dismissible = true,
         duration = 10000,
-        csx = {},
+        className,
         action,
       } = toast
 
@@ -94,7 +94,7 @@ export function useToast() {
         dismissible,
         action,
         duration,
-        csx,
+        className,
       })
     },
     [dispatch]
