@@ -1,8 +1,8 @@
-import { style } from '@vtex/admin-ui-core'
+import { csx, dataAttr, negative } from '@vtex/admin-ui-core'
 
 export const tooltipGutter = 0
 
-export const tooltipPopover = style({
+export const tooltipPopoverTheme = csx({
   bg: '$inverted',
   color: '$inverted',
   text: '$detail',
@@ -12,16 +12,23 @@ export const tooltipPopover = style({
   zIndex: '$z-10',
 })
 
-export const tooltipTriggerWrapper = style({
+export const tooltipTriggerWrapperTheme = csx({
   size: '1.5rem',
   bg: 'transparent',
   padding: '$space-0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  margin: '$space-0',
+  [dataAttr('bleed-x', true)]: {
+    marginX: negative('$space-1'),
+  },
+  [dataAttr('bleed-y', true)]: {
+    marginY: negative('$space-1'),
+  },
 })
 
-export const tooltipTrigger = style({
+export const tooltipTriggerTheme = csx({
   size: '1rem',
   bg: '$gray20',
   color: '$primary',
@@ -31,11 +38,11 @@ export const tooltipTrigger = style({
   display: 'flex',
 })
 
-export const tooltipTriggerContainer = style({
+export const tooltipTriggerContainerTheme = csx({
   size: '1rem',
 })
 
-export const tooltipArrow = {
+export const tooltipArrowStyle = {
   width: 12,
   height: 12,
 }

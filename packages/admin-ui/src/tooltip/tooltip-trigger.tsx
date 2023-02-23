@@ -1,33 +1,40 @@
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 
-import * as style from './tooltip.style'
+import {
+  tooltipTriggerContainerTheme,
+  tooltipTriggerTheme,
+  tooltipTriggerWrapperTheme,
+} from './tooltip.css'
 import { Center } from '../center'
+import { cx } from '@vtex/admin-ui-core'
 
-export const TooltipTrigger = createComponent<'button', TooltipTriggerOptions>(
-  (props) => {
+export const TooltipTrigger = forwardRef(
+  (props: TooltipTriggerProps, ref: Ref<HTMLButtonElement>) => {
     const {
       bleedX = false,
       bleedY = false,
       type = 'button',
+      className = '',
       ...buttonProps
     } = props
 
-    return useElement('button', {
-      type,
-      ...buttonProps,
-      baseStyle: {
-        ...style.tooltipTriggerWrapper,
-        margin: `${getBleedValue(bleedY)} ${getBleedValue(bleedX)}`,
-      },
-      children: (
-        <Center csx={style.tooltipTrigger}>
-          <Center csx={style.tooltipTriggerContainer}>
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={cx(tooltipTriggerWrapperTheme, className)}
+        data-bleed-x={bleedX}
+        data-bleed-y={bleedY}
+        {...buttonProps}
+      >
+        <Center className={tooltipTriggerTheme}>
+          <Center className={tooltipTriggerContainerTheme}>
             <IconQuestionMark />
           </Center>
         </Center>
-      ),
-    })
+      </button>
+    )
   }
 )
 
@@ -48,11 +55,7 @@ function IconQuestionMark() {
   )
 }
 
-function getBleedValue(bleed: boolean): string {
-  return `${bleed ? '-0.25' : '0'}rem`
-}
-
-interface TooltipTriggerOptions {
+interface TooltipTriggerProps extends ComponentPropsWithoutRef<'button'> {
   /**
    * Vertical bleed
    */
