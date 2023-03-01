@@ -238,10 +238,10 @@ function SkeletonCollection() {
         case 'loading': {
           return (
             <Skeleton
-              csx={{
+              className={csx({
                 width: 256,
                 height: 24,
-              }}
+              })}
             />
           )
         }

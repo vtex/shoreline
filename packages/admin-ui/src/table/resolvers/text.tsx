@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
-import { style } from '@vtex/admin-ui-core'
+import { csx, style } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
 import { Text } from '../../components/Text'
@@ -13,7 +13,7 @@ export function textResolver<T>() {
   return createResolver<T, 'text', TextResolver<T>>({
     cell: function TextResolver({ item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: 24 })} />
       }
 
       const { resolver } = column

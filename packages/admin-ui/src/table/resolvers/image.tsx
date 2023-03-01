@@ -36,7 +36,7 @@ export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: 24 })} />
       }
 
       const { cn } = useSystem()
@@ -65,10 +65,10 @@ export function imageResolver<T>() {
         )
       ) : (
         <Skeleton
-          csx={{
+          className={csx({
             ...imageStyles,
             animation: '',
-          }}
+          })}
         />
       )
 

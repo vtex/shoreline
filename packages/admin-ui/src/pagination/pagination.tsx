@@ -12,6 +12,7 @@ import { messages } from './pagination.i18n'
 import type { UsePaginationReturn } from './hooks/use-pagination-state'
 import * as style from './pagination.style'
 import { Skeleton } from '../skeleton'
+import { csx } from '@vtex/admin-ui-core'
 
 export const Pagination = createComponent<'div', PaginationOptions>((props) => {
   const {
@@ -39,7 +40,7 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
     children: (
       <Inline align="center" hSpace="$space-2" spaceInside noWrap>
         {loading ? (
-          <Skeleton csx={style.loading} />
+          <Skeleton className={csx(style.loading)} />
         ) : (
           <Text
             tone="secondary"

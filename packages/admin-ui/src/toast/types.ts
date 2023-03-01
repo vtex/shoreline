@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactNode } from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
 
 export interface ToastAction {
   /**
