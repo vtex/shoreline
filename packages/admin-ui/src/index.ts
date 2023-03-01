@@ -51,8 +51,6 @@ export * from './components/Paragraph'
 export * from './components/List'
 export * from './components/Text'
 export * from './components/Dropdown'
-export * from './components/Sidebar'
-export * from './components/Topbar'
 export * from './components/Toolbar'
 export * from './components/FilterBar'
 export {
