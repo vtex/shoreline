@@ -66,8 +66,12 @@ export const NumberInput = forwardRef(
     }
 
     return (
-      <FormControl error={error} optional={optional}>
-        {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
+      <FormControl>
+        {label && (
+          <FormControlLabel optional={optional} htmlFor={id}>
+            {label}
+          </FormControlLabel>
+        )}
         <InputContainer
           onClick={ensureFocus}
           onMouseDown={handleMouseDown}
@@ -100,7 +104,11 @@ export const NumberInput = forwardRef(
           />
           {suffix && <InputTerm type="suffix">{suffix}</InputTerm>}
         </InputContainer>
-        <FormControlMessage helpText={helpText} errorText={errorText} />
+        <FormControlMessage
+          error={error}
+          helpText={helpText}
+          errorText={errorText}
+        />
       </FormControl>
     )
   }

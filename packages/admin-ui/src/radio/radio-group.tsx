@@ -28,8 +28,8 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
     return useElement('fieldset', {
       ...restProps,
       children: (
-        <FormControl error={error} optional={optional}>
-          <FormControlLabel as="legend">{label}</FormControlLabel>
+        <FormControl>
+          <FormControlLabel optional={optional}>{label}</FormControlLabel>
           <AriakitRadioGroup state={state}>
             <Stack
               direction={direction}
@@ -39,7 +39,11 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
               {children}
             </Stack>
           </AriakitRadioGroup>
-          <FormControlMessage helpText={helpText} errorText={errorText} />
+          <FormControlMessage
+            error={error}
+            helpText={helpText}
+            errorText={errorText}
+          />
         </FormControl>
       ),
     })

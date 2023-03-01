@@ -29,7 +29,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <FormControl error={error}>
+      <FormControl>
         <Inline hSpace="$space-2" vSpace="">
           <SwitchButton
             id={baseId}
@@ -41,7 +41,11 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
             <Label htmlFor={baseId} csx={style.label}>
               {label}
             </Label>
-            <FormControlMessage helpText={helpText} errorText={errorText} />
+            <FormControlMessage
+              error={error}
+              helpText={helpText}
+              errorText={errorText}
+            />
           </Stack>
         </Inline>
       </FormControl>
