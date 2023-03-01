@@ -1,5 +1,5 @@
-import type { ComponentPropsWithRef } from 'react'
-import React, { Fragment } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import {
   IconX,
   IconXOctagon,
@@ -7,76 +7,80 @@ import {
   IconCheckCircle,
   IconBell,
 } from '@vtex/phosphor-icons'
-import {
-  createComponent,
-  createHook,
-  IconContainer,
-  useElement,
-} from '@vtex/admin-ui-react'
-import type { VariantProps } from '@vtex/admin-ui-core'
+import { IconContainer } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
 import type { WithRequiredProps } from '@vtex/admin-ui-util'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { Inline } from '../inline'
 import { Paragraph } from '../components/Paragraph'
-import * as styles from './alert.style'
 import { Stack } from '../stack'
-
-export const useAlert = createHook<'div', AlertOptions>((props) => {
-  const { children, onDismiss, variant = 'info', action, ...htmlProps } = props
-
-  const icon = alertIconMap[variant]
-
-  return {
-    ...htmlProps,
-    baseStyle: {
-      ...styles.baseline,
-      ...styles.variants({
-        variant,
-      }),
-    },
-    children: (
-      <Fragment>
-        <Inline noWrap vSpace="unset" hSpace="$space-3" spaceInside>
-          <IconContainer size="regular" csx={styles.iconContainer({ variant })}>
-            {icon}
-          </IconContainer>
-          <Paragraph csx={styles.paragraph}>{children}</Paragraph>
-        </Inline>
-        <Stack direction="row" space="$space-2" csx={styles.rightInline}>
-          {action ? (
-            <Button
-              {...action}
-              variant="neutralTertiary"
-              bleedY
-              bleedX
-              csx={styles.button({ dismissible: !!onDismiss })}
-            />
-          ) : null}
-          {onDismiss ? (
-            <Button
-              variant="neutralTertiary"
-              icon={<IconX />}
-              onClick={onDismiss}
-              bleedY
-              bleedX
-            />
-          ) : null}
-        </Stack>
-      </Fragment>
-    ),
-  }
-})
+import {
+  alertTheme,
+  alertAction,
+  rightInline,
+  alertDescription,
+} from './alert.css'
 
 /**
  * Alerts are notifications of mild to high priority that inform the user about events they should know and, if it's a problem, point out a solution.
+ *
+ * @example
+ * <Alert variant="positive">Here goes your description</Alert>
  */
-export const Alert = createComponent<'div', AlertOptions>((props) => {
-  const alertProps = useAlert(props)
+export const Alert = forwardRef(function Alert(
+  props: AlertProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    children,
+    onDismiss,
+    variant = 'info',
+    action,
+    className = '',
+    ...htmlProps
+  } = props
 
-  return useElement('div', alertProps)
+  const icon = alertIconMap[variant]
+
+  return (
+    <div
+      ref={ref}
+      className={cx(alertTheme, className)}
+      data-variant={variant}
+      {...htmlProps}
+    >
+      <Inline noWrap vSpace="unset" hSpace="$space-3" spaceInside>
+        <IconContainer size="regular">{icon}</IconContainer>
+        <Paragraph csx={alertDescription}>{children}</Paragraph>
+      </Inline>
+      <Stack direction="row" space="$space-2" csx={rightInline}>
+        {action ? (
+          <Button
+            {...action}
+            variant="neutralTertiary"
+            bleedY
+            bleedX
+            data-dismissible={!!onDismiss}
+            csx={alertAction}
+          />
+        ) : null}
+        {onDismiss ? (
+          <Button
+            variant="neutralTertiary"
+            icon={<IconX />}
+            onClick={onDismiss}
+            bleedY
+            bleedX
+          />
+        ) : null}
+      </Stack>
+    </div>
+  )
 })
+
+Alert.displayName = 'Alert'
 
 const alertIconMap = {
   critical: <IconXOctagon weight="fill" />,
@@ -90,7 +94,12 @@ export type AlertActionProps = Omit<
   'csx' | 'variant' | 'bleedX' | 'bleedY'
 >
 
-export type AlertOptions = VariantProps<typeof styles.variants> & {
+export type AlertVariants = 'positive' | 'critical' | 'warning' | 'info'
+
+export type AlertOptions = AlertVariants & {}
+
+export type AlertProps = ComponentPropsWithoutRef<'div'> & {
+  variant?: AlertVariants
   /**
    * Action to take when clicking the dismiss buttton
    */
@@ -100,5 +109,3 @@ export type AlertOptions = VariantProps<typeof styles.variants> & {
    */
   action?: AlertActionProps
 }
-
-export type AlertProps = ComponentPropsWithRef<typeof Alert>
