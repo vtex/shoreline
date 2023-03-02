@@ -6,6 +6,12 @@ export const messages = {
       clearAll: 'Clear all',
       moreFilters: 'More filters',
     },
+    'es-AR': {
+      apply: 'Aplicar',
+      clear: 'Limpiar',
+      clearAll: 'Limpiar todo',
+      moreFilters: 'Más filtros',
+    },
     'fr-FR': {
       apply: 'Appliquer',
       clear: 'Effacer',
@@ -68,6 +74,13 @@ export const messages = {
       empty: 'No filters available',
       noResultsTitle: 'No filters match your search',
       noResultsSubtitle: 'Try using different terms',
+    },
+    'es-AR': {
+      errorTitle: 'Se produjo un error',
+      retry: 'Inténtalo de nuevo',
+      empty: 'No hay filtros disponibles',
+      noResultsTitle: 'Ningún filtro coincide con tu búsqueda',
+      noResultsSubtitle: 'Intenta utilizar otros términos',
     },
     'pt-BR': {
       errorTitle: 'Algo deu errado',
