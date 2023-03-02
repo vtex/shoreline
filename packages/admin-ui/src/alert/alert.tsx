@@ -55,7 +55,7 @@ export const Alert = forwardRef(function Alert(
         <IconContainer size="regular">{icon}</IconContainer>
         <Paragraph csx={alertDescription}>{children}</Paragraph>
       </Inline>
-      <Stack direction="row" space="$space-2" csx={rightInline}>
+      <Stack direction="row" space="$space-2" className={rightInline}>
         {action ? (
           <Button
             {...action}

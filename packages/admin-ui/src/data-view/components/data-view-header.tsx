@@ -3,6 +3,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Stack } from '../../stack'
 import * as styles from './data-view.styles'
+import { csx } from '@vtex/admin-ui-core'
 
 /**
  * Organizes the DataView header
@@ -22,7 +23,7 @@ export const DataViewHeader = createComponent<'div'>((props) => {
     ...restProps,
     baseStyle: styles.header,
     children: (
-      <Stack space="$space-4" csx={{ width: '100%' }}>
+      <Stack space="$space-4" className={csx({ width: '100%' })}>
         {children}
       </Stack>
     ),

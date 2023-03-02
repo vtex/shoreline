@@ -5,6 +5,7 @@ import {
   Paragraph,
   Stack,
   style,
+  csx,
 } from '@vtex/admin-ui'
 import type { ReactNode } from 'react'
 import React from 'react'
@@ -40,7 +41,11 @@ export function Practice(props: PracticeProps) {
   return (
     <Flex direction="column">
       <Flex csx={styles.previewContainer}>{children}</Flex>
-      <Stack csx={styles.practice(token)} direction="row" space="$space-2">
+      <Stack
+        className={csx(styles.practice(token))}
+        direction="row"
+        space="$space-2"
+      >
         <Icon weight="fill" csx={{ color: token }} />
         <Paragraph>{label}</Paragraph>
       </Stack>
