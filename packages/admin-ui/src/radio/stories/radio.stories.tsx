@@ -80,5 +80,4 @@ RadioAppearenceStates.args = {
   disabled: false,
   checked: false,
   helpText: '',
-  csx: {},
 }

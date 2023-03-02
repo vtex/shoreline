@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
@@ -12,48 +11,46 @@ import {
 import { Stack } from '../stack'
 import { csx } from '@vtex/admin-ui-core'
 
-export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
-  (props) => {
-    const {
-      label,
-      helpText,
-      errorText,
-      children,
-      direction,
-      state,
-      error,
-      optional,
-      ...restProps
-    } = props
+export const RadioGroup = forwardRef(function RadioGroup(
+  props: RadioGroupProps,
+  ref: Ref<HTMLFieldSetElement>
+) {
+  const {
+    label,
+    helpText,
+    errorText,
+    children,
+    direction,
+    state,
+    error,
+    optional,
+    ...htmlProps
+  } = props
 
-    return useElement('fieldset', {
-      ...restProps,
-      children: (
-        <FormControl>
-          <FormControlLabel optional={optional}>{label}</FormControlLabel>
-          <AriakitRadioGroup state={state}>
-            <Stack
-              direction={direction}
-              space="$space-4"
-              className={csx({ marginY: '$space-1' })}
-            >
-              {children}
-            </Stack>
-          </AriakitRadioGroup>
-          <FormControlMessage
-            error={error}
-            helpText={helpText}
-            errorText={errorText}
-          />
-        </FormControl>
-      ),
-    })
-  }
-)
+  return (
+    <fieldset {...htmlProps} ref={ref}>
+      <FormControl>
+        <FormControlLabel optional={optional}>{label}</FormControlLabel>
+        <AriakitRadioGroup state={state}>
+          <Stack
+            direction={direction}
+            space="$space-4"
+            className={csx({ marginY: '$space-1' })}
+          >
+            {children}
+          </Stack>
+        </AriakitRadioGroup>
+        <FormControlMessage
+          error={error}
+          helpText={helpText}
+          errorText={errorText}
+        />
+      </FormControl>
+    </fieldset>
+  )
+})
 
-export type RadioGroupProps = React.ComponentPropsWithoutRef<typeof RadioGroup>
-
-export interface RadioGroupOptions {
+export type RadioGroupProps = React.ComponentPropsWithoutRef<'fieldset'> & {
   /**
    * useRadioState hook return
    */
