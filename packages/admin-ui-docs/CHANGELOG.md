@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.19](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.18...@vtex/admin-ui-docs@0.17.1-dev.19) (2023-03-02)
+
+
+### Bug Fixes
+
+* **alert:** change csx for className ([825f1cb](https://github.com/vtex/admin-ui/commit/825f1cbfe4e309ec07e55bad52b037f9c32de05c))
+
+
+
+
+
 ## [0.17.1-dev.18](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.17...@vtex/admin-ui-docs@0.17.1-dev.18) (2023-03-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
