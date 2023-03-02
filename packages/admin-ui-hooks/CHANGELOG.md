@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.1-dev.5 (2023-03-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
+
+
+
+
+
 ## 0.5.1-dev.4 (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks

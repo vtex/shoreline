@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.15 (2023-03-02)
+
+
+### Features
+
+* improve disabled tabs styles ([f02c9a7](https://github.com/vtex/admin-ui/commit/f02c9a74a2bed47b42351729e06d25d6c18f0e04))
+
+
+
+
+
 ## [0.135.1-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.13...@vtex/admin-ui@0.135.1-dev.14) (2023-03-02)
 
 
