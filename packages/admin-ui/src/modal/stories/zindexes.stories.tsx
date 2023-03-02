@@ -49,6 +49,7 @@ import {
   ComboboxMultiplePopover,
 } from '../../combobox'
 import { ToastProvider, useToast } from '../../toast'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/zindex',
@@ -268,7 +269,7 @@ export function Bulk() {
             <DummyCombobox />
             <Tooltip text="Basic tooltip" />
             <Button onClick={modal.toggle}>Show modal</Button>
-            <Alert variant="info" csx={{ height: '10px' }}>
+            <Alert variant="info" className={csx({ height: '10px' })}>
               Order successfully placed
             </Alert>
             <DataView state={view}>

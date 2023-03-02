@@ -14,6 +14,7 @@ import {
   Alert,
   Center,
   Anchor,
+  csx,
 } from '@vtex/admin-ui'
 import { small, filled } from './icons'
 
@@ -96,7 +97,7 @@ export function IconsGrid(props: IconsGridProps) {
         </Stack>
       </DataViewHeader>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
-        <Alert csx={{ marginBottom: '$space-4' }}>
+        <Alert className={csx({ marginBottom: '$space-4' })}>
           Some icons below are opaque because they still don’t have a use case
           mapped. If you need to use one of them, please{' '}
           <Anchor href="https://github.com/vtex/admin-ui/issues/new/choose">
