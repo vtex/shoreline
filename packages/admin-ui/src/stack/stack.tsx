@@ -45,8 +45,6 @@ export const Stack = forwardRef(function Stack(
   )
 })
 
-Stack.displayName = 'Stack'
-
 export type StackProps = ComponentPropsWithoutRef<'div'> & {
   /**
    * direction of items
