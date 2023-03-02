@@ -29,6 +29,11 @@ export const tab = style({
     borderBottom: '$mainSelected',
     borderBottomWidth: tabBorderBottomWidth,
   },
+  '&[aria-disabled="true"]': {
+    cursor: 'not-allowed',
+    borderBottom: 'none',
+    fg: '$disabled',
+  },
   ...focusVisible('main'),
 })
 
