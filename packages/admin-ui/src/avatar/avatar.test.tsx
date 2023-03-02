@@ -1,9 +1,9 @@
 import React from 'react'
-import { axe, render } from '../../test-utils'
+import { axe, render } from '../test-utils'
 
 import { Avatar } from './index'
 
-describe('Avatar tests', () => {
+describe('Avatar', () => {
   it('should render the first letter', () => {
     const { getByText } = render(<Avatar label="Test" />)
 
