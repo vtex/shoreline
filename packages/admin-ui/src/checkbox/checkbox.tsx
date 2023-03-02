@@ -27,14 +27,18 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
     const { id: baseId } = useId({ id })
 
     return (
-      <FormControl error={error}>
+      <FormControl>
         <Inline hSpace="$space-2" vSpace="" spaceInside>
           <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
           <Stack space="$space-05">
             <Label htmlFor={baseId} csx={style.label}>
               {label}
             </Label>
-            <FormControlMessage helpText={helpText} errorText={errorText} />
+            <FormControlMessage
+              error={error}
+              helpText={helpText}
+              errorText={errorText}
+            />
           </Stack>
         </Inline>
       </FormControl>

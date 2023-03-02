@@ -1,6 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { useId, useFieldFocus, useForkRef } from '@vtex/admin-ui-hooks'
+import { csx } from '@vtex/admin-ui-core'
 import type { StyleProp } from '@vtex/admin-ui-core'
 
 import type { SelectInputOptions, JSXSelectProps } from './select-input'
@@ -24,7 +25,7 @@ export const Select = forwardRef(
       errorText,
       optional = false,
       id: defaultId,
-      csx,
+      csx: customCsx = {},
       ...selectProps
     } = props
 
@@ -32,9 +33,11 @@ export const Select = forwardRef(
     const [focusRef, ensureFocus] = useFieldFocus<HTMLSelectElement>()
 
     return (
-      <FormControl error={error} optional={optional} csx={csx}>
+      <FormControl className={csx(customCsx)}>
         {label ? (
-          <FormControlLabel htmlFor={id}>{label}</FormControlLabel>
+          <FormControlLabel optional={optional} htmlFor={id}>
+            {label}
+          </FormControlLabel>
         ) : null}
         <Box onClick={ensureFocus} csx={styles.container}>
           <SelectInput
@@ -49,7 +52,11 @@ export const Select = forwardRef(
             <SelectIcon />
           </Box>
         </Box>
-        <FormControlMessage helpText={helpText} errorText={errorText} />
+        <FormControlMessage
+          error={error}
+          helpText={helpText}
+          errorText={errorText}
+        />
       </FormControl>
     )
   }

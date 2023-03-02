@@ -4,7 +4,6 @@ import { createComponent } from '@vtex/admin-ui-react'
 import { Group as AriaCheckboxGroup } from 'ariakit/group'
 
 import { Stack } from '../stack'
-
 import {
   FormControl,
   FormControlLabel,
@@ -17,8 +16,8 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
       props
 
     return (
-      <FormControl error={error} optional={optional}>
-        <FormControlLabel as="span">{label}</FormControlLabel>
+      <FormControl>
+        <FormControlLabel optional={optional}>{label}</FormControlLabel>
         <AriaCheckboxGroup>
           <Stack
             direction={direction}
@@ -28,7 +27,11 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
             {children}
           </Stack>
         </AriaCheckboxGroup>
-        <FormControlMessage helpText={helpText} errorText={errorText} />
+        <FormControlMessage
+          error={error}
+          helpText={helpText}
+          errorText={errorText}
+        />
       </FormControl>
     )
   }

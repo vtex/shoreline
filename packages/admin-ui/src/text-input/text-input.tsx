@@ -29,7 +29,7 @@ export const TextInput = forwardRef(
     const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
 
     return (
-      <FormControl error={error}>
+      <FormControl>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
         <TextInputContainer
           onClick={ensureFocus}
@@ -46,7 +46,11 @@ export const TextInput = forwardRef(
           />
           {suffix && <TextInputTerm type="suffix">{suffix}</TextInputTerm>}
         </TextInputContainer>
-        <FormControlMessage helpText={helpText} errorText={errorText} />
+        <FormControlMessage
+          error={error}
+          helpText={helpText}
+          errorText={errorText}
+        />
       </FormControl>
     )
   }

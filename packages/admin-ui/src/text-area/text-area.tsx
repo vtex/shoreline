@@ -32,7 +32,7 @@ export const TextArea = forwardRef(
     const { getTextareaProps, charCount } = useTextarea()
 
     return (
-      <FormControl error={error}>
+      <FormControl>
         {label && <FormControlLabel htmlFor={id}>{label}</FormControlLabel>}
         <TextAreaContainer
           onClick={ensureFocus}
@@ -47,7 +47,11 @@ export const TextArea = forwardRef(
           />
         </TextAreaContainer>
         <Flex csx={{ width: '100%' }}>
-          <FormControlMessage helpText={helpText} errorText={errorText} />
+          <FormControlMessage
+            error={error}
+            helpText={helpText}
+            errorText={errorText}
+          />
           <FlexSpacer />
           {maxLength && (
             <Text variant="detail" tone="secondary">
