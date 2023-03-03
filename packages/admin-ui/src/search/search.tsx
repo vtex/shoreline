@@ -71,7 +71,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
               aria-label={formatMessage('clearButton')}
               icon={<IconXCircle />}
               variant="neutralTertiary"
-              csx={styles.clearButton}
+              className={styles.clearButtonTheme}
               onClick={onClear}
             />
           </Center>

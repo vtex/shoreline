@@ -1,18 +1,27 @@
-import { focusVisible, style, styleVariants } from '@vtex/admin-ui-core'
+import {
+  csx,
+  cx,
+  focusVisible,
+  style,
+  styleVariants,
+} from '@vtex/admin-ui-core'
+import { buttonTheme } from '../button/button.css'
 
-import * as buttonStyle from '../button/button.style'
 import * as menuStyle from '../menu/menu.style'
 
 export const disclosure = style({
-  ...buttonStyle.buttonStyle,
-  ...buttonStyle.variants({ size: 'normal' }),
+  border: 'none',
+  borderRadius: '$base',
+  cursor: 'pointer',
+  position: 'relative',
+  padding: '$space-2 $space-3',
+  height: '2.25rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   text: '$action2',
   bg: '$action.neutral.secondary',
   color: '$secondary',
-  padding: '$space-2 $space-3',
   ':hover': {
     bg: '$action.neutral.secondaryHover',
     color: '$secondary',
@@ -127,3 +136,8 @@ export const visibilitySelectorItemVariants = styleVariants({
     },
   },
 })
+
+export const visibilitySelectorMenuButtonTheme = cx(
+  buttonTheme,
+  csx({ display: 'flex', justifyContent: 'center', alignItems: 'center' })
+)

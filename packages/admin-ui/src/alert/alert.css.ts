@@ -29,7 +29,7 @@ export const alertTheme = csx({
   [dataAttr('variant', 'positive')]: variantStyle('positive'),
 })
 
-export const alertAction = style({
+export const alertActionTheme = csx({
   [dataAttr('dismissible', 'true')]: {
     marginLeft: '$space-7',
     marginRight: '$space-0',

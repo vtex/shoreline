@@ -1,7 +1,7 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react'
 import React, { Fragment } from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { cx } from '@vtex/admin-ui-core'
+import { cx, csx } from '@vtex/admin-ui-core'
 
 import { IconCaretUp } from '@vtex/phosphor-icons'
 
@@ -46,9 +46,9 @@ function Disclosure(props: DisclosureProps) {
       variant="neutralTertiary"
       {...getToggleProps()}
       iconPosition="start"
-      csx={{
+      className={csx({
         svg: { height: 20, width: 20, minHeight: 20, maxHeight: 20 },
-      }}
+      })}
       icon={
         <IconCaretUp
           csx={{

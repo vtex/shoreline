@@ -29,7 +29,7 @@ export const PageHeaderButton = forwardRef(
 
     return (
       <Button
-        csx={style.pageHeaderButton}
+        className={style.pageHeaderButtonTheme}
         size={size}
         ref={ref}
         {...buttonProps}

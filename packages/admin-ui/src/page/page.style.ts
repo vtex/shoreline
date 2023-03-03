@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, style, styleVariants } from '@vtex/admin-ui-core'
 
 export const page = style({
   display: 'block',
@@ -86,7 +86,7 @@ export const pageHeaderTitle = style({
   },
 })
 
-export const popNavigationButton = style({
+export const popNavigationButtonTheme = csx({
   marginRight: '0.5rem',
 })
 
@@ -97,7 +97,7 @@ export const pageHeaderActions = style({
   justifyContent: 'flex-end',
 })
 
-export const pageHeaderButton = style({
+export const pageHeaderButtonTheme = csx({
   minWidth: '6.5rem',
 })
 

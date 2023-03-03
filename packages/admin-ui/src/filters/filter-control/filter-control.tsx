@@ -28,13 +28,17 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
     return useElement(Role, {
       children: (
         <>
-          <Button as={MenuButton as any} state={menu} variant="neutralTertiary">
+          <MenuButton
+            className={style.visibilitySelectorMenuButtonTheme}
+            data-variant="neutralTertiary"
+            data-size="normal"
+            state={menu}
+          >
             {formatMessage('moreFilters')}
             <Flex csx={style.caretIcon(menu.mounted)}>
               <IconCaretUp size="small" />
             </Flex>
-          </Button>
-
+          </MenuButton>
           <FilterPopover state={state}>
             <FilterListbox
               csx={{

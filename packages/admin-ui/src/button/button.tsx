@@ -1,94 +1,70 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import { Button as ReakitButton } from 'reakit/Button'
-import type { VariantProps } from '@vtex/admin-ui-core'
-import {
-  createComponent,
-  createHook,
-  useElement,
-  IconContainer,
-} from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import React, { forwardRef } from 'react'
+
+import { IconContainer } from '@vtex/admin-ui-react'
 
 import { Center } from '../center'
 import { Spinner } from '../spinner'
-import * as style from './button.style'
+import {
+  buttonTheme,
+  innerContainerTheme,
+  spinnerContainerTheme,
+} from './button.css'
+import { cx } from '@vtex/admin-ui-core'
 
 /**
  * Button behavior
  * @example
  * const buttonProps = useButton({})
  */
-export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
-  ({
-    icon,
-    size = 'normal',
-    variant = 'primary',
-    iconPosition: defaultIconPosition = 'start',
-    loading = false,
-    disabled = false,
-    bleedY = false,
-    bleedX = false,
-    children,
-    ...props
-  }) => {
-    const iconOnly = icon && !children
+export const useButton = ({
+  icon,
+  size = 'normal',
+  variant = 'primary',
+  iconPosition: defaultIconPosition = 'start',
+  loading = false,
+  disabled = false,
+  bleedY = false,
+  bleedX = false,
+  className = '',
+  children,
+  ...props
+}: ButtonProps) => {
+  const iconOnly = icon && !children
 
-    const iconPosition = iconOnly ? 'center' : defaultIconPosition
+  const iconPosition = iconOnly ? 'center' : defaultIconPosition
 
-    const bleedYStyle = bleedY
-      ? style.bleedY({
-          size,
-        })
-      : {}
-
-    const bleedXStyle = bleedX
-      ? style.bleedX({
-          size,
-        })
-      : {}
-
-    return {
-      baseStyle: {
-        ...style.buttonStyle,
-        ...style.variants({
-          variant,
-          size,
-        }),
-        ...bleedYStyle,
-        ...bleedXStyle,
-      },
-      children: (
-        <Center>
-          <Center
-            csx={{
-              ...style.innerContainerStyle,
-              ...style.innerContainerVariants({
-                loading,
-                iconPosition,
-              }),
-            }}
-          >
-            {icon && (
-              <IconContainer
-                size={iconPosition === 'end' ? 'small' : 'regular'}
-              >
-                {icon}
-              </IconContainer>
-            )}
-            {children}
-          </Center>
-          {loading ? (
-            <Center csx={style.spinnerContainerStyle}>
-              <Spinner />
-            </Center>
-          ) : null}
+  return {
+    'data-variant': variant,
+    'data-size': size,
+    'data-bleed-x': bleedX,
+    'data-bleed-y': bleedY,
+    className: cx(buttonTheme, className),
+    children: (
+      <Center>
+        <Center
+          data-loading={loading}
+          data-icon-position={iconPosition}
+          className={innerContainerTheme}
+        >
+          {icon && (
+            <IconContainer size={iconPosition === 'end' ? 'small' : 'regular'}>
+              {icon}
+            </IconContainer>
+          )}
+          {children}
         </Center>
-      ),
-      disabled: disabled || loading,
-      ...props,
-    }
+        {loading ? (
+          <Center className={spinnerContainerTheme}>
+            <Spinner />
+          </Center>
+        ) : null}
+      </Center>
+    ),
+    disabled: disabled || loading,
+    ...props,
   }
-)
+}
 
 /**
  * Button component
@@ -96,15 +72,25 @@ export const useButton = createHook<typeof ReakitButton, ButtonOptions>(
  * import { Button } from `@vtex/admin-ui`
  * <Button>Button text</Button>
  */
-export const Button = createComponent<typeof ReakitButton, ButtonOptions>(
-  (props) => {
+export const Button = forwardRef(
+  (props: ButtonProps, ref: React.LegacyRef<HTMLButtonElement>) => {
     const elementProps = useButton(props)
 
-    return useElement(ReakitButton, elementProps)
+    return <button ref={ref} {...elementProps} />
   }
 )
 
-export type ButtonOptions = VariantProps<typeof style.variants> & {
+type ButtonSize = 'normal' | 'large'
+type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'critical'
+  | 'criticalSecondary'
+  | 'criticalTertiary'
+  | 'neutralTertiary'
+
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
    *  Whether is loading
    * @default false
@@ -127,6 +113,6 @@ export type ButtonOptions = VariantProps<typeof style.variants> & {
    * Horizontal bleed
    */
   bleedX?: boolean
+  size?: ButtonSize
+  variant?: ButtonVariant
 }
-
-export type ButtonProps = React.ComponentPropsWithoutRef<typeof Button>

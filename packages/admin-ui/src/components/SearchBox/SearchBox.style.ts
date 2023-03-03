@@ -1,4 +1,5 @@
 import type { StyleObject } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
 function css(csx: StyleObject): StyleObject {
   return csx
@@ -100,7 +101,7 @@ const inputIcon = css({
   left: '$space-4',
 })
 
-const inputButton = css({
+const inputButtonTheme = csx({
   position: 'absolute',
   right: '$space-4',
   top: '$space-3',
@@ -172,7 +173,7 @@ export {
   inputContainer,
   input,
   inputIcon,
-  inputButton,
+  inputButtonTheme,
   label,
   footer,
   kbd,

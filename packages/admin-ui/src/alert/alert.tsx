@@ -18,7 +18,7 @@ import { Paragraph } from '../components/Paragraph'
 import { Stack } from '../stack'
 import {
   alertTheme,
-  alertAction,
+  alertActionTheme,
   rightInline,
   alertDescription,
 } from './alert.css'
@@ -63,7 +63,7 @@ export const Alert = forwardRef(function Alert(
             bleedY
             bleedX
             data-dismissible={!!onDismiss}
-            csx={alertAction}
+            className={alertActionTheme}
           />
         ) : null}
         {onDismiss ? (

@@ -92,7 +92,7 @@ function Input(props: InputProps) {
       />
       {inputProps?.value !== '' && (
         <Button
-          csx={style.inputButton}
+          className={style.inputButtonTheme}
           variant="neutralTertiary"
           icon={<IconXCircle />}
           onClick={handleClear}
