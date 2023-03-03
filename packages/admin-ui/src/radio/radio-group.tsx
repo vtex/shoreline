@@ -5,7 +5,7 @@ import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
 
 import {
   FormControl,
-  FormControlLabel,
+  FormControlLegend,
   FormControlMessage,
 } from '../form-control'
 import { Stack } from '../stack'
@@ -30,7 +30,7 @@ export const RadioGroup = forwardRef(function RadioGroup(
   return (
     <fieldset {...htmlProps} ref={ref}>
       <FormControl>
-        <FormControlLabel optional={optional}>{label}</FormControlLabel>
+        <FormControlLegend optional={optional}>{label}</FormControlLegend>
         <AriakitRadioGroup state={state}>
           <Stack
             direction={direction}
