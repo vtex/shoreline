@@ -148,10 +148,10 @@ export const ComboboxMultipleField = createComponent<
           </Label>
           <Bleed
             left="$space-2"
-            csx={{
+            className={csx({
               paddingTop: '0.75rem',
               bg: 'transparent',
-            }}
+            })}
           >
             <Composite state={composite}>
               <Inline hSpace="$space-2" vSpace="$space-2">

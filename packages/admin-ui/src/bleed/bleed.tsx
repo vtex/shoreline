@@ -1,60 +1,34 @@
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import { negative } from '@vtex/admin-ui-core'
-import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
-import { Box } from '../box'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
+import type { BleedThemeValues } from './bleed.css'
+import { bleedInnerChild, bleedTheme } from './bleed.css'
 
 const defaultBleed = '0rem'
 
-export const Bleed = createComponent<'div', BleedProps>((props) => {
+export const Bleed = forwardRef(function Bleed(
+  props: BleedProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     top = defaultBleed,
     left = defaultBleed,
     bottom = defaultBleed,
     right = defaultBleed,
+    className = '',
     children,
     ...htmlProps
   } = props
 
-  return useElement('div', {
-    ...htmlProps,
-    children: (
-      <Box
-        csx={{
-          position: 'relative',
-        }}
-      >
-        {children}
-      </Box>
-    ),
-    baseStyle: {
-      marginTop: negative(top),
-      marginLeft: negative(left),
-      marginBottom: negative(bottom),
-      marginRight: negative(right),
-    },
-  })
+  return (
+    <div
+      ref={ref}
+      className={cx(bleedTheme({ top, left, bottom, right }), className)}
+      {...htmlProps}
+    >
+      <div className={bleedInnerChild}>{children}</div>
+    </div>
+  )
 })
 
-export interface BleedProps {
-  /**
-   * Top bleed
-   * @default 0
-   */
-  top?: CSSPropAutocomplete<SpaceTokens>
-  /**
-   * Bottom bleed
-   * @default 0
-   */
-  bottom?: CSSPropAutocomplete<SpaceTokens>
-  /**
-   * Left bleed
-   * @default 0
-   */
-  left?: CSSPropAutocomplete<SpaceTokens>
-  /**
-   * Right bleed
-   * @default 0
-   */
-  right?: CSSPropAutocomplete<SpaceTokens>
-}
+export type BleedProps = ComponentPropsWithoutRef<'div'> & BleedThemeValues
