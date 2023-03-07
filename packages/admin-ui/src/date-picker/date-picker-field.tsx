@@ -1,6 +1,7 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { StyleProp } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
@@ -41,9 +42,9 @@ export const DatePickerField = forwardRef(
             disclosure={
               <PickerDisclosure state={pickerState} csx={style.disclosure}>
                 <Center
-                  csx={{
+                  className={csx({
                     color: disabled ? '$disabled' : '$action.neutral.tertiary',
-                  }}
+                  })}
                 >
                   <IconCalendarBlank />
                 </Center>

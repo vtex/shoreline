@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 import { IconCopy } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 import type { TooltipProps } from '../index'
 import { Tooltip } from '../index'
@@ -13,9 +14,9 @@ export default {
   decorators: [
     (Story) => (
       <Center
-        csx={{
+        className={csx({
           height: '100vh',
-        }}
+        })}
       >
         <Story />
       </Center>

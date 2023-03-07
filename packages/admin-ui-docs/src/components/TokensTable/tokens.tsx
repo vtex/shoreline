@@ -13,6 +13,7 @@ import {
   spaceTokens,
   Center,
   Box,
+  csx,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
@@ -64,13 +65,13 @@ function createMap(
       type: prop,
       example: (
         <Center
-          csx={{
+          className={csx({
             width: 100,
             height: 60,
             borderRadius: 'default',
             fontSize: 22,
             [`${prop}`]: token,
-          }}
+          })}
         >
           AA
         </Center>

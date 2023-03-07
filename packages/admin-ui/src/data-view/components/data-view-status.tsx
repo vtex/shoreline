@@ -11,6 +11,7 @@ import { Button } from '../../button'
 import { Stack } from '../../stack'
 import { Center } from '../../center'
 import { Box } from '../../box'
+import { csx } from '@vtex/admin-ui-core'
 
 export function DataViewStatus() {
   const { status, statusObject } = useDataViewContext()
@@ -20,7 +21,7 @@ export function DataViewStatus() {
   if (!status || status === 'loading' || status === 'ready') return null
 
   return (
-    <Center csx={styles.status}>
+    <Center className={csx(styles.status)}>
       {status === 'not-found' && (
         <Stack fluid>
           <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
