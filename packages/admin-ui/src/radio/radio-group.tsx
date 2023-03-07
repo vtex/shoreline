@@ -2,10 +2,11 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
+import { unstable_useId as useId } from 'reakit/Id'
 
 import {
   FormControl,
-  FormControlLegend,
+  FormControlLabel,
   FormControlMessage,
 } from '../form-control'
 import { Stack } from '../stack'
@@ -13,7 +14,7 @@ import { csx } from '@vtex/admin-ui-core'
 
 export const RadioGroup = forwardRef(function RadioGroup(
   props: RadioGroupProps,
-  ref: Ref<HTMLFieldSetElement>
+  ref: Ref<HTMLDivElement>
 ) {
   const {
     label,
@@ -27,30 +28,38 @@ export const RadioGroup = forwardRef(function RadioGroup(
     ...htmlProps
   } = props
 
+  const { id } = useId()
+
   return (
-    <fieldset {...htmlProps} ref={ref}>
+    <AriakitRadioGroup
+      state={state}
+      aria-labelledby={id}
+      {...htmlProps}
+      ref={ref}
+    >
       <FormControl>
-        <FormControlLegend optional={optional}>{label}</FormControlLegend>
-        <AriakitRadioGroup state={state}>
-          <Stack
-            direction={direction}
-            space="$space-4"
-            className={csx({ marginY: '$space-1' })}
-          >
-            {children}
-          </Stack>
-        </AriakitRadioGroup>
+        <FormControlLabel id={id} optional={optional}>
+          {label}
+        </FormControlLabel>
+        <Stack
+          direction={direction}
+          space="$space-4"
+          className={csx({ paddingY: '$space-1' })}
+        >
+          {children}
+        </Stack>
+
         <FormControlMessage
           error={error}
           helpText={helpText}
           errorText={errorText}
         />
       </FormControl>
-    </fieldset>
+    </AriakitRadioGroup>
   )
 })
 
-export type RadioGroupProps = React.ComponentPropsWithoutRef<'fieldset'> & {
+export type RadioGroupProps = React.ComponentPropsWithoutRef<'div'> & {
   /**
    * useRadioState hook return
    */
