@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.17](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.16...@vtex/admin-ui@0.135.1-dev.17) (2023-03-09)
+
+
+### Code Refactoring
+
+* **ttag:** change to new component model ([a5697de](https://github.com/vtex/admin-ui/commit/a5697de78a07af27c406112d05ee7f5ba2cfcbd9))
+
+
+### BREAKING CHANGES
+
+* **ttag:** tag no longer supports the csx prop
+
+
+
+
+
 ## [0.135.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.15...@vtex/admin-ui@0.135.1-dev.16) (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui
