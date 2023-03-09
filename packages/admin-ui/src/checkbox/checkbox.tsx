@@ -1,7 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-
-import { unstable_useId as useId } from 'reakit/Id'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import { Label } from '../label'
 import { Stack } from '../stack'
@@ -16,7 +15,7 @@ export const Checkbox = forwardRef(function Checkbox(
   ref: Ref<HTMLInputElement>
 ) {
   const {
-    id,
+    id: defaultId,
     label,
     helpText,
     error = false,
@@ -24,19 +23,19 @@ export const Checkbox = forwardRef(function Checkbox(
     ...checkboxInputProps
   } = props
 
-  const { id: baseId } = useId({ id })
+  const id = useId(defaultId)
 
   return (
     <FormControl>
       <Inline hSpace="$space-2" vSpace="" spaceInside>
         <CheckboxInput
           ref={ref}
-          id={baseId}
+          id={id}
           error={error}
           {...checkboxInputProps}
         />
         <Stack space="$space-05">
-          <Label htmlFor={baseId} className={labelTheme}>
+          <Label htmlFor={id} className={labelTheme}>
             {label}
           </Label>
           <FormControlMessage

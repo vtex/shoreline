@@ -1,7 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-
-import { unstable_useId as useId } from 'reakit/Id'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import { Stack } from '../stack'
 import {
@@ -26,12 +25,12 @@ export const CheckboxGroup = forwardRef(function CheckboxGroup(
     ...htmlProps
   } = props
 
-  const { id } = useId()
+  const labelId = useId()
 
   return (
-    <div ref={ref} role="group" aria-labelledby={id} {...htmlProps}>
+    <div ref={ref} role="group" aria-labelledby={labelId} {...htmlProps}>
       <FormControl>
-        <FormControlLabel id={id} optional={optional}>
+        <FormControlLabel id={labelId} optional={optional}>
           {label}
         </FormControlLabel>
         <Stack
