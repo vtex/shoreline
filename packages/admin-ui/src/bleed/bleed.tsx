@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 import type { BleedThemeValues } from './bleed.css'
-import { bleedInnerChild, bleedTheme } from './bleed.css'
+import { bleedInnerChild, bleedTheme, bleedStyle } from './bleed.css'
 
 const defaultBleed = '0rem'
 
@@ -23,7 +23,8 @@ export const Bleed = forwardRef(function Bleed(
   return (
     <div
       ref={ref}
-      className={cx(bleedTheme({ top, left, bottom, right }), className)}
+      style={bleedStyle({ top, left, bottom, right }) as any}
+      className={cx(bleedTheme, className)}
       {...htmlProps}
     >
       <div className={bleedInnerChild}>{children}</div>
