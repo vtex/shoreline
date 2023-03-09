@@ -4,7 +4,7 @@ import type { ResponsiveProp } from '@vtex/admin-ui-react'
 import { useBreakpoint, getResponsiveValue } from '@vtex/admin-ui-react'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
 import { cx } from '@vtex/admin-ui-core'
-import { stackTheme } from './stack.css'
+import { stackStyle, stackTheme } from './stack.css'
 
 /**
  * Component used to display a set of components that are spaced evenly.
@@ -40,7 +40,8 @@ export const Stack = forwardRef(function Stack(
       {...htmlProps}
       data-direction={responsiveDirection}
       data-fluid={responsiveFluid}
-      className={cx(stackTheme(responsiveAlign, responsiveSpace), className)}
+      style={stackStyle(responsiveAlign, responsiveSpace) as any}
+      className={cx(stackTheme, className)}
     />
   )
 })

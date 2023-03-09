@@ -1,31 +1,35 @@
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
-import { dataAttr, csx } from '@vtex/admin-ui-core'
+import { dataAttr, csx, getTokenValue, theme } from '@vtex/admin-ui-core'
 
-export const stackTheme = (
+export const stackStyle = (
   align: 'start' | 'end',
   space: CSSPropAutocomplete<SpaceTokens>
-) =>
-  csx({
-    display: 'flex',
-    [dataAttr('direction', 'column')]: {
-      flexDirection: 'column',
-      justifyContent: 'unset',
-      alignItems: align,
-      '> *:not(:first-child)': {
-        marginTop: space,
-      },
-    },
-    [dataAttr('direction', 'row')]: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: align,
-      '> *:not(:first-child)': {
-        marginLeft: space,
-      },
-    },
+) => ({
+  '--stack-space': getTokenValue(theme, 'margin', space),
+  '--stack-align': align,
+})
 
-    [dataAttr('fluid', 'true')]: {
-      alignItems: 'unset',
-      justifyContent: 'unset',
+export const stackTheme = csx({
+  display: 'flex',
+  [dataAttr('direction', 'column')]: {
+    flexDirection: 'column',
+    justifyContent: 'unset',
+    alignItems: 'var(--stack-align)',
+    '> *:not(:first-child)': {
+      marginTop: 'var(--stack-space)',
     },
-  })
+  },
+  [dataAttr('direction', 'row')]: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'var(--stack-align)',
+    '> *:not(:first-child)': {
+      marginLeft: 'var(--stack-space)',
+    },
+  },
+
+  [dataAttr('fluid', 'true')]: {
+    alignItems: 'unset',
+    justifyContent: 'unset',
+  },
+})
