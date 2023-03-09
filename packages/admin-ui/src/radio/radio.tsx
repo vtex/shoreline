@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { unstable_useId as useId } from 'reakit/Id'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import { Label } from '../label'
 import { Stack } from '../stack'
@@ -14,16 +14,16 @@ export const Radio = forwardRef(function Radio(
   props: RadioProps,
   ref: Ref<HTMLInputElement>
 ) {
-  const { label, helpText, id, ...radioButtonProps } = props
+  const { label, helpText, id: defaultId, ...radioButtonProps } = props
 
-  const { id: baseId } = useId({ id })
+  const id = useId(defaultId)
 
   return (
     <FormControl>
       <Inline hSpace="$space-2" vSpace="">
-        <RadioButton ref={ref} {...radioButtonProps} id={baseId} />
+        <RadioButton ref={ref} {...radioButtonProps} id={id} />
         <Stack space="$space-05">
-          <Label htmlFor={baseId} className={labelTheme}>
+          <Label htmlFor={id} className={labelTheme}>
             {label}
           </Label>
           <FormControlMessage helpText={helpText} />

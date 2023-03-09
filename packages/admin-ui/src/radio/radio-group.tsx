@@ -2,7 +2,7 @@ import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type { RadioState } from 'ariakit/radio'
 import { RadioGroup as AriakitRadioGroup } from 'ariakit/radio'
-import { unstable_useId as useId } from 'reakit/Id'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import {
   FormControl,
@@ -28,17 +28,17 @@ export const RadioGroup = forwardRef(function RadioGroup(
     ...htmlProps
   } = props
 
-  const { id } = useId()
+  const labelId = useId()
 
   return (
     <AriakitRadioGroup
       state={state}
-      aria-labelledby={id}
+      aria-labelledby={labelId}
       {...htmlProps}
       ref={ref}
     >
       <FormControl>
-        <FormControlLabel id={id} optional={optional}>
+        <FormControlLabel id={labelId} optional={optional}>
           {label}
         </FormControlLabel>
         <Stack
