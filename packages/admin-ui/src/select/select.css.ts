@@ -1,6 +1,6 @@
-import { style, styleVariants, focusVisible, ring } from '@vtex/admin-ui-core'
+import { focusVisible, ring, dataAttr, csx } from '@vtex/admin-ui-core'
 
-export const baseline = style({
+export const selectTheme = csx({
   borderRadius: '$base',
   appearance: 'none',
   cursor: 'pointer',
@@ -26,6 +26,24 @@ export const baseline = style({
     polyfill: { boxShadow: ring('neutral') },
   }),
 
+  ':hover:not(:disabled)': {
+    border: '$form.neutralHover',
+  },
+
+  [dataAttr('error', 'true')]: {
+    ...focusVisible('critical', {
+      focus: { border: '$form.criticalFocus' },
+      polyfill: { boxShadow: ring('critical') },
+    }),
+    border: '$form.critical',
+
+    ':hover:not(:disabled)': {
+      border: '$form.criticalHover',
+    },
+  },
+  [dataAttr('selected', 'false')]: { fg: '$secondary' },
+  [dataAttr('selected', 'true')]: { fg: '$form.neutral' },
+
   ':disabled': {
     bg: '$disabled',
     color: '$disabled',
@@ -36,35 +54,9 @@ export const baseline = style({
       color: '$disabled',
     },
   },
-
-  ':hover:not(:disabled)': {
-    border: '$form.neutralHover',
-  },
 })
 
-export const variants = styleVariants({
-  error: {
-    false: {},
-    true: {
-      ...focusVisible('critical', {
-        focus: { border: '$form.criticalFocus' },
-        polyfill: { boxShadow: ring('critical') },
-      }),
-      border: '$form.critical',
-
-      ':hover:not(:disabled)': {
-        border: '$form.criticalHover',
-      },
-    },
-  },
-
-  selected: {
-    false: { color: '$secondary' },
-    true: { color: '$form.neutral' },
-  },
-})
-
-export const caret = style({
+export const caretTheme = csx({
   position: 'absolute',
   top: '$space-0',
   bottom: '$space-0',
@@ -74,7 +66,7 @@ export const caret = style({
   height: '1.25rem',
 })
 
-export const container = style({
+export const containerTheme = csx({
   position: 'relative',
   width: '100%',
 })

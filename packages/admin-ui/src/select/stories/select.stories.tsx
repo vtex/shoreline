@@ -8,6 +8,7 @@ import { Stack } from '../../stack'
 import type { Locales } from '../../i18n'
 import { I18nProvider, locales } from '../../i18n'
 import { Button } from '../../button'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/select',
@@ -50,9 +51,9 @@ Playground.args = {
   helpText: 'Help text',
   error: false,
   errorText: 'Error text',
-  csx: {
+  className: csx({
     margin: '$space-4 $space-5',
-  },
+  }),
   disabled: false,
   locale: 'en-US',
 }
