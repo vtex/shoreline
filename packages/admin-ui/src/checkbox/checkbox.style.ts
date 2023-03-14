@@ -1,4 +1,4 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { csx, focusVisible, style } from '@vtex/admin-ui-core'
 import { checkmarkSvg, indeterminateSvg } from './utils'
 
 export const disabled = style({
@@ -112,6 +112,6 @@ export const checkboxStyle = style({
   ':indeterminate': indeterminate,
 })
 
-export const label = style({
+export const labelTheme = csx({
   cursor: 'pointer',
 })

@@ -9,7 +9,8 @@ import {
 } from '../index'
 import { Box } from '../../../box'
 import { Checkbox } from '../../../checkbox'
-import { Label } from '../../Label'
+import { Label } from '../../../label'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/SelectionTree',
@@ -35,7 +36,7 @@ export const Basic = () => {
 
       {items.map((item) => (
         <Label
-          csx={{
+          className={csx({
             display: 'flex',
             alignItems: 'center',
             width: 250,
@@ -45,7 +46,7 @@ export const Basic = () => {
             ':hover': {
               bg: 'muted',
             },
-          }}
+          })}
           key={item.id}
         >
           <SelectionTreeItem label={item.name} value={item.id} />
@@ -67,7 +68,7 @@ export const InitiallySelected = () => {
 
       {items.map((item) => (
         <Label
-          csx={{
+          className={csx({
             display: 'flex',
             alignItems: 'center',
             width: 250,
@@ -77,7 +78,7 @@ export const InitiallySelected = () => {
             ':hover': {
               bg: 'muted',
             },
-          }}
+          })}
           key={item.id}
         >
           <SelectionTreeItem label={item.name} value={item.id} />
@@ -97,7 +98,7 @@ export const BareStateHook = () => {
       <Checkbox state={state.root} />
       {items.map((item) => (
         <Label
-          csx={{
+          className={csx({
             display: 'flex',
             alignItems: 'center',
             width: 250,
@@ -107,7 +108,7 @@ export const BareStateHook = () => {
             ':hover': {
               bg: 'muted',
             },
-          }}
+          })}
           key={item.id}
         >
           <Checkbox label={item.name} value={item.id} state={state.items} />

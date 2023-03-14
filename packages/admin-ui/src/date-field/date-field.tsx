@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import { Label } from '../components/Label'
+import { Label } from '../label'
 import { Flex } from '../flex'
 import * as style from './date-field.style'
 import { SegmentList, Segment } from '../segment'
@@ -30,7 +30,7 @@ export const DateField = createComponent<'div', DateFieldOptions>((props) => {
     children: (
       <>
         <Flex direction="column">
-          <Label csx={style.label}>{label}</Label>
+          <Label className={style.labelTheme}>{label}</Label>
           <SegmentList state={state}>
             {state.segments.map((segment, index) => (
               <Segment

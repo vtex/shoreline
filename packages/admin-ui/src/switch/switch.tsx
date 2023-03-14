@@ -7,7 +7,7 @@ import { unstable_useId as useId } from 'reakit/Id'
 import { Inline } from '../inline'
 import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'
-import { Label } from '../components/Label'
+import { Label } from '../label'
 import type { SwitchOptions } from './types'
 import { FormControl, FormControlMessage } from '../form-control'
 
@@ -38,7 +38,7 @@ export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
             {...htmlProps}
           />
           <Stack space="$space-05">
-            <Label htmlFor={baseId} csx={style.label}>
+            <Label htmlFor={baseId} className={style.labelTheme}>
               {label}
             </Label>
             <FormControlMessage
