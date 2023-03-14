@@ -3,7 +3,7 @@ import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
-import { Label } from '../components/Label'
+import { Label } from '../label'
 import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { RadioButton } from './radio-button'
@@ -21,7 +21,7 @@ export const Radio = createComponent<typeof RadioButton, RadioOptions>(
         <Inline hSpace="$space-2" vSpace="">
           <RadioButton {...radioButtonProps} id={baseId} />
           <Stack space="$space-05">
-            <Label htmlFor={baseId} csx={style.label}>
+            <Label htmlFor={baseId} className={style.labelTheme}>
               {label}
             </Label>
             <FormControlMessage helpText={helpText} />

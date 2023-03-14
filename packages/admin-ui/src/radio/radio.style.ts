@@ -1,5 +1,5 @@
 import type { Theme } from '@vtex/admin-ui-core'
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { csx, focusVisible, style } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
 export const checkmark = style({
@@ -77,6 +77,6 @@ export const radioButtonStyle = style({
   ':checked': checked,
 })
 
-export const label = style({
+export const labelTheme = csx({
   cursor: 'pointer',
 })

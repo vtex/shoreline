@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
+import { render, axe } from '../test-utils'
 
-import { Label } from './index'
+import { Label } from './label'
 
 describe('Label tests', () => {
   it('should not have a11y violations', async () => {

@@ -1,9 +1,10 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
-import type { LabelProps } from './index'
-import { Label } from './index'
-import { Flex } from '../../flex'
+import type { LabelProps } from './label'
+import { Label } from './label'
+import { Flex } from '../flex'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/Label',
@@ -13,9 +14,9 @@ export default {
 export const Playground: Story<LabelProps> = (args) => {
   return (
     <Label
-      csx={{
+      className={csx({
         display: 'flex',
-      }}
+      })}
       {...args}
     >
       <input type="checkbox" />

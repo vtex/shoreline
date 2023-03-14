@@ -4,7 +4,7 @@ import React from 'react'
 import { createComponent } from '@vtex/admin-ui-react'
 import { unstable_useId as useId } from 'reakit/Id'
 
-import { Label } from '../components/Label'
+import { Label } from '../label'
 import { Stack } from '../stack'
 import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
@@ -31,7 +31,7 @@ export const Checkbox = createComponent<typeof CheckboxInput, CheckboxOptions>(
         <Inline hSpace="$space-2" vSpace="" spaceInside>
           <CheckboxInput id={baseId} error={error} {...checkboxInputProps} />
           <Stack space="$space-05">
-            <Label htmlFor={baseId} csx={style.label}>
+            <Label htmlFor={baseId} className={style.labelTheme}>
               {label}
             </Label>
             <FormControlMessage

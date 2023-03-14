@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, style, styleVariants } from '@vtex/admin-ui-core'
 
 export const dateField = style({
   display: 'flex',
@@ -26,7 +26,7 @@ export const variants = styleVariants({
   },
 })
 
-export const label = style({
+export const labelTheme = csx({
   text: '$detail',
   color: '$secondary',
 })

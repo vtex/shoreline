@@ -12,10 +12,11 @@ import { Flex } from '../flex'
 import { Button } from '../button'
 import { Box } from '../box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
-import { Label } from '../components/Label'
+import { Label } from '../label'
 
 import * as style from './combobox.style'
 import type { ComboboxMultipleState } from '.'
+import { csx } from '@vtex/admin-ui-core'
 
 export type ComboboxMultipleFieldProps = {
   state: ComboboxMultipleState<any>
@@ -135,12 +136,12 @@ export const ComboboxMultipleField = createComponent<
           }}
         >
           <Label
-            csx={{
+            className={csx({
               ...style.label,
               ...style.labelTransition({
                 reduced: shouldReduceLabel,
               }),
-            }}
+            })}
             htmlFor={id}
           >
             {label}
