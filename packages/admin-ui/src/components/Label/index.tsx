@@ -1,5 +1,8 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { ComponentPropsWithRef } from 'react'
+import { csx, cx } from '@vtex/admin-ui-core'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+
+const labelTheme = csx({ text: '$body' })
 
 /**
  * Form label component.
@@ -7,13 +10,14 @@ import type { ComponentPropsWithRef } from 'react'
  * @example
  * <Label>label</Label>
  */
-export const Label = createComponent<'label'>((props) => {
-  return useElement('label', {
-    baseStyle: {
-      text: '$body',
-    },
-    ...props,
-  })
-})
+export const Label = forwardRef(
+  (props: LabelProps, ref: Ref<HTMLLabelElement>) => {
+    const { className = '', ...htmlProps } = props
 
-export type LabelProps = ComponentPropsWithRef<typeof Label>
+    return (
+      <label ref={ref} className={cx(labelTheme, className)} {...htmlProps} />
+    )
+  }
+)
+
+export type LabelProps = ComponentPropsWithoutRef<'label'>
