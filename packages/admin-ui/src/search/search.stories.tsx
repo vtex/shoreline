@@ -1,4 +1,5 @@
 import type { Meta, Story } from '@storybook/react'
+import { csx } from '@vtex/admin-ui-core'
 import React, { useState } from 'react'
 
 import type { Locales } from '../i18n'
@@ -28,7 +29,7 @@ export const Playground: Story<PlaygroundProps> = (args) => {
   return (
     <I18nProvider locale={args.locale}>
       <Search
-        csx={{ margin: '$space-4', width: 400 }}
+        className={csx({ margin: '$space-4', width: 400 })}
         {...args}
         loading={args.loading}
         {...getInputProps()}
@@ -49,7 +50,7 @@ export const WithoutHook = () => {
 
   return (
     <Search
-      csx={{ margin: '$space-4', width: 400 }}
+      className={csx({ margin: '$space-4', width: 400 })}
       value={value}
       onChange={(e) => {
         setValue(e.target.value)
