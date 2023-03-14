@@ -17,19 +17,21 @@ import { cx } from '@vtex/admin-ui-core'
  * @example
  * const buttonProps = useButton({})
  */
-export const useButton = ({
-  icon,
-  size = 'normal',
-  variant = 'primary',
-  iconPosition: defaultIconPosition = 'start',
-  loading = false,
-  disabled = false,
-  bleedY = false,
-  bleedX = false,
-  className = '',
-  children,
-  ...props
-}: ButtonProps) => {
+export const useButton = (props: ButtonProps) => {
+  const {
+    icon,
+    size = 'normal',
+    variant = 'primary',
+    iconPosition: defaultIconPosition = 'start',
+    loading = false,
+    disabled = false,
+    bleedY = false,
+    bleedX = false,
+    className = '',
+    children,
+    ...htmlProps
+  } = props
+
   const iconOnly = icon && !children
 
   const iconPosition = iconOnly ? 'center' : defaultIconPosition
@@ -62,7 +64,7 @@ export const useButton = ({
       </Center>
     ),
     disabled: disabled || loading,
-    ...props,
+    ...htmlProps,
   }
 }
 
