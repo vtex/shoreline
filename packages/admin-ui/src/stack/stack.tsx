@@ -51,6 +51,7 @@ export const Stack = forwardRef(function Stack(
 
         return (
           <div
+            key={`stack-${index}`}
             data-direction={responsiveDirection}
             data-firstchild={isFirstChild}
             className={stackChildTheme}
