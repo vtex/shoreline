@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.23...@vtex/admin-ui-docs@0.17.1-dev.24) (2023-03-15)
+
+
+### Features
+
+* **stack:** add pr suggestion ([87f1a48](https://github.com/vtex/admin-ui/commit/87f1a486cc6aeda2adb40bf4f9ece6bd6fea7d3f))
+
+
+
+
+
 ## [0.17.1-dev.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.22...@vtex/admin-ui-docs@0.17.1-dev.23) (2023-03-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
