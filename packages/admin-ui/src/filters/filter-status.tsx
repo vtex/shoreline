@@ -11,6 +11,7 @@ import * as style from './filter.style'
 import { Skeleton } from '../skeleton'
 
 import type { FilterStatus as FilterStatusType } from './use-filter-status'
+import { csx, cx } from '@vtex/admin-ui-core'
 
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props
@@ -30,8 +31,8 @@ export function FilterStatus(props: FilterStatusProps) {
       )}
 
       {status === 'loading' && (
-        <Stack csx={style.statusLayout} space="$space-6">
-          <Stack space="$space-4" csx={{ width: '3/4' }}>
+        <Stack className={csx(style.statusLayout)} space="$space-6">
+          <Stack space="$space-4" className={csx({ width: '3/4' })}>
             <Skeleton csx={{ height: 20 }} />
             <Skeleton csx={{ width: '9/12', height: 20 }} />
             <Skeleton csx={{ width: '10/12', height: 20 }} />
@@ -41,10 +42,10 @@ export function FilterStatus(props: FilterStatusProps) {
 
           <Stack
             direction="row"
-            csx={{
+            className={csx({
               width: '100%',
               justifyContent: 'flex-end',
-            }}
+            })}
           >
             <Skeleton csx={{ height: 32, width: 62 }} />
             <Skeleton csx={{ height: 32, width: 62 }} />
@@ -53,7 +54,9 @@ export function FilterStatus(props: FilterStatusProps) {
       )}
 
       {status === 'error' && (
-        <Stack csx={style.statusLayout} className="__admin-ui-filter-status">
+        <Stack
+          className={cx(csx(style.statusLayout), '__admin-ui-filter-status')}
+        >
           <Text variant="title2">{formatMessage('errorTitle')}</Text>
           <Button variant="tertiary" onClick={onRetry} bleedX>
             {formatMessage('retry')}
@@ -63,9 +66,11 @@ export function FilterStatus(props: FilterStatusProps) {
 
       {status === 'not-found' && (
         <Stack
-          csx={{ padding: '$space-4 $space-5' }}
+          className={cx(
+            csx({ padding: '$space-4 $space-5' }),
+            '__admin-ui-filter-status'
+          )}
           space="$space-05"
-          className="__admin-ui-filter-status"
         >
           <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
           <Text variant="body" tone="secondary">

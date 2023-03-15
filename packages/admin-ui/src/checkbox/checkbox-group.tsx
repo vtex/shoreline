@@ -9,6 +9,7 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
+import { csx } from '@vtex/admin-ui-core'
 
 export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
   (props) => {
@@ -22,7 +23,7 @@ export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
           <Stack
             direction={direction}
             space="$space-4"
-            csx={{ marginY: '$space-1' }}
+            className={csx({ marginY: '$space-1' })}
           >
             {children}
           </Stack>

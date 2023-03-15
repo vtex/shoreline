@@ -147,7 +147,7 @@ function IconPreview(props: IconPreviewProps) {
   const { item, weight, size, opacity } = props
 
   return (
-    <Stack space="$space-4" csx={{ alignItems: 'center' }}>
+    <Stack space="$space-4" className={csx({ alignItems: 'center' })}>
       {cloneElement(item.icon, {
         ...props,
         size,

@@ -10,6 +10,7 @@ import {
   FormControlMessage,
 } from '../form-control'
 import { Stack } from '../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
   (props) => {
@@ -34,7 +35,7 @@ export const RadioGroup = createComponent<'fieldset', RadioGroupOptions>(
             <Stack
               direction={direction}
               space="$space-4"
-              csx={{ marginY: '$space-1' }}
+              className={csx({ marginY: '$space-1' })}
             >
               {children}
             </Stack>

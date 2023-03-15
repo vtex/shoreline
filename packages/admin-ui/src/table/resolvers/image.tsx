@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
 import type { StyleObject, Theme } from '@vtex/admin-ui-core'
-import { style, focusVisible } from '@vtex/admin-ui-core'
+import { csx, style, focusVisible } from '@vtex/admin-ui-core'
 import { useSystem } from '@vtex/admin-ui-react'
 import { get } from '@vtex/admin-ui-util'
 
@@ -81,7 +81,7 @@ export function imageResolver<T>() {
 
 function ImageContainer(props: ImageContainerProps) {
   return (
-    <Stack csx={{ height: '4rem', justifyContent: 'center' }}>
+    <Stack className={csx({ height: '4rem', justifyContent: 'center' })}>
       {props.children}
     </Stack>
   )

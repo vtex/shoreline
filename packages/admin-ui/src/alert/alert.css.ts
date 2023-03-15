@@ -39,7 +39,7 @@ export const alertAction = style({
   },
 })
 
-export const rightInline = style({ whiteSpace: 'nowrap' })
+export const rightInline = csx({ whiteSpace: 'nowrap' })
 
 export const alertDescription = style({
   maxWidth: '49rem',

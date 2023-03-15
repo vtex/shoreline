@@ -5,6 +5,7 @@ import { useSelect } from 'downshift'
 import { IconCaretDown } from '@vtex/phosphor-icons'
 import { Box } from '../../box'
 import { forwardRef } from '@vtex/admin-ui-util'
+import { csx } from '@vtex/admin-ui-core'
 
 import type { ButtonProps } from '../../button'
 import { Button } from '../../button'
@@ -22,7 +23,6 @@ export const Dropdown = forwardRef(
       size = 'normal',
       state,
       renderItem = (item) => item,
-      csx,
       ...buttonProps
     } = props
 
@@ -37,7 +37,6 @@ export const Dropdown = forwardRef(
           icon={<IconCaretDown />}
           iconPosition="end"
           {...state.getToggleButtonProps()}
-          csx={csx}
           {...buttonProps}
         >
           {renderItem(state.selectedItem)}
@@ -45,9 +44,11 @@ export const Dropdown = forwardRef(
         <Stack
           fluid
           {...state.getMenuProps()}
-          csx={style.menu({
-            visible: state.isOpen,
-          })}
+          className={csx(
+            style.menu({
+              visible: state.isOpen,
+            })
+          )}
         >
           {state.isOpen &&
             items.map((item, index) => (

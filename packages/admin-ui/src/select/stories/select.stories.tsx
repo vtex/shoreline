@@ -8,6 +8,7 @@ import { Stack } from '../../stack'
 import type { Locales } from '../../i18n'
 import { I18nProvider, locales } from '../../i18n'
 import { Button } from '../../button'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/select',
@@ -63,7 +64,7 @@ export const UIStates: Story<SelectProps> = () => {
   return (
     <Stack
       space="$space-12"
-      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      className={csx({ width: '288px', margin: '$space-3 $space-4' })}
       fluid
     >
       <Select
@@ -115,7 +116,7 @@ export const ForwardRef: Story<SelectProps> = () => {
   return (
     <Stack
       space="$space-12"
-      csx={{ width: '288px', margin: '$space-3 $space-4' }}
+      className={csx({ width: '288px', margin: '$space-3 $space-4' })}
       fluid
     >
       <Select ref={ref}>

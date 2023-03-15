@@ -656,7 +656,7 @@ const columns = createColumns([
             : '$warning'
 
         return (
-          <Stack align="end" csx={{ width: '100%' }}>
+          <Stack align="end" className={csx({ width: '100%' })}>
             <Text variant="body">
               <FormattedNumber
                 value={data.value}
@@ -667,18 +667,18 @@ const columns = createColumns([
             <Stack
               direction="row"
               space="$space-1"
-              csx={{
+              className={csx({
                 color,
                 text: 'detail',
                 width: '100%',
                 justifyContent: 'end',
-              }}
+              })}
             >
-                <FormattedNumber
-                  value={Math.abs(data.trend)}
-                  style="percent"
-                  minimumFractionDigits="2"
-                />
+              <FormattedNumber
+                value={Math.abs(data.trend)}
+                style="percent"
+                minimumFractionDigits="2"
+              />
             </Stack>
           </Stack>
         )

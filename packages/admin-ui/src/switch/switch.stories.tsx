@@ -5,6 +5,7 @@ import { Text } from '../components/Text'
 import type { SwitchProps } from './types'
 import { Switch, useSwitchState } from './index'
 import { Stack } from '../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/switch',
@@ -37,12 +38,12 @@ export function Variants() {
 
   return (
     <Stack
-      csx={{
+      className={csx({
         margin: '1rem',
         '> div > *:not(:first-child):not(:nth-child(2))': {
           marginTop: '3.75rem',
         },
-      }}
+      })}
     >
       <Stack>
         <Text variant="title1">Label only</Text>

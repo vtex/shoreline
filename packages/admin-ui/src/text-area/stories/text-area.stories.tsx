@@ -4,6 +4,7 @@ import type { Meta } from '@storybook/react'
 import { Stack } from '../../stack'
 import { TextArea } from '../text-area'
 import { Box } from '../..'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/text-area',
@@ -21,7 +22,7 @@ export const Controlled = () => {
   const [value, setValue] = useState<string>('')
 
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
+    <Stack space="$space-2" className={csx({ padding: '$space-2 $space-3' })}>
       <TextArea
         label="Controlled"
         value={value}
@@ -36,7 +37,7 @@ export const Controlled = () => {
 
 export const States = () => {
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
+    <Stack space="$space-2" className={csx({ padding: '$space-2 $space-3' })}>
       <TextArea label="Plain" />
       <TextArea
         label="With Error and help"
@@ -75,7 +76,7 @@ export const ForwardRef = () => {
   }, [])
 
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }}>
+    <Stack space="$space-2" className={csx({ padding: '$space-2 $space-3' })}>
       <TextArea ref={ref} />
     </Stack>
   )
