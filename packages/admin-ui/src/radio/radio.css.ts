@@ -1,5 +1,5 @@
 import type { Theme } from '@vtex/admin-ui-core'
-import { csx, focusVisible, style } from '@vtex/admin-ui-core'
+import { focusVisible, style, csx } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
 export const checkmark = style({
@@ -24,26 +24,6 @@ export const disabled = style({
       },
     },
   },
-})
-
-export const baseline = style({
-  ...focusVisible('neutral'),
-  size: '1.25rem',
-  border: '$form.control',
-  appearance: 'none',
-  position: 'relative',
-  borderRadius: '$pill',
-  cursor: 'pointer',
-  display: 'flex',
-  margin: '$space-0',
-  alignItems: 'center',
-  justifyContent: 'center',
-
-  ':hover:not(:disabled)': {
-    bg: '$form.controlHover',
-    border: '$form.controlHover',
-  },
-  ...disabled,
 })
 
 export const checked = style({
@@ -71,8 +51,24 @@ export const checked = style({
   ...disabled,
 })
 
-export const radioButtonStyle = style({
-  ...baseline,
+export const radioTheme = csx({
+  ...focusVisible('neutral'),
+  size: '1.25rem',
+  border: '$form.control',
+  appearance: 'none',
+  position: 'relative',
+  borderRadius: '$pill',
+  cursor: 'pointer',
+  display: 'flex',
+  margin: '$space-0',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  ':hover:not(:disabled)': {
+    bg: '$form.controlHover',
+    border: '$form.controlHover',
+  },
+  ...disabled,
   ':after': checkmark,
   ':checked': checked,
 })
