@@ -13,62 +13,6 @@ import {
 import { cx } from '@vtex/admin-ui-core'
 
 /**
- * Button behavior
- * @example
- * const buttonProps = useButton({})
- */
-export const useButton = (props: ButtonProps) => {
-  const {
-    icon,
-    size = 'normal',
-    variant = 'primary',
-    iconPosition: defaultIconPosition = 'start',
-    loading = false,
-    disabled = false,
-    bleedY = false,
-    bleedX = false,
-    className = '',
-    children,
-    ...htmlProps
-  } = props
-
-  const iconOnly = icon && !children
-
-  const iconPosition = iconOnly ? 'center' : defaultIconPosition
-
-  return {
-    'data-variant': variant,
-    'data-size': size,
-    'data-bleed-x': bleedX,
-    'data-bleed-y': bleedY,
-    className: cx(buttonTheme, className),
-    children: (
-      <Center>
-        <Center
-          data-loading={loading}
-          data-icon-position={iconPosition}
-          className={innerContainerTheme}
-        >
-          {icon && (
-            <IconContainer size={iconPosition === 'end' ? 'small' : 'regular'}>
-              {icon}
-            </IconContainer>
-          )}
-          {children}
-        </Center>
-        {loading ? (
-          <Center className={spinnerContainerTheme}>
-            <Spinner />
-          </Center>
-        ) : null}
-      </Center>
-    ),
-    disabled: disabled || loading,
-    ...htmlProps,
-  }
-}
-
-/**
  * Button component
  * @example
  * import { Button } from `@vtex/admin-ui`
@@ -76,9 +20,58 @@ export const useButton = (props: ButtonProps) => {
  */
 export const Button = forwardRef(
   (props: ButtonProps, ref: React.LegacyRef<HTMLButtonElement>) => {
-    const elementProps = useButton(props)
+    const {
+      icon,
+      size = 'normal',
+      variant = 'primary',
+      iconPosition: defaultIconPosition = 'start',
+      loading = false,
+      disabled = false,
+      bleedY = false,
+      bleedX = false,
+      className = '',
+      children,
+      ...htmlProps
+    } = props
 
-    return <button ref={ref} {...elementProps} />
+    const iconOnly = icon && !children
+
+    const iconPosition = iconOnly ? 'center' : defaultIconPosition
+
+    return (
+      <button
+        ref={ref}
+        data-variant={variant}
+        data-size={size}
+        data-bleed-x={bleedX}
+        data-bleed-y={bleedY}
+        disabled={disabled || loading}
+        className={cx(buttonTheme, className)}
+        {...htmlProps}
+      >
+        <Center>
+          <Center
+            data-loading={loading}
+            data-icon-position={iconPosition}
+            className={innerContainerTheme}
+          >
+            {icon && (
+              <IconContainer
+                size={iconPosition === 'end' ? 'small' : 'regular'}
+              >
+                {icon}
+              </IconContainer>
+            )}
+            {children}
+          </Center>
+          {loading ? (
+            <Center className={spinnerContainerTheme}>
+              <Spinner />
+            </Center>
+          ) : null}
+        </Center>
+      </button>
+    )
   }
 )
 
