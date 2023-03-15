@@ -15,21 +15,25 @@ export const stackTheme = csx({
     flexDirection: 'column',
     justifyContent: 'unset',
     alignItems: 'var(--stack-align)',
-    '> *:not(:first-child)': {
-      marginTop: 'var(--stack-space)',
-    },
   },
   [dataAttr('direction', 'row')]: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'var(--stack-align)',
-    '> *:not(:first-child)': {
-      marginLeft: 'var(--stack-space)',
-    },
   },
 
   [dataAttr('fluid', 'true')]: {
     alignItems: 'unset',
     justifyContent: 'unset',
+  },
+})
+
+export const stackChildTheme = csx({
+  display: 'flex',
+  [dataAttr({ firstchild: 'false', direction: 'column' })]: {
+    marginTop: 'var(--stack-space)',
+  },
+  [dataAttr({ firstchild: 'false', direction: 'row' })]: {
+    marginLeft: 'var(--stack-space)',
   },
 })
