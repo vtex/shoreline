@@ -1,14 +1,135 @@
 ---
 title: Skeleton
 path: /skeleton/
+hide_table_of_contents: true
 ---
 
-`Skeleton` is a versatile primitive component, with no defined style, that can be used to leverage UIs that don't contain actual content yet. Instead, it shows the loading elements of a page in a shape similar to the actual content. Other use cases include:
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
-- It shows users that content is loading, offering a vague preview of how content will look once it fully loads.
-- It is also used internally by AdminUI to handle the loading state of specific components.
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 3,
+    },
+    {
+      id: 'fluid',
+      value: 'Fluid',
+      level: 3,
+    }
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
 
-## Usage
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection>
+
+## What is this?
+
+Skeleton indicators allow merchants to anticipate the dynamic content that will appear after the page loads.
+<br /><br />
+</IntroSection>
+
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+### Rectangle
+
+<br />
+By default, Skeleton's shape is rectangular. To use this variation, the <code>shape</code> property has the <code>rect</code> value.
+<br /><br />
+
+```jsx live
+<Skeleton csx={{ size: 128 }} />
+```
+
+### Circle
+
+<br />
+The shape can also be circular. To use this variation, the <code>shape</code> property has the <code>circle</code> value.
+<br /><br />
+
+```jsx live
+<Skeleton shape="circle" csx={{ size: 100 }} />
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
+
+By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
+<br /><br />
+
+```jsx live
+<Box csx={{ width: 'full', height: 192 }}>
+  <Skeleton />
+</Box>
+```  
+
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
 
 ```jsx
 import { Skeleton } from '@vtex/admin-ui'
@@ -18,41 +139,131 @@ export Example() {
 }
 ```
 
-## Examples
+</PageSection>
 
-### Rectangle
-
-By default, Skeleton's shape is rectangular. To use this variation, the `shape` property has the `rect` value.
-
-```jsx live
-<Skeleton csx={{ size: 128 }} />
-```
-
-### Circle
-
-The shape can also be circular. To use this variation, the `shape` property has the `circle` value.
-
-```jsx live
-<Skeleton shape="circle" csx={{ size: 100 }} />
-```
-
-### Fluid
-
-By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
-
-```jsx live
-<Box csx={{ width: 'full', height: 192 }}>
-  <Skeleton />
-</Box>
-```
-
-## Props
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
 
 | Name  | Type           | Description      | Required | Default |
 | ----- | -------------- | ---------------- | -------- | ------- |
 | csx   | `StyleObject`  | Custom styles    | 🚫       | `{}`    |
 | shape | `rect, circle` | Skeleton's shape | 🚫       | `rect`  |
 
-## Best Practices
 
-1. You should only use `Skeleton` with dynamic elements. This means that, you should not use `Skeleton` if you already have the data information.
+</PageSection>
+</Panel>
+
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use a Spinner or a custom loading state instead of a Skeleton?</h4></summary>
+  <ul>
+    <li>Choose a Spinner when the page is loaded, and a specific request will take over a second and less than five seconds.</li>
+    <li>Choose a custom loading state with animations, illustrations, or progress bars when the request takes more than five seconds or when the content that will load has an irregular shape, such as a graph.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <br /><br />
+  <ul>
+    <li>Don't show a loading state for requests that take less than a second.</li>
+    <li>Don't show a Skeleton on a page that is already loaded.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use a rectangle or circle Skeleton?</h4></summary>
+  <div>
+    The Skeleton composition should closely resemble the content that will load. For example, pills should represent Tags, rectangles should represent Texts, and circles should represent Avatars.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the size of a Skeleton and its position in a container?</h4></summary>
+  Considering left-to-right interfaces, follow these recommendations:
+  <ul>
+    <li>Position Skeletons so they closely resemble the content that will load. For example, represent Text inside a Card with a set of rectangle Skeletons inside a Card.</li>
+    <li>If the size or position of the content that will load depends on dynamic conditions, represent a common scenario in the loading state.</li>
+    <li>Consider that some components already have a loading state that shouldn't be customized, such as the Skeletons in Table columns.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <br /><br />
+  <ul>
+    <li>Don't use large and generic Skeletons. For example, use a set of rectangle Skeletons to represent a Text paragraph, each with a height equal to the line height of the Text that will load.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should be the duration of a Skeleton?</h4></summary>
+  <ul>
+    <li>The Skeleton should be displayed during the initial loading of the page and should be removed as the content loads.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <br /><br />
+  <ul>
+    <li>Don't use a Skeleton when the page takes longer than five seconds to load. Use a custom loading state instead.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>What should be the animation of a Skeleton?</h4></summary>
+  <div>
+    Skeletons have a default wave animation that is played in a loop. Don't customize this animation. Don't customize this animation.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What type of content should be hidden while a page loads?</h4></summary>
+  <ul>
+    <li>Skeletons should replace only the content that will load through requests. For example, the label of a piece of information should remain visible during loading.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <br /><br />
+  <ul>
+    <li>Don't replace actions with Skeletons. Use the disabled state of the component if the action can't be triggered during loading.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+</Panel>
+
+</Page>
