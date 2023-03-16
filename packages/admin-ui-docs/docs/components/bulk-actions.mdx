@@ -1,32 +1,86 @@
 ---
 title: Bulk Actions
 path: /bulk-actions/
+hide_table_of_contents: true
 ---
+
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 3,
+    }
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection>
 
 ## What is this?
 
-Bulk actions allows the user to perform actions in one or more selected items.
+Bulk Actions triggers allow merchants to manage a selection and start actions that modify multiple selected items.
+<br /><br />
+</IntroSection>
 
-## Usage
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
-```jsx
-import { useBulkActions, BulkActions } from '@vtex/admin-ui'
-
-function Example() {
-  const state = useBulkActions({ pageItems, totalItems })
-
-  return (
-    <BulkActions state={state}>
-      <Button>Action 1</Button>
-      <Button>Action 2</Button>
-    </BulkActions>
-  )
-}
-```
-
-## Examples
-
-### Without pagination
+### Without Pagination
+<br />
 
 ```jsx live
 function Example() {
@@ -102,6 +156,7 @@ function Example() {
 ```
 
 ### With Pagination
+<br />
 
 ```jsx live
 function Example() {
@@ -196,21 +251,58 @@ function Example() {
 }
 ```
 
-## Props
+</PageSection>
+
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx
+import { useBulkActions, BulkActions } from '@vtex/admin-ui'
+
+function Example() {
+  const state = useBulkActions({ pageItems, totalItems })
+
+  return (
+    <BulkActions state={state}>
+      <Button>Action 1</Button>
+      <Button>Action 2</Button>
+    </BulkActions>
+  )
+}
+```
+
+</PageSection>
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
 
 ### UseBulkActionsParams
 
-The props you can pass as a parameter to the `useBulkActions` hook.
+<br />
+The props you can pass as a parameter to the <code>useBulkActions</code> hook.
+<br /><br />
 
 | Name       | Type                                        | Description                  | Required | Default |
 | ---------- | ------------------------------------------- | ---------------------------- | -------- | ------- |
 | pageItems  | `T[] where T extends { id: string,number }` | Items of the Page            | ✅       | -       |
 | totalItems | `number`                                    | The total number of items    | ✅       | -       |
 | pageSize   | `number`                                    | The number of items per page | ✅       | -       |
+<br />
+
 
 ### BulkActionState
 
-The props returned by the `useBulkActions` hook.
+<br />
+The props returned by the <code>useBulkActions</code> hook.
+<br /><br />
 
 | Name                | Type                                              | Description                                                    | Default |
 | ------------------- | ------------------------------------------------- | -------------------------------------------------------------- | ------- |
@@ -227,15 +319,150 @@ The props returned by the `useBulkActions` hook.
 | selectedItemsIds    | `Array<string, number>`                           | Represents the state of the checkboxes                         | -       |
 | setSelectedItemsIds | `Dispatch<SetStateAction<Array<string, number>>>` | Sets the checkboxes state                                      | -       |
 | selectionTree       | `SelectionTreeState<T>`                           | Selection tree state to be used within SelectionTree component | -       |
+<br />
+
 
 ### BulkActions
 
-It also receives the same properties as the `div` JSX element.
+<br />
+It also receives the same properties as the <code>div</code> JSX element.
+<br /><br />
 
 | Name  | Type                  | Description        | Required | Default |
 | ----- | --------------------- | ------------------ | -------- | ------- |
 | state | `BulkActionsState<T>` | Bulk actions state | ✅       | -       |
 
-## Do’s
+</PageSection>
+</Panel>
 
-1. The actions must always have an `Icon` and be of `tertiary` or `criticalTertiary` variants.
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to display bulk actions outside of the Bulk Actions component?</h4></summary>
+  <div>
+    The Bulk Actions component appears once items are selected in a list. If the page doesn't include a list or if the action must be visible at all times, then include the bulk action in the header of a container. For example, besides manual selection, the <em>Export</em> action can be triggered by creating rules to select items through a button in the DataView header.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>What Buttons should be in the Bulk Actions?</h4></summary>
+  <ul>
+    <li>The buttons within the Bulk Actions component should use the <code>tertiary</code> or <code>criticalTertiary</code> variants. Include actions that can be performed for multiple items even though their entire content is not visible to the merchant, such as:
+    <ul>
+      <li>Edit</li>
+      <li>Delete</li>
+      <li>Activate</li>
+      <li>Deactivate</li>
+      <li>Archive</li>
+      <li>Pause</li>
+      <li>Export</li>
+    </ul>
+    </li>
+  </ul>
+  <br/>
+  <strong>What to avoid:</strong>
+  <br /><br/>
+  <ul>
+    <li>Don't include more than 4 actions. For example, prefer adding a single Edit action that leads to a Modal where the property to be altered can be selected.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Where should the Bulk Actions be positioned?</h4></summary>
+  <div>
+    Bulk Actions should overlay the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> component, be anchored at the bottom of the viewport and be horizontally centered.<br/><br/>
+    Read the <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">Listing page template</a> documentation for more information.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should happen when the <em>Select All</em> button is clicked?</h4></summary>
+  <div>
+    When the <em>Select All</em> action is triggered, all the items of all pages are selected.
+    <br /><br/>
+    After the selection, the possibility of unselecting specific items depends on the API of the involved system. The ideal behavior is that the merchant can click on the Checkbox of specific selected items to unselect them.
+    <br /><br/>
+    However, the API might not support registering all the items. In this case, when clicking <em>Select All</em>, the Checkbox of all items must be selected and disabled. It should only be enabled when the merchant clicks <em>Deselect All</em>.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the Bulk Actions be visible?</h4></summary>
+  <div>
+    The Bulk Actions component appears when the merchant selects the Checkbox of a list item and disappears only when all the items are unselected.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Except for the <em>Delete</em> action, don’t hide or clear the selection after an action is triggered.</li>
+        <li>Don’t hide or clear the selection after the merchant navigates between pages in the list.</li>
+      </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should happen after a Button in the Bulk Actions is triggered?</h4></summary>
+  <ul>
+    <li>Actions that impact multiple items should display a confirmation Modal. If the action already requires an additional step to define rules, such as defining the property to be altered in an Edit action, this confirmation can be suppressed.</li>
+    <li>When an action has been completed, items should remain selected (except for Delete actions), and a feedback Toast should appear.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should a Button in the Bulk Actions be disabled?</h4></summary>
+  <div>
+    Disable actions only when the reason they are disabled is clear and if in some condition they become enabled.<br/><br/>
+    Read the <a href="https://admin-ui.vercel.app/components/button">Button</a> documentation for more details.
+  </div>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the icon and the label of Buttons in the Bulk Actions?</h4></summary>
+  <div>
+    All Buttons inside the Bulk Actions component should include an icon, except for the default Select All button. Labels should use a verb in the infinitive and an object.
+    <br /><br/>
+    Read the <a href="https://admin-ui.vercel.app/components/button">Button</a> documentation for more details.
+  </div>
+</details>
+
+</PageSection>
+
+</Panel>
+
+</Page>
