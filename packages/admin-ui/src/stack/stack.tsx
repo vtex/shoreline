@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef, Children } from 'react'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
 import { useBreakpoint, getResponsiveValue } from '@vtex/admin-ui-react'
-import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
 import { cx } from '@vtex/admin-ui-core'
+import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
 import { stackChildTheme, stackStyle, stackTheme } from './stack.css'
 
 /**
@@ -39,10 +39,10 @@ export const Stack = forwardRef(function Stack(
     <div
       ref={ref}
       {...htmlProps}
+      className={cx(stackTheme, className)}
       data-direction={responsiveDirection}
       data-fluid={responsiveFluid}
       style={stackStyle(responsiveAlign, responsiveSpace) as any}
-      className={cx(stackTheme, className)}
     >
       {Children.map(children, (child, index) => {
         const isFirstChild = index === 0
@@ -53,7 +53,8 @@ export const Stack = forwardRef(function Stack(
           <div
             key={`stack-${index}`}
             data-direction={responsiveDirection}
-            data-firstchild={isFirstChild}
+            data-first-child={isFirstChild}
+            data-fluid={responsiveFluid}
             className={stackChildTheme}
           >
             {child}

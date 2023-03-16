@@ -10,8 +10,9 @@ export const stackStyle = (
 })
 
 export const stackTheme = csx({
-  display: 'flex',
+  display: 'inline-flex',
   [dataAttr('direction', 'column')]: {
+    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'unset',
     alignItems: 'var(--stack-align)',
@@ -22,18 +23,22 @@ export const stackTheme = csx({
     justifyContent: 'var(--stack-align)',
   },
 
-  [dataAttr('fluid', 'true')]: {
+  [dataAttr({ fluid: 'true', direction: 'column' })]: {
     alignItems: 'unset',
     justifyContent: 'unset',
   },
 })
 
 export const stackChildTheme = csx({
-  display: 'flex',
-  [dataAttr({ firstchild: 'false', direction: 'column' })]: {
+  display: 'inline-flex',
+  width: '100%',
+  [dataAttr({ fluid: 'true', direction: 'column' })]: {
+    flexDirection: 'column',
+  },
+  [dataAttr({ 'first-child': 'false', direction: 'column' })]: {
     marginTop: 'var(--stack-space)',
   },
-  [dataAttr({ firstchild: 'false', direction: 'row' })]: {
+  [dataAttr({ 'first-child': 'false', direction: 'row' })]: {
     marginLeft: 'var(--stack-space)',
   },
 })
