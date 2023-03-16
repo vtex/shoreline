@@ -1,28 +1,207 @@
-import { Section } from '@site/src/components/Section'
-import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { PageSection } from '@site/src/components/PageSection'
 
-<Section direction="row">
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
 
-## Best Practices
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-<OrderedList>
-  <OrderedListItem>
-    Show the exact values that the field supports.
-  </OrderedListItem>
-  <OrderedListItem>
-    Use messages, descriptions or tooltips to give more context, if needed.
-  </OrderedListItem>
-  <OrderedListItem>
-    Do use the required/optional flags when necessary, but prefer using one or
-    another.
-  </OrderedListItem>
-  <OrderedListItem>
-    Use the Helper Text to explain in more details how the input is expected to
-    be filled.
-  </OrderedListItem>
-  <OrderedListItem>
-    Add data validation to indicate when data hasn’t been inputted correctly.
-  </OrderedListItem>
-</OrderedList>
+<details>
+  <summary><h4>When to use TextArea, DatePicker, NumberInput, Search or Combobox instead of TextInput?</h4></summary>
+  <ul>
+    <li>Choose a TextArea when the text value usually takes up more than a line.</li>
+    <li>Choose a DatePicker for date values.</li>
+    <li>Choose a NumberInput for numeric values with a unit and a specific format, such as quantities, measurements, and monetary amounts.</li>
+    <li>Choose a Search when the text value will be simultaneously submitted and used to filter items in a list.</li>
+    <li>Choose the Combobox when the merchant can search to select a predefined value or when they can list multiple values in the same field.</li>
+  </ul>
+</details>
 
-</Section>
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to include a prefix or a suffix in a TextInput?</h4></summary>
+    <ul>
+      <li>Use a prefix when the value always starts with the same characters. For example, URLs that always start with <code>https://</code>.</li>
+      <li>Use a suffix when the value always ends with the same characters. For example, a monetary amount that ends in <code>USD</code>, a weight value that ends in <code>kg</code>, a size measurement that ends in <code>cm</code> or a number that ends in <code>%</code>.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't use a suffix with an icon.</li>
+      <li>Don't use a field as the prefix or suffix of another field. For example, instead of using a Select as a prefix, include it as a separate field in the same line.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should a TextInput be optional?</h4></summary>
+    The TextInput should be included in the form but marked as optional when it's sometimes necessary. For example, the phone number of a store or the second line of an address.
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't mark the mandatory fields of a form. Mark the optional fields. By default, the term <em>(optional)</em> is included next to the label.</li>
+      <li>Don't include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the size of the TextInput and its position in a container?</h4></summary>
+    Considering left-to-right interfaces, follow these recommendations:
+      <ul>
+        <li>The size of the field should comfortably fit the values that are usually filled in, considering localization as well.</li>
+        <li>Group and sort fields in a way that is logical to the merchant, according to user research. For example, the name is expected to come before the ID.</li>
+      </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't position two fields that are not complementary on the same line. For example, the street name is not usually on the same line as the city.</li>
+      <li>Don't include more than three fields on the same line.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a TextInput be disabled?</h4></summary>
+  <ul>
+    <li>Disable a field only if, in some condition, it becomes enabled. For example, a field that is incompatible with an option currently chosen in the form.</li>
+    <li>When the reason why the field is disabled might be unclear, use a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should the error state of a Form field be visible?</h4></summary>
+    The validation behavior should communicate the error at the right moment and make it easier to fix. To minimize frustration, follow these recommendations:
+      <ul>
+        <li>Show the error in a specific field when the merchant removes the focus or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.</li>
+        <li>Remove the error state of the field as soon as the merchant modifies its value.</li>
+      </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't show the error state once the merchant has started to type on the field.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a TextInput?</h4></summary>
+    <ul>
+      <li>Write the name that best describes the value that must be filled. For example, use <em>Email address</em> when the value should be an email address.</li>
+      <li>Visually hide the field label only when this definition is already present somewhere else, such as a column label that already describes all the fields in the column.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't include redundant words. For example, write <em>Name </em>as the label instead of <em>Promotion name</em> on a page that includes promotion in its title.</li>
+      <li>Don't use an icon in a prefix to replace a label that isn't present anywhere else.</li>
+      <li>Don't use verbs. For example, instead of <em>Fill name</em>, use only <em>Name</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>VTEX account</em> instead of <em>My VTEX account</em>.</li>
+      <li>Don't use interrogations.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When to use placeholder text in a TextInput?</h4></summary>
+  <div>
+    Don't use placeholder text. Define the field in its label and provide any other necessary information in the help text.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the help text of a TextInput?</h4></summary>
+    The help text of a field can be used to provide any other information that is necessary besides the label. When writing the help text, follow these recommendations:
+    <ul>
+      <li>Write a single sentence that is short and direct.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+      <li>When the help text explains the label, write as if you are completing the following sentence: <em>This is the [help text]</em>. For example, the help text for a Seller ID field could be "<em>Seller identifier in the marketplace</em>".</li>
+      <li>When the help text explains how the field value will be used, start with a verb in the present tense as if completing the following sentence: <em>When you fill a value in this field, it [help text]</em>. For example, the help text for a Seller ID field could be "<em>Appears to customers in the store</em>".</li>
+      <li>When the help text explains the label and how the value will be used, combine the two sentences described in the previous topics. For example, "<em>Seller identifier in the marketplace that appears to customers in the store</em>".</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't explain format rules that can be implemented. Prefer implementing a mask or validation rules instead.</li>
+      <li>Don't include links. Use the Alert before the field if this is necessary.</li>
+      <li>Don't use periods or commas.</li>
+      <li>Don't repeat the label in the text.</li>
+    </ul>
+</details>
+
+<details>
+  <summary><h4>What should be the error text of a TextInput?</h4></summary>
+    Error messages can be used for static validation, such as <em>Fill this information</em>, and for dynamic validation, such as <em>This value is already in use</em>. When writing the errors, follow these recommendations:
+    <ul>
+      <li>Start with imperative verbs. For example, write <em>Fill this information</em> instead of <em>This field is required</em>.</li>
+      <li>Include the necessary details in the error message. For example, write <em>Fill only letters and numbers</em> instead of <em>Fill only valid characters</em>.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't show errors that can be avoided. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.</li>
+      <li>Don't use periods or commas.</li>
+      <li>Don't use incomplete sentences. For example, write <em>Inform email </em>instead of <em>Inform</em>.</li>
+    </ul>
+</details>
+
+</PageSection>
