@@ -26,7 +26,7 @@ export const Radio = forwardRef(function Radio(
           <Label htmlFor={id} className={labelTheme}>
             {label}
           </Label>
-          {helpText && <FormControlMessage helpText={helpText} />}
+          <FormControlMessage helpText={helpText} />
         </Stack>
       </Inline>
     </FormControl>

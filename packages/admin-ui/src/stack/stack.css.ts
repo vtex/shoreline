@@ -10,9 +10,8 @@ export const stackStyle = (
 })
 
 export const stackTheme = csx({
-  display: 'inline-flex',
+  display: 'flex',
   [dataAttr('direction', 'column')]: {
-    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'unset',
     alignItems: 'var(--stack-align)',
