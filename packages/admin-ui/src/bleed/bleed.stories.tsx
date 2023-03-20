@@ -10,7 +10,7 @@ import { Box } from '../box'
 import { Paragraph } from '../components/Paragraph'
 
 export default {
-  title: 'admin-ui/Bleed',
+  title: 'admin-ui/bleed',
 } as Meta
 
 export const Basic = () => {
