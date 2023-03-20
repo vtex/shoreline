@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.22](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.21...@vtex/admin-ui@0.135.1-dev.22) (2023-03-20)
+
+
+### Features
+
+* **checkbox:** add pr suggestions ([91f7480](https://github.com/vtex/admin-ui/commit/91f748033cab0d0b4bb3cc03a24fd982ad147e77))
+
+
+
+
+
 ## [0.135.1-dev.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.20...@vtex/admin-ui@0.135.1-dev.21) (2023-03-20)
 
 
