@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
 import { useBreakpoint, getResponsiveValue } from '@vtex/admin-ui-react'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
-import { cx } from '@vtex/admin-ui-core'
 import { stackStyle, stackTheme } from './stack.css'
 
 /**
@@ -23,7 +22,7 @@ export const Stack = forwardRef(function Stack(
     fluid = false,
     align = 'start',
     space = '$space-1',
-    className = '',
+    children,
     ...htmlProps
   } = props
 
@@ -35,14 +34,16 @@ export const Stack = forwardRef(function Stack(
   const responsiveSpace = getResponsiveValue(space, breakpoint)
 
   return (
-    <div
-      ref={ref}
-      {...htmlProps}
-      data-direction={responsiveDirection}
-      data-fluid={responsiveFluid}
-      style={stackStyle(responsiveAlign, responsiveSpace) as any}
-      className={cx(stackTheme, className)}
-    />
+    <div ref={ref} {...htmlProps}>
+      <div
+        className={stackTheme}
+        data-direction={responsiveDirection}
+        data-fluid={responsiveFluid}
+        style={stackStyle(responsiveAlign, responsiveSpace) as any}
+      >
+        {children}
+      </div>
+    </div>
   )
 })
 

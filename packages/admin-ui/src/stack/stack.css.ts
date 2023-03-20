@@ -28,7 +28,7 @@ export const stackTheme = csx({
     },
   },
 
-  [dataAttr('fluid', 'true')]: {
+  [dataAttr({ fluid: 'true', direction: 'column' })]: {
     alignItems: 'unset',
     justifyContent: 'unset',
   },
