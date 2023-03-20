@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.28](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.27...@vtex/admin-ui-docs@0.17.1-dev.28) (2023-03-20)
+
+
+### Features
+
+* **center:** migrate to the new component model ([b713f56](https://github.com/vtex/admin-ui/commit/b713f560dc3d75036609b2423d286a141fa3f210))
+
+
+
+
+
 ## [0.17.1-dev.27](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.26...@vtex/admin-ui-docs@0.17.1-dev.27) (2023-03-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
