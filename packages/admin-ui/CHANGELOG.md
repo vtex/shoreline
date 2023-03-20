@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.24...@vtex/admin-ui@0.135.1-dev.25) (2023-03-20)
+
+
+### Features
+
+* **text-input:** migrate to the new component model ([7552857](https://github.com/vtex/admin-ui/commit/7552857696f322638457ca1a7212aa1969b96489))
+
+
+
+
+
 ## [0.135.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.23...@vtex/admin-ui@0.135.1-dev.24) (2023-03-20)
 
 
