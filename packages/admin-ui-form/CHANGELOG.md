@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.23...@vtex/admin-ui-form@0.5.1-dev.24) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+
+
+
+
 ## [0.5.1-dev.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.22...@vtex/admin-ui-form@0.5.1-dev.23) (2023-03-20)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
