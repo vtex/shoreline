@@ -1,4 +1,4 @@
-import { csx, focusVisible, style } from '@vtex/admin-ui-core'
+import { focusVisible, style, csx, dataAttr } from '@vtex/admin-ui-core'
 import { checkmarkSvg, indeterminateSvg } from './utils'
 
 export const disabled = style({
@@ -13,48 +13,6 @@ export const disabled = style({
       cursor: 'not-allowed',
     },
   },
-})
-
-export const baseline = style({
-  ...focusVisible('neutral'),
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  size: '1.25rem',
-  bg: '$form.control',
-  border: '$form.control',
-  appearance: 'none',
-  borderRadius: '$base',
-  cursor: 'pointer',
-  margin: '$space-0',
-  boxSizing: 'border-box',
-
-  ':hover:not(:disabled)': {
-    border: '$form.controlHover',
-  },
-
-  ':focus-visible': {
-    outline: 'none',
-    border: '$form.controlFocus',
-  },
-
-  ...disabled,
-})
-
-export const error = style({
-  ...focusVisible('critical'),
-  border: '$form.critical',
-
-  ':hover:not(:disabled)': {
-    border: '$form.criticalHover',
-  },
-
-  ':focus-visible': {
-    outline: 'none',
-    border: '$form.criticalFocus',
-  },
-
-  ...disabled,
 })
 
 export const icon = style({
@@ -106,10 +64,49 @@ export const indeterminate = style({
   },
 })
 
-export const checkboxStyle = style({
-  ...baseline,
+export const checkboxTheme = csx({
+  ...focusVisible('neutral'),
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  size: '1.25rem',
+  bg: '$form.control',
+  border: '$form.control',
+  appearance: 'none',
+  borderRadius: '$base',
+  cursor: 'pointer',
+  margin: '$space-0',
+  boxSizing: 'border-box',
+
+  ':hover:not(:disabled)': {
+    border: '$form.controlHover',
+  },
+
+  ':focus-visible': {
+    outline: 'none',
+    border: '$form.controlFocus',
+  },
+
+  ...disabled,
+
   ':checked': checked,
   ':indeterminate': indeterminate,
+
+  [dataAttr('error', 'true')]: {
+    ...focusVisible('critical'),
+    border: '$form.critical',
+
+    ':hover:not(:disabled)': {
+      border: '$form.criticalHover',
+    },
+
+    ':focus-visible': {
+      outline: 'none',
+      border: '$form.criticalFocus',
+    },
+
+    ...disabled,
+  },
 })
 
 export const labelTheme = csx({

@@ -8,6 +8,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
+import { csx } from '@vtex/admin-ui-core'
 
 export const FilterOptionCheckbox = createComponent<
   typeof ComboboxItem,
@@ -27,7 +28,7 @@ export const FilterOptionCheckbox = createComponent<
         <Checkbox
           checked={combobox.isSelected(item)}
           aria-checked={undefined}
-          csx={{ marginRight: '$space-2' }}
+          className={csx({ marginRight: '$space-2' })}
           readOnly
         />
         {label}
