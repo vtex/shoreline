@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.20...@vtex/admin-ui@0.135.1-dev.21) (2023-03-20)
+
+
+### Bug Fixes
+
+* **stack:** remove unecessary changes ([f260ca4](https://github.com/vtex/admin-ui/commit/f260ca4f27fb487ecd5337115a69a6a137729e22))
+
+
+
+
+
 ## [0.135.1-dev.20](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.19...@vtex/admin-ui@0.135.1-dev.20) (2023-03-15)
 
 
