@@ -54,7 +54,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     baseStyle: styles.form,
     children: (
       <>
-        <Center csx={styles.innerContainer('start')}>{icon}</Center>
+        <Center className={csx(styles.innerContainer('start'))}>{icon}</Center>
         <Box
           as="input"
           ref={inputRef}
@@ -66,7 +66,7 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
           onChange={onChange}
         />
         {hasClearButton ? (
-          <Center csx={styles.innerContainer('end')}>
+          <Center className={csx(styles.innerContainer('end'))}>
             <Button
               aria-label={formatMessage('clearButton')}
               icon={<IconXCircle />}

@@ -117,12 +117,12 @@ export function IconsGrid(props: IconsGridProps) {
 
           return (
             <Center
-              csx={{
+              className={csx({
                 height: 100,
                 maxWidth: 250,
                 borderRadius: 'default',
                 border: '$neutral',
-              }}
+              })}
             >
               <IconPreview
                 item={item}

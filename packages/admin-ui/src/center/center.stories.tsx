@@ -3,6 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import { Center } from './center'
 import { Box } from '../box'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/center',
@@ -14,16 +15,19 @@ export const Playground: Story = (args) => {
 }
 
 Playground.args = {
-  csx: { size: 200, bg: 'muted' },
+  className: csx({
+    height: 200,
+    bg: '$secondary',
+  }),
 }
 
 export function Centralized() {
   return (
     <Center
-      csx={{
+      className={csx({
         height: 200,
-        bg: 'muted',
-      }}
+        bg: '$secondary',
+      })}
     >
       <Box as="h1">Center heading</Box>
     </Center>

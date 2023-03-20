@@ -7,6 +7,7 @@ import {
   IconDotsThreeVertical,
 } from '@vtex/phosphor-icons'
 import type { StyleProp, VariantProps } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 import type { AvailableSize } from '@vtex/admin-ui-react'
 import {
   createComponent,
@@ -95,12 +96,12 @@ export const MenuButton = createComponent<
     state,
     children: (
       <Center
-        csx={{
+        className={csx({
           ...style.buttonInnerContainerStyle,
           ...style.buttonInnerContainerVariants({
             iconPosition: iconConfig.position,
           }),
-        }}
+        })}
       >
         <IconContainer size={iconConfig.size}>{iconConfig.icon}</IconContainer>
         {!labelHidden && menuLabel}
