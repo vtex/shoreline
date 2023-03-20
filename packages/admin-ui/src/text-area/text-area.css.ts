@@ -1,10 +1,10 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, dataAttr } from '@vtex/admin-ui-core'
 import {
   MAX_TEXT_AREA_HEIGHT,
   MIN_TEXT_AREA_HEIGHT,
 } from './text-area-constants'
 
-export const container = style({
+export const containerTheme = csx({
   width: '100%',
   alignItems: 'center',
   text: '$body',
@@ -25,36 +25,27 @@ export const container = style({
   maxHeight: `${MAX_TEXT_AREA_HEIGHT}px`,
   resize: 'none',
   transition: 'snap',
-})
-
-export const containerVariants = styleVariants({
-  error: {
-    true: {
-      border: '$form.critical',
-      ':hover': {
-        border: '$form.criticalHover',
-      },
-      ':focus-within': {
-        border: '$form.criticalFocus',
-        boxShadow: '$ring.critical',
-      },
+  [dataAttr('error', 'true')]: {
+    border: '$form.critical',
+    ':hover': {
+      border: '$form.criticalHover',
     },
-    false: {},
+    ':focus-within': {
+      border: '$form.criticalFocus',
+      boxShadow: '$ring.critical',
+    },
   },
-  disabled: {
-    true: {
-      bg: '$disabled',
-      color: '$disabled',
+  [dataAttr('disabled', 'true')]: {
+    bg: '$disabled',
+    color: '$disabled',
+    border: '$disabled',
+    ':hover': {
       border: '$disabled',
-      ':hover': {
-        border: '$disabled',
-      },
     },
-    false: {},
   },
 })
 
-export const input = style({
+export const inputTheme = csx({
   padding: '$space-3 $space-4',
   width: '100%',
   borderRadius: '$base',
