@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { CheckboxState } from 'ariakit/Checkbox'
-import { useCheckboxState } from 'ariakit/Checkbox'
+import type { CheckboxState } from 'ariakit/checkbox'
+import { useCheckboxState } from 'ariakit/checkbox'
 import { useId } from '@vtex/admin-ui-hooks'
 
 import { Inline } from '../inline'

@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { Checkbox as AriakitCheckbox } from 'ariakit/Checkbox'
+import type { CheckboxState as AriakitCheckboxState } from 'ariakit/checkbox'
+import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
 import { cx } from '@vtex/admin-ui-core'
 import { switchTheme } from './switch.css'
 
@@ -21,4 +22,10 @@ export const SwitchButton = forwardRef(function SwitchButton(
   )
 })
 
-export type SwitchButtonProps = ComponentPropsWithoutRef<typeof AriakitCheckbox>
+export type SwitchButtonProps = Omit<
+  ComponentPropsWithoutRef<'input'>,
+  'value'
+> & {
+  state: AriakitCheckboxState
+  value?: string | number
+}
