@@ -116,7 +116,6 @@ export const variants = styleVariants({
 
 export const innerContainerStyle = style({
   text: '$action1',
-  whiteSpace: 'nowrap',
 })
 
 export const innerContainerVariants = styleVariants({

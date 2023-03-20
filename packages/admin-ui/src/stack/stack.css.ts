@@ -16,29 +16,21 @@ export const stackTheme = csx({
     flexDirection: 'column',
     justifyContent: 'unset',
     alignItems: 'var(--stack-align)',
+    '> *:not(:first-child)': {
+      marginTop: 'var(--stack-space)',
+    },
   },
   [dataAttr('direction', 'row')]: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'var(--stack-align)',
+    '> *:not(:first-child)': {
+      marginLeft: 'var(--stack-space)',
+    },
   },
 
   [dataAttr({ fluid: 'true', direction: 'column' })]: {
     alignItems: 'unset',
     justifyContent: 'unset',
-  },
-})
-
-export const stackChildTheme = csx({
-  display: 'inline-flex',
-  width: '100%',
-  [dataAttr({ fluid: 'true', direction: 'column' })]: {
-    flexDirection: 'column',
-  },
-  [dataAttr({ 'first-child': 'false', direction: 'column' })]: {
-    marginTop: 'var(--stack-space)',
-  },
-  [dataAttr({ 'first-child': 'false', direction: 'row' })]: {
-    marginLeft: 'var(--stack-space)',
   },
 })

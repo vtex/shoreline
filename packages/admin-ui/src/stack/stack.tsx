@@ -1,10 +1,9 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
-import React, { forwardRef, Children } from 'react'
+import React, { forwardRef } from 'react'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
 import { useBreakpoint, getResponsiveValue } from '@vtex/admin-ui-react'
-import { cx } from '@vtex/admin-ui-core'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
-import { stackChildTheme, stackStyle, stackTheme } from './stack.css'
+import { stackStyle, stackTheme } from './stack.css'
 
 /**
  * Component used to display a set of components that are spaced evenly.
@@ -23,7 +22,6 @@ export const Stack = forwardRef(function Stack(
     fluid = false,
     align = 'start',
     space = '$space-1',
-    className = '',
     children,
     ...htmlProps
   } = props
@@ -36,31 +34,15 @@ export const Stack = forwardRef(function Stack(
   const responsiveSpace = getResponsiveValue(space, breakpoint)
 
   return (
-    <div
-      ref={ref}
-      {...htmlProps}
-      className={cx(stackTheme, className)}
-      data-direction={responsiveDirection}
-      data-fluid={responsiveFluid}
-      style={stackStyle(responsiveAlign, responsiveSpace) as any}
-    >
-      {Children.map(children, (child, index) => {
-        const isFirstChild = index === 0
-
-        if (child === null) return null
-
-        return (
-          <div
-            key={`stack-${index}`}
-            data-direction={responsiveDirection}
-            data-first-child={isFirstChild}
-            data-fluid={responsiveFluid}
-            className={stackChildTheme}
-          >
-            {child}
-          </div>
-        )
-      })}
+    <div ref={ref} {...htmlProps}>
+      <div
+        className={stackTheme}
+        data-direction={responsiveDirection}
+        data-fluid={responsiveFluid}
+        style={stackStyle(responsiveAlign, responsiveSpace) as any}
+      >
+        {children}
+      </div>
     </div>
   )
 })
