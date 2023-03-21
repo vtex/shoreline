@@ -1,22 +1,11 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import type * as CSS from 'csstype'
-import { pick, renameKeys } from '@vtex/admin-ui-util'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
-import {
-  createHook,
-  createComponent,
-  getResponsiveValue,
-  useBreakpoint,
-  useElement,
-} from '@vtex/admin-ui-react'
+import { flexTheme, flexStyle } from './flex.css'
+import { cx } from '@vtex/admin-ui-core'
 
-export const Flex = createComponent<'div', FlexOptions>((props) => {
-  const elementProps = useFlex(props)
-
-  return useElement('div', elementProps)
-})
-
-export const useFlex = createHook<'div', FlexOptions>((props) => {
+export const Flex = forwardRef((props: FlexProps, ref: Ref<HTMLDivElement>) => {
   const {
     basis,
     direction,
@@ -26,44 +15,50 @@ export const useFlex = createHook<'div', FlexOptions>((props) => {
     grow,
     shrink,
     order,
+    className = '',
     ...restProps
   } = props
 
-  const propertyMap = {
-    basis: 'flexBasis',
-    direction: 'flexDirection',
-    wrap: 'flexWrap',
-    align: 'alignItems',
-    justify: 'justifyContent',
-    grow: 'flexGrow',
-    shrink: 'flexShrink',
-    order: 'order',
-  }
+  const responsiveCssProps = flexStyle({
+    basis: toResponsiveObject(basis),
+    direction: toResponsiveObject(direction),
+    wrap: toResponsiveObject(wrap),
+    align: toResponsiveObject(align),
+    justify: toResponsiveObject(justify),
+    grow: toResponsiveObject(grow),
+    shrink: toResponsiveObject(shrink),
+    order: toResponsiveObject(order),
+  })
 
-  const { breakpoint } = useBreakpoint()
-
-  const responsiveValues = {
-    basis: getResponsiveValue(basis, breakpoint),
-    direction: getResponsiveValue(direction, breakpoint),
-    wrap: getResponsiveValue(wrap, breakpoint),
-    align: getResponsiveValue(align, breakpoint),
-    justify: getResponsiveValue(justify, breakpoint),
-    grow: getResponsiveValue(grow, breakpoint),
-    shrink: getResponsiveValue(shrink, breakpoint),
-    order: getResponsiveValue(order, breakpoint),
-  }
-
-  const cssProps = Object.keys(propertyMap)
-
-  const cssPropsStyle = renameKeys(
-    propertyMap,
-    pick(responsiveValues, cssProps)
+  return (
+    <div
+      ref={ref}
+      style={responsiveCssProps}
+      className={cx(className, flexTheme)}
+      {...restProps}
+    />
   )
-
-  return { baseStyle: { display: 'flex', ...cssPropsStyle }, ...restProps }
 })
 
-export interface FlexOptions {
+const toResponsiveObject = (
+  responsiveValue: ResponsiveProp<CSS.Property.Order>
+) => {
+  if (!responsiveValue) return responsiveValue
+
+  const mobile = responsiveValue.mobile ?? responsiveValue
+  const tablet = responsiveValue.tablet ?? mobile
+  const desktop = responsiveValue.desktop ?? tablet
+  const widescreen = responsiveValue.widescreen ?? desktop
+
+  return {
+    mobile,
+    tablet,
+    desktop,
+    widescreen,
+  }
+}
+
+export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   /** Shorthand for CSS alignItems property */
   align?: ResponsiveProp<CSS.Property.AlignContent>
   /** Shorthand for CSS flexBasis property */
@@ -81,5 +76,3 @@ export interface FlexOptions {
   /** Shorthand for CSS order property */
   order?: ResponsiveProp<CSS.Property.Order>
 }
-
-export type FlexProps = ComponentPropsWithRef<typeof Flex>
