@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 
 import type { BulkActionsState } from './bulk-actions.state'
 import { Inline } from '../inline'
@@ -9,16 +8,21 @@ import { Text } from '../components/Text'
 import { Bleed } from '../bleed'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './bulk-actions.i18n'
-import * as style from './bulk-actions.style'
+import {
+  baselineTheme,
+  containerTheme,
+  innerContainerTheme,
+} from './bulk-actions.css'
+import { cx } from '@vtex/admin-ui-core'
 
-interface BulkActionsOptions {
+interface BulkActionsOptions extends ComponentPropsWithoutRef<'div'> {
   state: BulkActionsState<any>
   children?: ReactNode
 }
 
-export const BulkActions = createComponent<'div', BulkActionsOptions>(
-  (props) => {
-    const { children, state, ...restProps } = props
+export const BulkActions = forwardRef(
+  (props: BulkActionsOptions, ref: Ref<HTMLDivElement>) => {
+    const { children, state, className = '', ...restProps } = props
     const formatMessage = useMessageFormatter(messages)
 
     const {
@@ -35,42 +39,51 @@ export const BulkActions = createComponent<'div', BulkActionsOptions>(
       return null
     }
 
-    return useElement('div', {
-      ...restProps,
-      baseStyle: style.baseline,
-      children: isVisible ? (
-        <Inline hSpace="$space-7" spaceInside csx={style.container}>
-          <Inline hSpace="$space-2" spaceInside csx={style.innerContainer}>
-            <Text tone="secondary">
-              {formatMessage('selected', {
-                current: allSelected ? totalItems : getSelectedIds().length,
-                total: totalItems,
-              })}
-            </Text>
-
-            <Button
-              variant="neutralTertiary"
-              onClick={() => {
-                if (allSelected) {
-                  setRoot(false)
-                  setSelectedItemsIds([])
-                }
-
-                setAllSelected((prev) => !prev)
-              }}
+    return (
+      <div className={cx(baselineTheme, className)} ref={ref} {...restProps}>
+        {isVisible ? (
+          <Inline hSpace="$space-7" spaceInside className={containerTheme}>
+            <Inline
+              hSpace="$space-2"
+              spaceInside
+              align="center"
+              className={innerContainerTheme}
             >
-              {allSelected
-                ? formatMessage('deselectAll')
-                : formatMessage('selectAll')}
-            </Button>
-          </Inline>
-          <Bleed right="$space-3">
-            <Inline hSpace="$space-2" spaceInside csx={style.innerContainer}>
-              {children}
+              <Text tone="secondary">
+                {formatMessage('selected', {
+                  current: allSelected ? totalItems : getSelectedIds().length,
+                  total: totalItems,
+                })}
+              </Text>
+
+              <Button
+                variant="neutralTertiary"
+                onClick={() => {
+                  if (allSelected) {
+                    setRoot(false)
+                    setSelectedItemsIds([])
+                  }
+
+                  setAllSelected((prev) => !prev)
+                }}
+              >
+                {allSelected
+                  ? formatMessage('deselectAll')
+                  : formatMessage('selectAll')}
+              </Button>
             </Inline>
-          </Bleed>
-        </Inline>
-      ) : null,
-    })
+            <Bleed right="$space-3">
+              <Inline
+                hSpace="$space-2"
+                spaceInside
+                className={innerContainerTheme}
+              >
+                {children}
+              </Inline>
+            </Bleed>
+          </Inline>
+        ) : null}
+      </div>
+    )
   }
 )
