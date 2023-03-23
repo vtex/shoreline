@@ -65,4 +65,10 @@ export const messages = {
     suggestion: 'ลองใช้คำหรือตัวกรองอื่น',
     empty: 'ไม่มีการสร้างรายการ',
   },
+  'de-DE': {
+    error: "Ein Problem ist aufgetreten",
+    notFound: "Es wurden keine Ergebnisse gefunden",
+    suggestion: "Versuchen Sie, andere Begriffe oder Filter zu verwenden",
+    empty: "Keine Elemente erstellt",
+  },
 }
