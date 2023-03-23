@@ -40,7 +40,7 @@ export const BulkActions = forwardRef(
     }
 
     return (
-      <div className={cx(className, baselineTheme)} ref={ref} {...restProps}>
+      <div className={cx(baselineTheme, className)} ref={ref} {...restProps}>
         {isVisible ? (
           <Inline hSpace="$space-7" spaceInside className={containerTheme}>
             <Inline
