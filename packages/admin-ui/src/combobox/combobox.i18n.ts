@@ -78,6 +78,13 @@ export const messages = {
       noResultsSubtitle: 'ลองใช้คำอื่นที่ต่างออกไป',
       searchPlaceholder: 'เริ่มพิมพ์เพื่อค้นหา',
     },
+    'de-DE': {
+      error: "Ein Problem ist aufgetreten",
+      retry: "Versuchen Sie es erneut",
+      noResultsTitle: "Keine Optionen entsprechen Ihrer Suche",
+      noResultsSubtitle: "Versuche andere Begriffe zu verwenden",
+      searchPlaceholder: "Tippen um zu Suchen"
+    },
   },
   tag: {
     'en-US': {
@@ -113,6 +120,9 @@ export const messages = {
     'th-TH': {
       removeLabel: 'ลบสินค้าออก',
     },
+    'de-DE': {
+      removeLabel: 'Artikel entfernen',
+    },
   },
   fieldMultiple: {
     'en-US': {
@@ -147,6 +157,9 @@ export const messages = {
     },
     'th-TH': {
       placeholder: 'พิมพ์ต่อ...',
+    },
+    'de-DE': {
+      placeholder: 'Tippen Sie weiter...',
     },
   },
 }

@@ -11,5 +11,6 @@ export const messages = {
     'ro-RO': { optional: 'opțional' },
     'bg-BG': { optional: 'по избор' },
     'th-TH': { optional: 'ไม่บังคับ' },
+    'de-DE': { optional: 'Optional' },
   },
 }

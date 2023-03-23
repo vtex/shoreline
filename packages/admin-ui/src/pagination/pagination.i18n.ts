@@ -54,4 +54,9 @@ export const messages = {
     prevLabel: 'กลับไปยังหน้าก่อนหน้า',
     nextLabel: 'เลื่อนไปยังหน้าถัดไป',
   },
+  'de-DE': {
+    pagination: '{currentPage} von {total}',
+    prevLabel: 'Zurück zur vorherigen Seite',
+    nextLabel: 'Weiter zur nächsten Seite',
+  },
 }

@@ -11,5 +11,6 @@ export const messages = {
     'ro-RO': { buttonLabel: 'Mai multe acțiuni' },
     'bg-BG': { buttonLabel: 'Още действия' },
     'th-TH': { buttonLabel: 'การดำเนินการเพิ่มเติม' },
+    'de-DE': { buttonLabel: 'More actions' },
   },
 }

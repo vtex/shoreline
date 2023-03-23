@@ -54,4 +54,9 @@ export const messages = {
     deselectAll: 'เลิกเลือกทั้งหมด',
     selected: 'เลือกแล้ว {current} จาก {total}',
   },
+  'de-DE': {
+    selectAll: 'Alles auswählen',
+    deselectAll: 'Alle abwählen',
+    selected: '{current} von {total} ausgewählt',
+  },
 }
