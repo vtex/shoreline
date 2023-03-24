@@ -1,9 +1,9 @@
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 
 import { Stack } from '../../stack'
-import * as styles from './data-view.styles'
-import { csx } from '@vtex/admin-ui-core'
+import { cx } from '@vtex/admin-ui-core'
+import { headerTheme, stackContainerTheme } from './data-view.css'
 
 /**
  * Organizes the DataView header
@@ -16,16 +16,19 @@ import { csx } from '@vtex/admin-ui-core'
  *    </DataViewHeader>
  * </DataView>
  */
-export const DataViewHeader = createComponent<'div'>((props) => {
-  const { children, ...restProps } = props
+export const DataViewHeader = forwardRef(function DataViewHeader(
+  props: DataViewHeaderProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { children, className = '', ...htmlProps } = props
 
-  return useElement('div', {
-    ...restProps,
-    baseStyle: styles.header,
-    children: (
-      <Stack space="$space-4" className={csx({ width: '100%' })}>
+  return (
+    <div ref={ref} className={cx(headerTheme, className)} {...htmlProps}>
+      <Stack space="$space-4" className={stackContainerTheme}>
         {children}
       </Stack>
-    ),
-  })
+    </div>
+  )
 })
+
+export type DataViewHeaderProps = ComponentPropsWithoutRef<'div'>

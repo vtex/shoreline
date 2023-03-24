@@ -67,10 +67,10 @@ export const messages = {
       moreFilters: 'ตัวกรองเพิ่มเติม',
     },
     'de-DE': {
-      apply: "Anwenden",
-      clear: "Löschen",
-      clearAll: "Alle löschen",
-      moreFilters: "Mehr Filter",
+      apply: 'Anwenden',
+      clear: 'Löschen',
+      clearAll: 'Alle löschen',
+      moreFilters: 'Mehr Filter',
     },
   },
   status: {
@@ -153,11 +153,11 @@ export const messages = {
       noResultsSubtitle: 'ลองใช้คำอื่นที่ต่างออกไป',
     },
     'de-DE': {
-      errorTitle: "Ein Problem ist aufgetreten",
-      retry: "Versuchen Sie es erneut",
-      empty: "Keine Filter verfügbar",
-      noResultsTitle: "Keine Filter entsprechen Ihrer Suche",
-      noResultsSubtitle: "Versuche andere Begriffe zu verwenden"
+      errorTitle: 'Ein Problem ist aufgetreten',
+      retry: 'Versuchen Sie es erneut',
+      empty: 'Keine Filter verfügbar',
+      noResultsTitle: 'Keine Filter entsprechen Ihrer Suche',
+      noResultsSubtitle: 'Versuche andere Begriffe zu verwenden',
     },
   },
 }

@@ -4,42 +4,40 @@ import { CollectionError } from '../../components/Illustrations'
 
 import { useMessageFormatter } from '../../i18n'
 import { messages } from '../data-view.i18n'
-import { useDataViewContext } from '../context'
-import * as styles from './data-view.styles'
-import type { StatusAction } from '../data-view.state'
+import type { DataViewState, StatusAction } from '../data-view.state'
 import { Button } from '../../button'
 import { Stack } from '../../stack'
 import { Center } from '../../center'
-import { Box } from '../../box'
-import { csx } from '@vtex/admin-ui-core'
+import { statusTheme, statusMessageTheme } from './data-view.css'
 
-export function DataViewStatus() {
-  const { status, statusObject } = useDataViewContext()
+export function DataViewStatus(props: DataViewStatusProps) {
+  const { state } = props
+  const { status, statusObject } = state
 
   const formatMessage = useMessageFormatter(messages)
 
   if (!status || status === 'loading' || status === 'ready') return null
 
   return (
-    <Center className={csx(styles.status)}>
+    <Center className={statusTheme}>
       {status === 'not-found' && (
         <Stack fluid>
-          <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
+          <span data-type="message" className={statusMessageTheme}>
             {formatMessage('notFound')}
-          </Box>
+          </span>
           {statusObject.notFound && (
-            <Box as="span" csx={styles.statusMessage({ type: 'description' })}>
+            <span data-type="description" className={statusMessageTheme}>
               {formatMessage('suggestion')}
-            </Box>
+            </span>
           )}
         </Stack>
       )}
 
       {status === 'empty' && (
         <Stack space="$space-2" fluid>
-          <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
+          <span data-type="message" className={statusMessageTheme}>
             {formatMessage('empty')}
-          </Box>
+          </span>
           {statusObject.empty?.action ? (
             <Action {...statusObject.empty.action} />
           ) : null}
@@ -53,9 +51,9 @@ export function DataViewStatus() {
           </Center>
 
           <Stack space="$space-2" fluid>
-            <Box as="span" csx={styles.statusMessage({ type: 'message' })}>
+            <span data-type="message" className={statusMessageTheme}>
               {formatMessage('error')}
-            </Box>
+            </span>
             {statusObject.error?.action ? (
               <Action {...statusObject.error.action} />
             ) : null}
@@ -67,15 +65,25 @@ export function DataViewStatus() {
 }
 
 function Action(props: StatusAction) {
-  const { text, href = '', onClick } = props
-
-  const anchorProps = href ? { as: 'a', href } : {}
+  const { text, href = '', onClick, ...anchorProps } = props
 
   return (
     <Center>
-      <Button {...anchorProps} onClick={onClick} variant="tertiary">
-        {text}
-      </Button>
+      {href ? (
+        <a href={href} {...anchorProps}>
+          <Button onClick={onClick} variant="tertiary">
+            {text}
+          </Button>
+        </a>
+      ) : (
+        <Button onClick={onClick} variant="tertiary">
+          {text}
+        </Button>
+      )}
     </Center>
   )
+}
+
+export interface DataViewStatusProps {
+  state: DataViewState
 }
