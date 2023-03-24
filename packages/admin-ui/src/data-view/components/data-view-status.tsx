@@ -65,12 +65,12 @@ export function DataViewStatus(props: DataViewStatusProps) {
 }
 
 function Action(props: StatusAction) {
-  const { text, href = '', onClick } = props
+  const { text, href = '', onClick, ...anchorProps } = props
 
   return (
     <Center>
       {href ? (
-        <a href={href}>
+        <a href={href} {...anchorProps}>
           <Button onClick={onClick} variant="tertiary">
             {text}
           </Button>
