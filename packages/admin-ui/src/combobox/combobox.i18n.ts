@@ -79,11 +79,11 @@ export const messages = {
       searchPlaceholder: 'เริ่มพิมพ์เพื่อค้นหา',
     },
     'de-DE': {
-      error: "Ein Problem ist aufgetreten",
-      retry: "Versuchen Sie es erneut",
-      noResultsTitle: "Keine Optionen entsprechen Ihrer Suche",
-      noResultsSubtitle: "Versuche andere Begriffe zu verwenden",
-      searchPlaceholder: "Tippen um zu Suchen"
+      error: 'Ein Problem ist aufgetreten',
+      retry: 'Versuchen Sie es erneut',
+      noResultsTitle: 'Keine Optionen entsprechen Ihrer Suche',
+      noResultsSubtitle: 'Versuche andere Begriffe zu verwenden',
+      searchPlaceholder: 'Tippen um zu Suchen',
     },
   },
   tag: {

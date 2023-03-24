@@ -1,35 +1,35 @@
 export const messages = {
   'en-US': {
     search: 'Search',
-    clearButton: 'Clear search input'
+    clearButton: 'Clear search input',
   },
   'es-AR': {
     search: 'Buscar',
-    clearButton: 'Limpiar entrada de búsqueda'
+    clearButton: 'Limpiar entrada de búsqueda',
   },
   'fr-FR': {
     search: 'Rechercher',
-    clearButton: 'Effacer la recherche'
+    clearButton: 'Effacer la recherche',
   },
   'pt-BR': {
     search: 'Pesquisar',
-    clearButton: 'Limpar campo de busca'
+    clearButton: 'Limpar campo de busca',
   },
   'ja-JP': {
     search: 'Search',
-    clearButton: 'Clear search input'
+    clearButton: 'Clear search input',
   },
   'ko-KR': {
     search: '검색',
-    clearButton: '검색 입력 지우기'
+    clearButton: '검색 입력 지우기',
   },
   'it-IT': {
     search: 'Cerca',
-    clearButton: 'Rimuovi input di ricerca'
+    clearButton: 'Rimuovi input di ricerca',
   },
   'nl-NL': {
     search: 'Zoek',
-    clearButton: 'Verwijder zoekgeschiedenis'
+    clearButton: 'Verwijder zoekgeschiedenis',
   },
   'ro-RO': {
     search: 'Căutare',
@@ -41,10 +41,10 @@ export const messages = {
   },
   'th-TH': {
     search: 'ค้นหา',
-    clearButton: 'ล้างอินพุตการค้นหา'
+    clearButton: 'ล้างอินพุตการค้นหา',
   },
   'de-DE': {
     search: 'Suche',
-    clearButton: 'Sucheingabe leeren'
+    clearButton: 'Sucheingabe leeren',
   },
 }

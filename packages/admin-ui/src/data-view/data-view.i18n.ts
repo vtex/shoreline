@@ -66,9 +66,9 @@ export const messages = {
     empty: 'ไม่มีการสร้างรายการ',
   },
   'de-DE': {
-    error: "Ein Problem ist aufgetreten",
-    notFound: "Es wurden keine Ergebnisse gefunden",
-    suggestion: "Versuchen Sie, andere Begriffe oder Filter zu verwenden",
-    empty: "Keine Elemente erstellt",
+    error: 'Ein Problem ist aufgetreten',
+    notFound: 'Es wurden keine Ergebnisse gefunden',
+    suggestion: 'Versuchen Sie, andere Begriffe oder Filter zu verwenden',
+    empty: 'Keine Elemente erstellt',
   },
 }
