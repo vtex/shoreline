@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.30](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.29...@vtex/admin-ui@0.135.1-dev.30) (2023-03-24)
+
+
+### Features
+
+* **data-view:** add pr suggestion ([df76bd8](https://github.com/vtex/admin-ui/commit/df76bd8c18244a61bdef6cd99ae63fed4ba4f08b))
+
+
+
+
+
 ## [0.135.1-dev.29](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.28...@vtex/admin-ui@0.135.1-dev.29) (2023-03-24)
 
 **Note:** Version bump only for package @vtex/admin-ui
