@@ -12,6 +12,7 @@ const locales = [
   'ro-RO',
   'bg-BG',
   'th-TH',
+  'de-DE'
 ] as const
 
 export type Locale = typeof locales[number]
@@ -149,6 +150,17 @@ const ids: Record<Locale, SearchBoxIntlStrings> = {
     toCancel: 'เพื่อยกเลิก',
     emptyTitle: 'ไม่มีผลลัพธ์ตรงตามเกณฑ์การค้นหาของคุณ',
     emptySubtitle: 'โปรดค้นหาโดยใช้คำอื่น',
+  },
+  'de-DE': {
+    comboboxLabel: 'Suchen',
+    placeholder: 'Suchen',
+    adminPages: 'Adminseiten',
+    lastSearches: 'Letzte Suchanfragen',
+    toNavigate: 'zu navigieren',
+    toSelect: 'auszuwählen',
+    toCancel: 'abzubrechen',
+    emptyTitle: 'Keine Ergebnisse entsprechen Ihren Suchkriterien.',
+    emptySubtitle: 'Bitte suchen Sie einen anderen Begriff',
   },
 }
 
