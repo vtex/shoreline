@@ -1,4 +1,5 @@
-import { style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, cx, dataAttr, style, styleVariants } from '@vtex/admin-ui-core'
+import { action as actionColorScheme } from '../button/button.css'
 
 const height = '3rem'
 const width = '21.625rem'
@@ -43,9 +44,20 @@ export const buttonContainer = style({
   color: '$primary',
 })
 
-export const clearButton = style({
+export const clearButtonTheme = csx({
+  text: '$action1',
+  border: 'none',
+  borderRadius: '$base',
+  cursor: 'pointer',
+  position: 'relative',
   marginTop: '$space-2',
   marginRight: '$space-1',
+  padding: '$space-2 $space-3',
+  height: '2.25rem',
+  ...actionColorScheme({
+    tone: 'neutral',
+    variant: 'tertiary',
+  }),
   color: '$secondary',
 })
 

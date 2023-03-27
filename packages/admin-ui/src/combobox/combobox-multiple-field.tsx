@@ -16,7 +16,7 @@ import { Label } from '../label'
 
 import * as style from './combobox.style'
 import type { ComboboxMultipleState } from '.'
-import { csx } from '@vtex/admin-ui-core'
+import { csx, dataAttr } from '@vtex/admin-ui-core'
 
 export type ComboboxMultipleFieldProps = {
   state: ComboboxMultipleState<any>
@@ -194,9 +194,11 @@ export const ComboboxMultipleField = createComponent<
               variant="neutralTertiary"
               icon={<IconXCircle />}
               onClick={clearSelected}
-              csx={{
-                color: '$secondary',
-              }}
+              className={csx({
+                [dataAttr('variant', 'neutralTertiary')]: {
+                  color: '$secondary',
+                },
+              })}
             />
           )}
         </Flex>

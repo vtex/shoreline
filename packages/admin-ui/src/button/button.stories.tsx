@@ -55,7 +55,6 @@ Playground.args = {
   bleedX: false,
   bleedY: false,
   children: 'Button',
-  csx: {},
 }
 
 export const Bleed: Story<ButtonProps> = (args) => {

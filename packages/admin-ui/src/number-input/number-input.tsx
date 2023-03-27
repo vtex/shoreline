@@ -93,13 +93,13 @@ export const NumberInput = forwardRef(
           <Button
             {...getDecrementButtonProps({
               icon: <IconCaretDown />,
-              csx: style.spinButton,
+              className: style.spinButtonTheme,
             })}
           />
           <Button
             {...getIncrementButtonProps({
               icon: <IconCaretUp />,
-              csx: style.incrementButton,
+              className: style.incrementButtonTheme,
             })}
           />
           {suffix && <InputTerm type="suffix">{suffix}</InputTerm>}

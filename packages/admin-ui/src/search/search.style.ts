@@ -1,4 +1,4 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { csx, focusVisible, style } from '@vtex/admin-ui-core'
 
 export const input = style({
   border: '$form.neutral',
@@ -59,7 +59,7 @@ export const icon = (disabled: boolean) =>
     color: disabled ? '$disabled' : '$secondary',
   })
 
-export const clearButton = style({
+export const clearButtonTheme = csx({
   padding: '$space-0',
   paddingY: '$space-05',
   paddingX: '$space-1',

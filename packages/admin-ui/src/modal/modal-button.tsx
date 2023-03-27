@@ -1,26 +1,19 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { cx, csx } from '@vtex/admin-ui-core'
-import { DialogDismiss, Button } from 'ariakit'
+import { useDialogDismiss } from 'ariakit'
 
 import type { ButtonProps } from '../button'
-import { useButton } from '../button'
-import type { AnyObject } from '@vtex/admin-ui-util'
+import { Button } from '../button'
 
 const ModalButton = forwardRef(
   (props: ModalButtonProps, ref: Ref<HTMLButtonElement>) => {
-    const { className = '', dismissModal = false, ...htmlProps } = props
-    const { baseStyle = {}, ...buttonHtmlProps } = useButton(htmlProps)
+    const { dismissModal = false, ...restProps } = props
+    const { children } = restProps
 
-    const buttonProps: AnyObject = {
-      ref,
-      className: cx(csx(baseStyle), className),
-      ...buttonHtmlProps,
-    }
+    const dismissProps = useDialogDismiss(restProps)
+    const buttonProps = dismissModal ? { ...dismissProps, children } : restProps
 
-    const Component = dismissModal ? DialogDismiss : Button
-
-    return <Component {...buttonProps} />
+    return <Button ref={ref} {...buttonProps} />
   }
 )
 

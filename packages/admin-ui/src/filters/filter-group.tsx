@@ -5,6 +5,7 @@ import { Button } from '../button'
 import { Flex } from '../flex'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
+import { csx } from '@vtex/admin-ui-core'
 
 export function FilterGroup(props: FilterGroupProps) {
   const { children, state, ...rest } = props
@@ -26,7 +27,7 @@ export function FilterGroup(props: FilterGroupProps) {
       <Button
         onClick={state.onClear}
         variant="neutralTertiary"
-        csx={{ marginLeft: '$space-2' }}
+        className={csx({ marginLeft: '$space-2' })}
         hidden={!state.hasFilterApplied}
       >
         {formatMessage('clearAll')}

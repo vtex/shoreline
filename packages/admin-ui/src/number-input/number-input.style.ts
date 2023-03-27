@@ -1,4 +1,4 @@
-import { style } from '@vtex/admin-ui-core'
+import { csx, style } from '@vtex/admin-ui-core'
 
 export const container = style({
   opacity: 1,
@@ -25,12 +25,13 @@ export const input = style({
   },
 })
 
-export const spinButton = style({
+export const spinButtonTheme = csx({
   marginTop: '$space-1',
   marginBottom: '$space-1',
 })
 
-export const incrementButton = style({
+export const incrementButtonTheme = csx({
   marginRight: '$space-1',
-  ...spinButton,
+  marginTop: '$space-1',
+  marginBottom: '$space-1',
 })

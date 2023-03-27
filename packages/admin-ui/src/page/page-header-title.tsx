@@ -43,7 +43,7 @@ export const PageHeaderTitle = createComponent<'div'>((props) => {
             bleedY
             icon={<IconArrowLeft />}
             onClick={onPopNavigation}
-            csx={style.popNavigationButton}
+            className={style.popNavigationButtonTheme}
           />
         )}
         <Box csx={style.pageHeaderTitle}>{children}</Box>

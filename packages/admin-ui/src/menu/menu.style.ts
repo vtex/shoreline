@@ -1,5 +1,5 @@
 import { negative, style, styleVariants } from '@vtex/admin-ui-core'
-import * as defaultButtonStyle from '../button/button.style'
+import { action as actionColorScheme } from '../button/button.css'
 
 export const item = style({
   display: 'flex',
@@ -29,7 +29,7 @@ export const disabledItemWrapper = style({
 export const itemVariants = styleVariants({
   variant: {
     critical: {
-      ...defaultButtonStyle.action({
+      ...actionColorScheme({
         tone: 'critical',
         variant: 'tertiary',
       }),
@@ -39,7 +39,7 @@ export const itemVariants = styleVariants({
       },
     },
     neutral: {
-      ...defaultButtonStyle.action({
+      ...actionColorScheme({
         tone: 'neutral',
         variant: 'tertiary',
       }),
@@ -79,25 +79,51 @@ export const divider = style({
   outline: 'none',
 })
 
-export const buttonStyle = defaultButtonStyle.buttonStyle
-export const bleedY = defaultButtonStyle.bleedY
-export const bleedX = defaultButtonStyle.bleedX
+export const buttonStyle = style({
+  text: '$action1',
+  border: 'none',
+  borderRadius: '$base',
+  cursor: 'pointer',
+  position: 'relative',
+})
+
+export const bleedY = styleVariants({
+  size: {
+    normal: {
+      marginY: negative('$space-2'),
+    },
+    large: {
+      marginY: negative('$space-3'),
+    },
+  },
+})
+
+export const bleedX = styleVariants({
+  size: {
+    normal: {
+      marginX: negative('$space-3'),
+    },
+    large: {
+      marginX: negative('$space-4'),
+    },
+  },
+})
 
 export const buttonColorVariants = styleVariants({
   variant: {
-    primary: defaultButtonStyle.action({
+    primary: actionColorScheme({
       tone: 'main',
       variant: 'primary',
     }),
-    secondary: defaultButtonStyle.action({
+    secondary: actionColorScheme({
       tone: 'main',
       variant: 'secondary',
     }),
-    tertiary: defaultButtonStyle.action({
+    tertiary: actionColorScheme({
       tone: 'main',
       variant: 'tertiary',
     }),
-    neutralTertiary: defaultButtonStyle.action({
+    neutralTertiary: actionColorScheme({
       tone: 'neutral',
       variant: 'tertiary',
     }),
@@ -132,7 +158,7 @@ export const customMenuButtonSizeVariants = styleVariants({
   },
 })
 
-export const buttonInnerContainerStyle = defaultButtonStyle.innerContainerStyle
+export const buttonInnerContainerStyle = style({ text: '$action1' })
 
 export const buttonInnerContainerVariants = styleVariants({
   iconPosition: {
