@@ -7,13 +7,12 @@ import { Skeleton } from '../../skeleton'
 import { Menu, MenuButton, MenuItem, useMenuState } from '../../menu'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
-import { csx } from '@vtex/admin-ui-core'
 
 export function menuResolver<T>() {
   return createResolver<T, 'menu', MenuResolver<T>>({
     cell: function MenuResolver({ item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ size: 24 })} />
+        return <Skeleton className={csx({ size: '1.5rem' })} />
       }
 
       const { resolver } = column

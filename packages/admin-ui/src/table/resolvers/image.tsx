@@ -30,7 +30,7 @@ export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ height: 24 })} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
       const url = getData()

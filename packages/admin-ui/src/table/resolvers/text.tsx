@@ -18,7 +18,7 @@ export function textResolver<T>() {
   return createResolver<T, 'text', TextResolver<T>>({
     cell: function TextResolver({ item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ height: 24 })} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
       const { resolver } = column
