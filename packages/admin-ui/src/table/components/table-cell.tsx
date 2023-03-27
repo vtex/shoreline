@@ -1,15 +1,13 @@
 import type { RefObject } from 'react'
 import React, { useRef, useEffect, memo } from 'react'
 import { cx } from '@vtex/admin-ui-core'
-import type { VariantProps, StyleProp } from '@vtex/admin-ui-core'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
-import { Box } from '../../box'
 import { useTableScroll } from '../hooks/use-table-scroll'
 
-import * as styles from './styles/table-cell.styles'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
+import { innerContainerTheme, tableCellTheme } from './styles/table-cell.css'
 
 function _TableCell<T>(props: TableCellProps<T>) {
   const {
@@ -21,7 +19,6 @@ function _TableCell<T>(props: TableCellProps<T>) {
     className = '',
     lastFixedColumn,
     tableRef,
-    csx,
     ...cellProps
   } = props
 
@@ -70,37 +67,31 @@ function _TableCell<T>(props: TableCellProps<T>) {
     : className
 
   return (
-    <Box
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <td
       {...cellProps}
-      as="td"
       ref={useForkRef(ref, htmlRef)}
       onClick={onClick}
       role={role}
-      csx={{
-        ...styles.baseline,
-        ...styles.variants({
-          clickable: !!onClick,
-          fixed: column?.fixed,
-          lastFixed: isLastFixedColumn,
-          hasHorizontalScroll: hasHorizontalScroll(),
-        }),
-        ...csx,
-      }}
-      className={resolvedClassName}
+      data-clickable={!!onClick}
+      data-fixed={column?.fixed}
+      data-last-fixed={isLastFixedColumn}
+      data-horizontal-scroll={hasHorizontalScroll}
+      className={cx(tableCellTheme, resolvedClassName)}
     >
-      <Box csx={styles.innerContainer}>{children}</Box>
-    </Box>
+      <div className={innerContainerTheme}>{children}</div>
+    </td>
   )
 }
 
 export const TableCell = memo(_TableCell) as typeof _TableCell
 
-export interface TableCellOptions<T>
-  extends VariantProps<typeof styles.variants> {
+export type TableCellProps<T> = React.ComponentPropsWithRef<'td'> & {
+  clickable?: boolean
+  fixed?: boolean
+  lastFixed?: boolean
+  hasHorizontalScroll?: boolean
   column: TableColumn<T, BaseResolvers<T>>
   lastFixedColumn?: TableColumn<T, BaseResolvers<T>>
   tableRef?: RefObject<HTMLTableElement>
 }
-
-export type TableCellProps<T> = React.ComponentPropsWithRef<'td'> &
-  TableCellOptions<T> & { csx?: StyleProp }

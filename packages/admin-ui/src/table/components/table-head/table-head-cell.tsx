@@ -1,4 +1,5 @@
-import React, { useMemo, memo } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import React, { memo } from 'react'
 import { IconArrowUp, IconArrowDown } from '@vtex/phosphor-icons'
 
 import type { TableCellProps } from '../table-cell'
@@ -10,11 +11,15 @@ import type {
   ResolveHeaderReturn,
   ResolverCallee,
 } from '../../resolvers/resolver-core'
-import type { BoxProps } from '../../../box'
-import { Box } from '../../../box'
 
-import * as styles from '../styles/table-head.styles'
 import type { UseSortReturn } from '../../hooks/use-table-sort'
+import {
+  columnCellTheme,
+  sortableContainerTheme,
+  sortIndicatorTheme,
+  sortIndicatorUpTheme,
+} from '../styles/table-head.css'
+import { cx } from '@vtex/admin-ui-core'
 
 const ariaSortLabel = {
   ASC: 'ascending',
@@ -28,7 +33,7 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
     tableRef,
     resolveHeader,
     sortState,
-    csx,
+    className = '',
     ...restProps
   } = props
 
@@ -47,14 +52,7 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
     }),
   }
 
-  const resolvedStyles = useMemo(
-    () => ({
-      ...styles.columnCell,
-      ...styles.variant({ hasVerticalScroll }),
-      ...csx,
-    }),
-    [hasVerticalScroll, csx]
-  )
+  console.log({ hasVerticalScroll })
 
   return (
     <TableCell
@@ -64,14 +62,15 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
       tableRef={tableRef}
       column={column}
       role="columnheader"
-      csx={resolvedStyles}
+      className={cx(columnCellTheme, className)}
+      data-vertical-scroll={hasVerticalScroll}
       key={String(column.id)}
     >
       {isSortable ? (
-        <Box csx={styles.sortableContainer}>
+        <div className={sortableContainerTheme}>
           {content}
           <SortIndicator direction={sortDirection} />
-        </Box>
+        </div>
       ) : (
         content
       )}
@@ -88,25 +87,24 @@ export interface TableHeadCellProps<T> extends TableCellProps<T> {
   key: React.Key
 }
 
-function SortIndicator(props: BoxProps & SortIndicatorOptions) {
+function SortIndicator(props: SortIndicatorProps) {
   const { direction, ...restProps } = props
 
   return (
-    <Box csx={styles.sortIndicator} {...restProps}>
+    <div className={sortIndicatorTheme} {...restProps}>
       {direction !== 'DESC' ? (
         <IconArrowUp
           size="small"
-          csx={{
-            opacity: direction === 'ASC' ? 1 : 0,
-          }}
+          data-direction={direction?.toLowerCase()}
+          className={sortIndicatorUpTheme}
         />
       ) : (
         <IconArrowDown size="small" />
       )}
-    </Box>
+    </div>
   )
 }
 
-export interface SortIndicatorOptions {
+export type SortIndicatorProps = ComponentPropsWithoutRef<'div'> & {
   direction?: 'ASC' | 'DESC' | null
 }

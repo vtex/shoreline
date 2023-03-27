@@ -1,6 +1,7 @@
 import { csx } from '@vtex/admin-ui-core'
 import type { ReactNode } from 'react'
 import React from 'react'
+import { csx } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
 import type { ResolverRenderProps } from './resolver-core'

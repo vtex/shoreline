@@ -11,6 +11,7 @@ import {
   THeadCell,
   TBodyCell,
 } from '../index'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/table/sortable',
@@ -62,7 +63,7 @@ export function CompareFunction() {
   })
 
   return (
-    <Table {...getTable()} csx={{ width: 560 }}>
+    <Table {...getTable()} className={csx({ width: 560 })}>
       <THead>
         {columns.map((column) => {
           return <THeadCell {...getHeadCell(column)} />

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
+import { csx } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
 import { Menu, MenuButton, MenuItem, useMenuState } from '../../menu'
