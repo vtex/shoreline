@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.32](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.31...@vtex/admin-ui@0.135.1-dev.32) (2023-03-27)
+
+
+### Bug Fixes
+
+* **modal:** remove usebutton usage ([13ca416](https://github.com/vtex/admin-ui/commit/13ca416548b0ed418dc906c2f468a866b7ceb864))
+
+
+
+
+
 ## [0.135.1-dev.31](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.30...@vtex/admin-ui@0.135.1-dev.31) (2023-03-27)
 
 
