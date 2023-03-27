@@ -8,6 +8,7 @@ import { Button } from '../../button'
 import { Heading } from '../../heading'
 import { Paragraph } from '../../components/Paragraph'
 import { Stack } from '../../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/skeleton',
@@ -20,23 +21,25 @@ export const Playground: Story<SkeletonProps> = (args) => {
 
 Playground.args = {
   shape: 'rect',
-  csx: {
+  className: csx({
     height: 128,
     width: 128,
-  },
+  }),
 }
 
 export const Rect = () => {
-  return <Skeleton csx={{ height: 128, width: 128 }} />
+  return <Skeleton className={csx({ height: 128, width: 128 })} />
 }
 
 export const Circle = () => {
-  return <Skeleton shape="circle" csx={{ width: 100, height: 100 }} />
+  return (
+    <Skeleton shape="circle" className={csx({ width: 100, height: 100 })} />
+  )
 }
 
 export const Fluid = () => {
   return (
-    <Box csx={{ width: 'full', height: 192 }}>
+    <Box className={csx({ width: 'full', height: 192 })}>
       <Skeleton />
     </Box>
   )
@@ -46,16 +49,16 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(true)
 
   return (
-    <Box csx={{ width: 'sm' }}>
+    <Box className={csx({ width: 'sm' })}>
       {loading ? (
         <Stack>
-          <Skeleton csx={{ height: 24, width: '5/12' }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16, width: '1/2' }} />
+          <Skeleton className={csx({ height: 24, width: '5/12' })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16, width: '1/2' })} />
         </Stack>
       ) : (
         <Box>

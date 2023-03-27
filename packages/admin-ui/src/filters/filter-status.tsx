@@ -33,11 +33,11 @@ export function FilterStatus(props: FilterStatusProps) {
       {status === 'loading' && (
         <Stack className={csx(style.statusLayout)} space="$space-6">
           <Stack space="$space-4" className={csx({ width: '3/4' })}>
-            <Skeleton csx={{ height: 20 }} />
-            <Skeleton csx={{ width: '9/12', height: 20 }} />
-            <Skeleton csx={{ width: '10/12', height: 20 }} />
-            <Skeleton csx={{ width: '11/12', height: 20 }} />
-            <Skeleton csx={{ width: '8/12', height: 20 }} />
+            <Skeleton className={csx({ height: 20 })} />
+            <Skeleton className={csx({ width: '9/12', height: 20 })} />
+            <Skeleton className={csx({ width: '10/12', height: 20 })} />
+            <Skeleton className={csx({ width: '11/12', height: 20 })} />
+            <Skeleton className={csx({ width: '8/12', height: 20 })} />
           </Stack>
 
           <Stack
@@ -47,8 +47,8 @@ export function FilterStatus(props: FilterStatusProps) {
               justifyContent: 'flex-end',
             })}
           >
-            <Skeleton csx={{ height: 32, width: 62 }} />
-            <Skeleton csx={{ height: 32, width: 62 }} />
+            <Skeleton className={csx({ height: 32, width: 62 })} />
+            <Skeleton className={csx({ height: 32, width: 62 })} />
           </Stack>
         </Stack>
       )}

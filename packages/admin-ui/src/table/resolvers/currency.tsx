@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
@@ -10,7 +11,7 @@ export function currencyResolver<T>() {
   return createResolver<T, 'currency', CurrencyResolver<T>>({
     cell: function CurrencyResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: 24 })} />
       }
 
       const { resolver } = column

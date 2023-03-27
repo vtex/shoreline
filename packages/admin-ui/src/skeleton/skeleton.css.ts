@@ -1,15 +1,4 @@
-import { keyframes, style, styleVariants } from '@vtex/admin-ui-core'
-
-export const variants = styleVariants({
-  shape: {
-    rect: {
-      borderRadius: '$base',
-    },
-    circle: {
-      borderRadius: '$pill',
-    },
-  },
-})
+import { keyframes, csx, dataAttr } from '@vtex/admin-ui-core'
 
 const waveKeyframe = keyframes({
   '0%': {
@@ -23,7 +12,7 @@ const waveKeyframe = keyframes({
   },
 })
 
-export const baseline = style({
+export const skeletonTheme = csx({
   display: 'block',
   position: 'relative',
   size: '100%',
@@ -39,5 +28,11 @@ export const baseline = style({
     left: '$space-0',
     right: '$space-0',
     top: '$space-0',
+  },
+  [dataAttr('shape', 'rect')]: {
+    borderRadius: '$base',
+  },
+  [dataAttr('shape', 'circle')]: {
+    borderRadius: '$pill',
   },
 })

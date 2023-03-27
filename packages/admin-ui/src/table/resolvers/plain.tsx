@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import type { ReactNode } from 'react'
 import React from 'react'
 
@@ -9,7 +10,7 @@ export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({
     cell: function PlainResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: 24 })} />
       }
 
       const data = getData()

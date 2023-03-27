@@ -402,7 +402,7 @@ const columns = createColumns([
          * on the other ones, we take care of this for you
          */
         if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
+          return <Skeleton className={csx({ height: 24 })} />
         }
         /**
          * You should declare the render while loading
