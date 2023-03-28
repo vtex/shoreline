@@ -1,61 +1,55 @@
-import React, { useEffect, useRef } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef, useEffect, useRef } from 'react'
 import { ComboboxList } from 'ariakit/combobox'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-
-import * as style from './filter.style'
-import { usePopoverContext } from './filter-popover-context'
-import { Box } from '../box'
 import { useForkRef } from '@vtex/admin-ui-hooks'
+import { cx } from '@vtex/admin-ui-core'
 
-export const FilterListbox = createComponent<'div', FilterListboxProps>(
-  (props) => {
-    const { children, id, ref: htmlRef, ...restProps } = props
-    const optionsContainerRef = useRef<HTMLDivElement>(null)
+import { usePopoverContext } from './filter-popover-context'
+import { filterListboxTheme, filterListTheme } from './filter.css'
 
-    const {
-      isScrollableLayout,
-      setIsScrollableLayout,
-      state: { combobox, status },
-    } = usePopoverContext()
+export const FilterListbox = forwardRef(function FilterListBox(
+  props: FilterListboxProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { children, id, className = '', ...htmlProps } = props
+  const optionsContainerRef = useRef<HTMLDivElement>(null)
 
-    const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
-    const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
+  const {
+    isScrollableLayout,
+    setIsScrollableLayout,
+    state: { combobox, status },
+  } = usePopoverContext()
 
-    useEffect(() => {
-      const isScrollable = scrollHeight > containerHeight
+  const scrollHeight = optionsContainerRef?.current?.scrollHeight ?? 0
+  const containerHeight = optionsContainerRef?.current?.clientHeight ?? 0
 
-      if (isScrollableLayout !== isScrollable) {
-        setIsScrollableLayout(isScrollable)
-      }
-    }, [scrollHeight, containerHeight])
+  useEffect(() => {
+    const isScrollable = scrollHeight > containerHeight
 
-    const ariakitcomboboxState = { ...combobox, matches: [] }
+    if (isScrollableLayout !== isScrollable) {
+      setIsScrollableLayout(isScrollable)
+    }
+  }, [scrollHeight, containerHeight])
 
-    const display = status === 'ready' ? 'auto' : 'none'
+  const ariakitcomboboxState = { ...combobox, matches: [], visible: true }
 
-    return useElement('div', {
-      baseStyle: {
-        ...style.scrollableContainer,
-        display,
-      },
-      children: (
-        <Box
-          as={ComboboxList as any}
-          state={{ ...ariakitcomboboxState, visible: true }}
-          id={id}
-          csx={style.list}
-        >
-          {children}
-        </Box>
-      ),
-      ref: useForkRef(optionsContainerRef, htmlRef as any),
-      id,
-      ...restProps,
-    })
-  }
-)
+  return (
+    <div
+      ref={useForkRef(optionsContainerRef, ref as any)}
+      className={cx(filterListboxTheme, className)}
+      data-status={status}
+      id={id}
+      {...htmlProps}
+    >
+      <ComboboxList
+        state={ariakitcomboboxState}
+        id={id}
+        className={filterListTheme}
+      >
+        {children}
+      </ComboboxList>
+    </div>
+  )
+})
 
-interface FilterListboxProps {
-  id?: string
-  children: React.ReactNode
-}
+export type FilterListboxProps = ComponentPropsWithoutRef<'div'>

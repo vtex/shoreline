@@ -1,27 +1,26 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import type { SystemComponentProps } from '../types'
+import type { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { csx, cx } from '@vtex/admin-ui-core'
+
 import { Button } from '../button'
-import { Flex } from '../flex'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './filter.i18n'
-import { csx } from '@vtex/admin-ui-core'
+import { filterGroupTheme } from './filter.css'
 
-export function FilterGroup(props: FilterGroupProps) {
-  const { children, state, ...rest } = props
+export const FilterGroup = forwardRef(function FIlterGroup(
+  props: FilterGroupProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { children, state, className = '', ...htmlProps } = props
 
   const formatMessage = useMessageFormatter(messages.actions)
 
   return (
-    <Flex
-      wrap="wrap"
+    <div
+      ref={ref}
       role="group"
-      csx={{
-        '> .__admin-ui-filter-disclosure:not(:first-child)': {
-          marginLeft: '$space-2',
-        },
-      }}
-      {...rest}
+      className={cx(filterGroupTheme, className)}
+      {...htmlProps}
     >
       {children}
       <Button
@@ -32,11 +31,11 @@ export function FilterGroup(props: FilterGroupProps) {
       >
         {formatMessage('clearAll')}
       </Button>
-    </Flex>
+    </div>
   )
-}
+})
 
-export interface FilterGroupProps extends SystemComponentProps<{}> {
+export interface FilterGroupProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode
   state: { onClear: () => void; hasFilterApplied: boolean }
 }
