@@ -19,102 +19,104 @@ import { useMessageFormatter } from '../i18n'
 
 import { messages } from '../form-control/form-control.i18n'
 
-import * as style from './number-input.style'
+import {
+  incrementButtonTheme,
+  numberInputContainerTheme,
+  numberInputTheme,
+  spinButtonTheme,
+} from './number-input.css'
 
-export const NumberInput = forwardRef(
-  (props: NumberInputProps, ref: Ref<HTMLInputElement>) => {
-    const {
-      prefix,
-      suffix,
-      disabled,
-      optional,
-      error,
-      errorText,
-      helpText,
-      label,
-      id: defaultId,
-      value = '',
-      step = 1,
-      min = Number.NEGATIVE_INFINITY,
-      max = Number.POSITIVE_INFINITY,
-      onChange = () => {},
-      placeholder,
-      ...inputProps
-    } = props
+export const NumberInput = forwardRef(function NumberInput(
+  props: NumberInputProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const {
+    prefix,
+    suffix,
+    disabled,
+    optional,
+    error,
+    errorText,
+    helpText,
+    label,
+    id: defaultId,
+    value = '',
+    step = 1,
+    min = Number.NEGATIVE_INFINITY,
+    max = Number.POSITIVE_INFINITY,
+    onChange = () => {},
+    placeholder,
+    ...inputProps
+  } = props
 
-    const { getInputProps, getDecrementButtonProps, getIncrementButtonProps } =
-      useNumberInput({
-        initialValue: value,
-        step,
-        min: Number(min),
-        max: Number(max),
-        onChange,
-      })
+  const { getInputProps, getDecrementButtonProps, getIncrementButtonProps } =
+    useNumberInput({
+      initialValue: value,
+      step,
+      min: Number(min),
+      max: Number(max),
+      onChange,
+    })
 
-    const id = useId(defaultId)
-    const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
+  const id = useId(defaultId)
+  const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
 
-    const formatMessage = useMessageFormatter(messages.formControl)
-    const optionalPlaceholder =
-      !label && optional ? formatMessage('optional') : ''
+  const formatMessage = useMessageFormatter(messages.formControl)
+  const optionalPlaceholder =
+    !label && optional ? formatMessage('optional') : ''
 
-    // Avoid losing input focus when the spin button is disabled
-    const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (
-      event
-    ) => {
-      event.preventDefault()
-    }
-
-    return (
-      <FormControl>
-        {label && (
-          <FormControlLabel optional={optional} htmlFor={id}>
-            {label}
-          </FormControlLabel>
-        )}
-        <InputContainer
-          onClick={ensureFocus}
-          onMouseDown={handleMouseDown}
-          error={error}
-          disabled={disabled}
-          csx={style.container}
-        >
-          {prefix && <InputTerm type="prefix">{prefix}</InputTerm>}
-          <InputElement
-            {...getInputProps({
-              id,
-              placeholder: optionalPlaceholder ?? placeholder,
-              disabled,
-              ...inputProps,
-            })}
-            ref={useForkRef(focusRef, ref)}
-            csx={style.input}
-          />
-          <Button
-            {...getDecrementButtonProps({
-              icon: <IconCaretDown />,
-              className: style.spinButtonTheme,
-            })}
-          />
-          <Button
-            {...getIncrementButtonProps({
-              icon: <IconCaretUp />,
-              className: style.incrementButtonTheme,
-            })}
-          />
-          {suffix && <InputTerm type="suffix">{suffix}</InputTerm>}
-        </InputContainer>
-        <FormControlMessage
-          error={error}
-          helpText={helpText}
-          errorText={errorText}
-        />
-      </FormControl>
-    )
+  // Avoid losing input focus when the spin button is disabled
+  const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    event.preventDefault()
   }
-)
 
-NumberInput.displayName = 'NumberInput'
+  return (
+    <FormControl>
+      {label && (
+        <FormControlLabel optional={optional} htmlFor={id}>
+          {label}
+        </FormControlLabel>
+      )}
+      <InputContainer
+        onClick={ensureFocus}
+        onMouseDown={handleMouseDown}
+        error={error}
+        disabled={disabled}
+        className={numberInputContainerTheme}
+      >
+        {prefix && <InputTerm type="prefix">{prefix}</InputTerm>}
+        <InputElement
+          {...getInputProps({
+            id,
+            placeholder: optionalPlaceholder ?? placeholder,
+            disabled,
+            ...inputProps,
+          })}
+          ref={useForkRef(focusRef, ref)}
+          className={numberInputTheme}
+        />
+        <Button
+          {...getDecrementButtonProps({
+            icon: <IconCaretDown />,
+            className: spinButtonTheme,
+          })}
+        />
+        <Button
+          {...getIncrementButtonProps({
+            icon: <IconCaretUp />,
+            className: incrementButtonTheme,
+          })}
+        />
+        {suffix && <InputTerm type="suffix">{suffix}</InputTerm>}
+      </InputContainer>
+      <FormControlMessage
+        error={error}
+        helpText={helpText}
+        errorText={errorText}
+      />
+    </FormControl>
+  )
+})
 
 type JSXInputProps = ComponentPropsWithoutRef<'input'>
 
