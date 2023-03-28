@@ -1,49 +1,45 @@
 import { csx } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
 import type { ResponsiveValue } from '@vtex/admin-ui-react'
+import type React from 'react'
 
-export const flexStyle = (values: FlexResponsiveOptions) => {
+function generateCSSVars<T>(
+  property: string,
+  values?: ResponsiveValue<T>
+): React.CSSProperties {
+  const { mobile, tablet, desktop, widescreen } = values || {}
+
   return {
-    '--basis-mobile': values.basis?.mobile,
-    '--basis-tablet': values.basis?.tablet,
-    '--basis-desktop': values.basis?.desktop,
-    '--basis-widescreen': values.basis?.widescreen,
-    '--direction-mobile': values.direction?.mobile,
-    '--direction-tablet': values.direction?.tablet,
-    '--direction-desktop': values.direction?.desktop,
-    '--direction-widescreen': values.direction?.widescreen,
-    '--wrap-mobile': values.wrap?.mobile,
-    '--wrap-tablet': values.wrap?.tablet,
-    '--wrap-desktop': values.wrap?.desktop,
-    '--wrap-widescreen': values.wrap?.widescreen,
-    '--align-mobile': values.align?.mobile,
-    '--align-tablet': values.align?.tablet,
-    '--align-desktop': values.align?.desktop,
-    '--align-widescreen': values.align?.widescreen,
-    '--justify-mobile': values.justify?.mobile,
-    '--justify-tablet': values.justify?.tablet,
-    '--justify-desktop': values.justify?.desktop,
-    '--justify-widescreen': values.justify?.widescreen,
-    '--grow-mobile': values.grow?.mobile,
-    '--grow-tablet': values.grow?.tablet,
-    '--grow-desktop': values.grow?.desktop,
-    '--grow-widescreen': values.grow?.widescreen,
-    '--shrink-mobile': values.shrink?.mobile,
-    '--shrink-tablet': values.shrink?.tablet,
-    '--shrink-desktop': values.shrink?.desktop,
-    '--shrink-widescreen': values.shrink?.widescreen,
-    '--order-mobile': values.order?.mobile,
-    '--order-tablet': values.order?.tablet,
-    '--order-desktop': values.order?.desktop,
-    '--order-widescreen': values.order?.widescreen,
-  } as React.CSSProperties
+    [`--${property}-mobile`]: mobile,
+    [`--${property}-tablet`]: tablet,
+    [`--${property}-desktop`]: desktop,
+    [`--${property}-widescreen`]: widescreen,
+  }
+}
+
+export const flexStyle = (
+  values: FlexResponsiveOptions
+): React.CSSProperties => {
+  return {
+    ...generateCSSVars<CSS.Property.FlexBasis>('basis', values.basis),
+    ...generateCSSVars<CSS.Property.FlexDirection>(
+      'direction',
+      values.direction
+    ),
+    ...generateCSSVars<CSS.Property.FlexWrap>('wrap', values.wrap),
+    ...generateCSSVars<CSS.Property.AlignContent>('align', values.align),
+    ...generateCSSVars<CSS.Property.JustifyContent>('justify', values.justify),
+    ...generateCSSVars<CSS.Property.FlexGrow>('grow', values.grow),
+    ...generateCSSVars<CSS.Property.FlexShrink>('shrink', values.shrink),
+    ...generateCSSVars<CSS.Property.Order>('order', values.order),
+  }
 }
 
 export const flexTheme = csx({
   display: 'flex',
   flexBasis: 'var(--basis-mobile)',
-  flexDirection: 'var(--direction-mobile)' as any,
-  flexWrap: 'var(--wrap-mobile)' as any,
+  flexDirection: 'var(--direction-mobile)' as CSS.Property.FlexDirection,
+  flexWrap: 'var(--wrap-mobile)' as CSS.Property.FlexWrap,
   alignItems: 'var(--align-mobile)',
   justifyContent: 'var(--justify-mobile)',
   flexGrow: 'var(--grow-mobile)',
@@ -51,8 +47,8 @@ export const flexTheme = csx({
   order: 'var(--order-mobile)',
   '@tablet': {
     flexBasis: 'var(--basis-tablet)',
-    flexDirection: 'var(--direction-tablet)',
-    flexWrap: 'var(--wrap-tablet)',
+    flexDirection: 'var(--direction-tablet)' as CSS.Property.FlexDirection,
+    flexWrap: 'var(--wrap-tablet)' as CSS.Property.FlexWrap,
     alignItems: 'var(--align-tablet)',
     justifyContent: 'var(--justify-tablet)',
     flexGrow: 'var(--grow-tablet)',
@@ -61,8 +57,8 @@ export const flexTheme = csx({
   },
   '@desktop': {
     flexBasis: 'var(--basis-desktop)',
-    flexDirection: 'var(--direction-desktop)',
-    flexWrap: 'var(--wrap-desktop)',
+    flexDirection: 'var(--direction-desktop)' as CSS.Property.FlexDirection,
+    flexWrap: 'var(--wrap-desktop)' as CSS.Property.FlexWrap,
     alignItems: 'var(--align-desktop)',
     justifyContent: 'var(--justify-desktop)',
     flexGrow: 'var(--grow-desktop)',
@@ -71,8 +67,8 @@ export const flexTheme = csx({
   },
   '@widescreen': {
     flexBasis: 'var(--basis-widescreen)',
-    flexDirection: 'var(--direction-widescreen)',
-    flexWrap: 'var(--wrap-widescreen)',
+    flexDirection: 'var(--direction-widescreen)' as CSS.Property.FlexDirection,
+    flexWrap: 'var(--wrap-widescreen)' as CSS.Property.FlexWrap,
     alignItems: 'var(--align-widescreen)',
     justifyContent: 'var(--justify-widescreen)',
     flexGrow: 'var(--grow-widescreen)',
@@ -99,3 +95,9 @@ export interface FlexResponsiveOptions {
   /** Shorthand for CSS order property */
   order?: ResponsiveValue<CSS.Property.Order>
 }
+
+export const flexSpacerTheme = csx({
+  flex: 1,
+  justifySelf: 'stretch',
+  alignSelf: 'stretch',
+})
