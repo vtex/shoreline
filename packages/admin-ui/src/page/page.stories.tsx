@@ -15,7 +15,7 @@ import {
   PageHeaderTags,
   PageHeaderTag,
 } from './index'
-import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
+import { useTabState, TabPanel, TabList, Tab } from '../tab'
 import { DataView, DataViewHeader, useDataViewState } from '../data-view'
 import { Search, useSearchState } from '../search'
 import { createColumns, Table, useTableState } from '../table'
@@ -191,24 +191,22 @@ export function FullFledged() {
         </PageHeaderBottom>
       </PageHeader>
       <PageContent layout="wide">
-        <TabPanelList state={tabs}>
-          <TabPanel id="1">
-            <DataView state={view}>
-              <DataViewHeader>
-                <Search id="search" aria-label="DataGrid Search" />
-              </DataViewHeader>
-              <Table state={grid} />
-            </DataView>
-          </TabPanel>
-          <TabPanel id="2">
-            <Placeholder />
-          </TabPanel>
-          <TabPanel id="3">
-            <Placeholder />
-            <Placeholder />
-            <Placeholder />
-          </TabPanel>
-        </TabPanelList>
+        <TabPanel state={tabs} id="1">
+          <DataView state={view}>
+            <DataViewHeader>
+              <Search id="search" aria-label="DataGrid Search" />
+            </DataViewHeader>
+            <Table state={grid} />
+          </DataView>
+        </TabPanel>
+        <TabPanel state={tabs} id="2">
+          <Placeholder />
+        </TabPanel>
+        <TabPanel state={tabs} id="3">
+          <Placeholder />
+          <Placeholder />
+          <Placeholder />
+        </TabPanel>
       </PageContent>
     </Page>
   )

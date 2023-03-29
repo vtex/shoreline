@@ -15,12 +15,13 @@ import {
 } from './index'
 import { Box } from '../box'
 import type { TabProps } from '../tab'
-import { useTabState, TabPanel, TabList, Tab, TabPanelList } from '../tab'
+import { useTabState, TabPanel, TabList, Tab } from '../tab'
 import type { TagProps } from '../tag'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { useMenuState, Menu, MenuItem } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 const actionOptions: ButtonProps[] = [
   {
@@ -182,17 +183,15 @@ export const WithTabs: Story<{
         </PageHeaderBottom>
       </PageHeader>
       <Box>
-        <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-          </TabPanel>
-          <TabPanel id="2" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-          </TabPanel>
-          <TabPanel id="3" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-          </TabPanel>
-        </TabPanelList>
+        <TabPanel state={tabs} id="1" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+        </TabPanel>
+        <TabPanel state={tabs} id="2" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+        </TabPanel>
+        <TabPanel state={tabs} id="3" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+        </TabPanel>
       </Box>
     </>
   )
@@ -237,17 +236,15 @@ export const FullFledged = () => {
         </PageHeaderBottom>
       </PageHeader>
       <Box>
-        <TabPanelList state={tabs}>
-          <TabPanel id="1" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
-          </TabPanel>
-          <TabPanel id="2" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
-          </TabPanel>
-          <TabPanel id="3" csx={{ padding: '$space-3' }}>
-            <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
-          </TabPanel>
-        </TabPanelList>
+        <TabPanel state={tabs} id="1" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
+        </TabPanel>
+        <TabPanel state={tabs} id="2" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('1')}>Go to Tab 1!</Button>
+        </TabPanel>
+        <TabPanel state={tabs} id="3" className={csx({ padding: '$space-3' })}>
+          <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
+        </TabPanel>
       </Box>
     </>
   )

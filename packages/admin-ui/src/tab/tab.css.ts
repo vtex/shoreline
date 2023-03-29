@@ -1,13 +1,13 @@
-import { style, focusVisible } from '@vtex/admin-ui-core'
+import { csx, focusVisible } from '@vtex/admin-ui-core'
 
 const tabBorderBottomWidth = '0.1875rem'
 
-export const tabList = style({
+export const tabListTheme = csx({
   width: 'full',
   display: 'inline-block',
 })
 
-export const tab = style({
+export const tabTheme = csx({
   text: '$action1',
   paddingX: '$space-3',
   paddingY: '$space-4',
@@ -37,7 +37,7 @@ export const tab = style({
   ...focusVisible('main'),
 })
 
-export const tabPanel = style({
+export const tabPanelTheme = csx({
   padding: '$space-2 $space-3',
   ...focusVisible('neutral'),
 })

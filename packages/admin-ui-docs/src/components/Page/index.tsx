@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { Tab, TabList, TabPanelList, useTabState } from '@vtex/admin-ui'
+import { csx, Tab, TabList, TabPanelList, useTabState } from '@vtex/admin-ui'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import TOC from '@theme/TOC'
 
 import '@site/src/components/Page/styles.scss'
@@ -36,7 +38,7 @@ export function Page(props: PageProps) {
         {Object.keys(props.toc).map((key) => (
           <Tab
             id={key}
-            csx={{
+            className={csx({
               '&[aria-selected="true"]': {
                 color: '$pink40',
                 borderColor: '$pink40',
@@ -44,7 +46,7 @@ export function Page(props: PageProps) {
               ':hover': {
                 color: '$pink40',
               },
-            }}
+            })}
           >
             {tabName[key as keyof Object]}
           </Tab>
