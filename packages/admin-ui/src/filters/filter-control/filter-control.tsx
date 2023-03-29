@@ -35,7 +35,7 @@ export const FilterControl = createComponent<typeof Role, FilterControlProps>(
             state={menu}
           >
             {formatMessage('moreFilters')}
-            <Flex csx={style.caretIcon(menu.mounted)}>
+            <Flex className={style.caretIcon(menu.mounted)}>
               <IconCaretUp size="small" />
             </Flex>
           </MenuButton>

@@ -185,9 +185,9 @@ export const ComboboxMultipleField = createComponent<
         <Flex
           align="flex-start"
           justify="flex-end"
-          csx={{
+          className={csx({
             width: 48,
-          }}
+          })}
         >
           {selectedItems.length > 0 && (
             <Button

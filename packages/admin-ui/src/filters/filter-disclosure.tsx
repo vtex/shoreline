@@ -51,7 +51,7 @@ export const FilterDisclosure = createComponent<
       <>
         {children}
         <AppliedItemsLabel appliedItems={appliedList} />
-        <Flex csx={style.caretIcon(menu.mounted)}>
+        <Flex className={style.caretIcon(menu.mounted)}>
           <IconCaretUp size="small" />
         </Flex>
       </>

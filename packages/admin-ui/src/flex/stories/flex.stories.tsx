@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { palette } from '@vtex/admin-ui-core'
+import { csx, palette } from '@vtex/admin-ui-core'
 
 import { Box } from '../../box'
 import { Flex, FlexSpacer } from '../index'
@@ -106,7 +106,7 @@ export function Direction() {
 
 export function Align() {
   return (
-    <Flex align="center" csx={{ size: 300, bg: '$secondary' }}>
+    <Flex align="center" className={csx({ size: 300, bg: '$secondary' })}>
       <Box
         csx={{
           ...palette('teal'),
@@ -133,7 +133,7 @@ export function Responsive() {
       align={{ mobile: 'center', tablet: 'flex-start', desktop: 'flex-end' }}
       direction={{ mobile: 'column', tablet: 'row' }}
       justify="space-around"
-      csx={{ size: 300, bg: '$secondary' }}
+      className={csx({ size: 300, bg: '$secondary' })}
     >
       <Box
         csx={{

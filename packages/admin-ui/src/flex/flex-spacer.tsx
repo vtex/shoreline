@@ -1,11 +1,16 @@
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { flexSpacerTheme } from './flex.css'
 
-export const FlexSpacer = createComponent<'div'>((props) => {
-  return useElement('div', {
-    baseStyle: { flex: 1, justifySelf: 'stretch', alignSelf: 'stretch' },
-    ...props,
-  })
-})
+export const FlexSpacer = forwardRef(
+  (props: FlexSpacerProps, ref: Ref<HTMLDivElement>) => {
+    const { className = '', ...divProps } = props
 
-export type FlexSpacerProps = ComponentPropsWithRef<typeof FlexSpacer>
+    return (
+      <div ref={ref} className={cx(className, flexSpacerTheme)} {...divProps} />
+    )
+  }
+)
+
+export type FlexSpacerProps = ComponentPropsWithoutRef<'div'>

@@ -42,7 +42,7 @@ export const disclosureVariants = styleVariants({
 })
 
 export const caretIcon = (isOpen: boolean) =>
-  style({
+  csx({
     marginLeft: '$space-1',
     svg: {
       margin: '$space-0',
