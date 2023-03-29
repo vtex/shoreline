@@ -40,7 +40,10 @@ export const DatePickerField = forwardRef(
             tone={tone}
             disabled={disabled}
             disclosure={
-              <PickerDisclosure state={pickerState} csx={style.disclosure}>
+              <PickerDisclosure
+                state={pickerState}
+                className={csx(style.disclosure)}
+              >
                 <Center
                   className={csx({
                     color: disabled ? '$disabled' : '$action.neutral.tertiary',
