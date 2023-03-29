@@ -1,23 +1,16 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
-import {
-  createComponent,
-  useElement,
-  createHook,
-  getResponsiveValue,
-  useBreakpoint,
-} from '@vtex/admin-ui-react'
+import { getResponsiveValue, useBreakpoint } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
 
-import * as styles from './columns.style'
+import { columnStyle, columnTheme } from './columns.css'
 
-export const Column = createComponent<'div', ColumnOptions>((props) => {
-  const elementProps = useColumn(props)
-
-  return useElement('div', elementProps)
-})
-
-export const useColumn = createHook<'div', ColumnOptions>((props) => {
-  const { units, offset = 'none', ...restProps } = props
+export const Column = forwardRef(function Columns(
+  props: ColumnProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { units, offset = 'none', className = '', ...htmlProps } = props
 
   const { breakpoint } = useBreakpoint()
 
@@ -27,18 +20,19 @@ export const useColumn = createHook<'div', ColumnOptions>((props) => {
   const resolvedOffset = responsiveUnits ? responsiveOffset : 'none'
   const hasUnits = !!responsiveUnits
 
-  return {
-    baseStyle: {
-      ...styles.columnVariants({ offset: resolvedOffset, units: hasUnits }),
-      ...styles.column(responsiveUnits),
-    },
-    ...restProps,
-  }
+  return (
+    <div
+      ref={ref}
+      style={columnStyle(responsiveUnits) as any}
+      data-offset={resolvedOffset}
+      data-units={hasUnits}
+      className={cx(columnTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
 
-export interface ColumnOptions {
+export interface ColumnProps extends ComponentPropsWithRef<'div'> {
   units?: ResponsiveProp<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>
   offset?: ResponsiveProp<'left' | 'right' | 'both' | 'none'>
 }
-
-export type ColumnsItemProps = ComponentPropsWithRef<typeof Column>
