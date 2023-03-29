@@ -1,7 +1,8 @@
 import React from 'react'
-import { useSelectionTreeContext } from '../context'
-import type { CheckboxProps } from '../../../checkbox'
-import { Checkbox } from '../../../checkbox'
+
+import { useSelectionTreeContext } from './selection-tree-context'
+import type { CheckboxProps } from '../checkbox'
+import { Checkbox } from '../checkbox'
 
 /**
  * SelectionTree root
@@ -14,10 +15,10 @@ import { Checkbox } from '../../../checkbox'
  *  <SelectionTreeRoot />
  * </SelectionTree>
  */
-export function SelectionTreeRoot(props: Props) {
+export function SelectionTreeRoot(props: SelectionTreeRootProps) {
   const state = useSelectionTreeContext()
 
   return <Checkbox state={state.root} {...props} />
 }
 
-type Props = Omit<CheckboxProps & any, 'state'>
+type SelectionTreeRootProps = Omit<CheckboxProps & any, 'state'>

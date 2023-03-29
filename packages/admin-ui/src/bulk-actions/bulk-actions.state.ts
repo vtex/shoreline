@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useCheckboxState } from '../checkbox'
-import type { SelectionTreeState } from '../components/SelectionTree'
+import type { SelectionTreeState } from '../selection-tree'
 
 export function useBulkActions<T extends { id: string | number }>(
   props: UseBulkActionsParams<T>

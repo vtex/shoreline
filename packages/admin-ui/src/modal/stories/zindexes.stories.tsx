@@ -39,7 +39,7 @@ import {
   PageHeaderTop,
   PageContent,
 } from '../../page'
-import { SelectionTree } from '../../components/SelectionTree'
+import { SelectionTree } from '../../selection-tree'
 import { Alert } from '../../alert'
 import { Dropdown, useDropdownState } from '../../components/Dropdown'
 import { Tooltip } from '../../tooltip'

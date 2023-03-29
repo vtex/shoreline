@@ -25,7 +25,7 @@ import {
   PageHeaderTop,
   PageContent,
 } from '../../page'
-import { SelectionTree } from '../../components/SelectionTree'
+import { SelectionTree } from '../../selection-tree'
 
 export default {
   title: 'admin-ui-review/table',

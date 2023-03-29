@@ -1,4 +1,4 @@
-import { renderHook, act } from '../../../test-utils'
+import { renderHook, act } from '../../test-utils'
 import { useSelectionTreeState } from '../index'
 
 const items = [

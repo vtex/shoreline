@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import {
-  SelectionTreeRoot,
-  SelectionTreeItem,
-} from '../../components/SelectionTree'
+import { SelectionTreeRoot, SelectionTreeItem } from '../../selection-tree'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver } from './resolver-core'
 
