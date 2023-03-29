@@ -1,15 +1,16 @@
-import { useMemo } from 'react'
+import type { Ref, ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 import { Clickable } from 'reakit/Clickable'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { callAllHandlers } from '@vtex/admin-ui-util'
 
-import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'
+import { calendarButtonTheme } from './calendar.css'
 
-export const CalendarHeaderButton = createComponent<
-  typeof Clickable,
-  CalendarHeaderButtonOptions
->((props) => {
+export const CalendarHeaderButton = forwardRef(function CalendarHeaderButton(
+  props: CalendarHeaderButtonProps,
+  ref: Ref<HTMLButtonElement>
+) {
   const {
     handler,
     state: {
@@ -19,6 +20,7 @@ export const CalendarHeaderButton = createComponent<
       focusNextYear,
     },
     onClick: htmlOnClick,
+    className = '',
     ...htmlProps
   } = props
 
@@ -45,12 +47,15 @@ export const CalendarHeaderButton = createComponent<
     [focusNextMonth, focusPreviousMonth, focusNextYear, focusPreviousYear]
   )
 
-  return useElement(Clickable, {
-    baseStyle: style.calendarButton,
-    'aria-label': currentHandler?.ariaLabel,
-    onClick: callAllHandlers(htmlOnClick, currentHandler?.handle),
-    ...htmlProps,
-  })
+  return (
+    <Clickable
+      ref={ref}
+      className={cx(calendarButtonTheme, className)}
+      aria-label={currentHandler?.ariaLabel}
+      onClick={callAllHandlers(htmlOnClick, currentHandler?.handle)}
+      {...htmlProps}
+    />
+  )
 })
 
 export type CalendarHeaderButtonHandler =
@@ -60,6 +65,11 @@ export type CalendarHeaderButtonHandler =
   | 'previousYear'
 
 export interface CalendarHeaderButtonOptions {
+  handler: CalendarHeaderButtonHandler
+  state: CalendarStateReturn
+}
+
+export type CalendarHeaderButtonProps = ComponentPropsWithoutRef<'button'> & {
   handler: CalendarHeaderButtonHandler
   state: CalendarStateReturn
 }
