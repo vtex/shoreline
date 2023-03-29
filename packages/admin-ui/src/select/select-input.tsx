@@ -1,40 +1,36 @@
-import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
 import { messages } from './select.i18n'
-import * as styles from './select.styles'
-
 import { useMessageFormatter } from '../i18n'
+import { selectTheme } from './select.css'
 
-export const SelectInput = createComponent<'select', SelectInputOptions>(
-  (props) => {
-    const { error = false, value, children, ...restProps } = props
+export const SelectInput = forwardRef(function SelectInput(
+  props: SelectInputProps,
+  ref: Ref<HTMLSelectElement>
+) {
+  const { error = false, value, children, className = '', ...htmlProps } = props
+  const formatMessage = useMessageFormatter(messages.select)
 
-    const formatMessage = useMessageFormatter(messages.select)
+  return (
+    <select
+      ref={ref}
+      defaultValue=""
+      value={value}
+      data-error={error}
+      data-selected={!!value}
+      className={cx(selectTheme, className)}
+      {...htmlProps}
+    >
+      <option value="" disabled>
+        {formatMessage('placeholder')}&hellip;
+      </option>
+      {children}
+    </select>
+  )
+})
 
-    return useElement('select', {
-      defaultValue: '',
-      ...restProps,
-      value,
-      baseStyle: {
-        ...styles.baseline,
-        ...styles.variants({ error, selected: !!value }),
-      },
-      children: (
-        <>
-          <option value="" disabled>
-            {formatMessage('placeholder')}&hellip;
-          </option>
-          {children}
-        </>
-      ),
-    })
-  }
-)
-
-export type JSXSelectProps = ComponentPropsWithoutRef<'select'>
-
-export interface SelectInputOptions {
+export type SelectInputProps = ComponentPropsWithoutRef<'select'> & {
   error?: boolean
 }

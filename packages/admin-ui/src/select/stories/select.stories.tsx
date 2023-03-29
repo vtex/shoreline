@@ -51,9 +51,9 @@ Playground.args = {
   helpText: 'Help text',
   error: false,
   errorText: 'Error text',
-  csx: {
+  className: csx({
     margin: '$space-4 $space-5',
-  },
+  }),
   disabled: false,
   locale: 'en-US',
 }
