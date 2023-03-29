@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.34](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.33...@vtex/admin-ui@0.135.1-dev.34) (2023-03-29)
+
+
+### Features
+
+* **search:** migrate to new component model ([bedecb4](https://github.com/vtex/admin-ui/commit/bedecb44ccda348ca48571203b0af8e24a4db72a))
+
+
+
+
+
 ## 0.135.1-dev.33 (2023-03-29)
 
 
