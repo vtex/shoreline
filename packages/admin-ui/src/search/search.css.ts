@@ -1,6 +1,6 @@
-import { csx, focusVisible, style } from '@vtex/admin-ui-core'
+import { csx, dataAttr, focusVisible } from '@vtex/admin-ui-core'
 
-export const input = style({
+export const inputTheme = csx({
   border: '$form.neutral',
   borderRadius: '$base',
   size: '100%',
@@ -36,32 +36,38 @@ export const input = style({
   },
 })
 
-export const form = style({
+export const formTheme = csx({
   position: 'relative',
   marginX: '0.06 rem',
   height: '2.25rem',
 })
 
-export const innerContainer = (position: string) => {
-  const positionStyle =
-    position === 'end' ? { right: '0.5rem' } : { left: '0.75rem' }
+export const innerContainerTheme = csx({
+  position: 'absolute',
+  top: '$space-0',
+  height: '100%',
+  [dataAttr('position', 'end')]: {
+    right: '0.5rem',
+  },
+  [dataAttr('position', 'start')]: {
+    left: '0.75rem',
+  },
+})
 
-  return style({
-    position: 'absolute',
-    top: '$space-0',
-    height: '100%',
-    ...positionStyle,
-  })
-}
-
-export const icon = (disabled: boolean) =>
-  style({
-    color: disabled ? '$disabled' : '$secondary',
-  })
+export const iconTheme = csx({
+  [dataAttr('disabled', 'true')]: {
+    fg: '$disabled',
+  },
+  [dataAttr('disabled', 'false')]: {
+    fg: '$secondary',
+  },
+})
 
 export const clearButtonTheme = csx({
-  padding: '$space-0',
-  paddingY: '$space-05',
-  paddingX: '$space-1',
-  height: 'fit-content',
+  [dataAttr('clear', 'true')]: {
+    padding: '$space-0',
+    paddingY: '$space-05',
+    paddingX: '$space-1',
+    height: 'fit-content',
+  },
 })

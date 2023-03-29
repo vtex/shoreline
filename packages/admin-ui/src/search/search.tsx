@@ -1,20 +1,27 @@
-import type { ChangeEventHandler } from 'react'
-import React, { useMemo } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ChangeEventHandler, Ref } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/phosphor-icons'
 import { useFieldFocus } from '@vtex/admin-ui-hooks'
 
-import { Box } from '../box'
-import * as styles from './search.style'
 import { Center } from '../center'
 import { Button } from '../button'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './search.i18n'
-import { csx } from '@vtex/admin-ui-core'
+import { cx } from '@vtex/admin-ui-core'
+import {
+  clearButtonTheme,
+  formTheme,
+  iconTheme,
+  innerContainerTheme,
+  inputTheme,
+} from './search.css'
 
-export const Search = createComponent<'form', SearchOptions>((props) => {
+export const Search = forwardRef(function Search(
+  props: SearchProps,
+  ref: Ref<HTMLFormElement>
+) {
   const formatMessage = useMessageFormatter(messages)
   const label = formatMessage('search')
 
@@ -28,7 +35,8 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
     onSubmit,
     onClear = () => {},
     placeholder = label,
-    ...formProps
+    className = '',
+    ...htmlProps
   } = props
 
   const [inputRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
@@ -36,57 +44,67 @@ export const Search = createComponent<'form', SearchOptions>((props) => {
   const hasClearButton = hasValue && !disabled
 
   const icon = loading ? (
-    <Spinner size={16} className={csx(styles.icon(disabled))} />
+    <Spinner size={16} data-disabled={disabled} className={iconTheme} />
   ) : (
-    <IconMagnifyingGlass size="small" csx={styles.icon(disabled)} />
+    <IconMagnifyingGlass
+      size="small"
+      data-disabled={disabled}
+      className={iconTheme}
+    />
   )
 
-  return useElement('form', {
-    ...formProps,
-    role,
-    onSubmit: (e) => {
-      e.preventDefault()
-      onSubmit?.(e)
-    },
-    onClick: () => {
-      ensureFocus()
-    },
-    baseStyle: styles.form,
-    children: (
-      <>
-        <Center className={csx(styles.innerContainer('start'))}>{icon}</Center>
-        <Box
-          as="input"
-          ref={inputRef}
-          csx={styles.input}
-          placeholder={placeholder}
-          aria-label={ariaLabel}
-          disabled={disabled}
-          value={value}
-          onChange={onChange}
-        />
-        {hasClearButton ? (
-          <Center className={csx(styles.innerContainer('end'))}>
-            <Button
-              aria-label={formatMessage('clearButton')}
-              icon={<IconXCircle />}
-              variant="neutralTertiary"
-              className={styles.clearButtonTheme}
-              onClick={onClear}
-            />
-          </Center>
-        ) : null}
-        <VisuallyHidden>
-          <button type="submit" tabIndex={-1}>
-            {label}
-          </button>
-        </VisuallyHidden>
-      </>
-    ),
-  })
+  return (
+    <form
+      ref={ref}
+      className={cx(formTheme, className)}
+      role={role}
+      onSubmit={(e) => {
+        e.preventDefault()
+        onSubmit?.(e)
+      }}
+      {...htmlProps}
+    >
+      <Center
+        className={innerContainerTheme}
+        onClick={ensureFocus}
+        data-position="start"
+      >
+        {icon}
+      </Center>
+      <input
+        ref={inputRef}
+        className={inputTheme}
+        placeholder={placeholder}
+        aria-label={ariaLabel}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+      />
+      {hasClearButton ? (
+        <Center className={innerContainerTheme} data-position="end">
+          <Button
+            aria-label={formatMessage('clearButton')}
+            icon={<IconXCircle />}
+            variant="neutralTertiary"
+            className={clearButtonTheme}
+            data-clear
+            onClick={() => {
+              onClear()
+              ensureFocus()
+            }}
+          />
+        </Center>
+      ) : null}
+      <VisuallyHidden>
+        <button type="submit" tabIndex={-1}>
+          {label}
+        </button>
+      </VisuallyHidden>
+    </form>
+  )
 })
 
-export interface SearchOptions {
+export type SearchOptions = {
   disabled?: boolean
   loading?: boolean
   onClear?: () => void
@@ -95,4 +113,8 @@ export interface SearchOptions {
   placeholder?: string
 }
 
-export type SearchProps = React.ComponentPropsWithRef<typeof Search>
+export type SearchProps = Omit<
+  React.ComponentPropsWithRef<'form'>,
+  keyof SearchOptions
+> &
+  SearchOptions
