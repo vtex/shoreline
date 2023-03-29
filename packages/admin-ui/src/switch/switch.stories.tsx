@@ -2,7 +2,7 @@ import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
 import { Text } from '../components/Text'
-import type { SwitchProps } from './types'
+import type { SwitchProps } from './index'
 import { Switch, useSwitchState } from './index'
 import { Stack } from '../stack'
 import { csx } from '@vtex/admin-ui-core'
@@ -34,7 +34,7 @@ Playground.args = {
 }
 
 export function Variants() {
-  const props = useSwitchState({ state: [] })
+  const props = useSwitchState({ defaultValue: [] })
 
   return (
     <Stack
@@ -147,7 +147,7 @@ export function Variants() {
         />
       </Stack>
       <br />
-      <Text>State: {props.state}</Text>
+      <Text>State: {props.value}</Text>
     </Stack>
   )
 }
