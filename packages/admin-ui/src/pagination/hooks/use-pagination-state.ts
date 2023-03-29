@@ -8,6 +8,8 @@ export function usePaginationState(
     initialPage = 1,
     total = pageSize,
     stateReducer = defaultReducer,
+    onNextPage,
+    onPrevPage,
   } = params
 
   const [state, dispatch] = useReducer(
@@ -22,7 +24,7 @@ export function usePaginationState(
     [pageSize, dispatch]
   )
 
-  return { ...state, paginate }
+  return { ...state, paginate, onNextPage, onPrevPage }
 }
 
 export function checkDisabled(range: [number, number], total: number) {
@@ -115,6 +117,8 @@ export interface UsePaginationParams {
    * @default 1
    */
   initialPage?: number
+  onNextPage?: () => void
+  onPrevPage?: () => void
   /**
    * Reducer used to handle state in usePagination hook
    */
@@ -139,4 +143,6 @@ export type PaginationAction = PaginationActionType & {
 
 export interface UsePaginationReturn extends PaginationState {
   paginate: (args: PaginationActionType) => void
+  onNextPage?: () => void
+  onPrevPage?: () => void
 }

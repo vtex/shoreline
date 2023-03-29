@@ -1,7 +1,6 @@
-import type { ComponentPropsWithRef } from 'react'
-import React from 'react'
+import type { ComponentPropsWithRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { IconCaretRight, IconCaretLeft } from '@vtex/phosphor-icons'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import { Inline } from '../inline'
 import { Button } from '../button'
@@ -10,11 +9,13 @@ import { Text } from '../components/Text'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './pagination.i18n'
 import type { UsePaginationReturn } from './hooks/use-pagination-state'
-import * as style from './pagination.style'
 import { Skeleton } from '../skeleton'
-import { csx } from '@vtex/admin-ui-core'
+import { labelTheme, loadingTheme } from './pagination.css'
 
-export const Pagination = createComponent<'div', PaginationOptions>((props) => {
+export const Pagination = forwardRef(function Pagination(
+  props: PaginationProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     state: {
       range: [firstPosition, lastPosition],
@@ -23,9 +24,11 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
       nextDisabled,
       total,
       numberOfPages,
+      onNextPage,
+      onPrevPage,
     },
     loading,
-    ...restProps
+    ...htmlProps
   } = props
 
   const sizeVariant = resolveSize(total)
@@ -35,17 +38,17 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
   const currentPageLabel =
     numberOfPages <= 1 ? total : `${firstPosition} — ${lastPosition}`
 
-  return useElement('div', {
-    ...restProps,
-    children: (
+  return (
+    <div ref={ref} {...htmlProps}>
       <Inline align="center" hSpace="$space-2" spaceInside noWrap>
         {loading ? (
-          <Skeleton className={csx(style.loading)} />
+          <Skeleton className={loadingTheme} />
         ) : (
           <Text
             tone="secondary"
             variant="detail"
-            csx={{ ...style.label, ...style.variants({ size: sizeVariant }) }}
+            data-size={sizeVariant}
+            className={labelTheme}
           >
             {formatMessage('pagination', {
               currentPage: currentPageLabel,
@@ -59,7 +62,10 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
             aria-label={formatMessage('prevLabel')}
             variant="neutralTertiary"
             disabled={loading || prevDisabled}
-            onClick={() => paginate({ type: 'prev' })}
+            onClick={() => {
+              onPrevPage?.()
+              paginate({ type: 'prev' })
+            }}
             icon={<IconCaretLeft />}
           />
 
@@ -67,13 +73,16 @@ export const Pagination = createComponent<'div', PaginationOptions>((props) => {
             aria-label={formatMessage('nextLabel')}
             variant="neutralTertiary"
             disabled={loading || nextDisabled}
-            onClick={() => paginate({ type: 'next' })}
+            onClick={() => {
+              onNextPage?.()
+              paginate({ type: 'next' })
+            }}
             icon={<IconCaretRight />}
           />
         </Flex>
       </Inline>
-    ),
-  })
+    </div>
+  )
 })
 
 function resolveSize(total: number) {
@@ -84,7 +93,7 @@ function resolveSize(total: number) {
   return 'xlarge'
 }
 
-export interface PaginationOptions {
+export type PaginationProps = ComponentPropsWithRef<'div'> & {
   /**
    * Whether the table is loading or not
    * @default false
@@ -95,5 +104,3 @@ export interface PaginationOptions {
    */
   state: UsePaginationReturn
 }
-
-export type PaginationProps = ComponentPropsWithRef<typeof Pagination>
