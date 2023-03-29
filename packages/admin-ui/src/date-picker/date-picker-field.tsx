@@ -6,7 +6,7 @@ import { csx } from '@vtex/admin-ui-core'
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
 
-import { Text } from '../components/Text'
+import { Text } from '../text'
 import { DateField } from '../date-field'
 import { Center } from '../center'
 import { Picker, PickerDisclosure } from '../picker'

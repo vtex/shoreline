@@ -6,7 +6,7 @@ import * as style from './combobox.style'
 import { Box } from '../box'
 import { messages } from './combobox.i18n'
 import { Paragraph } from '../components/Paragraph'
-import { Text } from '../components/Text'
+import { Text } from '../text'
 import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../spinner'
 import { Button } from '../button'
@@ -48,9 +48,9 @@ export const ComboboxPopoverBase = createComponent<
               margin: '$space-2',
             }}
           >
-            <Text as="h2" variant="title2">
-              {formatMessage('error')}
-            </Text>
+            <h2>
+              <Text variant="title2">{formatMessage('error')}</Text>
+            </h2>
             <Button bleedX onClick={onRetry} variant="tertiary">
               {formatMessage('retry')}
             </Button>
@@ -83,9 +83,9 @@ export const ComboboxPopoverBase = createComponent<
               margin: '$space-2',
             }}
           >
-            <Text as="h2" variant="title2">
-              {formatMessage('noResultsTitle')}
-            </Text>
+            <h2>
+              <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
+            </h2>
             <Paragraph
               csx={{
                 color: '$secondary',

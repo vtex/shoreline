@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
-import { Text } from '../components/Text'
+import { Text } from '../text'
 import type { SwitchProps } from './index'
 import { Switch, useSwitchState } from './index'
 import { Stack } from '../stack'

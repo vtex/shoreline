@@ -9,7 +9,7 @@ import { Tag } from './tag'
 import { Stack } from '../stack'
 import type { InlineProps } from '../inline'
 import { Inline as AdminUIInline } from '../inline'
-import { Text } from '../components/Text'
+import { Text } from '../text'
 
 const LABEL = 'Short text'
 
