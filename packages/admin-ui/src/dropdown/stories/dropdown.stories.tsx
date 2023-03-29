@@ -2,8 +2,8 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import { Inline } from '../../inline'
-import type { DropdownProps } from './index'
-import { Dropdown, useDropdownState } from './index'
+import type { DropdownProps } from '../index'
+import { Dropdown, useDropdownState } from '../index'
 import { Card } from '../../card'
 
 export default {
