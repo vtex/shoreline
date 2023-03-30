@@ -1,10 +1,11 @@
 import React from 'react'
 import type { AnyObject } from '@vtex/admin-ui-util'
+import {
+  appliedItemsLabelTheme,
+  disclosureStatusLabelTheme,
+} from './filter.css'
 
-import { Box } from '../box'
-import * as style from './filter.style'
-
-export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
+export const AppliedItemsLabel = (props: AppliedItemsLabelProps) => {
   const { appliedItems } = props
 
   const separator = appliedItems.length > 1 ? ',' : ''
@@ -18,17 +19,18 @@ export const AppliedItemsLabel = (props: { appliedItems: AnyObject[] }) => {
   const appliedValuesLabel = appliedItems.length ? (
     <>
       <span>:</span>
-      <Box as="span" csx={{ color: '$primary' }}>
-        <Box
-          as="span"
-          csx={{ ...style.disclosureStatusLabel, marginX: '$space-1' }}
-        >
+      <span className={appliedItemsLabelTheme}>
+        <span className={disclosureStatusLabelTheme}>
           {firstSelectedItemLabel}
-        </Box>
+        </span>
         {remainingSelectedItemsCount}
-      </Box>
+      </span>
     </>
   ) : null
 
   return appliedValuesLabel
+}
+
+interface AppliedItemsLabelProps {
+  appliedItems: AnyObject[]
 }

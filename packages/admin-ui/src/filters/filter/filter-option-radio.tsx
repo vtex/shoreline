@@ -1,19 +1,20 @@
-import React from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 
 import { ComboboxItem } from 'ariakit/combobox'
 
-import * as style from '../filter.style'
-
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { FilterRadio } from './filter-radio'
 import { usePopoverContext } from '../filter-popover-context'
+import { filterControlInputTheme } from '../filter.css'
+import { cx } from '@vtex/admin-ui-core'
 
-export const FilterOptionRadio = createComponent<
-  typeof ComboboxItem,
-  FilterOptionRadioProps
->((props) => {
+export const FilterOptionRadio = forwardRef(function FilterOptionRadio(
+  props: FilterOptionRadioProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { id, label, value, className = '', onClick, ...htmlProps } = props
+
   const { state } = usePopoverContext()
-  const { id, label, value, ...restProps } = props
 
   const { selectedItem, setSelectedItem } = state.combobox
 
@@ -21,22 +22,26 @@ export const FilterOptionRadio = createComponent<
 
   const item = { id, label, value }
 
-  return useElement(ComboboxItem, {
-    baseStyle: style.option,
-    children: (
-      <>
-        <FilterRadio checked={isSelected} />
-        {label}
-      </>
-    ),
-    'aria-selected': isSelected,
-    onClick: () => setSelectedItem(item),
-    id,
-    ...restProps,
-  })
+  return (
+    <ComboboxItem
+      ref={ref}
+      className={cx(filterControlInputTheme, className)}
+      id={id}
+      onClick={(e) => {
+        setSelectedItem(item)
+        onClick?.(e)
+      }}
+      aria-selected={isSelected}
+      {...htmlProps}
+    >
+      <FilterRadio checked={isSelected} />
+      {label}
+    </ComboboxItem>
+  )
 })
 
-interface FilterOptionRadioProps {
+interface FilterOptionRadioProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'id'> {
   id: string
   label: string
   value?: any
