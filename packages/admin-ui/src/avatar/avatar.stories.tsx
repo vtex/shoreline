@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { AvatarProps } from './index'
 import { Avatar } from './index'
-import { Inline } from '../../inline'
+import { Inline } from '../inline'
 
 export default {
   title: 'admin-ui/Avatar',
