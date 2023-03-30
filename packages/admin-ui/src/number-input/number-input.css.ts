@@ -1,6 +1,6 @@
-import { csx, style } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
-export const container = style({
+export const numberInputContainerTheme = csx({
   opacity: 1,
   ':not(:hover):not(:focus-within) > button': {
     opacity: 0,
@@ -8,7 +8,7 @@ export const container = style({
   },
 })
 
-export const input = style({
+export const numberInputTheme = csx({
   appearance: 'none',
   '-moz-appearance': 'textfield',
   '::-webkit-inner-spin-button ': {
