@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.37 (2023-03-30)
+
+
+### Bug Fixes
+
+* build error ([9e8ccda](https://github.com/vtex/admin-ui/commit/9e8ccda11c7d416b1d190f0b5501afae2dba5261))
+
+
+
+
+
 ## [0.135.1-dev.36](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.35...@vtex/admin-ui@0.135.1-dev.36) (2023-03-29)
 
 **Note:** Version bump only for package @vtex/admin-ui
