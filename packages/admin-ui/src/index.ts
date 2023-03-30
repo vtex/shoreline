@@ -46,6 +46,7 @@ export * from './heading'
 export * from './label'
 export * from './text'
 export * from './avatar'
+export * from './illustrations'
 
 export * from './components/Paragraph'
 export * from './components/List'
@@ -61,7 +62,6 @@ export {
 
 export * from './components/SelectionTree'
 export * from './components/Field'
-export * from './components/Illustrations'
 
 export {
   IconCaretUp,
