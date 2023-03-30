@@ -60,7 +60,7 @@ export {
   isFirefox,
   isEdge,
 } from 'react-device-detect'
-export * from './components/SearchBox'
+
 export * from './components/SelectionTree'
 export * from './components/Field'
 export * from './components/Illustrations'
