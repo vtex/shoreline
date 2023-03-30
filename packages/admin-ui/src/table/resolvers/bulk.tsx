@@ -14,7 +14,7 @@ export function bulkResolver<T extends {}>() {
   return createResolver<T, 'bulk', BulkResolver<T>>({
     header: function BulkResolver({ context, column }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ size: '24px' })} />
+        return <Skeleton className={csx({ size: '1.5rem' })} />
       }
 
       const { resolver } = column
@@ -43,7 +43,7 @@ export function bulkResolver<T extends {}>() {
     },
     cell: function BulkResolver({ context, column, item }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ size: '24px' })} />
+        return <Skeleton className={csx({ size: '1.5rem' })} />
       }
 
       const { resolver } = column

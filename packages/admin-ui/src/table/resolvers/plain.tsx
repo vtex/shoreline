@@ -10,7 +10,7 @@ export function plainResolver<T>() {
   return createResolver<T, 'plain', PlainResolver<T>>({
     cell: function PlainResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ height: 24 })} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
       const data = getData()

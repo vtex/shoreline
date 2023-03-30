@@ -16,6 +16,7 @@ import {
 import { Button } from '../../button'
 
 import { IconTrash, IconPencil } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/table',
@@ -93,7 +94,7 @@ export function WithMenu() {
   })
 
   return (
-    <DataView csx={{ width: 500 }} state={view}>
+    <DataView className={csx({ width: 500 })} state={view}>
       <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>

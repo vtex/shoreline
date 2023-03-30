@@ -1,32 +1,25 @@
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { cx } from '@vtex/admin-ui-core'
 import React, { memo } from 'react'
-import { Box } from '../../../box'
-
-import * as styles from '../styles/table-body.styles'
+import { tableBodyRowTheme } from '../styles/table-body.css'
 
 function TableBodyRow(props: TableBodyRowProps) {
-  const { selected, children, onClick, csx, ...rowProps } = props
+  const { selected, children, onClick, className = '', ...rowProps } = props
 
   return (
-    <Box
-      as="tr"
-      {...rowProps}
+    <tr
+      className={cx(tableBodyRowTheme, className)}
+      data-clickable={!!onClick}
+      data-selected={selected}
       role="row"
-      csx={{
-        ...styles.rowBaseline,
-        ...styles.variants({ clickable: !!onClick }),
-        ...styles.variants({ selected }),
-        ...csx,
-      }}
       onClick={onClick}
+      {...rowProps}
     >
       {children}
-    </Box>
+    </tr>
   )
 }
 
 export type TableBodyRowProps = {
-  csx?: StyleProp
   selected?: boolean
 } & React.ComponentPropsWithoutRef<'tr'>
 

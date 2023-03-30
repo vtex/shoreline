@@ -21,6 +21,7 @@ import { Pagination, useQueryPaginationState } from '../../pagination'
 import { Stack } from '../../stack'
 import { TextInput } from '../../text-input'
 import { FlexSpacer } from '../../flex'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/table/WithDataView',
@@ -96,13 +97,13 @@ export function SearchControls() {
   }, [search.debouncedValue])
 
   return (
-    <DataView csx={{ width: 500 }} state={view}>
+    <DataView className={csx({ width: 500 })} state={view}>
       <DataViewHeader>
         <Search
           {...search.getInputProps()}
-          csx={{
+          className={csx({
             width: 'full',
-          }}
+          })}
         />
       </DataViewHeader>
 
@@ -138,7 +139,7 @@ export function Status() {
   })
 
   return (
-    <DataView csx={{ width: 500 }} state={view}>
+    <DataView className={csx({ width: 500 })} state={view}>
       <DataViewHeader>
         <Button onClick={() => view.setStatus({ type: 'ready' })}>Ready</Button>
         <Button onClick={() => view.setStatus({ type: 'loading' })}>
@@ -256,7 +257,7 @@ export function QueryState() {
           disabled
           helpText="You can copy the part with page and search in your URL to see the page load directly with persisted states"
         />
-        <DataView csx={{ width: 500 }} state={view}>
+        <DataView className={csx({ width: 500 })} state={view}>
           <DataViewHeader>
             <Search {...search.getInputProps()} />
             <FlexSpacer />

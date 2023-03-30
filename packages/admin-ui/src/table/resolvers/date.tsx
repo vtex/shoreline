@@ -11,7 +11,7 @@ export function dateResolver<T>() {
   return createResolver<T, 'date', DateResolver<T>>({
     cell: function DateResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton className={csx({ height: 24 })} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
       const { resolver } = column
