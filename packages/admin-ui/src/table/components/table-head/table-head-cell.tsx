@@ -52,8 +52,6 @@ function TableHeadCell<T>(props: TableHeadCellProps<T>) {
     }),
   }
 
-  console.log({ hasVerticalScroll })
-
   return (
     <TableCell
       {...restProps}
