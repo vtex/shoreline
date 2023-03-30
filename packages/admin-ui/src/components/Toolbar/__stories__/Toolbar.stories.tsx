@@ -23,7 +23,7 @@ import {
   ModalContent,
   useModalState,
 } from '../../../modal'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 import { ToolbarButton } from '../components/ToolbarButton'
 
 export default {

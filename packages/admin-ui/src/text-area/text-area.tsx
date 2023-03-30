@@ -5,7 +5,7 @@ import { useFieldFocus, useId, useForkRef } from '@vtex/admin-ui-hooks'
 import { TextAreaContainer } from './text-area-container'
 import type { TextAreaElementProps } from './text-area-element'
 import { TextAreaElement } from './text-area-element'
-import { Text } from '../components/Text'
+import { Text } from '../text'
 import {
   FormControl,
   FormControlLabel,

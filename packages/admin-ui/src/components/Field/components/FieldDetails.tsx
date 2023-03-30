@@ -3,7 +3,7 @@ import React from 'react'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { Role } from 'reakit/Role'
 
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 
 export const FieldDetails = createComponent<typeof Role, FieldDetailsOptions>(
   (props) => {

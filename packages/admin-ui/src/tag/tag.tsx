@@ -49,7 +49,7 @@ type TagVariant =
 
 type TagSize = 'normal' | 'large'
 
-interface TagProps extends ComponentPropsWithoutRef<'div'> {
+export interface TagProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Tag Label
    */

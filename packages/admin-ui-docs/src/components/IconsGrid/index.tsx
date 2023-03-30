@@ -78,7 +78,7 @@ export function IconsGrid(props: IconsGridProps) {
   const { selectedItem: selectedWeight } = weightDropdown
 
   return (
-    <DataView state={dataView} csx={{ marginX: '$space-2' }}>
+    <DataView state={dataView} className={csx({ marginX: '$space-2' })}>
       <DataViewHeader>
         <Stack direction="row">
           <Search {...search.getInputProps()} />
@@ -156,7 +156,7 @@ function IconPreview(props: IconPreviewProps) {
           opacity,
         },
       })}
-      <Text tone="secondary" csx={{ opacity }}>
+      <Text tone="secondary" className={csx({ opacity })}>
         {`<Icon${item.name} />`}
       </Text>
     </Stack>

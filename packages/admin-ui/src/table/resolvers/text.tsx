@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant'
 import { csx } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
-import { Text } from '../../components/Text'
+import { Text } from '../../text'
 import { Grid } from '../../grid'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'

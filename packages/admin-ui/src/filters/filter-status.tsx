@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text } from '../components/Text'
+import { Text } from '../text'
 
 import { messages } from './filter.i18n'
 import { useMessageFormatter } from '../i18n'

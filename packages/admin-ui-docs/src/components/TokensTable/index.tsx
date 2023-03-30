@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import type { StyleProp } from '@vtex/admin-ui'
 import {
+  csx,
   useTableState,
   useDataViewState,
   useSearchState,
@@ -151,7 +152,7 @@ export function TokensTable(props: TokensTableProps) {
           render: (column) => {
             return (
               <Flex direction="column">
-                <Text csx={{ fontSettings: 'medium' }}>
+                <Text className={csx({ fontSettings: 'medium' })}>
                   {typeof column.item.value === 'string'
                     ? column.item.value
                     : column.item.value.formatted}

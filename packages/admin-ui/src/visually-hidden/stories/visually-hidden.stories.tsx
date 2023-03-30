@@ -2,7 +2,7 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Flex } from '../../flex'
-import { Text } from '../../components/Text'
+import { Text } from '../../text'
 import { VisuallyHidden } from '../index'
 import { csx } from '@vtex/admin-ui-core'
 
@@ -19,7 +19,7 @@ export function WithinSearchField() {
       </VisuallyHidden>
       <input id="search" type="search" placeholder="A11y Search Input" />
       <Text
-        csx={{ alignSelf: 'flex-end', marginTop: '$space-3' }}
+        className={csx({ alignSelf: 'flex-end', marginTop: '$space-3' })}
         variant="detail"
       >
         Use this input to search things
