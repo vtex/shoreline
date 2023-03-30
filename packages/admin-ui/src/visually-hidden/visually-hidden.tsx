@@ -1,12 +1,4 @@
-import type { ComponentPropsWithoutRef, Ref } from 'react'
-import React, { forwardRef } from 'react'
-import { VisuallyHidden as AriakitVisuallyHidden } from 'ariakit'
+import type { ComponentPropsWithoutRef } from 'react'
 
-export const VisuallyHidden = forwardRef(function VisuallyHidden(
-  props: VisuallyHiddenProps,
-  ref: Ref<HTMLSpanElement>
-) {
-  return <AriakitVisuallyHidden ref={ref} {...props} />
-})
-
+export { VisuallyHidden } from 'ariakit'
 export type VisuallyHiddenProps = ComponentPropsWithoutRef<'span'>
