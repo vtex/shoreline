@@ -7,7 +7,7 @@ import { Bleed } from './bleed'
 
 import { Tag } from '../tag'
 import { Box } from '../box'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 
 export default {
   title: 'admin-ui/bleed',

@@ -7,7 +7,7 @@ import { CompositeItem } from 'ariakit/composite'
 import { Box } from '../box'
 import { messages } from './combobox.i18n'
 import { useMessageFormatter } from '../i18n'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { Flex } from '../flex'
 import * as style from './combobox.style'
 

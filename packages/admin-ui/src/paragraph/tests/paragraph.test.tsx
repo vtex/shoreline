@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, axe } from '../../test-utils'
 
-import { Paragraph } from './index'
+import { Paragraph } from '../index'
 
-describe('Paragraph tests', () => {
+describe('Paragraph', () => {
   it('should not have any violations', async () => {
     const { container } = render(<Paragraph>test paragraph</Paragraph>)
 
