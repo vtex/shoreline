@@ -59,7 +59,6 @@ export {
   isFirefox,
   isEdge,
 } from 'react-device-detect'
-export * from './components/Field'
 
 export {
   IconCaretUp,

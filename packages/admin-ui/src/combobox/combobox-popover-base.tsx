@@ -26,11 +26,7 @@ export const ComboboxPopoverBase = forwardRef(
 
     const { deferredValue, status, ...comboboxState } = state
 
-<<<<<<< HEAD
   const formatMessage = useMessageFormatter(messages)
-=======
-    const formatMessage = useMessageFormatter(messages.popover)
->>>>>>> c4db6ce51 (refactor(combobox): migrate combobox and combobox multiple to new model)
 
     const renderChildren = () => {
       switch (status) {
