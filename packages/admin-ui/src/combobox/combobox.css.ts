@@ -1,14 +1,48 @@
-import { csx, cx, dataAttr, style, styleVariants } from '@vtex/admin-ui-core'
+import { dataAttr, cx, csx } from '@vtex/admin-ui-core'
 import { action as actionColorScheme } from '../button/button.css'
 
 const height = '3rem'
 const width = '21.625rem'
 
-export const container = style({
+const floatingLabelFieldRules = {
+  focus: 'focus + label',
+  placeholder: 'placeholder-shown:not(:focus) + label',
+  placeholderShown: 'not(:placeholder-shown) + label',
+}
+
+export const fieldContainerTheme = csx({
   width,
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  flexDirection: 'column',
+  [`input:${floatingLabelFieldRules.focus}, textarea:${floatingLabelFieldRules.focus}`]:
+    {
+      transform: 'translate(1px, 4px) scale(0.875)',
+    },
+  [`input:${floatingLabelFieldRules.placeholder}, textarea:${floatingLabelFieldRules.placeholder}`]:
+    {
+      paddingTop: '$space-1',
+    },
+  [`input:${floatingLabelFieldRules.placeholderShown}, textarea:${floatingLabelFieldRules.placeholderShown}`]:
+    {
+      transform: 'translate(1px, 4px) scale(0.875)',
+    },
 })
 
-export const input = style({
+export const fieldLabelTheme = csx({
+  text: '$body',
+  left: 12,
+  paddingTop: '$space-2',
+  color: '$secondary',
+  marginBottom: '$space-3',
+  position: 'absolute',
+  transform: 'translate(0, 16px) scale(1)',
+  transformOrigin: 'top left',
+  transition: 'all 0.2s ease-out;',
+})
+
+export const inputTheme = csx({
   width,
   height,
   paddingX: '$space-3',
@@ -34,7 +68,7 @@ export const input = style({
   },
 })
 
-export const buttonContainer = style({
+export const buttonContainerTheme = csx({
   right: '$space-0',
   top: '$space-1',
   height: '2.875rem',
@@ -61,7 +95,7 @@ export const clearButtonTheme = csx({
   color: '$secondary',
 })
 
-export const popover = style({
+export const popoverTheme = csx({
   width,
   padding: '$space-3',
   bg: '$primary',
@@ -71,7 +105,7 @@ export const popover = style({
   zIndex: '$z-4',
 })
 
-export const item = style({
+export const itemTheme = csx({
   text: '$body',
   borderRadius: '$base',
   paddingY: '$space-2',
@@ -87,15 +121,17 @@ export const item = style({
   },
 })
 
-export const itemMultiple = style({
-  ...item,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  outline: 'none',
-})
+export const itemMultipleTheme = cx(
+  itemTheme,
+  csx({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    outline: 'none',
+  })
+)
 
-export const fieldTag = style({
+export const fieldTagTheme = csx({
   bg: '$action.neutral.secondary',
   color: '$primary',
   text: '$body',
@@ -110,7 +146,7 @@ export const fieldTag = style({
   },
 })
 
-export const fieldTagDismiss = style({
+export const fieldTagDismissTheme = csx({
   padding: '$space-0',
   marginLeft: '$space-2',
   bg: 'transparent',
@@ -120,7 +156,7 @@ export const fieldTagDismiss = style({
   color: '$secondary',
 })
 
-export const fieldMultipleContainer = style({
+export const fieldMultipleContainerTheme = csx({
   width: 500,
   display: 'flex',
   cursor: 'text',
@@ -136,9 +172,20 @@ export const fieldMultipleContainer = style({
   ':focus-within': {
     border: '$form.neutralFocus',
   },
+
+  input: {
+    border: 'none',
+    outline: 'none',
+    [dataAttr('reduce-label', true)]: {
+      paddingY: '$space-1',
+    },
+    [dataAttr('reduce-label', false)]: {
+      paddingY: '$space-0',
+    },
+  },
 })
 
-export const label = style({
+export const multipleLabelTheme = csx({
   position: 'absolute',
   text: '$body',
   zIndex: '$z-2',
@@ -146,15 +193,10 @@ export const label = style({
   color: '$secondary',
   transformOrigin: 'top left',
   transition: 'all 0.2s ease-out;',
-})
-
-export const labelTransition = styleVariants({
-  reduced: {
-    true: {
-      transform: 'translate(1px, 0px) scale(0.875)',
-    },
-    false: {
-      transform: 'translate(0, 9px) scale(1)',
-    },
+  [dataAttr('reduce-label', true)]: {
+    transform: 'translate(1px, 0px) scale(0.875)',
+  },
+  [dataAttr('reduce-label', false)]: {
+    transform: 'translate(0, 9px) scale(1)',
   },
 })

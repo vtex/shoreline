@@ -1,36 +1,43 @@
-import React from 'react'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
 import { CheckboxCheck } from 'ariakit/checkbox'
 import type { ComboboxItemProps } from 'ariakit/combobox'
-import { ComboboxItem } from './combobox-item'
+// import { ComboboxItem } from './combobox-item'
+import { ComboboxItem } from 'ariakit/combobox'
 
-import * as style from './combobox.style'
+import { itemMultipleTheme } from './combobox.css'
 import type { AnyObject } from '@vtex/admin-ui-util'
+import { cx } from '@vtex/admin-ui-core'
 
-export function ComboboxMultipleItem(props: ComboboxMultipleItemProps) {
-  const {
-    children,
-    onChange: onChangeCb,
-    item,
-    isSelected,
-    ...restProps
-  } = props
+export const ComboboxMultipleItem = forwardRef(
+  (props: ComboboxMultipleItemProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      children,
+      onChange: onChangeCb,
+      item,
+      isSelected,
+      className = '',
+      ...restProps
+    } = props
 
-  const checked = isSelected(item)
+    const checked = isSelected(item)
 
-  return (
-    <ComboboxItem
-      // All selectable items must have the `aria-selected` attribute
-      aria-selected={checked}
-      style={style.itemMultiple}
-      onClick={() => onChangeCb?.(item)}
-      {...restProps}
-    >
-      {children}
-      <CheckboxCheck checked={checked} />
-    </ComboboxItem>
-  )
-}
+    return (
+      <ComboboxItem
+        // All selectable items must have the `aria-selected` attribute
+        aria-selected={checked}
+        className={cx(itemMultipleTheme, className)}
+        onClick={() => onChangeCb?.(item)}
+        ref={ref}
+        {...restProps}
+      >
+        {children}
+        <CheckboxCheck checked={checked} />
+      </ComboboxItem>
+    )
+  }
+)
 
 export type ComboboxMultipleItemProps = ComboboxItemProps & {
   item: AnyObject

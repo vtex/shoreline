@@ -1,8 +1,8 @@
-import React from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import * as style from './combobox.style'
+import { popoverTheme } from './combobox.css'
 import { Box } from '../box'
 import { messages } from './messages'
 import { Paragraph } from '../components/Paragraph'
@@ -12,102 +12,117 @@ import { Spinner } from '../spinner'
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
 import type { ComboboxMultipleState } from '.'
+import { cx } from '@vtex/admin-ui-core'
 
-export const ComboboxPopoverBase = createComponent<
-  typeof AriakitComboboxPopover,
-  Props
->((props) => {
-  const { state, onRetry = () => null, children, ...restProps } = props
+export const ComboboxPopoverBase = forwardRef(
+  (props: ComboboxPopoverBaseProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      state,
+      onRetry = () => null,
+      children,
+      className = '',
+      ...htmlProps
+    } = props
 
-  const { deferredValue, status, ...comboboxState } = state
+    const { deferredValue, status, ...comboboxState } = state
 
+<<<<<<< HEAD
   const formatMessage = useMessageFormatter(messages)
+=======
+    const formatMessage = useMessageFormatter(messages.popover)
+>>>>>>> c4db6ce51 (refactor(combobox): migrate combobox and combobox multiple to new model)
 
-  const renderChildren = () => {
-    switch (status) {
-      case 'ready': {
-        return <>{children}</>
-      }
+    const renderChildren = () => {
+      switch (status) {
+        case 'ready': {
+          return <>{children}</>
+        }
 
-      case 'loading': {
-        return (
-          <Box
-            csx={{
-              margin: '$space-2',
-            }}
-          >
-            <Spinner />
-          </Box>
-        )
-      }
-
-      case 'error': {
-        return (
-          <Box
-            csx={{
-              margin: '$space-2',
-            }}
-          >
-            <h2>
-              <Text variant="title2">{formatMessage('error')}</Text>
-            </h2>
-            <Button bleedX onClick={onRetry} variant="tertiary">
-              {formatMessage('retry')}
-            </Button>
-          </Box>
-        )
-      }
-
-      case 'empty': {
-        return (
-          <Box
-            csx={{
-              margin: '$space-2',
-            }}
-          >
-            <Paragraph
+        case 'loading': {
+          return (
+            <Box
               csx={{
-                color: '$secondary',
+                margin: '$space-2',
               }}
             >
-              {formatMessage('searchPlaceholder')}
-            </Paragraph>
-          </Box>
-        )
-      }
+              <Spinner />
+            </Box>
+          )
+        }
 
-      case 'not-found': {
-        return (
-          <Box
-            csx={{
-              margin: '$space-2',
-            }}
-          >
-            <h2>
-              <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
-            </h2>
-            <Paragraph
+        case 'error': {
+          return (
+            <Box
               csx={{
-                color: '$secondary',
+                margin: '$space-2',
               }}
             >
-              {formatMessage('noResultsSubtitle')}
-            </Paragraph>
-          </Box>
-        )
+              <h2>
+                <Text variant="title2">{formatMessage('error')}</Text>
+              </h2>
+              <Button bleedX onClick={onRetry} variant="tertiary">
+                {formatMessage('retry')}
+              </Button>
+            </Box>
+          )
+        }
+
+        case 'empty': {
+          return (
+            <Box
+              csx={{
+                margin: '$space-2',
+              }}
+            >
+              <Paragraph
+                csx={{
+                  color: '$secondary',
+                }}
+              >
+                {formatMessage('searchPlaceholder')}
+              </Paragraph>
+            </Box>
+          )
+        }
+
+        case 'not-found': {
+          return (
+            <Box
+              csx={{
+                margin: '$space-2',
+              }}
+            >
+              <h2>
+                <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
+              </h2>
+              <Paragraph
+                csx={{
+                  color: '$secondary',
+                }}
+              >
+                {formatMessage('noResultsSubtitle')}
+              </Paragraph>
+            </Box>
+          )
+        }
       }
     }
+
+    return (
+      <AriakitComboboxPopover
+        state={{ ...comboboxState, matches: [] }}
+        className={cx(popoverTheme, className)}
+        ref={ref}
+        {...htmlProps}
+      >
+        {renderChildren()}
+      </AriakitComboboxPopover>
+    )
   }
+)
 
-  return useElement(AriakitComboboxPopover, {
-    ...restProps,
-    state: { ...comboboxState, matches: [] },
-    baseStyle: style.popover,
-    children: renderChildren(),
-  })
-})
-
-interface Props {
+export interface ComboboxPopoverBaseProps
+  extends ComponentPropsWithoutRef<'div'> {
   state: ComboboxState<any> | ComboboxMultipleState<any>
   onRetry?: () => void
 }
