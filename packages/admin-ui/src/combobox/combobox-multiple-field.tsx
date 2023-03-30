@@ -4,7 +4,7 @@ import { Composite, useCompositeState } from 'ariakit/composite'
 import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
-import { messages } from './combobox.i18n'
+import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { Inline } from '../inline'
 import { Bleed } from '../bleed'
@@ -65,7 +65,7 @@ export const ComboboxMultipleField = createComponent<
   const composite = useCompositeState()
   const inputRef = useRef<HTMLInputElement>(null)
   const [focused, setFocused] = React.useState(false)
-  const formatMessage = useMessageFormatter(messages.fieldMultiple)
+  const formatMessage = useMessageFormatter(messages)
 
   const onFocus = () => setFocused(true)
   const onBlur = () => setFocused(false)

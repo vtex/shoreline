@@ -40,9 +40,8 @@ export const Playground: Story<PlaygroundProps> = (args) => {
 
 Playground.args = {
   disabled: false,
-  placeholder: 'Search',
   loading: false,
-  locale: 'en-US',
+  locale: 'es-AR',
 }
 
 export const WithoutHook = () => {

@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { messages } from './select.i18n'
+import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { selectTheme } from './select.css'
 
@@ -11,7 +11,7 @@ export const SelectInput = forwardRef(function SelectInput(
   ref: Ref<HTMLSelectElement>
 ) {
   const { error = false, value, children, className = '', ...htmlProps } = props
-  const formatMessage = useMessageFormatter(messages.select)
+  const formatMessage = useMessageFormatter(messages)
 
   return (
     <select

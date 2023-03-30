@@ -7,7 +7,7 @@ import { Button } from '../button'
 import { Text } from '../text'
 import { Bleed } from '../bleed'
 import { useMessageFormatter } from '../i18n'
-import { messages } from './bulk-actions.i18n'
+import { messages } from './messages'
 import {
   baselineTheme,
   containerTheme,

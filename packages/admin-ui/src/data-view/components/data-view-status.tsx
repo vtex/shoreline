@@ -3,7 +3,7 @@ import React from 'react'
 import { CollectionError } from '../../components/Illustrations'
 
 import { useMessageFormatter } from '../../i18n'
-import { messages } from '../data-view.i18n'
+import { messages } from '../messages'
 import type { DataViewState, StatusAction } from '../data-view.state'
 import { Button } from '../../button'
 import { Stack } from '../../stack'

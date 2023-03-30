@@ -1,0 +1,5 @@
+{
+  "selectAll": "Select all",
+  "deselectAll": "Deselect all",
+  "selected": "{current} of {total} selected"
+}

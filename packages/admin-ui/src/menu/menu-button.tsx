@@ -20,7 +20,7 @@ import { Center } from '../center'
 import * as style from './menu.style'
 
 import { useMessageFormatter } from '../i18n'
-import { messages } from './menu.i18n'
+import { messages } from './messages'
 
 export const MenuButton = createComponent<
   typeof AriakitMenuButton,
@@ -68,7 +68,7 @@ export const MenuButton = createComponent<
     },
   }[menuType] as IconConfig
 
-  const formatMessage = useMessageFormatter(messages.menu)
+  const formatMessage = useMessageFormatter(messages)
   const menuLabel = (label ?? formatMessage('buttonLabel')) as string
 
   const bleedYStyle = bleedY

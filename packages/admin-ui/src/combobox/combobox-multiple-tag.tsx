@@ -5,7 +5,7 @@ import { Focusable } from 'ariakit/focusable'
 import { CompositeItem } from 'ariakit/composite'
 
 import { Box } from '../box'
-import { messages } from './combobox.i18n'
+import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../components/Paragraph'
 import { Flex } from '../flex'
@@ -13,7 +13,7 @@ import * as style from './combobox.style'
 
 export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
   const { value, onDismiss, ...htmlProps } = props
-  const formatMessage = useMessageFormatter(messages.tag)
+  const formatMessage = useMessageFormatter(messages)
 
   return (
     <CompositeItem {...htmlProps}>

@@ -17,7 +17,7 @@ import type { NumberInputValue } from './number-input.state'
 import { useNumberInput } from './number-input.state'
 import { useMessageFormatter } from '../i18n'
 
-import { messages } from '../form-control/form-control.i18n'
+import { messages } from '../form-control/messages'
 
 import {
   incrementButtonTheme,
@@ -61,7 +61,7 @@ export const NumberInput = forwardRef(function NumberInput(
   const id = useId(defaultId)
   const [focusRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
 
-  const formatMessage = useMessageFormatter(messages.formControl)
+  const formatMessage = useMessageFormatter(messages)
   const optionalPlaceholder =
     !label && optional ? formatMessage('optional') : ''
 

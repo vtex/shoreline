@@ -9,7 +9,7 @@ import type { FilterControlState } from './filter-control-state'
 import { FilterFooter } from '../filter-footer'
 import { MenuButton } from 'ariakit'
 
-import { messages } from '../filter.i18n'
+import { messages } from '../messages'
 import { useMessageFormatter } from '../../i18n'
 
 import { Button } from '../../button'
@@ -29,7 +29,7 @@ export const FilterControl = forwardRef(function FilterControl(
   const { state, ...htmlProps } = props
   const { combobox, menu, onChange } = state
 
-  const formatMessage = useMessageFormatter(messages.actions)
+  const formatMessage = useMessageFormatter(messages)
 
   return (
     <div {...htmlProps} ref={ref}>

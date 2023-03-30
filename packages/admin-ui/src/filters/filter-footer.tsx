@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
-import { messages } from './filter.i18n'
+import { messages } from './messages'
 import { usePopoverContext } from './filter-popover-context'
 import { Stack } from '../stack'
 import { filterFooterTheme } from './filter.css'
@@ -19,7 +19,7 @@ export const FilterFooter = forwardRef(function FilterFooter(
 
   const { onChange, onClear } = state
 
-  const formatMessage = useMessageFormatter(messages.actions)
+  const formatMessage = useMessageFormatter(messages)
   const { isScrollableLayout } = usePopoverContext()
 
   return (

@@ -4,7 +4,7 @@ import { createComponent, useElement } from '@vtex/admin-ui-react'
 
 import * as style from './combobox.style'
 import { Box } from '../box'
-import { messages } from './combobox.i18n'
+import { messages } from './messages'
 import { Paragraph } from '../components/Paragraph'
 import { Text } from '../text'
 import type { ComboboxState } from './combobox.state'
@@ -21,7 +21,7 @@ export const ComboboxPopoverBase = createComponent<
 
   const { deferredValue, status, ...comboboxState } = state
 
-  const formatMessage = useMessageFormatter(messages.popover)
+  const formatMessage = useMessageFormatter(messages)
 
   const renderChildren = () => {
     switch (status) {
