@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.47](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.46...@vtex/admin-ui-docs@0.17.1-dev.47) (2023-03-30)
+
+
+### Bug Fixes
+
+* **avatar:** use component model ([445f84f](https://github.com/vtex/admin-ui/commit/445f84f01a81e8b8442c444e18113c5717fbf6de))
+
+
+
+
+
 ## [0.17.1-dev.46](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.45...@vtex/admin-ui-docs@0.17.1-dev.46) (2023-03-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
