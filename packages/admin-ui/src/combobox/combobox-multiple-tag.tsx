@@ -9,7 +9,7 @@ import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
 import { CompositeItem } from 'ariakit/composite'
 
-import { messages } from './combobox.i18n'
+import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../components/Paragraph'
 import { Flex } from '../flex'
@@ -21,7 +21,7 @@ export const ComboboxMultipleTag = (
   ref: Ref<HTMLDivElement>
 ) => {
   const { value, onDismiss, className = '', ...htmlProps } = props
-  const formatMessage = useMessageFormatter(messages.tag)
+  const formatMessage = useMessageFormatter(messages)
 
   return (
     <CompositeItem {...htmlProps}>

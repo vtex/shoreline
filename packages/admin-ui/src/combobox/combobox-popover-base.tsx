@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
 
-import { popoverTheme } from './combobox.css'
-import { Box } from '../box'
+import { popoverStatusContainerTheme, popoverTheme } from './combobox.css'
+
 import { messages } from './messages'
 import { Paragraph } from '../components/Paragraph'
 import { Text } from '../text'
@@ -12,7 +12,7 @@ import { Spinner } from '../spinner'
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
 import type { ComboboxMultipleState } from '.'
-import { cx } from '@vtex/admin-ui-core'
+import { csx, cx } from '@vtex/admin-ui-core'
 
 export const ComboboxPopoverBase = forwardRef(
   (props: ComboboxPopoverBaseProps, ref: Ref<HTMLDivElement>) => {
@@ -26,7 +26,7 @@ export const ComboboxPopoverBase = forwardRef(
 
     const { deferredValue, status, ...comboboxState } = state
 
-  const formatMessage = useMessageFormatter(messages)
+    const formatMessage = useMessageFormatter(messages)
 
     const renderChildren = () => {
       switch (status) {
@@ -36,69 +36,53 @@ export const ComboboxPopoverBase = forwardRef(
 
         case 'loading': {
           return (
-            <Box
-              csx={{
-                margin: '$space-2',
-              }}
-            >
+            <div className={popoverStatusContainerTheme}>
               <Spinner />
-            </Box>
+            </div>
           )
         }
 
         case 'error': {
           return (
-            <Box
-              csx={{
-                margin: '$space-2',
-              }}
-            >
+            <div className={popoverStatusContainerTheme}>
               <h2>
                 <Text variant="title2">{formatMessage('error')}</Text>
               </h2>
               <Button bleedX onClick={onRetry} variant="tertiary">
                 {formatMessage('retry')}
               </Button>
-            </Box>
+            </div>
           )
         }
 
         case 'empty': {
           return (
-            <Box
-              csx={{
-                margin: '$space-2',
-              }}
-            >
+            <div className={popoverStatusContainerTheme}>
               <Paragraph
-                csx={{
+                className={csx({
                   color: '$secondary',
-                }}
+                })}
               >
                 {formatMessage('searchPlaceholder')}
               </Paragraph>
-            </Box>
+            </div>
           )
         }
 
         case 'not-found': {
           return (
-            <Box
-              csx={{
-                margin: '$space-2',
-              }}
-            >
+            <div className={popoverStatusContainerTheme}>
               <h2>
                 <Text variant="title2">{formatMessage('noResultsTitle')}</Text>
               </h2>
               <Paragraph
-                csx={{
+                className={csx({
                   color: '$secondary',
-                }}
+                })}
               >
                 {formatMessage('noResultsSubtitle')}
               </Paragraph>
-            </Box>
+            </div>
           )
         }
       }

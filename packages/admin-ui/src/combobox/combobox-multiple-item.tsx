@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 
 import { CheckboxCheck } from 'ariakit/checkbox'
 import type { ComboboxItemProps } from 'ariakit/combobox'
-// import { ComboboxItem } from './combobox-item'
 import { ComboboxItem } from 'ariakit/combobox'
 
 import { itemMultipleTheme } from './combobox.css'

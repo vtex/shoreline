@@ -2,7 +2,6 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 
 import { ComboboxPopoverBase } from './combobox-popover-base'
-// import { ComboboxItem } from './combobox-item'
 import { ComboboxItem } from 'ariakit/combobox'
 import type { ComboboxState } from '.'
 

@@ -11,7 +11,6 @@ import { Inline } from '../inline'
 import { Bleed } from '../bleed'
 import { Flex } from '../flex'
 import { Button } from '../button'
-import { Box } from '../box'
 import { ComboboxMultipleTag } from './combobox-multiple-tag'
 import { Label } from '../label'
 
@@ -68,7 +67,7 @@ export const ComboboxMultipleField = forwardRef(
     const composite = useCompositeState()
     const inputRef = useRef<HTMLInputElement>(null)
     const [focused, setFocused] = React.useState(false)
-    const formatMessage = useMessageFormatter(messages.fieldMultiple)
+    const formatMessage = useMessageFormatter(messages)
 
     const onFocus = () => setFocused(true)
     const onBlur = () => setFocused(false)
@@ -129,11 +128,7 @@ export const ComboboxMultipleField = forwardRef(
         {...htmlProps}
       >
         <>
-          <Box
-            csx={{
-              flex: 1,
-            }}
-          >
+          <div className={csx({ flex: 1 })}>
             <Label
               className={multipleLabelTheme}
               data-reduce-label={shouldReduceLabel}
@@ -161,8 +156,7 @@ export const ComboboxMultipleField = forwardRef(
                         }}
                       />
                     ))}
-                  <Box
-                    as={Combobox as any}
+                  <Combobox
                     ref={inputRef}
                     state={state}
                     id={id}
@@ -176,7 +170,7 @@ export const ComboboxMultipleField = forwardRef(
                 </Inline>
               </Composite>
             </Bleed>
-          </Box>
+          </div>
           <Flex
             align="flex-start"
             justify="flex-end"

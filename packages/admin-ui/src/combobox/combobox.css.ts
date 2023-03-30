@@ -200,3 +200,5 @@ export const multipleLabelTheme = csx({
     transform: 'translate(0, 9px) scale(1)',
   },
 })
+
+export const popoverStatusContainerTheme = csx({ margin: '$space-2' })
