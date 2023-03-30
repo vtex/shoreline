@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.38 (2023-03-30)
+
+
+### Bug Fixes
+
+* **table:** add pr suggestion ([6299ba0](https://github.com/vtex/admin-ui/commit/6299ba0a153a08460bb76fe8d15c36581bf34005))
+
+
+
+
+
 ## 0.135.1-dev.37 (2023-03-30)
 
 

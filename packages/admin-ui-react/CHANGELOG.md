@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.10.1-dev.9 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-react
+
+
+
+
+
 ## 0.10.1-dev.8 (2023-03-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-react
