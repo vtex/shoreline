@@ -45,14 +45,12 @@ export * from './spinner'
 export * from './heading'
 export * from './label'
 
-export * from './components/CollapsibleGroup'
 export * from './components/Avatar'
 export * from './components/Paragraph'
 export * from './components/List'
 export * from './components/Text'
 export * from './components/Dropdown'
 export * from './components/Toolbar'
-export * from './components/FilterBar'
 export {
   isMobile,
   isSafari,
