@@ -31,7 +31,7 @@ export const FilterListbox = forwardRef(function FilterListBox(
     }
   }, [scrollHeight, containerHeight])
 
-  const ariakitcomboboxState = { ...combobox, matches: [], visible: true }
+  const ariakitComboboxState = { ...combobox, matches: [], visible: true }
 
   return (
     <div
@@ -42,7 +42,7 @@ export const FilterListbox = forwardRef(function FilterListBox(
       {...htmlProps}
     >
       <ComboboxList
-        state={ariakitcomboboxState}
+        state={ariakitComboboxState}
         id={id}
         className={filterListTheme}
       >
