@@ -1,18 +1,19 @@
-import { useRef, useEffect, useCallback } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { useRef, useEffect, useCallback, forwardRef } from 'react'
 import { Clickable } from 'reakit/Clickable'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { callAllHandlers, ensureFocus } from '@vtex/admin-ui-util'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 import { isSameDay } from 'date-fns'
 
 import { useDateFormatter } from '../i18n'
-import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'
+import { cx } from '@vtex/admin-ui-core'
+import { calendarCellButtonTheme } from './calendar.css'
 
-export const CalendarCellButton = createComponent<
-  typeof Clickable,
-  CalendarCellButtonOptions
->((props) => {
+export const CalendarCellButton = forwardRef(function CalendarCellButton(
+  props: CalendarCellButtonProps,
+  ref: Ref<HTMLButtonElement>
+) {
   const {
     date,
     state: {
@@ -28,11 +29,11 @@ export const CalendarCellButton = createComponent<
     disabled: htmlDisabled,
     onClick: htmlOnClick,
     onFocus: htmlOnFocus,
-    ref: htmlRef,
+    className = '',
     ...htmlProps
   } = props
 
-  const ref = useRef<HTMLElement>(null)
+  const htmlRef = useRef<HTMLElement>(null)
   const isCurrentMonth = date.getMonth() === month
   const isDisabled =
     isDisabledOption || !isCurrentMonth || isInvalidDateRange(date)
@@ -45,12 +46,11 @@ export const CalendarCellButton = createComponent<
 
   const isToday = isSameDay(date, new Date())
 
-  // Focus the button in the DOM when the state updates.
   useEffect(() => {
-    if (isFocused && ref.current) {
-      ensureFocus(ref.current)
+    if (isFocused && htmlRef.current) {
+      ensureFocus(htmlRef.current)
     }
-  }, [date, focusedDate, isFocused, ref])
+  }, [date, focusedDate, isFocused, htmlRef])
 
   const onClick = useCallback(() => {
     if (disabled) return
@@ -81,24 +81,30 @@ export const CalendarCellButton = createComponent<
     return `${isTodayLabel}${dateLabel}${isSelectedLabel}`
   }
 
-  return useElement(Clickable, {
-    baseStyle: style.calendarCellButton,
-    ref: useForkRef(ref, htmlRef),
-    children: useDateFormatter({ day: 'numeric' }).format(date),
-    'aria-label': getAriaLabel(),
-    disabled,
-    tabIndex: !disabled
-      ? isSameDay(date, focusedDate ?? new Date())
-        ? 0
-        : -1
-      : undefined,
-    onClick: callAllHandlers(htmlOnClick, onClick),
-    onFocus: callAllHandlers(htmlOnFocus, onFocus),
-    ...htmlProps,
-  })
+  const tabIndex = !disabled
+    ? isSameDay(date, focusedDate ?? new Date())
+      ? 0
+      : -1
+    : undefined
+
+  return (
+    <Clickable
+      ref={useForkRef(ref, htmlRef)}
+      aria-label={getAriaLabel()}
+      className={cx(calendarCellButtonTheme, className)}
+      onClick={callAllHandlers(htmlOnClick, onClick)}
+      onFocus={callAllHandlers(htmlOnFocus, onFocus)}
+      disabled={disabled}
+      tabIndex={tabIndex}
+      {...htmlProps}
+    >
+      {useDateFormatter({ day: 'numeric' }).format(date)}
+    </Clickable>
+  )
 })
 
-export type CalendarCellButtonOptions = {
+export interface CalendarCellButtonProps
+  extends ComponentPropsWithoutRef<'button'> {
   date: Date
   state: CalendarStateReturn
 }

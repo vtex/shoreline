@@ -1,7 +1,7 @@
-import { style } from '@vtex/admin-ui-core'
-import * as buttonStyle from '../button/button.css'
+import { csx } from '@vtex/admin-ui-core'
+import { action as actionSchema } from '../button/button.css'
 
-export const calendar = style({
+export const calendarTheme = csx({
   maxWidth: '19.75rem',
   display: 'flex',
   flexDirection: 'column',
@@ -16,7 +16,7 @@ export const calendar = style({
   },
 })
 
-export const calendarHeader = style({
+export const calendarHeaderTheme = csx({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -24,14 +24,14 @@ export const calendarHeader = style({
   marginBottom: '$space-4',
 })
 
-export const calendarButton = style({
+export const calendarButtonTheme = csx({
   text: '$action1',
   border: 'none',
   borderRadius: '$base',
   cursor: 'pointer',
   position: 'relative',
   height: '2.25rem',
-  ...buttonStyle.action({
+  ...actionSchema({
     tone: 'neutral',
     variant: 'tertiary',
   }),
@@ -40,14 +40,14 @@ export const calendarButton = style({
   justifyContent: 'center',
 })
 
-export const calendarCell = style({
+export const calendarCellTheme = csx({
   size: '2.25rem',
 })
 
-export const calendarCellButton = style({
+export const calendarCellButtonTheme = csx({
   position: 'relative',
   height: '2.25rem',
-  ...buttonStyle.action({
+  ...actionSchema({
     tone: 'neutral',
     variant: 'tertiary',
   }),
@@ -63,11 +63,11 @@ export const calendarCellButton = style({
   justifyContent: 'center',
 })
 
-export const calendarHeaderTitle = style({
+export const calendarHeaderTitleTheme = csx({
   text: '$title1',
 })
 
-export const calendarDayTitle = style({
+export const calendarDayTitleTheme = csx({
   text: '$body',
   textDecoration: 'none',
   color: '$secondary',
