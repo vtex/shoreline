@@ -48,9 +48,9 @@ export * from './text'
 export * from './avatar'
 export * from './illustrations'
 export * from './selection-tree'
+export * from './dropdown'
 
 export * from './components/Paragraph'
-export * from './components/Dropdown'
 export * from './components/Toolbar'
 export {
   isMobile,

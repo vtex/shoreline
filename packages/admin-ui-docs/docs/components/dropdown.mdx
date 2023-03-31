@@ -190,31 +190,9 @@ function Example() {
 }
 ```
 
-## Customization
-
-You can use the [csx](https://admin-ui-docs.vercel.app/theming/inline-styles/#styles--csx) property to customize any style.
-
-### Example
-
-```jsx live
-function Example() {
-  const state = useDropdownState({
-    items: ['Yesterday', '7 days ago', '28 days ago', 'One year ago'],
-    initialSelectedItem: '7 days ago',
-  })
-
-  return (
-    <Dropdown
-      items={['Yesterday', '7 days ago', '28 days ago', 'One year ago']}
-      state={state}
-      csx={{ margin: 4 }}
-      label="Date"
-    />
-  )
-}
-```
-
 ## Props
+
+It also receives the same properties as the `button` JSX element.
 
 | Name       | Type                           | Description                                        | Required | Default        |
 | ---------- | ------------------------------ | -------------------------------------------------- | -------- | -------------- |

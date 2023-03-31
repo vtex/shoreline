@@ -2,8 +2,8 @@ import React from 'react'
 import { render, axe } from '../../test-utils'
 import type { UseSelectProps } from 'downshift'
 
-import type { UseDropdownReturnValue } from './index'
-import { Dropdown, useDropdownState } from './index'
+import type { UseDropdownReturnValue } from '../index'
+import { Dropdown, useDropdownState } from '../index'
 
 interface DropdownStateProps<T> extends UseSelectProps<T> {
   children: (state: UseDropdownReturnValue<T>) => JSX.Element

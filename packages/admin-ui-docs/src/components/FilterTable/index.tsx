@@ -7,6 +7,7 @@ import type {
   UseTableStateReturn,
 } from '@vtex/admin-ui'
 import {
+  csx,
   Flex,
   Table,
   TBody,
@@ -30,8 +31,8 @@ export function FilterTable<T>(props: TableFilterProps<T>) {
   const { data, getBodyCell, getHeadCell, getTable, columns } = table
 
   return (
-    <DataView state={dataView} csx={style.dataView}>
-      <DataViewHeader csx={style.dataViewHeader}>
+    <DataView state={dataView} className={csx(style.dataView)}>
+      <DataViewHeader className={csx(style.dataViewHeader)}>
         <Flex>
           <Search {...search.getInputProps()} />
           <Dropdown

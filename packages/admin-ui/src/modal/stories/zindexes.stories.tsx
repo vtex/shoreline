@@ -41,7 +41,7 @@ import {
 } from '../../page'
 import { SelectionTree } from '../../selection-tree'
 import { Alert } from '../../alert'
-import { Dropdown, useDropdownState } from '../../components/Dropdown'
+import { Dropdown, useDropdownState } from '../../dropdown'
 import { Tooltip } from '../../tooltip'
 import {
   useComboboxMultipleState,

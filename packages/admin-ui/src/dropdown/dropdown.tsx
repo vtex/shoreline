@@ -1,18 +1,19 @@
-import type { ReactNode, Ref } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
 import React from 'react'
 import type { UseSelectReturnValue } from 'downshift'
 import { useSelect } from 'downshift'
 import { IconCaretDown } from '@vtex/phosphor-icons'
-import { Box } from '../../box'
 import { forwardRef } from '@vtex/admin-ui-util'
-import { csx } from '@vtex/admin-ui-core'
 
-import type { ButtonProps } from '../../button'
-import { Button } from '../../button'
-import { VisuallyHidden } from '../../visually-hidden'
-import { Stack } from '../../stack'
-import type { SystemComponent } from '../../types'
-import * as style from './Dropdown.style'
+import type { ButtonProps } from '../button'
+import { Button } from '../button'
+import { VisuallyHidden } from '../visually-hidden'
+import { Stack } from '../stack'
+import {
+  dropdownContainerTheme,
+  dropdownPopoverTheme,
+  dropdownItemTheme,
+} from './dropdown.css'
 
 export const Dropdown = forwardRef(
   <T,>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {
@@ -27,7 +28,7 @@ export const Dropdown = forwardRef(
     } = props
 
     return (
-      <Box ref={ref} csx={style.container}>
+      <div ref={ref} className={dropdownContainerTheme}>
         <VisuallyHidden>
           <label {...state.getLabelProps()}>{label}</label>
         </VisuallyHidden>
@@ -44,26 +45,22 @@ export const Dropdown = forwardRef(
         <Stack
           fluid
           {...state.getMenuProps()}
-          className={csx(
-            style.menu({
-              visible: state.isOpen,
-            })
-          )}
+          data-visible={state.isOpen}
+          className={dropdownPopoverTheme}
         >
           {state.isOpen &&
             items.map((item, index) => (
-              <Box
-                csx={style.listboxItem({
-                  selected: state.highlightedIndex === index,
-                })}
+              <div
+                data-selected={state.highlightedIndex === index}
+                className={dropdownItemTheme}
                 key={index}
                 {...state.getItemProps({ item, index })}
               >
                 {renderItem(item)}
-              </Box>
+              </div>
             ))}
         </Stack>
-      </Box>
+      </div>
     )
   }
 )
@@ -72,7 +69,7 @@ export { useSelect as useDropdownState }
 export type { UseSelectReturnValue as UseDropdownReturnValue }
 
 export interface DropdownProps<T>
-  extends SystemComponent,
+  extends ComponentPropsWithoutRef<'button'>,
     Pick<ButtonProps, 'variant' | 'size' | 'disabled'> {
   /**
    * aria-label. will be visually hidden
