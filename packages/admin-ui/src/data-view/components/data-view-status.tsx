@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CollectionError } from '../../components/Illustrations'
+import { CollectionError } from '../../illustrations'
 
 import { useMessageFormatter } from '../../i18n'
 import { messages } from '../messages'
