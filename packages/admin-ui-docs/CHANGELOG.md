@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.17.1-dev.51 (2023-03-31)
+
+
+### Features
+
+* **list:** remove component ([117d589](https://github.com/vtex/admin-ui/commit/117d589c1677e7e7474bac9a5578d91c09f3058b))
+
+
+
+
+
 ## [0.17.1-dev.50](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.49...@vtex/admin-ui-docs@0.17.1-dev.50) (2023-03-31)
 
 
