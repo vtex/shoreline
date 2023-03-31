@@ -1,6 +1,6 @@
 {
   "name": "@vtex/admin-ui-docs",
-  "version": "0.17.1-dev.53",
+  "version": "0.17.1-dev.54",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
