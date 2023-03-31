@@ -49,7 +49,6 @@ export * from './avatar'
 export * from './illustrations'
 
 export * from './components/Paragraph'
-export * from './components/List'
 export * from './components/Dropdown'
 export * from './components/Toolbar'
 export {
