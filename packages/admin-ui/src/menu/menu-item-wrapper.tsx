@@ -1,12 +1,11 @@
 import React from 'react'
 import type { ReactNode } from 'react'
 
-import { Box } from '../box'
-import * as style from './menu.style'
+import { disabledItemWrapper } from './menu.css'
 
 export const MenuItemWrapper = (props: MenuItemWrapperProps) =>
   props.disabled ? (
-    <Box csx={style.disabledItemWrapper}>{props.children}</Box>
+    <div className={disabledItemWrapper}>{props.children}</div>
   ) : (
     <>{props.children}</>
   )
