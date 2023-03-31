@@ -1,6 +1,6 @@
-import { style } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
-export const popoverStyle = style({
+export const pickerPopoverTheme = csx({
   bg: '$primary',
   boxShadow: '$overlay.center',
   border: '$neutral',
