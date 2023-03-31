@@ -1,23 +1,15 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import type { ResponsiveProp } from '@vtex/admin-ui-react'
-import { pick, renameKeys } from '@vtex/admin-ui-util'
-
-import {
-  createComponent,
-  useElement,
-  createHook,
-  useBreakpoint,
-  getResponsiveValue,
-} from '@vtex/admin-ui-react'
 import type * as CSS from 'csstype'
 
-export const Grid = createComponent<'div', GridOptions>((props) => {
-  const elementProps = useGrid(props)
+import { gridStyle, gridTheme, toResponsiveObject } from './grid.css'
+import { cx } from '@vtex/admin-ui-core'
 
-  return useElement('div', elementProps)
-})
-
-export const useGrid = createHook<'div', GridOptions>((props) => {
+export const Grid = forwardRef(function Grid(
+  props: GridProps,
+  ref: Ref<HTMLDivElement>
+) {
   const {
     gap,
     rowGap,
@@ -25,47 +17,30 @@ export const useGrid = createHook<'div', GridOptions>((props) => {
     templateAreas,
     templateRows,
     templateColumns,
-    ...restProps
+    className = '',
+    ...htmlProps
   } = props
 
-  const propertyMap = {
-    gap: 'gridGap',
-    rowGap: 'gridRowGap',
-    columnGap: 'gridColumnGap',
-    templateAreas: 'gridTemplateAreas',
-    templateRows: 'gridTemplateRows',
-    templateColumns: 'gridTemplateColumns',
-  }
+  const responsiveCssProps = gridStyle({
+    gap: toResponsiveObject(gap),
+    rowGap: toResponsiveObject(rowGap),
+    columnGap: toResponsiveObject(columnGap),
+    templateRows: toResponsiveObject(templateRows),
+    templateColumns: toResponsiveObject(templateColumns),
+    templateAreas: toResponsiveObject(templateAreas),
+  })
 
-  const { breakpoint } = useBreakpoint()
-
-  const responsiveValues = {
-    gap: getResponsiveValue(gap, breakpoint),
-    rowGap: getResponsiveValue(rowGap, breakpoint),
-    columnGap: getResponsiveValue(columnGap, breakpoint),
-    templateRows: getResponsiveValue(templateRows, breakpoint),
-    templateColumns: getResponsiveValue(templateColumns, breakpoint),
-    templateAreas: getResponsiveValue(templateAreas, breakpoint)
-      ?.map((value) => `"${value}"`)
-      .join(' '),
-  }
-
-  const cssProps = Object.keys(propertyMap)
-  const cssPropsStyle = renameKeys(
-    propertyMap,
-    pick(responsiveValues, cssProps)
+  return (
+    <div
+      ref={ref}
+      style={responsiveCssProps as any}
+      className={cx(gridTheme, className)}
+      {...htmlProps}
+    />
   )
-
-  return {
-    baseStyle: {
-      display: 'grid',
-      ...cssPropsStyle,
-    },
-    ...restProps,
-  }
 })
 
-export interface GridOptions {
+export interface GridProps extends ComponentPropsWithRef<'div'> {
   /** Shorthand for CSS gridGap property */
   gap?: ResponsiveProp<CSS.Property.GridGap>
   /** Shorthand for CSS gridRowGap property */
@@ -79,5 +54,3 @@ export interface GridOptions {
   /** Shorthand for CSS gridTemplateColumns property */
   templateColumns?: ResponsiveProp<CSS.Property.GridTemplateColumns>
 }
-
-export type GridProps = ComponentPropsWithRef<typeof Grid>
