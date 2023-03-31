@@ -5,10 +5,10 @@ import {
   Tab,
   TabList,
   useTabState,
-  TabPanelList,
   experimental_Filter as Filter,
   experimental_useFilterState as useFilterState,
   VisuallyHidden,
+  TabPanelList,
 } from '@vtex/admin-ui'
 
 import { Section } from '../Section'

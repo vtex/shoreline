@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
 
-import { Tab, TabList, TabPanel, TabPanelList, useTabState } from '../index'
+import { Tab, TabList, TabPanel, useTabState } from './index'
 
 export default {
   title: 'admin-ui-review/tab',
@@ -30,10 +30,8 @@ export function WithPanel() {
         <Tab>Tab 1</Tab>
         <Tab>Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel>Panel 1</TabPanel>
-        <TabPanel>Panel 2</TabPanel>
-      </TabPanelList>
+      <TabPanel state={state}>Panel 1</TabPanel>
+      <TabPanel state={state}>Panel 2</TabPanel>
     </>
   )
 }
@@ -47,10 +45,12 @@ export function WithId() {
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel tabId="1">Panel 1</TabPanel>
-        <TabPanel tabId="2">Panel 2</TabPanel>
-      </TabPanelList>
+      <TabPanel state={state} tabId="1">
+        Panel 1
+      </TabPanel>
+      <TabPanel state={state} tabId="2">
+        Panel 2
+      </TabPanel>
     </>
   )
 }
@@ -64,10 +64,8 @@ export function WithDisabled() {
         <Tab disabled>Tab 1</Tab>
         <Tab>Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel>Panel 1</TabPanel>
-        <TabPanel>Panel 2</TabPanel>
-      </TabPanelList>
+      <TabPanel state={state}>Panel 1</TabPanel>
+      <TabPanel state={state}>Panel 2</TabPanel>
     </>
   )
 }
