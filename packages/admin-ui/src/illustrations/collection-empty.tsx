@@ -1,7 +1,7 @@
 import React from 'react'
 
-import type { IllustrationProps } from './Illustration'
-import { Illustration } from './Illustration'
+import type { IllustrationProps } from './illustration'
+import { Illustration } from './illustration'
 
 export function CollectionEmpty(props: IllustrationProps) {
   const {
