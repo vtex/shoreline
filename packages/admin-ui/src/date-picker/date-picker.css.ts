@@ -1,6 +1,6 @@
-import { focusVisible, style } from '@vtex/admin-ui-core'
+import { focusVisible, csx, dataAttr } from '@vtex/admin-ui-core'
 
-export const disclosure = style({
+export const datePickerDisclosureTheme = csx({
   text: '$action1',
   border: 'none',
   borderRadius: '$base',
@@ -19,4 +19,9 @@ export const disclosure = style({
   padding: '$space-1 $space-3',
   height: '2.25rem',
   ...focusVisible('neutral'),
+
+  [dataAttr('disabled', 'true')]: { fg: 'blue' },
+  [dataAttr('disabled', 'false')]: {
+    fg: '$action.neutral.tertiary',
+  },
 })
