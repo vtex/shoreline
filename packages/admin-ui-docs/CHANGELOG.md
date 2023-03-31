@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.53](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.52...@vtex/admin-ui-docs@0.17.1-dev.53) (2023-03-31)
+
+
+### Features
+
+* **dropdown:** migrate to the new component model ([e351cfe](https://github.com/vtex/admin-ui/commit/e351cfe360dbc351a276484f754c25395d597394))
+
+
+
+
+
 ## 0.17.1-dev.52 (2023-03-31)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
