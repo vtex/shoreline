@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.49 (2023-03-31)
+
+
+### Code Refactoring
+
+* **menu:** migrate menu components to new component model ([8a810e1](https://github.com/vtex/admin-ui/commit/8a810e1b9231281c28d2a787070652f7bfc6d5d0))
+
+
+### BREAKING CHANGES
+
+* **menu:** menu components no longer accept csx prop
+
+
+
+
+
 ## [0.135.1-dev.48](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.47...@vtex/admin-ui@0.135.1-dev.48) (2023-03-31)
 
 
