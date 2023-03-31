@@ -8,23 +8,23 @@ import {
 } from '@vtex/phosphor-icons'
 
 import { Toolbar, ToolbarItem, useToolbarState } from '../index'
-import { Button } from '../../../button'
+import { Button } from '../../button'
 import {
   MenuButton,
   Menu,
   MenuDivider,
   MenuItem,
   useMenuState,
-} from '../../../menu'
+} from '../../menu'
 import {
   Modal,
   ModalHeader,
   ModalTitle,
   ModalContent,
   useModalState,
-} from '../../../modal'
-import { Text } from '../../../text'
-import { ToolbarButton } from '../components/ToolbarButton'
+} from '../../modal'
+import { Text } from '../../text'
+import { ToolbarButton } from '../components/toolbar-button'
 
 export default {
   title: 'admin-ui/Toolbar',
