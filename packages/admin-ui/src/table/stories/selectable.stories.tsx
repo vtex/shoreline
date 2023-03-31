@@ -12,11 +12,8 @@ import {
 } from '../index'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
-import {
-  SelectionTree,
-  useSelectionTreeState,
-} from '../../components/SelectionTree'
 import { csx } from '@vtex/admin-ui-core'
+import { SelectionTree, useSelectionTreeState } from '../../selection-tree'
 
 export default {
   title: 'admin-ui-review/table/selectable',

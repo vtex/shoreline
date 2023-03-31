@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
-import type { SelectionTreeState } from './state'
+import type { SelectionTreeState } from './selection-tree-state'
 
 export const SelectionTreeContext =
   createContext<SelectionTreeState<any> | null>(null)

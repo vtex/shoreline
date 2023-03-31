@@ -7,9 +7,9 @@ import {
   SelectionTreeRoot,
   SelectionTreeItem,
 } from '../index'
-import { Box } from '../../../box'
-import { Checkbox } from '../../../checkbox'
-import { Label } from '../../../label'
+import { Box } from '../../box'
+import { Checkbox } from '../../checkbox'
+import { Label } from '../../label'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {

@@ -47,6 +47,7 @@ export * from './label'
 export * from './text'
 export * from './avatar'
 export * from './illustrations'
+export * from './selection-tree'
 
 export * from './components/Paragraph'
 export * from './components/Dropdown'
@@ -58,8 +59,6 @@ export {
   isFirefox,
   isEdge,
 } from 'react-device-detect'
-
-export * from './components/SelectionTree'
 export * from './components/Field'
 
 export {

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 
-import { useCheckboxState } from '../../checkbox'
+import { useCheckboxState } from '../checkbox'
 
 /**
  * SelectionTree state
