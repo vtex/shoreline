@@ -1,18 +1,13 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
 import { ComboboxItem } from 'ariakit/combobox'
 import { Checkbox } from '../../checkbox'
-
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
-import {
-  filterControlInputTheme,
-  filterControlOptionTheme,
-} from '../filter.css'
-import { cx } from '@vtex/admin-ui-core'
+import { filterControlInputTheme } from '../filter.css'
 
 export const FilterOptionCheckbox = forwardRef(function FilterOptionCheckbox(
   props: FilterOptionCheckboxProps,
@@ -58,36 +53,6 @@ export const FilterOptionCheckbox = forwardRef(function FilterOptionCheckbox(
       )}
     </ComboboxItem>
   )
-})
-
-export const _FilterOptionCheckbox = createComponent<
-  typeof ComboboxItem,
-  FilterOptionCheckboxProps
->((props) => {
-  const { id, value, label, ...restProps } = props
-  const { state } = usePopoverContext()
-
-  const item = { id, label, value }
-
-  const combobox = state.combobox as ComboboxMultipleState<FilterOption<any>>
-
-  return useElement(ComboboxItem, {
-    className: filterControlOptionTheme,
-    children: (
-      <>
-        <Checkbox
-          checked={combobox.isSelected(item)}
-          aria-checked={undefined}
-          readOnly
-        />
-        {label}
-      </>
-    ),
-    'aria-selected': combobox.isSelected(item),
-    onClick: () => combobox.onChange(item),
-    id,
-    ...restProps,
-  })
 })
 
 interface FilterOptionCheckboxProps

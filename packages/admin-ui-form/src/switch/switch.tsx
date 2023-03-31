@@ -17,7 +17,7 @@ export function Switch(props: SwitchProps) {
   const { register, getValues } = state
 
   const switchState = useSwitchState({
-    state: getValues(name),
+    defaultValue: getValues(name),
   })
 
   useFieldDx(props)
