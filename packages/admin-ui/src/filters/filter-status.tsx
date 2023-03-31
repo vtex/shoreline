@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Text } from '../text'
 
-import { messages } from './filter.i18n'
+import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { Button } from '../button'
 import { Stack } from '../stack'
@@ -15,7 +15,7 @@ import { filterStatusTheme } from './filter.css'
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props
 
-  const formatMessage = useMessageFormatter(messages.status)
+  const formatMessage = useMessageFormatter(messages)
 
   if (!status) return null
 

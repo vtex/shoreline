@@ -4,7 +4,7 @@ import { csx, cx } from '@vtex/admin-ui-core'
 
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
-import { messages } from './filter.i18n'
+import { messages } from './messages'
 import { filterGroupTheme } from './filter.css'
 
 export const FilterGroup = forwardRef(function FIlterGroup(
@@ -13,7 +13,7 @@ export const FilterGroup = forwardRef(function FIlterGroup(
 ) {
   const { children, state, className = '', ...htmlProps } = props
 
-  const formatMessage = useMessageFormatter(messages.actions)
+  const formatMessage = useMessageFormatter(messages)
 
   return (
     <div

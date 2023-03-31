@@ -1,0 +1,5 @@
+{
+  "pagination": "{currentPage} din {total}",
+  "prevLabel": "Mergi înapoi la pagina anterioară",
+  "nextLabel": "Treci la pagina următoare"
+}

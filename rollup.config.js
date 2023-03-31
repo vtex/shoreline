@@ -5,6 +5,7 @@ import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
 import del from 'rollup-plugin-delete'
+import json from '@rollup/plugin-json'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const packageJson = require('./package.json')
@@ -27,6 +28,7 @@ export default [
     plugins: [
       resolve({ moduleDirectories: ['ariakit', 'reakit'] }),
       commonjs(),
+      json(),
       babel({
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',

@@ -1,0 +1,9 @@
+{
+  "error": "Er is iets fout gegaan",
+  "retry": "Probeer het opnieuw",
+  "noResultsTitle": "Er zijn geen opties die overeenkomen met uw zoekopdracht",
+  "noResultsSubtitle": "Probeer andere termen te gebruiken",
+  "searchPlaceholder": "Begin met typen om te zoeken",
+  "removeLabel": "Verwijder voorwerp",
+  "placeholder": "Blijf typen..."
+}

@@ -1,0 +1,11 @@
+{
+  "apply": "Anwenden",
+  "clear": "Löschen",
+  "clearAll": "Alle löschen",
+  "moreFilters": "Mehr Filter",
+  "errorTitle": "Ein Problem ist aufgetreten",
+  "retry": "Versuchen Sie es erneut",
+  "empty": "Keine Filter verfügbar",
+  "noResultsTitle": "Keine Filter entsprechen Ihrer Suche",
+  "noResultsSubtitle": "Versuche andere Begriffe zu verwenden"
+}

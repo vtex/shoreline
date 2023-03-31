@@ -1,0 +1,11 @@
+{
+  "apply": "申し込み",
+  "clear": "クリア",
+  "clearAll": "すべてクリア",
+  "moreFilters": "その他のフィルター",
+  "errorTitle": "エラーが発生しました",
+  "retry": "再試行",
+  "empty": "利用できるフィルターはありません",
+  "noResultsTitle": "検索に一致するフィルターはありません",
+  "noResultsSubtitle": "別の用語を使用してみてください"
+}

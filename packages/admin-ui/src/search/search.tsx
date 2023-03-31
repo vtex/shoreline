@@ -8,7 +8,7 @@ import { Button } from '../button'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
 import { useMessageFormatter } from '../i18n'
-import { messages } from './search.i18n'
+import { messages } from './messages'
 import { cx } from '@vtex/admin-ui-core'
 import {
   clearButtonTheme,
