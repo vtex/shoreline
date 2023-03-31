@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.47 (2023-03-31)
+
+
+### Features
+
+* **selection-tree:** use csm ([7cf860f](https://github.com/vtex/admin-ui/commit/7cf860f5caa94b644d8652284cea8323c46afdd0))
+
+
+
+
+
 ## 0.135.1-dev.46 (2023-03-31)
 
 
