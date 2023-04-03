@@ -16,11 +16,6 @@ export const tabToc = {
       level: 2,
     },
     {
-      id: 'examples',
-      value: 'Examples',
-      level: 2,
-    },
-    {
       id: 'variants',
       value: 'Variants',
       level: 3,
@@ -50,56 +45,49 @@ export const tabToc = {
   ],
   designReference: [
     {
-      id: 'dos',
-      value: "Do's",
+      id: 'components',
+      value: 'Components',
       level: 2,
     },
     {
-      id: 'alert-types',
-      value: 'Alert types',
+      id: 'variants',
+      value: 'Variants',
       level: 2,
     },
     {
-      id: 'information',
-      value: 'Information',
-      level: 3,
+      id: 'position',
+      value: 'Position',
+      level: 2,
     },
     {
-      id: 'warning',
-      value: 'Warning',
-      level: 3,
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
     },
     {
-      id: 'danger',
-      value: 'Danger',
-      level: 3,
+      id: 'content',
+      value: 'Content',
+      level: 2,
     },
-    {
-      id: 'success',
-      value: 'Success',
-      level: 3,
-    },
-  ],
+  ]
 }
 
 <Page toc={tabToc} hasTabs>
 <Panel id="overview">
 
-<IntroSection
-  id={tabToc.overview[0].id}
-  title={tabToc.overview[0].value}
-  description="Alerts are notifications of mild to high priority. They may inform the user about events they should know, or explain a problem and point out a solution. They may be triggered by a user action or not."
-/>
+<IntroSection>
+
+## What is this?
+
+Alert indicators allow merchants to view semantic messages that are prominent and can be dismissable.
+<br /><br />
+</IntroSection>
+
 
 <PageSection
   id={tabToc.overview[1].id}
   title={tabToc.overview[1].value}
->
-
-<PageSection
-  id={tabToc.overview[2].id}
-  title={tabToc.overview[2].value}
-  explanation="The alert's tone of voice is either 'info' (default), 'warning', 'possitive', or 'critical'."
+  explanation="The alert's tone of voice is either `info` (default), `warning`, `positive`, or `critical`."
 >
 
 ```jsx live
@@ -114,9 +102,9 @@ export const tabToc = {
 </PageSection >
 
 <PageSection
-  id={tabToc.overview[3].id}
-  title={tabToc.overview[3].value}
-  explanation="You can easily add an action into any 'Alert' using the 'Anchor' component."
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+  explanation="You can easily add an action into any Alert using the Anchor component."
 >
 
 ```jsx live
@@ -140,9 +128,9 @@ function Example() {
 </PageSection>
 
 <PageSection
-  id={tabToc.overview[4].id}
-  title={tabToc.overview[4].value}
-  explanation="Represents the event of click from the alert dismiss button. To use this feature, define the 'onDismiss' property."
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+  explanation="Represents the event of click from the alert dismiss button. To use this feature, define the `onDismiss` property."
 >
 
 ```jsx live
@@ -174,80 +162,9 @@ function Example() {
 ```
 
 </PageSection>
-</PageSection>
 
 </Panel>
 
-<Panel id="designReference">
-
-<PageSection
-  id={tabToc.designReference[0].id}
-  title={tabToc.designReference[0].value}
->
-
-1. They follow the page's grid, adapting to full 100% width, or centralized over a smaller container, for instance.
-2. They don't overlap with sidebars. They are contextualized within containers.
-3. They can't be placed over the page's header. They are contextualized within containers.
-4. Provide visible feedback to user actions by using alerts.
-5. In high priority alerts, completing the task is the main focus. Our role is to assure that the user will solve their problem, by providing enough information to do it, through a clear message and action button.
-6. Should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
-7. The user needs to know exactly what happened. Even if we work to assure full SLA, things can fail. There are even some scenarios that are beyond our direct control. Because of this, it's extremely important that our users understand what is blocking them to finish their tasks.
-8. Errors must be actionable. As users understand what is happening, we need to give them proper following actions.
-9. We should always calm the user, not cause more stress.
-10. Alerts can be stacked.
-
-</PageSection>
-
-<PageSection
-  id={tabToc.designReference[1].id}
-  title={tabToc.designReference[1].value}
->
-
-<PageSection
-  id={tabToc.designReference[2].id}
-  title={tabToc.designReference[2].value}
->
-
-Use this to give instant feedback about the tasks a user just performed. Its main objective is to ensure task confirmation, or notify about further actions.
-Do not represent alarm or danger, but provide visibility about the system's operations. Ex. You have 4 new releases to review.
-
-</PageSection>
-
-<PageSection
-  id={tabToc.designReference[3].id}
-  title={tabToc.designReference[3].value}
->
-
-Use this when user needs to know about some important info before taking any decision. Adds a higher note of urgency over situations that may cause problems to the user's store, but aren't yet causing trouble.
-Ex. Sorry, this account is inactive. Please check your store's billing for more information.
-
-</PageSection>
-
-<PageSection
-  id={tabToc.designReference[4].id}
-  title={tabToc.designReference[4].value}
->
-
-Use this when something went wrong after performing an action. Situation should be checked with urgency, since it's already causing problems to the user's store, and require manual resolution. This alert isn't dismissable, and should stay on until the problem is fixed.
-Ex. Sorry, something went wrong. Please, try again, or refresh your page.
-
-</PageSection>
-
-<PageSection
-  id={tabToc.designReference[5].id}
-  title={tabToc.designReference[5].value}
->
-
-Use this when the user's action had a successful outcome. You can consider using toasts for this situation.
-Ex. Order successfully placed.
-
-</PageSection>
-
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
-
-</PageSection>
-
-</Panel>
 <Panel id="codeReference">
 
 <PageSection
@@ -280,4 +197,154 @@ function Example() {
 
 </PageSection>
 </Panel>
+
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use a Toast instead of an Alert?</h4></summary>
+  <div>
+    Choose a Toast for notifications related to the entire page that happen after the page loads and can disappear automatically. Non-dismissive Alerts that indicate progress are the only ones that can appear after the page loads.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary>
+    <h4>When to use an info, critical, warning or positive Alert?</h4>
+  </summary>
+  <div>
+    <ul>
+      <li>Use an info Alert for neutral notifications that don't require attention, such as announcements, product invitations, or task progress. For example, "<em>This release is being published and may take up to 5 minutes</em>".</li>
+      <li>Use a critical Alert, usually with a proposed action, when an action has failed due to a technical error or a user error. For example, "<em>There are 2 invoices that could not be processed because of a technical issue</em>" with a <em>Try again</em> button.</li>
+      <li>Use a warning Alert when something may not be working as expected or when there is something to be cautious about, usually with a proposed action. For example, "<em>Stores in this account still can't sell to the final customer</em>" with an <em>Activate account</em> button.</li>
+      <li>Use a positive Toast for successful actions or messages that don't require attention and further actions. For example, "<em>The performance of this seller improved and now meets minimum requirements</em>" with a <em>View performance</em> button.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include an action in an Alert?</h4></summary>
+  <div>
+    The Alert message should be as brief as possible, so include an action to complement it when needed. Examples include:
+    <ul>
+        <li>Providing more details in a modal or related page.</li>
+        <li>Retrying a failed action.</li>
+        <li>Testing a new feature or product.</li>
+    </ul>
+    Read the <a href="https://admin-ui.vercel.app/components/button">Button</a> documentation for more details.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should an Alert be dismissible?</h4></summary>
+  <div>
+    <ul>
+      <li>Most Alerts should be dismissible, such as success feedback and product invitations. Alerts should only be non-dismissible when they provide crucial information and its persistence doesn't negatively affect the user experience.</li>
+      <li>A warning Alert with a help text that needs prominence should be considered part of the page's content and therefore non-dismissible. For example, <em>"The Application Token will be only displayed once. Make sure to copy and save it in a safe place."</em></li>
+      <li>A critical Alert with an error can be dismissible or not depending on its severity. Errors that block the usage of a page should not be dismissible. Consider the following examples:</li>
+      <ul>
+        <li>Non-dismissible: <em>"This extension is not available, as payment flags are not enabled in the store."</em> with a <em>Set up payment</em> button.</li>
+        <li>Dismissible: <em>"There are 2 invoices that could not be processed because of a technical issue."</em> with a <em>Try again</em> button.</li>
+      </ul>
+    </ul>
+  </div>
+  <br />
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position of an Alert in a container?</h4></summary>
+  <div>
+    Position the Alert semantically, either directly in the page (global Alert) or inside a card or modal (contextual Alert). Always in the start of the container, right below its header, taking up 100% of the width and respecting the container margins.
+    <br /><br />
+    <strong>What to avoid:</strong><br />
+    Don't place the Alert inside, above or attached to the Page Header.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should an Alert appear?</h4></summary>
+  <div>
+    Alerts should usually appear as the page loads. Non-dismissive alerts that provide loading feedback, however, can appear right after a merchant's action.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the duration of an Alert?</h4></summary>
+  <div>
+    Every Alert should not be dismissed automatically. For temporary notifications, use a <a href="https://admin-ui.vercel.app/components/toast">Toast</a> instead.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should multiple Alerts appear simultaneously?</h4></summary>
+  <div>
+    Avoid displaying more than one Alert at the same time. Prefer to summarize the information in a single Alert. For example, use <em>"There are 10 invoices with recent updates"</em> with a <em>View details</em> button in an <em>Invoices</em> listing page when there have been multiple updates.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the message of an Alert?</h4></summary>
+  <div>
+    <ul>
+      <li>Write a single sentence that is direct and has up to 2 lines.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+      <li>Critical Alerts should include an action that fixes the issue or at least explain what to do next.</li>
+      <li>An info Alert with a product invitation should use a standard message, such as <em>"A new Products experience is available. This version will be discontinued in June 2023."</em> with a <em>Try new version</em> button.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <ul>
+      <li>Don't write text longer than 240 characters. Prefer to include an action that complements the message when needed.</li>
+      <li>Don't use personal pronouns.</li>
+      <li>Don't use technical language. For example, prefer using <em>"The invoice could not be processed because of a technical issue"</em> instead of <em>"Error 298dx9283 prevented the invoice from being processed"</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the icon of an Alert?</h4></summary>
+  <div>
+    Each Alert variant includes a specific icon according to its semantics. This is the default behavior and should not be customized.
+  </div>
+</details>
+
+
+</PageSection>
+
+</Panel>
+
 </Page>
+
