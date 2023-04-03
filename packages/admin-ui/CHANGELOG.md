@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.53](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.52...@vtex/admin-ui@0.135.1-dev.53) (2023-04-03)
+
+
+### Bug Fixes
+
+* **grid:** doc typo error ([fa5a2c3](https://github.com/vtex/admin-ui/commit/fa5a2c32e907d87370a7100d57a3da1ce5552731))
+
+
+
+
+
 ## 0.135.1-dev.52 (2023-04-03)
 
 

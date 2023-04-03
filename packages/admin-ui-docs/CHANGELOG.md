@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.59](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.58...@vtex/admin-ui-docs@0.17.1-dev.59) (2023-04-03)
+
+
+### Bug Fixes
+
+* **grid:** doc typo error ([fa5a2c3](https://github.com/vtex/admin-ui/commit/fa5a2c32e907d87370a7100d57a3da1ce5552731))
+
+
+
+
+
 ## 0.17.1-dev.58 (2023-04-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
