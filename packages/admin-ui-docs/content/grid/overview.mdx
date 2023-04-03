@@ -21,12 +21,12 @@ Example of using grid template areas and applying a gap or space between the ite
   templateColumns="1fr 2fr 2fr"
   templateRows="1fr 2fr"
   gap="$xl"
-  csx={{ height: 400, div: { borderRadius: 'default' } }}
+  className={csx({ height: 400, div: { borderRadius: 'default' } })}
 >
-  <GridItem area="orange" csx={palette('orange')} />
-  <GridItem area="blue-1" csx={palette('lightBlue')} />
-  <GridItem area="blue-2" csx={palette('lightBlue')} />
-  <GridItem area="red" csx={palette('red')} />
+  <GridItem area="orange" className={csx(palette('orange'))} />
+  <GridItem area="blue-1" className={csx(palette('lightBlue'))} />
+  <GridItem area="blue-2" className={csx(palette('lightBlue'))} />
+  <GridItem area="red" className={csx(palette('red'))} />
 </Grid>
 ```
 
@@ -42,12 +42,12 @@ Example of using grid template columns and applying a gap or space between the c
 <Grid
   templateColumns="repeat(4, 1fr)"
   columnGap="$xl"
-  csx={{ height: 100, div: { borderRadius: 'default' } }}
+  className={csx({ height: 100, div: { borderRadius: 'default' } })}
 >
-  <Box csx={palette('cyan')} />
-  <Box csx={palette('green')} />
-  <Box csx={palette('orange')} />
-  <Box csx={palette('teal')} />
+  <Box className={csx(palette('cyan'))} />
+  <Box className={csx(palette('green'))} />
+  <Box className={csx(palette('orange'))} />
+  <Box className={csx(palette('teal'))} />
 </Grid>
 ```
 
@@ -63,12 +63,12 @@ Example of using grid template rows and applying a gap or space between the rows
 <Grid
   templateRows="repeat(4, 1fr)"
   rowGap="$xl"
-  csx={{ height: 400, width: 300, div: { borderRadius: 'default' } }}
+  className={csx({ height: 400, width: 300, div: { borderRadius: 'default' } })}
 >
-  <Box csx={palette('cyan')} />
-  <Box csx={palette('green')} />
-  <Box csx={palette('orange')} />
-  <Box csx={palette('teal')} />
+  <Box className={csx(palette('cyan'))} />
+  <Box className={csx(palette('green'))} />
+  <Box className={csx(palette('orange'))} />
+  <Box className={csx(palette('teal'))} />
 </Grid>
 ```
 
@@ -84,11 +84,11 @@ To make it easy applying grid layouts, all props provided by `Grid` are [Respons
 <Grid
   templateColumns={{ mobile: '1fr', tablet: 'repeat(3, 1fr)' }}
   gap={{ mobile: '$m', tablet: '$l', desktop: '$2xl' }}
-  csx={{ height: 500, width: 500 }}
+  className={csx({ height: 500, width: 500 })}
 >
-  <Box csx={{ bg: '$info' }} />
-  <Box csx={{ bg: '$info' }} />
-  <Box csx={{ bg: '$info' }} />
+  <Box className={csx({ bg: '$info' })} />
+  <Box className={csx({ bg: '$info' })} />
+  <Box className={csx({ bg: '$info' })} />
 </Grid>
 ```
 
