@@ -1,5 +1,6 @@
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
+import { Bleed } from '../bleed'
 
 import type { MenuButtonProps } from '../menu'
 import { MenuButton } from '../menu'
@@ -29,21 +30,21 @@ export const PageHeaderMenuButton = forwardRef(
   (props: MenuButtonProps, ref: Ref<HTMLButtonElement>) => {
     const {
       size = 'large',
-      bleedX = true,
       variant = 'tertiary',
       labelHidden = true,
       ...menuButtonProps
     } = props
 
     return (
-      <MenuButton
-        size={size}
-        bleedX={bleedX}
-        variant={variant}
-        labelHidden={labelHidden}
-        ref={ref}
-        {...menuButtonProps}
-      />
+      <Bleed right={size === 'large' ? '$space-4' : '$space-3'}>
+        <MenuButton
+          size={size}
+          variant={variant}
+          labelHidden={labelHidden}
+          ref={ref}
+          {...menuButtonProps}
+        />
+      </Bleed>
     )
   }
 )

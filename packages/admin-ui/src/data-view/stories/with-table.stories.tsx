@@ -118,7 +118,7 @@ export function WithTable() {
   }, [view.status, pagination.total])
 
   return (
-    <Page csx={{ height: '100vh' }}>
+    <Page className={csx({ height: '100vh' })}>
       <PageHeader>
         <Inline spaceInside hSpace="$space-2">
           {allStatus.map((item, index) => {
@@ -135,7 +135,10 @@ export function WithTable() {
         </Inline>
       </PageHeader>
 
-      <PageContent layout="wide" csx={{ minHeight: 'calc(100vh - 92px)' }}>
+      <PageContent
+        layout="wide"
+        className={csx({ minHeight: 'calc(100vh - 92px)' })}
+      >
         <DataView state={view}>
           <DataViewHeader>
             <Flex justify="space-between" className={csx({ width: '100%' })}>

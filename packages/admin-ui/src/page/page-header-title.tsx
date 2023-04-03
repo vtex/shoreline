@@ -1,12 +1,18 @@
-import React from 'react'
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { IconArrowLeft } from '@vtex/phosphor-icons'
+import { cx } from '@vtex/admin-ui-core'
 
-import { Box } from '../box'
 import { Button } from '../button'
 import { usePageHeaderContext } from './page-header-context'
-import * as style from './page.style'
+
+import {
+  pageHeaderTitleContainer,
+  pageHeaderTitleTheme,
+  popNavigationButtonContainer,
+} from './page.css'
+import { Center } from '../center'
+import { Bleed } from '../bleed'
 
 /**
  * Page header title component
@@ -26,31 +32,36 @@ import * as style from './page.style'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderTitle = createComponent<'div'>((props) => {
-  const { children, ...htmlProps } = props
+export const PageHeaderTitle = forwardRef(function PageHeaderTitle(
+  props: PageHeaderTitleProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { className = '', children, ...htmlProps } = props
   const { onPopNavigation } = usePageHeaderContext()
 
-  return useElement('div', {
-    baseStyle: style.pageHeaderTitleBase,
-    children: (
-      <>
-        {onPopNavigation && (
-          <Button
-            aria-label="Back"
-            variant="tertiary"
-            bleedX
-            size="large"
-            bleedY
-            icon={<IconArrowLeft />}
-            onClick={onPopNavigation}
-            className={style.popNavigationButtonTheme}
-          />
-        )}
-        <Box csx={style.pageHeaderTitle}>{children}</Box>
-      </>
-    ),
-    ...htmlProps,
-  })
+  return (
+    <div
+      ref={ref}
+      className={cx(pageHeaderTitleContainer, className)}
+      {...htmlProps}
+    >
+      {onPopNavigation && (
+        <Bleed left="$space-4" className={popNavigationButtonContainer}>
+          <Center>
+            <Button
+              aria-label="Back"
+              variant="tertiary"
+              size="large"
+              bleedY
+              icon={<IconArrowLeft />}
+              onClick={onPopNavigation}
+            />
+          </Center>
+        </Bleed>
+      )}
+      <div className={pageHeaderTitleTheme}>{children}</div>
+    </div>
+  )
 })
 
-export type PageHeaderTitle = ComponentPropsWithRef<typeof PageHeaderTitle>
+export type PageHeaderTitleProps = ComponentPropsWithoutRef<'div'>
