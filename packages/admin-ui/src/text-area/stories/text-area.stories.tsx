@@ -3,7 +3,6 @@ import type { Meta } from '@storybook/react'
 
 import { Stack } from '../../stack'
 import { TextArea } from '../text-area'
-import { Box } from '../..'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {
@@ -12,9 +11,9 @@ export default {
 
 export const Uncontrolled = () => {
   return (
-    <Box csx={{ padding: '$space-2 $space-3', width: '300px' }}>
+    <div className={csx({ padding: '$space-2 $space-3', width: '300px' })}>
       <TextArea label="Uncontrolled" />
-    </Box>
+    </div>
   )
 }
 

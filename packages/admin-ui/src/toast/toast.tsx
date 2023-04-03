@@ -9,7 +9,6 @@ import {
 } from '@vtex/phosphor-icons'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
-import { Box } from '../box'
 import { Inline } from '../inline'
 import { Button } from '../button'
 import { Center } from '../center'
@@ -69,9 +68,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         <Inline spaceInside align="start" hSpace="$space-3">
           <Center>{icons[variant]}</Center>
           <Stack space="$space-2" className={toastInfoTheme}>
-            <Box as="p" className={toastMessageTheme}>
-              {message}
-            </Box>
+            <p className={toastMessageTheme}>{message}</p>
             {action && (
               <Button
                 bleedX

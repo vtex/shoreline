@@ -28,7 +28,6 @@ import {
   useTableState,
   TBodyCell,
 } from '../table'
-import { Box } from '../box'
 import { Menu, MenuItem, useMenuState } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
 import { csx } from '@vtex/admin-ui-core'

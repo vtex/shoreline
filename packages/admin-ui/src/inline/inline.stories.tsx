@@ -4,7 +4,6 @@ import type { Meta } from '@storybook/react'
 
 import { Inline } from './inline'
 import { Tag } from '../tag'
-import { Box } from '../box'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {
@@ -24,7 +23,7 @@ export const Basic = () => {
 
 export const Wrap = () => {
   return (
-    <Box csx={{ width: '18rem' }}>
+    <div className={csx({ width: '18rem' })}>
       <Inline>
         <Tag label="Brasil" />
         <Tag label="Argentina" />
@@ -34,7 +33,7 @@ export const Wrap = () => {
         <Tag label="Equador" />
         <Tag label="Venezuela" />
       </Inline>
-    </Box>
+    </div>
   )
 }
 

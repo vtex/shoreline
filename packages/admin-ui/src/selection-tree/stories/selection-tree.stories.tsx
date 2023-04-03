@@ -7,7 +7,6 @@ import {
   SelectionTreeRoot,
   SelectionTreeItem,
 } from '../index'
-import { Box } from '../../box'
 import { Checkbox } from '../../checkbox'
 import { Label } from '../../label'
 import { csx } from '@vtex/admin-ui-core'
@@ -94,7 +93,7 @@ export const BareStateHook = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Checkbox state={state.root} />
       {items.map((item) => (
         <Label
@@ -114,6 +113,6 @@ export const BareStateHook = () => {
           <Checkbox label={item.name} value={item.id} state={state.items} />
         </Label>
       ))}
-    </Box>
+    </div>
   )
 }

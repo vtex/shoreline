@@ -2,7 +2,6 @@ import React from 'react'
 import type { Meta } from '@storybook/react'
 import { csx, palette } from '@vtex/admin-ui-core'
 
-import { Box } from '../box'
 import { Flex, FlexSpacer } from './index'
 
 export default {
@@ -13,23 +12,23 @@ export default {
 export const Example = () => {
   return (
     <Flex>
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('cyan'),
           size: 200,
-        }}
+        })}
       >
         Box 1
-      </Box>
-      <Box
-        csx={{
+      </div>
+      <div
+        className={csx({
           ...palette('teal'),
           size: 200,
-        }}
+        })}
       >
         Box 2
-      </Box>
-      <Box csx={{ ...palette('purple'), size: 200 }}>Box 3</Box>
+      </div>
+      <div className={csx({ ...palette('purple'), size: 200 })}>Box 3</div>
     </Flex>
   )
 }
@@ -37,23 +36,23 @@ export const Example = () => {
 export function Spacer() {
   return (
     <Flex>
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('cyan'),
           size: 200,
-        }}
+        })}
       >
         Box 1
-      </Box>
+      </div>
       <FlexSpacer />
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('teal'),
           size: 200,
-        }}
+        })}
       >
         Box 2
-      </Box>
+      </div>
     </Flex>
   )
 }
@@ -61,22 +60,22 @@ export function Spacer() {
 export function Around() {
   return (
     <Flex justify="space-around">
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('teal'),
           size: 100,
-        }}
+        })}
       >
         Box 1
-      </Box>
-      <Box
-        csx={{
+      </div>
+      <div
+        className={csx({
           ...palette('purple'),
           size: 100,
-        }}
+        })}
       >
         Box 2
-      </Box>
+      </div>
     </Flex>
   )
 }
@@ -84,22 +83,22 @@ export function Around() {
 export function Direction() {
   return (
     <Flex direction="column">
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('teal'),
           size: 100,
-        }}
+        })}
       >
         Box 1
-      </Box>
-      <Box
-        csx={{
+      </div>
+      <div
+        className={csx({
           ...palette('purple'),
           size: 100,
-        }}
+        })}
       >
         Box 2
-      </Box>
+      </div>
     </Flex>
   )
 }
@@ -107,22 +106,22 @@ export function Direction() {
 export function Align() {
   return (
     <Flex align="center" className={csx({ size: 300, bg: '$secondary' })}>
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('teal'),
           size: 100,
-        }}
+        })}
       >
         Box 1
-      </Box>
-      <Box
-        csx={{
+      </div>
+      <div
+        className={csx({
           ...palette('purple'),
           size: 100,
-        }}
+        })}
       >
         Box 2
-      </Box>
+      </div>
     </Flex>
   )
 }
@@ -135,22 +134,22 @@ export function Responsive() {
       justify="space-around"
       className={csx({ size: 300, bg: '$secondary' })}
     >
-      <Box
-        csx={{
+      <div
+        className={csx({
           ...palette('teal'),
           size: 100,
-        }}
+        })}
       >
         Box 1
-      </Box>
-      <Box
-        csx={{
+      </div>
+      <div
+        className={csx({
           ...palette('purple'),
           size: 100,
-        }}
+        })}
       >
         Box 2
-      </Box>
+      </div>
     </Flex>
   )
 }

@@ -5,10 +5,11 @@ import type { NumberInputProps } from './index'
 import { NumberInput } from './index'
 
 import { experimental_I18nProvider as I18nProvider } from '../experimental'
-import { Box } from '../box'
+
 import { Button } from '../button'
 
 import { IconMagnifyingGlass, IconArrowsClockwise } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/number-input',
@@ -38,7 +39,7 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$space-1 $space-2' }}>
+      <div className={csx({ margin: '$space-1 $space-2' })}>
         <NumberInput
           label={hasLabel && label}
           helpText={hasHelpText && helpText}
@@ -46,7 +47,7 @@ export const Playground: Story<NumberInputPlaygroundProps> = (args) => {
           suffix={hasSuffix && suffix}
           {...remainigProps}
         />
-      </Box>
+      </div>
     </I18nProvider>
   )
 }
@@ -77,7 +78,7 @@ export const ControlledState: Story<NumberInputProps> = () => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$space-1 $space-2' }}>
+      <div className={csx({ margin: '$space-1 $space-2' })}>
         <NumberInput
           label="Label"
           min={min}
@@ -88,7 +89,7 @@ export const ControlledState: Story<NumberInputProps> = () => {
           onChange={(nextValue) => setValue(nextValue)}
           errorText="Number is not valid"
         />
-      </Box>
+      </div>
     </I18nProvider>
   )
 }
@@ -98,7 +99,7 @@ export const WithTerms: Story<NumberInputProps> = () => {
 
   return (
     <I18nProvider>
-      <Box csx={{ margin: '$space-1 $space-2' }}>
+      <div className={csx({ margin: '$space-1 $space-2' })}>
         <NumberInput
           prefix={<IconMagnifyingGlass />}
           value={value}
@@ -114,7 +115,7 @@ export const WithTerms: Story<NumberInputProps> = () => {
             />
           }
         />
-      </Box>
+      </div>
     </I18nProvider>
   )
 }

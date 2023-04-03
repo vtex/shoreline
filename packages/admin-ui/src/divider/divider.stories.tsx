@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import { Box } from '../box'
 
 import { Divider } from './index'
 import { Card } from '../card'
@@ -19,7 +18,7 @@ const headingSpacing = csx({
 
 export const Horizontal: Story = () => {
   return (
-    <Card csx={{ width: 500 }}>
+    <Card className={csx({ width: 500 })}>
       <Heading className={headingSpacing}>Tolerance</Heading>
       <Paragraph>
         Allows orders to be placed even if they pass X% of the account`s credit
@@ -39,30 +38,30 @@ export const Horizontal: Story = () => {
 
 export const Vertical: Story = () => {
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         display: 'flex',
         width: 500,
-      }}
+      })}
     >
-      <Box csx={{ width: '1/2' }}>
+      <div className={csx({ width: '1/2' })}>
         <Heading className={headingSpacing}>Cards</Heading>
         <Paragraph>
           In Cards, your customer is given autonomy to manage credit cards
           related to his account, and can add, remove or edit credit card data.
         </Paragraph>
-      </Box>
+      </div>
       <Divider
         orientation="vertical"
         className={csx({ marginX: '$space-6' })}
       />
-      <Box csx={{ width: '1/2' }}>
+      <div className={csx({ width: '1/2' })}>
         <Heading className={headingSpacing}>Personal data</Heading>
         <Paragraph>
           In this section, the user can manage their personal data registered on
           the store site.
         </Paragraph>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }

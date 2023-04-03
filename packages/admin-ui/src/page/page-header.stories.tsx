@@ -13,7 +13,6 @@ import {
   PageHeaderButton,
   PageHeaderMenuButton,
 } from './index'
-import { Box } from '../box'
 import type { TabProps } from '../tab'
 import { useTabState, TabPanel, TabList, Tab } from '../tab'
 import type { TagProps } from '../tag'
@@ -182,7 +181,7 @@ export const WithTabs: Story<{
           </TabList>
         </PageHeaderBottom>
       </PageHeader>
-      <Box>
+      <div>
         <TabPanel state={tabs} id="1" className={csx({ padding: '$space-3' })}>
           <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
         </TabPanel>
@@ -192,7 +191,7 @@ export const WithTabs: Story<{
         <TabPanel state={tabs} id="3" className={csx({ padding: '$space-3' })}>
           <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
         </TabPanel>
-      </Box>
+      </div>
     </>
   )
 }
@@ -235,7 +234,7 @@ export const FullFledged = () => {
           </TabList>
         </PageHeaderBottom>
       </PageHeader>
-      <Box>
+      <div>
         <TabPanel state={tabs} id="1" className={csx({ padding: '$space-3' })}>
           <Button onClick={() => tabs.select('3')}>Go to Tab 3!</Button>
         </TabPanel>
@@ -245,7 +244,7 @@ export const FullFledged = () => {
         <TabPanel state={tabs} id="3" className={csx({ padding: '$space-3' })}>
           <Button onClick={() => tabs.select('2')}>Go to Tab 2!</Button>
         </TabPanel>
-      </Box>
+      </div>
     </>
   )
 }
