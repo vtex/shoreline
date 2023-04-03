@@ -1,43 +1,55 @@
-import type { KeyboardEventHandler, ReactNode } from 'react'
+import type {
+  ComponentPropsWithoutRef,
+  KeyboardEventHandler,
+  ReactNode,
+  Ref,
+} from 'react'
 import React from 'react'
 import { IconX } from '@vtex/phosphor-icons'
 import { Focusable } from 'ariakit/focusable'
 import { CompositeItem } from 'ariakit/composite'
 
-import { Box } from '../box'
 import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../components/Paragraph'
 import { Flex } from '../flex'
-import * as style from './combobox.style'
+import { cx } from '@vtex/admin-ui-core'
+import { fieldTagTheme, fieldTagDismissTheme } from './combobox.css'
 
-export function ComboboxMultipleTag(props: ComboboxMultipleTagProps) {
-  const { value, onDismiss, ...htmlProps } = props
+export const ComboboxMultipleTag = (
+  props: ComboboxMultipleTagProps,
+  ref: Ref<HTMLDivElement>
+) => {
+  const { value, onDismiss, className = '', ...htmlProps } = props
   const formatMessage = useMessageFormatter(messages)
 
   return (
     <CompositeItem {...htmlProps}>
       {(compositeProps) => (
-        <Box as={Focusable} csx={style.fieldTag} {...compositeProps}>
+        <Focusable
+          className={cx(fieldTagTheme, className)}
+          ref={ref}
+          {...compositeProps}
+        >
           <Flex justify="space-between" align="center">
             <Paragraph>{value}</Paragraph>
-            <Box
-              as="button"
+            <button
               tabIndex={-1}
               onClick={onDismiss}
-              csx={style.fieldTagDismiss}
+              className={fieldTagDismissTheme}
               aria-label={formatMessage('removeLabel')}
             >
               <IconX size="small" />
-            </Box>
+            </button>
           </Flex>
-        </Box>
+        </Focusable>
       )}
     </CompositeItem>
   )
 }
 
-interface ComboboxMultipleTagProps {
+interface ComboboxMultipleTagProps
+  extends Omit<ComponentPropsWithoutRef<'button'>, 'value'> {
   value: ReactNode
   onDismiss: () => void
   onKeyDown: KeyboardEventHandler<HTMLButtonElement>
