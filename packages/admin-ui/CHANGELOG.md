@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.135.1-dev.54 (2023-04-06)
+
+
+### Bug Fixes
+
+* **page:** add !important flag to onPopNavigation button margin style ([6ffb916](https://github.com/vtex/admin-ui/commit/6ffb9169d782004d08bd0ee964a2410fdefc6f85))
+
+
+
+
+
 ## [0.135.1-dev.53](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.52...@vtex/admin-ui@0.135.1-dev.53) (2023-04-03)
 
 
