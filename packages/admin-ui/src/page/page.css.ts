@@ -76,8 +76,8 @@ export const pageHeaderTitleTheme = csx({
   },
 })
 
-export const popNavigationButtonContainer = csx({
-  marginRight: '0.5rem',
+export const popNavigationButtonTheme = csx({
+  marginRight: '0.5rem !important',
 })
 
 export const pageHeaderActionsTheme = csx({

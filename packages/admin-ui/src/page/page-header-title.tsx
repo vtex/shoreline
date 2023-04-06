@@ -9,9 +9,8 @@ import { usePageHeaderContext } from './page-header-context'
 import {
   pageHeaderTitleContainer,
   pageHeaderTitleTheme,
-  popNavigationButtonContainer,
+  popNavigationButtonTheme,
 } from './page.css'
-import { Center } from '../center'
 
 /**
  * Page header title component
@@ -45,17 +44,16 @@ export const PageHeaderTitle = forwardRef(function PageHeaderTitle(
       {...htmlProps}
     >
       {onPopNavigation && (
-        <Center className={popNavigationButtonContainer}>
-          <Button
-            aria-label="Back"
-            variant="tertiary"
-            size="large"
-            bleedY
-            bleedX
-            icon={<IconArrowLeft />}
-            onClick={onPopNavigation}
-          />
-        </Center>
+        <Button
+          aria-label="Back"
+          variant="tertiary"
+          size="large"
+          bleedY
+          bleedX
+          icon={<IconArrowLeft />}
+          onClick={onPopNavigation}
+          className={popNavigationButtonTheme}
+        />
       )}
       <div className={pageHeaderTitleTheme}>{children}</div>
     </div>
