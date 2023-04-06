@@ -1,6 +1,10 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { useEffect, forwardRef, useRef, useState } from 'react'
-import { useIntersectionObserver, usePortal } from '@vtex/admin-ui-hooks'
+import {
+  useForkRef,
+  useIntersectionObserver,
+  usePortal,
+} from '@vtex/admin-ui-hooks'
 import { cx } from '@vtex/admin-ui-core'
 
 import { PageHeaderContext } from './page-header-context'
@@ -52,7 +56,7 @@ export const PageHeader = forwardRef(function PageHeader(
   const [scrollOnTop, setScrollOnTop] = useState(true)
   const [distanceFromTop, setDistanceFromTop] = useState(0)
   const pageHeaderViewportFakeRef = useRef<HTMLDivElement>(null)
-  const pageHeaderRef = (ref as any) ?? useRef<'header'>(null)
+  const pageHeaderRef = useRef(null) as any
   const { Portal } = usePortal()
 
   useEffect(() => {
@@ -76,7 +80,7 @@ export const PageHeader = forwardRef(function PageHeader(
 
   return (
     <header
-      ref={pageHeaderRef}
+      ref={useForkRef(ref, pageHeaderRef)}
       className={cx(pageHeaderTheme, className)}
       data-scrollOnTop={scrollOnTop}
       {...htmlProps}
