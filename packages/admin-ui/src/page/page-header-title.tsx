@@ -12,7 +12,6 @@ import {
   popNavigationButtonContainer,
 } from './page.css'
 import { Center } from '../center'
-import { Bleed } from '../bleed'
 
 /**
  * Page header title component
@@ -46,18 +45,17 @@ export const PageHeaderTitle = forwardRef(function PageHeaderTitle(
       {...htmlProps}
     >
       {onPopNavigation && (
-        <Bleed left="$space-4" className={popNavigationButtonContainer}>
-          <Center>
-            <Button
-              aria-label="Back"
-              variant="tertiary"
-              size="large"
-              bleedY
-              icon={<IconArrowLeft />}
-              onClick={onPopNavigation}
-            />
-          </Center>
-        </Bleed>
+        <Center className={popNavigationButtonContainer}>
+          <Button
+            aria-label="Back"
+            variant="tertiary"
+            size="large"
+            bleedY
+            bleedX
+            icon={<IconArrowLeft />}
+            onClick={onPopNavigation}
+          />
+        </Center>
       )}
       <div className={pageHeaderTitleTheme}>{children}</div>
     </div>
