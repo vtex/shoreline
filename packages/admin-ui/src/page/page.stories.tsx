@@ -18,10 +18,20 @@ import {
 import { useTabState, TabPanel, TabList, Tab } from '../tab'
 import { DataView, DataViewHeader, useDataViewState } from '../data-view'
 import { Search, useSearchState } from '../search'
-import { createColumns, Table, useTableState } from '../table'
+import {
+  createColumns,
+  Table,
+  TBody,
+  TBodyRow,
+  THead,
+  THeadCell,
+  useTableState,
+  TBodyCell,
+} from '../table'
 import { Box } from '../box'
 import { Menu, MenuItem, useMenuState } from '../menu'
 import { IconPencil, IconPlus } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/page',
@@ -78,11 +88,11 @@ const columns = createColumns<Item>([
 
 function Placeholder() {
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         height: '80vh',
         bg: '$secondary',
-      }}
+      })}
     />
   )
 }
@@ -142,8 +152,14 @@ export function FullFledged() {
   const [data, setData] = useState(items)
   const view = useDataViewState()
   const search = useSearchState()
-  const grid = useTableState<Item>({
-    view,
+
+  const {
+    getBodyCell,
+    getHeadCell,
+    getTable,
+    data: tableData,
+  } = useTableState<Item>({
+    status: view.status,
     columns,
     items: data,
   })
@@ -196,9 +212,27 @@ export function FullFledged() {
             <DataViewHeader>
               <Search id="search" aria-label="DataGrid Search" />
             </DataViewHeader>
-            <Table state={grid} />
+            <Table {...getTable()} className={csx({ width: '100%' })}>
+              <THead>
+                {columns.map((column) => {
+                  return <THeadCell {...getHeadCell(column)} />
+                })}
+              </THead>
+              <TBody>
+                {tableData.map((item) => {
+                  return (
+                    <TBodyRow key={item.id}>
+                      {columns.map((column) => {
+                        return <TBodyCell {...getBodyCell(column, item)} />
+                      })}
+                    </TBodyRow>
+                  )
+                })}
+              </TBody>
+            </Table>
           </DataView>
         </TabPanel>
+
         <TabPanel state={tabs} id="2">
           <Placeholder />
         </TabPanel>

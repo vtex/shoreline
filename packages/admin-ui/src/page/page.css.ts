@@ -1,19 +1,23 @@
-import { csx, style, styleVariants } from '@vtex/admin-ui-core'
+import { csx, dataAttr, style } from '@vtex/admin-ui-core'
 
-export const page = style({
+export const pageTheme = csx({
   display: 'block',
   width: '100%',
 })
 
-export const pageHeaderViewportRef = style({
+export const pageHeaderViewportRef = csx({
   height: '1rem',
   position: 'absolute',
   left: '$space-0',
   right: '$space-0',
   zIndex: -2147483638,
+  top: 'var(--header-distance-from-top, 0)',
 })
 
-export const pageHeaderBase = style({
+export const pageHeaderViewportRefStyle = (space: number) =>
+  style({ '--header-distance-from-top': space })
+
+export const pageHeaderTheme = csx({
   bg: '$primary',
   color: '$primary',
   display: 'flex',
@@ -28,18 +32,10 @@ export const pageHeaderBase = style({
   paddingX: '2rem',
   paddingY: '1.5rem',
   zIndex: '$z-9',
+  [dataAttr('scrollOnTop', 'false')]: { boxShadow: '$overlay.center' },
 })
 
-export const pageHeader = styleVariants({
-  scrollOnTop: {
-    true: {},
-    false: {
-      boxShadow: '$overlay.center',
-    },
-  },
-})
-
-export const pageHeaderTop = style({
+export const pageHeaderTopTheme = csx({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -48,34 +44,28 @@ export const pageHeaderTop = style({
   minHeight: '2.75rem',
 })
 
-export const pageHeaderBottomBase = style({
+export const pageHeaderBottomTheme = csx({
   width: '100%',
   marginTop: '$space-2',
   '> div': {
     paddingX: 'unset',
   },
   maxWidth: '95rem',
-})
-
-export const pageHeaderBottom = styleVariants({
-  tabs: {
-    true: {
-      marginBottom: '-1.5rem',
-      '* > button': {
-        minWidth: 'unset',
-      },
+  [dataAttr('tabs', 'true')]: {
+    marginBottom: '-1.5rem',
+    '* > button': {
+      minWidth: 'unset',
     },
-    false: {},
   },
 })
 
-export const pageHeaderTitleBase = style({
+export const pageHeaderTitleContainer = csx({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-start',
 })
 
-export const pageHeaderTitle = style({
+export const pageHeaderTitleTheme = csx({
   text: '$pageTitle',
   display: 'flex',
   alignItems: 'center',
@@ -87,10 +77,10 @@ export const pageHeaderTitle = style({
 })
 
 export const popNavigationButtonTheme = csx({
-  marginRight: '0.5rem',
+  marginRight: '0.5rem !important',
 })
 
-export const pageHeaderActions = style({
+export const pageHeaderActionsTheme = csx({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
@@ -101,33 +91,29 @@ export const pageHeaderButtonTheme = csx({
   minWidth: '6.5rem',
 })
 
-export const pageContent = style({
+export const pageContentTheme = csx({
   width: '100%',
   margin: 'auto',
   display: 'grid',
   gridGap: '1rem',
   paddingX: '1rem',
+  gridTemplateColumns: 'var(--page-content-template)',
   '@desktop': {
     paddingX: '2rem',
   },
-})
-
-export const pageContentVariants = styleVariants({
-  layout: {
-    wide: {
-      maxWidth: '99rem',
-      paddingTop: '2rem',
-      paddingBottom: '3rem',
-    },
-    standard: {
-      maxWidth: '77rem',
-      paddingTop: '2.5rem',
-      paddingBottom: '5rem',
-    },
-    narrow: {
-      maxWidth: '52rem',
-      paddingTop: '3rem',
-      paddingBottom: '8rem',
-    },
+  [dataAttr('layout', 'wide')]: {
+    maxWidth: '99rem',
+    paddingTop: '2rem',
+    paddingBottom: '3rem',
+  },
+  [dataAttr('layout', 'standard')]: {
+    maxWidth: '77rem',
+    paddingTop: '2.5rem',
+    paddingBottom: '5rem',
+  },
+  [dataAttr('layout', 'narrow')]: {
+    maxWidth: '52rem',
+    paddingTop: '3rem',
+    paddingBottom: '8rem',
   },
 })

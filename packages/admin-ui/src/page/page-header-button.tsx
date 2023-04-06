@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
-import * as style from './page.style'
+import { pageHeaderButtonTheme } from './page.css'
 
 /**
  * Page header button component
@@ -29,7 +29,7 @@ export const PageHeaderButton = forwardRef(
 
     return (
       <Button
-        className={style.pageHeaderButtonTheme}
+        className={pageHeaderButtonTheme}
         size={size}
         ref={ref}
         {...buttonProps}
