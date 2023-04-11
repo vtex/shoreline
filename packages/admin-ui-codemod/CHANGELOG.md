@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.1-dev.13 (2023-04-11)
+
+
+### Features
+
+* **codemod:** add codemod to migrate to new component model ([601e0aa](https://github.com/vtex/admin-ui/commit/601e0aae9d4cf12d5a7a14cb0e1bad942d427188))
+
+
+
+
+
 ## 0.7.1-dev.12 (2023-04-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod
