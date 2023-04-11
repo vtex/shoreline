@@ -1,6 +1,3 @@
-import React from 'react'
-import { Text, Anchor } from '@vtex/admin-ui'
-
 const components = [
   {
     component: 'Button',

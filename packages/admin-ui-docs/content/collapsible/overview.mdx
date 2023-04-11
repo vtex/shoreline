@@ -16,7 +16,6 @@ You can build collapsible components with the useCollapse hook. It enables the c
 ```jsx noInline live
 const SingleCollapsible = () => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <Card
       csx={{
@@ -67,7 +66,6 @@ const SingleCollapsible = () => {
     </Card>
   )
 }
-
 render(SingleCollapsible)
 ```
 
@@ -80,7 +78,6 @@ render(SingleCollapsible)
 ```jsx noInline live
 const ActionsCollapsible = () => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <Card
       csx={{
@@ -133,7 +130,6 @@ const ActionsCollapsible = () => {
     </Card>
   )
 }
-
 render(ActionsCollapsible)
 ```
 
@@ -146,7 +142,6 @@ render(ActionsCollapsible)
 ```jsx noInline live
 const AccordionItem = ({ title, children }) => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <>
       <CardHeader
@@ -180,7 +175,6 @@ const AccordionItem = ({ title, children }) => {
     </>
   )
 }
-
 const Accordion = () => {
   return (
     <Card
@@ -224,7 +218,6 @@ const Accordion = () => {
     </Card>
   )
 }
-
 render(Accordion)
 ```
 
