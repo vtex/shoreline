@@ -8,7 +8,6 @@ import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 import {
   Columns,
   Column,
-  Box,
   Flex,
   FlexSpacer,
   IconArrowUpRight,
@@ -31,7 +30,7 @@ Check out the available templates:
   justify="space-evenly"
   csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
-  <Box>
+  <div>
   <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">
     <Flex
       display="flex"
@@ -45,14 +44,14 @@ Check out the available templates:
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
           <a href="https://admin-ui.vercel.app/templates/listing%20page/overview">
             <img src="https://user-images.githubusercontent.com/77292838/191286878-ab93116f-8150-4875-8914-2e70d1345995.png"></img>
           </a>
-        </Box>
-      </Box>
-      <Box csx={{ padding: '20px' }}>
+        </div>
+      </div>
+      <div className={csx({ padding: '20px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Flex align="center" direction="row" justify="space-between">
             <Text variant="action1">Listing page</Text>
@@ -67,11 +66,11 @@ Check out the available templates:
             orders.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
   </a>
-  </Box>
-  <Box>
+  </div>
+  <div>
   <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
     <Flex
       href="https://admin-ui.vercel.app/templates/form%20page/overview"
@@ -86,14 +85,14 @@ Check out the available templates:
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
           <a href="https://admin-ui.vercel.app/templates/form%20page/overview">
             <img src="https://user-images.githubusercontent.com/77292838/207896064-a8460638-bead-42af-bc63-60c37daf6b3a.png"></img>
           </a>
-        </Box>
-      </Box>
-      <Box csx={{ padding: '20px' }}>
+        </div>
+      </div>
+      <div className={csx({ padding: '20px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Flex align="center" direction="row" justify="space-between">
             <Text variant="action1" tone="primary">
@@ -109,10 +108,10 @@ Check out the available templates:
             Merchants make changes and submit data to create objects or edit existing ones such as products, sellers or promotions.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
 </a>
-</Box>
+</div>
   </Flex>
 <Flex
   align="flex-start"
@@ -132,12 +131,12 @@ Check out the available templates:
       overflow: 'hidden',
     }}
   >
-    <Box>
-      <Box>
+    <div>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/191287240-fe8ad296-4f1b-4ffd-8a3f-1610171a948d.png"></img>
-      </Box>
-    </Box>
-    <Box csx={{ padding: '20px' }}>
+      </div>
+    </div>
+    <div className={csx({ padding: '20px' })}>
       <Flex align="stretch" direction="column" justify="space-between">
         <Flex align="center" direction="row" justify="space-between">
           <Text variant="action1" tone="secondary">
@@ -150,7 +149,7 @@ Check out the available templates:
           Merchants dive deep into an object or record's information, unlocking specific data and actions.
         </Text>
       </Flex>
-    </Box>
+    </div>
   </Flex>
   <Flex
     align="stretch"
@@ -164,12 +163,12 @@ Check out the available templates:
       overflow: 'hidden',
     }}
   >
-    <Box>
-      <Box>
+    <div>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/191287297-6248f168-0c70-4124-9215-5ca8195d6835.png"></img>
-      </Box>
-    </Box>
-    <Box csx={{ padding: '20px' }}>
+      </div>
+    </div>
+    <div className={csx({ padding: '20px' })}>
       <Flex align="stretch" direction="column" justify="space-between">
         <Flex align="center" direction="row" justify="space-between">
           <Text variant="action1" tone="secondary">
@@ -182,7 +181,7 @@ Check out the available templates:
           Merchants set up their ecommerce configurations in a unified experience.
         </Text>
       </Flex>
-    </Box>
+    </div>
   </Flex>
 </Flex>
 

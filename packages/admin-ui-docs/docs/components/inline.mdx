@@ -48,7 +48,7 @@ Wrapping is applied automatically.
 ```jsx noInline live
 function Example() {
   return (
-    <Box csx={{ width: '18rem' }}>
+    <div className={csx({ width: '18rem' })}>
       <Inline>
         <Tag label="Brasil" />
         <Tag label="Argentina" />
@@ -58,7 +58,7 @@ function Example() {
         <Tag label="Equador" />
         <Tag label="Venezuela" />
       </Inline>
-    </Box>
+    </div>
   )
 }
 
@@ -72,7 +72,7 @@ Space is configured using the `vSpace` and `hSpace`, with either token or number
 ```jsx noInline live
 function Example() {
   return (
-    <Box csx={{ width: '18rem' }}>
+    <div className={csx({ width: '18rem' })}>
       <Inline vSpace="$xl" hSpace="$xl">
         <Tag label="Brasil" />
         <Tag label="Argentina" />
@@ -82,7 +82,7 @@ function Example() {
         <Tag label="Equador" />
         <Tag label="Venezuela" />
       </Inline>
-    </Box>
+    </div>
   )
 }
 

@@ -205,7 +205,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.product.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -761,7 +761,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10em' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1152,7 +1152,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10em' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1335,7 +1335,7 @@ function Example() {
         type: 'text',
         columnType: 'name',
         mapText: (item) => item.name,
-        render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+        render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
       },
     },
     {
@@ -1466,7 +1466,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1476,7 +1476,7 @@ const columns = createColumns([
     resolver: {
       type: 'root',
       render: ({ item }) => {
-        return <Box csx={{ minWidth: '5rem' }}>{item.brand}</Box>
+        return <div className={csx({ minWidth: '5rem' })}>{data}</div>
       },
     },
   },

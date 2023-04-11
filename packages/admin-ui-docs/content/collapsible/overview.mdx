@@ -47,11 +47,11 @@ const SingleCollapsible = () => {
           <Tag label="Short text" />
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -63,7 +63,7 @@ const SingleCollapsible = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }
@@ -119,17 +119,17 @@ const ActionsCollapsible = () => {
           </Button>
         </CardActions>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }
@@ -168,15 +168,15 @@ const AccordionItem = ({ title, children }) => {
           <CardTitle>{title}</CardTitle>
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           {children}
         </CardContent>
-      </Box>
+      </div>
     </>
   )
 }

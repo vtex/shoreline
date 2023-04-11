@@ -193,24 +193,22 @@ function Example() {
   return (
     <Form state={form} onSubmit={handleSubmit}>
       <Stack space="$2xl">
-        <Box
-          as="input"
-          csx={{ border: '$neutral' }}
+        <input
+          className={csx({ border: '$neutral' })}
           placeholder="First Name"
           {...form.register('firstName')}
         />
-        <Box
-          as="input"
-          csx={{ border: '$neutral' }}
+        <input
+          className={csx({ border: '$neutral' })}
           placeholder="Age"
           type="number"
           {...form.register('age')}
         />
         <Button type="submit">Submit</Button>
-        <Box>
-          <Box as="p">firstName: {firstName}</Box>
-          <Box as="p">age: {age}</Box>
-        </Box>
+        <div>
+          <p>firstName: {firstName}</p>
+          <p>age: {age}</p>
+        </div>
       </Stack>
     </Form>
   )
@@ -241,28 +239,26 @@ function Example() {
     <Form state={form} onSubmit={handleSubmit}>
       <Stack space="$2xl">
         <Stack space="$2xl">
-          <Box
-            as="input"
-            csx={{ border: '$neutral' }}
+          <input
+            className={csx({ border: '$neutral' })}
             placeholder="First Name"
             {...form.register('firstName')}
           />
-          <Box
-            as="input"
-            csx={{ border: '$neutral' }}
+          <input
+          className={csx({ border: '$neutral' })}
             placeholder="Age"
             type="number"
             {...form.register('age')}
           />
           <Button type="submit">Submit</Button>
-          <Box>
-            <Box as="p">
+          <div>
+            <p>
               firstName: <Watch form={form} name="firstName" />
-            </Box>
-            <Box as="p">
+            </p>
+            <p>
               age: <Watch form={form} name="age" />
-            </Box>
-          </Box>
+            </p>
+          </div>
         </Stack>
       </Stack>
     </Form>

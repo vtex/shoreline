@@ -44,10 +44,10 @@ Example of using grid template columns and applying a gap or space between the c
   columnGap="$xl"
   className={csx({ height: 100, div: { borderRadius: 'default' } })}
 >
-  <Box className={csx(palette('cyan'))} />
-  <Box className={csx(palette('green'))} />
-  <Box className={csx(palette('orange'))} />
-  <Box className={csx(palette('teal'))} />
+  <div className={csx(palette('cyan'))} />
+  <div className={csx(palette('green'))} />
+  <div className={csx(palette('orange'))} />
+  <div className={csx(palette('teal'))} />
 </Grid>
 ```
 
@@ -65,10 +65,10 @@ Example of using grid template rows and applying a gap or space between the rows
   rowGap="$xl"
   className={csx({ height: 400, width: 300, div: { borderRadius: 'default' } })}
 >
-  <Box className={csx(palette('cyan'))} />
-  <Box className={csx(palette('green'))} />
-  <Box className={csx(palette('orange'))} />
-  <Box className={csx(palette('teal'))} />
+  <div className={csx(palette('cyan'))} />
+  <div className={csx(palette('green'))} />
+  <div className={csx(palette('orange'))} />
+  <div className={csx(palette('teal'))} />
 </Grid>
 ```
 
@@ -86,9 +86,9 @@ To make it easy applying grid layouts, all props provided by `Grid` are [Respons
   gap={{ mobile: '$m', tablet: '$l', desktop: '$2xl' }}
   className={csx({ height: 500, width: 500 })}
 >
-  <Box className={csx({ bg: '$info' })} />
-  <Box className={csx({ bg: '$info' })} />
-  <Box className={csx({ bg: '$info' })} />
+  <div className={csx({ bg: '$info' })} />
+  <div className={csx({ bg: '$info' })} />
+  <div className={csx({ bg: '$info' })} />
 </Grid>
 ```
 

@@ -259,7 +259,7 @@ Humans instinctively look for patterns, so it is important to keep the [Gestalt 
   justify="space-evenly"
   csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
-  <Box>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -272,19 +272,19 @@ Humans instinctively look for patterns, so it is important to keep the [Gestalt 
         overflow: 'hidden',
       }}
     >
-      <Box>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/211933680-7497fb3d-f5d5-4902-ba95-a9784c91ce49.png"></img>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
-            Examples of spacing within a Checkbox group and between form sections.	
+            Examples of spacing within a Checkbox group and between form sections.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-  </Box>
-  <Box>
+  </div>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -297,20 +297,20 @@ Humans instinctively look for patterns, so it is important to keep the [Gestalt 
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
             <img src="https://user-images.githubusercontent.com/77292838/211933831-b9841d8c-8c72-4c67-a25a-052b8da30bbd.png"></img>
-        </Box>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+        </div>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
             Example of spacing around the error state in a DataView.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-</Box>
+</div>
   </Flex>
 <br />
 
@@ -329,7 +329,7 @@ The visual rhythm of an interface is defined by pattern repetition. Spacing is a
   justify="space-evenly"
   csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
-  <Box>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -342,19 +342,19 @@ The visual rhythm of an interface is defined by pattern repetition. Spacing is a
         overflow: 'hidden',
       }}
     >
-      <Box>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/211934024-78f71482-5fff-40f5-af60-1832ee618f3a.png"></img>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
-            Example of elements with the same level of importance.	
+            Example of elements with the same level of importance.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-  </Box>
-  <Box>
+  </div>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -367,20 +367,20 @@ The visual rhythm of an interface is defined by pattern repetition. Spacing is a
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
             <img src="https://user-images.githubusercontent.com/77292838/211934281-afbee946-dd48-4047-9b7b-091f99e43872.png"></img>
-        </Box>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+        </div>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
             Example of elements with different levels of importance.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-</Box>
+</div>
   </Flex>
 <br />
 
@@ -399,7 +399,7 @@ Blank spaces are used up to the point that makes it easier to consume informatio
   justify="space-evenly"
   csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
-  <Box>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -412,19 +412,19 @@ Blank spaces are used up to the point that makes it easier to consume informatio
         overflow: 'hidden',
       }}
     >
-      <Box>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/211934412-40dc2402-6c65-4d99-a639-2d13eb20c66b.png"></img>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
-            Example of tighter spacing.	
+            Example of tighter spacing.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-  </Box>
-  <Box>
+  </div>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -437,20 +437,20 @@ Blank spaces are used up to the point that makes it easier to consume informatio
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
             <img src="https://user-images.githubusercontent.com/77292838/211934418-9f678547-5a77-47cb-a20c-26140cae74cd.png"></img>
-        </Box>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+        </div>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
             Example of looser spacing.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-</Box>
+</div>
   </Flex>
 <br />
 
@@ -468,7 +468,7 @@ Observe if the components have a well-defined background (filled or with stroke)
   justify="space-evenly"
   csx={{ borderRadius: 'default', margin: '0 0 1rem 0' }}
 >
-  <Box>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -481,19 +481,19 @@ Observe if the components have a well-defined background (filled or with stroke)
         overflow: 'hidden',
       }}
     >
-      <Box>
+      <div>
         <img src="https://user-images.githubusercontent.com/77292838/211934660-75bd7b59-72d9-4902-9b80-cb60f85f3ff8.png"></img>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
             Example of different spacing between components with filled background and without background.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-  </Box>
-  <Box>
+  </div>
+  <div>
     <Flex
       display="flex"
       align="stretch"
@@ -506,19 +506,19 @@ Observe if the components have a well-defined background (filled or with stroke)
         overflow: 'hidden',
       }}
     >
-      <Box>
-        <Box>
+      <div>
+        <div>
             <img src="https://user-images.githubusercontent.com/77292838/211934662-a66fbdfa-7773-4001-8bb3-cdeb450c4036.png"></img>
-        </Box>
-      </Box>
-      <Box csx={{ paddingTop: '5px' }}>
+        </div>
+      </div>
+      <div className={csx({ paddingTop: '5px' })}>
         <Flex align="stretch" direction="column" justify="space-between">
           <Text tone="secondary">
             Example of optical adjustment with the horizontal padding larger than the vertical padding.
           </Text>
         </Flex>
-      </Box>
+      </div>
     </Flex>
-</Box>
+</div>
   </Flex>
 <br />
