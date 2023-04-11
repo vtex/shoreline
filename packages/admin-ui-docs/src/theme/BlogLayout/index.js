@@ -14,7 +14,6 @@ export default function BlogLayout(props) {
           marginTop: '2.75rem',
         })}
       >
-        <button>wsetskjsdoiajdoikjm</button>
         <PageContent
           className={csx({
             maxWidth: '100%',

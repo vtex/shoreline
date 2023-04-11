@@ -49,7 +49,6 @@ function DocPageContent({
   const routeKey =
     currentDocRoute.path.replace('/next', '').slice(1) || 'introduction/about'
 
-  console.log({ sidebar })
   return (
     <Layout
       wrapperClassName={ThemeClassNames.wrapper.docsPages}
@@ -120,7 +119,6 @@ function DocPageContent({
             )}
           </aside>
         )}
-        <button>testes</button>
         <main
           className={clsx(styles.docMainContainer, {
             [styles.docMainContainerEnhanced]:
