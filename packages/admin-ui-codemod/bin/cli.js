@@ -130,6 +130,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'border radius tokens review',
     value: 'radius-tokens-review',
   },
+  {
+    name: 'remove-csx: Converts csx to className props and removes Box usage',
+    value: 'remove-csx',
+  },
 ]
 
 // tsx or jsx
