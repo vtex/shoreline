@@ -6,39 +6,58 @@ path: /listing-page/design/
 import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
 import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'
 
-
 ## Figma file
 
 Includes reusable patterns such as all the states, interactions and messages, and examples of the template applied on real scenarios.
 
-<div className={csx({ border: '$neutral', padding: '20px'})}>
+<div className={csx({ border: '$neutral', padding: '20px' })}>
   <Columns>
     <Column units={0.5}>
-      <div className={csx({ padding: 1})}><a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213"><img src="https://user-images.githubusercontent.com/77292838/190273217-c19158d0-f00c-4dda-9a03-42e124f85dc5.png" width="30em"></img></a></div>
+      <div className={csx({ padding: 1 })}>
+        <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213">
+          <img
+            src="https://user-images.githubusercontent.com/77292838/190273217-c19158d0-f00c-4dda-9a03-42e124f85dc5.png"
+            width="30em"
+          ></img>
+        </a>
+      </div>
     </Column>
     <Column units={10.5}>
-      <div className={csx({ padding: 7 })}><a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213" csx={{ float: 'left'}}>Listing page template</a></div>
+      <div className={csx({ padding: 7 })}>
+        <a
+          href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213"
+          csx={{ float: 'left' }}
+        >
+          Listing page template
+        </a>
+      </div>
     </Column>
     <Column units={1}>
-      <div className={csx({ padding: 7 })}><a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213"><IconArrowUpRight csx={{ float: 'right'}} /></a></div>
+      <div className={csx({ padding: 7 })}>
+        <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213">
+          <IconArrowUpRight csx={{ float: 'right' }} />
+        </a>
+      </div>
     </Column>
   </Columns>
 </div>
-
 
 ## How to start
 
 Follow these instructions to use the template on Figma:
 
 <OrderedList>
+  <OrderedListItem>Read the template's documentation.</OrderedListItem>
   <OrderedListItem>
-    Read the template's documentation.
+    Create a copy of the{' '}
+    <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213">
+      Figma file
+    </a>
+    , so you can get started with your own version.
   </OrderedListItem>
   <OrderedListItem>
-    Create a copy of the <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=492%3A216213">Figma file</a>, so you can get started with your own version.
-  </OrderedListItem>
-  <OrderedListItem>
-Make the desired changes to content and components. Make sure you access our components' documentation to learn more about each one.
+    Make the desired changes to content and components. Make sure you access our
+    components' documentation to learn more about each one.
   </OrderedListItem>
   <OrderedListItem>
     Share your version of the prototype with the developers in your team.
@@ -57,24 +76,51 @@ The template is flexible, which means you can make customizations according to y
 ## Behavior
 
 <details>
-  <summary><h4>How should filters and search behave?</h4></summary>
+  <summary>
+    <h4>How should filters and search behave?</h4>
+  </summary>
   <div>
     <ul>
-        <li>Order filters by their usage but keep those with predefined values first.</li>
-        <li>Support searching for all list properties that users expect, so as not to require instructions.</li>
-        <li>Add query parameters, such as search query and sort order, to the URL so users can bookmark and share their view with others.</li>
-        <li>Go to the the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> documentation for more details.</li>
+      <li>
+        Order filters by their usage but keep those with predefined values
+        first.
+      </li>
+      <li>
+        Support searching for all list properties that users expect, so as not
+        to require instructions.
+      </li>
+      <li>
+        Add query parameters, such as search query and sort order, to the URL so
+        users can bookmark and share their view with others.
+      </li>
+      <li>
+        Go to the the{' '}
+        <a href="https://admin-ui.vercel.app/components/data-view">DataView</a>{' '}
+        documentation for more details.
+      </li>
     </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>How should pagination behave?</h4></summary>
+  <summary>
+    <h4>How should pagination behave?</h4>
+  </summary>
   <div>
     <ul>
-      <li>Retrieve list items for the previous or next page starting from the set of items currently being viewed.</li>
-      <li>Update list items only upon user action, such as changing the filters or pressing a refresh button.</li>
-      <li>Go to the the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> documentation for more details.</li>
+      <li>
+        Retrieve list items for the previous or next page starting from the set
+        of items currently being viewed.
+      </li>
+      <li>
+        Update list items only upon user action, such as changing the filters or
+        pressing a refresh button.
+      </li>
+      <li>
+        Go to the the{' '}
+        <a href="https://admin-ui.vercel.app/components/data-view">DataView</a>{' '}
+        documentation for more details.
+      </li>
     </ul>
   </div>
 </details>
@@ -84,52 +130,100 @@ The template is flexible, which means you can make customizations according to y
 ## Content
 
 <details>
-  <summary><h4>What should be the page title, URL route and Admin navigation entry?</h4></summary>
+  <summary>
+    <h4>
+      What should be the page title, URL route and Admin navigation entry?
+    </h4>
+  </summary>
   <div>
     <ul>
-        <li>Include the name of the object that is being listed in the page title, URL route and Admin navigation entry.</li>
-        <li>Use only nouns in the plural form and in title case, such as <em>Products</em> and <em>Orders</em>.</li>
-        <li>Do not add a prefix, such as <em>All Products</em>, or a suffix, such as <em>Orders listing</em>.</li>
+      <li>
+        Include the name of the object that is being listed in the page title,
+        URL route and Admin navigation entry.
+      </li>
+      <li>
+        Use only nouns in the plural form and in title case, such as{' '}
+        <em>Products</em> and <em>Orders</em>.
+      </li>
+      <li>
+        Do not add a prefix, such as <em>All Products</em>, or a suffix, such as{' '}
+        <em>Orders listing</em>.
+      </li>
     </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>What should be the order of Table columns?</h4></summary>
+  <summary>
+    <h4>What should be the order of Table columns?</h4>
+  </summary>
   <div>
     <ul>
-        <li>Position properties that identify list items first, such as <em>Name</em> and <em>ID</em>.</li>
-        <li>Position the Menu as the last column and immediately before it a tag with the item’s status, when it exists.</li>
+      <li>
+        Position properties that identify list items first, such as{' '}
+        <em>Name</em> and <em>ID</em>.
+      </li>
+      <li>
+        Position the Menu as the last column and immediately before it a tag
+        with the item’s status, when it exists.
+      </li>
     </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>What should be the format of data?</h4></summary>
-    <p>Dates and values should be in the most common format according to each location. Go to the <a href="https://admin-ui.vercel.app/components/table">Table documentation</a> to learn more about our patterns.</p>
+  <summary>
+    <h4>What should be the format of data?</h4>
+  </summary>
+  <p>
+    Dates and values should be in the most common format according to each
+    location. Go to the{' '}
+    <a href="https://admin-ui.vercel.app/components/table">
+      Table documentation
+    </a>{' '}
+    to learn more about our patterns.
+  </p>
 </details>
 
 <details>
-  <summary><h4>What actions should be in the header of a listing page?</h4></summary>
+  <summary>
+    <h4>What actions should be in the header of a listing page?</h4>
+  </summary>
   <div>
     <ul>
-        <li>Lists of objects should include a primary action to create items with the name of the listed object, such as <em>Create product</em>.</li>
-        <li>Lists of records should not include any actions in their header.</li>
+      <li>
+        Lists of objects should include a primary action to create items with
+        the name of the listed object, such as <em>Create product</em>.
+      </li>
+      <li>Lists of records should not include any actions in their header.</li>
     </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>What actions should be in the Menu of each list item?</h4></summary>
+  <summary>
+    <h4>What actions should be in the Menu of each list item?</h4>
+  </summary>
   <div>
-    <p>The <a href="https://admin-ui.vercel.app/components/table">Menu</a> should include actions related to the list item globally, also present in the header of its internal page, such as <em>Duplicate</em> and <em>Export</em>. It should also include a copy button next to frequently copied data.</p>
+    <p>
+      The <a href="https://admin-ui.vercel.app/components/table">Menu</a> should
+      include actions related to the list item globally, also present in the
+      header of its internal page, such as <em>Duplicate</em> and{' '}
+      <em>Export</em>. It should also include a copy button next to frequently
+      copied data.
+    </p>
   </div>
 </details>
 
-
 <details>
-  <summary><h4>When should the table row be taller?</h4></summary>
+  <summary>
+    <h4>When should the table row be taller?</h4>
+  </summary>
   <div>
-    <p>The table row height should only be taller when there is content that occupies the additional space. It is not recommended to customize the table row height for aesthetic and standardization reasons.</p>
+    <p>
+      The table row height should only be taller when there is content that
+      occupies the additional space. It is not recommended to customize the
+      table row height for aesthetic and standardization reasons.
+    </p>
   </div>
 </details>

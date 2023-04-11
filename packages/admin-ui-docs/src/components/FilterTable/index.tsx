@@ -45,7 +45,7 @@ export function FilterTable<T>(props: TableFilterProps<T>) {
         <FlexSpacer />
         {pagination && <Pagination state={pagination} />}
       </DataViewHeader>
-      <Table {...getTable()} csx={style.table}>
+      <Table {...getTable()} className={csx(style.table)}>
         <THead>
           {columns.map((column) => (
             <THeadCell {...getHeadCell(column)} />

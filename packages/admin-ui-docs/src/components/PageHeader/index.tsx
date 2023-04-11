@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
-import { Box } from '@vtex/admin-ui'
+import { csx } from '@vtex/admin-ui'
 import { useSidebarBreadcrumbs } from '@docusaurus/theme-common'
 
 import { PAGE_LINK } from './links'
@@ -21,33 +22,29 @@ export function PageHeader(props: PageHeaderProps) {
   const pathGithub = PAGE_LINK?.[props.title]?.github ?? ''
 
   return (
-    <Box as="header" csx={styles.container}>
-      <Box csx={styles.caption}>
-        <Box as="p" csx={styles.breadcrumb}>
-          {firstBreadcrumb}
-        </Box>
+    <header className={csx(styles.container)}>
+      <div className={csx(styles.caption)}>
+        <p className={csx(styles.breadcrumb)}>{firstBreadcrumb}</p>
         {pathGithub && (
-          <Box as="span" csx={styles.logosContainer}>
-            <Box
-              as="a"
-              csx={styles.gitHubUrl}
+          <span className={csx(styles.logosContainer)}>
+            <a
+              className={csx(styles.gitHubUrl)}
               href={`${GITHUB_BASE_URL}${pathGithub}`}
               target="_blank"
               aria-label="Component url in the GitHub repository"
+              rel="noreferrer"
             />
-            <Box
-              as="a"
-              csx={styles.figma}
+            <a
+              className={csx(styles.figma)}
               href={FIGMA_URL}
               target="_blank"
               aria-label="Component url in the Figma"
+              rel="noreferrer"
             />
-          </Box>
+          </span>
         )}
-      </Box>
-      <Box as="h1" csx={styles.title}>
-        {props.title}
-      </Box>
-    </Box>
+      </div>
+      <h1 className={csx(styles.title)}>{props.title}</h1>
+    </header>
   )
 }

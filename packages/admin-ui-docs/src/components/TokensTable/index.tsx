@@ -103,9 +103,9 @@ export function TokensTable(props: TokensTableProps) {
             return (
               <Flex direction="column">
                 <Text
-                  csx={{
+                  className={csx({
                     fontSettings: 'bold',
-                  }}
+                  })}
                 >
                   {column.item.token}
                 </Text>
