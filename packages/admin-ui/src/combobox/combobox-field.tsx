@@ -33,7 +33,7 @@ export const ComboboxField = forwardRef(
           {state.value !== '' && (
             <div className={buttonContainerTheme}>
               <ComboboxCancel state={state} className={clearButtonTheme}>
-                <IconContainer>
+                <IconContainer size="regular">
                   <IconXCircle />
                 </IconContainer>
               </ComboboxCancel>
