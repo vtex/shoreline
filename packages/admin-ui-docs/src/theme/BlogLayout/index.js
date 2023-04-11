@@ -19,7 +19,6 @@ export default function BlogLayout(props) {
             maxWidth: '100%',
             paddingTop: 'none',
             gridTemplateColumns: '256px 1fr 256px',
-            bg: 'blue',
           })}
         >
           <BlogSidebar sidebar={sidebar} tag={tag} />
