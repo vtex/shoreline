@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.1-dev.14 (2023-04-12)
+
+
+### Bug Fixes
+
+* **admin-ui-hooks:** use csm ([0683851](https://github.com/vtex/admin-ui/commit/0683851b0aae7473eadb135e8485e53b5b2c0c0b))
+
+
+
+
+
 ## 0.5.1-dev.13 (2023-04-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks
