@@ -1,9 +1,9 @@
 import type { ComponentPropsWithRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { ResponsiveProp } from '@vtex/admin-ui-react'
-import { getResponsiveValue, useBreakpoint } from '@vtex/admin-ui-react'
 import { cx } from '@vtex/admin-ui-core'
 
+import type { ResponsiveProp } from '../use-breakpoint'
+import { getResponsiveValue, useBreakpoint } from '../use-breakpoint'
 import { columnStyle, columnTheme } from './columns.css'
 
 export const Column = forwardRef(function Columns(

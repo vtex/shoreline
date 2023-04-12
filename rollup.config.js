@@ -38,6 +38,7 @@ export default [
       production && terser(),
       typescript({
         tsconfig: './tsconfig.json',
+        sourceMap: true,
       }),
     ],
     external: Object.keys({

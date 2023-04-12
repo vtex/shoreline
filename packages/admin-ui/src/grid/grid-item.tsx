@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveProp } from '@vtex/admin-ui-react'
+import type { ResponsiveProp } from '../use-breakpoint'
 import { gridItemStyle, gridItemTheme, toResponsiveObject } from './grid.css'
 import { cx } from '@vtex/admin-ui-core'
 

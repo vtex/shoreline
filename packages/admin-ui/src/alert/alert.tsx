@@ -7,10 +7,10 @@ import {
   IconCheckCircle,
   IconBell,
 } from '@vtex/phosphor-icons'
-import { IconContainer } from '@vtex/admin-ui-react'
 import { cx } from '@vtex/admin-ui-core'
 import type { WithRequiredProps } from '@vtex/admin-ui-util'
 
+import { IconContainer } from '../icons'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { Inline } from '../inline'

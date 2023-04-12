@@ -1,7 +1,8 @@
 import { useMemo } from 'react'
 import { get } from '@vtex/admin-ui-util'
 import { tokens } from '@vtex/admin-ui-core'
-import { useMediaQuery } from './use-media-query'
+
+import { useMediaQuery } from '../use-media-query'
 
 const breakpoints = get(tokens, 'breakpoints', {})
 const breakpointsKeys = Object.keys(breakpoints)
@@ -47,7 +48,8 @@ export function getResponsiveValue<T>(
   breakpoint: Breakpoint,
   index?: number
 ): T {
-  if (typeof prop !== 'object' || !('mobile' in prop)) return prop
+  if (typeof prop !== 'object' || prop === null || !('mobile' in prop))
+    return prop
 
   if (index && index < 0) return get(prop as ResponsiveValue<T>, 'mobile')
 

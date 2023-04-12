@@ -1,6 +1,6 @@
 import { csx } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
-import type { ResponsiveValue } from '@vtex/admin-ui-react'
+import type { ResponsiveValue } from '../use-breakpoint'
 import type React from 'react'
 
 function generateCSSVars<T>(

@@ -1,8 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
-import { IconContainer } from '@vtex/admin-ui-react'
-
 import { Center } from '../center'
 import { Spinner } from '../spinner'
 import {
@@ -10,6 +8,7 @@ import {
   innerContainerTheme,
   spinnerContainerTheme,
 } from './button.css'
+import { IconContainer } from '../icons'
 import { cx } from '@vtex/admin-ui-core'
 
 /**

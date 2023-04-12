@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { IconContainer } from '@vtex/admin-ui-react'
 import { Combobox, ComboboxCancel } from 'ariakit/combobox'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
@@ -12,6 +11,7 @@ import {
   fieldLabelTheme,
   inputTheme,
 } from './combobox.css'
+import { IconContainer } from '../icons'
 
 const fixUp: any = {
   // Ariakit is trowing an error here for some reason
