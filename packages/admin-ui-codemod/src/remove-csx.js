@@ -41,7 +41,7 @@ function updateCsxImports(source, j) {
   if (
     j(source)
       .find(j.ImportDeclaration)
-      .filter((path) => path.node.source.value === '@vtex/admin-ui-core')
+      .filter((path) => path.node.source.value === '@vtex/admin-ui')
       .size()
   ) {
     return attachToImport(source, j)
@@ -53,7 +53,7 @@ function updateCsxImports(source, j) {
 function addNewImport(source, j) {
   const newImport = j.importDeclaration(
     [j.importSpecifier(j.identifier('csx'))],
-    j.stringLiteral('@vtex/admin-ui-core')
+    j.stringLiteral('@vtex/admin-ui')
   )
 
   const tree = j(source)
@@ -69,7 +69,7 @@ function attachToImport(source, j) {
 
   return j(source)
     .find(j.ImportDeclaration)
-    .filter((path) => path.node.source.value === '@vtex/admin-ui-core')
+    .filter((path) => path.node.source.value === '@vtex/admin-ui')
     .forEach((reactImport) =>
       // Build a new import declaration node based on the existing one
       j(reactImport).replaceWith(

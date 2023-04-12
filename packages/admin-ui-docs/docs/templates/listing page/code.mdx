@@ -49,6 +49,7 @@ import {
   Search,
   IconPencil,
   IconEye,
+  csx
 } from '@vtex/admin-ui'
 
 const ITEMS_PER_PAGE = 25
@@ -140,7 +141,7 @@ export default function ListingPage() {
             <Search />
           </DataViewHeader>
 
-          <Table {...getTable()} csx={{ width: '100%' }}>
+          <Table {...getTable()} className={csx({ width: '100%' })}>
             <THead>
               {columns.map((column) => (
                 <THeadCell {...getHeadCell(column)} />
@@ -252,6 +253,7 @@ import {
   useBulkActions,
   useToast,
   DataViewActions,
+  csx
 } from '@vtex/admin-ui'
 import { useMemo } from 'react'
 import BulkActionsPanel from './BulkActionsPanel'
@@ -358,7 +360,7 @@ export default function ItemsDataView() {
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <Search />
           <FlexSpacer />
           <DataViewActions>
@@ -374,7 +376,7 @@ export default function ItemsDataView() {
       <Filters />
 
       <SelectionTree state={bulkActionState.selectionTree}>
-        <Table {...getTable()} csx={{ width: '100%' }}>
+        <Table {...getTable()} className={csx({ width: '100%' })}>
           <THead>
             {columns.map((column) => (
               <THeadCell {...getHeadCell(column)} />
@@ -394,7 +396,7 @@ export default function ItemsDataView() {
         </Table>
       </SelectionTree>
 
-      <Flex justify="flex-end" csx={{ width: '100%', paddingTop: '$l' }}>
+      <Flex justify="flex-end" className={csx({ width: '100%', paddingTop: '$l' })}>
         <Pagination state={pagination} />
       </Flex>
     </DataView>
@@ -411,6 +413,7 @@ import {
   ModalHeader,
   Text,
   useToast,
+  csx
 } from '@vtex/admin-ui'
 
 const DeleteConfirmationModal = ({ state }) => {
@@ -439,7 +442,7 @@ const DeleteConfirmationModal = ({ state }) => {
       aria-label="Delete action confirmation"
       state={state}
       size="small"
-      csx={{ maxWidth: '368px' }}
+      className={csx({ maxWidth: '368px' })}
     >
       <ModalHeader title="Delete" />
       <ModalContent>
@@ -482,6 +485,7 @@ import {
   ModalDisclosure,
   useModalState,
   useToast,
+  csx
 } from '@vtex/admin-ui'
 
 const ExportButton = () => {
@@ -517,7 +521,7 @@ const ExportButton = () => {
         aria-label="Export confirmation"
         state={modal}
         size="small"
-        csx={{ maxWidth: '368px' }}
+        className={csx({ maxWidth: '368px' })}
       >
         <ModalHeader title="Export" />
         <ModalContent>
@@ -557,6 +561,7 @@ import {
   ModalDisclosure,
   useModalState,
   useToast,
+  csx
 } from '@vtex/admin-ui'
 
 const ImportButton = () => {
@@ -592,7 +597,7 @@ const ImportButton = () => {
         aria-label="Import confirmation"
         state={modal}
         size="small"
-        csx={{ maxWidth: '368px' }}
+        className={csx({ maxWidth: '368px' })}
       >
         <ModalHeader title="Import" />
         <ModalContent>
@@ -632,6 +637,7 @@ import {
   useFilterState,
   useFilterMultipleState,
   useFilterGroupState,
+  csx
 } from '@vtex/admin-ui'
 import { filterOptions } from './data'
 
@@ -647,11 +653,11 @@ const Filters = () => {
   return (
     <FilterGroup
       state={filterGroupState}
-      csx={{
+      className={csx({
         '> *:not(:first-child)': {
           marginLeft: '$m',
         },
-      }}
+      })}
     >
       <FilterDisclosure state={radioFilter}>Label</FilterDisclosure>
 
