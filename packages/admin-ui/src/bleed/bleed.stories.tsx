@@ -7,7 +7,7 @@ import { Bleed } from './bleed'
 
 import { Tag } from '../tag'
 
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {

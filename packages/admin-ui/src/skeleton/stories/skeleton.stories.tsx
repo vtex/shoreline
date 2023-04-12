@@ -5,7 +5,7 @@ import type { SkeletonProps } from '../index'
 import { Skeleton } from '../index'
 import { Button } from '../../button'
 import { Heading } from '../../heading'
-import { Paragraph } from '../../components/Paragraph'
+import { Paragraph } from '../../paragraph'
 import { Stack } from '../../stack'
 import { csx } from '@vtex/admin-ui-core'
 

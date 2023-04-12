@@ -5,7 +5,7 @@ import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
 import { popoverStatusContainerTheme, popoverTheme } from './combobox.css'
 
 import { messages } from './messages'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { Text } from '../text'
 import type { ComboboxState } from './combobox.state'
 import { Spinner } from '../spinner'

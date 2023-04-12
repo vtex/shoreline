@@ -4,7 +4,7 @@ import type { Meta, Story } from '@storybook/react'
 import { Divider } from './index'
 import { Card } from '../card'
 import { Heading } from '../heading'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {
