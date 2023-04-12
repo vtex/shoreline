@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useDebouncedCallback } from './useDebounce'
+import { useDebouncedCallback } from './use-debounce'
 
 /**
  * React.useState with a debounced callback

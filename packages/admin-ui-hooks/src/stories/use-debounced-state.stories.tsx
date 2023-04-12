@@ -1,9 +1,9 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
-import { useDebouncedState } from '../useDebouncedState'
+import { useDebouncedState } from '../index'
 
 export default {
-  title: 'onda-hooks/useDebouncedState',
+  title: 'hooks/use-debounced-state',
 } as Meta
 
 export const Input: Story = () => {

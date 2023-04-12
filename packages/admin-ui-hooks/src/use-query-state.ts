@@ -1,6 +1,6 @@
 import { useMemo, useRef, useCallback } from 'react'
 import { isBrowser } from '@vtex/admin-ui-util'
-import { useQueryStateContext } from './useQueryStateContext'
+import { useQueryStateContext } from './use-query-state-context'
 
 /**
  * Persisted the keys states in the querry params (url)

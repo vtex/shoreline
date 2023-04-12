@@ -2,7 +2,7 @@ import { runIfFunction } from '@vtex/admin-ui-util'
 import type { SetStateAction, Dispatch } from 'react'
 import { useState, useCallback } from 'react'
 
-import { useCallbackRef } from './useCallbackRef'
+import { useCallbackRef } from './use-callback-ref'
 
 /**
  * Create a state that is both controlled or uncontrolled
