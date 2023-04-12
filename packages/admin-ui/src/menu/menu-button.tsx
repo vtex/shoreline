@@ -6,8 +6,8 @@ import {
   IconCaretDown,
   IconDotsThreeVertical,
 } from '@vtex/phosphor-icons'
-import type { AvailableSize } from '@vtex/admin-ui-react'
-import { IconContainer } from '@vtex/admin-ui-react'
+import type { AvailableSize } from '../icons'
+import { IconContainer } from '../icons'
 
 import { Center } from '../center'
 

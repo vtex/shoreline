@@ -1,7 +1,6 @@
 import React from 'react'
 import { isBrowser } from '@vtex/admin-ui-util'
-
-const useSafeLayoutEffect = isBrowser ? React.useLayoutEffect : React.useEffect
+import { useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
 /**
  * React hook that tracks state of a CSS media query

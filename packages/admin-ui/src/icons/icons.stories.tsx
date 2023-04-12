@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
-import type { IconProps } from '@vtex/phosphor-icons'
-import { IconQuestion } from '@vtex/phosphor-icons'
+import type { IconProps } from './icons'
+import { IconQuestion } from './icons'
 
 export default {
   title: 'admin-ui/Icons',

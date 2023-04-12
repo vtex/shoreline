@@ -1,8 +1,9 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { ResponsiveProp } from '@vtex/admin-ui-react'
-import { useBreakpoint, getResponsiveValue } from '@vtex/admin-ui-react'
 import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
+
+import type { ResponsiveProp } from '../use-breakpoint'
+import { useBreakpoint, getResponsiveValue } from '../use-breakpoint'
 import { stackStyle, stackTheme } from './stack.css'
 
 /**

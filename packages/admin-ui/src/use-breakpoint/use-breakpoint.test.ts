@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-hooks'
 import { tokens } from '@vtex/admin-ui-core'
 import { get } from '@vtex/admin-ui-util'
 
-import { useBreakpoint, getResponsiveValue } from '../hooks'
+import { useBreakpoint, getResponsiveValue } from './use-breakpoint'
 
 type Matches = boolean | Record<string, boolean>
 

@@ -1,7 +1,7 @@
 import { csx } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
 
-import type { ResponsiveProp, ResponsiveValue } from '@vtex/admin-ui-react'
+import type { ResponsiveProp, ResponsiveValue } from '../use-breakpoint'
 import { get } from '@vtex/admin-ui-util'
 
 function generateCSSVars<T>(

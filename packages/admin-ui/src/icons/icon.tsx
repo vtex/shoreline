@@ -1,16 +1,14 @@
 import React, { createContext, useContext } from 'react'
 import type { PropsWithChildren } from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { csx, cx } from '@vtex/admin-ui-core'
 import type { IconProps } from '@vtex/phosphor-icons'
 import { createIconProvider } from '@vtex/phosphor-icons'
 
-import { useSystem } from './context'
-
 function useIconProps(props: IconProps) {
-  const { csx: containerCsx, size: containerSize } = useIconContainer()
+  const { className: containerClassName = '', size: containerSize } =
+    useIconContainer()
 
   const {
-    csx = {},
     title,
     size = containerSize,
     children,
@@ -19,8 +17,6 @@ function useIconProps(props: IconProps) {
     height,
     ...iconProps
   } = props
-
-  const { cn, cx } = useSystem()
 
   const sizeValue = size === 'small' ? '1rem' : '1.25rem'
 
@@ -35,15 +31,14 @@ function useIconProps(props: IconProps) {
       </>
     ),
     className: cx(
-      className,
-      cn({
+      csx({
         height: height ?? sizeValue,
         width: width ?? sizeValue,
         minHeight: height ?? sizeValue,
         minWidth: width ?? sizeValue,
-        ...containerCsx,
-        ...csx,
-      })
+      }),
+      className,
+      containerClassName
     ),
   }
 }
@@ -54,6 +49,7 @@ export const IconProvider = createIconProvider({
 
 export const IconContainerContext = createContext<IconContext>({
   size: 'regular',
+  className: '',
 })
 
 export function IconContainer(props: PropsWithChildren<IconContext>) {
@@ -67,11 +63,11 @@ export function IconContainer(props: PropsWithChildren<IconContext>) {
 }
 
 export function useIconContainer(): UseIconReturn {
-  const { size, csx = {} } = useContext(IconContainerContext)
+  const { size, className } = useContext(IconContainerContext)
 
   return {
     size,
-    csx,
+    className,
     isSmall: size === 'small',
     isRegular: size === 'regular',
   }
@@ -81,12 +77,12 @@ export type AvailableSize = 'regular' | 'small'
 
 export interface IconContext {
   size: AvailableSize
-  csx?: StyleProp
+  className?: string
 }
 
 export type UseIconReturn = {
   size: AvailableSize
-  csx: StyleProp
   isSmall: boolean
   isRegular: boolean
+  className?: string
 }

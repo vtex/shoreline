@@ -1,13 +1,12 @@
 import type { ReactNode, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { IconContainer } from '@vtex/admin-ui-react'
 import { MenuItem as AriakitMenuItem } from 'ariakit/menu'
+import { cx } from '@vtex/admin-ui-core'
 
 import { MenuItemWrapper } from './menu-item-wrapper'
 import { Center } from '../center'
-
 import { itemTheme } from './menu.css'
-import { cx } from '@vtex/admin-ui-core'
+import { IconContainer } from '../icons'
 
 export const MenuItem = forwardRef(
   (props: MenuItemProps, ref: Ref<HTMLDivElement>) => {
