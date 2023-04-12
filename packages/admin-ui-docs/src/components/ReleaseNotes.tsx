@@ -10,9 +10,9 @@ import {
   useTableState,
   Anchor,
   Heading,
-  Box,
   DataView,
   useDataViewState,
+  csx,
 } from '@vtex/admin-ui'
 
 interface ReleaseNote {
@@ -81,10 +81,10 @@ export function ReleaseNotes() {
 
   return (
     <DataView state={view}>
-      <Box
-        csx={{
+      <div
+        className={csx({
           padding: '$space-3 $space-4',
-        }}
+        })}
       >
         <Heading>Releases table</Heading>
         <Table {...getTable()}>
@@ -105,7 +105,7 @@ export function ReleaseNotes() {
             })}
           </TBody>
         </Table>
-      </Box>
+      </div>
     </DataView>
   )
 }

@@ -23,10 +23,10 @@ export function toResponsiveObject<T>(
 ): ResponsiveValue<T> {
   if (!responsiveValue) return responsiveValue as any
 
-  const mobile = get(responsiveValue, 'mobile', responsiveValue)
-  const tablet = get(responsiveValue, 'tablet', mobile)
-  const desktop = get(responsiveValue, 'desktop', tablet)
-  const widescreen = get(responsiveValue, 'widescreen', desktop)
+  const mobile = get(responsiveValue as object, 'mobile', responsiveValue)
+  const tablet = get(responsiveValue as object, 'tablet', mobile)
+  const desktop = get(responsiveValue as object, 'desktop', tablet)
+  const widescreen = get(responsiveValue as object, 'widescreen', desktop)
 
   return {
     mobile,

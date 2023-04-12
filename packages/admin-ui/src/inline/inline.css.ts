@@ -1,5 +1,5 @@
-import type { SpaceTokens } from '@vtex/admin-ui-core'
 import { theme, dataAttr, csx, getTokenValue } from '@vtex/admin-ui-core'
+import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
 
 function getRuntimeSpace(token: string) {
@@ -45,7 +45,7 @@ export const inlineTheme = csx({
 })
 
 interface InlineStyleProps {
-  vSpace: SpaceTokens
-  hSpace: SpaceTokens
+  vSpace: CSSPropAutocomplete<SpaceTokens>
+  hSpace: CSSPropAutocomplete<SpaceTokens>
   align: CSS.Properties['alignItems']
 }

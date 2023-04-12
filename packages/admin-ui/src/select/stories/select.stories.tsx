@@ -3,7 +3,6 @@ import type { Meta, Story } from '@storybook/react'
 
 import { Select } from '../index'
 import type { SelectProps } from '../select'
-import { Box } from '../../box'
 import { Stack } from '../../stack'
 import type { Locales } from '../../i18n'
 import { I18nProvider, locales } from '../../i18n'
@@ -30,7 +29,7 @@ export const Playground: Story<PlaygroundProps> = (args) => {
 
   return (
     <I18nProvider locale={args.locale}>
-      <Box csx={{ width: '288px' }}>
+      <div className={csx({ width: '288px' })}>
         <Select
           value={value}
           onChange={(e) => setValue(e.target.value)}
@@ -40,7 +39,7 @@ export const Playground: Story<PlaygroundProps> = (args) => {
           <option value="option-2">Option 2</option>
           <option value="option-3">Option 3</option>
         </Select>
-      </Box>
+      </div>
     </I18nProvider>
   )
 }

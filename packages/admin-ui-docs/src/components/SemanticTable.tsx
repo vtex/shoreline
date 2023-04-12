@@ -10,6 +10,7 @@ import {
   Text,
   createColumns,
   color as getColor,
+  csx,
 } from '@vtex/admin-ui'
 
 export function SemanticTable(props: SemanticTableProps) {
@@ -137,7 +138,7 @@ function Tone(props: ToneProps) {
 
   return semantic ? (
     <Text
-      csx={{
+      className={csx({
         color: getColor(`${color}40` as any),
         borderColor: getColor(`${color}40` as any),
         border: 'solid 1px',
@@ -147,7 +148,7 @@ function Tone(props: ToneProps) {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-      }}
+      })}
     >
       {semantic}
     </Text>

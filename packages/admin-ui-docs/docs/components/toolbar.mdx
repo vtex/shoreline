@@ -62,7 +62,7 @@ function Example() {
   const menuState = useMenuState()
 
   return (
-    <Box>
+    <div>
       <Toolbar state={toolbar} aria-label="Toolbar Render Props">
         <ToolbarItem>
           {(itemProps) => (
@@ -80,7 +80,7 @@ function Example() {
           )}
         </ToolbarItem>
       </Toolbar>
-    </Box>
+    </div>
   )
 }
 ```

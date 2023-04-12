@@ -111,7 +111,7 @@ function Example() {
         disabled={state.allSelected}
         label="Fruits"
       />
-      <Box as="ul">
+      <ul>
         {pageItems.map((item) => (
           <Flex as="li" key={item.id}>
             <Checkbox
@@ -127,7 +127,7 @@ function Example() {
             />
           </Flex>
         ))}
-      </Box>
+      </ul>
       <BulkActions state={state}>
         <Button
           onClick={() => {
@@ -148,8 +148,8 @@ function Example() {
           Delete
         </Button>
       </BulkActions>
-      <Box>Selected IDs: {state.getSelectedIds().join(',')}</Box>
-      <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
+      <div>Selected IDs: {state.getSelectedIds().join(',')}</div>
+      <div>{state.allSelected ? 'all selected' : 'not all selected'}</div>
     </Stack>
   )
 }
@@ -200,7 +200,7 @@ function Example() {
         disabled={state.allSelected}
         label="Fruits"
       />
-      <Box as="ul">
+      <ul>
         {pageItems.map((item) => (
           <Flex as="li" key={item.id}>
             <Checkbox
@@ -216,7 +216,7 @@ function Example() {
             />
           </Flex>
         ))}
-      </Box>
+      </ul>
       <BulkActions state={state}>
         <Button
           onClick={() => {
@@ -244,8 +244,8 @@ function Example() {
         prevLabel="Previous"
         nextLabel="Next"
       />
-      <Box>Selected IDs: {state.getSelectedIds().join(',')}</Box>
-      <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
+      <div>Selected IDs: {state.getSelectedIds().join(',')}</div>
+      <div>{state.allSelected ? 'all selected' : 'not all selected'}</div>
     </Stack>
   )
 }

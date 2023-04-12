@@ -1,25 +1,21 @@
 import React from 'react'
-import { Stack, Box } from '@vtex/admin-ui'
-import type { ListItemProps, ListProps, StyleProp } from '@vtex/admin-ui'
+import { Stack, csx } from '@vtex/admin-ui'
+import type { StyleProp } from '@vtex/admin-ui'
 
-export function OrderedList(props: ListProps) {
+export function OrderedList(props: any) {
   const { children } = props
 
   return (
-    <Box as="ol" csx={styles.list}>
+    <ol className={csx(styles.list)}>
       <Stack space="2rem">{children}</Stack>
-    </Box>
+    </ol>
   )
 }
 
-export function OrderedListItem(props: ListItemProps) {
+export function OrderedListItem(props: any) {
   const { children } = props
 
-  return (
-    <Box as="li" csx={styles.listItem}>
-      {children}
-    </Box>
-  )
+  return <li className={csx(styles.listItem)}>{children}</li>
 }
 
 const styles: Record<string, StyleProp> = {

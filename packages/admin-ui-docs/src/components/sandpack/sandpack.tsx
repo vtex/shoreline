@@ -51,9 +51,9 @@ export default () => {
   return (
     <div>
       <Button
-        csx={{
+        className={csx({
           bg: randomColor(),
-        }}
+        })}
       >
         This is a button
       </Button>
@@ -77,15 +77,15 @@ export const container = style({
 ```
 
 ```jsx App.js
-import { Button, Box } from '@vtex/admin-ui'
+import { Button, csx } from '@vtex/admin-ui'
 import { container } from '/styles.js'
 
 export default () => {
   return (
-    <Box csx={container}>
+    <div className={csx(container)}>
       This is a theme
       <Button>This is a button</Button>
-    </Box>
+    </div>
   )
 }
 ```

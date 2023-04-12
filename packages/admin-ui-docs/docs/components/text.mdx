@@ -22,12 +22,12 @@ function Example() {
 Text tone of voice
 
 ```jsx live
-<Box
-  csx={{
+<div
+  className={csx({
     '> *': {
       display: 'block',
     },
-  }}
+  })}
 >
   <Text tone="primary">Default text</Text>
   <Text tone="secondary">Muted text</Text>
@@ -35,18 +35,18 @@ Text tone of voice
   <Text tone="critical">Critical text</Text>
   <Text tone="warning">Warning text</Text>
   <Text tone="positive">Positive text</Text>
-</Box>
+</div>
 ```
 
 ### Variant
 
 ```jsx live
-<Box
-  csx={{
+<div
+  className={csx({
     '> *': {
       display: 'block',
     },
-  }}
+  })}
 >
   <Text variant="pageTitle">PageTitle</Text>
   <Text variant="title1">Title 1</Text>
@@ -56,7 +56,7 @@ Text tone of voice
   <Text variant="display">Display</Text>
   <Text variant="body">Body</Text>
   <Text variant="detail">Detail</Text>
-</Box>
+</div>
 ```
 
 ## Props

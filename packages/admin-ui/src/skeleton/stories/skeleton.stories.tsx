@@ -1,7 +1,6 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
-import { Box } from '../../box'
 import type { SkeletonProps } from '../index'
 import { Skeleton } from '../index'
 import { Button } from '../../button'
@@ -39,9 +38,9 @@ export const Circle = () => {
 
 export const Fluid = () => {
   return (
-    <Box className={csx({ width: 'full', height: 192 })}>
+    <div className={csx({ width: 'full', height: 192 })}>
       <Skeleton />
-    </Box>
+    </div>
   )
 }
 
@@ -49,7 +48,7 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(true)
 
   return (
-    <Box className={csx({ width: 'sm' })}>
+    <div className={csx({ width: 'sm' })}>
       {loading ? (
         <Stack>
           <Skeleton className={csx({ height: 24, width: '5/12' })} />
@@ -61,7 +60,7 @@ export const TextExample = () => {
           <Skeleton className={csx({ height: 16, width: '1/2' })} />
         </Stack>
       ) : (
-        <Box>
+        <div>
           <Heading>Developing</Heading>
           <Paragraph>
             The VTEX team welcomes and thanks you for developing with us. We are
@@ -71,9 +70,9 @@ export const TextExample = () => {
             the best as possible. Bellow we describe the way we work and the
             best practices.
           </Paragraph>
-        </Box>
+        </div>
       )}
       <Button onClick={() => setLoading((s) => !s)}>Toggle Loading</Button>
-    </Box>
+    </div>
   )
 }

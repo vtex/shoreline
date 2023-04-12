@@ -183,16 +183,16 @@ function Example() {
   const state = useMenuState()
 
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         padding: '$m',
         bg: '$secondary',
-      }}
+      })}
     >
-      <Box
-        csx={{
+      <div
+        className={csx({
           bg: '$primary',
-        }}
+        })}
       >
         <Flex align="center" justify="flex-end">
           <MenuButton state={state} bleedX bleedY />
@@ -202,8 +202,8 @@ function Example() {
             <MenuItem label="Download" icon={<IconArrowLineDown />} />
           </Menu>
         </Flex>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 ```

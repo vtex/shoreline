@@ -5,8 +5,8 @@ import { IconX } from '@vtex/phosphor-icons'
 import type { ButtonProps } from './index'
 import { Button } from './index'
 import { Heading } from '../heading'
-import { Box } from '../box'
 import { Flex } from '../flex'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/button',
@@ -59,16 +59,16 @@ Playground.args = {
 
 export const Bleed: Story<ButtonProps> = (args) => {
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         padding: '$space-3 $space-4',
         bg: '$secondary',
-      }}
+      })}
     >
-      <Box
-        csx={{
+      <div
+        className={csx({
           bg: '$primary',
-        }}
+        })}
       >
         <Flex align="center" justify="space-between">
           <Heading>Heading</Heading>
@@ -76,8 +76,8 @@ export const Bleed: Story<ButtonProps> = (args) => {
             Button with bleed
           </Button>
         </Flex>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

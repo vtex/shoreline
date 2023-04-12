@@ -3,7 +3,8 @@ import type { Meta } from '@storybook/react'
 
 import { useMaskedInput, useFormatter } from '../index'
 import { TextInput } from '../../text-input'
-import { Box } from '../../box'
+
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/use-masked-input',
@@ -23,18 +24,14 @@ export function CPFMask() {
   })
 
   return (
-    <Box
-      csx={{
-        width: 256,
-      }}
-    >
+    <div className={csx({ width: 256 })}>
       <TextInput
         id="cpf"
         label="CPF"
         helpText="___.___.___-__"
         {...inputProps}
       />
-    </Box>
+    </div>
   )
 }
 
@@ -52,11 +49,7 @@ export function PhoneMask() {
   })
 
   return (
-    <Box
-      csx={{
-        width: 256,
-      }}
-    >
+    <div className={csx({ width: 256 })}>
       <TextInput
         id="phone"
         label="Phone"
@@ -64,7 +57,7 @@ export function PhoneMask() {
         helpText="+__ (___) _____-____"
         {...inputProps}
       />
-    </Box>
+    </div>
   )
 }
 
@@ -82,13 +75,9 @@ export function DateMask() {
   })
 
   return (
-    <Box
-      csx={{
-        width: 256,
-      }}
-    >
+    <div className={csx({ width: 256 })}>
       <TextInput id="date" label="Date" helpText="dd/MM/aaaa" {...inputProps} />
-    </Box>
+    </div>
   )
 }
 
@@ -106,17 +95,13 @@ export function DateTimeMask() {
   })
 
   return (
-    <Box
-      csx={{
-        width: 256,
-      }}
-    >
+    <div className={csx({ width: 256 })}>
       <TextInput
         id="date"
         label="Date"
         helpText="dd/MM/aaaa : hh:mm:ss"
         {...inputProps}
       />
-    </Box>
+    </div>
   )
 }

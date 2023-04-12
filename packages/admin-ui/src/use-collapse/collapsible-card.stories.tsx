@@ -16,8 +16,8 @@ import {
   IconCaretRight,
 } from '@vtex/phosphor-icons'
 import { useCollapse } from './use-collapse'
-import { Box } from '../box'
 import { Divider } from '../divider'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/CollapsibleCard',
@@ -29,19 +29,19 @@ export const SingleCollapsible = () => {
 
   return (
     <Card
-      csx={{
+      className={csx({
         width: '500px',
         margin: '$space-4',
-      }}
+      })}
     >
       <CardHeader
         {...getToggleProps()}
-        csx={{
+        className={csx({
           cursor: 'pointer',
           ':hover': {
             bg: '$action.neutral.tertiaryHover',
           },
-        }}
+        })}
       >
         <CardInfo>
           {visible ? <IconCaretDown /> : <IconCaretRight />}
@@ -53,11 +53,11 @@ export const SingleCollapsible = () => {
           <Tag label="Short text" />
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -69,7 +69,7 @@ export const SingleCollapsible = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }
@@ -81,12 +81,12 @@ const AccordionItem = ({ title, children }: any) => {
     <>
       <CardHeader
         {...getToggleProps()}
-        csx={{
+        className={csx({
           cursor: 'pointer',
           ':hover': {
             bg: '$action.neutral.tertiaryHover',
           },
-        }}
+        })}
       >
         <CardInfo>
           {visible ? <IconCaretDown /> : <IconCaretRight />}
@@ -94,15 +94,15 @@ const AccordionItem = ({ title, children }: any) => {
           <CardTitle>{title}</CardTitle>
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           {children}
         </CardContent>
-      </Box>
+      </div>
     </>
   )
 }
@@ -110,10 +110,10 @@ const AccordionItem = ({ title, children }: any) => {
 export const Accordion = () => {
   return (
     <Card
-      csx={{
+      className={csx({
         width: '500px',
         margin: '$space-4',
-      }}
+      })}
     >
       <AccordionItem title="item1">
         Lorem Ipsum is simply dummy text of the printing and typesetting

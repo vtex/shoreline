@@ -132,14 +132,14 @@ function Example() {
   const [value, setValue] = useState('')
 
   return (
-    <Box csx={{ width: 400 }}>
+    <div className={csx({ width: 400 })}>
       <Search
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onClear={() => setValue('')}
         loading
       />
-    </Box>
+    </div>
   )
 }
 ```
@@ -155,14 +155,14 @@ function Example() {
   const [value, setValue] = useState('')
 
   return (
-    <Box csx={{ width: 400 }}>
+    <div className={csx({ width: 400 })}>
       <Search
         disabled
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onClear={() => setValue('')}
       />
-    </Box>
+    </div>
   )
 }
 ```
@@ -181,14 +181,14 @@ function Example() {
 
   return (
     <I18nProvider locale="pt-BR">
-      <Box csx={{ width: 400 }}>
+      <div className={csx({ width: 400 })}>
         <Search
           disabled
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onClear={() => setValue('')}
         />
-      </Box>
+      </div>
     </I18nProvider>
   )
 }
@@ -212,13 +212,13 @@ function Example() {
   })
 
   return (
-    <Box csx={{ width: 400 }}>
+    <div className={csx({ width: 400 })}>
       <Search {...getInputProps()} />
-      <Box csx={{ marginTop: 4 }}>
-        <Box as="p">Value: {value}</Box>
-        <Box as="p">DebouncedValue: {debouncedValue}</Box>
-      </Box>
-    </Box>
+      <div className={csx({ marginTop: 4 })}>
+        <p>Value: {value}</p>
+        <p>DebouncedValue: {debouncedValue}</p>
+      </div>
+    </div>
   )
 }
 ```
@@ -239,13 +239,13 @@ function Example() {
     const { getInputProps, value, debouncedValue } = useQuerySearchState()
 
     return (
-      <Box csx={{ width: 500 }}>
+      <div className={csx({ width: 500 })}>
         <Search {...getInputProps()} />
-        <Box csx={{ marginTop: 4 }}>
-          <Box as="p">Value: {value}</Box>
-          <Box as="p">DebouncedValue: {debouncedValue}</Box>
-        </Box>
-      </Box>
+        <div className={csx({ marginTop: 4 })}>
+          <p>Value: {value}</p>
+          <p>DebouncedValue: {debouncedValue}</p>
+        </div>
+      </div>
     )
   }
 
@@ -440,7 +440,7 @@ function Example() {
   <div>
     Avoid using a disabled Search. Use the DataView component instead, which automatically hides the Search input when the list is empty.
   </div>
-</details> 
+</details>
 
 <details>
   <summary><h4>When to use a loading Search?</h4></summary>
@@ -498,7 +498,7 @@ function Example() {
   <div>
     When the search doesn’t return results due to an error, use the<a href="https://admin-ui.vercel.app/components/data-view"> DataView</a> component to correctly display the feedback.
   </div>
-</details> 
+</details>
 
 <details>
   <summary><h4>What should be the no results feedback?</h4></summary>
@@ -512,7 +512,7 @@ function Example() {
   <div>
     Avoid supporting search operators. Even though they are powerful, they aren’t discoverable and can be complex for most merchants. Prefer using <a href="https://admin-ui.vercel.app/components/filter">Filters</a> as a way to combine criteria.
   </div>
-</details> 
+</details>
 
 
 <details>
@@ -557,7 +557,7 @@ function Example() {
         <li>Avoid redundancy. Instead of writing <em>Product name</em> and <em>Product ID</em> in a <em>Products</em> page, write <em>Name</em> and <em>ID</em>.</li>
         <li>Avoid writing more than 36 characters.</li>
         <li>Don’t customize the width of the Search input on <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> to make the custom placeholder fit.</li>
-        <li>Avoid adding support to search for properties that are not being shown for each result.</li>                
+        <li>Avoid adding support to search for properties that are not being shown for each result.</li>
       </ul>
   </div>
 </details>

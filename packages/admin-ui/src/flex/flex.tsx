@@ -1,9 +1,10 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import type * as CSS from 'csstype'
-import type { ResponsiveProp } from '@vtex/admin-ui-react'
+import type { ResponsiveProp, ResponsiveValue } from '@vtex/admin-ui-react'
 import { flexTheme, flexStyle } from './flex.css'
 import { cx } from '@vtex/admin-ui-core'
+import { get } from '@vtex/admin-ui-util'
 
 export const Flex = forwardRef((props: FlexProps, ref: Ref<HTMLDivElement>) => {
   const {
@@ -40,15 +41,15 @@ export const Flex = forwardRef((props: FlexProps, ref: Ref<HTMLDivElement>) => {
   )
 })
 
-const toResponsiveObject = (
-  responsiveValue: ResponsiveProp<CSS.Property.Order>
-) => {
-  if (!responsiveValue) return responsiveValue
+export function toResponsiveObject<T>(
+  responsiveValue?: ResponsiveProp<T>
+): ResponsiveValue<T> {
+  if (!responsiveValue) return responsiveValue as any
 
-  const mobile = responsiveValue.mobile ?? responsiveValue
-  const tablet = responsiveValue.tablet ?? mobile
-  const desktop = responsiveValue.desktop ?? tablet
-  const widescreen = responsiveValue.widescreen ?? desktop
+  const mobile = get(responsiveValue as object, 'mobile', responsiveValue)
+  const tablet = get(responsiveValue as object, 'tablet', mobile)
+  const desktop = get(responsiveValue as object, 'desktop', tablet)
+  const widescreen = get(responsiveValue as object, 'widescreen', desktop)
 
   return {
     mobile,

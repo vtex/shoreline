@@ -2,9 +2,9 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import { Checkbox } from '../checkbox'
-import { Box } from '../box'
 import { FormControl, FormControlLabel, FormControlMessage } from './index'
 import { I18nProvider } from '../i18n'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/form-control',
@@ -27,7 +27,7 @@ export const FormControlPlayground: Story<FormControlPlaygroundProps> = (
 
   return (
     <I18nProvider locale="en-US">
-      <Box csx={{ margin: '$space-1 $space-2' }}>
+      <div className={csx({ margin: '$space-1 $space-2' })}>
         <FormControl>
           {hasLabel && (
             <FormControlLabel optional={optional}>{label}</FormControlLabel>
@@ -40,7 +40,7 @@ export const FormControlPlayground: Story<FormControlPlaygroundProps> = (
             errorText={errorText}
           />
         </FormControl>
-      </Box>
+      </div>
     </I18nProvider>
   )
 }

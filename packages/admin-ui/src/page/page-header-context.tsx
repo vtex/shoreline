@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
-import type { PageHeaderOptions } from './page-header'
+import type { PageHeaderProps } from './page-header'
 
-type PageHeaderContextType = PageHeaderOptions
+type PageHeaderContextType = PageHeaderProps
 
 export const PageHeaderContext = createContext<PageHeaderContextType | null>(
   null

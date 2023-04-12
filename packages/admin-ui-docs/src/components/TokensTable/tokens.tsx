@@ -12,7 +12,6 @@ import {
   tokens as themeTokens,
   spaceTokens,
   Center,
-  Box,
   csx,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
@@ -102,20 +101,20 @@ export const spacing = spaceTokens.map(
       type: 'space',
       formatted: value,
       example: (
-        <Box
-          csx={{
+        <div
+          className={csx({
             paddingY: 10,
             height: 60,
-          }}
+          })}
         >
-          <Box
-            csx={{
+          <div
+            className={csx({
               width: value,
               height: 10,
               backgroundColor: '$action.main.secondary',
-            }}
+            })}
           />
-        </Box>
+        </div>
       ),
     }
   })

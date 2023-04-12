@@ -44,7 +44,7 @@ export function Typeface() {
           return (
             <Stack>
               <Text
-                csx={{ fontWeight: 'bold' }}
+                className={csx({ fontWeight: 'bold' })}
               >{`$${column.item?.token}`}</Text>
               {keys.map((key, index) => {
                 return (

@@ -2,7 +2,6 @@ import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 
 import { Center } from './center'
-import { Box } from '../box'
 import { csx } from '@vtex/admin-ui-core'
 
 export default {
@@ -29,7 +28,7 @@ export function Centralized() {
         bg: '$secondary',
       })}
     >
-      <Box as="h1">Center heading</Box>
+      <h1>Center heading</h1>
     </Center>
   )
 }
