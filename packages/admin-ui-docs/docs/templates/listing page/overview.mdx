@@ -22,7 +22,7 @@ Merchants use Listing pages to scan, sort, compare and take action on items of a
   align="stretch"
   direction="column"
   justify="space-around"
-  csx={{ border: '$neutral', borderRadius: 'default', overflow: 'hidden' }}
+  className={csx({ border: '$neutral', borderRadius: 'default', overflow: 'hidden' })}
 >
   <div className={csx({ borderRadius: 'inherit' })}>
     <div className={csx({ borderRadius: 'inherit' })}>
@@ -33,9 +33,9 @@ Merchants use Listing pages to scan, sort, compare and take action on items of a
   </div>
   <div className={csx({ padding: '20px' })}>
     <Flex align="stretch" direction="row" justify="flex-end">
-      <a href="https://cjmzyv.csb.app/" csx={{ float: 'right' }}>
+      <a href="https://cjmzyv.csb.app/" className={csx({ float: 'right' })}>
         Demo
-        <IconArrowUpRight csx={{ float: 'right' }} />
+        <IconArrowUpRight className={csx({ float: 'right' })} />
       </a>
     </Flex>
   </div>
@@ -51,19 +51,19 @@ Check out examples of Listing pages in tune with our design system.
   align="flex-start"
   direction="row"
   justify="flex-start"
-  csx={{ borderRadius: 'default' }}
+  className={csx({ borderRadius: 'default' })}
 >
   <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=572%3A266701">
     <Flex
       align="stretch"
       direction="column"
       justify="space-around"
-      csx={{
+      className={csx({
         border: '$neutral',
         borderRadius: 'default',
         margin: '0 4px 0 0',
         overflow: 'hidden',
-      }}
+      })}
     >
       <div>
         <img src="https://user-images.githubusercontent.com/77292838/191532716-35e7cd00-0635-4bcd-957b-f9bcdb453a07.png"></img>
@@ -71,9 +71,9 @@ Check out examples of Listing pages in tune with our design system.
       <div className={csx({ padding: '20px' })}>
         <Flex align="stretch" direction="row" justify="space-between">
           <Text variant="action1">Transactions</Text>
-          <p csx={{ float: 'right' }}>
+          <p className={csx({ float: 'right' })}>
             Figma
-            <IconArrowUpRight csx={{ float: 'right' }} />
+            <IconArrowUpRight className={csx({ float: 'right' })} />
           </p>
         </Flex>
       </div>
@@ -84,12 +84,12 @@ Check out examples of Listing pages in tune with our design system.
       align="stretch"
       direction="column"
       justify="space-around"
-      csx={{
+      className={csx({
         border: '$neutral',
         borderRadius: 'default',
         margin: '0 0 0 4px',
         overflow: 'hidden',
-      }}
+      })}
     >
       <div>
         <img src="https://user-images.githubusercontent.com/77292838/191532881-15be5b13-8f8e-4bc4-99a9-1086e1aa51e3.png"></img>
@@ -97,9 +97,9 @@ Check out examples of Listing pages in tune with our design system.
       <div className={csx({ padding: '20px' })}>
         <Flex align="stretch" direction="row" justify="space-between">
           <Text variant="action1">SKU Bindings</Text>
-          <p csx={{ float: 'right' }}>
+          <p className={csx({ float: 'right' })}>
             Demo
-            <IconArrowUpRight csx={{ float: 'right' }} />
+            <IconArrowUpRight className={csx({ float: 'right' })} />
           </p>
         </Flex>
       </div>
@@ -139,7 +139,7 @@ A listing page usually includes:
   align="stretch"
   direction="column"
   justify="flex-start"
-  csx={{ borderRadius: 'default' }}
+  className={csx({ borderRadius: 'default' })}
 >
   <div>
     <Flex align="center" direction="row" justify="flex-start">
@@ -159,10 +159,10 @@ A listing page usually includes:
         <Flex align="flex-start" direction="column" justify="flex-end">
           <a
             href="https://admin-ui.vercel.app/components/page"
-            csx={{ float: 'right' }}
+            className={csx({ float: 'right' })}
           >
             Page
-            <IconArrowUpRight csx={{ float: 'right' }} />
+            <IconArrowUpRight className={csx({ float: 'right' })} />
           </a>
           <p>
             Merchants identify where they are, perform main actions and view
@@ -190,10 +190,10 @@ A listing page usually includes:
         <Flex align="flex-start" direction="column" justify="flex-end">
           <a
             href="https://admin-ui.vercel.app/components/data-view"
-            csx={{ float: 'right' }}
+            className={csx({ float: 'right' })}
           >
             DataView
-            <IconArrowUpRight csx={{ float: 'right' }} />
+            <IconArrowUpRight className={csx({ float: 'right' })} />
           </a>
           <p>
             Merchants view a list of objects with search, filters and
@@ -221,10 +221,10 @@ A listing page usually includes:
         <Flex align="flex-start" direction="column" justify="flex-end">
           <a
             href="https://admin-ui.vercel.app/components/table"
-            csx={{ float: 'right' }}
+            className={csx({ float: 'right' })}
           >
             Table
-            <IconArrowUpRight csx={{ float: 'right' }} />
+            <IconArrowUpRight className={csx({ float: 'right' })} />
           </a>
           <p>
             Merchants view objects in rows that they can select and take

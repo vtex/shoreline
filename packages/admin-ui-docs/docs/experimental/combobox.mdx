@@ -193,9 +193,9 @@ const CustomRenderMultiple = () => {
         state={combobox}
         id="combobox-multiple"
         label="Countries"
-        csx={{
+        className={csx({
           width: '100%',
-        }}
+        })}
       />
       <ComboboxMultiplePopover state={combobox} />
     </div>
