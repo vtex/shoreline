@@ -14,7 +14,7 @@ import type { WithRequiredProps } from '@vtex/admin-ui-util'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { Inline } from '../inline'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { Stack } from '../stack'
 import {
   alertTheme,
@@ -53,7 +53,7 @@ export const Alert = forwardRef(function Alert(
     >
       <Inline noWrap vSpace="unset" hSpace="$space-3" spaceInside>
         <IconContainer size="regular">{icon}</IconContainer>
-        <Paragraph csx={alertDescription}>{children}</Paragraph>
+        <Paragraph className={alertDescription}>{children}</Paragraph>
       </Inline>
       <Stack direction="row" space="$space-2" className={rightInline}>
         {action ? (

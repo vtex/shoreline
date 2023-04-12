@@ -1,4 +1,4 @@
-import { dataAttr, csx, style } from '@vtex/admin-ui-core'
+import { dataAttr, csx } from '@vtex/admin-ui-core'
 
 const variantStyle = (token: string) => {
   return {
@@ -41,6 +41,6 @@ export const alertActionTheme = csx({
 
 export const rightInline = csx({ whiteSpace: 'nowrap' })
 
-export const alertDescription = style({
+export const alertDescription = csx({
   maxWidth: '49rem',
 })

@@ -11,7 +11,7 @@ import { CompositeItem } from 'ariakit/composite'
 
 import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 import { Flex } from '../flex'
 import { cx } from '@vtex/admin-ui-core'
 import { fieldTagTheme, fieldTagDismissTheme } from './combobox.css'

@@ -30,12 +30,12 @@ import { Paragraph, ParagraphProps } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to handle different styles.
+You can use the `className` property to handle different styles.
 
 ### Example
 
 ```jsx live
-<Paragraph  padding={6} csx={{ bg: 'muted', color: 'muted' }}>
+<Paragraph className={csx({ bg: 'muted', color: 'muted' })}>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a aliquam
   ex, quis pretium enim. Sed cursus quam ac lorem efficitur, ac sodales lorem
   convallis. Ut scelerisque mauris velit, sit amet iaculis elit feugiat commodo.
@@ -51,7 +51,6 @@ You can use the `csx` property to handle different styles.
 
 ## Props
 
-| Name     | Type        | Description              | Required | Default |
-| -------- | ----------- | ------------------------ | -------- | ------- |
-| children | `ReactNode` | Paragraph children       | 🚫       | -       |
-| csx      | `StyleProp` | Defines component styles | 🚫       | `{}`    |
+| Name     | Type        | Description        | Required | Default |
+| -------- | ----------- | ------------------ | -------- | ------- |
+| children | `ReactNode` | Paragraph children | 🚫       | -       |

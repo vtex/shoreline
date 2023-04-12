@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { AnchorProps } from './index'
 import { Anchor } from './index'
-import { Paragraph } from '../components/Paragraph'
+import { Paragraph } from '../paragraph'
 
 export default {
   title: 'admin-ui/Anchor',
