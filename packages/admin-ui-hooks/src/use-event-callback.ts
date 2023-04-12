@@ -1,7 +1,7 @@
 import type { AnyFunction } from '@vtex/admin-ui-util'
 import { useCallback, useRef } from 'react'
 
-import { useSafeLayoutEffect } from './useSafeLayoutEffect'
+import { useSafeLayoutEffect } from './use-safe-layout-effect'
 
 export function useEventCallback<T extends AnyFunction>(callback?: T) {
   const ref = useRef<T | undefined>((() => {

@@ -1,5 +1,5 @@
-import { useQueryState } from '../useQueryState'
-import { QueryStateProvider } from '../useQueryStateContext'
+import { useQueryState } from '../use-query-state'
+import { QueryStateProvider } from '../use-query-state-context'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 const setQuery = (query: Record<string, any> = {}): boolean => {

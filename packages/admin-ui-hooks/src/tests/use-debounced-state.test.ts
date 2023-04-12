@@ -1,45 +1,41 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-import { useDebouncedCache } from '../useDebouncedCache'
+import { useDebouncedState } from '../use-debounced-state'
 
 describe('useDebouncedState', () => {
   it('should use a debounced state', () => {
     const { result } = renderHook(() =>
-      useDebouncedCache({
+      useDebouncedState({
         initialState: 0,
         timeoutMs: 250,
       })
     )
 
     expect(result.current[0]).toBe(0)
-    expect(result.current[1]).toBe(0)
-    expect(typeof result.current[2]).toBe('function')
+    expect(typeof result.current[1]).toBe('function')
   })
 
   it('should update the state', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useDebouncedCache({
+      useDebouncedState({
         initialState: 0,
         timeoutMs: 250,
       })
     )
 
     expect(result.current[0]).toBe(0)
-    expect(result.current[1]).toBe(0)
 
     act(() => {
-      result.current[2](1)
+      result.current[1](1)
     })
-
-    expect(result.current[0]).toBe(1)
 
     await waitForNextUpdate()
 
-    expect(result.current[1]).toBe(1)
+    expect(result.current[0]).toBe(1)
   })
 
   it('should be able to produce a state', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useDebouncedCache({
+      useDebouncedState({
         initialState: 0,
         timeoutMs: 250,
         produce: (s) => s * 2,
@@ -49,13 +45,11 @@ describe('useDebouncedState', () => {
     expect(result.current[0]).toBe(0)
 
     act(() => {
-      result.current[2](5)
+      result.current[1](5)
     })
-
-    expect(result.current[0]).toBe(10)
 
     await waitForNextUpdate()
 
-    expect(result.current[1]).toBe(10)
+    expect(result.current[0]).toBe(10)
   })
 })

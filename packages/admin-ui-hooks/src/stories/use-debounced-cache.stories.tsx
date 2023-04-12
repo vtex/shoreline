@@ -3,7 +3,7 @@ import type { Story, Meta } from '@storybook/react'
 import { useDebouncedCache } from '../index'
 
 export default {
-  title: 'onda-hooks/useDebouncedCache',
+  title: 'hooks/use-debounced-state',
 } as Meta
 
 export const Input: Story = () => {
