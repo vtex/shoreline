@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.58](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.57...@vtex/admin-ui@0.135.1-dev.58) (2023-04-12)
+
+
+### Bug Fixes
+
+* **admin-ui:** export use-media-query hook ([11cd653](https://github.com/vtex/admin-ui/commit/11cd653b9167fa00e985ca947d19ab246bd01b59))
+
+
+
+
+
 ## [0.135.1-dev.57](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.56...@vtex/admin-ui@0.135.1-dev.57) (2023-04-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
