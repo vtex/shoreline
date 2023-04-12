@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 import type { Meta } from '@storybook/react'
 import { Inline, Stack, Button, TextInput, TextArea, get } from '@vtex/admin-ui'
@@ -20,7 +21,7 @@ export const RegisterFields = () => {
           <TextInput label="Favorite Food" {...form.register('favFood')} />
           <TextArea label="Favorite poem" {...form.register('favPoem')} />
         </Inline>
-        <Button csx={{ marginLeft: '$space-1' }} type="submit">
+        <Button className={csx({ marginLeft: '$space-1' })} type="submit">
           Submit
         </Button>
       </Stack>
@@ -82,7 +83,7 @@ export const validation = () => {
             {...form.register('favPoem', { minLength: 5 })}
           />
         </Inline>
-        <Button csx={{ marginLeft: '$space-1' }} type="submit">
+        <Button className={csx({ marginLeft: '$space-1' })} type="submit">
           Submit
         </Button>
       </Stack>

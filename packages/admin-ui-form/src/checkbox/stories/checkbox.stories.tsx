@@ -1,6 +1,7 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box, Button, Inline, Stack } from '@vtex/admin-ui'
+import { Button, Inline, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { Checkbox, CheckboxGroup } from '../index'
@@ -13,7 +14,7 @@ export const Standalone = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Inline>
@@ -24,12 +25,12 @@ export const Standalone = () => {
               helpText="You must select this option to use our services"
             />
           </Inline>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -37,7 +38,7 @@ export const Group = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <CheckboxGroup name="features" state={form} label="Features">
@@ -48,12 +49,12 @@ export const Group = () => {
               label="Component Composition"
             />
           </CheckboxGroup>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -61,7 +62,7 @@ export const StandaloneValidation = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Inline>
@@ -75,12 +76,12 @@ export const StandaloneValidation = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -88,7 +89,7 @@ export const GroupValidation = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <CheckboxGroup
@@ -106,11 +107,11 @@ export const GroupValidation = () => {
               label="Component Composition"
             />
           </CheckboxGroup>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }

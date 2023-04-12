@@ -180,7 +180,7 @@ export function WithTable() {
             </Inline>
           </DataViewHeader>
 
-          <Table state={table} csx={{ width: '100%' }} />
+          <Table state={table} className={csx({ width: '100%' })} />
 
           <Flex justify="flex-end" className={csx({ width: '100%' })}>
             <Pagination state={pagination} />

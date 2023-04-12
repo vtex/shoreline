@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 import type { Meta, Story } from '@storybook/react'
 import type { StyleProp } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
 import type { TagProps } from './tag'
 import { Tag } from './tag'
@@ -47,11 +48,11 @@ function Inline(props: Props) {
   return (
     <AdminUIInline
       {...props}
-      csx={{
+      className={csx({
         minWidth: '15rem',
         justifyContent: 'space-between',
         ...props.csx,
-      }}
+      })}
     />
   )
 }
@@ -96,11 +97,11 @@ export function Variants() {
         <Tag label={LABEL} variant="pink" />
       </Inline>
       <Inline
-        csx={{
+        className={csx({
           bg: '$secondary',
           height: '2rem',
           paddingTop: '0.1rem',
-        }}
+        })}
       >
         <Text>outline</Text>
         <Tag label={LABEL} />

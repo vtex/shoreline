@@ -1,6 +1,7 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box, Button, Inline, Stack } from '@vtex/admin-ui'
+import { Button, Inline, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { NumberInput } from '../index'
@@ -13,7 +14,7 @@ export const Basic = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Inline>
@@ -28,12 +29,12 @@ export const Basic = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -46,7 +47,7 @@ export const Validation = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Inline>
@@ -68,11 +69,11 @@ export const Validation = () => {
               }}
             />
           </Inline>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }

@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import React, { useCallback, useEffect } from 'react'
 import type { MouseEvent } from 'react'
 import {
@@ -18,10 +19,14 @@ import { Stack } from '../stack'
 import { toastInfoTheme, toastMessageTheme } from './toast.style'
 
 const icons = {
-  positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
-  warning: <IconWarning weight="fill" csx={{ color: '$warning' }} />,
-  critical: <IconXOctagon weight="fill" csx={{ color: '$critical' }} />,
-  info: <IconBell csx={{ color: '$info' }} />,
+  positive: (
+    <IconCheckCircle weight="fill" className={csx({ color: '$positive' })} />
+  ),
+  warning: <IconWarning weight="fill" className={csx({ color: '$warning' })} />,
+  critical: (
+    <IconXOctagon weight="fill" className={csx({ color: '$critical' })} />
+  ),
+  info: <IconBell className={csx({ color: '$info' })} />,
 }
 
 export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(

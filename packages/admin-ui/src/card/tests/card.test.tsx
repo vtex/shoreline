@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 
 import { render, axe } from '../../test-utils'
@@ -16,7 +17,7 @@ import {
 describe('Card tests', () => {
   it('should not have a11y violations', async () => {
     const { container } = render(
-      <Card csx={{ width: '1/2', margin: '$space-4' }}>
+      <Card className={csx({ width: '1/2', margin: '$space-4' })}>
         <CardHeader>
           <CardInfo>
             <CardImage
@@ -36,7 +37,9 @@ describe('Card tests', () => {
             <CardHeader>
               <CardTitle>Title</CardTitle>
             </CardHeader>
-            <CardContent csx={{ width: '100%', height: 250, bg: '$secondary' }}>
+            <CardContent
+              className={csx({ width: '100%', height: 250, bg: '$secondary' })}
+            >
               Content
             </CardContent>
           </Card>
