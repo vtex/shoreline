@@ -74,7 +74,7 @@ describe('Change box to div', () => {
     transform,
     {},
     '<Box csx={{width: 2}} />',
-    'import { csx } from "@vtex/admin-ui-core";\n<div className={csx({width: 2})} />',
+    'import { csx } from "@vtex/admin-ui";\n<div className={csx({width: 2})} />',
     'with csx'
   )
 })
@@ -84,7 +84,7 @@ describe('Convert csx to className', () => {
     transform,
     {},
     '<Stack csx={{}} />',
-    'import { csx } from "@vtex/admin-ui-core";\n<Stack className={csx({})} />',
+    'import { csx } from "@vtex/admin-ui";\n<Stack className={csx({})} />',
     'with object value'
   )
 
@@ -92,7 +92,7 @@ describe('Convert csx to className', () => {
     transform,
     {},
     '<Stack csx={style.some} />',
-    'import { csx } from "@vtex/admin-ui-core";\n<Stack className={csx(style.some)} />',
+    'import { csx } from "@vtex/admin-ui";\n<Stack className={csx(style.some)} />',
     'with variable value'
   )
 
@@ -100,7 +100,7 @@ describe('Convert csx to className', () => {
     transform,
     {},
     '<Boo csx={true ? a : b} />',
-    'import { csx } from "@vtex/admin-ui-core";\n<Boo className={csx(true ? a : b)} />',
+    'import { csx } from "@vtex/admin-ui";\n<Boo className={csx(true ? a : b)} />',
     'with conditionals'
   )
 
@@ -108,7 +108,7 @@ describe('Convert csx to className', () => {
     transform,
     {},
     "<Boo csx={{'> *': {'color': '$blue'}, 'font': 'bold'}} />",
-    "import { csx } from \"@vtex/admin-ui-core\";\n<Boo className={csx({'> *': {'color': '$blue'}, 'font': 'bold'})} />",
+    "import { csx } from \"@vtex/admin-ui\";\n<Boo className={csx({'> *': {'color': '$blue'}, 'font': 'bold'})} />",
     'with complex objects'
   )
 })
@@ -117,24 +117,24 @@ describe('Add csx imports', () => {
   defineInlineTest(
     transform,
     {},
-    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\nimport { Bla } from '@vtex/admin-ui-core'\n<Stack csx={{}} />",
-    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\nimport { Bla, csx } from '@vtex/admin-ui-core';\n<Stack className={csx({})} />",
+    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\n<Stack csx={{}} />",
+    "import { Columns, Column, IconArrowUpRight, csx } from '@vtex/admin-ui';\n<Stack className={csx({})} />",
     'adds csx to existing import'
   )
 
   defineInlineTest(
     transform,
     {},
-    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\nimport { csx, Bla } from '@vtex/admin-ui-core'\n<Stack csx={{}} />",
-    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\nimport { csx, Bla } from '@vtex/admin-ui-core'\n<Stack className={csx({})} />",
+    "import { Columns, Column, csx, IconArrowUpRight } from '@vtex/admin-ui'\n<Stack csx={{}} />",
+    "import { Columns, Column, csx, IconArrowUpRight } from '@vtex/admin-ui'\n<Stack className={csx({})} />",
     'doesnt duplicate csx on import'
   )
 
   defineInlineTest(
     transform,
     {},
-    "import { Columns, Column, IconArrowUpRight } from '@vtex/admin-ui'\n<Stack csx={{}} />",
-    'import { csx } from "@vtex/admin-ui-core";\nimport { Columns, Column, IconArrowUpRight } from \'@vtex/admin-ui\'\n<Stack className={csx({})} />',
+    "import { Columns, Column, IconArrowUpRight } from 'some-lib'\n<Stack csx={{}} />",
+    'import { csx } from "@vtex/admin-ui";\nimport { Columns, Column, IconArrowUpRight } from \'some-lib\'\n<Stack className={csx({})} />',
     'adds new import when needed'
   )
 
