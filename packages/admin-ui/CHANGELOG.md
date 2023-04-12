@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.135.1-dev.56](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1-dev.55...@vtex/admin-ui@0.135.1-dev.56) (2023-04-12)
+
+
+### Bug Fixes
+
+* **paragraph:** migrate to csm ([a303c05](https://github.com/vtex/admin-ui/commit/a303c0554e761b464e9cfe98a3b6b9ec642b240e))
+
+
+
+
+
 ## 0.135.1-dev.55 (2023-04-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
