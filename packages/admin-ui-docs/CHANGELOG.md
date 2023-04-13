@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1-dev.67](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.66...@vtex/admin-ui-docs@0.17.1-dev.67) (2023-04-13)
+
+
+### Features
+
+* **admin-ui-gatsby:** drop support to gatsby ([d1082a5](https://github.com/vtex/admin-ui/commit/d1082a501745398674c2257f7389b667ec9338e2))
+
+
+
+
+
 ## 0.17.1-dev.66 (2023-04-12)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
