@@ -188,19 +188,19 @@ Always prefer to use tokens instead of hardcoded values.
 
 ```jsx isStatic
 // ✅ Good
-<Box
-  csx={{
+<div
+  className={csx({
     bg: '$primary',
     padding: '$xs',
-  }}
+  })}
 />
 
 // 🚨 Bad
-<Box
-  csx={{
+<div
+  className={csx({
     bg: '#fff',
     padding: '8px',
-  }}
+  })}
 />
 ```
 
@@ -210,23 +210,23 @@ Prefer props composition and shorthands.
 
 ```jsx isStatic
 // ✅ Preferred
-<Box
-  csx={{
+<div
+  className={csx({
     bg: '$primary',
     paddingX: '$xs',
     size: '20rem',
-  }}
+  })}
 />
 
 // 🚨 Not wrong, but can be improved
-<Box
-  csx={{
+<div
+  className={csx({
     backgroundColor: '$primary',
     paddingLeft: '$xs',
     paddingRight: '$xs',
     height: '20rem',
     width: '20rem',
-  }}
+  })}
 />
 ```
 
@@ -236,8 +236,8 @@ Responsive aliases are preferred over custom media queries and responsive arrays
 
 ```jsx isStatic
 // ✅ Good
-<Box
-  csx={{
+<div
+  className={csx({
     padding: '$xs',
     '@tablet': {
       padding: '$s',
@@ -245,19 +245,19 @@ Responsive aliases are preferred over custom media queries and responsive arrays
     '@desktop': {
       padding: '$m',
     }
-  }}
+  })}
 />
 
 // 🚨 Bad, not semantic
-<Box
-  csx={{
+<div
+  className={csx({
     padding: ['$xs', '$s', '$m'],
-  }}
+  })}
 />
 
 // 🚨 Bad, not consistent
-<Box
-  csx={{
+<div
+  className={csx({
     padding: '$xs',
     '@media screen and (min-width: 40em)': {
       padding: '$s',
@@ -265,7 +265,7 @@ Responsive aliases are preferred over custom media queries and responsive arrays
     '@media screen and (min-width: 80em)': {
       padding: '$m',
     },
-  }}
+  })}
 />
 ```
 
@@ -275,27 +275,27 @@ While coding an app it doesn't matter, but if you are within a library this is a
 
 ```jsx isStatic
 // ✅ Good
-<Box
-  csx={{
+<div
+  className={csx({
     padding: '$m',
-  }}
+  })}
 >
-  <Box as="h1" csx={{ color: '$primary' }}>
+  <h1 className={csx({ color: '$primary' })}>
     Title
-  </Box>
-</Box>
+  </h1>
+</div>
 
 // 🚨 Bad
-<Box
-  csx={{
+<div
+  className={csx({
     padding: '$m',
     h1: {
       color: '$primary'
     }
-  }}
+  })}
 >
   <h1>Title</h1>
-</Box>
+</div>
 ```
 
 ## Documentation
