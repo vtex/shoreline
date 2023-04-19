@@ -1,9 +1,10 @@
 ---
 title: Colors
 path: /colors/
+sidebar_position: 2
 ---
 
-import { Box, Grid } from '@vtex/admin-ui'
+import { Grid, csx } from '@vtex/admin-ui'
 import { ColorCard } from '@site/src/components/ColorCard'
 import { SemanticTable } from '@site/src/components/SemanticTable'
 
@@ -15,72 +16,72 @@ The usage of the colors in our system reflect the product’s tone of voice with
 
 ### Main
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$blue40',
-  }}
+  })}
 />
 
 The principal interactive element on the screen. It should drive the user’s attention to the tasks that should be done using the application.
 
 ### Critical
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$red40',
-  }}
+  })}
 />
 
 Inform to the user that that something went wrong or that they need extreme caution before taking some action.
 
 ### Warning
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$orange40',
-  }}
+  })}
 />
 
 It informs to the user that something is not working as it expected or that they need some caution before taking some action.
 
 ### Positive
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$green40',
-  }}
+  })}
 />
 
 It represents something good or new things. Get the user to be aware that something good happened.
 
 ### Neutral
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$gray40',
-  }}
+  })}
 />
 
 Information that do not need emphasis. Already actioned in the past.
 
 ### Info
 
-<Box
-  csx={{
+<div
+  className={csx({
     width: 100,
     height: 4,
     bg: '$lightBlue40',
-  }}
+  })}
 />
 
 It informs or guides the user in a calm and non-urgent way.

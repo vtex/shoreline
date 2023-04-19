@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
+import { csx, Text, Flex, color as getColor, FlexSpacer } from '@vtex/admin-ui'
 
 export function ColorCard(props: ColorCardProps) {
   const { color, name } = props
@@ -9,7 +9,7 @@ export function ColorCard(props: ColorCardProps) {
   return (
     <Flex
       direction="column"
-      csx={{
+      className={csx({
         maxWidth: 250,
         border: '$neutral',
         borderRadius: '8px',
@@ -19,23 +19,23 @@ export function ColorCard(props: ColorCardProps) {
         ':hover': {
           transform: 'scale(1.05)',
         },
-      }}
+      })}
     >
-      <Box
-        csx={{
+      <div
+        className={csx({
           bg: colorValue,
           borderTopLeftRadius: '8px',
           borderTopRightRadius: '8px',
           height: 80,
-        }}
+        })}
       />
 
       <Flex
         direction="column"
-        csx={{
+        className={csx({
           padding: '$space-4',
           justifyContent: 'space-around',
-        }}
+        })}
       >
         <CardLabel title="Name" value={name} />
         <CardLabel title="HEX" value={colorValue} />
@@ -48,20 +48,20 @@ function CardLabel(props: CardLabel) {
   const { title, value } = props
 
   return (
-    <Flex csx={{ width: '100%' }}>
+    <Flex className={csx({ width: '100%' })}>
       <Text
-        csx={{
+        className={csx({
           display: 'block',
           fontSettings: 'medium',
-        }}
+        })}
       >
         {title}
       </Text>
       <FlexSpacer />
       <Text
-        csx={{
+        className={csx({
           display: 'block',
-        }}
+        })}
       >
         {value}
       </Text>

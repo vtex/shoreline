@@ -1,19 +1,24 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
-import { style } from '@vtex/admin-ui-core'
+import { csx } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
-import { Text } from '../../components/Text'
+import { Text } from '../../text'
 import { Grid } from '../../grid'
 import type { ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
+import {
+  textContainerTheme,
+  textDescriptionTheme,
+  textTheme,
+} from './resolvers.css'
 
 export function textResolver<T>() {
   return createResolver<T, 'text', TextResolver<T>>({
     cell: function TextResolver({ item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
       const { resolver } = column
@@ -27,27 +32,18 @@ export function textResolver<T>() {
       const textVariant = isNameColumn ? 'action1' : 'body'
 
       const hasOverflow = resolver?.overflow ?? false
-      const descriptionStyle = style(
-        hasOverflow
-          ? {
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: resolver.overflow,
-            }
-          : {}
-      )
 
       const data = resolver?.mapDescription ? (
-        <Grid
-          csx={{
-            minHeight: '4rem',
-            rowGap: isNameColumn ? '0.125rem' : '0',
-          }}
-        >
-          <Text variant={textVariant} csx={{ alignSelf: 'flex-end' }}>
+        <Grid className={textContainerTheme} data-name-column={isNameColumn}>
+          <Text variant={textVariant} className={textTheme}>
             {resolver?.mapText(item)}
           </Text>
-          <Text tone="secondary" csx={descriptionStyle}>
+          <Text
+            tone="secondary"
+            data-overflow={hasOverflow}
+            data-type={resolver.overflow}
+            className={textDescriptionTheme}
+          >
             {resolver.mapDescription(item)}
           </Text>
         </Grid>

@@ -3,6 +3,129 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.1-dev.14 (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.13 (2023-04-11)
+
+
+### Features
+
+* **codemod:** add codemod to migrate to new component model ([601e0aa](https://github.com/vtex/admin-ui/commit/601e0aae9d4cf12d5a7a14cb0e1bad942d427188))
+
+
+
+
+
+## 0.7.1-dev.12 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.11 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.10 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.9 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.8 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.7 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.6 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.5 (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.4 (2023-03-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.3 (2023-02-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.2 (2023-02-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.1 (2023-02-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.1-dev.0 (2023-01-04)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
 # [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-codemod@0.6.4...@vtex/admin-ui-codemod@0.7.0) (2023-01-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod

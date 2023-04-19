@@ -1,0 +1,565 @@
+---
+title: Switch
+path: /switch/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 2,
+    },
+    {
+      id: 'standalone',
+      value: 'Standalone',
+      level: 3,
+    },
+    {
+      id: 'with-help-text',
+      value: 'With help text',
+      level: 3,
+    },
+    {
+      id: 'with-error-text',
+      value: 'With error text',
+      level: 3,
+    },
+    {
+      id: 'with-help-and-error-texts',
+      value: 'With help and error texts',
+      level: 3,
+    },
+    {
+      id: 'disabled',
+      value: 'Disabled',
+      level: 3,
+    },
+    {
+      id: 'checked-states',
+      value: 'Checked States',
+      level: 3,
+    },
+    {
+      id: 'multiple-switches',
+      value: 'Multiple Switches',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'state',
+      value: 'State',
+      level: 2,
+    },
+    {
+      id: 'checked-and-onchange',
+      value: 'checked and onChange',
+      level: 3,
+    },
+    {
+      id: 'useswitchstate',
+      value: 'useSwitchState',
+      level: 3,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'dos',
+      value: "Do's",
+      level: 2,
+    },
+  ],
+    designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+        {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+<IntroSection>
+
+## What is this?
+
+Switch triggers allow merchants to instantly turn on or off the state of a feature or item.
+
+<br/>
+
+</IntroSection>
+
+<br/>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
+
+<br/>
+
+<PageSection
+  id={tabToc.overview[2].id}
+  title={tabToc.overview[2].value}
+>
+
+When using a standalone `Switch` you should provide an `aria-label` property value. As a `form` component, it should have a label specified to guarantee accessibility.
+
+<br/>
+
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[3].id}
+  title={tabToc.overview[3].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      helpText="Help text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+</PageSection>
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[4].id}
+  title={tabToc.overview[4].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      error
+      errorText="Error text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+</PageSection>
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[5].id}
+  title={tabToc.overview[5].value}
+>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      label="Label"
+      aria-label="label"
+      checked={checked}
+      error
+      errorText="Error text"
+      helpText="Help text"
+      onChange={() => setChecked(!checked)}
+    />
+  )
+}
+```
+</PageSection>
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[6].id}
+  title={tabToc.overview[6].value}
+>
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Switch
+        label="Label"
+        aria-label="label"
+        error
+        errorText="Error text"
+        helpText="Help text"
+        onChange={() => setChecked(!checked)}
+        disabled
+      />
+      <Switch
+        label="Label"
+        aria-label="label"
+        error
+        checked
+        errorText="Error text"
+        helpText="Help text"
+        onChange={() => setChecked(!checked)}
+        disabled
+      />
+    </>
+  )
+}
+```
+</PageSection>
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[7].id}
+  title={tabToc.overview[7].value}
+>
+
+There are two checked states: `checked`, and `not checked`.
+
+<br/>
+
+```jsx live
+function Example() {
+  return (
+    <>
+      <Stack direction="row">
+        <Switch aria-label="label-1" label="Label" />
+        <Switch aria-label="label-disabled-1" disabled label="Label" />
+      </Stack>
+      <Stack direction="row">
+        <Switch aria-label="label-2" checked label="Label" />
+        <Switch aria-label="label-disabled-2" checked disabled label="Label" />
+      </Stack>
+    </>
+  )
+}
+```
+</PageSection>
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.overview[8].id}
+  title={tabToc.overview[8].value}
+>
+
+It is sometimes necessary to render multiple switches and store the checked values in an array. It can be done using our `useSwitchState` hook. You just need to pass the hook return object to the switches `state` property and define a `value` for each `Switch`.
+
+<br/>
+
+```jsx live
+function Example() {
+  const switchState = useSwitchState({ state: [] })
+
+  return (
+    <>
+      <Text>Selected switches: {switchState.state.join(', ')}</Text>
+      <Switch state={switchState} value="switch1" label="Label" />
+      <Switch state={switchState} value="switch2" label="Label" />
+      <Switch state={switchState} value="switch3" label="Label" />
+    </>
+  )
+}
+```
+</PageSection>
+</PageSection>
+</PageSection>
+
+</Panel>
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx isStatic
+import { Switch } from '@vtex/admin-ui'
+```
+
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
+
+There are two ways of handling the state in the Switch.
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.codeReference[2].id}
+  title={tabToc.codeReference[2].value}
+>
+
+You can use the properties checked and onChange to handle if the Switch is checked and its values have changed."
+
+<br/>
+
+```jsx live
+function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <Switch
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+      label="Label"
+    />
+  )
+}
+```
+</PageSection >
+
+<br/>
+<br/>
+
+<PageSection
+  id={tabToc.codeReference[3].id}
+  title={tabToc.codeReference[3].value}
+>
+
+For convenience, we also provide a hook that already implements the state logic for you. It can be very handy if you have a group of switches and want to handle the states of each one. You should pass the hook return to the state property and also define a value for each Switch.
+
+<br/>
+
+```jsx live
+function Example() {
+  const switchState = useSwitchState({ state: false })
+
+  return <Switch state={switchState} label="Label" />
+}
+```
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[4].id}
+  title={tabToc.codeReference[4].value}
+>
+
+| Name      | Type             | Description                                                                                                                                   | Required | Default |
+| --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| label     | `ReactNode`      | The component's label                                                                                                                         | ✅       | -       |
+| helpText  | `ReactNode`      | Help text                                                                                                                                     | 🚫       | -       |
+| errorText | `ReactNode`      | Error text                                                                                                                                    | 🚫       | -       |
+| error     | `boolean`        | Whether the switch contains an error or not                                                                                                   | 🚫       | -       |
+| checked   | `boolean`        | Switch's checked state. If present, it is used instead of state                                                                               | 🚫       | -       |
+| disabled  | `boolean`        | Defines if the Switch is disabled or not                                                                                                      | 🚫       | -       |
+| value     | `string, number` | Switch's value is going to be used when multiple switches share the same state. Checking a switch with a value will add it to the state array | 🚫       | -       |
+| state     | `SwtichState`    | Return of `useSwitchState` hook. You can also provide these props from your own state logic.                                                  | 🚫       | -       |
+| csx       | `StyleProp`      | Defines component styles                                                                                                                      | 🚫       | `{}`    |
+
+<br/>
+
+The Switch component also supports all HTML props from the `<input />` HTML tag.
+
+</PageSection >
+</PageSection >
+</Panel>
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use the Checkbox, the Button, or the Menu components instead of the Switch component?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose the Checkbox component for choices that need to be saved afterwards through a form.</li>
+        <li>Choose the Button component if the action requires confirmation or doesn’t represent an on and off semantic.</li>
+        <li>Choose the Menu component when the feature or item has more than two states.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>How should a Switch component be positioned on a page?</h4></summary>
+  <div>
+    <ul>
+        <li>In left-to-right languages, a Switch component should be left-aligned.</li>
+        <li>In a table where switching the items’ states is a common action, Switch components can be used in the last column to both display the item’s state and allow turning it on and off.</li>
+        <li>When there are multiple Switches in a list, and they have different default states, the first sorting criteria should be their default state, from active to inactive.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don’t place a Switch component inside the Page Header component.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+
+<details>
+  <summary><h4>When should a Switch be disabled?</h4></summary>
+  <div>
+    <ul>
+        <li>Use a disabled Switch only if, in some condition, it becomes enabled. For example, when the action is incompatible with an existing setting.</li>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/tooltip">tooltip</a> trigger to explain why the Switch is disabled. Display the information when hovering over the tooltip trigger — not the Switch itself.</li>
+    </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>What should be the default state of a Switch?</h4></summary>
+  <div>
+    Recommended settings can be active by default. When a setting is recommended, add <em>(Recommended)</em> to the end of its label so it can still be identified after any actions.
+  </div>
+</details>
+
+
+
+<details>
+  <summary><h4>When should a Switch component display an error?</h4></summary>
+  <div>
+    Never. Errors can be prevented by disabling incompatible settings automatically.
+  </div>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+
+<details>
+  <summary><h4>What should be the label of a Switch?</h4></summary>
+  <div>
+    <ul>
+        <li>Start the label with a verb in the infinitive. For example, use <em>Distribute products in marketplaces</em> instead of <em>Products should be distributed in marketplaces</em>.</li>
+        <li>Write the label so that it corresponds to the default state of the Switch.</li>
+        <li>Use sentence case but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <ul>
+      <li>Don't use generic verbs. For example, write <em>Distribute products in marketplaces</em> or <em>Sell products from sellers</em> instead of <em>Enable marketplace</em> or <em>Enable Sellers.</em></li>
+      <li>Don't leave entities implicit. For example, write <em>Suggest pages for search engine results</em> instead of <em>Suggest for results</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Send to personal email</em> instead of <em>Send to my email</em>.</li>
+      <li>Don't write long labels. Use the help text to provide additional context.</li>
+      <li>Don't write labels that vary a lot in length between options</li>
+      <li>Don't write more than one sentence.</li>
+      <li>Don't use periods or commas.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the help text of a Switch?</h4></summary>
+  <div>
+    <ul>
+      <li>Include a help text only for critical choices where the consequences of switching the state need to be explained in more detail.</li>
+      <li>Write the help text as if you are completing the following sentence: <em>If you switch the default state, you or the system will [help text]</em>.</li>
+      <li>Start with verbs in the simple present tense. For example, for the label <em>Distribute products in marketplaces</em>, the help text should be <em>Sends active products to connected marketplaces</em> and not <em>Send active products to connected marketplaces</em>.</li>
+      <li>Use sentence case but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Avoid including links. Use an <a href="https://admin-ui.vercel.app/components/alert">Alert</a> component if this is necessary.</li>
+        <li>Avoid writing more than one sentence.</li>
+        <li>Avoid using periods or commas.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+</Panel>
+</Page>

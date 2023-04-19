@@ -12,6 +12,7 @@ import {
   THeadCell,
   TBodyCell,
 } from '../index'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/table/scroll',
@@ -61,7 +62,7 @@ export function VerticalScroll() {
   })
 
   return (
-    <Table {...getTable()} csx={{ height: '100vh' }}>
+    <Table {...getTable()} className={csx({ height: '100vh' })}>
       <THead>
         {columns.map((column) => {
           return <THeadCell {...getHeadCell(column)} />
@@ -123,7 +124,7 @@ export function HorizontalScroll() {
   })
 
   return (
-    <Table {...getTable()} csx={{ width: '100vw' }}>
+    <Table {...getTable()} className={csx({ width: '100vw' })}>
       <THead>
         {columns.map((column) => {
           return <THeadCell {...getHeadCell(column)} />
@@ -184,7 +185,7 @@ export function HorizontalAndVerticalScroll() {
   })
 
   return (
-    <Table {...getTable()} csx={{ height: '100vh', width: '100vw' }}>
+    <Table {...getTable()} className={csx({ height: '100vh', width: '100vw' })}>
       <THead>
         {columns.map((column) => {
           return <THeadCell {...getHeadCell(column)} />

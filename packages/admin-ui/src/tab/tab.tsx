@@ -1,21 +1,29 @@
 import { Tab as AriakitTab } from 'ariakit'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { ReactNode } from 'react'
-import type { TabState } from './tab.state'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
-import * as style from './tabs.style'
+import type { TabState } from './tab-state'
+import { tabTheme } from './tab.css'
 
-export const Tab = createComponent<typeof AriakitTab, TabOptions>((props) => {
-  return useElement(AriakitTab, {
-    ...props,
-    baseStyle: style.tab,
-  })
+export const Tab = forwardRef(function Tab(
+  props: TabProps,
+  ref: Ref<HTMLButtonElement>
+) {
+  const { className = '', state, children, ...buttonProps } = props
+
+  return (
+    <AriakitTab
+      state={state}
+      ref={ref}
+      className={cx(tabTheme, className)}
+      {...buttonProps}
+    >
+      {children}
+    </AriakitTab>
+  )
 })
 
-export interface TabOptions {
+export interface TabProps extends ComponentPropsWithoutRef<'button'> {
   state?: TabState
-  id?: string
-  children?: ReactNode
 }
-
-export type TabProps = React.ComponentPropsWithRef<typeof Tab>

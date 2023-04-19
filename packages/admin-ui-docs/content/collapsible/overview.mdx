@@ -16,7 +16,6 @@ You can build collapsible components with the useCollapse hook. It enables the c
 ```jsx noInline live
 const SingleCollapsible = () => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <Card
       csx={{
@@ -47,11 +46,11 @@ const SingleCollapsible = () => {
           <Tag label="Short text" />
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -63,11 +62,10 @@ const SingleCollapsible = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }
-
 render(SingleCollapsible)
 ```
 
@@ -80,7 +78,6 @@ render(SingleCollapsible)
 ```jsx noInline live
 const ActionsCollapsible = () => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <Card
       csx={{
@@ -119,21 +116,20 @@ const ActionsCollapsible = () => {
           </Button>
         </CardActions>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }
-
 render(ActionsCollapsible)
 ```
 
@@ -146,7 +142,6 @@ render(ActionsCollapsible)
 ```jsx noInline live
 const AccordionItem = ({ title, children }) => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <>
       <CardHeader
@@ -168,19 +163,18 @@ const AccordionItem = ({ title, children }) => {
           <CardTitle>{title}</CardTitle>
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           {children}
         </CardContent>
-      </Box>
+      </div>
     </>
   )
 }
-
 const Accordion = () => {
   return (
     <Card
@@ -224,7 +218,6 @@ const Accordion = () => {
     </Card>
   )
 }
-
 render(Accordion)
 ```
 

@@ -13,34 +13,32 @@ import {
   CardContent,
   Box,
 } from '@vtex/admin-ui'
-
 function Example = () => {
   const { getToggleProps, getCollapseProps, visible } = useCollapse()
-
   return (
     <Card>
       <CardHeader
         {...getToggleProps()}
-        csx={{
+        className={csx({
           cursor: 'pointer',
           ':hover': {
             bg: '$action.neutral.tertiaryHover',
           },
-        }}
+        })}
       >
         <CardInfo>
           <CardTitle>Title</CardTitle>
         </CardInfo>
       </CardHeader>
-      <Box csx={{ width: '100%' }} {...getCollapseProps()}>
+      <div className={csx({ width: '100%' })} {...getCollapseProps()}>
         <CardContent
-          csx={{
+          className={csx({
             paddingTop: '$space-6',
-          }}
+          })}
         >
           Text.
         </CardContent>
-      </Box>
+      </div>
     </Card>
   )
 }

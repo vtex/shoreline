@@ -14,6 +14,7 @@ import {
   Alert,
   Center,
   Anchor,
+  csx,
 } from '@vtex/admin-ui'
 import { small, filled } from './icons'
 
@@ -77,7 +78,7 @@ export function IconsGrid(props: IconsGridProps) {
   const { selectedItem: selectedWeight } = weightDropdown
 
   return (
-    <DataView state={dataView} csx={{ marginX: '$space-2' }}>
+    <DataView state={dataView} className={csx({ marginX: '$space-2' })}>
       <DataViewHeader>
         <Stack direction="row">
           <Search {...search.getInputProps()} />
@@ -96,7 +97,7 @@ export function IconsGrid(props: IconsGridProps) {
         </Stack>
       </DataViewHeader>
       {selectedWeight === 'Fill' || selectedSize === 'Small' ? (
-        <Alert csx={{ marginBottom: '$space-4' }}>
+        <Alert className={csx({ marginBottom: '$space-4' })}>
           Some icons below are opaque because they still don’t have a use case
           mapped. If you need to use one of them, please{' '}
           <Anchor href="https://github.com/vtex/admin-ui/issues/new/choose">
@@ -116,12 +117,12 @@ export function IconsGrid(props: IconsGridProps) {
 
           return (
             <Center
-              csx={{
+              className={csx({
                 height: 100,
                 maxWidth: 250,
                 borderRadius: 'default',
                 border: '$neutral',
-              }}
+              })}
             >
               <IconPreview
                 item={item}
@@ -146,7 +147,7 @@ function IconPreview(props: IconPreviewProps) {
   const { item, weight, size, opacity } = props
 
   return (
-    <Stack space="$space-4" csx={{ alignItems: 'center' }}>
+    <Stack space="$space-4" className={csx({ alignItems: 'center' })}>
       {cloneElement(item.icon, {
         ...props,
         size,
@@ -155,7 +156,7 @@ function IconPreview(props: IconPreviewProps) {
           opacity,
         },
       })}
-      <Text tone="secondary" csx={{ opacity }}>
+      <Text tone="secondary" className={csx({ opacity })}>
         {`<Icon${item.name} />`}
       </Text>
     </Stack>

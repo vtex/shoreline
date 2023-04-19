@@ -1,38 +1,33 @@
-import type { ChangeEvent } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { SearchProps } from '../search'
 import { Search } from '../search'
 import { usePopoverContext } from './filter-popover-context'
-import * as style from './filter.style'
+import { filterSearchboxTheme } from './filter.css'
+import { cx } from '@vtex/admin-ui-core'
 
-export const FilterSearchbox = createComponent<
-  typeof Search,
-  ComboboxFieldProps
->((props) => {
-  const { id, ...restProps } = props
+export const FilterSearchbox = forwardRef(function FilterSearchbox(
+  props: FilterSearchboxProps,
+  ref: Ref<HTMLFormElement>
+) {
+  const { id, className = '', ...htmlProps } = props
   const {
-    state: { combobox, status },
+    state: { combobox },
   } = usePopoverContext()
 
   const { setValue, value } = combobox
 
-  return useElement(Search, {
-    ...restProps,
-    value: value as string,
-    onClear: () => {
-      setValue('')
-    },
-    onChange: (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value)
-    },
-    baseStyle: {
-      ...style.searchbox,
-      ...style.searchboxVariants({ error: status === 'error' }),
-    },
-  })
+  return (
+    <Search
+      ref={ref}
+      id={id}
+      value={value}
+      onClear={() => setValue('')}
+      onChange={(e) => setValue(e.target.value)}
+      className={cx(filterSearchboxTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
 
-interface ComboboxFieldProps {
-  id?: string
-  loading?: boolean
-}
+export type FilterSearchboxProps = SearchProps

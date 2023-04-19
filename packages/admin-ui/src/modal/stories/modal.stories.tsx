@@ -155,7 +155,9 @@ export function CompoundComponents() {
           </p>
         </ModalContent>
         <ModalFooter>
-          <ModalButton variant="secondary">Cancel</ModalButton>
+          <ModalButton variant="secondary" dismissModal>
+            Cancel
+          </ModalButton>
           <ModalButton>Confirm</ModalButton>
         </ModalFooter>
       </Modal>

@@ -27,10 +27,10 @@ The spinner's circle always has the `currentColor` fill.
 
 ```jsx live
 <Stack direction="row">
-  <Center csx={{ size: 50, ...palette('lightBlue') }}>
+  <Center className={csx({ size: 50, ...palette('lightBlue') })}>
     <Spinner />
   </Center>
-  <Center csx={{ size: 50, ...palette('red') }}>
+  <Center className={csx({ size: 50, ...palette('red') })}>
     <Spinner />
   </Center>
 </Stack>
@@ -48,7 +48,6 @@ function Example() {
 
 It also accepts all the props of `svg` jsx element.
 
-| Name | Type          | Description        | Required | Default |
-| ---- | ------------- | ------------------ | -------- | ------- |
-| csx  | `StyleObject` | Custom styles      | 🚫       | `{}`    |
-| size | `number`      | Spinner size in px | 🚫       | `24`    |
+| Name | Type     | Description        | Required | Default |
+| ---- | -------- | ------------------ | -------- | ------- |
+| size | `number` | Spinner size in px | 🚫       | `24`    |

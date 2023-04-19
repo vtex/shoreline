@@ -1,6 +1,6 @@
 import React from 'react'
 import type { MouseEventHandler } from 'react'
-import { Box } from '@vtex/admin-ui'
+import { csx } from '@vtex/admin-ui'
 
 import styles from './styles'
 
@@ -19,10 +19,10 @@ const CodeBlockWrapper = (props: CodeBlockWrapperProps) => {
   const { children, state } = props
 
   return (
-    <Box csx={styles.container}>
+    <div className={csx(styles.container)}>
       {children}
-      {state.isCodeBlockCollapsed && <Box csx={styles.overlay} />}
-    </Box>
+      {state.isCodeBlockCollapsed && <div className={csx(styles.overlay)} />}
+    </div>
   )
 }
 

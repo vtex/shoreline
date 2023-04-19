@@ -1,0 +1,170 @@
+---
+title: Contributing
+path: /introduction/contributing/
+---
+
+The redesigned VTEX Admin is a collaborative effort. We want to make contributing to this project as easy and transparent as possible, and this document aims to guide you through the process.
+
+If you are a VTEXer, and your questions were not clarified here, feel free to reach us through Slack at #admin-ui. Follow the steps below to contribute to our redesigned VTEX Admin's development.
+
+## Ways of contributing to Admin UI
+
+If you want to contribute to this project but are wondering how to begin, you can see some examples below of what you can do to help the evolution of the Design System.
+
+- Report an issue whenever you find one. Check the [Contact us page](/introduction/contact-us).
+- Share implementations built using Admin UI by creating code snippets with our [Codesandbox workspace](https://codesandbox.io/dashboard/all/examples?workspace=14dc60e3-bdf1-4ae6-b462-ec1a57bbec63).
+- Improve the documentation content.
+- Open a Pull Request with a fix for a known issue. Check the [Github Issues](https://github.com/vtex/admin-ui/issues) and if you are a VTEXer you can also have access to our [Jira board](https://vtex-dev.atlassian.net/jira/software/c/projects/AU/boards/660).
+
+### Contributing with components
+
+We're glad that you're experimenting with components beyond what Admin UI offers today! And we're very interested to know what you're creating to solve different problems, so you can always share them with us.
+
+To be sure that all the components and patterns that are part of the Admin UI follow the necessary design, implementation, and documentation best practices, for now, teams won't be able to add a new component directly to our library. So, how can you contribute?
+
+- [Share your custom component with us](https://admin-ui.vercel.app/documentation/introduction/working-with-us), so we can help you refine it according to our foundations.
+- We will add the component to the [Team Components](https://www.figma.com/file/xawNtclWAYbeypb4d66VUX/Team-Components?t=cDag4xNZPr079EOV-6) repository, so other teams that need a similar solution can use it.
+- When we understand that more teams have used it, we will work on bringing it to the core components library.
+
+## Tools and conventions
+
+### Issues: where the conversation happens
+
+We are using [GitHub Issues](https://github.com/vtex/admin-ui/issues) for our public bugs, new features, and discussions. We keep a close eye on them and try to make it clear when we have an internal fix or feature in progress. Feel free to create new issues and open discussions about anything that you think is relevant to the project. However, before filing a new task, make sure your issue does not already exist.
+
+### Storybook
+
+We use storybook as a canvas to create stories and as a preview of our components' features. It is really useful to share with the designers and check if the component has the expected behavior.
+
+### Commit messages
+
+It is essential that all commits follow an established convention. We ask you to please take the time to understand semantic versioning before committing.
+
+- **Tools:** we use [commitlint](https://commitlint.js.org/#/) and [commitizen](http://commitizen.github.io/cz-cli/) to automate enforcement of [Conventional Commits](https://www.conventionalcommits.org/).
+- **Messages:** as a shorthand, we always use the `git cz` command to ensure that we are following our commitlint.
+
+## Development Workflow
+
+Follow the instructions below to get started on development with Admin UI.
+
+### Getting started
+
+1.  Clone the repository `vtex/admin-ui`.
+2.  Run `yarn` to fetch its dependencies.
+3.  Run `yarn build` to build internal packages.
+4.  Run commands of your choosing.
+5.  Run `yarn test`.
+
+#### Scripts
+
+Check out the list of scripts available for getting started with Admin UI:
+
+| Command               | Description                                   |
+| --------------------- | --------------------------------------------- |
+| `yarn build`          | Builds the entire repository and its packages |
+| `yarn test`           | Runs the complete test suite                  |
+| `yarn lint`           | Checks the code style                         |
+| `yarn docs`           | Runs the documentation site locally           |
+| `yarn build:docs`     | Builds the documentation site                 |
+| `yarn storybook`      | Runs the storybook locally                    |
+| `yarn buid:storybook` | Builds storybook                              |
+| `yarn commit`         | Runs the git-cz cli                           |
+
+### Your First Pull Request
+
+To help you get your feet wet and get you familiar with our contribution process, we have a list of good first issues that contain bugs that have a relatively limited scope. This is a great place to get started.
+
+If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment, and assign yourself to the issue, stating that you intend to work on it so other people don’t accidentally duplicate your effort.
+
+### Sending a Pull Request
+
+The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. We’ll do our best to provide updates and feedback throughout the process.
+
+Before submitting a pull request:, please make sure the following is done:
+
+1.  Clone the repository and create your branch from main.
+2.  Run yarn: in the repository root.
+3.  If you have fixed a bug or added code that should be tested, add tests.
+4.  If you have created a new component or added a new feature, add stories in the storybook.
+5.  Ensure the test suite passes (yarn test).
+6.  Format your code with prettier (yarn prettier).
+7.  Make sure your code lints (yarn lint).
+8.  Run `yarn build`, yarn `build:storybook` or `yarn build:site` to ensure that the builds are still working.
+
+## Contributing with documentation
+
+Our Admin UI documentation is constantly updated and improved to support you in your journey with the VTEX design system. And to make this a collaborative effort, check out how to contribute with our documentation in the sections below.
+
+### Editing a page
+
+Our documentation site is built using [Docusaurus](https://docusaurus.io/), a static website generator. All of our documentation is stored in the [/docs folder](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs) of our Github Repository.
+
+To edit any page in the [Admin UI website](https://admin-ui.vercel.app/):
+
+1. In the selected page, click on the `Edit this page` button that appears at the bottom.
+   You will be redirected to the page on our [Admin UI Github Repository](https://github.com/vtex/admin-ui/tree/main/packages/admin-ui-docs/docs).
+2. In the **Edit file** space, [make the desired changes](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) to our documentation.
+   Note that we use [Markdown](https://www.markdownguide.org/) in our files to make editing accessible.
+3. Select the option _Create a new branch for this commit and start a pull request_.
+4. [Add comments to your Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+5. Click on `Propose changes`.
+
+We will review your Pull request and update our documentation accordingly!
+
+> If using Github is not really your thing, you can also contribute to our documentation by [creating an issue in our repository](https://github.com/vtex/admin-ui/issues). Learn more about [how to create an issue on Github](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue).
+
+### Guidelines for writing documentation
+
+Keep the following recommendations in mind when editing our documentation, so we can create a consistent documentation experience for users all around the world:
+
+- Regardless of what you are writing about, you must always aim for the following goals:
+  - Clarity: make sure your content is free from any possible ambiguities.
+  - Precision: stick to the main message you want to communicate and cut everything else.
+- Be concise. Yes, documentation is where you add more context about a project, but be careful when creating docs that are too long to read.
+- Use [Markdown](https://www.markdownguide.org/) formatting to make your documentation scannable when users skim through it. Avoid walls of text.
+- Prefer direct, informative and clear language, written specifically for an identified audience.
+- Be gender neutral. Avoid gender-specific pronouns such as _he_ or _she_, and prefer the non-binary pronoun _they_ when referring to a singular person.
+- Prefer active voice instead of passive voice. In the active voice, the subject of the sentence performs the action, instead of being acted upon. That's because in documentation it's essential that the reader clearly understands who or what is responsible for each action.
+
+## Maintainers
+
+### Publishing versions
+
+Currently we are publishing our versions manually in the repository. Here we have listed the topics that you should be aware of before publishing a package.
+
+**Conventional commits**
+
+The releases are made based on the commits' messages, so when running the `publish` command, the Lerna will look for the pattern that represents a new release in the commits. You should read [this quick documentation](https://www.conventionalcommits.org/en/v1.0.0/) for detailed info
+
+**NPM**
+
+You must be logged in to your account through the terminal and also must be in the VTEX organization, so you’ll have permission to publish a package.
+
+**Repository permissions**
+
+When publishing a package you must have permission to make `git push` directly on the `main` branch, otherwise, it will not work.
+
+**Lerna**
+
+We use Lerna to control the operations through all of our packages on Admin UI. Know more in:
+
+- [Lerna documentation](https://github.com/lerna/lerna)
+- [Lerna config on Admin UI](https://github.com/vtex/admin-ui/blob/main/lerna.json).
+
+**Admin UI Docs**
+
+We need to add manually a new version of our documentation each time a new version of Admin UI will be published. Execute the following command to create a new version of the documentation:
+
+```
+yarn version:docs <admin-ui-version>
+```
+
+#### Publish Flow
+
+Once you merge the changes within the `main` branch, you should update your local branch, and then run `yarn publish:main`.
+
+We defined this command to make it easier to release a package, but under the hood, it will run the following commands:
+
+1. `yarn`
+2. `yarn lerna run build` - It builds all the packages from the repository, and without this command, the _npm_ package will not have the current changes when published.
+3. `yarn lerna publish` - It will look for all the packages and publish only the ones that have been changed.

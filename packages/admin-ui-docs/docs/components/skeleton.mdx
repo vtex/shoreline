@@ -25,7 +25,7 @@ export Example() {
 By default, Skeleton's shape is rectangular. To use this variation, the `shape` property has the `rect` value.
 
 ```jsx live
-<Skeleton csx={{ size: 128 }} />
+<Skeleton className={csx({ size: 128 })} />
 ```
 
 ### Circle
@@ -33,7 +33,7 @@ By default, Skeleton's shape is rectangular. To use this variation, the `shape` 
 The shape can also be circular. To use this variation, the `shape` property has the `circle` value.
 
 ```jsx live
-<Skeleton shape="circle" csx={{ size: 100 }} />
+<Skeleton shape="circle" className={csx({ size: 100 })} />
 ```
 
 ### Fluid
@@ -41,9 +41,9 @@ The shape can also be circular. To use this variation, the `shape` property has 
 By default, the `Skeleton` is fluid, which means that both width and height are `100%` of its container.
 
 ```jsx live
-<Box csx={{ width: 'full', height: 192 }}>
+<div className={csx({ width: 'full', height: 192 })}>
   <Skeleton />
-</Box>
+</div>
 ```
 
 ## Props

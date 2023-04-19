@@ -24,6 +24,7 @@ import {
   FilterPopover,
   useFilterMultipleState,
 } from '../../filters'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/data-view',
@@ -117,7 +118,7 @@ export function WithTable() {
   }, [view.status, pagination.total])
 
   return (
-    <Page csx={{ height: '100vh' }}>
+    <Page className={csx({ height: '100vh' })}>
       <PageHeader>
         <Inline spaceInside hSpace="$space-2">
           {allStatus.map((item, index) => {
@@ -134,10 +135,13 @@ export function WithTable() {
         </Inline>
       </PageHeader>
 
-      <PageContent layout="wide" csx={{ minHeight: 'calc(100vh - 92px)' }}>
+      <PageContent
+        layout="wide"
+        className={csx({ minHeight: 'calc(100vh - 92px)' })}
+      >
         <DataView state={view}>
           <DataViewHeader>
-            <Flex justify="space-between" csx={{ width: '100%' }}>
+            <Flex justify="space-between" className={csx({ width: '100%' })}>
               <Search />
 
               <DataViewActions>
@@ -176,9 +180,9 @@ export function WithTable() {
             </Inline>
           </DataViewHeader>
 
-          <Table state={table} csx={{ width: '100%' }} />
+          <Table state={table} className={csx({ width: '100%' })} />
 
-          <Flex justify="flex-end" csx={{ width: '100%' }}>
+          <Flex justify="flex-end" className={csx({ width: '100%' })}>
             <Pagination state={pagination} />
           </Flex>
         </DataView>

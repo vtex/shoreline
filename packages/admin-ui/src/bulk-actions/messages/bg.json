@@ -1,0 +1,5 @@
+{
+  "selectAll": "Избор на всички",
+  "deselectAll": "Премахване на избора",
+  "selected": "избрани {current} от {total}"
+}

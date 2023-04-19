@@ -1,0 +1,9 @@
+{
+  "error": "Qualcosa è andato storto",
+  "retry": "Riprova",
+  "noResultsTitle": "Nessuna opzione corrisponde alla tua ricerca",
+  "noResultsSubtitle": "Prova a usare termini diversi",
+  "searchPlaceholder": "Inizia a digitare per cercare",
+  "removeLabel": "Rimuovi oggetto",
+  "placeholder": "Continua a scrivere..."
+}

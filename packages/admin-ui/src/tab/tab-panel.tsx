@@ -1,31 +1,42 @@
 import { TabPanel as AriakitTabPanel } from 'ariakit'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ReactNode, Ref, ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
+import type { TabState } from './tab-state'
+import { tabPanelTheme } from './tab.css'
 import { useTabPanelContext } from './tab-panel-list'
-import type { TabState } from './tab.state'
-import * as style from './tabs.style'
-import type { ReactNode } from 'react'
 
-export const TabPanel = createComponent<
-  typeof AriakitTabPanel,
-  TabPanelOptions
->((props) => {
-  const { state, ...tabPanelProps } = props
-  const contextState = useTabPanelContext()
+export const TabPanel = forwardRef(function TabPanel(
+  props: TabPanelProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { className = '', state, children, ...divProps } = props
 
-  const tabState: TabState = state ?? contextState ?? ({} as TabState)
+  const finalState = useTabPanelContext(state)
 
-  return useElement(AriakitTabPanel, {
-    ...tabPanelProps,
-    state: tabState,
-    baseStyle: style.tabPanel,
-  })
+  if (!finalState) {
+    console.error(
+      'Provide the state property (prefered) or wrap TabPanel with TabPanelProvider'
+    )
+
+    return null
+  }
+
+  return (
+    <AriakitTabPanel
+      state={finalState}
+      ref={ref}
+      className={cx(tabPanelTheme, className)}
+      {...divProps}
+    >
+      {children}
+    </AriakitTabPanel>
+  )
 })
 
-export interface TabPanelOptions {
-  state?: TabState
+export interface TabPanelProps extends ComponentPropsWithoutRef<'div'> {
+  state: TabState
   tabId?: string
   children?: ReactNode
 }
-
-export type TabPanelProps = React.ComponentPropsWithRef<typeof TabPanel>

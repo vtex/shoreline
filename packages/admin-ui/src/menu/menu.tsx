@@ -1,18 +1,25 @@
-import React from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { MenuState } from 'ariakit/menu'
 import { Menu as AriakitMenu } from 'ariakit/menu'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 
-import * as style from './menu.style'
-import { Box } from '../box'
+import { popoverChildrenTheme, popoverContainerTheme } from './menu.css'
+import { cx } from '@vtex/admin-ui-core'
 
-export const Menu = createComponent<typeof AriakitMenu>((props) => {
-  const { children, ...menuProps } = props
+export const Menu = forwardRef((props: MenuProps, ref: Ref<HTMLDivElement>) => {
+  const { children, className = '', ...menuProps } = props
 
-  return useElement(AriakitMenu, {
-    ...menuProps,
-    baseStyle: style.popoverContainer,
-    children: <Box csx={style.popoverChildren}>{children}</Box>,
-  })
+  return (
+    <AriakitMenu
+      className={cx(popoverContainerTheme, className)}
+      ref={ref}
+      {...menuProps}
+    >
+      <div className={popoverChildrenTheme}>{children}</div>
+    </AriakitMenu>
+  )
 })
 
-export type MenuProps = React.ComponentPropsWithoutRef<typeof Menu>
+export interface MenuProps extends ComponentPropsWithoutRef<'div'> {
+  state: MenuState
+}

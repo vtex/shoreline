@@ -12,7 +12,7 @@ import {
   tokens as themeTokens,
   spaceTokens,
   Center,
-  Box,
+  csx,
 } from '@vtex/admin-ui'
 import { replaceHslForHex, rgbaToHexA } from '../utils'
 
@@ -64,13 +64,13 @@ function createMap(
       type: prop,
       example: (
         <Center
-          csx={{
+          className={csx({
             width: 100,
             height: 60,
             borderRadius: 'default',
             fontSize: 22,
             [`${prop}`]: token,
-          }}
+          })}
         >
           AA
         </Center>
@@ -101,20 +101,20 @@ export const spacing = spaceTokens.map(
       type: 'space',
       formatted: value,
       example: (
-        <Box
-          csx={{
+        <div
+          className={csx({
             paddingY: 10,
             height: 60,
-          }}
+          })}
         >
-          <Box
-            csx={{
+          <div
+            className={csx({
               width: value,
               height: 10,
               backgroundColor: '$action.main.secondary',
-            }}
+            })}
           />
-        </Box>
+        </div>
       ),
     }
   })

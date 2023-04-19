@@ -28,19 +28,18 @@ const containerWidth = '20rem'
 
 function Example() {
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         padding: '1rem',
         border: '$neutral',
         width: containerWidth,
-      }}
+      })}
     >
       <Bleed top="1rem" left="1rem" right="1rem">
-        <Box
-          as="img"
-          csx={{
+        <img
+          className={csx({
             width: containerWidth,
-          }}
+          })}
           src="https://vtex.com/wp-content/uploads/2020/04/VTEX-Brand.svg"
           alt="vtex-brand"
         />
@@ -52,7 +51,7 @@ function Example() {
         enable enterprises to achieve faster time-to-market, reach their
         customers across any channel and uncover new areas of growth.
       </Paragraph>
-    </Box>
+    </div>
   )
 }
 

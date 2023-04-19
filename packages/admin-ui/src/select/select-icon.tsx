@@ -1,12 +1,9 @@
 import React from 'react'
 import type { IconProps } from '@vtex/phosphor-icons'
 
-import { Box } from '../box'
-
 export function SelectIcon(props: IconProps) {
   return (
-    <Box
-      as="svg"
+    <svg
       {...props}
       width="1.25rem"
       height="1.25rem"
@@ -28,6 +25,6 @@ export function SelectIcon(props: IconProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </Box>
+    </svg>
   )
 }

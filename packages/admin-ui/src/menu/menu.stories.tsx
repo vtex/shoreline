@@ -9,12 +9,10 @@ import {
 } from '@vtex/phosphor-icons'
 
 import { Stack } from '../stack'
-import { Box } from '../box'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
-import { Text } from '../components/Text'
-import { Button } from '../button'
 import { Flex } from '../flex'
-import { Heading } from '../components/Heading'
+import { Heading } from '../heading'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/menu',
@@ -183,16 +181,16 @@ export const Bleed = () => {
 
   return (
     <>
-      <Box
-        csx={{
+      <div
+        className={csx({
           padding: '$space-3 $space-4',
           bg: '$secondary',
-        }}
+        })}
       >
-        <Box
-          csx={{
+        <div
+          className={csx({
             bg: '$primary',
-          }}
+          })}
         >
           <Flex align="center" justify="space-between">
             <Heading>With bleed</Heading>
@@ -205,18 +203,18 @@ export const Bleed = () => {
               <MenuItem label="Delete" icon={<IconTrash />} critical />
             </Menu>
           </Flex>
-        </Box>
-      </Box>
-      <Box
-        csx={{
+        </div>
+      </div>
+      <div
+        className={csx({
           padding: '$space-3 $space-4',
           bg: '$secondary',
-        }}
+        })}
       >
-        <Box
-          csx={{
+        <div
+          className={csx({
             bg: '$primary',
-          }}
+          })}
         >
           <Flex align="center" justify="space-between">
             <Heading>Without bleed</Heading>
@@ -229,8 +227,8 @@ export const Bleed = () => {
               <MenuItem label="Delete" icon={<IconTrash />} critical />
             </Menu>
           </Flex>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </>
   )
 }

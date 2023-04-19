@@ -1,20 +1,15 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
 
 import { Stack } from '../stack'
 
-import { FormControlProvider } from './context'
-
 export function FormControl(props: FormGroupOptions) {
-  const { children, csx, ...remainingProps } = props
+  const { children, className } = props
 
   return (
-    <FormControlProvider {...remainingProps}>
-      <Stack space="$space-1" csx={csx}>
-        {children}
-      </Stack>
-    </FormControlProvider>
+    <Stack space="$space-1" className={className}>
+      {children}
+    </Stack>
   )
 }
 
@@ -24,7 +19,5 @@ export type FormControlProps = React.ComponentPropsWithoutRef<
 
 export interface FormGroupOptions {
   children?: ReactNode
-  error?: boolean
-  optional?: boolean
-  csx?: StyleProp
+  className?: string
 }

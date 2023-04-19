@@ -1,0 +1,5 @@
+{
+  "pagination": "{currentPage} от {total}",
+  "prevLabel": "Назад към предишната страница",
+  "nextLabel": "Напред към следващата страница"
+}

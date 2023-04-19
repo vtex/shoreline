@@ -1,4 +1,4 @@
-import type { Dispatch } from 'react'
+import type { HTMLAttributeAnchorTarget, Dispatch } from 'react'
 import { useCallback, useMemo, useReducer } from 'react'
 import invariant from 'tiny-invariant'
 
@@ -138,6 +138,9 @@ export type StatusAction =
   | {
       text: string
       href: string
+      type?: string
+      rel?: string
+      target?: HTMLAttributeAnchorTarget
       onClick?: () => void
     }
 

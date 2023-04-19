@@ -1,52 +1,67 @@
-import React from 'react'
-import type { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { useCheckboxState } from 'reakit/Checkbox'
-import { createComponent } from '@vtex/admin-ui-react'
-import { unstable_useId as useId } from 'reakit/Id'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { CheckboxState } from 'ariakit/checkbox'
+import { useCheckboxState } from 'ariakit/checkbox'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import { Inline } from '../inline'
+import type { SwitchButtonProps } from './switch-button'
 import { SwitchButton } from './switch-button'
 import { Stack } from '../stack'
-import { Label } from '../components/Label'
-import type { SwitchOptions } from './types'
+import { Label } from '../label'
 import { FormControl, FormControlMessage } from '../form-control'
 
-import * as style from './switch.style'
+import { labelTheme } from './switch.css'
 
-export const Switch = createComponent<typeof ReakitCheckbox, SwitchOptions>(
-  (props) => {
-    const {
-      id,
-      state,
-      helpText,
-      errorText,
-      label,
-      error,
-      disabled,
-      ...htmlProps
-    } = props
+export const Switch = forwardRef(function Switch(
+  props: SwitchProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const {
+    id: defaultId,
+    state,
+    helpText,
+    errorText,
+    label,
+    error,
+    disabled,
+    ...htmlProps
+  } = props
 
-    const { id: baseId } = useId({ id })
+  const id = useId(defaultId)
 
-    return (
-      <FormControl error={error}>
-        <Inline hSpace="$space-2" vSpace="">
-          <SwitchButton
-            id={baseId}
-            state={state}
-            disabled={disabled}
-            {...htmlProps}
+  return (
+    <FormControl>
+      <Inline hSpace="$space-2" vSpace="">
+        <SwitchButton
+          ref={ref}
+          id={id}
+          state={state}
+          disabled={disabled}
+          {...htmlProps}
+        />
+        <Stack space="$space-05">
+          <Label htmlFor={id} className={labelTheme}>
+            {label}
+          </Label>
+          <FormControlMessage
+            error={error}
+            helpText={helpText}
+            errorText={errorText}
           />
-          <Stack space="$space-05">
-            <Label htmlFor={baseId} csx={style.label}>
-              {label}
-            </Label>
-            <FormControlMessage helpText={helpText} errorText={errorText} />
-          </Stack>
-        </Inline>
-      </FormControl>
-    )
-  }
-)
+        </Stack>
+      </Inline>
+    </FormControl>
+  )
+})
+
+export type SwitchProps = SwitchButtonProps & {
+  label: ReactNode
+  helpText?: ReactNode
+  errorText?: ReactNode
+  error?: boolean
+}
+
+export type SwitchState = CheckboxState
 
 export { useCheckboxState as useSwitchState }

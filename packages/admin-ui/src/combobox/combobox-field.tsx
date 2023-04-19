@@ -1,13 +1,17 @@
-import React from 'react'
-import { createComponent, useElement, useSystem } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { Combobox, ComboboxCancel } from 'ariakit/combobox'
 import { IconXCircle } from '@vtex/phosphor-icons'
 
 import type { ComboboxState } from './combobox.state'
-import { FieldContainer, FloatingLabel } from '../components/Field'
-import { Button } from '../button'
-import { Box } from '../box'
-import * as style from './combobox.style'
+import {
+  buttonContainerTheme,
+  clearButtonTheme,
+  fieldContainerTheme,
+  fieldLabelTheme,
+  inputTheme,
+} from './combobox.css'
+import { IconContainer } from '../icons'
 
 const fixUp: any = {
   // Ariakit is trowing an error here for some reason
@@ -15,40 +19,33 @@ const fixUp: any = {
   placeholder: ' ',
 }
 
-export const ComboboxField = createComponent<'div', ComboboxFieldProps>(
-  (props) => {
+export const ComboboxField = forwardRef(
+  (props: ComboboxFieldProps, ref: Ref<HTMLDivElement>) => {
     const { state, label, id, ...htmlProps } = props
-    const { cn } = useSystem()
 
-    return useElement('div', {
-      ...htmlProps,
-      children: (
-        <FieldContainer csx={style.container}>
-          <Combobox
-            {...fixUp}
-            className={cn(style.input)}
-            id={id}
-            state={state}
-          />
-          <FloatingLabel htmlFor={id}>{label}</FloatingLabel>
+    return (
+      <div {...htmlProps} ref={ref}>
+        <div className={fieldContainerTheme}>
+          <Combobox {...fixUp} className={inputTheme} id={id} state={state} />
+          <label htmlFor={id} className={fieldLabelTheme}>
+            {label}
+          </label>
           {state.value !== '' && (
-            <Box csx={style.buttonContainer}>
-              <Button
-                variant="neutralTertiary"
-                as={ComboboxCancel as any}
-                state={state}
-                icon={<IconXCircle />}
-                csx={style.clearButton}
-              />
-            </Box>
+            <div className={buttonContainerTheme}>
+              <ComboboxCancel state={state} className={clearButtonTheme}>
+                <IconContainer size="regular">
+                  <IconXCircle />
+                </IconContainer>
+              </ComboboxCancel>
+            </div>
           )}
-        </FieldContainer>
-      ),
-    })
+        </div>
+      </div>
+    )
   }
 )
 
-interface ComboboxFieldProps {
+interface ComboboxFieldProps extends ComponentPropsWithoutRef<'div'> {
   id: string
   state: ComboboxState<any>
   label: string

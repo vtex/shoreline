@@ -18,7 +18,6 @@ export const Playground: Story<AlertProps> = (args) => {
 
 Playground.args = {
   children: 'Order successfully placed',
-  csx: {},
   onDismiss: undefined,
   action: { children: 'See order', onClick: () => alert('Order #123') },
 }

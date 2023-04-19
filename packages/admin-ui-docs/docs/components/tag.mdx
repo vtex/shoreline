@@ -45,8 +45,28 @@ export const tabToc = {
   ],
   designReference: [
     {
-      id: 'dos',
-      value: "Do's",
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
       level: 2,
     },
   ],
@@ -59,19 +79,14 @@ export const tabToc = {
 
 ## What is this?
 
-Tags represent a status, or a common denominator. They make sections and entities quickly identifiable and searchable.
-
+Tag indicators allow merchants to differentiate items through a read-only text value in a prominent container.
+<br /><br />
 </IntroSection>
-
-<PageSection
-  id={tabToc.overview[1].id}
-  title={tabToc.overview[1].value}
->
 
 <PageSection
   id={tabToc.overview[2].id}
   title={tabToc.overview[2].value}
-  explanation="By default, the variant property has the 'lightBlue' value, but you can also set it to the following values: 'red', 'orange', 'green', 'cyan', 'teal', 'gray', 'purple' and 'pink'."
+  explanation="By default, the variant property has the `lightBlue` value, but you can also set it to the following values: `red`, `orange`, `green`, `cyan`, `teal`, `gray`, `purple` and `pink`."
 >
 
 ```jsx live
@@ -93,7 +108,7 @@ Tags represent a status, or a common denominator. They make sections and entitie
 <PageSection
   id={tabToc.overview[3].id}
   title={tabToc.overview[3].value}
-  explanation="By default, the size property has a 'normal' value, but you can also set it to 'large'."
+  explanation="By default, the size property has a `normal` value, but you can also set it to `large`."
 >
 
 ```jsx live
@@ -103,7 +118,6 @@ Tags represent a status, or a common denominator. They make sections and entitie
 </Inline>
 ```
 
-</PageSection>
 </PageSection>
 </Panel>
 
@@ -145,12 +159,108 @@ function Example() {
   title={tabToc.designReference[0].value}
 >
 
-1. Use semantic colors that have a clear and contextualized meaning in your application, such as green for success and red for errors. However, if your application employs a richer palette with unambiguous usage of colors don't hesitate to use your Tags with them.
-2. They should always be read-only.
-
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+<details>
+  <summary><h4>When to use a Select Inline, a Switch or a Text instead of a Tag?</h4></summary>
+  <ul>
+    <li>Choose a Select Inline when there are more than two possible values and the merchant can alternate between them.</li>
+    <li>Choose a Switch when the value is the state of an item and there are two possible values that can be alternated.</li>
+    <li>Choose a Text when the value can't be edited, doesn't require prominence and isn't positioned next to another value.</li>
+  </ul>
+</details>
 
 </PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use each Tag color?</h4></summary>
+  <ul>
+    <li>Use <code>gray</code> for values that can't be classified, such as <em>Category page</em>, and for values that require less attention, such as <em>Archived</em>.</li>
+    <li>Use <code>lightBlue</code> for information about the system that doesn't require the merchant to act, such as <em>Indexing</em>.</li>
+    <li>Use <code>red</code> for values that require the merchant to act, such as <em>Error</em>, or for negative information, such as <em>Canceled</em>.</li>
+    <li>Use <code>orange</code> for values that reflect a pending action from the merchant unrelated to an error, such as <em>Draft</em>.</li>
+    <li>Use <code>green</code> for values that indicate that an item is matching or surpassing expectations, such as <em>Active</em>.</li>
+    <li>Use <code>cyan</code>, <code>teal</code>, <code>purple</code> or <code>pink</code> for values without a clear semantic that can benefit from visual prominence or that should be visually differentiated by the merchant, such as app categories.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When to use each Tag size?</h4></summary>
+  <ul>
+    <li>Use the normal Tag size next to <code>$body</code>, <code>$title1</code>, or <code>$title2</code> text.</li>
+    <li>Use the large Tag size next to <code>$pageTitle</code> or <code>$display</code> text.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position of a Tag in a container?</h4></summary>
+  <p>Consider the following recommendations:</p>
+  <ul>
+    <li>Position the Tag close to related information, such as a title or label.</li>
+    <li>Clear blank space around the Tag of at least <code>$space-3</code> horizontally and <code>$space-2</code> vertically.</li>
+    <li>Separate multiple Tags with <code>$space-3</code> when listed horizontally and <code>$space-2</code> when listed vertically.</li>
+    <li>In a Table, Tags should be one of the last columns, immediately before any column with Menu triggers.</li>
+    <li>In the header of a container, position the Tag on the right side of the title and left-aligned.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <ul>
+    <li>Don't apply bleed to the Tag. Prefer to position the Tag by its container.</li>
+    <li>Don't position the Tag on the top-right of a container. Prefer to position the Tag next to a title or label.</li>
+  </ul>
+</details>
+
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should happen when a Tag is hovered or clicked?</h4></summary>
+  <p>Nothing should happen, because the Tag should not be clickable, removable, or editable.</p>
+  <br />
+  <strong>What to avoid:</strong>
+  <p>Don't open a Tooltip when a Tag is hovered.</p>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the value of a Tag?</h4></summary>
+  <ul>
+    <li>Write the value of a property, such as <em>Active</em>, or a label, such as <em>Category page</em>.</li>
+    <li>Write as short and direct of a value as possible. For example, write <em>Pending payment</em> instead of <em>Waiting for payment</em>.</li>
+    <li>Use sentence case.</li>
+  </ul>
+  <br />
+  <strong>What to avoid:</strong>
+  <ul>
+    <li>Don't write text longer than 30 characters.</li>
+    <li>Don't use a label and a value at the same time. For example, write only <em>Active </em>instead of <em>Status: active</em>.</li>
+    <li>Don't use punctuation or separators.</li>
+  </ul>
+</details>
+
+</PageSection>
+
 </Panel>
 
 </Page>

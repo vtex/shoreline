@@ -4188,6 +4188,13 @@
     magic-string "^0.25.7"
     resolve "^1.17.0"
 
+"@rollup/plugin-json@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-json/-/plugin-json-6.0.0.tgz#199fea6670fd4dfb1f4932250569b14719db234a"
+  integrity sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.1"
+
 "@rollup/plugin-node-resolve@^13.3.0":
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-13.3.0.tgz#da1c5c5ce8316cef96a2f823d111c1e4e498801c"
@@ -4216,6 +4223,15 @@
     "@types/estree" "0.0.39"
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
+
+"@rollup/pluginutils@^5.0.1":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.0.2.tgz#012b8f53c71e4f6f9cb317e311df1404f56e7a33"
+  integrity sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
 
 "@sideway/address@^4.1.3":
   version "4.1.4"
@@ -5633,7 +5649,7 @@
     "@types/estree" "*"
     "@types/json-schema" "*"
 
-"@types/estree@*":
+"@types/estree@*", "@types/estree@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.0.tgz#5fb2e536c1ae9bf35366eed879e827fa59ca41c2"
   integrity sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==
@@ -5896,10 +5912,10 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react-helmet@^6.1.5":
-  version "6.1.5"
-  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.5.tgz#35f89a6b1646ee2bc342a33a9a6c8777933f9083"
-  integrity sha512-/ICuy7OHZxR0YCAZLNg9r7I9aijWUWvxaPR6uTuyxe8tAj5RL4Sw1+R6NhXUtOsarkGYPmaHdBDvuXh2DIN/uA==
+"@types/react-helmet@6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.6.tgz#7d1afd8cbf099616894e8240e9ef70e3c6d7506d"
+  integrity sha512-ZKcoOdW/Tg+kiUbkFCBtvDw0k3nD4HJ/h/B9yWxN4uDO8OkRksWTO+EL+z/Qu3aHTeTll3Ro0Cc/8UhwBCMG5A==
   dependencies:
     "@types/react" "*"
 
@@ -6934,18 +6950,26 @@ aria-query@^5.0.0:
   resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-5.0.0.tgz#210c21aaf469613ee8c9a62c7f86525e058db52c"
   integrity sha512-V+SM7AbUwJ+EBnB8+DXs0hPZHO0W6pqBcc0dW90OwtVG02PswOu/teuARoLQjdDOH+t9pJgGnW5/Qmouf3gPJg==
 
-ariakit-utils@0.17.0-next.25:
-  version "0.17.0-next.25"
-  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-next.25.tgz#711b2cb957e846edd755f5394ba3fb60295ba3a0"
-  integrity sha512-oeN1714mX0uF3hf0vYZm5a+dDEAosTXk7y5KNzx52ujKNDv2VJJVIu6ig3hLN1XWwMqqNIexyqpTjqg2ZnVDmw==
+ariakit-react-utils@0.17.0-next.27:
+  version "0.17.0-next.27"
+  resolved "https://registry.yarnpkg.com/ariakit-react-utils/-/ariakit-react-utils-0.17.0-next.27.tgz#6749587a659ec9806439fe28209d155aff19f20e"
+  integrity sha512-YyL3sEowwaw6r8wRjENB9S4Hjz/ppyv5nJNeFkb6xaEX/QYUYmqL+lQch50LW04vj9oa8RGHlY2SmyQX3d7g3w==
+  dependencies:
+    ariakit-utils "0.17.0-next.27"
 
-ariakit@2.0.0-next.39:
-  version "2.0.0-next.39"
-  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-next.39.tgz#c338038353f3647b3fc3c82a2e59eb30261078f0"
-  integrity sha512-yrhi28jv0FCfg89dJ90f458Jvs0zsaBYIKjjXXkftDZRhgSiRLO1nEB2Gme2b8kqPa7iwz5ZXfMFkjHuoJ9y0A==
+ariakit-utils@0.17.0-next.27:
+  version "0.17.0-next.27"
+  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-next.27.tgz#c9971d41526f5f8afa9e8ae7596d15ed22b2f977"
+  integrity sha512-IcjtuHl7FZP5mGrpvTSXqPUj+jRuIuBHlJAlxr3y4pxRgYpsYVpyZOClU3yrOoG7KUVApfmJjPOGWy00y+Gi+Q==
+
+ariakit@2.0.0-next.43:
+  version "2.0.0-next.43"
+  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-next.43.tgz#3da7410f72b9f61074cd62ac910a5e51729df7bd"
+  integrity sha512-CatNgIMyurefYTEvp8aF3aQQGR5m9bZxYQXuqyw/MKwxJ/aJ295SSSY5pXyTHbbsgDI28GOKFYa5pfUBvkd7cQ==
   dependencies:
     "@floating-ui/dom" "^1.0.0"
-    ariakit-utils "0.17.0-next.25"
+    ariakit-react-utils "0.17.0-next.27"
+    ariakit-utils "0.17.0-next.27"
 
 arr-diff@^4.0.0:
   version "4.0.0"
@@ -10614,7 +10638,7 @@ estree-walker@^1.0.1:
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
   integrity sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
 
-estree-walker@^2.0.1:
+estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
@@ -17437,7 +17461,12 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
-react-fast-compare@^3.1.1, react-fast-compare@^3.2.0:
+react-fast-compare@^3.1.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.1.tgz#53933d9e14f364281d6cba24bfed7a4afb808b5f"
+  integrity sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==
+
+react-fast-compare@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -17453,7 +17482,7 @@ react-helmet-async@*, react-helmet-async@^1.2.3:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-helmet@^6.1.0:
+react-helmet@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
   integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==

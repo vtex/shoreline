@@ -3,9 +3,10 @@ import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
 import { Button } from '../../button'
-import { Text } from '../../components/Text'
+import { Text } from '../../text'
 import { Inline } from '../../inline'
 import type { ToastProps } from '../types'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/toast',
@@ -96,13 +97,13 @@ export function Playground() {
               </>
             ),
             variant: 'positive',
-            csx: {
+            className: csx({
               maxHeight: 'auto',
               ':hover': {
                 background: '#C0E1D5',
                 cursor: 'pointer',
               },
-            },
+            }),
             onClick: () => alert('Hello world!'),
           }}
         />

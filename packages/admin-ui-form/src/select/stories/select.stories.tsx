@@ -1,6 +1,7 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box, Button, Stack } from '@vtex/admin-ui'
+import { Button, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { Select } from '../index'
@@ -17,7 +18,7 @@ export const Basic = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Select label="Role" name="role" state={form}>
@@ -28,12 +29,12 @@ export const Basic = () => {
             <option value="brazil">Brazil</option>
             <option value="usa">USA</option>
           </Select>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -41,7 +42,7 @@ export const Validation = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Select
@@ -55,11 +56,11 @@ export const Validation = () => {
             <option value="member">Member</option>
             <option value="owner">Owner</option>
           </Select>
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }

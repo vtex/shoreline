@@ -1,8 +1,7 @@
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import type { VariantProps } from '@vtex/admin-ui-core'
-
-import * as style from './skeleton.style'
+import { cx } from '@vtex/admin-ui-core'
+import type { Ref, ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
+import { skeletonTheme } from './skeleton.css'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.
@@ -19,18 +18,28 @@ import * as style from './skeleton.style'
  * }
  *
  */
-export const Skeleton = createComponent<'div', SkeletonOptions>((props) => {
-  const { shape = 'rect', ...restProps } = props
+export const Skeleton = forwardRef(function Skeleton(
+  props: SkeletonProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { shape = 'rect', className = '', ...htmlProps } = props
 
-  return useElement('div', {
-    ...restProps,
-    baseStyle: {
-      ...style.baseline,
-      ...style.variants({ shape }),
-    },
-  })
+  return (
+    <div
+      ref={ref}
+      data-shape={shape}
+      className={cx(skeletonTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
 
-export type SkeletonOptions = VariantProps<typeof style.variants>
+export type SkeletonShape = 'rect' | 'circle'
 
-export type SkeletonProps = ComponentPropsWithRef<typeof Skeleton>
+export type SkeletonProps = ComponentPropsWithoutRef<'div'> & {
+  /**
+   * Skeleton shape
+   * @default rect
+   */
+  shape?: SkeletonShape
+}

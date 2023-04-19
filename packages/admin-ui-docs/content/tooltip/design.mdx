@@ -1,29 +1,159 @@
-import { Section } from '@site/src/components/Section'
-import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { PageSection } from '@site/src/components/PageSection'
 
-<Section direction="row">
+export const tabToc = {
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
 
-## Best Practices
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-<OrderedList>
-  <OrderedListItem>
-    Use tooltips when you want to add a label to an specific icon.
-  </OrderedListItem>
-  <OrderedListItem>
-    Use tooltips when you want to add an informative text in situations where
-    more clarification may be needed.
-  </OrderedListItem>
-  <OrderedListItem>
-    Don't use long texts in tooltips, a reasonable character limit is 220.
-  </OrderedListItem>
-  <OrderedListItem>
-    The position where the tooltip appears can be set and its fallback position
-    too. By default the tooltip appears at the top and follows clockwise.
-  </OrderedListItem>
-  <OrderedListItem>
-    Prefere using hovers for tooltips to appear, instead of triggering them with
-    clicks.
-  </OrderedListItem>
-</OrderedList>
+<details>
+  <summary><h4>When to display instructions in an overlay, in the Page itself or in an external link?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose overlays (such as a Modal, a Tooltip or a Popover) for components that don't support inline instructions, such as the label in a Table column or the label of a Totalizer.</li>
+        <li>Also choose overlays for information that is important to understand the interface and can't be reduced, such as to explain how the data of a graph is collected.</li>
+        <li>Choose to add content in the Page itself (in a description or help text) when the instruction is short and doesn't affect the flow of the page. Consider that the instructions must follow each component's Content guidelines.</li>
+        <li>Choose an external link for extensive information that isn't essential for the flow of the page, such as to provide more details on a new concept or step-by-step instructions. For example, documentation explaining the concept of Core web vitals.</li>
+    </ul>
+  </div>
+</details>
 
-</Section>
+<details>
+  <summary><h4>When to use a Popover or a Modal instead of a Tooltip?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose a Popover when the instruction includes text longer than 240 characters or elements that have interaction, such as a Button or a Link.</li>
+        <li>Choose a Modal when the instruction requires full attention or is part of a Modal flow. For example, a confirmation modal or an onboarding Modal.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use the default Tooltip trigger or a custom trigger?</h4></summary>
+  <div>
+    <ul>
+        <li>In most cases, you should use the default Tooltip trigger with the question mark because it is known for representing instructions in the Admin.</li>
+        <li>When information is truncated according to the content guidelines of a component, a custom trigger can be used to expand it contextually.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't use a Tooltip to show the label of a Button with only an icon.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Where should the Tooltip open?</h4></summary>
+  <div>
+    <ul>
+        <li>The Tooltip opens on top of the trigger by default, but its placement is automatically adjusted according to the available space. </li>
+        <li>Adjust the preferred placement of the Tooltip so it doesn't hide important content around it.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>Where should a Tooltip trigger be positioned?</h4></summary>
+  <div>
+    On left-to-right interfaces, it should be positioned on the right of a label or title.
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <br /><br />
+    Don't position a Tooltip next to an element that isn't a descriptive Text. For example, don't place it on the right side of a Text Input. Place it next to its label instead.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a Tooltip open?</h4></summary>
+  <div>
+    A Tooltip should always open on hover. If the content includes elements that have interaction, use a Popover that opens on click instead.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the content of a Tooltip?</h4></summary>
+  <div>
+    <ul>
+        <li>Write the Tooltip text as if you are answering the following question: <em>What does this mean?</em>
+        <br />
+        For example, for a <em>Sessions</em> Totalizer, the Tooltip text can be <em>Visits to the store that can include a series of user interactions and end after 30 minutes of inactivity</em>.</li>
+        <li>Start with a noun followed by additional information, such as conditions and definitions.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+        <li>Prefer using a single sentence that is short and direct.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't write text longer than 240 characters.</li>
+        <li>Don't repeat the label.</li>
+        <li>Don't explain the benefits of the content, only its meaning.</li>
+        <li>Don't use periods.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>

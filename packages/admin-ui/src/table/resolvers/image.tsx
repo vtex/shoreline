@@ -2,31 +2,25 @@ import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
 import { Tooltip, TooltipReference, useTooltipState } from 'reakit/Tooltip'
 import invariant from 'tiny-invariant'
-import type { StyleObject, Theme } from '@vtex/admin-ui-core'
-import { style, focusVisible } from '@vtex/admin-ui-core'
-import { useSystem } from '@vtex/admin-ui-react'
-import { get } from '@vtex/admin-ui-util'
+import { csx } from '@vtex/admin-ui-core'
 
 import type { ResolverContext, ResolverRenderProps } from './resolver-core'
 import { createResolver, defaultRender } from './resolver-core'
 import { Skeleton } from '../../skeleton'
-import { Stack } from '../../stack'
+import { Flex } from '../../flex'
+import {
+  imageTheme,
+  imageSkeletonTheme,
+  imagePreviewTheme,
+  imagePreviewTooltipStyle,
+  imagePreviewTooltipTheme,
+} from './resolvers.css'
 
 const defaultPreview: ImagePreview = {
   display: true,
   delay: 0,
   size: 'regular',
 }
-
-const imageStyles = style({
-  size: '2.75rem',
-  minSize: '2.75rem',
-  verticalAlign: 'middle',
-  borderRadius: '$base',
-  outlineColor: (theme: Theme) => get(theme, 'bg.primary', 'bg.primary'),
-  outlineWidth: '0.125rem',
-  outlineStyle: 'solid',
-})
 
 /**
  * Resolve image fields
@@ -36,10 +30,9 @@ export function imageResolver<T>() {
   return createResolver<T, 'image', ImageResolver<T>>({
     cell: function ImageResolver({ getData, item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ height: 24 }} />
+        return <Skeleton className={csx({ height: '1.5rem' })} />
       }
 
-      const { cn } = useSystem()
       const url = getData()
       const { resolver } = column
 
@@ -60,16 +53,11 @@ export function imageResolver<T>() {
           />
         ) : (
           <ImageContainer>
-            <img alt={resolver.alt} className={cn(imageStyles)} src={url} />
+            <img alt={resolver.alt} className={imageTheme} src={url} />
           </ImageContainer>
         )
       ) : (
-        <Skeleton
-          csx={{
-            ...imageStyles,
-            animation: '',
-          }}
-        />
+        <Skeleton className={imageSkeletonTheme} />
       )
 
       const render = resolver.render ?? defaultRender
@@ -81,9 +69,9 @@ export function imageResolver<T>() {
 
 function ImageContainer(props: ImageContainerProps) {
   return (
-    <Stack csx={{ height: '4rem', justifyContent: 'center' }}>
+    <Flex align="center" className={csx({ height: '4rem' })}>
       {props.children}
-    </Stack>
+    </Flex>
   )
 }
 
@@ -94,8 +82,6 @@ function ImageContainer(props: ImageContainerProps) {
  */
 function ImageWithPreview(props: PreviewComponentProps) {
   const { url, preview, alt } = props
-
-  const { cn } = useSystem()
 
   const tooltip = useTooltipState({
     placement: 'right',
@@ -111,10 +97,8 @@ function ImageWithPreview(props: PreviewComponentProps) {
             <img
               {...referenceProps}
               alt={alt}
-              className={cn({
-                ...imageStyles,
-                ...focusVisible('main'),
-              })}
+              data-image-preview
+              className={imageTheme}
               src={url}
             />
           </ImageContainer>
@@ -122,52 +106,14 @@ function ImageWithPreview(props: PreviewComponentProps) {
       </TooltipReference>
       <Tooltip
         {...tooltip}
-        className={cn({
-          display: 'flex',
-          outline: 'none',
-          paddingY: '$space-2',
-          paddingX: '$space-2',
-          transition: `opacity 100ms ease-in ${preview.delay}ms`,
-          willChange: 'opacity',
-          opacity: 0,
-          boxShadow: '$overlay.center',
-          borderRadius: '$base',
-          background: '$primary',
-          zIndex: 999,
-          img: {
-            borderRadius: '$base',
-            willChange: 'transform',
-            transformOrigin: 'right center',
-            transition: `transform 100ms ease-in ${preview.delay}ms`,
-            transform: 'scale(0.6)',
-          },
-          '&[data-enter]': {
-            opacity: 1,
-            img: {
-              transform: 'scale(1)',
-            },
-          },
-        })}
+        style={imagePreviewTooltipStyle(preview.delay) as any}
+        className={imagePreviewTooltipTheme}
         aria-label={`${alt} large`}
       >
         <img
           alt={`${alt} large`}
-          className={cn(
-            {
-              small: {
-                size: 56,
-                minSize: 56,
-              },
-              regular: {
-                size: 156,
-                minSize: 156,
-              },
-              large: {
-                size: 256,
-                minSize: 256,
-              },
-            }[preview.size] as StyleObject
-          )}
+          data-size={preview.size}
+          className={imagePreviewTheme}
           src={url}
         />
       </Tooltip>

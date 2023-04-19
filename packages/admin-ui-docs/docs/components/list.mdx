@@ -1,7 +1,9 @@
 ---
-title: List
+title: List (deprecated)
 path: /list/
 ---
+
+This component is deprecated. Use the `<ul> / <ol>` elements to replace it.
 
 `<List>` renders a `<ul>` element by default with reset styles.
 
@@ -13,7 +15,7 @@ import { List, ListProps } from '@vtex/admin-ui'
 
 ## Behavior
 
-```jsx live
+```jsx
 <List>
   <List.Item>Coffee</List.Item>
   <List>
@@ -29,7 +31,7 @@ import { List, ListProps } from '@vtex/admin-ui'
 
 ### Ordered
 
-```jsx live
+```jsx
 <List as="ol">
   <List.Item>Coffee</List.Item>
   <List.Item>Juice</List.Item>
@@ -47,9 +49,9 @@ You can use the `csx` property to handle different styles.
 
 ### Example
 
-```jsx live
+```jsx
 <List style="square">
-  <List.Item csx={{ bg: 'muted', color: 'muted' }}>Coffe</List.Item>
+  <List.Item className={csx({ bg: 'muted', color: 'muted' })}>Coffe</List.Item>
   <List>
     <List.Item>Arabica</List.Item>
     <List.Item>Robusta</List.Item>

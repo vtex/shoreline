@@ -1,6 +1,7 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-
-import * as styles from './data-view.styles'
+import { cx } from '@vtex/admin-ui-core'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { headerActionsTheme } from './data-view.css'
 
 /**
  * Organizes the DataView actions
@@ -16,9 +17,19 @@ import * as styles from './data-view.styles'
  *    </DataViewHeader>
  * </DataView>
  */
-export const DataViewActions = createComponent<'div'>((props) => {
-  return useElement('div', {
-    ...props,
-    baseStyle: styles.headerActions,
-  })
+export const DataViewActions = forwardRef(function DataViewActions(
+  props: DataViewActionsProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { className = '', ...htmlProps } = props
+
+  return (
+    <div
+      ref={ref}
+      className={cx(headerActionsTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
+
+export type DataViewActionsProps = ComponentPropsWithoutRef<'div'>

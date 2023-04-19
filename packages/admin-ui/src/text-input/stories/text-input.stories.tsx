@@ -5,6 +5,7 @@ import { Stack } from '../../stack'
 import { TextInput } from '../text-input'
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { Button } from '../../button'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/text-input',
@@ -12,7 +13,11 @@ export default {
 
 export const Uncontrolled = () => {
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
+    <Stack
+      space="$space-2"
+      className={csx({ padding: '$space-2 $space-3' })}
+      fluid
+    >
       <TextInput label="Uncontrolled" />
     </Stack>
   )
@@ -22,7 +27,11 @@ export const Controlled = () => {
   const [value, setValue] = useState<string>('')
 
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
+    <Stack
+      space="$space-2"
+      className={csx({ padding: '$space-2 $space-3' })}
+      fluid
+    >
       <TextInput
         label="Controlled"
         value={value}
@@ -35,7 +44,11 @@ export const Controlled = () => {
 
 export const Terms = () => {
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
+    <Stack
+      space="$space-2"
+      className={csx({ padding: '$space-2 $space-3' })}
+      fluid
+    >
       <TextInput label="URL" prefix="https://" />
       <TextInput label="URL" suffix=".com.br" />
       <TextInput label="URL" prefix="https://" suffix=".com.br" />
@@ -54,7 +67,11 @@ export const Terms = () => {
 
 export const UIStates = () => {
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
+    <Stack
+      space="$space-2"
+      className={csx({ padding: '$space-2 $space-3' })}
+      fluid
+    >
       <TextInput label="Without error" />
       <TextInput
         label="With Error"
@@ -79,7 +96,11 @@ export const ForwardRef = () => {
   }, [])
 
   return (
-    <Stack space="$space-2" csx={{ padding: '$space-2 $space-3' }} fluid>
+    <Stack
+      space="$space-2"
+      className={csx({ padding: '$space-2 $space-3' })}
+      fluid
+    >
       <TextInput ref={ref} />
     </Stack>
   )

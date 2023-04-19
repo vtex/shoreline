@@ -22,12 +22,11 @@ A good usage example is the Search component, which we implement something simil
     alert('submitted')
   }}
 >
-  <Box
-    as="input"
+  <input
     id="search"
     type="search"
     placeholder="A11y Search Input"
-    csx={{ border: '$neutral' }}
+    className={csx({ border: '$neutral' })}
   />
   <VisuallyHidden>
     <button type="submit" tabIndex={-1}>

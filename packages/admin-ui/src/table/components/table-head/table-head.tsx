@@ -1,22 +1,19 @@
-import type { StyleProp } from '@vtex/admin-ui-core'
+import { cx } from '@vtex/admin-ui-core'
 import React, { memo } from 'react'
-import { Box } from '../../../box'
-import * as styles from '../styles/table-head.styles'
+import { tableHeadRowTheme, tableHeadTheme } from '../styles/table-head.css'
 
 function TableHead(props: TableHeadProps) {
-  const { children, ...headProps } = props
+  const { children, className = '', ...headProps } = props
 
   return (
-    <Box as="thead" csx={styles.baseline} role="rowgroup" {...headProps}>
-      <Box as="tr" csx={styles.rowBaseline} role="row">
+    <thead className={cx(tableHeadTheme, className)} {...headProps}>
+      <tr className={tableHeadRowTheme} role="row">
         {children}
-      </Box>
-    </Box>
+      </tr>
+    </thead>
   )
 }
 
-export type TableHeadProps = React.ComponentPropsWithoutRef<'thead'> & {
-  csx?: StyleProp
-}
+export type TableHeadProps = React.ComponentPropsWithoutRef<'thead'>
 
 export const THead = memo(TableHead) as typeof TableHead

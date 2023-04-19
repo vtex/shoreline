@@ -23,12 +23,12 @@ import { Label } from '@vtex/admin-ui'
 
 ## Customization
 
-You can use the `csx` property to handle different styles.
+You can use the `className` property to handle different styles.
 
 ### Example
 
 ```jsx live
-<Label csx={{ display: 'flex', alignItems: 'center' }}>
+<Label className={csx({ display: 'flex', alignItems: 'center' })}>
   <Toggle state={{ checked: true }} />
   Toggle Label!
 </Label>

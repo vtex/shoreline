@@ -2,15 +2,12 @@
 title: Pagination
 path: /pagination/
 hide_table_of_contents: true
-
 ---
-
 
 import { Page, Panel } from '@site/src/components/Page'
 import { IntroSection } from '@site/src/components/IntroSection'
 import { PageSection } from '@site/src/components/PageSection'
-import Admonition from '@theme/Admonition';
-
+import Admonition from '@theme/Admonition'
 
 export const tabToc = {
   overview: [
@@ -38,7 +35,7 @@ export const tabToc = {
       id: 'internationalization',
       value: 'Internationalization',
       level: 2,
-    }
+    },
   ],
   codeReference: [
     {
@@ -83,7 +80,7 @@ export const tabToc = {
       value: 'Components',
       level: 2,
     },
-        {
+    {
       id: 'position',
       value: 'Position',
       level: 2,
@@ -92,8 +89,8 @@ export const tabToc = {
       id: 'behavior',
       value: 'Behavior',
       level: 2,
-    }
-  ]
+    },
+  ],
 }
 
 <Page toc={tabToc} hasTabs>
@@ -102,12 +99,14 @@ export const tabToc = {
 
 <IntroSection>
 
-  ## What is this?
+## What is this?
 
-  Pagination triggers allow merchants to view the size of a list and navigate between pages.
+Pagination triggers allow merchants to view the size of a list and navigate between pages.
 
-  <br />
-  <br />
+{' '}
+
+<br />
+<br />
 
 </IntroSection>
 
@@ -116,17 +115,18 @@ export const tabToc = {
   title={tabToc.overview[1].value}
 >
 
-  ```jsx live
-  function Example() {
-    const state = usePaginationState({ pageSize: 5, total: 35 })
+```jsx live
+function Example() {
+  const state = usePaginationState({ pageSize: 5, total: 35 })
 
-    return (
-      <Flex justify="end">
-        <Pagination state={state} loading />
-      </Flex>
-    )
-  }
-  ```
+  return (
+    <Flex justify="end">
+      <Pagination state={state} loading />
+    </Flex>
+  )
+}
+```
+
 </PageSection>
 
 <PageSection
@@ -134,27 +134,30 @@ export const tabToc = {
   title={tabToc.overview[2].value}
 >
 
-  You can persist the pagination state within the browser's query params using the `useQueryPaginationState` hook, instead of `usePaginationState`. Both hooks are used in the same way. The application should be wrapped by `QueryStateProvider`.
-  <br />
-  Watch how your url changes.  <br />  <br />
+You can persist the pagination state within the browser's query params using the `useQueryPaginationState` hook, instead of `usePaginationState`. Both hooks are used in the same way. The application should be wrapped by `QueryStateProvider`.
 
-  ```jsx live
-  function Example() {
-    const Content = () => {
-      const state = useQueryPaginationState({ pageSize: 5, total: 35 })
+{' '}
 
-      return <Pagination state={state} />
-    }
+<br />
+Watch how your url changes. <br /> <br />
 
-    return (
-      <QueryStateProvider>
-        <Flex justify="end">
-          <Content />
-        </Flex>
-      </QueryStateProvider>
-    )
+```jsx live
+function Example() {
+  const Content = () => {
+    const state = useQueryPaginationState({ pageSize: 5, total: 35 })
+
+    return <Pagination state={state} />
   }
-  ```
+
+  return (
+    <QueryStateProvider>
+      <Flex justify="end">
+        <Content />
+      </Flex>
+    </QueryStateProvider>
+  )
+}
+```
 
 </PageSection>
 
@@ -163,34 +166,38 @@ export const tabToc = {
   title={tabToc.overview[3].value}
 >
 
-  ```jsx live
-  function Example() {
-    const state = usePaginationState({ pageSize: 5, total: 35 })
+```jsx live
+function Example() {
+  const state = usePaginationState({ pageSize: 5, total: 35 })
 
-    const { paginate } = state
+  const { paginate } = state
 
-    return (
-      <Flex justify="space-between">
-        <Inline>
-          <Button onClick={() => paginate({ type: 'navigate', page: 3 })}>
-            Navigate
-          </Button>
-          <Button onClick={() => paginate({ type: 'prev' })}>Previous</Button>
-          <Button onClick={() => paginate({ type: 'next' })}>Next</Button>
-          <Button onClick={() => paginate({ type: 'reset' })}>Reset</Button>
-          <Button onClick={() => paginate({ type: 'setTotal', total: 100 })}>
-            Set total
-          </Button>
-        </Inline>
-        <Pagination state={state} />
-      </Flex>
-    )
-  }
-  ```
+  return (
+    <Flex justify="space-between">
+      <Inline>
+        <Button onClick={() => paginate({ type: 'navigate', page: 3 })}>
+          Navigate
+        </Button>
+        <Button onClick={() => paginate({ type: 'prev' })}>Previous</Button>
+        <Button onClick={() => paginate({ type: 'next' })}>Next</Button>
+        <Button onClick={() => paginate({ type: 'reset' })}>Reset</Button>
+        <Button onClick={() => paginate({ type: 'setTotal', total: 100 })}>
+          Set total
+        </Button>
+      </Inline>
+      <Pagination state={state} />
+    </Flex>
+  )
+}
+```
 
-  <Admonition type="caution">
+{' '}
+
+<Admonition type="caution">
   <p>
-    Be careful when using the <code>setTotal</code> action, because if you set the total to a smaller value it may lead your current page to an invalid one.
+    Be careful when using the <code>setTotal</code> action, because if you set
+    the total to a smaller value it may lead your current page to an invalid
+    one.
   </p>
 </Admonition>
 
@@ -201,20 +208,20 @@ export const tabToc = {
   title={tabToc.overview[4].value}
 >
 
-  ```jsx live
-  function Example() {
-    const state = usePaginationState({ pageSize: 5, total: 35 })
-    const I18nProvider = experimental_I18nProvider
+```jsx live
+function Example() {
+  const state = usePaginationState({ pageSize: 5, total: 35 })
+  const I18nProvider = experimental_I18nProvider
 
-    return (
-      <I18nProvider locale="pt-BR">
-        <Flex justify="end">
-          <Pagination state={state} />
-        </Flex>
-      </I18nProvider>
-    )
-  }
-  ```
+  return (
+    <I18nProvider locale="pt-BR">
+      <Flex justify="end">
+        <Pagination state={state} />
+      </Flex>
+    </I18nProvider>
+  )
+}
+```
 
 </PageSection>
 
@@ -227,15 +234,15 @@ export const tabToc = {
   title={tabToc.codeReference[0].value}
 >
 
-  ```jsx
-  import { Pagination, usePaginationState } from '@vtex/admin-ui'
+```jsx
+import { Pagination, usePaginationState } from '@vtex/admin-ui'
 
-  function Example() {
-    const state = usePaginationState({ pageSize: 5, total: 35 })
+function Example() {
+  const state = usePaginationState({ pageSize: 5, total: 35 })
 
-    return <Pagination state={state} />
-  }
-  ```
+  return <Pagination state={state} />
+}
+```
 
 </PageSection>
 
@@ -244,10 +251,10 @@ export const tabToc = {
   title={tabToc.codeReference[1].value}
 >
 
-  | Name    | Type                  | Description                         | Required | Default |
-  | ------- | --------------------- | ----------------------------------- | -------- | ------- |
-  | state   | `UsePaginationReturn` | Component State                     | ✅       | -       |
-  | loading | `boolean`             | Whether the table is loading or not | 🚫       | `false` |
+| Name    | Type                  | Description                         | Required | Default |
+| ------- | --------------------- | ----------------------------------- | -------- | ------- |
+| state   | `UsePaginationReturn` | Component State                     | ✅       | -       |
+| loading | `boolean`             | Whether the table is loading or not | 🚫       | `false` |
 
 </PageSection>
 
@@ -256,7 +263,7 @@ export const tabToc = {
   title={tabToc.codeReference[2].value}
 >
 
-  The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` represents the current page as the name says, and the `range` is an array that contains two numbers with the first and the last items positions of the current page.
+The pagination state object is composed of the `currentPage` prop and the `range` prop. The `currentPage` represents the current page as the name says, and the `range` is an array that contains two numbers with the first and the last items positions of the current page.
 
 </PageSection>
 
@@ -266,12 +273,14 @@ export const tabToc = {
   level="3"
 >
 
-  | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
-  | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
-  | pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
-  | total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
-  | stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
-  | initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | `1`                                  |
+| Name         | Type                                                                    | Description                                                                        | Required | Default                              |
+| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
+| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
+| initialPage  | `number`                                                                | The initial state of pagination                                                    | 🚫       | `1`                                  |
+| onNextPage   | `() => void`                                                            | Function called when the next page button is triggered                             | 🚫       | -                                    |
+| onPrevPage   | `() => void`                                                            | Function called when the previous page button is triggered                         | 🚫       | -                                    |
 
 </PageSection>
 
@@ -281,14 +290,15 @@ export const tabToc = {
   level="3"
 >
 
-  | Name         | Type                                                                    | Description                                                                        | Required | Default                              |
-  | ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
-  | pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
-  | total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
-  | stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
+| Name         | Type                                                                    | Description                                                                        | Required | Default                              |
+| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ------------------------------------ |
+| pageSize     | `number`                                                                | Amount of items that will be displayed in a page                                   | ✅       | -                                    |
+| total        | `number`                                                                | Total amount of items in a collection                                              | 🚫       | `pageSize value`                     |
+| stateReducer | `(state: PaginationState, action: PaginationAction) => PaginationState` | Optional way to provide a function to be used inside usePagination hook useReducer | 🚫       | `usePagination hook default reducer` |
+| onNextPage   | `() => void`                                                            | Function called when the next page button is triggered                             | 🚫       | -                                    |
+| onPrevPage   | `() => void`                                                            | Function called when the previous page button is triggered                         | 🚫       | -                                    |
 
 </PageSection>
-
 
 <PageSection
   id={tabToc.codeReference[5].id}
@@ -296,17 +306,19 @@ export const tabToc = {
   level="3"
 >
 
-  This represents the type of the props returned by both `usePaginationState` and `useQueryPaginationState`. <br /> <br />
+This represents the type of the props returned by both `usePaginationState` and `useQueryPaginationState`. <br /> <br />
 
-  | Name          | Type                                   | Description                                                         | Required | Default |
-  | ------------- | -------------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
-  | numberOfPages | `number`                               | The total number of pages                                           | ✅       | -       |
-  | currentPage   | `number`                               | The current page state                                              | ✅       | -       |
-  | range         | `[number, number]`                     | It represents the positions of the first and last items in the page | ✅       | -       |
-  | total         | `number`                               | It represents the total number of items                             | ✅       | -       |
-  | prevDisabled  | `boolean`                              | Whether the navigation to the previous page is disabled or not      | ✅       | -       |
-  | nextDisabled  | `boolean`                              | Whether the navigation to the next page is disabled or not          | ✅       | -       |
-  | paginate      | `(args: PaginationActionType) => void` | The initial state of pagination                                     | ✅       | -       |
+| Name          | Type                                   | Description                                                         | Required | Default |
+| ------------- | -------------------------------------- | ------------------------------------------------------------------- | -------- | ------- |
+| numberOfPages | `number`                               | The total number of pages                                           | ✅       | -       |
+| currentPage   | `number`                               | The current page state                                              | ✅       | -       |
+| range         | `[number, number]`                     | It represents the positions of the first and last items in the page | ✅       | -       |
+| total         | `number`                               | It represents the total number of items                             | ✅       | -       |
+| prevDisabled  | `boolean`                              | Whether the navigation to the previous page is disabled or not      | ✅       | -       |
+| nextDisabled  | `boolean`                              | Whether the navigation to the next page is disabled or not          | ✅       | -       |
+| paginate      | `(args: PaginationActionType) => void` | The initial state of pagination                                     | ✅       | -       |
+| onNextPage    | `() => void`                           | Function called when the next page button is triggered              | 🚫       | -       |
+| onPrevPage    | `() => void`                           | Function called when the previous page button is triggered          | 🚫       | -       |
 
 </PageSection>
 
@@ -316,20 +328,20 @@ export const tabToc = {
   level="3"
 >
 
-  ```ts
-  export type PaginationActionType =
-    | {
-        type: 'next' | 'prev' | 'reset'
-      }
-    | {
-        type: 'setTotal'
-        total: number
-      }
-    | {
-        type: 'navigate'
-        page: number
-      }
-  ```
+```ts
+export type PaginationActionType =
+  | {
+      type: 'next' | 'prev' | 'reset'
+    }
+  | {
+      type: 'setTotal'
+      total: number
+    }
+  | {
+      type: 'navigate'
+      page: number
+    }
+```
 
 </PageSection>
 
@@ -343,9 +355,12 @@ export const tabToc = {
 >
 
 <details>
-  <summary><h4>When to use the Pagination component or infinite scroll?</h4></summary>
+  <summary>
+    <h4>When to use the Pagination component or infinite scroll?</h4>
+  </summary>
   <div>
-    Use Pagination when a list can have more than 25 results. Infinite scroll is not recommended in any scenario.
+    Use Pagination when a list can have more than 25 results. Infinite scroll is
+    not recommended in any scenario.
   </div>
 </details>
 
@@ -357,21 +372,30 @@ export const tabToc = {
 >
 
 <details>
-  <summary><h4>Where should Pagination be positioned in a container?</h4></summary>
+  <summary>
+    <h4>Where should Pagination be positioned in a container?</h4>
+  </summary>
   <div>
     Considering left-to-right interfaces, follow these recommendations:
     <ul>
-        <li>Pagination should always be in the top right of a container.</li>
-        <li>If the list has a vertical scroll, the Pagination should also be in the bottom right.</li>
-        <li>Use the <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> component to correctly position the Pagination.</li>
+      <li>Pagination should always be in the top right of a container.</li>
+      <li>
+        If the list has a vertical scroll, the Pagination should also be in the
+        bottom right.
+      </li>
+      <li>
+        Use the{' '}
+        <a href="https://admin-ui.vercel.app/components/data-view">DataView</a>{' '}
+        component to correctly position the Pagination.
+      </li>
     </ul>
   </div>
   <br />
   <div>
     <strong>What to avoid:</strong>
-      <ul>
-        <li>Don’t position the Pagination in the header of a container.</li>
-      </ul>
+    <ul>
+      <li>Don’t position the Pagination in the header of a container.</li>
+    </ul>
   </div>
 </details>
 
@@ -383,58 +407,89 @@ export const tabToc = {
 >
 
 <details>
-  <summary><h4>How many items should be shown per page of a list?</h4></summary>
+  <summary>
+    <h4>How many items should be shown per page of a list?</h4>
+  </summary>
   <div>
     <ul>
-        <li>The standard is to show 25 items per page of a list.</li>
-        <li>When the list is inside a container where vertical scroll should be avoided, such as a Modal or a Card, limit the amount of items accordingly.</li>
+      <li>The standard is to show 25 items per page of a list.</li>
+      <li>
+        When the list is inside a container where vertical scroll should be
+        avoided, such as a Modal or a Card, limit the amount of items
+        accordingly.
+      </li>
     </ul>
   </div>
   <br />
   <div>
     <strong>What to avoid:</strong>
-      <ul>
-        <li>Don’t allow merchants to customize the number of results per page.</li>
-      </ul>
+    <ul>
+      <li>
+        Don’t allow merchants to customize the number of results per page.
+      </li>
+    </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>When to show a loading Pagination?</h4></summary>
+  <summary>
+    <h4>When to show a loading Pagination?</h4>
+  </summary>
   <div>
-    When the list is loading, since the number of results is not loaded and the user can’t navigate between pages yet.
+    When the list is loading, since the number of results is not loaded and the
+    user can’t navigate between pages yet.
   </div>
 </details>
 
 <details>
-  <summary><h4>When should the items in a list be updated?</h4></summary>
+  <summary>
+    <h4>When should the items in a list be updated?</h4>
+  </summary>
   <div>
     <ul>
-        <li>Only show new items when the user explicitly triggers an action to update the results, such as the <em>Refresh</em> button in the web browser.</li>
-        <li>When the user has just created an item and returns to the listing page, they should go to the first page with updated results.</li>
-        <li>When the user has just edited an item and returns to the listing page, they should see a list with the same items as before, but with the edited item updated.</li>
+      <li>
+        Only show new items when the user explicitly triggers an action to
+        update the results, such as the <em>Refresh</em> button in the web
+        browser.
+      </li>
+      <li>
+        When the user has just created an item and returns to the listing page,
+        they should go to the first page with updated results.
+      </li>
+      <li>
+        When the user has just edited an item and returns to the listing page,
+        they should see a list with the same items as before, but with the
+        edited item updated.
+      </li>
     </ul>
   </div>
   <br />
   <div>
     <strong>What to avoid:</strong>
-      <ul>
-        <li>Don’t update the number of results while the merchant is navigating between pages.</li>
-      </ul>
+    <ul>
+      <li>
+        Don’t update the number of results while the merchant is navigating
+        between pages.
+      </li>
+    </ul>
   </div>
 </details>
 
 <details>
-  <summary><h4>When should the current state of a list be stored in the URL?</h4></summary>
+  <summary>
+    <h4>When should the current state of a list be stored in the URL?</h4>
+  </summary>
   <div>
-    The complete search query, which includes the filters, the current page and the search terms, should be reflected in the URL. This allows the merchant to easily return to the customized view and easily share it.
+    The complete search query, which includes the filters, the current page and
+    the search terms, should be reflected in the URL. This allows the merchant
+    to easily return to the customized view and easily share it.
   </div>
   <br />
   <div>
     <strong>What to avoid:</strong>
-      <ul>
-        <li>Don’t use local storage or cookies to store the query.</li>
-      </ul>
+    <ul>
+      <li>Don’t use local storage or cookies to store the query.</li>
+    </ul>
   </div>
 </details>
 

@@ -8,6 +8,7 @@ import {
   DataViewActions,
 } from '../index'
 import { Flex } from '../../flex'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/data-view',
@@ -51,7 +52,7 @@ export function UITests() {
     <div>
       <DataView state={ready}>
         <DataViewHeader>
-          <Flex justify="space-between" csx={{ width: '100%' }}>
+          <Flex justify="space-between" className={csx({ width: '100%' })}>
             <input placeholder="search" />
 
             <DataViewActions>
@@ -68,7 +69,7 @@ export function UITests() {
         <Flex
           justify="center"
           align="center"
-          csx={{ height: 300, bg: '#F4F4F4', width: '100%' }}
+          className={csx({ height: 300, bg: '#F4F4F4', width: '100%' })}
         >
           content
         </Flex>

@@ -18,13 +18,13 @@ Columns fits the space with equal widths when the quantity of `units` aren't spe
 ```jsx live
 <Columns>
   <Column>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>6 units</div>
   </Column>
   <Column>
-    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('teal'), padding: 2 })}>6 units</div>
   </Column>
   <Column>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>6 units</div>
   </Column>
 </Columns>
 ```
@@ -38,13 +38,13 @@ Columns fits the space with equal widths when the quantity of `units` aren't spe
 ```jsx live
 <Columns space="$l">
   <Column>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>6 units</div>
   </Column>
   <Column>
-    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('teal'), padding: 2 })}>6 units</div>
   </Column>
   <Column>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>6 units</div>
   </Column>
 </Columns>
 ```
@@ -60,13 +60,13 @@ All columns are of equal width by default, but you can also customise the width 
 ```jsx live
 <Columns spacing={1}>
   <Column units={3}>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>3 units</div>
   </Column>
   <Column units={6}>
-    <Box csx={{ ...palette('teal'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('teal'), padding: 2 })}>6 units</div>
   </Column>
   <Column units={3}>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>3 units</div>
   </Column>
 </Columns>
 ```
@@ -82,13 +82,13 @@ It is possible to define offsets between columns.
 ```jsx live
 <Columns space="0">
   <Column units={3}>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>3 units</div>
   </Column>
   <Column offset="both" units={3}>
-    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('teal'), padding: 2 })}>3 units</div>
   </Column>
   <Column units={3}>
-    <Box csx={{ ...palette('purple'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>3 units</div>
   </Column>
 </Columns>
 ```
@@ -107,10 +107,10 @@ To make it easy applying columns layouts, all props provided by `Columns` are [R
     units={{ mobile: 12, tablet: 6 }}
     offset={{ mobile: 'none', tablet: 'right' }}
   >
-    <Box csx={{ ...palette('purple'), padding: 2 }}>6 units</Box>
+    <div className={csx({ ...palette('purple'), padding: 2 })}>6 units</div>
   </Column>
   <Column units={{ mobile: 12, tablet: 3 }}>
-    <Box csx={{ ...palette('teal'), padding: 2 }}>3 units</Box>
+    <div className={csx({ ...palette('teal'), padding: 2 })}>3 units</div>
   </Column>
 </Columns>
 ```

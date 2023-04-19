@@ -8,6 +8,7 @@ import { Flex, FlexSpacer } from '../../flex'
 import { IconPlus } from '@vtex/phosphor-icons'
 import { Pagination, usePaginationState } from '../../pagination'
 import { Stack } from '../../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/data-view',
@@ -38,7 +39,7 @@ export function Actions() {
   return (
     <Stack>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <FlexSpacer />
           <DataViewActions>
             <Button variant="neutralTertiary" icon={<IconPlus />}>
@@ -52,7 +53,7 @@ export function Actions() {
         </Flex>
       </DataViewHeader>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <FlexSpacer />
           <DataViewActions>
             <Button variant="neutralTertiary" icon={<IconPlus />}>
@@ -66,7 +67,7 @@ export function Actions() {
         </Flex>
       </DataViewHeader>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <FlexSpacer />
           <DataViewActions>
             <Button variant="neutralTertiary" icon={<IconPlus />}>
@@ -80,7 +81,7 @@ export function Actions() {
         </Flex>
       </DataViewHeader>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <FlexSpacer />
           <DataViewActions>
             <Button variant="neutralTertiary" icon={<IconPlus />}>

@@ -107,20 +107,20 @@ Stack is a layout component that makes it easy to stack elements together and ap
 
 ```jsx live layout=grid columnsCount=2 rowsCount=1
 <>
-  <Box csx={{ width: 300 }}>
+  <div className={csx({ width: 300 })}>
     <Stack>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </Stack>
-  </Box>
-  <Box csx={{ width: 300 }}>
+  </div>
+  <div className={csx({ width: 300 })}>
     <Stack fluid>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </Stack>
-  </Box>
+  </div>
 </>
 ```
 
@@ -133,20 +133,20 @@ Stack is a layout component that makes it easy to stack elements together and ap
 
 ```jsx live layout=grid columnsCount=2 rowsCount=1
 <>
-  <Box csx={{ width: 300 }}>
+  <div className={csx({ width: 300 })}>
     <Stack>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </Stack>
-  </Box>
-  <Box csx={{ width: 300 }}>
+  </div>
+  <div className={csx({ width: 300 })}>
     <Stack align="end">
       <Button>Button 1</Button>
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </Stack>
-  </Box>
+  </div>
 </>
 ```
 

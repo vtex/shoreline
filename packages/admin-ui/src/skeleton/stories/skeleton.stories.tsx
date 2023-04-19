@@ -1,13 +1,13 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
-import { Box } from '../../box'
 import type { SkeletonProps } from '../index'
 import { Skeleton } from '../index'
 import { Button } from '../../button'
-import { Heading } from '../../components/Heading'
-import { Paragraph } from '../../components/Paragraph'
+import { Heading } from '../../heading'
+import { Paragraph } from '../../paragraph'
 import { Stack } from '../../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/skeleton',
@@ -20,25 +20,27 @@ export const Playground: Story<SkeletonProps> = (args) => {
 
 Playground.args = {
   shape: 'rect',
-  csx: {
+  className: csx({
     height: 128,
     width: 128,
-  },
+  }),
 }
 
 export const Rect = () => {
-  return <Skeleton csx={{ height: 128, width: 128 }} />
+  return <Skeleton className={csx({ height: 128, width: 128 })} />
 }
 
 export const Circle = () => {
-  return <Skeleton shape="circle" csx={{ width: 100, height: 100 }} />
+  return (
+    <Skeleton shape="circle" className={csx({ width: 100, height: 100 })} />
+  )
 }
 
 export const Fluid = () => {
   return (
-    <Box csx={{ width: 'full', height: 192 }}>
+    <div className={csx({ width: 'full', height: 192 })}>
       <Skeleton />
-    </Box>
+    </div>
   )
 }
 
@@ -46,19 +48,19 @@ export const TextExample = () => {
   const [loading, setLoading] = React.useState(true)
 
   return (
-    <Box csx={{ width: 'sm' }}>
+    <div className={csx({ width: 'sm' })}>
       {loading ? (
         <Stack>
-          <Skeleton csx={{ height: 24, width: '5/12' }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16 }} />
-          <Skeleton csx={{ height: 16, width: '1/2' }} />
+          <Skeleton className={csx({ height: 24, width: '5/12' })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16 })} />
+          <Skeleton className={csx({ height: 16, width: '1/2' })} />
         </Stack>
       ) : (
-        <Box>
+        <div>
           <Heading>Developing</Heading>
           <Paragraph>
             The VTEX team welcomes and thanks you for developing with us. We are
@@ -68,9 +70,9 @@ export const TextExample = () => {
             the best as possible. Bellow we describe the way we work and the
             best practices.
           </Paragraph>
-        </Box>
+        </div>
       )}
       <Button onClick={() => setLoading((s) => !s)}>Toggle Loading</Button>
-    </Box>
+    </div>
   )
 }
