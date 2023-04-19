@@ -1,0 +1,19 @@
+---
+title: Form
+path: /form/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import Overview from '@site/content/form/overview.mdx'
+import Code from '@site/content/form/code.mdx'
+import { tabToc } from '@site/content/form/toc'
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    <Overview />
+  </Panel>
+  <Panel id="codeReference">
+    <Code />
+  </Panel>
+</Page>

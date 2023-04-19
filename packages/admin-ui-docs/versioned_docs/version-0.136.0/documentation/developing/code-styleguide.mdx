@@ -1,0 +1,350 @@
+---
+title: Code Styleguide
+path: /developing/code-styleguide/
+sidebar_position: 4
+---
+
+Common code style decisions that you must know before becoming a contributor.
+
+## Components
+
+### File structure
+
+The standard is to use pattern:
+
+```sh isStatic
+// ✅ Good
+component
+|__ tests
+|   |__ component.test.tsx
+|   |__ component-composite.test.tsx
+|
+|__ stories
+|   |__ component.stories.tsx
+|   |__ component-composite.stories.tsx
+|
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.context.tsx
+|_ component.style.ts
+|_ component.state.ts
+```
+
+### Prevent the use of React.FC
+
+The use of `React.FunctionComponent` (or the `React.FC` shorthand) is discouraged to type the component props. If you need to type children explicitly, use `React.ReactNode`. [Some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
+
+```tsx isStatic
+// ✅ Good
+interface Props {
+  title: string
+  children?: React.ReactNode
+}
+
+function Component(props: Props) {
+  // ...
+}
+
+// 🚨 Bad
+interface Props {
+  title: string
+}
+
+const Component = React.FC<Props>(props) {
+  // ...
+}
+
+// 🚨 Bad
+interface Props {
+  title: string
+}
+
+const Component = React.FunctionComponent<Props>(props) {
+  // ...
+}
+```
+
+### Avoid param destructuring
+
+Prefer destructuring on the component's body.
+
+```tsx isStatic
+interface Props {
+  title: string
+  // ...
+}
+
+// ✅ Good
+function Component(props: Props) {
+  const { title } = props
+  // ...
+}
+
+// 🚨 Bad
+function Component({ title }: Props) {
+  // ...
+}
+```
+
+### Avoid inline types
+
+Always prefer creating an interface or type for the component props.
+
+```tsx isStatic
+// ✅ Good
+interface Props {
+  title: string
+}
+
+function Component(props: Props) {
+  // ...
+}
+
+// 🚨 Bad
+function Component({ title }: { title: string }) {
+  // ...
+}
+```
+
+### Avoid inline extension
+
+Avoid extending other types within the function param directly. Prefer extending or compose a new type for a cleaner code.
+
+```tsx isStatic
+// ✅ Good
+interface Props extends SomeTypeA {
+  title: string
+}
+
+function Component(props: Props) {
+  // ...
+}
+
+// ✅ Good
+type Props = SomeTypeA & SomeTypeB
+
+function Component(props: Props) {
+  // ...
+}
+
+// 🚨 Bad
+function Component(props: Props & SomeTypeA) {
+  // ...
+}
+```
+
+### Avoid too much nesting
+
+A deep directory nesting can cause a lot of pain points, so you must avoid it as much as you can.[Link](https://reactjs.org/docs/faq-structure.html#avoid-too-much-nesting).
+
+### Prefer named exports
+
+Named exports are preferred over default exports.
+
+```tsx isStatic
+// ✅ Good
+export function Component() {
+  // ...
+}
+
+// 🚨 Bad
+export default function Component() {
+  // ...
+}
+```
+
+## Testing
+
+### File structure
+
+All test files must follow the `*.test.(ts|tsx)` pattern, where `*` shall never be `index`. Use the `tests` directory to store all the test files.
+
+```sh isStatic
+// ✅ Good
+component
+|__ tests
+|   |__ component.test.tsx
+|   |__ component-composite.test.tsx
+|
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+
+// 🚨 Bad
+component
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.test.tsx
+|_ component-composite.test.tsx
+```
+
+## Styling
+
+### Prefer tokens
+
+Always prefer to use tokens instead of hardcoded values.
+
+```jsx isStatic
+// ✅ Good
+<div
+  className={csx({
+    bg: '$primary',
+    padding: '$xs',
+  })}
+/>
+
+// 🚨 Bad
+<div
+  className={csx({
+    bg: '#fff',
+    padding: '8px',
+  })}
+/>
+```
+
+### Prefer shorthands
+
+Prefer props composition and shorthands.
+
+```jsx isStatic
+// ✅ Preferred
+<div
+  className={csx({
+    bg: '$primary',
+    paddingX: '$xs',
+    size: '20rem',
+  })}
+/>
+
+// 🚨 Not wrong, but can be improved
+<div
+  className={csx({
+    backgroundColor: '$primary',
+    paddingLeft: '$xs',
+    paddingRight: '$xs',
+    height: '20rem',
+    width: '20rem',
+  })}
+/>
+```
+
+### Prefer responsive aliases
+
+Responsive aliases are preferred over custom media queries and responsive arrays. The main reasons for this are performance and semantics.
+
+```jsx isStatic
+// ✅ Good
+<div
+  className={csx({
+    padding: '$xs',
+    '@tablet': {
+      padding: '$s',
+    },
+    '@desktop': {
+      padding: '$m',
+    }
+  })}
+/>
+
+// 🚨 Bad, not semantic
+<div
+  className={csx({
+    padding: ['$xs', '$s', '$m'],
+  })}
+/>
+
+// 🚨 Bad, not consistent
+<div
+  className={csx({
+    padding: '$xs',
+    '@media screen and (min-width: 40em)': {
+      padding: '$s',
+    },
+    '@media screen and (min-width: 80em)': {
+      padding: '$m',
+    },
+  })}
+/>
+```
+
+### Avoid parent styles
+
+While coding an app it doesn't matter, but if you are within a library this is a bad practice! The user will not be able to customize the child's style without the `!important` flag. So, you must avoid it.
+
+```jsx isStatic
+// ✅ Good
+<div
+  className={csx({
+    padding: '$m',
+  })}
+>
+  <h1 className={csx({ color: '$primary' })}>
+    Title
+  </h1>
+</div>
+
+// 🚨 Bad
+<div
+  className={csx({
+    padding: '$m',
+    h1: {
+      color: '$primary'
+    }
+  })}
+>
+  <h1>Title</h1>
+</div>
+```
+
+## Documentation
+
+### Writing stories
+
+In admin-ui we use [storybook](https://storybook.js.org/) as our playground to develop components.
+
+#### File structure
+
+Always use the `stories.tsx` suffix. Otherwise, it will not work. Use the `stories` directory to store all the story files.
+
+```sh isStatic
+// ✅ Good
+component
+|__ stories
+|   |__ component.stories.tsx
+|   |__ component-composite.stories.tsx
+|
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+
+// 🚨 Bad
+component
+|_ index.tsx
+|_ component.tsx
+|_ component-composite.tsx
+|_ component.stories.tsx
+|_ component-composite.stories.tsx
+```
+
+## Naming conventions
+
+Common naming decisions that you must know when developing or designing with Admin UI.
+
+### Error Messaging
+
+Represented by the [Critical Tone](/guidelines/foundations/colors#critical), an error message alerts people of a problem that has occurred and informs them what to do next.
+
+It appears after someone has taken an action. The message draws the user's attention to what has happened and provides guidance to move forward. Optionally, they can also include why something happened and whether the problem will occur again.
+
+### Code Usage
+
+You must use the `error` property to represent the critical state, and the `errorText` property to define the message that will provide guidance to the user.
+
+```jsx
+{
+  error: boolean
+  errorText: string
+}
+```
