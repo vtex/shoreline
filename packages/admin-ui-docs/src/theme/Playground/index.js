@@ -55,6 +55,7 @@ function ResultWithHeader(playgroundProps) {
 
 function ThemedLiveEditor() {
   const isBrowser = useIsBrowser()
+
   return (
     <LiveEditor
       // We force remount the editor on hydration,
@@ -126,3 +127,40 @@ export default function Playground({ children, ...props }) {
     </div>
   )
 }
+
+// export function _Playground({ children, ...props }) {
+//   const [currentCode, setCurrentCode] = React.useState(children)
+
+//   const showEditor = props?.live && !props?.previewOnly
+
+//   const transformCode = (code) => {
+//     setCurrentCode(code)
+
+//     return `${code};`
+//   }
+
+//   const handleRefresh = () => {
+//     setCurrentCode(children)
+//   }
+
+//   return (
+//     <div className={styles.playgroundContainer}>
+//       <LiveProvider
+//         code={currentCode.replace(/\n$/, '')}
+//         transformCode={transformCode}
+//         theme={prismTheme}
+//         {...props}
+//       >
+//         <>
+//           <ResultWithHeader {...props} />
+//           {showEditor ? (
+//             <EditorWithHeader
+//               currentCode={currentCode}
+//               onRefresh={handleRefresh}
+//             />
+//           ) : null}
+//         </>
+//       </LiveProvider>
+//     </div>
+//   )
+// }

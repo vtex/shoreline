@@ -4,6 +4,7 @@ path: /alert/
 hide_table_of_contents: true
 ---
 
+import { version } from '../version'
 import { Page, Panel } from '@site/src/components/Page'
 
 export const tabToc = {
@@ -43,33 +44,44 @@ Alerts are notifications of mild to high priority. They may inform the user abou
 
 The alert's [tone of voice](/foundations/colors/#tones) is either `info` (default), `warning`, `possitive`, or `critical`.
 
-```jsx live
-function Example() {
+<Sandpack adminUiVersion={version}>
+
+```jsx App.js
+import { Stack, Alert } from '@vtex/admin-ui'
+
+export default function App() {
   return (
-    <Stack fluid>
-      <Alert visible tone="info">
-        Info Alert
+    <Stack space="$m" fluid>
+      <Alert visible variant="info">
+        Info alert
       </Alert>
-      <Alert visible tone="warning">
-        Warning Alert
+      <Alert visible variant="warning">
+        Warning alert
       </Alert>
-      <Alert visible tone="positive">
-        Positive Alert
+      <Alert visible variant="positive">
+        Positive alert
       </Alert>
-      <Alert visible tone="critical">
-        Critical Alert
+      <Alert visible variant="critical">
+        Critical alert
       </Alert>
     </Stack>
   )
 }
 ```
 
+</Sandpack>
+
 ### Visible
 
 The Alert can be visible or not. By default, it will render an Alert with the `visible` property set to `false`.
 
-```jsx live
-function Example() {
+<Sandpack adminUiVersion={version}>
+
+```jsx App.js
+import React from 'react'
+import { Box, Alert, Button } from '@vtex/admin-ui'
+
+export default function App() {
   const [visible, setVisible] = React.useState(false)
 
   const handleDismiss = () => setVisible(false)
@@ -86,12 +98,18 @@ function Example() {
 }
 ```
 
+</Sandpack>
+
 ### Action
 
 You can easily add an action into any `Alert` using the `Anchor` component.
 
-```jsx live
-function Example() {
+<Sandpack version={version}>
+
+```jsx App.js
+import { Stack, Alert, IconCheckCircle, Anchor } from '@vtex/admin-ui'
+
+export default function App() {
   const handlePrimaryAction = () => window.alert('primary action!')
   const handleSecondaryAction = () => window.alert('secondary action!')
   const handleTertiaryAction = () => window.alert('tertiary action!')
@@ -106,12 +124,19 @@ function Example() {
 }
 ```
 
+</Sandpack>
+
 ### onDismiss
 
 Represents the event of click from the alert dismiss button. To use this feature, define the `onDismiss` property.
 
-```jsx live
-function Example() {
+<Sandpack version={version}>
+
+```jsx App.js
+import React from 'react'
+import { Alert } from '@vtex/admin-ui'
+
+export default function App() {
   const [visible, setVisible] = React.useState(true)
   return (
     <Alert
@@ -127,12 +152,18 @@ function Example() {
 }
 ```
 
+</Sandpack>
+
 ### Fluid
 
 Represents whether the height is fluid or not on mobile devices. By default its value is `true`. You can change it setting the `fluid` property to be either `true` or `false`.
 
-```jsx live
-function Example() {
+<Sandpack version={version}>
+
+```jsx App.js
+import { Box, Alert } from '@vtex/admin-ui'
+
+export default function App() {
   return (
     <Box csx={{ width: 300 }}>
       <Alert visible fluid={false} tone="positive" onDismiss={() => {}}>
@@ -143,26 +174,52 @@ function Example() {
 }
 ```
 
+</Sandpack>
+
 ### Sticky
 
 The Alert can have a sticky border or not. By default, it will render an Alert with the `sticky` property set to `false`.
 
-```jsx live
-function Example() {
+<Sandpack version={version}>
+
+```jsx App.js
+import { Alert } from '@vtex/admin-ui'
+
+export default function App() {
   return (
-    <Alert visible sticky tone="positive" onDismiss={() => {}}>
+    <Alert
+      visible
+      sticky
+      tone="positive"
+      onDismiss={() => {
+        console.log('dismiss')
+      }}
+    >
       Order successfully placed
     </Alert>
   )
 }
 ```
 
+</Sandpack>
+
 ### With Icon
 
 You can add an icon on the left side of the `Alert`. Just use the `icon` property.
 
-```jsx live
-function Example() {
+<Sandpack version={version}>
+
+```jsx App.js
+import {
+  Alert,
+  Stack,
+  IconCheckCircle,
+  IconQuestion,
+  IconWarning,
+  IconXOctagon,
+} from '@vtex/admin-ui'
+
+export default function App() {
   return (
     <Stack fluid>
       <Alert tone="info" icon={<IconQuestion />} visible>
@@ -181,6 +238,8 @@ function Example() {
   )
 }
 ```
+
+</Sandpack>
 
   </Panel>
   <Panel id="designReference">

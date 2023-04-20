@@ -102,14 +102,24 @@ export const tabToc = {
   explanation="The alert's tone of voice is either 'info' (default), 'warning', 'possitive', or 'critical'."
 >
 
-```jsx live
-<Stack fluid>
-  <Alert variant="info">Info alert</Alert>
-  <Alert variant="warning">Warning alert</Alert>
-  <Alert variant="positive">Positive alert</Alert>
-  <Alert variant="critical">Critical alert</Alert>
-</Stack>
+<Sandpack adminUiVersion="0.132.x">
+
+```jsx App.js
+import { Stack, Alert } from '@vtex/admin-ui'
+
+export default function App() {
+  return (
+    <Stack space="$m" fluid>
+      <Alert variant="info">Info alert</Alert>
+      <Alert variant="warning">Warning alert</Alert>
+      <Alert variant="positive">Positive alert</Alert>
+      <Alert variant="critical">Critical alert</Alert>
+    </Stack>
+  )
+}
 ```
+
+</Sandpack>
 
 </PageSection >
 

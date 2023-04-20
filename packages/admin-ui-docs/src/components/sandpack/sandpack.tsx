@@ -2,9 +2,13 @@ import React from 'react'
 import { Sandpack as SandpackReact } from '@codesandbox/sandpack-react'
 
 import { createFileMap } from './create-file-map'
-import { rootCode } from './root-code'
+import { getRootCode } from './root-code'
 
-export default function Sandpack({ children, dependencies = {} }: Props) {
+export default function Sandpack({
+  children,
+  dependencies = {},
+  adminUiVersion = 'latest',
+}: Props) {
   const files = createFileMap(children)
 
   return (
@@ -13,7 +17,7 @@ export default function Sandpack({ children, dependencies = {} }: Props) {
       files={{
         ...files,
         '/index.js': {
-          code: rootCode,
+          code: getRootCode(adminUiVersion),
           hidden: true,
         },
       }}
@@ -22,7 +26,7 @@ export default function Sandpack({ children, dependencies = {} }: Props) {
       }}
       customSetup={{
         dependencies: {
-          '@vtex/admin-ui': 'latest',
+          '@vtex/admin-ui': adminUiVersion,
           ...dependencies,
         },
         entry: '/index.js',
@@ -34,6 +38,7 @@ export default function Sandpack({ children, dependencies = {} }: Props) {
 interface Props {
   children: JSX.Element
   dependencies: { [key: string]: string }
+  adminUiVersion?: string
 }
 
 /**

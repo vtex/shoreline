@@ -4,6 +4,7 @@ path: /alert/
 hide_table_of_contents: true
 ---
 
+import version from '../version'
 import { Page, Panel } from '@site/src/components/Page'
 import { PageSection } from '@site/src/components/PageSection'
 import { IntroSection } from '@site/src/components/IntroSection'
@@ -102,14 +103,24 @@ export const tabToc = {
   explanation="The alert's tone of voice is either 'info' (default), 'warning', 'possitive', or 'critical'."
 >
 
-```jsx live
-<Stack space="$m" fluid>
-  <Alert variant="info">Info alert</Alert>
-  <Alert variant="warning">Warning alert</Alert>
-  <Alert variant="positive">Positive alert</Alert>
-  <Alert variant="critical">Critical alert</Alert>
-</Stack>
+<Sandpack adminUiVersion={version}>
+
+```jsx App.js
+import { Stack, Alert } from '@vtex/admin-ui'
+
+export default function App() {
+  return (
+    <Stack space="$m" fluid>
+      <Alert variant="info">Info alert</Alert>
+      <Alert variant="warning">Warning alert</Alert>
+      <Alert variant="positive">Positive alert</Alert>
+      <Alert variant="critical">Critical alert</Alert>
+    </Stack>
+  )
+}
 ```
+
+</Sandpack>
 
 </PageSection >
 
