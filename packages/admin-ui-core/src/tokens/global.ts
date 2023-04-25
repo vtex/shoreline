@@ -3,7 +3,7 @@ export const global = {
     fontFamily: 'VTEX Trust',
     fontDisplay: 'swap',
     fontStyle: 'normal',
-    src: "url('https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF-May-5-2022.woff2')",
+    src: "url('http://davicosta.com/VTEXTrust-VF-Apr-25-2023.woff2')",
     unicodeRange: `U+0020-007E, U+00A0-0107, U+010A-0113, U+0116-011B,
           U+011E-0123, U+0126-0127, U+012A-012B, U+012E-0131, U+0136-0137,
           U+0139-0148, U+014A-014D, U+0150-015B, U+015E-0167, U+016A-016B,
