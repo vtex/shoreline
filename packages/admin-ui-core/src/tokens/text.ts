@@ -4,13 +4,13 @@ const fontStack = {
 }
 
 const fontWeight = {
-  hairline: "'WGHT' 100",
-  thin: "'WGHT' 200",
-  light: "'WGHT' 300",
-  regular: "'WGHT' 400",
-  medium: "'WGHT' 500",
-  bold: "'WGHT' 700",
-  black: "'WGHT' 900",
+  hairline: "'WGHT' 100, 'WDTH' 300",
+  thin: "'WGHT' 200, 'WDTH' 300",
+  light: "'WGHT' 300, 'WDTH' 300",
+  regular: "'WGHT' 400, 'WDTH' 300",
+  medium: "'WGHT' 500, 'WDTH' 300",
+  bold: "'WGHT' 700, 'WDTH' 300",
+  black: "'WGHT' 900, 'WDTH' 300",
 }
 
 const fontSize = {
