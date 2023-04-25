@@ -107,12 +107,12 @@ export const pageContentTheme = csx({
     paddingBottom: '3rem',
   },
   [dataAttr('layout', 'standard')]: {
-    maxWidth: '77rem',
+    maxWidth: '75rem',
     paddingTop: '2.5rem',
     paddingBottom: '5rem',
   },
   [dataAttr('layout', 'narrow')]: {
-    maxWidth: '52rem',
+    maxWidth: '50rem',
     paddingTop: '3rem',
     paddingBottom: '8rem',
   },
