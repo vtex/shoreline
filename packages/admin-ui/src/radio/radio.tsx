@@ -20,7 +20,7 @@ export const Radio = forwardRef(function Radio(
 
   return (
     <FormControl>
-      <Inline hSpace="$space-2" vSpace="" spaceInside="true">
+      <Inline hSpace="$space-2" vSpace="" spaceInside>
         <RadioButton ref={ref} {...radioButtonProps} id={id} />
         <Stack space="$space-05">
           <Label htmlFor={id} className={labelTheme}>
