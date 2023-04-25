@@ -32,7 +32,7 @@ export function ThemeProvider(props: ThemeProviderProps) {
       <Helmet>
         <link
           rel="preload"
-          href="http://davicosta.com/VTEXTrust-VF-Apr-25-2023.woff2"
+          href="https://davicosta.com/VTEXTrust-VF-Apr-25-2023.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
