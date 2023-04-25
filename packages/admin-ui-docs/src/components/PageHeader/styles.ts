@@ -24,7 +24,7 @@ style.caption = {
 
 style.breadcrumb = {
   fontSize: '1rem',
-  fontVariationSettings: '"WGHT" 400', 'WDTH' 300,
+  fontVariationSettings: '"WGHT" 400, "WDTH" 300',
   lineHeight: '1.2',
   color: '$secondary',
   textTransform: 'uppercase',
@@ -65,7 +65,7 @@ style.figma = {
 
 style.title = {
   fontSize: '3rem',
-  fontVariationSettings: '"WGHT" 200', 'WDTH' 300,
+  fontVariationSettings: '"WGHT" 200, "WDTH" 300',
   lineHeight: '1',
   color: '$primary',
   paddingTop: '1.75rem',
