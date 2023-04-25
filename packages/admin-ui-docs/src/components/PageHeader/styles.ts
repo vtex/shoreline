@@ -65,7 +65,7 @@ style.figma = {
 
 style.title = {
   fontSize: '3rem',
-  fontVariationSettings: '"WGHT" 200',
+  fontVariationSettings: '"WGHT" 200, "WDTH" 100',
   lineHeight: '1',
   color: '$primary',
   paddingTop: '1.75rem',
