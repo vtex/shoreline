@@ -4,7 +4,7 @@
 
   button {
     font-size: 1.25rem;
-    font-variation-settings: 'WGHT' 400;
+    font-variation-settings: 'WGHT' 400, 'WDTH' 300;
     line-height: 1.3;
     height: auto;
     padding: 0 3rem 1rem 3rem;
@@ -68,7 +68,7 @@
   }
 
   strong {
-    font-variation-settings: 'WGHT' 600 !important;
+    font-variation-settings: 'WGHT' 600, 'WDTH' 300 !important;
   }
 
   table {
