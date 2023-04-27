@@ -7,7 +7,7 @@ export function FormControl(props: FormGroupOptions) {
   const { children, className } = props
 
   return (
-    <Stack space="$space-1" className={className}>
+    <Stack space="$space-3" className={className}>
       {children}
     </Stack>
   )

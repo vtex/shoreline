@@ -44,7 +44,6 @@ export const RadioGroup = forwardRef(function RadioGroup(
         <Stack
           direction={direction}
           space="$space-4"
-          className={csx({ paddingY: '$space-1' })}
         >
           {children}
         </Stack>
