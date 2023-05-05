@@ -205,7 +205,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.product.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -402,7 +402,7 @@ const columns = createColumns([
          * on the other ones, we take care of this for you
          */
         if (context.status === 'loading') {
-          return <Skeleton csx={{ height: 24 }} />
+          return <Skeleton className={csx({ height: 24 })} />
         }
         /**
          * You should declare the render while loading
@@ -656,7 +656,7 @@ const columns = createColumns([
             : '$warning'
 
         return (
-          <Stack align="end" csx={{ width: '100%' }}>
+          <Stack align="end" className={csx({ width: '100%' })}>
             <Text variant="body">
               <FormattedNumber
                 value={data.value}
@@ -667,18 +667,18 @@ const columns = createColumns([
             <Stack
               direction="row"
               space="$space-1"
-              csx={{
+              className={csx({
                 color,
                 text: 'detail',
                 width: '100%',
                 justifyContent: 'end',
-              }}
+              })}
             >
-                <FormattedNumber
-                  value={Math.abs(data.trend)}
-                  style="percent"
-                  minimumFractionDigits="2"
-                />
+              <FormattedNumber
+                value={Math.abs(data.trend)}
+                style="percent"
+                minimumFractionDigits="2"
+              />
             </Stack>
           </Stack>
         )
@@ -761,7 +761,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10em' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1152,7 +1152,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10em' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1335,7 +1335,7 @@ function Example() {
         type: 'text',
         columnType: 'name',
         mapText: (item) => item.name,
-        render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+        render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
       },
     },
     {
@@ -1466,7 +1466,7 @@ const columns = createColumns([
       type: 'text',
       columnType: 'name',
       mapText: (item) => item.name,
-      render: ({ data }) => <Box csx={{ minWidth: '10rem' }}>{data}</Box>,
+      render: ({ data }) => <div className={csx({ minWidth: '10rem' })}>{data}</div>,
     },
   },
   {
@@ -1476,7 +1476,7 @@ const columns = createColumns([
     resolver: {
       type: 'root',
       render: ({ item }) => {
-        return <Box csx={{ minWidth: '5rem' }}>{item.brand}</Box>
+        return <div className={csx({ minWidth: '5rem' })}>{data}</div>
       },
     },
   },

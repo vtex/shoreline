@@ -1,0 +1,21 @@
+files:
+  - source: /packages/admin-ui/src/search/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/pagination/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/select/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/number-input/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/menu/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/form-control/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/filters/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/data-view/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/combobox/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  - source: /packages/admin-ui/src/bulk-actions/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%

@@ -6,21 +6,22 @@ import { Inline } from '../inline'
 import { Bleed } from './bleed'
 
 import { Tag } from '../tag'
-import { Box } from '../box'
-import { Paragraph } from '../components/Paragraph'
+
+import { Paragraph } from '../paragraph'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
-  title: 'admin-ui/Bleed',
+  title: 'admin-ui/bleed',
 } as Meta
 
 export const Basic = () => {
   return (
-    <Box
-      csx={{
+    <div
+      className={csx({
         padding: '1rem',
         border: '$neutral',
         width: 350,
-      }}
+      })}
     >
       <Bleed top="1rem" left="1rem">
         <img
@@ -35,7 +36,7 @@ export const Basic = () => {
         enable enterprises to achieve faster time-to-market, reach their
         customers across any channel and uncover new areas of growth.
       </Paragraph>
-    </Box>
+    </div>
   )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { useWatch, Watch } from '../index'
@@ -28,19 +27,19 @@ export const UseWatch = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <input placeholder="First Name" {...form.register('firstName')} />
         <input placeholder="Age" type="number" {...form.register('age')} />
         <input placeholder="Favorite Food" {...form.register('favFood')} />
         <input type="submit" value="Submit" />
       </Form>
-      <Box>
-        <Box as="p">firstName: {firstName}</Box>
-        <Box as="p">age: {age}</Box>
-        <Box as="p">favFood: {favFood}</Box>
-      </Box>
-    </Box>
+      <div>
+        <p>firstName: {firstName}</p>
+        <p>age: {age}</p>
+        <p>favFood: {favFood}</p>
+      </div>
+    </div>
   )
 }
 
@@ -48,29 +47,29 @@ export const WatchComponent = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <input placeholder="First Name" {...form.register('firstName')} />
         <input placeholder="Age" type="number" {...form.register('age')} />
         <input placeholder="Favorite Food" {...form.register('favFood')} />
         <input type="submit" value="Submit" />
       </Form>
-      <Box>
-        <Box as="p">
+      <div>
+        <p>
           firstName:
           <Watch name="firstName" form={form} />
-        </Box>
-        <Box as="p">
+        </p>
+        <p>
           age:
           <Watch name="age" form={form} />
-        </Box>
-        <Box as="p">
+        </p>
+        <p>
           favFood:
           <Watch name="favFood" form={form}>
             {(value) => <>{value}</>}
           </Watch>
-        </Box>
-      </Box>
-    </Box>
+        </p>
+      </div>
+    </div>
   )
 }

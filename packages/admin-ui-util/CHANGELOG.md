@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.2-dev.0 (2023-04-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## [0.5.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-util@0.5.0...@vtex/admin-ui-util@0.5.1) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.14 (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.13 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.12 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.11 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.10 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.9 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.8 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.7 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
+## 0.5.1-dev.6 (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-util
+
+
+
+
+
 ## 0.5.1-dev.5 (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-util

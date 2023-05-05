@@ -14,6 +14,7 @@ import { Pagination, usePaginationState } from '../../pagination'
 import { Flex } from '../../flex'
 import { Search } from '../../search'
 import { IconPlus } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/data-view',
@@ -106,7 +107,7 @@ export function Header() {
 
       <DataView state={view}>
         <DataViewHeader>
-          <Flex justify="space-between" csx={{ width: '100%' }}>
+          <Flex justify="space-between" className={csx({ width: '100%' })}>
             <Search />
 
             <DataViewActions>
@@ -152,7 +153,7 @@ export function InitialState() {
   return (
     <DataView state={view}>
       <DataViewHeader>
-        <Flex justify="space-between" csx={{ width: '100%' }}>
+        <Flex justify="space-between" className={csx({ width: '100%' })}>
           <Search />
 
           <DataViewActions>

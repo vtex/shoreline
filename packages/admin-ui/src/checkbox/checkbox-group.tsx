@@ -1,7 +1,6 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import { createComponent } from '@vtex/admin-ui-react'
-import { Group as AriaCheckboxGroup } from 'ariakit/group'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { useId } from '@vtex/admin-ui-hooks'
 
 import { Stack } from '../stack'
 import {
@@ -9,35 +8,48 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
+import { csx } from '@vtex/admin-ui-core'
 
-export const CheckboxGroup = createComponent<'div', CheckboxGroupOptions>(
-  (props) => {
-    const { children, label, helpText, errorText, error, optional, direction } =
-      props
+export const CheckboxGroup = forwardRef(function CheckboxGroup(
+  props: CheckboxGroupProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    children,
+    label,
+    helpText,
+    errorText,
+    error,
+    optional,
+    direction,
+    ...htmlProps
+  } = props
 
-    return (
+  const labelId = useId()
+
+  return (
+    <div ref={ref} role="group" aria-labelledby={labelId} {...htmlProps}>
       <FormControl>
-        <FormControlLabel optional={optional}>{label}</FormControlLabel>
-        <AriaCheckboxGroup>
-          <Stack
-            direction={direction}
-            space="$space-4"
-            csx={{ marginY: '$space-1' }}
-          >
-            {children}
-          </Stack>
-        </AriaCheckboxGroup>
+        <FormControlLabel id={labelId} optional={optional}>
+          {label}
+        </FormControlLabel>
+        <Stack
+          direction={direction}
+          space="$space-4"
+        >
+          {children}
+        </Stack>
         <FormControlMessage
           error={error}
           helpText={helpText}
           errorText={errorText}
         />
       </FormControl>
-    )
-  }
-)
+    </div>
+  )
+})
 
-export interface CheckboxGroupOptions {
+export type CheckboxGroupProps = React.ComponentPropsWithoutRef<'div'> & {
   /**
    * CheckboxGroup children direction
    * @default row
@@ -65,7 +77,3 @@ export interface CheckboxGroupOptions {
    */
   label: ReactNode
 }
-
-export type CheckboxGroupProps = React.ComponentPropsWithoutRef<
-  typeof CheckboxGroup
->

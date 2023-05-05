@@ -1,9 +1,9 @@
-import React from 'react'
-import type { ComponentPropsWithRef } from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
 import { Stack } from '../stack'
-import * as style from './page.style'
+import { pageHeaderActionsTheme } from './page.css'
 
 /**
  * Page header actions component
@@ -28,18 +28,23 @@ import * as style from './page.style'
  *  </PageHeaderTop>
  * </PageHeader>
  */
-export const PageHeaderActions = createComponent<'div'>((props) => {
-  const { children, ...htmlProps } = props
+export const PageHeaderActions = forwardRef(function PageHeaderActions(
+  props: PageHeaderActionsProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { className = '', children, ...htmlProps } = props
 
-  return useElement('div', {
-    baseStyle: style.pageHeaderActions,
-    children: (
+  return (
+    <div
+      ref={ref}
+      className={cx(pageHeaderActionsTheme, className)}
+      {...htmlProps}
+    >
       <Stack space="$space-3" direction="row">
         {children}
       </Stack>
-    ),
-    ...htmlProps,
-  })
+    </div>
+  )
 })
 
-export type PageHeaderActions = ComponentPropsWithRef<typeof PageHeaderActions>
+export type PageHeaderActionsProps = ComponentPropsWithoutRef<'div'>

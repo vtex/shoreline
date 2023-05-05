@@ -1,0 +1,156 @@
+import { Section } from '@site/src/components/Section'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+<IntroSection>
+
+## What is this?
+
+Toast indicators allow merchants to receive instant feedback that is usually temporary and can always be dismissed.
+
+</IntroSection>
+
+<Section hasExplanation>
+
+### Variants
+
+The toast's variant is either `info` (default), `critical`, `warning`, or `positive`, and is adjustable using the `variant` prop.
+
+```jsx live
+function Example() {
+  const showToast = useToast()
+
+  return (
+    <Inline>
+      <Button
+        onClick={() =>
+          showToast({
+            message: 'Type here a longer message but not much longer than that',
+          })
+        }
+      >
+        Info (default)
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            variant: 'positive',
+            message: 'Type a short message here',
+          })
+        }
+      >
+        Positive
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            variant: 'warning',
+            message: 'Type here a longer message but not much longer than that',
+          })
+        }
+      >
+        Warning
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            variant: 'critical',
+            message: 'Type a short message here',
+          })
+        }
+      >
+        Critical
+      </Button>
+    </Inline>
+  )
+}
+```
+
+### Non-dismissable
+
+Toasts are dismissable by default. The `dismissable` prop controls this behavior.
+
+```jsx live
+function Example() {
+  const showToast = useToast()
+
+  return (
+    <Button
+      onClick={() =>
+        showToast({
+          message: 'This is a non-dimissable toast',
+          dismissible: false,
+        })
+      }
+    >
+      Non-Dismissable
+    </Button>
+  )
+}
+```
+
+### Action
+
+Display a button allowing the toast to have an action.
+
+```jsx live
+function Example() {
+  const showToast = useToast()
+
+  return (
+    <Button
+      onClick={() =>
+        showToast({
+          message: 'Type a short message here',
+          action: {
+            label: 'Action',
+            onClick: () => {
+              // ... do something
+              console.log('clicked')
+            },
+          },
+        })
+      }
+    >
+      With action
+    </Button>
+  )
+}
+```
+
+### Replacing toasts
+
+You can assing a `key` to your toasts. Only a single toast with the given id is visible at once. Use it to reduce the number of toast on your app.
+
+```jsx live
+function Example() {
+  const showToast = useToast()
+
+  return (
+    <Inline>
+      <Button
+        onClick={() =>
+          showToast({
+            key: 'unique-key',
+            message: 'This info toast can be replaced',
+          })
+        }
+      >
+        Info
+      </Button>
+      <Button
+        onClick={() =>
+          showToast({
+            key: 'unique-key',
+            variant: 'positive',
+            message: 'This positive toast can be replaced',
+          })
+        }
+      >
+        Positive
+      </Button>
+    </Inline>
+  )
+}
+```
+
+</Section>

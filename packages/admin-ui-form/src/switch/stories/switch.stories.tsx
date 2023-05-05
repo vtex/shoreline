@@ -1,6 +1,7 @@
+import { csx } from '@vtex/admin-ui-core'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box, Button, Stack } from '@vtex/admin-ui'
+import { Button, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { Switch } from '../index'
@@ -13,7 +14,7 @@ export const Basic = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
@@ -22,12 +23,12 @@ export const Basic = () => {
             label="I agree to the Terms of Service"
             helpText="You must select this option to use our services"
           />
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -39,7 +40,7 @@ export const DefaultValue = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
@@ -48,12 +49,12 @@ export const DefaultValue = () => {
             label="Search enabled"
             helpText="Enables the search feature on the system"
           />
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }
 
@@ -61,7 +62,7 @@ export const Validation = () => {
   const form = useFormState()
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
@@ -73,11 +74,11 @@ export const Validation = () => {
               required: 'This is required',
             }}
           />
-          <Button csx={{ marginLeft: '$space-1' }} type="submit">
+          <Button className={csx({ marginLeft: '$space-1' })} type="submit">
             Submit
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </div>
   )
 }

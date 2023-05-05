@@ -1,38 +1,39 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import { createComponent } from '@vtex/admin-ui-react'
-import { unstable_useId as useId } from 'reakit/Id'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { useId } from '@vtex/admin-ui-hooks'
 
-import { Label } from '../components/Label'
+import { Label } from '../label'
 import { Stack } from '../stack'
 import { Inline } from '../inline'
+import type { RadioButtonProps } from './radio-button'
 import { RadioButton } from './radio-button'
-import * as style from './radio.style'
 import { FormControl, FormControlMessage } from '../form-control'
+import { labelTheme } from './radio.css'
 
-export const Radio = createComponent<typeof RadioButton, RadioOptions>(
-  (props) => {
-    const { label, helpText, id, ...radioButtonProps } = props
+export const Radio = forwardRef(function Radio(
+  props: RadioProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const { label, helpText, id: defaultId, ...radioButtonProps } = props
 
-    const { id: baseId } = useId({ id })
+  const id = useId(defaultId)
 
-    return (
-      <FormControl>
-        <Inline hSpace="$space-2" vSpace="">
-          <RadioButton {...radioButtonProps} id={baseId} />
-          <Stack space="$space-05">
-            <Label htmlFor={baseId} csx={style.label}>
-              {label}
-            </Label>
-            <FormControlMessage helpText={helpText} />
-          </Stack>
-        </Inline>
-      </FormControl>
-    )
-  }
-)
+  return (
+    <FormControl>
+      <Inline hSpace="$space-2" vSpace="" spaceInside>
+        <RadioButton ref={ref} {...radioButtonProps} id={id} />
+        <Stack space="$space-05">
+          <Label htmlFor={id} className={labelTheme}>
+            {label}
+          </Label>
+          <FormControlMessage helpText={helpText} />
+        </Stack>
+      </Inline>
+    </FormControl>
+  )
+})
 
-export interface RadioOptions {
+export type RadioProps = RadioButtonProps & {
   /**
    * Radio label
    */
@@ -42,5 +43,3 @@ export interface RadioOptions {
    */
   helpText?: ReactNode
 }
-
-export type RadioProps = React.ComponentPropsWithoutRef<typeof Radio>

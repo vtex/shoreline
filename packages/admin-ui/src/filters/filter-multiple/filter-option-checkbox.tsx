@@ -1,46 +1,62 @@
-import React from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
 import { ComboboxItem } from 'ariakit/combobox'
 import { Checkbox } from '../../checkbox'
-
-import * as style from '../filter.style'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
+import { filterControlInputTheme } from '../filter.css'
 
-export const FilterOptionCheckbox = createComponent<
-  typeof ComboboxItem,
-  FilterOptionCheckboxProps
->((props) => {
-  const { id, value, label, ...restProps } = props
+export const FilterOptionCheckbox = forwardRef(function FilterOptionCheckbox(
+  props: FilterOptionCheckboxProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    id,
+    value,
+    label,
+    className = '',
+    onClick,
+    children,
+    ...htmlProps
+  } = props
+
   const { state } = usePopoverContext()
 
   const item = { id, label, value }
 
   const combobox = state.combobox as ComboboxMultipleState<FilterOption<any>>
 
-  return useElement(ComboboxItem, {
-    baseStyle: style.option,
-    children: (
-      <>
-        <Checkbox
-          checked={combobox.isSelected(item)}
-          aria-checked={undefined}
-          csx={{ marginRight: '$space-2' }}
-          readOnly
-        />
-        {label}
-      </>
-    ),
-    'aria-selected': combobox.isSelected(item),
-    onClick: () => combobox.onChange(item),
-    id,
-    ...restProps,
-  })
+  return (
+    <ComboboxItem
+      ref={ref}
+      className={cx(filterControlInputTheme, className)}
+      onClick={(e) => {
+        combobox.onChange(item)
+        onClick?.(e)
+      }}
+      id={id}
+      aria-selected={combobox.isSelected(item)}
+      {...htmlProps}
+    >
+      {children || (
+        <>
+          <Checkbox
+            checked={combobox.isSelected(item)}
+            aria-checked={undefined}
+            readOnly
+          />
+          {label}
+        </>
+      )}
+    </ComboboxItem>
+  )
 })
 
-interface FilterOptionCheckboxProps {
+interface FilterOptionCheckboxProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, 'id'> {
   id: string
   label: string
   value?: any

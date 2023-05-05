@@ -1,29 +1,26 @@
-import type { Ref } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
-
 import { PickerPopover } from '../picker'
 import { Calendar } from '../calendar'
 import type { DatePickerStateReturn } from './date-picker.state'
 
-export const DatePickerCalendar = forwardRef(
-  (props: DatePickerCalendarProps, ref: Ref<HTMLDivElement>) => {
-    const {
-      state: { pickerState, calendarState },
-      csx = {},
-    } = props
+export const DatePickerCalendar = forwardRef(function DatePickerCalendar(
+  props: DatePickerCalendarProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    state: { pickerState, calendarState },
+    ...htmlProps
+  } = props
 
-    return (
-      <PickerPopover csx={csx} ref={ref} state={pickerState}>
-        <Calendar state={calendarState} />
-      </PickerPopover>
-    )
-  }
-)
+  return (
+    <PickerPopover ref={ref} state={pickerState} {...htmlProps}>
+      <Calendar state={calendarState} />
+    </PickerPopover>
+  )
+})
 
-DatePickerCalendar.displayName = 'DatePickerCalendar'
-
-export interface DatePickerCalendarProps {
+export interface DatePickerCalendarProps
+  extends ComponentPropsWithoutRef<'div'> {
   state: DatePickerStateReturn
-  csx?: StyleProp
 }

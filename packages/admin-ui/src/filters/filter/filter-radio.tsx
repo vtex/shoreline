@@ -1,20 +1,13 @@
-import { useElement } from '@vtex/admin-ui-react'
+import React from 'react'
 
-import * as style from '../../radio/radio.style'
+import { radioTheme } from '../../radio/radio.css'
 
 export const FilterRadio = (props: FilterRadioProps) => {
   const { checked } = props
 
-  return useElement('input', {
-    baseStyle: {
-      ...style.radioButtonStyle,
-      ariaChecked: undefined,
-      marginRight: '$space-2',
-    },
-    checked,
-    type: 'radio',
-    readOnly: true,
-  })
+  return (
+    <input className={radioTheme} checked={checked} type="radio" readOnly />
+  )
 }
 
 interface FilterRadioProps {

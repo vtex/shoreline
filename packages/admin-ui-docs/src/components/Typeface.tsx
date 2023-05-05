@@ -12,6 +12,7 @@ import {
   Stack,
   get,
   theme,
+  csx,
 } from '@vtex/admin-ui'
 
 export function Typeface() {
@@ -22,9 +23,7 @@ export function Typeface() {
       resolver: {
         type: 'plain',
         render: (column) => (
-          <Text as="p" variant={column.item.token}>
-            {column.item?.description}
-          </Text>
+          <Text variant={column.item.token}>{column.item?.description}</Text>
         ),
       },
     },
@@ -45,7 +44,7 @@ export function Typeface() {
           return (
             <Stack>
               <Text
-                csx={{ fontWeight: 'bold' }}
+                className={csx({ fontWeight: 'bold' })}
               >{`$${column.item?.token}`}</Text>
               {keys.map((key, index) => {
                 return (
@@ -70,12 +69,12 @@ export function Typeface() {
   return (
     <Table
       {...getTable()}
-      csx={{
+      className={csx({
         tr: {
           bg: 'white !important',
           td: { padding: '$space-6', verticalAlign: 'initial' },
         },
-      }}
+      })}
     >
       <THead>
         {columns.map((column) => (

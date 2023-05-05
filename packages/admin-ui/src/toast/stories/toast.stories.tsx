@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 
 import { ToastProvider, useToast } from '../index'
 import { Button } from '../../button'
-import { Text } from '../../components/Text'
+import { Text } from '../../text'
 import { Inline } from '../../inline'
 import type { ToastProps } from '../types'
 import { csx } from '@vtex/admin-ui-core'

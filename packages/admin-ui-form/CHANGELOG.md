@@ -3,141 +3,263 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.5.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.15...@vtex/admin-ui-form@0.5.1-dev.16) (2023-03-02)
+## 0.6.1-dev.0 (2023-04-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
 
 
 
+
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1...@vtex/admin-ui-form@0.6.0) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.0...@vtex/admin-ui-form@0.5.1) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.59 (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.58](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.57...@vtex/admin-ui-form@0.5.1-dev.58) (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.57](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.56...@vtex/admin-ui-form@0.5.1-dev.57) (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.56](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.55...@vtex/admin-ui-form@0.5.1-dev.56) (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.55 (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.54 (2023-04-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.53](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.52...@vtex/admin-ui-form@0.5.1-dev.53) (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.52 (2023-04-03)
+
+### Features
+
+- **form:** migrate to the new component model ([f6a0471](https://github.com/vtex/admin-ui/commit/f6a0471e582f54606532831d4ff24f1a97533e30))
+
+## [0.5.1-dev.51](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.50...@vtex/admin-ui-form@0.5.1-dev.51) (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.50 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.49 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.48](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.47...@vtex/admin-ui-form@0.5.1-dev.48) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.47 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.46 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.45](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.44...@vtex/admin-ui-form@0.5.1-dev.45) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.44 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.43](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.42...@vtex/admin-ui-form@0.5.1-dev.43) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.42](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.41...@vtex/admin-ui-form@0.5.1-dev.42) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.41](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.40...@vtex/admin-ui-form@0.5.1-dev.41) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.40](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.39...@vtex/admin-ui-form@0.5.1-dev.40) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.39](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.38...@vtex/admin-ui-form@0.5.1-dev.39) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.38 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.37 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.36](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.35...@vtex/admin-ui-form@0.5.1-dev.36) (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.35](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.34...@vtex/admin-ui-form@0.5.1-dev.35) (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.34](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.33...@vtex/admin-ui-form@0.5.1-dev.34) (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## 0.5.1-dev.33 (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.32](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.31...@vtex/admin-ui-form@0.5.1-dev.32) (2023-03-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.31](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.30...@vtex/admin-ui-form@0.5.1-dev.31) (2023-03-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.30](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.29...@vtex/admin-ui-form@0.5.1-dev.30) (2023-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.29](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.28...@vtex/admin-ui-form@0.5.1-dev.29) (2023-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.28](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.27...@vtex/admin-ui-form@0.5.1-dev.28) (2023-03-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.27](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.26...@vtex/admin-ui-form@0.5.1-dev.27) (2023-03-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.26](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.25...@vtex/admin-ui-form@0.5.1-dev.26) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.24...@vtex/admin-ui-form@0.5.1-dev.25) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.23...@vtex/admin-ui-form@0.5.1-dev.24) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.22...@vtex/admin-ui-form@0.5.1-dev.23) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.22](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.21...@vtex/admin-ui-form@0.5.1-dev.22) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.20...@vtex/admin-ui-form@0.5.1-dev.21) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.20](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.19...@vtex/admin-ui-form@0.5.1-dev.20) (2023-03-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.19](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.18...@vtex/admin-ui-form@0.5.1-dev.19) (2023-03-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.18](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.17...@vtex/admin-ui-form@0.5.1-dev.18) (2023-03-14)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.17](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.16...@vtex/admin-ui-form@0.5.1-dev.17) (2023-03-09)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
+
+## [0.5.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.15...@vtex/admin-ui-form@0.5.1-dev.16) (2023-03-02)
+
+**Note:** Version bump only for package @vtex/admin-ui-form
 
 ## 0.5.1-dev.15 (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.5.1-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.13...@vtex/admin-ui-form@0.5.1-dev.14) (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## [0.5.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.12...@vtex/admin-ui-form@0.5.1-dev.13) (2023-03-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.5.1-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.11...@vtex/admin-ui-form@0.5.1-dev.12) (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## [0.5.1-dev.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.10...@vtex/admin-ui-form@0.5.1-dev.11) (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.5.1-dev.10 (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.5.1-dev.9 (2023-02-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.5.1-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.7...@vtex/admin-ui-form@0.5.1-dev.8) (2023-02-10)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.5.1-dev.7 (2023-02-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.5.1-dev.6 (2023-02-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## [0.5.1-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.4...@vtex/admin-ui-form@0.5.1-dev.5) (2023-02-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.5.1-dev.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.3...@vtex/admin-ui-form@0.5.1-dev.4) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## [0.5.1-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.2...@vtex/admin-ui-form@0.5.1-dev.3) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## [0.5.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.5.1-dev.1...@vtex/admin-ui-form@0.5.1-dev.2) (2023-01-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 ## 0.5.1-dev.1 (2023-01-25)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
 
-
-
-
-
 ## 0.5.1-dev.0 (2023-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui-form
-
-
-
-
 
 # [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.4.5...@vtex/admin-ui-form@0.5.0) (2023-01-03)
 

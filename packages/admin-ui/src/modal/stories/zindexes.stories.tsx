@@ -39,9 +39,9 @@ import {
   PageHeaderTop,
   PageContent,
 } from '../../page'
-import { SelectionTree } from '../../components/SelectionTree'
+import { SelectionTree } from '../../selection-tree'
 import { Alert } from '../../alert'
-import { Dropdown, useDropdownState } from '../../components/Dropdown'
+import { Dropdown, useDropdownState } from '../../dropdown'
 import { Tooltip } from '../../tooltip'
 import {
   useComboboxMultipleState,
@@ -423,7 +423,10 @@ export function HorizontalAndVerticalScroll() {
         <DummyCombobox />
       </Modal>
       <Button onClick={modal.toggle}>Show modal</Button>
-      <Table {...getTable()} csx={{ height: '100vh', width: '100vw' }}>
+      <Table
+        {...getTable()}
+        className={csx({ height: '100vh', width: '100vw' })}
+      >
         <THead>
           {columns.map((column) => {
             return <THeadCell {...getHeadCell(column)} />
@@ -495,7 +498,10 @@ export function TableInModal() {
     <>
       <Modal state={modal}>
         <ModalContent>
-          <Table {...getTable()} csx={{ height: '100vh', width: '100vw' }}>
+          <Table
+            {...getTable()}
+            className={csx({ height: '100vh', width: '100vw' })}
+          >
             <THead>
               {columns.map((column) => {
                 return <THeadCell {...getHeadCell(column)} />

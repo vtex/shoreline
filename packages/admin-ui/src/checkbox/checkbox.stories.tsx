@@ -3,10 +3,10 @@ import type { Meta, Story } from '@storybook/react'
 
 import { Checkbox, useCheckboxState } from './checkbox'
 import { CheckboxGroup } from './checkbox-group'
-import { Box } from '../box'
 
 import type { CheckboxProps } from './checkbox'
 import type { CheckboxGroupProps } from './checkbox-group'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/checkbox',
@@ -35,9 +35,9 @@ export const CheckboxPlayground: Story<CheckboxPlaygroundProps> = (args) => {
   }, [indeterminate])
 
   return (
-    <Box csx={{ margin: '$space-1 $space-2' }}>
+    <div className={csx({ margin: '$space-1 $space-2' })}>
       <Checkbox state={checkbox} {...remainingProps} />
-    </Box>
+    </div>
   )
 }
 
@@ -52,12 +52,12 @@ CheckboxPlayground.args = {
 
 export const CheckboxExample = () => {
   return (
-    <Box csx={{ margin: '$space-1 $space-2' }}>
+    <div className={csx({ margin: '$space-1 $space-2' })}>
       <Checkbox
         label="I agree to the Terms of Service"
         helpText="You must select this option to use our services"
       />
-    </Box>
+    </div>
   )
 }
 
@@ -72,13 +72,13 @@ export const CheckboxGroupPlayground: Story<CheckboxGroupPlaygroundProps> = (
   const { checkboxCount, ...remainingProps } = args
 
   return (
-    <Box csx={{ margin: '$space-1 $space-2' }}>
+    <div className={csx({ margin: '$space-1 $space-2' })}>
       <CheckboxGroup {...remainingProps}>
         {[...Array(checkboxCount)].map((_, index) => (
           <Checkbox key={index} label={`Checkbox ${index}`} />
         ))}
       </CheckboxGroup>
-    </Box>
+    </div>
   )
 }
 
@@ -96,7 +96,7 @@ export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
   args
 ) => {
   return (
-    <Box csx={{ margin: '$space-1 $space-2' }}>
+    <div className={csx({ margin: '$space-1 $space-2' })}>
       <CheckboxGroup label="Contact Info" direction={args.direction} optional>
         <Checkbox label="Phone" helpText="All contacts will be made by call" />
         <Checkbox
@@ -108,6 +108,6 @@ export const CheckboxGroupExample: Story<CheckboxGroupPlaygroundProps> = (
           helpText="You will be subscribed to our newsletter"
         />
       </CheckboxGroup>
-    </Box>
+    </div>
   )
 }

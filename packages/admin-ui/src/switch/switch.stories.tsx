@@ -1,10 +1,11 @@
 import React from 'react'
 import type { Story, Meta } from '@storybook/react'
 
-import { Text } from '../components/Text'
-import type { SwitchProps } from './types'
+import { Text } from '../text'
+import type { SwitchProps } from './index'
 import { Switch, useSwitchState } from './index'
 import { Stack } from '../stack'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/switch',
@@ -33,16 +34,16 @@ Playground.args = {
 }
 
 export function Variants() {
-  const props = useSwitchState({ state: [] })
+  const props = useSwitchState({ defaultValue: [] })
 
   return (
     <Stack
-      csx={{
+      className={csx({
         margin: '1rem',
         '> div > *:not(:first-child):not(:nth-child(2))': {
           marginTop: '3.75rem',
         },
-      }}
+      })}
     >
       <Stack>
         <Text variant="title1">Label only</Text>
@@ -146,7 +147,7 @@ export function Variants() {
         />
       </Stack>
       <br />
-      <Text>State: {props.state}</Text>
+      <Text>State: {props.value}</Text>
     </Stack>
   )
 }

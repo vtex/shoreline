@@ -1,4 +1,4 @@
-import { dataAttr, csx, style } from '@vtex/admin-ui-core'
+import { dataAttr, csx } from '@vtex/admin-ui-core'
 
 const variantStyle = (token: string) => {
   return {
@@ -29,7 +29,7 @@ export const alertTheme = csx({
   [dataAttr('variant', 'positive')]: variantStyle('positive'),
 })
 
-export const alertAction = style({
+export const alertActionTheme = csx({
   [dataAttr('dismissible', 'true')]: {
     marginLeft: '$space-7',
     marginRight: '$space-0',
@@ -39,8 +39,8 @@ export const alertAction = style({
   },
 })
 
-export const rightInline = style({ whiteSpace: 'nowrap' })
+export const rightInline = csx({ whiteSpace: 'nowrap' })
 
-export const alertDescription = style({
+export const alertDescription = csx({
   maxWidth: '49rem',
 })

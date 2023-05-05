@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useSafeLayoutEffect } from './useSafeLayoutEffect'
+import { useSafeLayoutEffect } from './use-safe-layout-effect'
 
 /**
  * Generates a unique ID. Uses React's useId if available.

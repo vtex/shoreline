@@ -56,7 +56,7 @@ function Example() {
 
 ### Grid
 
-Besides the props listed bellow, you can use all the props accepted by the JSX element you defined with `as`, which is `div` by default.
+Besides the props listed bellow, you can use all the props accepted by the div JSX element.
 
 | Name            | Type                                      | Description                              | Required | Default |
 | --------------- | ----------------------------------------- | ---------------------------------------- | -------- | ------- |
@@ -66,8 +66,6 @@ Besides the props listed bellow, you can use all the props accepted by the JSX e
 | templateAreas   | `ResponsiveProp<string[]>`                | Same as gridTemplateAreas css property   | 🚫       | -       |
 | templateRows    | `ResponsiveProp<CSS.GridTemplateRows>`    | Same as gridTemplateRows css property    | 🚫       | -       |
 | templateColumns | `ResponsiveProp<CSS.GridTemplateColumns>` | Same as gridTemplateColumns css property | 🚫       | -       |
-| csx             | `StyleObject`                             | Custom styles                            | 🚫       | -       |
-| as              | `HTMLElement`                             | A valid HTMLElement in a string format   | 🚫       | `div`   |
 
 </Section>
 
@@ -75,12 +73,10 @@ Besides the props listed bellow, you can use all the props accepted by the JSX e
 
 ### GridItem
 
-Besides the props listed bellow, you can use all the props accepted by the JSX element you defined with `as`, which is `div` by default.
+Besides the props listed bellow, you can use all the props accepted by the div JSX element.
 
-| Name | Type                           | Description                            | Required | Default |
-| ---- | ------------------------------ | -------------------------------------- | -------- | ------- |
-| area | `ResponsiveProp<CSS.GridArea>` | Same as gridArea css property          | 🚫       | -       |
-| csx  | `StyleObject`                  | Custom styles                          | 🚫       | -       |
-| as   | `HTMLElement`                  | A valid HTMLElement in a string format | 🚫       | `div`   |
+| Name | Type                           | Description                   | Required | Default |
+| ---- | ------------------------------ | ----------------------------- | -------- | ------- |
+| area | `ResponsiveProp<CSS.GridArea>` | Same as gridArea css property | 🚫       | -       |
 
 </Section>
