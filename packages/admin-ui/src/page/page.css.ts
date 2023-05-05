@@ -32,7 +32,7 @@ export const pageHeaderTheme = csx({
   paddingX: '2rem',
   paddingY: '1.5rem',
   zIndex: '$z-9',
-  [dataAttr('scrollOnTop', 'false')]: { boxShadow: '$overlay.center' },
+  [dataAttr('scroll-on-top', 'false')]: { boxShadow: '$overlay.center' },
 })
 
 export const pageHeaderTopTheme = csx({
