@@ -1,0 +1,57 @@
+/* foreground, fg */
+:root {
+  --aui-fg--primary: var(--aui-color--black);
+  --aui-fg--secondary: var(--aui-color--gray50);
+  --aui-fg--disabled: var(--aui-color--gray40);
+  --aui-fg--inverted: var(--aui-color--white);
+  --aui-fg--positive: var(--aui-color--green40);
+  --aui-fg--info: var(--aui-color--lightBlue40);
+  --aui-fg--critical: var(--aui-color--red40);
+  --aui-fg--warning: var(--aui-color--orange40);
+
+  /* action neutral tertirary */
+  --aui-fg--action-neutral-tertiary: var(--aui-color--gray50);
+  --aui-fg--action-neutral-tertiaryHover: var(--aui-color--gray60);
+  --aui-fg--action-neutral-tertiaryPressed: var(--aui-color--black);
+
+  /* action main primary */
+  --aui-fg--action-main-primary: var(--aui-color--white);
+  --aui-fg--action-main-primaryHover: var(--aui-color--white);
+  --aui-fg--action-main-primaryPressed: var(--aui-color--white);
+
+  /* action main secondary */
+  --aui-fg--action-main-secondary: var(--aui-color--blue40);
+  --aui-fg--action-main-secondaryHover: var(--aui-color--blue50);
+  --aui-fg--action-main-secondaryPressed: var(--aui-color--blue60);
+
+  /* action main tertiary */
+  --aui-fg--action-main-tertiary: var(--aui-color--blue40);
+  --aui-fg--action-main-tertiaryHover: var(--aui-color--blue50);
+  --aui-fg--action-main-tertiaryPressed: var(--aui-color--blue60);
+  --aui-fg--action-main-tertiarySelected: var(--aui-color--blue40);
+
+  /* action critical primary */
+  --aui-fg--action-critical-primary: var(--aui-color--white);
+  --aui-fg--action-critical-primaryHover: var(--aui-color--white);
+  --aui-fg--action-critical-primaryPressed: var(--aui-color--white);
+
+  /* action critical secondary */
+  --aui-fg--action-critical-secondary: var(--aui-color--red40);
+  --aui-fg--action-critical-secondaryHover: var(--aui-color--red50);
+  --aui-fg--action-critical-secondaryPressed: var(--aui-color--red60);
+
+  /* action critical tertiary */
+  --aui-fg--action-critical-tertiary: var(--aui-color--red40);
+  --aui-fg--action-critical-tertiaryHover: var(--aui-color--red50);
+  --aui-fg--action-critical-tertiaryPressed: var(--aui-color--red60);
+  --aui-fg--action-critical-tertiarySelected: var(--aui-color--red40);
+
+  /* form neutral */
+  --aui-fg--form-neutral: var(--aui-color--black);
+  --aui-fg--form-neutralChecked: var(--aui-color--white);
+
+  /* form control */
+  --aui-fg--form-controlNeutral: var(--aui-color--black);
+  --aui-fg--form-controlChecked: var(--aui-color--white);
+  --aui-fg--form-control: var(--aui-color--white);
+}

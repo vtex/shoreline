@@ -1,0 +1,32 @@
+/* border */
+:root {
+  --aui-border--neutral: 1px solid var(--aui-color--gray20);
+  --aui-border--mainSelected: 2px solid var(--aui-color--blue40);
+  --aui-border--positive: 1px solid var(--aui-color--green30);
+  --aui-border--info: 1px solid var(--aui-color--lightBlue30);
+  --aui-border--critical: 1px solid var(--aui-color--red30);
+  --aui-border--warning: 1px solid var(--aui-color--orange30);
+  --aui-border--disabled: 1px solid var(--aui-color--gray40);
+
+  /* form neutral */
+  --aui-border--form-neutral: 1px solid var(--aui-color--gray30);
+  --aui-border--form-neutralHover: 1px solid var(--aui-color--gray50);
+  --aui-border--form-neutralFocus: 1px solid var(--aui-color--gray60);
+  --aui-border--form-neutralPressed: 1px solid var(--aui-color--gray60);
+  --aui-border--form-neutralChecked: 1px solid var(--aui-color--black);
+  --aui-border--form-neutralCheckedHover: 1px solid var(--aui-color--gray60);
+  --aui-border--form-neutralCheckedPressed: 1px solid var(--aui-color--gray50);
+
+  /* form critica */
+  --aui-border--form-critical: 1px solid var(--aui-color--red40);
+  --aui-border--form-criticalHover: 1px solid var(--aui-color--red50);
+  --aui-border--form-criticalFocus: 1px solid var(--aui-color--red60);
+
+  /* form control */
+  --aui-border--form-control: 1px solid var(--aui-color--gray30);
+  --aui-border--form-controlHover: 1px solid var(--aui-color--gray50);
+  --aui-border--form-controlFocus: 1px solid var(--aui-color--gray50);
+  --aui-border--form-controlChecked: 1px solid var(--aui-color--blue40);
+  --aui-border--form-controlCheckedHover: 1px solid var(--aui-color--blue50);
+  --aui-border--form-controlCheckedFocus: 1px solid var(--aui-color--blue50);
+}

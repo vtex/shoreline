@@ -1,0 +1,48 @@
+{
+  "name": "@vtex/sail",
+  "version": "0.0.0",
+  "description": "Build blocks designed for backoffice experiences",
+  "main": "dist/vtex-sail.cjs.js",
+  "module": "dist/vtex-sail.esm.js",
+  "types": "dist/vtex-sail.cjs.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
+  "repository": {
+    "directory": "packages/sail",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "postcss": "8.4.23",
+    "rollup-plugin-postcss": "4.0.2",
+    "node-sass": "8.0.0",
+    "@vanilla-extract/css": "1.11.0",
+    "@vanilla-extract/rollup-plugin": "1.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "@vtex/admin-ui-util": "*",
+    "@vanilla-extract/css": "1.11.0"
+  }
+}

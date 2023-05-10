@@ -1,0 +1,63 @@
+/* font-family */
+:root {
+  --aui-ff-sans: 'VTEX Trust', -apple-system, system-ui, BlinkMacSystemFont,
+    sans-serif;
+  --aui-ff-mono: 'MonoLisa', 'Operator Mono', 'Fira Code Retina', 'Fira Code',
+    'FiraCode-Retina', 'Dank Mono', 'Consolas', 'Monaco', 'Menlo', monospace;
+}
+
+/* font variation settings */
+:root {
+  --aui-fvs--hairline: 'WGHT' 100, 'WDTH' 300;
+  --aui-fvs--thin: 'WGHT' 200, 'WDTH' 300;
+  --aui-fvs--light: 'WGHT' 300, 'WDTH' 300;
+  --aui-fvs--regular: 'WGHT' 400, 'WDTH' 300;
+  --aui-fvs--medium: 'WGHT' 500, 'WDTH' 300;
+  --aui-fvs--bold: 'WGHT' 700, 'WDTH' 300;
+  --aui-fvs--black: 'WGHT' 900, 'WDTH' 300;
+
+  --aui-fvs--pageTitle: 'WGHT' 400, 'WDTH' 300;
+  --aui-fvs--title1: 'WGHT' 500, 'WDTH' 300;
+  --aui-fvs--title2: 'WGHT' 400, 'WDTH' 300;
+  --aui-fvs--action1: 'WGHT' 500, 'WDTH' 300;
+  --aui-fvs--action2: 'WGHT' 400, 'WDTH' 300;
+  --aui-fvs--display: 'WGHT' 500, 'WDTH' 300;
+  --aui-fvs--body: 'WGHT' 400, 'WDTH' 300;
+  --aui-fvs--detail: 'WGHT' 400, 'WDTH' 300;
+}
+
+/* font sizes */
+:root {
+  --aui-fs--detail: 0.75rem;
+  --aui-fs--action: 0.875rem;
+  --aui-fs--body: 0.875rem;
+  --aui-fs--title: 1rem;
+  --aui-fs--pageTitle: 1.25rem;
+  --aui-fs--display: 1.5rem;
+}
+
+/* letter-spacing */
+:root {
+  --aui-ls--pageTitle: -0.004em;
+  --aui-ls--title1: 0em;
+  --aui-ls--title2: 0em;
+  --aui-ls--action1: 0.01em;
+  --aui-ls--action2: 0.01em;
+  --aui-ls--display: -0.004em;
+  --aui-ls--body: 0.002em;
+  --aui-ls--detail: 0.004em;
+  --aui-ls--code: inherit;
+}
+
+/* line-height */
+:root {
+  --aui-lh--pageTitle: 1.2;
+  --aui-lh--title1: 1.5;
+  --aui-lh--title2: 1.5;
+  --aui-lh--action1: 1.1428571429;
+  --aui-lh--action2: 1.1428571429;
+  --aui-lh--display: 1.3333333333;
+  --aui-lh--body: 1.4285714286;
+  --aui-lh--detail: 1.3333333333;
+  --aui-lh--code: normal;
+}

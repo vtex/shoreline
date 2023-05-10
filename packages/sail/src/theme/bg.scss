@@ -1,0 +1,84 @@
+/* background, bg */
+:root {
+  --aui-bg--primary: var(--aui-color--white);
+  --aui-bg--secondary: var(--aui-color--gray05);
+  --aui-bg--disabled: var(--aui-color--gray10);
+  --aui-bg--positive: var(--aui-color--green10);
+  --aui-bg--critical: var(--aui-color--red10);
+  --aui-bg--warning: var(--aui-color--orange10);
+  --aui-bg--info: var(--aui-color--lightBlue10);
+  --aui-bg--inverted: var(--aui-color--black);
+  --aui-bg--overlay: var(--aui-color--grayTransparent50);
+  --aui-bg--skeleton: linear-gradient(
+    90deg,
+    var(--aui-color--transparent),
+    var(--aui-color--gray10),
+    var(--aui-color--transparent)
+  );
+
+  /* action neutral secondary */
+  --aui-bg--action-neutral-secondary: var(--aui-color--gray05);
+  --aui-bg--action-neutral-secondaryHover: var(--aui-color--gray10);
+  --aui-bg--action-neutral-secondaryPressed: var(--aui-color--gray20);
+
+  /* action neutral tertiary */
+  --aui-bg--action-neutral-tertiary: var(--aui-color--transparent);
+  --aui-bg--action-neutral-tertiaryHover: var(--aui-color--grayTransparent05);
+  --aui-bg--action-neutral-tertiaryPressed: var(--aui-color--grayTransparent10);
+
+  /* action main primary */
+  --aui-bg--action-main-primary: var(--aui-color--blue40);
+  --aui-bg--action-main-primaryHover: var(--aui-color--blue50);
+  --aui-bg--action-main-primaryPressed: var(--aui-color--blue60);
+
+  /* action main secondary */
+  --aui-bg--action-main-secondary: var(--aui-color--blue10);
+  --aui-bg--action-main-secondaryHover: var(--aui-color--blue20);
+  --aui-bg--action-main-secondaryPressed: var(--aui-color--blue30);
+
+  /* action main tertiary */
+  --aui-bg--action-main-tertiary: var(--aui-color--transparent);
+  --aui-bg--action-main-tertiaryHover: var(--aui-color--blue05);
+  --aui-bg--action-main-tertiaryPressed: var(--aui-color--blue10);
+  --aui-bg--action-main-tertiarySelected: var(--aui-color--blue05);
+
+  /* action critical tertiary */
+  --aui-bg--action-critical-primary: var(--aui-color--red40);
+  --aui-bg--action-critical-primaryHover: var(--aui-color--red50);
+  --aui-bg--action-critical-primaryPressed: var(--aui-color--red60);
+
+  /* action critical tertiary */
+  --aui-bg--action-critical-secondary: var(--aui-color--red10);
+  --aui-bg--action-critical-secondaryHover: var(--aui-color--red20);
+  --aui-bg--action-critical-secondaryPressed: var(--aui-color--red30);
+
+  /* action critical tertiary */
+  --aui-bg--action-critical-tertiary: var(--aui-color--transparent);
+  --aui-bg--action-critical-tertiaryHover: var(--aui-color--red05);
+  --aui-bg--action-critical-tertiaryPressed: var(--aui-color--red10);
+  --aui-bg--action-critical-tertiarySelected: var(--aui-color--red05);
+
+  /* form neutral */
+  --aui-bg--form-neutral: var(--aui-color--transparent);
+  --aui-bg--form-neutralHover: var(--aui-color--gray10);
+  --aui-bg--form-neutralPressed: var(--aui-color--gray30);
+  --aui-bg--form-neutralChecked: var(--aui-color--black);
+  --aui-bg--form-neutralCheckedHover: var(--aui-color--gray60);
+  --aui-bg--form-neutralCheckedPressed: var(--aui-color--gray50);
+  --aui-bg--form-neutralInactive: var(--aui-color--gray30);
+  --aui-bg--form-neutralInactiveHover: var(--aui-color--gray50);
+  --aui-bg--form-neutralInactivePressed: var(--aui-color--gray60);
+  --aui-bg--form-neutralActive: var(--aui-color--black);
+  --aui-bg--form-neutralActiveHover: var(--aui-color--gray60);
+  --aui-bg--form-neutralActivePressed: var(--aui-color--gray50);
+
+  /* form control */
+  --aui-bg--form-controlHover: var(--aui-color--transparent);
+  --aui-bg--form-controlChecked: var(--aui-color--blue40);
+  --aui-bg--form-controlCheckedHover: var(--aui-color--blue50);
+  --aui-bg--form-controlCheckedFocus: var(--aui-color--blue50);
+  --aui-bg--form-controlActive: var(--aui-color--green40);
+  --aui-bg--form-controlActiveHover: var(--aui-color--green50);
+  --aui-bg--form-controlInactive: var(--aui-color--gray30);
+  --aui-bg--form-controlInactiveHover: var(--aui-color--gray40);
+}
