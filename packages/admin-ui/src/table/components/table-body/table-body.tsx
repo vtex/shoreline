@@ -1,27 +1,17 @@
 import React, { memo } from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
-
-import { Box } from '../../../box'
-
-import * as styles from '../styles/table-body.styles'
+import { cx } from '@vtex/admin-ui-core'
+import { tableBodyTheme } from '../styles/table-body.css'
 
 function TableBody(props: TableBodyProps) {
-  const { children, csx, ...restProps } = props
+  const { children, className = '', ...restProps } = props
 
   return (
-    <Box
-      as="tbody"
-      role="rowgroup"
-      {...restProps}
-      csx={{ ...styles.baseline, ...csx }}
-    >
+    <tbody className={cx(tableBodyTheme, className)} {...restProps}>
       {children}
-    </Box>
+    </tbody>
   )
 }
 
 export const TBody = memo(TableBody) as typeof TableBody
 
-export type TableBodyProps = {
-  csx?: StyleProp
-} & React.ComponentPropsWithoutRef<'tbody'>
+export type TableBodyProps = React.ComponentPropsWithoutRef<'tbody'>

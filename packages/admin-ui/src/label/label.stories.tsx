@@ -29,7 +29,7 @@ Playground.args = {}
 
 export const HtmlFor = () => {
   return (
-    <Flex direction="column" csx={{ width: 160 }}>
+    <Flex direction="column" className={csx({ width: 160 })}>
       <Label htmlFor="text-id">Text Input Label!</Label>
       <input type="text" id="text-id" />
     </Flex>

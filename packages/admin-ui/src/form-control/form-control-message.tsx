@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import React from 'react'
 
 import { Stack } from '../stack'
-import { Text } from '../components/Text'
+import { Text } from '../text'
 
 export function FormControlMessage(props: FormControlMessageProps) {
   const { helpText, error, errorText, className } = props

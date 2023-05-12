@@ -1,0 +1,11 @@
+{
+  "apply": "Aplicar",
+  "clear": "Limpiar",
+  "clearAll": "Limpiar todo",
+  "moreFilters": "Más filtros",
+  "errorTitle": "Se produjo un error",
+  "retry": "Inténtalo de nuevo",
+  "empty": "No hay filtros disponibles",
+  "noResultsTitle": "Ningún filtro coincide con tu búsqueda",
+  "noResultsSubtitle": "Intenta utilizar otros términos"
+}

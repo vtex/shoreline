@@ -1,73 +1,72 @@
-import type { Ref } from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import type { StyleProp } from '@vtex/admin-ui-core'
 
 import { IconCalendarBlank } from '@vtex/phosphor-icons'
 import { ariaAttr } from '@vtex/admin-ui-util'
 
-import { Text } from '../components/Text'
+import { Text } from '../text'
 import { DateField } from '../date-field'
 import { Center } from '../center'
 import { Picker, PickerDisclosure } from '../picker'
 import type { DatePickerStateReturn } from './date-picker.state'
-import * as style from './date-picker.style'
+import { datePickerDisclosureTheme } from './date-picker.css'
 
-export const DatePickerField = forwardRef(
-  (props: DatePickerFieldProps, ref: Ref<HTMLDivElement>) => {
-    const {
-      state: { required, tone, pickerState, dateFieldState, disabled },
-      label,
-      helperText,
-      criticalText,
-    } = props
+export const DatePickerField = forwardRef(function DatePickerField(
+  props: DatePickerFieldProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const {
+    state: { required, tone, pickerState, dateFieldState, disabled },
+    label,
+    helperText,
+    criticalText,
+    ...htmlProps
+  } = props
 
-    const isCritical = tone === 'critical'
-    const hasCriticalMessage = tone === 'critical' && criticalText
-    const hasMessage = helperText && !hasCriticalMessage
+  const isCritical = tone === 'critical'
+  const hasCriticalMessage = tone === 'critical' && criticalText
+  const hasMessage = helperText && !hasCriticalMessage
 
-    return (
-      <>
-        <Picker
-          ref={ref}
-          aria-invalid={ariaAttr(isCritical)}
-          aria-required={ariaAttr(required)}
-          state={pickerState}
-        >
-          <DateField
-            label={label}
-            state={dateFieldState}
-            tone={tone}
-            disabled={disabled}
-            disclosure={
-              <PickerDisclosure state={pickerState} csx={style.disclosure}>
-                <Center
-                  csx={{
-                    color: disabled ? '$disabled' : '$action.neutral.tertiary',
-                  }}
-                >
-                  <IconCalendarBlank />
-                </Center>
-              </PickerDisclosure>
-            }
-          />
-          {hasMessage && <Text variant="detail">{helperText}</Text>}
-          {hasCriticalMessage && (
-            <Text variant="detail" tone="critical">
-              {criticalText}
-            </Text>
-          )}
-        </Picker>
-      </>
-    )
-  }
-)
+  return (
+    <Picker
+      ref={ref}
+      aria-invalid={ariaAttr(isCritical)}
+      aria-required={ariaAttr(required)}
+      state={pickerState}
+      {...htmlProps}
+    >
+      <DateField
+        label={label}
+        state={dateFieldState}
+        tone={tone}
+        disabled={disabled}
+        disclosure={
+          <PickerDisclosure
+            state={pickerState}
+            className={datePickerDisclosureTheme}
+            data-disabled={disabled}
+          >
+            <Center>
+              <IconCalendarBlank />
+            </Center>
+          </PickerDisclosure>
+        }
+      />
+      {hasMessage && <Text variant="detail">{helperText}</Text>}
+      {hasCriticalMessage && (
+        <Text variant="detail" tone="critical">
+          {criticalText}
+        </Text>
+      )}
+    </Picker>
+  )
+})
 
 DatePickerField.displayName = 'DatePickerField'
 
-export interface DatePickerFieldProps {
+export interface DatePickerFieldProps extends ComponentPropsWithoutRef<'div'> {
   state: DatePickerStateReturn
   label: string
-  csx?: StyleProp
   helperText?: string
   criticalText?: string
 }

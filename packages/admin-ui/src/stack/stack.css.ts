@@ -16,7 +16,7 @@ export const stackTheme = csx({
     justifyContent: 'unset',
     alignItems: 'var(--stack-align)',
     '> *:not(:first-child)': {
-      marginTop: 'var(--stack-space)',
+      marginTop: 'var(--stack-space) !important',
     },
   },
   [dataAttr('direction', 'row')]: {
@@ -24,11 +24,11 @@ export const stackTheme = csx({
     alignItems: 'center',
     justifyContent: 'var(--stack-align)',
     '> *:not(:first-child)': {
-      marginLeft: 'var(--stack-space)',
+      marginLeft: 'var(--stack-space) !important',
     },
   },
 
-  [dataAttr('fluid', 'true')]: {
+  [dataAttr({ fluid: 'true', direction: 'column' })]: {
     alignItems: 'unset',
     justifyContent: 'unset',
   },

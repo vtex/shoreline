@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import type { Meta } from '@storybook/react'
+import { csx } from '@vtex/admin-ui-core'
 
 import { FilterDisclosure } from '../filter-disclosure'
 import { FilterPopover } from '../filter-popover'
@@ -195,21 +196,24 @@ export function CsxDemo() {
 
   return (
     <>
-      <FilterDisclosure state={filterState} csx={{ color: 'white' }}>
+      <FilterDisclosure state={filterState} className={csx({ color: 'white' })}>
         Example
       </FilterDisclosure>
-      <FilterPopover state={filterState} csx={{ color: 'brown' }}>
-        <FilterSearchbox id="boxy" csx={{ backgroundColor: 'lightGray' }} />
-        <FilterListbox csx={{ color: 'pink' }}>
+      <FilterPopover state={filterState} className={csx({ color: 'brown' })}>
+        <FilterSearchbox
+          id="boxy"
+          className={csx({ backgroundColor: 'lightGray' })}
+        />
+        <FilterListbox className={csx({ color: 'pink' })}>
           {filterState.combobox.matches.map((item) => (
             <FilterOptionCheckbox
               id={item.id}
               label={item.label}
-              csx={{ fontWeight: 800 }}
+              className={csx({ fontWeight: 800 })}
             />
           ))}
         </FilterListbox>
-        <FilterFooter state={filterState} csx={{ color: 'yellow' }} />
+        <FilterFooter className={csx({ color: 'yellow' })} />
       </FilterPopover>
     </>
   )

@@ -9,13 +9,13 @@ import {
 
 import { useMessageFormatter } from '../i18n'
 
-import { messages } from './number-input.i18n'
+import { messages } from './messages'
 
 export const useNumberInput = (props: NumberInputState) => {
   const { initialValue, step, min, max, onChange } = props
   const [currentValue, setCurrentValue] = useState(initialValue)
 
-  const formatMessage = useMessageFormatter(messages.formControl)
+  const formatMessage = useMessageFormatter(messages)
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const { value } = event.target

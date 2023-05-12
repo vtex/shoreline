@@ -1,23 +1,31 @@
-import { Checkbox as ReakitCheckbox } from 'reakit/Checkbox'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import type { CheckboxState as AriakitCheckboxState } from 'ariakit/checkbox'
+import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
+import { cx } from '@vtex/admin-ui-core'
+import { switchTheme } from './switch.css'
 
-import * as style from './switch.style'
-import type { SwitchOptions } from './types'
+export const SwitchButton = forwardRef(function SwitchButton(
+  props: SwitchButtonProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const { state, className = '', ...htmlProps } = props
 
-export const SwitchButton = createComponent<
-  typeof ReakitCheckbox,
-  Omit<SwitchOptions, 'label' | 'error' | 'errorText' | 'helpText'>
->((props) => {
-  const { state, ...htmlProps } = props
-
-  return useElement(ReakitCheckbox, {
-    role: 'switch',
-    baseStyle: {
-      ...style.track,
-      ':after': style.thumb,
-      '&:checked': style.checked,
-    },
-    ...state,
-    ...htmlProps,
-  })
+  return (
+    <AriakitCheckbox
+      ref={ref}
+      role="switch"
+      state={state}
+      className={cx(switchTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
+
+export type SwitchButtonProps = Omit<
+  ComponentPropsWithoutRef<'input'>,
+  'value'
+> & {
+  state: AriakitCheckboxState
+  value?: string | number
+}

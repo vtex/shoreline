@@ -1,0 +1,23 @@
+---
+title: Filter
+path: /filter/
+hide_table_of_contents: true
+---
+
+import { Page, Panel } from '@site/src/components/Page'
+import Overview from '@site/content/filter/overview.mdx'
+import Code from '@site/content/filter/code.mdx'
+import Design from '@site/content/filter/design.mdx'
+import { tabToc } from '@site/content/filter/toc'
+
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+    <Overview />
+  </Panel>
+  <Panel id="codeReference">
+    <Code />
+  </Panel>
+  <Panel id="designReference">
+    <Design />
+  </Panel>
+</Page>

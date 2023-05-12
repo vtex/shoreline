@@ -14,6 +14,7 @@ export function useSearchState(
     initialValue = '',
     defaultValue = '',
     timeout = DEFAULT_TIMEOUT_MS,
+    onChange: defaultOnChange,
   } = params
 
   const [value, debouncedValue, setValue] = useDebouncedCache({
@@ -27,6 +28,7 @@ export function useSearchState(
 
   const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
+      defaultOnChange?.(event)
       setValue(event.target.value)
     },
     []

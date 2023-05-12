@@ -1,0 +1,9 @@
+{
+  "error": "Ceva n-a mers bine",
+  "retry": "Încearcă din nou",
+  "noResultsTitle": "Nicio opțiune nu se potrivește căutării dvs",
+  "noResultsSubtitle": "Încercați să utilizați termeni diferiți",
+  "searchPlaceholder": "Începeți să tastați pentru a căuta",
+  "removeLabel": "Eliminați elementul",
+  "placeholder": "Continuă să tastezi..."
+}

@@ -1,46 +1,48 @@
-import type { ReactNode } from 'react'
-import React from 'react'
-import {
-  createComponent,
-  useElement,
-  IconContainer,
-} from '@vtex/admin-ui-react'
+import type { ReactNode, Ref } from 'react'
+import React, { forwardRef } from 'react'
 import { MenuItem as AriakitMenuItem } from 'ariakit/menu'
+import { cx } from '@vtex/admin-ui-core'
 
 import { MenuItemWrapper } from './menu-item-wrapper'
 import { Center } from '../center'
+import { itemTheme } from './menu.css'
+import { IconContainer } from '../icons'
 
-import * as style from './menu.style'
-
-export const MenuItem = createComponent<
-  typeof AriakitMenuItem,
-  MenuItemOptions
->((props) => {
-  const { icon, label, critical, disabled, onClick, ...itemProps } = props
-
-  return useElement(MenuItemWrapper, {
-    disabled,
-    children: useElement(AriakitMenuItem, {
+export const MenuItem = forwardRef(
+  (props: MenuItemProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      icon,
+      label,
+      critical,
       disabled,
       onClick,
-      ...itemProps,
-      baseStyle: {
-        ...style.item,
-        ...style.itemVariants({
-          variant:
-            (disabled && 'disabled') || (critical && 'critical') || 'neutral',
-        }),
-      },
-      children: (
-        <Center>
-          <IconContainer size="small">{icon}</IconContainer> {label}
-        </Center>
-      ),
-    }),
-  })
-})
+      className = '',
+      ...itemProps
+    } = props
 
-export type MenuItemOptions = {
+    const variant =
+      (disabled && 'disabled') || (critical && 'critical') || 'neutral'
+
+    return (
+      <MenuItemWrapper disabled={disabled}>
+        <AriakitMenuItem
+          disabled={disabled}
+          ref={ref}
+          onClick={onClick}
+          data-variant={variant}
+          className={cx(itemTheme, className)}
+          {...itemProps}
+        >
+          <Center>
+            <IconContainer size="small">{icon}</IconContainer> {label}
+          </Center>
+        </AriakitMenuItem>
+      </MenuItemWrapper>
+    )
+  }
+)
+
+export interface MenuItemProps extends React.ComponentPropsWithoutRef<'div'> {
   /**
    * Item icon
    */
@@ -58,6 +60,9 @@ export type MenuItemOptions = {
    * Item click event
    */
   onClick?: React.MouseEventHandler<HTMLDivElement>
+  /**
+   * Whether the item is disabled
+   * @default false
+   */
+  disabled?: boolean
 }
-
-export type MenuItemProps = React.ComponentPropsWithoutRef<typeof MenuItem>

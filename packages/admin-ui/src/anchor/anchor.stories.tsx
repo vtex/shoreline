@@ -3,8 +3,7 @@ import type { Meta, Story } from '@storybook/react'
 
 import type { AnchorProps } from './index'
 import { Anchor } from './index'
-import { Paragraph } from '../components/Paragraph'
-import { List } from '../components/List'
+import { Paragraph } from '../paragraph'
 
 export default {
   title: 'admin-ui/Anchor',
@@ -35,21 +34,5 @@ export const withinAParagraph: Story<AnchorProps> = () => {
       finibus neque ultrices ut. Phasellus fermentum urna at ex rhoncus aliquam{' '}
       <Anchor href="/?path=/story/beta-link--variants">Link 1</Anchor>
     </Paragraph>
-  )
-}
-
-export const withinAList: Story<AnchorProps> = () => {
-  return (
-    <List style="none">
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 1</Anchor>
-      </List.Item>
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 2</Anchor>
-      </List.Item>
-      <List.Item csx={{ mb: '2' }}>
-        <Anchor href="/?path=/story/beta-link--variants">Link 3</Anchor>
-      </List.Item>
-    </List>
   )
 }

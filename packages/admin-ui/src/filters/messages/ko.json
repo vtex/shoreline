@@ -1,0 +1,11 @@
+{
+  "apply": "적용하다",
+  "clear": "분명한",
+  "clearAll": "모두 지우기",
+  "moreFilters": "추가 필터",
+  "errorTitle": "문제가 발생했습니다.",
+  "retry": "다시 시도하십시오",
+  "empty": "사용 가능한 필터가 없습니다.",
+  "noResultsTitle": "검색어와 일치하는 필터가 없습니다.",
+  "noResultsSubtitle": "다른 용어를 사용해 보세요"
+}

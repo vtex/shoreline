@@ -4,7 +4,7 @@ import type { Meta, Story } from '@storybook/react'
 import type { RadioGroupProps, RadioProps } from '../index'
 import { Radio, useRadioState, RadioGroup } from '../index'
 import { Stack } from '../../stack'
-import { Box } from '../../box'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/radio',
@@ -53,7 +53,7 @@ export function Example() {
   const state = useRadioState()
 
   return (
-    <Box csx={{ margin: '$space-6 $space-7' }}>
+    <div className={csx({ margin: '$space-6 $space-7' })}>
       <RadioGroup state={state} label="Account Type" direction="column">
         <Radio
           label="Accounts are disabled"
@@ -66,7 +66,7 @@ export function Example() {
           value="optional"
         />
       </RadioGroup>
-    </Box>
+    </div>
   )
 }
 

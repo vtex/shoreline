@@ -17,18 +17,18 @@ You can combine `Flex` and `FlexSpacer` to adjust spacing.
 
 ```jsx live
 <Flex justify="space-around">
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
   <FlexSpacer />
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
 </Flex>
 ```
@@ -46,19 +46,19 @@ Flex provides a set of properties to help you building flexbox layouts.
   align="center"
   direction="column"
   justify="space-around"
-  csx={{ size: 300, border: '$neutral', borderRadius: 'default' }}
+  className={csx({ size: 300, border: '$neutral', borderRadius: 'default' })}
 >
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
 </Flex>
 ```
@@ -76,19 +76,19 @@ To make it easy applying flexbox layouts, all props provided by `Flex` are [Resp
   align={{ mobile: 'center', tablet: 'flex-start', desktop: 'flex-end' }}
   direction={{ mobile: 'column', tablet: 'row' }}
   justify="space-around"
-  csx={{ size: 300, border: '$neutral', borderRadius: 'default' }}
+  className={csx({ size: 300, border: '$neutral', borderRadius: 'default' })}
 >
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       size: 100,
-    }}
+    })}
   />
 </Flex>
 ```

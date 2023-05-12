@@ -1,0 +1,6 @@
+{
+  "error": "Algo salió mal",
+  "notFound": "No se han encontrado resultados",
+  "suggestion": "Intenta usar diferentes términos o filtros",
+  "empty": "No hay elementos creados"
+}

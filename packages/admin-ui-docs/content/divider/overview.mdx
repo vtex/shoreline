@@ -16,25 +16,25 @@ Dividers serve the purpose of separating and distinguishing sections of content 
 By default, the orientation property has a `horizontal`.
 
 ```jsx live
-<Box>
-  <Box
-    csx={{
+<div>
+  <div
+    className={csx({
       bg: '$info',
       height: '100px',
       width: '100%',
-    }}
+    })}
   />
 
   <Divider className={csx({ marginY: 6 })} />
 
-  <Box
-    csx={{
+  <div
+    className={csx({
       bg: '$info',
       height: '100px',
       width: '100%',
-    }}
+    })}
   />
-</Box>
+</div>
 ```
 
 </Section>
@@ -47,22 +47,22 @@ The value can also be set to `vertical`
 
 ```jsx live
 <Flex>
-    <Box
-      csx={{
+    <div
+      className={csx({
         bg: '$info',
         height: '100px',
         width: '1/2',
-      }}
+      })}
     />
 
   <Divider orientation="vertical" className={csx({ marginX: 6 })} />
 
-    <Box
-      csx={{
+    <div
+      className={csx({
         bg: '$info',
         height: '100px',
         width: '1/2',
-      }}
+      })}
     />
 </Flex>
 ```

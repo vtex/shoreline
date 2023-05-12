@@ -1,37 +1,39 @@
-import { useEffect, useRef } from 'react'
-import type { CheckboxOptions as AriakitCheckboxOptions } from 'ariakit/checkbox'
+import type { Ref } from 'react'
+import React, { forwardRef, useEffect, useRef } from 'react'
 import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
-import * as style from './checkbox.style'
+import { cx } from '@vtex/admin-ui-core'
+import { checkboxTheme } from './checkbox.css'
 
-export const CheckboxInput = createComponent<
-  typeof AriakitCheckbox,
-  CheckboxInputOptions
->((props) => {
-  const { error = false, ref: htmlRef, state, ...htmlProps } = props
+export const CheckboxInput = forwardRef(function CheckboxInput(
+  props: CheckboxInputProps,
+  ref: Ref<HTMLInputElement>
+) {
+  const { error = false, state, className = '', ...htmlProps } = props
 
-  const ref = useRef<HTMLInputElement>(null)
+  const forkedRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (ref.current && state) {
-      ref.current.indeterminate = state.value === 'indeterminate'
+    if (forkedRef.current && state) {
+      forkedRef.current.indeterminate = state.value === 'indeterminate'
     }
   }, [state])
 
-  return useElement(AriakitCheckbox, {
-    ...htmlProps,
-    ref: useForkRef(ref, htmlRef),
-    state,
-    baseStyle: {
-      ...style.checkboxStyle,
-      ...(error ? style.error : {}),
-    },
-  })
+  return (
+    <AriakitCheckbox
+      state={state}
+      ref={useForkRef(forkedRef, ref)}
+      data-error={error}
+      className={cx(checkboxTheme, className)}
+      {...htmlProps}
+    />
+  )
 })
 
-export interface CheckboxInputOptions extends AriakitCheckboxOptions {
+export type CheckboxInputProps = React.ComponentPropsWithRef<
+  typeof AriakitCheckbox
+> & {
   /**
    * Whether has a error or not
    * @default false
@@ -41,12 +43,4 @@ export interface CheckboxInputOptions extends AriakitCheckboxOptions {
    * Checkbox id
    */
   id?: string
-  /**
-   * Checkbox input ref
-   */
-  ref?: React.Ref<HTMLInputElement>
 }
-
-export type CheckboxInputProps = React.ComponentPropsWithRef<
-  typeof CheckboxInput
->

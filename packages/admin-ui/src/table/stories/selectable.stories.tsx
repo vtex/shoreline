@@ -12,10 +12,8 @@ import {
 } from '../index'
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
-import {
-  SelectionTree,
-  useSelectionTreeState,
-} from '../../components/SelectionTree'
+import { csx } from '@vtex/admin-ui-core'
+import { SelectionTree, useSelectionTreeState } from '../../selection-tree'
 
 export default {
   title: 'admin-ui-review/table/selectable',
@@ -126,7 +124,7 @@ export function Selectable() {
 
   return (
     <SelectionTree state={selection}>
-      <Table {...getTable()} csx={{ width: 800 }}>
+      <Table {...getTable()} className={csx({ width: 800 })}>
         <THead>
           {columns.map((column) => {
             return <THeadCell {...getHeadCell(column)} />

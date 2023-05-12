@@ -1,32 +1,44 @@
-import { Role } from 'reakit'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
-import React from 'react'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
+
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
-import { messages } from './filter.i18n'
+import { messages } from './messages'
 import { usePopoverContext } from './filter-popover-context'
 import { Stack } from '../stack'
+import { filterFooterTheme } from './filter.css'
 
-import * as style from './filter.style'
+export const FilterFooter = forwardRef(function FilterFooter(
+  props: FilterFooterProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { className = '', children, ...htmlProps } = props
 
-export const FilterFooter = createComponent<typeof Role>((props) => {
   const { state } = usePopoverContext()
 
   const { onChange, onClear } = state
 
-  const formatMessage = useMessageFormatter(messages.actions)
+  const formatMessage = useMessageFormatter(messages)
   const { isScrollableLayout } = usePopoverContext()
 
-  return useElement(Role, {
-    baseStyle: style.footer(isScrollableLayout),
-    children: (
-      <Stack direction="row" space="$space-2">
-        <Button variant="tertiary" onClick={onClear}>
-          {formatMessage('clear')}
-        </Button>
-        <Button onClick={onChange}>{formatMessage('apply')}</Button>
-      </Stack>
-    ),
-    ...props,
-  })
+  return (
+    <div
+      ref={ref}
+      data-scrollable={isScrollableLayout}
+      className={cx(filterFooterTheme, className)}
+      {...htmlProps}
+    >
+      {children || (
+        <Stack direction="row" space="$space-2">
+          <Button variant="tertiary" onClick={onClear}>
+            {formatMessage('clear')}
+          </Button>
+          <Button onClick={onChange}>{formatMessage('apply')}</Button>
+        </Stack>
+      )}
+    </div>
+  )
 })
+
+export type FilterFooterProps = ComponentPropsWithoutRef<'div'>

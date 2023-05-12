@@ -1,38 +1,40 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
 import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
+import { inlineStyle, inlineTheme } from './inline.css'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 
-export const Inline = createComponent<'div', InlineProps>((props) => {
-  const {
-    vSpace = '$space-05',
-    hSpace = '$space-1',
-    noWrap = false,
-    align = 'start',
-    spaceInside = false,
-    ...htmlProps
-  } = props
+export const Inline = forwardRef(
+  (props: InlineProps, ref: Ref<HTMLDivElement>) => {
+    const {
+      vSpace = '$space-05',
+      hSpace = '$space-1',
+      noWrap = false,
+      align = 'start',
+      spaceInside = false,
+      className = '',
+      ...htmlProps
+    } = props
 
-  return useElement('div', {
-    ...htmlProps,
-    baseStyle: {
-      display: 'flex',
-      flexWrap: noWrap ? 'nowrap' : 'wrap',
-      alignItems: align,
-      '> *:not(:first-child)': {
-        marginLeft: hSpace,
-        marginTop: spaceInside ? '$space-0' : vSpace,
-      },
-      '> *:is(:first-child)': {
-        marginLeft: spaceInside ? '$space-0' : hSpace,
-        marginTop: spaceInside ? '$space-0' : vSpace,
-      },
-    },
-  })
-})
+    const responsiveCssProps = inlineStyle({ vSpace, hSpace, align })
+
+    return (
+      <div
+        style={responsiveCssProps}
+        className={cx(inlineTheme, className)}
+        data-wrap={!noWrap}
+        data-space-inside={spaceInside}
+        ref={ref}
+        {...htmlProps}
+      />
+    )
+  }
+)
 
 Inline.displayName = 'Inline'
 
-export interface InlineProps {
+export interface InlineProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Vertical space
    * @default '$space-05'

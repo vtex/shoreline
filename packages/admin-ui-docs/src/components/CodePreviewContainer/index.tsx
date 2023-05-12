@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { Box, useMediaQuery } from '@vtex/admin-ui'
+import { csx, cx, useMediaQuery } from '@vtex/admin-ui'
 
 import './styles.scss'
 
@@ -29,27 +29,22 @@ export function CodePreviewContainer(props: CodeSectionProps) {
 
   return (
     <div className={wrapperClassName}>
-      <Box
-        className={className}
-        csx={{
-          gridTemplateColumns,
-        }}
-      >
+      <div className={cx(csx({ gridTemplateColumns }), className)}>
         {props.children}
-      </Box>
+      </div>
       {isGridLayout && (
-        <Box
-          className="background-grid-container"
-          csx={{
-            gridTemplateColumns,
-          }}
+        <div
+          className={cx(
+            'background-grid-container',
+            csx({ gridTemplateColumns })
+          )}
         >
           {props?.columnsCount &&
             props?.rowsCount &&
             Array(Number(props.columnsCount) * Number(props.rowsCount)).fill(
-              <Box className="grid-item" />
+              <div className="grid-item" />
             )}
-        </Box>
+        </div>
       )}
     </div>
   )

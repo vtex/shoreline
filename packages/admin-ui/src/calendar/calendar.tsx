@@ -1,9 +1,8 @@
-import React from 'react'
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import type { Ref, ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
+import { cx } from '@vtex/admin-ui-core'
 import { IconCaretLeft, IconCaretRight } from '@vtex/phosphor-icons'
-import { Role } from 'reakit/Role'
 
-import * as style from './calendar.style'
 import type { CalendarStateReturn } from './calendar-state'
 import { CalendarHeaderButton } from './calendar-header-button'
 import { CalendarGrid } from './calendar-grid'
@@ -13,62 +12,63 @@ import { CalendarHeader } from './calendar-header'
 import { CalendarCell } from './calendar-cell'
 import { CalendarCellButton } from './calendar-cell-button'
 import { Abbr } from '../abbr'
+import { calendarTheme } from './calendar.css'
 
-export const Calendar = createComponent<typeof Role, CalendarOptions>(
-  (props) => {
-    const { state, ...htmlProps } = props
+export const Calendar = forwardRef(function Calendar(
+  props: CalendarProps,
+  ref: Ref<HTMLDivElement>
+) {
+  const { state, className = '', ...htmlProps } = props
 
-    return useElement(Role, {
-      baseStyle: style.calendar,
-      role: 'group',
-      'aria-labelledby': state.calendarId,
-      children: (
-        <>
-          <CalendarHeader>
-            <CalendarHeaderButton state={state} handler="previousMonth">
-              <IconCaretLeft />
-            </CalendarHeaderButton>
-            <CalendarHeaderTitle state={state} />
-            <CalendarHeaderButton state={state} handler="nextMonth">
-              <IconCaretRight />
-            </CalendarHeaderButton>
-          </CalendarHeader>
-          <CalendarGrid state={state} as="table">
-            <thead>
-              <tr>
-                {state?.weekDays?.map((day, dayIndex) => (
-                  <CalendarDayTitle
-                    as="th"
-                    scope="col"
-                    key={dayIndex}
-                    dayIndex={dayIndex}
-                    state={state}
-                  >
-                    <Abbr title={day.title}>{day.abbr}</Abbr>
-                  </CalendarDayTitle>
-                ))}
-              </tr>
-            </thead>
+  return (
+    <div
+      ref={ref}
+      className={cx(calendarTheme, className)}
+      role="group"
+      aria-labelledby={state.calendarId}
+      {...htmlProps}
+    >
+      <CalendarHeader>
+        <CalendarHeaderButton state={state} handler="previousMonth">
+          <IconCaretLeft />
+        </CalendarHeaderButton>
+        <CalendarHeaderTitle state={state} />
+        <CalendarHeaderButton state={state} handler="nextMonth">
+          <IconCaretRight />
+        </CalendarHeaderButton>
+      </CalendarHeader>
+      <CalendarGrid state={state}>
+        <thead>
+          <tr>
+            {state?.weekDays?.map((day, dayIndex) => (
+              <CalendarDayTitle
+                scope="col"
+                key={dayIndex}
+                dayIndex={dayIndex}
+                state={state}
+              >
+                <Abbr title={day.title}>{day.abbr}</Abbr>
+              </CalendarDayTitle>
+            ))}
+          </tr>
+        </thead>
 
-            <tbody>
-              {state?.daysInMonth?.map((week, weekIndex) => (
-                <tr key={weekIndex}>
-                  {week.map((date, index) => (
-                    <CalendarCell state={state} date={date} as="td" key={index}>
-                      <CalendarCellButton state={state} date={date} />
-                    </CalendarCell>
-                  ))}
-                </tr>
+        <tbody>
+          {state?.daysInMonth?.map((week, weekIndex) => (
+            <tr key={weekIndex}>
+              {week.map((date, index) => (
+                <CalendarCell state={state} date={date} key={index}>
+                  <CalendarCellButton state={state} date={date} />
+                </CalendarCell>
               ))}
-            </tbody>
-          </CalendarGrid>
-        </>
-      ),
-      ...htmlProps,
-    })
-  }
-)
+            </tr>
+          ))}
+        </tbody>
+      </CalendarGrid>
+    </div>
+  )
+})
 
-export interface CalendarOptions {
+export interface CalendarProps extends ComponentPropsWithoutRef<'div'> {
   state: CalendarStateReturn
 }

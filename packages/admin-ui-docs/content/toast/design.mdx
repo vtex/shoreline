@@ -1,0 +1,198 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use an Alert instead of a Toast?</h4></summary>
+  <div>
+    Choose an <a href="https://admin-ui.vercel.app/components/alert">Alert</a> when the notification loads with the page content and depends on user action to disappear. For example, the <em>Order details</em> page continues to display the Alert with an error in the order until it is solved. Non-dismissive Alerts that indicate progress are the only ones that can appear after the page loads.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to give feedback in a Toast or in the container itself?</h4></summary>
+  <div>
+    <ul>
+        <li>Give (non-contextual) feedback in a Toast when the message is temporary and doesn’t require much attention from the merchant.</li>
+        <li>Give (contextual) feedback in the container itself when the message is permanent, very detailed or easier to understand in a contextual position. In these cases, use one of the following options:
+            <ul>
+                <li>Error text of a form field</li>
+                <li>Error or success states</li>
+                <li><a href="https://admin-ui.vercel.app/components/alert">Alert</a></li>
+                <li><a href="https://admin-ui.vercel.app/components/modal">Modal</a></li>
+                <li>Custom progress bar</li>
+            </ul></li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+      <ul>
+        <li>Don't use Toasts for permanent or detailed messages, as they are not easily discoverable by merchants.</li>
+      </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use an info (default), critical, warning or positive Toast?</h4></summary>
+  <div>
+    <ul>
+      <li>Use an info Toast for messages that don't require immediate attention and don't have clear semantics. For example, <em>There are 5 new transactions</em>, with a <em>View new transactions</em> button, when the merchant is viewing a page with outdated information.</li>
+      <li>Use a critical Toast when an action fails due to a technical error or a user error, usually with a proposed action. For example, "<em>The font could not be deleted because it's used in styles. Please remove it from styles and try again</em>" with a <em>View styles</em> button.</li>
+      <li>Use a warning Toast after a successful action when there is something to be cautious about, usually with a proposed action. For example, <em>The product was saved with 5 issues</em> and a <em>Fix issues</em> button.</li>
+      <li>Use a positive Toast to indicate success. If the action takes a while to process, use a positive Toast for the submission itself and an info Alert to indicate progress. For example, <em>Product created successfully</em> in a positive Toast and <em>Product indexing in progress</em> in an info Alert.</li>
+    </ul>
+  </div>
+</details> 
+
+<details>
+  <summary><h4>When to include an action on a Toast?</h4></summary>
+  <div>
+    The Toast message should be as brief as possible, so include an action to complement it when needed. Examples include:
+    <ul>
+        <li>Providing more details in a modal or related page.</li>
+        <li>Retrying a failed action.</li>
+        <li>Undoing a successful action.</li>
+        <li>Focusing on the first error in a form with issues.</li>
+        <li>Refreshing outdated information in the page.</li>
+    </ul>
+    Read the <a href="https://admin-ui.vercel.app/components/button">Button</a> documentation for more details.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a Toast be dismissible?</h4></summary>
+  <div>
+    Always. For non-dismissible notifications, use an <a href="https://admin-ui.vercel.app/components/alert">Alert</a> instead.
+  </div>
+</details>
+
+</PageSection>
+  
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position of a Toast in a Page?</h4></summary>
+  <div>
+    Considering left-to-right interfaces, the Toast should pop from the bottom of the screen and rest on the lower right-hand corner. This is the default behavior and it should not be customized.
+  </div>
+</details>
+
+</PageSection>
+
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a Toast appear?</h4></summary>
+  <div>
+    A Toast should appear immediately after the action is triggered (merchant clicks on <em>Save</em>) or the loading feedback is over (loading Button stops spinning).
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the duration of a Toast?</h4></summary>
+    <div>
+        <ul>
+            <li>Temporary Toasts should take between 5 and 10 seconds, following an average of 3.5 milliseconds per character.</li>
+            <li>Permanent Toasts should only be used when the message requires the merchant’s attention or when they are not expecting it. This includes:
+                <ul>
+                <li>Error Toasts.</li>
+                <li>Warning Toasts.</li>
+                <li>Toasts that aren’t immediate results of a merchant’s action.</li>
+                </ul>
+            </li>
+        </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a Toast appear?</h4></summary>
+  <div>
+    Avoid displaying more than one Toast at the same time. Prefer to summarize the result of an action in a single Toast. For example, use <em>34 products successfully saved</em> when multiple products are edited simultaneously in a bulk action.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the message of a Toast?</h4></summary>
+  <div>
+    <ul>
+      <li>Write a single sentence that is direct and has up to 2 lines.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+      <li>Critical Toasts should include an action that fixes the issue or at least explain what to do next.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't write text longer than 240 characters. Prefer to include an action that complements the message when needed.</li>
+      <li>Don't use personal pronouns.</li>
+      <li>Don't use technical language. For example, prefer using <em>The invoice could not be sent because of a technical issue</em> instead of <em>Error 298dx9283 prevented the invoice from being sent</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the icon of a Toast?</h4></summary>
+  <div>
+    Each Toast variant includes a specific icon according to its semantics. This is the default behavior and should not be customized.
+  </div>
+</details>
+
+
+</PageSection>

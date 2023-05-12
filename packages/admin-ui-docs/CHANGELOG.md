@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.17.1-dev.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.24...@vtex/admin-ui-docs@0.17.1-dev.25) (2023-03-15)
+## [0.18.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.18.1-dev.1...@vtex/admin-ui-docs@0.18.1-dev.2) (2023-05-10)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
@@ -11,217 +11,337 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.17.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.23...@vtex/admin-ui-docs@0.17.1-dev.24) (2023-03-15)
+## 0.18.1-dev.1 (2023-04-27)
 
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+## [0.18.1-dev.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.18.0...@vtex/admin-ui-docs@0.18.1-dev.0) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+
+
+
+
+# [0.18.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1...@vtex/admin-ui-docs@0.18.0) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.68...@vtex/admin-ui-docs@0.17.1) (2023-04-19)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.68](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.67...@vtex/admin-ui-docs@0.17.1-dev.68) (2023-04-18)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.67](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.66...@vtex/admin-ui-docs@0.17.1-dev.67) (2023-04-13)
 
 ### Features
 
-* **stack:** add pr suggestion ([87f1a48](https://github.com/vtex/admin-ui/commit/87f1a486cc6aeda2adb40bf4f9ece6bd6fea7d3f))
+- **admin-ui-gatsby:** drop support to gatsby ([d1082a5](https://github.com/vtex/admin-ui/commit/d1082a501745398674c2257f7389b667ec9338e2))
 
+## 0.17.1-dev.66 (2023-04-12)
 
+**Note:** Version bump only for package @vtex/admin-ui-docs
 
+## [0.17.1-dev.65](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.64...@vtex/admin-ui-docs@0.17.1-dev.65) (2023-04-12)
 
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.64](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.63...@vtex/admin-ui-docs@0.17.1-dev.64) (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.63](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.62...@vtex/admin-ui-docs@0.17.1-dev.63) (2023-04-12)
+
+### Bug Fixes
+
+- **paragraph:** migrate to csm ([a303c05](https://github.com/vtex/admin-ui/commit/a303c0554e761b464e9cfe98a3b6b9ec642b240e))
+
+## 0.17.1-dev.62 (2023-04-12)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.61](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.60...@vtex/admin-ui-docs@0.17.1-dev.61) (2023-04-06)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.60](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.59...@vtex/admin-ui-docs@0.17.1-dev.60) (2023-04-04)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.59](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.58...@vtex/admin-ui-docs@0.17.1-dev.59) (2023-04-03)
+
+### Bug Fixes
+
+- **grid:** doc typo error ([fa5a2c3](https://github.com/vtex/admin-ui/commit/fa5a2c32e907d87370a7100d57a3da1ce5552731))
+
+## 0.17.1-dev.58 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.57](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.56...@vtex/admin-ui-docs@0.17.1-dev.57) (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.17.1-dev.56 (2023-04-03)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.55](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.54...@vtex/admin-ui-docs@0.17.1-dev.55) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.54](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.53...@vtex/admin-ui-docs@0.17.1-dev.54) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.53](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.52...@vtex/admin-ui-docs@0.17.1-dev.53) (2023-03-31)
+
+### Features
+
+- **dropdown:** migrate to the new component model ([e351cfe](https://github.com/vtex/admin-ui/commit/e351cfe360dbc351a276484f754c25395d597394))
+
+## 0.17.1-dev.52 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.17.1-dev.51 (2023-03-31)
+
+### Features
+
+- **list:** remove component ([117d589](https://github.com/vtex/admin-ui/commit/117d589c1677e7e7474bac9a5578d91c09f3058b))
+
+## [0.17.1-dev.50](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.49...@vtex/admin-ui-docs@0.17.1-dev.50) (2023-03-31)
+
+### Features
+
+- **date-picker:** migrate to the new component model ([8a49a73](https://github.com/vtex/admin-ui/commit/8a49a73df6eaea9212a52fe9714ed4ac4a76b61d))
+
+## 0.17.1-dev.49 (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.48](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.47...@vtex/admin-ui-docs@0.17.1-dev.48) (2023-03-31)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.47](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.46...@vtex/admin-ui-docs@0.17.1-dev.47) (2023-03-30)
+
+### Bug Fixes
+
+- **avatar:** use component model ([445f84f](https://github.com/vtex/admin-ui/commit/445f84f01a81e8b8442c444e18113c5717fbf6de))
+
+## [0.17.1-dev.46](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.45...@vtex/admin-ui-docs@0.17.1-dev.46) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.45](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.44...@vtex/admin-ui-docs@0.17.1-dev.45) (2023-03-30)
+
+### Features
+
+- **text:** migrate to the new component model ([0fcd79f](https://github.com/vtex/admin-ui/commit/0fcd79f61dc9f7fe37e28324e1fe77d9e2a1bca7))
+
+## [0.17.1-dev.44](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.43...@vtex/admin-ui-docs@0.17.1-dev.44) (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.17.1-dev.43 (2023-03-30)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.17.1-dev.42 (2023-03-30)
+
+### Bug Fixes
+
+- build error ([9e8ccda](https://github.com/vtex/admin-ui/commit/9e8ccda11c7d416b1d190f0b5501afae2dba5261))
+
+## [0.17.1-dev.41](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.40...@vtex/admin-ui-docs@0.17.1-dev.41) (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.40](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.39...@vtex/admin-ui-docs@0.17.1-dev.40) (2023-03-29)
+
+### Features
+
+- **pagination:** migrate to the new component model ([36a4737](https://github.com/vtex/admin-ui/commit/36a47376ef069c589fbef8f8fc5a05374ea71b83))
+
+## [0.17.1-dev.39](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.38...@vtex/admin-ui-docs@0.17.1-dev.39) (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## 0.17.1-dev.38 (2023-03-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.37](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.36...@vtex/admin-ui-docs@0.17.1-dev.37) (2023-03-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.36](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.35...@vtex/admin-ui-docs@0.17.1-dev.36) (2023-03-27)
+
+### Features
+
+- **skeleton:** migrate to the new component model ([2c313af](https://github.com/vtex/admin-ui/commit/2c313afc2d04bbbeb5911faeee28347022da13a4))
+
+## [0.17.1-dev.35](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.34...@vtex/admin-ui-docs@0.17.1-dev.35) (2023-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.34](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.33...@vtex/admin-ui-docs@0.17.1-dev.34) (2023-03-24)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.33](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.32...@vtex/admin-ui-docs@0.17.1-dev.33) (2023-03-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.32](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.31...@vtex/admin-ui-docs@0.17.1-dev.32) (2023-03-23)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.31](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.30...@vtex/admin-ui-docs@0.17.1-dev.31) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.30](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.29...@vtex/admin-ui-docs@0.17.1-dev.30) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.29](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.28...@vtex/admin-ui-docs@0.17.1-dev.29) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.28](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.27...@vtex/admin-ui-docs@0.17.1-dev.28) (2023-03-20)
+
+### Features
+
+- **center:** migrate to the new component model ([b713f56](https://github.com/vtex/admin-ui/commit/b713f560dc3d75036609b2423d286a141fa3f210))
+
+## [0.17.1-dev.27](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.26...@vtex/admin-ui-docs@0.17.1-dev.27) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.26](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.25...@vtex/admin-ui-docs@0.17.1-dev.26) (2023-03-20)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.25](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.24...@vtex/admin-ui-docs@0.17.1-dev.25) (2023-03-15)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
+## [0.17.1-dev.24](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.23...@vtex/admin-ui-docs@0.17.1-dev.24) (2023-03-15)
+
+### Features
+
+- **stack:** add pr suggestion ([87f1a48](https://github.com/vtex/admin-ui/commit/87f1a486cc6aeda2adb40bf4f9ece6bd6fea7d3f))
 
 ## [0.17.1-dev.23](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.22...@vtex/admin-ui-docs@0.17.1-dev.23) (2023-03-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.22](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.21...@vtex/admin-ui-docs@0.17.1-dev.22) (2023-03-09)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.21](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.20...@vtex/admin-ui-docs@0.17.1-dev.21) (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.17.1-dev.20 (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.19](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.18...@vtex/admin-ui-docs@0.17.1-dev.19) (2023-03-02)
-
 
 ### Bug Fixes
 
-* **alert:** change csx for className ([825f1cb](https://github.com/vtex/admin-ui/commit/825f1cbfe4e309ec07e55bad52b037f9c32de05c))
-
-
-
-
+- **alert:** change csx for className ([825f1cb](https://github.com/vtex/admin-ui/commit/825f1cbfe4e309ec07e55bad52b037f9c32de05c))
 
 ## [0.17.1-dev.18](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.17...@vtex/admin-ui-docs@0.17.1-dev.18) (2023-03-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.17](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.16...@vtex/admin-ui-docs@0.17.1-dev.17) (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.15...@vtex/admin-ui-docs@0.17.1-dev.16) (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.17.1-dev.15 (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.13...@vtex/admin-ui-docs@0.17.1-dev.14) (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.12...@vtex/admin-ui-docs@0.17.1-dev.13) (2023-02-14)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.11...@vtex/admin-ui-docs@0.17.1-dev.12) (2023-02-13)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.11](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.10...@vtex/admin-ui-docs@0.17.1-dev.11) (2023-02-10)
-
 
 ### Features
 
-* **spinner:** use component model ([fdd6923](https://github.com/vtex/admin-ui/commit/fdd69235652e8f7059ca046693ca0b109e5f9134))
-
-
-
-
+- **spinner:** use component model ([fdd6923](https://github.com/vtex/admin-ui/commit/fdd69235652e8f7059ca046693ca0b109e5f9134))
 
 ## 0.17.1-dev.10 (2023-02-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.17.1-dev.9 (2023-02-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.7...@vtex/admin-ui-docs@0.17.1-dev.8) (2023-02-02)
-
 
 ### Bug Fixes
 
-* **modal-divider:** use dataAttr instead of variant ([23ce892](https://github.com/vtex/admin-ui/commit/23ce892fa5e9b1ee10fcd1c4a7bdbf47f89bd699))
-
-
-
-
+- **modal-divider:** use dataAttr instead of variant ([23ce892](https://github.com/vtex/admin-ui/commit/23ce892fa5e9b1ee10fcd1c4a7bdbf47f89bd699))
 
 ## [0.17.1-dev.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.6...@vtex/admin-ui-docs@0.17.1-dev.7) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.5...@vtex/admin-ui-docs@0.17.1-dev.6) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.4...@vtex/admin-ui-docs@0.17.1-dev.5) (2023-01-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.4](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.3...@vtex/admin-ui-docs@0.17.1-dev.4) (2023-01-25)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.2...@vtex/admin-ui-docs@0.17.1-dev.3) (2023-01-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## [0.17.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.1...@vtex/admin-ui-docs@0.17.1-dev.2) (2023-01-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## [0.17.1-dev.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.17.1-dev.0...@vtex/admin-ui-docs@0.17.1-dev.1) (2023-01-16)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.17.1-dev.0 (2023-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 # [0.17.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-docs@0.16.9...@vtex/admin-ui-docs@0.17.0) (2023-01-03)
 

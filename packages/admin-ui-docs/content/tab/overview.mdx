@@ -23,10 +23,8 @@ function Example() {
         <Tab>Tab 1</Tab>
         <Tab>Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel>Panel 1</TabPanel>
-        <TabPanel>Panel 2</TabPanel>
-      </TabPanelList>
+      <TabPanel state={state}>Panel 1</TabPanel>
+      <TabPanel state={state}>Panel 2</TabPanel>
     </>
   )
 }
@@ -48,10 +46,13 @@ function Example() {
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel id="1">Panel 1</TabPanel>
-        <TabPanel id="2">Panel 2</TabPanel>
-      </TabPanelList>
+
+      <TabPanel state={state} id="1">
+        Panel 1
+      </TabPanel>
+      <TabPanel state={state} id="2">
+        Panel 2
+      </TabPanel>
     </>
   )
 }
@@ -73,10 +74,13 @@ function Example() {
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel id="1">Panel 1</TabPanel>
-        <TabPanel id="2">Panel 2</TabPanel>
-      </TabPanelList>
+
+      <TabPanel state={state} id="1">
+        Panel 1
+      </TabPanel>
+      <TabPanel state={state} id="2">
+        Panel 2
+      </TabPanel>
     </>
   )
 }
@@ -98,16 +102,14 @@ function Example() {
         <Tab id="1">Tab 1</Tab>
         <Tab id="2">Tab 2</Tab>
       </TabList>
-      <TabPanelList state={state}>
-        <TabPanel id="1">
-          Panel 1
-          <Button onClick={() => state.select('2')}>Navigate to tab 2</Button>
-        </TabPanel>
-        <TabPanel id="2">
-          Panel 2
-          <Button onClick={() => state.select('1')}>Navigate to tab 1</Button>
-        </TabPanel>
-      </TabPanelList>
+      <TabPanel state={state} id="1">
+        Panel 1
+        <Button onClick={() => state.select('2')}>Navigate to tab 2</Button>
+      </TabPanel>
+      <TabPanel state={state} id="2">
+        Panel 2
+        <Button onClick={() => state.select('1')}>Navigate to tab 1</Button>
+      </TabPanel>
     </>
   )
 }

@@ -3,12 +3,12 @@ import type { Story, Meta } from '@storybook/react'
 
 import { useBulkActions } from './bulk-actions.state'
 import { BulkActions } from './bulk-actions'
-import { Box } from '../box'
 import { Flex } from '../flex'
 import { Checkbox } from '../checkbox'
 import { Button } from '../button'
 import { Pagination, usePaginationState } from '../pagination'
 import { IconCopy, IconPencil, IconTrash } from '@vtex/phosphor-icons'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui-review/bulk-actions',
@@ -43,7 +43,7 @@ export const Basic: Story = () => {
   })
 
   return (
-    <Box csx={{ margin: '$space-8' }}>
+    <div className={csx({ margin: '$space-8' })}>
       <Flex>
         <Checkbox
           state={{
@@ -54,7 +54,7 @@ export const Basic: Story = () => {
         />
         Root
       </Flex>
-      <Box as="ul">
+      <ul>
         {pageItems.map((item) => (
           <Flex as="li" key={item.id}>
             <Checkbox
@@ -70,7 +70,7 @@ export const Basic: Story = () => {
             />
           </Flex>
         ))}
-      </Box>
+      </ul>
       <BulkActions state={state}>
         <Button
           onClick={() => {
@@ -101,8 +101,8 @@ export const Basic: Story = () => {
         </Button>
       </BulkActions>
       <Pagination state={pagination} />
-      <Box>{state.getSelectedIds().join(',')}</Box>
-      <Box>{state.allSelected ? 'all selected' : 'not all selected'}</Box>
-    </Box>
+      <div>{state.getSelectedIds().join(',')}</div>
+      <div>{state.allSelected ? 'all selected' : 'not all selected'}</div>
+    </div>
   )
 }

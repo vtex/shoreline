@@ -12,6 +12,7 @@ import {
 } from './index'
 import type { Locales } from '../i18n'
 import { I18nProvider, locales } from '../i18n'
+import { csx } from '@vtex/admin-ui-core'
 
 export default {
   title: 'admin-ui/Combobox',
@@ -216,9 +217,9 @@ export function Multiple() {
         state={combobox}
         id="combobox-multiple"
         label="Foods"
-        csx={{
+        className={csx({
           width: '100%',
-        }}
+        })}
       />
       <ComboboxMultiplePopover state={combobox} />
     </div>
@@ -252,9 +253,9 @@ export const CustomRenderMultiple = () => {
         state={combobox}
         id="combobox-multiple"
         label="Countries"
-        csx={{
+        className={csx({
           width: '100%',
-        }}
+        })}
       />
       <ComboboxMultiplePopover state={combobox} />
     </div>

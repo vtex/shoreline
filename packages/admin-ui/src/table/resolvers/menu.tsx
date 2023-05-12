@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 import invariant from 'tiny-invariant'
+import { csx } from '@vtex/admin-ui-core'
 
 import { Skeleton } from '../../skeleton'
 import { Menu, MenuButton, MenuItem, useMenuState } from '../../menu'
@@ -11,7 +12,7 @@ export function menuResolver<T>() {
   return createResolver<T, 'menu', MenuResolver<T>>({
     cell: function MenuResolver({ item, column, context }) {
       if (context === 'loading') {
-        return <Skeleton csx={{ size: 24 }} />
+        return <Skeleton className={csx({ size: '1.5rem' })} />
       }
 
       const { resolver } = column

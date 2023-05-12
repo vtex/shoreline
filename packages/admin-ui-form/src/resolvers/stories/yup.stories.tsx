@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Box } from '@vtex/admin-ui'
 import * as yup from 'yup'
 
 import { yupResolver } from '../index'
@@ -23,12 +22,12 @@ export const YupValidation = () => {
   })
 
   return (
-    <Box>
+    <div>
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <TextInput label="First Name" name="firstName" state={form} />
         <TextArea label="Comment" state={form} name="comment" />
         <input type="submit" value="Submit" />
       </Form>
-    </Box>
+    </div>
   )
 }

@@ -1,3 +1,4 @@
+import { csx } from '@vtex/admin-ui-core'
 import React, { useCallback, useEffect } from 'react'
 import type { MouseEvent } from 'react'
 import {
@@ -9,7 +10,6 @@ import {
 } from '@vtex/phosphor-icons'
 import { useTimeout } from '@vtex/admin-ui-hooks'
 
-import { Box } from '../box'
 import { Inline } from '../inline'
 import { Button } from '../button'
 import { Center } from '../center'
@@ -19,10 +19,14 @@ import { Stack } from '../stack'
 import { toastInfoTheme, toastMessageTheme } from './toast.style'
 
 const icons = {
-  positive: <IconCheckCircle weight="fill" csx={{ color: '$positive' }} />,
-  warning: <IconWarning weight="fill" csx={{ color: '$warning' }} />,
-  critical: <IconXOctagon weight="fill" csx={{ color: '$critical' }} />,
-  info: <IconBell csx={{ color: '$info' }} />,
+  positive: (
+    <IconCheckCircle weight="fill" className={csx({ color: '$positive' })} />
+  ),
+  warning: <IconWarning weight="fill" className={csx({ color: '$warning' })} />,
+  critical: (
+    <IconXOctagon weight="fill" className={csx({ color: '$critical' })} />
+  ),
+  info: <IconBell className={csx({ color: '$info' })} />,
 }
 
 export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
@@ -69,9 +73,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         <Inline spaceInside align="start" hSpace="$space-3">
           <Center>{icons[variant]}</Center>
           <Stack space="$space-2" className={toastInfoTheme}>
-            <Box as="p" className={toastMessageTheme}>
-              {message}
-            </Box>
+            <p className={toastMessageTheme}>{message}</p>
             {action && (
               <Button
                 bleedX

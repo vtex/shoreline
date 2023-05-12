@@ -1,12 +1,22 @@
-import { createComponent, useElement } from '@vtex/admin-ui-react'
+import { cx } from '@vtex/admin-ui-core'
 import { MenuSeparator } from 'ariakit/menu'
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
 
-import * as style from './menu.style'
+import { dividerTheme } from './menu.css'
 
-export const MenuDivider = createComponent<typeof MenuSeparator>((props) => {
-  return useElement(MenuSeparator, { baseStyle: style.divider, ...props })
-})
+export const MenuDivider = forwardRef(
+  (props: MenuDividerProps, ref: Ref<HTMLHRElement>) => {
+    const { className = '', ...hrProps } = props
 
-export type MenuDividerProps = React.ComponentPropsWithoutRef<
-  typeof MenuDivider
->
+    return (
+      <MenuSeparator
+        className={cx(dividerTheme, className)}
+        ref={ref}
+        {...hrProps}
+      />
+    )
+  }
+)
+
+export type MenuDividerProps = React.ComponentPropsWithoutRef<'hr'>
