@@ -6950,26 +6950,18 @@ aria-query@^5.0.0:
   resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-5.0.0.tgz#210c21aaf469613ee8c9a62c7f86525e058db52c"
   integrity sha512-V+SM7AbUwJ+EBnB8+DXs0hPZHO0W6pqBcc0dW90OwtVG02PswOu/teuARoLQjdDOH+t9pJgGnW5/Qmouf3gPJg==
 
-ariakit-react-utils@0.17.0-next.27:
-  version "0.17.0-next.27"
-  resolved "https://registry.yarnpkg.com/ariakit-react-utils/-/ariakit-react-utils-0.17.0-next.27.tgz#6749587a659ec9806439fe28209d155aff19f20e"
-  integrity sha512-YyL3sEowwaw6r8wRjENB9S4Hjz/ppyv5nJNeFkb6xaEX/QYUYmqL+lQch50LW04vj9oa8RGHlY2SmyQX3d7g3w==
-  dependencies:
-    ariakit-utils "0.17.0-next.27"
+ariakit-utils@0.17.0-next.25:
+  version "0.17.0-next.25"
+  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-next.25.tgz#711b2cb957e846edd755f5394ba3fb60295ba3a0"
+  integrity sha512-oeN1714mX0uF3hf0vYZm5a+dDEAosTXk7y5KNzx52ujKNDv2VJJVIu6ig3hLN1XWwMqqNIexyqpTjqg2ZnVDmw==
 
-ariakit-utils@0.17.0-next.27:
-  version "0.17.0-next.27"
-  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-next.27.tgz#c9971d41526f5f8afa9e8ae7596d15ed22b2f977"
-  integrity sha512-IcjtuHl7FZP5mGrpvTSXqPUj+jRuIuBHlJAlxr3y4pxRgYpsYVpyZOClU3yrOoG7KUVApfmJjPOGWy00y+Gi+Q==
-
-ariakit@2.0.0-next.43:
-  version "2.0.0-next.43"
-  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-next.43.tgz#3da7410f72b9f61074cd62ac910a5e51729df7bd"
-  integrity sha512-CatNgIMyurefYTEvp8aF3aQQGR5m9bZxYQXuqyw/MKwxJ/aJ295SSSY5pXyTHbbsgDI28GOKFYa5pfUBvkd7cQ==
+ariakit@2.0.0-next.39:
+  version "2.0.0-next.39"
+  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-next.39.tgz#c338038353f3647b3fc3c82a2e59eb30261078f0"
+  integrity sha512-yrhi28jv0FCfg89dJ90f458Jvs0zsaBYIKjjXXkftDZRhgSiRLO1nEB2Gme2b8kqPa7iwz5ZXfMFkjHuoJ9y0A==
   dependencies:
     "@floating-ui/dom" "^1.0.0"
-    ariakit-react-utils "0.17.0-next.27"
-    ariakit-utils "0.17.0-next.27"
+    ariakit-utils "0.17.0-next.25"
 
 arr-diff@^4.0.0:
   version "4.0.0"

@@ -25,6 +25,7 @@ import {
   DocsVersionProvider,
 } from '@docusaurus/theme-common'
 import Head from '@docusaurus/Head'
+import { csx } from '@vtex/admin-ui'
 
 import { PageHeader } from '@site/src/components/PageHeader'
 
@@ -166,6 +167,20 @@ export default function DocPage(props) {
         {/* TODO we should add a core addRoute({htmlClassName}) action */}
         <html className={versionMetadata.className} />
       </Head>
+      <div
+        className={csx({
+          padding: '$space-4',
+          bg: '$info',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: '999',
+          text: '$detail',
+        })}
+      >
+        This library is still in development and is available only for internal
+        usage at VTEX.
+      </div>
       <DocsVersionProvider version={versionMetadata}>
         <DocsSidebarProvider sidebar={sidebar}>
           <DocPageContent
