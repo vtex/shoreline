@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.136.1-dev.2 (2023-05-15)
+
+
+### Bug Fixes
+
+* **admin-ui:** changes data attribute camelCase to kebab-case ([256d32b](https://github.com/vtex/admin-ui/commit/256d32b6034ee8e117e5319a001f579519be6d73))
+
+
+
+
+
 ## 0.136.1-dev.1 (2023-05-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
