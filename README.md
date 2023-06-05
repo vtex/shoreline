@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="left">
-  Admin UI Design System
+  Admin UI Design System.
 </h1>
 
 <p align="left" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
