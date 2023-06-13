@@ -46,6 +46,7 @@ export const PageHeaderTitle = forwardRef(function PageHeaderTitle(
       {onPopNavigation && (
         <Button
           aria-label="Back"
+          type="button"
           variant="tertiary"
           size="large"
           bleedY
