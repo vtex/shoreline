@@ -29,6 +29,7 @@ export const Button = forwardRef(
       bleedY = false,
       bleedX = false,
       className = '',
+      type = 'button',
       children,
       ...htmlProps
     } = props
@@ -40,6 +41,7 @@ export const Button = forwardRef(
     return (
       <button
         ref={ref}
+        type={type}
         data-variant={variant}
         data-size={size}
         data-bleed-x={bleedX}
