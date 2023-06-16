@@ -93,7 +93,7 @@ export const disclosureStatusLabelTheme = csx({
 })
 
 export const filterSearchboxTheme = csx({
-  margin: '$space-4 $space-5',
+  margin: '$space-5',
   marginBottom: '$space-0',
   order: -1,
   '> input': { minWidth: 'auto' },
