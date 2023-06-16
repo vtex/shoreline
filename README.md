@@ -32,6 +32,10 @@ This new design system is still under development and should be used only by VTE
 
 <br />
 
+> **Warning**
+>
+> This library is still in development and is available only for internal usage at VTEX.
+
 ## Packages
 
 The fastest way to start is to install [`@vtex/admin-ui`](./packages/admin-ui) - it contains all other packages. But, for specific use cases, you may need to use some package/feature independently. So, these are the available packages:

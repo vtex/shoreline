@@ -76,7 +76,7 @@ function _TableCell<T>(props: TableCellProps<T>) {
       data-clickable={!!onClick}
       data-fixed={column?.fixed}
       data-last-fixed={isLastFixedColumn}
-      data-horizontal-scroll={hasHorizontalScroll}
+      data-horizontal-scroll={hasHorizontalScroll()}
       className={cx(tableCellTheme, resolvedClassName)}
     >
       <div className={innerContainerTheme}>{children}</div>

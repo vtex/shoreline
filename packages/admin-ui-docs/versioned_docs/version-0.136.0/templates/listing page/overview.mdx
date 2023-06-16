@@ -1,0 +1,237 @@
+---
+title: Overview
+path: /listing-page/overview/
+sidebar_position: 1
+---
+
+import {
+  Columns,
+  Column,
+  IconArrowUpRight,
+  Text,
+  Flex,
+  FlexSpacer,
+  csx,
+} from '@vtex/admin-ui'
+
+Merchants use Listing pages to scan, sort, compare and take action on items of a specific object type, such as products, or record type, such as orders.
+
+<br />
+
+<Flex
+  align="stretch"
+  direction="column"
+  justify="space-around"
+  className={csx({ border: '$neutral', borderRadius: 'default', overflow: 'hidden' })}
+>
+  <div className={csx({ borderRadius: 'inherit' })}>
+    <div className={csx({ borderRadius: 'inherit' })}>
+      <a href="https://cjmzyv.csb.app/">
+        <img src="https://user-images.githubusercontent.com/77292838/191526389-e0a97572-e01b-422a-8a96-56410d1f1e68.png"></img>
+      </a>
+    </div>
+  </div>
+  <div className={csx({ padding: '20px' })}>
+    <Flex align="stretch" direction="row" justify="flex-end">
+      <a href="https://cjmzyv.csb.app/" className={csx({ float: 'right' })}>
+        Demo
+        <IconArrowUpRight className={csx({ float: 'right' })} />
+      </a>
+    </Flex>
+  </div>
+</Flex>
+
+<br />
+
+## Examples
+
+Check out examples of Listing pages in tune with our design system.
+
+<Flex
+  align="flex-start"
+  direction="row"
+  justify="flex-start"
+  className={csx({ borderRadius: 'default' })}
+>
+  <a href="https://www.figma.com/file/nEoSg6f8uuwSslJhwS4AQT/Listing-Page-Template?node-id=572%3A266701">
+    <Flex
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      className={csx({
+        border: '$neutral',
+        borderRadius: 'default',
+        margin: '0 4px 0 0',
+        overflow: 'hidden',
+      })}
+    >
+      <div>
+        <img src="https://user-images.githubusercontent.com/77292838/191532716-35e7cd00-0635-4bcd-957b-f9bcdb453a07.png"></img>
+      </div>
+      <div className={csx({ padding: '20px' })}>
+        <Flex align="stretch" direction="row" justify="space-between">
+          <Text variant="action1">Transactions</Text>
+          <p className={csx({ float: 'right' })}>
+            Figma
+            <IconArrowUpRight className={csx({ float: 'right' })} />
+          </p>
+        </Flex>
+      </div>
+    </Flex>
+  </a>
+  <a href="https://storecomponents.myvtex.com/admin/sku-binding/">
+    <Flex
+      align="stretch"
+      direction="column"
+      justify="space-around"
+      className={csx({
+        border: '$neutral',
+        borderRadius: 'default',
+        margin: '0 0 0 4px',
+        overflow: 'hidden',
+      })}
+    >
+      <div>
+        <img src="https://user-images.githubusercontent.com/77292838/191532881-15be5b13-8f8e-4bc4-99a9-1086e1aa51e3.png"></img>
+      </div>
+      <div className={csx({ padding: '20px' })}>
+        <Flex align="stretch" direction="row" justify="space-between">
+          <Text variant="action1">SKU Bindings</Text>
+          <p className={csx({ float: 'right' })}>
+            Demo
+            <IconArrowUpRight className={csx({ float: 'right' })} />
+          </p>
+        </Flex>
+      </div>
+    </Flex>
+  </a>
+</Flex>
+
+<br />
+<br />
+
+## FAQ
+
+<br />
+
+#### When should I use a Listing page on my project?
+
+Use a Listing page when you need to organize and display data, so that merchants can scan, sort, filter and compare them, and also navigate to a specific piece of data to complete a task. The type of data to be listed can be objects, such as products and promotions, or records, such as orders and transactions.
+
+<br />
+
+#### What are the basic features of a Listing page?
+
+A listing page usually includes:
+
+- Filters with which you can create different ways of displaying data, according to merchants’ needs and priorities.
+- A Search bar where merchants can input information they wish to find in the list.
+- A Menu with default actions for each item, like _View Details_, _Edit_, _Copy URL_ and _Delete_, which are basic actions that merchants can take from a listing item and can be adjusted according the the context you're working with.
+- Bulk Actions, for merchants to edit or apply information to multiple list items at the same time.
+- Buttons to Import and Export data from the list.
+- Pagination so that merchants can navigate in the list.
+
+<br />
+
+## Related components
+
+<Flex
+  align="stretch"
+  direction="column"
+  justify="flex-start"
+  className={csx({ borderRadius: 'default' })}
+>
+  <div>
+    <Flex align="center" direction="row" justify="flex-start">
+      <div
+        className={csx({
+          width: '115px',
+          height: '64px',
+          left: '336px',
+          top: '1884px',
+        })}
+      >
+        <a href="https://admin-ui.vercel.app/components/page">
+          <img src="https://user-images.githubusercontent.com/77292838/191536013-c0245589-139a-423d-928a-d13cad37d57b.png"></img>
+        </a>
+      </div>
+      <div className={csx({ padding: '30px' })}>
+        <Flex align="flex-start" direction="column" justify="flex-end">
+          <a
+            href="https://admin-ui.vercel.app/components/page"
+            className={csx({ float: 'right' })}
+          >
+            Page
+            <IconArrowUpRight className={csx({ float: 'right' })} />
+          </a>
+          <p>
+            Merchants identify where they are, perform main actions and view
+            content.
+          </p>
+        </Flex>
+      </div>
+    </Flex>
+  </div>
+  <div>
+    <Flex align="center" direction="row" justify="flex-start">
+      <div
+        className={csx({
+          width: '115px',
+          height: '64px',
+          left: '336px',
+          top: '1884px',
+        })}
+      >
+        <a href="https://admin-ui.vercel.app/components/data-view">
+          <img src="https://user-images.githubusercontent.com/77292838/191536027-945041fc-6f1b-4aef-94a5-3edddf9717bc.png"></img>
+        </a>
+      </div>
+      <div className={csx({ padding: '30px' })}>
+        <Flex align="flex-start" direction="column" justify="flex-end">
+          <a
+            href="https://admin-ui.vercel.app/components/data-view"
+            className={csx({ float: 'right' })}
+          >
+            DataView
+            <IconArrowUpRight className={csx({ float: 'right' })} />
+          </a>
+          <p>
+            Merchants view a list of objects with search, filters and
+            pagination.
+          </p>
+        </Flex>
+      </div>
+    </Flex>
+  </div>
+  <div>
+    <Flex align="center" direction="row" justify="flex-start">
+      <div
+        className={csx({
+          width: '115px',
+          height: '64px',
+          left: '336px',
+          top: '1884px',
+        })}
+      >
+        <a href="https://admin-ui.vercel.app/components/table">
+          <img src="https://user-images.githubusercontent.com/77292838/191536020-026aee3f-1356-4d05-9e79-224ab3268039.png"></img>
+        </a>
+      </div>
+      <div className={csx({ padding: '30px' })}>
+        <Flex align="flex-start" direction="column" justify="flex-end">
+          <a
+            href="https://admin-ui.vercel.app/components/table"
+            className={csx({ float: 'right' })}
+          >
+            Table
+            <IconArrowUpRight className={csx({ float: 'right' })} />
+          </a>
+          <p>
+            Merchants view objects in rows that they can select and take
+            actions.
+          </p>
+        </Flex>
+      </div>
+    </Flex>
+  </div>
+</Flex>

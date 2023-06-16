@@ -28,14 +28,14 @@ export const fontSizes = {
 }
 
 export const fontWeights = {
-  pageTitle: "'WGHT' 400",
-  title1: "'WGHT' 500",
-  title2: "'WGHT' 400",
-  action1: "'WGHT' 500",
-  action2: "'WGHT' 400",
-  display: "'WGHT' 500",
-  body: "'WGHT' 400",
-  detail: "'WGHT' 400",
+  pageTitle: "'WGHT' 400, 'WDTH' 300",
+  title1: "'WGHT' 500, 'WDTH' 300",
+  title2: "'WGHT' 400, 'WDTH' 300",
+  action1: "'WGHT' 500, 'WDTH' 300",
+  action2: "'WGHT' 400, 'WDTH' 300",
+  display: "'WGHT' 500, 'WDTH' 300",
+  body: "'WGHT' 400, 'WDTH' 300",
+  detail: "'WGHT' 400, 'WDTH' 300",
   code: 'inherit',
 }
 

@@ -82,7 +82,7 @@ export const PageHeader = forwardRef(function PageHeader(
     <header
       ref={useForkRef(ref, pageHeaderRef)}
       className={cx(pageHeaderTheme, className)}
-      data-scrollOnTop={scrollOnTop}
+      data-scroll-on-top={scrollOnTop}
       {...htmlProps}
     >
       <Portal>

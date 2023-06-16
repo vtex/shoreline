@@ -36,7 +36,6 @@ export const CheckboxGroup = forwardRef(function CheckboxGroup(
         <Stack
           direction={direction}
           space="$space-4"
-          className={csx({ paddingY: '$space-1' })}
         >
           {children}
         </Stack>

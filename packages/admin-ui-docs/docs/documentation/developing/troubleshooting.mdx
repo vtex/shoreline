@@ -1,0 +1,25 @@
+---
+title: Troubleshooting
+path: /developing/troubleshooting/
+sidebar_position: 7
+---
+
+## Introduction
+
+Welcome to our troubleshooting section! Here you will find information about possible errors that may occur when using our library, as well as solutions to fix them. We're here to help you get the most out of our library, and we hope this section is helpful to you!
+
+If you don't find the error you're facing in this documentation, or if you need further assistance, feel free to [open a Github Issue in our repository](https://github.com/vtex/admin-ui/issues/new/choose). We'll be happy to help you resolve any issues that may arise.
+
+### Admin UI 0.136.0 doesn't work on VTEX IO projects
+
+When updating to version `0.136.0`, an error occur due to the version of an internally used library. To fix this error, it's necessary to update to version `0.136.1` and above. You can also use [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) to indicate a valid version of the internal dependency, and solve the issue. You can do this by adding the following code snippet to the `package.json` of your React folder:
+
+```json
+// react/package.json
+{
+  // all the other configurations
+  "resolutions": {
+    "ariakit": "2.0.0-next.39"
+  }
+}
+```
