@@ -1,0 +1,34 @@
+{
+  "name": "@vtex/sail-theme",
+  "version": "0.0.0",
+  "description": "Sail css theme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "dist/theme.css"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup -c -w",
+    "build": "npm run prebuild && rollup -c"
+  },
+  "repository": {
+    "directory": "packages/sail-theme",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "devDependencies": {
+    "postcss": "8.4.23",
+    "rollup-plugin-postcss": "4.0.2",
+    "node-sass": "8.0.0"
+  }
+}

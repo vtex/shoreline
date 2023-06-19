@@ -1,0 +1,17 @@
+@function ring($color) {
+  $inner-ring: 0rem 0rem 0rem 0.0625rem var(--aui-color--#{$color}05);
+  $outer-ring: 0rem 0rem 0rem 0.1875rem var(--aui-color--#{$color}30);
+
+  @return $inner-ring, $outer-ring;
+}
+
+:root {
+  --aui-shadow--ring-critical: ring(red);
+  --aui-shadow--ring-neutral: ring(gray);
+  --aui-shadow--ring-main: ring(blue);
+
+  --aui-shadow--overlay-center: 0rem 0rem 1rem 0rem
+    var(--aui-color--grayTransparent10);
+  --aui-shadow--overlay-bottom: 0rem 0rem 1.5rem 0rem
+    var(--aui-color--grayTransparent05);
+}
