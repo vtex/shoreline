@@ -1,26 +1,192 @@
-import { Section } from '@site/src/components/Section'
-import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { PageSection } from '@site/src/components/PageSection'
 
-<Section direction="row">
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
 
-## Best Practices
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-<OrderedList>
-  <OrderedListItem>
-    Use the Helper Text to explain in more details how the input is expected to
-    be filled.
-  </OrderedListItem>
-  <OrderedListItem>
-    Add placeholders to clarify the type of content that must be inserted by the
-    user.
-  </OrderedListItem>
-  <OrderedListItem>
-    Do use the required/optional flags when necessary, but prefer using one or
-    another.
-  </OrderedListItem>
-  <OrderedListItem>
-    Add data validation to indicate when data hasn’t been inputted correctly.
-  </OrderedListItem>
-</OrderedList>
+<details>
+  <summary><h4>When to use TextInput instead of TextArea?</h4></summary>
+  Choose the TextInput component if the text to be filled in usually takes up a single line.
+</details>
 
-</Section>
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to include a maximum input length?</h4></summary>
+  <ul>
+    <li>Include a maximum number of characters when the text has a predefined size. For example, a meta description field that is limited to 160 characters.</li>
+    <li>Whenever a maximum input length is defined, a counter appears by default in the bottom-right of the field to guide the merchant.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should a TextArea be optional?</h4></summary>
+    The TextArea should be included in the form but marked as optional when it's sometimes necessary. For example, to inform the internal description of a promotion or the privacy policy of a seller.
+    <br /><br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't mark the mandatory fields of a form. Mark the optional fields. By default, the term <em>(optional)</em> is included next to the label.</li>
+      <li>Don't include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the size of the TextArea and its position in a container?</h4></summary>
+    The position depends on user research to understand the type of content that is expected to be filled in this field. However, make sure to follow these general recommendations:
+      <ul>
+        <li>Group and sort fields in an order that makes sense to the merchant while they are filling in information. For example, prefer to leave TextArea fields in the end of a section or a form, since they take up more time to fill.</li>
+      </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don’t position another component on the same line as the TextArea. For example, a button should not be beside a TextArea.</li>
+      <li>Don’t customize the height of the field. The field has a default initial height that grows automatically as the merchant types until it reaches a default maximum height.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a Form field be disabled?</h4></summary>
+  <ul>
+    <li>Disable a field only if, in some condition, it becomes enabled. For example, a field that becomes unavailable when a specific option is chosen in the form.</li>
+    <li>When the reason why the field is disabled might be unclear, use a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should the error state of a Form field be visible?</h4></summary>
+    The validation behavior should communicate the error at the right moment and make it easier to fix. To minimize frustration, follow these recommendations:
+      <ul>
+        <li>Show the error in a specific field when the merchant leaves the field or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.</li>
+        <li>Remove the error state of the field as soon as the merchant modifies its value.</li>
+      </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't show the error state once the merchant has started to type on the field.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a TextArea?</h4></summary>
+    <ul>
+      <li>Write the name that best describes the value that must be filled. For example, use the label <em>Privacy policy</em> when the content is a privacy policy.</li>
+      <li>Visually hide the field label only when this definition is already present somewhere else, such as a switch label that already describes the field that it activates.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't include redundant words. For example, write <em>Description</em> as the label instead of <em>Promotion description</em> when the page or section already includes promotion in its title.</li>
+      <li>Don't use verbs. For example, instead of <em>Fill description</em>, use only <em>Description</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Privacy policy</em> instead of <em>My privacy policy</em>.</li>
+      <li>Don't use interrogations.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When to use placeholder text in a TextInput?</h4></summary>
+  <div>
+    Don't use placeholder text. Define the field in its label and provide any other necessary information in the help text.
+  </div>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the help text of a TextArea?</h4>
+  </summary>
+  The help text of a field can be used to provide any other necessary information besides the label, especially when a wrong choice might be detrimental. When writing the help text, follow these recommendations:
+  <ul>
+    <li>Write a single sentence that is short and direct.</li>
+    <li>Use sentence case, but capitalize proper nouns.</li>
+    <li>When the help text explains the label, write as if you are completing the following sentence: <em>This is the [help text].</em> For example, the help text for a Privacy Policy field could be <em>Declaration of which parties manage customer data</em>.</li>
+    <li>When the help text explains how the field value will be used, start with a verb in the present tense as if completing the following sentence: <em>If you fill a value in this field, it [help text]</em>. For example, the help text for a Description field could be: <em>Appears to customers in the store</em>.</li>
+    <li>When the help text explains the label and how the value will be used, combine the two sentences described in the previous topics. For example, <em>"Declaration of which parties manage customer data that will appear to customers in the store"</em>.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t explain rules that can be implemented. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.</li>
+    <li>Don’t include redundant words or repeat the label in the text.</li>
+    <li>Don’t include links. Include an Alert before the field if this is necessary.</li>
+    <li>Don’t use periods or commas.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>What should be the error text of a TextArea?</h4></summary>
+    Error messages can be used for static validation, such as <em>Fill this information</em>, and for dynamic validation, such as <em>Fill a value that is not already in use</em>. When writing the errors, follow these recommendations:
+    <ul>
+      <li>Start with imperative verbs. For example, write <em>Fill this information</em> instead of <em>This field is required</em>.</li>
+      <li>Include the necessary details in the error message. For example, write <em>Fill only letters and numbers</em> instead of <em>Fill only valid characters</em>.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't show errors that can be avoided. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.</li>
+      <li>Don't use incomplete sentences. For example, write <em>Fill this information</em>instead of <em>Fill</em>.</li>
+      <li>Don't use periods or commas.</li>
+    </ul>
+</details>
+
+</PageSection>
