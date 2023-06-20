@@ -1,22 +1,226 @@
-import { Section } from '@site/src/components/Section'
-import { OrderedList, OrderedListItem } from '@site/src/components/OrderedList'
+import { PageSection } from '@site/src/components/PageSection'
 
-<Section direction="row">
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
 
-## Best Practices
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
 
-<OrderedList>
-  <OrderedListItem>
-    Mind the order of the options, like putting the more probable one to be
-    selected at the top. In doubt, sort them alphanumerically (from A to Z and
-    from 0 to 9).
-  </OrderedListItem>
-  <OrderedListItem>
-    If there are less than four options listed, consider using a radio button.
-  </OrderedListItem>
-  <OrderedListItem>
-    Don't offer overlapping options, they should be clearly mutually exclusive.
-  </OrderedListItem>
-</OrderedList>
+<details>
+  <summary>
+    <h4>When to use the Radio, Checkbox or Combobox Single components instead of the Select component?</h4>
+  </summary>
+  <ul>
+    <li>Choose the Radio component if a single option can be selected and there are up to five options with short labels, or when the choice is important and the options should be always visible.</li>
+    <li>Choose the Checkbox component if more than one option can be selected and there are up to five options, or when a boolean choice will be submitted in a form.</li>
+    <li>Choose the Combobox Single component if a single option can be selected and there are more than seven available options.</li>
+    <li>Choose the Combobox Multiple component if multiple options can be selected and there are more than seven available options.</li>
+  </ul>
+</details>
 
-</Section>
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When should a Select be optional?</h4></summary>
+    The Select component should be included in the form but marked as optional when it's sometimes necessary. For example, to inform gender or an industry segment.
+    <br /><br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't mark the mandatory fields of a form. Mark the optional fields. By default, the term <em>(optional)</em> is included next to the label.</li>
+      <li>Don't include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position and the size of a Select in a form?</h4></summary>
+    Considering left-to-right interfaces, follow these recommendations:
+      <ul>
+        <li>The width of the field should comfortably fit the values, considering localization as well.</li>
+        <li>Group and sort fields in a way that is logical to the merchant, according to user research. For example, the company name should come before the industry segment.</li>
+      </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don’t position two fields that are not extremely related on the same line. For example, the company name should not be on the same line as the industry segment.</li>
+      <li>Don't include more than three fields on the same line.</li>
+      <li>Don't customize the height of the field.</li>
+  </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary>
+    <h4>What should be the default value of a Select?</h4>
+  </summary>
+  <ul>
+    <li>Preselect an option when this can make the merchant more efficient and and a wrong choice isn't detrimental.</li>
+    <li>Common or recommended options can be preselected. Information that the merchant has previously provided can be leveraged to guess the option that should be preselected.</li>
+    <li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should a Form field be disabled?</h4></summary>
+  <ul>
+    <li>Disable a field only if, in some condition, it becomes enabled. For example, a field that is incompatible with an option currently chosen in the form.</li>
+    <li>When the reason why the field is disabled might be unclear, use a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When should the error state of a Form field be visible?</h4></summary>
+    The validation behavior should communicate the error at the right moment and make it easier to fix. To minimize frustration, follow these recommendations:
+      <ul>
+        <li>Show the error in a specific field when the merchant leaves the field or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.</li>
+        <li>Remove the error state of the field as soon as the merchant modifies its value.</li>
+      </ul>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a Select?</h4></summary>
+    <ul>
+      <li>Include the name of the entity that is being listed. For example, use the label <em>Frequency</em> when the options are <em>Daily</em>, <em>Every week day</em>, <em>Weekly</em>, <em>Monthly</em>, and <em>Every year</em>.</li>
+      <li>Visually hide the field label only when this definition is already present somewhere else, such as a form section title that already describes all the fields in the section.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't include redundant words. For example, write <em>Industry</em> as the label instead of <em>Company industry</em> when the page or section already includes <em>Company</em> in its title</li>
+      <li>Don't use verbs. For example, instead of <em>Select industry</em>, use only <em>Industry</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Industry</em> instead of <em>My industry</em>.</li>
+      <li>Don't use interrogations.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the value of Select options?</h4>
+  </summary>
+  <ul>
+    <li>Write up to 25 characters in a direct language. Use the help text or the Select label to provide additional context when necessary.</li>
+    <li>Write values with similar lengths. For example, <em>Daily</em> or <em>Weekly</em>.</li>
+    <li>Use sentence case, but capitalize proper nouns.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t start options with a verb.</li>
+    <li>Don’t use periods or commas.</li>
+    <li>Don't include redundant words. For example, use only <em>Daily</em>, <em>Weekly</em> and <em>Monthly</em> instead of <em>Daily frequency</em>, <em>Weekly frequency</em> and <em>Monthly frequency</em>.</li>
+    <li>Don't include negative words. For example, in a Select to choose the type of notification (<em>Email</em>, <em>WhatsApp</em> etc) use a Switch besides the Select instead of adding a <em>Don’t send notifications</em> option in the Select.</li>
+    <li>Don't use personal pronouns. For example, write <em>Email</em> instead of <em>My email</em>.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h4>When to use placeholder text in a Select?</h4></summary>
+  <div>
+    The component includes a default placeholder (<em>Select…</em>) that should not be customized.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the help text of a Select?</h4></summary>
+    The help text of a field can be used to provide any other necessary information besides the label, especially when a wrong choice might be detrimental. When writing the help text, follow these recommendations:
+    <ul>
+      <li>Write a single sentence that is short and direct.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+      <li>When the help text should explain the label, write as if you are completing the following sentence: <em>This is the [help text]</em>. For example, the help text for a Frequency field could be "<em>Schedule for updates</em>".</li>
+      <li>When the help text should explain how the field value will be used, start with a verb in the simple present tense as if completing the following sentence: <em>When you fill a value in this field, it [help text]</em>. For example, the help text for a Frequency field could be "<em>Defines when updates will be published</em>".</li>
+      <li>When the help text should explain the label and how the value will be used, combine the two sentences described in the previous topics. Adapt the sentences if necessary. For example, "<em>Schedule for updates that defines when they will be published</em>".</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don’t include redundant words or repeat the label in the text.</li>
+      <li>Don't include links. Use the Alert before the field if this is necessary.</li>
+      <li>Don't use periods or commas.</li>
+    </ul>
+</details>
+
+<details>
+  <summary><h4>What should be the error text of a Select?</h4></summary>
+    <ul>
+      <li>Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.</li>
+      <li>Start with an imperative verb. For example, if the field is required and no option has been selected, the error text should be <em>Select an option</em> instead of <em>This field is required</em>.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong>
+    <br /><br />
+    <ul>
+      <li>Don't use periods or commas.</li>
+      <li>Don't use incomplete sentences. For example, write <em>Select an option</em> instead of <em>Select one</em>.</li>
+    </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the order of options in a Select?</h4>
+  </summary>
+  <ul>
+    <li>Most to least frequently used.</li>
+    <li>Simplest to most complex.</li>
+    <li>Least to most risky.</li>
+    <li>Alphabetical order.</li>
+  </ul>
+</details>
+
+</PageSection>
