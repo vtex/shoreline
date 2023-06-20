@@ -58,7 +58,33 @@ export const tabToc = {
       level: 2,
     },
   ],
-  designReference: toc.filter((item) => ['Do’s'].includes(item.value)),
+    designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
 }
 
 <Page toc={tabToc} hasTabs>
@@ -68,9 +94,9 @@ export const tabToc = {
 
 ## What is this?
 
-NumberInputs represent a control for regular numerical input, where you expect the user to modify it by a few incremental steps.
+NumberInput fields allow merchants to provide numeric values that are usually increased or decreased within a short range.
 
-</IntroSection>
+</IntroSection><br /><br /><br />
 
 <PageSection
   id={tabToc.overview[1].id}
@@ -220,16 +246,204 @@ function Example() {
 | helpText  | `string`                              | Help text message                        | 🚫       | -           |
 
   </Panel>
+  
   <Panel id="designReference">
 
-## Do’s
+  <PageSection
+    id={tabToc.designReference[0].id}
+    title={tabToc.designReference[0].value}
+  >
+  
+<details>
+  <summary>
+    <h4>When to use TextInput or Select instead of NumberInput?</h4>
+  </summary>
+  <ul>
+    <li>Choose a TextInput for short values that can be composed of letters, numbers and special characters and that can’t be increased or decreased. For example, a telephone number.</li>
+    <li>Choose a Select for choices between up to seven predefined values, such as predefined quantities.</li>
+  </ul>
+</details>
 
-1. Always use a default value. If you do not know which one to use, pick 1. This way the user is not forced to type something and then click the buttons.
-2. The lean mode is intended to be used on lists, that have a high density of content, and where being able to type the number is not important. It is especially useful in mobile contexts or cramped containers.
-3. Do not use for big numbers. Steppers make more sense for small numbers that might be adjusted with a few clicks.
-4. Add the units, whenever applicable. Ex. kg, m², days, etc.
+  </PageSection>
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+  <PageSection
+    id={tabToc.designReference[1].id}
+    title={tabToc.designReference[1].value}
+  >
+
+<details>
+  <summary>
+    <h4>When should a NumberInput be optional?</h4>
+  </summary>
+  Never. The NumberInput should always have a default value that can be increased or decreased. When the field doesn't make sense in all scenarios, display it conditionally by using components such as a <a href="https://admin-ui.vercel.app/components/switch">Switch</a>.
+</details>
+
+<details>
+  <summary>
+    <h4>When should a NumberInput have minimum and maximum values?</h4>
+  </summary>
+  <ul>
+    <li>Limits should be defined according to technical restrictions or contextual conditions such as stock availability.</li>
+    <li>There should always be a maximum value to at least limit the amount of digits.</li>
+    <li>If it is common for merchants to use infinite values, such as in infinite stock, offer this option in a separate Form field which, when activated, disables the NumberInput.</li>
+    <li>Even with defined minimum and maximum values, it is still possible that the merchant inserts an invalid value. When this happens, show an error that follows the recommended Form field validation behavior.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the step value by which to increase or decrease the NumberInput value?</h4>
+  </summary>
+  The default step value is 1. Customize the step value when the quantities need to be within specific intervals. For example, every 5 items or every 0.25 grams.
+</details>
+
+<details>
+  <summary>
+    <h4>When to include a prefix or a suffix in a NumberInput?</h4>
+  </summary>
+  <ul>
+    <li>Use a suffix when the value always ends with the same characters. For example, a number that ends in months or a weight value that ends in <code>kg</code>.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t use a prefix.</li>
+    <li>Don’t use a suffix with an icon.</li>
+  </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[2].id}
+    title={tabToc.designReference[2].value}
+  >
+
+<details>
+  <summary>
+    <h4>What should be the position and the size of an input in a form?</h4>
+  </summary>
+  Considering left-to-right interfaces, follow these recommendations:
+  <ul>
+    <li>The size of the field should comfortably fit the values that are usually filled in, considering localization as well.</li>
+    <li>Group and sort fields in a way that is logical to the merchant, according to user research. For example, the name of the coupon should come before the amount of times it can be used.</li>
+    <li>The size of the field should resemble values that are usually filled in, because this helps merchants identify what the content of the field should be. For example, if the values of a quantity field are usually 1, 2 or 3, the field should not take up an entire row.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t position two fields that are not complementary on the same line. For example, the description of a coupon should not be on the same line as the amount of times it can be used.</li>
+    <li>Don’t include more than three fields on the same line.</li>
+  </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[3].id}
+    title={tabToc.designReference[3].value}
+  >
+
+<details>
+  <summary>
+    <h4>When should the error state of a Form field be visible?</h4>
+  </summary>
+  The validation behavior should communicate the error at the right moment and make it easier to fix. To minimize frustration, follow these recommendations:
+  <ul>
+    <li>Show the error in a specific field when the merchant leaves the field or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.</li>
+    <li>Remove the error state of the field as soon as the merchant modifies its value.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t maintain the error state once the merchant has started to type on the field.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>When should a Form field be disabled?</h4>
+  </summary>
+  <ul>
+    <li>Disable a field only if, in some condition, it becomes enabled.  For example, a field that becomes unavailable when a specific option is chosen in the form.</li>
+    <li>When the reason why the field is disabled might be unclear, use a <a href="https://admin-ui.vercel.app/components/tooltip">Tooltip</a> trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>When should the NumberInput have a default value?</h4>
+  </summary>
+  Always. It is important that the NumberInput has a default value to serve as a basis from which the merchant can increase or decrease the value. Follow these recommendations to define the default value:
+  <ul>
+    <li>When the NumberInput is being used to define the quantity of items or restrictions of quantities, we recommend setting the default value to 1.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t set a NumberInput’s default value to 0. When necessary, the action to set the field to 0 should be separated in a Checkbox or in a Button.</li>
+  </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[4].id}
+    title={tabToc.designReference[4].value}
+  >
+
+<details>
+  <summary>
+    <h4>What should be the label of a NumberInput?</h4>
+  </summary>
+  <ul>
+    <li>Write the name that best describes the value that must be filled. For example, use <em>Usage limit</em> when the value should be the maximum number of uses of a coupon.</li>
+    <li>Visually hide the field label only when this definition is already present somewhere else, such as a column label that already describes all the fields in the column.</li>
+    <li>Use sentence case, but capitalize proper nouns.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don't include redundant words. For example, write <em>Usage limit</em> as the label instead of <em>Coupon usage limit</em> on a page that includes <em>coupon</em> in its title.</li>
+    <li>Don't use an icon in a field prefix to replace a label that isn't present anywhere else.</li>
+    <li>Don't use verbs. For example, use only <em>Usage limit</em> instead of <em>Fill usage limit</em>.</li>
+    <li>Don't use interrogations.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the label of a NumberInput?</h4>
+  </summary>
+  The help text of a field can be used to provide any other information that is necessary besides the label. When writing the help text, follow these recommendations:
+  <ul>
+    <li>Write a single sentence that is short and direct.</li>
+    <li>Use sentence case, but capitalize proper nouns.</li>
+    <li>When the help text explains the label, write as if you are completing the following sentence: <em>This is the [help text]</em>. For example, the help text for a <em>Usage limit</em> field could be "<em>Number of times the coupon can be used</em>".</li>
+    <li>When the help text explains how the field value will be used, start with a verb in the present tense as if completing the following sentence: <em>When you fill a value in this field, it [help text]</em>. For example, the help text for a <em>Usage limit </em>field could be "<em>Disables the coupon in the store after the limit is reached</em>".</li>
+    <li>When the help text explains the label and how the value will be used, combine the two sentences described in the previous topics. For example, "<em>Number of times the coupon can be used before it's disabled in the store</em>".</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don’t use periods or commas.</li>
+    <li>Don’t repeat the label in the text.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    <h4>What should be the error text of a NumberInput?</h4>
+  </summary>
+  Error messages can be used for static validation, such as <em>Fill this information</em>, and for dynamic validation, such as <em>Fill a value that is not already in use</em>. When writing the errors, follow these recommendations:
+  <ul>
+    <li>Start with imperative verbs. For example, write <em>Fill this information</em> instead of <em>This field is required</em>.</li>
+    <li>When the merchant types in a value below the defined minimum limit, write <em>Fill a value above Y</em>.</li>
+    <li>When the merchant types in a value above the defined maximum limit, write<em> Fill a value below X</em>.</li>
+  </ul>
+  <br/><strong>What to avoid:</strong><br/><br/>
+  <ul>
+    <li>Don't show errors that can be avoided. Implement any restrictions in the field itself whenever possible, such as not allowing dots, commas or hyphens.</li>
+    <li>Don’t write periods or commas.</li>
+    <li>Don't write incomplete sentences. For example, write <em>Fill this information </em>instead of <em>Fill</em>.</li>
+  </ul>
+</details>
+
+  </PageSection>
 
   </Panel>
   </Page>
