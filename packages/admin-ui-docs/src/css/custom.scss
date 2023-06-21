@@ -2,15 +2,11 @@
 @import 'sidebar.scss';
 @import 'markdown.scss';
 
-@font-face {
-  font-family: 'VTEX Trust';
-  src: url('../../static/VTEXTrust-VF-May-5-2022.woff2') format('woff2');
-  weight: '100 900';
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&display=swap');
 
 :root {
-  --ifm-font-family-base: 'VTEX Trust', -apple-system, system-ui,
-    BlinkMacSystemFont, sans-serif !important;
+  --ifm-font-family-base: 'Inter', -apple-system, system-ui, BlinkMacSystemFont,
+    sans-serif !important;
   --ifm-color-primary: #da3461;
   --ifm-color-primary-dark: #b1204c;
   --ifm-color-primary-darker: #870d36;
@@ -20,7 +16,7 @@
   --ifm-color-primary-lightest: #fbf3f6;
   --ifm-code-font-size: 95%;
   --ifm-pre-background: #ffffff;
-  --ifm-toc-border-color: #DDDDDD;
+  --ifm-toc-border-color: #dddddd;
   --ifm-hr-border-width: 0;
 }
 
@@ -32,7 +28,7 @@ body {
   --ifm-spacing-horizontal: 3rem;
 }
 
-.markdown header >h1:first-child {
+.markdown header > h1:first-child {
   display: none;
 }
 
@@ -65,7 +61,7 @@ body {
     margin-top: -2rem;
     padding-top: 0;
 
-    &>.container {
+    & > .container {
       max-width: 1505px;
     }
   }

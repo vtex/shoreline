@@ -1,18 +1,15 @@
-const fontStacks = {
-  sans: '"VTEX Trust", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-  mono: '"MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace',
-}
+import { fontFamily } from './font-family'
 
 export const fonts = {
-  pageTitle: fontStacks.sans,
-  title1: fontStacks.sans,
-  title2: fontStacks.sans,
-  action1: fontStacks.sans,
-  action2: fontStacks.sans,
-  display: fontStacks.sans,
-  body: fontStacks.sans,
-  detail: fontStacks.sans,
-  code: fontStacks.mono,
+  pageTitle: fontFamily.sans,
+  title1: fontFamily.sans,
+  title2: fontFamily.sans,
+  action1: fontFamily.sans,
+  action2: fontFamily.sans,
+  display: fontFamily.sans,
+  body: fontFamily.sans,
+  detail: fontFamily.sans,
+  code: fontFamily.mono,
 }
 
 export const fontSizes = {
@@ -28,14 +25,14 @@ export const fontSizes = {
 }
 
 export const fontWeights = {
-  pageTitle: "'WGHT' 400, 'WDTH' 300",
-  title1: "'WGHT' 500, 'WDTH' 300",
-  title2: "'WGHT' 400, 'WDTH' 300",
-  action1: "'WGHT' 500, 'WDTH' 300",
-  action2: "'WGHT' 400, 'WDTH' 300",
-  display: "'WGHT' 500, 'WDTH' 300",
-  body: "'WGHT' 400, 'WDTH' 300",
-  detail: "'WGHT' 400, 'WDTH' 300",
+  pageTitle: 400,
+  title1: 500,
+  title2: 400,
+  action1: 500,
+  action2: 400,
+  display: 500,
+  body: 400,
+  detail: 400,
   code: 'inherit',
 }
 

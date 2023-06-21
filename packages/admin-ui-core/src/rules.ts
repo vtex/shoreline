@@ -146,7 +146,7 @@ export const rules = {
   fontSize: 'fontSizes',
   lineHeight: 'lineHeights',
   letterSpacing: 'letterSpacings',
-  fontVariationSettings: 'fontWeights',
+  fontWeights: 'fontWeights',
 }
 
 export function resolveRule(prop: string, theme: any) {

@@ -30,12 +30,15 @@ export function ThemeProvider(props: ThemeProviderProps) {
   return (
     <IconProvider>
       <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="preload"
-          href="https://io.vtex.com.br/fonts/vtex-trust/VTEXTrust-VF-May-5-2022.woff2"
-          as="font"
-          type="font/woff2"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&display=swap"
+          rel="stylesheet"
         />
       </Helmet>
       {children}

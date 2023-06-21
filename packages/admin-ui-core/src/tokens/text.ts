@@ -1,16 +1,13 @@
-const fontStack = {
-  sans: '"VTEX Trust", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-  mono: '"MonoLisa", "Operator Mono", "Fira Code Retina", "Fira Code", "FiraCode-Retina", "Dank Mono", "Consolas", "Monaco", "Menlo", monospace',
-}
+import { fontFamily } from './font-family'
 
 const fontWeight = {
-  hairline: "'WGHT' 100, 'WDTH' 300",
-  thin: "'WGHT' 200, 'WDTH' 300",
-  light: "'WGHT' 300, 'WDTH' 300",
-  regular: "'WGHT' 400, 'WDTH' 300",
-  medium: "'WGHT' 500, 'WDTH' 300",
-  bold: "'WGHT' 700, 'WDTH' 300",
-  black: "'WGHT' 900, 'WDTH' 300",
+  hairline: 100,
+  thin: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900,
 }
 
 const fontSize = {
@@ -24,62 +21,62 @@ const fontSize = {
 
 export const text = {
   pageTitle: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.regular,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.regular,
     fontSize: fontSize.pageTitle,
     lineHeight: 1.2,
     letterSpacing: '-0.004em',
   },
   title1: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.medium,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.medium,
     fontSize: fontSize.title,
     lineHeight: 1.5,
     letterSpacing: '0em',
   },
   title2: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.regular,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.regular,
     fontSize: fontSize.title,
     lineHeight: 1.5,
     letterSpacing: '0em',
   },
   action1: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.medium,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.medium,
     fontSize: fontSize.action,
     lineHeight: 1.1428571429,
     letterSpacing: '0.01em',
   },
   action2: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.regular,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.regular,
     fontSize: fontSize.action,
     lineHeight: 1.1428571429,
     letterSpacing: '0.01em',
   },
   display: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.medium,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.medium,
     fontSize: fontSize.display,
     lineHeight: 1.3333333333,
     letterSpacing: '-0.004em',
   },
   body: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.regular,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.regular,
     fontSize: fontSize.body,
     lineHeight: 1.4285714286,
     letterSpacing: '0.002em',
   },
   detail: {
-    fontFamily: fontStack.sans,
-    fontVariationSettings: fontWeight.regular,
+    fontFamily: fontFamily.sans,
+    fontWeight: fontWeight.regular,
     fontSize: fontSize.detail,
     lineHeight: 1.3333333333,
     letterSpacing: '0.004em',
   },
   code: {
-    fontFamily: fontStack.mono,
+    fontFamily: fontFamily.mono,
   },
 }

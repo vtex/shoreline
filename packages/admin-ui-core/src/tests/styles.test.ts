@@ -87,8 +87,7 @@ describe('styles', () => {
       expect(result).toEqual({
         fontFamily: 'var(--admin-ui-text-detail-fontFamily)',
         fontSize: 'var(--admin-ui-text-detail-fontSize)',
-        fontVariationSettings:
-          'var(--admin-ui-text-detail-fontVariationSettings)',
+        fontWeight: 'var(--admin-ui-text-detail-fontWeight)',
         letterSpacing: 'var(--admin-ui-text-detail-letterSpacing)',
         lineHeight: 'var(--admin-ui-text-detail-lineHeight)',
       })

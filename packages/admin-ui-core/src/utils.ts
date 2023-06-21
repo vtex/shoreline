@@ -45,7 +45,7 @@ export const utils: Record<string, (value: any) => AnyObject> = {
   // Text
   text: (value: AnyObject) => ({
     fontFamily: value.fontFamily,
-    fontVariationSettings: value.fontVariationSettings,
+    fontWeight: value.fontWeight,
     fontSize: value.fontSize,
     lineHeight: value.lineHeight,
     letterSpacing: value.letterSpacing,
