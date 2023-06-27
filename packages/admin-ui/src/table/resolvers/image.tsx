@@ -91,7 +91,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
 
   return (
     <Fragment>
-      <TooltipReference {...tooltip}>
+      <TooltipReference {...(tooltip as any)}>
         {(referenceProps) => (
           <ImageContainer>
             <img
