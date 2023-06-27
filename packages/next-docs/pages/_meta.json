@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page"
+  },
+  "design-system": {
+    "title": "Design System",
+    "type": "page"
+  },
+  "raccoon": {
+    "title": "Raccoon",
+    "type": "page"
+  }
+}
