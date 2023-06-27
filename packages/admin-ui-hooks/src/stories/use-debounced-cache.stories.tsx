@@ -3,7 +3,7 @@ import type { Story, Meta } from '@storybook/react'
 import { useDebouncedCache } from '../index'
 
 export default {
-  title: 'hooks/use-debounced-state',
+  title: 'hooks/use-debounced-cache',
 } as Meta
 
 export const Input: Story = () => {
