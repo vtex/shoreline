@@ -35,6 +35,7 @@
     "docs": "yarn --cwd packages/admin-ui-docs start",
     "next-docs": "yarn --cwd packages/next-docs dev",
     "build:docs": "yarn --cwd packages/admin-ui-docs build-docs",
+    "build:next-docs": "yarn --cwd packages/next-docs build-docs",
     "version:docs": "yarn --cwd packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
     "build:ci": "yarn turbo run build",
