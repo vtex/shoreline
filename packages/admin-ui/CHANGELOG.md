@@ -4,64 +4,40 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.136.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1-dev.5...@vtex/admin-ui@0.136.1) (2023-06-22)
-## 0.136.1-dev.6 (2023-06-27)
+
+## [0.136.1-dev.7](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1-dev.6...@vtex/admin-ui@0.136.1-dev.7) (2023-06-28)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
+## 0.136.1-dev.6 (2023-06-27)
 
-
-
+**Note:** Version bump only for package @vtex/admin-ui
 
 ## 0.136.1-dev.5 (2023-06-22)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.136.1-dev.4 (2023-06-19)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 ## [0.136.1-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1-dev.2...@vtex/admin-ui@0.136.1-dev.3) (2023-06-13)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.136.1-dev.2 (2023-05-15)
-
 
 ### Bug Fixes
 
-* **admin-ui:** changes data attribute camelCase to kebab-case ([256d32b](https://github.com/vtex/admin-ui/commit/256d32b6034ee8e117e5319a001f579519be6d73))
-
-
-
-
+- **admin-ui:** changes data attribute camelCase to kebab-case ([256d32b](https://github.com/vtex/admin-ui/commit/256d32b6034ee8e117e5319a001f579519be6d73))
 
 ## 0.136.1-dev.1 (2023-05-12)
 
 **Note:** Version bump only for package @vtex/admin-ui
 
-
-
-
-
 ## 0.136.1-dev.0 (2023-04-27)
 
 **Note:** Version bump only for package @vtex/admin-ui
-
-
-
-
 
 # [0.136.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.135.1...@vtex/admin-ui@0.136.0) (2023-04-19)
 
