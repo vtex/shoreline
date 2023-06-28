@@ -18,8 +18,8 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "dev": "rollup -c -w",
-    "build": "npm run prebuild && rollup -c"
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
   },
   "repository": {
     "directory": "packages/core-next",
