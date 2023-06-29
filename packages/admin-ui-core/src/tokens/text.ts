@@ -22,7 +22,7 @@ const fontSize = {
 export const text = {
   pageTitle: {
     fontFamily: fontFamily.sans,
-    fontWeight: fontWeight.bold,
+    fontWeight: fontWeight.medium,
     fontSize: fontSize.pageTitle,
     lineHeight: 1.2,
     letterSpacing: '-0.02em',
