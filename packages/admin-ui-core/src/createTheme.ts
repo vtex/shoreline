@@ -321,10 +321,17 @@ export function generateVars<T>(node: T, theme = {}, ruleId = '', accKey = '') {
     const value = node[key]
 
     if (value && typeof value === 'object') {
-      Object.assign(vars, generateVars(value, initialTheme, rule, name))
+      Object.assign(
+        vars,
+        generateVars(value, initialTheme as Record<string, any>, rule, name)
+      )
     } else {
       Object.assign(vars, {
-        [toVarName(name)]: resolveValue(value, rule, initialTheme),
+        [toVarName(name)]: resolveValue(
+          value,
+          rule,
+          initialTheme as Record<string, any>
+        ),
       })
     }
   }
