@@ -6,6 +6,7 @@ const fontWeight = {
   light: 300,
   regular: 400,
   medium: 500,
+  semibold: 600,
   bold: 700,
   black: 900,
 }
@@ -29,7 +30,7 @@ export const text = {
   },
   title1: {
     fontFamily: fontFamily.sans,
-    fontWeight: fontWeight.bold,
+    fontWeight: fontWeight.semibold,
     fontSize: fontSize.title,
     lineHeight: 1.24,
     letterSpacing: '-0.01em',
@@ -43,7 +44,7 @@ export const text = {
   },
   action1: {
     fontFamily: fontFamily.sans,
-    fontWeight: fontWeight.bold,
+    fontWeight: fontWeight.semibold,
     fontSize: fontSize.action,
     lineHeight: 1.16,
     letterSpacing: '0em',
@@ -57,7 +58,7 @@ export const text = {
   },
   display: {
     fontFamily: fontFamily.sans,
-    fontWeight: fontWeight.bold,
+    fontWeight: fontWeight.semibold,
     fontSize: fontSize.display,
     lineHeight: 1.32,
     letterSpacing: '-0.02em',
