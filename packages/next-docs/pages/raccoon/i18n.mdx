@@ -1,0 +1,134 @@
+# i18n
+
+This documentation will provide you with the necessary steps, code examples, and best practices to seamlessly incorporate multilingual support into your Raccoon projects using `react-intl`. By the end of this guide, you'll have the knowledge and tools to enhance your application with localization capabilities. Let's get started!
+
+## Raccoon's next app
+
+When it comes to adding localization capabilities to a Next.js application, you have several options available. However, we highly recommend utilizing `react-intl` for its comprehensive support and assistance. By following the steps outlined in this guide, you can quickly and effectively integrate localization into your app, ensuring it is up and running smoothly.
+
+### 1. Install react-intl on your next app
+
+```bash
+yarn add react-intl
+```
+
+### 2. Setup the translations
+
+To begin the localization setup, start by creating a `/messages` folder within the `/public` directory of your Next.js application. Within this `/messages` folder, you'll organize your translation files for each language. As an example, you can create your initial translation file, `en.json`, to kickstart the localization process.
+
+**Important Note:**
+
+When integrating translations into your project, it is crucial to follow the conventions outlined below. These conventions are designed to facilitate effective management by the localization team:
+
+1. Language separation: Each language translation should be stored in separate files. For instance, you can have files such as `en.json`, `fr.json`, and `br.json`, each corresponding to a specific language.
+
+2. Translation ID prefix: All translation identifiers must begin with the `admin/` prefix. This prefix helps maintain consistency and organization within your translation files, making it easier to manage and reference specific translations.
+
+By following these conventions, you can ensure a standardized and structured approach to managing translations in your project.
+
+```json
+// file: public/messages/en.json
+{
+  "admin/<your-app>.<your-string>": "..."
+}
+```
+
+### 3. Fetch the messages from the folder
+
+After successfully adding the translation messages, the next step is to fetch and utilize them within your application. A helpful tip is to create a custom hook in your project specifically designed to handle this functionality. By implementing a dedicated hook, you can streamline the process of retrieving and displaying the appropriate translations in your application.
+
+```ts
+// file: hooks/use-i18n.tsx
+
+import { useMemo } from 'react'
+import { useAdmin } from '@vtex/raccoon-next'
+import { fetcher } from '../util' /* example fetcher : const fetcher = (...args: any[]) => fetch(...args).then(res => res.json()) */
+
+export function useI18n(locale: string) {
+  // gets the locale provided by the admin-shell
+  const { locale = 'en-US' } = useAdmin()
+  // locales have the format [lang]-[countryCode]
+  const [lang] = useMemo(() => locale.split('-'), [locale])
+
+  // Use SWR (or normal fetch) to get the messages by country code.
+  const { data: messages, error } = useSWR(
+    countryCode ? { url: `/messages/${lang}.json` } : null,
+    fetcher
+  )
+
+  return {
+    locale,
+    countryCode,
+    messages,
+    loading: !messages && !error,
+    error,
+  }
+}
+```
+
+### 4. Configure the root of the application
+
+Next, you will need to add the `IntlProvider` component within the `_app.js` file. Remember to pass the `locale` and `messages` obtained from the `useI18n` hook as props to the `IntlProvider`. Additionally, ensure that you provide the `locale` to the `I18nProvider` to incorporate the default translations available in the design system. Here's an example of how your modified `_app.js` file should look like:
+
+```tsx
+// file: pages/_app.tsx
+
+import type { AppProps } from 'next/app'
+import { connect, bootstrap } from '@vtex/raccoon-next'
+import { ThemeProvider, I18nProvider } from '@vtex/admin-ui'
+import { IntlProvider } from 'react-intl'
+
+import { useI18n } from '../hooks/use-i18n'
+
+connect()
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const { locale, messages, loading } = useI18n(locale)
+
+  if (loading) return null
+
+  return (
+    <IntlProvider messages={messages} locale={locale}>
+      <ThemeProvider>
+        <I18nProvider locale={locale}>
+          <Component {...pageProps} />
+        </I18nProvider>
+      </ThemeProvider>
+    </IntlProvider>
+  )
+}
+
+export default bootstrap(MyApp)
+```
+
+You're all set! Your Next.js application is now fully equipped with localization capabilities, ready to cater to a diverse audience across different languages and regions.
+
+## Raccoon's IO app
+
+In the IO app, you'll only need to configure two aspects: the app label and the section title. The app label represents your app in the sidebar, while the section title indicates the category your app belongs to. To accomplish this, you can leverage IO's message builder tool, which you might already be familiar with.
+
+**Important note:**
+
+Remember to follow the translation ID prefix convention [mentioned earlier](#2-setup-the-translations).
+
+```json
+// file: messages/en.json
+{
+  "admin/navigation.section-title": "...",
+  "admin/navigation.app-title": "..."
+}
+```
+
+## Crowdin
+
+To provide you with some context, our localization team utilizes Crowdin, a powerful tool that automates and streamlines the app translation process. To set up Crowdin for your project, you are required to create a `crowdin.yml` file in the project's root directory. Within this file, you will specify the source path where the translations are located within your project. The setup should resemble the following example:
+
+```yml
+// crowdin.yml file
+files:
+  - source: /public/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+  # If you have more than one source, you can just add multiple sources here.
+  - source: /path-to-another-messages-folder/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+```

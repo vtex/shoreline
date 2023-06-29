@@ -1,0 +1,125 @@
+# Raccoon next SDK
+
+A SDK to help you building next applications and integrate it with the VTEX IO. You can install it by using the following command: `yarn install @vtex/raccoon-next`
+
+## Setup functions
+
+These functions are necessary to make the connection between the IO app and the next app.
+
+```tsx
+import type { AppProps } from 'next/app'
+import { connect, bootstrap } from '@vtex/raccoon-next'
+
+connect()
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default bootstrap(App)
+```
+
+### connect
+
+It connects the next application with the IO application by starting to listen to the message events sent by the integration app iframe.
+
+### bootstrap
+
+We have a `SplashScreen` component that indicates when it isn't possible to load the next application. For example, if the page can't retrieve the token information a retry screen is shown or if you try to access the next app outside from VTEX Admin, it shows a screen saying that this isn't possible. The `bootstrap` function is responsible for shown those screens.
+
+## useAdmin hook
+
+This hook is the way you can access the IO information within the next app.
+
+```tsx
+import { useAdmin } from '@vtex/raccoon-next'
+
+connect()
+
+export function Example(props: Props) {
+  const { token, account, locale, currency } = useAdmin()
+
+  return <Component />
+}
+```
+
+| name       | type    | description                                  |
+| ---------- | ------- | -------------------------------------------- |
+| token      | string  | The auth token                               |
+| account    | string  | The account name                             |
+| workspace  | string  | The workspace name                           |
+| locale     | string  | The current locale applied in the admin      |
+| currency   | string  | The account currency                         |
+| devUrl     | string  | The devUrl defined in the integration-app    |
+| prodUrl    | string  | The prodUrl defined in the integration-app   |
+| basePath   | string  | The base path defined in the integration-app |
+| production | boolean | Whether is a production workspace or not     |
+
+## useNavigation hook
+
+This hook returns the `navigate` function, which is the way you can navigate through pages inside or outside your next app while updating the browser history and the raccoon iframe.
+
+```tsx
+import { useNavigation } from '@vtex/raccoon-next'
+
+connect()
+
+export function Example(props: Props) {
+  const { navigate } = useNavigation()
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          navigate('/about') // this will navigate to `${tenant}.myvtex.com/${basePath}/about`
+        }}
+      >
+        Navigate to the page `/about` of your next app
+      </Button>
+      <Button
+        onClick={() => {
+          navigate('/orders', { type: 'adminRelativeNavigation' }) // this will navigate to `${tenant}.myvtex.com/admin/orders`
+        }}
+      >
+        Navigate to the admin orders module
+      </Button>
+    </>
+  )
+}
+```
+
+| name     | type                                              | description                                        |
+| -------- | ------------------------------------------------- | -------------------------------------------------- |
+| navigate | (path: string, options?: NavigateOptions) => void | The function responsible for making the navigation |
+
+```ts
+interface NavigateOptions {
+  type: 'navigation' | 'adminRelativeNavigation'
+}
+```
+
+## publishMessage function
+
+This how the next app comunicates with its parent Iframe.
+
+```tsx
+import { publishMessage } from "@vtex/raccoon-next";
+
+connect();
+
+export function Example(props: Props) {
+  return (
+    <Button
+      onClick={() => {
+        // This will send the data value to the asyncHandler specified in the type property
+        publishMessage({
+          type: `${handlerName}`,
+          data: {
+            ...,
+          },
+        });
+      }}
+    />
+  );
+}
+```
