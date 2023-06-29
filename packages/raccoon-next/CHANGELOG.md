@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.13-dev.0 (2023-06-29)
+
+**Note:** Version bump only for package @vtex/raccoon-next
+
+
+
+
+
 ## [0.5.12](https://github.com/vtex/raccoon/compare/@vtex/raccoon-next@0.5.11...@vtex/raccoon-next@0.5.12) (2023-06-01)
 
 **Note:** Version bump only for package @vtex/raccoon-next
