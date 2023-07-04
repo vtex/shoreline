@@ -1,0 +1,7 @@
+:root {
+  --bf-bg-main: pink;
+}
+
+body {
+  background: var(--bf-bg--main);
+}
