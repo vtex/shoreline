@@ -16,7 +16,7 @@ export function Style() {
   return (
     <div
       style={ssx({
-        bg: cssVar('bg', 'main'),
+        bg: cssVar({ foundation: 'bg', token: 'main' }),
       })}
     >
       The div

@@ -1,28 +1,29 @@
 import { alias } from './alias'
-import { cleanTokenString } from './clean-token-string'
 import { cssVar } from './css-var'
 import { defaultCompoundProps } from './default-values'
 import { findFoundation } from './find-foundation'
-import { isToken } from './is-token'
 import { getMixin, isMixin } from './mixins'
-import { tokenize } from './tokenize'
+import type { Foundation } from './types'
 
 interface Config {
-  aliasFn: (key: string) => string
+  aliasFn?: (key: string) => string
+  findFoundationFn?: (foundation: string) => Foundation | undefined
 }
 
 const defaultConfig: Config = {
   aliasFn: alias,
+  findFoundationFn: findFoundation,
 }
 
 /**
  * Parses a style object
  */
 export function csx(csxObject: any = {}, config: Config = defaultConfig) {
+  const { aliasFn = alias, findFoundationFn = findFoundation } = config
   const cssObject: any = {}
 
   for (const key in csxObject) {
-    const cssProperty = config.aliasFn(key)
+    const cssProperty = aliasFn(key)
     const cssEntry = csxObject[key]
 
     if (cssEntry && typeof cssEntry === 'object') {
@@ -30,7 +31,15 @@ export function csx(csxObject: any = {}, config: Config = defaultConfig) {
       continue
     }
 
-    const value = getValue(cssProperty, cssEntry)
+    const foundation = findFoundationFn(cssProperty)
+
+    const value = !foundation
+      ? cssEntry
+      : cssVar({
+          foundation,
+          token: cssEntry,
+          deepSearch: cssProperty in defaultCompoundProps,
+        })
 
     if (isMixin(cssProperty)) {
       Object.assign(cssObject, getMixin(cssProperty)(value))
@@ -40,24 +49,4 @@ export function csx(csxObject: any = {}, config: Config = defaultConfig) {
   }
 
   return cssObject
-}
-
-function getValue(cssProperty: string, value: string) {
-  const foundation = findFoundation(cssProperty)
-
-  if (!foundation) {
-    return cleanTokenString(value)
-  }
-
-  if (cssProperty in defaultCompoundProps) {
-    return tokenize(foundation, value)
-  }
-
-  if (!isToken(value)) {
-    return value
-  }
-
-  const token = cleanTokenString(value)
-
-  return cssVar(foundation, token)
 }

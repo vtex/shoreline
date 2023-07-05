@@ -1,6 +1,9 @@
 import { cssVar } from './css-var'
 import type { FoundationDictionary } from './types'
 
+/**
+ * Default compound props of Beachfront
+ */
 export const defaultCompoundProps = {
   padding: true,
   margin: true,
@@ -20,10 +23,8 @@ export const defaultAliases = {
 }
 
 /**
- * Aliases of beachfront
+ * Default foundations of Beachfront
  */
-export type Aliases = keyof typeof defaultAliases
-
 export const defaultFoundations: FoundationDictionary = {
   // border
   border: 'border',
@@ -124,6 +125,9 @@ export const defaultFoundations: FoundationDictionary = {
   fontVariationSettings: 'fw',
 }
 
+/**
+ * Defaoult mixins of Beachfront
+ */
 export const defaultMixins = {
   /** Space */
   marginX: (value: string | number) => ({
@@ -162,11 +166,11 @@ export const defaultMixins = {
     maxHeight: value,
   }),
 
-  text: (value: string) => ({
-    fontFamily: cssVar('ff', value),
-    fontWeight: cssVar('fw', value),
-    fontSize: cssVar('fs', value),
-    lineHeight: cssVar('lh', value),
-    letterSpacing: cssVar('ls', value),
+  text: (token: string) => ({
+    fontFamily: cssVar({ foundation: 'ff', token }),
+    fontWeight: cssVar({ foundation: 'fw', token }),
+    fontSize: cssVar({ foundation: 'fs', token }),
+    lineHeight: cssVar({ foundation: 'lh', token }),
+    letterSpacing: cssVar({ foundation: 'ls', token }),
   }),
 }
