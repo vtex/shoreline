@@ -10,7 +10,9 @@ import { isToken } from './is-token'
  */
 export function cleanTokenString(token: string): string {
   if (isToken(token)) {
-    return token.substring(1)
+    const sanitizedToken = String(token).trim()
+
+    return sanitizedToken.substring(1)
   }
 
   return token

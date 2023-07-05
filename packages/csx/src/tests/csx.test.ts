@@ -1,4 +1,4 @@
-import { csx } from '../csx'
+import { csx } from '../index'
 
 test('csx must return an object', () => {
   expect(csx()).toStrictEqual({})
