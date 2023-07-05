@@ -1,5 +1,4 @@
-import { csx } from '../csx'
-import { alias } from '../alias'
+import { csx, alias } from '../index'
 
 test('chained selectors csx implementation', () => {
   function convertChainedSelectors(key: string) {

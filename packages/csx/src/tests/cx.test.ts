@@ -1,4 +1,4 @@
-import { cx } from '../cx'
+import { cx } from '../index'
 
 test('cx should handle null values', () => {
   expect(cx(null)).toEqual('')

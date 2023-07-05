@@ -1,4 +1,4 @@
-import { alias } from '../alias'
+import { alias } from '../index'
 
 test('keeps unalised properties intact', () => {
   const testAliases = {
