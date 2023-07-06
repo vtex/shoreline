@@ -1,7 +1,3 @@
 :root {
-  --bf-bg-main: pink;
-}
-
-body {
-  background: var(--bf-bg-main);
+  --bf-bg-primary: pink;
 }
