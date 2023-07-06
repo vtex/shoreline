@@ -1,4 +1,4 @@
-import { isToken } from '../is-token'
+import { isToken } from '../index'
 
 test('should not be a token', () => {
   expect(isToken('')).toBeFalsy()
