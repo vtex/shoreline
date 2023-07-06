@@ -443,12 +443,16 @@ export type PaginationActionType =
 
 <details>
   <summary>
-    <h4>When should the items in a list be updated?</h4>
+    <h4>When should the number of results be updated?</h4>
   </summary>
   <div>
     <ul>
       <li>
-        Only show new items when the user explicitly triggers an action to
+        When the merchant edits the filter values or the search query,
+        the total number of results should inform the current state of the list.
+      </li>
+      <li>
+        Only load new items when the merchant explicitly triggers an action to
         update the results, such as the <em>Refresh</em> button in the web
         browser.
       </li>
@@ -468,8 +472,7 @@ export type PaginationActionType =
     <strong>What to avoid:</strong>
     <ul>
       <li>
-        Don’t update the number of results while the merchant is navigating
-        between pages.
+        Don’t load new items while the merchant is navigating between pages.
       </li>
     </ul>
   </div>
