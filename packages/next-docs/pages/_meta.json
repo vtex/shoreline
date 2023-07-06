@@ -10,5 +10,9 @@
   "raccoon": {
     "title": "Raccoon",
     "type": "page"
+  },
+  "packages": {
+    "title": "Packages",
+    "type": "page"
   }
 }

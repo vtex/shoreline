@@ -1,3 +1,4 @@
+import type { CsxObject } from '../index'
 import { csx } from '../index'
 
 test('csx must return an object', () => {
@@ -80,7 +81,7 @@ test('csx must accept a custom aliasFn', () => {
     csx(
       {
         t: 'value',
-      },
+      } as CsxObject,
       customConfig
     )
   ).toStrictEqual({

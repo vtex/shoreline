@@ -14,7 +14,9 @@ const defaultConfig: CsxConfig = {
 }
 
 /**
- * Parses a style object
+ * Parses a CSXObject into a CSSObject
+ * @example
+ * csx({ bg: '$primary' })
  */
 export function csx(
   csxObject: CsxObject = {},
@@ -31,7 +33,7 @@ export function csx(
 
   for (const key in csxObject) {
     const cssProperty = aliasFn(key)
-    const cssEntry = csxObject[key]
+    const cssEntry = csxObject[key as keyof typeof csxObject]
 
     if (cssEntry && typeof cssEntry === 'object') {
       cssObject[cssProperty] = csx(cssEntry, config)
