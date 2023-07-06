@@ -1,4 +1,4 @@
-import { findFoundation } from '../find-foundation'
+import { findFoundation } from '../index'
 import type { FoundationDictionary } from '../types'
 
 test('it should not find the foundation', () => {

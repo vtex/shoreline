@@ -1,9 +1,9 @@
 import { isToken } from './is-token'
 
 /**
- * Clean the token symbol from a string
- * @param {String} token string to clean
- * @returns {String} clean string
+ * Cleans the token symbol from a string
+ * @param {String} token String to clean
+ * @returns {String} Clean string
  * @example
  * cleanTokenString('$token') // returns => 'token'
  * cleanTokenString('token') // returns => 'token'

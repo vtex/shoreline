@@ -16,6 +16,6 @@ export type Foundation =
 
 export type FoundationDictionary = Record<string, Foundation>
 
-export interface CSXObject {
+export interface CsxObject {
   [key: string]: any
 }
