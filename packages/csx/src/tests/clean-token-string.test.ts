@@ -1,4 +1,4 @@
-import { cleanTokenString } from '../clean-token-string'
+import { cleanTokenString } from '../index'
 
 test('it should not clean a string that is not a token', () => {
   expect(cleanTokenString('')).toEqual('')

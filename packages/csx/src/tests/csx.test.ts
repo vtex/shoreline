@@ -2,7 +2,7 @@ import { csx } from '../index'
 
 test('csx must return an object', () => {
   expect(csx()).toStrictEqual({})
-  expect(csx(null)).toStrictEqual({})
+  expect(csx(null as any)).toStrictEqual({})
   expect(csx(undefined)).toStrictEqual({})
   expect(csx({})).toStrictEqual({})
 })

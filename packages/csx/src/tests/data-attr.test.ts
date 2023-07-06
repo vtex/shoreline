@@ -1,8 +1,9 @@
-import { dataAttr } from '../data-attr'
+import { dataAttr } from '../index'
 
 test('it should return a single data-attr', () => {
   expect(dataAttr('size', 'normal')).toBe('[data-size="normal"]')
   expect(dataAttr('has-icon', true)).toBe('[data-has-icon="true"]')
+  expect(dataAttr('has-icon')).toBe('[data-has-icon]')
 })
 
 test('it should multiple dataAttrs', () => {

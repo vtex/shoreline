@@ -3,14 +3,14 @@ import { cssVar } from './css-var'
 import { defaultCompoundProps } from './default-values'
 import { findFoundation } from './find-foundation'
 import { getMixin, isMixin } from './mixins'
-import type { Foundation } from './types'
+import type { CsxObject, Foundation } from './types'
 
-interface Config {
+interface CsxConfig {
   aliasFn?: (key: string) => string
   findFoundationFn?: (foundation: string) => Foundation | undefined
 }
 
-const defaultConfig: Config = {
+const defaultConfig: CsxConfig = {
   aliasFn: alias,
   findFoundationFn: findFoundation,
 }
@@ -18,7 +18,10 @@ const defaultConfig: Config = {
 /**
  * Parses a style object
  */
-export function csx(csxObject: any = {}, config: Config = defaultConfig) {
+export function csx(
+  csxObject: CsxObject = {},
+  config: CsxConfig = defaultConfig
+) {
   const { aliasFn = alias, findFoundationFn = findFoundation } = config
   const cssObject: any = {}
 
