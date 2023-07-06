@@ -15,6 +15,8 @@ import { findMixin } from './find-mixin'
 import { isToken } from './is-token'
 import { min, max, clamp, calc } from './math'
 
+import type { CsxObject } from './types'
+
 export {
   alias,
   cleanTokenString,
@@ -34,3 +36,5 @@ export {
   clamp,
   calc,
 }
+
+export type { CsxObject }
