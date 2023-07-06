@@ -2,17 +2,15 @@ import { alias } from './alias'
 import { cssVar } from './css-var'
 import { defaultCompoundProps } from './default-values'
 import { findFoundation } from './find-foundation'
-import { getMixin, isMixin } from './mixins'
-import type { CsxObject, Foundation } from './types'
+import { findMixin } from './find-mixin'
 
-interface CsxConfig {
-  aliasFn?: (key: string) => string
-  findFoundationFn?: (foundation: string) => Foundation | undefined
-}
+import type { CsxObject, Foundation, Mixin } from './types'
 
 const defaultConfig: CsxConfig = {
   aliasFn: alias,
   findFoundationFn: findFoundation,
+  findMixinFn: findMixin,
+  compoundProps: defaultCompoundProps,
 }
 
 /**
@@ -22,7 +20,13 @@ export function csx(
   csxObject: CsxObject = {},
   config: CsxConfig = defaultConfig
 ) {
-  const { aliasFn = alias, findFoundationFn = findFoundation } = config
+  const {
+    aliasFn = alias,
+    findFoundationFn = findFoundation,
+    findMixinFn = findMixin,
+    compoundProps = defaultCompoundProps,
+  } = config
+
   const cssObject: any = {}
 
   for (const key in csxObject) {
@@ -41,15 +45,24 @@ export function csx(
       : cssVar({
           foundation,
           token: cssEntry,
-          deepSearch: cssProperty in defaultCompoundProps,
+          deepSearch: cssProperty in compoundProps,
         })
 
-    if (isMixin(cssProperty)) {
-      Object.assign(cssObject, getMixin(cssProperty)(value))
+    const mixin = findMixinFn(cssProperty)
+
+    if (mixin) {
+      Object.assign(cssObject, mixin(value))
     } else {
       cssObject[cssProperty] = value
     }
   }
 
   return cssObject
+}
+
+interface CsxConfig {
+  aliasFn?: (key: string) => string
+  findFoundationFn?: (foundation: string) => Foundation | undefined
+  findMixinFn?: (prop: string) => Mixin | undefined
+  compoundProps?: Record<string, boolean>
 }

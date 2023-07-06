@@ -16,6 +16,10 @@ export type Foundation =
 
 export type FoundationDictionary = Record<string, Foundation>
 
+export type Mixin = (value: string | number) => Record<string, string | number>
+
+export type MixinDictionary = Record<string, Mixin>
+
 export interface CsxObject {
   [key: string]: any
 }

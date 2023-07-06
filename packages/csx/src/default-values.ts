@@ -1,5 +1,5 @@
 import { cssVar } from './css-var'
-import type { FoundationDictionary } from './types'
+import type { FoundationDictionary, MixinDictionary } from './types'
 
 /**
  * Default compound props of Beachfront
@@ -128,49 +128,49 @@ export const defaultFoundations: FoundationDictionary = {
 /**
  * Defaoult mixins of Beachfront
  */
-export const defaultMixins = {
+export const defaultMixins: MixinDictionary = {
   /** Space */
-  marginX: (value: string | number) => ({
+  marginX: (value) => ({
     marginLeft: value,
     marginRight: value,
   }),
-  marginY: (value: string | number) => ({
+  marginY: (value) => ({
     marginTop: value,
     marginBottom: value,
   }),
-  paddingX: (value: string | number) => ({
+  paddingX: (value) => ({
     paddingLeft: value,
     paddingRight: value,
   }),
-  paddingY: (value: string | number) => ({
+  paddingY: (value) => ({
     paddingTop: value,
     paddingBottom: value,
   }),
 
-  size: (value: string | number) => ({
+  size: (value) => ({
     width: value,
     height: value,
   }),
-  minSize: (value: string | number) => ({
+  minSize: (value) => ({
     minWidth: value,
     minHeight: value,
   }),
-  maxSize: (value: string | number) => ({
+  maxSize: (value) => ({
     maxWidth: value,
     maxHeight: value,
   }),
-  absoluteSize: (value: string | number) => ({
+  absoluteSize: (value) => ({
     minWidth: value,
     minHeight: value,
     maxWidth: value,
     maxHeight: value,
   }),
 
-  text: (token: string) => ({
-    fontFamily: cssVar({ foundation: 'ff', token }),
-    fontWeight: cssVar({ foundation: 'fw', token }),
-    fontSize: cssVar({ foundation: 'fs', token }),
-    lineHeight: cssVar({ foundation: 'lh', token }),
-    letterSpacing: cssVar({ foundation: 'ls', token }),
+  text: (value) => ({
+    fontFamily: cssVar({ foundation: 'ff', token: String(value) }),
+    fontWeight: cssVar({ foundation: 'fw', token: String(value) }),
+    fontSize: cssVar({ foundation: 'fs', token: String(value) }),
+    lineHeight: cssVar({ foundation: 'lh', token: String(value) }),
+    letterSpacing: cssVar({ foundation: 'ls', token: String(value) }),
   }),
 }

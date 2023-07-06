@@ -11,6 +11,7 @@ import {
   defaultMixins,
 } from './default-values'
 import { findFoundation } from './find-foundation'
+import { findMixin } from './find-mixin'
 import { isToken } from './is-token'
 import { min, max, clamp, calc } from './math'
 
@@ -26,6 +27,7 @@ export {
   defaultFoundations,
   defaultMixins,
   findFoundation,
+  findMixin,
   isToken,
   min,
   max,
