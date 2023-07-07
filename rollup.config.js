@@ -49,6 +49,9 @@ export default [
   {
     input: 'dist/declarations/index.d.ts',
     output: [{ file: packageJson.types, format: 'esm' }],
-    plugins: [dts(), del({ hook: 'buildEnd', targets: './dist/declarations' })],
+    plugins: [
+      dts.default(),
+      del({ hook: 'buildEnd', targets: './dist/declarations' }),
+    ],
   },
 ]

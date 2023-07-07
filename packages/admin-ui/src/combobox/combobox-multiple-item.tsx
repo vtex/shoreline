@@ -29,7 +29,7 @@ export const ComboboxMultipleItem = forwardRef(
         className={cx(itemMultipleTheme, className)}
         onClick={() => onChangeCb?.(item)}
         ref={ref}
-        {...restProps}
+        {...(restProps as any)}
       >
         {children}
         <CheckboxCheck checked={checked} />

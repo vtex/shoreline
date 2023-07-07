@@ -8,7 +8,6 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
-import { csx } from '@vtex/admin-ui-core'
 
 export const CheckboxGroup = forwardRef(function CheckboxGroup(
   props: CheckboxGroupProps,
@@ -33,10 +32,7 @@ export const CheckboxGroup = forwardRef(function CheckboxGroup(
         <FormControlLabel id={labelId} optional={optional}>
           {label}
         </FormControlLabel>
-        <Stack
-          direction={direction}
-          space="$space-4"
-        >
+        <Stack direction={direction} space="$space-4">
           {children}
         </Stack>
         <FormControlMessage
