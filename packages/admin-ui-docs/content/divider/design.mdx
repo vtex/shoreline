@@ -1,0 +1,124 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to create sections with a Card or other strategies instead of a Divider?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose a Card when there is a lot of content, and only white space or titles aren't enough to visually differentiate each section. For example, the Order details page has a deep hierarchy and needs Card containers to better organize the content.</li>
+        <li>Choose only blank space to differentiate sections when there is enough space available and the content is part of the same hierarchy level but has a slightly different nature.</li>
+        <li>Choose a different background to distinguish a small section of content, adding a semantic color to draw more attention or a secondary color to give less prominence. Be careful, as this option adds weight to the interface and can impair contrast.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use a horizontal or a vertical Divider?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose an horizontal Divider in most cases, to create sections within a container.</li>
+        <li>Choose a vertical Divider to create columns when the container has more than one scrolling area.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <br />
+  <div>
+    <ul>
+        <li>Don’t create content groups with vertical dividers because they diversify the reading flow. Each person may end up reading in a different order, making it more difficult to guide the experience.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>Where should a Divider be positioned in a container?</h4></summary>
+  <div>
+    Considering left-to-right interfaces, follow these recommendations:
+    <ul>
+        <li>When there is no scroll, a Divider should be positioned respecting the margins of the container.</li>
+        <li>When there is a scroll, a Divider should overlap any margins and go to the edges of the container.</li>
+        <li>Include a comfortable amount of space before and after the Divider. For more details, please refer to the <a href="https://admin-ui.vercel.app/next/foundations/spacing">Spacing</a> documentation.</li>
+        <li>In specific cases where a Divider is separating items in a list, the first and last Divider may be omitted. For example, if the list is inside a Card and comes right after the title, the first Divider can be omitted. If there is no other grouping after the list, the last Divider can also be omitted.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What is the behavior of a section with a Divider during scroll?</h4></summary>
+  <div>
+    <ul>
+        <li>In a container, sections such as the Header and Footer usually remain fixed and overlaid on top of the content during scroll to ensure that contextual elements, such as an action that advances the flow, remain visible at all times.</li>
+        <li>When there is a section separated by a Divider that remains fixed during scroll, it is necessary to visually represent that some content is hidden after the merchant scrolls. Use the <code>$shadow.overlay.center</code> token to indicate this depth only after the scroll has started. If the merchant returns to the original position and the content is no longer hidden, remove the shadow.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <br />
+  <div>
+    <ul>
+      <li>Don’t fix large sections to avoid limiting the vertical space available for scroll and making the content consumption experience uncomfortable.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
