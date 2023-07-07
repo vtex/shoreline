@@ -4,10 +4,234 @@ path: /card/
 hide_table_of_contents: true
 ---
 
-## Do’s
+import { PageSection } from '@site/src/components/PageSection'
 
-1. Avoid nesting cards with more than 3 levels.
-2. Add buttons for interactivity.
-3. Do not use `primary` buttons when adding actions to the `Card`.
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
 
-👉 For UX Writing guidelines, access https://uxwriting.vtex.com
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to add content in a Page, Modal or Popover instead of a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>Choose a Page when the content has a purpose that is significantly different from existing pages and relates to a specific moment in the journey.</li>
+        <li>Choose a Modal to display a small amount of content related to a minor job within the main job of a page. Minor jobs can include filling out a small form or viewing a snippet of additional information. Also use a Modal when the minor job exists in multiple pages, such as creating a release.</li>
+        <li>Choose a Popover when there isn’t a lot of content, when this content isn’t essential for the main job, when it makes sense to keep the Page content visible for comparison, and when the trigger that will open it isn’t inside a Menu.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to include a title in a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>In most cases, the card should include a title that describes its content. However, the card title should be hidden if this context is already provided somewhere else, such as in the title of a form section.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don’t customize the style of the title. Use <code>$title1</code> in <code>$fg.primary</code> when the card is directly on the page and <code>$title2</code> in <code>$fg.secondary</code> when the card is nested within another card or a modal.</li>
+    </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary><h4>When to include actions in a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>Include in the Card header up to three important actions that are related to the content in the Card. For example, two tertiary Buttons and one secondary Button.</li>
+        <li>Whenever an action is destructive or when there are more than three relevant actions, include a tertiary <em>More actions</em> Menu. If there are also Buttons in the Card header, include the Menu to their right and use the icon-only variant.</li>
+        <li>If a Button in the Card header triggers the same action as a Button that is somewhere else in the page, it should have the same label and prominence as the other instances.</li>        
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include a Tag in a Card?</h4></summary>
+  <div>
+    Add a Tag in the Card header to represent the overall state of its content. For example, a Card featuring a graph with the number of orders of a store could have an Extremely high tag to indicate the current trend.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to include an image in a Card?</h4></summary>
+  <div>
+    Add an image when the content of the Card has a visual representation that can help the merchant identify it. For example, the icon of an app or the icon of a page section in the CMS.
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>When should Cards be nested?</h4></summary>
+  <div>
+    <ul>
+        <li>Cards should be nested when there is a hierarchical relationship between them. For example, a card for order items can contain cards for each package in the order.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don’t use more than one level of nesting.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the position of content in a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>Align content to the left.</li>
+        <li>When Buttons are in a horizontal list, order them from tertiary to primary. For example, a secondary Button should be to the left of a primary Button.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don’t let content overlap the margins of the Card.</li>
+     <li>Don’t position the main actions of a Card in its body. Prefer to position them in the Card header, following the recommendations.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the size and position of a Card in a container?</h4></summary>
+  <div>
+    <ul>
+        <li>When a Card is inside a Modal or in a Page with a narrow width, set its width to 100% of the available space. In larger pages, this width can be split between up to three cards.</li>
+        <li>Place content that is not within cards before any cards.</li>
+        <li>The horizontal and vertical spacing between cards should be set to <code>$space-5</code>.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don't create vertical scroll inside a Card.</li>
+     <li>Don't remove the spacing between Cards or merge them together.</li>
+     <li>Don't place Cards side by side in a Modal.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>When should a Card be collapsible?</h4></summary>
+  <div>
+    <ul>
+        <li>A Card should be collapsible when the content is extensive and the main job doesn't require the entire content to remain visible.</li>
+        <li>For more information read the documentation of the <a href="https://admin-ui.vercel.app/components/collapsible">Collapsible</a> component.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the content of a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>Display content in a Card that is related to a minor job within the main job of the Page. For example, filling a part of a form (e.g. SKUs in a product form) or viewing part of the information (e.g. history of an order).</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don't create cards that are larger than the average viewport height.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the Title of a Card?</h4></summary>
+  <div>
+    <ul>
+        <li>Use a label that describes the content of the view. For example, <em>Items to invoice</em>.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+  <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+     <li>Don’t use punctuation.</li>
+     <li>Don’t use more than three words.</li>
+     <li>Don’t use personal pronouns.</li>
+     <li>Don’t use redundant words.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
