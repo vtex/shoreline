@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui-form",
   "description": "Admin UI form library",
   "license": "MIT",
-  "version": "0.6.1-dev.4",
+  "version": "0.6.1-dev.8",
   "main": "dist/vtex-admin-ui-form.cjs.js",
   "module": "dist/vtex-admin-ui-form.esm.js",
   "types": "dist/vtex-admin-ui-form.cjs.d.ts",
@@ -19,8 +19,8 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "dev": "rollup -c -w",
-    "build": "npm run prebuild && rollup -c"
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
   },
   "repository": {
     "directory": "packages/admin-ui-form",
@@ -36,7 +36,7 @@
     "react-dom": "^16.9 || ^17.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.136.1-dev.4",
+    "@vtex/admin-ui": "^0.136.1-dev.8",
     "yup": "0.32.11"
   },
   "dependencies": {

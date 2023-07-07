@@ -32,37 +32,37 @@ const setup = () => {
 }
 
 describe('use-masked-input', () => {
-  it('should keep the same value', () => {
+  it('should keep the same value', async () => {
     const { input } = setup()
 
-    userEvent.type(input, '2')
+    await userEvent.type(input, '2')
     expect(input.value).toBe('2')
   })
 
-  it('should add the first part of the mask', () => {
+  it('should add the first part of the mask', async () => {
     const { input } = setup()
 
-    userEvent.type(input, '22')
+    await userEvent.type(input, '22')
     expect(input.value).toBe('22/')
   })
 
-  it('should accept nothing but digits', () => {
+  it('should accept nothing but digits', async () => {
     const { input } = setup()
 
-    userEvent.type(input, '223')
+    await userEvent.type(input, '223')
     expect(input.value).toBe('22/3')
 
-    userEvent.type(input, '/')
+    await userEvent.type(input, '/')
     expect(input.value).toBe('22/3')
 
-    userEvent.type(input, 'aaa')
+    await userEvent.type(input, 'aaa')
     expect(input.value).toBe('22/3')
   })
 
-  it('should complete the mask', () => {
+  it('should complete the mask', async () => {
     const { input } = setup()
 
-    userEvent.type(input, '22032020')
+    await userEvent.type(input, '22032020')
     expect(input.value).toBe('22/03/2020')
   })
 })

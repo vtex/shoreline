@@ -1,20 +1,64 @@
 ---
 title: Avatar
 path: /avatar/
+hide_table_of_contents: true
 ---
 
-This component creates a user's avatar from a label, by showing the label's first letter capitalized in the center.
+import { Page, Panel } from '@site/src/components/Page'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { PageSection } from '@site/src/components/PageSection'
 
-## Usage
-
-```jsx
-import { Avatar } from '@vtex/admin-ui'
-
-function Example() {
-  return <Avatar label="Label" />
+export const tabToc = {
+  overview:  [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    }],
+  codeReference: toc.filter((item) =>
+    ['Installation', 'Customization', 'Props'].includes(item.value)
+  ),
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
 }
-```
 
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
+
+  <IntroSection>
+
+  ## What is this?
+
+  Avatar indicators visually represent a person with an Admin user account.
+
+  </IntroSection> <br/>
+
+  
 ## Examples
 
 ### Palette
@@ -33,6 +77,19 @@ The `Avatar` can be rendered in multiple palettes, this means that the `color` a
 </Stack>
 ```
 
+  </Panel>
+  <Panel id="codeReference">
+
+## Usage
+
+```jsx
+import { Avatar } from '@vtex/admin-ui'
+
+function Example() {
+  return <Avatar label="Label" />
+}
+```
+
 ## Props
 
 It also accepts all the props of a `div` JSX element.
@@ -41,3 +98,96 @@ It also accepts all the props of a `div` JSX element.
 | ------- | ------------------------------------------------------ | -------------------------------------------------- | -------- | ----------- |
 | label   | `string`                                               | String that will have its first letter capitalized | ✅       | -           |
 | palette | `lightBlue, green, orange, cyan, purple, teal or grey` | Avatar theme                                       | 🚫       | `lightBlue` |
+
+  </Panel>
+
+  <Panel id="designReference">
+
+  <PageSection
+    id={tabToc.designReference[1].id}
+    title={tabToc.designReference[1].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the color of an Avatar?</h4>
+   </summary>
+   Ideally, a color would be generated for each user to identify them consistently throughout the Admin. However, since this color information is still not available for each Admin user, it is recommended to use the default color (<code>lightBlue</code>) to avoid inconsistencies between pages and incorrect associations.
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[2].id}
+    title={tabToc.designReference[2].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the position and size of an Avatar in a container?</h4>
+   </summary>
+   <ul>
+      <li>In a table listing individuals, such as a list of registered users, the Avatar can be positioned as a column just before the name in each row, with a size of 44px.</li>
+      <li>In a table with content created by the merchant, such as products and promotions, the Avatar can be one of the last columns, identifying who made changes, with a size of 24px.</li>
+      <li>In a comments section, the Avatar should be positioned to the left of the comment text, with a size of 44px.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[3].id}
+    title={tabToc.designReference[3].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should happen with an Avatar on click or hover?</h4>
+   </summary>
+   <ul>
+      <li>On click, nothing should happen unless the Avatar is within an element that already has a click behavior, such as a table row.</li>
+      <li>On hover, when the full name of the Admin user is not already displayed next to the Avatar, a Tooltip should appear with this information.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[4].id}
+    title={tabToc.designReference[4].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the initials or the photo of an Avatar?</h4>
+   </summary>
+   <ul>
+      <li>Ideally, the initials should be shown only when the user does not have a registered photo. However, this component doesn't support images since Admin users still can't add a photo to their profiles.</li>
+      <li>We recommend always using the uppercase initials for the Avatar.</li>
+      <li>When the Avatar size is 24px, use the first letter of the user's name.</li>
+      <li>When the Avatar size is 44px, use the first letter of the user's name and the first letter of their last surname.</li>
+      <li>Consult the Localization team to understand how Avatar indicators should work in other alphabets or character systems.</li>
+   </ul>
+</details>
+
+<details>
+   <summary>
+      <h4>When to use an Avatar together with the full name?</h4>
+   </summary>
+   <ul>
+      <li>Always use the Avatar together with the person's full name. Depending on the available space, this text can also appear on hover in a Tooltip.</li>
+      <li>In a comments section, include the full name always visible next to the Avatar.</li>
+      <li>In a Table that includes the last modification made, an Avatar for the person who made the change can be in the same column as the modification date or in a separate column, depending on the space available. If they are in the same column, keep the date visible and show a tooltip with the full name on hover.</li>
+   </ul>
+   <br/><strong>What to avoid:</strong><br/><br/>
+   <ul>
+      <li>Don't change the capitalization of the user's full name. Prefer to display the name as was registered by the user in their profile.</li>
+      <li>Don't truncate one or more surnames. Prefer to include the full name and wrap the text if necessary.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  </Panel>
+
+  </Page>

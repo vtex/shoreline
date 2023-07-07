@@ -1,53 +1,244 @@
 ---
 title: Spinner
 path: /spinner/
+hide_table_of_contents: true
 ---
 
-A Spinner is a way of showing the user something is being loaded, either because of a user action or not. It should be used for short, indeterminate loading times.
+import { Page, Panel } from '@site/src/components/Page'
+import { IntroSection } from '@site/src/components/IntroSection'
+import { PageSection } from '@site/src/components/PageSection'
 
-## Usage
-
-```jsx isStatic
-import { Spinner } from '@vtex/admin-ui'
-
-function Example() {
-  return <Spinner />
+export const tabToc = {
+  overview:  [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    }],
+  codeReference: toc.filter((item) =>
+    ['Installation', 'Customization', 'Props'].includes(item.value)
+  ),
+      designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
 }
-```
 
-## Alternatives
+<Page toc={tabToc} hasTabs>
+  <Panel id="overview">
 
-- [Skeleton](skeleton/) - For layout/block loading
+  <IntroSection>
 
-## Examples
+  ## What is this?
 
-### Contextual theming
+  Spinner indicators allow merchants to identify that an element in the page is loading or that a task is in progress.
 
-The spinner's circle always has the `currentColor` fill.
+  </IntroSection> <br/>
 
-```jsx live
-<Stack direction="row">
-  <Center className={csx({ size: 50, ...palette('lightBlue') })}>
-    <Spinner />
-  </Center>
-  <Center className={csx({ size: 50, ...palette('red') })}>
-    <Spinner />
-  </Center>
-</Stack>
-```
+  ## Examples
 
-### Size
+  ### Contextual theming
 
-```jsx live
-function Example() {
-  return <Spinner size={50} />
-}
-```
+  The spinner's circle always has the `currentColor` fill.
 
-## Props
+  ```jsx live
+  <Stack direction="row">
+    <Center className={csx({ size: 50, ...palette('lightBlue') })}>
+      <Spinner />
+    </Center>
+    <Center className={csx({ size: 50, ...palette('red') })}>
+      <Spinner />
+    </Center>
+  </Stack>
+  ```
 
-It also accepts all the props of `svg` jsx element.
+  ### Size
 
-| Name | Type     | Description        | Required | Default |
-| ---- | -------- | ------------------ | -------- | ------- |
-| size | `number` | Spinner size in px | 🚫       | `24`    |
+  ```jsx live
+  function Example() {
+    return <Spinner size={50} />
+  }
+  ```
+
+  ## Alternatives
+
+  [Skeleton](skeleton/) - For layout/block loading
+
+  </Panel>
+  <Panel id="codeReference">
+  
+
+  ## Usage
+
+  ```jsx isStatic
+  import { Spinner } from '@vtex/admin-ui'
+
+  function Example() {
+    return <Spinner />
+  }
+  ```
+
+  ## Props
+
+  It also accepts all the props of `svg` jsx element.
+
+  | Name | Type     | Description        | Required | Default |
+  | ---- | -------- | ------------------ | -------- | ------- |
+  | size | `number` | Spinner size in px | 🚫       | `24`    |
+
+  </Panel>
+
+  <Panel id="designReference">
+
+  <PageSection
+    id={tabToc.designReference[0].id}
+    title={tabToc.designReference[0].value}
+  >
+
+<details>
+   <summary>
+      <h4>When to use a Skeleton or a custom loading state instead of a Spinner?</h4>
+   </summary>
+   <ul>
+      <li>Choose a Skeleton when the entire page is loading for up to 5 seconds.</li>
+      <li>Choose a custom loading state with animations, illustrations, or progress bars to provide feedback on a process that takes more than 5 seconds or when the content that will load has an irregular shape, such as a graph.</li>
+   </ul>
+   <br/><strong>What to avoid:</strong><br/><br/>
+   <ul>
+      <li>Don’t show any loading feedback for requests that take less than a second.</li>
+      <li>Don’t show a Skeleton on a page that is already loaded.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[1].id}
+    title={tabToc.designReference[1].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the color of a Spinner?</h4>
+   </summary>
+   <ul>
+      <li>In most cases, a Spinner should have a gray (<code>$fg.secondary</code>) color.</li>
+      <li>When the Spinner is replacing a text of a different color or displayed on top of a colorful background, its color should use a foreground token in the same tone. For example, when a secondary critical Button is loading it should use a red Spinner.</li>
+      <li>If the background color is <code>40</code> or higher, the Spinner should be white. For example, if the background color is <code>blue40</code>, use a white Spinner.</li>
+   </ul>
+</details>
+
+ </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[2].id}
+    title={tabToc.designReference[2].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the size and position of a Spinner in a container?</h4>
+   </summary>
+   <ul>
+      <li>When the Spinner provides immediate feedback of an action, it should be positioned as closely as possible to the trigger that the merchant pressed. For example, the loading state of the Button component can be used.</li>
+      <li>If the process takes less than 2s, any content that might be modified should stay visible until the new content loads to avoid a sudden transition. When the process takes between 2s and 5s, the content that might be modified can also be temporarily replaced by a loading state.</li>
+      <li>When a process takes more than 5s, use a custom loading state with animations, illustrations, or progress bars instead of a Spinner. If this is not possible and a Spinner will be used, make sure to include explanatory text below the Spinner or to its right.</li>
+      <li>When a Spinner is positioned inside a small container or replacing a specific string of text, it should have a 20px size. When the Spinner is centralized in a large container, it should have a 40px size.</li>
+      <li>When search results are loading, the Spinner in the Search Input loading state should be the only feedback. The previous results should remain visible in the list until the new ones finish loading.</li>
+   </ul>
+   <br/><strong>What to avoid:</strong><br/><br/>
+   <ul>
+      <li>Don’t overlay a Spinner on top of existing content. Prefer hiding the content.</li>
+      <li>Don’t use a Spinner in a size that is not 20px or 40px.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[3].id}
+    title={tabToc.designReference[3].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the duration of a Spinner?</h4>
+   </summary>
+   <ul>
+      <li>A Spinner should be used to provide feedback on processes that take between 1s and 5s.</li>
+      <li>When a process takes more than 5s, use a custom loading state with animations, illustrations, or progress bars instead of a Spinner. If this is not possible and a Spinner will be used, make sure to include explanatory text below the Spinner or to its right. Also allow the merchant to both cancel the task and to leave the page without interrupting the process.</li>
+   </ul>
+   <br/><strong>What to avoid:</strong><br/><br/>
+   <ul>
+      <li>Don’t display any sort of feedback when loading takes less than a second.</li>
+   </ul>
+</details>
+
+<details>
+   <summary>
+      <h4>What should be the animation of a Spinner?</h4>
+   </summary>
+   Spinner indicators have a default spinning circle animation that is played in a loop. Don’t customize this animation.
+</details>
+
+<details>
+   <summary>
+      <h4>When should the content be hidden by a Spinner?</h4>
+   </summary>
+   <ul>
+      <li>If the process takes less than 2s, any content that might be modified should stay visible until the new content loads to avoid a sudden transition. When the process takes between 2s and 5s, the content that might be modified can also be temporarily replaced by a loading state.</li>
+      <li>When search results are loading, the Spinner in the Search Input loading state should be the only feedback. The previous results should remain visible in the list until the new ones finish loading.</li>
+   </ul>
+   <br/><strong>What to avoid:</strong><br/><br/>
+   <ul>
+      <li>Don’t overlay a Spinner on top of existing content. Prefer hiding the content.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  <PageSection
+    id={tabToc.designReference[1].id}
+    title={tabToc.designReference[1].value}
+  >
+
+<details>
+   <summary>
+      <h4>What should be the explanation of a Spinner?</h4>
+   </summary>
+   <ul>
+      <li>Don't include text to explain a process that takes less than 5s. When a process takes more than 5s, use a custom loading state with animations, illustrations, or progress bars instead of a Spinner.</li>
+      <li>If it is not possible to design and implement a custom loading state and a Spinner will be used, make sure to include the explanatory text below the Spinner or to its right.</li>
+      <li>The explanation should mention what is happening in the background and include an estimated duration for the process. For example, the Spinner could be next to the word <em>Indexing </em>or to the text “<em>This release is being published and may take up to 5 minutes</em>”.</li>
+      <li>Whenever a process takes more than 5s, allow the merchant to both cancel the task and to leave the page without interrupting the process.</li>
+   </ul>
+</details>
+
+  </PageSection>
+
+  </Panel>
+
+  </Page>

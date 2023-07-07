@@ -10,7 +10,6 @@ import {
   FormControlMessage,
 } from '../form-control'
 import { Stack } from '../stack'
-import { csx } from '@vtex/admin-ui-core'
 
 export const RadioGroup = forwardRef(function RadioGroup(
   props: RadioGroupProps,
@@ -41,10 +40,7 @@ export const RadioGroup = forwardRef(function RadioGroup(
         <FormControlLabel id={labelId} optional={optional}>
           {label}
         </FormControlLabel>
-        <Stack
-          direction={direction}
-          space="$space-4"
-        >
+        <Stack direction={direction} space="$space-4">
           {children}
         </Stack>
 
