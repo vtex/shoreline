@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.2-dev.5 (2023-06-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.2-dev.4 (2023-06-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
+## 0.7.2-dev.3 (2023-06-22)
+
+**Note:** Version bump only for package @vtex/admin-ui-codemod
+
+
+
+
+
 ## 0.7.2-dev.2 (2023-06-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-codemod

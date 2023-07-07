@@ -9,10 +9,10 @@ import { createPortal } from 'react-dom'
 
 type HTMLElRef = MutableRefObject<HTMLElement>
 type CustomEvent = {
-  event?: SyntheticEvent<any, Event>
+  event?: SyntheticEvent<any>
   portal: HTMLElRef
   targetEl: HTMLElRef
-} & SyntheticEvent<any, Event>
+} & SyntheticEvent<any>
 
 type CustomEventHandler = (customEvent: CustomEvent) => void
 type CustomEventHandlers = {
