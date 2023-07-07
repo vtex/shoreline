@@ -1,0 +1,212 @@
+import { PageSection } from '@site/src/components/PageSection'
+
+export const tabToc = {
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    }
+  ]
+}
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>When to use more than a section in a form?</h4></summary>
+  <div>
+    <ul>
+        <li>Use more than a section in forms with more than five fields, when they can be grouped in a way that makes sense to merchants. For example, address fields should be grouped in a section.</li>
+        <li>If the form includes a list of items, dedicate a section to that list.</li>
+        <li>If the form includes conditional fields (displayed based on conditions), it is preferable to dedicate a section to them. For example, the type of promotion or the attributes of a product can determine what fields are shown in the form.</li>
+    </ul>
+  </div>
+    <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+        <li>Don’t add the section title when the form only has one section.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be included in a form section?</h4></summary>
+  <div>
+    A form section should include the components that provide the most appropriate interaction to fill each information type. These components can be either input fields, control fields or a list.
+    <ul>
+        <li>Use input fields when merchants can fill content by typing or pasting text. For example, filling the name of a promotion. View the <a href="https://admin-ui.vercel.app/components/text-input">TextInput</a>, <a href="https://admin-ui.vercel.app/components/text-area">TextArea</a>, <a href="https://admin-ui.vercel.app/components/number-input">NumberInput</a>, <a href="https://admin-ui.vercel.app/experimental/date-picker">DatePicker</a> and <a href="https://admin-ui.vercel.app/experimental/combobox">Combobox</a> documentation for more details.</li>
+        <li>Use control fields when merchants can select options by clicking or tapping them. For example, choosing the type of a promotion. View the<a href="https://admin-ui.vercel.app/components/checkbox"> Checkbox</a>, <a href="https://admin-ui.vercel.app/components/radio">Radio</a>, <a href="https://admin-ui.vercel.app/components/select">Select</a> and <a href="https://admin-ui.vercel.app/components/switch">Switch</a> documentation for more details.</li>
+        <li>Use a list when merchants can reference content by creating or adding related items. For example, referencing users when creating a user role. View the <a href="https://admin-ui.vercel.app/components/table">Table</a> and <a href="https://admin-ui.vercel.app/components/data-view">DataView</a> documentation for more details.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the order of content in a form?</h4></summary>
+  <div>
+    The order of form sections and fields should be based on research with merchants. It is possible to order them using the following criteria:
+    <ul>
+        <li>Required to optional.</li>
+        <li>Most important to least important.</li>
+        <li>More general to more specific.</li>
+    </ul>
+    Read the Position section in the documentation of each field component for further information.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the size and position of a Form in a container?</h4></summary>
+  <div>
+    <ul>
+        <li>When the Form is on a page, use the Page component with the narrow layout property to position the form correctly.</li>
+        <li>For forms with up to five fields, a Modal can be used. In this case, the fields should occupy the entire available width.</li>
+    </ul>
+  </div>
+    <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+        <li>The width of a field should never exceed 736px.</li>
+        <li>Don’t use a Form inside a Card. Prefer using a Modal instead.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should be the behavior of fields?</h4></summary>
+  <div>
+    To learn more about validation, error states and other behavior in a Form, read the <strong>Behavior</strong> section in the documentation of each field component.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should conditional fields be displayed?</h4></summary>
+  <div>
+    Conditional fields depend on the value of a control field. For example, the type of promotion or the attributes of a product can determine what fields are shown in the form. When representing these conditions, consider the following recommendations:
+    <ul>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/switch">Switch</a> to control the visibility of sections and fields during a progressive fill. For example, the form for creating a user role has fields that appear only when the merchant wants to reference users at that time.</li>
+        <li>Use a <a href="https://admin-ui.vercel.app/components/radio">Radio</a> to alternate between fields based on the selected option. For example, the form for creating a promotion has specific fields for each promotion type.</li>
+        <li>When multiple sequential fields can appear conditionally in a form, dedicate a separate section for them.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a form be submitted?</h4></summary>
+  <div>
+    Conditional fields depend on the value of a control field. For example, the type of promotion or the attributes of a product can determine what fields are shown in the form. When representing these conditions, consider the following recommendations:
+    <ul>
+        <li>Forms should be submitted using large primary Buttons with labels such as <em>Save</em> or <em>Publish</em>. In most cases, these Buttons should be positioned in the page header.</li>
+        <li>The content of a form can be divided in tabs when it is long and the merchant needs to navigate between each step easily. In this case, the <em>Submit</em> button should be in the page header.</li>
+        <li>If the save or publish action takes longer than 1 minute or can’t be easily undone, include a confirmation Modal.</li>
+        <li>In forms that include lists, items that are created or added can be saved before the rest of the content if this behavior is easier to implement.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What happens when the merchant attempts to leave a form with unsaved information?</h4></summary>
+  <div>
+    <ul>
+        <li>When the merchant tries to leave the form without saving, either using a control or the browser's address bar (closing the browser tab or typing a different URL), display the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event">browser's default warning message</a> indicating that changes will be lost.</li>
+        <li>When the merchant tries to leave the form by clicking the <em>Back</em> button on the Page Header or navigating to another page in the Admin, display a small Modal with the title <em>Discard changes</em>, the text "<em>Some changes were not saved. Are you sure you want to leave the page and discard all changes?</em>", a secondary <em>Cancel</em> button, and a <code>criticalPrimary</code> <em>Discard</em> button.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the title of a form section?</h4></summary>
+  <div>
+    <ul>
+        <li>The title should describe what information the merchant will fill in that section. For example, use <em>Address</em> as the title that groups address-related fields.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+  </div>
+    <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+        <li>Don't include redundant words. Example: use <em>Address</em> instead of <em>Store address</em> for a section inside a form page titled <em>New Store</em>.</li>
+        <li>Don't use verbs. For example, use <em>Address</em> instead of <em>Select address</em>.</li>
+        <li>Don't use punctuation.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the description of a form section?</h4></summary>
+  <div>
+    <ul>
+        <li>In most cases, the form section title should be self explanatory. Add a description only if the form section contains critical or complex fields.</li>
+        <li>Write the description text as if you are answering the following question: <em>What does this mean?</em> For example, the description of a <em>Permissions</em> section can be <em>Products and resources that users with this role will be able to access</em>.</li>
+        <li>Start with a noun followed by additional information, such as definitions and conditions.</li>
+        <li>Use sentence case, but capitalize proper nouns.</li>
+        <li>Prefer using a single sentence that is short and direct.</li>
+    </ul>
+  </div>
+    <br />
+  <div>
+    <strong>What to avoid:</strong>
+  </div>
+  <div>
+    <ul>
+        <li>Don’t write text longer than 110 characters.</li>
+        <li>Don't include redundant words. For example, don’t repeat the title of the page or the section.</li>
+        <li>Don’t explain the benefits of the content, only its meaning.</li>
+        <li>Don’t use periods.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
