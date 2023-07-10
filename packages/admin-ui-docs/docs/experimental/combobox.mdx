@@ -1,50 +1,85 @@
 ---
 title: Combobox
 path: /combobox/
+hide_table_of_contents: true
 ---
 
-## Usage
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
 
-```jsx
-import {
-  experimental_ComboboxField as ComboboxField,
-  experimental_ComboboxPopover as ComboboxPopover,
-  experimental_useComboboxState as useComboboxState,
-  experimental_ComboboxMultipleField as ComboboxMultipleField,
-  experimental_ComboboxMultiplePopover as ComboboxMultiplePopover,
-  experimental_useComboboxMultipleState as useComboboxMultipleState,
-} from '@vtex/admin-ui'
-
-function Single() {
-  const combobox = useComboboxState({
-    list: [],
-  })
-
-  return (
-    <>
-      <ComboboxField id="id" label="Label" state={combobox} />
-      <ComboboxPopover state={combobox} />
-    </>
-  )
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+    {
+      id: 'examples',
+      value: 'Examples',
+      level: 3,
+    },
+  ],
+  codeReference: [
+    {
+      id: 'usage',
+      value: 'Usage',
+      level: 2,
+    },
+    {
+      id: 'props',
+      value: 'Props',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'components',
+      value: 'Components',
+      level: 2,
+    },
+    {
+      id: 'variants',
+      value: 'Variants',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+  ]
 }
 
-function Multiple() {
-  const comboboxMultiple = useComboboxMultipleState({
-    list: [],
-  })
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
 
-  return (
-    <>
-      <ComboboxMultipleField id="id" label="Label" state={comboboxMultiple} />
-      <ComboboxMultiplePopover state={comboboxMultiple} />
-    </>
-  )
-}
-```
+<IntroSection>
 
-## Examples
+## What is this?
+
+Combobox fields allow merchants to choose one or more options and add new options.
+<br /><br />
+</IntroSection>
+
+<PageSection
+  id={tabToc.overview[1].id}
+  title={tabToc.overview[1].value}
+>
 
 ### Single
+<br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -68,6 +103,7 @@ render(<Example />)
 ```
 
 ### Multiple
+<br />
 
 ```jsx noInline live
 const ComboboxMultipleField = experimental_ComboboxMultipleField
@@ -93,15 +129,18 @@ function Example() {
 
 render(<Example />)
 ```
+<br />
 
 ### Custom rendering
+<br />
 
-You can use objects instead of strings for your combobox's list and define a custom rendering function for each option. For this you must also define a `getOptionValue` function (for converting the object shape into a unique string value),
-a `renderOption` function which should return a ReactNode that represents this object visually. If you don't define these 2 functions and you use objects on your list you will get an unexpected behavior.
+You can use objects instead of strings for your Combobox's list and define a custom rendering function for each option. For this you must also define a `getOptionValue` function (for converting the object shape into a unique string value),
+a `renderOption` function which should return a ReactNode that represents this object visually. If you don't define these 2 functions and you use objects on your list you will get an unexpected behavior.<br /><br />
 
-The value obtained by the `getOptionValue` function will be the one considered when performing the search based on the user input.
+The value obtained by the `getOptionValue` function will be the one considered when performing the search based on the user input.<br /><br />
 
 #### Input example
+<br />
 
 ```jsx
   list: [
@@ -119,6 +158,7 @@ The value obtained by the `getOptionValue` function will be the one considered w
 ```
 
 #### Basic custom rendering example
+<br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -156,9 +196,10 @@ const CustomRender = () => {
 render(<CustomRender />)
 ```
 
-#### Custom rendering for combobox multiple
+#### Custom rendering for Combobox Multiple
+<br />
 
-When using comboboxMultiple you can also define a custom rendering function specifically for the tags, if you don't set it, renderOption will be used.
+When using `comboboxMultiple` you can also define a custom rendering function specifically for the tags, if you don't set it, `renderOption` will be used.<br /><br />
 
 ```jsx noInline live
 const ComboboxMultipleField = experimental_ComboboxMultipleField
@@ -206,8 +247,9 @@ render(<CustomRenderMultiple />)
 ```
 
 #### Custom rendering for i18n
+<br />
 
-You can use custom item rendering as a way of implementing internationalization for each option.
+You can use custom item rendering as a way of implementing internationalization for each option.<br /><br /><br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -246,8 +288,9 @@ render(<CustomRender />)
 ```
 
 ### Async
+<br />
 
-You can use the `deferredValue` and `setMatches` to handle searches in async environments.
+You can use the `deferredValue` and `setMatches` to handle searches in async environments.<br /><br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -313,8 +356,9 @@ render(<Example />)
 ```
 
 #### Handling states
+<br />
 
-The `loading` and `error` states can be toggled programmatically with `setLoading` and `setError`. Use these functions to interact with your data-fetching library.
+The `loading` and `error` states can be toggled programmatically with `setLoading` and `setError`. Use these functions to interact with your data-fetching library.<br /><br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -356,8 +400,9 @@ render(<Example />)
 ```
 
 ### I18n
+<br />
 
-The combobox has default translations for the popover strings. Since the label can vary, you should handle this translation. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.
+The Combobox component has default translations for the popover strings. Since the label can vary, you should handle this translation. Wrap your app with the [I18nProvider](/experimental/localization#i18nprovider/) to configure the locale.<br /><br />
 
 ```jsx noInline live
 const ComboboxField = experimental_ComboboxField
@@ -389,27 +434,84 @@ function RootApp() {
 render(<RootApp />)
 ```
 
-## TODOs
+### To do
+<br />
 
 Features and fixes scheduled for this component:
 
 - [ ] Support to render images and icons in items
 - [ ] Review translations
 
-## Props
+</PageSection >
+</Panel>
+
+<Panel id="codeReference">
+
+<PageSection
+  id={tabToc.codeReference[0].id}
+  title={tabToc.codeReference[0].value}
+>
+
+```jsx
+import {
+  experimental_ComboboxField as ComboboxField,
+  experimental_ComboboxPopover as ComboboxPopover,
+  experimental_useComboboxState as useComboboxState,
+  experimental_ComboboxMultipleField as ComboboxMultipleField,
+  experimental_ComboboxMultiplePopover as ComboboxMultiplePopover,
+  experimental_useComboboxMultipleState as useComboboxMultipleState,
+} from '@vtex/admin-ui'
+
+function Single() {
+  const combobox = useComboboxState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxField id="id" label="Label" state={combobox} />
+      <ComboboxPopover state={combobox} />
+    </>
+  )
+}
+
+function Multiple() {
+  const comboboxMultiple = useComboboxMultipleState({
+    list: [],
+  })
+
+  return (
+    <>
+      <ComboboxMultipleField id="id" label="Label" state={comboboxMultiple} />
+      <ComboboxMultiplePopover state={comboboxMultiple} />
+    </>
+  )
+}
+```
+
+</PageSection >
+
+<PageSection
+  id={tabToc.codeReference[1].id}
+  title={tabToc.codeReference[1].value}
+>
 
 ### useComboboxState
+<br />
 
 | Name           | Type                         | Description                                                                                    | Required | Default                                                               |
 | -------------- | ---------------------------- | ---------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------- |
 | timeoutMs      | `number`                     | Timeout of the deferredValue                                                                   | 🚫       | -                                                                     |
 | list           | `ItemType[]`                 | List of items                                                                                  | 🚫       | -                                                                     |
-| getOptionValue | `(item: ItemType) => string` | Function that transforms item shape into a string value, no need to use it on string[] lists   | 🚫       | by default it returns the item value, stringified if it is not string |
-| renderOption   | `(item: ItemType) => string` | Function for transforming item shape into renderable node, no need to use it on string[] lists | 🚫       | by default it returns the item value, stringified if it is not string |
+| getOptionValue | `(item: ItemType) => string` | Function that transforms item shape into a string value, no need to use it on string[] lists   | 🚫       | Returns the item value, stringified if it is not a string |
+| renderOption   | `(item: ItemType) => string` | Function for transforming item shape into renderable node, no need to use it on string[] lists | 🚫       | Returns the item value, stringified if it is not a string |
+
+<br /><br />
 
 #### ComboboxState
+<br />
 
-The hooks return the ComboboxState, with the values:
+The hooks return the ComboboxState, with the values:<br /><br />
 
 | Name            | Type                         | Description                                                                                 |
 | --------------- | ---------------------------- | ------------------------------------------------------------------------------------------- |
@@ -425,19 +527,25 @@ The hooks return the ComboboxState, with the values:
 | getOptionValue  | `(item: ItemType) => string` | Same as the one passed to the hook                                                          |
 | renderOption    | `(item: ItemType) => string` | Same as the one passed to the hook                                                          |
 
-### useComboboxMultipleState
+<br /><br />
 
-It extends the `useComboboxState` props, and:
+### useComboboxMultipleState
+<br />
+
+It extends the `useComboboxState` props, and:<br /><br />
 
 | Name                | Type                            | Description                                       | Required | Default                          |
 | ------------------- | ------------------------------- | ------------------------------------------------- | -------- | -------------------------------- |
 | shouldClearOnSelect | `boolean`                       | If should clear the text input on select an item  | 🚫       | -                                |
 | defaultSelected     | `ItemType[]`                    | List of items that are selected by default        | 🚫       | -                                |
-| renderTag           | `(item: ItemType) => ReactNode` | Function that controls what's rendered inside tag | 🚫       | copies renderOption prop's value |
+| renderTag           | `(item: ItemType) => ReactNode` | Function that controls what's rendered inside tag | 🚫       | Copies renderOption prop's value |
+
+<br /><br />
 
 #### ComboboxMultipleState
+<br />
 
-The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and additionally has:
+The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and additionally has:<br /><br />
 
 | Name             | Type                            | Description                                        |
 | ---------------- | ------------------------------- | -------------------------------------------------- |
@@ -451,7 +559,10 @@ The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and addi
 | onChange         | `(item: ItemType) => void`      | Function that toggles if item is selected          |
 | isSelected       | `(item: ItemType) => boolean`   | Function which returns selected status for an item |
 
+<br /><br />
+
 ### ComboboxField & ComboboxMultipleField
+<br />
 
 | Name  | Type                                       | Description    | Required | Default |
 | ----- | ------------------------------------------ | -------------- | -------- | ------- |
@@ -460,10 +571,295 @@ The hooks return `ComboboxMultipleState`, which extends `ComboboxState` and addi
 | id    | `string`                                   | Required id    | ✅       | -       |
 | csx   | `StyleObject`                              | Custom styles  | 🚫       | `{}`    |
 
+<br /><br />
+
 ### ComboboxPopover & ComboboxMultiplePopover
+<br />
 
 | Name    | Type                                       | Description                    | Required | Default |
 | ------- | ------------------------------------------ | ------------------------------ | -------- | ------- |
 | state   | `ComboboxState` or `ComboboxMultipleState` | Required state                 | ✅       | -       |
 | onRetry | `() => void`                               | Function to be called on retry | 🚫       | -       |
 | csx     | `StyleObject`                              | Custom styles                  | 🚫       | `{}`    |
+
+</PageSection >
+
+</Panel>
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to use the Select, Radio or Checkbox components instead of the Combobox component?</h4></summary>
+  <div>
+    <ul>
+      <li>Choose the Select component (instead of a Combobox Single) if a single option can be selected and there are between five and seven options available.</li>
+      <li>Choose the Radio component (instead of a Combobox Single) if a single option can be selected and there are up to five options with short labels, or when the choice is important and the options should be always visible.</li>
+      <li>Choose the Checkbox component (instead of a Combobox Multiple) if more than one option can be selected and there are up to five options, or when a boolean choice will be submitted in a form.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary>
+    <h4>When to use a Single or a Multiple Combobox?</h4>
+  </summary>
+  <div>
+    <ul>
+      <li>Use the Combobox Single component if only one option can be selected and the Combobox Multiple component if more than one option can be selected.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't use a Combobox if there are less than seven options and new options can't be created. Prefer to use a Select, Checkbox or Radio instead.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <h4>When should a Combobox be optional?</h4>
+  </summary>
+  <div>
+    <ul>
+      <li>The Combobox component should be included in the form but marked as optional when it's sometimes necessary. For example, to inform industry segments in a company profile.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t mark the mandatory fields of a form. Prefer to mark the optional fields with the term <em>(optional)</em> included next to the label, as is the default behavior.</li>
+      <li>Don’t include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What should be the position and the size of a field in a form?</h4></summary>
+  <div>
+    <ul>
+      <li>The size of the field should comfortably fit the values, considering localization as well.</li>
+      <li>Group and sort fields in a way that is logical to the merchant, according to user research. For example, the company name should come before the industry segment.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t position two fields that are not complementary on the same line. For example, the company name should not be on the same line as the industry segment.</li>
+      <li>Don’t include more than three fields on the same line.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[3].id}
+  title={tabToc.designReference[3].value}
+>
+
+<details>
+  <summary><h4>What should happen when the merchant is typing?</h4></summary>
+  <div>
+    Merchants type text in the Combobox to perform a search among the available options and select one of the resulting options.
+  </div>
+  <div>
+    <ul>
+      <li>Implement a debounce logic so that search results are not loaded prematurely in the combobox while the merchant is still typing.</li>
+      <li>While the search is being processed, display the previous results until the new ones are loaded.</li>
+      <li>The Popover with the available options should expand or shrink in height depending on the number of loaded results.</li>
+      <li>If there are no search results, don't display a popover or display a popover only with the action to create a new option when it exists.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t change the search query to reflect the option that the merchant focused on with the keyboard. Prefer to maintain the search query until the merchant chooses an option or manually clears the field.</li>
+      <li>Don't implement a search where the results take more than 1 second to update. Prefer to have a search with better performance so that loading feedback isn’t necessary.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the placeholder text of a Combobox?</h4></summary>
+  <div>
+    None. There shouldn’t be placeholder text in a Combobox.
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the default value of a Combobox?</h4></summary>
+  <div>
+    <ul>
+      <li>Preselect an option when this can make the merchant more efficient and and a wrong choice isn't detrimental.</li>
+      <li>Common or recommended options can be preselected. Information that the merchant has previously provided can also be leveraged to guess the option that should be preselected.</li>
+      <li>When a recommended option is preselected, add <em>(Recommended)</em> to the end of its label so it can still be identified after edits.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the options displayed in a Combobox popover?</h4></summary>
+  <div>
+    <ul>
+      <li>When the field has just gained focus and is empty, if possible, display suggestions, such as recently used or most used options. If not possible, display the <em>Start typing to search</em> text.</li>
+      <li>Merchants enter text in the Combobox to perform a search among the available options and select one of the resulting options. While this search is in progress, display the previous results until the new ones are loaded.</li>
+      <li>Display a maximum of 7 options at a time in the popover. If there are more options available, the merchant needs to make the search more specific to view the remaining results. For example, when the letter "B" is typed in a Combobox for countries, display only the first 7 countries starting with the letter "B".</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the loading state of a Combobox be visible?</h4></summary>
+  <div>
+    Merchants type text in the Combobox to perform a search among the available options and select one of the resulting options.
+  </div>
+  <div>
+    <ul>
+      <li>Whenever possible, the loading process should take less than 1 second and the previous results should be displayed until the new ones are loaded.</li>
+      <li>If the search takes longer than 1 second, display loading feedback in the Combobox popover. The default loading state consists of a Skeleton with 5 rows.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't display loading feedback inside the field. Prefer to display the feedback in the Popover.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the error state of a form field be visible?</h4></summary>
+  <div>
+    The validation behavior should communicate the error at the right moment and make it easier to fix. To minimize frustration, follow these recommendations:
+  </div>
+  <div>
+    <ul>
+      <li>Show the error in a specific field when the merchant removes its focus or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.</li>
+      <li>Remove the error state of the field as soon as the merchant modifies its value.</li>
+      <li>When the merchant creates an option that has the same value as an option that is already chosen, mark this option with an error state and add the "<em>Some values are duplicated</em>" error text in the field.</li>
+      <li>When the field expects a specific format (e.g. email) and the merchant creates an option that doesn’t conform to this format, show the option in an error state.</li>
+      <li>The merchant may type a search query and then remove the focus of the field without choosing one of the search results. If the value matches one of the available options, choose this option for them. If the value doesn't match one of the available options but the field allows new options to be created, create an option with the value. If it doesn't match an option and one can't be created, transform the query into an option in an error state.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't display only the error state of the option. Prefer to also display the error state of the field and an error text any time there is an error.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a form field be disabled?</h4></summary>
+  <div>
+    <ul>
+      <li>Disable a field only if, in some condition, it becomes enabled. For example, a field that is incompatible with an option currently chosen in the form.</li>
+      <li>When the reason why the field is disabled might be unclear, use a<a href="https://admin-ui.vercel.app/components/tooltip"> Tooltip</a> trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[4].id}
+  title={tabToc.designReference[4].value}
+>
+
+<details>
+  <summary><h4>What should be the label of a Combobox?</h4></summary>
+  <div>
+    <ul>
+      <li>Include the name of the entity that is being listed. For example, use the label <em>Country</em> when the options are <em>Australia</em>, <em>Brazil</em>, <em>Canada</em>, <em>China</em>, <em>France</em>, <em>Japan</em>, <em>United States</em>.</li>
+      <li>Visually hide the field label only when this definition is already present somewhere else, such as a form section title that already describes all the fields in the section.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't include redundant words. For example, write <em>Industry</em> as the label instead of <em>Company industry</em> when the page or section already includes <em>Company</em> in its title.</li>
+      <li>Don't use verbs. For example, instead of <em>Select industry</em>, use only <em>Industry</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Country</em> instead of <em>My store’s country</em>.</li>
+      <li>Don't use interrogations.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the value of Combobox options?</h4></summary>
+  <div>
+    <ul>
+      <li>Write up to 25 characters in a direct language. Use the help text or the field label to provide additional context when necessary.</li>
+      <li>Use sentence case, but capitalize proper nouns.</li>
+      <li>Whenever possible, include an icon or an image to enhance the visual differentiation between options in the Combobox. For example, country flags that help to quickly identify the country.</li>      
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t start options with a verb.</li>
+      <li>Don’t use periods or commas.</li>
+      <li>Don't include redundant words. For example, use only <em>Daily</em>, <em>Weekly</em> and <em>Monthly</em> instead of <em>Daily frequency</em>, <em>Weekly frequency</em> and <em>Monthly frequency</em>.</li>
+      <li>Don't use personal pronouns. For example, write <em>Country</em> instead of <em>My country</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the error text of a Combobox?</h4></summary>
+  <div>
+    <ul>
+      <li>Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.</li>
+      <li>Start with an imperative verb. For example, a mandatory field that is left empty should use the error text <em>Select an option</em> if it's a Combobox Single and the text <em>Select at least one option</em> if it's a Combobox Multiple, instead of <em>This field is required</em>.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t use periods or commas.</li>
+      <li>Don't use incomplete sentences. For example, write <em>Select an option </em>instead of <em>Select one</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the order of options in a Combobox?</h4></summary>
+  <div>
+    <ul>
+      <li>When the field is blank and it’s possible to display suggested options in the popover, they should appear from most to least frequently used.</li>
+      <li>After the merchant types something, display the search results in alphabetical order.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What happens when the value of an option is too long?</h4></summary>
+  <div>
+    <ul>
+      <li>When the value of a chosen option or a search result is too long, truncate the value and display ellipses, similar to how it's done in table cells.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don’t break a single option into multiple lines when a chosen option reaches the width of the field.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+</Panel>
+
+</Page>
