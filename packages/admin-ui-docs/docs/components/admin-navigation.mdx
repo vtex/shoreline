@@ -1,0 +1,277 @@
+---
+title: Admin Navigation
+path: /admin-navigation/
+hide_table_of_contents: true
+---
+
+
+import { Page, Panel } from '@site/src/components/Page'
+import { PageSection } from '@site/src/components/PageSection'
+import { IntroSection } from '@site/src/components/IntroSection'
+
+export const tabToc = {
+  overview: [
+    {
+      id: 'what-is-this',
+      value: 'What is this?',
+      level: 2,
+    },
+  ],
+  designReference: [
+    {
+      id: 'content',
+      value: 'Content',
+      level: 2,
+    },
+    {
+      id: 'position',
+      value: 'Position',
+      level: 2,
+    },
+    {
+      id: 'behavior',
+      value: 'Behavior',
+      level: 2,
+    },
+  ]
+}
+
+<Page toc={tabToc} hasTabs>
+<Panel id="overview">
+
+<IntroSection>
+
+## What is this?
+
+Admin navigation allows merchants to understand platform capabilities and easily find pages.
+
+</IntroSection>
+
+</Panel>
+
+<Panel id="designReference">
+
+<PageSection
+  id={tabToc.designReference[0].id}
+  title={tabToc.designReference[0].value}
+>
+
+<details>
+  <summary><h4>When to add a page in the Admin Navigation?</h4></summary>
+  <div>
+    <ul>
+      <li>A page in the navigation should contain a single primary job. For example, everything related to managing discounts is accessed through the <em>Promotions</em> page and everything related to managing additional charges is accessed through the <em>Taxes</em> page.</li>
+      <li>Add a page in the navigation only when it doesn't fit the scope of any existing primary job. This can be defined by conducting research to understand the purpose of the content for each user profile, since the same content can be used by people with different purposes. For example, in the CMS, it makes sense to separate pages for managing content, media, and translation.</li>
+      <li>When the same content is used for different primary jobs, make sure to include shortcuts between pages so these specialized views don't impact the productivity of a single person conducting multiple jobs. For example, someone should be able to create a category through the product creation form.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't create separate pages for objects related to the same primary job. For example, the <em>Shipping Strategy</em> page has tabs for <em>Policies</em>, <em>Loading Docks</em>, and <em>Warehouses</em>.</li>
+      <li>Don't define primary jobs with a scope that is not common. For example, a CRUD (<em>Create, Read, Update, Delete</em>) operation usually includes creating, listing, editing, and deleting.</li>
+      <li>Don't create separate pages for multiple ways of performing the same action. For example, <em>Export</em> and <em>Import</em> should be on the same page as <em>Edit</em> and <em>Create</em>.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to add a page in the Admin Navigation?</h4></summary>
+  <div>
+    <ul>
+      <li>Use nouns that describe the content and are commonly used by merchants. For example, use <em>Orders </em>instead of <em>Purchase Requests</em>.</li>
+      <li>Use a precise title that is self-explanatory and complete on its own. For example, use <em>Security Findings</em> instead of <em>Security Center</em>.</li>
+      <li>Use title case.</li>
+      <li>Use a maximum of 18 characters in Portuguese, English, and Spanish. In other languages, follow the recommendations of the Localization team and truncate the text if necessary.</li>
+      <li>Read the <a href="https://admin-ui.vercel.app/templates/getting-started/overview">Page Templates documentation</a> for more specific recommendations.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't use redundant words. For example, avoid repeating the section title and using the words <em>Management</em> or <em>List</em>.</li>
+      <li>Do not use internal jargon or trade names. For example, instead of <em>VTEX Shipping Network</em>, use <em>Carriers</em>.</li>
+      <li>Don't use verbs. For example, use <em>Available Sellers </em>instead of <em>Find Sellers</em>.</li>
+      <li>Don't use punctuation.</li>
+      <li>Don't use personal pronouns.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the URL of a page?</h4></summary>
+  <div>
+    The title of the page should describe its content and should be used in its URL, its Title meta tag and in the Admin navigation.<br /><br />Read the <a href="https://admin-ui.vercel.app/templates/getting-started/overview">Page Templates documentation</a> for more specific recommendations.
+  </div>
+</details>
+
+<details>
+  <summary><h4>Where to indicate that a page was recently released or is in a legacy stage?</h4></summary>
+  <div>
+    <ul>
+      <li>When a Beta page coexists with a page that contains the same functionality in general availability, add <em>(Beta)</em> after the name of the new page only in the Admin navigation.</li>
+      <li>When there's a page associated with a legacy system that is not being evolved and already has a more modern alternative in general availability, add <em>(Legacy)</em> after the name of that page only in the Admin navigation.</li>
+      <li>In addition to any suffix in the Admin navigation, the product stage of the page should always be communicated on the page itself. For example, through an Alert.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't display a Modal that was not explicitly opened by the merchant.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a page appear only to specific accounts or users in the Admin Navigation?</h4></summary>
+  <div>
+    <ul>
+      <li>Currently, it is not possible for a page to appear only for a specific user.</li>
+      <li>Pages in general availability should appear in the navigation for all accounts, except for those that apply to specific business models or specific regions.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should a page appear on the global search?</h4></summary>
+  <div>
+    Always. Any page in the Admin navigation should appear in the global search with the same name.
+  </div>
+</details>
+
+<details>
+  <summary><h4>When to create a section or a subsection?</h4></summary>
+  <div>
+  <p>The sidebar includes pages for commerce jobs that are divided in sections, and optionally in subsections. On the other hand, the pages in the profile menu are related to account and user management and are divided only into sections. Together, these groupings define the VTEX Admin and, therefore, need to be defined with a holistic view of the platform.</p>
+  <p>A section should only be created when the pages that are planned don't fit any existing section and the definition of existing sections can't be expanded to include them. This is the definition of what the merchant can do in each section:</p>
+    <ul>
+      <li>Dashboards – analyze data of unified commerce and take informed decisions.</li>
+      <li>Orders – manage several aspects of the orders, such as items, status, transactions, and subscription information.</li>
+      <li>Catalog – manage the assortment of ecommerce products to be sold in their store, set up their capabilities, such as their categories, brands, and collections, define their price strategies, and control item supply.</li>
+      <li>Promotions – define discounts offered to customers based on specific criteria and define additional percentage added to the price of a product.</li>
+      <li>Storefront – define the user experience in their website, including publishing content to the storefront and defining the store search.</li>
+      <li>Shipping – manage logistics such as its strategy, shipping and delivery rates, and pickup points.</li>
+      <li>Marketplace – manage the operations related to their store as a marketplace or the connections with their store with external marketplaces.</li>
+      <li>Apps – install and manage extensions to enhance their store experience or operations.</li>
+      <li>Store settings – set up configurations applied to their store, storefront and how end customers interact with their ecommerce.</li>
+      <li>User settings (Profile menu) – set up configurations applied to their user account.</li>
+      <li>Account settings (Profile menu) – set up configurations applied to their store's account.</li>
+    </ul>
+    <p>If after fully considering existing sections there's still the need to create a new section, contact the Admin team.</p>
+    <p>Subsections in the sidebar can be created by teams as a last resort to separate multiple pages related to a specific topic within a section. For example, the <em>Search</em> subsection groups <em>Relevance Rules</em> and <em>Synonyms</em> within the <em>Storefront</em> section.</p>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't create a section with the purpose of promoting or highlighting a product. Prefer sections that improve how most merchants navigate the Admin.</li>
+      <li>Don't add too many pages to a section. Prefer sections with fewer than 10 pages, as a large number of pages can create scrolling and make navigation difficult for merchants.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the name and icon of a section or a subsection?</h4></summary>
+  <div>
+  <p>Sections define the VTEX Admin and, therefore, need to be defined with a holistic view of the platform. If it is necessary to create a new section, contact the Admin team.</p>
+    <ul>
+      <li>Use a noun that describes the pages inside and is commonly used by merchants. For example, a section called <em>Catalog</em> or a subsection called <em>Search</em>.</li>
+      <li>Use title case for sections and uppercase for subsections.</li>
+      <li>Use a maximum of 16 characters for sections and 21 characters for subsections in Portuguese, English, and Spanish. In other languages, follow the recommendations of the Localization team and truncate the text if necessary with ellipsis and a Tooltip on hover.</li>
+      <li>Choose a section icon that represents the name and is easily recognizable by merchants.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't use redundant words. For example, the section that includes the <em>Products </em>page is called <em>Catalog</em>.</li>
+      <li>Don't use internal jargon or marketing names. For example, use <em>Search</em> instead of <em>VTEX Intelligent Search</em>.</li>
+      <li>Don't use abbreviations. For example, instead of <em>OMS</em>, use <em>Orders</em>.</li>
+      <li>Don't use punctuation.</li>
+      <li>Don't use personal pronouns.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[1].id}
+  title={tabToc.designReference[1].value}
+>
+
+<details>
+  <summary><h4>What should be the order of sections and pages?</h4></summary>
+  <div>
+  <p>If you need to reorder a page, please contact the Admin team.</p>
+    <ul>
+      <li>Conduct research to determine the best way to order items For example, the <em>Categories </em>page should be placed before the <em>Brands</em> page if it's more visited.</li>
+      <li>Position pages related to the same content together. For example, <em>Categories</em> and <em>Brands</em> would be positioned below <em>Products</em>.</li>
+      <li>Position a pages being tested just below the related page that is currently in general availability, when applicable. For example, <em>Content (Beta)</em> should be positioned just below <em>Site Editor</em>.</li>
+      <li>Pages within subsections should be placed at the end of the section.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the position of a native page?</h4></summary>
+  <div>
+  <p>The sidebar includes pages for commerce jobs that are divided in sections, and optionally in subsections. On the other hand, the pages in the profile menu are related to account and user management and are divided only into sections.</p>
+  <p>To understand the scope of existing sidebar subsections, reach out to the responsible teams. To determine which section best represents a page, consider this definition of what the merchant can do in each section:</p>
+    <ul>
+      <li>Dashboards – analyze data of unified commerce and take informed decisions.</li>
+      <li>Orders – manage several aspects of the orders, such as items, status, transactions, and subscription information.</li>
+      <li>Catalog – manage the assortment of ecommerce products to be sold in their store, set up their capabilities, such as their categories, brands, and collections, define their price strategies, and control item supply.</li>
+      <li>Promotions – define discounts offered to customers based on specific criteria and define additional percentage added to the price of a product.</li>
+      <li>Storefront – define the user experience in their website, including publishing content to the storefront and defining the store search.</li>
+      <li>Shipping – manage logistics such as its strategy, shipping and delivery rates, and pickup points.</li>
+      <li>Marketplace – manage the operations related to their store as a marketplace or the connections with their store with external marketplaces.</li>
+      <li>Apps – install and manage extensions to enhance their store experience or operations.</li>
+      <li>Store settings – set up configurations applied to their store, storefront and how end customers interact with their ecommerce.</li>
+      <li>User settings (Profile menu) – set up configurations applied to their user account.</li>
+      <li>Account settings (Profile menu) – set up configurations applied to their store's account.</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary><h4>What should be the position of a page from an installed extension?</h4></summary>
+  <div>
+    <ul>
+      <li>An extension should only have one page and its title should be the extension name. If the extension has multiple flows, include internal navigation such as Tabs.</li>
+      <li>The settings of any extension should be defined in its manifesto and should be edited only through the page for managing Installed apps.</li>
+      <li>When the extension complements a native page, position its page at the end of the section or subsection where the native page is located. For example, <em>A/B Tests</em> is a page below <em>Content</em> in the <em>Storefront</em> section.</li>
+      <li>If the extension doesn't complement a native page, position its page in the <em>Extensions</em> section.</li>
+    </ul>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <ul>
+      <li>Don't add a section or subsection specifically for an extension.</li>
+      <li>Don't position the page of an extension between two native pages. For example, don't place the page of a "Kit Look" extension between the <em>Products</em> page and the <em>Categories</em> page.</li>
+    </ul>
+  </div>
+</details>
+
+</PageSection>
+
+<PageSection
+  id={tabToc.designReference[2].id}
+  title={tabToc.designReference[2].value}
+>
+
+<details>
+  <summary><h4>What happens when the merchant doesn't have permission to access a page?</h4></summary>
+  <div>
+  <p>The page continues to appear in the navigation but it leads the merchant to an Admin error screen that informs them they don't have permission.</p><br />
+  <p>However, for this behavior to work, the <code>LMProductID</code> property must be defined in the <code>navigation.json</code> file that defines the Admin page.</p>
+  </div>
+</details>
+
+<details>
+  <summary><h4>When should the Sidebar open or close?</h4></summary>
+  <div>
+    <p>Every time the merchant logs in and starts a session in the Admin, the Sidebar starts in an open state. By touching on the menu icon in the top left corner of the screen, the merchant can toggle between a closed and an open sidebar.</p>
+    <br />
+    <strong>What to avoid:</strong><br /><br />
+    <p>Don't close or open the Sidebar without explicit user action.</p>
+  </div>
+</details>
+
+</PageSection>
+
+</Panel>
+</Page>
