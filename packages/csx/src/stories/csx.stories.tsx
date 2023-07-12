@@ -6,7 +6,7 @@ import { csx } from '../csx'
 import type { CsxObject } from '../types'
 
 export default {
-  title: 'beachfront/csx',
+  title: 'shoreline/csx',
 } as Meta
 
 function ssx(object: CsxObject): React.CSSProperties {

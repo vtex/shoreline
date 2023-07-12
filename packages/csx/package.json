@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "@beachfront/csx",
+  "name": "@shoreline/csx",
   "version": "0.0.0",
-  "description": "Beachfront csx definition",
+  "description": "Shoreline csx definition",
   "license": "MIT",
-  "main": "dist/beachfront-csx.cjs.js",
-  "module": "dist/beachfront-csx.esm.js",
-  "types": "dist/beachfront-csx.cjs.d.ts",
-  "repository": "vtex/beachfront",
+  "main": "dist/shoreline-csx.cjs.js",
+  "module": "dist/shoreline-csx.esm.js",
+  "types": "dist/shoreline-csx.cjs.d.ts",
+  "repository": "vtex/shoreline",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

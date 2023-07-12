@@ -2,7 +2,7 @@ import { cssVar } from './css-var'
 import type { FoundationDictionary, MixinDictionary } from './types'
 
 /**
- * Default compound props of Beachfront
+ * Default compound props of Shoreline
  */
 export const defaultCompoundProps = {
   padding: true,
@@ -10,7 +10,7 @@ export const defaultCompoundProps = {
 }
 
 /**
- * Default aliases of Beachfront
+ * Default aliases of Shoreline
  */
 export const defaultAliases = {
   bg: 'background',
@@ -23,7 +23,7 @@ export const defaultAliases = {
 }
 
 /**
- * Default foundations of Beachfront
+ * Default foundations of Shoreline
  */
 export const defaultFoundations: FoundationDictionary = {
   // border
@@ -126,7 +126,7 @@ export const defaultFoundations: FoundationDictionary = {
 }
 
 /**
- * Defaoult mixins of Beachfront
+ * Defaoult mixins of Shoreline
  */
 export const defaultMixins: MixinDictionary = {
   /** Space */
