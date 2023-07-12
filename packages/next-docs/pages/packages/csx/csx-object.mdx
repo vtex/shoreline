@@ -1,0 +1,21 @@
+# The CSX Object
+
+## Tokens
+
+```ts
+import { csx } from '@beachfront/csx'
+
+const style = csx({
+  bg: '$primary',
+  fg: '$primary',
+  radii: '$base',
+})
+```
+
+```ts
+const style = {
+  background: 'var(--bf-bg-primary)',
+  color: 'var(--bf-fg-primary)',
+  borderRadius: 'var(--bf-radii-base)',
+}
+```
