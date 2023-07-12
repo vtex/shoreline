@@ -33,7 +33,7 @@ function customAlias(value): string {
 ### Use the internal alias function to help you
 
 ```ts
-import { alias } from '@beachfront/csx'
+import { alias } from '@shoreline/csx'
 
 function customAlias(value): string {
   return alias(value)
@@ -43,7 +43,7 @@ function customAlias(value): string {
 ### Add customAliases as you please
 
 ```ts
-import { alias, defaultAliases } from '@beachfront/csx'
+import { alias, defaultAliases } from '@shoreline/csx'
 
 const aliases = {
   mx: 'marginX',
@@ -59,7 +59,7 @@ function customAlias(value): string {
 ### Type Aliases
 
 ```ts
-import { CSXObject } from '@beachfront/csx'
+import { CSXObject } from '@shoreline/csx'
 
 declare CSXObject {
 
@@ -69,7 +69,7 @@ declare CSXObject {
 ### Configure csx
 
 ```ts
-import { csx as _csx, CSXObject } from '@beachfront/csx'
+import { csx as _csx, CSXObject } from '@shoreline/csx'
 
 export function csx() {}
 ```
