@@ -1,9 +1,77 @@
-| alias         | return string                                  |
-| ------------- | ---------------------------------------------- |
-| `bg`          | `background`                                   |
-| `fg`          | `foreground`                                   |
-| `radii`       | `border-radius`                                |
-| `z`           | `z-index`                                      |
-| `@tablet`     | `@media (min-width: var(--bf-bp--tablet))`     |
-| `@desktop`    | `@media (min-width: var(--bf-bp--desktop))`    |
-| `@widescreen` | `@media (min-width: var(--bf-bp--widescreen))` |
+import { Steps } from 'nextra-theme-docs'
+
+# Aliases
+
+Aliases are shorthands
+
+## List of alisases
+
+| alias         | Return string                                 |
+| ------------- | --------------------------------------------- |
+| `bg`          | `background`                                  |
+| `fg`          | `color`                                       |
+| `radii`       | `borderRadius`                                |
+| `z`           | `zIndex`                                      |
+| `@tablet`     | `@media (min-width: var(--bf-bp-tablet))`     |
+| `@desktop`    | `@media (min-width: var(--bf-bp-desktop))`    |
+| `@widescreen` | `@media (min-width: var(--bf-bp-widescreen))` |
+
+## Customizing the alias function
+
+<Steps>
+
+### Create a new alias function
+
+The `(value: string) => string`
+
+```ts
+function customAlias(value): string {
+  return value
+}
+```
+
+### Use the internal alias function to help you
+
+```ts
+import { alias } from '@beachfront/csx'
+
+function customAlias(value): string {
+  return alias(value)
+}
+```
+
+### Add customAliases as you please
+
+```ts
+import { alias, defaultAliases } from '@beachfront/csx'
+
+const aliases = {
+  mx: 'marginX',
+  my: 'marginY',
+  ...defaultAliases,
+}
+
+function customAlias(value): string {
+  return alias(value, aliases)
+}
+```
+
+### Type Aliases
+
+```ts
+import { CSXObject } from '@beachfront/csx'
+
+declare CSXObject {
+
+}
+```
+
+### Configure csx
+
+```ts
+import { csx as _csx, CSXObject } from '@beachfront/csx'
+
+export function csx() {}
+```
+
+</Steps>
