@@ -113,7 +113,7 @@ interface BeachfrontCustomProperties {
    */
   radii?: CSSPropAutocomplete<RadiiTokens> | CSSType.Property.BorderRadius
   /**
-   * Beachfront available text patterns
+   * Shoreline available text patterns
    */
   text?: CSSPropAutocomplete<TextTokens>
   /**
