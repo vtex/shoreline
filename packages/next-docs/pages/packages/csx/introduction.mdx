@@ -1,9 +1,59 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="💡">
+  This package is inteded to be used by Beachfront contributors and library
+  authors.
+</Callout>
+
 # Introduction
 
 The `@beachfront/csx` package
 
-## Features
+## Install
 
-- [ ] Container Queries
-- [ ] Clamp
-- [ ] Calc
+<Tabs items={['yarn', 'npm', 'pnpm']}>
+  <Tab>
+
+    ```sh
+    yarn add @beachfront/csx
+    ```
+
+  </Tab>
+  <Tab>
+  
+    ```sh
+    npm install @beachfront/csx
+    ```
+  
+  </Tab>
+  <Tab>
+  
+    ```sh
+    pnpm add @beachfront/csx
+    ```
+  
+  </Tab>
+</Tabs>
+
+## Quick start
+
+```ts
+import { csx } from '@beachfront/csx'
+
+const styles = csx({
+  backgroundColor: 'black',
+})
+```
+
+## Make it reusable
+
+```ts
+import { csx as _csx, CSXObject } from '@beachfront/csx'
+import { style } from '@vanilla-extract/css'
+
+export function csx(csxObject: CSXObject = {}): string {
+  const cssObject = _csx(csxObject)
+  return style(cssObject)
+}
+```
