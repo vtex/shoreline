@@ -1,10 +1,6 @@
-> **Warning**
->
-> This library is still in development and is available only for internal usage at VTEX.
+# 🌊 Shoreline
 
-# 🏝️ Beachfront
-
-Beachfront is a set of tools designed specifically to enhance the experience of designing and implementing apps for the VTEX Admin. The focus is on simplifying the application design, creation, coding, visualization, and QA processes.
+Shoreline is a set of tools designed specifically to enhance the experience of designing and implementing apps for the VTEX Admin. The focus is on simplifying the application design, creation, coding, visualization, and QA processes.
 
 ## Packages
 
@@ -22,5 +18,5 @@ Beachfront is a set of tools designed specifically to enhance the experience of 
 
 ## Contributing
 
-Beachfront is a colaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing](https://admin-ui.vercel.app/documentation/developing/contributing) guide and our
+Shoreline is a collaborative tool! We're always looking for contributors to help us fix bugs, build new features, or improve the project documentation. If you're interested, check out our [Contributing](https://admin-ui.vercel.app/documentation/developing/contributing) guide and our
 [Developing](https://admin-ui.vercel.app/documentation/developing/quick-start) guide!
