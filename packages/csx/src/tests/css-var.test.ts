@@ -4,21 +4,21 @@ import { cssVar } from '../index'
 test('not parses empty strings', () => {
   expect(
     cssVar({
-      foundation: 'bg',
+      tokenType: 'bg',
       token: '',
     })
   ).toStrictEqual('')
 
   expect(
     cssVar({
-      foundation: 'bg',
+      tokenType: 'bg',
       token: SPACE,
     })
   ).toStrictEqual('')
 
   expect(
     cssVar({
-      foundation: 'bg',
+      tokenType: 'bg',
       token: '',
       deepSearch: true,
     })
@@ -26,7 +26,7 @@ test('not parses empty strings', () => {
 
   expect(
     cssVar({
-      foundation: 'bg',
+      tokenType: 'bg',
       token: SPACE,
       deepSearch: true,
     })
@@ -35,12 +35,12 @@ test('not parses empty strings', () => {
 
 test('ignores custom values', () => {
   const flat = cssVar({
-    foundation: 'space',
+    tokenType: 'space',
     token: '2rem',
   })
 
   const deep = cssVar({
-    foundation: 'space',
+    tokenType: 'space',
     token: '2rem',
     deepSearch: true,
   })
@@ -50,8 +50,8 @@ test('ignores custom values', () => {
 })
 
 test('parses a single token', () => {
-  const flat = cssVar({ foundation: 'space', token: '$1' })
-  const deep = cssVar({ foundation: 'space', token: '$1', deepSearch: true })
+  const flat = cssVar({ tokenType: 'space', token: '$1' })
+  const deep = cssVar({ tokenType: 'space', token: '$1', deepSearch: true })
 
   expect(flat).toStrictEqual('var(--bf-space-1)')
   expect(deep).toStrictEqual('var(--bf-space-1)')
@@ -69,7 +69,7 @@ test('deeply parse multiple tokens', () => {
   ]
 
   const result = cases.map((testCase) =>
-    cssVar({ foundation: 'space', token: testCase, deepSearch: true })
+    cssVar({ tokenType: 'space', token: testCase, deepSearch: true })
   )
 
   const expected = [

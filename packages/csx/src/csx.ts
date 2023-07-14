@@ -1,14 +1,14 @@
 import { alias } from './alias'
 import { cssVar } from './css-var'
 import { defaultCompoundProps } from './default-values'
-import { findFoundation } from './find-foundation'
+import { findTokenType } from './find-token-type'
 import { findMixin } from './find-mixin'
 
-import type { CsxObject, Foundation, Mixin } from './types'
+import type { CsxObject, TokenType, Mixin } from './types'
 
 const defaultConfig: CsxConfig = {
   aliasFn: alias,
-  findFoundationFn: findFoundation,
+  findTokenTypeFn: findTokenType,
   findMixinFn: findMixin,
   compoundProps: defaultCompoundProps,
 }
@@ -24,7 +24,7 @@ export function csx(
 ) {
   const {
     aliasFn = alias,
-    findFoundationFn = findFoundation,
+    findTokenTypeFn = findTokenType,
     findMixinFn = findMixin,
     compoundProps = defaultCompoundProps,
   } = config
@@ -40,12 +40,12 @@ export function csx(
       continue
     }
 
-    const foundation = findFoundationFn(cssProperty)
+    const tokenType = findTokenTypeFn(cssProperty)
 
-    const value = !foundation
+    const value = !tokenType
       ? cssEntry
       : cssVar({
-          foundation,
+          tokenType,
           token: cssEntry,
           deepSearch: cssProperty in compoundProps,
         })
@@ -64,7 +64,7 @@ export function csx(
 
 interface CsxConfig {
   aliasFn?: (key: string) => string
-  findFoundationFn?: (foundation: string) => Foundation | undefined
+  findTokenTypeFn?: (tokenType: string) => TokenType | undefined
   findMixinFn?: (prop: string) => Mixin | undefined
   compoundProps?: Record<string, boolean>
 }
