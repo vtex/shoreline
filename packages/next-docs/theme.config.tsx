@@ -1,5 +1,6 @@
 import React from 'react'
 import type { DocsThemeConfig } from 'nextra-theme-docs'
+import { Playground } from './components/playground'
 
 const config: DocsThemeConfig = {
   logo: <span>🏝️ Beachfront</span>,
@@ -12,6 +13,9 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/vtex/beachfront/next-docs',
   footer: {
     text: 'Nextra Docs Template',
+  },
+  components: {
+    Playground,
   },
 }
 
