@@ -12,7 +12,7 @@ import type {
   textTokens,
 } from './tokens-as-ts-literals'
 
-export type Foundation =
+export type TokenType =
   | 'bg'
   | 'fg'
   | 'color'
@@ -28,7 +28,7 @@ export type Foundation =
   | 'lh'
   | 'ls'
 
-export type FoundationDictionary = Record<string, Foundation>
+export type TokenTypeDictionary = Record<string, TokenType>
 
 export type Mixin = (value: string | number) => Record<string, string | number>
 

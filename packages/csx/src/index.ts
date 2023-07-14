@@ -7,10 +7,10 @@ import { dataAttr } from './data-attr'
 import {
   defaultAliases,
   defaultCompoundProps,
-  defaultFoundations,
+  defaultTokenTypes,
   defaultMixins,
 } from './default-values'
-import { findFoundation } from './find-foundation'
+import { findTokenType } from './find-token-type'
 import { findMixin } from './find-mixin'
 import { isToken } from './is-token'
 import { min, max, clamp, calc } from './math'
@@ -26,9 +26,9 @@ export {
   dataAttr,
   defaultAliases,
   defaultCompoundProps,
-  defaultFoundations,
+  defaultTokenTypes,
   defaultMixins,
-  findFoundation,
+  findTokenType,
   findMixin,
   isToken,
   min,

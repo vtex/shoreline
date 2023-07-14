@@ -1,12 +1,11 @@
 {
-  "private": true,
-  "name": "@shoreline/csx",
+  "name": "@vtex/shoreline-csx",
   "version": "0.0.0",
   "description": "Shoreline csx definition",
   "license": "MIT",
-  "main": "dist/shoreline-csx.cjs.js",
-  "module": "dist/shoreline-csx.esm.js",
-  "types": "dist/shoreline-csx.cjs.d.ts",
+  "main": "dist/vtex-shoreline-csx.cjs.js",
+  "module": "dist/vtex-shoreline-csx.esm.js",
+  "types": "dist/vtex-shoreline-csx.cjs.d.ts",
   "repository": "vtex/shoreline",
   "publishConfig": {
     "access": "public",

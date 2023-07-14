@@ -1,41 +1,41 @@
 import { cleanTokenString } from './clean-token-string'
 import { DS_PREFIX, SPACE } from './constants'
 import { isToken } from './is-token'
-import type { Foundation } from './types'
+import type { TokenType } from './types'
 
 /**
  * Returns a token as css variable
  */
 export function cssVar(props: CssVarProps): string {
-  const { foundation, token, deepSearch = false } = props
+  const { tokenType, token, deepSearch = false } = props
 
   if (!token || (typeof token === 'string' && token.trim() === '')) {
     return ''
   }
 
   if (deepSearch) {
-    return cssVarDeep(foundation, token)
+    return cssVarDeep(tokenType, token)
   }
 
-  return cssVarFlat(foundation, token)
+  return cssVarFlat(tokenType, token)
 }
 
-function cssVarFlat(foundation: Foundation, token: string): string {
+function cssVarFlat(tokenType: TokenType, token: string): string {
   if (!isToken(token)) {
     return token
   }
 
   const cleanToken = cleanTokenString(token)
 
-  return `var(--${DS_PREFIX}-${foundation}-${cleanToken})`
+  return `var(--${DS_PREFIX}-${tokenType}-${cleanToken})`
 }
 
-function cssVarDeep(prop: Foundation, token: string): string {
+function cssVarDeep(tokenType: TokenType, token: string): string {
   const tokenizedValues = token
     .trim()
     .split(SPACE)
     .map((value: string) => {
-      return cssVarFlat(prop, value)
+      return cssVarFlat(tokenType, value)
     })
 
   return tokenizedValues.join(SPACE)
@@ -45,7 +45,7 @@ interface CssVarProps {
   /**
    * Foundation
    */
-  foundation: Foundation
+  tokenType: TokenType
   /**
    * Value of the foundation
    */

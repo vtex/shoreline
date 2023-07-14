@@ -1,5 +1,5 @@
 import { cssVar } from './css-var'
-import type { FoundationDictionary, MixinDictionary } from './types'
+import type { TokenTypeDictionary, MixinDictionary } from './types'
 
 /**
  * Default compound props of Shoreline
@@ -17,15 +17,15 @@ export const defaultAliases = {
   fg: 'color',
   radii: 'borderRadius',
   z: 'zIndex',
-  '@tablet': '@media (min-width: var(--bf-bp--tablet))',
-  '@desktop': '@media (min-width: var(--bf-bp--desktop))',
-  '@widescreen': '@media (min-width: var(--bf-bp--widescreen))',
+  '@tablet': '@media (min-width: var(--bf-bp-tablet))',
+  '@desktop': '@media (min-width: var(--bf-bp-desktop))',
+  '@widescreen': '@media (min-width: var(--bf-bp-widescreen))',
 }
 
 /**
- * Default foundations of Shoreline
+ * Default token types of Shoreline
  */
-export const defaultFoundations: FoundationDictionary = {
+export const defaultTokenTypes: TokenTypeDictionary = {
   // border
   border: 'border',
   borderTop: 'border',
@@ -122,6 +122,7 @@ export const defaultFoundations: FoundationDictionary = {
   fontSize: 'fs',
   lineHeight: 'lh',
   letterSpacing: 'ls',
+  fontWeight: 'fw',
   fontVariationSettings: 'fw',
 }
 
@@ -167,10 +168,10 @@ export const defaultMixins: MixinDictionary = {
   }),
 
   text: (value) => ({
-    fontFamily: cssVar({ foundation: 'ff', token: String(value) }),
-    fontWeight: cssVar({ foundation: 'fw', token: String(value) }),
-    fontSize: cssVar({ foundation: 'fs', token: String(value) }),
-    lineHeight: cssVar({ foundation: 'lh', token: String(value) }),
-    letterSpacing: cssVar({ foundation: 'ls', token: String(value) }),
+    fontFamily: cssVar({ tokenType: 'ff', token: String(value) }),
+    fontWeight: cssVar({ tokenType: 'fw', token: String(value) }),
+    fontSize: cssVar({ tokenType: 'fs', token: String(value) }),
+    lineHeight: cssVar({ tokenType: 'lh', token: String(value) }),
+    letterSpacing: cssVar({ tokenType: 'ls', token: String(value) }),
   }),
 }
