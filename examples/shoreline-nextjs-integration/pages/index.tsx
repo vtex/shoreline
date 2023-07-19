@@ -72,7 +72,7 @@ const columns = createColumns([
 ])
 
 const Home: NextPage = () => {
-  const { account, locale, workspace } = useAdmin()
+  const { account, locale, workspace, token } = useAdmin()
   const { navigate } = useNavigation()
 
   const view = useDataViewState()
@@ -98,6 +98,7 @@ const Home: NextPage = () => {
       <PageContent layout="wide">
         <Alert>
           Hi, you're on {account} with locale {locale}. On workspace {workspace}
+          , token {token}
         </Alert>
         <DataView state={view}>
           <Table {...getTable()} className={csx({ width: '100%' })}>
