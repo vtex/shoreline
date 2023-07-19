@@ -1,1 +1,176 @@
-# Raccoon NextJS sdk package
+# Raccoon Next.js SDK
+
+The Raccoon Next.js SDK is designed to assist you in building Next.js applications and integrating them with VTEX IO. You can install it on your Next.js application using the following command:
+
+```bash
+yarn install @vtex/raccoon-next
+```
+
+- [Raccoon Next.js SDK](#raccoon-nextjs-sdk)
+  - [Getting Started](#getting-started)
+    - [IO Integration Setup](#io-integration-setup)
+    - [Next.js App Setup](#nextjs-app-setup)
+      - [connect](#connect)
+      - [bootstrap](#bootstrap)
+    - [Development](#development)
+    - [Hooks](#hooks)
+      - [useAdmin Hook](#useadmin-hook)
+      - [useNavigation Hook](#usenavigation-hook)
+
+
+## Getting Started
+
+### IO Integration Setup
+
+Although you are building a Next.js app, you still need to declare the `admin` and `messages` builder for it, as in this `manifest.json` example:
+
+```json
+{
+  "name": "raccoon-nextjs-example",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "Raccoon Next.js SDK",
+  "description": "",
+  "mustUpdateAt": "2022-08-28",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {},
+  "builders": {
+    "admin": "0.x",
+    "messages": "1.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
+```
+
+In order for VTEX IO to correctly map your app route and host, you need to declare them on the `/admin/navigation.json` (refer to the [admin-shell docs](https://github.com/vtex/admin-shell#the-admin-folder) to understand these properties) file, following this example:
+
+```json
+{
+  "section": "desired_section",
+  "titleId": "admin-example.navigation.label-group",
+  "adminVersion": 4,
+  "subSection": "desired_subSection",
+  "subSectionItems": [
+    {
+      "labelId": "admin-example.navigation.label-main",
+      "path": "/admin/example",
+      "raccoon": {
+        "prodUrl": "production-url",
+        "devUrl": "dev-url"
+      }
+    }
+  ]
+}
+```
+
+You will also need to keep declaring the message IDs of your app under the `messages` folder.
+
+### Next.js App Setup
+
+These functions are essential for establishing a connection between the IO app and the Next app.
+
+```tsx
+import type { AppProps } from 'next/app';
+import { connect, bootstrap } from '@vtex/raccoon-next';
+
+connect();
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+
+export default bootstrap(App);
+```
+
+#### connect
+
+This function connects the Next.js application with the IO application by listening to message events sent by the Raccoon Iframe on the admin-shell.
+
+#### bootstrap
+
+The bootstrap function is responsible for displaying the `SplashScreen` component, which indicates when it's not possible to load the Next.js application. For example, if the page fails to retrieve the token (`VtexIdclientAutCookie`) information, a retry screen is shown. Additionally, if you attempt to access the Next app outside of VTEX Admin, a screen will be displayed indicating that it's not possible.
+
+### Development
+
+To start developing your Next.js app, make sure that dependencies are installed and start the application with:
+
+```bash
+yarn dev
+```
+
+Make sure you are within the Admin, on https://localhost--teamadmin.myvtex.com, for example, and navigate to the path you declared the route of your application.
+
+### Hooks
+
+#### useAdmin Hook
+
+The useAdmin hook provides access to IO information within the Next app.
+
+```tsx
+import { useAdmin } from '@vtex/raccoon-next';
+
+connect();
+
+export function Example(props: Props) {
+  const { token, account, workspace, locale, currency, devUrl, prodUrl, basePath, production } = useAdmin();
+
+  return <Component />;
+}
+```
+
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| token      | string  | The authentication token necessary for making requests to VTEX IO services |
+| account    | string  | The account name                                                           |
+| workspace  | string  | The workspace name                                                         |
+| locale     | string  | The currently applied locale in the admin                                  |
+| currency   | string  | The account's currency                                                     |
+| devUrl     | string  | The devUrl defined in the integration app                                  |
+| prodUrl    | string  | The prodUrl defined in the integration app                                 |
+| basePath   | string  | The base path defined in the integration app                               |
+| production | boolean | Indicates whether it is a production workspace or not                      |
+
+#### useNavigation Hook
+
+The useNavigation hook returns the navigate function, which allows you to navigate through pages within or outside your Next.js app while updating the browser history and the Raccoon Iframe.
+
+```tsx
+import { useNavigation } from '@vtex/raccoon-next';
+
+connect();
+
+export function Example(props: Props) {
+  const { navigate } = useNavigation();
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          navigate('/about'); // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
+        }}
+      >
+        Navigate to the page `/about` of your Next.js app
+      </Button>
+      <Button
+        onClick={() => {
+          navigate('/orders', { type: 'adminRelativeNavigation' }); // This will navigate to `${tenant}.myvtex.com/admin/orders`
+        }}
+      >
+        Navigate to the admin orders module
+      </Button>
+    </>
+  );
+}
+```
+
+| Name     | Type                                              | Description                             |
+| -------- | ------------------------------------------------- | --------------------------------------- |
+| navigate | (path: string, options?: NavigateOptions) => void | The function responsible for navigation |
+
+```ts
+interface NavigateOptions {
+  type: 'navigation' | 'adminRelativeNavigation';
+}
+```
