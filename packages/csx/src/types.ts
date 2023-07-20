@@ -30,7 +30,10 @@ export type TokenType =
 
 export type TokenTypeDictionary = Record<string, TokenType>
 
-export type Mixin = (value: string | number) => Record<string, string | number>
+export type Mixin = (
+  value: string | number,
+  key?: string
+) => Record<string, string | number>
 
 export type MixinDictionary = Record<string, Mixin>
 

@@ -1,0 +1,395 @@
+import { Steps } from 'nextra-theme-docs'
+
+# Transforms
+
+## Identity
+
+This is a special transform, it is the fallback.
+
+## bg
+
+Transforms a the `bg` key into `background`.
+
+```js
+const style = csx({
+  bg: 'black',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  background: 'black',
+}
+```
+
+## fg
+
+Transforms a the `fg` key into `color`. Fg stands for foreground.
+
+```js
+const style = csx({
+  fg: 'black',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  color: 'black',
+}
+```
+
+## radii
+
+Transforms a the `radii` key into `borderRadius`.
+
+```js
+const style = csx({
+  radii: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  borderRadius: '1rem',
+}
+```
+
+## z
+
+Transforms a the `z` key into `zIndex`.
+
+```js
+const style = csx({
+  z: 999,
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  zIndex: 999,
+}
+```
+
+## @tablet
+
+Transforms a the `@tablet` key into `@media (min-width: var(--sl-bp-tablet))`.
+
+```js
+const style = csx({
+  '@tablet': {
+    display: 'flex',
+  },
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  '@media (min-width: var(--sl-bp-tablet))': {
+    display: 'flex',
+  },
+}
+```
+
+## @desktop
+
+Transforms a the `@desktop` key into `@media (min-width: var(--sl-bp-desktop))`.
+
+```js
+const style = csx({
+  '@desktop': {
+    display: 'flex',
+  },
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  '@media (min-width: var(--sl-bp-desktop))': {
+    display: 'flex',
+  },
+}
+```
+
+## @widescreen
+
+Transforms a the `@widescreen` key into `@media (min-width: var(--sl-bp-widescreen))`.
+
+```js
+const style = csx({
+  '@widescreen': {
+    display: 'flex',
+  },
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  '@media (min-width: var(--sl-bp-widescreen))': {
+    display: 'flex',
+  },
+}
+```
+
+## margin
+
+Transforms the `margin` tokens deeply.
+
+```js
+const style = csx({
+  margin: '1rem $space-1 1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  margin: '1rem var(--sl-space-1) 1rem',
+}
+```
+
+## marginX
+
+Transforms `marginX` into `marginLeft` and `marginRight`.
+
+```js
+const style = csx({
+  marginX: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  marginLeft: '1rem',
+  marginRight: '1rem',
+}
+```
+
+## marginY
+
+Transforms `marginY` into `marginTop` and `marginBottom`.
+
+```js
+const style = csx({
+  marginY: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  marginTop: '1rem',
+  marginBottom: '1rem',
+}
+```
+
+## padding
+
+Transforms the `padding` tokens deeply.
+
+```js
+const style = csx({
+  padding: '1rem $space-1 1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  padding: '1rem var(--sl-space-1) 1rem',
+}
+```
+
+## paddingX
+
+Transforms `paddingX` into `paddingLeft` and `paddingRight`.
+
+```js
+const style = csx({
+  paddingX: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+}
+```
+
+## paddingY
+
+Transforms `paddingY` into `paddingTop` and `paddingBottom`.
+
+```js
+const style = csx({
+  paddingY: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  paddingTop: '1rem',
+  paddingBottom: '1rem',
+}
+```
+
+## size
+
+Transforms `size` into `height` and `width`.
+
+```js
+const style = csx({
+  size: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  height: '1rem',
+  width: '1rem',
+}
+```
+
+## minSize
+
+Transforms `minSize` into `minHeight` and `minWidth`.
+
+```js
+const style = csx({
+  size: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  minHeight: '1rem',
+  minWidth: '1rem',
+}
+```
+
+## maxSize
+
+Transforms `maxSize` into `maxHeight` and `maxWidth`.
+
+```js
+const style = csx({
+  size: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  maxHeight: '1rem',
+  maxWidth: '1rem',
+}
+```
+
+## absoluteSize
+
+Transforms `absoluteSize` into `minHeight`, `minWidth`, `maxHeight,` and `maxWidth`.
+
+```js
+const style = csx({
+  absoluteSize: '1rem',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  minHeight: '1rem',
+  minWidth: '1rem',
+  maxHeight: '1rem',
+  maxWidth: '1rem',
+}
+```
+
+## Customizing the alias function
+
+<Steps>
+
+### Create a new alias function
+
+The `(value: string) => string`
+
+```ts
+function customAlias(value): string {
+  return value
+}
+```
+
+### Use the internal alias function to help you
+
+```ts
+import { alias } from '@shoreline/csx'
+
+function customAlias(value): string {
+  return alias(value)
+}
+```
+
+### Add customAliases as you please
+
+```ts
+import { alias, defaultAliases } from '@shoreline/csx'
+
+const aliases = {
+  mx: 'marginX',
+  my: 'marginY',
+  ...defaultAliases,
+}
+
+function customAlias(value): string {
+  return alias(value, aliases)
+}
+```
+
+### Type Aliases
+
+```ts
+import { CSXObject } from '@shoreline/csx'
+
+declare CSXObject {
+
+}
+```
+
+### Configure csx
+
+```ts
+import { csx as _csx, CSXObject } from '@shoreline/csx'
+
+export function csx() {}
+```
+
+</Steps>

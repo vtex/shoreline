@@ -1,3 +1,13 @@
-:root {
-  --bf-bg-primary: pink;
+@layer tokens {
+  :root {
+    --sl-bg-primary: pink;
+    --sl-fg-primary: black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sl-bg-primary: black;
+      --sl-fg-primary: pink;
+    }
+  }
 }
