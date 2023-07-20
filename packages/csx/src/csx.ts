@@ -1,70 +1,37 @@
-import { alias } from './alias'
-import { cssVar } from './css-var'
-import { defaultCompoundProps } from './default-values'
-import { findTokenType } from './find-token-type'
-import { findMixin } from './find-mixin'
+import { CsxValue } from './csx-value'
+import { findTransform } from './transforms'
 
-import type { CsxObject, TokenType, Mixin } from './types'
-
-const defaultConfig: CsxConfig = {
-  aliasFn: alias,
-  findTokenTypeFn: findTokenType,
-  findMixinFn: findMixin,
-  compoundProps: defaultCompoundProps,
-}
+import type { CsxObject } from './types'
 
 /**
  * Parses a CSXObject into a CSSObject
  * @example
- * csx({ bg: '$primary' })
+ * csx({ bg: '$bg-primary' })
  */
-export function csx(
-  csxObject: CsxObject = {},
-  config: CsxConfig = defaultConfig
-) {
-  const {
-    aliasFn = alias,
-    findTokenTypeFn = findTokenType,
-    findMixinFn = findMixin,
-    compoundProps = defaultCompoundProps,
-  } = config
-
+export function csx(csxObject: CsxObject = {}) {
   const cssObject: any = {}
 
   for (const key in csxObject) {
-    const cssProperty = aliasFn(key)
+    const cssProperty = key
     const cssEntry = csxObject[key as keyof typeof csxObject]
 
-    if (cssEntry && typeof cssEntry === 'object') {
-      cssObject[cssProperty] = csx(cssEntry, config)
+    const value = new CsxValue(cssProperty, cssEntry)
+    const transform = findTransform(value.getProperty())
+
+    if (value.isObject()) {
+      cssObject[value.getProperty()] = csx(value.getEntry() as CsxObject)
       continue
     }
 
-    const tokenType = findTokenTypeFn(cssProperty)
-
-    const value = !tokenType
-      ? cssEntry
-      : cssVar({
-          tokenType,
-          token: cssEntry,
-          deepSearch: cssProperty in compoundProps,
-        })
-
-    const mixin = findMixinFn(cssProperty)
-
-    if (mixin) {
-      Object.assign(cssObject, mixin(value))
-    } else {
-      cssObject[cssProperty] = value
-    }
+    Object.assign(cssObject, transform(value))
   }
 
   return cssObject
 }
 
-interface CsxConfig {
-  aliasFn?: (key: string) => string
-  findTokenTypeFn?: (tokenType: string) => TokenType | undefined
-  findMixinFn?: (prop: string) => Mixin | undefined
-  compoundProps?: Record<string, boolean>
-}
+// interface CsxConfig {
+//   aliasFn?: (key: string) => string
+//   findTokenTypeFn?: (tokenType: string) => TokenType | undefined
+//   findMixinFn?: (prop: string) => Mixin | undefined
+//   compoundProps?: Record<string, boolean>
+// }

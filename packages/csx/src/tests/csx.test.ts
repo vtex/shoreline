@@ -1,4 +1,3 @@
-import type { CsxObject } from '../index'
 import { csx } from '../index'
 
 test('csx must return an object', () => {
@@ -43,59 +42,34 @@ test('csx parses tokens and leave hardcoded values untouched', () => {
 
   expect(
     csx({
-      background: '$blue',
-      color: '$black',
+      background: '$bg-blue',
+      color: '$fg-black',
     })
   ).toStrictEqual({
-    background: 'var(--bf-bg-blue)',
-    color: 'var(--bf-fg-black)',
+    background: 'var(--sl-bg-blue)',
+    color: 'var(--sl-fg-black)',
   })
 })
 
 test('csx must parse aliases and tokens combined', () => {
   expect(
     csx({
-      fg: '$black',
-      bg: '$coral',
+      fg: '$fg-black',
+      bg: '$bg-coral',
     })
   ).toStrictEqual({
-    color: 'var(--bf-fg-black)',
-    background: 'var(--bf-bg-coral)',
-  })
-})
-
-test('csx must accept a custom aliasFn', () => {
-  function customAliasFn(value: string) {
-    if (value === 't') {
-      return 'test'
-    }
-
-    return value
-  }
-
-  const customConfig = {
-    aliasFn: customAliasFn,
-  }
-
-  expect(
-    csx(
-      {
-        t: 'value',
-      } as CsxObject,
-      customConfig
-    )
-  ).toStrictEqual({
-    test: 'value',
+    color: 'var(--sl-fg-black)',
+    background: 'var(--sl-bg-coral)',
   })
 })
 
 test('csx should parse compound token strings', () => {
   expect(csx({ padding: '$space-2 $space-1' })).toStrictEqual({
-    padding: 'var(--bf-space-space-2) var(--bf-space-space-1)',
+    padding: 'var(--sl-space-2) var(--sl-space-1)',
   })
 
   expect(csx({ padding: '1rem $space-1' })).toStrictEqual({
-    padding: '1rem var(--bf-space-space-1)',
+    padding: '1rem var(--sl-space-1)',
   })
 })
 
@@ -104,12 +78,44 @@ test('csx should accept mixins', () => {
     width: 100,
     height: 100,
   })
+})
 
-  expect(csx({ text: '$title1' })).toStrictEqual({
-    fontFamily: 'var(--bf-ff-title1)',
-    fontWeight: 'var(--bf-fw-title1)',
-    fontSize: 'var(--bf-fs-title1)',
-    lineHeight: 'var(--bf-lh-title1)',
-    letterSpacing: 'var(--bf-ls-title1)',
+test('uses responsive values', () => {
+  expect(
+    csx({
+      '@tablet': {
+        bg: 'black',
+      },
+    })
+  ).toStrictEqual({
+    '@media (min-width: var(--sl-bp-tablet))': {
+      background: 'black',
+    },
+  })
+})
+
+test('supports nesting', () => {
+  expect(
+    csx({
+      bg: 'black',
+      fg: 'white',
+      '> button': {
+        bg: 'pink',
+        fg: 'black',
+        ':hover': {
+          fg: 'gray',
+        },
+      },
+    })
+  ).toStrictEqual({
+    background: 'black',
+    color: 'white',
+    '> button': {
+      background: 'pink',
+      color: 'black',
+      ':hover': {
+        color: 'gray',
+      },
+    },
   })
 })

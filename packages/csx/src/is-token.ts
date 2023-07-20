@@ -6,6 +6,6 @@ import { TOKEN_PREFIX } from './constants'
  * isToken('token') => false
  * isToken('$token') => true
  */
-export function isToken(token: string) {
+export function isToken(token: unknown): token is string {
   return typeof token === 'string' && token.startsWith(TOKEN_PREFIX)
 }
