@@ -1,0 +1,17 @@
+{
+  "name": "raccon-example",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "Raccoon example app",
+  "description": "",
+  "mustUpdateAt": "2022-08-28",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {},
+  "builders": {
+    "admin": "0.x",
+    "messages": "1.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
