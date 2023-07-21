@@ -80,19 +80,19 @@ test('csx should accept mixins', () => {
   })
 })
 
-test('uses responsive values', () => {
-  expect(
-    csx({
-      '@tablet': {
-        bg: 'black',
-      },
-    })
-  ).toStrictEqual({
-    '@media (min-width: var(--sl-bp-tablet))': {
-      background: 'black',
-    },
-  })
-})
+// test('uses responsive values', () => {
+//   expect(
+//     csx({
+//       '@tablet': {
+//         bg: 'black',
+//       },
+//     })
+//   ).toStrictEqual({
+//     '@media (min-width: var(--sl-bp-tablet))': {
+//       background: 'black',
+//     },
+//   })
+// })
 
 test('supports nesting', () => {
   expect(
@@ -115,6 +115,54 @@ test('supports nesting', () => {
       color: 'black',
       ':hover': {
         color: 'gray',
+      },
+    },
+  })
+})
+
+test('@media', () => {
+  expect(
+    csx({
+      '@media': {
+        tablet: {
+          size: 100,
+        },
+        desktop: {
+          size: 200,
+        },
+      },
+    })
+  ).toStrictEqual({
+    '@media': {
+      '(min-width: var(--sl-bp-tablet))': {
+        width: 100,
+        height: 100,
+      },
+      '(min-width: var(--sl-bp-desktop))': {
+        width: 200,
+        height: 200,
+      },
+    },
+  })
+})
+
+test('@layer', () => {
+  expect(
+    csx({
+      '@layer': {
+        reset: {
+          '*': {
+            boxSizing: 'border-box',
+          },
+        },
+      },
+    })
+  ).toStrictEqual({
+    '@layer': {
+      'sl-reset': {
+        '*': {
+          boxSizing: 'border-box',
+        },
       },
     },
   })

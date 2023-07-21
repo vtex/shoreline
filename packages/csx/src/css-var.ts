@@ -1,6 +1,5 @@
-import { cleanTokenString } from './clean-token-string'
 import { DS_PREFIX, SPACE } from './constants'
-import { isToken } from './is-token'
+import { isToken, cleanTokenString } from './token-utils'
 
 /**
  * Returns a token as css variable

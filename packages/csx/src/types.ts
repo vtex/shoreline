@@ -66,7 +66,30 @@ type RadiiTokens = typeof radiiTokens[number]
 
 type CSSPropAutocomplete<T extends string> = T | (string & {})
 
-interface BeachfrontCustomProperties {
+interface CsxObjectGenericNesting {
+  [key: string]: CsxObject
+}
+
+interface CsxNamepaces {
+  '@media'?:
+    | {
+        tablet?: CsxObject
+        desktop?: CsxObject
+        widescreen?: CsxObject
+        darkMode?: CsxObject
+      }
+    | CsxObjectGenericNesting
+  '@layer'?:
+    | {
+        reset?: CsxObject
+        base?: CsxObject
+        tokens?: CsxObject
+        components?: CsxObject
+      }
+    | CsxObjectGenericNesting
+}
+
+interface ShorelineCustomProperties {
   /**
    * Shorthand for backgroundColor
    */
@@ -297,7 +320,7 @@ type CSSPseudoSelectorProps = { [K in CSSType.Pseudos]?: CsxObject }
 
 type ExtendedCSSProperties =
   | Omit<CSSProperties, keyof OverwritenCSSProperties>
-  | BeachfrontCustomProperties
+  | ShorelineCustomProperties
   | OverwritenCSSProperties
 
 interface UnsafeNestingProps {
@@ -308,3 +331,4 @@ export type CsxObject =
   | ExtendedCSSProperties
   | CSSPseudoSelectorProps
   | UnsafeNestingProps
+  | CsxNamepaces
