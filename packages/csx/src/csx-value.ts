@@ -1,12 +1,8 @@
 import { cssVar } from './css-var'
 import type { CsxObject } from './types'
-import { isToken as isTokenPureFunction } from './is-token'
+import { isToken as isTokenPureFunction, isString } from './token-utils'
 
 type EntryType = string | number | CsxObject
-
-function isString<T extends string = string>(value: unknown): value is T {
-  return typeof value === 'string'
-}
 
 export class CsxValue {
   private property: string

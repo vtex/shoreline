@@ -22,17 +22,6 @@ export const defaultTransformCollection: TransformCollection = {
     zIndex: value.asCssVar(),
   }),
 
-  // /** Responsive */
-  // '@tablet': (value) => ({
-  //   '@media (min-width: var(--sl-bp-tablet))': value,
-  // }),
-  // '@desktop': (value) => ({
-  //   '@media (min-width: var(--sl-bp-desktop))': value,
-  // }),
-  // '@widescreen': (value) => ({
-  //   '@media (min-width: var(--sl-bp-widescreen))': value,
-  // }),
-
   /** Space */
   margin: (value) => ({
     margin: value.asCssVar({ deepSearch: true }),
