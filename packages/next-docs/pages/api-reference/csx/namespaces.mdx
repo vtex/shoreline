@@ -1,6 +1,6 @@
 # Namespaces
 
-Namespaces are a collection of css rules manipulated in a
+Namespaces are a collection of css rules manipulated in a specific maner.
 
 ## Core namespaces
 
@@ -37,6 +37,10 @@ const styles = {
 }
 ```
 
+#### Core medias
+
+Available core auto-completions:
+
 | property     | transform result                       |
 | ------------ | -------------------------------------- |
 | `tablet`     | `(min-width: var(--sl-bp-tablet))`     |
@@ -46,7 +50,7 @@ const styles = {
 
 ### @layer
 
-[Cascade Layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
+Represents a [Cascade Layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer).
 
 ```js
 const styles = {
@@ -83,6 +87,10 @@ const styles = {
   },
 }
 ```
+
+#### Core Layers
+
+Shoreline has 4 default layers:
 
 | property     | transform result |
 | ------------ | ---------------- |

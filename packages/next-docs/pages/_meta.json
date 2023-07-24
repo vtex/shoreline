@@ -11,8 +11,8 @@
     "title": "Raccoon",
     "type": "page"
   },
-  "packages": {
-    "title": "Packages",
+  "api-reference": {
+    "title": "API Reference",
     "type": "page"
   }
 }

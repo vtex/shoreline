@@ -8,38 +8,18 @@ import { Callout } from 'nextra/components'
 
 # Introduction
 
-The `@shoreline/csx` package
+The `@vtex/shoreline-csx` package transforms Shoreline tokens and utilities to an object that CSS-in-TS libraries can understand.
 
 ## Install
 
-<Tabs items={['yarn', 'npm', 'pnpm']}>
-  <Tab>
-
-    ```sh
-    yarn add @shoreline/csx
-    ```
-
-  </Tab>
-  <Tab>
-  
-    ```sh
-    npm install @shoreline/csx
-    ```
-  
-  </Tab>
-  <Tab>
-  
-    ```sh
-    pnpm add @shoreline/csx
-    ```
-  
-  </Tab>
-</Tabs>
+```sh npm2yarn
+npm i @shoreline/csx
+```
 
 ## Quick start
 
 ```ts
-import { csx } from '@shoreline/csx'
+import { csx } from '@vtex/shoreline-csx'
 
 const styles = csx({
   backgroundColor: 'black',
@@ -47,6 +27,8 @@ const styles = csx({
 ```
 
 ## Make it reusable
+
+The csx function does not transform the CSS-Object into classNames. Its best use, is combining the result with a CSS-in-JS library.
 
 ```ts
 import { csx as _csx, CSXObject } from '@shoreline/csx'

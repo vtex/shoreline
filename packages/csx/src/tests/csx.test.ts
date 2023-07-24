@@ -80,20 +80,6 @@ test('csx should accept mixins', () => {
   })
 })
 
-// test('uses responsive values', () => {
-//   expect(
-//     csx({
-//       '@tablet': {
-//         bg: 'black',
-//       },
-//     })
-//   ).toStrictEqual({
-//     '@media (min-width: var(--sl-bp-tablet))': {
-//       background: 'black',
-//     },
-//   })
-// })
-
 test('supports nesting', () => {
   expect(
     csx({
