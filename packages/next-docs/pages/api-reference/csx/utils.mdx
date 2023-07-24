@@ -2,7 +2,16 @@
 
 ## cx
 
-The cx function joins strings. It is useful
+Combine string with a space between them. Useful to compbine classNames.
+
+```ts
+import { cx } from '@vtex/shoreline-csx'
+
+const classNameA = 'container'
+const classNameList = 'px-1 py-2 pointer'
+
+const className = cx(classNameA, classNameList) // 'container px-1 py-2 pointer'
+```
 
 ## dataAttr
 
