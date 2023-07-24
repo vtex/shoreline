@@ -1,103 +1,133 @@
-# Math
+# Utils
+
+## cx
+
+The cx function joins strings. It is useful
+
+## dataAttr
+
+Create a custom [data attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*).
+
+```ts
+import { csx, dataAttr } from '@vtex/shoreline-csx'
+
+const style = csx({
+  [dataAttr('variant', 'primary')]: {
+    bg: 'black',
+  },
+})
+```
+
+Becomes:
+
+```ts
+const style = {
+  '[data-variant="primary"]': {
+    background: 'black',
+  },
+}
+```
+
+## Math
 
 Shorthands for logical and arithmetic operations using CSS functions.
 
-## Min
+### Min
 
 The [`min(<value-list>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/min) logical function selects the smallest (most negative) value from a list of comma-separated expressions
 
 ```ts
-import { csx, min } from '@shoreline/csx'
+import { csx, min } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: min('50%', '400px'),
 })
 ```
 
-## Max
+### Max
 
 The [`max(<value-list>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/max) logical function selects the largest (most positive) value from a list of comma-separated expressions.
 
 ```ts
-import { csx, max } from '@shoreline/csx'
+import { csx, max } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: max('50%', '400px'),
 })
 ```
 
-## Clamp
+### Clamp
 
 The [`clamp(<min>, <ideal>, <max>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) logical function clamps a value between an upper and lower bound, based on a set ideal value.
 
 ```ts
-import { csx, clamp } from '@shoreline/csx'
+import { csx, clamp } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: clamp('350px', '50%', '500px'),
 })
 ```
 
-## Calc
+### Calc
 
 The [`calc()`](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) CSS function let us perform arithmetic calculations on numerical values.
 
-### Add
+#### Add
 
 Performs addition (+).
 
 ```ts
-import { csx, calc } from '@shoreline/csx'
+import { csx, calc } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: calc.add('10px', '100px'),
 })
 ```
 
-### Subtract
+#### Subtract
 
 Performs subtraction (-).
 
 ```ts
-import { csx, calc } from '@shoreline/csx'
+import { csx, calc } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: calc.subtract('100%', '20px'),
 })
 ```
 
-### Multiply
+#### Multiply
 
 Performs multiplication (\*). At least one of the arguments must be a number.
 
 ```ts
-import { csx, calc } from '@shoreline/csx'
+import { csx, calc } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: calc.multiply('2em', 5),
 })
 ```
 
-### Divide
+#### Divide
 
 Performs division (/). The right-hand side must be a number.
 
 ```ts
-import { csx, calc } from '@shoreline/csx'
+import { csx, calc } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: calc.divide('10em', 5),
 })
 ```
 
-### Negate
+#### Negate
 
 Negates the value.
 
 ```ts
-import { csx, calc } from '@shoreline/csx'
+import { csx, calc } from '@vtex/shoreline-csx'
 
-const styles = csx({
+const style = csx({
   width: calc.negate('var(--variable-width)'),
 })
 ```

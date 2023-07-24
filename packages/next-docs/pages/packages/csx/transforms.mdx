@@ -2,10 +2,6 @@ import { Steps } from 'nextra-theme-docs'
 
 # Transforms
 
-## Identity
-
-This is a special transform, it is the fallback.
-
 ## bg
 
 Transforms a the `bg` key into `background`.
@@ -75,72 +71,6 @@ Becomes:
 ```js
 const style = {
   zIndex: 999,
-}
-```
-
-## @tablet
-
-Transforms a the `@tablet` key into `@media (min-width: var(--sl-bp-tablet))`.
-
-```js
-const style = csx({
-  '@tablet': {
-    display: 'flex',
-  },
-})
-```
-
-Becomes:
-
-```js
-const style = {
-  '@media (min-width: var(--sl-bp-tablet))': {
-    display: 'flex',
-  },
-}
-```
-
-## @desktop
-
-Transforms a the `@desktop` key into `@media (min-width: var(--sl-bp-desktop))`.
-
-```js
-const style = csx({
-  '@desktop': {
-    display: 'flex',
-  },
-})
-```
-
-Becomes:
-
-```js
-const style = {
-  '@media (min-width: var(--sl-bp-desktop))': {
-    display: 'flex',
-  },
-}
-```
-
-## @widescreen
-
-Transforms a the `@widescreen` key into `@media (min-width: var(--sl-bp-widescreen))`.
-
-```js
-const style = csx({
-  '@widescreen': {
-    display: 'flex',
-  },
-})
-```
-
-Becomes:
-
-```js
-const style = {
-  '@media (min-width: var(--sl-bp-widescreen))': {
-    display: 'flex',
-  },
 }
 ```
 
@@ -333,63 +263,3 @@ const style = {
   maxWidth: '1rem',
 }
 ```
-
-## Customizing the alias function
-
-<Steps>
-
-### Create a new alias function
-
-The `(value: string) => string`
-
-```ts
-function customAlias(value): string {
-  return value
-}
-```
-
-### Use the internal alias function to help you
-
-```ts
-import { alias } from '@shoreline/csx'
-
-function customAlias(value): string {
-  return alias(value)
-}
-```
-
-### Add customAliases as you please
-
-```ts
-import { alias, defaultAliases } from '@shoreline/csx'
-
-const aliases = {
-  mx: 'marginX',
-  my: 'marginY',
-  ...defaultAliases,
-}
-
-function customAlias(value): string {
-  return alias(value, aliases)
-}
-```
-
-### Type Aliases
-
-```ts
-import { CSXObject } from '@shoreline/csx'
-
-declare CSXObject {
-
-}
-```
-
-### Configure csx
-
-```ts
-import { csx as _csx, CSXObject } from '@shoreline/csx'
-
-export function csx() {}
-```
-
-</Steps>
