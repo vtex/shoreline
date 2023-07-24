@@ -21,6 +21,9 @@ export const defaultTransformCollection: TransformCollection = {
   z: (value) => ({
     zIndex: value.asCssVar(),
   }),
+  text: (value) => ({
+    font: value.asCssVar(),
+  }),
 
   /** Space */
   margin: (value) => ({

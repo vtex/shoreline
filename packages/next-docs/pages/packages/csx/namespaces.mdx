@@ -1,0 +1,92 @@
+# Namespaces
+
+Namespaces are a collection of css rules manipulated in a
+
+## Core namespaces
+
+### @media
+
+Reserved namespace for media queries [Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media).
+
+```js
+const styles = {
+  '@media': {
+    tablet: {
+      size: 100,
+    },
+    darkMode: {
+      bg: 'black',
+    },
+  },
+}
+```
+
+Becomes:
+
+```js
+const styles = {
+  '@media': {
+    '(min-width: var(--sl-bp-tablet))': {
+      width: 100,
+      height: 100,
+    },
+    '(prefers-color-scheme: dark)': {
+      background: 'black',
+    },
+  },
+}
+```
+
+| property     | transform result                       |
+| ------------ | -------------------------------------- |
+| `tablet`     | `(min-width: var(--sl-bp-tablet))`     |
+| `desktop`    | `(min-width: var(--sl-bp-desktop))`    |
+| `widescreen` | `(min-width: var(--sl-bp-widescreen))` |
+| `darkMode`   | `(prefers-color-scheme: dark)`         |
+
+### @layer
+
+[Cascade Layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
+
+```js
+const styles = {
+  '@layer': {
+    reset: {
+      '*': {
+        boxSizing: 'border-box'
+      }
+    },
+    tokens: {
+      ':root' {
+        '--sl-bg-primary': 'pink'
+      }
+    }
+  },
+}
+```
+
+Becomes:
+
+```js
+const styles = {
+  '@layer': {
+    'sl-reset': {
+      '*': {
+        boxSizing: 'border-box'
+      }
+    },
+    'sl-tokens': {
+      ':root' {
+        '--sl-bg-primary': 'pink'
+      }
+    }
+  },
+}
+```
+
+| property     | transform result |
+| ------------ | ---------------- |
+| `reset`      | `sl-reset`       |
+| `base`       | `sl-base`        |
+| `tokens`     | `sl-tokens`      |
+| `components` | `sl-components`  |

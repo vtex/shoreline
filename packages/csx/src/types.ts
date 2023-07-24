@@ -327,8 +327,13 @@ interface UnsafeNestingProps {
   [k: string]: CsxObject
 }
 
+interface UnsafeCSSValues {
+  [k: string]: string | number
+}
+
 export type CsxObject =
   | ExtendedCSSProperties
   | CSSPseudoSelectorProps
   | UnsafeNestingProps
+  | UnsafeCSSValues
   | CsxNamepaces
