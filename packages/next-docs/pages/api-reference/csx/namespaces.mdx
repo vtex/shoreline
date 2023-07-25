@@ -1,14 +1,18 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+
 # Namespaces
 
 Namespaces are a collection of css rules manipulated in a specific maner.
 
-## Core namespaces
-
-### @media
+## @media
 
 Reserved namespace for media queries [Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media).
 
-```js
+<Tabs items={['input', 'output']}>
+
+<Tab>
+
+```ts
 const styles = {
   '@media': {
     tablet: {
@@ -21,9 +25,11 @@ const styles = {
 }
 ```
 
-Becomes:
+</Tab>
 
-```js
+<Tab>
+
+```ts
 const styles = {
   '@media': {
     '(min-width: var(--sl-bp-tablet))': {
@@ -37,7 +43,11 @@ const styles = {
 }
 ```
 
-#### Core medias
+</Tab>
+
+</Tabs>
+
+### Core medias
 
 Available core auto-completions:
 
@@ -48,11 +58,15 @@ Available core auto-completions:
 | `widescreen` | `(min-width: var(--sl-bp-widescreen))` |
 | `darkMode`   | `(prefers-color-scheme: dark)`         |
 
-### @layer
+## @layer
 
 Represents a [Cascade Layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer).
 
-```js
+<Tabs items={['input', 'output']}>
+
+<Tab>
+
+```ts
 const styles = {
   '@layer': {
     reset: {
@@ -69,9 +83,11 @@ const styles = {
 }
 ```
 
-Becomes:
+</Tab>
 
-```js
+<Tab>
+
+```ts
 const styles = {
   '@layer': {
     'sl-reset': {
@@ -88,7 +104,11 @@ const styles = {
 }
 ```
 
-#### Core Layers
+</Tab>
+
+</Tabs>
+
+### Core layers
 
 Shoreline has 4 default layers:
 
@@ -98,3 +118,17 @@ Shoreline has 4 default layers:
 | `base`       | `sl-base`        |
 | `tokens`     | `sl-tokens`      |
 | `components` | `sl-components`  |
+
+## Supports
+
+The [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) at-rule lets you specify CSS declarations that depend on a browser's support for CSS features.
+
+```ts
+const style = csx({
+  '@supports': {
+    '(background: color(display-p3 0 1 0))': {
+      bg: 'color(display-p3 0 1 0)',
+    },
+  },
+})
+```
