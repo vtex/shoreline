@@ -1,0 +1,29 @@
+{
+  "name": "@vtex/shoreline-design-tokens",
+  "version": "0.0.0",
+  "description": "Shoreline design tokens",
+  "main": "dist/vtex-shoreline-design-tokens.cjs.js",
+  "module": "dist/vtex-shoreline-design-tokens.esm.js",
+  "types": "dist/vtex-shoreline-design-tokens.cjs.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "gen-tokens": "node ./scripts/gen-tokens.mjs"
+  },
+  "devDependencies": {
+    "@types/cssesc": "3.0.0",
+    "cssesc": "3.0.0",
+    "lightningcss": "1.21.5"
+  }
+}
