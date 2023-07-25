@@ -5,40 +5,40 @@ import { isToken as isTokenPureFunction, isString } from './token-utils'
 type EntryType = string | number | CsxObject
 
 export class CsxValue {
-  private property: string
-  private entry: EntryType
+  private _property: string
+  private _entry: EntryType
 
   constructor(property: string, entry: EntryType) {
-    this.property = property
-    this.entry = isString(entry) ? entry.trim() : entry
+    this._property = property
+    this._entry = isString(entry) ? entry.trim() : entry
   }
 
-  public getProperty() {
-    return this.property
+  public get property(): string {
+    return this._property
   }
 
-  public getEntry() {
-    return this.entry
+  public get entry(): EntryType {
+    return this._entry
   }
 
-  public isObject() {
+  public isObject(): boolean {
     return typeof this.entry === 'object'
   }
 
   /**
    * Returns wether the CsxValue is a token
    */
-  public isToken() {
+  public isToken(): boolean {
     return isTokenPureFunction(this.entry)
   }
 
-  public asCleanToken() {
+  public asCleanToken(): EntryType {
     if (!this.isToken()) return this.entry
 
     return String(this.entry).substring(1)
   }
 
-  public asCssVar(options?: { deepSearch?: boolean }) {
+  public asCssVar(options?: { deepSearch?: boolean }): EntryType {
     if (typeof this.entry !== 'string') {
       return this.entry
     }

@@ -4,7 +4,7 @@ export const defaultTransformCollection: TransformCollection = {
   /** Identity */
   '*': (value) => {
     return {
-      [value.getProperty()]: value.asCssVar(),
+      [value.property]: value.asCssVar(),
     }
   },
 
@@ -25,13 +25,27 @@ export const defaultTransformCollection: TransformCollection = {
     font: value.asCssVar(),
   }),
 
-  /** Space */
+  /** DeepSearch values */
   margin: (value) => ({
     margin: value.asCssVar({ deepSearch: true }),
   }),
   padding: (value) => ({
     padding: value.asCssVar({ deepSearch: true }),
   }),
+  boxShadow: (value) => ({
+    boxShadow: value.asCssVar({ deepSearch: true }),
+  }),
+  border: (value) => ({
+    border: value.asCssVar({ deepSearch: true }),
+  }),
+  container: (value) => ({
+    container: value.asCssVar({ deepSearch: true }),
+  }),
+  font: (value) => ({
+    font: value.asCssVar({ deepSearch: true }),
+  }),
+
+  /** Space values */
   marginX: (value) => ({
     marginLeft: value.asCssVar(),
     marginRight: value.asCssVar(),
@@ -49,6 +63,7 @@ export const defaultTransformCollection: TransformCollection = {
     paddingBottom: value.asCssVar(),
   }),
 
+  /** Sizes */
   size: (value) => ({
     width: value.asCssVar(),
     height: value.asCssVar(),
