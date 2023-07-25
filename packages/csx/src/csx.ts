@@ -3,13 +3,15 @@ import { findNamespaceTransform } from './namespace-transforms'
 import { findTransform } from './transforms'
 import type { CsxObject } from './types'
 
+type CSSObject = Record<string, any>
+
 /**
  * Parses a CSXObject into a CSSObject
  * @example
  * csx({ bg: '$bg-primary' })
  */
-export function csx(csxObject: CsxObject = {}, namespace = '') {
-  const cssObject: any = {}
+export function csx(csxObject: CsxObject = {}, namespace = ''): CSSObject {
+  const cssObject: CSSObject = {}
 
   const namespaceTransform = findNamespaceTransform(namespace)
 
@@ -21,14 +23,11 @@ export function csx(csxObject: CsxObject = {}, namespace = '') {
     const value = new CsxValue(cssProperty, cssEntry)
 
     if (value.isObject()) {
-      cssObject[value.getProperty()] = csx(
-        value.getEntry() as CsxObject,
-        value.getProperty()
-      )
+      cssObject[value.property] = csx(value.entry as CsxObject, value.property)
       continue
     }
 
-    const transform = findTransform(value.getProperty())
+    const transform = findTransform(value.property)
 
     Object.assign(cssObject, transform(value))
   }
