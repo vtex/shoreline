@@ -19,17 +19,17 @@ import {
   useTableState,
   useDataViewState,
 } from '@vtex/admin-ui'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
 
 const ITEMS_PER_PAGE = 5
 
 export const items = Array(ITEMS_PER_PAGE)
-  .fill()
+  .fill(1)
   .map((_, id) => {
     return {
       id: `${id}`,
       name: faker.commerce.productName(),
-      brand: faker.random.arrayElement(['Revolution', 'VTEX', 'Dream brand']),
+      brand: faker.company.buzzNoun(),
       price: faker.commerce.price(),
     }
   })
@@ -97,8 +97,8 @@ const Home: NextPage = () => {
       </PageHeader>
       <PageContent layout="wide">
         <Alert>
-          Hi, you're on {account} with locale {locale}. On workspace {workspace}
-          , token {token}
+          Hi, you are on {account} with locale {locale}. On workspace{' '}
+          {workspace}, token {token}
         </Alert>
         <DataView state={view}>
           <Table {...getTable()} className={csx({ width: '100%' })}>
@@ -108,9 +108,12 @@ const Home: NextPage = () => {
               ))}
             </THead>
             <TBody>
-              {data.map((item) => {
+              {data.map((item: any) => {
                 return (
-                  <TBodyRow key={item.id} onClick={() => handleNavigate(item)}>
+                  <TBodyRow
+                    key={item?.id ?? ''}
+                    onClick={() => handleNavigate(item)}
+                  >
                     {columns.map((column) => {
                       return (
                         <TBodyCell
