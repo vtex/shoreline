@@ -1,6 +1,6 @@
 import cssesc from 'cssesc'
 import { tokens } from './tokens'
-import { cssVar } from './css-var'
+import { cssVar } from '@vtex/shoreline-utils'
 
 const toVar = (value: string) => `--sl-${value}`
 

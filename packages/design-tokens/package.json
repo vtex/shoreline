@@ -19,11 +19,18 @@
   },
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "gen-tokens": "node ./scripts/gen-tokens.mjs"
+    "gen-tokens": "ts-node --project tsconfig.node.json scripts/tokens.ts"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",
+    "@types/fs-extra": "11.0.1",
+    "@types/node": "20.4.5",
     "cssesc": "3.0.0",
-    "lightningcss": "1.21.5"
+    "fs-extra": "11.1.1",
+    "lightningcss": "1.21.5",
+    "ts-node": "10.9.1"
+  },
+  "dependencies": {
+    "@vtex/shoreline-utils": "0.0.0"
   }
 }
