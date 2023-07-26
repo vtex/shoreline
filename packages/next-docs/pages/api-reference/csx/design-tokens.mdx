@@ -10,11 +10,11 @@ They are a common language for designers and developers, facilitating seamless c
 
 ### Vendor and Prefix
 
-The vendor is company or organization that ships a design token specification, in the case of Shoreline, VTEX. The prefix is assigned to avoid conflicts with other tools of libraries that the application can be using. In Shoreline, we adopt the prefix `sl`. This means that every className or design token exported by Shoreline starts with `sl`.
+The vendor is a company or organization that ships a design token specification, in the case of Shoreline, VTEX. The prefix is assigned to avoid conflicts with other tools of libraries that the application can be using. In Shoreline, we adopt the prefix `sl`. This means that every className or design token exported by Shoreline starts with `sl`.
 
 ### Token type
 
-A classification applied to the value of a token. For example:
+A classification is applied to the value of a token. For example:
 
 - color
 - radii
@@ -30,7 +30,7 @@ A label assigned to a design decision. For example:
 
 ### Token value
 
-A context-specific value assigned to a design token name.
+A context-specific value is assigned to a design token name.
 
 - `1rem`
 - `rgb(142, 142, 142)`
@@ -38,7 +38,7 @@ A context-specific value assigned to a design token name.
 
 ### Variable
 
-Describes the most common way (but not the only way) a design token is formatted and used in code. It can be a CSS custom property, javascript variable, etc. In Shoreline we relly on [CSS custom properties (aka CSS variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+Describes the most common way (but not the only way) a design token is formatted and used in code. It can be a CSS custom property, javascript variable, etc. In Shoreline, we rely on [CSS custom properties (aka CSS variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 CSS variables are declared using the pattern:
 
@@ -98,7 +98,7 @@ Aliases are token values that reference another token. In this example, we alias
 
 ### Composite tokens
 
-Composite design tokens contain values that represent more than one design decision. One example is border, composed of color, width, and style:
+Composite design tokens contain values that represent more than one design decision. One example is a border, composed of color, width, and style:
 
 ```css
 :root {
@@ -108,7 +108,7 @@ Composite design tokens contain values that represent more than one design decis
 }
 ```
 
-Another classic example of composite tokens is tyography. In the following example, the token `$text-body` is composed of font size, weight, family and line height:
+Another classic example of composite tokens is typography. In the following example, the token `$text-body` is composed of font size, weight, family, and line-height:
 
 ```css
 :root {
@@ -127,7 +127,7 @@ Another classic example of composite tokens is tyography. In the following examp
 
 ## Using tokens with csx
 
-The Csx object represents CSS styles within a typescript object, where the keys represents the css property in camelCase, and the entry - the css-value. One for the possible value are tokens. Shoreline uses the `$` symbol (dollar sign) to trigger a token transformation. A token pattern is defined by:
+The Csx object represents CSS styles within a typescript object, where the keys represent the css property in camelCase, and the entry - the css-value. One possible value is tokens. Shoreline uses the `$` symbol (dollar sign) to trigger a token transformation. A token pattern is defined by:
 
 ```
 ${token-type}-{token-name}
