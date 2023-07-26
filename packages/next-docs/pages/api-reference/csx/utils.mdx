@@ -1,0 +1,142 @@
+# Utils
+
+## cx
+
+Combine strings with a space between them. Useful to combine classNames.
+
+```ts
+import { cx } from '@vtex/shoreline-csx'
+
+const classNameA = 'container'
+const classNameList = 'px-1 py-2 pointer'
+
+const className = cx(classNameA, classNameList) // 'container px-1 py-2 pointer'
+```
+
+## dataAttr
+
+Create a custom [data attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*).
+
+```ts
+import { csx, dataAttr } from '@vtex/shoreline-csx'
+
+const style = csx({
+  [dataAttr('variant', 'primary')]: {
+    bg: 'black',
+  },
+})
+```
+
+Becomes:
+
+```ts
+const style = {
+  '[data-variant="primary"]': {
+    background: 'black',
+  },
+}
+```
+
+## Math
+
+Shorthands for logical and arithmetic operations using CSS functions.
+
+### Min
+
+The [`min(<value-list>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/min) logical function selects the smallest (most negative) value from a list of comma-separated expressions
+
+```ts
+import { csx, min } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: min('50%', '400px'),
+})
+```
+
+### Max
+
+The [`max(<value-list>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/max) logical function selects the largest (most positive) value from a list of comma-separated expressions.
+
+```ts
+import { csx, max } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: max('50%', '400px'),
+})
+```
+
+### Clamp
+
+The [`clamp(<min>, <ideal>, <max>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) logical function clamps a value between an upper and lower bound, based on a set ideal value.
+
+```ts
+import { csx, clamp } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: clamp('350px', '50%', '500px'),
+})
+```
+
+### Calc
+
+The [`calc()`](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) CSS function let us perform arithmetic calculations on numerical values.
+
+#### Add
+
+Performs addition (+).
+
+```ts
+import { csx, calc } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: calc.add('10px', '100px'),
+})
+```
+
+#### Subtract
+
+Performs subtraction (-).
+
+```ts
+import { csx, calc } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: calc.subtract('100%', '20px'),
+})
+```
+
+#### Multiply
+
+Performs multiplication (\*). At least one of the arguments must be a number.
+
+```ts
+import { csx, calc } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: calc.multiply('2em', 5),
+})
+```
+
+#### Divide
+
+Performs division (/). The right-hand side must be a number.
+
+```ts
+import { csx, calc } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: calc.divide('10em', 5),
+})
+```
+
+#### Negate
+
+Negates the value.
+
+```ts
+import { csx, calc } from '@vtex/shoreline-csx'
+
+const style = csx({
+  width: calc.negate('var(--variable-width)'),
+})
+```

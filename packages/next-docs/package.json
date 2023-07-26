@@ -10,8 +10,8 @@
   "dependencies": {
     "@vtex/admin-ui": "^0.136.1",
     "next": "13.4.7",
-    "nextra": "2.8.0",
-    "nextra-theme-docs": "2.8.0",
+    "nextra": "2.10.0",
+    "nextra-theme-docs": "2.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-live": "4.1.3"
