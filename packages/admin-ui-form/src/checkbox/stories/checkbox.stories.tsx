@@ -1,7 +1,6 @@
-import { csx } from '@vtex/admin-ui-core'
+import { csx, Button, Inline, Stack } from '@vtex/admin-ui'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Button, Inline, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { Checkbox, CheckboxGroup } from '../index'

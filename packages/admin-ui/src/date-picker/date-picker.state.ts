@@ -36,7 +36,7 @@ export type DatePickerInitialState =
       disabled?: boolean
     }
 
-export const useDatePickerState = (props: DatePickerInitialState = {}) => {
+export function useDatePickerState(props: DatePickerInitialState = {}) {
   const {
     defaultValue = getDateObject(),
     minValue,

@@ -45,6 +45,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.10",
+    "@internationalized/date": "3.3.0",
+    "@react-types/shared": "3.18.1",
     "@react-aria/i18n": "^3.3.5",
     "@react-aria/listbox": "^3.4.1",
     "@react-aria/spinbutton": "^3.0.3",

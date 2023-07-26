@@ -7,7 +7,7 @@ import {
 } from '@vtex/admin-ui'
 import { useNavigation } from '@vtex/raccoon-next'
 import { useRouter } from 'next/router'
-import { items } from '.'
+import { items } from './index'
 
 const getItem = (id: any) => items.find((item) => item.id === id)
 
