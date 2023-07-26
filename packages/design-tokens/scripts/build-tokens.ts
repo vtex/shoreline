@@ -4,7 +4,7 @@ import fse from 'fs-extra'
 
 const outDir = 'dist'
 const filename = 'tokens.css'
-const outputPath = `${outDir}/${filename}`
+const outputPath = `${outDir}/css/${filename}`
 
 const { code } = transform({
   filename,

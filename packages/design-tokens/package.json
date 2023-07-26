@@ -18,8 +18,8 @@
     "node": ">=12"
   },
   "scripts": {
-    "build": "node ./scripts/build.mjs",
-    "gen-tokens": "ts-node --project tsconfig.node.json scripts/tokens.ts"
+    "build": "npm run build:tokens && ts-node --project tsconfig.node.json scripts/build.ts",
+    "build:tokens": "ts-node --project tsconfig.node.json scripts/build-tokens.ts"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",

@@ -1,5 +1,3 @@
 @import './layer-declaration.css';
 @import './reset.css';
-@import './color.css';
-@import './space.css';
-@import './radii.css';
+@import '../dist/css/tokens.css';

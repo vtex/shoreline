@@ -1,7 +1,0 @@
-@layer sl-tokens {
-  :root {
-    --sl-radii-none: 0rem;
-    --sl-radii-base: 0.25rem;
-    --sl-radii-pill: 100%;
-  }
-}
