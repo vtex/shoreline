@@ -1,4 +1,4 @@
-import { SPACE } from '../constants'
+import { constants } from '../constants'
 import { cssVar } from '../index'
 
 test('not parses empty strings', () => {
@@ -10,7 +10,7 @@ test('not parses empty strings', () => {
 
   expect(
     cssVar({
-      token: SPACE,
+      token: constants.whiteSpace,
     })
   ).toStrictEqual('')
 
@@ -23,7 +23,7 @@ test('not parses empty strings', () => {
 
   expect(
     cssVar({
-      token: SPACE,
+      token: constants.whiteSpace,
       deepSearch: true,
     })
   ).toStrictEqual('')

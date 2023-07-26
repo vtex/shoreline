@@ -2,7 +2,7 @@ import { bundle } from 'lightningcss'
 import fse from 'fs-extra'
 
 const outDir = 'dist'
-const filename = 'src/style.css'
+const filename = 'src/css/style.css'
 const outputPath = `${outDir}/css/style.css`
 
 const { code } = bundle({
