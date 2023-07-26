@@ -6,7 +6,7 @@ Transforms are functions that manipulate a style rule.
 
 ## bg
 
-Transforms a the `bg` key into `background`.
+Transforms the `bg` key into `background`.
 
 ```js
 const style = csx({
@@ -24,7 +24,7 @@ const style = {
 
 ## fg
 
-Transforms a the `fg` key into `color`. Fg stands for foreground.
+Transforms the `fg` key into `color`. Fg stands for the foreground.
 
 ```js
 const style = csx({
@@ -42,7 +42,7 @@ const style = {
 
 ## radii
 
-Transforms a the `radii` key into `borderRadius`.
+Transforms the `radii` key into `borderRadius`.
 
 ```js
 const style = csx({
@@ -60,7 +60,7 @@ const style = {
 
 ## z
 
-Transforms a the `z` key into `zIndex`.
+Transforms the `z` key into `zIndex`.
 
 ```js
 const style = csx({
@@ -73,6 +73,78 @@ Becomes:
 ```js
 const style = {
   zIndex: 999,
+}
+```
+
+## boxShadow
+
+Transforms the `box-shadow` tokens deeply.
+
+```js
+const style = csx({
+  boxShadow: '$space-1 $color-red-100',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  boxShadow: '0.0625rem red',
+}
+```
+
+## border
+
+Transforms the `border` tokens deeply.
+
+```js
+const style = csx({
+  border: '$border-width-1 solid $color-red-100',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  boxShadow: '0.0625rem solid red',
+}
+```
+
+## container
+
+Transforms the `container` tokens deeply.
+
+```js
+const style = csx({
+  container: '$container-sidebar / inline-size',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  container: 'sl-containers-sidebar / inline-size',
+}
+```
+
+## font
+
+Transforms the `font` tokens deeply.
+
+```js
+const style = csx({
+  font: '$font-size-1 $font-family-sans',
+})
+```
+
+Becomes:
+
+```js
+const style = {
+  font: '1rem sans-serif',
 }
 ```
 
