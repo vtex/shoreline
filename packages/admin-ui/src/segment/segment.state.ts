@@ -42,7 +42,7 @@ const TYPO_MAPPING = {
   dayperiod: 'dayPeriod',
 }
 
-export function useSegmentState(props: SegmentInitialState = {}) {
+export function useSegmentState(props: SegmentInitialState = {}): any {
   const {
     value,
     onChange,

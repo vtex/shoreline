@@ -33,7 +33,7 @@ export const DateField = forwardRef(function DateField(
       <Flex direction="column">
         <Label className={dateFieldLabelTheme}>{label}</Label>
         <SegmentList state={state}>
-          {state.segments.map((segment, index) => (
+          {state.segments.map((segment: any, index: number) => (
             <Segment
               isDisabled={disabled}
               key={`segment-element-${index}`}

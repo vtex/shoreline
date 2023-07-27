@@ -1,4 +1,4 @@
-import type { AnyObject } from '@vtex/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui'
 
 /**
  * React hook that improves the field's developer experience

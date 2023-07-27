@@ -1,7 +1,6 @@
-import { csx } from '@vtex/admin-ui-core'
+import { csx, Button, Stack } from '@vtex/admin-ui'
 import React from 'react'
 import type { Meta } from '@storybook/react'
-import { Button, Stack } from '@vtex/admin-ui'
 
 import { useFormState, Form } from '../../form'
 import { Switch } from '../index'
@@ -18,7 +17,7 @@ export const Basic = () => {
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
-            state={form}
+            state={form as any}
             name="terms-of-service"
             label="I agree to the Terms of Service"
             helpText="You must select this option to use our services"
@@ -44,7 +43,7 @@ export const DefaultValue = () => {
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
-            state={form}
+            state={form as any}
             name="enabled"
             label="Search enabled"
             helpText="Enables the search feature on the system"
@@ -66,7 +65,7 @@ export const Validation = () => {
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
-            state={form}
+            state={form as any}
             name="terms-of-service"
             label="I agree to the Terms of Service"
             helpText="You must select this option to use our services"

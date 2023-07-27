@@ -1,4 +1,4 @@
-import type { AnyObject } from '@vtex/admin-ui-util'
+import type { AnyObject } from '@vtex/admin-ui'
 
 import type { FormState } from './form.state'
 import type { ComponentPropsWithoutRef, Ref } from 'react'
