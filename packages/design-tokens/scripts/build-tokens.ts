@@ -1,21 +1,15 @@
 import { transform } from 'lightningcss'
 import { cssCode } from '../src/css-code'
-import fse from 'fs-extra'
-
-const outDir = 'dist'
-const filename = 'tokens.css'
-const outputPath = `${outDir}/css/${filename}`
+import { outputFile } from './script-utils'
 
 const { code } = transform({
-  filename,
+  filename: 'tokens.css',
   code: Buffer.from(cssCode),
   minify: false,
 })
 
-fse.outputFile(outputPath, code, (err) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log(`🎨 Tokens generated!`)
-  }
+outputFile({
+  path: 'dist/css/tokens.css',
+  code,
+  successMessage: '🎨 Tokens generated!',
 })

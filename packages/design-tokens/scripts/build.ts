@@ -1,19 +1,13 @@
 import { bundle } from 'lightningcss'
-import fse from 'fs-extra'
-
-const outDir = 'dist'
-const filename = 'src/css/style.css'
-const outputPath = `${outDir}/css/style.css`
+import { outputFile } from './script-utils'
 
 const { code } = bundle({
-  filename,
+  filename: 'src/css/style.css',
   minify: false,
 })
 
-fse.outputFile(outputPath, code, (err) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log(`🤖 Build done!`)
-  }
+outputFile({
+  path: 'dist/css/style.css',
+  code,
+  successMessage: '🔥 Build done!',
 })
