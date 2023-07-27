@@ -1,6 +1,6 @@
 import cssesc from 'cssesc'
 
-export function renderCSS(object: Record<string, any>) {
+export function renderCssVariables(object: Record<string, any>) {
   let cssString = ''
 
   for (const key in object) {

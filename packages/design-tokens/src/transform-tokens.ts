@@ -2,16 +2,20 @@ import { constants, cssVar, flattenObject } from '@vtex/shoreline-utils'
 
 const toVar = (value: string) => `--${constants.dsPrefix}-${value}`
 
-export function transformTokens(theme: Record<string, any>) {
-  theme = flattenObject(theme)
+type CSSVariablesDict = Record<string, string>
 
-  const res: Record<string, any> = {}
+/**
+ * Transform tokens into a CSSVariablesDict
+ */
+export function transformTokens(tokens: Record<string, any>): CSSVariablesDict {
+  const flatTokens = flattenObject(tokens)
+  const result: CSSVariablesDict = {}
 
-  for (const key in theme) {
-    const token = theme[key as keyof typeof theme]
+  for (const key in flatTokens) {
+    const token = flatTokens[key as keyof typeof flatTokens]
 
-    res[toVar(key)] = cssVar({ token, deepSearch: true })
+    result[toVar(key)] = cssVar({ token, deepSearch: true })
   }
 
-  return res
+  return result
 }

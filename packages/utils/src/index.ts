@@ -16,3 +16,4 @@ export {
 }
 
 export * from './css-types'
+export * from './utility-types'

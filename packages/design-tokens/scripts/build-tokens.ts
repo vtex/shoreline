@@ -1,6 +1,11 @@
 import { transform } from 'lightningcss'
-import { cssCode } from '../src/css-code'
+import { tokens } from '../src/tokens'
+import { transformTokens } from '../src/transform-tokens'
+import { renderCssVariables } from '../src/render-css-variables'
+
 import { outputFile } from './script-utils'
+
+const cssCode = renderCssVariables(transformTokens(tokens))
 
 const { code } = transform({
   filename: 'tokens.css',
