@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Divider, Stack, cx, useCollapse } from '@vtex/admin-ui'
+import { Stack, cx, useCollapse } from '@vtex/admin-ui'
 import * as styles from './sidebar.css'
 import type { Ref, ComponentPropsWithoutRef, ReactNode } from 'react'
 
@@ -14,7 +14,7 @@ export const SidebarSection = forwardRef(
         <Stack fluid>
           <button
             className={cx(styles.sidebarSectionButton, className)}
-            data-is-active={visible}
+            data-active={visible}
             {...getToggleProps()}
           >
             {icon}
@@ -22,7 +22,6 @@ export const SidebarSection = forwardRef(
           </button>
           <div {...getCollapseProps()}>{children}</div>
         </Stack>
-        {visible && <Divider className={styles.sidebarSectionDivider} />}
       </section>
     )
   }

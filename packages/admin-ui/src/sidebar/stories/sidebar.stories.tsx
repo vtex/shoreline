@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import type { Meta } from '@storybook/react'
-import { data } from '../data'
+import { data as mockedData } from '../data'
 import {
   Sidebar,
   SidebarSection,
@@ -17,31 +17,19 @@ export default {
 export const Example = () => {
   function useData() {
     // fetch pro admin-grahql que te retorna um data
-    const aaa = [...data.top, ...data.bottom]
+    const aaa = [...mockedData.top, ...mockedData.bottom]
 
-    // transform o seu data de forma ótima para consumo
-    // filter / map / reduce
-    const optimalData = aaa // data transformado
-
-    /**
-  [
-    { sectionName: '', sectionIcon: '', items: [
-
-
-      { title: '' / undefined, items: [
-        ...items de navegação
-        title: '', link: '', isExternal: 'target blank da vida (masterdata catálogo se não migrarem)'
-
-      ] }
-
-    ] }
-  ]
-   */
+    const optimalData = aaa.map((section) => ({
+      ...section,
+      groups: section.sections,
+    })) // data transformado
 
     return optimalData
   }
 
-  const completeData = useData()
+  const [selectedPage, setSelectedPage] = useState()
+
+  const data = useData()
 
   return (
     <div
@@ -53,17 +41,24 @@ export const Example = () => {
       })}
     >
       <Sidebar>
-        {completeData.map((item, index) => (
-          <SidebarSection icon={getShellIcon(item.icon)} title={item.label}>
-            <SidebarLinkGroup>
-              <SidebarLink href="#overview">Overview</SidebarLink>
-              <SidebarLink href="#sales-performance">
-                Sales performance
-              </SidebarLink>
-              <SidebarLink href="#web-page-performance">
-                Web page performance
-              </SidebarLink>
-            </SidebarLinkGroup>
+        {data.map((section, index) => (
+          <SidebarSection
+            icon={getShellIcon(section.icon)}
+            title={section.label}
+          >
+            {section.groups.map((group) => (
+              <SidebarLinkGroup title={group.title}>
+                {group.subItems.map((pageLink) => (
+                  <SidebarLink
+                    href={pageLink.path}
+                    onClick={() => setSelectedPage(pageLink.englishLabel)}
+                    active={pageLink.englishLabel === selectedPage}
+                  >
+                    {pageLink.label}
+                  </SidebarLink>
+                ))}
+              </SidebarLinkGroup>
+            ))}
           </SidebarSection>
         ))}
       </Sidebar>

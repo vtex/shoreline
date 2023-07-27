@@ -3,7 +3,7 @@ import { csx, dataAttr } from '@vtex/admin-ui'
 export const sidebar = csx({
   bg: '$secondary',
   height: '100%',
-  padding: '$space-3',
+  padding: '$space-5 $space-3 $space-0',
   overflowX: 'hidden',
   overflowY: 'auto',
 })
@@ -14,9 +14,8 @@ export const sidebarSection = csx({
 
 export const sidebarSectionButton = csx({
   cursor: 'pointer',
-  borderRadius: 'var(--radii)',
-  padding: '$space-3',
-  text: '$body',
+  padding: '$space-2',
+  text: '$action1',
   display: 'grid',
   gridTemplateColumns: '1.25em 1fr',
   gap: '$space-5',
@@ -26,8 +25,8 @@ export const sidebarSectionButton = csx({
   ':hover': {
     color: '$action.neutral.tertiaryHover',
   },
-  ':active': {
-    color: 'black',
+  [dataAttr('active', true)]: {
+    color: '$action.neutral.tertiaryPressed',
   },
 })
 
@@ -35,14 +34,8 @@ export const sidebarSectionDivider = csx({
   marginY: '$space-3',
 })
 
-export const sidebarGroup = csx({
-  [dataAttr('has-title', true)]: {
-    marginTop: '$space-5',
-  },
-})
-
 export const sidebarGroupTitle = csx({
-  padding: '$space-0 $space-0 $space-1 $space-10',
+  padding: '$space-7 $space-0 $space-3 $space-10',
   text: '$body',
   fg: '$secondary',
   textTransform: 'uppercase',
@@ -50,7 +43,7 @@ export const sidebarGroupTitle = csx({
 })
 
 export const sidebarLink = csx({
-  borderRadius: 'var(--radii)',
+  borderRadius: '$base',
   text: '$body',
   textDecoration: 'none',
   padding: '$space-2 $space-10',
@@ -60,8 +53,8 @@ export const sidebarLink = csx({
     bg: '$action.neutral.tertiaryHover',
     color: '$action.neutral.tertiaryHover',
   },
-  ':active': {
-    bg: '$action.neutral.tertiaryPressed',
-    color: '$action.neutral.tertiaryPressed',
+  [dataAttr('active', true)]: {
+    bg: '$action.main.tertiaryPressed',
+    color: '$action.main.tertiaryPressed',
   },
 })

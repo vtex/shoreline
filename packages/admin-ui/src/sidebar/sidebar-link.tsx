@@ -11,7 +11,7 @@ export const SidebarLink = forwardRef(
       <a
         ref={ref}
         className={cx(styles.sidebarLink, className)}
-        data-is-active={active}
+        data-active={active}
         href={href}
         {...restProps}
       >
