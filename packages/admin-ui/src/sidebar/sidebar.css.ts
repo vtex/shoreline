@@ -17,16 +17,27 @@ export const sidebarSectionButton = csx({
   padding: '$space-2',
   text: '$action1',
   display: 'grid',
-  gridTemplateColumns: '1.25em 1fr',
+  gridTemplateColumns: '1.25em 1fr 20px',
   gap: '$space-5',
   placeItems: 'flex-start',
   bg: '$action.neutral.tertiary',
   color: '$action.neutral.tertiary',
+  '> .sidebar-section-caret': {
+    color: '$disabled',
+    // display: 'none', //apply for hiding feature
+  },
   ':hover': {
     color: '$action.neutral.tertiaryHover',
+    '> .sidebar-section-caret': {
+      color: '$action.neutral.tertiaryHover',
+      // display: 'initial', //apply for hiding feature
+    },
   },
   [dataAttr('active', true)]: {
     color: '$action.neutral.tertiaryPressed',
+    '> .sidebar-section-caret': {
+      color: '$action.neutral.tertiaryPressed',
+    },
   },
 })
 
