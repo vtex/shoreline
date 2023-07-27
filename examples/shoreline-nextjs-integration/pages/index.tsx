@@ -24,7 +24,7 @@ import faker from 'faker'
 const ITEMS_PER_PAGE = 5
 
 export const items = Array(ITEMS_PER_PAGE)
-  .fill()
+  .fill(null)
   .map((_, id) => {
     return {
       id: `${id}`,
@@ -34,7 +34,7 @@ export const items = Array(ITEMS_PER_PAGE)
     }
   })
 
-const columns = createColumns([
+const columns = createColumns<any>([
   {
     id: 'name',
     header: 'Name',
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
 
   const view = useDataViewState()
 
-  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState<any>({
     status: view.status,
     columns,
     items,
@@ -97,13 +97,13 @@ const Home: NextPage = () => {
       </PageHeader>
       <PageContent layout="wide">
         <Alert>
-          Hi, you're on {account} with locale {locale}. On workspace {workspace}
-          , token {token}
+          Hi, you&apos;re on {account} with locale {locale}. On workspace{' '}
+          {workspace}, token {token}
         </Alert>
         <DataView state={view}>
           <Table {...getTable()} className={csx({ width: '100%' })}>
             <THead>
-              {columns.map((column) => (
+              {columns.map((column: any) => (
                 <THeadCell {...getHeadCell(column)} key={column.id} />
               ))}
             </THead>
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
               {data.map((item) => {
                 return (
                   <TBodyRow key={item.id} onClick={() => handleNavigate(item)}>
-                    {columns.map((column) => {
+                    {columns.map((column: any) => {
                       return (
                         <TBodyCell
                           {...getBodyCell(column, item)}
