@@ -3,7 +3,9 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.5.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.5.2-dev.3...@vtex/admin-ui-hooks@0.5.2) (2023-06-22)
+## 0.5.2-dev.7 (2023-07-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-hooks
 
 ## 0.5.2-dev.6 (2023-06-29)
 
