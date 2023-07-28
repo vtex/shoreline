@@ -1,219 +1,74 @@
-# Raccoon
+# Raccoon Next.js SDK
 
-Collection of helpers to enable development of next-js apps on the VTEX admin.
+The Raccoon Next.js SDK is designed to assist you in building Next.js applications and integrating them with VTEX IO. You can install it on your Next.js application using the following command:
 
----
+```bash
+yarn install @vtex/raccoon-next
+```
 
-<img src="/assets/banner.jpeg" alt="raccoon" width="100%" />
+- [Raccoon Next.js SDK](#raccoon-nextjs-sdk)
+  - [Getting Started](#getting-started)
+    - [IO Integration Setup](#io-integration-setup)
+    - [Next.js App Setup](#nextjs-app-setup)
+      - [connect](#connect)
+      - [bootstrap](#bootstrap)
+    - [Development](#development)
+    - [Hooks](#hooks)
+      - [useAdmin Hook](#useadmin-hook)
+      - [useNavigation Hook](#usenavigation-hook)
 
-Table of Contents
+## Getting Started
 
-- [The recipe](#the-recipe)
-- [Integration App](#integration-app)
-  - [Basic usage](#basic-usage)
-  - [Advanced usage](#advanced-usage)
-  - [Basic or Advanced, which one should I use?](#basic-or-advanced-which-one-should-i-use)
-- [The next app](#the-next-app)
-  - [I18n](#i18n)
-  - [Proxy requests](#proxy-requests)
-- [Setup the application host](#setup-the-application-host)
-- [Setup the repository](#setup-the-repository)
-- [SDK Documentations](#sdk-documentation)
-- [Library development](#library-development)
-  - [Releasing a new version](#releasing-a-new-version)
+### IO Integration Setup
 
-## 🧁 The recipe
-
-Follow the steps below to create a raccoon application.
-
-1. Create and setup an Integration application
-2. Create and setup a Next application
-3. Setup the application host
-4. Setup the repository
-
-In the next sections you will understand how to accomplish each one of the steps.
-
-## Integration app (VTEX IO application)
-
-This app is responsible for creating an integration between VTEX IO and the Next JS application, it's necessary so we can access IO information such as token, account, workspace, and render-runtime data from the Next project.
-
-There are two ways of creating an Integration App, the Basic and the Advanced way, but in both of them you'll need to create a new IO application, the only difference will be the `builders` used in each one of them.
-
-### Basic usage
-
-By default, the admin shell abstracts part of the Integration App creation within the admin builder which cover the most part of the scenarios while making it easier to implement this application.
-
-#### Architecture
-
-<img src="/assets/basic-integration-app.png" alt="raccoon" width="100%" />
-
-#### Implementation
-
-**Admin builder**
-
-1. Create a navigation.json:
+Although you are building a Next.js app, you still need to declare the `admin` and `messages` builder for it, as in this `manifest.json` example:
 
 ```json
-// /admin/navigation.json
 {
-  "section": "desired_section", // orders, for example
-  "titleId": "admin-example.navigation.label-group", // you should add this on your messages
-  "adminVersion": 4, // only for v4 :)
+  "name": "raccoon-nextjs-example",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "Raccoon Next.js SDK",
+  "description": "",
+  "mustUpdateAt": "2022-08-28",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {},
+  "builders": {
+    "admin": "0.x",
+    "messages": "1.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
+```
+
+In order for VTEX IO to correctly map your app route and host, you need to declare them on the `/admin/navigation.json` (refer to the [admin-shell docs](https://github.com/vtex/admin-shell#the-admin-folder) to understand these properties) file, following this example:
+
+```json
+{
+  "section": "desired_section",
+  "titleId": "admin-example.navigation.label-group",
+  "adminVersion": 4,
   "subSection": "desired_subSection",
   "subSectionItems": [
     {
-      "labelId": "admin-example.navigation.label-main", // also on messages
-      "path": "/admin/example", // your raccoon app base path
+      "labelId": "admin-example.navigation.label-main",
+      "path": "/admin/example",
       "raccoon": {
-        "prodUrl": "production-url", // this is where your app is hosted
-        "devUrl": "dev-url" // this is where your dev preview is hosted, by default it is set to localhost:3000 and the field is optional
+        "prodUrl": "production-url",
+        "devUrl": "dev-url"
       }
     }
   ]
 }
 ```
 
-### Advanced usage
+You will also need to keep declaring the message IDs of your app under the `messages` folder.
 
-If you need a specific behavior from IO that is not covered by our abstraction you can also create your own Integration App from scratch, to do that just follow the Admin, Node, and React builder implementation examples shown below.
+### Next.js App Setup
 
-> **Warning**
->
-> Be aware that by using the advanced way you are implementing an application which is rendered within an Iframe inside of another Iframe.
-
-#### Architecture
-
-<img src="/assets/advanced-integration-app.png" alt="raccoon" width="100%" />
-
-#### Implementation
-
-**Admin builder**
-
-1. Create a navigation.json:
-
-```json
-// /admin/navigation.json
-{
-  "section": "desired_section", // orders, for example
-  "titleId": "admin-example.navigation.label-group", // you should add this on your messages
-  "adminVersion": 4, // only for v4 :)
-  "subSection": "desired_subSection",
-  "subSectionItems": [
-    {
-      "labelId": "admin-example.navigation.label-main", // also on messages
-      "path": "/admin/example" // your app route
-    }
-  ]
-}
-```
-
-2. Create a slug based route:
-
-```json
-// /admin/routes.json
-{
-  "admin.app.example": {
-    "component": "EmbeddedApp",
-    "path": "/admin/app/example/*slug" // this will allow next js routing to run free
-  }
-}
-```
-
-**React builder**
-
-1. Install the `@vtex/raccoon-io` package: `yarn add @vtex/raccoon-io`.
-2. Add the iframe to render the next app:
-
-```tsx
-// /react/embedded-app.tsx
-import React from "react";
-import { useRuntime } from "vtex.render-runtime";
-import { Iframe, useIframeState } from "@vtex/raccoon-io";
-
-const PROD_URL = "production-url"; // this is where yout app is hosted
-const BASE_PATH = "/admin/example"; // base path of routes.json without the *slug
-
-export default function EmbeddedApp() {
-  const {
-    account,
-    workspace,
-    production,
-    navigate
-    culture: { locale, currency },
-  } = useRuntime();
-
-  const state = useIframeState({
-    prodUrl: PROD_URL,
-    basePath: BASE_PATH,
-    runtime: {
-      account,
-      workspace,
-      production,
-      locale,
-      currency,
-    },
-    asyncHandlers: {
-      handlerName: (data: T) => {
-        // some action
-      },
-    },
-  });
-
-  return <Iframe state={state} />;
-}
-```
-
-**Node builder**
-
-This is how we retrieve the `token` necessary to make IO requests from the next app.
-
-1. Expose a new route that returns the token.
-
-```json
-// node/service.json
-{
-  "routes": {
-    "token": {
-      "public": true,
-      "path": "/_v/admin-embedded-app/token"
-    }
-  }
-}
-```
-
-2. Retrieve the token from the cookie `VtexIdclientAutCookie`.
-
-```ts
-// /node/index.ts
-import { method, Service } from '@vtex/api'
-import type { ParamsContext, RecorderState } from '@vtex/api'
-
-// Export a service that defines resolvers and clients' options
-export default new Service<any, RecorderState, ParamsContext>({
-  routes: {
-    token: method({
-      GET: (ctx: any) => {
-        ctx.body = {
-          token: ctx.cookies.get('VtexIdclientAutCookie'),
-        }
-
-        ctx.set('cache-control', 'no-store, no-cache')
-        ctx.status = 200
-      },
-    }),
-  },
-})
-```
-
-### Basic or Advanced, which one should I use?
-
-To answer that you can ask yourself if you need to handle several things within an IO application that it isn't possible only with the Next app. If the answer is yes, go ahead with the `advanced` way, and if the answer is no or if you are unsure about it, go ahead with the `basic` one.
-
-## The next app
-
-1. Create an app using the next-js cli: `npx create-next-app my-app --typescript`.
-2. Add the `@vtex/raccoon-next` package: `yarn add @vtex/raccoon-next`.
-3. Bootstrap raccoon on the `_app.tsx`:
+These functions are essential for establishing a connection between the IO app and the Next app.
 
 ```tsx
 import type { AppProps } from 'next/app'
@@ -228,55 +83,103 @@ function App({ Component, pageProps }: AppProps) {
 export default bootstrap(App)
 ```
 
-### I18n
+#### connect
 
-There isn't a single way of adding i18n to your next application, since now the developers aren't stucked to IO's message builder and they also have more control over the technology used.
+This function connects the Next.js application with the IO application by listening to message events sent by the Raccoon Iframe on the admin-shell.
 
-You can feel free to choose the way of adding i18n and if you want one example we have [this Github discussion that shares one way of doing it.](https://github.com/vtex/raccoon/discussions/25)
+#### bootstrap
 
-#### Crowdin
+The bootstrap function is responsible for displaying the `SplashScreen` component, which indicates when it's not possible to load the Next.js application. For example, if the page fails to retrieve the token (`VtexIdclientAutCookie`) information, a retry screen is shown. Additionally, if you attempt to access the Next app outside of VTEX Admin, a screen will be displayed indicating that it's not possible.
 
-There is only one thing similar and mandatory no matter which i18n method you choose, and that is to configure the crowdin file. Just to provide you some context, [Crowdin](https://crowdin.com/) is the tool used by the localization team to automate and agile the app translation process. This file should be in the app root and you can set it up like this:
+### Development
 
-```yml
-// crowdin.yml file
-files:
-  - source: /path-to-your-messages-folder/messages/en.json
-    translation: /%original_path%/%two_letters_code%.%file_extension%
-  # If you have more than one source, you can just add multiple sources here.
-  - source: /path-to-another-messages-folder/messages/en.json
-    translation: /%original_path%/%two_letters_code%.%file_extension%
-...
+To start developing your Next.js app, make sure that dependencies are installed and start the application with:
+
+```bash
+yarn dev
 ```
 
-### Proxy requests
+Make sure you are within the Admin, on https://localhost--teamadmin.myvtex.com, for example, and navigate to the path you declared as the route of your application.
 
-Since the next application runs in a host different from `{account}.myvtex.com` when you try to make a request to one of VTEX APIs it will probably return a `CORS` error. To fix that you need to implement a proxy to work around this error. [You can find detailed information on how to implement a proxy in this discussion](https://github.com/vtex/raccoon/discussions/39), if you want to share your solution feel free to write it there!
+### Hooks
 
-## Setup the application host
+#### useAdmin Hook
 
-For now we don't have a definition of which host you should use in your application. For starting the development you can follow with `Vercel` which is simple and easy to setup, but keep in mind that this tool has a high cost, so before deploying the app to be used by VTEX clients this should be considered.
+The useAdmin hook provides access to IO information within the Next app.
 
-> **Note**
->
-> We have plans of defining the best host for these new applications that runs outside the render. Once we have it we'll share and document how you should procceed.
+```tsx
+import { useAdmin } from '@vtex/raccoon-next'
 
-## Setup the repository
+connect()
 
-You can setup your repository in many different ways:
+export function Example(props: Props) {
+  const {
+    token,
+    account,
+    workspace,
+    locale,
+    currency,
+    devUrl,
+    prodUrl,
+    basePath,
+    production,
+  } = useAdmin()
 
-1. Monorepo, where the Integration App and the Next app will be in the same repository. [Example](https://github.com/vtex/admin-catalog-facelift)
-2. Different repos, where one will be for the Integration app and the other one to the Next app.
+  return <Component />
+}
+```
 
-## SDK Documentations
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| token      | string  | The authentication token necessary for making requests to VTEX IO services |
+| account    | string  | The account name                                                           |
+| workspace  | string  | The workspace name                                                         |
+| locale     | string  | The currently applied locale in the admin                                  |
+| currency   | string  | The account's currency                                                     |
+| devUrl     | string  | The devUrl defined in the integration app                                  |
+| prodUrl    | string  | The prodUrl defined in the integration app                                 |
+| basePath   | string  | The base path defined in the integration app                               |
+| production | boolean | Indicates whether it is a production workspace or not                      |
 
-- [Next SDK](./next-sdk.md)
-- [IO SDK](./io-sdk.md)
+#### useNavigation Hook
 
-## Library Development [🚧 WIP]
+The useNavigation hook returns the navigate function, which allows you to navigate through pages within or outside your Next.js app while updating the browser history and the Raccoon Iframe.
 
-Ensure you are following the conventional commits rules when commiting code.
+```tsx
+import { useNavigation } from '@vtex/raccoon-next'
 
-### Releasing a new version
+connect()
 
-Once anything reaches the `main` branch, semantic-release evaluates if a new release is needed according with the commit messages.
+export function Example(props: Props) {
+  const { navigate } = useNavigation()
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          navigate('/about') // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
+        }}
+      >
+        Navigate to the page `/about` of your Next.js app
+      </Button>
+      <Button
+        onClick={() => {
+          navigate('/orders', { type: 'adminRelativeNavigation' }) // This will navigate to `${tenant}.myvtex.com/admin/orders`
+        }}
+      >
+        Navigate to the admin orders module
+      </Button>
+    </>
+  )
+}
+```
+
+| Name     | Type                                              | Description                             |
+| -------- | ------------------------------------------------- | --------------------------------------- |
+| navigate | (path: string, options?: NavigateOptions) => void | The function responsible for navigation |
+
+```ts
+interface NavigateOptions {
+  type: 'navigation' | 'adminRelativeNavigation'
+}
+```
