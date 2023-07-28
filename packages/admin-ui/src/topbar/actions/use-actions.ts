@@ -4,15 +4,15 @@ import { useModalState } from '@vtex/admin-ui'
 
 import type { DialogState } from 'ariakit'
 
-export interface TopbarOptionsState extends DialogState {
+export interface ActionsState extends DialogState {
   activeItem: string
-  setActive: (id: string) => void
+  setActiveItem: React.Dispatch<React.SetStateAction<string>>
   hasActiveItem: boolean
   title: string
   setTitle: React.Dispatch<React.SetStateAction<string>>
 }
 
-export function useTopbarOptions(props: UseOptionsProps) {
+export function useActions(props: UseActionsProps) {
   const { initialTitle } = props
   const modal = useModalState()
 
@@ -22,25 +22,23 @@ export function useTopbarOptions(props: UseOptionsProps) {
 
   const hasActiveItem = !!activeItem
 
-  const setActive = (id: string) => setActiveItem(id)
-
   useEffect(() => {
     if (modal.open) return
 
-    setActive('')
+    setActiveItem('')
     setTitle(initialTitle)
   }, [modal.open])
 
   return {
     ...modal,
     activeItem,
-    setActive,
+    setActiveItem,
     hasActiveItem,
     title,
     setTitle,
   }
 }
 
-export interface UseOptionsProps {
+export interface UseActionsProps {
   initialTitle: string
 }

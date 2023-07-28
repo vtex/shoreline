@@ -4,14 +4,14 @@ import type {
   MouseEventHandler,
 } from 'react'
 import React from 'react'
-import type { TopbarOptionsState } from './use-options'
-import { optionTheme } from './options.css'
+import type { ActionsState } from './use-actions'
+import { actionTheme } from './actions.css'
 import { Stack } from '../../stack'
 import { Center } from '../../center'
 import { IconArrowUpRight } from '@vtex/phosphor-icons'
 import { cx } from '@vtex/admin-ui-core'
 
-export function Option(props: OptionProps) {
+export function Action(props: ActionProps) {
   const {
     state,
     onClick,
@@ -34,14 +34,14 @@ export function Option(props: OptionProps) {
       return
     }
 
-    state.setActive(id)
+    state.setActiveItem(id)
     state.setTitle(children)
   }
 
-  const OptionButton = () => (
+  const ActionButton = () => (
     <button
       onClick={handleOnClick}
-      className={cx(optionTheme, className)}
+      className={cx(actionTheme, className)}
       {...buttonProps}
     >
       <Stack direction="row" space="$space-5">
@@ -58,19 +58,19 @@ export function Option(props: OptionProps) {
     <div>
       {href ? (
         <a href={href} target="_blank" rel="noreferrer">
-          <OptionButton />
+          <ActionButton />
         </a>
       ) : (
-        <OptionButton />
+        <ActionButton />
       )}
     </div>
   )
 }
 
-export interface OptionProps
+export interface ActionProps
   extends Omit<ComponentPropsWithoutRef<'button'>, 'children'> {
   children: string
-  state: TopbarOptionsState
+  state: ActionsState
   id: string
   href?: string
   icon: ReactNode

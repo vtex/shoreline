@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import type { TopbarOptionsState } from './use-options'
+import type { ActionsState } from './use-actions'
 import React from 'react'
 
-export function OptionItem(props: OptionItemProps) {
+export function ActionItem(props: ActionItemProps) {
   const { state, id, children } = props
 
   if (state.activeItem !== id) return null
@@ -10,8 +10,8 @@ export function OptionItem(props: OptionItemProps) {
   return <>{children}</>
 }
 
-interface OptionItemProps {
-  state: TopbarOptionsState
+interface ActionItemProps {
+  state: ActionsState
   id: string
   children: ReactNode
 }

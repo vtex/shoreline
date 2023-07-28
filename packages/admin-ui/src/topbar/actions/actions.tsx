@@ -7,14 +7,14 @@ import {
   ModalDismiss,
   ModalHeader,
   ModalTitle,
-  modalTheme,
+  cx,
 } from '@vtex/admin-ui'
 import { IconDotsThreeVertical } from '@vtex/phosphor-icons'
-import type { TopbarOptionsState } from './use-options'
-import { backdropTheme } from './options.css'
+import type { ActionsState } from './use-actions'
+import { backdropTheme, modalTheme } from './actions.css'
 
-export function Options(props: OptionsProps) {
-  const { state, children } = props
+export function Actions(props: ActionsProps) {
+  const { state, children, className = '', ...restProps } = props
 
   return (
     <>
@@ -26,10 +26,11 @@ export function Options(props: OptionsProps) {
 
       <Modal
         state={state}
-        className={modalTheme}
+        className={cx(modalTheme, className)}
         backdropProps={{
           className: backdropTheme,
         }}
+        {...restProps}
       >
         <ModalHeader>
           <ModalTitle>{state.title}</ModalTitle>
@@ -41,6 +42,6 @@ export function Options(props: OptionsProps) {
   )
 }
 
-interface OptionsProps extends ComponentPropsWithoutRef<'div'> {
-  state: TopbarOptionsState
+interface ActionsProps extends ComponentPropsWithoutRef<'div'> {
+  state: ActionsState
 }

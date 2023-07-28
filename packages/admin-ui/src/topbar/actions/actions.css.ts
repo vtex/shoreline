@@ -1,6 +1,6 @@
 import { csx } from '@vtex/admin-ui-core'
 
-export const optionTheme = csx({
+export const actionTheme = csx({
   '*': { text: '$title1' },
   border: 'none',
   borderRadius: '$base',
@@ -35,7 +35,7 @@ export const optionTheme = csx({
   },
 })
 
-export const optionsListTheme = csx({
+export const actionListTheme = csx({
   '> div > *:nth-child(n+2)': {
     borderTop: '$neutral',
   },
