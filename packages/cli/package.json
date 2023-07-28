@@ -1,0 +1,45 @@
+{
+  "name": "@vtex/shoreline-cli",
+  "version": "0.0.0",
+  "description": "Shoreline utilities",
+  "main": "dist/vtex-shoreline-cli.cjs.js",
+  "module": "dist/vtex-shoreline-cli.esm.js",
+  "types": "dist/vtex-shoreline-cli.cjs.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "load-file": "ts-node --project tsconfig.node.json src/test-load.ts",
+    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
+    "prebuild": "rm -rf dist",
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
+  },
+  "devDependencies": {
+    "@types/cssesc": "3.0.0",
+    "@types/fs-extra": "11.0.1",
+    "@types/node": "20.4.5",
+    "cssesc": "3.0.0",
+    "fs-extra": "11.1.1",
+    "lightningcss": "1.21.5",
+    "ts-node": "10.9.1"
+  },
+  "dependencies": {
+    "commander": "11.0.0",
+    "esbuild": "0.18.17",
+    "yargs": "17.7.2",
+    "csstype": "3.1.2",
+    "picocolors": "1.0.0",
+    "globy": "0.1.8",
+    "slash": "5.1.0"
+  }
+}
