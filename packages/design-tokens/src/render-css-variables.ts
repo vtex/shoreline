@@ -1,5 +1,8 @@
 import cssesc from 'cssesc'
 
+/**
+ * Transform design tokens into css variables
+ */
 export function renderCssVariables(object: Record<string, any>) {
   let cssString = ''
 

@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "npm run build:tokens && ts-node --project tsconfig.node.json scripts/build.ts",
+    "build:types": "ts-node --project tsconfig.node.json scripts/build-types.ts",
     "build:tokens": "ts-node --project tsconfig.node.json scripts/build-tokens.ts"
   },
   "devDependencies": {

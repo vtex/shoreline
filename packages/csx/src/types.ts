@@ -1,34 +1,5 @@
 import type * as CSSType from 'csstype'
-
-import type {
-  bgTokens,
-  radiiTokens,
-  borderTokens,
-  colorTokens,
-  zTokens,
-  fgTokens,
-  shadowTokens,
-  spaceTokens,
-  textTokens,
-} from './tokens-as-ts-literals'
-
-export type TokenType =
-  | 'bg'
-  | 'fg'
-  | 'color'
-  | 'border'
-  | 'radii'
-  | 'bp'
-  | 'shadow'
-  | 'z'
-  | 'space'
-  | 'ff'
-  | 'fs'
-  | 'fw'
-  | 'lh'
-  | 'ls'
-
-export type TokenTypeDictionary = Record<string, TokenType>
+import type { Token } from '@vtex/shoreline-design-tokens'
 
 export type Mixin = (
   value: string | number,
@@ -54,15 +25,15 @@ export type CSSUnit = CSSAbsoluteUnit | CSSRelativeUnit
 
 export type CSSValueWithUnit = `${string}${CSSUnit}`
 
-type ColorTokens = typeof colorTokens[number]
-type FgTokens = typeof fgTokens[number]
-type BgTokens = typeof bgTokens[number]
-type BorderTokens = typeof borderTokens[number]
-type ShadowTokens = typeof shadowTokens[number]
-type TextTokens = typeof textTokens[number]
-type SpaceTokens = typeof spaceTokens[number]
-type ZTokens = typeof zTokens[number]
-type RadiiTokens = typeof radiiTokens[number]
+type ColorTokens = Token
+type FgTokens = Token
+type BgTokens = Token
+type BorderTokens = Token
+type ShadowTokens = Token
+type TextTokens = Token
+type SpaceTokens = Token
+type ZTokens = Token
+type RadiiTokens = Token
 
 type CSSPropAutocomplete<T extends string> = T | (string & {})
 
