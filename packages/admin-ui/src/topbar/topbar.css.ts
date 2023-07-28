@@ -7,4 +7,5 @@ export const topbarTheme = csx({
   '@desktop': {
     gridTemplateColumns: '1fr 1fr 1fr',
   },
+  borderBottom: '$neutral',
 })
