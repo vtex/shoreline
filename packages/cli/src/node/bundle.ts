@@ -1,32 +1,41 @@
-import fs from 'fs'
-import type { Config } from '../types'
+import _eval from 'eval'
+import { build } from 'esbuild'
+import type { ShorelineConfig } from '@vtex/shoreline-css-engine'
 
-export function requireFile(
-  file: string,
-  cwd: string = process.cwd()
-): BundleResult {
-  const absolutePath = require.resolve(file, { paths: [cwd] })
-  const fileName = fs.realpathSync(absolutePath)
+async function bundleConfigFile(file: string, cwd: string) {
+  const result = await build({
+    absWorkingDir: cwd,
+    entryPoints: [file],
+    outfile: 'out.js',
+    write: false,
+    platform: 'node',
+    bundle: true,
+    format: 'cjs',
+    sourcemap: false,
+    metafile: true,
+    mainFields: ['module', 'main'],
+  })
 
-  delete require.cache[absolutePath] // don't cache the file
-  // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-  const mod = require(fileName)
+  const { text } = result.outputFiles[0]
 
   return {
-    mod: mod.default ?? mod,
-    dependencies: [fileName],
-    code: fs.readFileSync(fileName, 'utf-8'),
+    code: text,
+    dependencies: result.metafile ? Object.keys(result.metafile.inputs) : [],
   }
 }
 
-type BundleResult = {
-  mod: any
-  dependencies: string[]
-  code: string
+interface ConfigEvalReturn {
+  default: ShorelineConfig
 }
 
-export async function bundle<T = Config>(filepath: string, cwd: string) {
-  const { mod: config, dependencies } = requireFile(filepath, cwd)
+export async function bundle(filepath: string, cwd: string) {
+  const { code } = await bundleConfigFile(filepath, cwd)
 
-  return { config: (config?.default ?? config) as T, dependencies }
+  try {
+    const javascriptCode = _eval(code) as ConfigEvalReturn
+
+    return javascriptCode?.default ? { config: javascriptCode.default } : {}
+  } catch (e) {
+    throw e
+  }
 }

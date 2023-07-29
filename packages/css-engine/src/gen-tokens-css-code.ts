@@ -1,5 +1,3 @@
-import { transform } from 'lightningcss'
-
 import { genCssVariables } from './gen-css-variables'
 import { genTokens } from './gen-tokens'
 
@@ -12,11 +10,5 @@ export function genTokensCssCode(config: Record<string, any>): Buffer {
   const tokens = genTokens(config)
   const cssVariablesCode = genCssVariables(tokens)
 
-  const { code } = transform({
-    filename: '',
-    code: Buffer.from(cssVariablesCode),
-    minify: false,
-  })
-
-  return code
+  return Buffer.from(cssVariablesCode)
 }

@@ -9,7 +9,7 @@ type ConfigFileOptions = {
   file?: string
 }
 
-const configs = ['.js']
+const configs = ['.js', '.ts']
 const shorelineConfigRegex = new RegExp(
   `shoreline.config(${configs.join('|')})$`
 )

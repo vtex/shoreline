@@ -1,7 +1,11 @@
 import { Command } from 'commander'
 import { loadConfigFile } from './node/load-config'
 import { transform } from 'lightningcss'
-import { transformTokens, renderCssVariables } from './css'
+import {
+  genCssVariables,
+  genTokens,
+  genTypescriptCode,
+} from '@vtex/shoreline-css-engine'
 import { outputFile } from './node/output-file'
 
 const program = new Command()
@@ -17,16 +21,14 @@ program
     })
 
     config
-      .then((res) => {
-        console.log(res)
-
-        const tokens = (res.config as any).config.tokens
+      .then(({ config }) => {
+        const { tokens = {}, outdir } = config
 
         console.log({
           tokens,
         })
 
-        const cssCode = renderCssVariables(transformTokens(tokens))
+        const cssCode = genCssVariables(genTokens(tokens))
 
         const { code } = transform({
           filename: 'tokens.css',
@@ -35,9 +37,15 @@ program
         })
 
         outputFile({
-          path: `${(res.config as any).config.outdir}/tokens.css`,
+          path: `${outdir}/tokens.css`,
           code,
           successMessage: '🎨 Tokens generated!',
+        })
+
+        outputFile({
+          path: `${outdir}/types.d.ts`,
+          code: genTypescriptCode(tokens),
+          successMessage: '🏆 Types generated!',
         })
       })
       .catch((e) => {

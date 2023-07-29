@@ -12,8 +12,8 @@ function getTemplateLiterals(config: Record<string, any>) {
   return returnString.slice(0, -1).trim()
 }
 
-export function genTypescriptCode(config: Record<string, any>) {
+export function genTypescriptCode(config: Record<string, any>): Buffer {
   const templateLiterals = getTemplateLiterals(config)
 
-  return `export type Token = ${templateLiterals};`
+  return Buffer.from(`export type Token = ${templateLiterals};`)
 }

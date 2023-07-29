@@ -1,6 +1,8 @@
-export const config = {
+import { declareConfig } from '@vtex/shoreline-css-engine'
+
+export default declareConfig({
   prefix: 'sl',
-  outdir: './dist/css',
+  outdir: './shoreline',
   tokens: {
     bp: {
       mobile: '40em',
@@ -433,4 +435,4 @@ export const config = {
       code: '$font-weight-ui-baseline $font-size-2 / $font-line-height-1 $font-family-mono',
     },
   },
-}
+})
