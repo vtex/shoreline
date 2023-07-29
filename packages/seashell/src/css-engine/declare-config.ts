@@ -1,4 +1,4 @@
-import type { ShorelineConfig } from './types'
+import type { ShorelineConfig } from '../types'
 
 /**
  * Define a Shoreline configuration

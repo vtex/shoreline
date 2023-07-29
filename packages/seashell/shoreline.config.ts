@@ -1,4 +1,4 @@
-import { declareConfig } from '@vtex/shoreline-css-engine'
+import { declareConfig } from './src/css-engine/declare-config'
 
 export default declareConfig({
   prefix: 'sl',

@@ -1,5 +1,5 @@
 {
-  "name": "@vtex/shoreline-cli",
+  "name": "@vtex/shoreline-seashell",
   "version": "0.0.0",
   "description": "Shoreline utilities",
   "main": "dist/vtex-shoreline-cli.cjs.js",
@@ -18,17 +18,18 @@
     "node": ">=12"
   },
   "scripts": {
-    "load-file": "ts-node --project tsconfig.node.json src/test-load.ts",
     "cli": "ts-node --project tsconfig.node.json src/cli.ts"
   },
   "devDependencies": {
+    "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.4.5",
     "ts-node": "10.9.1"
   },
   "dependencies": {
-    "@vtex/shoreline-css-engine": "0.0.0",
+    "@vtex/shoreline-utils": "0.0.0",
     "commander": "11.0.0",
+    "cssesc": "3.0.0",
     "esbuild": "0.18.17",
     "eval": "0.1.8",
     "fs-extra": "11.1.1"

@@ -1,4 +1,4 @@
-import { genTokens } from '../gen-tokens'
+import { genTokens } from '../css-engine'
 
 test('should retrun an empty object if tokens are empty', () => {
   const result = genTokens({})

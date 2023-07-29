@@ -1,11 +1,7 @@
 import { Command } from 'commander'
 import { loadConfigFile } from './node/load-config'
 import { transform } from 'lightningcss'
-import {
-  genCssVariables,
-  genTokens,
-  genTypescriptCode,
-} from '@vtex/shoreline-css-engine'
+import { genCssVariables, genTokens, genTypescriptCode } from './css-engine'
 import { outputFile } from './node/output-file'
 
 const program = new Command()

@@ -1,6 +1,6 @@
 import _eval from 'eval'
 import { build } from 'esbuild'
-import type { ShorelineConfig } from '@vtex/shoreline-css-engine'
+import type { ShorelineConfig } from '../types'
 
 async function bundleConfigFile(file: string, cwd: string) {
   const result = await build({

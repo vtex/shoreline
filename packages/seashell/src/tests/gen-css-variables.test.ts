@@ -1,4 +1,4 @@
-import { genCssVariables } from '../gen-css-variables'
+import { genCssVariables } from '../css-engine'
 
 function removeSpaces(str: string) {
   return str.replace(/\s/g, '')
