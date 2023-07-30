@@ -27,9 +27,7 @@ export function loadConfigFile(options: ConfigFileOptions) {
   return resolveConfigFile(result)
 }
 
-export async function resolveConfigFile(
-  result: ReturnType<typeof bundleConfigFile>
-) {
+export function resolveConfigFile(result: ReturnType<typeof bundleConfigFile>) {
   // TODO - MERGE CONFIG HERE!
   const mergedConfig = result.config
 
