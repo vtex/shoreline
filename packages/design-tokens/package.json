@@ -18,6 +18,7 @@
     "node": ">=12"
   },
   "scripts": {
+    "codegen": "yarn shorelinecss codegen",
     "build": "npm run build:tokens && ts-node --project tsconfig.node.json scripts/build.ts",
     "build:types": "ts-node --project tsconfig.node.json scripts/build-types.ts",
     "build:tokens": "ts-node --project tsconfig.node.json scripts/build-tokens.ts"
@@ -32,6 +33,7 @@
     "ts-node": "10.9.1"
   },
   "dependencies": {
-    "@vtex/shoreline-utils": "0.0.0"
+    "@vtex/shoreline-utils": "0.0.0",
+    "@vtex/shoreline-seashell": "0.0.0"
   }
 }

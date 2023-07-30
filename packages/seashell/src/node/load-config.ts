@@ -1,18 +1,15 @@
 import { resolve } from 'path'
 
-import { bundle } from './bundle'
 import type { LoadConfigResult } from '../types'
 import { escalade } from './escalade'
+import { load } from './load'
 
 type ConfigFileOptions = {
   cwd: string
   file?: string
 }
 
-const configs = ['.js', '.ts']
-const shorelineConfigRegex = new RegExp(
-  `shoreline.config(${configs.join('|')})$`
-)
+const shorelineConfigRegex = /shoreline.config.ts/
 
 const isShorelineConfig = (file: string) => shorelineConfigRegex.test(file)
 
@@ -24,14 +21,14 @@ export function findConfigFile({ cwd, file }: { cwd: string; file?: string }) {
   })
 }
 
-export async function loadConfigFile(options: ConfigFileOptions) {
-  const result = await bundleConfigFile(options)
+export function loadConfigFile(options: ConfigFileOptions) {
+  const result = bundleConfigFile(options)
 
   return resolveConfigFile(result)
 }
 
 export async function resolveConfigFile(
-  result: Awaited<ReturnType<typeof bundleConfigFile>>
+  result: ReturnType<typeof bundleConfigFile>
 ) {
   // TODO - MERGE CONFIG HERE!
   const mergedConfig = result.config
@@ -39,7 +36,7 @@ export async function resolveConfigFile(
   return { ...result, config: mergedConfig } as LoadConfigResult
 }
 
-export async function bundleConfigFile(options: ConfigFileOptions) {
+export function bundleConfigFile(options: ConfigFileOptions) {
   const { cwd, file } = options
   const filePath = findConfigFile({ cwd, file })
 
@@ -47,9 +44,8 @@ export async function bundleConfigFile(options: ConfigFileOptions) {
     throw new Error('Config not found')
   }
 
-  const result = await bundle(filePath, cwd)
+  const result = load(filePath)
 
-  // TODO: Validate config shape
   if (typeof result.config !== 'object') {
     throw new Error(`💥 Config must export or return an object.`)
   }

@@ -2,36 +2,59 @@
   "name": "@vtex/shoreline-seashell",
   "version": "0.0.0",
   "description": "Shoreline utilities",
-  "main": "dist/vtex-shoreline-cli.cjs.js",
-  "module": "dist/vtex-shoreline-cli.esm.js",
-  "types": "dist/vtex-shoreline-cli.cjs.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": "vtex/shoreline",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "bin": {
+    "shoreline": "bin.js",
+    "shorelinecss": "bin.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "files": [
     "dist",
-    "src"
+    "src",
+    "bin",
+    "bin.js"
   ],
   "engines": {
     "node": ">=12"
   },
   "scripts": {
-    "cli": "ts-node --project tsconfig.node.json src/cli.ts"
+    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
+    "build": "tsup src --format=esm,cjs --dts --no-splitting --shims",
+    "build-fast": "tsup src --format=esm,cjs --no-dts --no-splitting --shims",
+    "dev": "yarn build-fast --watch src"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.4.5",
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.1",
+    "tsup": "7.1.0"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "0.0.0",
+    "autoprefixer": "10.4.14",
     "commander": "11.0.0",
     "cssesc": "3.0.0",
+    "cssnano": "6.0.1",
     "esbuild": "0.18.17",
     "eval": "0.1.8",
-    "fs-extra": "11.1.1"
+    "fs-extra": "11.1.1",
+    "jiti": "1.19.1",
+    "postcss": "8.4.27",
+    "postcss-nested": "6.0.1",
+    "sucrase": "3.34.0"
   }
 }

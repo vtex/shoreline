@@ -8,8 +8,6 @@
   },
   "ts-node": {
     "transpileOnly": true,
-    // "transpiler": "ts-node/transpilers/swc-experimental",
-    // "experimentalResolver": true,
   },
   "include": ["./src"],
   "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.stories.*", "scripts/*"]

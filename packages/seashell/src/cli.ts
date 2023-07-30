@@ -1,6 +1,9 @@
 import { Command } from 'commander'
 import { loadConfigFile } from './node/load-config'
-import { transform } from 'lightningcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+import nested from 'postcss-nested'
+import postcss from 'postcss'
 import { genCssVariables, genTokens, genTypescriptCode } from './css-engine'
 import { outputFile } from './node/output-file'
 
@@ -20,23 +23,19 @@ program
       .then(({ config }) => {
         const { tokens = {}, outdir } = config
 
-        console.log({
-          tokens,
-        })
-
         const cssCode = genCssVariables(genTokens(tokens))
 
-        const { code } = transform({
-          filename: 'tokens.css',
-          code: Buffer.from(cssCode),
-          minify: false,
-        })
+        postcss([autoprefixer, cssnano, nested])
+          .process(cssCode)
+          .then(({ css }) => {
+            console.log({ css })
 
-        outputFile({
-          path: `${outdir}/tokens.css`,
-          code,
-          successMessage: '🎨 Tokens generated!',
-        })
+            outputFile({
+              path: `${outdir}/tokens.css`,
+              code: Buffer.from(css),
+              successMessage: '🎨 Tokens generated!',
+            })
+          })
 
         outputFile({
           path: `${outdir}/types.d.ts`,
