@@ -1,3 +1,8 @@
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+import nested from 'postcss-nested'
+import postcss from 'postcss'
+
 import { genCssVariables } from './gen-css-variables'
 import { genTokens } from './gen-tokens'
 
@@ -6,9 +11,15 @@ import { genTokens } from './gen-tokens'
  * @param config Shoreline configuration
  * @returns A Buffer with the CSS code.
  */
-export function genTokensCssCode(config: Record<string, any>): Buffer {
+export async function genTokensCssCode(
+  config: Record<string, any>
+): Promise<Buffer> {
   const tokens = genTokens(config)
   const cssVariablesCode = genCssVariables(tokens)
 
-  return Buffer.from(cssVariablesCode)
+  const { css } = await postcss([autoprefixer, cssnano, nested]).process(
+    cssVariablesCode
+  )
+
+  return Buffer.from(css)
 }

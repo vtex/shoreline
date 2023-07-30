@@ -1,14 +1,14 @@
-import { declareConfig } from '../css-engine'
+import { defineConfig } from '../css-engine'
 
 test('emppy configs are valid', () => {
-  const result = declareConfig({})
+  const result = defineConfig({})
   const expectation = {}
 
   expect(result).toStrictEqual(expectation)
 })
 
 test('filled configs are valid', () => {
-  const result = declareConfig({
+  const result = defineConfig({
     prefix: 'sl',
     tokens: {
       radii: '8px',

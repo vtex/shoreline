@@ -1,6 +1,6 @@
-import { declareConfig } from './src/css-engine/declare-config'
+import { defineConfig } from './src/css-engine/define-config'
 
-export default declareConfig({
+export default defineConfig({
   prefix: 'sl',
   outdir: './shoreline',
   tokens: {

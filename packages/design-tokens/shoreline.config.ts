@@ -1,6 +1,6 @@
-import { declareConfig } from '@vtex/shoreline-seashell'
+import { defineConfig } from '@vtex/shoreline-seashell'
 
-export default declareConfig({
+export default defineConfig({
   outdir: './shoreline',
   tokens: {
     color: {

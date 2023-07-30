@@ -1,11 +1,5 @@
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
-import nested from 'postcss-nested'
-import postcss from 'postcss'
-import { format } from 'prettier'
-
+import { genTokensCssCode, genTypescriptCode } from './css-engine'
 import { loadConfigFile } from './node/load-config'
-import { genCssVariables, genTokens, genTypescriptCode } from './css-engine'
 import { outputFile } from './node/output-file'
 
 export async function theme() {
@@ -15,11 +9,7 @@ export async function theme() {
     cwd: process.cwd(),
   })
 
-  const cssCode = genCssVariables(genTokens(tokens))
-
-  const { css } = await postcss([autoprefixer, cssnano, nested]).process(
-    cssCode
-  )
+  const css = await genTokensCssCode(tokens)
 
   outputFile({
     path: `${outdir}/tokens.css`,
@@ -27,15 +17,11 @@ export async function theme() {
     successMessage: '🎨 Tokens generated!',
   })
 
-  const tsCode = await format(genTypescriptCode(tokens), {
-    parser: 'typescript',
-    semi: false,
-    singleQuote: true,
-  })
+  const ts = await genTypescriptCode(tokens)
 
   outputFile({
     path: `${outdir}/types.d.ts`,
-    code: Buffer.from(tsCode),
+    code: ts,
     successMessage: '🏆 Types generated!',
   })
 }
