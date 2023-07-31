@@ -25,17 +25,23 @@
     "node": ">=12"
   },
   "scripts": {
-    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
   },
   "devDependencies": {
+    "@types/cssesc": "3.0.0",
+    "@types/fs-extra": "11.0.1",
     "@types/node": "20.4.5",
-    "ts-node": "10.9.1",
     "tsup": "7.1.0"
   },
   "dependencies": {
+    "@vtex/shoreline-utils": "0.0.0",
+    "autoprefixer": "10.4.14",
+    "cssesc": "3.0.0",
     "fs-extra": "11.1.1",
     "jiti": "1.19.1",
+    "postcss": "8.4.27",
+    "postcss-nested": "6.0.1",
+    "prettier": "3.0.0",
     "sucrase": "3.34.0"
   }
 }

@@ -39,6 +39,7 @@
     "tsup": "7.1.0"
   },
   "dependencies": {
+    "@vtex/shoreline-theme": "0.0.0",
     "commander": "11.0.0"
   }
 }
