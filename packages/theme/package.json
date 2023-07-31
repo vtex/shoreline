@@ -1,0 +1,41 @@
+{
+  "name": "@vtex/shoreline-theme",
+  "version": "0.0.0",
+  "description": "Shoreline theme package",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
+    "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.5",
+    "ts-node": "10.9.1",
+    "tsup": "7.1.0"
+  },
+  "dependencies": {
+    "fs-extra": "11.1.1",
+    "jiti": "1.19.1",
+    "sucrase": "3.34.0"
+  }
+}
