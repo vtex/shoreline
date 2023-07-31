@@ -1,10 +1,10 @@
 {
-  "name": "@vtex/shoreline-csx",
-  "version": "0.0.1-dev.0",
-  "description": "Shoreline csx definition",
-  "main": "dist/vtex-shoreline-csx.cjs.js",
-  "module": "dist/vtex-shoreline-csx.esm.js",
-  "types": "dist/vtex-shoreline-csx.cjs.d.ts",
+  "name": "@vtex/shoreline-utils",
+  "version": "0.0.0",
+  "description": "Shoreline utilities",
+  "main": "dist/vtex-shoreline-utils.cjs.js",
+  "module": "dist/vtex-shoreline-utils.esm.js",
+  "types": "dist/vtex-shoreline-utils.cjs.d.ts",
   "repository": "vtex/shoreline",
   "publishConfig": {
     "access": "public",
@@ -22,11 +22,7 @@
     "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
     "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
   },
-  "devDependencies": {
-    "runtime-stylesheet": "0.2.1"
-  },
   "dependencies": {
-    "@vtex/shoreline-utils": "0.0.0",
     "csstype": "3.1.2"
   }
 }
