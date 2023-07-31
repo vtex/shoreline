@@ -45,6 +45,7 @@
     "lint:ci": "yarn lint"
   },
   "devDependencies": {
+    "@vanilla-extract/vite-plugin": "3.8.2",
     "@babel/core": "7.22.5",
     "@babel/cli": "7.22.5",
     "@babel/plugin-proposal-class-properties": "7.18.6",
