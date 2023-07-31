@@ -1,0 +1,44 @@
+{
+  "name": "@vtex/shoreline-cli",
+  "version": "0.0.0",
+  "description": "Shoreline cli",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "bin": {
+    "shorelinecss": "bin.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "bin",
+    "bin.js"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
+    "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.5",
+    "ts-node": "10.9.1",
+    "tsup": "7.1.0"
+  },
+  "dependencies": {
+    "commander": "11.0.0"
+  }
+}
