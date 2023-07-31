@@ -1,11 +1,5 @@
 import fse from 'fs-extra'
 
-interface OutputFileProps {
-  path: string
-  code: Buffer
-  successMessage: string
-}
-
 export function outputFile(props: OutputFileProps) {
   const { path, code, successMessage } = props
 
@@ -16,4 +10,10 @@ export function outputFile(props: OutputFileProps) {
       console.log(successMessage)
     }
   })
+}
+
+interface OutputFileProps {
+  path: string
+  code: Buffer
+  successMessage: string
 }

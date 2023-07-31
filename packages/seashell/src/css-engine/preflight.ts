@@ -1,3 +1,4 @@
+export const preflight = `
 @layer sl-reset, sl-base, sl-tokens, sl-components;
 
 @layer sl-reset {
@@ -72,3 +73,4 @@
     border-spacing: 0;
   }
 }
+`

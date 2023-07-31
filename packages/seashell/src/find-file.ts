@@ -1,7 +1,17 @@
 import { dirname, resolve } from 'path'
 import { readdirSync, statSync } from 'fs'
 
-export function escalade(start: string, callback: Callback) {
+export function findFile(props: FindFileProps) {
+  const { cwd, path, constraint } = props
+
+  if (path) return resolve(cwd, path)
+
+  return climbUp(cwd, (_dir, paths) => {
+    return paths.find(constraint)
+  })
+}
+
+function climbUp(start: string, callback: Callback) {
   let dir = resolve('.', start)
   let tmp
   const stats = statSync(dir)
@@ -17,6 +27,12 @@ export function escalade(start: string, callback: Callback) {
   }
 
   return ''
+}
+
+interface FindFileProps {
+  cwd: string
+  constraint: (filePath: string) => boolean
+  path?: string
 }
 
 type Callback = (directory: string, files: string[]) => string | false | void

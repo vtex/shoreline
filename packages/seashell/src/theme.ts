@@ -1,11 +1,11 @@
 import { genTokensCssCode, genTypescriptCode } from './css-engine'
-import { loadConfigFile } from './node/load-config'
-import { outputFile } from './node/output-file'
+import { loadConfig } from './config'
+import { outputFile } from './output-file'
 
 export async function theme() {
   const {
     config: { tokens = {}, outdir },
-  } = loadConfigFile({
+  } = loadConfig({
     cwd: process.cwd(),
   })
 

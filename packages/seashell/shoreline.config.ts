@@ -1,4 +1,4 @@
-import { defineConfig } from './src/css-engine/define-config'
+import { defineConfig } from './src/config'
 
 export default defineConfig({
   prefix: 'sl',

@@ -1,4 +1,4 @@
-import { defineConfig } from '../css-engine'
+import { defineConfig } from '../config'
 
 test('emppy configs are valid', () => {
   const result = defineConfig({})

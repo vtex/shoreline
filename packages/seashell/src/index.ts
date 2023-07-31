@@ -1,1 +1,3 @@
-export * from './css-engine'
+import { defineConfig } from './config'
+
+export { defineConfig }

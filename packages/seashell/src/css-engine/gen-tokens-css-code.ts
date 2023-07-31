@@ -3,6 +3,7 @@ import cssnano from 'cssnano'
 import nested from 'postcss-nested'
 import postcss from 'postcss'
 
+import { preflight } from './preflight'
 import { genCssVariables } from './gen-css-variables'
 import { genTokens } from './gen-tokens'
 
@@ -17,8 +18,10 @@ export async function genTokensCssCode(
   const tokens = genTokens(config)
   const cssVariablesCode = genCssVariables(tokens)
 
+  const baseCode = preflight + cssVariablesCode
+
   const { css } = await postcss([autoprefixer, cssnano, nested]).process(
-    cssVariablesCode
+    baseCode
   )
 
   return Buffer.from(css)

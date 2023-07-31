@@ -13,25 +13,10 @@ export interface ShorelineConfig {
    */
   cwd?: string
   /**
-   * Whether to include css reset styles in the generated css.
-   * @default true
-   */
-  preflight?: boolean
-  /**
    * The namespace prefix for the generated css classes and css variables.
    * @default 'sl'
    */
   prefix?: string
-  /**
-   * Whether to minify the generated css.
-   * @default false
-   */
-  minify?: boolean
-  /**
-   * The root selector for the css variables.
-   * @default ':where(:host, :root)'
-   */
-  cssVarRoot?: string
   /**
    * Tokens
    * @default @vtex/shoreline-themes/admin
