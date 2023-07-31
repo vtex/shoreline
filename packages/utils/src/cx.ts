@@ -1,3 +1,5 @@
+import { constants } from './constants'
+
 type CxArgs = Array<string | null | undefined>
 
 /**
@@ -10,14 +12,15 @@ type CxArgs = Array<string | null | undefined>
 export function cx(...args: CxArgs): string {
   const classNames = args.reduce((acc, argument) => {
     if (!argument) {
-      return acc ?? ''
+      return acc ?? constants.emptyString
     }
 
     const trimmedArgument = argument.trim()
-    const trimmedClassNames = `${acc} ${trimmedArgument}`.trim()
+    const trimmedClassNames =
+      `${acc}${constants.whiteSpace}${trimmedArgument}`.trim()
 
     return trimmedClassNames
-  }, '')
+  }, constants.emptyString)
 
-  return classNames ?? ''
+  return classNames ?? constants.emptyString
 }

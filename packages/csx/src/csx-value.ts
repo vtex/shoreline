@@ -1,6 +1,9 @@
-import { cssVar } from './css-var'
+import {
+  cssVar,
+  isToken as isTokenPureFunction,
+  isString,
+} from '@vtex/shoreline-utils'
 import type { CsxObject } from './types'
-import { isToken as isTokenPureFunction, isString } from './token-utils'
 
 type EntryType = string | number | CsxObject
 

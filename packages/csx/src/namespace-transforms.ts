@@ -1,4 +1,4 @@
-import { DS_PREFIX } from './constants'
+import { constants } from '@vtex/shoreline-utils'
 import type { CsxObject } from './types'
 
 export function renameKeys(
@@ -21,9 +21,9 @@ const defaultNamespaceTransformCollection: NamespaceTransformCollection = {
 
   '@media': (csxObject) => {
     const collection = {
-      tablet: `(min-width: var(--${DS_PREFIX}-bp-tablet))`,
-      desktop: `(min-width: var(--${DS_PREFIX}-bp-desktop))`,
-      widescreen: `(min-width: var(--${DS_PREFIX}-bp-widescreen))`,
+      tablet: `(min-width: var(--${constants.dsPrefix}-bp-tablet))`,
+      desktop: `(min-width: var(--${constants.dsPrefix}-bp-desktop))`,
+      widescreen: `(min-width: var(--${constants.dsPrefix}-bp-widescreen))`,
       darkMode: '(prefers-color-scheme: dark)',
     }
 
@@ -31,10 +31,10 @@ const defaultNamespaceTransformCollection: NamespaceTransformCollection = {
   },
   '@layer': (csxObject) => {
     const collection = {
-      reset: `${DS_PREFIX}-reset`,
-      base: `${DS_PREFIX}-base`,
-      tokens: `${DS_PREFIX}-tokens`,
-      components: `${DS_PREFIX}-components`,
+      reset: `${constants.dsPrefix}-reset`,
+      base: `${constants.dsPrefix}-base`,
+      tokens: `${constants.dsPrefix}-tokens`,
+      components: `${constants.dsPrefix}-components`,
     }
 
     return renameKeys(collection, csxObject)
