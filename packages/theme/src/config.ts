@@ -1,7 +1,12 @@
 import { findFile } from './find-file'
+import type { Presets } from './presets'
 import { lazyRuntime } from './typescript-runtime'
 
 export interface ShorelineConfig {
+  /**
+   * The preset
+   */
+  preset?: Presets
   /**
    * The output directory.
    * @default 'shoreline'
