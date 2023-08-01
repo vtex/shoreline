@@ -14,7 +14,7 @@ export async function theme() {
   const css = await genStyle(extendedConfig)
 
   outputFile({
-    path: `${extendedConfig.outdir}/style.css`,
+    path: `${extendedConfig.outdir}/styles.css`,
     code: css,
     successMessage: '🎨 Style generated!',
   })
