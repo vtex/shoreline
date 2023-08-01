@@ -10,13 +10,6 @@ export default {
   title: 'shoreline/csx',
 } as Meta
 
-/**
- * ssx converts csx in jsx style
- */
-function ssx(object: CsxObject): React.CSSProperties {
-  return csx(object) as React.CSSProperties
-}
-
 export function Style() {
   return (
     <>

@@ -1,16 +1,5 @@
-import { TOKEN_PREFIX } from './constants'
-
-/**
- * Returns wether a value is a string
- * @example
- * isString('') => true
- * isString(1) => false
- */
-export function isString<T extends string = string>(
-  value: unknown
-): value is T {
-  return typeof value === 'string'
-}
+import { constants } from './constants'
+import { isString } from './string'
 
 /**
  * Returns wether a string is a token
@@ -19,7 +8,7 @@ export function isString<T extends string = string>(
  * isToken('$token') => true
  */
 export function isToken(token: unknown): token is string {
-  return isString(token) && token.startsWith(TOKEN_PREFIX)
+  return isString(token) && token.startsWith(constants.tokenPrefix)
 }
 
 /**

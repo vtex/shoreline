@@ -1,8 +1,6 @@
-import { COMMA, SPACE } from './constants'
-import { cssVar } from './css-var'
-import { isString } from './token-utils'
+import { cssVar, isString, constants } from '@vtex/shoreline-utils'
 
-const MATH_SEPARATOR = `${COMMA}${SPACE}`
+const MATH_SEPARATOR = `${constants.comma}${constants.whiteSpace}`
 
 function parseValue(value: string | number) {
   if (!isString(value)) return value
