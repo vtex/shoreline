@@ -1,10 +1,6 @@
-import type {
-  ComponentPropsWithoutRef,
-  ReactNode,
-  MouseEventHandler,
-} from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React from 'react'
-import type { ActionsState } from './use-actions'
+import type { ActionsState } from './use-action-state'
 import { actionTheme } from './actions.css'
 import { Stack } from '../../stack'
 import { Center } from '../../center'
@@ -12,6 +8,24 @@ import { IconArrowUpRight } from '@vtex/phosphor-icons'
 import { cx } from '@vtex/admin-ui-core'
 
 export function Action(props: ActionProps) {
+  const { state, href } = props
+
+  if (state.hasActiveItem) return null
+
+  return (
+    <div>
+      {href ? (
+        <a href={href} target="_blank" rel="noreferrer">
+          <ActionButton {...props} />
+        </a>
+      ) : (
+        <ActionButton {...props} />
+      )}
+    </div>
+  )
+}
+
+function ActionButton(props: ActionProps) {
   const {
     state,
     onClick,
@@ -23,24 +37,12 @@ export function Action(props: ActionProps) {
     ...buttonProps
   } = props
 
-  if (state.hasActiveItem) return null
-
-  const handleOnClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    onClick?.(e)
-
-    if (href) {
-      state.hide()
-
-      return
-    }
-
-    state.setActiveItem(id)
-    state.setTitle(children)
-  }
-
-  const ActionButton = () => (
+  return (
     <button
-      onClick={handleOnClick}
+      onClick={(e) => {
+        onClick?.(e)
+        state.handleAction(id, children, href)
+      }}
       className={cx(actionTheme, className)}
       {...buttonProps}
     >
@@ -52,18 +54,6 @@ export function Action(props: ActionProps) {
         </Stack>
       </Stack>
     </button>
-  )
-
-  return (
-    <div>
-      {href ? (
-        <a href={href} target="_blank" rel="noreferrer">
-          <ActionButton />
-        </a>
-      ) : (
-        <ActionButton />
-      )}
-    </div>
   )
 }
 

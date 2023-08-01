@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { ActionsState } from './use-actions'
+import type { ActionsState } from './use-action-state'
 import React from 'react'
 
 export function ActionItem(props: ActionItemProps) {

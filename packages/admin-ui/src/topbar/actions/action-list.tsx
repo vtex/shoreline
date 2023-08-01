@@ -1,7 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
-import { cx, Stack } from '@vtex/admin-ui'
+import { Stack } from '../../stack'
 import { actionListTheme } from './actions.css'
+import { cx } from '@vtex/admin-ui-core'
 
 export function ActionList(props: ComponentPropsWithoutRef<'div'>) {
   const { children, className = '', ...restProps } = props

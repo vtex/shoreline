@@ -1,16 +1,17 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
+import { cx } from '@vtex/admin-ui-core'
+
 import {
-  Button,
   Modal,
   ModalContent,
   ModalDismiss,
   ModalHeader,
   ModalTitle,
-  cx,
-} from '@vtex/admin-ui'
+} from '../../modal'
+import { Button } from '../../button'
 import { IconDotsThreeVertical } from '@vtex/phosphor-icons'
-import type { ActionsState } from './use-actions'
+import type { ActionsState } from './use-action-state'
 import { backdropTheme, modalTheme } from './actions.css'
 
 export function Actions(props: ActionsProps) {

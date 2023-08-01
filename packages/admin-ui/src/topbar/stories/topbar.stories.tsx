@@ -3,14 +3,14 @@ import type { Meta } from '@storybook/react'
 import { csx } from '@vtex/admin-ui-core'
 import {
   Actions,
-  useActions,
+  useActionState,
   Action,
   ActionItem,
   ActionList,
   Topbar,
   TopbarItem,
 } from '../index'
-import { Announcements } from '../actions/mock'
+import { Announcements } from './mock'
 import {
   IconBell,
   IconList,
@@ -26,8 +26,8 @@ export default {
 } as Meta
 
 export const DesktopExample = () => {
-  const state = useActions({
-    initialTitle: 'More options',
+  const state = useActionState({
+    defaultTitle: 'More options',
   })
 
   return (
@@ -77,8 +77,8 @@ export const DesktopExample = () => {
 }
 
 export const MobileExample = () => {
-  const state = useActions({
-    initialTitle: 'More options',
+  const state = useActionState({
+    defaultTitle: 'More options',
   })
 
   return (
