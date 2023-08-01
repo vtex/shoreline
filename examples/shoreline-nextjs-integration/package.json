@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.1-dev.0",
+  "version": "0.1.1-dev.1",
   "private": true,
   "scripts": {
     "dev-example": "next dev",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@faker-js/faker": "8.0.2",
-    "@vtex/admin-ui": "^0.136.1-dev.9",
-    "@vtex/raccoon-next": "^0.5.13-dev.1",
+    "@vtex/admin-ui": "^0.136.1-dev.10",
+    "@vtex/raccoon-next": "^0.5.13-dev.2",
     "next": "13.4.8"
   },
   "devDependencies": {
