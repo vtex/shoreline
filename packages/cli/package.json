@@ -30,12 +30,10 @@
     "node": ">=12"
   },
   "scripts": {
-    "cli": "ts-node --project tsconfig.node.json src/cli.ts",
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
   },
   "devDependencies": {
     "@types/node": "20.4.5",
-    "ts-node": "10.9.1",
     "tsup": "7.1.0"
   },
   "dependencies": {

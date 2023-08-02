@@ -1,6 +1,6 @@
 import { parseTokens } from '../parse-tokens'
 
-test('should retrun an empty object if tokens are empty', () => {
+test('should return an empty object if tokens are empty', () => {
   const result = parseTokens({
     tokens: {},
   })
@@ -170,7 +170,7 @@ test('should transform aliases deeply', () => {
   expect(result).toStrictEqual(expectation)
 })
 
-test('should allow another prefixes', () => {
+test('should allow other prefixes', () => {
   const result = parseTokens({
     prefix: 'vtex',
     tokens: {

@@ -1,9 +1,8 @@
 import { defineConfig } from '../config'
+import { presetBase } from './base'
 
 export const presetAdmin = defineConfig({
-  prefix: 'sl',
-  outdir: './shoreline',
-  cwd: process.cwd(),
+  ...presetBase,
   tokens: {
     bp: {
       mobile: '40em',

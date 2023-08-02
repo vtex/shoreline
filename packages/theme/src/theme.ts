@@ -1,17 +1,17 @@
-import { genStyle } from './gen-style'
+import { genStyles } from './gen-styles'
 import { loadConfig } from './config'
 import { outputFile } from './output-file'
 import { genTypescript } from './gen-typescript'
 import { extendConfig } from './extend-config'
 
 export async function theme() {
-  const { config } = loadConfig({
+  const config = loadConfig({
     cwd: process.cwd(),
   })
 
   const extendedConfig = extendConfig(config)
 
-  const css = await genStyle(extendedConfig)
+  const css = await genStyles(extendedConfig)
 
   outputFile({
     path: `${extendedConfig.outdir}/styles.css`,
