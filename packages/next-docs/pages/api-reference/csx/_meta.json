@@ -4,5 +4,6 @@
   "cascade-layers": "Cascade Layers",
   "transforms": "Transforms",
   "namespaces": "Namespaces",
-  "utils": "Utils"
+  "utils": "Utils",
+  "integrations": "Integrations"
 }
