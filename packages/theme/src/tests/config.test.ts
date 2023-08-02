@@ -52,7 +52,7 @@ describe('loadConfig', () => {
       cwd: join(__dirname, 'fixtures/js-config'),
     })
 
-    expect(result.config.prefix).toBe('js')
+    expect(result.prefix).toBe('js')
   })
 
   it('should load a ts config', () => {
@@ -60,6 +60,6 @@ describe('loadConfig', () => {
       cwd: join(__dirname, 'fixtures/ts-config'),
     })
 
-    expect(result.config.prefix).toBe('ts')
+    expect(result.prefix).toBe('ts')
   })
 })

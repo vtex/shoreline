@@ -13,7 +13,7 @@ import type { ShorelineConfig } from './config'
  * @param config Shoreline configuration
  * @returns A Buffer with the CSS code.
  */
-export async function genStyle(config: ShorelineConfig): Promise<Buffer> {
+export async function genStyles(config: ShorelineConfig): Promise<Buffer> {
   const { tokens = {}, prefix } = config
 
   const parsedTokens = parseTokens({

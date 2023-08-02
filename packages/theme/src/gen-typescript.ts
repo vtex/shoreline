@@ -21,13 +21,13 @@ function getTemplateLiterals(config: ShorelineConfig) {
   const { tokens = {}, prefix } = config
 
   let returnString = ''
-  const unPrefixedTokens = parseTokens({
+  const unprefixedTokens = parseTokens({
     tokens,
     prefix,
     unprefixed: true,
   })
 
-  for (const key in unPrefixedTokens) {
+  for (const key in unprefixedTokens) {
     returnString += `'${constants.tokenPrefix}${key}' |`
   }
 

@@ -1,10 +1,6 @@
 import type { AnyObject, Dict } from '@vtex/shoreline-utils'
 import { constants, cssVar, flattenObject } from '@vtex/shoreline-utils'
 
-function toVar(value: string, prefix = constants.dsPrefix) {
-  return `--${prefix}-${value}`
-}
-
 /**
  * Parse token from the config to a Token Dict.
  */
@@ -23,6 +19,15 @@ export function parseTokens(props: ParseTokensProps): Dict {
   }
 
   return tokenDict
+}
+
+/**
+ * Parse a prefix-value to a CSS Variable declaration
+ * @param {string} value
+ * @param {string} prefix
+ */
+function toVar(value: string, prefix: string = constants.dsPrefix) {
+  return `--${prefix}-${value}`
 }
 
 interface ParseTokensProps {
