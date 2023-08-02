@@ -50,13 +50,10 @@ export function loadConfig(options: ConfigFileOptions): ConfigReturn {
 
   const config = _loadConfig(path)
 
-  const result = {
+  return {
     ...config,
-    config: config.config,
     path,
   }
-
-  return result
 }
 
 export function isShorelineConfig(file: string) {
@@ -69,7 +66,7 @@ export function isShorelineConfig(file: string) {
  * Load and transpiles the config file given its path
  * @param path path of the config file
  */
-function _loadConfig(path: string): { config: ShorelineConfig } {
+function _loadConfig(path: string): ShorelineConfig {
   const config = (function () {
     try {
       // eslint-disable-next-line node/global-require, @typescript-eslint/no-require-imports
@@ -79,7 +76,7 @@ function _loadConfig(path: string): { config: ShorelineConfig } {
     }
   })()
 
-  return { config: config.default ?? config }
+  return config?.default ?? config
 }
 
 interface ConfigFileOptions {
@@ -87,7 +84,6 @@ interface ConfigFileOptions {
   file?: string
 }
 
-interface ConfigReturn {
-  config: ShorelineConfig
+interface ConfigReturn extends ShorelineConfig {
   path: string
 }
