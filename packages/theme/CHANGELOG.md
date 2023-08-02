@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.0...@vtex/shoreline-theme@0.0.1-dev.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* **theming:** adopt team suggestions ([b3aa92e](https://github.com/vtex/shoreline/commit/b3aa92ee8af383d43699fea3b9d751ee22da5c62))
+
+
+
+
+
 ## 0.0.1-dev.0 (2023-08-02)
 
 
