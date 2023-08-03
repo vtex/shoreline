@@ -1,0 +1,40 @@
+import { Tab, Tabs, Steps, FileTree } from 'nextra/components'
+
+# Vanilla Extract Integration
+
+Integrates CSX with [vanilla-extract](https://vanilla-extract.style/).
+
+## Usage
+
+<Steps>
+
+### Install the packages
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-vanilla-extract @vanilla-extract/css
+```
+
+### Configure vanilla-extract
+
+Vanilla Extract is a built-time solution. This means that the configuration changes depending on the project structure. [Check the docs and install the correct version for your app](https://vanilla-extract.style/documentation/integrations/next/).
+
+### Write your styles
+
+```ts filename="example.css.ts"
+import { csx } from '@vtex/shoreline-vanilla-extract'
+
+export const example = csx({
+  bg: '$bg-primary',
+  fg: '$fg-primary',
+})
+```
+
+```tsx filename="example.tsx"
+import { example } from './example.css.ts'
+
+function Example() {
+  return <div className={example}>{/** ... */}</div>
+}
+```
+
+</Steps>
