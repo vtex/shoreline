@@ -34,7 +34,7 @@
     "version:docs": "npm --prefix packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
     "build:ci": "pnpm turbo run build",
-    "build-storybook:ci": "pnpm storybook build",
+    "build-storybook:ci": "storybook build",
     "test:ci": "jest --color --runInBand --ci",
     "lint:ci": "pnpm lint"
   },

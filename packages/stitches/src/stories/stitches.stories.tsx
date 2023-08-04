@@ -1,10 +1,9 @@
 import React from 'react'
-import type { Meta } from '@storybook/react'
 import { csx } from '../csx'
 
 export default {
   title: 'shoreline/stitches',
-} as Meta
+}
 
 const container = csx({
   '@layer': {
