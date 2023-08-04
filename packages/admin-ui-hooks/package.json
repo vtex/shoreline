@@ -31,8 +31,8 @@
     "url": "https://github.com/vtex/admin-ui/issues"
   },
   "peerDependencies": {
-    "react": "^16.9 || ^17.0",
-    "react-dom": "^16.9 || ^17.0"
+    "react": "^16.9 || ^17.0 || ^18.0",
+    "react-dom": "^16.9 || ^17.0 || ^18.0"
   },
   "dependencies": {
     "@vtex/admin-ui-util": "^0.5.2-dev.9",

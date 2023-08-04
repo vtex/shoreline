@@ -32,8 +32,8 @@
   },
   "peerDependencies": {
     "@vtex/admin-ui": "0.x",
-    "react": "^16.9 || ^17.0",
-    "react-dom": "^16.9 || ^17.0"
+    "react": "^16.9 || ^17.0 || ^18.0",
+    "react-dom": "^16.9 || ^17.0 || ^18.0"
   },
   "devDependencies": {
     "@vtex/admin-ui": "^0.136.1-dev.11",

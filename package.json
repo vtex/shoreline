@@ -1,48 +1,42 @@
 {
-  "name": "onda",
+  "name": "shoreline",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "examples/*"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vtex/admin-ui.git"
   },
   "engines": {
-    "yarn": "^1.17.3",
-    "node": ">=10.13.0"
+    "node": ">=16"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lerna": "lerna",
     "turbo": "turbo",
-    "build": "yarn turbo run build",
-    "dev": "yarn turbo run dev --no-cache --parallel --continue",
+    "build": "pnpm turbo run build",
+    "dev": "pnpm turbo run dev --no-cache --parallel --continue",
     "test": "jest --color --runInBand --ci",
     "version": "lerna run version",
-    "prepublish:main": "yarn && yarn build && yarn check --integrity",
-    "prepublish:dev": "yarn && yarn build",
-    "publish:main": "yarn lerna publish",
-    "publish:dev": "yarn lerna publish prerelease --preid dev --dist-tag dev",
-    "clean": "yarn turbo clean && turbo run clean",
+    "prepublish:main": "pnpm install && pnpm build",
+    "prepublish:dev": "pnpm install && pnpm build",
+    "publish:main": "pnpm lerna publish",
+    "publish:dev": "pnpm lerna publish prerelease --preid dev --dist-tag dev",
+    "clean": "pnpm turbo clean && turbo run clean",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint packages/ --ext .js,.ts,.jsx,.tsx",
     "build-storybook": "storybook build",
-    "dev-storybook": "storybook dev -p 6006",
-    "build:storybook": "yarn run build && yarn run build-storybook",
+    "dev-storybook": "pnpm storybook dev -p 6006",
+    "build:storybook": "pnpm build && pnpm storybook build",
     "chromatic": "chromatic --exit-zero-on-changes --build-script-name=build:storybook",
-    "docs": "yarn --cwd packages/admin-ui-docs start",
-    "next-docs": "yarn --cwd packages/next-docs dev",
-    "build:docs": "yarn --cwd packages/admin-ui-docs build-docs",
-    "build:next-docs": "yarn --cwd packages/next-docs build-docs",
-    "version:docs": "yarn --cwd packages/admin-ui-docs run docusaurus docs:version",
+    "docs": "npm --prefix packages/admin-ui-docs run start",
+    "next-docs": "npm --prefix packages/next-docs run dev",
+    "build:docs": "npm --prefix packages/admin-ui-docs run build-docs",
+    "build:next-docs": "npm --prefix packages/next-docs run build-docs",
+    "version:docs": "npm --prefix packages/admin-ui-docs run docusaurus docs:version",
     "commit": "cz",
-    "build:ci": "yarn turbo run build",
-    "build-storybook:ci": "yarn run build-storybook",
+    "build:ci": "pnpm turbo run build",
+    "build-storybook:ci": "storybook build",
     "test:ci": "jest --color --runInBand --ci",
-    "lint:ci": "yarn lint"
+    "lint:ci": "pnpm lint"
   },
   "devDependencies": {
     "@babel/core": "7.22.5",
@@ -64,26 +58,27 @@
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@rollup/plugin-typescript": "11.1.1",
-    "@storybook/addon-a11y": "^7.0.24",
-    "@storybook/addon-actions": "^7.0.24",
-    "@storybook/addon-essentials": "^7.0.24",
-    "@storybook/addon-links": "^7.0.24",
-    "@storybook/react": "^7.0.24",
-    "@storybook/react-webpack5": "^7.0.24",
-    "@storybook/react-vite": "7.0.24",
+    "@storybook/addon-a11y": "^7.2.1",
+    "@storybook/addon-actions": "^7.2.1",
+    "@storybook/addon-essentials": "^7.2.1",
+    "@storybook/addon-links": "^7.2.1",
+    "@storybook/react": "^7.2.1",
+    "@storybook/theming": "7.2.1",
+    "@storybook/react-webpack5": "^7.2.1",
+    "@storybook/react-vite": "7.2.1",
     "vite": "4.3.9",
     "@swc-node/jest": "^1.3.5",
     "@swc/core": "^1.2.177",
-    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "14.0.0",
     "@testing-library/react-hooks": "8.0.1",
     "@testing-library/user-event": "14.4.3",
-    "@types/jest": "^27.4.1",
-    "@types/jest-axe": "^3.5.1",
+    "@types/jest": "29.5.3",
+    "@types/jest-axe": "3.5.5",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@types/rollup-plugin-peer-deps-external": "2.2.1",
-    "@types/testing-library__jest-dom": "^5.9.5",
+    "@types/testing-library__jest-dom": "5.14.9",
     "@typescript-eslint/parser": "5.60.1",
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@vtex/prettier-config": "^0.3.1",
@@ -102,11 +97,11 @@
     "eslint-plugin-jest": "27.2.2",
     "eslint-plugin-tsc": "2.0.0",
     "husky": "^4.2.5",
-    "jest": "^27.5.1",
-    "jest-axe": "^4.0.0",
-    "jest-environment-jsdom": "^27.3.1",
-    "jest-watch-typeahead": "1.0.0",
-    "lerna": "^3.22.1",
+    "jest": "29.6.2",
+    "jest-axe": "8.0.0",
+    "jest-environment-jsdom": "29.6.2",
+    "jest-watch-typeahead": "2.2.2",
+    "lerna": "7.1.4",
     "lint-staged": "^10.5.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
@@ -119,7 +114,7 @@
     "rollup-plugin-dts": "5.3.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-terser": "7.0.2",
-    "storybook": "^7.0.24",
+    "storybook": "^7.2.1",
     "turbo": "1.4.3",
     "typescript": "4.9.5",
     "url-loader": "^4.1.0"
@@ -127,13 +122,13 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn test",
+      "pre-push": "pnpm test",
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint --fix"
+      "pnpm lint --fix"
     ],
     "*.{gql,json,yml,md}": [
       "prettier --write"
