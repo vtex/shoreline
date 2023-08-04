@@ -42,6 +42,7 @@ export const Search = forwardRef(function Search(
   const [inputRef, ensureFocus] = useFieldFocus<HTMLInputElement>()
   const hasValue = useMemo(() => value.toString().length > 0, [value])
   const hasClearButton = hasValue && !disabled
+  const isReadonly = !onChange
 
   const icon = loading ? (
     <Spinner size={16} data-disabled={disabled} className={iconTheme} />
@@ -52,6 +53,15 @@ export const Search = forwardRef(function Search(
       className={iconTheme}
     />
   )
+
+  const inputValueProps = isReadonly
+    ? {
+        defaultValue: value,
+      }
+    : {
+        value,
+        onChange,
+      }
 
   return (
     <form
@@ -77,8 +87,7 @@ export const Search = forwardRef(function Search(
         placeholder={placeholder}
         aria-label={ariaLabel}
         disabled={disabled}
-        value={value}
-        onChange={onChange}
+        {...inputValueProps}
       />
       {hasClearButton ? (
         <Center className={innerContainerTheme} data-position="end">
