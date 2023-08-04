@@ -1,12 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) that makes use of Shoreline's [Next.js Integration](https://github.com/vtex/shoreline/tree/dev/packages/raccoon-next) and [Design System](https://github.com/vtex/shoreline/tree/dev/packages/admin-ui).
+
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) and [https://localhost--teamadmin.myvtex.com/admin/rocket] (https://localhost--teamadmin.myvtex.com/admin/rocket) with your browser to see the result.

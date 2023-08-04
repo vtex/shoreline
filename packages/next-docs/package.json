@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build-docs": "yarn --cwd ../../ build && next build",
+    "build-docs": "npm --prefix ../../ run build && next build",
     "start": "next start"
   },
   "dependencies": {
