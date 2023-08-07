@@ -1,5 +1,6 @@
 import React from 'react'
 import type { DocsThemeConfig } from 'nextra-theme-docs'
+import { Playground } from './components/playground'
 
 const containerStyle = {
   display: 'flex',
@@ -40,6 +41,9 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/next-docs',
   footer: {
     text: 'VTEX Design System for backoffice experiences',
+  },
+  components: {
+    Playground,
   },
 }
 
