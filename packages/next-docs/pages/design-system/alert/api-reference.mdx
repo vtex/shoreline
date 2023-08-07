@@ -1,0 +1,37 @@
+# API Reference
+
+Description
+
+```tsx
+<Alert>Alert description</Alert>
+```
+
+## Optional Props
+
+### `onDismiss`
+
+Action that is called once the alert is dismissed.
+
+- Type: `() => void`
+- Default: `undefined`
+
+### `variant`
+
+The tone of voice.
+
+- Type: `'info' | 'positive' | 'warning' | 'critical'`
+- Default: `'info'`
+
+### `children`
+
+Component children.
+
+- Type: `React.ReactNode`
+- Default: `undefined`
+
+### `action`
+
+An action that a user can take upon the alert.
+
+- Type: `React.ComponentProps<Button>`
+- Default: `undefined`

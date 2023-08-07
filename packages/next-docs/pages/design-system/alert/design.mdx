@@ -1,0 +1,114 @@
+# Design
+
+## FAQ
+
+### When to use a Toast instead of an Alert?
+
+Choose a Toast for notifications related to the entire page that happen
+after the page loads and can disappear automatically. Non-dismissive Alerts
+that indicate progress are the only ones that can appear after the page
+loads.
+
+### When to use info, critical, warning or positive Alert?
+
+- Use an info Alert for neutral notifications that don't require
+  attention, such as announcements, product invitations, or task progress.
+  For example, "This release is being published and may take up to 5 minutes".
+
+- Use a critical Alert, usually with a proposed action, when an action has
+  failed due to a technical error or a user error. For example, "There are 2 invoices that could not be processed because of a
+  technical issue" with a _Try again_ button.
+
+- Use a warning Alert when something may not be working as expected or
+  when there is something to be cautious about, usually with a proposed
+  action. For example, "Stores in this account still can't sell to the final customer" with an _Activate account_ button.
+
+- Use a positive Toast for successful actions or messages that don't
+  require attention and further actions. For example, "The performance of this seller improved and now meets minimum
+  requirements" with a _View performance_ button.
+
+### When to include an action in an Alert?
+
+The Alert message should be as brief as possible, so include an action to
+complement it when needed. Examples include:
+
+- Providing more details in a modal or related page.
+- Retrying a failed action.
+- Testing a new feature or product
+
+Read the [Button](/components/button) documentation for more details.
+
+### When should an Alert be dismissible?
+
+- Most Alerts should be dismissible, such as success feedback and product
+  invitations. Alerts should only be non-dismissible when they provide
+  crucial information and their persistence doesn't negatively affect the
+  user experience.
+
+- A warning Alert with a help text that needs prominence should be
+  considered part of the page's content and therefore non-dismissible. For
+  example, "The Application Token will be only displayed once. Make sure to copy and save it in a safe place."
+
+- A critical Alert with an error can be dismissible or not depending on
+  its severity. Errors that block the usage of a page should not be
+  dismissible. Consider the following examples:
+  - Non-dismissible: "This extension is not available, as payment flags are not enabled
+    in the store."
+    with a _Set up payment_ button.
+  - Dismissible:
+    "There are 2 invoices that could not be processed because of a
+    technical issue."
+    with a _Try again_ button.
+
+### What should be the position of an Alert in a container?
+
+Position the Alert semantically, either directly on the page (global Alert)
+or inside a card or modal (contextual Alert). Always at the start of the
+container, right below its header, taking up 100% of the width and
+respecting the container margins.
+
+#### What to avoid
+
+Don't place the Alert inside, above or attached to the Page Header.
+
+### When should an Alert appear?
+
+Alerts should usually appear as the page loads. Non-dismissive alerts that
+provides loading feedback, however, can appear right after a merchant's
+action.
+
+### What should be the duration of an Alert?
+
+Every Alert should not be dismissed automatically. For temporary
+notifications, use a [Toast](/toast) instead.
+
+### When should multiple Alerts appear simultaneously?
+
+Avoid displaying more than one Alert at the same time. Prefer to summarize
+the information in a single Alert. For example, use _"There are 10 invoices
+with recent updates"_ with a _View details_ button in an _Invoices_ listing
+page when there have been multiple updates.
+
+### What should be the message of an Alert?
+
+- Write a single sentence that is direct and has up to 2 lines.
+- Use sentence case, but capitalize proper nouns.
+- Critical Alerts should include an action that fixes the issue or at
+  least explain what to do next.
+- An info Alert with a product invitation should use a standard message,
+  such as _"A new Products experience is available. This version will be
+  discontinued in June 2023."_ with a _Try new version_ button.
+
+#### What to avoid
+
+- Don't write text longer than 240 characters. Prefer to include an action
+  that complements the message when needed.
+- Don't use personal pronouns.
+- Don't use technical language. For example, prefer using _"The invoice
+  could not be processed because of a technical issue"_ instead of
+  _"Error 298dx9283 prevented the invoice from being processed"_.
+
+### What should be the icon of an Alert?
+
+Each Alert variant includes a specific icon according to its semantics. This
+is the default behavior and should not be customized.
