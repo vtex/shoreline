@@ -4,27 +4,23 @@ import { lazyRuntime } from './typescript-runtime'
 
 export interface ShorelineConfig {
   /**
-   * The preset
+   * The preset.
    */
   preset?: Presets
   /**
    * The output directory.
-   * @default 'shoreline'
    */
   outdir?: string
   /**
    * The current working directory.
-   * @default 'process.cwd()'
    */
   cwd?: string
   /**
-   * The namespace prefix for the generated css classes and css variables.
-   * @default 'sl'
+   * The namespace prefix for the generated CSS classes and css variables.
    */
   prefix?: string
   /**
    * Tokens
-   * @default @vtex/shoreline-themes/admin
    */
   tokens?: Record<string, any>
 }
