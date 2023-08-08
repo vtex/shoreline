@@ -1,7 +1,27 @@
 # Divider
 
-```tsx
-<Divider />
-```
+<Playground files={{
+  '/App.js': `import { Divider } from '@vtex/admin-ui'
+import './style.css'
+
+export default function App() {
+  return (
+    <div>
+      <div className="block" />
+      <Divider />
+      <div className="block" />
+    </div>
+  )
+}
+`,
+  '/style.css': `
+.block {
+  background-color: gray;
+  width: 100px; 
+  height: 100px;
+  margin: 1rem 0;
+}
+`
+}} />
 
 ## Anatormy

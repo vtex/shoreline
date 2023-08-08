@@ -1,7 +1,60 @@
 # Alert
 
-```tsx
-<Alert variant="info">Info alert</Alert>
-```
+<Playground files={{
+  '/App.js': `import { Alert } from '@vtex/admin-ui'
+
+export default function App() {
+  return (
+    <Alert
+      action={{
+        children: 'Action',
+        onClick: () => alert('Action'),
+      }}
+      onDismiss={() => {
+        alert('Dismissed!')
+      }}
+    >
+      Alert message
+    </Alert>
+  )
+}
+`,
+}} />
 
 ## Anatormy
+
+```jsx
+<Alert
+  variant="info"
+  action={{ children: '', onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  {children}
+</Alert>
+```
+
+## Styling
+
+The Alert accepts a `className` as a property.
+
+```jsx
+<Alert className="custom-class" />
+```
+
+### Data Attributes
+
+The `variant` attribute changes based on the `variant` property:
+
+- `[data-variant="info"]`
+- `[data-variant="positive"]`
+- `[data-variant="critical"]`
+- `[data-variant="warning"]`
+
+The `dismissible` attribute is true whether `onDismiss` is passed:
+
+- `[data-dismissible="true"]`
+- `[data-dismissible="false"]`
+
+## Accessibility
+
+This component implements the [Alert](https://www.w3.org/WAI/ARIA/apg/patterns/alert/) pattern and has the [alert](https://w3c.github.io/aria/#alert) aria role.
