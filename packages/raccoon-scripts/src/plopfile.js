@@ -38,6 +38,7 @@ export default function (plop) {
       getAction('pages/index.tsx'),
       getAction('public/favicon.ico'),
       getAction('.eslintrc.json'),
+      getAction('.gitignore.json'),
       getAction('.vtexignore'),
       getAction('manifest.json'),
       getAction('next.config.js'),
