@@ -8,10 +8,10 @@
     "src"
   ],
   "bin": {
-    "init": "./src/index.js"
+    "raccoon-init": "src/index.js"
   },
   "scripts": {
-    "init": "node ./src/index.js"
+    "raccoon-init": "node ./src/index.js"
   },
   "dependencies": {
     "plop": "3.1.2",
