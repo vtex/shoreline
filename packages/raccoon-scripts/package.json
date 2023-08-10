@@ -1,0 +1,20 @@
+{
+  "name": "@vtex/shoreline-raccoon-scripts",
+  "description": "Raccoon scripts",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "bin": {
+    "init": "./src/index.js"
+  },
+  "scripts": {
+    "init": "node ./src/index.js"
+  },
+  "dependencies": {
+    "plop": "3.1.2",
+    "minimist": "1.2.8"
+  }
+}
