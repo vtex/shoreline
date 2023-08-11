@@ -1,6 +1,6 @@
 {
   "name": "@shoreline/next-docs",
-  "version": "0.0.1-dev.9",
+  "version": "0.0.1-dev.10",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,13 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.6.9",
     "@vtex/admin-ui": "^0.136.1",
     "next": "13.4.7",
     "nextra": "2.10.0",
     "nextra-theme-docs": "2.10.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "@codesandbox/sandpack-react": "^2.6.9"
+    "react-dom": "18.2.0"
   },
   "browserslist": {
     "production": [
