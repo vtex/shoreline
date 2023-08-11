@@ -3,10 +3,19 @@
   "description": "Create racccoon applications",
   "version": "0.0.1-dev.0",
   "type": "module",
+  "main": "./src/index.js",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "files": [
     "dist",
     "src"
   ],
+  "engines": {
+    "node": ">=12"
+  },
   "bin": {
     "create-raccoon-app": "./src/index.js"
   },
