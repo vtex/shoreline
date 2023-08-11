@@ -1,6 +1,6 @@
 {
-  "name": "@vtex/shoreline-raccoon-scripts",
-  "description": "Raccoon scripts",
+  "name": "@vtex/create-raccoon-app",
+  "description": "Create racccoon applications",
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -8,10 +8,10 @@
     "src"
   ],
   "bin": {
-    "raccoon-init": "src/index.js"
+    "create-raccoon-app": "./src/index.js"
   },
   "scripts": {
-    "raccoon-init": "node ./src/index.js"
+    "create-raccoon-app": "node ./src/index.js"
   },
   "dependencies": {
     "plop": "3.1.2",
