@@ -3,21 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1-dev.15](https://github.com/vtex/shoreline/compare/@vtex/admin-ui-docs@0.18.1-dev.14...@vtex/admin-ui-docs@0.18.1-dev.15) (2023-08-11)
+
+**Note:** Version bump only for package @vtex/admin-ui-docs
+
 ## 0.18.1-dev.14 (2023-08-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
 
-
-
-
-
 ## 0.18.1-dev.13 (2023-08-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs
-
-
-
-
 
 ## 0.18.1-dev.12 (2023-07-27)
 
