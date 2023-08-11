@@ -1,6 +1,5 @@
 {
   "npmClient": "pnpm",
-  "useWorkspaces": true,
   "version": "independent",
   "registry": "https://registry.npmjs.org/",
   "loglevel": "success",
