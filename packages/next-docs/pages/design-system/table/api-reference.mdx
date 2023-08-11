@@ -1,0 +1,394 @@
+import { Cards, Card } from 'nextra/components'
+
+# API Reference
+
+Renders a table element
+
+```jsx
+import {
+  Table,
+  TBody,
+  TBodyRow,
+  TBodyCell,
+  THead,
+  THeadCell,
+  useTableState,
+} from '@vtex/admin-ui'
+
+const columns = createColumns([
+  {
+    id: 'productName',
+    header: 'Product name',
+  },
+  {
+    id: 'inStock',
+    header: 'In Stock',
+  },
+])
+
+function Example() {
+  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
+    columns,
+    items: [...],
+  })
+  return (
+    <Table {...getTable()}>
+      <THead>
+        {columns.map((column) => (
+          <THeadCell {...getHeadCell(column)} />
+        ))}
+      </THead>
+      <TBody>
+        {data.map((item) => {
+          return (
+            <TBodyRow
+              key={item.id}
+              onClick={() => {...}}
+            >
+              {columns.map((column) => {
+                return <TBodyCell {...getBodyCell(column, item)} />
+              })}
+            </TBodyRow>
+          )
+        })}
+      </TBody>
+    </Table>
+  )
+}
+```
+
+## createColumns
+
+Utility function to create typesafe columns
+
+- Type: `<T>(columns: Array<TableColumn<T>>) => Array<TableColumn<T>>`
+
+### TableColumn type
+
+```ts
+/**
+ * Column type
+ * Each column, represents a field within an item
+ * @template T: Item
+ * @template R: Resolver field
+ */
+export type TableColumn<T, R = BaseResolvers<T>> =
+  | {
+      id: keyof T
+      header?: ((column: TableColumn<T>) => ReactNode) | string
+      accessor?: ((item: T) => ReactNode) | string
+      resolver?: R
+      width?: any
+      compare?: (a: T, b: T) => number
+      sortable?: boolean
+      fixed?: boolean
+    }
+  | {
+      id: Exclude<string, keyof T>
+      header?: ((column: TableColumn<T>) => ReactNode) | string
+      accessor: ((item: T) => ReactNode) | string
+      resolver?: R
+      width?: any
+      compare?: (a: T, b: T) => number
+      sortable?: boolean
+      fixed?: boolean
+    }
+  | {
+      id: Exclude<string, keyof T>
+      header?: ((column: TableColumn<T>) => ReactNode) | string
+      accessor?: ((item: T) => ReactNode) | string
+      resolver: R
+      width?: any
+      compare?: (a: T, b: T) => number
+      sortable?: boolean
+      fixed?: boolean
+    }
+```
+
+## Resolvers
+
+Resolvers are rendering functions that target a specific data type. The main usage is to render the same data types consistently along with admin applications.
+
+### Render function
+
+All resolvers accept a render function, that returns a component. It controls the data rendering, which may be treated by the resolver or not.
+
+```ts
+export type BaseResolver<T> = {
+  /**
+   * Resolver type name
+   */
+  type: string
+  /**
+   * Render function
+   *
+   * item: The item displayed for the row
+   * data: Extracted column data from the item, you need to cast it before use
+   * context: Relevant global information about the table current state
+   */
+  render: ({
+    item: T,
+    data: unknown,
+    context: { loading: boolean },
+  }) => ReactNode
+}
+```
+
+### Root
+
+This is the parent of all other resolvers. It does not treat the data at all - even the loading state is completely up to you. Use it if you want complete control over what's being rendered on the cell, and don't mind the complexity that it brings.
+
+```ts
+export type RootResolver<T> = {
+  type: 'root'
+  render: (props: ResolverRenderProps<null, T>) => ReactNode
+}
+```
+
+### Plain
+
+The plain resolver is the default for all columns. It means that if you don't select a resolver, this is what you're rendering. It should be mainly used to render raw data like strings or numbers that don't need treatment.
+
+```ts
+export type PlainResolver<T> = {
+  type: 'plain'
+  render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
+}
+```
+
+### Text
+
+The text resolver should be mainly used to render a text and an optional description just below it. For descriptions that are too long, it is possible to truncante it by setting the overflow prop. This resolver must be used on the name column of the table.
+
+```ts
+export type TextResolver<T> = {
+  type: 'text'
+  render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
+  columnType?: 'name' | 'text'
+  /**
+   * It specifies how overflowed text should be signaled to the user.
+   * @default auto
+   */
+  overflow?: 'ellipsis' | 'auto'
+  /**
+   * The map Function which returns the description to be rendered
+   */
+  mapText: (item: T) => ReactNode
+  /**
+   * It enables to customize the description
+   */
+  mapDescription?: (item: T) => ReactNode
+}
+```
+
+### Menu
+
+The menu resolver should be used when you want to easily render a Menu component and a set of actions.
+
+```ts
+export type MenuResolver<T> = {
+  type: 'menu'
+  render?: (props: ResolverRenderProps<JSX.Element, T>) => JSX.Element
+  /**
+   * A set of actions to be rendered as MenuItems
+   */
+  actions: Array<MenuActions<T>>
+}
+
+export interface MenuActions<T> {
+  /**
+   * MenuItem label
+   */
+  label: string
+  /**
+   * MenuItem onClick handler
+   */
+  onClick: (item: T, event: React.MouseEvent<HTMLDivElement>) => void
+  /**
+   * MenuItem icon
+   */
+  icon?: ReactNode
+  /**
+   * Whether the MenuItem is disabled or not
+   * @default false
+   */
+  disabled?: boolean
+  /**
+   * Whether the MenuItem is critical or not
+   * @default false
+   */
+  critical?: boolean
+}
+```
+
+### Currency
+
+The currency resolver should be used when you want to easily render a currency text based on the admin locale.
+
+```ts
+export type CurrencyResolver<T> = {
+  type: 'currency'
+  /**
+   * Currency locale
+   */
+  locale: string
+  /**
+   * Currency type
+   * @example 'USD'
+   */
+  currency: string
+  render?: (props: ResolverRenderProps<string, T>) => ReactNode
+}
+```
+
+### Date
+
+The date resolver should be used when you want to easily render a date as a formatted string.
+
+```ts
+export type DateResolver<T> = {
+  type: 'date'
+  /**
+   * Date locale
+   */
+  locale: string
+  /**
+   * Date options
+   */
+  options?: Intl.DateTimeFormatOptions
+  render?: (props: ResolverRenderProps<string, T>) => ReactNode
+}
+
+interface DateTimeFormatOptions {
+  calendar?: string
+  dayPeriod?: 'narrow' | 'short' | 'long'
+  numberingSystem?: string
+
+  dateStyle?: 'full' | 'long' | 'medium' | 'short'
+  timeStyle?: 'full' | 'long' | 'medium' | 'short'
+  hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'
+}
+```
+
+### Image
+
+The image resolver should be used when you want to easily render an image element.
+
+```ts
+export type ImageResolver<T> = {
+  type: 'image'
+  /**
+   * HTML img alt
+   */
+  alt?: string
+  /**
+   * Preview options
+   * @default {display:true,delay:0,size:'regular'}
+   */
+  preview?: ImagePreview
+  /**
+   * optional render function
+   */
+  render?: (props: ResolverRenderProps<JSX.Element, T>) => ReactNode
+}
+
+type ImagePreview = {
+  /**
+   * if should display preview or not
+   * @default true
+   */
+  display: boolean
+  /**
+   * Delay to show (in ms)
+   * @default 0
+   */
+  delay: number
+  /**
+   * Preview size
+   * @default regular
+   */
+  size: 'small' | 'regular' | 'large'
+}
+```
+
+### Bulk
+
+The bulk resolver should be used when you want to add a bulk actions to the table. It is a easier way of using the BulkActions component within the Table. When using this resolver there are two things you should follow in order to work properly: wrap the Table component with the SelectionTree component and avoid adding more than 25 items per page.
+
+```ts
+export interface BulkResolver<T> {
+  type: 'bulk'
+  /**
+   * The useBulkActions hook state return
+   */
+  state: BulkActionsState<T>
+  render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
+}
+```
+
+### Selection
+
+The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.
+
+```ts
+export interface SelectionResolver<T> {
+  type: 'selection'
+  /**
+   * The map function which returns the id to be used by the checkbox
+   */
+  mapId: (item: T) => string | number
+  isSelected?: (item: T) => boolean
+  onSelect?: (items: T[]) => void
+  render?: (props: ResolverRenderProps<ReactNode, T>) => ReactNode
+}
+```
+
+#### Examples
+
+<Cards>
+  <Card
+    title="Selection resolver example"
+    href="/design-system/table/examples/selectable"
+  />
+</Cards>
+
+## Table optional props
+
+It also accepts all props of `table` html element.
+
+### columns
+
+- Type: `Array<TableColumn<T, BaseResolvers<T>>>`
+
+### status
+
+- Type: `'ready' | 'loading' | 'not-found' | 'empty' | 'error'`
+- Default: `'ready'`
+
+## TableHead optional props
+
+It accepts all props of `thead` html element.
+
+## THeadCell optional props
+
+It also accepts all props of `div` html element.
+
+### direction
+
+- Type: `'ASC' | 'DESC' | null`
+- Default: `null`
+
+## TableBody optional props
+
+It accepts all props of `tbody` html element.
+
+## TableBodyRow optional props
+
+It also accepts all props of `tr` html element.
+
+### selected
+
+- Type: `boolean | undefined`
+- default: `false`
+
+## TableBodyCell
