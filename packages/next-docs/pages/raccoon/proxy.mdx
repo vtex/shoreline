@@ -1,0 +1,88 @@
+import { Steps } from 'nextra/components'
+
+# Proxy
+
+Performing cross-domain requests inside iframes results in CORS errors. Because of that, requests made from Next apps to VTEX domains often don't work. One of the solutions to cross-origin request errors is implementing URL proxies for the target domains. With that in mind, raccoon-next provides proxy configs to facilitate requests between the next apps and some common VTEX domains.
+
+## What are proxies
+
+In this context, proxies are BFF (backend for front-end) routes that serve as a proxy for some cross-origin calls. The front end then calls the API which in turn calls the desired domain. Since these functions don't run on the browser they have the freedom to call the domain and return the result to be used on the front-end.
+
+## Structure
+
+NextJS has a configuration feature called [rewrites](https://nextjs.org/docs/pages/api-reference/next-config-js/rewrites) that allows you to easily setup a proxy for a route, raccoon-next SDK exports a NextJS rewrite config that creates proxy API routes for 'vtexcommerce' and 'myvtex'.
+
+The proxies created by Raccoon take `account`, `version` (vtexcommerce only), and `endpoint` as parameters. The URLs have the following structure: `/api/vtexcommerce/:account/:version/:endpoint*` and `/api/myvtex/:account/:endpoint*`.
+
+## Usage
+
+<Steps>
+
+### Configuration
+
+In the `next.config.js` file, you must add a rewrite call with the `vtexIORewrite` config imported from raccoon-next
+
+```js filename="next.config.js"
+const raccoonConfigs = require('@vtex/raccoon-next')
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  // added rewrite with our config
+  async rewrites() {
+    return raccoonConfigs.vtexIORewrite
+  },
+}
+
+module.exports = nextConfig
+```
+
+### Make calls to the proxy API
+
+You can make a request to the proxy URL directly, and they will access `vtexcommerce` and `myvtex`.
+
+```js
+/**
+  format /api/vtexcommerce/:account/:version/:endpoint*
+  :account -> represented by `${account}`
+  :version -> It can be `stable` or `beta` in this case
+  :endpoint -> represented by `catalog/pvt/admin/brand`
+*/
+const url = `/api/vtexcommerce/${account}/stable/catalog/pvt/admin/brand`
+
+const res = await fetch(url, {
+  headers: {
+    VtexIdclientAutCookie: token,
+  },
+})
+```
+
+### Add custom rewrites (optional)
+
+If you want to introduce your own custom NextJS rewrites for a custom proxy you can merge them with `vtexIORewrite` on the configuration file.
+
+```js filename="next.config.js"
+const raccoonConfigs = require('@vtex/raccoon-next')
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+
+  async rewrites() {
+    return [
+      ...raccoonConfigs.vtexIORewrite,
+      // example of a custom rewrite, add your own
+      {
+        source: '/api/myprovider/:endpoint*',
+        destination: 'https://provider.com.br/api/:endpoint*',
+      },
+    ]
+  },
+}
+
+module.exports = nextConfig
+```
+
+</Steps>
