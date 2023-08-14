@@ -10,7 +10,9 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true
+    "noEmit": true, 
+    "target": "ES6",
+    "importHelpers": true
   },
   "exclude": ["node_modules", "dist", "test", "stories"]
 }

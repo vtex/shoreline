@@ -1,0 +1,11 @@
+@layer sl-components {
+  [data-sl-bleed] {
+    --top: 0rem;
+    --right: 0rem;
+    --bottom: 0rem;
+    --left: 0rem;
+
+    margin: calc(-1 * var(--top)) calc(-1 * var(--right))
+      calc(-1 * var(--bottom)) calc(-1 * var(--left));
+  }
+}

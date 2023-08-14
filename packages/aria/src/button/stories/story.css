@@ -1,0 +1,81 @@
+@layer reset, tokens, components;
+
+@layer tokens {
+  :root {
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 2.5rem;
+    --space-8: 3rem;
+    --space-9: 4rem;
+
+    --gray-50: oklch(98.96% 0 197.12);
+    --gray-100: oklch(92.96% 0 197.12);
+    --gray-200: oklch(83.18% 0 197.12);
+
+    --blue-400: oklch(55.5% 0.15 271.8);
+    --blue-500: oklch(50.5% 0.15 271.8);
+    --blue-600: oklch(45.5% 0.15 271.8);
+
+    --cyan-300: oklch(75.73% 0.1 228.36);
+
+    --ring: 0rem 0rem 0rem 0.0625rem var(--gray-50),
+      0rem 0rem 0rem 0.1875rem var(--cyan-300);
+
+    --radii: 0.5rem;
+  }
+}
+
+@layer reset {
+  [data-sl-button][data-focus-visible] {
+    outline: none;
+  }
+}
+
+@layer components {
+  [data-sl-button] {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radii);
+  }
+
+  [data-sl-button][data-bleed='y'] {
+    margin-top: calc(-1 * var(--space-2));
+    margin-bottom: calc(-1 * var(--space-2));
+  }
+
+  [data-sl-button][data-bleed='x'] {
+    margin-right: calc(-1 * var(--space-4));
+    margin-left: calc(-1 * var(--space-4));
+  }
+
+  [data-sl-button][data-bleed='xy'] {
+    margin-top: calc(-1 * var(--space-2));
+    margin-bottom: calc(-1 * var(--space-2));
+    margin-right: calc(-1 * var(--space-4));
+    margin-left: calc(-1 * var(--space-4));
+  }
+
+  [data-sl-button][data-variant='primary'] {
+    color: var(--gray-50);
+    background-color: var(--blue-400);
+  }
+
+  [data-sl-button][data-variant='primary']:hover {
+    background-color: var(--blue-500);
+  }
+
+  [data-sl-button][data-variant='primary']:active {
+    background-color: var(--blue-600);
+  }
+
+  [data-sl-button][data-focus-visible] {
+    box-shadow: var(--ring);
+  }
+}
+
+.story {
+  margin: var(--space-4);
+}
