@@ -1,8 +1,11 @@
 import { Cards, Card } from 'nextra/components'
+import { files } from '../../examples/table/anatomy'
 
 # Table
 
 Table containers allow merchants to view a vertical list of items with property values and related actions.
+
+<Playground files={files} />
 
 ## Anatomy
 
@@ -41,15 +44,42 @@ The table and its composites accepts a `className` as property.
 
 ```jsx
 <Table className="custom-class" />
+<THead className="custom-class" />
+<THeadCell className="custom-class" />
+<TBody className="custom-class" />
+<TBodyRow className="custom-class" />
+<TBodyCell className="custom-class" />
 ```
 
 ## Data Attributes
 
-[WIP]
+### TableBodyRow
+
+The `clickable` attribute is true whether the `onClick` property is passed:
+
+- `[data-clickable="true"]`
+- `[data-clickable="false"]`
+
+The `selected` attribute is true whether the `selected` property is passed:
+
+- `[data-selected="true"]`
+- `[data-selected="false"]`
+
+### TableCell
+
+The `clickable` attribute is true whether the `onClick` property is passed:
+
+- `[data-clickable="true"]`
+- `[data-clickable="false"]`
+
+The `fixed` attribute is true whether the `column.fixed` property is passed:
+
+- `[data-fixed="true"]`
+- `[data-fixed="false"]`
 
 ## Accessibility
 
-[WIP]
+This component implements the `Table` pattern.
 
 ## Related components
 
