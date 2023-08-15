@@ -105,6 +105,120 @@ export type TableColumn<T, R = BaseResolvers<T>> =
     }
 ```
 
+## useTableState
+
+Table state hook
+
+- Type: `<T>(params: UseTableStateParams<T>) => UseTableStateReturn<T>`
+
+### Hook params
+
+#### columns
+
+- Type: [`Array<TableColumn<T>>`](/design-system/table/api-reference#tablecolumn-type)
+
+#### status
+
+DataView state
+
+- Type: `'ready' | 'loading' | 'not-found' | 'empty' | 'error'`
+- default: `'ready'`
+
+#### items
+
+- Type: `T[] | undefined`
+- default: `[]`
+
+#### length
+
+Expected items length
+
+- Type: `number`
+- default: 5
+
+#### sort
+
+- Type: `UseTableSortParams<T> | undefined`
+- default: `{}`
+
+```ts
+export interface SortState {
+  order?: 'ASC' | 'DESC'
+  by?: string | number | symbol
+}
+
+export type SortDirections =
+  | ['ASC', 'DESC']
+  | ['DESC', 'ASC']
+  | ['ASC' | 'DESC']
+
+export interface SortAction {
+  type: 'ASC' | 'DESC'
+  columnId?: string | number | symbol
+}
+
+export interface SortCallbackParams<T> {
+  currentSortState: SortState
+  dispatch: Dispatch<SortAction>
+  columnId: keyof T
+  directions: SortDirections
+}
+
+export interface UseTableSortParams<T> {
+  initialValue?: Partial<SortState>
+  directions?: SortDirections
+  reducer?(state: SortState, action: SortAction): SortState
+  callback?(params: SortCallbackParams<T>): void
+}
+```
+
+### Hook return
+
+#### data
+
+- Type: `T[]`
+
+#### columns
+
+- Type: `Array<TableColumn<T>>`
+
+#### sortState
+
+- Type: `UseSortReturn`
+
+```ts
+export interface UseSortReturn {
+  order?: 'ASC' | 'DESC'
+  by?: string | number | symbol
+  sort(id: string | number | symbol): void
+}
+```
+
+#### getBodyCell
+
+A function that returns all the necessary `TBodyCell` props.
+
+- Type: `(column: TableColumn<T, BaseResolvers<T>>, item: T) => TableBodyCellProps<T>`
+
+#### getBodyCell
+
+A function that returns all the necessary `THeadCell` props.
+
+- Type: `(column: TableColumn<T, BaseResolvers<T>>) => TableHeadCellProps<T>`
+
+#### getTable
+
+A function that returns all the necessary `Table` props.
+
+- Type: `() => TableProps<T>`
+
+#### status
+
+DataView state
+
+- Type: `'ready' | 'loading' | 'not-found' | 'empty' | 'error'`
+- default: `'ready'`
+
 ## Resolvers
 
 Resolvers are rendering functions that target a specific data type. The main usage is to render the same data types consistently along with admin applications.
@@ -124,7 +238,7 @@ export type BaseResolver<T> = {
    *
    * item: The item displayed for the row
    * data: Extracted column data from the item, you need to cast it before use
-   * context: Relevant global information about the table current state
+   * context: Relevant global information about the table's current state
    */
   render: ({
     item: T,
@@ -158,7 +272,7 @@ export type PlainResolver<T> = {
 
 ### Text
 
-The text resolver should be mainly used to render a text and an optional description just below it. For descriptions that are too long, it is possible to truncante it by setting the overflow prop. This resolver must be used on the name column of the table.
+The text resolver should be mainly used to render a text and an optional description just below it. For descriptions that are too long, it is possible to truncate them by setting the overflow prop. This resolver must be used on the name column of the table.
 
 ```ts
 export type TextResolver<T> = {
@@ -294,7 +408,7 @@ export type ImageResolver<T> = {
 
 type ImagePreview = {
   /**
-   * if should display preview or not
+   * if should display a preview or not
    * @default true
    */
   display: boolean
@@ -313,7 +427,7 @@ type ImagePreview = {
 
 ### Bulk
 
-The bulk resolver should be used when you want to add a bulk actions to the table. It is a easier way of using the BulkActions component within the Table. When using this resolver there are two things you should follow in order to work properly: wrap the Table component with the SelectionTree component and avoid adding more than 25 items per page.
+The bulk resolver should be used when you want to add a bulk action to the table. It is an easier way of using the BulkActions component within the Table. When using this resolver there are two things you should follow to work properly: wrap the Table component with the SelectionTree component and avoid adding more than 25 items per page.
 
 ```ts
 export interface BulkResolver<T> {
@@ -328,7 +442,7 @@ export interface BulkResolver<T> {
 
 ### Selection
 
-The selection resolver should be used when it is necessary to have rows selectable and to have control of which rows are selected.
+The selection resolver should be used when it is necessary to have rows selectable and to have control over which rows are selected.
 
 ```ts
 export interface SelectionResolver<T> {
@@ -354,11 +468,11 @@ export interface SelectionResolver<T> {
 
 ## Table optional props
 
-It also accepts all props of `table` html element.
+It also accepts all props of the `table` html element.
 
 ### columns
 
-- Type: `Array<TableColumn<T, BaseResolvers<T>>>`
+- Type: [`Array<TableColumn<T, BaseResolvers<T>>>`](/design-system/table/api-reference#tablecolumn-type)
 
 ### status
 
@@ -367,11 +481,17 @@ It also accepts all props of `table` html element.
 
 ## TableHead optional props
 
-It accepts all props of `thead` html element.
+It accepts all props of the `thead` html element.
 
 ## THeadCell optional props
 
-It also accepts all props of `div` html element.
+It also accepts all props of [`TableCell<T>`](/design-system/table/api-reference#tablecell) element.
+
+### sortState
+
+The property returned by the `useTableState` hook.
+
+- Type: [`UseSortReturn`](/design-system/table/api-reference#sortstate)
 
 ### direction
 
@@ -380,15 +500,47 @@ It also accepts all props of `div` html element.
 
 ## TableBody optional props
 
-It accepts all props of `tbody` html element.
+It accepts all props of the `tbody` html element.
 
 ## TableBodyRow optional props
 
-It also accepts all props of `tr` html element.
+It also accepts all props of the `tr` html element.
 
 ### selected
 
 - Type: `boolean | undefined`
 - default: `false`
 
-## TableBodyCell
+## TableBodyCell optional props
+
+It also accepts all props of [`TableCell<T>`](/design-system/table/api-reference#tablecell) element.
+
+### item
+
+It represents the column item.
+
+- Type: `T`
+
+## TableCell optional props
+
+It also accepts all props of `td` html element.
+
+### clickable
+
+Whether the cell is clickable or not.
+
+- Type: `boolean | undefined`
+- default: `false`
+
+### fixed
+
+Whether the cell is fixed or not.
+
+- Type: `boolean | undefined`
+- default: `false`
+
+### column
+
+Table column object
+
+- Type: [`TableColumn<T>`](/design-system/table/api-reference#tablecolumn-type)
