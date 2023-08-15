@@ -254,7 +254,7 @@ importers:
         specifier: ^0.136.1-dev.12
         version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/raccoon-next':
-        specifier: ^0.5.13-dev.3
+        specifier: ^0.5.13-dev.4
         version: link:../../packages/raccoon-next
       next:
         specifier: 13.4.8
@@ -1241,7 +1241,7 @@ packages:
       '@babel/helper-optimise-call-expression': 7.22.5
       '@babel/helper-replace-supers': 7.22.5
       '@babel/helper-skip-transparent-expression-wrappers': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
+      '@babel/helper-split-export-declaration': 7.22.5
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color

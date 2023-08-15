@@ -3,37 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.13-dev.4](https://github.com/vtex/shoreline/compare/@vtex/raccoon-next@0.5.13-dev.3...@vtex/raccoon-next@0.5.13-dev.4) (2023-08-15)
+
+### Features
+
+- **raccoon:** add io-proxy ([c47abba](https://github.com/vtex/shoreline/commit/c47abba3e3cb9352eeb0aae074254c933048a8f3))
+
 ## 0.5.13-dev.3 (2023-08-02)
 
 **Note:** Version bump only for package @vtex/raccoon-next
-
-
-
-
 
 ## 0.5.13-dev.2 (2023-08-01)
 
 **Note:** Version bump only for package @vtex/raccoon-next
 
-
-
-
-
 ## 0.5.13-dev.1 (2023-07-27)
 
 **Note:** Version bump only for package @vtex/raccoon-next
 
-
-
-
-
 ## 0.5.13-dev.0 (2023-06-29)
 
 **Note:** Version bump only for package @vtex/raccoon-next
-
-
-
-
 
 ## [0.5.12](https://github.com/vtex/raccoon/compare/@vtex/raccoon-next@0.5.11...@vtex/raccoon-next@0.5.12) (2023-06-01)
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.11](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.10...@shoreline/next-docs@0.0.1-dev.11) (2023-08-15)
+
+### Features
+
+- **raccoon:** add io-proxy ([c47abba](https://github.com/vtex/shoreline/commit/c47abba3e3cb9352eeb0aae074254c933048a8f3))
+
 ## [0.0.1-dev.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.9...@shoreline/next-docs@0.0.1-dev.10) (2023-08-11)
 
 **Note:** Version bump only for package @shoreline/next-docs
