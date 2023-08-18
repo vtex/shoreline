@@ -1,5 +1,3 @@
 import { defineConfig } from '../../../config'
 
-export default defineConfig({
-  prefix: 'ts',
-})
+export default defineConfig()

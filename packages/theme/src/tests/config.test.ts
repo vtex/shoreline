@@ -1,24 +1,24 @@
 import { join } from 'path'
 import { defineConfig, isShorelineConfig, loadConfig } from '../config'
+import { constants } from '@vtex/shoreline-utils'
 
 describe('defineConfig', () => {
   it('should allow empty configs', () => {
-    const result = defineConfig({})
-    const expectation = {}
+    const result = defineConfig()
+    const expectation = { prefix: constants.dsPrefix }
 
     expect(result).toStrictEqual(expectation)
   })
 
   it('should allow filled configs', () => {
     const result = defineConfig({
-      prefix: 'sl',
       tokens: {
         radii: '8px',
       },
     })
 
     const expectation = {
-      prefix: 'sl',
+      prefix: constants.dsPrefix,
       tokens: {
         radii: '8px',
       },
@@ -52,7 +52,7 @@ describe('loadConfig', () => {
       cwd: join(__dirname, 'fixtures/js-config'),
     })
 
-    expect(result.prefix).toBe('js')
+    expect(result.prefix).toBe(constants.dsPrefix)
   })
 
   it('should load a ts config', () => {
@@ -60,6 +60,6 @@ describe('loadConfig', () => {
       cwd: join(__dirname, 'fixtures/ts-config'),
     })
 
-    expect(result.prefix).toBe('ts')
+    expect(result.prefix).toBe(constants.dsPrefix)
   })
 })
