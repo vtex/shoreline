@@ -1,3 +1,4 @@
+import { constants } from '@vtex/shoreline-utils'
 import { findFile } from './find-file'
 import type { Presets } from './presets'
 import { lazyRuntime } from './typescript-runtime'
@@ -25,11 +26,13 @@ export interface ShorelineConfig {
   tokens?: Record<string, any>
 }
 
+type DefineConfigParams = Omit<ShorelineConfig, 'prefix'>
+
 /**
  * Define a Shoreline configuration
  */
-export function defineConfig(config: ShorelineConfig) {
-  return config
+export function defineConfig(config: DefineConfigParams = {}): ShorelineConfig {
+  return { prefix: constants.dsPrefix, ...config }
 }
 
 export function loadConfig(options: ConfigFileOptions): ConfigReturn {
