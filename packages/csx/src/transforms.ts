@@ -1,3 +1,4 @@
+import { constants } from '@vtex/shoreline-utils'
 import type { CsxValue } from './csx-value'
 
 export const defaultTransformCollection: TransformCollection = {
@@ -22,7 +23,10 @@ export const defaultTransformCollection: TransformCollection = {
     zIndex: value.asCssVar(),
   }),
   text: (value) => ({
-    font: value.asCssVar(),
+    font: `var(--${constants.dsPrefix}-${value.asCleanToken()}-font)`,
+    letterSpacing: `var(--${
+      constants.dsPrefix
+    }-${value.asCleanToken()}-letter-spacing)`,
   }),
 
   /** DeepSearch values */
