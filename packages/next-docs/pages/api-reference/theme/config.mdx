@@ -10,6 +10,10 @@ export default defineConfig({
 })
 ```
 
+## `prefix`
+
+The namespace [prefix](/api-reference/csx/design-tokens#vendor-and-prefix) for the generated CSS. A shoreline config has the `sl` prefix.
+
 ## Options
 
 ### `preset`
@@ -78,19 +82,6 @@ The current working directory.
 ```ts filename="shoreline.config.ts"
 export default defineConfig({
   cwd: process.cwd(),
-})
-```
-
-### `prefix`
-
-The namespace [prefix](/api-reference/csx/design-tokens#vendor-and-prefix) for the generated CSS.
-
-- Type: `string`
-- Default: `undefined`
-
-```ts filename="shoreline.config.ts"
-export default defineConfig({
-  prefix: 'sl',
 })
 ```
 
