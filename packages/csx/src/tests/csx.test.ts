@@ -153,3 +153,14 @@ test('@layer', () => {
     },
   })
 })
+
+test('text', () => {
+  expect(
+    csx({
+      text: '$text-body',
+    })
+  ).toStrictEqual({
+    font: 'var(--sl-text-body-font)',
+    letterSpacing: 'var(--sl-text-body-letter-spacing)',
+  })
+})
