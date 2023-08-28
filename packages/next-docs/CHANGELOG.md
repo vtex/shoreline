@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.15](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.14...@shoreline/next-docs@0.0.1-dev.15) (2023-08-28)
+
+### Bug Fixes
+
+- **theme:** remove prefix customization from shoreline config definition ([3e305ca](https://github.com/vtex/shoreline/commit/3e305ca62253e4e6e7cc3383d8f263b7ad3985a2))
+
 ## [0.0.1-dev.14](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.13...@shoreline/next-docs@0.0.1-dev.14) (2023-08-16)
 
 **Note:** Version bump only for package @shoreline/next-docs

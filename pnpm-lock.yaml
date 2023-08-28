@@ -569,7 +569,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.0.1-dev.2
+        specifier: ^0.0.1-dev.3
         version: link:../theme
       commander:
         specifier: 11.0.0

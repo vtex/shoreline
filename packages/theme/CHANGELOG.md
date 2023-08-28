@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.2...@vtex/shoreline-theme@0.0.1-dev.3) (2023-08-28)
+
+### Bug Fixes
+
+- **theme:** remove prefix customization from shoreline config definition ([3e305ca](https://github.com/vtex/shoreline/commit/3e305ca62253e4e6e7cc3383d8f263b7ad3985a2))
+
 ## [0.0.1-dev.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.1...@vtex/shoreline-theme@0.0.1-dev.2) (2023-08-11)
 
 **Note:** Version bump only for package @vtex/shoreline-theme
