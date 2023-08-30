@@ -384,55 +384,70 @@ export const presetAdmin = defineConfig({
       9: '800',
       10: '900',
     },
-    font: {
-      family: {
-        sans: '"Inter", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
-        mono: 'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
-      },
-      size: {
-        1: '0.75rem',
-        2: '0.875rem',
-        3: '1rem',
-        4: '1.25rem',
-        5: '1.5rem',
-      },
-      weight: {
-        hairline: '100',
-        thin: '200',
-        light: '300',
-        regular: '400',
-        medium: '500',
-        semibold: '600',
-        bold: '700',
-        black: '800',
-        ui: {
-          baseline: '$font-weight-medium',
-          strong: '$font-weight-semibold',
-          strongest: '$font-weight-bold',
-        },
-      },
-      'line-height': {
-        1: '1.3',
-        2: '1.5',
-      },
+    'font-family': {
+      sans: '"Inter", -apple-system, system-ui, BlinkMacSystemFont, sans-serif',
+    },
+    'font-weight': {
+      regular: '400',
+      medium: '500',
+      semibold: '600',
+    },
+    'font-size': {
+      1: '0.75rem',
+      2: '0.875rem',
+      3: '1rem',
+      4: '1.25rem',
+      5: '1.5rem',
+    },
+    'letter-spacing': {
+      normal: '0em',
+      tight: '-0.02em',
+      tighter: '-0.04em',
+    },
+    'line-height': {
+      normal: '1.4',
     },
     text: {
-      'page-title':
-        '$font-weight-ui-baseline $font-size-4 / $font-line-height-1 $font-family-sans',
-      title: {
-        1: '$font-weight-ui-strong $font-size-3 / $font-line-height-2 $font-family-sans',
-        2: '$font-weight-ui-baseline $font-size-3 / $font-line-height-2 $font-family-sans',
+      caption: {
+        2: {
+          font: '$font-weight-regular $font-size-1 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-normal',
+        },
+        1: {
+          font: '$font-weight-medium $font-size-1 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-normal',
+        },
       },
       action: {
-        1: '$font-weight-ui-strong $font-size-2 / $font-line-height-1 $font-family-sans',
-        2: '$font-weight-ui-baseline $font-size-2 / $font-line-height-1 $font-family-sans',
+        font: '$font-weight-semibold $font-size-2 / $line-height-normal $font-family-sans',
+        'letter-spacing': '$letter-spacing-normal',
       },
-      display:
-        '$font-weight-ui-strong $font-size-5 / $font-line-height-1 $font-family-sans',
-      body: '$font-weight-ui-baseline $font-size-2 / $font-line-height-1 $font-family-sans',
-      detail:
-        '$font-weight-ui-baseline $font-size-1 / $font-line-height-1 $font-family-sans',
-      code: '$font-weight-ui-baseline $font-size-2 / $font-line-height-1 $font-family-mono',
+      emphasis: {
+        font: '$font-weight-medium $font-size-2 / $line-height-normal $font-family-sans',
+        'letter-spacing': '$letter-spacing-normal',
+      },
+      body: {
+        font: '$font-weight-regular $font-size-2 / $line-height-normal $font-family-sans',
+        'letter-spacing': '$letter-spacing-normal',
+      },
+      display: {
+        4: {
+          font: '$font-weight-regular $font-size-3 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-tight',
+        },
+        3: {
+          font: '$font-weight-semibold $font-size-3 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-tight',
+        },
+        2: {
+          font: '$font-weight-semibold $font-size-4 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-tighter',
+        },
+        1: {
+          font: '$font-weight-semibold $font-size-5 / $line-height-normal $font-family-sans',
+          'letter-spacing': '$letter-spacing-tighter',
+        },
+      },
     },
   },
 })
