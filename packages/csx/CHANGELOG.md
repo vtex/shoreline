@@ -3,21 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-csx@0.0.1-dev.2...@vtex/shoreline-csx@0.0.1-dev.3) (2023-08-30)
+
+### Features
+
+- **theme:** implement typography tokens ([294f81c](https://github.com/vtex/shoreline/commit/294f81c24f902a88066d08aac2791f20fb585c26))
+
 ## 0.0.1-dev.2 (2023-08-02)
 
 **Note:** Version bump only for package @vtex/shoreline-csx
 
-
-
-
-
 ## 0.0.1-dev.1 (2023-08-01)
 
 **Note:** Version bump only for package @vtex/shoreline-csx
-
-
-
-
 
 ## 0.0.1-dev.0 (2023-07-27)
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.3...@vtex/shoreline-theme@0.0.1-dev.4) (2023-08-30)
+
+### Features
+
+- **theme:** implement typography tokens ([294f81c](https://github.com/vtex/shoreline/commit/294f81c24f902a88066d08aac2791f20fb585c26))
+
 ## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.2...@vtex/shoreline-theme@0.0.1-dev.3) (2023-08-28)
 
 ### Bug Fixes
