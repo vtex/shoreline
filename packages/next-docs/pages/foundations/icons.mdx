@@ -1,24 +1,3 @@
-## Definition
+# Icons
 
 Provide visual support for merchants to complete tasks by bringing clarity to actions or drawing attention to important information.
-
-## Rationale
-
-### Purpose
-
-- **Visual representations are more accessible and can be read faster than text.**<br />
-  Icons can improve comprehension by bringing affordance to actions and highlighting messages, especially for users with low digital literacy. Sometimes, a pictogram can be used by itself since it's easily recognizable. This is why we intentionally use icons in interface components where a visual representation is highly relevant.
-- **Icons should have a different style and size for each purpose they serve.**<br />
-  Merchants should easily recognize patterns across the Admin. We create this consistency by using outline icons for actions, such as Buttons and Search, filled icons for information, such as Alerts and Toasts, and small icons for affordance, such as carets and external links. This is why we provide two sizes of outline icons and some icons in a filled variant.
-
-### Application
-
-- **We should leverage existing solutions that are easy to implement.**<br />
-  Tailor-made icons would give the best result but require much effort to design and maintain. There are libraries available that are actively maintained, have a variety of icons that fit our context, have a powerful API, make it easy to manipulate color, size, and weight, and don't have a usage limit. That is why we tested some options and chose to use [Phosphor](https://phosphoricons.com/).
-
-### Visual
-
-- **Pictograms should be easily recognizable to improve usability.**<br />
-  They shouldn't be full of details, so their shapes are simple and easy to understand. They should also be easily readable in small sizes and be easily recognizable for anyone, including people with minor visual impairments and those using screens with small pixel density. This is why we discourage custom icons and recommend only some of the icons in the library.
-- **Icons should be visually balanced with other tokens.**<br />
-  Our icons are rounded, similar to our typography and border-radius choices. Their sizes and weights also match our typography. This is why our default icon size pairs perfectly with our `$text-body` token and why the weight of outline icons also matches its most common sibling, our `$text-action-1` token.

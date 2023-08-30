@@ -1,26 +1,3 @@
-## Definition
+# Elevation
 
 Creates spatial relationships by lifting elements from the background.
-
-## Rationale
-
-### Purpose
-
-- **Z-index, shadow, and backdrops serve the same purpose of representing elevation.**<br />
-  When a container is overlaid on a page, it must always include a z-index and a shadow, and it can sometimes include a backdrop. A Modal, for example, must include a backdrop since merchants can't interact with the content below the container. This is why we include tokens for z-index, shadow, and backdrop.
-- **Shadow helps users understand when a container is above or below another.**<br />
-  Shadow should be used to visually represent, for example, when a Toast is over a Modal that is over a Page. However, multiple surface levels and excessive use of shadow can also make the interface appear heavy and confusing. This is why we overlay containers sparingly and use shadow to represent this elevation only when there is content hidden below it.
-
-### Application
-
-- **Shadow is the best way to achieve accessible focus states.**<br />
-  Including focus states is an important web standard for merchants that prefer or require keyboard navigation. An input, for example, is not elevated on a page. But since it already contains a border, the only way to include a focus ring around the element is to use a shadow. This is why we open an exception and use shadow inside the same surface for focus rings.
-- **Z-index scales are composed of arbitrary values that must be consistently applied.**<br />
-  When z-index values are not agreed upon, there is often the issue of an element appearing unexpectedly on top of others. The only rule behind z-index values is that elements with a larger z-index appear on top of elements with a lower z-index. This is why we created z-index tokens that contain arbitrary numbers with clear use cases.
-
-### Visual
-
-- **Shadows that reflect how natural light works seem familiar and are easier to understand.**<br />
-  In the physical world, there is always a fixed light source, and an object's shadow grows as it gets closer to this light source. It doesn't seem natural when some elements inside the same container have shadows and others don't. This is why we use shadow in the container itself when it's being overlaid and don't use shadow in hover states.
-- **Users with mild vision impairments and low-quality monitors should still see shadows.**<br />
-  A shadow that is not visible to some users is also less visible to all users, and a detail that is not clearly visible acts as noise. Even though the actual content should draw more attention than any shadow, shadows must still be clearly visible. This is why we use black shadows with at least 8px blur and 10% opacity.
