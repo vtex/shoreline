@@ -1,0 +1,26 @@
+## Definition
+
+Defines the roundness of the corners of an element.
+
+## Rationale
+
+### Purpose
+
+- **The shape of an element can be used to communicate its purpose and behavior.**<br />
+  Besides conveying a personality, a shape can also be used to effectively communicate the function of an element. The usability of an interface is improved when different shapes are used for elements with different purposes. This is why we use border-radius, in particular, to differentiate a Tag from a Button, a Checkbox from a Radio, and an Avatar from an Image.
+- **Humans are accustomed to nature, so rounded corners are perceived as familiar.**<br />
+  When a visually contrasting interface element (e.g. a Button with a dark background) has straight corners, it draws attention and distracts. Besides improving usability, companies such as Apple have popularized rounded corners since they make technology look approachable. This is why we round any shape that has visible corners.
+
+### Application
+
+- **A small set of border-radius tokens simplifies the application and improves consistency.**<br />
+  It's aesthetically pleasing when a small element, such as a Button, has a smaller border-radius than a larger element, such as a Modal. However, including a wide range of border-radius values would also make applying them consistently at scale harder. This is why we provide a small number of border-radius tokens.
+
+### Visual
+
+- **Admin interfaces must look like enterprise-grade work tools.**<br />
+  During a sales demo, we learned how the visual of an interface sets expectations for what it does. In this sense, border-radius is important in making the Admin look like a serious and robust product that can be trusted. This is why we apply values compatible with the element's height and apply pill shapes `$border-radius-full` sparingly.
+- **Containers with visible padding and margins are easier to understand and implement.**<br />
+  In a card with an image, for example, rounded corners can be avoided by making the image full-width, but this approach is unnecessarily complex. Elements that disrespect margin and padding to go edge to edge make the page hierarchy confusing and require more boxes, given the CSS box model. This is why we leave elements with visible and rounded corners.
+- **The rounded corners of a container affect how we position elements inside it.**<br />
+  Very rounded corners require more padding, so they take up content space. These corners also make it harder to place content since the usual padding combinations are not enough to find a balanced position. This is why we optically align content in the few cases where we use very-rounded corners, such as the pill shape of a Tag.
