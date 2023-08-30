@@ -1,0 +1,28 @@
+## Definition
+
+Defines the relationship between elements and makes the content more easily scannable.
+
+## Rationale
+
+### Purpose
+
+- **Consistent spacing increases usability and provides visual rhythm.**<br />
+  Humans instinctively look for interface patterns to understand the relationship and hierarchy among elements. Consistent spacing creates visual rhythm, making interfaces easier to predict and scan. This is why we have guidelines for spacing within components and among components on a page, and we don't recommend deviating from them.
+
+### Application
+
+- **The spacing scale should cover scenarios from small to large.**<br />
+  The spacing scale should be easily applied, regardless of whether it's being used to separate elements within a small component or form sections with various elements inside a page. It should allow designers to reach the most appropriate density for each context. This is why we offer a wide range of values, from 0px to 128px, and specify their applications.
+- **The Admin interface should be responsive to preferences that Merchants have defined.**<br />
+  Instead of applying zoom to each interface, users who prefer or need a different font size have a native setting they can adjust in most browsers. A website responds to this setting if its dimensions in CSS are defined with a relative unit. This is why we use the rem unit — instead of the trickier em unit — to specify typography, spacing, and breakpoint tokens.
+
+### Visual
+
+- **Spacing applications should be consistent with our grid.**<br />
+  The Admin follows a grid with a 4px baseline at its most granular level. Spacing values are a direct result of this definition since the goal is to create consistency among elements of an interface and across Admin pages. This is why the spacing scale follows increments that are multiples of 4, with larger jumps as the value grows.
+- **Admin interfaces must look like enterprise-grade work tools.**<br />
+  Large data sets, such as those in Tables and Forms, are the most common scenario in the Admin. High-density interfaces make it easier to visually scan this type of content. This is why we are only generous in blank space when it's clear that an element should have a higher relevance in an interface, such as the spacing around the error state of a Table.
+- **The box and visual weight of an element might influence its spacing.**<br />
+  Our eyes are [more sensitive to an object's height than its width](https://medium.com/design-bridges/optical-effects-9fca82b4cd9a), so applying the same space on horizontal and vertical axes doesn't always result in a balanced composition. This is why, whenever necessary, we optically adjust spacing considering the element's shape, such as applying a vertical padding for the Button that is slightly smaller than its horizontal padding.
+- **The rounded corners of a container affect how we position elements inside it.**<br />
+  A 400px square appears bigger than a 400px circle, so very-rounded containers require more padding and take up content space. Placing content inside them is hard since usual padding combinations don't result in a balanced position. This is why we optically align content in the few cases where we use very-rounded corners, such as the pill shape of a Tag.
