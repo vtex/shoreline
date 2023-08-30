@@ -1,0 +1,28 @@
+## Definition
+
+Creates hierarchies, organizes information, and guides users through a product or experience.
+
+## Rationale
+
+### Purpose
+
+- **Icons should only replace text in a handful of cases.**<br />
+  Using icons instead of adding text can save space in an interface, but it harms usability if the pictogram is not easily recognizable. For example, an icon-only button with a tooltip creates a cognitive load until the merchant hovers over the button. This is why we use icons with visually hidden text only when they are easily recognizable, such as a Menu or Close icon.
+
+### Application
+
+- **The Admin interface should be responsive to preferences that Merchants have defined.**<br />
+  Instead of applying zoom to each interface, users who prefer or need a different font size have a native setting they can adjust in most browsers. A website responds to this setting if its dimensions in CSS are defined with a relative unit. This is why we use the rem unit — instead of the trickier em unit — to specify typography, spacing, and breakpoint tokens.
+- **Few typography tokens with clear descriptions are easier to apply consistently.**<br />
+  Merchants using the Admin expect to find the title of each page in the same size. They also expect to differentiate titles from body text by font-weight. Including many typography tokens would help designers experiment but could lead to inconsistent applications that harm productivity. This is why we provide a small number of typography tokens.
+- **The width of a container with text should provide a comfortable reading experience.**<br />
+  A long line of text can cause fatigue as merchants move their heads and may accidentally read the same line of text twice. Short lines, on the other hand, break up words or phrases that are generally read as a unit. This is why we define the width of a container with text so that it results in a line length between 45 and 85 characters.
+
+### Visual
+
+- **Typography tokens should have the minimum noticeable difference between them.**<br />
+  Even though the purpose of a text should be visually represented, stark style variations are overwhelming. An interface looks unbalanced if there's a large difference between the weight of body text and titles. The same is true when the font size jumps a lot between one title level and the next. This is why we use only three font weights and a limited range of font sizes.
+- **Smaller font sizes can increase information density without harming usability.**<br />
+  The web standard of 16pt for body text provides a comfortable reading experience but can also harm usability in small displays. A Table, for example, should fit the necessary content in the most used screen size, so it's necessary to consider information density. This is why we use 14pt body text and a font optimized for legibility, with open characters and a tall x-height.
+- **Typography is also crucial in defining how space is distributed in an interface.**<br />
+  A common error is to fix unaligned text by adding padding or margin rather than using the right line height. Adjusting letter spacing can also greatly improve the appearance of an interface. This is why we, considering legibility, use line-height values that are factors or multiples of the baseline grid number and decrease letter spacing as the font size increases.

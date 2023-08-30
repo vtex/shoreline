@@ -7,6 +7,10 @@
     "title": "Design System",
     "type": "page"
   },
+  "foundations": {
+    "title": "Foundations",
+    "type": "page"
+  },
   "raccoon": {
     "title": "Raccoon",
     "type": "page"
