@@ -25,59 +25,59 @@ const colorTokens = [
   },
 ]
 
-const borderTokens = [
-  {
-    name: '$color-gray-0',
-    variable: '--sl-color-gray-0',
-    value: '1px solid #EDEDED',
-  },
-  {
-    name: '$color-gray-1',
-    variable: '--sl-color-gray-2',
-    value: '1px solid #B1B1B1',
-  },
-  {
-    name: '$color-gray-2',
-    variable: '--sl-color-gray-2',
-    value: '1px solid #D1D5DB',
-  },
-]
+// const borderTokens = [
+//   {
+//     name: '$color-gray-0',
+//     variable: '--sl-color-gray-0',
+//     value: '1px solid #EDEDED',
+//   },
+//   {
+//     name: '$color-gray-1',
+//     variable: '--sl-color-gray-2',
+//     value: '1px solid #B1B1B1',
+//   },
+//   {
+//     name: '$color-gray-2',
+//     variable: '--sl-color-gray-2',
+//     value: '1px solid #D1D5DB',
+//   },
+// ]
 
-const radiiTokens = [
-  {
-    name: '$color-gray-0',
-    variable: '--sl-color-gray-0',
-    value: '0px',
-  },
-  {
-    name: '$color-gray-1',
-    variable: '--sl-color-gray-2',
-    value: '4px',
-  },
-  {
-    name: '$color-gray-2',
-    variable: '--sl-color-gray-2',
-    value: '8px',
-  },
-]
+// const radiiTokens = [
+//   {
+//     name: '$color-gray-0',
+//     variable: '--sl-color-gray-0',
+//     value: '0px',
+//   },
+//   {
+//     name: '$color-gray-1',
+//     variable: '--sl-color-gray-2',
+//     value: '4px',
+//   },
+//   {
+//     name: '$color-gray-2',
+//     variable: '--sl-color-gray-2',
+//     value: '8px',
+//   },
+// ]
 
-const spacingTokens = [
-  {
-    name: '$color-gray-0',
-    variable: '--sl-color-gray-0',
-    value: '2rem',
-  },
-  {
-    name: '$color-gray-1',
-    variable: '--sl-color-gray-2',
-    value: '4rem',
-  },
-  {
-    name: '$color-gray-2',
-    variable: '--sl-color-gray-2',
-    value: '6rem',
-  },
-]
+// const spacingTokens = [
+//   {
+//     name: '$color-gray-0',
+//     variable: '--sl-color-gray-0',
+//     value: '2rem',
+//   },
+//   {
+//     name: '$color-gray-1',
+//     variable: '--sl-color-gray-2',
+//     value: '4rem',
+//   },
+//   {
+//     name: '$color-gray-2',
+//     variable: '--sl-color-gray-2',
+//     value: '6rem',
+//   },
+// ]
 
 export function TokensGrid(props: TokensTableProps) {
   const { foundation = 'color' } = props
