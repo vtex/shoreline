@@ -1,0 +1,17 @@
+import type { Ref } from 'react'
+import React, { forwardRef } from 'react'
+
+import { {{camelCase name}}Style } from './{{kebabCase name}}.css'
+
+export const {{pascalCase name}} = forwardRef<HTMLDivElement, {{pascalCase name}}Props>(function {{pascalCase name}}(
+  props, 
+  ref
+) {
+  return (
+    <div ref={ref} className={ {{camelCase name}}Style }>
+      {{pascalCase name}}
+    </div>
+  )
+})
+
+export interface {{pascalCase name}}Props {}
