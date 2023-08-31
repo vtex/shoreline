@@ -1,24 +1,13 @@
-import { useState } from 'react'
+import { useCopy } from '../hooks/use-copy'
 
 export function useCopyCode() {
-  const [isCodeCopied, setCodeCopied] = useState(false)
+  const { isCopied, handleCopy } = useCopy()
 
-  const handleCopyCode = (code: string) => {
-    if (!navigator) {
-      return
-    }
-
-    navigator.clipboard.writeText(code)
-
-    setCodeCopied(true)
-    setTimeout(() => setCodeCopied(false), 1000)
-  }
-
-  const label = isCodeCopied ? 'Copied' : 'Copy code'
+  const label = isCopied ? 'Copied' : 'Copy code'
 
   return {
-    isCodeCopied,
+    isCodeCopied: isCopied,
     label,
-    handleCopyCode,
+    handleCopyCode: handleCopy,
   }
 }
