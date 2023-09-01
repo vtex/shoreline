@@ -1,5 +1,5 @@
 import { Command } from 'commander'
-import { theme } from '@vtex/shoreline-theme'
+import { theme, tsTheme } from '@vtex/shoreline-theme'
 
 const program = new Command()
 
@@ -9,5 +9,10 @@ program
   .command('theme')
   .description('Generate CSS Variables from tokens')
   .action(theme)
+
+program
+  .command('typescript-theme')
+  .description('Generate a Typescript theme from tokens')
+  .action(tsTheme)
 
 program.parse()
