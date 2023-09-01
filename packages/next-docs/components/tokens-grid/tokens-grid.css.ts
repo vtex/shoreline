@@ -7,7 +7,7 @@ export const cellTheme = csx({
   borderBottom: '$neutral',
   padding: '$space-4',
   fontWeight: 400,
-  fontSize: '0.7500em',
+  fontSize: '0.8750em',
 })
 
 export const previewCellTheme = csx({
@@ -40,7 +40,7 @@ export const tokenTheme = csx({
   bg: '#F7F7F7',
   border: '1px solid #EDEDED',
   fontWeight: 400,
-  fontSize: '0.7500em',
+  fontSize: '0.8750em',
   borderRadius: '6px',
   paddingX: '4px',
   marginRight: '4px',
