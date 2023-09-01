@@ -23,6 +23,21 @@ const colorTokens = [
     variable: '--sl-color-gray-2',
     value: '#EDEDED',
   },
+  {
+    name: '$color-bg-critical-strong',
+    variable: '--sl-bg-critical-strong',
+    value: '#CA3A22',
+  },
+  {
+    name: '$color-bg-critical-strong-hover',
+    variable: '--sl-bg-critical-strong-hover',
+    value: '#BA2205',
+  },
+  {
+    name: '$color-bg-critical-strong-pressed',
+    variable: '--sl-bg-critical-strong-pressed',
+    value: '#A81B00',
+  },
 ]
 
 // const borderTokens = [
