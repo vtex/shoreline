@@ -3,21 +3,39 @@ import React from 'react'
 import { useCopy } from '../hooks/use-copy'
 import { Cell } from './cell'
 import { copyButtonTheme, tokenTheme } from './tokens-grid.css'
-import { IconCopySimple } from '@vtex/admin-ui'
+import { IconCopySimple, Stack } from '@vtex/admin-ui'
 
-export function TokenCell(props: ComponentPropsWithoutRef<'div'>) {
-  const { children, ...restProps } = props
+export function TokenCell(props: TokenCellProps) {
+  const { name, variable, ...restProps } = props
 
   const { handleCopy } = useCopy()
 
-  const token = typeof children === 'string' ? children : ''
-
   return (
     <Cell {...restProps}>
-      <span className={tokenTheme}>{children}</span>
-      <button className={copyButtonTheme} onClick={() => handleCopy(token)}>
-        <IconCopySimple width={12} height={12} />
-      </button>
+      <Stack>
+        <div>
+          <span data-is-name className={tokenTheme}>
+            {name}
+          </span>
+          <button className={copyButtonTheme} onClick={() => handleCopy(name)}>
+            <IconCopySimple width={12} height={12} />
+          </button>
+        </div>
+        <div>
+          <span className={tokenTheme}>{variable}</span>
+          <button
+            className={copyButtonTheme}
+            onClick={() => handleCopy(variable)}
+          >
+            <IconCopySimple width={12} height={12} />
+          </button>
+        </div>
+      </Stack>
     </Cell>
   )
+}
+
+interface TokenCellProps extends ComponentPropsWithoutRef<'div'> {
+  name: string
+  variable: string
 }

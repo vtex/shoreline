@@ -37,6 +37,9 @@ export const previewCellTheme = csx({
 })
 
 export const tokenTheme = csx({
+  [dataAttr('is-name', true)]: {
+    fontWeight: 700,
+  },
   bg: '#F7F7F7',
   border: '1px solid #EDEDED',
   fontWeight: 400,

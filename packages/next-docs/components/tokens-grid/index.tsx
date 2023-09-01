@@ -101,18 +101,16 @@ export function TokensGrid(props: TokensTableProps) {
     <div
       className={csx({
         display: 'grid',
-        gridTemplateColumns: '2fr 2fr 1fr 1fr',
+        gridTemplateColumns: '3fr 1fr 1fr',
       })}
     >
-      <Head>Token</Head>
-      <Head>CSS Variable</Head>
+      <Head>Token and CSS Variable</Head>
       <Head>Value</Head>
       <Head>Preview</Head>
       {colorTokens.map((token) => {
         return (
           <>
-            <TokenCell>{token.name}</TokenCell>
-            <Cell>{token.variable}</Cell>
+            <TokenCell name={token.name} variable={token.variable} />
             <Cell>{token.value}</Cell>
             <PreviewCell foundation={foundation} token={token} />
           </>
