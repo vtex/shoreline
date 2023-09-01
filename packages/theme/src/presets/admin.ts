@@ -194,29 +194,34 @@ export const presetAdmin = defineConfig({
       },
       bg: {
         '*': '$color-gray-0',
-        disabled: '#1D1D1D 0.05', // colormixin
+        disabled: 'color-mix(in srgb, $color-gray-14 5%, transparent)',
         warning: '$color-orange-2',
         success: '$color-green-2',
         informational: '$color-cyan-2',
         strong: '#color-gray-3',
         'strong-disabled': '#color-gray-6',
         inverted: '$color-gray-14',
-        'inverted-transparent': '#1D1D1D, 0.5 opacity', // colormixin
+        'inverted-transparent':
+          'color-mix(in srgb, $color-gray-14 50%, transparent)',
         muted: {
           '*': '$color-gray-1',
           hover: '$color-gray-2',
           pressed: '$color-gray-3',
-          transparent: '#1D1D1D, 0 opacity', // color mixin
-          'transparent-hover': '#1D1D1D, 0.05 opacity', // color mixin
-          'transparent-pressed': '#1D1D1D, 0.1 opacity', // color mixin
+          transparent: 'color-mix(in srgb, $color-gray-14 0%, transparent)',
+          'transparent-hover':
+            'color-mix(in srgb, $color-gray-14 5%, transparent)',
+          'transparent-pressed':
+            'color-mix(in srgb, $color-gray-14 10%, transparent)',
         },
         accent: {
           '*': '$color-blue-2',
           hover: '$color-blue-3',
           pressed: '$color-blue-4',
-          transparent: '#0064C3, 0 opacity', // color mixin
-          'transparent-hover': '#0064C3, 0.05 opacity', // color mixin
-          'transparent-pressed': '#0064C3, 0.1 opacity', // color mixin
+          transparent: 'color-mix(in srgb, $color-blue-10 0%, transparent)',
+          'transparent-hover':
+            'color-mix(in srgb, $color-blue-10 5%, transparent)',
+          'transparent-pressed':
+            'color-mix(in srgb, $color-blue-10 10%, transparent)',
           strong: '$color-blue-10',
           'strong-hover': '$color-blue-11',
           'strong-pressed': '$color-blue-12',
@@ -225,9 +230,11 @@ export const presetAdmin = defineConfig({
           '*': '$color-red-2',
           hover: '$color-red-3',
           pressed: '$color-red-4',
-          transparent: '#CA3A22, 0 opacity', // color mixin
-          'transparent-hover': '#CA3A22, 0.05 opacity', // color mixin
-          'transparent-pressed': '#CA3A22, 0.1 opacity', // color mixin
+          transparent: 'color-mix(in srgb, $color-red-9 0%, transparent)',
+          'transparent-hover':
+            'color-mix(in srgb, $color-red-9 5%, transparent)',
+          'transparent-pressed':
+            'color-mix(in srgb, $color-red-9 10%, transparent)',
           strong: '$color-red-9',
           'strong-hover': '$color-red-10',
           'strong-pressed': '$color-red-11',
