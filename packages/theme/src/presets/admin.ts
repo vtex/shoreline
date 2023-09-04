@@ -27,7 +27,10 @@ export const presetAdmin = defineConfig({
       24: '6rem',
       28: '7rem',
       32: '8rem',
-      // to do space gap
+      gap: {
+        '*': '1rem',
+        '@media-medium': '1.25rem',
+      },
     },
     color: {
       transparent: 'transparent',
