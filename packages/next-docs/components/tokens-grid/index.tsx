@@ -1,44 +1,48 @@
 import { csx } from '@vtex/admin-ui'
 import React from 'react'
 
-import type { Foundation } from './preview-cell'
+import {
+  getFoundationTokens,
+  type Foundation,
+  getTokenValues,
+} from './theme-utils'
 import { PreviewCell } from './preview-cell'
 import { TokenCell } from './token-cell'
 import { Cell } from './cell'
 import { Head } from './head'
 
-const colorTokens = [
-  {
-    name: '$color-gray-0',
-    variable: '--sl-color-gray-0',
-    value: '#FFFFFF',
-  },
-  {
-    name: '$color-gray-1',
-    variable: '--sl-color-gray-2',
-    value: '#F5F5F5',
-  },
-  {
-    name: '$color-gray-2',
-    variable: '--sl-color-gray-2',
-    value: '#EDEDED',
-  },
-  {
-    name: '$color-bg-critical-strong',
-    variable: '--sl-bg-critical-strong',
-    value: '#CA3A22',
-  },
-  {
-    name: '$color-bg-critical-strong-hover',
-    variable: '--sl-bg-critical-strong-hover',
-    value: '#BA2205',
-  },
-  {
-    name: '$color-bg-critical-strong-pressed',
-    variable: '--sl-bg-critical-strong-pressed',
-    value: '#A81B00',
-  },
-]
+// const colorTokens = [
+//   {
+//     name: '$color-gray-0',
+//     variable: '--sl-color-gray-0',
+//     value: '#FFFFFF',
+//   },
+//   {
+//     name: '$color-gray-1',
+//     variable: '--sl-color-gray-2',
+//     value: '#F5F5F5',
+//   },
+//   {
+//     name: '$color-gray-2',
+//     variable: '--sl-color-gray-2',
+//     value: '#EDEDED',
+//   },
+//   {
+//     name: '$color-bg-critical-strong',
+//     variable: '--sl-bg-critical-strong',
+//     value: '#CA3A22',
+//   },
+//   {
+//     name: '$color-bg-critical-strong-hover',
+//     variable: '--sl-bg-critical-strong-hover',
+//     value: '#BA2205',
+//   },
+//   {
+//     name: '$color-bg-critical-strong-pressed',
+//     variable: '--sl-bg-critical-strong-pressed',
+//     value: '#A81B00',
+//   },
+// ]
 
 // const borderTokens = [
 //   {
@@ -108,13 +112,23 @@ export function TokensGrid(props: TokensTableProps) {
       <Head>CSS Variable</Head>
       <Head>Value</Head>
       <Head>Preview</Head>
-      {colorTokens.map((token) => {
+      {getFoundationTokens(foundation).map((token) => {
+        const {
+          name,
+          variable,
+          value,
+          foundation: resolvedFoundation,
+        } = getTokenValues(token, foundation)
+
         return (
           <>
-            <TokenCell>{token.name}</TokenCell>
-            <Cell>{token.variable}</Cell>
-            <Cell>{token.value}</Cell>
-            <PreviewCell foundation={foundation} token={token} />
+            <TokenCell>{name}</TokenCell>
+            <Cell>{variable}</Cell>
+            <Cell>{value}</Cell>
+            <PreviewCell
+              foundation={resolvedFoundation}
+              token={{ name, variable, value }}
+            />
           </>
         )
       })}

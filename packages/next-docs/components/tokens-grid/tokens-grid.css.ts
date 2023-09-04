@@ -22,16 +22,56 @@ export const previewCellTheme = csx({
     borderRadius: '0.5rem',
     bg: 'transparent',
   },
-  [dataAttr('foundation', 'radii')]: {
+  [dataAttr('foundation', 'border-radius')]: {
     borderRadius: 'var(--preview-cell-token-value)',
     size: '48px',
     bg: '#DEDEDE',
   },
-  [dataAttr('foundation', 'spacing')]: {
+  [dataAttr('foundation', 'space')]: {
     height: '48px',
     width: 'var(--preview-cell-token-value)',
     bg: '#DEDEDE',
   },
+  [dataAttr('foundation', 'letter-spacing')]: {
+    height: '48px',
+    letterSpacing: 'var(--preview-cell-token-value)',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '14px',
+    ':after': {
+      content: 'Aa',
+    },
+  },
+  [dataAttr('foundation', 'font-size')]: {
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: 'var(--preview-cell-token-value)',
+    ':after': {
+      content: 'Aa',
+    },
+  },
+  [dataAttr('foundation', 'font-weight')]: {
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '14px',
+    fontWeight: 'var(--preview-cell-token-value)',
+    ':after': {
+      content: 'Aa',
+    },
+  },
+  [dataAttr('foundation', 'shadow')]: {
+    size: '48px',
+    display: 'flex',
+    boxShadow: 'var(--preview-cell-token-value)',
+  },
+  [dataAttr('foundation', 'focus-ring')]: {
+    size: '48px',
+    display: 'flex',
+    outline: 'var(--preview-cell-token-value)',
+  },
+  borderRadius: '0.5rem',
   fontWeight: 400,
   fontSize: '0.7500em',
 })

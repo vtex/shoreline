@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { Cell } from './cell'
 import { previewCellTheme } from './tokens-grid.css'
+import type { Foundation } from './theme-utils'
 
 export function PreviewCell(props: PreviewCellProps) {
   const { foundation, token, ...restProps } = props
@@ -21,8 +22,6 @@ interface PreviewCellProps extends ComponentPropsWithoutRef<'div'> {
   foundation: Foundation
   token: Token
 }
-
-export type Foundation = 'color' | 'spacing' | 'border' | 'radii' | 'typography'
 
 interface Token {
   value: string
