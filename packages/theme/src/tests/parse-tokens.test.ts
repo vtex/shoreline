@@ -212,3 +212,51 @@ test('should allow unprefixed keys', () => {
 
   expect(result).toStrictEqual(expectation)
 })
+
+test('should handle responsive values', () => {
+  const result = parseTokens({
+    prefix: 'sl',
+    tokens: {
+      space: {
+        gap: {
+          '*': '1rem',
+          '@media': {
+            medium: '1.25rem',
+          },
+        },
+      },
+    },
+  })
+
+  const expectation = {
+    '--sl-space-gap': '1rem',
+    '--sl-space-gap-@media-medium': '1.25rem',
+  }
+
+  expect(result).toStrictEqual(expectation)
+})
+
+test('should handle nested responsive values', () => {
+  const result = parseTokens({
+    tokens: {
+      color: {
+        blue: {
+          100: 'blue',
+
+          '@media': {
+            small: { 100: 'smallblue' },
+            medium: { 100: 'mediumblue' },
+          },
+        },
+      },
+    },
+  })
+
+  const expectation = {
+    '--sl-color-blue-100': 'blue',
+    '--sl-color-blue-@media-small-100': 'smallblue',
+    '--sl-color-blue-@media-medium-100': 'mediumblue',
+  }
+
+  expect(result).toStrictEqual(expectation)
+})
