@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.0.0",
+  "version": "0.0.1-dev.0",
   "main": "dist/vtex-shoreline-components.cjs.js",
   "module": "dist/vtex-shoreline-components.esm.js",
   "types": "dist/vtex-shoreline-components.cjs.d.ts",
@@ -30,7 +30,5 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
-  },
-  "devDependencies": {},
-  "dependencies": {}
+  }
 }
