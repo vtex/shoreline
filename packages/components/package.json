@@ -1,0 +1,36 @@
+{
+  "name": "@vtex/shoreline-components",
+  "version": "0.0.0",
+  "main": "dist/vtex-shoreline-components.cjs.js",
+  "module": "dist/vtex-shoreline-components.esm.js",
+  "types": "dist/vtex-shoreline-components.cjs.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
+  },
+  "repository": {
+    "directory": "packages/admin-ui",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
