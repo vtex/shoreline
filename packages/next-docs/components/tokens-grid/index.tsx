@@ -1,4 +1,3 @@
-import { csx } from '@vtex/admin-ui'
 import React, { Fragment } from 'react'
 
 import {
@@ -11,6 +10,7 @@ import { TokenCell } from './token-cell'
 import { Cell } from './cell'
 import { Head } from './head'
 import { variables } from '../../shoreline/theme'
+import { gridTheme } from './tokens-grid.css'
 
 export function TokensGrid(props: TokensTableProps) {
   const { foundation = 'color' } = props
@@ -18,15 +18,13 @@ export function TokensGrid(props: TokensTableProps) {
   return (
     <div
       style={variables as any}
-      className={csx({
-        display: 'grid',
-        gridTemplateColumns: '2fr 2fr 1fr 1fr',
-      })}
+      data-foundation={foundation}
+      className={gridTheme}
     >
       <Head>Token</Head>
       <Head>CSS Variable</Head>
       <Head>Value</Head>
-      <Head>Preview</Head>
+      {foundation === 'breakpoint' ? null : <Head>Preview</Head>}
       {getFoundationTokens(foundation).map((token) => {
         const {
           name,
@@ -40,10 +38,12 @@ export function TokensGrid(props: TokensTableProps) {
             <TokenCell>{name}</TokenCell>
             <Cell>{variable}</Cell>
             <Cell>{value}</Cell>
-            <PreviewCell
-              foundation={resolvedFoundation}
-              token={{ name, variable, value }}
-            />
+            {foundation === 'breakpoint' ? null : (
+              <PreviewCell
+                foundation={resolvedFoundation}
+                token={{ name, variable, value }}
+              />
+            )}
           </Fragment>
         )
       })}
