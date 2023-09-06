@@ -1,5 +1,22 @@
 import { csx, dataAttr } from '@vtex/admin-ui'
 
+export const gridTheme = csx({
+  display: 'grid',
+  gridTemplateColumns: '2fr 2fr 2fr 1fr',
+  [dataAttr('foundation', 'breakpoint')]: {
+    gridTemplateColumns: '2fr 2fr 1fr',
+  },
+  [dataAttr('foundation', 'elevation')]: {
+    gridTemplateColumns: '2fr 1fr 2fr 1fr',
+  },
+  [dataAttr('foundation', 'space')]: {
+    gridTemplateColumns: '2fr 2fr 1fr 1fr',
+  },
+  [dataAttr('foundation', 'border-radius')]: {
+    gridTemplateColumns: '2fr 2fr 1fr 1fr',
+  },
+})
+
 export const cellTheme = csx({
   display: 'flex',
   alignItems: 'center',
@@ -31,6 +48,7 @@ export const previewCellTheme = csx({
     height: '48px',
     width: 'var(--preview-cell-token-value)',
     bg: '#DEDEDE',
+    borderRadius: '0',
   },
   [dataAttr('foundation', 'letter-spacing')]: {
     height: '48px',
@@ -69,7 +87,16 @@ export const previewCellTheme = csx({
   [dataAttr('foundation', 'focus-ring')]: {
     size: '48px',
     display: 'flex',
-    outline: 'var(--preview-cell-token-value)',
+    boxShadow: 'var(--preview-cell-token-value)',
+  },
+  [dataAttr('foundation', 'text')]: {
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    font: 'var(--preview-cell-token-value)',
+    ':after': {
+      content: 'Aa',
+    },
   },
   borderRadius: '0.5rem',
   fontWeight: 400,

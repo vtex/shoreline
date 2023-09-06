@@ -216,11 +216,11 @@ export const variables = {
   '--sl-border-radius-large': '0.75rem',
   '--sl-border-radius-full': '100%',
   '--sl-focus-ring':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0) 0rem 0rem 0rem 0.1875rem var(--sl-color-gray-5)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-gray-5)',
   '--sl-focus-ring-critical':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0) 0rem 0rem 0rem 0.1875rem var(--sl-color-red-6)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-red-6)',
   '--sl-focus-ring-accent':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0) 0rem 0rem 0rem 0.1875rem var(--sl-color-blue-6)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-blue-6)',
   '--sl-shadow-1': '0rem 0.125rem 0.5rem 0rem rgba(0, 0, 0, 0.12)',
   '--sl-shadow-2': '0rem 0.25rem 1rem 0rem rgba(0, 0, 0, 0.16)',
   '--sl-shadow-3': '0rem 1.5rem 3rem 0rem rgba(0, 0, 0, 0.16)',
@@ -495,11 +495,11 @@ export const theme = {
   '$border-radius-large': '0.75rem',
   '$border-radius-full': '100%',
   '$focus-ring':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0,) 0rem 0rem 0rem 0.1875rem var(--sl-color-gray-5)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-gray-5)',
   '$focus-ring-critical':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0,) 0rem 0rem 0rem 0.1875rem var(--sl-color-red-6)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-red-6)',
   '$focus-ring-accent':
-    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0,) 0rem 0rem 0rem 0.1875rem var(--sl-color-blue-6)',
+    '0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem 0rem 0rem 0.1875rem var(--sl-color-blue-6)',
   '$shadow-1': '0rem 0.125rem 0.5rem 0rem rgba(0, 0, 0, 0.12)',
   '$shadow-2': '0rem 0.25rem 1rem 0rem rgba(0, 0, 0, 0.16)',
   '$shadow-3': '0rem 1.5rem 3rem 0rem rgba(0, 0, 0, 0.16)',
