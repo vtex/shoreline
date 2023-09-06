@@ -3,9 +3,23 @@ import { theme } from '../../shoreline/theme'
 export function getFoundationTokens(foundation: Foundation) {
   const tokens = Object.keys(theme)
 
-  return tokens.filter((token) =>
-    token.includes(resolveFoundation(token, foundation))
-  )
+  return tokens.filter((token) => {
+    if (foundation === 'border') {
+      return token.includes(foundation) && !token.includes('radius')
+    }
+
+    const resolvedFoundation = resolveFoundation(token, foundation)
+
+    if (resolvedFoundation === 'text') {
+      return !derivedFoundations.typography.some((derivedFoundation) => {
+        if (derivedFoundation === 'text') return false
+
+        return token.includes(derivedFoundation)
+      })
+    }
+
+    return token.includes(resolvedFoundation)
+  })
 }
 
 export function getTokenValues(token: string, foundation: Foundation) {
@@ -24,9 +38,9 @@ const derivedFoundations: Record<string, Foundation[]> = {
 
 export function resolveFoundation(token: string, foundation: Foundation) {
   if (derivedFoundations[foundation]) {
-    const derivedTokenValue = derivedFoundations[foundation] ?? []
+    const derivedFoundation = derivedFoundations[foundation] ?? []
 
-    const [resolvedFoundation] = derivedTokenValue.filter((derivedToken) =>
+    const [resolvedFoundation] = derivedFoundation.filter((derivedToken) =>
       token.startsWith(`$${derivedToken}`)
     )
 
@@ -34,10 +48,6 @@ export function resolveFoundation(token: string, foundation: Foundation) {
   }
 
   return foundation
-}
-
-export function getElevationTokens(token: string, foundation: Foundation) {
-  return token.includes(foundation)
 }
 
 export type Foundation =
@@ -55,3 +65,4 @@ export type Foundation =
   | 'letter-spacing'
   | 'focus-ring'
   | 'text'
+  | 'breakpoint'
