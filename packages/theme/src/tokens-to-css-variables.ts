@@ -6,9 +6,25 @@ const breakpointValues = {
   large: '90rem',
 }
 
+function escapeCss(variableName: string, value: string) {
+  return `${cssesc(variableName)}: ${cssesc(value)};\n`
+}
+
+function buildCssString(breakpoint: string, cssStyles: string) {
+  return cssStyles
+    ? `
+      @media (min-width: ${breakpoint}) {
+        :root {
+        ${cssStyles}
+        }
+      }
+`
+    : ''
+}
+
 export function tokensToCssVariables(object: Record<string, any>) {
   let cssString = ''
-  const responsiveStyles = {
+  const responsiveCssStrings = {
     small: '',
     medium: '',
     large: '',
@@ -19,26 +35,21 @@ export function tokensToCssVariables(object: Record<string, any>) {
 
     if (key.match(/-@media-/g)) {
       const baseVariable = key.replace(/-@media-[^-]*/g, '')
+      const escapedVar = escapeCss(baseVariable, value)
 
       if (key.match(/-@media-small/g)) {
-        const variable = `${cssesc(baseVariable)}: ${cssesc(value)};\n`
-
-        responsiveStyles.small += variable
+        responsiveCssStrings.small += escapedVar
       }
 
       if (key.match(/-@media-medium/g)) {
-        const variable = `${cssesc(baseVariable)}: ${cssesc(value)};\n`
-
-        responsiveStyles.medium += variable
+        responsiveCssStrings.medium += escapedVar
       }
 
       if (key.match(/-@media-large/g)) {
-        const variable = `${cssesc(baseVariable)}: ${cssesc(value)};\n`
-
-        responsiveStyles.large += variable
+        responsiveCssStrings.large += escapedVar
       }
     } else {
-      const variable = `${cssesc(key)}: ${cssesc(value)};\n`
+      const variable = escapeCss(key, value)
 
       cssString += variable
     }
@@ -50,19 +61,12 @@ export function tokensToCssVariables(object: Record<string, any>) {
       ${cssString}
     }
 
-    ${Object.keys(responsiveStyles)
+    ${Object.keys(responsiveCssStrings)
       .map((breakpoint) =>
-        responsiveStyles[breakpoint as keyof typeof responsiveStyles]
-          ? `
-        @media (min-width: ${
-          breakpointValues[breakpoint as keyof typeof breakpointValues]
-        }) {
-          :root {
-            ${responsiveStyles[breakpoint as keyof typeof responsiveStyles]}
-          }
-        }
-      `
-          : ''
+        buildCssString(
+          breakpointValues[breakpoint as keyof typeof breakpointValues],
+          responsiveCssStrings[breakpoint as keyof typeof responsiveCssStrings]
+        )
       )
       .join('')}
 
