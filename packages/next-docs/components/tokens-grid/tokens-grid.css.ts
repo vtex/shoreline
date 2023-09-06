@@ -2,22 +2,25 @@ import { csx, dataAttr } from '@vtex/admin-ui'
 
 export const gridTheme = csx({
   display: 'grid',
-  gridTemplateColumns: '2fr 2fr 2fr 1fr',
+  gridTemplateColumns: '2fr 2fr 2fr 5rem',
   [dataAttr('foundation', 'breakpoint')]: {
     gridTemplateColumns: '2fr 2fr 1fr',
   },
   [dataAttr('foundation', 'elevation')]: {
-    gridTemplateColumns: '2fr 1fr 2fr 1fr',
+    gridTemplateColumns: '2fr 2fr 3fr 5rem',
   },
   [dataAttr('foundation', 'space')]: {
     gridTemplateColumns: '2fr 2fr 1fr 1fr',
   },
   [dataAttr('foundation', 'border-radius')]: {
-    gridTemplateColumns: '2fr 2fr 1fr 1fr',
+    gridTemplateColumns: '2fr 2fr 1fr 5rem',
   },
 })
 
 export const cellTheme = csx({
+  [dataAttr('type', 'preview')]: {
+    paddingRight: '$space-0',
+  },
   display: 'flex',
   alignItems: 'center',
   height: '100%',

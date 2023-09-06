@@ -8,7 +8,7 @@ export function PreviewCell(props: PreviewCellProps) {
   const { foundation, token, ...restProps } = props
 
   return (
-    <Cell {...restProps}>
+    <Cell {...restProps} data-type="preview">
       <div
         data-foundation={foundation}
         style={{ '--preview-cell-token-value': token.value } as any}
