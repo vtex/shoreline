@@ -171,7 +171,6 @@ export const presetAdmin = defineConfig({
         12: '#00525E',
         13: '#003740',
       },
-      //
       fg: {
         '*': '$color-gray-14',
         disabled: '$color-gray-7',
@@ -307,52 +306,57 @@ export const presetAdmin = defineConfig({
       5: '1.5rem',
     },
     'letter-spacing': {
-      normal: '0em',
-      tight: '-0.02em',
-      tighter: '-0.04em',
+      1: '0em',
+      2: '-0.00875em',
+      3: '-0.02em',
+      4: '-0.04em',
     },
     'line-height': {
-      normal: '1.4',
+      1: '16px',
+      2: '20px',
+      3: '24px',
+      4: '28px',
+      5: '32px',
     },
     text: {
       caption: {
         2: {
-          font: '$font-weight-regular $font-size-1 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-normal',
+          font: '$font-weight-regular $font-size-1 / $line-height-1 $font-family-sans',
+          'letter-spacing': '$letter-spacing-1',
         },
         1: {
-          font: '$font-weight-medium $font-size-1 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-normal',
+          font: '$font-weight-medium $font-size-1 / $line-height-1 $font-family-sans',
+          'letter-spacing': '$letter-spacing-1',
         },
       },
       action: {
-        font: '$font-weight-semibold $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-semibold $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       emphasis: {
-        font: '$font-weight-medium $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-medium $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       body: {
-        font: '$font-weight-regular $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-regular $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       display: {
         4: {
-          font: '$font-weight-regular $font-size-3 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tight',
+          font: '$font-weight-regular $font-size-3 / $line-height-3 $font-family-sans',
+          'letter-spacing': '$letter-spacing-3',
         },
         3: {
-          font: '$font-weight-semibold $font-size-3 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tight',
+          font: '$font-weight-semibold $font-size-3 / $line-height-3 $font-family-sans',
+          'letter-spacing': '$letter-spacing-3',
         },
         2: {
-          font: '$font-weight-semibold $font-size-4 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tighter',
+          font: '$font-weight-semibold $font-size-4 / $line-height-4 $font-family-sans',
+          'letter-spacing': '$letter-spacing-4',
         },
         1: {
-          font: '$font-weight-semibold $font-size-5 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tighter',
+          font: '$font-weight-semibold $font-size-5 / $line-height-5 $font-family-sans',
+          'letter-spacing': '$letter-spacing-4',
         },
       },
     },
