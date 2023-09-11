@@ -3,10 +3,10 @@
   "version": "0.1.1-dev.5",
   "private": true,
   "scripts": {
-    "dev-example": "next dev",
-    "build-example": "next build",
-    "start-example": "next start",
-    "lint-example": "next lint"
+    "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex use localhost && vtex link\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@faker-js/faker": "8.0.2",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/node": "20.4.0",
     "@types/react-dom": "18.2.6",
+    "concurrently": "^8.2.1",
     "eslint-config-next": "13.4.8"
   }
 }
