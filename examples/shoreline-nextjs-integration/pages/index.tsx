@@ -98,7 +98,7 @@ const Home: NextPage = () => {
       <PageContent layout="wide">
         <Alert>
           Hi, you are on {account} with locale {locale}. On workspace{' '}
-          {workspace}, token {token}
+          {workspace} and token {token.slice(0, 10)}...
         </Alert>
         <DataView state={view}>
           <Table {...getTable()} className={csx({ width: '100%' })}>
