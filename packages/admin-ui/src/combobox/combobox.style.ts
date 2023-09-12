@@ -1,5 +1,5 @@
 import { dataAttr, cx, csx } from '@vtex/admin-ui-core'
-import { action as actionColorScheme } from '../button/button.css'
+import { action as actionColorScheme } from '../button/button.style'
 
 const height = '3rem'
 const width = '21.625rem'

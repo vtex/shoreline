@@ -4,7 +4,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { headingTheme } from './heading.css'
+import { headingTheme } from './heading.style'
 
 /**
  * Anchor component

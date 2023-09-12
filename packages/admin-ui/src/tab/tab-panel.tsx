@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
 import type { TabState } from './tab-state'
-import { tabPanelTheme } from './tab.css'
+import { tabPanelTheme } from './tab.style'
 import { useTabPanelContext } from './tab-panel-list'
 
 export const TabPanel = forwardRef(function TabPanel(

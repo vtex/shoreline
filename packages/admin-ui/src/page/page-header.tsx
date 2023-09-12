@@ -12,7 +12,7 @@ import {
   pageHeaderTheme,
   pageHeaderViewportRef,
   pageHeaderViewportRefStyle,
-} from './page.css'
+} from './page.style'
 
 /**
  * Page header component

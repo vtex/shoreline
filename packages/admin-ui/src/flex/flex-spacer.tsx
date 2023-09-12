@@ -1,7 +1,7 @@
 import { cx } from '@vtex/admin-ui-core'
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { flexSpacerTheme } from './flex.css'
+import { flexSpacerTheme } from './flex.style'
 
 export const FlexSpacer = forwardRef(
   (props: FlexSpacerProps, ref: Ref<HTMLDivElement>) => {

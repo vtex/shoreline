@@ -1,7 +1,7 @@
 import { cx } from '@vtex/admin-ui-core'
 import type { Ref, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { skeletonTheme } from './skeleton.css'
+import { skeletonTheme } from './skeleton.style'
 
 /**
  * Represents a UI that doesn’t contain actual content; instead, it shows the loading elements of a page in a shape similar to actual content.

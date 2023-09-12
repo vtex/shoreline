@@ -10,7 +10,7 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
-import { caretTheme, containerTheme } from './select.css'
+import { caretTheme, containerTheme } from './select.style'
 
 export const Select = forwardRef(function Select(
   props: SelectProps,

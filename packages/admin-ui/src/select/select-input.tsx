@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import { messages } from './messages'
 import { useMessageFormatter } from '../i18n'
-import { selectTheme } from './select.css'
+import { selectTheme } from './select.style'
 
 export const SelectInput = forwardRef(function SelectInput(
   props: SelectInputProps,

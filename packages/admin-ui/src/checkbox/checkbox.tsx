@@ -8,7 +8,7 @@ import { Inline } from '../inline'
 import { CheckboxInput } from './checkbox-input'
 import type { CheckboxInputProps } from './checkbox-input'
 import { FormControl, FormControlMessage } from '../form-control'
-import { labelTheme } from './checkbox.css'
+import { labelTheme } from './checkbox.style'
 
 export const Checkbox = forwardRef(function Checkbox(
   props: CheckboxProps,

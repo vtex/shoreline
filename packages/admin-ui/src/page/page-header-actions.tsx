@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
 import { Stack } from '../stack'
-import { pageHeaderActionsTheme } from './page.css'
+import { pageHeaderActionsTheme } from './page.style'
 
 /**
  * Page header actions component

@@ -12,7 +12,7 @@ import {
   textContainerTheme,
   textDescriptionTheme,
   textTheme,
-} from './resolvers.css'
+} from './resolvers.style'
 
 export function textResolver<T>() {
   return createResolver<T, 'text', TextResolver<T>>({

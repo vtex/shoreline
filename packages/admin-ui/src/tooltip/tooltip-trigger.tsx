@@ -5,7 +5,7 @@ import {
   tooltipTriggerContainerTheme,
   tooltipTriggerTheme,
   tooltipTriggerWrapperTheme,
-} from './tooltip.css'
+} from './tooltip.style'
 import { Center } from '../center'
 import { cx } from '@vtex/admin-ui-core'
 

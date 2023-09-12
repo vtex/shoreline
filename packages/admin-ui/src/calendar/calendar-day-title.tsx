@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
 import type { CalendarStateReturn } from './calendar-state'
-import { calendarDayTitleTheme } from './calendar.css'
+import { calendarDayTitleTheme } from './calendar.style'
 
 export const CalendarDayTitle = forwardRef(function CalendarDayTitle(
   props: CalendarDayTitleProps,

@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { termTheme } from './text-input.css'
+import { termTheme } from './text-input.style'
 
 export const TextInputTerm = forwardRef(function TextInputTerm(
   props: TextInputTermProps,

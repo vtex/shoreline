@@ -4,7 +4,7 @@ import { Popover } from 'reakit/Popover'
 import { cx } from '@vtex/admin-ui-core'
 
 import type { PickerStateReturn } from './picker-state'
-import { pickerPopoverTheme } from './picker.css'
+import { pickerPopoverTheme } from './picker.style'
 
 export const PickerPopover = forwardRef(function PickerPopover(
   props: PickerPopoverProps,

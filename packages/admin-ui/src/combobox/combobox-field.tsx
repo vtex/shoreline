@@ -10,7 +10,7 @@ import {
   fieldContainerTheme,
   fieldLabelTheme,
   inputTheme,
-} from './combobox.css'
+} from './combobox.style'
 import { IconContainer } from '../icons'
 
 const fixUp: any = {

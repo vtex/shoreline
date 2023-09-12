@@ -5,7 +5,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import { MenuItemWrapper } from './menu-item-wrapper'
 import { Center } from '../center'
-import { itemTheme } from './menu.css'
+import { itemTheme } from './menu.style'
 import { IconContainer } from '../icons'
 
 export const MenuItem = forwardRef(

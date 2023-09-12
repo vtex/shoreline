@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { abbrTheme } from './abbr.css'
+import { abbrTheme } from './abbr.style'
 
 /**
  * Abbreviation component

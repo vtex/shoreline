@@ -5,7 +5,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import { Inline } from '../inline'
 import type { TabState } from './tab-state'
-import { tabListTheme } from './tab.css'
+import { tabListTheme } from './tab.style'
 
 export const TabList = forwardRef(function TabList(
   props: TabListProps,

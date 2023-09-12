@@ -10,7 +10,7 @@ import { cx } from '@vtex/admin-ui-core'
 import { useDateFormatter } from '../i18n'
 import { isNumeric, parseNumber } from './util'
 import type { DateSegment, SegmentStateReturn } from './segment.state'
-import { segmentTheme } from './segment.css'
+import { segmentTheme } from './segment.style'
 
 export const Segment = forwardRef(function Segment(
   props: SegmentProps,

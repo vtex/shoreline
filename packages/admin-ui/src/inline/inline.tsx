@@ -1,6 +1,6 @@
 import type { SpaceTokens, CSSPropAutocomplete } from '@vtex/admin-ui-core'
 import type * as CSS from 'csstype'
-import { inlineStyle, inlineTheme } from './inline.css'
+import { inlineStyle, inlineTheme } from './inline.style'
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'

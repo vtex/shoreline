@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { ComboboxPopover as AriakitComboboxPopover } from 'ariakit/combobox'
 
-import { popoverStatusContainerTheme, popoverTheme } from './combobox.css'
+import { popoverStatusContainerTheme, popoverTheme } from './combobox.style'
 
 import { messages } from './messages'
 import { Paragraph } from '../paragraph'

@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { Separator as ReakitSeparator } from 'reakit/Separator'
 
-import * as style from './divider.css'
+import * as style from './divider.style'
 
 /**
  * It renders an hr element and grants accessibility as described on the [WAI-ARIA Separator Role](https://www.w3.org/TR/wai-aria-1.1/#separator).

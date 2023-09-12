@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { titleTheme } from './card.css'
+import { titleTheme } from './card.style'
 
 export const CardTitle = forwardRef(
   (props: CardTitleProps, ref: Ref<HTMLParagraphElement>) => {

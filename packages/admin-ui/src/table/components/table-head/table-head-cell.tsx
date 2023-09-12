@@ -18,7 +18,7 @@ import {
   sortableContainerTheme,
   sortIndicatorTheme,
   sortIndicatorUpTheme,
-} from '../styles/table-head.css'
+} from '../styles/table-head.style'
 import { cx } from '@vtex/admin-ui-core'
 
 const ariaSortLabel = {
