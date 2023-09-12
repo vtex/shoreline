@@ -45,6 +45,9 @@ const config: DocsThemeConfig = {
   components: {
     Playground,
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
 }
 
 export default config
