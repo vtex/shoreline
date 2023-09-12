@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
-import type { BleedThemeValues } from './bleed.css'
-import { bleedInnerChild, bleedTheme, bleedStyle } from './bleed.css'
+import type { BleedThemeValues } from './bleed.style'
+import { bleedInnerChild, bleedTheme, bleedStyle } from './bleed.style'
 
 const defaultBleed = '0rem'
 

@@ -10,7 +10,7 @@ import { Skeleton } from '../skeleton'
 
 import type { FilterStatus as FilterStatusType } from './use-filter-status'
 import { csx, cx } from '@vtex/admin-ui-core'
-import { filterStatusTheme } from './filter.css'
+import { filterStatusTheme } from './filter.style'
 
 export function FilterStatus(props: FilterStatusProps) {
   const { status, onRetry } = props

@@ -7,7 +7,7 @@ import { useMessageFormatter } from '../i18n'
 import { messages } from './messages'
 import { usePopoverContext } from './filter-popover-context'
 import { Stack } from '../stack'
-import { filterFooterTheme } from './filter.css'
+import { filterFooterTheme } from './filter.style'
 
 export const FilterFooter = forwardRef(function FilterFooter(
   props: FilterFooterProps,

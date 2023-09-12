@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
 import type { TabState } from './tab-state'
-import { tabTheme } from './tab.css'
+import { tabTheme } from './tab.style'
 
 export const Tab = forwardRef(function Tab(
   props: TabProps,

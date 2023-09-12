@@ -11,7 +11,7 @@ import { IconContainer } from '../icons'
 
 import { Center } from '../center'
 
-import { buttonInnerContainerTheme, buttonTheme } from './menu.css'
+import { buttonInnerContainerTheme, buttonTheme } from './menu.style'
 
 import { useMessageFormatter } from '../i18n'
 import { messages } from './messages'

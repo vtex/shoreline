@@ -12,7 +12,7 @@ import { CalendarHeader } from './calendar-header'
 import { CalendarCell } from './calendar-cell'
 import { CalendarCellButton } from './calendar-cell-button'
 import { Abbr } from '../abbr'
-import { calendarTheme } from './calendar.css'
+import { calendarTheme } from './calendar.style'
 
 export const Calendar = forwardRef(function Calendar(
   props: CalendarProps,

@@ -9,7 +9,7 @@ import { DateField } from '../date-field'
 import { Center } from '../center'
 import { Picker, PickerDisclosure } from '../picker'
 import type { DatePickerStateReturn } from './date-picker.state'
-import { datePickerDisclosureTheme } from './date-picker.css'
+import { datePickerDisclosureTheme } from './date-picker.style'
 
 export const DatePickerField = forwardRef(function DatePickerField(
   props: DatePickerFieldProps,

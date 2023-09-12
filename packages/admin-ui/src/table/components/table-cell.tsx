@@ -7,7 +7,7 @@ import { useTableScroll } from '../hooks/use-table-scroll'
 
 import type { TableColumn } from '../types'
 import type { BaseResolvers } from '../resolvers/base'
-import { innerContainerTheme, tableCellTheme } from './styles/table-cell.css'
+import { innerContainerTheme, tableCellTheme } from './styles/table-cell.style'
 
 function _TableCell<T>(props: TableCellProps<T>) {
   const {

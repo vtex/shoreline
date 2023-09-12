@@ -1,5 +1,5 @@
-import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
+import { cx } from '@vtex/shoreline-utils'
 
 import { {{camelCase name}}Style } from './{{kebabCase name}}.css'
 
@@ -7,11 +7,15 @@ export const {{pascalCase name}} = forwardRef<HTMLDivElement, {{pascalCase name}
   props, 
   ref
 ) {
+  const { className } = props
+
   return (
-    <div ref={ref} className={ {{camelCase name}}Style }>
+    <div ref={ref} className={cx({{camelCase name}}Style, className)}>
       {{pascalCase name}}
     </div>
   )
 })
 
-export interface {{pascalCase name}}Props {}
+export interface {{pascalCase name}}Props {
+  className?: string
+}

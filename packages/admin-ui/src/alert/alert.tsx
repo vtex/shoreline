@@ -21,7 +21,7 @@ import {
   alertActionTheme,
   rightInline,
   alertDescription,
-} from './alert.css'
+} from './alert.style'
 
 /**
  * Alerts are notifications of mild to high priority that inform the user about events they should know and, if it's a problem, point out a solution.

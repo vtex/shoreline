@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { avatarTheme, avatarContentTheme } from './avatar.css'
+import { avatarTheme, avatarContentTheme } from './avatar.style'
 
 /**
  * Component to create a user avatar from a passed label

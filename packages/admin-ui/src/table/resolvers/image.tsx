@@ -14,7 +14,7 @@ import {
   imagePreviewTheme,
   imagePreviewTooltipStyle,
   imagePreviewTooltipTheme,
-} from './resolvers.css'
+} from './resolvers.style'
 
 const defaultPreview: ImagePreview = {
   display: true,

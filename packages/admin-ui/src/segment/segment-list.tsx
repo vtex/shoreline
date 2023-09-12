@@ -4,7 +4,7 @@ import { Composite } from 'reakit/Composite'
 import { cx } from '@vtex/admin-ui-core'
 
 import type { SegmentStateReturn } from './segment.state'
-import { segmentListTheme } from './segment.css'
+import { segmentListTheme } from './segment.style'
 
 export const SegmentList = forwardRef(function SegmentList(
   props: SegmentListProps,

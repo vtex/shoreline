@@ -1,5 +1,5 @@
 import { csx } from '@vtex/admin-ui-core'
-import { action as actionSchema } from '../button/button.css'
+import { action as actionSchema } from '../button/button.style'
 
 export const calendarTheme = csx({
   maxWidth: '19.75rem',

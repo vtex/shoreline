@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 
-import { tagTheme } from './tag.css'
+import { tagTheme } from './tag.style'
 
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'

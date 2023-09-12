@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { Radio as AriakitRadio } from 'ariakit/radio'
 import { cx } from '@vtex/admin-ui-core'
 
-import { radioTheme } from './radio.css'
+import { radioTheme } from './radio.style'
 
 export const RadioButton = forwardRef(function RadioButton(
   props: RadioButtonProps,

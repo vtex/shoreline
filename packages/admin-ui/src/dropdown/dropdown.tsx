@@ -13,7 +13,7 @@ import {
   dropdownContainerTheme,
   dropdownPopoverTheme,
   dropdownItemTheme,
-} from './dropdown.css'
+} from './dropdown.style'
 
 export const Dropdown = forwardRef(
   <T,>(props: DropdownProps<T>, ref: Ref<HTMLDivElement>) => {

@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 
-import { imageTheme } from './card.css'
+import { imageTheme } from './card.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const CardImage = forwardRef(

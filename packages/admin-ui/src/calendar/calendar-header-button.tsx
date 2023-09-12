@@ -5,7 +5,7 @@ import { Clickable } from 'reakit/Clickable'
 import { callAllHandlers } from '@vtex/admin-ui-util'
 
 import type { CalendarStateReturn } from './calendar-state'
-import { calendarButtonTheme } from './calendar.css'
+import { calendarButtonTheme } from './calendar.style'
 
 export const CalendarHeaderButton = forwardRef(function CalendarHeaderButton(
   props: CalendarHeaderButtonProps,

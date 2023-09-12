@@ -1,5 +1,5 @@
 import { dataAttr, csx, negative } from '@vtex/admin-ui-core'
-import { action as actionColorScheme } from '../button/button.css'
+import { action as actionColorScheme } from '../button/button.style'
 
 export const itemTheme = csx({
   display: 'flex',

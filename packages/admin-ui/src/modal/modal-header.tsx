@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 import { useAtom } from 'jotai'
 
-import { modalHeaderTheme } from './modal.css'
+import { modalHeaderTheme } from './modal.style'
 import { isHeaderFixedAtom, isContentScrollableAtom } from './util'
 
 /**

@@ -5,7 +5,7 @@ import { useForkRef } from '@vtex/admin-ui-hooks'
 import { cx } from '@vtex/admin-ui-core'
 
 import { usePopoverContext } from './filter-popover-context'
-import { filterListboxTheme, filterListTheme } from './filter.css'
+import { filterListboxTheme, filterListTheme } from './filter.style'
 
 export const FilterListbox = forwardRef(function FilterListBox(
   props: FilterListboxProps,

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import type { ComponentPropsWithRef, Ref } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { pageContentTheme } from './page.css'
+import { pageContentTheme } from './page.style'
 
 /**
  * Page content component
