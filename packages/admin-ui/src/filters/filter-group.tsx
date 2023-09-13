@@ -5,7 +5,7 @@ import { csx, cx } from '@vtex/admin-ui-core'
 import { Button } from '../button'
 import { useMessageFormatter } from '../i18n'
 import { messages } from './messages'
-import { filterGroupTheme } from './filter.css'
+import { filterGroupTheme } from './filter.style'
 
 export const FilterGroup = forwardRef(function FIlterGroup(
   props: FilterGroupProps,

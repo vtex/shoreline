@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
-import { textTheme } from './text.css'
+import { textTheme } from './text.style'
 
 export const Text = forwardRef(function Text(
   props: TextProps,

@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 
-import { pageHeaderTopTheme } from './page.css'
+import { pageHeaderTopTheme } from './page.style'
 import { cx } from '@vtex/admin-ui-core'
 
 /**

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
-import { pageHeaderButtonTheme } from './page.css'
+import { pageHeaderButtonTheme } from './page.style'
 
 /**
  * Page header button component

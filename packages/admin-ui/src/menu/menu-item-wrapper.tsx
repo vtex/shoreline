@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ReactNode } from 'react'
 
-import { disabledItemWrapper } from './menu.css'
+import { disabledItemWrapper } from './menu.style'
 
 export const MenuItemWrapper = (props: MenuItemWrapperProps) =>
   props.disabled ? (

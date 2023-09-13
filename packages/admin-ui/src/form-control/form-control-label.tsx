@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import { useMessageFormatter } from '../i18n'
 import { messages } from './messages'
-import { labelTheme } from './form-control.css'
+import { labelTheme } from './form-control.style'
 
 export const FormControlLabel = forwardRef(function FormControlLabel(
   props: LabelProps,

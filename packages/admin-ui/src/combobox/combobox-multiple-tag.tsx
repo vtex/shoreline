@@ -14,7 +14,7 @@ import { useMessageFormatter } from '../i18n'
 import { Paragraph } from '../paragraph'
 import { Flex } from '../flex'
 import { cx } from '@vtex/admin-ui-core'
-import { fieldTagTheme, fieldTagDismissTheme } from './combobox.css'
+import { fieldTagTheme, fieldTagDismissTheme } from './combobox.style'
 
 export const ComboboxMultipleTag = (
   props: ComboboxMultipleTagProps,

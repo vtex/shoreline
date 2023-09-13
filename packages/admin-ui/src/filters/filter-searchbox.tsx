@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { SearchProps } from '../search'
 import { Search } from '../search'
 import { usePopoverContext } from './filter-popover-context'
-import { filterSearchboxTheme } from './filter.css'
+import { filterSearchboxTheme } from './filter.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const FilterSearchbox = forwardRef(function FilterSearchbox(

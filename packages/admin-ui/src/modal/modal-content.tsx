@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 import { useAtom } from 'jotai'
 import { useForkRef, useSafeLayoutEffect } from '@vtex/admin-ui-hooks'
 
-import { modalContentTheme } from './modal.css'
+import { modalContentTheme } from './modal.style'
 import {
   isContentScrollableAtom,
   isElementScrollable,

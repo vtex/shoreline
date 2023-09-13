@@ -5,7 +5,7 @@ import { ComboboxItem } from 'ariakit/combobox'
 
 import { FilterRadio } from './filter-radio'
 import { usePopoverContext } from '../filter-popover-context'
-import { filterControlInputTheme } from '../filter.css'
+import { filterControlInputTheme } from '../filter.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const FilterOptionRadio = forwardRef(function FilterOptionRadio(

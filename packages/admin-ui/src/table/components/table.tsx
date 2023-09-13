@@ -5,7 +5,7 @@ import React from 'react'
 import type { DataViewStatus } from '../../data-view'
 import type { BaseResolvers } from '../resolvers/base'
 import type { TableColumn } from '../types'
-import { tableStyle, tableTheme } from './styles/table.css'
+import { tableStyle, tableTheme } from './styles/table.style'
 
 export function Table<T>(props: TableProps<T>) {
   const {

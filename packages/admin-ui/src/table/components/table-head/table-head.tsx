@@ -1,6 +1,6 @@
 import { cx } from '@vtex/admin-ui-core'
 import React, { memo } from 'react'
-import { tableHeadRowTheme, tableHeadTheme } from '../styles/table-head.css'
+import { tableHeadRowTheme, tableHeadTheme } from '../styles/table-head.style'
 
 function TableHead(props: TableHeadProps) {
   const { children, className = '', ...headProps } = props

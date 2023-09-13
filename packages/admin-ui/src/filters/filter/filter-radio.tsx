@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { radioTheme } from '../../radio/radio.css'
+import { radioTheme } from '../../radio/radio.style'
 
 export const FilterRadio = (props: FilterRadioProps) => {
   const { checked } = props

@@ -1,5 +1,8 @@
 import { csx, cx, dataAttr, focusVisible } from '@vtex/admin-ui-core'
-import { buttonTheme, action as actionColorScheme } from '../button/button.css'
+import {
+  buttonTheme,
+  action as actionColorScheme,
+} from '../button/button.style'
 
 export const filterDisclosureTheme = csx({
   border: 'none',

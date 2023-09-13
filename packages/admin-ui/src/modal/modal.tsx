@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { modalTheme, modalBackdropTheme } from './modal.css'
+import { modalTheme, modalBackdropTheme } from './modal.style'
 import { Provider } from 'jotai'
 
 /**

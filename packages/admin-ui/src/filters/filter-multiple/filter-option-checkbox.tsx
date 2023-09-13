@@ -7,7 +7,7 @@ import { Checkbox } from '../../checkbox'
 import { usePopoverContext } from '../filter-popover-context'
 import type { ComboboxMultipleState } from '../../combobox'
 import type { FilterOption } from '../filter/filter.state'
-import { filterControlInputTheme } from '../filter.css'
+import { filterControlInputTheme } from '../filter.style'
 
 export const FilterOptionCheckbox = forwardRef(function FilterOptionCheckbox(
   props: FilterOptionCheckboxProps,

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { CheckboxState as AriakitCheckboxState } from 'ariakit/checkbox'
 import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
 import { cx } from '@vtex/admin-ui-core'
-import { switchTheme } from './switch.css'
+import { switchTheme } from './switch.style'
 
 export const SwitchButton = forwardRef(function SwitchButton(
   props: SwitchButtonProps,

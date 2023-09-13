@@ -16,7 +16,10 @@ import { Label } from '../label'
 
 import type { ComboboxMultipleState } from '.'
 import { csx, dataAttr, cx } from '@vtex/admin-ui-core'
-import { fieldMultipleContainerTheme, multipleLabelTheme } from './combobox.css'
+import {
+  fieldMultipleContainerTheme,
+  multipleLabelTheme,
+} from './combobox.style'
 
 export interface ComboboxMultipleFieldProps
   extends ComponentPropsWithoutRef<'div'> {

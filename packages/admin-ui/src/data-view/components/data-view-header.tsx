@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import { Stack } from '../../stack'
 import { cx } from '@vtex/admin-ui-core'
-import { headerTheme, stackContainerTheme } from './data-view.css'
+import { headerTheme, stackContainerTheme } from './data-view.style'
 
 /**
  * Organizes the DataView header

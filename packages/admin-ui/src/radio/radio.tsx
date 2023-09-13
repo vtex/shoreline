@@ -8,7 +8,7 @@ import { Inline } from '../inline'
 import type { RadioButtonProps } from './radio-button'
 import { RadioButton } from './radio-button'
 import { FormControl, FormControlMessage } from '../form-control'
-import { labelTheme } from './radio.css'
+import { labelTheme } from './radio.style'
 
 export const Radio = forwardRef(function Radio(
   props: RadioProps,

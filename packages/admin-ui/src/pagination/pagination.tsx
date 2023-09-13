@@ -10,7 +10,7 @@ import { useMessageFormatter } from '../i18n'
 import { messages } from './messages'
 import type { UsePaginationReturn } from './hooks/use-pagination-state'
 import { Skeleton } from '../skeleton'
-import { labelTheme, loadingTheme } from './pagination.css'
+import { labelTheme, loadingTheme } from './pagination.style'
 
 export const Pagination = forwardRef(function Pagination(
   props: PaginationProps,

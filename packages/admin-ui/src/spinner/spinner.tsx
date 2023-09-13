@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { spinnerTheme, svgTheme } from './spinner.css'
+import { spinnerTheme, svgTheme } from './spinner.style'
 
 /**
  * Spinner component

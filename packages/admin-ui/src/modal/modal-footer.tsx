@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 import { useAtom } from 'jotai'
 
 import { isContentScrollableAtom } from './util'
-import { modalFooterTheme } from './modal.css'
+import { modalFooterTheme } from './modal.style'
 
 /**
  * Component responsible for rendering the modal footer

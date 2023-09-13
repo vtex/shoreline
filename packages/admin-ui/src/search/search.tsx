@@ -16,7 +16,7 @@ import {
   iconTheme,
   innerContainerTheme,
   inputTheme,
-} from './search.css'
+} from './search.style'
 
 export const Search = forwardRef(function Search(
   props: SearchProps,

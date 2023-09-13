@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 import { DialogHeading } from 'ariakit'
 
-import { modalTitleTheme } from './modal.css'
+import { modalTitleTheme } from './modal.style'
 
 const ModalTitle = forwardRef(
   (props: ModalTitleProps, ref: Ref<HTMLHeadingElement>) => {

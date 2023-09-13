@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
-import { centerTheme } from './center.css'
+import { centerTheme } from './center.style'
 
 /**
  * Layout that aligns its children on the center

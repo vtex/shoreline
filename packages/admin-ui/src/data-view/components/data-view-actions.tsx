@@ -1,7 +1,7 @@
 import { cx } from '@vtex/admin-ui-core'
 import type { ComponentPropsWithoutRef, Ref } from 'react'
 import React, { forwardRef } from 'react'
-import { headerActionsTheme } from './data-view.css'
+import { headerActionsTheme } from './data-view.style'
 
 /**
  * Organizes the DataView actions

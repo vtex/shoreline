@@ -5,7 +5,7 @@ import { Label } from '../label'
 import { Flex } from '../flex'
 import { SegmentList, Segment } from '../segment'
 import type { SegmentStateReturn } from '../segment'
-import { dateFieldLabelTheme, dateFieldTheme } from './date-field.css'
+import { dateFieldLabelTheme, dateFieldTheme } from './date-field.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const DateField = forwardRef(function DateField(

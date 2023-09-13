@@ -8,7 +8,7 @@ import { AppliedItemsLabel } from './filter-applied-items-label'
 import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.state'
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { useFilterOptionalContext } from './filter-control/filter-optional-context'
-import { caretIconTheme, filterDisclosureTheme } from './filter.css'
+import { caretIconTheme, filterDisclosureTheme } from './filter.style'
 import { Flex } from '../flex'
 
 const asMulti = (state: any) => state as UseFilterMultipleReturn<any>

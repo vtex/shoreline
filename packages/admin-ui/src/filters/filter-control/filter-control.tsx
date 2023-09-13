@@ -20,7 +20,7 @@ import {
   caretIconTheme,
   filterControlDisclosureTheme,
   filterControlOptionTheme,
-} from '../filter.css'
+} from '../filter.style'
 
 export const FilterControl = forwardRef(function FilterControl(
   props: FilterControlProps,

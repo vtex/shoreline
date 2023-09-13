@@ -6,7 +6,7 @@ import { Inline } from '../../inline'
 import type { ToolbarState } from '../state'
 import { ToolbarContext } from '../context'
 import { cx } from '@vtex/admin-ui-core'
-import { toolbarTheme } from './toolbar.css'
+import { toolbarTheme } from './toolbar.style'
 
 /**
  * Toolbar enables accessible arrow navigation
