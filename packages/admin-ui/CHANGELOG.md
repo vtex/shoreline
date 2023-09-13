@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.136.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1-dev.12...@vtex/admin-ui@0.136.1-dev.13) (2023-09-13)
+
+### Features
+
+- **shoreline:** configure vanilla-extract in the project ([021972e](https://github.com/vtex/admin-ui/commit/021972e01bfc4b11dbb96a0c85d4915bbc3ba562))
+
 ## [0.136.1-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1-dev.11...@vtex/admin-ui@0.136.1-dev.12) (2023-08-11)
 
 **Note:** Version bump only for package @vtex/admin-ui
