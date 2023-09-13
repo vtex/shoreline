@@ -11,7 +11,13 @@ export function PreviewCell(props: PreviewCellProps) {
     <Cell {...restProps} data-type="preview">
       <div
         data-foundation={foundation}
-        style={{ '--preview-cell-token-value': token.value } as any}
+        style={
+          {
+            '--preview-cell-token-value': token.value,
+            '--preview-cell-text-letter-spacing': `var(${token.variable}-letter-spacing)`,
+            '--preview-cell-text-font': `var(${token.variable}-font)`,
+          } as any
+        }
         className={previewCellTheme}
       />
     </Cell>
