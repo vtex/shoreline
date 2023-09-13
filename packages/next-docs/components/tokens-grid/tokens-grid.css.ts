@@ -96,7 +96,8 @@ export const previewCellTheme = csx({
     height: '48px',
     display: 'flex',
     alignItems: 'center',
-    font: 'var(--preview-cell-token-value)',
+    font: 'var(--preview-cell-text-font)',
+    letterSpacing: 'var(--preview-cell-text-letter-spacing)',
     ':after': {
       content: 'Aa',
     },

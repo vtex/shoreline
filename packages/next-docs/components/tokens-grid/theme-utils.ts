@@ -3,31 +3,49 @@ import { theme } from '../../shoreline/theme'
 export function getFoundationTokens(foundation: Foundation) {
   const tokens = Object.keys(theme)
 
-  return tokens.filter((token) => {
+  const foundationTokens = tokens.filter((token) => {
     if (foundation === 'border') {
       return token.includes(foundation) && !token.includes('radius')
     }
 
     const resolvedFoundation = resolveFoundation(token, foundation)
 
-    if (resolvedFoundation === 'text') {
-      return !derivedFoundations.typography.some((derivedFoundation) => {
-        if (derivedFoundation === 'text') return false
-
-        return token.includes(derivedFoundation)
-      })
-    }
-
     return token.includes(resolvedFoundation)
   })
+
+  if (foundation === 'typography') {
+    return sanitizeTypographyTokens(foundationTokens)
+  }
+
+  return foundationTokens
+}
+
+function sanitizeTypographyTokens(tokens: string[]) {
+  return tokens.reduce((acc: string[], token) => {
+    if (!token.startsWith('$text')) return [...acc, token]
+
+    const [sanitizedToken] = token.endsWith('letter-spacing')
+      ? token.split('-letter-spacing')
+      : token.split('-font')
+
+    if (acc.includes(sanitizedToken)) return acc
+
+    return [...acc, sanitizedToken]
+  }, [])
 }
 
 export function getTokenValues(token: string, foundation: Foundation) {
+  const resolvedFoundation = resolveFoundation(token, foundation)
+
+  const variable = token.replace('$', '--sl-')
+  const value =
+    resolvedFoundation === 'text' ? `var(${variable})` : theme[token]
+
   return {
     name: token,
-    variable: token.replace('$', '--sl-'),
-    value: theme[token],
-    foundation: resolveFoundation(token, foundation),
+    variable,
+    value,
+    foundation: resolvedFoundation,
   }
 }
 
