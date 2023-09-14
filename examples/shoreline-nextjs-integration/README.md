@@ -12,6 +12,16 @@ Open [http://localhost:3000](http://localhost:3000) and [https://localhost--team
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
+## @raccoon/next package development 
+
+If you are developing the `@raccoon/next` package, run the command below after making changes to it:
+
+```bash
+pnpm build
+```
+
+This will build the package and make it available to the example project through [Turbo's ability to link dependencies within this monorepo](https://turbo.build/repo/docs/core-concepts/monorepos/task-dependencies).
+
 ## Learn More
 
 To learn more about Shoreline's Next.js Integration, take a look at the following resources:
