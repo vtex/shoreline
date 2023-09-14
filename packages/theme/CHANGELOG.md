@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.4...@vtex/shoreline-theme@0.0.1-dev.5) (2023-09-14)
+
+### Features
+
+- **csx:** change token values on admin preset according new tokens definition ([92ef025](https://github.com/vtex/shoreline/commit/92ef025384ae38b62a2dd7f17460d17a6cd98713))
+- **theme:** handle responsive values on a preset ([837bf0e](https://github.com/vtex/shoreline/commit/837bf0eef3081225666af682aef1e88bd84c7276))
+- **transparent-colors:** add transparent colors tokens using color-mix css function ([ef1a975](https://github.com/vtex/shoreline/commit/ef1a975b9565741df276437dd9cb4c9a0ae1e09a))
+
 ## [0.0.1-dev.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.3...@vtex/shoreline-theme@0.0.1-dev.4) (2023-08-30)
 
 ### Features
