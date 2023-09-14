@@ -312,11 +312,11 @@ export const presetAdmin = defineConfig({
       4: '-0.04em',
     },
     'line-height': {
-      1: '16px',
-      2: '20px',
-      3: '24px',
-      4: '28px',
-      5: '32px',
+      1: '1em',
+      2: '1.25em',
+      3: '1.5em',
+      4: '1.75em',
+      5: '2em',
     },
     text: {
       caption: {
