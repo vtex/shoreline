@@ -1,8 +1,8 @@
-import { defineConfig } from '../config'
-import { presetBase } from './base'
+import type { ShorelineConfig } from '@vtex/shoreline-utils'
 
-export const presetAdmin = defineConfig({
-  ...presetBase,
+export const presetAdmin: ShorelineConfig = {
+  outdir: './shoreline',
+  cwd: process.cwd(),
   tokens: {
     breakpoint: {
       small: '48rem',
@@ -357,4 +357,4 @@ export const presetAdmin = defineConfig({
       },
     },
   },
-})
+}
