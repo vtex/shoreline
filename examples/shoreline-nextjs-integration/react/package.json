@@ -1,0 +1,9 @@
+{
+  "name": "a-vtex-app",
+  "scripts": {
+    "test": "vtex-test-tools test"
+  },
+  "dependencies": {
+    "react": "^16.5.2"
+  }
+}

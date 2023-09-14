@@ -10,6 +10,7 @@
   },
   "dependencies": {},
   "builders": {
+    "react": "3.x",
     "admin": "0.x",
     "messages": "1.x"
   },
