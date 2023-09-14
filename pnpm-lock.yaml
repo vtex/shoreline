@@ -581,7 +581,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.0.1-dev.4
+        specifier: ^0.0.1-dev.5
         version: link:../theme
       commander:
         specifier: 11.0.0
@@ -1302,7 +1302,7 @@ packages:
       '@babel/helper-optimise-call-expression': 7.22.5
       '@babel/helper-replace-supers': 7.22.5
       '@babel/helper-skip-transparent-expression-wrappers': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
+      '@babel/helper-split-export-declaration': 7.22.5
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
