@@ -1,8 +1,8 @@
+import type { ShorelineConfig } from '@vtex/shoreline-utils'
 import { constants } from '@vtex/shoreline-utils'
 import { format } from 'prettier'
 
 import { parseTokens } from './parse-tokens'
-import type { ShorelineConfig } from './config'
 
 export async function genTypescript(config: ShorelineConfig): Promise<Buffer> {
   const templateLiterals = getTemplateLiterals(config)

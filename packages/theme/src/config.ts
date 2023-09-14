@@ -1,30 +1,7 @@
+import type { ShorelineConfig } from '@vtex/shoreline-utils'
 import { constants } from '@vtex/shoreline-utils'
 import { findFile } from './find-file'
-import type { Presets } from './presets'
 import { lazyRuntime } from './typescript-runtime'
-
-export interface ShorelineConfig {
-  /**
-   * The preset.
-   */
-  preset?: Presets
-  /**
-   * The output directory.
-   */
-  outdir?: string
-  /**
-   * The current working directory.
-   */
-  cwd?: string
-  /**
-   * The namespace prefix for the generated CSS classes and css variables.
-   */
-  prefix?: string
-  /**
-   * Tokens
-   */
-  tokens?: Record<string, any>
-}
 
 type DefineConfigParams = Omit<ShorelineConfig, 'prefix'>
 
