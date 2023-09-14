@@ -285,6 +285,12 @@ importers:
         specifier: 13.4.8
         version: 13.4.8(eslint@8.43.0)(typescript@4.9.5)
 
+  examples/shoreline-nextjs-integration/react:
+    dependencies:
+      react:
+        specifier: ^16.5.2
+        version: 16.5.2
+
   packages/admin-ui:
     dependencies:
       '@babel/core':
@@ -725,7 +731,7 @@ importers:
     dependencies:
       '@stitches/react':
         specifier: 1.2.8
-        version: 1.2.8(react@18.2.0)
+        version: 1.2.8(react@16.5.2)
       '@vtex/shoreline-csx':
         specifier: ^0.0.1-dev.7
         version: link:../csx
@@ -10279,6 +10285,14 @@ packages:
       {
         integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==,
       }
+    dev: false
+
+  /@stitches/react@1.2.8(react@16.5.2):
+    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 16.5.2
     dev: false
 
   /@stitches/react@1.2.8(react@18.2.0):
@@ -31833,6 +31847,16 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+  /react@16.5.2:
+    resolution: {integrity: sha512-FDCSVd3DjVTmbEAjUNX6FgfAmQ+ypJfHUsqUJOYNCBUp1h8lqmtC+0mXJ+JjsWx4KAVTkk1vKd1hLQPvEviSuw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+      schedule: 0.5.0
+    dev: false
+
   /react@18.2.0:
     resolution:
       {
@@ -33143,6 +33167,12 @@ packages:
     dependencies:
       xmlchars: 2.2.0
     dev: true
+
+  /schedule@0.5.0:
+    resolution: {integrity: sha512-HUcJicG5Ou8xfR//c2rPT0lPIRR09vVvN81T9fqfVgBmhERUbDEQoYKjpBxbueJnCPpSu2ujXzOnRQt6x9o/jw==}
+    dependencies:
+      object-assign: 4.1.1
+    dev: false
 
   /scheduler@0.23.0:
     resolution:

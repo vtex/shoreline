@@ -3,6 +3,8 @@ import React, { Suspense } from 'react'
 
 import { useAdmin } from '../use-admin'
 import { SplashScreen } from './splash-screen'
+import { useRouter } from 'next/router'
+import { useNavigation } from '../router'
 
 export function Challenge({ children }: PropsWithChildren) {
   return (
@@ -23,7 +25,34 @@ export function withChallenge<P>(WrappedComponent: ComponentType<P>) {
 }
 
 function Suspender({ children }: PropsWithChildren) {
-  useAdmin()
+  const ctx = useAdmin()
+  const router = useRouter()
+  const { navigate } = useNavigation()
+
+  // TODO: Explain hack
+  if (router.route === '/_error') {
+    const ioFallbackDirective = 'io=true'
+
+    let { pathname, searchParams } = new URL(ctx.topWindowHref)
+    const navigationFallbackDirective = searchParams.get('io')
+
+    if (
+      !navigationFallbackDirective ||
+      navigationFallbackDirective !== 'true'
+    ) {
+      pathname = pathname.concat(
+        pathname.includes('?') ? '&' : '?' + ioFallbackDirective
+      )
+
+      navigate(pathname, {
+        type: 'adminRelativeNavigation',
+      })
+    }
+  }
+
+  if (router.route === '/_error') {
+    return <></>
+  }
 
   return <>{children}</>
 }
