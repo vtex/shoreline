@@ -31,6 +31,12 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
+  "devDependencies": {
+    "@vanilla-extract/css": "1.13.0",
+    "@vanilla-extract/rollup-plugin": "1.3.0",
+    "@vtex/shoreline-vanilla-extract": "0.0.1-dev.2",
+    "@vtex/shoreline-utils": "0.0.1-dev.1"
+  },
   "dependencies": {
     "@ariakit/react": "0.3.1"
   }
