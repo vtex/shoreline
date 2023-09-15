@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.1...@vtex/shoreline-components@0.0.1-dev.2) (2023-09-15)
+
+### Features
+
+- **shoreline-components:** add center layout ([27a2b2e](https://github.com/vtex/admin-ui/commit/27a2b2e38bc6bbd510292f5400470f921e2c5715))
+
 ## [0.0.1-dev.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.0...@vtex/shoreline-components@0.0.1-dev.1) (2023-09-12)
 
 ### Features
