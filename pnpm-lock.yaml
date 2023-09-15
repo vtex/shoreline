@@ -650,6 +650,12 @@ importers:
       '@vtex/admin-ui':
         specifier: ^0.136.1
         version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+      '@vtex/shoreline-preset-admin':
+        specifier: workspace:*
+        version: link:../shoreline-preset-admin
+      '@vtex/shoreline-utils':
+        specifier: workspace:*
+        version: link:../utils
       next:
         specifier: 13.4.7
         version: 13.4.7(@babel/core@7.22.5)(babel-plugin-macros@3.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -707,7 +713,7 @@ importers:
   packages/theme:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: '*'
+        specifier: workspace:*
         version: link:../utils
       autoprefixer:
         specifier: 10.4.14
