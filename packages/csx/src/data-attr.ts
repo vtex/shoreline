@@ -28,7 +28,7 @@ export function dataAttr(
 ): string {
   if (typeof property === 'string') {
     if (typeof value !== 'boolean' && !value) {
-      return `[data-${property}]`
+      return `&[data-${property}]`
     }
 
     return `&[data-${property}="${String(value)}"]`
