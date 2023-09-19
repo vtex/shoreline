@@ -28,6 +28,7 @@ export const cellTheme = csx({
   padding: '$space-4',
   fontWeight: 400,
   fontSize: '0.8750em',
+  whiteSpace: 'pre-line',
 })
 
 export const previewCellTheme = csx({
