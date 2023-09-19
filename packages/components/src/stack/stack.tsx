@@ -14,6 +14,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
     direction = 'column',
     space = '$space-0',
     fluid = false,
+    align = 'start',
     ...restProps
   } = props
 
@@ -22,7 +23,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
       ref={ref}
       data-direction={direction}
       data-fluid={fluid}
-      style={stackVariables(space)}
+      style={stackVariables(space, align)}
       className={cx(stackStyle, className)}
       {...restProps}
     >
@@ -31,14 +32,32 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   )
 })
 
-export interface StackProps extends ComponentPropsWithoutRef<'div'> {
-  space?: string
-  fluid?: boolean
-  direction?: 'row' | 'column'
-}
-
-function stackVariables(space: string) {
+function stackVariables(space: string, align: string) {
   return {
     '--sl-stack-space': cssVar({ token: space }),
+    '--sl-stack-align': cssVar({ token: align }),
   } as CSSProperties
+}
+
+export interface StackProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * direction of items
+   * @default column
+   */
+  direction?: 'column' | 'row'
+  /**
+   * if the items should grow in width to match the container
+   * @default false
+   */
+  fluid?: boolean
+  /**
+   * space between items
+   * @default 0
+   */
+  space: string
+  /**
+   * items alignment
+   * @default start
+   */
+  align?: 'start' | 'end'
 }
