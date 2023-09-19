@@ -24,7 +24,13 @@ function tokenToVar(token: string, prefix: string): string {
     return token
   }
 
-  return `var(--${prefix}-${cleanTokenString(token)})`
+  const cleanedToken = cleanTokenString(token)
+
+  if (cleanedToken.endsWith(constants.comma)) {
+    return `var(--${prefix}-${cleanedToken.slice(0, -1)}),`
+  }
+
+  return `var(--${prefix}-${cleanedToken})`
 }
 
 function _deepParse(token: string, prefix: string): string {
