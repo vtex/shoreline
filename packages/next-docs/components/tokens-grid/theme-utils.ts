@@ -50,7 +50,13 @@ export function getTokenValues(token: string, foundation: Foundation) {
 }
 
 const derivedFoundations: Record<string, Foundation[]> = {
-  typography: ['font-size', 'font-weight', 'letter-spacing', 'text'],
+  typography: [
+    'font-size',
+    'font-weight',
+    'letter-spacing',
+    'line-height',
+    'text',
+  ],
   elevation: ['z', 'focus-ring', 'shadow'],
 }
 
@@ -84,3 +90,4 @@ export type Foundation =
   | 'focus-ring'
   | 'text'
   | 'breakpoint'
+  | 'line-height'

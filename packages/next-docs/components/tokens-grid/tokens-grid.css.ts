@@ -102,6 +102,16 @@ export const previewCellTheme = csx({
       content: 'Aa',
     },
   },
+  [dataAttr('foundation', 'line-height')]: {
+    height: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '14px',
+    lineHeight: 'var(--preview-cell-token-value)',
+    ':after': {
+      content: 'Aa',
+    },
+  },
   borderRadius: '0.5rem',
   fontWeight: 400,
   fontSize: '0.7500em',
