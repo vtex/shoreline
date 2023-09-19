@@ -38,8 +38,9 @@ export function getTokenValues(token: string, foundation: Foundation) {
   const resolvedFoundation = resolveFoundation(token, foundation)
 
   const variable = token.replace('$', '--sl-')
+
   const value =
-    resolvedFoundation === 'text' ? `var(${variable})` : theme[token]
+    resolvedFoundation === 'text' ? getTextValue(token) : theme[token]
 
   return {
     name: token,
@@ -47,6 +48,15 @@ export function getTokenValues(token: string, foundation: Foundation) {
     value,
     foundation: resolvedFoundation,
   }
+}
+
+function getTextValue(token: string) {
+  const { font, letterSpacing } = {
+    font: theme[`${token}-font`],
+    letterSpacing: theme[`${token}-letter-spacing`],
+  }
+
+  return `font: ${font};\n letter-spacing: ${letterSpacing};`
 }
 
 const derivedFoundations: Record<string, Foundation[]> = {
