@@ -31,12 +31,12 @@ export function dataAttr(
       return `[data-${property}]`
     }
 
-    return `[data-${property}="${String(value)}"]`
+    return `&[data-${property}="${String(value)}"]`
   }
 
   const attrs = Object.keys(property).reduce((acc, element) => {
     return `${acc}[data-${element}="${String(property[element])}"]`
-  }, '')
+  }, '&')
 
   return attrs
 }
