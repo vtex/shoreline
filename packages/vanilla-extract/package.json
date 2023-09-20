@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-vanilla-extract",
-  "version": "0.0.1-dev.3",
+  "version": "0.0.1-dev.4",
   "description": "Shoreline vanilla-extract integration",
   "main": "dist/vtex-shoreline-vanilla-extract.cjs.js",
   "module": "dist/vtex-shoreline-vanilla-extract.esm.js",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "1.12.0",
-    "@vtex/shoreline-csx": "^0.0.1-dev.4",
-    "@vtex/shoreline-utils": "^0.0.1-dev.1"
+    "@vtex/shoreline-csx": "^0.0.1-dev.5",
+    "@vtex/shoreline-utils": "^0.0.1-dev.2"
   }
 }

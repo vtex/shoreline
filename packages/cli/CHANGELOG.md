@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline-cli@0.0.1-dev.6...@vtex/shoreline-cli@0.0.1-dev.7) (2023-09-20)
+
+**Note:** Version bump only for package @vtex/shoreline-cli
+
 ## [0.0.1-dev.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline-cli@0.0.1-dev.5...@vtex/shoreline-cli@0.0.1-dev.6) (2023-09-14)
 
 **Note:** Version bump only for package @vtex/shoreline-cli
