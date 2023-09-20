@@ -618,6 +618,9 @@ importers:
       '@vtex/shoreline-vanilla-extract':
         specifier: ^0.0.1-dev.4
         version: link:../vanilla-extract
+      csstype:
+        specifier: ^3.1.2
+        version: 3.1.2
 
   packages/create-raccoon-app:
     dependencies:
@@ -13752,10 +13755,7 @@ packages:
       }
 
   /@vanilla-extract/rollup-plugin@1.3.0(@types/node@20.4.5)(rollup@3.25.3):
-    resolution:
-      {
-        integrity: sha512-IaQWpj0b51BUca+sqKlF2neLIzh30JsNC3afmMj0GT1m8lgkaDiv5I9xT7IjiWYB9tcTMFrAL3/ezW6WSnEB7A==,
-      }
+    resolution: {integrity: sha512-IaQWpj0b51BUca+sqKlF2neLIzh30JsNC3afmMj0GT1m8lgkaDiv5I9xT7IjiWYB9tcTMFrAL3/ezW6WSnEB7A==}
     peerDependencies:
       rollup: ^2.0.0 || ^3.0.0
     dependencies:
@@ -22205,6 +22205,21 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
+    dev: false
+
+  /globby@10.0.2:
+    resolution: {integrity: sha512-7dUi7RvCoT/xast/o/dLN53oqND4yk0nsHkhRgn9w65C4PofCLOoJ39iSOg+qVDdWQPIEj+eszMHQ+aLVwwQSg==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@types/glob': 7.2.0
+      array-union: 2.1.0
+      dir-glob: 3.0.1
+      fast-glob: 3.3.1
+      glob: 7.2.3
+      ignore: 5.2.4
+      merge2: 1.4.1
+      slash: 3.0.0
+    dev: true
 
   /globby@11.0.3:
     resolution:
