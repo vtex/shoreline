@@ -8,8 +8,8 @@ import {
   cx,
   get,
 } from '@vtex/admin-ui'
-import { useCopyCode } from './use-copy-code'
 import { headerButtonStyle, headerStyle } from './playground.css'
+import { useClipboard } from '../hooks/use-clipboard'
 
 interface HeaderProps extends ComponentPropsWithoutRef<'header'> {
   toggleFullscreen: () => void
@@ -41,12 +41,14 @@ export function CopyCodeButton(props: ComponentPropsWithoutRef<'button'>) {
   const { sandpack } = useSandpack()
   const { files, activeFile } = sandpack
 
-  const { label, handleCopyCode } = useCopyCode()
+  const { isCopied, handleCopy } = useClipboard()
+
+  const label = isCopied ? 'Copied' : 'Copy code'
 
   return (
     <HeaderButton
       onClick={() => {
-        handleCopyCode(get(files, `${activeFile}.code`, ''))
+        handleCopy(get(files, `${activeFile}.code`, ''))
       }}
       {...props}
     >
