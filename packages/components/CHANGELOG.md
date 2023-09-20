@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.3](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.2...@vtex/shoreline-components@0.0.1-dev.3) (2023-09-20)
+
+### Features
+
+- **stack:** accept pr suggestion ([32545f8](https://github.com/vtex/admin-ui/commit/32545f82921b0e1333d4105f10de69abbee96b1b))
+- **stack:** accept pr suggestions ([9ce5949](https://github.com/vtex/admin-ui/commit/9ce594928ced77370367cd1fb21b2e8458201943))
+- **stack:** add stack component architecture ([90d1837](https://github.com/vtex/admin-ui/commit/90d183755bd9a18b2d48f8a49ab39e5c892c2a14))
+
 ## [0.0.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.1...@vtex/shoreline-components@0.0.1-dev.2) (2023-09-15)
 
 ### Features

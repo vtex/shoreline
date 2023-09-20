@@ -616,7 +616,7 @@ importers:
         specifier: 0.0.1-dev.1
         version: link:../utils
       '@vtex/shoreline-vanilla-extract':
-        specifier: 0.0.1-dev.2
+        specifier: ^0.0.1-dev.3
         version: link:../vanilla-extract
 
   packages/create-raccoon-app:
@@ -687,7 +687,7 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(react@18.2.0)
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../csx
       '@vtex/shoreline-utils':
         specifier: ^0.0.1-dev.1
@@ -751,7 +751,7 @@ importers:
         specifier: 1.12.0
         version: 1.12.0
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../csx
       '@vtex/shoreline-utils':
         specifier: ^0.0.1-dev.1
