@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
-import { useCopy } from '../hooks/use-copy'
+import { useClipboard } from '../hooks/use-clipboard'
 import { Cell } from './cell'
 import { copyButtonTheme, tokenTheme } from './tokens-grid.css'
 import { IconCopySimple } from '@vtex/admin-ui'
@@ -8,7 +8,7 @@ import { IconCopySimple } from '@vtex/admin-ui'
 export function TokenCell(props: ComponentPropsWithoutRef<'div'>) {
   const { children, ...restProps } = props
 
-  const { handleCopy } = useCopy()
+  const { handleCopy } = useClipboard()
 
   const token = typeof children === 'string' ? children : ''
 
