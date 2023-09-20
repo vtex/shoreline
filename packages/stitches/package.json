@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-stitches",
-  "version": "0.0.1-dev.3",
+  "version": "0.0.1-dev.4",
   "description": "Shoreline stitches integration",
   "main": "dist/vtex-shoreline-stitches.cjs.js",
   "module": "dist/vtex-shoreline-stitches.esm.js",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@stitches/react": "1.2.8",
-    "@vtex/shoreline-csx": "^0.0.1-dev.4",
-    "@vtex/shoreline-utils": "^0.0.1-dev.1"
+    "@vtex/shoreline-csx": "^0.0.1-dev.5",
+    "@vtex/shoreline-utils": "^0.0.1-dev.2"
   }
 }

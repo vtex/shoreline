@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-csx@0.0.1-dev.4...@vtex/shoreline-csx@0.0.1-dev.5) (2023-09-20)
+
+**Note:** Version bump only for package @vtex/shoreline-csx
+
 ## [0.0.1-dev.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-csx@0.0.1-dev.3...@vtex/shoreline-csx@0.0.1-dev.4) (2023-09-20)
 
 ### Bug Fixes

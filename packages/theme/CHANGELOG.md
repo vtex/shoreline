@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.5...@vtex/shoreline-theme@0.0.1-dev.6) (2023-09-20)
+
+### Features
+
+- **preset-admin:** add shoreline-preset-admin package ([c9d5e57](https://github.com/vtex/shoreline/commit/c9d5e5749d4c870567bb58f387c190fb47b0f835))
+
 ## [0.0.1-dev.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.0.1-dev.4...@vtex/shoreline-theme@0.0.1-dev.5) (2023-09-14)
 
 ### Features
