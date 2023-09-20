@@ -1,5 +1,10 @@
 import { extendConfig } from '../extend-config'
-import { presetBase } from '../presets/base'
+
+const presetBase = {
+  preset: {
+    outdir: './cwd',
+  },
+}
 
 test('an empty config remains empty', () => {
   const result = extendConfig({})
@@ -11,17 +16,21 @@ test('an empty config remains empty', () => {
 
 test('loads a preset', () => {
   const result = extendConfig({
-    preset: 'base',
+    preset: presetBase,
+    tokens: {},
   })
 
-  const expectation = presetBase
+  const expectation = {
+    ...presetBase,
+    tokens: {},
+  }
 
   expect(result).toStrictEqual(expectation)
 })
 
 test('overrrides a preset', () => {
   const result = extendConfig({
-    preset: 'base',
+    preset: presetBase,
     outdir: 'test',
   })
 

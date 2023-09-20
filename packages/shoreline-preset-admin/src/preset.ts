@@ -1,8 +1,8 @@
-import { defineConfig } from '../config'
-import { presetBase } from './base'
+import type { ShorelineConfig } from '@vtex/shoreline-utils'
 
-export const presetAdmin = defineConfig({
-  ...presetBase,
+export const presetAdmin: ShorelineConfig = {
+  outdir: './shoreline',
+  cwd: process.cwd(),
   tokens: {
     breakpoint: {
       small: '48rem',
@@ -98,18 +98,18 @@ export const presetAdmin = defineConfig({
       },
       teal: {
         1: '#ECF8F6',
-        2: '#ECF8F7',
-        3: '#ECF8F8',
-        4: '#ECF8F9',
-        5: '#ECF8F10',
-        6: '#ECF8F11',
-        7: '#ECF8F12',
-        8: '#ECF8F13',
-        9: '#ECF8F14',
-        10: '#ECF8F15',
-        11: '#ECF8F16',
-        12: '#ECF8F17',
-        13: '#ECF8F18',
+        2: '#DDF3EF',
+        3: '#CAF0E8',
+        4: '#B6EBDF',
+        5: '#8CD9CA',
+        6: '#5BC7B3',
+        7: '#16B49C',
+        8: '#0C9C84',
+        9: '#008570',
+        10: '#007764',
+        11: '#006A59',
+        12: '#005546',
+        13: '#003A2F',
       },
       blue: {
         1: '#F1F5FD',
@@ -171,7 +171,6 @@ export const presetAdmin = defineConfig({
         12: '#00525E',
         13: '#003740',
       },
-      //
       fg: {
         '*': '$color-gray-14',
         disabled: '$color-gray-7',
@@ -201,8 +200,8 @@ export const presetAdmin = defineConfig({
         warning: '$color-orange-2',
         success: '$color-green-2',
         informational: '$color-cyan-2',
-        strong: '#color-gray-3',
-        'strong-disabled': '#color-gray-6',
+        strong: '$color-gray-3',
+        'strong-disabled': '$color-gray-6',
         inverted: '$color-gray-14',
         'inverted-transparent':
           'color-mix(in srgb, $color-gray-14 50%, transparent)',
@@ -307,54 +306,59 @@ export const presetAdmin = defineConfig({
       5: '1.5rem',
     },
     'letter-spacing': {
-      normal: '0em',
-      tight: '-0.02em',
-      tighter: '-0.04em',
+      1: '0em',
+      2: '-0.00875em',
+      3: '-0.02em',
+      4: '-0.04em',
     },
     'line-height': {
-      normal: '1.4',
+      1: '1em',
+      2: '1.25em',
+      3: '1.5em',
+      4: '1.75em',
+      5: '2em',
     },
     text: {
       caption: {
         2: {
-          font: '$font-weight-regular $font-size-1 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-normal',
+          font: '$font-weight-regular $font-size-1 / $line-height-1 $font-family-sans',
+          'letter-spacing': '$letter-spacing-1',
         },
         1: {
-          font: '$font-weight-medium $font-size-1 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-normal',
+          font: '$font-weight-medium $font-size-1 / $line-height-1 $font-family-sans',
+          'letter-spacing': '$letter-spacing-1',
         },
       },
       action: {
-        font: '$font-weight-semibold $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-semibold $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       emphasis: {
-        font: '$font-weight-medium $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-medium $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       body: {
-        font: '$font-weight-regular $font-size-2 / $line-height-normal $font-family-sans',
-        'letter-spacing': '$letter-spacing-normal',
+        font: '$font-weight-regular $font-size-2 / $line-height-2 $font-family-sans',
+        'letter-spacing': '$letter-spacing-2',
       },
       display: {
         4: {
-          font: '$font-weight-regular $font-size-3 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tight',
+          font: '$font-weight-regular $font-size-3 / $line-height-3 $font-family-sans',
+          'letter-spacing': '$letter-spacing-3',
         },
         3: {
-          font: '$font-weight-semibold $font-size-3 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tight',
+          font: '$font-weight-semibold $font-size-3 / $line-height-3 $font-family-sans',
+          'letter-spacing': '$letter-spacing-3',
         },
         2: {
-          font: '$font-weight-semibold $font-size-4 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tighter',
+          font: '$font-weight-semibold $font-size-4 / $line-height-4 $font-family-sans',
+          'letter-spacing': '$letter-spacing-4',
         },
         1: {
-          font: '$font-weight-semibold $font-size-5 / $line-height-normal $font-family-sans',
-          'letter-spacing': '$letter-spacing-tighter',
+          font: '$font-weight-semibold $font-size-5 / $line-height-5 $font-family-sans',
+          'letter-spacing': '$letter-spacing-4',
         },
       },
     },
   },
-})
+}
