@@ -618,9 +618,6 @@ importers:
       '@vtex/shoreline-vanilla-extract':
         specifier: ^0.0.1-dev.4
         version: link:../vanilla-extract
-      csstype:
-        specifier: ^3.1.2
-        version: 3.1.2
 
   packages/create-raccoon-app:
     dependencies:
@@ -22205,21 +22202,6 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
-    dev: false
-
-  /globby@10.0.2:
-    resolution: {integrity: sha512-7dUi7RvCoT/xast/o/dLN53oqND4yk0nsHkhRgn9w65C4PofCLOoJ39iSOg+qVDdWQPIEj+eszMHQ+aLVwwQSg==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@types/glob': 7.2.0
-      array-union: 2.1.0
-      dir-glob: 3.0.1
-      fast-glob: 3.3.1
-      glob: 7.2.3
-      ignore: 5.2.4
-      merge2: 1.4.1
-      slash: 3.0.0
-    dev: true
 
   /globby@11.0.3:
     resolution:
