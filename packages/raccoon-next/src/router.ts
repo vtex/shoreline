@@ -1,32 +1,22 @@
-import { useRouter } from 'next/router'
-import { useCallback } from 'react'
-
 import { publishMessage } from './message'
 
 export function useNavigation() {
-  const { replace } = useRouter()
+  const navigate = (path: string, options?: NavigateOptions) => {
+    if (!path.startsWith('/')) {
+      console.warn('The path must start with /')
 
-  const navigate = useCallback(
-    (path: string, options?: NavigateOptions) => {
-      if (!path.startsWith('/')) {
-        console.warn('The path must start with /')
+      return
+    }
 
-        return
-      }
+    const { type = 'navigation' } = options ?? {}
 
-      const { type = 'navigation' } = options ?? {}
-
-      replace(path).then(() => {
-        publishMessage({
-          type,
-          data: {
-            path,
-          },
-        })
-      })
-    },
-    [replace]
-  )
+    publishMessage({
+      type,
+      data: {
+        path,
+      },
+    })
+  }
 
   return {
     navigate,

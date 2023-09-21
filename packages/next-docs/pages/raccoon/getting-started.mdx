@@ -96,7 +96,11 @@ For VTEX IO to correctly map your app route and host, you need to declare them o
       "path": "/admin/example",
       "raccoon": {
         "prodUrl": "production-url",
-        "devUrl": "dev-url"
+        "devUrl": "dev-url",
+        "nextjsRoutes": [
+          "/admin/example/all-internal-pages",
+          "/admin/example/:dynamic-parameter"
+        ]
       }
     }
   ]
