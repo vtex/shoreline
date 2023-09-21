@@ -3,6 +3,10 @@
     "title": "Home",
     "type": "page"
   },
+  "components": {
+    "title": "Components",
+    "type": "page"
+  },
   "design-system": {
     "title": "Design System",
     "type": "page"
