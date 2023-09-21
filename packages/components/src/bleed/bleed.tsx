@@ -26,7 +26,14 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
     <div
       ref={ref}
       className={cx(bleedStyle, className)}
-      style={bleedVariables({ top, left, bottom, right, horizontal, vertical })}
+      style={getBleedVariables({
+        top,
+        left,
+        bottom,
+        right,
+        horizontal,
+        vertical,
+      })}
       {...restProps}
     >
       <div className={bleedInnerChildStyle}>{children}</div>
@@ -34,19 +41,22 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   )
 })
 
-export const bleedVariables = (values: Required<BleedValues>) =>
-  ({
+function getBleedVariables(
+  values: Required<BleedShorthandProps>
+): CSSProperties {
+  return {
     '--sl-bleed-top': cssVar({ token: String(values.top) }),
     '--sl-bleed-right': cssVar({ token: String(values.right) }),
     '--sl-bleed-bottom': cssVar({ token: String(values.bottom) }),
     '--sl-bleed-left': cssVar({ token: String(values.left) }),
     '--sl-bleed-horizontal': cssVar({ token: String(values.horizontal) }),
     '--sl-bleed-vertical': cssVar({ token: String(values.vertical) }),
-  } as CSSProperties)
+  } as CSSProperties
+}
 
-export type BleedProps = BleedValues & ComponentPropsWithoutRef<'div'>
+export type BleedProps = BleedShorthandProps & ComponentPropsWithoutRef<'div'>
 
-export interface BleedValues {
+interface BleedShorthandProps {
   /**
    * Top bleed
    * @default 0
