@@ -1,7 +1,7 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import type { CSSProperty } from '@vtex/shoreline-utils'
 import { cx } from '@vtex/shoreline-utils'
-import type * as CSS from 'csstype'
 
 import { flexStyle } from './flex.css'
 
@@ -26,7 +26,7 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
     ...restProps
   } = props
 
-  const style = flexVariables({
+  const style = getFlexVariables({
     order,
     direction,
     grow,
@@ -54,32 +54,32 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
 
 export type FlexProps = ComponentPropsWithoutRef<'div'> & FlexShorthandProps
 
-export interface FlexShorthandProps {
+interface FlexShorthandProps {
   /** Shorthand for CSS order property */
-  order?: CSS.Property.Order
+  order?: CSSProperty.Order
   /** Shorthand for CSS flexDirection property */
-  direction?: CSS.Property.FlexDirection
+  direction?: CSSProperty.FlexDirection
   /** Shorthand for CSS flexGrow property */
-  grow?: CSS.Property.FlexGrow
+  grow?: CSSProperty.FlexGrow
   /** Shorthand for CSS flexWrap property */
-  wrap?: CSS.Property.FlexWrap
+  wrap?: CSSProperty.FlexWrap
   /** Shorthand for CSS flexShrink property */
-  shrink?: CSS.Property.FlexShrink
+  shrink?: CSSProperty.FlexShrink
   /** Shorthand for CSS flexBasis property */
-  basis?: CSS.Property.FlexBasis
+  basis?: CSSProperty.FlexBasis
   /** Shorthand for CSS justifyContent property */
-  justify?: CSS.Property.JustifyContent
+  justify?: CSSProperty.JustifyContent
   /** Shorthand for CSS alignItems property */
-  align?: CSS.Property.AlignItems
+  align?: CSSProperty.AlignItems
   /** Shorthand for CSS order property */
-  gap?: CSS.Property.Gap
+  gap?: CSSProperty.Gap
   /** Shorthand for CSS order property */
-  rowGap?: CSS.Property.RowGap
+  rowGap?: CSSProperty.RowGap
   /** Shorthand for CSS order property */
-  columnGap?: CSS.Property.ColumnGap
+  columnGap?: CSSProperty.ColumnGap
 }
 
-function flexVariables(props: Required<FlexShorthandProps>) {
+function getFlexVariables(props: Required<FlexShorthandProps>): CSSProperties {
   return {
     '--sl-flex-order': props.order,
     '--sl-flex-direction': props.direction,
