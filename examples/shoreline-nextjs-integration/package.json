@@ -3,7 +3,7 @@
   "version": "0.1.1-dev.5",
   "private": true,
   "scripts": {
-    "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex use localhost && vtex link\"",
+    "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex link\"",
     "dev:next": "next dev",
     "build": "next build",
     "start": "next start",
