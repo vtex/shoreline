@@ -1,3 +1,5 @@
+// TODO: Package this file as a library and publish it to npm.
+
 function prepare() {
   const adminShell = window.top
 
@@ -20,7 +22,7 @@ function navigate(pathname) {
   try {
     adminShell.postMessage(
       {
-        type: 'render-to-nextjs-navigation',
+        type: 'top-level-navigation',
         pathname: pathname,
       },
       target
