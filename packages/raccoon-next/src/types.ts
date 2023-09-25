@@ -9,7 +9,7 @@ export interface AdminContext {
   production: boolean
   basePath: string
   topWindowHref: string
-  internalRoute?: string
+  path?: string
 }
 
 export interface AdminIframeEvent {

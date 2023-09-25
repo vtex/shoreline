@@ -29,7 +29,11 @@ export default function NextJSInternalRoute() {
           Navigate to Internal Dynamic Route
         </Button>
         <Button
-          onClick={() => navigate(`/not-a-nextjs-route/${generateRandomId()}`)}
+          onClick={() =>
+            navigate(`/admin/rocket/not-a-nextjs-route/${generateRandomId()}`, {
+              type: 'adminRelativeNavigation',
+            })
+          }
         >
           Navigate to VTEX IO Route with same Base Route
         </Button>

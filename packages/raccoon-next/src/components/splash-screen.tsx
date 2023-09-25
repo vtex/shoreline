@@ -17,7 +17,7 @@ export function SplashScreen() {
     case 'deny':
       return (
         <Container>
-          <p>You need to be on VTEX admin to access ths app</p>
+          <p>You need to be on VTEX Admin to access this app</p>
         </Container>
       )
 
@@ -28,8 +28,8 @@ export function SplashScreen() {
             <p>Authenticating App</p>
           </Center>
           <p>
-            If this takes a long time, open this app on admin to gather tokens
-            and then open this page again
+            If this takes a long time, open this app on VTEX Admin to gather
+            tokens and then open this page again
           </p>
         </Container>
       )
