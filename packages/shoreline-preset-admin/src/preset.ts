@@ -260,7 +260,8 @@ export const presetAdmin: ShorelineConfig = {
       strong: '1px solid $color-gray-5',
       'strong-hover': '1px solid $color-gray-6',
       accent: '1px solid $color-blue-3',
-      'accent-selected': '1px solid $color-blue-10',
+      'accent-strong': '1px solid $color-blue-10',
+      'accent-strong-hover': '1px solid $color-blue-11',
       critical: {
         '*': '1px solid $color-red-3',
         strong: '1px solid $color-red-8',
