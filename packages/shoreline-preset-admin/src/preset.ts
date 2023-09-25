@@ -4,11 +4,6 @@ export const presetAdmin: ShorelineConfig = {
   outdir: './shoreline',
   cwd: process.cwd(),
   tokens: {
-    breakpoint: {
-      small: '48rem',
-      medium: '64rem',
-      large: '90rem',
-    },
     space: {
       0: '0rem',
       '05': '0.125rem',
@@ -33,7 +28,6 @@ export const presetAdmin: ShorelineConfig = {
       },
     },
     color: {
-      transparent: 'transparent',
       gray: {
         0: '#FFFFFF',
         1: '#F5F5F5',
@@ -80,6 +74,21 @@ export const presetAdmin: ShorelineConfig = {
         11: '#A35900',
         12: '#834600',
         13: '#5B3000',
+      },
+      yellow: {
+        1: '#FFF7EB',
+        2: '#FFECCD',
+        3: '#FFE6BD',
+        4: '#FFDA9D',
+        5: '#F6C778',
+        6: '#E5AF4D',
+        7: '#DB9C00',
+        8: '#CA8F00',
+        9: '#BA8400',
+        10: '#A77600',
+        11: '#946800',
+        12: '#7B5600',
+        13: '#583D00',
       },
       green: {
         1: '#F2F6F1',
@@ -171,17 +180,19 @@ export const presetAdmin: ShorelineConfig = {
         12: '#00525E',
         13: '#003740',
       },
-      fg: {
+    },
+    fg: {      
         '*': '$color-gray-14',
+        soft: '$color-gray-10', 
         disabled: '$color-gray-7',
         inverted: '$color-gray-0',
         warning: '$color-orange-9',
         success: '$color-green-9',
-        informational: '$color-cyan-9',
+        informational: '$color-blue-9',
         muted: {
-          '*': '$color-gray-10',
-          hover: '$color-gray-11',
-          pressed: '$color-gray-12',
+          '*': '$color-gray-12',
+          hover: '$color-gray-13',
+          pressed: '$color-gray-14',
         },
         accent: {
           '*': '$color-blue-10',
@@ -193,13 +204,13 @@ export const presetAdmin: ShorelineConfig = {
           hover: '$color-red-10',
           pressed: '$color-red-11',
         },
-      },
-      bg: {
+    },
+    bg: {      
         '*': '$color-gray-0',
         disabled: 'color-mix(in srgb, $color-gray-14 5%, transparent)',
-        warning: '$color-orange-2',
-        success: '$color-green-2',
-        informational: '$color-cyan-2',
+        warning: '$color-orange-1',
+        success: '$color-green-1',
+        informational: '$color-blue-1',
         strong: '$color-gray-3',
         'strong-disabled': '$color-gray-6',
         inverted: '$color-gray-14',
@@ -229,9 +240,7 @@ export const presetAdmin: ShorelineConfig = {
           'strong-pressed': '$color-blue-12',
         },
         critical: {
-          '*': '$color-red-2',
-          hover: '$color-red-3',
-          pressed: '$color-red-4',
+          '*': '$color-red-1',
           transparent: 'color-mix(in srgb, $color-red-9 0%, transparent)',
           'transparent-hover':
             'color-mix(in srgb, $color-red-9 5%, transparent)',
@@ -241,20 +250,20 @@ export const presetAdmin: ShorelineConfig = {
           'strong-hover': '$color-red-10',
           'strong-pressed': '$color-red-11',
         },
-      },
     },
     border: {
       '*': '1px solid $color-gray-3',
       disabled: '1px solid $color-gray-6',
-      success: '1px solid $color-green-4',
-      informational: '1px solid $color-cyan-4',
-      warning: '1px solid $color-orange-4',
+      success: '1px solid $color-green-3',
+      informational: '1px solid $color-blue-3',
+      warning: '1px solid $color-orange-3',
       strong: '1px solid $color-gray-5',
       'strong-hover': '1px solid $color-gray-6',
       accent: '1px solid $color-blue-3',
-      'accent-selected': '1px solid $color-blue-10',
+      'accent-strong': '1px solid $color-blue-10',
+      'accent-strong-hover': '1px solid $color-blue-11',
       critical: {
-        '*': '1px solid $color-red-4',
+        '*': '1px solid $color-red-3',
         strong: '1px solid $color-red-8',
         'strong-hover': '1px solid $color-red-9',
       },
