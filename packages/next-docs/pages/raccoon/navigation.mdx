@@ -36,6 +36,21 @@ Here is an example of a `navigation.json` file with the `nextjsRoutes` property 
 }
 ```
 
+## Navigation architecture
+
+{/* WIP on Live editor: https://mermaid.live/edit#pako:eNp9kD9vwkAMxb-K5amVYGjHDEUJx1AGhoaNY7Byhpy4P9HlUlqFfHcuDVIz4enZ_r0nyz1WXjFmeDL-WtUUIuyFdJAqP-z4J25LoKaBtyMslx83wYbPFLkFR986Ke0dRH-D4iVXVjsoazYG0vCLneLwOkUVoxnW_WcLs0wfHtRfF3wXeTVMhvVoEPMD3o-zTT7Tm8N_yIMRT28tJmjzHMIFWg6WtErP6UeLxFizZYlZkorCRaJ0Q-Koi778dRVmMXS8wK5RKVFoOgeymJ3ItDzcAQYPdBw */}
+
+```mermaid
+flowchart TD
+    A[NextJS app 1] -->|Delegates navigation to| B(Admin Shell on Render)
+    B --> C{Is NextJS app or Render app route?}
+    C -->D[NextJS app 2]
+    C -->A
+    C -->E[Render app]
+    D -->|Delegates navigation to|B
+    E -->|Delegates navigation to|B
+```
+
 You can find all use cases below, including this configuration above, in the shoreline-nextjs-integration example.
 
 ## Navigation use cases
@@ -62,7 +77,7 @@ You can find all use cases below, including this configuration above, in the sho
 | Navigation direction                | Support |
 | ----------------------------------- | ------- |
 | IO to NextJS base route             | ✅      |
-| IO to NextJS internal static route  | ❌      |
+| IO to NextJS internal static route  | ✅      |
 | IO to NextJS internal dynamic route | ❌      |
 
 ### Window to NextJS

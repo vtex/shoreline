@@ -1,6 +1,13 @@
 import React from 'react'
+import { useNavigation } from './lib/use-navigation'
+
+const generateRandomId = () => {
+  return Math.floor(Math.random() * 5)
+}
 
 export default function VtexApp() {
+  const { navigate } = useNavigation()
+
   return (
     <div
       style={{
@@ -12,32 +19,37 @@ export default function VtexApp() {
         You should be able to navigate back and forth with other NextJS pages
         with the same base route using the history API
       </p>
-      <button
-        onClick={() => {
-          if (window.top.history.state.prevUrl) {
-            window.top.history.pushState(
-              { prevUrl: window.top.location.href },
-              '',
-              window.top.history.state.prevUrl
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+        }}
+      >
+        <button
+          onClick={() => {
+            navigate('/admin/rocket')
+          }}
+        >
+          Navigate from IO app to NextJS App Base Route
+        </button>
+        <button
+          onClick={() => {
+            navigate('/admin/rocket/nextjs-internal-route')
+          }}
+        >
+          Navigate from IO app to NextJS App Internal Static Route
+        </button>
+        <button
+          onClick={() => {
+            navigate(
+              `/admin/rocket/nextjs-internal-route/${generateRandomId()}`
             )
-          } else {
-            window.top.history.back()
-          }
-        }}
-      >
-        Get back from where you came from
-      </button>
-      <button
-        onClick={() => {
-          window.top.history.pushState(
-            { prevUrl: window.top.location.href },
-            '',
-            '/admin/rocket/nextjs-internal-route'
-          )
-        }}
-      >
-        Navigate from IO app to NextJS app internal route
-      </button>
+          }}
+        >
+          Navigate from IO app to NextJS App Internal Dynamic Route
+        </button>
+      </div>
     </div>
   )
 }
