@@ -17,7 +17,7 @@ export const Basic = () => {
       <Form onSubmit={(data) => console.log(data)} state={form}>
         <Stack space="$space-2">
           <Switch
-            state={form as any}
+            state={form}
             name="terms-of-service"
             label="I agree to the Terms of Service"
             helpText="You must select this option to use our services"

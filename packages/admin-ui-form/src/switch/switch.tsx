@@ -47,6 +47,7 @@ type SwitchHiddenProps =
   | 'pattern'
   | 'disabled'
   | 'value'
+  | 'state'
 
 type InheritedProps = Omit<AdminUISwitchProps, SwitchHiddenProps>
 
