@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigation } from './lib/use-navigation'
+import { useNavigation } from '@vtex/raccoon-io'
 
 const generateRandomId = () => {
   return Math.floor(Math.random() * 5)

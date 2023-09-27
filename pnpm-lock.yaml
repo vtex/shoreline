@@ -287,6 +287,9 @@ importers:
 
   examples/shoreline-nextjs-integration/react:
     dependencies:
+      '@vtex/raccoon-io':
+        specifier: ^0.7.0
+        version: link:../../../packages/raccoon-io
       react:
         specifier: ^16.5.2
         version: 16.5.2
@@ -700,6 +703,12 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+
+  packages/raccoon-io:
+    devDependencies:
+      tsup:
+        specifier: 7.1.0
+        version: 7.1.0(@swc/core@1.2.241)(postcss@8.4.27)(typescript@4.9.5)
 
   packages/raccoon-next:
     dependencies:
