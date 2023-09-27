@@ -8,7 +8,7 @@
       "labelId": "admin-rocket.navigation.label-main",
       "path": "/admin/rocket",
       "raccoon": {
-        "prodUrl": "https://shoreline-nextjs-integration-32s56dl1a-admin-team.vercel.app",
+        "prodUrl": "https://shoreline-nextjs-integration.vercel.app",
         "nextjsRoutes": [
           "/admin/rocket/nextjs-internal-route",
           "/admin/rocket/nextjs-internal-route/:id"
