@@ -13752,10 +13752,7 @@ packages:
       }
 
   /@vanilla-extract/rollup-plugin@1.3.0(@types/node@20.4.5)(rollup@3.25.3):
-    resolution:
-      {
-        integrity: sha512-IaQWpj0b51BUca+sqKlF2neLIzh30JsNC3afmMj0GT1m8lgkaDiv5I9xT7IjiWYB9tcTMFrAL3/ezW6WSnEB7A==,
-      }
+    resolution: {integrity: sha512-IaQWpj0b51BUca+sqKlF2neLIzh30JsNC3afmMj0GT1m8lgkaDiv5I9xT7IjiWYB9tcTMFrAL3/ezW6WSnEB7A==}
     peerDependencies:
       rollup: ^2.0.0 || ^3.0.0
     dependencies:
