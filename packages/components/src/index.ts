@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './spinner'
 export * from './flex'
 export * from './bleed'
 export * from './center'
