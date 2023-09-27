@@ -12,15 +12,40 @@ Open [http://localhost:3000](http://localhost:3000) and [https://localhost--team
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## @raccoon/next package development 
+## @vtex/raccoon-next Package Development 
 
-If you are developing the `@raccoon/next` package, run the command below after making changes to it:
+If you are developing the `@vtex/raccoon-next` package, run the command below after making changes to it:
 
 ```bash
 pnpm build
 ```
 
 This will build the package and make it available to the example project through [Turbo's ability to link dependencies within this monorepo](https://turbo.build/repo/docs/core-concepts/monorepos/task-dependencies).
+
+## Deploy this project to Vercel
+
+The easiest way to deploy this project is to use Vercel's CLI. Install it with:
+
+```bash
+pnpm i -g vercel
+```
+
+If you have never initialized Vercel on this project, simply run `vercel` and follow the instructions.
+
+```bash
+vercel
+? Set up and deploy “shoreline-nextjs-integration”? [Y/n] y
+? Which scope do you want to deploy to? Admin Team
+? Link to existing project? [y/N] y
+? What’s the name of your existing project? shoreline-nextjs-integratio
+🔗 Linked to awesome-team/my-lovely-project (created .vercel and added it to .gitignore)
+```
+
+After making changes to this repository, you can deploy them with:
+
+```bash
+vercel --prod
+```
 
 ## Learn More
 
