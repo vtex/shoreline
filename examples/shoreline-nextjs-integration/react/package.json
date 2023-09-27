@@ -4,6 +4,7 @@
     "test": "vtex-test-tools test"
   },
   "dependencies": {
+    "@vtex/raccoon-io": "^0.7.0",
     "react": "^16.5.2"
   }
 }
