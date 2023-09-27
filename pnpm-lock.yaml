@@ -271,6 +271,12 @@ importers:
       next:
         specifier: 13.4.8
         version: 13.4.8(@babel/core@7.22.5)(babel-plugin-macros@3.1.0)(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: 20.4.0
@@ -281,9 +287,15 @@ importers:
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
+      eslint:
+        specifier: 8.43.0
+        version: 8.43.0
       eslint-config-next:
         specifier: 13.4.8
         version: 13.4.8(eslint@8.43.0)(typescript@4.9.5)
+      typescript:
+        specifier: 4.9.5
+        version: 4.9.5
 
   examples/shoreline-nextjs-integration/react:
     dependencies:
@@ -740,7 +752,7 @@ importers:
     dependencies:
       '@stitches/react':
         specifier: 1.2.8
-        version: 1.2.8(react@16.5.2)
+        version: 1.2.8(react@18.2.0)
       '@vtex/shoreline-csx':
         specifier: ^0.0.1-dev.7
         version: link:../csx
@@ -10294,14 +10306,6 @@ packages:
       {
         integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==,
       }
-    dev: false
-
-  /@stitches/react@1.2.8(react@16.5.2):
-    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
-    peerDependencies:
-      react: '>= 16.3.0'
-    dependencies:
-      react: 16.5.2
     dev: false
 
   /@stitches/react@1.2.8(react@18.2.0):
