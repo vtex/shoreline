@@ -13,4 +13,8 @@ export const bleedStyle = csx({
   },
 })
 
-export const bleedInnerChildStyle = csx({ position: 'relative' })
+export const bleedInnerChildStyle = csx({
+  '@layer': {
+    components: { position: 'relative' },
+  },
+})
