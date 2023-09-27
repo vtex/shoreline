@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.5...@vtex/shoreline-components@0.0.1-dev.6) (2023-09-27)
+
+### Bug Fixes
+
+- **flex:** move flex style to the components layer ([22a3e65](https://github.com/vtex/admin-ui/commit/22a3e6580f211f2ce33b9db1e34e6b6806129595))
+
+### Features
+
+- **flex:** accept pr suggestions ([4101a81](https://github.com/vtex/admin-ui/commit/4101a819e6b23738ec8f8789d6a996e17dceed28))
+- **flex:** add flex component ([6d02543](https://github.com/vtex/admin-ui/commit/6d02543c7c3db0270b72b70f11031d030c2cad1f))
+
 ## [0.0.1-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.4...@vtex/shoreline-components@0.0.1-dev.5) (2023-09-22)
 
 **Note:** Version bump only for package @vtex/shoreline-components
