@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.7](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.6...@vtex/shoreline-components@0.0.1-dev.7) (2023-09-27)
+
+### Features
+
+- **bleed:** accept pr suggestions ([b6025a7](https://github.com/vtex/admin-ui/commit/b6025a77267ed25972d6a690a89790bd652f8352))
+- **bleed:** add bleed component ([4995f4a](https://github.com/vtex/admin-ui/commit/4995f4a538c9df48546c671f6838e0ac4e58d1bd))
+- **bleed:** adjust style file to the component model styling ([b09d11d](https://github.com/vtex/admin-ui/commit/b09d11d72f80ef6345eadcbfb4eb95adf904f740))
+
 ## [0.0.1-dev.6](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.5...@vtex/shoreline-components@0.0.1-dev.6) (2023-09-27)
 
 ### Bug Fixes
