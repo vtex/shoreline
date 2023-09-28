@@ -56,7 +56,8 @@ export function Example(props: Props) {
         onClick={() => {
           // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
           // Use this option when you want to navigate to a page within your Next.js app.
-          // Under the hood, the default option delegates the navigation to Next.js router.
+          // Under the hood, the default option delegates the navigation to Next.js router,
+          // after forwarding the navigation to Render first.
           navigate('/about')
         }}
       >
