@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.8...@vtex/shoreline-components@0.0.1-dev.9) (2023-09-28)
+
+### Features
+
+- **spinner:** add component ([1e259cf](https://github.com/vtex/admin-ui/commit/1e259cf6d4c22b4077a7003de9e3b903bb488db8))
+
 ## [0.0.1-dev.8](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.7...@vtex/shoreline-components@0.0.1-dev.8) (2023-09-28)
 
 ### Bug Fixes
