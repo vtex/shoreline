@@ -85,4 +85,34 @@ module.exports = function (plop) {
       },
     ],
   })
+
+  plop.setGenerator('icon-variant', {
+    description: 'Custom icon',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your icon name?',
+      },
+      {
+        type: 'list',
+        name: 'variant',
+        message: 'Choose an icon variant',
+        choices: ['Small', 'Fill'],
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/${fileName}-{{lowerCase variant}}.tsx`,
+        templateFile: 'templates/icon/icon-variant.tsx.hbs',
+      },
+      {
+        type: 'append',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}-{{lowerCase variant}}'`,
+      },
+    ],
+  })
 }
