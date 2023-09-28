@@ -50,4 +50,39 @@ module.exports = function (plop) {
       },
     ],
   })
+
+  plop.setGenerator('icon', {
+    description: 'Custom icon',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your icon name?',
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/${fileName}.tsx`,
+        templateFile: 'templates/icon/icon.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        templateFile: 'templates/icon/index.ts.hbs',
+      },
+      {
+        type: 'append',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}'`,
+      },
+      {
+        type: 'append',
+        path: 'packages/icons/src/index.ts',
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}'`,
+      },
+    ],
+  })
 }
