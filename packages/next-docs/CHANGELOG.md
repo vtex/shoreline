@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.21](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.20...@shoreline/next-docs@0.0.1-dev.21) (2023-09-28)
+
+### Features
+
+- **spinner:** add component ([1e259cf](https://github.com/vtex/shoreline/commit/1e259cf6d4c22b4077a7003de9e3b903bb488db8))
+
 ## [0.0.1-dev.20](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.19...@shoreline/next-docs@0.0.1-dev.20) (2023-09-25)
 
 **Note:** Version bump only for package @shoreline/next-docs
