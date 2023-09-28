@@ -6,10 +6,11 @@ NextJS and Render routing systems are incompatible by nature. To make them work 
 never using NextJS routing system with the `useRouter` hook to navigate between internal pages.
 
 Instead, you should use the `useNavigation` hook from the `@vtex/raccoon-next` package to navigate between pages within VTEX Admin on your NextJS application.
-In case you need to navigate from a VTEX IO React application to a NextJS application, you should use the `useNavigation` hook from the `@vtex/raccoon-io` package to navigate to your NextJS apps.
 
-Under the hood, the `useNavigation` hooks delegates all navigation to the Render routing system. This means that you can use it to navigate
-to any page within VTEX Admin, regardless of whether it's a NextJS page or not. The Admin Shell, which is the application responsible for handling
+In case you need to navigate from a VTEX IO React application to a NextJS application, you should use the `useNavigation` hook from the `@vtex/raccoon-io` package to navigate to your NextJS apps, from your VTEX IO React app.
+
+Under the hood, the `useNavigation` hooks delegates all navigation to the Render routing system through the Admin Shell, the Admin entry point. This means that you can use it to navigate
+to any page within VTEX Admin, regardless of whether it's a NextJS page or not. The Admin Shell, responsible for handling
 events from Raccoon applications within the Render, will take care of routing the user to the correct page. But for it to work as expected, you should
 declare the `nextjsRoutes` Raccoon property on the `admin/navigation.json` file when there are internal routes in your application.
 
@@ -37,7 +38,7 @@ Here is an example of a `navigation.json` file with the `nextjsRoutes` property 
 }
 ```
 
-## Navigation architecture
+### Navigation architecture
 
 {/* Mermaid live editor: https://mermaid.live/edit */}
 
@@ -52,7 +53,7 @@ flowchart TD
     E -->|Delegates navigation to|B
 ```
 
-You can find all use cases below, including this configuration above, in the shoreline-nextjs-integration example.
+You can find all use cases below, including the configuration above, in the [shoreline-nextjs-integration example application](https://github.com/vtex/shoreline/tree/dev/examples/shoreline-nextjs-integration).
 
 ## Navigation use cases
 
