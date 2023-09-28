@@ -653,10 +653,6 @@ importers:
       react-dom:
         specifier: '>=18'
         version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.2
-        version: link:../utils
 
   packages/next-docs:
     dependencies:

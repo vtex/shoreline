@@ -31,8 +31,6 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
-  "devDependencies": {
-    "@vtex/shoreline-utils": "^0.0.1-dev.2"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }
