@@ -2,7 +2,7 @@
  * Prepares the navigate function by getting a reference to the Admin Shell
  * and the target origin.
  */
-function prepare() {
+export function prepare() {
   const adminShell = window.top
 
   if (!adminShell) {
@@ -26,10 +26,15 @@ function prepare() {
  * @example
  * navigate('/admin/rocket/nextjs-internal-route')
  */
-function navigate(pathname: string) {
+export function navigate(pathname: string) {
   const { adminShell, target } = prepare()
 
   if (!adminShell || !target) {
+    return
+  }
+
+  if (!pathname.startsWith('/')) {
+    console.warn('pathname should start with "/"')
     return
   }
 
