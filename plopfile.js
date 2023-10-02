@@ -50,4 +50,69 @@ module.exports = function (plop) {
       },
     ],
   })
+
+  plop.setGenerator('icon', {
+    description: 'Custom icon',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your icon name?',
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/${fileName}.tsx`,
+        templateFile: 'templates/icon/icon.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        templateFile: 'templates/icon/index.ts.hbs',
+      },
+      {
+        type: 'append',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}'`,
+      },
+      {
+        type: 'append',
+        path: 'packages/icons/src/index.ts',
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}'`,
+      },
+    ],
+  })
+
+  plop.setGenerator('icon-variant', {
+    description: 'Custom icon',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your icon name?',
+      },
+      {
+        type: 'list',
+        name: 'variant',
+        message: 'Choose an icon variant',
+        choices: ['Small', 'Fill'],
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: `packages/icons/src/${fileName}/${fileName}-{{lowerCase variant}}.tsx`,
+        templateFile: 'templates/icon/icon-variant.tsx.hbs',
+      },
+      {
+        type: 'append',
+        path: `packages/icons/src/${fileName}/index.ts`,
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export * from './{{kebabCase name}}-{{lowerCase variant}}'`,
+      },
+    ],
+  })
 }

@@ -37,7 +37,9 @@
     "build-storybook:ci": "storybook build",
     "test:ci": "jest --color --runInBand --ci",
     "lint:ci": "pnpm lint",
-    "create-component": "plop component"
+    "create-component": "plop component",
+    "create-icon": "plop icon",
+    "create-icon-variant": "plop icon-variant"
   },
   "devDependencies": {
     "@babel/core": "7.22.5",
