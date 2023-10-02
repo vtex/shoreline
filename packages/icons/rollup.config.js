@@ -6,7 +6,6 @@ import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
 import del from 'rollup-plugin-delete'
 import json from '@rollup/plugin-json'
-import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const packageJson = require('./package.json')
@@ -41,7 +40,6 @@ export default [
         tsconfig: './tsconfig.json',
         sourceMap: true,
       }),
-      vanillaExtractPlugin(),
     ],
     external: Object.keys({
       ...packageJson.dependencies,
