@@ -14,6 +14,8 @@ export const IconHeart = forwardRef<
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
+      aria-hidden
+      focusable={false}
       {...props}
     >
       <path

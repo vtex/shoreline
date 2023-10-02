@@ -7,13 +7,15 @@ export const IconMagnifyingGlassSmall = forwardRef<
 >(function IconMagnifyingGlassSmall(props, ref) {
   return (
     <svg
-      data-sl-icon
+      data-sl-icon-small
       width="16"
       height="16"
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
+      aria-hidden
+      focusable={false}
       {...props}
     >
       <path
