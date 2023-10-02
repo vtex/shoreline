@@ -1,9 +1,7 @@
 /* PLOP_INJECT_EXPORT */
 export * from './camera'
 export * from './circles-three-plus'
-export * from './envelope'
 export * from './hand-pointing'
-export * from './link'
 export * from './minus-circle'
 export * from './sliders'
 export * from './tree-structure'
