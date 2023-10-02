@@ -1,19 +1,21 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-export const IconLinkFill = forwardRef<
+export const IconLinkSimpleFill = forwardRef<
   SVGSVGElement,
   ComponentPropsWithoutRef<'svg'>
 >(function IconLinkFill(props, ref) {
   return (
     <svg
-      data-sl-icon
+      data-sl-icon-fill
       width="20"
       height="20"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
+      aria-hidden
+      focusable={false}
       {...props}
     >
       <path
