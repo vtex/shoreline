@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.10](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.9...@vtex/shoreline-components@0.0.1-dev.10) (2023-10-03)
+
+### Bug Fixes
+
+- **component:** avoid prepare ([17382c9](https://github.com/vtex/admin-ui/commit/17382c9f6e7c37437efe76155025899cd01128a7))
+
+### Features
+
+- **components:** configure shoreline tokens ([05c4017](https://github.com/vtex/admin-ui/commit/05c4017bf369ec31f0e0cd3d4a0b80a961a0889d))
+
 ## [0.0.1-dev.9](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.8...@vtex/shoreline-components@0.0.1-dev.9) (2023-09-28)
 
 ### Features
