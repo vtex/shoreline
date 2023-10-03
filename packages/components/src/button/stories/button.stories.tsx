@@ -5,7 +5,6 @@ import '../../../shoreline/styles.css'
 import { Flex } from '../../flex'
 import { Bleed } from '../../bleed'
 import { Stack } from '../../stack'
-import { AccessibleIcon } from '../../accessible-icon'
 import { Button } from '../index'
 import { IconTrash } from '@vtex/shoreline-icons'
 
@@ -15,6 +14,26 @@ export default {
 
 export function Default() {
   return <Button>Create</Button>
+}
+
+export function Variants() {
+  const variants: any[] = [
+    'muted',
+    'plain',
+    'accent',
+    'critical',
+    'criticalPlain',
+  ]
+
+  return (
+    <Stack>
+      {variants.map((variant) => (
+        <Button key={variant} variant={variant}>
+          {variant}
+        </Button>
+      ))}
+    </Stack>
+  )
 }
 
 export function WithIcon() {
@@ -32,11 +51,6 @@ export function WithIcon() {
       <Button>
         Delete
         <IconTrash />
-      </Button>
-      <Button>
-        <AccessibleIcon label="Delete">
-          <IconTrash />
-        </AccessibleIcon>
       </Button>
     </Stack>
   )

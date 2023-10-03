@@ -5,6 +5,7 @@ import { cx } from '@vtex/shoreline-utils'
 
 import { buttonStyle } from './button.css'
 import { Spinner } from '../spinner'
+import { Center } from '../center'
 
 /**
  * Button
@@ -34,9 +35,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...buttonProps}
       >
         {loading && (
-          <span data-sl-button-overlay>
+          <Center data-sl-button-overlay>
             <Spinner />
-          </span>
+          </Center>
         )}
         <span data-sl-button-content>{children}</span>
       </BaseButton>
