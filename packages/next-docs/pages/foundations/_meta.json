@@ -1,11 +1,10 @@
 {
   "index": "Design Tokens",
-  "border": "",
-  "border-radius": "",
-  "breakpoint": "",
-  "color": "",
-  "elevation": "",
-  "icons": "",
-  "spacing": "",
-  "typography": ""
+  "icons": "Icons",
+  "color": "Color",
+  "typography": "Typography",
+  "spacing": "Spacing",
+  "border": "Border",
+  "border-radius": "Border Radius",
+  "elevation": "Elevation"
 }

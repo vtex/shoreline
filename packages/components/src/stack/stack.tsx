@@ -54,7 +54,7 @@ export interface StackProps extends ComponentPropsWithoutRef<'div'> {
    * space between items
    * @default 0
    */
-  space: string
+  space?: string
   /**
    * items alignment
    * @default start

@@ -37,6 +37,16 @@ export const previewCellTheme = csx({
     size: '48px',
     borderRadius: '0.5rem',
   },
+  [dataAttr('foundation', 'bg')]: {
+    bg: 'var(--preview-cell-token-value)',
+    size: '48px',
+    borderRadius: '0.5rem',
+  },
+  [dataAttr('foundation', 'fg')]: {
+    bg: 'var(--preview-cell-token-value)',
+    size: '48px',
+    borderRadius: '0.5rem',
+  },
   [dataAttr('foundation', 'border')]: {
     border: 'var(--preview-cell-token-value)',
     size: '48px',

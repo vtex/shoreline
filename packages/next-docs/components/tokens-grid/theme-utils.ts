@@ -86,6 +86,8 @@ export function resolveFoundation(token: string, foundation: Foundation) {
 
 export type Foundation =
   | 'color'
+  | 'bg'
+  | 'fg'
   | 'space'
   | 'border'
   | 'border-radius'

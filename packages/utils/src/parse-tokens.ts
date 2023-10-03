@@ -1,5 +1,7 @@
-import type { AnyObject, Dict } from '@vtex/shoreline-utils'
-import { constants, cssVar, flattenObject } from '@vtex/shoreline-utils'
+import type { AnyObject, Dict } from './utility-types'
+import { constants } from './constants'
+import { cssVar } from './css-var'
+import { flattenObject } from './object'
 
 /**
  * Parse token from the config to a Token Dict.

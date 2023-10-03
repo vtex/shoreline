@@ -22,10 +22,7 @@ export const presetAdmin: ShorelineConfig = {
       24: '6rem',
       28: '7rem',
       32: '8rem',
-      gap: {
-        '*': '1rem',
-        '@media-medium': '1.25rem',
-      },
+      gap: '$space-4',
     },
     color: {
       gray: {
@@ -181,75 +178,82 @@ export const presetAdmin: ShorelineConfig = {
         13: '#003740',
       },
     },
-    fg: {      
+    fg: {
+      '*': '$color-gray-14',
+      soft: '$color-gray-10',
+      disabled: '$color-gray-7',
+      inverted: '$color-gray-0',
+      warning: '$color-yellow-9',
+      success: '$color-green-9',
+      informational: '$color-blue-9',
+      muted: {
+        '*': '$color-gray-12',
+        hover: '$color-gray-13',
+        pressed: '$color-gray-14',
+      },
+      accent: {
+        '*': '$color-blue-10',
+        hover: '$color-blue-11',
+        pressed: '$color-blue-12',
+      },
+      critical: {
+        '*': '$color-red-9',
+        hover: '$color-red-10',
+        pressed: '$color-red-11',
+      },
+    },
+    bg: {
+      '*': '$color-gray-0',
+      disabled: 'color-mix(in srgb, $color-gray-14 5%, transparent)',
+      warning: '$color-yellow-1',
+      success: '$color-green-1',
+      informational: '$color-blue-1',
+      strong: {
+        '*': '$color-gray-3',
+        disabled: '$color-gray-6',
+      },
+      inverted: {
         '*': '$color-gray-14',
-        soft: '$color-gray-10', 
-        disabled: '$color-gray-7',
-        inverted: '$color-gray-0',
-        warning: '$color-yellow-9',
-        success: '$color-green-9',
-        informational: '$color-blue-9',
-        muted: {
-          '*': '$color-gray-12',
-          hover: '$color-gray-13',
-          pressed: '$color-gray-14',
+        plain: 'color-mix(in srgb, $color-gray-14 50%, transparent)',
+      },
+      muted: {
+        '*': '$color-gray-1',
+        hover: '$color-gray-2',
+        pressed: '$color-gray-3',
+        plain: {
+          '*': 'color-mix(in srgb, $color-gray-14 0%, transparent)',
+          hover: 'color-mix(in srgb, $color-gray-14 5%, transparent)',
+          pressed: 'color-mix(in srgb, $color-gray-14 10%, transparent)',
         },
-        accent: {
+      },
+      accent: {
+        '*': '$color-blue-2',
+        hover: '$color-blue-3',
+        pressed: '$color-blue-4',
+        plain: {
+          '*': 'color-mix(in srgb, $color-blue-10 0%, transparent)',
+          hover: 'color-mix(in srgb, $color-blue-10 5%, transparent)',
+          pressed: 'color-mix(in srgb, $color-blue-10 10%, transparent)',
+        },
+        strong: {
           '*': '$color-blue-10',
           hover: '$color-blue-11',
           pressed: '$color-blue-12',
         },
-        critical: {
+      },
+      critical: {
+        '*': '$color-red-1',
+        plain: {
+          '*': 'color-mix(in srgb, $color-red-9 0%, transparent)',
+          hover: 'color-mix(in srgb, $color-red-9 5%, transparent)',
+          pressed: 'color-mix(in srgb, $color-red-9 10%, transparent)',
+        },
+        strong: {
           '*': '$color-red-9',
           hover: '$color-red-10',
           pressed: '$color-red-11',
         },
-    },
-    bg: {      
-        '*': '$color-gray-0',
-        disabled: 'color-mix(in srgb, $color-gray-14 5%, transparent)',
-        warning: '$color-yellow-1',
-        success: '$color-green-1',
-        informational: '$color-blue-1',
-        strong: '$color-gray-3',
-        'strong-disabled': '$color-gray-6',
-        inverted: '$color-gray-14',
-        'inverted-transparent':
-          'color-mix(in srgb, $color-gray-14 50%, transparent)',
-        muted: {
-          '*': '$color-gray-1',
-          hover: '$color-gray-2',
-          pressed: '$color-gray-3',
-          transparent: 'color-mix(in srgb, $color-gray-14 0%, transparent)',
-          'transparent-hover':
-            'color-mix(in srgb, $color-gray-14 5%, transparent)',
-          'transparent-pressed':
-            'color-mix(in srgb, $color-gray-14 10%, transparent)',
-        },
-        accent: {
-          '*': '$color-blue-2',
-          hover: '$color-blue-3',
-          pressed: '$color-blue-4',
-          transparent: 'color-mix(in srgb, $color-blue-10 0%, transparent)',
-          'transparent-hover':
-            'color-mix(in srgb, $color-blue-10 5%, transparent)',
-          'transparent-pressed':
-            'color-mix(in srgb, $color-blue-10 10%, transparent)',
-          strong: '$color-blue-10',
-          'strong-hover': '$color-blue-11',
-          'strong-pressed': '$color-blue-12',
-        },
-        critical: {
-          '*': '$color-red-1',
-          transparent: 'color-mix(in srgb, $color-red-9 0%, transparent)',
-          'transparent-hover':
-            'color-mix(in srgb, $color-red-9 5%, transparent)',
-          'transparent-pressed':
-            'color-mix(in srgb, $color-red-9 10%, transparent)',
-          strong: '$color-red-9',
-          'strong-hover': '$color-red-10',
-          'strong-pressed': '$color-red-11',
-        },
+      },
     },
     border: {
       '*': '1px solid $color-gray-3',
@@ -257,15 +261,23 @@ export const presetAdmin: ShorelineConfig = {
       success: '1px solid $color-green-3',
       informational: '1px solid $color-blue-3',
       warning: '1px solid $color-yellow-3',
-      strong: '1px solid $color-gray-5',
-      'strong-hover': '1px solid $color-gray-6',
-      accent: '1px solid $color-blue-3',
-      'accent-strong': '1px solid $color-blue-10',
-      'accent-strong-hover': '1px solid $color-blue-11',
+      strong: {
+        '*': '1px solid $color-gray-5',
+        hover: '1px solid $color-gray-6',
+      },
+      accent: {
+        '*': '1px solid $color-blue-3',
+        strong: {
+          '*': '1px solid $color-blue-10',
+          hover: '1px solid $color-blue-11',
+        },
+      },
       critical: {
         '*': '1px solid $color-red-3',
-        strong: '1px solid $color-red-8',
-        'strong-hover': '1px solid $color-red-9',
+        strong: {
+          '*': '1px solid $color-red-8',
+          hover: '1px solid $color-red-9',
+        },
       },
     },
     'border-radius': {

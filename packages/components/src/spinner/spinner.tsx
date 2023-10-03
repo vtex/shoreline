@@ -4,7 +4,7 @@ import { cx } from '@vtex/shoreline-utils'
 
 import { spinnerStyle } from './spinner.css'
 
-const DEFAULT_SIZE = 24
+const DEFAULT_SIZE = 16
 const DEFAULT_DESCRIPTION = 'loading'
 
 /**
@@ -47,7 +47,7 @@ export interface SpinnerProps extends ComponentPropsWithoutRef<'div'> {
   description?: string
   /**
    * Increase or decrease the size of the shape
-   * @default 24
+   * @default 16
    */
   size?: number
 }
