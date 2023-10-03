@@ -2,6 +2,7 @@ import React from 'react'
 import type { DocsThemeConfig } from 'nextra-theme-docs'
 import { Playground } from './components/playground'
 import { TokensGrid } from './components/tokens-grid'
+import { IconsGrid } from './components/icons-grid'
 
 const containerStyle = {
   display: 'flex',
@@ -46,6 +47,7 @@ const config: DocsThemeConfig = {
   components: {
     Playground,
     TokensGrid,
+    IconsGrid,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
