@@ -15,6 +15,11 @@ export const bleedStyle = csx({
 
 export const bleedInnerChildStyle = csx({
   '@layer': {
-    components: { position: 'relative' },
+    components: {
+      position: 'relative',
+      '& > *': {
+        marginTop: 'calc(var(--sl-element-space-top) * -1)',
+      },
+    },
   },
 })

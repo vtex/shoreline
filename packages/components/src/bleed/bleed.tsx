@@ -4,7 +4,7 @@ import { cssVar, cx } from '@vtex/shoreline-utils'
 
 import { bleedStyle, bleedInnerChildStyle } from './bleed.css'
 
-const defaultBleed = 0
+const defaultBleed = false
 
 export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   props,
@@ -61,30 +61,30 @@ interface BleedShorthandProps {
    * Top bleed
    * @default 0
    */
-  top?: string | number
+  top?: string | number | boolean
   /**
    * Bottom bleed
    * @default 0
    */
-  bottom?: string | number
+  bottom?: string | number | boolean
   /**
    * Left bleed
    * @default 0
    */
-  left?: string | number
+  left?: string | number | boolean
   /**
    * Right bleed
    * @default 0
    */
-  right?: string | number
+  right?: string | number | boolean
   /**
    * Horizontal bleed
    * @default 0
    */
-  horizontal?: string | number
+  horizontal?: string | number | boolean
   /**
    * Vertical bleed
    * @default 0
    */
-  vertical?: string | number
+  vertical?: string | number | boolean
 }
