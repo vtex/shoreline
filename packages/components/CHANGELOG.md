@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.11](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.10...@vtex/shoreline-components@0.0.1-dev.11) (2023-10-03)
+
+### Features
+
+- **accessible-icon:** add component ([f7acc79](https://github.com/vtex/admin-ui/commit/f7acc79e55a2ff6f986ac916e1b1b7f265653300))
+
 ## [0.0.1-dev.10](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.9...@vtex/shoreline-components@0.0.1-dev.10) (2023-10-03)
 
 ### Bug Fixes
