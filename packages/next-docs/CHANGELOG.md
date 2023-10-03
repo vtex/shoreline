@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.22](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.21...@shoreline/next-docs@0.0.1-dev.22) (2023-10-03)
+
+### Features
+
+- **components:** configure shoreline tokens ([05c4017](https://github.com/vtex/shoreline/commit/05c4017bf369ec31f0e0cd3d4a0b80a961a0889d))
+
 ## [0.0.1-dev.21](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.20...@shoreline/next-docs@0.0.1-dev.21) (2023-09-28)
 
 ### Features

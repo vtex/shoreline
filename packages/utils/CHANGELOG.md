@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.0.1-dev.2...@vtex/shoreline-utils@0.0.1-dev.3) (2023-10-03)
+
+### Features
+
+- **components:** configure shoreline tokens ([05c4017](https://github.com/vtex/shoreline/commit/05c4017bf369ec31f0e0cd3d4a0b80a961a0889d))
+
 ## 0.0.1-dev.2 (2023-09-20)
 
 ### Bug Fixes
