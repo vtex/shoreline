@@ -28,7 +28,7 @@ function Router({ children }: PropsWithChildren) {
   const router = useRouter()
   const [isMounted, setIsMounted] = useState(false)
 
-  // Routes that aren't declared on the nextjsRoutes property shouldn't be available here.
+  // Routes that aren't declared on the routes property shouldn't be available here.
   useEffect(() => {
     // If the route is not internal (it's the base path), we can mount the app.
     // This is also a backward compatible check, since the path is only available

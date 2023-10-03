@@ -9,7 +9,7 @@
       "path": "/admin/rocket",
       "raccoon": {
         "prodUrl": "https://shoreline-nextjs-integration.vercel.app",
-        "nextjsRoutes": [
+        "routes": [
           "/admin/rocket/nextjs-internal-route",
           "/admin/rocket/nextjs-internal-route/:id"
         ]
