@@ -1,46 +1,22 @@
-import { csx } from '@vtex/admin-ui'
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
-import { iconsDescription } from './icons'
+import { descriptions } from './icons'
+import {
+  iconNameStyle,
+  iconsCardStyle,
+  iconDescriptionStyle,
+} from './icons.css'
 
 export function IconCard(props: IconCardProps) {
   const { children, name = '', ...restProps } = props
 
-  const description = iconsDescription[name]
+  const description = descriptions[name]
 
   return (
-    <div
-      className={csx({
-        display: 'flex',
-        paddingY: '1.5rem',
-        paddingX: '1rem',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        svg: {
-          marginBottom: '1rem',
-        },
-      })}
-      {...restProps}
-    >
+    <div className={iconsCardStyle} {...restProps}>
       {children}
-      <span
-        className={csx({
-          color: 'var(--sl-fg-muted)',
-          text: '$body',
-        })}
-      >
-        {name}
-      </span>
-      <span
-        className={csx({
-          color: '$secondary',
-          text: '$detail',
-          textAlign: 'center',
-        })}
-      >
-        {description}
-      </span>
+      <span className={iconNameStyle}>{name}</span>
+      <span className={iconDescriptionStyle}>{description}</span>
     </div>
   )
 }

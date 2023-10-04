@@ -1,3 +1,5 @@
+// Generated from Icons Description spreadsheet:
+// https://docs.google.com/spreadsheets/d/1XapTcKjZIGKkz-8PtYoSC5IIvB4rkPzuaP8ymBTKTyM/edit?usp=sharing
 const iconsInfo = [
   {
     name: 'Alarm',
@@ -554,10 +556,10 @@ const iconsInfo = [
   },
 ]
 
-export const iconsDescription = iconsInfo.reduce((acc, info) => {
+export const descriptions = iconsInfo.reduce((acc, info) => {
   return { ...acc, [`Icon${info.name}`]: info.description }
 }, {})
 
-export const iconsKeys = Object.keys(iconsDescription)
+export const names = Object.keys(descriptions)
 
 export * as icons from '@vtex/shoreline-icons'
