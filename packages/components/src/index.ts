@@ -1,5 +1,6 @@
 /* PLOP_INJECT_EXPORT */
 export * from './accessible-icon'
+export * from './text'
 export * from './spinner'
 export * from './flex'
 export * from './bleed'
