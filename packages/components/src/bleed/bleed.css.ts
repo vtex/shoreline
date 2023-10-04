@@ -1,4 +1,4 @@
-import { calc, csx } from '@vtex/shoreline-vanilla-extract'
+import { calc, csx, dataAttr } from '@vtex/shoreline-vanilla-extract'
 
 export const bleedStyle = csx({
   '@layer': {
@@ -17,8 +17,37 @@ export const bleedInnerChildStyle = csx({
   '@layer': {
     components: {
       position: 'relative',
-      '& > *': {
-        marginTop: 'calc(var(--sl-element-space-top) * -1)',
+      [dataAttr('top', true)]: {
+        '& > *': {
+          marginTop: 'calc(var(--sl-element-space-top) * -1)',
+        },
+      },
+      [dataAttr('right', true)]: {
+        '& > *': {
+          marginRight: 'calc(var(--sl-element-space-right) * -1)',
+        },
+      },
+      [dataAttr('bottom', true)]: {
+        '& > *': {
+          marginBottom: 'calc(var(--sl-element-space-bottom) * -1)',
+        },
+      },
+      [dataAttr('left', true)]: {
+        '& > *': {
+          marginLeft: 'calc(var(--sl-element-space-left) * -1)',
+        },
+      },
+      [dataAttr('horizontal', true)]: {
+        '& > *': {
+          marginRight: 'calc(var(--sl-element-space-right) * -1)',
+          marginLeft: 'calc(var(--sl-element-space-left) * -1)',
+        },
+      },
+      [dataAttr('vertical', true)]: {
+        '& > *': {
+          marginTop: 'calc(var(--sl-element-space-top) * -1)',
+          marginBottom: 'calc(var(--sl-element-space-bottom) * -1)',
+        },
       },
     },
   },

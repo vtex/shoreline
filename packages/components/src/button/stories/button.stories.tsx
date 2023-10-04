@@ -1,14 +1,10 @@
 import '../../../shoreline/styles.css'
+import './style.css'
 
 import React, { useState, Fragment } from 'react'
-import {
-  IconTrash,
-  IconArrowUpRightSmall,
-  IconCheckSmall,
-  IconBarcode,
-} from '@vtex/shoreline-icons'
+import { IconTrash, IconArrowUpRightSmall } from '@vtex/shoreline-icons'
 
-import { Flex } from '../../flex'
+import { Stack } from '../../stack'
 import { Bleed } from '../../bleed'
 import { Button } from '../index'
 
@@ -29,138 +25,70 @@ export function Variants() {
     'criticalTertiary',
   ]
 
-  return (
-    <div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(6, 96px)',
-          width: '100%',
-          gap: '1rem',
-          padding: '1rem',
-        }}
-      >
-        {variants.map((variant) => (
-          <Fragment key={variant}>
-            <div
-              style={{
-                fontFamily: 'system-ui',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              {variant}
-            </div>
-            <div>
-              <Button variant={variant}>Default</Button>
-            </div>
-            <div>
-              <Button variant={variant} loading>
-                Loading
-              </Button>
-            </div>
-            <div>
-              <Button variant={variant} disabled>
-                Disabled
-              </Button>
-            </div>
-            <div>
-              <Button variant={variant}>
-                <IconTrash />
-                Icon
-              </Button>
-            </div>
-            <div>
-              <Button variant={variant}>
-                Icon
-                <IconArrowUpRightSmall />
-              </Button>
-            </div>
-          </Fragment>
-        ))}
-      </div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(6, 96px)',
-          width: '100%',
-          gap: '1rem',
-          padding: '1rem',
-          marginTop: '2rem',
-        }}
-      >
-        {variants.map((variant) => (
-          <Fragment key={variant}>
-            <div
-              style={{
-                fontFamily: 'system-ui',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              {variant}
-            </div>
-            <div>
-              <Button size="large" variant={variant}>
-                Default
-              </Button>
-            </div>
-            <div>
-              <Button size="large" variant={variant} loading>
-                Loading
-              </Button>
-            </div>
-            <div>
-              <Button size="large" variant={variant} disabled>
-                Disabled
-              </Button>
-            </div>
-            <div>
-              <Button size="large" variant={variant}>
-                <IconTrash />
-                Icon
-              </Button>
-            </div>
-            <div>
-              <Button size="large" variant={variant}>
-                Icon
-                <IconArrowUpRightSmall />
-              </Button>
-            </div>
-          </Fragment>
-        ))}
-      </div>
+  const getGrid = (size: 'normal' | 'large') => (
+    <div className="variants--grid">
+      {variants.map((variant) => (
+        <Fragment key={variant}>
+          <div className="variants--grid-leading">{variant}</div>
+          <div>
+            <Button size={size} variant={variant}>
+              Default
+            </Button>
+          </div>
+          <div>
+            <Button size={size} variant={variant} loading>
+              Loading
+            </Button>
+          </div>
+          <div>
+            <Button size={size} variant={variant} disabled>
+              Disabled
+            </Button>
+          </div>
+          <div>
+            <Button size={size} variant={variant}>
+              <IconTrash />
+              Icon
+            </Button>
+          </div>
+          <div>
+            <Button size={size} variant={variant}>
+              Icon
+              <IconArrowUpRightSmall />
+            </Button>
+          </div>
+        </Fragment>
+      ))}
     </div>
   )
-}
-
-export function Loading() {
-  const [loading, setLoading] = useState(true)
 
   return (
-    <Button onClick={() => setLoading((l) => !l)} loading={loading}>
-      Create
-    </Button>
+    <div>
+      {getGrid('normal')}
+      {getGrid('large')}
+    </div>
   )
 }
 
 export function Bleeding() {
   return (
-    <header
-      style={{
-        padding: 'var(--sl-space-8) var(--sl-space-10)',
-        backgroundColor: 'pink',
-      }}
-    >
-      <Flex justify="space-between" align="center">
-        <h1>Orders</h1>
-        <Bleed>
-          <Button>Create</Button>
+    <header className="bleeding--decorative-box">
+      <Stack direction="row" className="bleeding--custom-stack">
+        <Bleed vertical>
+          <Button size="large">Large</Button>
         </Bleed>
-        <Bleed>
-          <Button>Create</Button>
+        <Bleed vertical>
+          <Button>Normal</Button>
         </Bleed>
-      </Flex>
+        <Bleed vertical>
+          <Button size="large" variant="tertiary">
+            Large Tertiary
+          </Button>
+        </Bleed>
+        <Bleed vertical>
+          <Button variant="tertiary">Tertiary</Button>
+        </Bleed>
+      </Stack>
     </header>
   )
 }

@@ -36,7 +36,17 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
       })}
       {...restProps}
     >
-      <div className={bleedInnerChildStyle}>{children}</div>
+      <div
+        data-top={typeof top === 'boolean' && top}
+        data-right={typeof right === 'boolean' && right}
+        data-bottom={typeof bottom === 'boolean' && bottom}
+        data-left={typeof left === 'boolean' && left}
+        data-horizontal={typeof horizontal === 'boolean' && horizontal}
+        data-vertical={typeof horizontal === 'boolean' && vertical}
+        className={bleedInnerChildStyle}
+      >
+        {children}
+      </div>
     </div>
   )
 })
