@@ -15,8 +15,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const {
       type = 'button',
       size = 'normal',
-      variant = 'muted',
+      variant = 'secondary',
       loading = false,
+      disabled = false,
       className,
       children,
       ...buttonProps
@@ -29,6 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-loading={loading}
+        disabled={disabled || loading}
         type={type}
         ref={ref}
         className={cx(buttonStyle, className)}
@@ -54,9 +56,14 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   size?: 'normal' | 'large'
   /**
    * Change between color combinations.
-   * @default 'muted'
+   * @default 'secondary'
    */
-  variant?: 'muted' | 'plain' | 'accent' | 'critical' | 'criticalPlain'
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'critical'
+    | 'criticalTertiary'
   /**
    * Disable the button and show a spinner.
    * @default false

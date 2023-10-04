@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-
 import '../../../shoreline/styles.css'
+
+import React, { useState, Fragment } from 'react'
+import {
+  IconTrash,
+  IconArrowUpRightSmall,
+  IconCheckSmall,
+  IconBarcode,
+} from '@vtex/shoreline-icons'
 
 import { Flex } from '../../flex'
 import { Bleed } from '../../bleed'
-import { Stack } from '../../stack'
 import { Button } from '../index'
-import { IconTrash } from '@vtex/shoreline-icons'
 
 export default {
   title: 'shoreline-components/button',
@@ -18,41 +22,115 @@ export function Default() {
 
 export function Variants() {
   const variants: any[] = [
-    'muted',
-    'plain',
-    'accent',
+    'primary',
+    'secondary',
+    'tertiary',
     'critical',
-    'criticalPlain',
+    'criticalTertiary',
   ]
 
   return (
-    <Stack>
-      {variants.map((variant) => (
-        <Button key={variant} variant={variant}>
-          {variant}
-        </Button>
-      ))}
-    </Stack>
-  )
-}
-
-export function WithIcon() {
-  return (
-    <Stack>
-      <Button>
-        <IconTrash />
-        Delete
-        <IconTrash />
-      </Button>
-      <Button>
-        <IconTrash />
-        Delete
-      </Button>
-      <Button>
-        Delete
-        <IconTrash />
-      </Button>
-    </Stack>
+    <div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(6, 96px)',
+          width: '100%',
+          gap: '1rem',
+          padding: '1rem',
+        }}
+      >
+        {variants.map((variant) => (
+          <Fragment key={variant}>
+            <div
+              style={{
+                fontFamily: 'system-ui',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              {variant}
+            </div>
+            <div>
+              <Button variant={variant}>Default</Button>
+            </div>
+            <div>
+              <Button variant={variant} loading>
+                Loading
+              </Button>
+            </div>
+            <div>
+              <Button variant={variant} disabled>
+                Disabled
+              </Button>
+            </div>
+            <div>
+              <Button variant={variant}>
+                <IconTrash />
+                Icon
+              </Button>
+            </div>
+            <div>
+              <Button variant={variant}>
+                Icon
+                <IconArrowUpRightSmall />
+              </Button>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(6, 96px)',
+          width: '100%',
+          gap: '1rem',
+          padding: '1rem',
+          marginTop: '2rem',
+        }}
+      >
+        {variants.map((variant) => (
+          <Fragment key={variant}>
+            <div
+              style={{
+                fontFamily: 'system-ui',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              {variant}
+            </div>
+            <div>
+              <Button size="large" variant={variant}>
+                Default
+              </Button>
+            </div>
+            <div>
+              <Button size="large" variant={variant} loading>
+                Loading
+              </Button>
+            </div>
+            <div>
+              <Button size="large" variant={variant} disabled>
+                Disabled
+              </Button>
+            </div>
+            <div>
+              <Button size="large" variant={variant}>
+                <IconTrash />
+                Icon
+              </Button>
+            </div>
+            <div>
+              <Button size="large" variant={variant}>
+                Icon
+                <IconArrowUpRightSmall />
+              </Button>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -61,7 +139,6 @@ export function Loading() {
 
   return (
     <Button onClick={() => setLoading((l) => !l)} loading={loading}>
-      <IconTrash />
       Create
     </Button>
   )
