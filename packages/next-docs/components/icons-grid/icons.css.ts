@@ -25,7 +25,7 @@ export const iconDescriptionStyle = csx({
 })
 
 export const iconNameStyle = csx({
-  color: 'var(--sl-fg-muted)',
   fontWeight: 500,
   textAlign: 'center',
+  fontSize: '0.8em',
 })

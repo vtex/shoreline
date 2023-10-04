@@ -10,7 +10,7 @@ import {
 export function IconCard(props: IconCardProps) {
   const { children, name = '', ...restProps } = props
 
-  const description = descriptions[name]
+  const description = descriptions[name] ?? '-'
 
   return (
     <div className={iconsCardStyle} {...restProps}>

@@ -560,6 +560,6 @@ export const descriptions = iconsInfo.reduce((acc, info) => {
   return { ...acc, [`Icon${info.name}`]: info.description }
 }, {})
 
-export const names = Object.keys(descriptions)
-
 export * as icons from '@vtex/shoreline-icons'
+
+export { names } from '@vtex/shoreline-icons'
