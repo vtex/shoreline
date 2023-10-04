@@ -13,8 +13,6 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
     className,
     children,
     gap = 0,
-    rowGap = 0,
-    columnGap = 0,
     templateAreas = 'none',
     templateRows = 'auto',
     templateColumns = 'auto',
@@ -25,8 +23,6 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
 
   const style = getGridVariables({
     gap,
-    rowGap,
-    columnGap,
     templateAreas,
     templateRows,
     templateColumns,
@@ -47,10 +43,6 @@ export type GridProps = ComponentPropsWithoutRef<'div'> & GridShorthandProps
 export interface GridShorthandProps {
   /** Shorthand for CSS gridGap property */
   gap?: CSSProperty.GridGap
-  /** Shorthand for CSS gridRowGap property */
-  rowGap?: CSSProperty.GridRowGap
-  /** Shorthand for CSS gridColumnGap property */
-  columnGap?: CSSProperty.GridColumnGap
   /** Shorthand for CSS gridTemplateAreas property */
   templateAreas?: CSSProperty.GridTemplateAreas
   /** Shorthand for CSS gridTemplateRows property */
@@ -68,8 +60,6 @@ export interface GridShorthandProps {
 function getGridVariables(props: Required<GridShorthandProps>): CSSProperties {
   return {
     '--sl-grid-gap': props.gap,
-    '--sl-grid-rowGap': props.rowGap,
-    '--sl-grid-columnGap': props.columnGap,
     '--sl-grid-templateAreas': props.templateAreas,
     '--sl-grid-templateRows': props.templateRows,
     '--sl-grid-templateColumns': props.templateColumns,
