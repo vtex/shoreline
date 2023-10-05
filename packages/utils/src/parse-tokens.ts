@@ -1,7 +1,7 @@
 import type { AnyObject, Dict } from './utility-types'
 import { constants } from './constants'
 import { cssVar } from './css-var'
-import { flattenObject } from './object'
+import { flattenObject } from './flatten-object'
 
 /**
  * Parse token from the config to a Token Dict.

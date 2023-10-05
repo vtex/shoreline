@@ -1,10 +1,4 @@
-import deepmerge from 'deepmerge'
-
 import type { AnyObject, Dict } from './utility-types'
-
-export function merge(...params: any): any {
-  return deepmerge.all([...params].filter((p) => p))
-}
 
 export function flattenObject<T extends AnyObject>(
   object: T,
