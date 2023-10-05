@@ -75,7 +75,7 @@ export function variants() {
       <Text variant="display2">Display 2</Text>
       <Text variant="display3">Display 3</Text>
       <Text variant="display4">Display 4</Text>
-      <Text variant="enphasis">Emphasis</Text>
+      <Text variant="emphasis">Emphasis</Text>
     </Stack>
   )
 }
