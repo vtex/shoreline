@@ -24,7 +24,7 @@ interface ComponentProps {
   variant?:
     | 'body'
     | 'action'
-    | 'enphasis'
+    | 'emphasis'
     | 'caption1'
     | 'caption2'
     | 'display1'
@@ -43,4 +43,4 @@ type Paragraph = { as: 'p' } & ComponentProps & ComponentPropsWithoutRef<'p'>
 type Div = { as: 'div' } & ComponentProps & ComponentPropsWithoutRef<'div'>
 type Span = { as?: 'span' } & ComponentProps & ComponentPropsWithoutRef<'span'>
 
-type TextProps = Span | Heading | Label | Paragraph | Div
+export type TextProps = Span | Heading | Label | Paragraph | Div
