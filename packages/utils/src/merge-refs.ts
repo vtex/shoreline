@@ -2,6 +2,10 @@ import type { ForwardedRef } from 'react'
 
 /**
  * Merges multiple refs into one. Works with either callback or object refs.
+ * @example
+ * const refA = useRef()
+ * const refB = useRef()
+ * const ref = mergeRefs(refA, refB)
  */
 export function mergeRefs(
   ...refs: Array<ForwardedRef<any>>
