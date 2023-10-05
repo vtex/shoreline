@@ -7,10 +7,6 @@
     "title": "Components",
     "type": "page"
   },
-  "design-system": {
-    "title": "Design System",
-    "type": "page"
-  },
   "foundations": {
     "title": "Foundations",
     "type": "page"
@@ -22,5 +18,11 @@
   "api-reference": {
     "title": "API Reference",
     "type": "page"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "type": "page",
+    "href": "https://vtex.com",
+    "newWindow": true
   }
 }
