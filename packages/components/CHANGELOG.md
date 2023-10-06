@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.12...@vtex/shoreline-components@0.0.1-dev.13) (2023-10-06)
+
+### Features
+
+- **particle:** create particle component ([5b59e3c](https://github.com/vtex/admin-ui/commit/5b59e3c42a7e236d02fd983753be80d9d1afbe61))
+
 ## [0.0.1-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.11...@vtex/shoreline-components@0.0.1-dev.12) (2023-10-06)
 
 ### Bug Fixes

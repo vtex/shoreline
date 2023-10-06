@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.0.1-dev.12",
+  "version": "0.0.1-dev.13",
   "main": "dist/vtex-shoreline-components.cjs.js",
   "module": "dist/vtex-shoreline-components.esm.js",
   "types": "dist/vtex-shoreline-components.cjs.d.ts",
@@ -38,11 +38,11 @@
     "@vtex/shoreline-cli": "workspace",
     "@vtex/shoreline-preset-admin": "workspace",
     "@vtex/shoreline-theme": "workspace",
-    "@vtex/shoreline-vanilla-extract": "^0.0.1-dev.5"
+    "@vtex/shoreline-vanilla-extract": "^0.0.1-dev.6"
   },
   "dependencies": {
     "@ariakit/react": "0.3.3",
     "@vtex/shoreline-icons": "^0.0.1-dev.0",
-    "@vtex/shoreline-utils": "^0.0.1-dev.3"
+    "@vtex/shoreline-utils": "^0.0.1-dev.4"
   }
 }

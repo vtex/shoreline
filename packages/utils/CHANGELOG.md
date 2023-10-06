@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.0.1-dev.3...@vtex/shoreline-utils@0.0.1-dev.4) (2023-10-06)
+
+### Bug Fixes
+
+- **utils:** build ([880040d](https://github.com/vtex/shoreline/commit/880040db95722bafda416a0a59394b87a64e3dec))
+
+### Features
+
+- **particle:** create particle component ([5b59e3c](https://github.com/vtex/shoreline/commit/5b59e3c42a7e236d02fd983753be80d9d1afbe61))
+
 ## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.0.1-dev.2...@vtex/shoreline-utils@0.0.1-dev.3) (2023-10-03)
 
 ### Features

@@ -584,7 +584,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.0.1-dev.7
+        specifier: ^0.0.1-dev.8
         version: link:../theme
       commander:
         specifier: 11.0.0
@@ -606,7 +606,7 @@ importers:
         specifier: ^0.0.1-dev.0
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../utils
       react:
         specifier: '>=18'
@@ -631,7 +631,7 @@ importers:
         specifier: workspace
         version: link:../theme
       '@vtex/shoreline-vanilla-extract':
-        specifier: ^0.0.1-dev.5
+        specifier: ^0.0.1-dev.6
         version: link:../vanilla-extract
 
   packages/create-raccoon-app:
@@ -646,7 +646,7 @@ importers:
   packages/csx:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../utils
       csstype:
         specifier: 3.1.2
@@ -727,10 +727,10 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(react@18.2.0)
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.6
+        specifier: ^0.0.1-dev.7
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../utils
 
   packages/theme:
@@ -791,10 +791,10 @@ importers:
         specifier: 1.12.0
         version: 1.12.0
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.6
+        specifier: ^0.0.1-dev.7
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.3
+        specifier: ^0.0.1-dev.4
         version: link:../utils
 
 packages:
