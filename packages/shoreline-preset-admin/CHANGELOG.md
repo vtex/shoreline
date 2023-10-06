@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.0.1-dev.3...@vtex/shoreline-preset-admin@0.0.1-dev.4) (2023-10-06)
+
+### Bug Fixes
+
+- **tokens:** fix typography tokens with wrong values ([1df1be3](https://github.com/vtex/shoreline/commit/1df1be386f3c27573d171bf5c6221c2c48a0033e))
+
 ## [0.0.1-dev.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.0.1-dev.2...@vtex/shoreline-preset-admin@0.0.1-dev.3) (2023-10-03)
 
 ### Features
