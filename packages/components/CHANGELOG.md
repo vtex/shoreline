@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.12](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.11...@vtex/shoreline-components@0.0.1-dev.12) (2023-10-06)
+
+### Bug Fixes
+
+- **tokens:** fix typography tokens with wrong values ([1df1be3](https://github.com/vtex/admin-ui/commit/1df1be386f3c27573d171bf5c6221c2c48a0033e))
+
+### Features
+
+- **text:** add text component ([c11401d](https://github.com/vtex/admin-ui/commit/c11401d22e76b5196fdad8a5846d5baab55032a1))
+
 ## [0.0.1-dev.11](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.10...@vtex/shoreline-components@0.0.1-dev.11) (2023-10-03)
 
 ### Features
