@@ -15,9 +15,10 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
     "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
-    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs",
+    "theme": "shorelinecss theme"
   },
   "repository": {
     "directory": "packages/admin-ui",
