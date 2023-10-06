@@ -327,17 +327,17 @@ export const presetAdmin: ShorelineConfig = {
       5: '1.5rem',
     },
     'letter-spacing': {
-      1: '0em',
-      2: '-0.00875em',
-      3: '-0.02em',
-      4: '-0.04em',
+      1: '0rem',
+      2: '-0.00875rem',
+      3: '-0.02rem',
+      4: '-0.04rem',
     },
     'line-height': {
-      1: '1em',
-      2: '1.25em',
-      3: '1.5em',
-      4: '1.75em',
-      5: '2em',
+      1: '1rem',
+      2: '1.25rem',
+      3: '1.5rem',
+      4: '1.75rem',
+      5: '2rem',
     },
     text: {
       caption: {
