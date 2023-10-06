@@ -45,6 +45,7 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
       ref={ref}
       style={style}
       className={cx(flexStyle, className)}
+      data-sl-flex
       {...restProps}
     >
       {children}
