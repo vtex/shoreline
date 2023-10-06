@@ -1,5 +1,4 @@
 import { chain } from './chain'
-import { composeElement } from './compose-element'
 import { cssVar } from './css-var'
 import { cx } from './cx'
 import { isNativeHandler } from './is-native-handler'
@@ -14,7 +13,6 @@ import { constants } from './constants'
 
 export {
   chain,
-  composeElement,
   cssVar,
   isFunction,
   isNativeHandler,

@@ -1,5 +1,5 @@
 /* PLOP_INJECT_EXPORT */
-export * from './particle'
+export * from './compose'
 export * from './accessible-icon'
 export * from './spinner'
 export * from './flex'

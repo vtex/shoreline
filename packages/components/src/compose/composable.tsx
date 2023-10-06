@@ -1,0 +1,26 @@
+import type { ReactElement, ReactNode } from 'react'
+import React, { isValidElement } from 'react'
+
+/**
+ * Defines a composable child inside of a Compose component
+ * @example
+ * function Button({ asChild, children, ...props }){
+ *  const Composition = asChild ? Compose : 'button'
+ *  return (
+ *    <Composition {...props}>
+ *      Prefix <Composable>{children}</Composable>
+ *    </Composition>
+ *  )
+ * }
+ */
+export function Composable(props: ComposableProps) {
+  return <>{props.children}</>
+}
+
+export function isComposable(child: ReactNode): child is ReactElement {
+  return isValidElement(child) && child.type === Composable
+}
+
+export interface ComposableProps {
+  children: ReactNode
+}
