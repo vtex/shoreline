@@ -1,6 +1,6 @@
 import { constants } from './constants'
 import { isToken, cleanTokenString } from './token'
-import { isStringEmpty } from './string'
+import { isStringEmpty } from './is-types'
 
 /**
  * Returns a token as css variable

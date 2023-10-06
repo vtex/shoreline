@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './compose'
 export * from './accessible-icon'
 export * from './text'
 export * from './spinner'
