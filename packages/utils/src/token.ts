@@ -1,5 +1,5 @@
 import { constants } from './constants'
-import { isString } from './string'
+import { isString } from './is-types'
 
 /**
  * Returns wether a string is a token
