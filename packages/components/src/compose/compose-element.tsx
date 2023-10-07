@@ -1,23 +1,31 @@
-import type { AnyObject, ElementWithRef } from '@vtex/shoreline-utils'
+import type {
+  AnyObject,
+  ElementWithRef,
+  RenderProps,
+} from '@vtex/shoreline-utils'
 import { mergeProps, mergeRefs } from '@vtex/shoreline-utils'
 import type { ForwardedRef, ReactNode } from 'react'
-import { Children, cloneElement } from 'react'
+import { cloneElement } from 'react'
 
 export function composeElement({ element, props, ref }: ComposeElementArgs) {
-  const rootElement = Children.only(element) as ElementWithRef
   const {
     props: { children, ...ownProps },
     ref: ownRef,
-  } = rootElement
+  } = element as ElementWithRef
 
-  return cloneElement(rootElement, {
-    ...mergeProps(props, ownProps),
-    ref: ownRef ? mergeRefs(ref, ownRef) : ref,
-  })
+  return cloneElement(
+    element as ElementWithRef,
+    {
+      ...mergeProps(props, ownProps),
+      ref: ownRef ? mergeRefs(ref, ownRef) : ref,
+    },
+    children
+  )
 }
 
 export interface ComposeElementArgs {
   element: ReactNode
   props: AnyObject
   ref: ForwardedRef<any>
+  wrap?: RenderProps
 }

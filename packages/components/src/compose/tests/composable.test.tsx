@@ -9,6 +9,16 @@ describe('composable', () => {
     expect(getByText('Compound')).toBeVisible()
   })
 
+  it('renders a diferent element', () => {
+    const { getByRole } = render(
+      <Composable render={(node) => <button>{node}</button>}>
+        Compound
+      </Composable>
+    )
+
+    expect(getByRole('button')).toHaveTextContent('Compound')
+  })
+
   it('should identify a composable element', () => {
     const nonComposable = <div />
 
