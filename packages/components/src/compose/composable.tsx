@@ -1,3 +1,4 @@
+import type { RenderProps } from '@vtex/shoreline-utils'
 import type { ReactElement, ReactNode } from 'react'
 import React, { isValidElement } from 'react'
 
@@ -14,7 +15,9 @@ import React, { isValidElement } from 'react'
  * }
  */
 export function Composable(props: ComposableProps) {
-  return <>{props.children}</>
+  const { render = (node) => <>{node}</>, children } = props
+
+  return <>{render(children)}</>
 }
 
 export function isComposable(child: ReactNode): child is ReactElement {
@@ -22,5 +25,6 @@ export function isComposable(child: ReactNode): child is ReactElement {
 }
 
 export interface ComposableProps {
+  render?: RenderProps
   children: ReactNode
 }
