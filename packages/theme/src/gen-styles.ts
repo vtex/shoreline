@@ -1,9 +1,7 @@
 import type { ShorelineConfig } from '@vtex/shoreline-utils'
 import { parseTokens } from '@vtex/shoreline-utils'
-import autoprefixer from 'autoprefixer'
-import nested from 'postcss-nested'
-import postcss from 'postcss'
-import { format } from 'prettier'
+import browserslist from 'browserslist'
+import { browserslistToTargets, transform } from 'lightningcss'
 
 import { getPreflight } from './get-preflight'
 import { tokensToCssVariables } from './tokens-to-css-variables'
@@ -24,14 +22,11 @@ export async function genStyles(config: ShorelineConfig): Promise<Buffer> {
   const cssVariablesCode = tokensToCssVariables(parsedTokens)
   const baseCode = getPreflight(prefix) + cssVariablesCode
 
-  const { css: unformatedCss } = await postcss([autoprefixer, nested]).process(
-    baseCode
-  )
-
-  const css = await format(unformatedCss, {
-    parser: 'css',
-    semi: false,
-    singleQuote: true,
+  const targets = browserslistToTargets(browserslist('>= 0.25%'))
+  const { code: css } = transform({
+    filename: 'styles.css',
+    code: Buffer.from(baseCode),
+    targets,
   })
 
   return Buffer.from(css)

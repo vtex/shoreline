@@ -1,0 +1,6 @@
+@layer sl-components {
+  [data-kc-center] {
+    display: grid;
+    place-items: center;
+  }
+}

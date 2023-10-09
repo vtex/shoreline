@@ -1,0 +1,35 @@
+@keyframes kc-animation-dash {
+  0% {
+    stroke-dasharray: 1 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes kc-animation-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer sl-components {
+  [data-kc-spinner] {
+    & > svg {
+      animation: kc-animation-rotate 1.5s linear infinite;
+      & > circle {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 5;
+        stroke-linecap: round;
+        animation: kc-animation-dash 1s ease-in-out infinite;
+      }
+    }
+  }
+}

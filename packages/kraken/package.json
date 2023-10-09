@@ -1,9 +1,9 @@
 {
-  "name": "@vtex/shoreline-components",
-  "version": "0.0.1-dev.13",
-  "main": "dist/vtex-shoreline-components.cjs.js",
-  "module": "dist/vtex-shoreline-components.esm.js",
-  "types": "dist/vtex-shoreline-components.cjs.d.ts",
+  "name": "@vtex/kraken",
+  "version": "0.0.0",
+  "main": "dist/vtex-kraken.cjs.js",
+  "module": "dist/vtex-kraken.esm.js",
+  "types": "dist/vtex-kraken.cjs.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
