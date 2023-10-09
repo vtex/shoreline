@@ -7,21 +7,12 @@ import {
   PageHeader,
   PageHeaderTitle,
   PageHeaderTop,
-  TBody,
-  TBodyCell,
-  TBodyRow,
-  THead,
-  THeadCell,
-  Table,
-  DataView,
-  csx,
-  createColumns,
-  useTableState,
-  useDataViewState,
+  Button,
 } from '@vtex/admin-ui'
 import { faker } from '@faker-js/faker'
+import { generateRandomId } from '../lib/generate-random-id'
 
-const ITEMS_PER_PAGE = 5
+export const ITEMS_PER_PAGE = 5
 
 export const items = Array(ITEMS_PER_PAGE)
   .fill(1)
@@ -34,100 +25,46 @@ export const items = Array(ITEMS_PER_PAGE)
     }
   })
 
-const columns = createColumns([
-  {
-    id: 'name',
-    header: 'Name',
-    width: '2fr',
-    resolver: {
-      type: 'text',
-      columnType: 'name',
-      mapText: (item) => item.name,
-      render: ({ data }) => (
-        <div className={csx({ minWidth: '10rem' })}>{data}</div>
-      ),
-    },
-  },
-  {
-    id: 'brand',
-    header: 'Brand',
-    width: '1fr',
-    resolver: {
-      type: 'root',
-      render: ({ item }) => {
-        return <div className={csx({ minWidth: '6rem' })}>{item.brand}</div>
-      },
-    },
-  },
-  {
-    id: 'price',
-    header: 'Price',
-    width: '1fr',
-    resolver: {
-      type: 'currency',
-      locale: 'en-US',
-      currency: 'USD',
-    },
-  },
-])
-
 const Home: NextPage = () => {
   const { account, locale, workspace, token } = useAdmin()
   const { navigate } = useNavigation()
-
-  const view = useDataViewState()
-
-  const { data, getBodyCell, getHeadCell, getTable } = useTableState({
-    status: view.status,
-    columns,
-    items,
-    length: ITEMS_PER_PAGE,
-  })
-
-  function handleNavigate(item: any) {
-    navigate(`/${item.id}`)
-  }
 
   return (
     <Page>
       <PageHeader>
         <PageHeaderTop>
-          <PageHeaderTitle>Admin test page</PageHeaderTitle>
+          <PageHeaderTitle>NextJS App Base Route</PageHeaderTitle>
         </PageHeaderTop>
       </PageHeader>
       <PageContent layout="wide">
         <Alert>
           Hi, you are on {account} with locale {locale}. On workspace{' '}
-          {workspace} and token {token.slice(0, 10)}...
+          {workspace} and token {token.slice(0, 10)}... <br />
+          Click on an item below to navigate to a VTEX IO app that shares the
+          same base route of this NextJS app.
+          <br />
+          Click on the buttons below to navigate to the internal routes of this
+          NextJS application and to VTEX IO routes.
         </Alert>
-        <DataView state={view}>
-          <Table {...getTable()} className={csx({ width: '100%' })}>
-            <THead>
-              {columns.map((column) => (
-                <THeadCell {...getHeadCell(column)} key={column.id} />
-              ))}
-            </THead>
-            <TBody>
-              {data.map((item: any) => {
-                return (
-                  <TBodyRow
-                    key={item?.id ?? ''}
-                    onClick={() => handleNavigate(item)}
-                  >
-                    {columns.map((column) => {
-                      return (
-                        <TBodyCell
-                          {...getBodyCell(column, item)}
-                          key={column.id}
-                        />
-                      )
-                    })}
-                  </TBodyRow>
-                )
-              })}
-            </TBody>
-          </Table>
-        </DataView>
+        <Button onClick={() => navigate('/nextjs-internal-route')}>
+          Navigate to Internal Static Route
+        </Button>
+        <Button
+          onClick={() =>
+            navigate(`/nextjs-internal-route/${generateRandomId()}`)
+          }
+        >
+          Navigate to Internal Dynamic Route
+        </Button>
+        <Button
+          onClick={() =>
+            navigate(`/admin/rocket/not-a-nextjs-route/${generateRandomId()}`, {
+              type: 'adminRelativeNavigation',
+            })
+          }
+        >
+          Navigate to VTEX IO Route with same Base Route
+        </Button>
       </PageContent>
     </Page>
   )

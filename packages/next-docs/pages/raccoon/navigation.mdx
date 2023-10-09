@@ -1,0 +1,95 @@
+# Navigation
+
+## Best practices
+
+NextJS and Render routing systems are incompatible by nature. To make them work together, we need to make some compromises, such as
+never using NextJS routing system with the `useRouter` hook to navigate between internal pages.
+
+Instead, you should use the `useNavigation` hook from the `@vtex/raccoon-next` package to navigate between pages within VTEX Admin on your NextJS application.
+
+In case you need to navigate from a VTEX IO React application to a NextJS application, you should use the `useNavigation` hook from the `@vtex/raccoon-io` package to navigate to your NextJS apps, from your VTEX IO React app.
+
+Under the hood, the `useNavigation` hooks delegates all navigation to the Render routing system through the Admin Shell, the Admin entry point. This means that you can use it to navigate
+to any page within VTEX Admin, regardless of whether it's a NextJS page or not. The Admin Shell, responsible for handling
+events from Raccoon applications within the Render, will take care of routing the user to the correct page. But for it to work as expected, you should
+declare the `routes` Raccoon property on the `admin/navigation.json` file when there are internal routes in your application.
+
+Here is an example of a `navigation.json` file with the `routes` property declared:
+
+```json
+{
+  "section": "orders",
+  "titleId": "admin-rocket.navigation.label-group",
+  "adminVersion": 4,
+  "subSection": "rocket",
+  "subSectionItems": [
+    {
+      "labelId": "admin-rocket.navigation.label-main",
+      "path": "/admin/rocket",
+      "raccoon": {
+        "prodUrl": "https://shoreline-nextjs-integration.vercel.app",
+        "routes": [
+          "/admin/rocket/nextjs-internal-route",
+          "/admin/rocket/nextjs-internal-route/:id"
+        ]
+      }
+    }
+  ]
+}
+```
+
+### Navigation architecture
+
+{/* Mermaid live editor: https://mermaid.live/edit */}
+
+```mermaid
+flowchart TD
+    A[NextJS app 1] -->|Delegates navigation to| B(Admin Shell on Render)
+    B --> C{Is NextJS app or Render app route?}
+    C -->|Forwards navigation to|D[NextJS app 2]
+    C -->|Forwards navigation to|A
+    C -->|Forwards navigation to|E[Render app]
+    D -->|Delegates navigation to|B
+    E -->|Delegates navigation to|B
+```
+
+You can find all use cases below, including the configuration above, in the [shoreline-nextjs-integration example application](https://github.com/vtex/shoreline/tree/dev/examples/shoreline-nextjs-integration).
+
+## Navigation use cases
+
+Visit the [shoreline-nextjs-integration example application](https://github.com/vtex/shoreline/tree/dev/examples/shoreline-nextjs-integration) for a thourough overview of each of these use cases.
+
+### NextJS to IO
+
+| Navigation direction                | Support |
+| ----------------------------------- | ------- |
+| NextJS base route to IO             | ✅      |
+| NextJS internal static route to IO  | ✅      |
+| NextJS internal dynamic route to IO | ✅      |
+
+### NextJS to NextJS
+
+| Navigation direction                                          | Support |
+| ------------------------------------------------------------- | ------- |
+| NextJS base route to NextJS internal static route             | ✅      |
+| NextJS base route to NextJS internal dynamic route            | ✅      |
+| NextJS internal static route to NextJS base route             | ✅      |
+| NextJS internal static route to NextJS internal dynamic route | ✅      |
+
+### IO to NextJS
+
+> Use the `useNavigation` hook from the `@vtex/raccoon-io` package to navigate from a VTEX IO React application to a NextJS Raccoon application.
+
+| Navigation direction                | Support |
+| ----------------------------------- | ------- |
+| IO to NextJS base route             | ✅      |
+| IO to NextJS internal static route  | ✅      |
+| IO to NextJS internal dynamic route | ✅      |
+
+### Window to NextJS
+
+| Navigation direction                    | Support |
+| --------------------------------------- | ------- |
+| Window to NextJS base route             | ✅      |
+| Window to NextJS internal static route  | ✅      |
+| Window to NextJS internal dynamic route | ✅      |

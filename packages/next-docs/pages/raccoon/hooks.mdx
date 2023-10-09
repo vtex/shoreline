@@ -54,14 +54,22 @@ export function Example(props: Props) {
     <>
       <Button
         onClick={() => {
-          navigate('/about') // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
+          // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
+          // Use this option when you want to navigate to a page within your Next.js app.
+          // Under the hood, the default option delegates the navigation to Next.js router,
+          // after forwarding the navigation to Render first.
+          navigate('/about')
         }}
       >
         Navigate to the page `/about` of your Next.js app
       </Button>
       <Button
         onClick={() => {
-          navigate('/orders', { type: 'adminRelativeNavigation' }) // This will navigate to `${tenant}.myvtex.com/admin/orders`
+          // This will navigate to `${tenant}.myvtex.com/admin/orders`
+          // Use this option when you want to navigate to a page outside your Next.js app,
+          // for example, a page in the admin.
+          // Under the hood, the `adminRelativeNavigation` delegates the navigation to Render.
+          navigate('/admin/orders', { type: 'adminRelativeNavigation' })
         }}
       >
         Navigate to the admin orders module

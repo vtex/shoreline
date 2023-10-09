@@ -8,6 +8,8 @@ export interface AdminContext {
   devUrl?: string
   production: boolean
   basePath: string
+  topWindowHref: string
+  path?: string
 }
 
 export interface AdminIframeEvent {
