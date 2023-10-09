@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.15](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.14...@vtex/shoreline-components@0.0.1-dev.15) (2023-10-09)
+
+### Features
+
+- **button:** add component ([ee5f794](https://github.com/vtex/admin-ui/commit/ee5f794a71aa66fa800ffb070383732f165918c0))
+- **icon-button:** create-component ([0126d06](https://github.com/vtex/admin-ui/commit/0126d06c2138e4376014af3e83ef0e2451bbf3e6))
+
 ## [0.0.1-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.13...@vtex/shoreline-components@0.0.1-dev.14) (2023-10-09)
 
 ### Features
