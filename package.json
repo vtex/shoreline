@@ -14,7 +14,9 @@
     "turbo": "turbo",
     "build": "pnpm turbo run build",
     "dev": "pnpm turbo run dev --no-cache --parallel --continue",
-    "test": "jest --color --runInBand --ci",
+    "test": "pnpm run test:jest && pnpm run test:vitest",
+    "test:jest": "jest --color --runInBand --ci",
+    "test:vitest": "vitest",
     "version": "lerna run version",
     "prepublish:main": "pnpm install && pnpm build",
     "prepublish:dev": "pnpm install && pnpm build",
@@ -35,7 +37,7 @@
     "commit": "cz",
     "build:ci": "pnpm turbo run build",
     "build-storybook:ci": "storybook build",
-    "test:ci": "jest --color --runInBand --ci",
+    "test:ci": "pnpm test",
     "lint:ci": "pnpm lint",
     "create-component": "plop component",
     "create-icon": "plop icon",
@@ -124,7 +126,11 @@
     "tslib": "2.6.2",
     "turbo": "1.4.3",
     "typescript": "4.9.5",
-    "url-loader": "^4.1.0"
+    "url-loader": "^4.1.0",
+    "vitest": "0.34.6",
+    "@vitejs/plugin-react": "4.1.0",
+    "jsdom": "22.1.0",
+    "happy-dom": "12.9.0"
   },
   "husky": {
     "hooks": {

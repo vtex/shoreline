@@ -2,9 +2,9 @@ import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { cssVar, cx } from '@vtex/shoreline-utils'
 
-import { bleedStyle, bleedInnerChildStyle } from './bleed.css'
+import { bleedStyle } from './bleed.css'
 
-const defaultBleed = 0
+const defaultBleed = '0rem'
 
 export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   props,
@@ -24,67 +24,69 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
 
   return (
     <div
+      data-sl-bleed
       ref={ref}
       className={cx(bleedStyle, className)}
-      style={getBleedVariables({
-        top,
-        left,
-        bottom,
-        right,
-        horizontal,
-        vertical,
-      })}
+      style={
+        {
+          '--sl-bleed-top': cssVar({ token: String(top) }),
+          '--sl-bleed-right': cssVar({ token: String(right) }),
+          '--sl-bleed-bottom': cssVar({ token: String(bottom) }),
+          '--sl-bleed-left': cssVar({ token: String(left) }),
+          '--sl-bleed-horizontal': cssVar({ token: String(horizontal) }),
+          '--sl-bleed-vertical': cssVar({ token: String(vertical) }),
+        } as CSSProperties
+      }
       {...restProps}
     >
-      <div className={bleedInnerChildStyle}>{children}</div>
+      <div
+        data-sl-bleed-content
+        data-top={isStricTrue(top)}
+        data-right={isStricTrue(right)}
+        data-bottom={isStricTrue(bottom)}
+        data-left={isStricTrue(left)}
+        data-horizontal={isStricTrue(horizontal)}
+        data-vertical={isStricTrue(vertical)}
+      >
+        {children}
+      </div>
     </div>
   )
 })
 
-function getBleedVariables(
-  values: Required<BleedShorthandProps>
-): CSSProperties {
-  return {
-    '--sl-bleed-top': cssVar({ token: String(values.top) }),
-    '--sl-bleed-right': cssVar({ token: String(values.right) }),
-    '--sl-bleed-bottom': cssVar({ token: String(values.bottom) }),
-    '--sl-bleed-left': cssVar({ token: String(values.left) }),
-    '--sl-bleed-horizontal': cssVar({ token: String(values.horizontal) }),
-    '--sl-bleed-vertical': cssVar({ token: String(values.vertical) }),
-  } as CSSProperties
+function isStricTrue<T extends boolean = boolean>(value: any): value is T {
+  return typeof value === 'boolean' && value
 }
 
-export type BleedProps = BleedShorthandProps & ComponentPropsWithoutRef<'div'>
-
-interface BleedShorthandProps {
+export interface BleedProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Top bleed
-   * @default 0
+   * @default '$space-0'
    */
-  top?: string | number
+  top?: string | boolean
   /**
    * Bottom bleed
-   * @default 0
+   * @default '$space-0'
    */
-  bottom?: string | number
+  bottom?: string | boolean
   /**
    * Left bleed
-   * @default 0
+   * @default '$space-0'
    */
-  left?: string | number
+  left?: string | boolean
   /**
    * Right bleed
-   * @default 0
+   * @default '$space-0'
    */
-  right?: string | number
+  right?: string | boolean
   /**
    * Horizontal bleed
-   * @default 0
+   * @default '$space-0'
    */
-  horizontal?: string | number
+  horizontal?: string | boolean
   /**
    * Vertical bleed
-   * @default 0
+   * @default '$space-0'
    */
-  vertical?: string | number
+  vertical?: string | boolean
 }
