@@ -9,7 +9,9 @@ import { Center } from '../center'
 import { Compose, Composable } from '../compose'
 
 /**
- * Button
+ * Buttons triggers allow users to identify and start the most important actions in a container.
+ * @example
+ * <Button>Action label</Button>
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
