@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.14](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.13...@vtex/shoreline-components@0.0.1-dev.14) (2023-10-09)
+
+### Features
+
+- **grid:** accept pr suggestion ([34d9545](https://github.com/vtex/admin-ui/commit/34d95459fb3713e23d70fc245b0f2eca35703886))
+- **grid:** add grid component ([28e6200](https://github.com/vtex/admin-ui/commit/28e620098d7e444f76a766b291b613ea0487db6f))
+
 ## [0.0.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.12...@vtex/shoreline-components@0.0.1-dev.13) (2023-10-06)
 
 ### Features
