@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.25](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.24...@shoreline/next-docs@0.0.1-dev.25) (2023-10-09)
+
+### Features
+
+- **raccoon-next:** add router component ([3cb4ebf](https://github.com/vtex/shoreline/commit/3cb4ebf800f94f5be5cc06be0f4de00655a600a5))
+- **raccoon-next:** delegate nextjs routing to io ([35269a1](https://github.com/vtex/shoreline/commit/35269a1c4c0bee243c46a4cfec0d71f76a2f9bff))
+
 ## [0.0.1-dev.24](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.23...@shoreline/next-docs@0.0.1-dev.24) (2023-10-06)
 
 **Note:** Version bump only for package @shoreline/next-docs
