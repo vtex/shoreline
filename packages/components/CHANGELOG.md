@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.15...@vtex/shoreline-components@0.0.1-dev.16) (2023-10-10)
+
+### Features
+
+- **content:** implement content component ([b2f483b](https://github.com/vtex/admin-ui/commit/b2f483bb2214e3a591e52807db6b8321c836680b))
+
 ## [0.0.1-dev.15](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.14...@vtex/shoreline-components@0.0.1-dev.15) (2023-10-09)
 
 ### Features
