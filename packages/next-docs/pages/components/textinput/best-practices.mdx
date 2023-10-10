@@ -1,0 +1,92 @@
+# Best Practices
+
+## Components
+
+### TextInput vs. TextArea, DatePicker, NumberInput, Search, and Combobox
+
+- **TextArea:** use when the text value usually takes up more than a line.
+- **DatePicker:** use for date values.
+- **NumberInput:** use for numeric values with a unit and a specific format, such as quantities, measurements, and monetary amounts.
+- **Search:** use when the text value will be simultaneously submitted and used to filter items in a list.
+- **Combobox:** use when the merchant can search to select a predefined value or when they can list multiple values in the same field.
+
+## Variants
+
+### Prefix and Suffix
+
+- Use a `prefix` when the value always starts with the same characters. For example, URLs that always start with `https://`.
+- Use a `suffix` when the value always ends with the same characters. For example, a monetary amount that ends in `USD`, a weight value that ends in `kg`, a size measurement that ends in `cm` or a number that ends in `%`.
+- Don't use a suffix with an icon.
+- Don't use a field as the prefix or suffix of another field. For example, instead of using a Select as a prefix, include it as a separate field in the same line.
+
+### Optional
+
+- Mark a TextInput as optional when it's sometimes necessary. For example, the phone number of a store or the second line of an address.
+- Whenever a field is marked as optional, the term *(optional)* is included by default next to the label.
+- Don't mark the mandatory fields of a form.
+- Don't include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.
+
+## Position
+
+### Position in a container
+
+Considering left-to-right interfaces:
+
+- The field size should comfortably fit the values usually filled in, considering localization as well.
+- Group and sort fields in a way that is logical to the merchant, according to user research. For example, the name is expected to come before the ID.
+- Don't position two fields that are not complementary on the same line. For example, the street name is not usually on the same line as the city.
+- Don't include more than three fields on the same line.
+
+## Behavior
+
+### Disabled state
+
+- Disable a field only if, in some condition, it becomes enabled. For example, a field that is incompatible with an option currently chosen in the form.
+- When the reason why the field is disabled might be unclear, use a Tooltip trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.
+
+### Error state
+
+- The validation behavior should communicate the error at the right moment and make it easier to fix.
+- Show the error in a specific field when the merchant removes the focus or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.
+- Remove the error state of the field as soon as the merchant modifies its value.
+
+## Content
+
+### Label
+
+- Write the name that best describes the value that must be filled. For example, use *Email address* when the value should be an email address.
+- Visually hide the field label only when this definition is already present somewhere else, such as a column label that already describes all the fields in the column.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write *Name* as the label instead of *Promotion name* on a page that includes promotion in its title.
+- Don't use an icon in a prefix to replace a label that isn't present anywhere else.
+- Don't use verbs. For example, instead of *Fill name*, use only *Name*.
+- Don't use personal pronouns. For example, write *VTEX account* instead of *My VTEX account*.
+- Don't use interrogations.
+
+### Placeholder text
+
+Don't use placeholder text. Define the field in its label and provide any other necessary information in the help text.
+
+### Help text
+
+- Use a help text to provide any other information that is necessary besides the label.
+- Write a single sentence that is short and direct.
+- Use sentence case, but capitalize proper nouns.
+- When the help text explains the label, write as if you are completing the following sentence: *This is the [help text]*. For example, the help text for a Seller ID field could be "*Seller identifier in the marketplace*".
+- When the help text explains how the field value will be used, start with a verb in the present tense as if completing the following sentence: *When you fill a value in this field, it [help text]*. For example, the help text for a Seller ID field could be "*Appears to customers in the store*".
+- When the help text explains the label and how the value will be used, combine the two sentences described in the previous topics. For example, "*Seller identifier in the marketplace that appears to customers in the store*".
+- Don't explain format rules that can be implemented. Prefer implementing a mask or validation rules instead.
+- Don't include links. Use the Alert before the field if this is necessary.
+- Don't use periods or commas.
+- Don't repeat the label in the text.
+
+### Error text
+
+- Show the error in a specific field when the merchant leaves the field or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.
+- Remove the error state of the field as soon as the merchant modifies its value.
+- Use error messages for static validation, such as *Fill this information*, and for dynamic validation, such as *This value is already in use*.
+- Start with imperative verbs. For example, write *Fill this information* instead of *This field is required*.
+- Include the necessary details in the error message. For example, write *Fill only letters and numbers* instead of *Fill only valid characters*.
+- Don't show errors that can be avoided. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.
+- Don't use periods or commas.
+- Don't use incomplete sentences. For example, write *Inform email* instead of *Inform*.
