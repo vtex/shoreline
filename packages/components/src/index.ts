@@ -2,6 +2,7 @@
 export * from './icon-button'
 export * from './content'
 export * from './compose'
+export * from './field'
 export * from './accessible-icon'
 export * from './text'
 export * from './spinner'
