@@ -1,0 +1,104 @@
+# Best Practices
+
+## Components
+
+### Select vs. Radio, Checkbox, and Combobox
+
+- **Radio:** use if a single option can be selected and there are up to five options with short labels, or when the choice is important and the options should be always visible.
+- **Checkbox:** use if more than one option can be selected and there are up to five options, or when a boolean choice will be submitted in a form.
+- **Combobox Single:** use if a single option can be selected and there are more than seven available options.
+- **Combobox Multiple:** use if more than one option can be selected and there are more than seven available options.
+
+## Variants
+
+### Optional
+
+- Marked a Select as optional when it's sometimes necessary. For example, to inform gender or an industry segment.
+- Whenever a field is marked as optional, the term *(optional)* is included by default next to the label.
+- Don’t mark the mandatory fields of a form.
+- Don’t include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.
+
+## Position
+
+### Position in a container
+
+Considering left-to-right interfaces:
+
+- The width of the field should comfortably fit the values, considering localization as well.
+- Group and sort fields in a way that is logical to the merchant, according to user research. For example, the company name should come before the industry segment.
+- Don't position two fields that are not complementary on the same line. For example, the company name should not be on the same line as the industry segment.
+- Don’t include more than three fields on the same line.
+- Don't customize the height of the field.
+
+## Behavior
+
+### Default value
+
+- Preselect an option when this can make the merchant more efficient and a wrong choice isn't detrimental.
+- Common or recommended options can be preselected. Information that the merchant has previously provided can be leveraged to guess the option that should be preselected.
+- When a recommended option is preselected, add *(Recommended)* to the end of its label so it can still be identified after edits.
+
+### Disabled state
+
+- Disable a field only if, in some condition, it becomes enabled. For example, a field that becomes unavailable when a specific option is chosen in the form.
+- When the reason why the field is disabled might be unclear, use a [Tooltip](https://admin-ui.vercel.app/components/tooltip) trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.
+
+### Error state
+
+- Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.
+- The validation behavior should communicate the error at the right moment and make it easier to fix.
+- Show the error in a specific field when the merchant leaves the field or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.
+- Remove the error state of the field as soon as the merchant modifies its value.
+
+## Content
+
+### Label
+
+- Include the name of the entity that is being listed. For example, use the label *Frequency* when the options are *Daily, Every weekday, Weekly, Monthly, and Every year*.
+- Visually hide the field label only when this definition is already present somewhere else, such as a form section title that already describes all the fields in the section.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write *Industry* as the label instead of *Company industry* when the page or section already includes *Company* in its title.
+- Don't use verbs. For example, instead of *Select industry*, use only *Industry*.
+- Don't use personal pronouns. For example, write *Industry* instead of *My industry.*
+- Don't use interrogations.
+
+### Options values
+
+- Write up to 25 characters in a direct language. Use the help text or the Select label to provide additional context when necessary.
+- Write values with similar lengths. For example, *Daily* or *Weekly*.
+- Use sentence case, but capitalize proper nouns.
+- Don’t start options with a verb.
+- Don’t use periods or commas.
+- Don't include redundant words. For example, use only *Daily*, *Weekly,* and *Monthly* instead of *Daily frequency*, *Weekly frequency,* and *Monthly frequency*.
+- Don't include negative words. For example, in a Select to choose the type of notification (*Email*, *WhatsApp,* etc) don't include a *Don’t send notifications* option. Use a Checkbox with this option before the Select instead.
+- Don't use personal pronouns. For example, write *Industry* instead of *My company industry*.
+
+### Placeholder text
+
+The component includes a default placeholder "*Select…*" that should not be customized.
+
+### Help text
+
+- Use a help text to provide any other information that is necessary besides the label, especially when a wrong choice might be detrimental.
+- Write a single sentence that is short and direct.
+- Use sentence case, but capitalize proper nouns.
+- When the help text should explain the label, write as if you are completing the following sentence: *This is the [help text]*. For example, the help text for a *Frequency* field could be "*Schedule for updates*".
+- When the help text should explain how the field value will be used, start with a verb in the simple present tense as if completing the following sentence: *When you fill a value in this field, it [help text]*. For example, the help text for a *Frequency* field could be "*Defines when updates will be published*”.
+- When the help text should explain the label and how the value will be used, combine the two sentences described in the previous topics. Adapt the sentences if necessary. For example, “*Schedule for updates that defines when they will be published*".
+- Don’t include redundant words or repeat the label in the text.
+- Don’t include links. Include an Alert before the field if this is necessary.
+- Don’t use periods or commas.
+
+### Error text
+
+- Start with an imperative verb. For example, if the field is required and no option has been selected, the error text should be *Select an option* instead of *This field is required*.
+- Don’t use periods or commas.
+- Don't use incomplete sentences. For example, write *Select an option i*nstead of *Select one*.
+
+### Order of options
+
+Order them using one of the following criteria:
+- Most to least frequently used.
+- Simplest to most complex.
+- Least to most risky.
+- Alphabetical order.
