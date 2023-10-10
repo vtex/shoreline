@@ -1,15 +1,11 @@
 .variants--grid {
   --cell-size: 96px;
-  --column-number: 6;
-
+  --column-number: 5;
   display: grid;
   grid-template-columns: repeat(var(--column-number), var(--cell-size));
   width: 100%;
-  gap: var(--sl-space-gap);
-  padding: var(--sl-space-gap);
-  & + .variants--grid {
-    margin-top: var(--sl-space-10);
-  }
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .variants--grid-leading {

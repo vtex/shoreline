@@ -1,7 +1,9 @@
-import '../../../shoreline/styles.css'
+import '../../../faststore/styles.css'
+import '../../../makeup/brandless/button.css'
+// import '../../../shoreline/styles.css'
+// import '../../../makeup/tambaba/button.css'
+
 import './style.css'
-import '../button.css'
-import '../../bleed/bleed.css'
 import '../../center/center.css'
 import '../../spinner/spinner.css'
 
@@ -10,10 +12,10 @@ import {
   IconTrash,
   IconArrowUpRightSmall,
   IconArrowUp,
+  IconTicket,
 } from '@vtex/shoreline-icons'
 
 import { Stack } from '../../stack'
-import { Bleed } from '../../bleed'
 import { Button } from '../index'
 import { VisuallyHidden } from '@ariakit/react'
 
@@ -26,13 +28,7 @@ export function Default() {
 }
 
 export function Variants() {
-  const variants: any[] = [
-    'primary',
-    'secondary',
-    'tertiary',
-    'critical',
-    'criticalTertiary',
-  ]
+  const variants: any[] = ['primary', 'secondary', 'tertiary']
 
   const getGrid = (size: 'normal' | 'large') => (
     <div className="variants--grid">
@@ -42,11 +38,6 @@ export function Variants() {
           <div>
             <Button size={size} variant={variant}>
               Default
-            </Button>
-          </div>
-          <div>
-            <Button size={size} variant={variant} loading>
-              Loading
             </Button>
           </div>
           <div>
@@ -71,35 +62,7 @@ export function Variants() {
     </div>
   )
 
-  return (
-    <div>
-      {getGrid('normal')}
-      {getGrid('large')}
-    </div>
-  )
-}
-
-export function Bleeding() {
-  return (
-    <header className="bleeding--decorative-box">
-      <Stack direction="row" className="bleeding--custom-stack">
-        <Bleed vertical>
-          <Button size="large">Large</Button>
-        </Bleed>
-        <Bleed vertical>
-          <Button>Normal</Button>
-        </Bleed>
-        <Bleed vertical>
-          <Button size="large" variant="tertiary">
-            Large Tertiary
-          </Button>
-        </Bleed>
-        <Bleed vertical>
-          <Button variant="tertiary">Tertiary</Button>
-        </Bleed>
-      </Stack>
-    </header>
-  )
+  return <div>{getGrid('normal')}</div>
 }
 
 export function Composition() {
@@ -119,5 +82,37 @@ export function Composition() {
         <input id="file-input" type="file" />
       </VisuallyHidden>
     </Stack>
+  )
+}
+
+function FastStoreButton({
+  icon,
+  iconPosition,
+  testId,
+  children,
+  ...rest
+}: FastStoreButtonProps) {
+  return (
+    <Button data-testid={testId} {...rest}>
+      {iconPosition === 'start' && icon}
+      {children}
+      {iconPosition === 'end' && icon}
+    </Button>
+  )
+}
+
+interface FastStoreButtonProps {
+  children?: React.ReactNode
+  variant?: 'primary' | 'secondary' | 'tertiary'
+  icon?: React.ReactNode
+  iconPosition?: 'start' | 'end'
+  testId?: string
+}
+
+export function FsAPIExample() {
+  return (
+    <FastStoreButton icon={<IconTicket />} iconPosition="start">
+      Claim your ticket
+    </FastStoreButton>
   )
 }

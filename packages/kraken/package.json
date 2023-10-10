@@ -15,7 +15,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
+    "prebuild": "rm -rf dist && pnpm run theme",
     "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
     "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs",
     "theme": "shorelinecss theme"

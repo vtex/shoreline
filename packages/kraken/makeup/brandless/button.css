@@ -1,0 +1,318 @@
+@layer sl-base {
+  [data-kc-button] {
+    border: none;
+    position: relative;
+    cursor: pointer;
+    appearance: button;
+    text-decoration: none;
+    &:focus {
+      outline: none;
+    }
+
+    & > [data-kc-button-overlay] {
+      position: absolute;
+      color: inherit;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    & > [data-kc-button-content] {
+      font: inherit;
+      letter-spacing: inherit;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+
+    &[data-loading='true'] {
+      & > [data-kc-button-content] {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@layer sl-tokens {
+  [data-kc-button] {
+    /* Default properties */
+    --sl-button-padding: calc(
+        var(--sl-spacing-1) - (var(--sl-button-border-width) * 2)
+      )
+      var(--sl-spacing-3);
+    --sl-button-height: var(--sl-control-tap-size);
+    --sl-button-gap: var(--sl-spacing-2);
+
+    --sl-button-shadow: var(--sl-shadow);
+    --sl-button-shadow-hover: var(--sl-button-shadow);
+
+    --sl-button-border-radius: var(--sl-border-radius);
+    --sl-button-border-width: var(--sl-border-width-thick);
+    --sl-button-border-color: transparent;
+
+    --sl-button-text-size: var(--sl-text-size-base);
+    --sl-button-text-weight: var(--sl-text-weight-bold);
+
+    --sl-button-transition-function: var(--sl-transition-function);
+    --sl-button-transition-property: var(--sl-transition-property);
+    --sl-button-transition-timing: var(--sl-transition-timing);
+
+    /* Primary */
+    --sl-button-primary-text-color: var(--sl-color-primary-text);
+    --sl-button-primary-text-color-hover: var(--sl-button-primary-text-color);
+    --sl-button-primary-text-color-active: var(--sl-button-primary-text-color);
+    --sl-button-primary-bkg-color: var(--sl-color-primary-bkg);
+    --sl-button-primary-bkg-color-hover: var(--sl-color-primary-bkg-hover);
+    --sl-button-primary-bkg-color-active: var(--sl-color-primary-bkg-active);
+    --sl-button-primary-border-color: transparent;
+    --sl-button-primary-border-color-hover: var(
+      --sl-button-primary-border-color
+    );
+    --sl-button-primary-border-color-active: var(
+      --sl-button-primary-border-color
+    );
+    --sl-button-primary-shadow-hover: var(--sl-button-shadow-hover);
+
+    --sl-button-primary-inverse-text-color: var(--sl-button-primary-bkg-color);
+    --sl-button-primary-inverse-text-color-hover: var(
+      --sl-button-primary-bkg-color
+    );
+    --sl-button-primary-inverse-text-color-active: var(
+      --sl-button-primary-bkg-color
+    );
+    --sl-button-primary-inverse-bkg-color: var(--sl-button-primary-text-color);
+    --sl-button-primary-inverse-bkg-color-hover: var(
+      --sl-color-primary-bkg-light
+    );
+    --sl-button-primary-inverse-bkg-color-active: var(
+      --sl-color-primary-bkg-light-active
+    );
+    --sl-button-primary-inverse-border-color: var(
+      --sl-button-primary-border-color
+    );
+    --sl-button-primary-inverse-border-color-hover: var(
+      --sl-button-primary-border-color
+    );
+    --sl-button-primary-inverse-border-color-active: var(
+      --sl-button-primary-border-color
+    );
+    --sl-button-primary-inverse-shadow-hover: var(--sl-button-shadow-hover);
+
+    /* Secondary */
+    --sl-button-secondary-text-color: var(--sl-color-secondary-text);
+    --sl-button-secondary-text-color-hover: var(--sl-color-text-inverse);
+    --sl-button-secondary-text-color-active: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-secondary-bkg-color: var(--sl-color-secondary-bkg);
+    --sl-button-secondary-bkg-color-hover: var(--sl-color-secondary-bkg-hover);
+    --sl-button-secondary-bkg-color-active: var(
+      --sl-color-secondary-bkg-active
+    );
+    --sl-button-secondary-border-color: var(--sl-button-secondary-text-color);
+    --sl-button-secondary-border-color-hover: var(
+      --sl-button-secondary-bkg-color-hover
+    );
+    --sl-button-secondary-border-color-active: var(
+      --sl-button-secondary-bkg-color-active
+    );
+    --sl-button-secondary-shadow-hover: var(--sl-button-shadow-hover);
+
+    --sl-button-secondary-inverse-text-color: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-secondary-inverse-text-color-hover: var(
+      --sl-button-secondary-text-color
+    );
+    --sl-button-secondary-inverse-text-color-active: var(
+      --sl-button-secondary-inverse-text-color-hover
+    );
+    --sl-button-secondary-inverse-bkg-color: var(
+      --sl-button-secondary-bkg-color
+    );
+    --sl-button-secondary-inverse-bkg-color-hover: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-secondary-inverse-bkg-color-active: var(
+      --sl-color-secondary-bkg-light
+    );
+    --sl-button-secondary-inverse-border-color: var(
+      --sl-button-secondary-inverse-text-color
+    );
+    --sl-button-secondary-inverse-border-color-hover: var(
+      --sl-button-secondary-inverse-bkg-color-hover
+    );
+    --sl-button-secondary-inverse-border-color-active: var(
+      --sl-button-secondary-inverse-bkg-color-active
+    );
+    --sl-button-secondary-inverse-shadow-hover: var(--sl-button-shadow-hover);
+
+    /* Tertiary */
+    --sl-button-tertiary-text-color: var(--sl-color-tertiary-text);
+    --sl-button-tertiary-text-color-hover: var(--sl-button-tertiary-text-color);
+    --sl-button-tertiary-text-color-active: var(--sl-button-primary-bkg-color);
+    --sl-button-tertiary-bkg-color: var(--sl-color-tertiary-bkg);
+    --sl-button-tertiary-bkg-color-hover: var(--sl-color-tertiary-bkg-hover);
+    --sl-button-tertiary-bkg-color-active: var(--sl-color-tertiary-bkg-active);
+    --sl-button-tertiary-border-color: transparent;
+    --sl-button-tertiary-border-color-hover: var(
+      --sl-button-tertiary-border-color
+    );
+    --sl-button-tertiary-border-color-active: var(
+      --sl-button-tertiary-border-color
+    );
+    --sl-button-tertiary-shadow-hover: var(--sl-button-shadow-hover);
+
+    --sl-button-tertiary-inverse-text-color: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-tertiary-inverse-text-color-hover: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-tertiary-inverse-text-color-active: var(
+      --sl-button-secondary-text-color-hover
+    );
+    --sl-button-tertiary-inverse-bkg-color: var(
+      --sl-button-secondary-inverse-bkg-color
+    );
+    --sl-button-tertiary-inverse-bkg-color-hover: var(
+      --sl-button-primary-bkg-color-hover
+    );
+    --sl-button-tertiary-inverse-bkg-color-active: var(
+      --sl-button-primary-bkg-color-active
+    );
+    --sl-button-tertiary-inverse-border-color: var(
+      --sl-button-tertiary-border-color
+    );
+    --sl-button-tertiary-inverse-border-color-hover: var(
+      --sl-button-tertiary-border-color
+    );
+    --sl-button-tertiary-inverse-border-color-active: var(
+      --sl-button-tertiary-border-color
+    );
+    --sl-button-tertiary-inverse-shadow-hover: var(--sl-button-shadow-hover);
+
+    /* Disabled */
+    --sl-button-disabled-bkg-color: var(--sl-color-disabled-bkg);
+    --sl-button-disabled-text-color: var(--sl-color-disabled-text);
+
+    /* Loading */
+    --sl-button-loading-label-column-gap: var(--sl-spacing-3);
+
+    /* Small */
+    --sl-button-small-padding: var(--sl-spacing-0) var(--sl-spacing-1);
+    --sl-button-small-min-height: var(--sl-spacing-7);
+    --sl-button-small-gap: var(--sl-spacing-1);
+    --sl-button-small-icon-width: var(--sl-spacing-3);
+    --sl-button-small-icon-height: var(--sl-button-small-icon-width);
+
+    /* Icon */
+    --sl-button-icon-padding: 0 var(--sl-spacing-1);
+  }
+}
+
+@layer sl-components {
+  [data-kc-button] {
+    display: flex;
+    align-items: stretch;
+    width: fit-content;
+    min-height: var(--sl-button-height);
+    padding: 0;
+
+    padding: var(--sl-button-padding);
+    font-size: var(--sl-button-text-size);
+    font-weight: var(--sl-button-text-weight);
+    line-height: var(--sl-button-text-size);
+    border: var(--sl-button-border-width) solid var(--sl-button-border-color);
+    border-radius: var(--sl-button-border-radius);
+    box-shadow: var(--sl-button-shadow);
+    transition: var(--sl-button-transition-property)
+      var(--sl-button-transition-timing) var(--sl-button-transition-function);
+
+    & > [data-kc-button-content] {
+      column-gap: var(--sl-button-gap);
+    }
+
+    &[data-variant='primary'] {
+      color: var(--sl-button-primary-text-color);
+      background-color: var(--sl-button-primary-bkg-color);
+      border: var(--sl-button-border-width) solid
+        var(--sl-button-primary-border-color);
+
+      &:hover {
+        color: var(--sl-button-primary-text-color-hover);
+        background-color: var(--sl-button-primary-bkg-color-hover);
+        border-color: var(--sl-button-primary-border-color-hover);
+        box-shadow: var(--sl-button-primary-shadow-hover);
+      }
+
+      &:focus-visible {
+        color: var(--sl-button-primary-text-color-hover);
+        background-color: var(--sl-button-primary-bkg-color-hover);
+      }
+
+      &:active {
+        color: var(--sl-button-primary-text-color-active);
+        background-color: var(--sl-button-primary-bkg-color-active);
+        border-color: var(--sl-button-primary-border-color-active);
+      }
+    }
+
+    &[data-variant='secondary'] {
+      color: var(--sl-button-secondary-text-color);
+      background-color: var(--sl-button-secondary-bkg-color);
+      border: var(--sl-button-border-width) solid
+        var(--sl-button-secondary-border-color);
+
+      &:hover {
+        color: var(--sl-button-secondary-text-color-hover);
+        background-color: var(--sl-button-secondary-bkg-color-hover);
+        border-color: var(--sl-button-secondary-border-color-hover);
+        box-shadow: var(--sl-button-secondary-shadow-hover);
+      }
+
+      &:focus,
+      &:focus-visible {
+        color: var(--sl-button-secondary-text-color-hover);
+        background-color: var(--sl-button-secondary-bkg-color-hover);
+      }
+
+      &:active {
+        color: var(--sl-button-secondary-text-color-active);
+        background-color: var(--sl-button-secondary-bkg-color-active);
+        border-color: var(--sl-button-secondary-border-color-active);
+      }
+    }
+
+    &[data-variant='tertiary'] {
+      color: var(--sl-button-tertiary-text-color);
+      background-color: var(--sl-button-tertiary-bkg-color);
+      border: var(--sl-button-border-width) solid
+        var(--sl-button-tertiary-border-color);
+
+      &:hover {
+        color: var(--sl-button-tertiary-text-color-hover);
+        background-color: var(--sl-button-tertiary-bkg-color-hover);
+        border-color: var(--sl-button-tertiary-border-color-hover);
+        box-shadow: var(--sl-button-tertiary-shadow-hover);
+      }
+
+      &:focus,
+      &:focus-visible {
+        color: var(--sl-button-tertiary-text-color-hover);
+        background-color: var(--sl-button-tertiary-bkg-color-hover);
+      }
+
+      &:active {
+        color: var(--sl-button-tertiary-text-color-active);
+        background-color: var(--sl-button-tertiary-bkg-color-active);
+        border-color: var(--sl-button-tertiary-border-color-active);
+      }
+    }
+  }
+}

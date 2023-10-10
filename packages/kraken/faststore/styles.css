@@ -1,0 +1,166 @@
+@layer sl-reset, sl-base, sl-tokens, sl-components;
+
+@layer sl-reset {
+  *, :before, :after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  img, picture, video, canvas, svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root, #__next {
+    isolation: isolate;
+  }
+}
+
+@layer sl-base {
+  body {
+    background: var(--sl-bg-primary);
+    color: var(--sl-fg-primary);
+    font: var(--sl-text-body);
+  }
+
+  p {
+    font: var(--sl-text-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font: var(--sl-text-title-1);
+  }
+
+  pre, code {
+    font: var(--sl-text-code);
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}
+
+@layer sl-tokens {
+  :root {
+    --sl-color-main-0: #ecf0ff;
+    --sl-color-main-1: #d8e2ff;
+    --sl-color-main-2: #00419e;
+    --sl-color-main-3: #002c71;
+    --sl-color-main-4: #001947;
+    --sl-color-accent-0: #ebdcff;
+    --sl-color-accent-1: #8d50fd;
+    --sl-color-accent-2: #732fe2;
+    --sl-color-accent-3: #5900c8;
+    --sl-color-accent-4: #4700a0;
+    --sl-color-neutral-0: #fff;
+    --sl-color-neutral-1: #f1f2f3;
+    --sl-color-neutral-2: #e3e6e8;
+    --sl-color-neutral-3: #c7ccd1;
+    --sl-color-neutral-4: #9099a2;
+    --sl-color-neutral-5: #74808b;
+    --sl-color-neutral-6: #5d666f;
+    --sl-color-neutral-7: #171a1c;
+    --sl-color-primary-text: var(--sl-color-text-inverse);
+    --sl-color-primary-bkg: var(--sl-color-main-2);
+    --sl-color-primary-bkg-hover: var(--sl-color-main-3);
+    --sl-color-primary-bkg-active: var(--sl-color-main-4);
+    --sl-color-primary-bkg-light: var(--sl-color-main-0);
+    --sl-color-primary-bkg-light-active: var(--sl-color-main-1);
+    --sl-color-secondary-text: var(--sl-color-primary-bkg);
+    --sl-color-secondary-bkg: transparent;
+    --sl-color-secondary-bkg-hover: var(--sl-color-primary-bkg);
+    --sl-color-secondary-bkg-active: var(--sl-color-main-3);
+    --sl-color-secondary-bkg-light: var(--sl-color-main-0);
+    --sl-color-secondary-bkg-light-active: var(--sl-color-secondary-bkg-light);
+    --sl-color-tertiary-text: var(--sl-color-primary-bkg);
+    --sl-color-tertiary-bkg: transparent;
+    --sl-color-tertiary-bkg-hover: var(--sl-color-main-0);
+    --sl-color-tertiary-bkg-active: var(--sl-color-main-1);
+    --sl-color-tertiary-bkg-light: var(--sl-color-neutral-0);
+    --sl-color-tertiary-bkg-light-active: var(--sl-color-tertiary-bkg-light);
+    --sl-color-body-bkg: var(--sl-color-neutral-0);
+    --sl-color-action-text: var(--sl-color-text-inverse);
+    --sl-color-action-bkg: var(--sl-color-accent-4);
+    --sl-color-action-bkg-hover: var(--sl-color-accent-3);
+    --sl-color-action-bkg-active: var(--sl-color-accent-2);
+    --sl-color-action-bkg-light: var(--sl-color-accent-0);
+    --sl-color-action-bkg-light-active: var(--sl-color-tertiary-bkg-light);
+    --sl-color-text: var(--sl-color-neutral-7);
+    --sl-color-text-light: var(--sl-color-neutral-6);
+    --sl-color-text-inverse: var(--sl-color-neutral-0);
+    --sl-color-text-display: var(--sl-color-neutral-7);
+    --sl-color-focus-ring: #8db6fa;
+    --sl-color-focus-ring-outline: rgba(141, 182, 250, .5);
+    --sl-color-focus-ring-danger: #e1adad;
+    --sl-border-radius: 2px;
+    --sl-border-radius-small: 1px;
+    --sl-border-radius-medium: 8px;
+    --sl-border-radius-pill: 100px;
+    --sl-border-radius-circle: 100%;
+    --sl-border-width: 1px;
+    --sl-border-width-thick: 2px;
+    --sl-border-width-thickest: 3px;
+    --sl-control-tap-size: var(--sl-spacing-7);
+    --sl-control-tap-size-smallest: var(--sl-control-tap-size);
+    --sl-control-tap-min-height: var(--sl-control-tap-size);
+    --sl-text-face-body: -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+    --sl-text-face-title: var(--sl-text-face-body);
+    --sl-text-body: var(--sl-text-size-base) var(--sl-text-face-body);
+    --sl-text-weight-light: 300;
+    --sl-text-weight-regular: 400;
+    --sl-text-weight-bold: 700;
+    --sl-text-weight-black: 900;
+    --sl-text-size-0: 12px;
+    --sl-text-size-1: 14px;
+    --sl-text-size-2: var(--sl-text-size-base);
+    --sl-text-size-3: calc($ text-size-2 * var(--sl-text-scale));
+    --sl-text-size-4: calc($ text-size-3 * var(--sl-text-scale));
+    --sl-text-size-5: calc($ text-size-4 * var(--sl-text-scale));
+    --sl-text-size-6: calc($ text-size-5 * var(--sl-text-scale));
+    --sl-text-size-7: calc($ text-size-6 * var(--sl-text-scale));
+    --sl-text-size-8: calc($ text-size-7 * var(--sl-text-scale));
+    --sl-text-size-base: 16px;
+    --sl-text-size-title-huge: var(--sl-text-size-7);
+    --sl-text-size-title-page: var(--sl-text-size-6);
+    --sl-text-size-title-product: var(--sl-text-size-4);
+    --sl-text-size-title-section: var(--sl-text-size-4);
+    --sl-text-size-title-subsection: var(--sl-text-size-4);
+    --sl-text-size-title-mini: var(--sl-text-size-4);
+    --sl-text-size-lead: var(--sl-text-size-3);
+    --sl-text-size-menu: var(--sl-text-size-base);
+    --sl-text-size-body: var(--sl-text-size-base);
+    --sl-text-size-legend: var(--sl-text-size-1);
+    --sl-text-size-tiny: var(--sl-text-size-0);
+    --sl-spacing-0: .25rem;
+    --sl-spacing-1: .5rem;
+    --sl-spacing-2: .75rem;
+    --sl-spacing-3: 1rem;
+    --sl-spacing-4: 1.5rem;
+    --sl-spacing-5: 2rem;
+    --sl-spacing-6: 2.5rem;
+    --sl-spacing-7: 3rem;
+    --sl-spacing-8: 3.5rem;
+    --sl-spacing-9: 4rem;
+    --sl-spacing-10: 4.5rem;
+    --sl-spacing-11: 5rem;
+    --sl-spacing-12: 5.5rem;
+    --sl-spacing-13: 6rem;
+  }
+}
