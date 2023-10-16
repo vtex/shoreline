@@ -35,13 +35,11 @@
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
-    "autoprefixer": "10.4.14",
+    "browserslist": "4.22.1",
     "cssesc": "3.0.0",
     "fs-extra": "11.1.1",
     "jiti": "1.19.1",
-    "postcss": "8.4.27",
-    "postcss-nested": "6.0.1",
-    "prettier": "3.0.0",
+    "lightningcss": "1.22.0",
     "sucrase": "3.34.0"
   }
 }

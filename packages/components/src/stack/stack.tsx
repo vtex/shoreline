@@ -1,15 +1,12 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cx, cssVar } from '@vtex/shoreline-utils'
-
-import { stackStyle } from './stack.css'
+import { cssVar } from '@vtex/shoreline-utils'
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   props,
   ref
 ) {
   const {
-    className,
     children,
     direction = 'column',
     space = '$space-gap',
@@ -20,11 +17,14 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
 
   return (
     <div
+      data-sl-stack
       ref={ref}
       data-direction={direction}
       data-fluid={fluid}
-      style={stackVariables(space, align)}
-      className={cx(stackStyle, className)}
+      style={style({
+        '--sl-stack-space': cssVar({ token: space }),
+        '--sl-stack-align': cssVar({ token: align }),
+      })}
       {...restProps}
     >
       {children}
@@ -32,11 +32,12 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   )
 })
 
-function stackVariables(space: string, align: string) {
-  return {
-    '--sl-stack-space': cssVar({ token: space }),
-    '--sl-stack-align': cssVar({ token: align }),
-  } as CSSProperties
+interface ExtendedCSSProperties extends CSSProperties {
+  [a: `--${string}`]: string | number | boolean
+}
+
+function style(obj: ExtendedCSSProperties): CSSProperties {
+  return obj
 }
 
 export interface StackProps extends ComponentPropsWithoutRef<'div'> {

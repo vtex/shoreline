@@ -38,7 +38,8 @@
     "@vtex/shoreline-cli": "workspace",
     "@vtex/shoreline-preset-admin": "workspace",
     "@vtex/shoreline-theme": "workspace",
-    "@vtex/shoreline-vanilla-extract": "^0.0.1-dev.6"
+    "@vtex/shoreline-vanilla-extract": "^0.0.1-dev.6",
+    "@vtex/shoreline-visual": "workspace:*"
   },
   "dependencies": {
     "@ariakit/react": "0.3.3",

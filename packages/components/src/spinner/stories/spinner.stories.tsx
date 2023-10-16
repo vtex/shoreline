@@ -1,3 +1,5 @@
+import '@vtex/shoreline-visual'
+
 import React from 'react'
 
 import { Spinner } from '../index'

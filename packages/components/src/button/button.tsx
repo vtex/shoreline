@@ -1,9 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { Button as BaseButton } from '@ariakit/react'
-import { cx } from '@vtex/shoreline-utils'
 
-import { buttonStyle } from './button.css'
 import { Spinner } from '../spinner'
 import { Center } from '../center'
 import { Compose, Composable } from '../compose'
@@ -22,7 +20,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       disabled = false,
       asChild = false,
-      className,
       children,
       ...buttonProps
     } = props
@@ -37,7 +34,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-loading={loading}
-        className={cx(buttonStyle, className)}
         {...buttonProps}
       >
         {loading && (

@@ -1,7 +1,9 @@
 import '../../../shoreline/styles.css'
+import '@vtex/shoreline-visual'
+
 import './style.css'
 
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {
   IconTrash,
   IconArrowUpRightSmall,
@@ -115,5 +117,20 @@ export function Composition() {
         <input id="file-input" type="file" />
       </VisuallyHidden>
     </Stack>
+  )
+}
+
+export function Agnostic() {
+  return (
+    <a
+      href="https://vtex.com"
+      target="_blank"
+      data-sl-button
+      data-size="large"
+      data-variant="primary"
+      rel="noreferrer"
+    >
+      Agnostic Button
+    </a>
   )
 }

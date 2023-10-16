@@ -1,0 +1,16 @@
+@layer sl-components {
+  [data-sl-flex] {
+    display: flex;
+    order: var(--sl-flex-order);
+    flex-direction: var(--sl-flex-direction);
+    flex-grow: var(--sl-flex-grow);
+    flex-wrap: var(--sl-flex-wrap);
+    flex-shrink: var(--sl-flex-shrink);
+    flex-basis: var(--sl-flex-basis);
+    justify-content: var(--sl-flex-justify);
+    align-items: var(--sl-flex-align);
+    gap: var(--sl-flex-gap);
+    row-gap: var(--sl-flex-rowGap);
+    column-gap: var(--sl-flex-columnGap);
+  }
+}

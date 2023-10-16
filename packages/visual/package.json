@@ -1,0 +1,62 @@
+{
+  "name": "@vtex/shoreline-visual",
+  "version": "0.0.0",
+  "main": "dist/vtex-shoreline-visual.cjs.js",
+  "module": "dist/vtex-shoreline-visual.esm.js",
+  "types": "dist/vtex-shoreline-visual.cjs.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "exports": {
+    ".": "./dist/shoreline.min.css",
+    "./animations": "./dist/animations.min.css",
+    "./bleed": "./dist/bleed.min.css",
+    "./button": "./dist/button.min.css",
+    "./center": "./dist/center.min.css",
+    "./content": "./dist/content.min.css",
+    "./flex": "./dist/flex.min.css",
+    "./grid": "./dist/grid.min.css",
+    "./icon-button": "./dist/icon-button.min.css",
+    "./spinner": "./dist/spinner.min.css",
+    "./stack": "./dist/stack.min.css",
+    "./text": "./dist/text.min.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "pnpm run build:pretty && pnpm run build:min && pnpm run lib",
+    "build:pretty": "lightningcss --bundle --targets '>= 0.25%' ./src/index.css -o ./dist/shoreline.css",
+    "build:min": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/index.css -o ./dist/shoreline.min.css",
+    "lib": "concurrently pnpm:lib:*",
+    "lib:animations": "lightningcss --minify --targets '>= 0.25%' ./src/animations.css -o ./dist/animations.min.css",
+    "lib:bleed": "lightningcss --minify --targets '>= 0.25%' ./src/bleed.css -o ./dist/bleed.min.css",
+    "lib:button": "lightningcss --minify --targets '>= 0.25%' ./src/button.css -o ./dist/button.min.css",
+    "lib:center": "lightningcss --minify --targets '>= 0.25%' ./src/center.css -o ./dist/center.min.css",
+    "lib:content": "lightningcss --minify --targets '>= 0.25%' ./src/content.css -o ./dist/content.min.css",
+    "lib:flex": "lightningcss --minify --targets '>= 0.25%' ./src/flex.css -o ./dist/flex.min.css",
+    "lib:grid": "lightningcss --minify --targets '>= 0.25%' ./src/grid.css -o ./dist/grid.min.css",
+    "lib:icon-button": "lightningcss --minify --targets '>= 0.25%' ./src/icon-button.css -o ./dist/icon-button.min.css",
+    "lib:spinner": "lightningcss --minify --targets '>= 0.25%' ./src/spinner.css -o ./dist/spinner.min.css",
+    "lib:stack": "lightningcss --minify --targets '>= 0.25%' ./src/stack.css -o ./dist/stack.min.css",
+    "lib:text": "lightningcss --minify --targets '>= 0.25%' ./src/text.css -o ./dist/text.min.css"
+  },
+  "repository": {
+    "directory": "packages/admin-ui",
+    "type": "git",
+    "url": "git+https://github.com/vtex/admin-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/admin-ui/issues"
+  },
+  "devDependencies": {
+    "browserslist": "4.22.1",
+    "concurrently": "8.2.1",
+    "lightningcss": "1.22.0",
+    "lightningcss-cli": "1.22.0"
+  }
+}
