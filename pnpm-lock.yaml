@@ -781,9 +781,6 @@ importers:
       '@vtex/shoreline-utils':
         specifier: workspace:*
         version: link:../utils
-      autoprefixer:
-        specifier: 10.4.14
-        version: 10.4.14(postcss@8.4.27)
       browserslist:
         specifier: 4.22.1
         version: 4.22.1
@@ -799,15 +796,9 @@ importers:
       lightningcss:
         specifier: 1.22.0
         version: 1.22.0
-      postcss:
-        specifier: 8.4.27
-        version: 8.4.27
-      postcss-nested:
-        specifier: 6.0.1
-        version: 6.0.1(postcss@8.4.27)
       prettier:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.3
+        version: 3.0.3
       sucrase:
         specifier: 3.34.0
         version: 3.34.0
@@ -23493,16 +23484,6 @@ packages:
       icss-utils: 5.1.0(postcss@8.4.27)
       postcss: 8.4.27
 
-  /postcss-nested@6.0.1(postcss@8.4.27):
-    resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.2.14
-    dependencies:
-      postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
-    dev: false
-
   /postcss-normalize-charset@5.1.0(postcss@8.4.27):
     resolution: {integrity: sha512-mSgUJ+pd/ldRGVx26p2wz9dNZ7ji6Pn8VWBajMXFf8jk7vUoSrZ2lt/wZR7DtlZYKesmZI680qjr2CeFF2fbUg==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -23735,8 +23716,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.0.0:
-    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+  /prettier@3.0.3:
+    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false

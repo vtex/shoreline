@@ -1,11 +1,9 @@
 import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { AccessibleIcon } from '../accessible-icon'
-import { iconButtonStyle } from './icon-button.css'
 
 /**
  * A button designed specifically for usage with a single icon.
@@ -16,16 +14,10 @@ import { iconButtonStyle } from './icon-button.css'
  */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(props, ref) {
-    const { className, label, children, asChild, ...buttonProps } = props
+    const { label, children, asChild, ...buttonProps } = props
 
     return (
-      <Button
-        ref={ref}
-        data-sl-icon-button
-        className={cx(iconButtonStyle, className)}
-        asChild={asChild}
-        {...buttonProps}
-      >
+      <Button ref={ref} data-sl-icon-button asChild={asChild} {...buttonProps}>
         {asChild ? (
           children
         ) : (

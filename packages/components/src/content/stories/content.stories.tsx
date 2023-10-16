@@ -1,4 +1,5 @@
 import '../../../shoreline/styles.css'
+import '@vtex/shoreline-visual'
 import './styles.css'
 
 import React from 'react'
@@ -13,12 +14,12 @@ export function Default() {
   return (
     <>
       <Container className="decorative-box bg-purple">
-        <Content as="header">
+        <Content>
           <Flex>Content</Flex>
         </Content>
       </Container>
       <Container className="decorative-box bg-green">
-        <Content as="header" narrow>
+        <Content narrow>
           <Flex>Narrow Content</Flex>
         </Content>
       </Container>

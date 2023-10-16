@@ -1,6 +1,7 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { cssVar } from '@vtex/shoreline-utils'
+import { style } from '../utils/style'
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   props,
@@ -31,14 +32,6 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
     </div>
   )
 })
-
-interface ExtendedCSSProperties extends CSSProperties {
-  [a: `--${string}`]: string | number | boolean
-}
-
-function style(obj: ExtendedCSSProperties): CSSProperties {
-  return obj
-}
 
 export interface StackProps extends ComponentPropsWithoutRef<'div'> {
   /**

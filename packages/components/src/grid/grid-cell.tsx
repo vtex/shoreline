@@ -1,14 +1,11 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { CSSProperty } from '@vtex/shoreline-utils'
-import { cx } from '@vtex/shoreline-utils'
-
-import { gridCellStyle } from './grid.css'
+import { style } from '../utils/style'
 
 export const GridCell = forwardRef<HTMLDivElement, GridCellProps>(
   function GridCell(props, ref) {
     const {
-      className,
       children,
       columnStart = 'auto',
       columnEnd = 'auto',
@@ -19,18 +16,20 @@ export const GridCell = forwardRef<HTMLDivElement, GridCellProps>(
       area = 'auto',
     } = props
 
-    const style = getGridCellVariables({
-      columnStart,
-      columnEnd,
-      rowStart,
-      rowEnd,
-      column,
-      row,
-      area,
-    })
-
     return (
-      <div ref={ref} className={cx(gridCellStyle, className)} style={style}>
+      <div
+        data-sl-grid-cell
+        ref={ref}
+        style={style({
+          '--sl-grid-cell-columnStart': columnStart,
+          '--sl-grid-cell-columnEnd': columnEnd,
+          '--sl-grid-cell-rowStart': rowStart,
+          '--sl-grid-cell-rowEnd': rowEnd,
+          '--sl-grid-cell-column': column,
+          '--sl-grid-cell-row': row,
+          '--sl-grid-cell-area': area,
+        })}
+      >
         {children}
       </div>
     )
@@ -55,18 +54,4 @@ export interface GridCellShorthandProps {
   row?: CSSProperty.GridRow
   /** Shorthand for CSS gridArea property */
   area?: CSSProperty.GridArea
-}
-
-function getGridCellVariables(
-  props: Required<GridCellShorthandProps>
-): CSSProperties {
-  return {
-    '--sl-grid-cell-columnStart': props.columnStart,
-    '--sl-grid-cell-columnEnd': props.columnEnd,
-    '--sl-grid-cell-rowStart': props.rowStart,
-    '--sl-grid-cell-rowEnd': props.rowEnd,
-    '--sl-grid-cell-column': props.column,
-    '--sl-grid-cell-row': props.row,
-    '--sl-grid-cell-area': props.area,
-  } as CSSProperties
 }

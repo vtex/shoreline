@@ -1,4 +1,5 @@
 import React from 'react'
+import '@vtex/shoreline-visual'
 
 import { Center } from '../index'
 

@@ -1,4 +1,5 @@
 import '../../../shoreline/styles.css'
+import '@vtex/shoreline-visual'
 
 import React, { useState } from 'react'
 import { IconButton } from '../index'

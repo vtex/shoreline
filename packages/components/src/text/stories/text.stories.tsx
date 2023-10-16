@@ -1,4 +1,6 @@
 import '../../../shoreline/styles.css'
+import '@vtex/shoreline-visual'
+
 import React, { useRef } from 'react'
 
 import { Text } from '../index'

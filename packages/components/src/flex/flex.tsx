@@ -1,16 +1,13 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { CSSProperty } from '@vtex/shoreline-utils'
-import { cx } from '@vtex/shoreline-utils'
-
-import { flexStyle } from './flex.css'
+import { style } from '../utils/style'
 
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
   props,
   ref
 ) {
   const {
-    className,
     children,
     order = 0,
     direction = 'row',
@@ -26,26 +23,23 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
     ...restProps
   } = props
 
-  const style = getFlexVariables({
-    order,
-    direction,
-    grow,
-    wrap,
-    shrink,
-    basis,
-    justify,
-    align,
-    gap,
-    rowGap,
-    columnGap,
-  })
-
   return (
     <div
-      ref={ref}
-      style={style}
-      className={cx(flexStyle, className)}
       data-sl-flex
+      ref={ref}
+      style={style({
+        '--sl-flex-order': order,
+        '--sl-flex-direction': direction,
+        '--sl-flex-grow': grow,
+        '--sl-flex-wrap': wrap,
+        '--sl-flex-shrink': shrink,
+        '--sl-flex-basis': basis,
+        '--sl-flex-justify': justify,
+        '--sl-flex-align': align,
+        '--sl-flex-gap': gap,
+        '--sl-flex-rowGap': rowGap,
+        '--sl-flex-columnGap': columnGap,
+      })}
       {...restProps}
     >
       {children}
@@ -78,20 +72,4 @@ interface FlexShorthandProps {
   rowGap?: CSSProperty.RowGap
   /** Shorthand for CSS order property */
   columnGap?: CSSProperty.ColumnGap
-}
-
-function getFlexVariables(props: Required<FlexShorthandProps>): CSSProperties {
-  return {
-    '--sl-flex-order': props.order,
-    '--sl-flex-direction': props.direction,
-    '--sl-flex-grow': props.grow,
-    '--sl-flex-wrap': props.wrap,
-    '--sl-flex-shrink': props.shrink,
-    '--sl-flex-basis': props.basis,
-    '--sl-flex-justify': props.justify,
-    '--sl-flex-align': props.align,
-    '--sl-flex-gap': props.gap,
-    '--sl-flex-rowGap': props.rowGap,
-    '--sl-flex-columnGap': props.columnGap,
-  } as CSSProperties
 }

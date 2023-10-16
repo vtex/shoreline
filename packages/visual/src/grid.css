@@ -2,8 +2,6 @@
   [data-sl-grid] {
     display: grid;
     gap: var(--sl-grid-gap);
-    row-gap: var(--sl-grid-rowGap);
-    column-gap: var(--sl-grid-columnGap);
     grid-template-areas: var(--sl-grid-templateAreas);
     grid-template-rows: var(--sl-grid-templateRows);
     grid-template-columns: var(--sl-grid-templateColumns);

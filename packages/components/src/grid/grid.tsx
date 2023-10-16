@@ -1,16 +1,13 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { CSSProperty } from '@vtex/shoreline-utils'
-import { cx } from '@vtex/shoreline-utils'
-
-import { gridStyle } from './grid.css'
+import { style } from '../utils/style'
 
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   props,
   ref
 ) {
   const {
-    className,
     children,
     gap = 0,
     templateAreas = 'none',
@@ -21,18 +18,20 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
     autoFlow = 'row',
   } = props
 
-  const style = getGridVariables({
-    gap,
-    templateAreas,
-    templateRows,
-    templateColumns,
-    autoColumns,
-    autoRows,
-    autoFlow,
-  })
-
   return (
-    <div ref={ref} className={cx(gridStyle, className)} style={style}>
+    <div
+      data-sl-grid
+      ref={ref}
+      style={style({
+        '--sl-grid-gap': gap,
+        '--sl-grid-templateAreas': templateAreas,
+        '--sl-grid-templateRows': templateRows,
+        '--sl-grid-templateColumns': templateColumns,
+        '--sl-grid-autoColumns': autoColumns,
+        '--sl-grid-autoRows': autoRows,
+        '--sl-grid-autoFlow': autoFlow,
+      })}
+    >
       {children}
     </div>
   )
@@ -55,16 +54,4 @@ export interface GridShorthandProps {
   autoRows?: CSSProperty.GridAutoRows
   /** Shorthand for CSS gridAutoFlow property */
   autoFlow?: CSSProperty.GridAutoFlow
-}
-
-function getGridVariables(props: Required<GridShorthandProps>): CSSProperties {
-  return {
-    '--sl-grid-gap': props.gap,
-    '--sl-grid-templateAreas': props.templateAreas,
-    '--sl-grid-templateRows': props.templateRows,
-    '--sl-grid-templateColumns': props.templateColumns,
-    '--sl-grid-autoColumns': props.autoColumns,
-    '--sl-grid-autoRows': props.autoRows,
-    '--sl-grid-autoFlow': props.autoFlow,
-  } as CSSProperties
 }

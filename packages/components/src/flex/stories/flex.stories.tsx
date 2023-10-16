@@ -1,7 +1,7 @@
 import React from 'react'
+import '@vtex/shoreline-visual'
 
 import { Flex } from '../index'
-
 import { divStyle } from './flex.stories.css'
 
 export default {

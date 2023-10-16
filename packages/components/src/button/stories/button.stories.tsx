@@ -1,14 +1,12 @@
-import '../../../shoreline/styles.css'
-import '@vtex/shoreline-visual'
-
-import './style.css'
-
 import React, { Fragment } from 'react'
 import {
   IconTrash,
   IconArrowUpRightSmall,
   IconArrowUp,
 } from '@vtex/shoreline-icons'
+import '../../../shoreline/styles.css'
+import '@vtex/shoreline-visual'
+import './style.css'
 
 import { Stack } from '../../stack'
 import { Bleed } from '../../bleed'

@@ -1,0 +1,5 @@
+[data-sl-grid-cell] {
+  background-color: var(--sl-color-blue-5);
+  width: 100%;
+  height: 3rem;
+}
