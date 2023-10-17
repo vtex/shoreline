@@ -1,4 +1,3 @@
-import { atom } from 'jotai'
 import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
@@ -16,5 +15,3 @@ export function useFieldContext() {
 
   return ctx
 }
-
-export const fieldAtom = atom('sl-field')

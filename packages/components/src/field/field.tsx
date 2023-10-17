@@ -3,7 +3,6 @@ import React, { forwardRef, useId } from 'react'
 import { cx } from '@vtex/shoreline-utils'
 
 import { fieldStyle } from './field.css'
-import '../../shoreline/styles.css'
 import { FieldContext } from './field-context'
 
 export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
