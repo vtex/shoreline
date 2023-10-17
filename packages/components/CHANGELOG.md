@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2023-10-17)
+
+### Features
+
+- **button:** add component ([3b3419a](https://github.com/vtex/admin-ui/commit/3b3419a25268058dcb3bb056627181d252aa0c1e))
+- **content:** implement content component ([fb34fe5](https://github.com/vtex/admin-ui/commit/fb34fe518e0eb01b1428e2e76889264159c1c439))
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/admin-ui/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+- **grid:** accept pr suggestion ([80bb62d](https://github.com/vtex/admin-ui/commit/80bb62daafce806e2550aa79012e923203ea6a8c))
+- **grid:** add grid component ([3beb9b3](https://github.com/vtex/admin-ui/commit/3beb9b372e6b962ea5baf082a446d1e9836c0906))
+- **icon-button:** create-component ([afb6ce5](https://github.com/vtex/admin-ui/commit/afb6ce5e9a1d389e2b746b673a2352707a718e24))
+
 ## [0.0.1-dev.16](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.0.1-dev.15...@vtex/shoreline-components@0.0.1-dev.16) (2023-10-10)
 
 ### Features

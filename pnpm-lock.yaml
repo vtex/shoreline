@@ -275,10 +275,10 @@ importers:
         specifier: 8.0.2
         version: 8.0.2
       '@vtex/admin-ui':
-        specifier: ^0.136.1-dev.13
-        version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.137.0
+        version: link:../../packages/admin-ui
       '@vtex/raccoon-next':
-        specifier: ^0.5.13-dev.5
+        specifier: ^0.6.0
         version: link:../../packages/raccoon-next
       next:
         specifier: 13.4.8
@@ -312,7 +312,7 @@ importers:
   examples/shoreline-nextjs-integration/react:
     dependencies:
       '@vtex/raccoon-io':
-        specifier: ^0.7.1-dev.0
+        specifier: ^0.7.1
         version: link:../../../packages/raccoon-io
       react:
         specifier: ^16.5.2
@@ -348,14 +348,14 @@ importers:
         specifier: 3.18.1
         version: 3.18.1(react@18.2.0)
       '@vtex/admin-ui-core':
-        specifier: ^0.13.2-dev.10
-        version: 0.13.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.14.0
+        version: link:../admin-ui-core
       '@vtex/admin-ui-hooks':
-        specifier: ^0.5.2-dev.10
-        version: 0.5.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.6.0
+        version: link:../admin-ui-hooks
       '@vtex/admin-ui-util':
-        specifier: ^0.5.2-dev.10
-        version: 0.5.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.6.0
+        version: link:../admin-ui-util
       '@vtex/phosphor-icons':
         specifier: 0.2.8
         version: 0.2.8(react-dom@18.2.0)(react@18.2.0)
@@ -443,7 +443,7 @@ importers:
     dependencies:
       '@vtex/admin-ui':
         specifier: 0.x
-        version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+        version: link:../admin-ui
       chalk:
         specifier: 2.4.1
         version: 2.4.1
@@ -478,8 +478,8 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(react@18.2.0)
       '@vtex/admin-ui-util':
-        specifier: ^0.5.2-dev.10
-        version: 0.5.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.6.0
+        version: link:../admin-ui-util
       csstype:
         specifier: 3.0.10
         version: 3.0.10
@@ -514,11 +514,11 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0
       '@vtex/admin-ui':
-        specifier: ^0.136.1-dev.13
-        version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.137.0
+        version: link:../admin-ui
       '@vtex/admin-ui-form':
-        specifier: ^0.6.1-dev.13
-        version: 0.6.1(@vtex/admin-ui@0.136.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.7.0
+        version: link:../admin-ui-form
       clsx:
         specifier: ^1.1.1
         version: 1.2.1
@@ -578,8 +578,8 @@ importers:
         version: 7.21.0(react@18.2.0)
     devDependencies:
       '@vtex/admin-ui':
-        specifier: ^0.136.1-dev.13
-        version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.137.0
+        version: link:../admin-ui
       yup:
         specifier: 0.32.11
         version: 0.32.11
@@ -587,8 +587,8 @@ importers:
   packages/admin-ui-hooks:
     dependencies:
       '@vtex/admin-ui-util':
-        specifier: ^0.5.2-dev.10
-        version: 0.5.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.6.0
+        version: link:../admin-ui-util
       react:
         specifier: ^16.9 || ^17.0 || ^18.0
         version: 18.2.0
@@ -617,7 +617,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.0.1-dev.8
+        specifier: ^0.1.0
         version: link:../theme
       commander:
         specifier: 11.0.0
@@ -636,10 +636,10 @@ importers:
         specifier: 0.3.3
         version: 0.3.3(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.0.1-dev.0
+        specifier: ^0.1.0
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.4
+        specifier: ^0.1.0
         version: link:../utils
       react:
         specifier: '>=18'
@@ -664,7 +664,7 @@ importers:
         specifier: workspace
         version: link:../theme
       '@vtex/shoreline-vanilla-extract':
-        specifier: ^0.0.1-dev.6
+        specifier: ^0.1.0
         version: link:../vanilla-extract
 
   packages/create-raccoon-app:
@@ -679,7 +679,7 @@ importers:
   packages/csx:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.4
+        specifier: ^0.1.0
         version: link:../utils
       csstype:
         specifier: 3.1.2
@@ -766,10 +766,10 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(react@18.2.0)
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.7
+        specifier: ^0.1.0
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.4
+        specifier: ^0.1.0
         version: link:../utils
 
   packages/theme:
@@ -830,10 +830,10 @@ importers:
         specifier: 1.12.0
         version: 1.12.0
       '@vtex/shoreline-csx':
-        specifier: ^0.0.1-dev.7
+        specifier: ^0.1.0
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.0.1-dev.4
+        specifier: ^0.1.0
         version: link:../utils
 
 packages:
@@ -7048,6 +7048,7 @@ packages:
       }
     dependencies:
       '@floating-ui/core': 1.4.1
+    dev: false
 
   /@floating-ui/dom@1.5.1:
     resolution:
@@ -7086,6 +7087,7 @@ packages:
     dependencies:
       '@formatjs/intl-localematcher': 0.2.28
       tslib: 2.4.0
+    dev: false
 
   /@formatjs/fast-memoize@1.2.4:
     resolution:
@@ -7094,6 +7096,7 @@ packages:
       }
     dependencies:
       tslib: 2.4.0
+    dev: false
 
   /@formatjs/icu-messageformat-parser@2.1.4:
     resolution:
@@ -7104,6 +7107,7 @@ packages:
       '@formatjs/ecma402-abstract': 1.11.8
       '@formatjs/icu-skeleton-parser': 1.3.10
       tslib: 2.4.0
+    dev: false
 
   /@formatjs/icu-skeleton-parser@1.3.10:
     resolution:
@@ -7113,6 +7117,7 @@ packages:
     dependencies:
       '@formatjs/ecma402-abstract': 1.11.8
       tslib: 2.4.0
+    dev: false
 
   /@formatjs/intl-displaynames@6.0.3:
     resolution:
@@ -7143,6 +7148,7 @@ packages:
       }
     dependencies:
       tslib: 2.4.0
+    dev: false
 
   /@formatjs/intl@2.3.1(typescript@4.9.5):
     resolution:
@@ -7520,6 +7526,7 @@ packages:
       }
     dependencies:
       '@swc/helpers': 0.5.1
+    dev: false
 
   /@internationalized/message@3.0.9:
     resolution:
@@ -7529,6 +7536,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       intl-messageformat: 10.1.1
+    dev: false
 
   /@internationalized/number@3.1.1:
     resolution:
@@ -7537,6 +7545,7 @@ packages:
       }
     dependencies:
       '@babel/runtime': 7.22.5
+    dev: false
 
   /@internationalized/string@3.0.0:
     resolution:
@@ -7545,6 +7554,7 @@ packages:
       }
     dependencies:
       '@babel/runtime': 7.22.5
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution:
@@ -9539,6 +9549,7 @@ packages:
       {
         integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==,
       }
+    dev: false
 
   /@radix-ui/number@1.0.1:
     resolution:
@@ -10062,6 +10073,7 @@ packages:
       '@react-types/shared': 3.18.1(react@18.2.0)
       clsx: 1.2.1
       react: 18.2.0
+    dev: false
 
   /@react-aria/i18n@3.5.1(react@18.2.0):
     resolution:
@@ -10080,6 +10092,7 @@ packages:
       '@react-aria/utils': 3.13.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-aria/interactions@3.10.0(react@18.2.0):
     resolution:
@@ -10093,6 +10106,7 @@ packages:
       '@react-aria/utils': 3.13.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-aria/label@3.4.0(react@18.2.0):
     resolution:
@@ -10107,6 +10121,7 @@ packages:
       '@react-types/label': 3.6.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-aria/listbox@3.6.0(react@18.2.0):
     resolution:
@@ -10127,6 +10142,7 @@ packages:
       '@react-types/listbox': 3.3.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-aria/live-announcer@3.1.1:
     resolution:
@@ -10135,6 +10151,7 @@ packages:
       }
     dependencies:
       '@babel/runtime': 7.22.5
+    dev: false
 
   /@react-aria/selection@3.10.0(react@18.2.0):
     resolution:
@@ -10153,6 +10170,7 @@ packages:
       '@react-stately/selection': 3.10.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-aria/spinbutton@3.1.2(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -10171,6 +10189,7 @@ packages:
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@react-aria/ssr@3.3.0(react@18.2.0):
     resolution:
@@ -10182,6 +10201,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       react: 18.2.0
+    dev: false
 
   /@react-aria/utils@3.13.2(react@18.2.0):
     resolution:
@@ -10197,6 +10217,7 @@ packages:
       '@react-types/shared': 3.18.1(react@18.2.0)
       clsx: 1.2.1
       react: 18.2.0
+    dev: false
 
   /@react-hook/intersection-observer@3.1.1(react@18.2.0):
     resolution:
@@ -10233,6 +10254,7 @@ packages:
       '@babel/runtime': 7.22.5
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-stately/list@3.5.2(react@18.2.0):
     resolution:
@@ -10248,6 +10270,7 @@ packages:
       '@react-stately/utils': 3.5.1(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-stately/selection@3.10.2(react@18.2.0):
     resolution:
@@ -10262,6 +10285,7 @@ packages:
       '@react-stately/utils': 3.5.1(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-stately/utils@3.5.1(react@18.2.0):
     resolution:
@@ -10273,6 +10297,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       react: 18.2.0
+    dev: false
 
   /@react-types/button@3.6.0(react@18.2.0):
     resolution:
@@ -10284,6 +10309,7 @@ packages:
     dependencies:
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-types/label@3.6.2(react@18.2.0):
     resolution:
@@ -10295,6 +10321,7 @@ packages:
     dependencies:
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-types/listbox@3.3.2(react@18.2.0):
     resolution:
@@ -10306,6 +10333,7 @@ packages:
     dependencies:
       '@react-types/shared': 3.18.1(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-types/shared@3.18.1(react@18.2.0):
     resolution:
@@ -10316,6 +10344,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
 
   /@rollup/plugin-babel@6.0.3(@babel/core@7.22.5)(rollup@3.25.3):
     resolution:
@@ -10560,6 +10589,7 @@ packages:
       react: '>= 16.3.0'
     dependencies:
       react: 18.2.0
+    dev: false
 
   /@storybook/addon-a11y@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -12592,6 +12622,7 @@ packages:
       }
     dependencies:
       tslib: 2.6.2
+    dev: false
 
   /@swc/wasm@1.2.122:
     resolution:
@@ -14224,23 +14255,6 @@ packages:
       csstype: 3.0.10
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-
-  /@vtex/admin-ui-form@0.6.1(@vtex/admin-ui@0.136.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-I/w/2o2TvZKHTIZMBlcPU9Mnj2jY08ANqeq3zPwuJaya02NiF1c4Bxr8OGHt4/Bb4Opl7yr8RlW2GrSeGNXwtw==,
-      }
-    engines: { node: '>=10' }
-    peerDependencies:
-      '@vtex/admin-ui': 0.x
-      react: ^16.9 || ^17.0
-      react-dom: ^16.9 || ^17.0
-    dependencies:
-      '@hookform/resolvers': 2.8.8(react-hook-form@7.21.0)
-      '@vtex/admin-ui': 0.136.1(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-hook-form: 7.21.0(react@18.2.0)
     dev: false
 
   /@vtex/admin-ui-hooks@0.5.2(react-dom@18.2.0)(react@18.2.0):
@@ -14258,6 +14272,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       tiny-invariant: 1.3.1
       use-debounce: 7.0.1(react@18.2.0)
+    dev: false
 
   /@vtex/admin-ui-util@0.5.2(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -14272,6 +14287,7 @@ packages:
       deepmerge: 4.2.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@vtex/admin-ui@0.136.1(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -14319,6 +14335,7 @@ packages:
       - supports-color
       - valtio
       - xstate
+    dev: false
 
   /@vtex/phosphor-icons@0.2.8(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -14333,6 +14350,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tiny-invariant: 1.2.0
+    dev: false
 
   /@vtex/prettier-config@0.3.6(prettier@2.7.1):
     resolution:
@@ -15149,6 +15167,7 @@ packages:
       react: ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
 
   /ariakit@2.0.0-next.39(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -15163,6 +15182,7 @@ packages:
       ariakit-utils: 0.17.0-next.25(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /arr-diff@4.0.0:
     resolution:
@@ -16120,6 +16140,7 @@ packages:
       {
         integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==,
       }
+    dev: false
 
   /bonjour-service@1.0.13:
     resolution:
@@ -17150,6 +17171,7 @@ packages:
         integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==,
       }
     engines: { node: '>=6' }
+    dev: false
 
   /cmd-shim@6.0.1:
     resolution:
@@ -17500,6 +17522,7 @@ packages:
       {
         integrity: sha512-j4dx+Fb0URmzbwwMUrhqWM2BEWHdFGx+qZ9qqASHRPqvTYdqvWnHg0H1hIbcyLnvgnoNAVMlwkepyqM3DaIFUg==,
       }
+    dev: false
 
   /compute-scroll-into-view@3.0.3:
     resolution:
@@ -18372,6 +18395,7 @@ packages:
       {
         integrity: sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==,
       }
+    dev: false
 
   /csstype@3.1.2:
     resolution:
@@ -19071,6 +19095,7 @@ packages:
         integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==,
       }
     engines: { node: '>=0.10.0' }
+    dev: false
 
   /deepmerge@4.3.1:
     resolution:
@@ -19660,6 +19685,7 @@ packages:
       react: 18.2.0
       react-is: 17.0.2
       tslib: 2.6.2
+    dev: false
 
   /duplexer3@0.1.5:
     resolution:
@@ -21847,6 +21873,7 @@ packages:
       {
         integrity: sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==,
       }
+    dev: false
 
   /follow-redirects@1.15.1:
     resolution:
@@ -24032,6 +24059,7 @@ packages:
       '@formatjs/fast-memoize': 1.2.4
       '@formatjs/icu-messageformat-parser': 2.1.4
       tslib: 2.4.0
+    dev: false
 
   /invariant@2.2.4:
     resolution:
@@ -25806,6 +25834,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       react: 18.2.0
+    dev: false
 
   /joycon@3.1.1:
     resolution:
@@ -30383,6 +30412,7 @@ packages:
       {
         integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==,
       }
+    dev: false
 
   /periscopic@3.1.0:
     resolution:
@@ -31606,6 +31636,7 @@ packages:
       }
     dependencies:
       performance-now: 2.1.0
+    dev: false
 
   /ramda@0.26.1:
     resolution:
@@ -31748,6 +31779,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tiny-warning: 1.0.3
+    dev: false
 
   /react-colorful@5.6.1(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -31819,6 +31851,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       ua-parser-js: 0.7.31
+    dev: false
 
   /react-devtools-inline@4.4.0:
     resolution:
@@ -31937,6 +31970,7 @@ packages:
       {
         integrity: sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==,
       }
+    dev: false
 
   /react-helmet-async@1.3.0(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -31969,6 +32003,7 @@ packages:
       react: 18.2.0
       react-fast-compare: 3.2.1
       react-side-effect: 2.1.2(react@18.2.0)
+    dev: false
 
   /react-hook-form@7.21.0(react@18.2.0):
     resolution:
@@ -32295,6 +32330,7 @@ packages:
       react: ^16.3.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
 
   /react-simple-code-editor@0.10.0(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -32550,6 +32586,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       reakit-utils: 0.15.2(react-dom@18.2.0)(react@18.2.0)
+    dev: false
 
   /reakit-utils@0.15.2(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -32562,6 +32599,7 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /reakit-warning@0.6.2(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -32575,6 +32613,7 @@ packages:
       reakit-utils: 0.15.2(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-dom
+    dev: false
 
   /reakit@1.3.11(react-dom@18.2.0)(react@18.2.0):
     resolution:
@@ -32592,6 +32631,7 @@ packages:
       reakit-system: 0.15.2(react-dom@18.2.0)(react@18.2.0)
       reakit-utils: 0.15.2(react-dom@18.2.0)(react@18.2.0)
       reakit-warning: 0.6.2(react-dom@18.2.0)(react@18.2.0)
+    dev: false
 
   /recast@0.20.5:
     resolution:
@@ -35637,6 +35677,7 @@ packages:
       {
         integrity: sha512-1Uhn/aqw5C6RI4KejVeTg6mIS7IqxnLJ8Mv2tV5rTc0qWobay7pDUz6Wi392Cnc8ak1H0F2cjoRzb2/AW4+Fvg==,
       }
+    dev: false
 
   /tiny-invariant@1.3.1:
     resolution:
@@ -35649,6 +35690,7 @@ packages:
       {
         integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==,
       }
+    dev: false
 
   /tinybench@2.5.1:
     resolution:
@@ -36062,6 +36104,7 @@ packages:
       {
         integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==,
       }
+    dev: false
 
   /tslib@2.6.2:
     resolution:
@@ -36492,6 +36535,7 @@ packages:
       {
         integrity: sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ==,
       }
+    dev: false
 
   /ufo@1.3.0:
     resolution:
@@ -37132,6 +37176,7 @@ packages:
       react: '>=16.8.0'
     dependencies:
       react: 18.2.0
+    dev: false
 
   /use-editable@2.3.3(react@18.2.0):
     resolution:

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2023-10-17)
+
+### Bug Fixes
+
+- **lint:** erros while building ([e507ceb](https://github.com/vtex/shoreline/commit/e507ceb10bce0a80ad304b7040f281a8aab932c3))
+
+### Features
+
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/shoreline/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+- **raccoon-next:** add router component ([4d6f68f](https://github.com/vtex/shoreline/commit/4d6f68f3425ab70b459d7caee11d1b4ff8e8bcf4))
+- **raccoon-next:** delegate nextjs routing to io ([12a9026](https://github.com/vtex/shoreline/commit/12a90269e5e0f02a15567a2bc0eb1744ca6c74ea))
+
 ## 0.5.13-dev.5 (2023-10-09)
 
 ### Features

@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.1-dev.7",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex link\"",
@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@faker-js/faker": "8.0.2",
-    "@vtex/admin-ui": "^0.136.1-dev.13",
-    "@vtex/raccoon-next": "^0.5.13-dev.5",
+    "@vtex/admin-ui": "^0.137.0",
+    "@vtex/raccoon-next": "^0.6.0",
     "next": "13.4.8",
     "react": "^18.2.0",
     "react-dom": "18.2.0"

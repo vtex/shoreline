@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.5.2...@vtex/admin-ui-hooks@0.6.0) (2023-10-17)
+
+### Features
+
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/admin-ui/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+
 ## [0.5.2-dev.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-hooks@0.5.2-dev.9...@vtex/admin-ui-hooks@0.5.2-dev.10) (2023-08-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-hooks

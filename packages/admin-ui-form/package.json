@@ -2,7 +2,7 @@
   "name": "@vtex/admin-ui-form",
   "description": "Admin UI form library",
   "license": "MIT",
-  "version": "0.6.1-dev.13",
+  "version": "0.7.0",
   "main": "dist/vtex-admin-ui-form.cjs.js",
   "module": "dist/vtex-admin-ui-form.esm.js",
   "types": "dist/vtex-admin-ui-form.cjs.d.ts",
@@ -36,7 +36,7 @@
     "react-dom": "^16.9 || ^17.0 || ^18.0"
   },
   "devDependencies": {
-    "@vtex/admin-ui": "^0.136.1-dev.13",
+    "@vtex/admin-ui": "^0.137.0",
     "yup": "0.32.11"
   },
   "dependencies": {

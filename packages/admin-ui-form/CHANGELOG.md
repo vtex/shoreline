@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.6.1...@vtex/admin-ui-form@0.7.0) (2023-10-17)
+
+### Features
+
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/admin-ui/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+
 ## [0.6.1-dev.13](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-form@0.6.1-dev.12...@vtex/admin-ui-form@0.6.1-dev.13) (2023-09-13)
 
 **Note:** Version bump only for package @vtex/admin-ui-form

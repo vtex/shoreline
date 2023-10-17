@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/vtex/shoreline/compare/@vtex/admin-ui-docs@0.18.1...@vtex/admin-ui-docs@0.19.0) (2023-10-17)
+
+### Features
+
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/shoreline/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+
 ## [0.18.1-dev.16](https://github.com/vtex/shoreline/compare/@vtex/admin-ui-docs@0.18.1-dev.15...@vtex/admin-ui-docs@0.18.1-dev.16) (2023-09-13)
 
 **Note:** Version bump only for package @vtex/admin-ui-docs

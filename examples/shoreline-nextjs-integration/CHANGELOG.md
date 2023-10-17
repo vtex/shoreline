@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-10-17)
+
+### Features
+
+- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/shoreline/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
+- **raccoon-next:** add router component ([4d6f68f](https://github.com/vtex/shoreline/commit/4d6f68f3425ab70b459d7caee11d1b4ff8e8bcf4))
+- **raccoon-next:** delegate nextjs routing to io ([12a9026](https://github.com/vtex/shoreline/commit/12a90269e5e0f02a15567a2bc0eb1744ca6c74ea))
+- **shoreline-nextjs-integration:** deploy example app to vercel ([08e9985](https://github.com/vtex/shoreline/commit/08e9985e508fe1a4b13c0a46c4232a601d362096))
+- use-navigation targetting react/render apps ([2c265a6](https://github.com/vtex/shoreline/commit/2c265a63d87cef306d16df41eb91921db0938f3a))
+
 ## [0.1.1-dev.7](https://github.com/vtex/shoreline/compare/example@0.1.1-dev.6...example@0.1.1-dev.7) (2023-10-09)
 
 ### Features
