@@ -1,0 +1,40 @@
+@layer sl-components {
+  [data-sl-text] {
+    &[data-variant='body'] {
+      font: var(--sl-text-body-font);
+      letter-spacing: var(--sl-text-body-letter-spacing);
+    }
+    &[data-variant='action'] {
+      font: var(--sl-text-action-font);
+      letter-spacing: var(--sl-text-action-letter-spacing);
+    }
+    &[data-variant='emphasis'] {
+      font: var(--sl-text-emphasis-font);
+      letter-spacing: var(--sl-text-emphasis-letter-spacing);
+    }
+    &[data-variant='caption1'] {
+      font: var(--sl-text-caption-1-font);
+      letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    }
+    &[data-variant='caption2'] {
+      font: var(--sl-text-caption-2-font);
+      letter-spacing: var(--sl-text-caption-2-letter-spacing);
+    }
+    &[data-variant='display1'] {
+      font: var(--sl-text-display-1-font);
+      letter-spacing: var(--sl-text-display-1-letter-spacing);
+    }
+    &[data-variant='display2'] {
+      font: var(--sl-text-display-2-font);
+      letter-spacing: var(--sl-text-display-2-letter-spacing);
+    }
+    &[data-variant='display3'] {
+      font: var(--sl-text-display-3-font);
+      letter-spacing: var(--sl-text-display-3-letter-spacing);
+    }
+    &[data-variant='display4'] {
+      font: var(--sl-text-display-4-font);
+      letter-spacing: var(--sl-text-display-4-letter-spacing);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@layer sl-components {
+  [data-sl-stack] {
+    display: flex;
+    &[data-direction='column'] {
+      flex-direction: column;
+      justify-content: unset;
+      align-items: var(--sl-stack-align);
+
+      & > *:not(:first-child) {
+        margin-top: var(--sl-stack-space);
+      }
+
+      &[data-fluid='true'] {
+        align-items: unset;
+        justify-content: unset;
+      }
+    }
+    &[data-direction='row'] {
+      flex-direction: row;
+      align-items: center;
+      justify-content: var(--sl-stack-align);
+
+      & > *:not(:first-child) {
+        margin-left: var(--sl-stack-space);
+      }
+    }
+  }
+}
