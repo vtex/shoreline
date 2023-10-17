@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/example@0.2.0...example@0.3.0) (2023-10-17)
+
+## 0.0.2 (2023-10-17)
+
+### Features
+
+- **raccoon:** handle popstate events from nextjs ([23bb113](https://github.com/vtex/shoreline/commit/23bb1131feff6f15b1653f5bbdeea00f58afa87c))
+
 # 0.2.0 (2023-10-17)
 
 ### Features
