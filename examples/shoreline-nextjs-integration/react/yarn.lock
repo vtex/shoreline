@@ -2,23 +2,10 @@
 # yarn lockfile v1
 
 
-"@vtex/raccoon-io@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-0.7.0.tgz#385ea5797547b9ed9207af74b8b1d50d37da9ac5"
-  integrity sha512-JcU+y1OnejKSQ2z6TgzHIs3hCEnB9H/QHv9F2yEozMz+thY0tWiBJ43MANB9vFReSPRcbiR1qD5UzjKOYi1x9Q==
-  dependencies:
-    "@vtex/raccoon-shared-types" "^0.2.12"
-    crypto-js "^4.1.1"
-
-"@vtex/raccoon-shared-types@^0.2.12":
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/@vtex/raccoon-shared-types/-/raccoon-shared-types-0.2.12.tgz#29992bbb71c5c5842e965271e44394298ca2cdcc"
-  integrity sha512-vNgPRRH3O3vGziCJC+iY+nYSH10/5GYIC+UwVzfjWm3DT6w/GAh6WPgYXGzQpGeEhbDhPuYdeESR0eZrFt3FbQ==
-
-crypto-js@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
-  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
+"@vtex/raccoon-io@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-0.7.1.tgz#55d9f8d87a863aaff6dd667a6a92c59ca711a901"
+  integrity sha512-RYmIgkPcKA1pPmZNghZH9pe7JOcsNQWF0cP/PFFgBeGu2ajqcCQb6alNVo5ZhLOmSjnVKM/hDS6vexfGdTYBfA==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
