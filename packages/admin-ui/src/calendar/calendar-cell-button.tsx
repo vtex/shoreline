@@ -8,7 +8,7 @@ import { isSameDay } from 'date-fns'
 import { useDateFormatter } from '../i18n'
 import type { CalendarStateReturn } from './calendar-state'
 import { cx } from '@vtex/admin-ui-core'
-import { calendarCellButtonTheme } from './calendar.css'
+import { calendarCellButtonTheme } from './calendar.style'
 
 export const CalendarCellButton = forwardRef(function CalendarCellButton(
   props: CalendarCellButtonProps,

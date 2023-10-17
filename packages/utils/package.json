@@ -1,0 +1,29 @@
+{
+  "name": "@vtex/shoreline-utils",
+  "version": "0.0.1-dev.4",
+  "description": "Shoreline utilities",
+  "main": "dist/vtex-shoreline-utils.cjs.js",
+  "module": "dist/vtex-shoreline-utils.esm.js",
+  "types": "dist/vtex-shoreline-utils.cjs.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
+  },
+  "dependencies": {
+    "csstype": "3.1.2",
+    "deepmerge": "4.3.1"
+  }
+}

@@ -1,0 +1,98 @@
+import { Tab, Tabs, Steps, FileTree } from 'nextra/components'
+
+# Introduction
+
+Use the `@vtex/shoreline-cli` for theme configuration.
+
+## Quick start
+
+<Steps>
+
+### Install the Shoreline CLI
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-cli @vtex/shoreline-theme
+```
+
+The `@vtex/shoreline-theme` is a peer dependency.
+
+### Create the `shoreline.config.ts` file
+
+```ts filename="shoreline.config.ts" copy
+import { defineConfig } from '@vtex/shoreline-theme'
+
+export default defineConfig({
+  preset: 'base',
+})
+```
+
+Your project's folder structure would become something similar to:
+
+<FileTree>
+  <FileTree.Folder name="project" defaultOpen>
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="[...files].extension" />
+    </FileTree.Folder>
+    <FileTree.File name="shoreline.config.ts" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>
+
+### Update package.json scripts
+
+The [prepare](https://docs.npmjs.com/cli/v9/using-npm/scripts#life-cycle-scripts) script runs after every installation, or before any publish.
+
+```json {3} filename="package.json"
+{
+  "scripts": {
++    "prepare": "shorelinecss theme",
+  }
+}
+```
+
+<FileTree>
+  <FileTree.Folder name="project" defaultOpen>
+    <FileTree.Folder name="src">
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="[...files].extension" />
+    </FileTree.Folder>
+    <FileTree.Folder name="shoreline" defaultOpen>
+      <FileTree.File name="styles.css" />
+      <FileTree.File name="types.d.ts" />
+    </FileTree.Folder>
+    <FileTree.File name="shoreline.config.ts" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>
+
+### Integrate the CSS on the application root
+
+```tsx filename="src/index.ts"
+import '../shoreline/styles.css'
+
+export function App() {
+  return <div>Page</div>
+}
+```
+
+### Update tsconfig.json (Optional)
+
+```json {3} filename="tsconfig.json"
+{
+  // ...
+  "include": ["src", "shoreline"]
+}
+```
+
+### Update gitignore (Optional)
+
+Since we added the code generation in the `prepare` script, the `/shoreline` folder can be added to the `.gitignore`.
+
+```txt {1} filename=".gitignore" copy
+/shoreline
+```
+
+</Steps>

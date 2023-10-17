@@ -3,184 +3,119 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.13.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.13.2-dev.3...@vtex/admin-ui-core@0.13.2) (2023-06-22)
+## [0.13.2-dev.10](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.13.2-dev.9...@vtex/admin-ui-core@0.13.2-dev.10) (2023-08-11)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
+## 0.13.2-dev.9 (2023-08-02)
 
+**Note:** Version bump only for package @vtex/admin-ui-core
 
+## 0.13.2-dev.8 (2023-08-01)
 
+**Note:** Version bump only for package @vtex/admin-ui-core
+
+## 0.13.2-dev.7 (2023-07-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-core
+
+## 0.13.2-dev.6 (2023-06-29)
+
+**Note:** Version bump only for package @vtex/admin-ui-core
+
+## [0.13.2-dev.5](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.13.2-dev.4...@vtex/admin-ui-core@0.13.2-dev.5) (2023-06-28)
+
+**Note:** Version bump only for package @vtex/admin-ui-core
+
+## 0.13.2-dev.4 (2023-06-27)
+
+**Note:** Version bump only for package @vtex/admin-ui-core
 
 ## 0.13.2-dev.3 (2023-06-22)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.2-dev.2 (2023-06-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.2-dev.1 (2023-05-15)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.2-dev.0 (2023-04-27)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## [0.13.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.13.0...@vtex/admin-ui-core@0.13.1) (2023-04-19)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.15 (2023-04-12)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.14 (2023-04-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.13 (2023-04-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.12 (2023-03-31)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.11 (2023-03-31)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.10 (2023-03-31)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.9 (2023-03-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.8 (2023-03-30)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.7 (2023-03-29)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.6 (2023-03-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.5 (2023-02-23)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## 0.13.1-dev.4 (2023-02-03)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.3 (2023-02-02)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 ## [0.13.1-dev.2](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.13.1-dev.1...@vtex/admin-ui-core@0.13.1-dev.2) (2023-02-01)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
 
-
-
-
-
 ## 0.13.1-dev.1 (2023-02-01)
-
 
 ### Features
 
-* **core:** add data-attr helper ([19ac547](https://github.com/vtex/admin-ui/commit/19ac547449028aed2ba64ba07a502d6a75103715))
-
-
-
-
+- **core:** add data-attr helper ([19ac547](https://github.com/vtex/admin-ui/commit/19ac547449028aed2ba64ba07a502d6a75103715))
 
 ## 0.13.1-dev.0 (2023-01-04)
 
 **Note:** Version bump only for package @vtex/admin-ui-core
-
-
-
-
 
 # [0.13.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui-core@0.12.5...@vtex/admin-ui-core@0.13.0) (2023-01-03)
 

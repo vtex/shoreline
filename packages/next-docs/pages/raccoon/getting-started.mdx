@@ -1,0 +1,139 @@
+import { Steps, Tabs, Tab } from 'nextra/components'
+
+# Raccoon Next.js SDK
+
+The Raccoon Next.js SDK is designed to assist you in building Next.js applications and integrating them with VTEX IO.
+
+## Using the CRA CLI
+
+<Steps>
+
+### Init the application using CRA
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+
+<Tab>
+
+```bash
+pnpm dlx @vtex/create-raccoon-app@latest
+```
+
+</Tab>
+
+<Tab>
+
+```bash
+npx @vtex/create-raccoon-app@latest
+```
+
+</Tab>
+
+<Tab>
+
+```bash
+yarn create @vtex/create-raccoon-app@latest
+```
+
+</Tab>
+
+</Tabs>
+
+### Start developing
+
+Checkout to the folder created by the CLI. It uses the pattern `admin-{app-name}` and with [this project structure](/raccoon/project-structure). Install the dependencies using your package manager, and start the dev server.
+
+```bash
+pnpm i && pnpm run dev
+```
+
+</Steps>
+
+## Manual Setup
+
+<Steps>
+
+### Install raccoon-next
+
+```bash npm2yarn
+npm i @vtex/raccoon-next
+```
+
+### IO Integration Setup
+
+Although you are building a Next.js app, you still need to declare the `admin` and `messages` builder for it, as in this `manifest.json` example:
+
+```json
+{
+  "name": "raccoon-nextjs-example",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "Raccoon Next.js SDK",
+  "description": "",
+  "mustUpdateAt": "2022-08-28",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {},
+  "builders": {
+    "admin": "0.x",
+    "messages": "1.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
+```
+
+For VTEX IO to correctly map your app route and host, you need to declare them on the `/admin/navigation.json` (refer to the [admin-shell docs](https://github.com/vtex/admin-shell#the-admin-folder) to understand these properties) file, following this example:
+
+```json
+{
+  "section": "desired_section",
+  "titleId": "admin-example.navigation.label-group",
+  "adminVersion": 4,
+  "subSection": "desired_subSection",
+  "subSectionItems": [
+    {
+      "labelId": "admin-example.navigation.label-main",
+      "path": "/admin/example",
+      "raccoon": {
+        "prodUrl": "production-url",
+        "devUrl": "dev-url",
+        "routes": [
+          "/admin/example/all-internal-pages",
+          "/admin/example/:dynamic-parameter"
+        ]
+      }
+    }
+  ]
+}
+```
+
+You will also need to keep declaring the message IDs of your app under the `messages` folder.
+
+### Next.js App Setup
+
+Use the [connect](/raccoon/functions#connect) and [bootstrap](/raccoon/functions#bootstrap) functions to establish a connection between the IO app and the Next app.
+
+```tsx
+import type { AppProps } from 'next/app'
+import { connect, bootstrap } from '@vtex/raccoon-next'
+
+connect()
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default bootstrap(App)
+```
+
+### Develop the application
+
+To start developing your Next.js app, make sure that dependencies are installed and start the application with:
+
+```bash
+yarn dev
+```
+
+Make sure you are within the Admin, on https://localhost--teamadmin.myvtex.com, for example, and navigate to the path you declared as the route of your application.
+
+</Steps>

@@ -4,7 +4,7 @@ import { cx } from '@vtex/admin-ui-core'
 import { useDateFormatter } from '../i18n'
 
 import type { CalendarStateReturn } from './calendar-state'
-import { calendarHeaderTitleTheme } from './calendar.css'
+import { calendarHeaderTitleTheme } from './calendar.style'
 
 export const CalendarHeaderTitle = forwardRef(function CalendarHeaderTitle(
   props: CalendarHeaderTitleProps,

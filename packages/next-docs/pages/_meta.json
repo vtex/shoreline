@@ -1,0 +1,26 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page"
+  },
+  "components": {
+    "title": "Components",
+    "type": "page"
+  },
+  "design-system": {
+    "title": "Design System",
+    "type": "page"
+  },
+  "foundations": {
+    "title": "Foundations",
+    "type": "page"
+  },
+  "raccoon": {
+    "title": "Raccoon",
+    "type": "page"
+  },
+  "api-reference": {
+    "title": "API Reference",
+    "type": "page"
+  }
+}

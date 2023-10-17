@@ -4,7 +4,7 @@ import { Checkbox as AriakitCheckbox } from 'ariakit/checkbox'
 import { useForkRef } from '@vtex/admin-ui-hooks'
 
 import { cx } from '@vtex/admin-ui-core'
-import { checkboxTheme } from './checkbox.css'
+import { checkboxTheme } from './checkbox.style'
 
 export const CheckboxInput = forwardRef(function CheckboxInput(
   props: CheckboxInputProps,

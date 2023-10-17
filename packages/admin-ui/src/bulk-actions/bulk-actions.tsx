@@ -12,7 +12,7 @@ import {
   baselineTheme,
   containerTheme,
   innerContainerTheme,
-} from './bulk-actions.css'
+} from './bulk-actions.style'
 import { cx } from '@vtex/admin-ui-core'
 
 interface BulkActionsOptions extends ComponentPropsWithoutRef<'div'> {

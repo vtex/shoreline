@@ -5,7 +5,7 @@ import { cx } from '@vtex/admin-ui-core'
 
 import type { ResponsiveProp } from '../use-breakpoint'
 import { getResponsiveValue, useBreakpoint } from '../use-breakpoint'
-import { columnsStyle, columnsTheme } from './columns.css'
+import { columnsStyle, columnsTheme } from './columns.style'
 
 export const Columns = forwardRef(function Columns(
   props: ColumnsProps,

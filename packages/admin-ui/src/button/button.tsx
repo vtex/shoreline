@@ -7,7 +7,7 @@ import {
   buttonTheme,
   innerContainerTheme,
   spinnerContainerTheme,
-} from './button.css'
+} from './button.style'
 import { IconContainer } from '../icons'
 import { cx } from '@vtex/admin-ui-core'
 

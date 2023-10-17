@@ -9,7 +9,7 @@ import {
 } from 'ariakit'
 
 import { TooltipTrigger } from './tooltip-trigger'
-import { tooltipArrowStyle, tooltipPopoverTheme } from './tooltip.css'
+import { tooltipArrowStyle, tooltipPopoverTheme } from './tooltip.style'
 
 /**
  * Popup that displays information related to an element on :focus (by keyboard) or :hover (by mouse)

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { MenuState } from 'ariakit/menu'
 import { Menu as AriakitMenu } from 'ariakit/menu'
 
-import { popoverChildrenTheme, popoverContainerTheme } from './menu.css'
+import { popoverChildrenTheme, popoverContainerTheme } from './menu.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const Menu = forwardRef((props: MenuProps, ref: Ref<HTMLDivElement>) => {

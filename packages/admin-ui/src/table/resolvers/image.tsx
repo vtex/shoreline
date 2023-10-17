@@ -14,7 +14,7 @@ import {
   imagePreviewTheme,
   imagePreviewTooltipStyle,
   imagePreviewTooltipTheme,
-} from './resolvers.css'
+} from './resolvers.style'
 
 const defaultPreview: ImagePreview = {
   display: true,
@@ -91,7 +91,7 @@ function ImageWithPreview(props: PreviewComponentProps) {
 
   return (
     <Fragment>
-      <TooltipReference {...tooltip}>
+      <TooltipReference {...(tooltip as any)}>
         {(referenceProps) => (
           <ImageContainer>
             <img

@@ -1,6 +1,6 @@
 import { cx } from '@vtex/admin-ui-core'
 import React, { memo } from 'react'
-import { tableBodyRowTheme } from '../styles/table-body.css'
+import { tableBodyRowTheme } from '../styles/table-body.style'
 
 function TableBodyRow(props: TableBodyRowProps) {
   const { selected, children, onClick, className = '', ...rowProps } = props

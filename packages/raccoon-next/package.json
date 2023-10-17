@@ -1,0 +1,23 @@
+{
+  "name": "@vtex/raccoon-next",
+  "version": "0.5.13-dev.5",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "next": ">=12",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "next": "12.3.0",
+    "tsup": "7.1.0"
+  }
+}

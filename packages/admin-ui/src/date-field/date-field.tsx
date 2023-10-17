@@ -5,7 +5,7 @@ import { Label } from '../label'
 import { Flex } from '../flex'
 import { SegmentList, Segment } from '../segment'
 import type { SegmentStateReturn } from '../segment'
-import { dateFieldLabelTheme, dateFieldTheme } from './date-field.css'
+import { dateFieldLabelTheme, dateFieldTheme } from './date-field.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const DateField = forwardRef(function DateField(
@@ -33,7 +33,7 @@ export const DateField = forwardRef(function DateField(
       <Flex direction="column">
         <Label className={dateFieldLabelTheme}>{label}</Label>
         <SegmentList state={state}>
-          {state.segments.map((segment, index) => (
+          {state.segments.map((segment: any, index: number) => (
             <Segment
               isDisabled={disabled}
               key={`segment-element-${index}`}

@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, Ref } from 'react'
 import { cx } from '@vtex/admin-ui-core'
 
 import { TabList } from '../tab'
-import { pageHeaderBottomTheme } from './page.css'
+import { pageHeaderBottomTheme } from './page.style'
 
 /**
  * Page header bottom component

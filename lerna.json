@@ -1,7 +1,5 @@
 {
-  "packages": ["packages/*"],
-  "npmClient": "yarn",
-  "useWorkspaces": true,
+  "npmClient": "pnpm",
   "version": "independent",
   "registry": "https://registry.npmjs.org/",
   "loglevel": "success",

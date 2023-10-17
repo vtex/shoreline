@@ -5,7 +5,7 @@ import { ariaAttr, htmlDataAttr } from '@vtex/admin-ui-util'
 import { isSameDay, isWeekend } from 'date-fns'
 
 import type { CalendarStateReturn } from './calendar-state'
-import { calendarCellTheme } from './calendar.css'
+import { calendarCellTheme } from './calendar.style'
 
 export const CalendarCell = forwardRef(function CalendarCell(
   props: CalendarCellProps,

@@ -10,7 +10,7 @@ import {
   pageHeaderTitleContainer,
   pageHeaderTitleTheme,
   popNavigationButtonTheme,
-} from './page.css'
+} from './page.style'
 
 /**
  * Page header title component

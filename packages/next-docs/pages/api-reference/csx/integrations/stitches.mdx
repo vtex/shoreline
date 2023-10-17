@@ -1,0 +1,36 @@
+import { Tab, Tabs, Steps, FileTree } from 'nextra/components'
+
+# Stitches Integration
+
+Integrates CSX with [stitches](https://stitches.dev/).
+
+## Usage
+
+<Steps>
+
+### Install the packages
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-stitches @stitches/react
+```
+
+### Write your styles
+
+```ts filename="example.css.ts"
+import { csx } from '@vtex/shoreline-stitches'
+
+export const example = csx({
+  bg: '$bg-primary',
+  fg: '$fg-primary',
+})
+```
+
+```tsx filename="example.tsx"
+import { example } from './example.css.ts'
+
+function Example() {
+  return <div className={example}>{/** ... */}</div>
+}
+```
+
+</Steps>

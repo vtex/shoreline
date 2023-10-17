@@ -5,7 +5,7 @@ import type { DataViewState } from '../data-view.state'
 import { DataViewStatus } from './data-view-status'
 import { Stack } from '../../stack'
 import { cx } from '@vtex/admin-ui-core'
-import { dataViewTheme, stackContainerTheme } from './data-view.css'
+import { dataViewTheme, stackContainerTheme } from './data-view.style'
 
 /**
  * Layout to organize Tables and its controllers

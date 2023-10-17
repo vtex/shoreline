@@ -5,7 +5,7 @@ import { CheckboxCheck } from 'ariakit/checkbox'
 import type { ComboboxItemProps } from 'ariakit/combobox'
 import { ComboboxItem } from 'ariakit/combobox'
 
-import { itemMultipleTheme } from './combobox.css'
+import { itemMultipleTheme } from './combobox.style'
 import type { AnyObject } from '@vtex/admin-ui-util'
 import { cx } from '@vtex/admin-ui-core'
 
@@ -29,7 +29,7 @@ export const ComboboxMultipleItem = forwardRef(
         className={cx(itemMultipleTheme, className)}
         onClick={() => onChangeCb?.(item)}
         ref={ref}
-        {...restProps}
+        {...(restProps as any)}
       >
         {children}
         <CheckboxCheck checked={checked} />

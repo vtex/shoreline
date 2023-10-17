@@ -8,7 +8,7 @@ import type { UseFilterMultipleReturn } from './filter-multiple/filter-multiple.
 import type { UseFilterStateReturn } from './filter/filter.state'
 import { Flex } from '../flex'
 import { FilterStatus } from './filter-status'
-import { filterPopoverTheme } from './filter.css'
+import { filterPopoverTheme } from './filter.style'
 
 export const FilterPopover = forwardRef(function FilterPopover(
   props: FilterPopoverProps,

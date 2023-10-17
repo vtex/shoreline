@@ -1,0 +1,19 @@
+{
+  "section": "orders",
+  "titleId": "admin-rocket.navigation.label-group",
+  "adminVersion": 4,
+  "subSection": "rocket",
+  "subSectionItems": [
+    {
+      "labelId": "admin-rocket.navigation.label-main",
+      "path": "/admin/rocket",
+      "raccoon": {
+        "prodUrl": "https://shoreline-nextjs-integration.vercel.app",
+        "routes": [
+          "/admin/rocket/nextjs-internal-route",
+          "/admin/rocket/nextjs-internal-route/:id"
+        ]
+      }
+    }
+  ]
+}

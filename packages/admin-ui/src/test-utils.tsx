@@ -2,7 +2,11 @@ import '@testing-library/jest-dom/extend-expect'
 import React, { useRef } from 'react'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import type { RenderOptions } from '@testing-library/react'
-import { render as baseRender, fireEvent, screen } from '@testing-library/react'
+import {
+  render as testingLibraryRender,
+  fireEvent,
+  screen,
+} from '@testing-library/react'
 import { ThemeProvider } from './theme-provider'
 import type { ReactElement } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
@@ -10,8 +14,11 @@ import userEvent from '@testing-library/user-event'
 
 expect.extend(toHaveNoViolations)
 
-function render(ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) {
-  return baseRender(ui, { wrapper: ThemeProvider, ...options })
+function render(
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'queries'>
+): ReturnType<typeof testingLibraryRender> {
+  return testingLibraryRender(ui, { wrapper: ThemeProvider, ...options })
 }
 
 /**

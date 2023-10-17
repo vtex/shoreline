@@ -1,0 +1,33 @@
+{
+  "name": "@shoreline/next-docs",
+  "version": "0.0.1-dev.25",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build-docs": "npm --prefix ../../ run build && next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@codesandbox/sandpack-react": "^2.6.9",
+    "@vtex/admin-ui": "^0.136.1",
+    "@vtex/shoreline-preset-admin": "workspace:*",
+    "@vtex/shoreline-utils": "workspace:*",
+    "next": "13.4.7",
+    "nextra": "2.10.0",
+    "nextra-theme-docs": "2.10.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

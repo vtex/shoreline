@@ -4,7 +4,7 @@ import type { CSSPropAutocomplete, SpaceTokens } from '@vtex/admin-ui-core'
 
 import type { ResponsiveProp } from '../use-breakpoint'
 import { useBreakpoint, getResponsiveValue } from '../use-breakpoint'
-import { stackStyle, stackTheme } from './stack.css'
+import { stackStyle, stackTheme } from './stack.style'
 
 /**
  * Component used to display a set of components that are spaced evenly.

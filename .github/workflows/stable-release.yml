@@ -1,4 +1,3 @@
-# This Action should run on main branch and verify test, and then publish the version on npm
 name: CD
 
 on:
@@ -8,26 +7,27 @@ on:
 
 jobs:
   build:
-    name: Admin UI
+    name: Shoreline
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
-          fetch-depth: 2
+          fetch-depth: 25
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Configure CI Git User
@@ -36,16 +36,16 @@ jobs:
           git config user.email vtexgithubbot@github.com
 
       - name: Install dependencies
-        run: yarn
+        run: pnpm install
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Test
-        run: yarn test
+        run: pnpm test
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -55,6 +55,6 @@ jobs:
           exitOnceUploaded: true
 
       - name: Publish
-        run: yarn lerna publish --yes --no-verify-access --conventional-graduate --force-publish
+        run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

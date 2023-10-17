@@ -1,0 +1,90 @@
+# Hooks
+
+## useAdmin
+
+The useAdmin hook provides access to IO information within the Next app.
+
+```tsx
+import { useAdmin } from '@vtex/raccoon-next'
+
+connect()
+
+export function Example(props: Props) {
+  const {
+    token,
+    account,
+    workspace,
+    locale,
+    currency,
+    devUrl,
+    prodUrl,
+    basePath,
+    production,
+  } = useAdmin()
+
+  return <Component />
+}
+```
+
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| token      | string  | The authentication token necessary for making requests to VTEX IO services |
+| account    | string  | The account name                                                           |
+| workspace  | string  | The workspace name                                                         |
+| locale     | string  | The currently applied locale in the admin                                  |
+| currency   | string  | The account's currency                                                     |
+| devUrl     | string  | The devUrl defined in the integration app                                  |
+| prodUrl    | string  | The prodUrl defined in the integration app                                 |
+| basePath   | string  | The base path defined in the integration app                               |
+| production | boolean | Indicates whether it is a production workspace or not                      |
+
+## useNavigation
+
+The useNavigation hook returns the navigate function, which allows you to navigate through pages within or outside your Next.js app while updating the browser history and the Raccoon Iframe.
+
+```tsx
+import { useNavigation } from '@vtex/raccoon-next'
+
+connect()
+
+export function Example(props: Props) {
+  const { navigate } = useNavigation()
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          // This will navigate to `${tenant}.myvtex.com/${basePath}/about`
+          // Use this option when you want to navigate to a page within your Next.js app.
+          // Under the hood, the default option delegates the navigation to Next.js router,
+          // after forwarding the navigation to Render first.
+          navigate('/about')
+        }}
+      >
+        Navigate to the page `/about` of your Next.js app
+      </Button>
+      <Button
+        onClick={() => {
+          // This will navigate to `${tenant}.myvtex.com/admin/orders`
+          // Use this option when you want to navigate to a page outside your Next.js app,
+          // for example, a page in the admin.
+          // Under the hood, the `adminRelativeNavigation` delegates the navigation to Render.
+          navigate('/admin/orders', { type: 'adminRelativeNavigation' })
+        }}
+      >
+        Navigate to the admin orders module
+      </Button>
+    </>
+  )
+}
+```
+
+| Name     | Type                                              | Description                             |
+| -------- | ------------------------------------------------- | --------------------------------------- |
+| navigate | (path: string, options?: NavigateOptions) => void | The function responsible for navigation |
+
+```ts
+interface NavigateOptions {
+  type: 'navigation' | 'adminRelativeNavigation'
+}
+```

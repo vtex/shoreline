@@ -1,0 +1,29 @@
+{
+  "name": "@vtex/create-raccoon-app",
+  "description": "Create racccoon applications",
+  "version": "0.0.1-dev.2",
+  "type": "module",
+  "main": "./src/index.js",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "bin": {
+    "create-raccoon-app": "./src/index.js"
+  },
+  "scripts": {
+    "create-raccoon-app": "node ./src/index.js"
+  },
+  "dependencies": {
+    "minimist": "1.2.8",
+    "plop": "3.1.2"
+  }
+}

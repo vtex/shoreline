@@ -3,7 +3,7 @@ import type { AnyObject } from '@vtex/admin-ui-util'
 import {
   appliedItemsLabelTheme,
   disclosureStatusLabelTheme,
-} from './filter.css'
+} from './filter.style'
 
 export const AppliedItemsLabel = (props: AppliedItemsLabelProps) => {
   const { appliedItems } = props

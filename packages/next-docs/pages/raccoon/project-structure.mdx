@@ -1,0 +1,46 @@
+import { FileTree } from 'nextra/components'
+
+# Project Structure
+
+A base application has the following project structure:
+
+<FileTree>
+  <FileTree.Folder name="admin-{app}" defaultOpen>
+    <FileTree.Folder name="admin">
+      <FileTree.File name="navigation.json" />
+    </FileTree.Folder>
+    <FileTree.Folder name="messages">
+      <FileTree.File name="en.json" />
+      <FileTree.File name="es.json" />
+      <FileTree.File name="pt.json" />
+      <FileTree.File name="{lang}.json" />
+    </FileTree.Folder>
+    <FileTree.Folder name="pages">
+      <FileTree.File name="_app.tsx" />
+      <FileTree.File name="_document.tsx" />
+      <FileTree.File name="index.tsx" />
+    </FileTree.Folder>
+    <FileTree.Folder name="public">
+      <FileTree.File name="favicon.icon" />
+    </FileTree.Folder>
+    <FileTree.File name=".eslintrc.js" />
+    <FileTree.File name=".gitignore" />
+    <FileTree.File name=".vtexignore" />
+    <FileTree.File name="manifest.json" />
+    <FileTree.File name="next.config.js" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="README.md" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>
+
+## Top-level folders
+
+A Raccoon project mixes [VTEX-IO builders](https://developers.vtex.com/docs/guides/vtex-io-documentation-builders) with [NextJS](https://nextjs.org/) files.
+
+| folder   | description                                                                                                                                                                                                         |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| admin    | The admin [builder](https://developers.vtex.com/docs/guides/vtex-io-documentation-builders). Docs on how to configure the [navigation.json](https://tech-docs.vtex.com/Admin/admin-shell/#admin-apps-configuration) |
+| messages | The [messages builder](https://tech-docs.vtex.com/Admin/admin-shell/#the-messages-folder)                                                                                                                           |
+| pages    | [NextJS pages](https://nextjs.org/docs/pages/building-your-application/routing)                                                                                                                                     |
+| public   | [NextJS static assets](https://nextjs.org/docs/app/building-your-application/optimizing/static-assets)                                                                                                              |

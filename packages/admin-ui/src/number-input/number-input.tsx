@@ -24,7 +24,7 @@ import {
   numberInputContainerTheme,
   numberInputTheme,
   spinButtonTheme,
-} from './number-input.css'
+} from './number-input.style'
 
 export const NumberInput = forwardRef(function NumberInput(
   props: NumberInputProps,

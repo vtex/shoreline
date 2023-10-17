@@ -1,0 +1,30 @@
+{
+  "name": "@vtex/shoreline-vanilla-extract",
+  "version": "0.0.1-dev.6",
+  "description": "Shoreline vanilla-extract integration",
+  "main": "dist/vtex-shoreline-vanilla-extract.cjs.js",
+  "module": "dist/vtex-shoreline-vanilla-extract.esm.js",
+  "types": "dist/vtex-shoreline-vanilla-extract.cjs.d.ts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "1.12.0",
+    "@vtex/shoreline-csx": "^0.0.1-dev.7",
+    "@vtex/shoreline-utils": "^0.0.1-dev.4"
+  }
+}

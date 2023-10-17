@@ -11,7 +11,7 @@ import { Stack } from '../stack'
 import { Label } from '../label'
 import { FormControl, FormControlMessage } from '../form-control'
 
-import { labelTheme } from './switch.css'
+import { labelTheme } from './switch.style'
 
 export const Switch = forwardRef(function Switch(
   props: SwitchProps,

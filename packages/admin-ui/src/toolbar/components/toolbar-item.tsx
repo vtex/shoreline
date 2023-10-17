@@ -22,8 +22,8 @@ export function ToolbarItem(props: ToolbarItemProps) {
   const state = useToolbarContext()
 
   return (
-    <BaseToolbarItem {...state}>
-      {(itemProps) => children(itemProps)}
+    <BaseToolbarItem {...(state as any)}>
+      {(itemProps) => children(itemProps) as any}
     </BaseToolbarItem>
   )
 }

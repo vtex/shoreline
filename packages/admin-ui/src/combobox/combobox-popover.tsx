@@ -5,7 +5,7 @@ import { ComboboxPopoverBase } from './combobox-popover-base'
 import { ComboboxItem } from 'ariakit/combobox'
 import type { ComboboxState } from '.'
 
-import { itemTheme } from './combobox.css'
+import { itemTheme } from './combobox.style'
 
 export const ComboboxPopover = forwardRef(
   (props: ComboboxPopoverProps, ref: Ref<HTMLDivElement>) => {

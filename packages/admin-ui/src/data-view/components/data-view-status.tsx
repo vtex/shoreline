@@ -8,7 +8,7 @@ import type { DataViewState, StatusAction } from '../data-view.state'
 import { Button } from '../../button'
 import { Stack } from '../../stack'
 import { Center } from '../../center'
-import { statusTheme, statusMessageTheme } from './data-view.css'
+import { statusTheme, statusMessageTheme } from './data-view.style'
 
 export function DataViewStatus(props: DataViewStatusProps) {
   const { state } = props

@@ -23,7 +23,7 @@ export const Picker = forwardRef(function CalendarHeader(
     onClick: htmlOnClick,
     onMouseDown: htmlOnMouseDown,
     ...htmlProps
-  } = props
+  } = props as PickerProps
 
   const onClick = useCallback(() => {
     if (isTouch()) show()

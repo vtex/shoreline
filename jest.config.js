@@ -6,6 +6,7 @@ module.exports = {
     '!packages/**/dist/**',
     '!packages/**/.storybook/**',
   ],
+  testMatch: ['**/?(*.)+(test).[jt]s?(x)', '!**/*.vitest.test*'],
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {

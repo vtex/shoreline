@@ -8,7 +8,6 @@ import {
   FormControlLabel,
   FormControlMessage,
 } from '../form-control'
-import { csx } from '@vtex/admin-ui-core'
 
 export const CheckboxGroup = forwardRef(function CheckboxGroup(
   props: CheckboxGroupProps,

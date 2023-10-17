@@ -3,7 +3,7 @@ import { MenuSeparator } from 'ariakit/menu'
 import type { Ref } from 'react'
 import React, { forwardRef } from 'react'
 
-import { dividerTheme } from './menu.css'
+import { dividerTheme } from './menu.style'
 
 export const MenuDivider = forwardRef(
   (props: MenuDividerProps, ref: Ref<HTMLHRElement>) => {

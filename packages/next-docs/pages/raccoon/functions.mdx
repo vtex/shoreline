@@ -1,0 +1,32 @@
+# Functions
+
+### connect
+
+- Type: `() => void`
+
+```tsx filename="pages/_app.tsx"
+import { connect } from '@vtex/raccoon-next'
+
+connect()
+
+// ... rest of the app
+```
+
+This function connects the Next.js application with the IO application by listening to message events sent by the Raccoon Iframe on the admin-shell.
+
+### bootstrap
+
+- Type: `(app: ((props: Next.AppProps) => React.ReactNode)) => React.ReactNode`
+
+```tsx filename="pages/_app.tsx"
+import type { AppProps } from 'next/app'
+import { bootstrap } from '@vtex/raccoon-next'
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default bootstrap(App)
+```
+
+The bootstrap function is responsible for displaying the `SplashScreen` component, which indicates when it's not possible to load the Next.js application. For example, if the page fails to retrieve the token (`VtexIdclientAutCookie`) information, a retry screen is shown. Additionally, if you attempt to access the Next app outside of VTEX Admin, a screen will be displayed indicating that it's not possible.

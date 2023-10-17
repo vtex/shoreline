@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import type { ResponsiveProp } from '../use-breakpoint'
 import type * as CSS from 'csstype'
 
-import { gridStyle, gridTheme, toResponsiveObject } from './grid.css'
+import { gridStyle, gridTheme, toResponsiveObject } from './grid.style'
 import { cx } from '@vtex/admin-ui-core'
 
 export const Grid = forwardRef(function Grid(

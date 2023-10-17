@@ -1,0 +1,86 @@
+# Cascade Layers
+
+Rules within a [cascade layer cascade together](<(https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)>), giving more control over the cascade to web developers. Any styles not in a layer are gathered together and placed into a single anonymous layer that comes after all the declared layers, named and anonymous. This means that any styles declared outside of a layer will override styles declared in a layer, regardless of specificity.
+
+## Core layers
+
+Shoreline has four layers: reset, base, tokens, and components.
+
+### reset
+
+Reserved for CSS resets.
+
+```css
+@layer sl-reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* ... */
+}
+```
+
+### base
+
+Reserved for global styles.
+
+```css
+@layer sl-base {
+  body {
+    font-family: sans-serif;
+  }
+  /* ... */
+}
+```
+
+### tokens
+
+Declare both tokens and semantic tokens.
+
+```css
+@layer sl-tokens {
+  :root {
+    --sl-bg-primary: black;
+  }
+  /* ... */
+}
+```
+
+### components
+
+Components exported by Shoreline.
+
+```css
+@layer sl-components {
+  .sl-button {
+    cursor: pointer;
+    background: var(--sl-bg-action-primary);
+
+    & :hover {
+      background: var(--sl-bg-action-primary-hover);
+    }
+  }
+  /* ... */
+}
+```
+
+## Priority
+
+The layers follow the priority:
+
+- `sl-components` (Highest)
+- `sl-tokens`
+- `sl-base`
+- `sl-reset` (Lowest)
+
+The CSS style is:
+
+```css
+@layer sl-reset, sl-base, sl-tokens, sl-components;
+```
