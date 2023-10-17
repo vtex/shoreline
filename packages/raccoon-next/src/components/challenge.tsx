@@ -35,20 +35,19 @@ function Router({ children }: PropsWithChildren) {
     // apps using the most recent version of the @vtex/raccoon-next package.
     if (!ctx.path) {
       setIsMounted(true)
+
       return
     }
 
-    if (ctx.path) {
-      const internalPath = ctx.path?.replace(ctx.basePath, '') || '/'
-      const ioAndNextjsRoutingMatch = internalPath === router.asPath
+    const internalPath = ctx.path?.replace(ctx.basePath, '') || '/'
+    const ioAndNextjsRoutingMatch = internalPath === router.asPath
 
-      if (!ioAndNextjsRoutingMatch) {
-        router.push(internalPath)
-      }
+    if (!ioAndNextjsRoutingMatch) {
+      router.push(internalPath)
+    }
 
-      if (ioAndNextjsRoutingMatch) {
-        setIsMounted(true)
-      }
+    if (ioAndNextjsRoutingMatch) {
+      setIsMounted(true)
     }
   }, [ctx.path, router.asPath])
 

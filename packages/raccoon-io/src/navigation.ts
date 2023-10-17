@@ -9,6 +9,7 @@ export function prepare() {
     console.error(
       'No reference to the topmost window. Navigation will not work.'
     )
+
     return { adminShell: null, target: null }
   }
 
@@ -35,6 +36,7 @@ export function navigate(pathname: string) {
 
   if (!pathname.startsWith('/')) {
     console.warn('pathname should start with "/"')
+
     return
   }
 
@@ -42,7 +44,7 @@ export function navigate(pathname: string) {
     adminShell.postMessage(
       {
         type: 'top-level-navigation',
-        pathname: pathname,
+        pathname,
       },
       target
     )

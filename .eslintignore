@@ -17,3 +17,4 @@ storybook-static
 # Resolve: Parsing error: Unexpected token .
 # not accepting conditional chaining
 packages/admin-ui-codemod/src/space-tokens-review.js
+packages/create-raccoon-app/src/index.js

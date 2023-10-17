@@ -3,6 +3,7 @@ import { prepare, navigate } from '../navigation'
 describe('prepare', () => {
   it('should return null adminShell and target when window.top is falsy', () => {
     const windowSpy = jest.spyOn(window, 'top', 'get')
+
     windowSpy.mockReturnValue(null)
 
     const result = prepare()
@@ -16,6 +17,7 @@ describe('prepare', () => {
   it('should return adminShell and target when window.top is truthy', () => {
     const windowSpy = jest.spyOn(window, 'top', 'get')
     const expectedAdminShell = {} as Window
+
     windowSpy.mockReturnValue(expectedAdminShell)
     const expectedTarget = 'http://localhost'
 
@@ -52,7 +54,7 @@ describe('navigate', () => {
     expect(mockPostMessage).toHaveBeenCalledWith(
       {
         type: 'top-level-navigation',
-        pathname: pathname,
+        pathname,
       },
       expect.any(String)
     )
