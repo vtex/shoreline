@@ -1,8 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
-
-import { spinnerStyle } from './spinner.css'
 
 const DEFAULT_SIZE = 16
 const DEFAULT_DESCRIPTION = 'loading'
@@ -17,14 +14,12 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
     const {
       size = DEFAULT_SIZE,
       description = DEFAULT_DESCRIPTION,
-      className,
       ...spinnerProps
     } = props
 
     return (
       <div
         ref={ref}
-        className={cx(spinnerStyle, className)}
         data-sl-spinner
         aria-atomic="true"
         aria-live="assertive"

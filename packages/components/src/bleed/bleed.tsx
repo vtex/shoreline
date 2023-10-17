@@ -1,8 +1,6 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cssVar, cx } from '@vtex/shoreline-utils'
-
-import { bleedStyle } from './bleed.css'
+import { cssVar } from '@vtex/shoreline-utils'
 
 const defaultBleed = '0rem'
 
@@ -17,7 +15,6 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
     right = defaultBleed,
     horizontal = defaultBleed,
     vertical = defaultBleed,
-    className,
     children,
     ...restProps
   } = props
@@ -26,7 +23,6 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
     <div
       data-sl-bleed
       ref={ref}
-      className={cx(bleedStyle, className)}
       style={
         {
           '--sl-bleed-top': cssVar({ token: String(top) }),

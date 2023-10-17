@@ -11,13 +11,22 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/vtex-shoreline-components.cjs.js",
+      "import": "./dist/vtex-shoreline-components.esm.js",
+      "types": "./dist/vtex-shoreline-components.cjs.d.ts"
+    },
+    "./styles": "./dist/styles.min.css"
+  },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
     "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
-    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs",
+    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs && npm run build:css",
+    "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/styles.css -o ./dist/styles.min.css",
     "theme": "shorelinecss theme"
   },
   "repository": {
@@ -38,7 +47,8 @@
     "@vtex/shoreline-cli": "workspace",
     "@vtex/shoreline-preset-admin": "workspace",
     "@vtex/shoreline-theme": "workspace",
-    "@vtex/shoreline-vanilla-extract": "^0.1.0"
+    "@vtex/shoreline-vanilla-extract": "^0.1.0",
+    "lightningcss-cli": "1.22.0"
   },
   "dependencies": {
     "@ariakit/react": "0.3.3",

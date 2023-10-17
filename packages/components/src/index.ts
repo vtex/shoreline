@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './button'
 export * from './icon-button'
 export * from './content'
 export * from './compose'
