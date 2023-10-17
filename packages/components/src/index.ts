@@ -1,6 +1,7 @@
 /* PLOP_INJECT_EXPORT */
 export * from './button'
 export * from './text-input'
+export * from './field'
 export * from './icon-button'
 export * from './content'
 export * from './compose'
