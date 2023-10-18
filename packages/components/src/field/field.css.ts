@@ -1,48 +1,39 @@
-import { csx, dataAttr } from '@vtex/shoreline-vanilla-extract'
+import { csx } from '@vtex/shoreline-vanilla-extract'
 
 export const fieldStyle = csx({
   '@layer': {
     components: {
+      '&[data-sl-field]:has(> [data-sl-checkbox],[data-sl-radio])': {
+        gridTemplateAreas: '"input label" "- message"',
+      },
+
       '&[data-sl-field]': {
         display: 'grid',
         gap: '0.25rem 0.5rem',
         gridTemplateAreas: '"label" "input" "message"',
-        [dataAttr('field-control', true)]: {
-          gridTemplateAreas: '"input label" "- message"',
-        },
-        '> [data-sl-checkbox],[data-sl-input],[data-sl-textarea],[data-sl-radio]':
+
+        '[data-sl-checkbox],[data-sl-input],[data-sl-textarea],[data-sl-radio][data-sl-select]':
           {
             gridArea: 'input',
           },
-      },
-    },
-  },
-})
 
-export const fieldLabelStyle = csx({
-  '@layer': {
-    components: {
-      '&[data-sl-field-label]': {
-        color: '$fg',
-        display: 'flex',
-        alignItems: 'center',
-        gridArea: 'label',
-      },
-    },
-  },
-})
+        '[data-sl-field-message]': {
+          gridArea: 'message',
+        },
 
-export const fieldMessageStyle = csx({
-  '@layer': {
-    components: {
-      '&[data-sl-field-message]': {
-        gridArea: 'message',
-      },
-      '&[data-sl-field-message-text]': {
-        color: '$fg-muted',
-        text: '$text-caption-2',
-        [dataAttr('error', true)]: {
+        '[data-sl-field-message-text]': {
+          color: '$fg-muted',
+          text: '$text-caption-2',
+        },
+        '[data-sl-field-message-text][role="alert"]': {
           color: '$fg-critical',
+        },
+
+        '[data-sl-field-label]': {
+          color: '$fg',
+          display: 'flex',
+          alignItems: 'center',
+          gridArea: 'label',
         },
       },
     },

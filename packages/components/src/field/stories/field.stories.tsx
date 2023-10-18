@@ -36,28 +36,28 @@ export function Default() {
           <FieldMessage helpText="Help text" errorText="Error text" />
         </Field>
 
-        <Field control>
+        <Field>
           <FieldLabel>Label</FieldLabel>
           <Checkbox data-sl-checkbox />
 
-          <FieldMessage helpText="Help text" errorText="Error text" />
+          <FieldMessage error helpText="Help text" errorText="Error text" />
         </Field>
 
         <div>
           <Stack space="$space-1">
-            <Field control error>
+            <Field>
               <FieldLabel>Label</FieldLabel>
               <Radio value="radio-1" data-sl-radio />
 
               <FieldMessage helpText="Help text" errorText="Error text" />
             </Field>
-            <Field control>
+            <Field>
               <FieldLabel>Label</FieldLabel>
               <Radio value="radio-2" data-sl-radio />
 
               <FieldMessage helpText="Help text" errorText="Error text" />
             </Field>
-            <Field control>
+            <Field>
               <FieldLabel>Label</FieldLabel>
               <Radio value="radio-3" data-sl-radio />
 
