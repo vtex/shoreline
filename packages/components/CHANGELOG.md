@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.1.0...@vtex/shoreline-components@0.2.0) (2023-10-18)
+
+### Features
+
+- **components:** add css-theme ([1677cde](https://github.com/vtex/admin-ui/commit/1677cde120b1b6182a8ede5bb0140fec23621403))
+- **components:** remove styling form the component bundle ([9b2bf30](https://github.com/vtex/admin-ui/commit/9b2bf30b73912d5f29fcab1f25bdaae970b1902c))
+
 # 0.1.0 (2023-10-17)
 
 ### Features
