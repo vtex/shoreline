@@ -275,7 +275,7 @@ importers:
         specifier: 8.0.2
         version: 8.0.2
       '@vtex/admin-ui':
-        specifier: ^0.137.0
+        specifier: ^0.137.1
         version: link:../../packages/admin-ui
       '@vtex/raccoon-next':
         specifier: ^0.7.0
@@ -514,10 +514,10 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0
       '@vtex/admin-ui':
-        specifier: ^0.137.0
+        specifier: ^0.137.1
         version: link:../admin-ui
       '@vtex/admin-ui-form':
-        specifier: ^0.7.0
+        specifier: ^0.7.1
         version: link:../admin-ui-form
       clsx:
         specifier: ^1.1.1
@@ -578,7 +578,7 @@ importers:
         version: 7.21.0(react@18.2.0)
     devDependencies:
       '@vtex/admin-ui':
-        specifier: ^0.137.0
+        specifier: ^0.137.1
         version: link:../admin-ui
       yup:
         specifier: 0.32.11

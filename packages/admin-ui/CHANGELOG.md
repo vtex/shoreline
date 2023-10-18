@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.137.1](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.137.0...@vtex/admin-ui@0.137.1) (2023-10-18)
+
+### Bug Fixes
+
+- **use-media-query:** support to older safari ([f352755](https://github.com/vtex/admin-ui/commit/f3527558e037bb50f8242331a67bb941ca50ee72))
+
 # [0.137.0](https://github.com/vtex/admin-ui/compare/@vtex/admin-ui@0.136.1...@vtex/admin-ui@0.137.0) (2023-10-17)
 
 ### Features
