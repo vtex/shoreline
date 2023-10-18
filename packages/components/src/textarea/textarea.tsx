@@ -1,8 +1,7 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
 
-import { textareaStyle } from './textarea.css'
+import { Field, FieldLabel, FieldMessage } from '../field'
 
 export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
   function Textarea(props, ref) {
@@ -13,36 +12,41 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
       children,
       value = '',
       maxLength,
+      label,
+      helpText = '',
+      errorText = '',
       ...htmlProps
     } = props
 
     const charCount = String(value).length
 
     return (
-      <div
-        ref={ref}
-        data-sl-textarea-container
-        className={cx(textareaStyle, className)}
-      >
-        <textarea
-          data-sl-textarea
-          data-error={error}
-          data-disabled={disabled}
-          disabled={disabled}
-          className={textareaStyle}
-          maxLength={maxLength}
-          {...htmlProps}
-        />
-        {maxLength && (
-          <p data-sl-textarea-char-counter className={textareaStyle}>
-            {charCount} / {maxLength}
-          </p>
-        )}
-      </div>
+      <Field ref={ref} className={className}>
+        <FieldLabel>{label}</FieldLabel>
+        <div data-sl-textarea-container>
+          <textarea
+            data-sl-textarea
+            data-error={error}
+            data-disabled={disabled}
+            disabled={disabled}
+            maxLength={maxLength}
+            {...htmlProps}
+          />
+          {maxLength && (
+            <p data-sl-textarea-char-counter>
+              {charCount} / {maxLength}
+            </p>
+          )}
+        </div>
+        <FieldMessage error={error} errorText={errorText} helpText={helpText} />
+      </Field>
     )
   }
 )
 
 export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
   error?: boolean
+  label?: ReactNode
+  helpText?: ReactNode
+  errorText?: ReactNode
 }

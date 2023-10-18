@@ -22,7 +22,8 @@
 
     [data-sl-field-message-text] {
       color: var(--sl-fg-muted);
-      text: var(--sl-text-caption-2);
+      font: var(--sl-text-caption-2-font);
+      letter-spacing: var(--sl-text-caption-2-letter-spacing);
     }
 
     [data-sl-field-message-text][role='alert'] {

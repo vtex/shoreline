@@ -1,8 +1,8 @@
+import '../../../dist/styles.min.css'
+import './style.css'
 import React from 'react'
 
 import { Textarea } from '../index'
-import { Field, FieldLabel, FieldMessage } from '../../field'
-import { storyStyle } from './textarea.stories.css'
 
 export default {
   title: 'shoreline-components/textarea',
@@ -15,7 +15,7 @@ export function Default() {
     <Textarea
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className={storyStyle}
+      className="textarea-container"
       maxLength={120}
     />
   )
@@ -29,24 +29,24 @@ export function All() {
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={storyStyle}
+        className="textarea-container"
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={storyStyle}
+        className="textarea-container"
         error
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={storyStyle}
+        className="textarea-container"
         disabled
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={storyStyle}
+        className="textarea-container"
         maxLength={120}
       />
     </>
@@ -57,14 +57,15 @@ export function FormField() {
   const [value, setValue] = React.useState('')
 
   return (
-    <Field className={storyStyle} error>
-      <FieldLabel>Label</FieldLabel>
-      <Textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        maxLength={120}
-      />
-      <FieldMessage helpText="Help text" errorText="Error text" />
-    </Field>
+    <Textarea
+      error
+      className="textarea-container"
+      label="Label"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      maxLength={120}
+      helpText="Help text"
+      errorText="Error text"
+    />
   )
 }
