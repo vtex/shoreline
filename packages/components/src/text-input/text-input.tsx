@@ -31,10 +31,23 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   }
 )
 
-export interface TextInputProps extends ComponentPropsWithoutRef<'input'> {
-  className?: string
+export interface TextInputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'prefix'> {
+  /**
+  Whether there is an error
+  @default false
+  */
   error?: boolean
+  /**
+  Whether is disabled or not
+  @default false
+  */
   disabled?: boolean
-  prefix?: any
-  suffix?: any
+  /**
+  Node added before input space
+  */
+  prefix?: React.ReactNode
+  /**
+  Node added before input space
+  */
+  suffix?: React.ReactNode
 }
