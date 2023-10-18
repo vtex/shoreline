@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Stack } from '../stack'
@@ -30,9 +30,18 @@ export const FieldMessage = forwardRef<HTMLDivElement, FieldMessageProps>(
   }
 )
 
-export type FieldMessageProps = {
+export interface FieldMessageProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Help text message
+   */
   helpText?: ReactNode
+  /**
+   * Error text message
+   */
   errorText?: ReactNode
-  className?: string
+  /**
+   * Whether the field contains an error or not
+   * @default false
+   */
   error?: boolean
 }
