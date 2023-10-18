@@ -1,8 +1,10 @@
+import '../../../dist/styles.min.css'
+import './style.css'
+
 import React from 'react'
 
 import { Field, FieldLabel, FieldMessage } from '../index'
 import { Stack } from '../../stack'
-import { inputStyle } from './field.stories.css'
 
 import { Checkbox, Radio } from '@ariakit/react'
 
@@ -12,7 +14,7 @@ export default {
 
 function TextArea() {
   return (
-    <div data-sl-textarea className={inputStyle}>
+    <div data-sl-textarea className="input-container">
       <textarea />
     </div>
   )
@@ -20,7 +22,7 @@ function TextArea() {
 
 function TextInput() {
   return (
-    <div data-sl-textinput className={inputStyle}>
+    <div data-sl-textinput className="input-container">
       <input />
     </div>
   )
