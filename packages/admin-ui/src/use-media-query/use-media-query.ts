@@ -31,14 +31,24 @@ export function useMediaQuery(query: string | string[]): boolean[] {
           )
         )
 
-      mediaQuery.addEventListener('change', listener)
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', listener)
+      } else if (mediaQuery.addListener) {
+        // Compatibility to Safari (iOS: v13.5)
+        mediaQuery.addListener(listener)
+      }
 
       return listener
     })
 
     return () => {
       mediaQueryList.forEach((mediaQuery, index) => {
-        mediaQuery.removeEventListener('change', listenerList[index])
+        if (mediaQuery.removeEventListener) {
+          mediaQuery.removeEventListener('change', listenerList[index])
+        } else if (mediaQuery.removeListener) {
+          // Compatibility to Safari (iOS: v13.5)
+          mediaQuery.removeListener(listenerList[index])
+        }
       })
     }
   }, [query])
