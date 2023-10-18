@@ -1,8 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
-
-import { textInputStyle } from './text-input.css'
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput(props, ref) {
@@ -10,7 +7,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <div
-        className={cx(textInputStyle, className)}
+        className={className}
         data-sl-text-input
         data-disabled={disabled}
         data-error={error}
@@ -31,7 +28,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   }
 )
 
-export interface TextInputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'prefix'> {
+export interface TextInputProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'prefix'> {
   /**
   Whether there is an error
   @default false
