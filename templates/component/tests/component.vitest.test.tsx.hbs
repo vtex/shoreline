@@ -1,0 +1,14 @@
+import React from 'react'
+import { describe, expect, test } from 'vitest'
+import { render } from '@testing-library/react'
+
+import { {{pascalCase name}} } from '../{{kebabCase name}}'
+
+describe('{{kebabCase name}}', () => {
+  test('renders', () => {
+    const { container } = render(<{{pascalCase name}} />)
+
+    expect(container.querySelector('[data-sl-{{kebabCase name}}]')).toBeInTheDocument()
+  })
+})
+

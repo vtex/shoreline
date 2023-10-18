@@ -1,4 +1,4 @@
-import '../../../shoreline/styles.css'
+import '../../../dist/styles.min.css'
 import React, { useRef } from 'react'
 
 import { Text } from '../index'

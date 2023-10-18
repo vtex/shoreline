@@ -6,8 +6,8 @@ import { Button } from '../button'
 
 describe('button', () => {
   test('renders', () => {
-    const { getByRole } = render(<Button>Text</Button>)
+    const { container } = render(<Button>Text</Button>)
 
-    expect(getByRole('button')).toBeInTheDocument()
+    expect(container.querySelector('[data-sl-button]')).toBeInTheDocument()
   })
 })

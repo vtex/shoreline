@@ -1,8 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
 
-import { contentStyle } from './content.css'
 import type { ContentContainerAs } from './types'
 
 /**
@@ -14,22 +12,10 @@ import type { ContentContainerAs } from './types'
  */
 export const Content = forwardRef<HTMLDivElement, ContentProps>(
   function Content(props, ref) {
-    const {
-      as: Comp = 'div',
-      narrow = false,
-      className,
-      children,
-      ...otherProps
-    } = props
+    const { as: Comp = 'div', narrow = false, children, ...otherProps } = props
 
     return (
-      <Comp
-        data-sl-content
-        data-narrow={narrow}
-        ref={ref}
-        className={cx(contentStyle, className)}
-        {...otherProps}
-      >
+      <Comp data-sl-content data-narrow={narrow} ref={ref} {...otherProps}>
         {children}
       </Comp>
     )

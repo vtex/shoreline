@@ -1,7 +1,7 @@
-import '../../../shoreline/styles.css'
+import '../../../dist/styles.min.css'
 import './style.css'
 
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {
   IconTrash,
   IconArrowUpRightSmall,

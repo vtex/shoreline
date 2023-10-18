@@ -1,19 +1,18 @@
+import type { AnyObject } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
-
-import { textStyle } from './text.css'
 
 export const Text = forwardRef(function Text(props: TextProps, ref: any) {
-  const { className, children, variant } = props
+  const { children, variant = 'body', ...otherProps } = props
 
   const Element = props.as || 'span'
 
   return (
     <Element
+      data-sl-text
       ref={ref}
-      className={cx(textStyle, className)}
       data-variant={variant}
+      {...(otherProps as AnyObject)}
     >
       {children}
     </Element>
@@ -21,6 +20,10 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
 })
 
 interface ComponentProps {
+  /**
+   * Text variant
+   * @default 'body'
+   */
   variant?:
     | 'body'
     | 'action'
@@ -33,14 +36,23 @@ interface ComponentProps {
     | 'display4'
 }
 
-type Heading = {
+interface Heading extends ComponentProps, ComponentPropsWithoutRef<'h1'> {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-} & ComponentProps &
-  ComponentPropsWithoutRef<'h1'>
-type Label = { as: 'label' } & ComponentProps &
-  ComponentPropsWithoutRef<'label'>
-type Paragraph = { as: 'p' } & ComponentProps & ComponentPropsWithoutRef<'p'>
-type Div = { as: 'div' } & ComponentProps & ComponentPropsWithoutRef<'div'>
-type Span = { as?: 'span' } & ComponentProps & ComponentPropsWithoutRef<'span'>
+}
+
+interface Label extends ComponentProps, ComponentPropsWithoutRef<'label'> {
+  as: 'label'
+}
+
+interface Paragraph extends ComponentProps, ComponentPropsWithoutRef<'p'> {
+  as: 'p'
+}
+
+interface Div extends ComponentProps, ComponentPropsWithoutRef<'div'> {
+  as: 'div'
+}
+interface Span extends ComponentProps, ComponentPropsWithoutRef<'span'> {
+  as?: 'span'
+}
 
 export type TextProps = Span | Heading | Label | Paragraph | Div

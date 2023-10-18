@@ -1,4 +1,4 @@
-import '../../../shoreline/styles.css'
+import '../../../dist/styles.min.css'
 
 import React, { useState } from 'react'
 import { IconButton } from '../index'

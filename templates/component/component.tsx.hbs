@@ -1,16 +1,13 @@
 import React, { forwardRef } from 'react'
-import { cx } from '@vtex/shoreline-utils'
-
-import { {{camelCase name}}Style } from './{{kebabCase name}}.css'
 
 export const {{pascalCase name}} = forwardRef<HTMLDivElement, {{pascalCase name}}Props>(function {{pascalCase name}}(
   props, 
   ref
 ) {
-  const { className } = props
+  const { ...otherProps } = props
 
   return (
-    <div ref={ref} className={cx({{camelCase name}}Style, className)}>
+    <div data-sl-{{kebabCase name}} ref={ref} {...otherProps}>
       {{pascalCase name}}
     </div>
   )

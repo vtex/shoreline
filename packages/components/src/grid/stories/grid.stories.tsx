@@ -1,3 +1,4 @@
+import '../../../dist/styles.min.css'
 import React from 'react'
 
 import { Grid, GridCell } from '../index'
@@ -9,7 +10,7 @@ export default {
 
 export function Default() {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" columnGap="1rem">
+    <Grid templateColumns="repeat(3, 1fr)" gap="1rem">
       <GridCell className={cellStyle} />
       <GridCell className={cellStyle} />
       <GridCell className={cellStyle} />
