@@ -48,7 +48,8 @@
     "@vtex/shoreline-preset-admin": "workspace",
     "@vtex/shoreline-theme": "workspace",
     "@vtex/shoreline-vanilla-extract": "^0.1.0",
-    "lightningcss-cli": "1.22.0"
+    "lightningcss-cli": "1.22.0",
+    "@vtex/shoreline-utils": "^0.0.1-dev.0"
   },
   "dependencies": {
     "@ariakit/react": "0.3.3",
