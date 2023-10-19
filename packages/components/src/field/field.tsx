@@ -5,10 +5,10 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   props,
   ref
 ) {
-  const { className, children, ...restProps } = props
+  const { children, ...restProps } = props
 
   return (
-    <div ref={ref} data-sl-field className={className} {...restProps}>
+    <div ref={ref} data-sl-field {...restProps}>
       {children}
     </div>
   )

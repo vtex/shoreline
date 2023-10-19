@@ -3,10 +3,10 @@ import React, { forwardRef } from 'react'
 
 export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
   function FieldLabel(props, ref) {
-    const { className, children, ...restProps } = props
+    const { children, ...restProps } = props
 
     return (
-      <label ref={ref} className={className} data-sl-field-label {...restProps}>
+      <label ref={ref} data-sl-field-label {...restProps}>
         {children}
       </label>
     )
