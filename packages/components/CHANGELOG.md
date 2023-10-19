@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.2.0...@vtex/shoreline-components@0.3.0) (2023-10-19)
+
+### Features
+
+- **textinput:** add textinput component ([ec2939c](https://github.com/vtex/admin-ui/commit/ec2939c75cc0d8482ee3d0ac8511af6721b899ff))
+- **textinput:** improve typing ([4112eb4](https://github.com/vtex/admin-ui/commit/4112eb4a4f4c553d8ac32a4c504152d84b8e7ecc))
+
 # [0.2.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.1.0...@vtex/shoreline-components@0.2.0) (2023-10-18)
 
 ### Features
