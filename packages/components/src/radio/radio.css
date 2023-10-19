@@ -1,0 +1,85 @@
+@layer sl-components {
+  [data-sl-radio] {
+    & > [data-sl-radio-button] {
+      appearance: none;
+      position: relative;
+      border-radius: var(--sl-border-radius-full);
+      cursor: pointer;
+      width: 1.25rem;
+      height: 1.25rem;
+      background-color: var(--sl-element-bg);
+      border: var(--sl-element-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:focus {
+        box-shadow: var(--sl-element-focus-ring);
+      }
+
+      &:hover {
+        border: var(--sl-element-border-hover);
+      };
+
+      &:checked {
+        background-color: var(--sl-element-bg-checked);
+        border: var(--sl-element-border-checked);
+
+        &:hover {
+          border: var(--sl-element-border-checked);
+        };
+
+        &:after {
+          background-color: var(--sl-element-check-bg);
+        }
+
+        &:focus {
+          box-shadow: var(--sl-element-focus-ring-checked);
+        }
+      }
+
+      &:after {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        display: block;
+        border-radius: var(--sl-border-radius-full);
+        background-color: transparent;
+        position: absolute;
+      }
+
+      &[data-error='false'] {
+        --sl-element-border: var(--sl-border-strong);
+        --sl-element-border-hover: var(--sl-border-strong-hover);
+        --sl-element-bg: var(--sl-bg);
+        --sl-element-border-checked: var(--sl-bg-accent-strong);
+        --sl-element-bg-checked: var(--sl-bg-accent-strong);
+        --sl-element-check-bg: var(--sl-bg);
+        --sl-element-focus-ring: var(--sl-focus-ring);
+        --sl-element-focus-ring-checked: var(--sl-focus-ring-accent);
+      }
+
+      &[data-error='true'] {
+        --sl-element-border: var(--sl-border-critical-strong);
+        --sl-element-border-hover: var(--sl-border-critical-strong-hover);
+        --sl-element-bg: var(--sl-bg);
+        --sl-element-border-checked: var(--sl-border-critical-strong);
+        --sl-element-bg-checked: var(--sl-bg-critical-strong);
+        --sl-element-check-bg: var(--sl-bg);
+        --sl-element-focus-ring: var(--sl-focus-ring-critical);
+        --sl-element-focus-ring-checked: var(--sl-focus-ring-critical);
+      }
+
+      &[data-disabled='true'] {
+        --sl-element-border: var(--sl-border-disabled);
+        --sl-element-border-hover: var(--sl-border-disabled);
+        --sl-element-bg: var(--sl-bg-disabled);
+        --sl-element-border-checked: var(--sl-border-disabled);
+        --sl-element-bg-checked: var(--sl-bg-disabled);
+        --sl-element-check-bg: var(--sl-fg-disabled);
+        --sl-element-focus-ring: none;
+        --sl-element-focus-ring-checked: none;
+      }
+    }
+  }
+}
