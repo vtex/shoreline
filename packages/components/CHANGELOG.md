@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.3.0...@vtex/shoreline-components@0.4.0) (2023-10-19)
+
+### Features
+
+- **field:** accept pr suggestion ([2106d01](https://github.com/vtex/admin-ui/commit/2106d015526ffc1d5ab8997d0571e911fa09ebd6))
+- **field:** add field component ([b207e76](https://github.com/vtex/admin-ui/commit/b207e76d22fe82c194805e485dd24cefe22e2b35))
+- **field:** fix field-message type ([f624eba](https://github.com/vtex/admin-ui/commit/f624ebaa37d1469de1c9dc6b2462efcdbd3e7fa3))
+- **field:** improve component API ([b02e71a](https://github.com/vtex/admin-ui/commit/b02e71a574695be7579ef9db873a514dd4afe9be))
+- **field:** migrate from .css.ts to .css ([3ebed3a](https://github.com/vtex/admin-ui/commit/3ebed3a131882a0f4aed89a004da347c3e8e01ea))
+
 # [0.3.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.2.0...@vtex/shoreline-components@0.3.0) (2023-10-19)
 
 ### Features
