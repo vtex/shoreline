@@ -10,6 +10,10 @@ import { flattenObject } from './flatten-object'
 import { parseTokens } from './parse-tokens'
 import { isToken, cleanTokenString } from './token'
 import { constants } from './constants'
+import { canUseDOM } from './can-use-dom'
+import { useId } from './use-id'
+import { useMergeRef } from './use-merge-ref'
+import { useSafeLayoutEffect } from './use-safe-layout-effect'
 
 export {
   chain,
@@ -27,6 +31,10 @@ export {
   constants,
   isString,
   isStringEmpty,
+  canUseDOM,
+  useId,
+  useMergeRef,
+  useSafeLayoutEffect,
 }
 
 export * from './css-types'

@@ -4,9 +4,7 @@ import { useToggleState } from '@react-stately/toggle'
 import { useCheckbox } from '@react-aria/checkbox'
 import { useFocusRing } from '@react-aria/focus'
 import type { AnyObject } from '@vtex/shoreline-utils'
-import { mergeProps } from '@vtex/shoreline-utils'
-
-import { useId } from './use-id'
+import { mergeProps, useId } from '@vtex/shoreline-utils'
 
 export function useAriaCheckbox(props: AriaCheckboxProps): AriaCheckbox {
   const {

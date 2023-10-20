@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'
+import { useMergeRef } from '@vtex/shoreline-utils'
 import { IconCheckSmall, IconMinusSmall } from '@vtex/shoreline-icons'
 
-import { useForkRef } from './use-fork-ref'
 import { VisuallyHidden } from '../visually-hidden'
 import { useAriaCheckbox } from './use-aria-checkbox'
 import { Field, FieldLabel, FieldMessage } from '../field'
@@ -29,7 +29,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
             <input
               {...inputProps}
               type="checkbox"
-              ref={useForkRef(inputRef, forwardedRef)}
+              ref={useMergeRef(inputRef, forwardedRef)}
             />
           </VisuallyHidden>
           <div
@@ -53,6 +53,9 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
 )
 
 export interface CheckboxProps extends AriaCheckboxProps {
+  /**
+   * Label of the input
+   */
   label?: ReactNode
   /**
    * Help text message
