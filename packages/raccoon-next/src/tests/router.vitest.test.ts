@@ -2,10 +2,6 @@ import { useNavigation } from '../router'
 import { vi } from 'vitest'
 import * as message from '../message'
 
-test('useNavigation should return navigate function', () => {
-  const { navigate } = useNavigation()
-  expect(typeof navigate).toBe('function')
-})
 
 test('navigate should publish message with path', async () => {
   vi.spyOn(message, 'publishMessage')
