@@ -10,6 +10,7 @@
 @import './menu/menu.css';
 @import './select/select.css';
 @import './radio/radio.css';
+@import './radio/radio-group.css';
 @import './bleed/bleed.css';
 @import './button/button.css';
 @import './center/center.css';

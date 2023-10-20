@@ -1,0 +1,16 @@
+/* forcing label layout stlye  */
+@layer sl-components-x {
+
+
+  /* this is here to force a typical layout for error message and label */
+  [data-sl-field]:has([data-sl-checkbox], [data-sl-radio]) {
+    grid-template-areas: 'label' 'input' 'message';
+  }
+  [data-sl-radio-group] {
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-spacing);
+    > [data-sl-field-label] {
+      color: var(--sl-fg-soft);
+    }
+  }
+}

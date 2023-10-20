@@ -1,5 +1,7 @@
 @layer sl-components {
   [data-sl-radio] {
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-spacing);
     & > [data-sl-radio-button] {
       appearance: none;
       position: relative;
@@ -81,5 +83,5 @@
         --sl-element-focus-ring-checked: none;
       }
     }
-  }
+  };
 }
