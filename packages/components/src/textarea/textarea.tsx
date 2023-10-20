@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useId } from 'react'
 
 import { Field, FieldLabel, FieldMessage } from '../field'
 
@@ -15,21 +15,26 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
       label,
       helpText = '',
       errorText = '',
+      id: baseId,
       ...htmlProps
     } = props
 
     const charCount = String(value).length
 
+    const id = baseId ?? useId()
+
     return (
       <Field ref={ref} className={className}>
-        <FieldLabel>{label}</FieldLabel>
+        {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
         <div data-sl-textarea-container>
           <textarea
+            id={id}
             data-sl-textarea
             data-error={error}
             data-disabled={disabled}
             disabled={disabled}
             maxLength={maxLength}
+            aria-invalid={error}
             {...htmlProps}
           />
           {maxLength && (
