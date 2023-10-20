@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { Checkbox } from '../index'
 import { Stack } from '../../stack'
 import { useForm, Controller } from 'react-hook-form'
+import { FixedSizeList as List } from 'react-window'
 
 export default {
   title: 'shoreline-components/checkbox',
@@ -144,5 +145,101 @@ export function HookForm() {
         <button type="submit">Submit</button>
       </Stack>
     </form>
+  )
+}
+
+const nItems = 100
+
+const items = new Array(nItems).fill(null).map((_, index) => index)
+const allTrue = new Array(nItems).fill(true)
+const allFalse = new Array(nItems).fill(false)
+
+export function StressTest() {
+  const [checked, setChecked] = useState<boolean[]>(allFalse)
+
+  const someChecked = checked.some((i) => i)
+  const allChecked = checked.every((i) => i)
+
+  return (
+    <Stack>
+      <Checkbox
+        indeterminate={someChecked && !allChecked}
+        checked={allChecked}
+        onChange={() => {
+          if (allChecked) {
+            setChecked(allFalse)
+          } else {
+            setChecked(allTrue)
+          }
+        }}
+        label="Root"
+      />
+      {items.map((item) => (
+        <Checkbox
+          key={item}
+          checked={checked[item]}
+          onChange={() => {
+            setChecked((prev) => {
+              const res = [...prev]
+
+              res[item] = !res[item]
+
+              return res
+            })
+          }}
+          label={`Item ${item}`}
+        />
+      ))}
+    </Stack>
+  )
+}
+
+const nVirtual = 100000
+
+const allTrueVirtual = new Array(nVirtual).fill(true)
+const allFalseVirtual = new Array(nVirtual).fill(false)
+
+export function Virtual() {
+  const [checked, setChecked] = useState<boolean[]>(allFalseVirtual)
+
+  const someChecked = checked.some((i) => i)
+  const allChecked = checked.every((i) => i)
+
+  return (
+    <div>
+      Number of Checkboxes: {nVirtual}
+      <Checkbox
+        indeterminate={someChecked && !allChecked}
+        checked={allChecked}
+        onChange={() => {
+          if (allChecked) {
+            setChecked(allFalseVirtual)
+          } else {
+            setChecked(allTrueVirtual)
+          }
+        }}
+        label="Root"
+      />
+      <List height={300} itemCount={nVirtual} itemSize={40} width={300}>
+        {({ index, style }) => (
+          <div key={index} style={style}>
+            <Checkbox
+              key={index}
+              checked={checked[index]}
+              onChange={() => {
+                setChecked((prev) => {
+                  const res = [...prev]
+
+                  res[index] = !res[index]
+
+                  return res
+                })
+              }}
+              label={`Item ${index}`}
+            />
+          </div>
+        )}
+      </List>
+    </div>
   )
 }
