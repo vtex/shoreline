@@ -1,29 +1,44 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Field, FieldLabel, FieldMessage } from '../field'
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput(props, ref) {
-    const { className, prefix, suffix, error, disabled, ...inputProps } = props
+    const {
+      className,
+      prefix,
+      suffix,
+      error,
+      disabled,
+      label,
+      helpText,
+      errorText,
+      ...inputProps
+    } = props
 
     return (
-      <div
-        className={className}
-        data-sl-text-input
-        data-disabled={disabled}
-        data-error={error}
-      >
-        {prefix && (
-          <div data-sl-text-input-term data-type="prefix">
-            {prefix}
-          </div>
-        )}
-        <input data-sl-input ref={ref} disabled={disabled} {...inputProps} />
-        {suffix && (
-          <div data-sl-text-input-term data-type="suffix">
-            {suffix}
-          </div>
-        )}
-      </div>
+      <Field data-sl-text-input-field>
+        <FieldLabel>{label}</FieldLabel>
+        <div
+          className={className}
+          data-sl-text-input
+          data-disabled={disabled}
+          data-error={error}
+        >
+          {prefix && (
+            <div data-sl-text-input-term data-type="prefix">
+              {prefix}
+            </div>
+          )}
+          <input data-sl-input ref={ref} disabled={disabled} {...inputProps} />
+          {suffix && (
+            <div data-sl-text-input-term data-type="suffix">
+              {suffix}
+            </div>
+          )}
+        </div>
+        <FieldMessage helpText={helpText} errorText={errorText} error={error} />
+      </Field>
     )
   }
 )
@@ -48,4 +63,7 @@ export interface TextInputProps
   Node added before input space
   */
   suffix?: React.ReactNode
+  label: string
+  errorText?: string
+  helpText?: string
 }
