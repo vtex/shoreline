@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, Ref } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode, Ref } from 'react'
 import { useMemo, useRef } from 'react'
 import { useToggleState } from '@react-stately/toggle'
 import { useCheckbox } from '@react-aria/checkbox'
@@ -18,6 +18,7 @@ export function useAriaCheckbox(props: AriaCheckboxProps): AriaCheckbox {
     required,
     onFocus,
     onBlur,
+    label,
     ...rest
   } = props
 
@@ -44,6 +45,7 @@ export function useAriaCheckbox(props: AriaCheckboxProps): AriaCheckbox {
       id,
       isIndeterminate: indeterminate,
       isDisabled: disabled,
+      'aria-label': String(label),
       ...unsafe,
       ...rest,
     },
@@ -62,6 +64,7 @@ export function useAriaCheckbox(props: AriaCheckboxProps): AriaCheckbox {
     isFocusVisible,
     labelProps: {
       htmlFor: inputProps.id,
+      children: label,
     },
     isIndeterminate: indeterminate,
     isDisabled: inputProps.disabled ?? false,
@@ -80,6 +83,7 @@ export interface AriaCheckbox {
   isFocusVisible: boolean
   labelProps: {
     htmlFor?: string
+    children?: ReactNode
   }
   isIndeterminate: boolean
   isDisabled: boolean
@@ -90,4 +94,5 @@ export interface AriaCheckboxProps extends InputProps {
   indeterminate?: boolean
   onChange?: (checked: boolean) => void
   value?: string
+  label?: ReactNode
 }

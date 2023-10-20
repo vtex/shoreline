@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 
 import { Checkbox } from '../index'
 import { Stack } from '../../stack'
+import { useForm, Controller } from 'react-hook-form'
 
 export default {
   title: 'shoreline-components/checkbox',
@@ -114,5 +115,34 @@ export function TreeState() {
         label="Item 2"
       />
     </Stack>
+  )
+}
+
+export function HookForm() {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      terms: true,
+    },
+  })
+
+  return (
+    <form onSubmit={handleSubmit((data) => alert(JSON.stringify(data)))}>
+      <Stack>
+        <Controller
+          control={control}
+          name="terms"
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <Checkbox
+              label="I agree with the terms of service"
+              checked={value}
+              onBlur={onBlur}
+              onChange={onChange}
+              ref={ref}
+            />
+          )}
+        />
+        <button type="submit">Submit</button>
+      </Stack>
+    </form>
   )
 }

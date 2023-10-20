@@ -10,7 +10,7 @@ import type { AriaCheckboxProps } from './use-aria-checkbox'
 
 export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   function Checkbox(props, forwardedRef) {
-    const { helpText, errorText, error, label, ...ariaProps } = props
+    const { helpText, errorText, error, ...ariaProps } = props
 
     const {
       labelProps,
@@ -26,7 +26,11 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
       <Field>
         <label data-sl-checkbox>
           <VisuallyHidden>
-            <input {...inputProps} ref={useForkRef(inputRef, forwardedRef)} />
+            <input
+              {...inputProps}
+              type="checkbox"
+              ref={useForkRef(inputRef, forwardedRef)}
+            />
           </VisuallyHidden>
           <div
             data-sl-checkbox-input
@@ -41,7 +45,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
             {isChecked && <IconCheckSmall data-sl-checkbox-check />}
           </div>
         </label>
-        <FieldLabel {...labelProps}>{label}</FieldLabel>
+        <FieldLabel {...labelProps} />
         <FieldMessage helpText={helpText} error={error} errorText={errorText} />
       </Field>
     )
