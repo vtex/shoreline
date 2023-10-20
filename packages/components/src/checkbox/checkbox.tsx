@@ -1,91 +1,55 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef, useRef } from 'react'
-import { useToggleState } from '@react-stately/toggle'
-import { useCheckbox } from '@react-aria/checkbox'
+import type { ReactNode } from 'react'
+import React, { forwardRef } from 'react'
 import { IconCheckSmall, IconMinusSmall } from '@vtex/shoreline-icons'
-import { useFocusRing } from '@react-aria/focus'
-import { mergeProps } from '@vtex/shoreline-utils'
 
-import { VisuallyHidden } from '../visually-hidden'
 import { useForkRef } from './use-fork-ref'
+import { VisuallyHidden } from '../visually-hidden'
+import { useAriaCheckbox } from './use-aria-checkbox'
 import { Field, FieldLabel, FieldMessage } from '../field'
-import { useId } from './use-id'
+import type { AriaCheckboxProps } from './use-aria-checkbox'
 
 export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   function Checkbox(props, forwardedRef) {
+    const { helpText, errorText, error, label, ...ariaProps } = props
+
     const {
-      id: defaultId,
-      disabled,
-      onChange,
-      indeterminate,
-      required,
-      defaultChecked,
-      checked,
-      helpText,
-      errorText,
-      error,
-      ...rest
-    } = props
-
-    const id = useId(defaultId)
-
-    const state = useToggleState({
-      onChange,
-      isSelected: checked,
-      defaultSelected: defaultChecked,
-      isDisabled: disabled,
-      isRequired: required,
-    })
-
-    const innerRef = useRef<HTMLInputElement>(null)
-    const { inputProps } = useCheckbox(
-      { id, isIndeterminate: indeterminate, isDisabled: disabled, onChange },
-      state,
-      innerRef
-    )
-
-    const { isFocusVisible, focusProps } = useFocusRing()
-
-    const ref = useForkRef(innerRef, forwardedRef)
-
-    const isSelected = state.isSelected && !indeterminate
+      labelProps,
+      inputProps,
+      inputRef,
+      isChecked,
+      isIndeterminate,
+      isFocusVisible,
+      isDisabled,
+    } = useAriaCheckbox(ariaProps)
 
     return (
       <Field>
         <label data-sl-checkbox>
           <VisuallyHidden>
-            <input
-              {...mergeProps(inputProps, focusProps)}
-              {...rest}
-              ref={ref}
-            />
+            <input {...inputProps} ref={useForkRef(inputRef, forwardedRef)} />
           </VisuallyHidden>
           <div
             data-sl-checkbox-input
-            data-checked={isSelected}
-            data-indeterminate={indeterminate}
-            data-disabled={inputProps.disabled}
+            data-checked={isChecked}
+            data-indeterminate={isIndeterminate}
+            data-disabled={isDisabled}
             data-focus-visible={isFocusVisible}
             data-error={error}
             aria-hidden="true"
           >
-            {indeterminate && <IconMinusSmall />}
-            {isSelected && <IconCheckSmall />}
+            {isIndeterminate && <IconMinusSmall data-sl-checkbox-check-mixed />}
+            {isChecked && <IconCheckSmall data-sl-checkbox-check />}
           </div>
         </label>
-        <FieldLabel htmlFor={inputProps.id}>{props.label}</FieldLabel>
+        <FieldLabel {...labelProps}>{label}</FieldLabel>
         <FieldMessage helpText={helpText} error={error} errorText={errorText} />
       </Field>
     )
   }
 )
 
-export interface CheckboxProps
-  extends Omit<ComponentPropsWithoutRef<'input'>, 'onChange'> {
-  onChange?: (checked: boolean) => void
-  value?: string
+export interface CheckboxProps extends AriaCheckboxProps {
   label?: ReactNode
-  indeterminate?: boolean
   /**
    * Help text message
    */
