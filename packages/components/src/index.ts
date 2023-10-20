@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './checkbox'
 export * from './button'
 export * from './text-input'
 export * from './field'
