@@ -1,0 +1,25 @@
+@layer sl-components {
+  [data-sl-table] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-table-header] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-table-header-cell] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-table-body] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-table-row] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-table-cell] {
+    color: var(--sl-color-fg);
+  }
+}
