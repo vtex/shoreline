@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { MenuButton } from '@ariakit/react'
 
 export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
-  function Menu(props, ref) {
+  function MenuTrigger(props, ref) {
     const { children, asChild = false, ...otherProps } = props
 
     return (
