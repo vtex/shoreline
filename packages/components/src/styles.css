@@ -2,6 +2,7 @@
 /* PLOP_INJECT_STYLES */
 @import './tag/tag.css';
 @import './table/table.css';
+@import './menu/menu.css';
 @import './bleed/bleed.css';
 @import './button/button.css';
 @import './center/center.css';
