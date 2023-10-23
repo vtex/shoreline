@@ -1,6 +1,7 @@
 /* PLOP_INJECT_EXPORT */
 export * from './tag'
 export * from './table'
+export * from './menu'
 export * from './button'
 export * from './text-input'
 export * from './field'
