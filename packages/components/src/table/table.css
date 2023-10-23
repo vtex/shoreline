@@ -1,6 +1,16 @@
 @layer sl-components {
   [data-sl-table] {
     color: var(--sl-color-fg);
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  [data-sl-table-header-cell],
+  [data-sl-table-cell] {
+    color: var(--sl-color-fg);
+    text-align: start;
+    padding: var(--sl-space-2);
+    border-bottom: var(--sl-border);
   }
 
   [data-sl-table-header] {
@@ -8,7 +18,8 @@
   }
 
   [data-sl-table-header-cell] {
-    color: var(--sl-color-fg);
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
   [data-sl-table-body] {
@@ -20,6 +31,7 @@
   }
 
   [data-sl-table-cell] {
-    color: var(--sl-color-fg);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   }
 }
