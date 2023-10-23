@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './tag'
 export * from './table'
 export * from './button'
 export * from './text-input'
