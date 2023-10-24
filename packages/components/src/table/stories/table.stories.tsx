@@ -2,6 +2,8 @@ import '../../../dist/styles.min.css'
 import '../table.css'
 import React from 'react'
 
+import '../../menu/menu.css'
+
 import {
   Table,
   TableBody,

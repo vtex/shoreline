@@ -1,0 +1,9 @@
+@layer sl-components {
+  [data-sl-simple-table] {
+    width: 100%;
+  }
+
+  [data-sl-table-row][data-selected='true'] {
+    background: var(--sl-bg-muted);
+  }
+}

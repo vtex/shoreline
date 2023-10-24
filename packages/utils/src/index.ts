@@ -10,6 +10,7 @@ import { flattenObject } from './flatten-object'
 import { parseTokens } from './parse-tokens'
 import { isToken, cleanTokenString } from './token'
 import { constants } from './constants'
+import { forwardRef } from './forward-ref'
 
 export {
   chain,
@@ -27,6 +28,7 @@ export {
   constants,
   isString,
   isStringEmpty,
+  forwardRef,
 }
 
 export * from './css-types'
