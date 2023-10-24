@@ -5,16 +5,25 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { forwardRef } from '@vtex/shoreline-utils'
 
-import type { TableProps } from './table'
-import { Table } from './table'
-import { TableHeader } from './table-header'
-import { TableRow } from './table-row'
-import { TableHeaderCell } from './table-header-cell'
-import { TableBody } from './table-body'
-import { TableCell } from './table-cell'
+import type { TableProps } from '../table'
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHeaderCell,
+  TableBody,
+  TableCell,
+} from '../table'
 
-export const SimpleTable = genericForwardRef(function SimpleTable<T>(
+/**
+ * Controlled table render built on top of TanStack/Table API
+ * @see https://tanstack.com/table/v8
+ * @example
+ * <SimpleTable data={[]} columsn={[]} options={{}} />
+ */
+export const SimpleTable = forwardRef(function SimpleTable<T>(
   props: SimpleTableProps<T>,
   ref: React.Ref<HTMLTableElement>
 ) {
@@ -28,7 +37,7 @@ export const SimpleTable = genericForwardRef(function SimpleTable<T>(
   })
 
   return (
-    <Table ref={ref} {...tableProps}>
+    <Table data-sl-simple-table ref={ref} {...tableProps}>
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
@@ -60,17 +69,19 @@ export const SimpleTable = genericForwardRef(function SimpleTable<T>(
   )
 })
 
-interface SimpleTableProps<T> extends TableProps {
+export interface SimpleTableProps<T> extends TableProps {
+  /**
+   * Table data
+   */
   data: T[]
+  /**
+   * Table columns
+   */
   columns: Array<ColumnDef<T, any>>
+  /**
+   * Other TanStack/Table options
+   * @see https://tanstack.com/table/v8/docs/api/core/table
+   */
   options?: Omit<TableOptions<T>, 'getCoreRowModel' | 'data' | 'columns'> &
     Partial<Pick<TableOptions<T>, 'getCoreRowModel'>>
-}
-
-function genericForwardRef<T, P = {}>(
-  render: (props: P, ref: React.Ref<T>) => React.ReactNode | null
-): (props: P & React.RefAttributes<T>) => React.ReactNode | null {
-  return React.forwardRef(render) as unknown as (
-    props: P & React.RefAttributes<T>
-  ) => React.ReactNode | null
 }

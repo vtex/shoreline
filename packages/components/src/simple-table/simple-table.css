@@ -1,0 +1,5 @@
+@layer sl-components {
+  [data-sl-simple-table] {
+    width: 100%;
+  }
+}

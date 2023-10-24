@@ -1,5 +1,6 @@
 @import '../shoreline/styles.css';
 /* PLOP_INJECT_STYLES */
+@import './simple-table/simple-table.css';
 @import './tag/tag.css';
 @import './table/table.css';
 @import './menu/menu.css';
