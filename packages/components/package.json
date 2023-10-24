@@ -52,7 +52,7 @@
     "lightningcss-cli": "1.22.0"
   },
   "dependencies": {
-    "@ariakit/react": "0.3.3",
+    "@ariakit/react": "0.3.5",
     "@tanstack/react-table": "8.10.7",
     "@vtex/shoreline-icons": "^0.1.0",
     "@vtex/shoreline-utils": "^0.1.0"

@@ -19,6 +19,11 @@
       color: var(--sl-color-gray-13);
     }
 
+    &[data-variant='green'] {
+      background: var(--sl-color-green-3);
+      color: var(--sl-color-green-13);
+    }
+
     &[data-size='normal'] {
       --sl-element-space-top: var(--sl-space-1);
       --sl-element-space-right: var(--sl-space-2);
