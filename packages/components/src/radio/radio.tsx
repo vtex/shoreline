@@ -10,13 +10,10 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   const { error, disabled, label, value, ...otherProps } = props
 
   return (
-    <Field data-sl-radio>
-      <FieldLabel data-sl-radio-label data-disabled={disabled}>
-        {label}
-      </FieldLabel>
+    <Field variant="control" data-sl-radio-field>
+      <FieldLabel data-disabled={disabled}>{label}</FieldLabel>
       <BaseRadio
         data-sl-radio
-        data-sl-radio-button
         value={value}
         data-error={error || 'false'}
         data-disabled={disabled}

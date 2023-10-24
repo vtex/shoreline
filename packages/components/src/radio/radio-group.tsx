@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef, Dispatch, SetStateAction } from 'react'
 import React, { forwardRef } from 'react'
 import type { RadioStore } from '@ariakit/react'
 import {
@@ -25,9 +25,9 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
 
     return (
       <RadioProvider store={state}>
-        <Field data-sl-radio-group className={className}>
-          <FieldLabel data-sl-radio-group-label>{label}</FieldLabel>
-          <BaseRadioGroup ref={ref} {...otherProps}>
+        <Field data-sl-group-field className={className}>
+          <FieldLabel>{label}</FieldLabel>
+          <BaseRadioGroup data-sl-group ref={ref} {...otherProps}>
             <Stack direction={direction}>{children}</Stack>
           </BaseRadioGroup>
           <FieldMessage

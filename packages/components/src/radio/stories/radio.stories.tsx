@@ -82,7 +82,10 @@ export function Error() {
 
 export function Controlled() {
   const [value, setValue] = useState<string>()
-  const state = useRadioState({ value, setValue })
+  const state = useRadioState({
+    value,
+    setValue,
+  })
 
   const [helpText, setHelpText] = useState('')
 

@@ -1,8 +1,9 @@
 @layer sl-components {
-  [data-sl-radio] {
+  [data-sl-radio-field] {
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-spacing);
-    & > [data-sl-radio-button] {
+
+    & > [data-sl-radio] {
       appearance: none;
       position: relative;
       border-radius: var(--sl-border-radius-full);
