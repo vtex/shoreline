@@ -56,7 +56,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
       </TableHeader>
       <TableBody>
         {table.getRowModel().rows.map((row) => (
-          <TableRow key={row.id}>
+          <TableRow data-selected={row.getIsSelected()} key={row.id}>
             {row.getVisibleCells().map((cell) => (
               <TableCell key={cell.id}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
