@@ -9,13 +9,13 @@ import type { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
 import React, { forwardRef } from 'react'
 
 import { IconButton } from '../icon-button'
-import { Button } from '../button'
 
 /**
  * Alert indicators allow users to view semantic messages that are prominent and can be dismissable.
  * @example
  * <Alert onDismiss={() => {}}>
- *   Message
+ *  <Text>Message</Text>
+ *  <Action>Action</Action>
  * </Alert>
  */
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
@@ -26,7 +26,6 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
     variant = 'informational',
     children,
     onDismiss,
-    action,
     ...otherProps
   } = props
 
@@ -34,12 +33,9 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
 
   return (
     <div data-sl-alert data-variant={variant} ref={ref} {...otherProps}>
-      <div data-sl-message-container>
-        <div data-sl-alert-icon-container>{icon}</div>
-        <p data-sl-alert-text>{children}</p>
-      </div>
-      <div data-sl-alert-actions>
-        {action && <Action action={action} />}
+      <div data-sl-alert-icon-container>{icon}</div>
+      <div data-sl-alert-container>{children}</div>
+      <div data-sl-alert-dismiss-container>
         {onDismiss && (
           <IconButton onClick={onDismiss} label="dismiss" variant="tertiary">
             <IconX />
@@ -49,32 +45,6 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
     </div>
   )
 })
-
-function Action(props: ActionProps) {
-  const { action } = props
-
-  if (action.onClick) {
-    const { onClick } = action
-
-    return (
-      <Button variant="tertiary" onClick={onClick}>
-        {action.label}
-      </Button>
-    )
-  }
-
-  const { href, newTab } = action
-
-  const newTabProps = newTab ? { target: '_blank', rel: 'noreferrer' } : {}
-
-  return (
-    <Button variant="tertiary" asChild>
-      <a href={href} {...newTabProps}>
-        {action.label}
-      </a>
-    </Button>
-  )
-}
 
 function getIcon(variant: AlertVariant = 'informational') {
   switch (variant) {
@@ -96,23 +66,9 @@ function getIcon(variant: AlertVariant = 'informational') {
   }
 }
 
-interface ActionProps {
-  action: AlertAction
-}
-
 type AlertVariant = 'informational' | 'success' | 'critical' | 'warning'
-
-type AlertAction = {
-  label: string
-  onClick?: MouseEventHandler<HTMLButtonElement>
-} & {
-  label: string
-  href?: string
-  newTab?: boolean
-}
 
 export interface AlertProps extends ComponentPropsWithoutRef<'div'> {
   variant?: AlertVariant
   onDismiss?: MouseEventHandler<HTMLButtonElement>
-  action?: AlertAction
 }
