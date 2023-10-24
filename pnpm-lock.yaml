@@ -662,6 +662,9 @@ importers:
       react-dom:
         specifier: '>=18'
         version: 18.2.0(react@18.2.0)
+      react-hot-toast:
+        specifier: 2.4.1
+        version: 2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@types/react-window':
         specifier: 1.8.7
@@ -23043,6 +23046,14 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
+
+  /goober@2.1.13(csstype@3.1.2):
+    resolution: {integrity: sha512-jFj3BQeleOoy7t93E9rZ2de+ScC4lQICLwiAQmKMg9F6roKGaLSHoCDYKkWlSafg138jejvq/mTdvmnwDQgqoQ==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dependencies:
+      csstype: 3.1.2
+    dev: false
 
   /gopd@1.0.1:
     resolution:
