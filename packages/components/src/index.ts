@@ -1,5 +1,7 @@
 /* PLOP_INJECT_EXPORT */
 export * from './simple-table'
+export * from './action'
+export * from './alert'
 export * from './tag'
 export * from './table'
 export * from './menu'
