@@ -18,8 +18,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = 'normal',
       variant = 'secondary',
       loading = false,
-      disabled = false,
       asChild = false,
+      disabled = false,
       children,
       ...buttonProps
     } = props
@@ -35,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-size={size}
         data-loading={loading}
         type={type}
+        disabled={disabled || loading}
         {...buttonProps}
       >
         {loading && (

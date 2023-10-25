@@ -75,34 +75,39 @@
       }
       &:focus-visible {
         box-shadow: var(--sl-focus-ring);
+        background: var(--sl-bg-muted-hover);
+        color: var(--sl-fg-muted-hover)
       }
       &:disabled {
         background: var(--sl-bg-disabled);
         color: var(--sl-fg-disabled);
         & > [data-sl-button-overlay] {
-          color: var(--sl-fg-muted);
+          color: var(--sl-fg-soft);
         }
       }
     }
 
     &[data-variant='tertiary'] {
       background: var(--sl-bg-muted-plain);
-      color: var(--sl-fg-muted-plain);
+      color: var(--sl-fg-muted);
       &:hover {
         background: var(--sl-bg-muted-plain-hover);
-        color: var(--sl-fg-muted-plain-hover);
+        color: var(--sl-fg-muted-hover);
       }
       &:active {
         background: var(--sl-bg-muted-plain-pressed);
-        color: var(--sl-fg-muted-plain-pressed);
+        color: var(--sl-fg-muted-pressed);
       }
       &:focus-visible {
         box-shadow: var(--sl-focus-ring);
+        background: var(--sl-bg-muted-plain-hover);
+        color: var(--sl-fg-muted-hover);
       }
       &:disabled {
+        background: transparent;
         color: var(--sl-fg-disabled);
         & > [data-sl-button-overlay] {
-          color: var(--sl-fg-muted);
+          color: var(--sl-fg-soft);
         }
       }
     }
@@ -134,6 +139,7 @@
       }
       &:focus-visible {
         box-shadow: var(--sl-focus-ring-critical);
+        background: var(--sl-bg-critical-strong-hover);
       }
       &:disabled {
         background: var(--sl-bg-strong-disabled);
@@ -152,11 +158,14 @@
       }
       &:focus-visible {
         box-shadow: var(--sl-focus-ring-critical);
+        background: var(--sl-bg-critical-plain-hover);
+        color: var(--sl-fg-critical-hover);
       }
       &:disabled {
+        background: transparent;
         color: var(--sl-fg-disabled);
         & > [data-sl-button-overlay] {
-          color: var(--sl-fg-muted);
+          color: var(--sl-fg-soft);
         }
       }
     }
