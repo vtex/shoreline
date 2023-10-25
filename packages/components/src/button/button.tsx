@@ -20,6 +20,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       asChild = false,
       disabled = false,
+      iconOnly = false,
       children,
       ...buttonProps
     } = props
@@ -33,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-sl-button
         data-variant={variant}
         data-size={size}
+        data-icon-only={iconOnly}
         data-loading={loading}
         type={type}
         disabled={disabled || loading}
@@ -60,6 +62,11 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
    * @default normal
    */
   size?: 'normal' | 'large'
+  /**
+   * Adjust padding to force a square button
+   * @default false
+   */
+  iconOnly?: boolean
   /**
    * Change between color combinations.
    * @default 'secondary'

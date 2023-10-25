@@ -11,6 +11,18 @@
     cursor: pointer;
     appearance: button;
     text-decoration: none;
+
+    &[data-icon-only='true'] {
+      width: var(--sl-element-height);
+      padding: var(--sl-space-0);
+    }
+
+    &[data-icon-only='false'] {
+      & [data-sl-icon-small], [data-sl-icon] {
+        margin-left: calc(var(--sl-space-05) * -1);
+      }
+    }
+
     &:focus {
       outline: none;
     }
@@ -26,9 +38,6 @@
       justify-content: center;
       opacity: 1;
       transition: opacity 300ms;
-      & > [data-sl-icon-small] {
-        margin-left: calc(--sl-space-05 * -1);
-      }
     }
 
     & > [data-sl-button-overlay] {

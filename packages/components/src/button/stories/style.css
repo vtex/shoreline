@@ -1,6 +1,6 @@
 .variants--grid {
   --cell-size: 96px;
-  --column-number: 6;
+  --column-number: 7;
 
   display: grid;
   grid-template-columns: repeat(var(--column-number), var(--cell-size));
