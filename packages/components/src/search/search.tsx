@@ -18,10 +18,11 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
     className,
     value,
     onClear,
+    id: defaultId,
     ...inputProps
   } = props
 
-  const id = useId()
+  const id = useId(defaultId)
 
   return (
     <div
