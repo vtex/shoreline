@@ -11,6 +11,10 @@ import { parseTokens } from './parse-tokens'
 import { isToken, cleanTokenString } from './token'
 import { constants } from './constants'
 import { forwardRef } from './forward-ref'
+import { canUseDOM } from './can-use-dom'
+import { useId } from './use-id'
+import { useMergeRef } from './use-merge-ref'
+import { useSafeLayoutEffect } from './use-safe-layout-effect'
 
 export {
   chain,
@@ -29,6 +33,10 @@ export {
   isString,
   isStringEmpty,
   forwardRef,
+  canUseDOM,
+  useId,
+  useMergeRef,
+  useSafeLayoutEffect,
 }
 
 export * from './css-types'

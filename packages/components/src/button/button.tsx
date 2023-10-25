@@ -34,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-loading={loading}
+        type={type}
         {...buttonProps}
       >
         {loading && (
