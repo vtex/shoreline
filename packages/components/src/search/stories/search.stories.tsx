@@ -35,7 +35,7 @@ export function All() {
   }
 
   return (
-    <Stack space="1rem">
+    <Stack>
       <Search disabled />
       <Search loading value={value} onChange={handleChange} onClear={onClear} />
       <Search disabled loading value={'Search query'} onClear={() => null} />

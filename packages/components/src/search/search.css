@@ -1,13 +1,20 @@
+@layer sl-tokens {
+  :where([data-sl-search]) {
+    --sl-search-height: 2.75rem;
+    --sl-search-min-width: 20rem;
+  }
+}
+
 @layer sl-components {
   [data-sl-search] {
     display: flex;
     align-items: center;
-    height: 2.75rem;
-    min-width: 20rem;
+    height: var(--sl-search-height);
+    min-width: var(--sl-search-min-width);
     padding: var(--sl-space-3) var(--sl-space-4);
     border-radius: var(--sl-border-radius-medium);
     border: var(--sl-border-strong);
-    background: var(--bg, #fff);
+    background: var(--sl-bg);
 
     &:hover {
       border: var(--sl-border-strong-hover);
@@ -26,7 +33,7 @@
       flex-shrink: 0;
     }
 
-    & > [data-sl-input] {
+    & > [data-sl-search-input] {
       width: 100%;
       border: none;
       background-color: unset;

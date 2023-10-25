@@ -4,6 +4,7 @@ import { IconButton } from '../icon-button'
 import { IconMagnifyingGlass, IconXCircle } from '@vtex/shoreline-icons'
 import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
+import { VisuallyHidden } from '../visually-hidden'
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
   props,
@@ -19,22 +20,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
     ...inputProps
   } = props
 
-  const labelId = useId()
-
-  const icon = loading ? (
-    <Spinner data-sl-pre-icon />
-  ) : (
-    <IconMagnifyingGlass data-sl-pre-icon />
-  )
-
-  const clear =
-    value && typeof onClear !== undefined ? (
-      <Bleed horizontal>
-        <IconButton label="Clear" onClick={onClear} variant="tertiary">
-          <IconXCircle />
-        </IconButton>
-      </Bleed>
-    ) : null
+  const id = useId()
 
   return (
     <div
@@ -43,42 +29,40 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       data-loading={loading}
       data-sl-search
     >
-      {icon}
+      {loading ? (
+        <Spinner data-sl-pre-icon />
+      ) : (
+        <IconMagnifyingGlass data-sl-pre-icon />
+      )}
       <input
-        id={labelId}
-        data-sl-input
+        id={id}
+        data-sl-search-input
         ref={ref}
         disabled={disabled}
         value={value}
         placeholder={placeholder}
         {...inputProps}
       />
-      {clear}
+      <VisuallyHidden>
+        <label htmlFor={id}>{placeholder}</label>
+      </VisuallyHidden>
+      {value && typeof onClear !== undefined ? (
+        <Bleed horizontal>
+          <IconButton label="Clear" onClick={onClear} variant="tertiary">
+            <IconXCircle />
+          </IconButton>
+        </Bleed>
+      ) : null}
     </div>
   )
 })
 
 export interface SearchProps extends ComponentPropsWithoutRef<'input'> {
   /**
-   * Whether input is disabled or not
-   * @default false
-   */
-  disabled?: boolean
-  /**
    * Whether component is loading or not
    * @default false
    */
   loading?: boolean
-  /**
-   * The value of the placeholder text
-   * @default "Search"
-   */
-  placeholder?: string
-  /**
-   * The value of the input
-   * @default undefined
-   */
-  value?: string
   /**
    * Callback when the input is cleared
    * @default undefined
