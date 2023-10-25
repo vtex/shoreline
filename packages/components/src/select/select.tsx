@@ -19,7 +19,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const id = useId()
 
     return (
-      <Field data-select>
+      <Field data-sl-select>
         {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
         <div data-sl-select-input-container>
           <select
