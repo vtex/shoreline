@@ -1,7 +1,7 @@
 import '../../../dist/styles.min.css'
 import '../toast.css'
 import React from 'react'
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from '../toaster'
 
 import { toast } from '../index'
 import { Stack } from '../../stack'
@@ -17,40 +17,28 @@ export function Default() {
       <Stack>
         <button
           onClick={() => {
-            toast({
-              variant: 'informational',
-              message: 'Short message',
-            })
+            toast.informational('Short message from informational')
           }}
         >
           Informational
         </button>
         <button
           onClick={() => {
-            toast({
-              variant: 'success',
-              message: 'Short message',
-            })
+            toast.success('Short message from success')
           }}
         >
           Success
         </button>
         <button
           onClick={() => {
-            toast({
-              variant: 'critical',
-              message: 'Short message',
-            })
+            toast.critical('Short message from critical')
           }}
         >
           Critical
         </button>
         <button
           onClick={() => {
-            toast({
-              variant: 'warning',
-              message: 'Short message',
-            })
+            toast.warning('Short message from warning')
           }}
         >
           Warning
@@ -60,22 +48,20 @@ export function Default() {
   )
 }
 
-export function Promi() {
+export function WithPromises() {
   return (
     <div>
       <Toaster />
       <button
         onClick={() => {
-          toast({
-            variant: 'warning',
-            message: 'Short message',
-            promise: new Promise(function (resolve) {
-              setTimeout(resolve, 1000)
-            }),
-          })
+          toast.promise(
+            new Promise(function (resolve) {
+              setTimeout(resolve, 2000)
+            })
+          )
         }}
       >
-        Warning
+        Create item
       </button>
     </div>
   )
