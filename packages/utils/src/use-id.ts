@@ -2,8 +2,7 @@ import * as React from 'react'
 import { useSafeLayoutEffect } from './use-safe-layout-effect'
 
 const _React = { ...React }
-// useId is not available in React < 16.8
-const useReactId = _React?.useId
+const useReactId = _React.useId
 
 /**
  * Generates a unique ID. Uses React's useId if available.
