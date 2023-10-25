@@ -1,8 +1,9 @@
 import '../../../dist/styles.min.css'
 import '../simple-table.css'
-import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {
+  IconCaretDown,
+  IconCaretRight,
   IconCloudArrowUp,
   IconDotsThreeVertical,
   IconPencil,
@@ -10,6 +11,7 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
 
+import { Action } from '../../action'
 import { Flex } from '../../flex'
 import { Text } from '../../text'
 import { IconButton } from '../../icon-button'
@@ -23,7 +25,7 @@ import {
 } from '../../menu'
 import { VisuallyHidden } from '../../visually-hidden'
 import { SimpleTable } from '../index'
-import { Checkbox } from '../../checkbox'
+import { getExpandedColumn } from '../columns'
 
 export default {
   title: 'shoreline-components/simple-table',
@@ -36,9 +38,10 @@ type Product = {
   status: string
 }
 
-export function Default() {
+export function Detail() {
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
+      getExpandedColumn(),
       {
         id: 'name',
         cell: ({
@@ -139,7 +142,17 @@ export function Default() {
           status: 'Published',
         },
       ]}
+      getRowCanExpand={() => true}
       columns={columns}
+      renderDetail={(row) => (
+        <img
+          style={{
+            width: '10rem',
+          }}
+          alt={row.original.name}
+          src={row.original.imageUrl}
+        />
+      )}
     />
   )
 }

@@ -6,4 +6,8 @@
   [data-sl-table-row][data-selected='true'] {
     background: var(--sl-bg-muted);
   }
+
+  [data-sl-detail-row] {
+    background: var(--sl-bg-muted);
+  }
 }
