@@ -62,11 +62,6 @@ export function Variants() {
               <IconArrowUpRightSmall />
             </Button>
           </div>
-          <div>
-            <Button size={size} variant={variant} iconOnly>
-              <IconTrash />
-            </Button>
-          </div>
         </Fragment>
       ))}
     </div>
