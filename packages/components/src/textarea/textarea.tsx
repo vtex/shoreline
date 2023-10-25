@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef, useId } from 'react'
+import React, { forwardRef } from 'react'
+import { useId } from '@vtex/shoreline-utils'
 
 import { Field, FieldLabel, FieldMessage } from '../field'
 
