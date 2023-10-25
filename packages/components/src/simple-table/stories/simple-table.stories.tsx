@@ -23,6 +23,7 @@ import {
 } from '../../menu'
 import { VisuallyHidden } from '../../visually-hidden'
 import { SimpleTable } from '../index'
+import { Checkbox } from '../../checkbox'
 
 export default {
   title: 'shoreline-components/simple-table',
@@ -143,29 +144,6 @@ export function Default() {
   )
 }
 
-function Checkbox({
-  indeterminate,
-  className = '',
-  ...rest
-}: { indeterminate?: boolean } & HTMLProps<HTMLInputElement>) {
-  const ref = React.useRef<HTMLInputElement>(null!)
-
-  React.useEffect(() => {
-    if (typeof indeterminate === 'boolean') {
-      ref.current.indeterminate = !rest.checked && indeterminate
-    }
-  }, [ref, indeterminate])
-
-  return (
-    <input
-      type="checkbox"
-      ref={ref}
-      className={`${className} cursor-pointer`}
-      {...rest}
-    />
-  )
-}
-
 export function Selection() {
   const [rowSelection, setRowSelection] = React.useState({})
 
@@ -173,20 +151,30 @@ export function Selection() {
     () => [
       {
         id: 'select',
-        header: ({ table }) => (
-          <Checkbox
-            checked={table.getIsAllRowsSelected()}
-            indeterminate={table.getIsSomeRowsSelected()}
-            onChange={table.getToggleAllRowsSelectedHandler()}
-          />
-        ),
+        header: ({ table }) => {
+          console.log({
+            table: table.getIsAllRowsSelected(),
+          })
+
+          return (
+            <Checkbox
+              checked={table.getIsAllRowsSelected()}
+              indeterminate={table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
+            >
+              <VisuallyHidden>Select</VisuallyHidden>
+            </Checkbox>
+          )
+        },
         cell: ({ row }) => (
           <Checkbox
             checked={row.getIsSelected()}
             disabled={!row.getCanSelect()}
             indeterminate={row.getIsSomeSelected()}
             onChange={row.getToggleSelectedHandler()}
-          />
+          >
+            <VisuallyHidden>{row.index}</VisuallyHidden>
+          </Checkbox>
         ),
       },
       {
