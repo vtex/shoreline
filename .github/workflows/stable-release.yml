@@ -58,3 +58,4 @@ jobs:
         run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          HUSKY: 0
