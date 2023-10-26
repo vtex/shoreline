@@ -10,17 +10,26 @@ export default {
 }
 
 export function Default() {
-  return <TextInput />
+  return <TextInput label="test" />
 }
 
 export function All() {
   return (
-    <Stack space="1rem">
-      <TextInput error />
-      <TextInput disabled />
-      <TextInput prefix="a" />
-      <TextInput suffix="suffix" />
-      <TextInput prefix="pre" suffix="suffix" />
+    <Stack>
+      <TextInput label="Label" error />
+      <TextInput label="Label" disabled />
+      <TextInput label="Label" prefix="a" />
+      <TextInput label="Label" suffix="suffix" />
+      <TextInput label="Label" prefix="pre" suffix="suffix" />
+
+      <TextInput label="Label" errorText="Something went wrong" error />
+      <TextInput
+        label="Label"
+        errorText="Something went wrong"
+        helpText="This is an input"
+        error
+      />
+      <TextInput label="Label" helpText="This is an input" />
     </Stack>
   )
 }
