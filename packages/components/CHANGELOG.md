@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.7.0...@vtex/shoreline-components@0.8.0) (2023-10-26)
+
+### Features
+
+- **textinput:** add label and error message to text input ([7a3c294](https://github.com/vtex/admin-ui/commit/7a3c2947ea4df97609b50f1656d2f4ee91b94e03))
+- **textinput:** add test cases ([d91e0fa](https://github.com/vtex/admin-ui/commit/d91e0fae3d39d8d044624cd177094cda5facbce8))
+
 # [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.6.0...@vtex/shoreline-components@0.7.0) (2023-10-26)
 
 ### Features
