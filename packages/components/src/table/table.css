@@ -2,7 +2,6 @@
   [data-sl-table] {
     color: var(--sl-color-fg);
     border-collapse: collapse;
-    width: 100%;
   }
 
   [data-sl-table-header-cell],
@@ -20,6 +19,14 @@
   [data-sl-table-header-cell] {
     font: var(--sl-text-emphasis-font);
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
+
+    &[data-sticky='true'] {
+      position: sticky;
+      top: 0;
+      background: var(--sl-bg);
+      border-bottom: var(--sl-border);
+      box-shadow: 10px 5px 5px black;
+    }
   }
 
   [data-sl-table-body] {

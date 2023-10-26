@@ -1,6 +1,7 @@
 @layer sl-components {
   [data-sl-simple-table] {
-    width: 100%;
+    /* width: 100%; */
+    overflow-x: scroll;
   }
 
   [data-sl-table-row][data-selected='true'] {
@@ -9,5 +10,17 @@
 
   [data-sl-detail-row] {
     background: var(--sl-bg-muted);
+  }
+
+  [data-sl-table-header-cell][data-pined='left'] {
+    background: red;
+    position: sticky;
+    left: 0;
+  }
+
+  [data-sl-table-cell][data-pined='left'] {
+    background: red;
+    position: sticky;
+    left: 0;
   }
 }

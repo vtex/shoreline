@@ -5,7 +5,18 @@ export const TableHeaderCell = forwardRef<
   HTMLTableCellElement,
   TableHeaderCellProps
 >(function TableHeaderCell(props, ref) {
-  return <th data-sl-table-header-cell ref={ref} {...props} />
+  const { sticky, ...otherProps } = props
+
+  return (
+    <th
+      data-sl-table-header-cell
+      data-sticky={sticky}
+      ref={ref}
+      {...otherProps}
+    />
+  )
 })
 
-export type TableHeaderCellProps = ComponentPropsWithoutRef<'th'>
+export interface TableHeaderCellProps extends ComponentPropsWithoutRef<'th'> {
+  sticky?: boolean
+}

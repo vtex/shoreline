@@ -35,6 +35,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     options,
     getRowCanExpand,
     renderDetail,
+    stickyHeader = false,
     ...tableProps
   } = props
 
@@ -53,7 +54,12 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHeaderCell key={header.id}>
+              <TableHeaderCell
+                style={{ width: '1000px' }}
+                sticky={stickyHeader}
+                data-pined={header.column.getIsPinned()}
+                key={header.id}
+              >
                 {header.isPlaceholder
                   ? null
                   : flexRender(
@@ -73,7 +79,11 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
               data-expanded={row.getIsExpanded()}
             >
               {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
+                <TableCell
+                  style={{ width: '1000px' }}
+                  data-pined={cell.column.getIsPinned()}
+                  key={cell.id}
+                >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableCell>
               ))}
@@ -109,4 +119,8 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
    * Renders function for the detail row
    */
   renderDetail?: (row: Row<T>) => ReactNode
+  /**
+   *
+   */
+  stickyHeader?: boolean
 }
