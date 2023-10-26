@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.6.0...@vtex/shoreline-components@0.7.0) (2023-10-26)
+
+### Features
+
+- **simple-table:** add detail expansion ([6f74823](https://github.com/vtex/admin-ui/commit/6f74823374e657f4731f431e55d32aba8eb2bfd1))
+
 # [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.5.0...@vtex/shoreline-components@0.6.0) (2023-10-26)
 
 ### Bug Fixes
