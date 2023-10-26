@@ -1,5 +1,7 @@
 import { theme } from '../../shoreline/theme'
 
+const tokenPrefix = '--sl-'
+
 export function getFoundationTokens(foundation: Foundation) {
   const tokens = Object.keys(theme)
 
@@ -22,7 +24,7 @@ export function getFoundationTokens(foundation: Foundation) {
 
 function sanitizeTypographyTokens(tokens: string[]) {
   return tokens.reduce((acc: string[], token) => {
-    if (!token.startsWith('$text')) return [...acc, token]
+    if (!token.startsWith(`${tokenPrefix}text`)) return [...acc, token]
 
     const [sanitizedToken] = token.endsWith('letter-spacing')
       ? token.split('-letter-spacing')
@@ -37,14 +39,14 @@ function sanitizeTypographyTokens(tokens: string[]) {
 export function getTokenValues(token: string, foundation: Foundation) {
   const resolvedFoundation = resolveFoundation(token, foundation)
 
-  const variable = token.replace('$', '--sl-')
+  const name = token.replace(tokenPrefix, '$')
 
   const value =
     resolvedFoundation === 'text' ? getTextValue(token) : theme[token]
 
   return {
-    name: token,
-    variable,
+    name,
+    variable: token,
     value,
     foundation: resolvedFoundation,
   }
@@ -75,7 +77,7 @@ export function resolveFoundation(token: string, foundation: Foundation) {
     const derivedFoundation = derivedFoundations[foundation] ?? []
 
     const [resolvedFoundation] = derivedFoundation.filter((derivedToken) =>
-      token.startsWith(`$${derivedToken}`)
+      token.startsWith(`${tokenPrefix}${derivedToken}`)
     )
 
     return resolvedFoundation
