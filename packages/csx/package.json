@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-csx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shoreline csx definition",
   "main": "dist/vtex-shoreline-csx.cjs.js",
   "module": "dist/vtex-shoreline-csx.esm.js",
@@ -26,7 +26,7 @@
     "runtime-stylesheet": "0.2.1"
   },
   "dependencies": {
-    "@vtex/shoreline-utils": "^0.1.0",
+    "@vtex/shoreline-utils": "^0.2.0",
     "csstype": "3.1.2"
   }
 }

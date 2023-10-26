@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.4.0...@vtex/shoreline-components@0.5.0) (2023-10-26)
+
+### Bug Fixes
+
+- **menu:** component naming ([28c0f38](https://github.com/vtex/admin-ui/commit/28c0f38f74d3ef93b567d8d6c2338836ced60303))
+
+### Features
+
+- **action:** add component ([b6b42e1](https://github.com/vtex/admin-ui/commit/b6b42e1084b4fbbfb5b6c9501e119bae816fc998))
+- **alert:** add component ([372df67](https://github.com/vtex/admin-ui/commit/372df67507e9e476d0623d5840e222542386b4b6))
+- **checkbox:** add component ([4c76dcb](https://github.com/vtex/admin-ui/commit/4c76dcbfb797eaf772c37c3a16449e93e38f126b))
+- **field:** add field component ([5341e21](https://github.com/vtex/admin-ui/commit/5341e218918a85ab339e4b8ccb42d5e6c45c013e))
+- **field:** add field component ([76b94d8](https://github.com/vtex/admin-ui/commit/76b94d83602d7864349740373c35e28f2b2ac477))
+- **field:** migrate from .css.ts to .css ([3f0aed2](https://github.com/vtex/admin-ui/commit/3f0aed2260e0a0962382a3990e888e7bb8efddef))
+- **menu:** create shoreline menu architecture ([f4dc4da](https://github.com/vtex/admin-ui/commit/f4dc4da052eaab1b3541afcf834154ec8239fafd))
+- search component architecture ([2885ed7](https://github.com/vtex/admin-ui/commit/2885ed70af6ee15a838526a9be5535e3ae53948f))
+- **table:** add tanstack table example ([fb3fa17](https://github.com/vtex/admin-ui/commit/fb3fa179725d6c4552148d2505e935c2b7123f52))
+- **table:** create html parts ([a7a4a61](https://github.com/vtex/admin-ui/commit/a7a4a61e235c8cbebf7befaeb635a937886f401a))
+- **table:** implement simple-table ([591daba](https://github.com/vtex/admin-ui/commit/591dababe30e1c1270e9e8e0766f2f97f8d00f2c))
+- **tag:** add component architecture ([9878275](https://github.com/vtex/admin-ui/commit/98782756d407da040e8af1a9bcd6c45e092f5422))
+- **textarea:** add field to textarea ([c041bdc](https://github.com/vtex/admin-ui/commit/c041bdc4f73d5feb06324b0eb67e3275864b9092))
+- **textarea:** add textarea component ([bf6cd32](https://github.com/vtex/admin-ui/commit/bf6cd3262a1781526bf49fdf956ce510e3adc5d4))
+- **textarea:** fix rebase issues ([888dfc9](https://github.com/vtex/admin-ui/commit/888dfc9facd5a8fc378049bda248003134f26158))
+
 # [0.4.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.3.0...@vtex/shoreline-components@0.4.0) (2023-10-19)
 
 ### Features
