@@ -135,7 +135,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
+      "pnpm lint --fix",
       "prettier --write"
     ],
     "*.{gql,json,yml,md}": [

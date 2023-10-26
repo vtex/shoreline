@@ -9,7 +9,7 @@ export const tones = asLiterals([
   'neutral',
 ])
 
-export type Tone = typeof tones[number]
+export type Tone = (typeof tones)[number]
 
 export type Palette =
   | 'blue'
@@ -293,15 +293,15 @@ export const elevationTokens = asLiterals([
 
 export const borderRadiusTokens = asLiterals(['$none', '$pill', '$base'])
 
-export type ColorTokens = typeof colorTokens[number]
-export type FgTokens = typeof fgTokens[number]
-export type BgTokens = typeof bgTokens[number]
-export type BorderTokens = typeof borderTokens[number]
-export type ShadowTokens = typeof shadowTokens[number]
-export type TextTokens = typeof textTokens[number]
-export type SpaceTokens = typeof spaceTokens[number]
-export type ElevationTokens = typeof elevationTokens[number]
-export type BorderRadiusTokens = typeof borderRadiusTokens[number]
+export type ColorTokens = (typeof colorTokens)[number]
+export type FgTokens = (typeof fgTokens)[number]
+export type BgTokens = (typeof bgTokens)[number]
+export type BorderTokens = (typeof borderTokens)[number]
+export type ShadowTokens = (typeof shadowTokens)[number]
+export type TextTokens = (typeof textTokens)[number]
+export type SpaceTokens = (typeof spaceTokens)[number]
+export type ElevationTokens = (typeof elevationTokens)[number]
+export type BorderRadiusTokens = (typeof borderRadiusTokens)[number]
 
 export type StandardCSSProperties = CSS.Properties<number | string>
 
