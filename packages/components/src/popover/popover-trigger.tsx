@@ -2,6 +2,15 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { PopoverDisclosure } from '@ariakit/react'
 
+/**
+ * Triggers popover containers
+ *
+ * @example
+ *  <PopoverProvider>
+ *    <PopoverTrigger>Trigger</PopoverTrigger>
+ *    <Popover>Content</Popover>
+ *  </PopoverProvider>
+ */
 export const PopoverTrigger = forwardRef<
   HTMLButtonElement,
   PopoverTriggerProps
