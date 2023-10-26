@@ -48,7 +48,14 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
   })
 
   return (
-    <Table data-sl-simple-table ref={ref} {...tableProps}>
+    <Table
+      data-sl-simple-table
+      ref={ref}
+      columnWidths={[
+        `repeat(${columns.length}, var(--sl-table-default-column-width))`,
+      ]}
+      {...tableProps}
+    >
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
@@ -80,7 +87,11 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
             </TableRow>
             {row.getIsExpanded() && (
               <TableRow data-sl-detail-row data-selected={row.getIsSelected()}>
-                <TableCell colSpan={row.getVisibleCells().length}>
+                <TableCell
+                  style={{
+                    gridColumn: `1 / span ${row.getVisibleCells().length}`,
+                  }}
+                >
                   {renderDetail?.(row)}
                 </TableCell>
               </TableRow>

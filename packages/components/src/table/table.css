@@ -1,8 +1,24 @@
+@layer sl-tokens {
+  :root {
+    --sl-table-default-column-width: minmax(min-content, auto);
+  }
+}
+
 @layer sl-components {
   [data-sl-table] {
     color: var(--sl-color-fg);
     border-collapse: collapse;
     width: 100%;
+    display: grid;
+    overflow: auto;
+    grid-template-columns: var(--sl-table-grid-template-columns);
+    grid-auto-rows: minmax(min-content, auto);
+  }
+
+  [data-sl-table-header],
+  [data-sl-table-body],
+  [data-sl-table-row] {
+    display: contents;
   }
 
   [data-sl-table-header-cell],
