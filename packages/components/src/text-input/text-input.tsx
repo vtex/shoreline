@@ -21,11 +21,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const id = useId(defaultId)
 
     return (
-      <Field data-sl-text-input-field>
+      <Field data-sl-text-input className={className}>
         <FieldLabel htmlFor={id}>{label}</FieldLabel>
         <div
-          className={className}
-          data-sl-text-input
+          data-sl-text-input-container
           data-disabled={disabled}
           data-error={error}
         >

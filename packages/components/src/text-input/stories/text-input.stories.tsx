@@ -15,21 +15,21 @@ export function Default() {
 
 export function All() {
   return (
-    <Stack space="1rem">
-      <TextInput label="" error />
-      <TextInput label="" disabled />
-      <TextInput label="" prefix="a" />
-      <TextInput label="" suffix="suffix" />
-      <TextInput label="" prefix="pre" suffix="suffix" />
+    <Stack>
+      <TextInput label="Label" error />
+      <TextInput label="Label" disabled />
+      <TextInput label="Label" prefix="a" />
+      <TextInput label="Label" suffix="suffix" />
+      <TextInput label="Label" prefix="pre" suffix="suffix" />
 
-      <TextInput label="" errorText="Something went wrong" error />
+      <TextInput label="Label" errorText="Something went wrong" error />
       <TextInput
-        label=""
+        label="Label"
         errorText="Something went wrong"
         helpText="This is an input"
         error
       />
-      <TextInput label="" helpText="This is an input" />
+      <TextInput label="Label" helpText="This is an input" />
     </Stack>
   )
 }

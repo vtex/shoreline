@@ -1,10 +1,10 @@
 @layer sl-components {
-  [data-sl-text-input-field]{
+  [data-sl-text-input]{
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
-  [data-sl-text-input] {
+  [data-sl-text-input-container] {
     height: 2.75rem;
     width: 100%;
     font: var(--sl-text-body-font);
