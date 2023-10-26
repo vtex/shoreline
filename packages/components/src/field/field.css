@@ -31,10 +31,12 @@
     }
 
     [data-sl-field-label] {
-      color: var(--sl-fg);
+      color: var(--sl-fg-soft);
       display: flex;
       align-items: center;
       grid-area: label;
+      font: var(--sl-text-body-font);
+      letter-spacing: var(--sl-text-body-letter-spacing);
     }
   }
 }

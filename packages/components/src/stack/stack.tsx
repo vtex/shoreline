@@ -7,7 +7,6 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   ref
 ) {
   const {
-    className,
     children,
     direction = 'column',
     space = '$space-gap',

@@ -1,0 +1,7 @@
+.select-container {
+  margin: 16px;
+  display: grid;
+  align-items: start;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
