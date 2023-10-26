@@ -9,6 +9,7 @@ import { vi } from 'vitest'
 
 test('publishMessage should post message to parent window', () => {
   const mockPostMessage = vi.spyOn(window, 'postMessage')
+
   global.window = {
     parent: {
       postMessage: mockPostMessage,
@@ -18,6 +19,7 @@ test('publishMessage should post message to parent window', () => {
     type: 'test-message',
     data: {},
   }
+
   publishMessage(params)
   expect(mockPostMessage).toHaveBeenCalledWith(
     {
@@ -33,11 +35,13 @@ test('isAdminShellEvent should return true for admin iframe events', () => {
     type: 'admin-iframe-message',
     data: {},
   }
+
   expect(isAdminShellEvent(event)).toBe(true)
 })
 
 test('sendEventToEmbeddedApp should post message to iframe content window', () => {
   const iframe = document.createElement('iframe') as any
+
   iframe.src = 'https://vtex.com'
   Object.defineProperty(iframe, 'contentWindow', {
     value: { postMessage: (_: any) => null },
@@ -61,6 +65,7 @@ test('sendEventToEmbeddedApp should post message to iframe content window', () =
 
 test('listenForAdminShellEvents should set adminStore when receiving admin iframe events', () => {
   const mockAdminStoreSet = vi.spyOn(adminStore, 'set') as any
+
   adminStore.set = mockAdminStoreSet
   const event = {
     type: 'admin-iframe-message',
@@ -68,6 +73,7 @@ test('listenForAdminShellEvents should set adminStore when receiving admin ifram
       test: 'data',
     },
   }
+
   const messageEvent = {
     data: event,
   }

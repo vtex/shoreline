@@ -39,6 +39,7 @@ function Router({ children }: PropsWithChildren) {
 
       if (ctx.path && raccoonUrl !== ctx.path) {
         navigate(as)
+
         return false
       }
 
