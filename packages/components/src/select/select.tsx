@@ -31,10 +31,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       error = false,
       disabled = false,
       className,
+      id: defaultId,
       ...otherProps
     } = props
 
-    const id = useId()
+    const id = useId(defaultId)
 
     return (
       <Field data-sl-select className={className}>
