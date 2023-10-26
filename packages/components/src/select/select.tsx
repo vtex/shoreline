@@ -1,8 +1,25 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef, useId } from 'react'
+import React, { forwardRef } from 'react'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { IconCaretUpDownSmall } from '@vtex/shoreline-icons'
+import { useId } from '@vtex/shoreline-utils'
 
+/**
+ * Select fields allow merchants to choose a single option from a list
+ * that includes between five and seven values.
+ *
+ * @example
+ *
+ * <Select
+ *   label="Label"
+ *   helpText="Help text"
+ *   errorText="Error text"
+ * >
+ *   <option>option</option>
+ *   <option>option</option>
+ *   <option>option</option>
+ * </Select>
+ */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   function Select(props, ref) {
     const {
@@ -13,13 +30,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       label,
       error = false,
       disabled = false,
+      className,
       ...otherProps
     } = props
 
     const id = useId()
 
     return (
-      <Field data-sl-select>
+      <Field data-sl-select className={className}>
         {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
         <div data-sl-select-input-container>
           <select

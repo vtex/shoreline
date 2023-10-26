@@ -13,5 +13,9 @@ describe('select', () => {
     )
 
     expect(container.querySelector('[data-sl-select]')).toBeInTheDocument()
+    expect(container.querySelector('[data-sl-field-label]')).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-field-message-text]')
+    ).toBeInTheDocument()
   })
 })
