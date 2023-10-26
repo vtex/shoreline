@@ -7,7 +7,6 @@ packages/icons/native
 **/build
 storybook-static
 
-
 # Resolve: Parsing error: Unexpected token <
 **/gatsby-browser.js
 **/gatsby-ssr.js
@@ -18,3 +17,6 @@ storybook-static
 # not accepting conditional chaining
 packages/admin-ui-codemod/src/space-tokens-review.js
 packages/create-raccoon-app/src/index.js
+
+# Resolve: Expected exception block, space or tab after '//' in comment
+examples/shoreline-nextjs-integration/next-env.d.ts
