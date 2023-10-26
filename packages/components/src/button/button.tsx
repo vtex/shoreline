@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import React, { Children, forwardRef } from 'react'
 import { Button as BaseButton } from '@ariakit/react'
 
 import { Spinner } from '../spinner'
@@ -18,8 +18,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = 'normal',
       variant = 'secondary',
       loading = false,
-      disabled = false,
       asChild = false,
+      disabled = false,
       children,
       ...buttonProps
     } = props
@@ -35,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-size={size}
         data-loading={loading}
         type={type}
+        disabled={disabled || loading}
         {...buttonProps}
       >
         {loading && (
@@ -43,14 +44,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </Center>
         )}
         <Composable
-          render={(node) => <span data-sl-button-content>{node}</span>}
+          render={(node) => (
+            <span data-sl-button-content>{spanizeString(node)}</span>
+          )}
         >
-          {children}
+          {asChild ? children : spanizeString(children)}
         </Composable>
       </Comp>
     )
   }
 )
+
+function spanizeString(children: ReactNode) {
+  return Children.map(children, (child) => {
+    if (typeof child === 'string') {
+      return <span>{child}</span>
+    }
+
+    return child
+  })
+}
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   children: ReactNode

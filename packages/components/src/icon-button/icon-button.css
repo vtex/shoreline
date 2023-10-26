@@ -2,6 +2,10 @@
   [data-sl-icon-button] {
     width: var(--sl-element-height);
 
+    & [data-sl-button-content] > [data-sl-icon]:first-child, [data-sl-button-content] > [data-sl-icon-small]:first-child {
+      margin: var(--sl-space-0);
+    }
+
     &[data-size='normal'] {
       --sl-element-space-top: var(--sl-space-2);
       --sl-element-space-bottom: var(--sl-space-2);
