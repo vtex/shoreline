@@ -14,6 +14,7 @@ export function Default() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
   }
+
   const onClear = () => {
     setValue('')
   }
@@ -30,6 +31,7 @@ export function All() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
   }
+
   const onClear = () => {
     setValue('')
   }
@@ -38,7 +40,7 @@ export function All() {
     <Stack>
       <Search disabled />
       <Search loading value={value} onChange={handleChange} onClear={onClear} />
-      <Search disabled loading value={'Search query'} onClear={() => null} />
+      <Search disabled loading value="Search query" onClear={() => null} />
     </Stack>
   )
 }

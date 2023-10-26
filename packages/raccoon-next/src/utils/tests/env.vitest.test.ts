@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { test, expect } from 'vitest'
 import { isIframe, isDev } from '../env'
 
@@ -15,7 +16,8 @@ test('isIframe returns true when running in an iframe', () => {
 })
 
 test('isIframe returns false when not running in an iframe', () => {
-  globalThis.window = globalThis.top = {} as any
+  globalThis.top = {} as any
+  globalThis.window = globalThis.top as any
 
   expect(!isIframe())
 
