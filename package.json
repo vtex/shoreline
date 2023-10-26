@@ -34,7 +34,7 @@
     "build:docs": "npm --prefix packages/admin-ui-docs run build-docs",
     "build:next-docs": "npm --prefix packages/next-docs run build-docs",
     "version:docs": "npm --prefix packages/admin-ui-docs run docusaurus docs:version",
-    "commit": "cz",
+    "cm": "cz",
     "build:ci": "pnpm turbo run build",
     "build-storybook:ci": "storybook build",
     "test:ci": "pnpm test",

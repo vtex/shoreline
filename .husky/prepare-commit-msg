@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm run commit -E HUSKY_GIT_PARAMS
+exec < /dev/tty && pnpm run cm --hook || true
