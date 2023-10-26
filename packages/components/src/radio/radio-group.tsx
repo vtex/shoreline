@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, Dispatch, SetStateAction } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { RadioStore } from '@ariakit/react'
 import {
@@ -8,6 +8,7 @@ import {
 } from '@ariakit/react'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { Stack } from '../stack'
+import { useId } from '@vtex/shoreline-utils'
 
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   function Radio(props, ref) {
@@ -20,14 +21,17 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
       className,
       direction,
       state,
+      id: defaultId,
       ...otherProps
     } = props
 
+    const id = useId(defaultId)
+
     return (
       <RadioProvider store={state}>
-        <Field data-sl-group-field className={className}>
-          <FieldLabel>{label}</FieldLabel>
-          <BaseRadioGroup data-sl-group ref={ref} {...otherProps}>
+        <Field data-sl-radio-group className={className}>
+          <FieldLabel htmlFor={id}>{label}</FieldLabel>
+          <BaseRadioGroup data-sl-group id={id} ref={ref} {...otherProps}>
             <Stack direction={direction}>{children}</Stack>
           </BaseRadioGroup>
           <FieldMessage

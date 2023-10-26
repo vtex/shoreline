@@ -2,22 +2,35 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Radio as BaseRadio } from '@ariakit/react'
 import { Field, FieldLabel } from '../field'
+import { useId } from '@vtex/shoreline-utils'
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   props,
   ref
 ) {
-  const { error, disabled, label, value, ...otherProps } = props
+  const {
+    error = false,
+    disabled,
+    label,
+    value,
+    id: defaultId,
+    ...otherProps
+  } = props
+
+  const id = useId(defaultId)
 
   return (
-    <Field variant="control" data-sl-radio-field>
-      <FieldLabel data-disabled={disabled}>{label}</FieldLabel>
+    <Field variant="control" data-sl-radio>
+      <FieldLabel htmlFor={id} data-disabled={disabled}>
+        {label}
+      </FieldLabel>
       <BaseRadio
-        data-sl-radio
+        data-sl-radio-input
         value={value}
-        data-error={error || 'false'}
+        data-error={error}
         data-disabled={disabled}
         disabled={disabled}
+        id={id}
         ref={ref}
         {...otherProps}
       />

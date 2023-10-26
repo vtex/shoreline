@@ -1,9 +1,9 @@
 @layer sl-components {
-  [data-sl-radio-field] {
+  [data-sl-radio] {
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-spacing);
 
-    & > [data-sl-radio] {
+    & > [data-sl-radio-input] {
       appearance: none;
       position: relative;
       border-radius: var(--sl-border-radius-full);
@@ -73,7 +73,7 @@
         --sl-element-focus-ring-checked: var(--sl-focus-ring-critical);
       }
 
-      &[data-disabled='true'] {
+      &:disabled {
         --sl-element-border: var(--sl-border-disabled);
         --sl-element-border-hover: var(--sl-border-disabled);
         --sl-element-bg: var(--sl-bg-disabled);
