@@ -3,6 +3,8 @@ import '../simple-table.css'
 import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {
+  IconCaretDown,
+  IconCaretRight,
   IconCloudArrowUp,
   IconDotsThreeVertical,
   IconPencil,
@@ -36,9 +38,33 @@ type Product = {
   status: string
 }
 
-export function Default() {
+export function Selection() {
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
+      {
+        id: 'select',
+        header: ({ table }) => {
+          return (
+            <Checkbox
+              checked={table.getIsAllRowsSelected()}
+              indeterminate={table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
+            >
+              <VisuallyHidden>Select</VisuallyHidden>
+            </Checkbox>
+          )
+        },
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            disabled={!row.getCanSelect()}
+            indeterminate={row.getIsSomeSelected()}
+            onChange={row.getToggleSelectedHandler()}
+          >
+            <VisuallyHidden>{row.index}</VisuallyHidden>
+          </Checkbox>
+        ),
+      },
       {
         id: 'name',
         cell: ({
