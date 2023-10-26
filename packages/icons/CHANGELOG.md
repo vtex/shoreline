@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-icons@0.1.0...@vtex/shoreline-icons@0.2.0) (2023-10-26)
+
+### Features
+
+- **select:** add select component ([f12804b](https://github.com/vtex/shoreline/commit/f12804b0bebfd75db7f2b56200971075e90e18ca))
+
 # 0.1.0 (2023-10-17)
 
 ### Features

@@ -648,7 +648,7 @@ importers:
         specifier: 8.10.7
         version: 8.10.7(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.1.0
+        specifier: ^0.2.0
         version: link:../icons
       '@vtex/shoreline-utils':
         specifier: ^0.2.0

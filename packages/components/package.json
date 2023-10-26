@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "dist/vtex-shoreline-components.cjs.js",
   "module": "dist/vtex-shoreline-components.esm.js",
   "types": "dist/vtex-shoreline-components.cjs.d.ts",
@@ -60,7 +60,7 @@
     "@react-aria/focus": "3.14.3",
     "@react-stately/toggle": "3.6.3",
     "@tanstack/react-table": "8.10.7",
-    "@vtex/shoreline-icons": "^0.1.0",
+    "@vtex/shoreline-icons": "^0.2.0",
     "@vtex/shoreline-utils": "^0.2.0"
   }
 }

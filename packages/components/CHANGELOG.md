@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.5.0...@vtex/shoreline-components@0.6.0) (2023-10-26)
+
+### Bug Fixes
+
+- build error ([c0db040](https://github.com/vtex/admin-ui/commit/c0db0406965a8cd020c8b4a477e1e57b217dc5a5))
+- **button:** apply half gap space only on regular button, but not iconButton ([d8de778](https://github.com/vtex/admin-ui/commit/d8de7786f6b2be54ac8701dd13f6669e71f719fa))
+- **button:** fix color scheme ([9e1e103](https://github.com/vtex/admin-ui/commit/9e1e103abe3984e4c5a66284f0c43f976036f98a))
+- **field:** fix font css styles ([e8d5e91](https://github.com/vtex/admin-ui/commit/e8d5e91454cf680818474eef43fd9642d7029037))
+
+### Features
+
+- **button:** adjust spacing for icon buttons ([220197a](https://github.com/vtex/admin-ui/commit/220197ad459f5d70ca546f482a97e11afcd2c63f))
+- **popover:** accept pr suggestions ([b382160](https://github.com/vtex/admin-ui/commit/b3821604992bff474c5fb2961594321939019c34))
+- **popover:** add missing css style ([2837ee2](https://github.com/vtex/admin-ui/commit/2837ee23904541c31e7e5838bbc676f53e6203b4))
+- **popover:** add Popover component ([8bd698b](https://github.com/vtex/admin-ui/commit/8bd698b46bf0fbb67fd063eb5d7673fe2bc7e333))
+- **popover:** add popover css styles ([8263457](https://github.com/vtex/admin-ui/commit/826345747e69ec1ce0ac3b9c92901a42344726e9))
+- **select:** accept pr suggestions ([a6fd135](https://github.com/vtex/admin-ui/commit/a6fd1357986d0775c46ad7fd287b7155cc9ca609))
+- **select:** accept pr suggestions ([3e14e40](https://github.com/vtex/admin-ui/commit/3e14e40f36b680d50501ecad44ec1483a716947a))
+- **select:** add select component ([f12804b](https://github.com/vtex/admin-ui/commit/f12804b0bebfd75db7f2b56200971075e90e18ca))
+
 # [0.5.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.4.0...@vtex/shoreline-components@0.5.0) (2023-10-26)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-icons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/vtex-shoreline-icons.cjs.js",
   "module": "dist/vtex-shoreline-icons.esm.js",
   "types": "dist/vtex-shoreline-icons.cjs.d.ts",
