@@ -1,0 +1,107 @@
+# Best Practices
+
+## Components
+
+### Menu vs. Tab, Button, or a group of Buttons
+
+- **Tab:** use for navigation triggers that alternate between related views within the same container.
+- **Button:** use when there is only one action trigger.
+- **Group of Buttons:** use when the group will not be repeated in a list and all its actions are frequently used.
+
+## Variants
+
+### More Actions or Custom Label
+
+- **More Actions:** use when it represents a group of different actions related to the same object. For example, a `More Actions` menu in a promotion table row that includes the items *Edit*, *Duplicate*, *Deactivate*, and *Archive*.
+- **Custom Label:** use when it represents an action with complementary options. For example, a Menu with the label *Create promotion* that includes the items *Regular*, *Buy together,* and *More for less*.
+
+### Primary or Tertiary
+
+- Understand how frequently merchants use an action.
+- When the most frequent action of the page leads to a menu with complementary options, use a `primary` Menu. For example, a Menu with the *Create page* label that leads to options such as Landing page and Category page.
+- There should be only one `primary` action visible at a time.
+- When the same Menu is repeated, such as for each list item, use a `tertiary` Menu.
+- When there is a group of tertiary Buttons and a Menu, they all should be `tertiary`.
+- When the container background uses the `$bg-muted` color, use a `tertiary` Menu.
+
+### Size
+
+Use the `large` size for all `primary` Menu components. Use the `normal` size for `tertiary` Menu components.
+
+### Icon position
+
+- When using the `More actions` menu, the icon is always positioned to the left.
+- When using the `Custom label` menu, the icon is always positioned to the right.
+
+### Critical Menu Item
+
+- When the Menu Item triggers an irreversible action, use a `critical` Menu Item. Actions should be reversible whenever possible and not require a critical color.
+- Don’t use critical colors for *Move to trash* triggers that imply the possibility of reverting the action.
+
+## Position
+
+### More than one Menu
+
+- Use more than one Menu component in a list when it is necessary to repeat the same set of actions for different objects. For example, in each row of a table.
+- Don't use more than one Menu in the same container.
+
+### Position in a container
+
+Considering left-to-right interfaces:
+
+- Align the Menu to the right. For example, a Menu in a Card's header should be vertically centered and aligned to the right.
+- In a group of actions, position the Menu as the last action.
+- When a `tertiary` Menu is next to other content, ignore the Menu's box to align based on the Menu's icon and/or label. Use the bleed prop to implement this alignment.
+
+## Behavior
+
+### Disabled Menu
+
+Never use a disabled Menu. Leave the Menu enabled and disable the items inside according to our recommendations.
+
+### Disabled Menu Item
+
+- Use a `disabled` Menu Item only if, in some condition, it becomes enabled. For example, a *Publish* button that is only enabled when edits have been made.
+- When the reason why an action is disabled might be unclear, leave the action enabled and show a modal explaining the reason on trigger.
+- Don't display a Tooltip when hovering a disabled Menu Item.
+
+## Content
+
+### Menu label
+
+- The `More actions` menu label is always *More actions*.
+- The `Custom label` menu allows a custom label. For example, a Menu with the label *Create page* that includes the options *Landing page* and *Category page*.
+
+When writing a custom label:
+
+- Reuse existing labels.
+- Always include a verb in the infinitive and an object. For example, *Create product*.
+- Use a verb that reflects the exact action that the Menu triggers for every Menu Item. For example, use the label *Create promotion* for a Menu where the items are the different promotion types that can be created.
+- Use sentence case but capitalize proper nouns.
+- Don’t use punctuation, more than three words, or personal pronouns.
+
+### Menu Item label
+
+- Reuse existing labels.
+- If the item is inside a `More actions` menu, always include a verb in the infinitive.
+- If the item is inside a `Custom label` menu, don't use a verb. The action is already defined in the Menu label.
+- When the context already has a label for the object, remove the object from the label. For example, use *Edit* instead of *Edit product*.
+- Leave the object explicit when the Menu has the same action for different objects, such as *Edit product* and *Edit SKUs*.
+- Use a verb that reflects the exact action that the Menu Item triggers. For example, use *Rename* instead of *Change name*.
+- Use sentence case but capitalize proper nouns.
+- Don’t use punctuation, more than three words, or personal pronouns.
+
+### Menu Items icons
+
+- Menu items inside a `More actions` menu always have icons.
+- Menu Items inside a `Custom label` menu never have icons, since they will always trigger variations of the action that is in the Menu label.
+
+### Icon Only Menu
+
+- Use an icon only `More actions` menu when the same Menu is repeated multiple times on a screen, such as for each list item.
+- Don't hide the label of a Menu with a custom label.
+- Don’t use a Tooltip to display the label.
+
+### Divider
+
+Use a divider to separate regular actions from destructive actions. For example, a *Delete* action in a Menu should be the last one, and there should be a divider above it.

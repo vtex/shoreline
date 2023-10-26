@@ -1,0 +1,8 @@
+{
+    "button":"Button",
+    "checkbox":"Checkbox",
+    "menu":"Menu",
+    "radio":"Radio",
+    "spinner":"Spinner",
+    "tag":"Tag"
+}
