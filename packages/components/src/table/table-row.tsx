@@ -3,8 +3,21 @@ import React, { forwardRef } from 'react'
 
 export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   function TableRow(props, ref) {
-    return <tr data-sl-table-row ref={ref} {...props} />
+    const { selected = false, expanded = false, ...otherProps } = props
+
+    return (
+      <tr
+        data-sl-table-row
+        data-selected={selected}
+        data-expanded={expanded}
+        ref={ref}
+        {...otherProps}
+      />
+    )
   }
 )
 
-export type TableRowProps = ComponentPropsWithoutRef<'tr'>
+export interface TableRowProps extends ComponentPropsWithoutRef<'tr'> {
+  selected?: boolean
+  expanded?: boolean
+}

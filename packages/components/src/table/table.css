@@ -23,8 +23,11 @@
 
   [data-sl-table-header-cell],
   [data-sl-table-cell] {
-    color: var(--sl-color-fg);
     text-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--sl-color-fg);
     padding: var(--sl-space-2);
     border-bottom: var(--sl-border);
   }
@@ -44,6 +47,10 @@
 
   [data-sl-table-row] {
     color: var(--sl-color-fg);
+
+    &[data-selected='true'] {
+      background: var(--sl-bg-muted);
+    }
   }
 
   [data-sl-table-cell] {
