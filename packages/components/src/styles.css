@@ -1,5 +1,6 @@
 @import '../shoreline/styles.css';
 /* PLOP_INJECT_STYLES */
+@import './popover/popover.css';
 @import './checkbox/checkbox.css';
 @import './simple-table/simple-table.css';
 @import './alert/alert.css';

@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './popover'
 export * from './checkbox'
 export * from './simple-table'
 export * from './action'
