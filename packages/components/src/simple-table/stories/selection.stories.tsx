@@ -24,8 +24,7 @@ import {
   MenuSeparator,
 } from '../../menu'
 import { VisuallyHidden } from '../../visually-hidden'
-import { SimpleTable } from '../index'
-import { Checkbox } from '../../checkbox'
+import { SimpleTable, getSelectionColum } from '../index'
 
 export default {
   title: 'shoreline-components/simple-table',
@@ -41,30 +40,7 @@ type Product = {
 export function Selection() {
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
-      {
-        id: 'select',
-        header: ({ table }) => {
-          return (
-            <Checkbox
-              checked={table.getIsAllRowsSelected()}
-              indeterminate={table.getIsSomeRowsSelected()}
-              onChange={table.getToggleAllRowsSelectedHandler()}
-            >
-              <VisuallyHidden>Select</VisuallyHidden>
-            </Checkbox>
-          )
-        },
-        cell: ({ row }) => (
-          <Checkbox
-            checked={row.getIsSelected()}
-            disabled={!row.getCanSelect()}
-            indeterminate={row.getIsSomeSelected()}
-            onChange={row.getToggleSelectedHandler()}
-          >
-            <VisuallyHidden>{row.index}</VisuallyHidden>
-          </Checkbox>
-        ),
-      },
+      getSelectionColum(),
       {
         id: 'name',
         cell: ({

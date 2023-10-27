@@ -76,8 +76,8 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         {table.getRowModel().rows.map((row) => (
           <Fragment key={row.id}>
             <TableRow
-              data-selected={row.getIsSelected()}
-              data-expanded={row.getIsExpanded()}
+              selected={row.getIsSelected()}
+              expanded={row.getIsExpanded()}
             >
               {row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id}>
@@ -86,7 +86,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
               ))}
             </TableRow>
             {row.getIsExpanded() && (
-              <TableRow data-sl-detail-row data-selected={row.getIsSelected()}>
+              <TableRow data-sl-detail-row selected={row.getIsSelected()}>
                 <TableCell
                   style={{
                     gridColumn: `1 / span ${row.getVisibleCells().length}`,
