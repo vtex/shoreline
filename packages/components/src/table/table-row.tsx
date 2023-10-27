@@ -1,12 +1,21 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Compose } from '../compose'
 
-export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
+export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
   function TableRow(props, ref) {
-    const { selected = false, expanded = false, ...otherProps } = props
+    const {
+      selected = false,
+      expanded = false,
+      asChild = false,
+      ...otherProps
+    } = props
+
+    const Comp = asChild ? Compose : 'div'
 
     return (
-      <tr
+      <Comp
+        role="row"
         data-sl-table-row
         data-selected={selected}
         data-expanded={expanded}
@@ -17,7 +26,8 @@ export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   }
 )
 
-export interface TableRowProps extends ComponentPropsWithoutRef<'tr'> {
+export interface TableRowProps extends ComponentPropsWithoutRef<'div'> {
   selected?: boolean
   expanded?: boolean
+  asChild?: boolean
 }
