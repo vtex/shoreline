@@ -5,13 +5,15 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   props,
   ref
 ) {
-  const { children, ...restProps } = props
+  const { children, variant = 'default', ...restProps } = props
 
   return (
-    <div ref={ref} data-sl-field {...restProps}>
+    <div ref={ref} data-sl-field data-variant={variant} {...restProps}>
       {children}
     </div>
   )
 })
 
-export type FieldProps = ComponentPropsWithoutRef<'div'>
+export interface FieldProps extends ComponentPropsWithoutRef<'div'> {
+  variant?: 'default' | 'control'
+}

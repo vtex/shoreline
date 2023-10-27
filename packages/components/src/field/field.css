@@ -1,12 +1,18 @@
 @layer sl-components {
-  [data-sl-field]:has([data-sl-checkbox], [data-sl-radio]) {
-    grid-template-areas: 'input label' '- message';
+
+  [data-sl-field][data-variant="default"] {
+    grid-template-areas: 'label' 'input' 'message'
+  }
+
+  [data-sl-field][data-variant="control"] {
+    grid-template-areas: 'input label' '- message'
   }
 
   [data-sl-field] {
     display: grid;
     gap: 0.25rem 0.5rem;
     grid-template-areas: 'label' 'input' 'message';
+    width: fit-content;
 
     & > [data-sl-checkbox],
     [data-sl-input],
