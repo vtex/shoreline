@@ -1,15 +1,19 @@
 import { constants } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
 import React, { forwardRef } from 'react'
+import { Compose } from '../compose'
 
-export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
+export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   props,
   ref
 ) {
-  const { columnWidths, style = {}, ...otherProps } = props
+  const { columnWidths, asChild = false, style = {}, ...otherProps } = props
+
+  const Comp = asChild ? Compose : 'div'
 
   return (
-    <table
+    <Comp
+      role="table"
       data-sl-table
       ref={ref}
       style={
@@ -25,6 +29,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
   )
 })
 
-export interface TableProps extends ComponentPropsWithoutRef<'table'> {
+export interface TableProps extends ComponentPropsWithoutRef<'div'> {
   columnWidths?: string[]
+  asChild?: boolean
 }

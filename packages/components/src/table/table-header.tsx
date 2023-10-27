@@ -1,11 +1,24 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Compose } from '../compose'
 
-export const TableHeader = forwardRef<
-  HTMLTableSectionElement,
-  TableHeaderProps
->(function TableHeader(props, ref) {
-  return <thead data-sl-table-header ref={ref} {...props} />
-})
+export const TableHeader = forwardRef<HTMLDivElement, TableHeaderProps>(
+  function TableHeader(props, ref) {
+    const { asChild = false, ...otherProps } = props
 
-export type TableHeaderProps = ComponentPropsWithoutRef<'thead'>
+    const Comp = asChild ? Compose : 'div'
+
+    return (
+      <Comp
+        role="presentation"
+        data-sl-table-header
+        ref={ref}
+        {...otherProps}
+      />
+    )
+  }
+)
+
+export interface TableHeaderProps extends ComponentPropsWithoutRef<'div'> {
+  asChild?: boolean
+}

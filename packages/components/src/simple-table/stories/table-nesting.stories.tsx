@@ -5,6 +5,7 @@ import type { ColumnDef } from '@tanstack/react-table'
 
 import { SimpleTable } from '../index'
 import { getExpandedColumn } from '../columns'
+import { Flex } from '../../flex'
 
 export default {
   title: 'shoreline-components/simple-table',
@@ -61,14 +62,15 @@ export function Nesting() {
       getRowCanExpand={(row) => !!row.original.countries}
       columns={continetColumns}
       renderDetail={(row) => (
-        <div
+        <Flex
           style={{
             padding: 'var(--sl-space-4) var(--sl-space-10)',
             background: 'var(--sl-bg-muted)',
+            width: '100%',
           }}
         >
           <SimpleTable data={row.original.countries} columns={countryColumns} />
-        </div>
+        </Flex>
       )}
     />
   )
