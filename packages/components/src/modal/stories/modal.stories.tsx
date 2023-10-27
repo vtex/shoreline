@@ -24,6 +24,12 @@ export function Default() {
   )
 }
 
+export function Test() {
+  const { open, show, hide } = useModal()
+
+  return <Modal open />
+}
+
 export function Complete() {
   const { open, show, hide } = useModal()
 
