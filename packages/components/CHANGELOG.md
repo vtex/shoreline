@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.9.1...@vtex/shoreline-components@0.10.0) (2023-10-27)
+
+### Bug Fixes
+
+- **radio:** wrong layout for field in group ([fcfd2d0](https://github.com/vtex/admin-ui/commit/fcfd2d0667b705ba6b87300815cd0ca17f5dfd8e))
+
+### Features
+
+- **radio:** add bare radio input ([5bf1faa](https://github.com/vtex/admin-ui/commit/5bf1faadaea01c1f128446ced0f187e7dc3b700a))
+- **radio:** add basic tests ([1d345b3](https://github.com/vtex/admin-ui/commit/1d345b36b958bb435b25d5f186b5ba140911d7ae))
+- **radio:** add radio group ([2730a0e](https://github.com/vtex/admin-ui/commit/2730a0e622bc7d66287ce288ea67ce3bf6ca6ddc))
+
 ## [0.9.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.9.0...@vtex/shoreline-components@0.9.1) (2023-10-27)
 
 **Note:** Version bump only for package @vtex/shoreline-components
