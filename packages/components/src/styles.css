@@ -5,6 +5,7 @@
 @import './link/link.css';
 @import './link-box/link-box.css';
 @import './pagination/pagination.css';
+@import './modal/modal.css';
 @import './popover/popover.css';
 @import './checkbox/checkbox.css';
 @import './simple-table/simple-table.css';
