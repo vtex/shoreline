@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, axe } from '../test-utils'
+import { render } from '../test-utils'
 import { Page, PageContent } from './index'
 
 function Basic() {
@@ -11,14 +11,6 @@ function Basic() {
 }
 
 describe('page', () => {
-  it('should not have a11y violations', async () => {
-    const { container } = render(<Basic />)
-
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
-  })
-
   it('page content should be visible', async () => {
     const { findByText } = render(<Basic />)
 

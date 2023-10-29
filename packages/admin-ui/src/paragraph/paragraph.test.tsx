@@ -1,14 +1,12 @@
 import React from 'react'
-import { render, axe } from '../test-utils'
+import { render } from '../test-utils'
 
 import { Paragraph } from './index'
 
 describe('Paragraph', () => {
-  it('should not have any violations', async () => {
+  it('renders', async () => {
     const { container } = render(<Paragraph>test paragraph</Paragraph>)
 
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

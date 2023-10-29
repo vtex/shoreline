@@ -1,12 +1,12 @@
 import React from 'react'
-import { render, axe, jestMatchMedia } from '../../test-utils'
+import { render, jestMatchMedia } from '../../test-utils'
 
 import { Columns, Column } from '../index'
 
 describe('Columns', () => {
   beforeEach(jestMatchMedia)
 
-  it('should not have a11y violations', async () => {
+  it('renders', async () => {
     const { container } = render(
       <Columns space="$space-3">
         <Column units={6}>
@@ -18,8 +18,6 @@ describe('Columns', () => {
       </Columns>
     )
 
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

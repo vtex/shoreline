@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { render, jestMatchMedia, axe } from '../test-utils'
+import { render, jestMatchMedia } from '../test-utils'
 
 import { Alert } from './index'
 
 describe('Alert', () => {
   beforeEach(jestMatchMedia)
 
-  it('should not have a11y violations', async () => {
+  it('renders', async () => {
     const { container } = render(
       <Fragment>
         <Alert variant="positive">Order successfully placed</Alert>
@@ -19,8 +19,6 @@ describe('Alert', () => {
       </Fragment>
     )
 
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

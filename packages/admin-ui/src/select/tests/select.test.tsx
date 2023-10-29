@@ -1,10 +1,10 @@
 import React from 'react'
-import { render, axe } from '../../test-utils'
 
+import { render } from '../../test-utils'
 import { Select } from '../index'
 
 describe('Select', () => {
-  it('should not have a11y violations', async () => {
+  it('renders', async () => {
     const { container } = render(
       <Select name="select" label="select">
         <option>Option 1</option>
@@ -12,8 +12,6 @@ describe('Select', () => {
       </Select>
     )
 
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

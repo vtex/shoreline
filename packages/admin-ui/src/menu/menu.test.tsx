@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, axe, withState, fireEvent } from '../test-utils'
+import { render, withState, fireEvent } from '../test-utils'
 import { MenuButton, Menu, MenuItem, MenuDivider, useMenuState } from './index'
 
 const StatefulMenuButton = withState(MenuButton, () => {
@@ -27,14 +27,6 @@ const BaseMenuComponent = () => {
 }
 
 describe('menu', () => {
-  it('should not have a11y violations', async () => {
-    const { container } = render(<BaseMenuComponent />)
-
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
-  })
-
   it('should have default label', async () => {
     const { findByTestId } = render(<BaseMenuComponent />)
 

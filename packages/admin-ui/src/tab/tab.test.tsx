@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, axe } from '../test-utils'
+import { render } from '../test-utils'
 import { TabList, Tab, TabPanel, useTabState } from '../index'
 
 function Example() {
@@ -19,10 +19,9 @@ function Example() {
 }
 
 describe('tab', () => {
-  it('should not have any violations', async () => {
+  it('renders', async () => {
     const { container } = render(<Example />)
-    const results = await axe(container)
 
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

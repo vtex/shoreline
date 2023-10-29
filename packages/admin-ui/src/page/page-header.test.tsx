@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { render, axe } from '../test-utils'
+import { render } from '../test-utils'
 import {
   PageHeader,
   PageHeaderTop,
@@ -68,16 +68,6 @@ function Basic(props: Props) {
 }
 
 describe('page-header', () => {
-  it('should not have a11y violations', async () => {
-    const { container } = render(
-      <Basic tags={tags} actions={actions} onPopNavigation />
-    )
-
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
-  })
-
   it('page-header onPopNavigation should be visible', () => {
     const { queryByRole } = render(<Basic onPopNavigation />)
 

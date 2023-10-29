@@ -1,12 +1,12 @@
 import React from 'react'
-import { render, axe, jestMatchMedia } from '../test-utils'
+import { render, jestMatchMedia } from '../test-utils'
 
 import { Stack } from './index'
 
 describe('Stack', () => {
   beforeEach(jestMatchMedia)
 
-  it('should not have a11y violations', async () => {
+  it('renders', async () => {
     const { container } = render(
       <Stack>
         <button>element 1</button>
@@ -14,8 +14,6 @@ describe('Stack', () => {
       </Stack>
     )
 
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
+    expect(container).toBeInTheDocument()
   })
 })

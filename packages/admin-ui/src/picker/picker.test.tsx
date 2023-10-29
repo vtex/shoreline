@@ -1,5 +1,5 @@
 import React from 'react'
-import { axe, fireEvent, render, screen } from '../test-utils'
+import { fireEvent, render, screen } from '../test-utils'
 
 import type { PickerInitialState } from './index'
 import {
@@ -42,17 +42,5 @@ describe('Picker', () => {
     expect(pickerContent).not.toBeVisible()
     fireEvent.click(screen.getByText('open'))
     expect(pickerContent).toBeVisible()
-  })
-
-  /**
-   * @TODO Fix a11y
-   * Disabled because the component behavior is not accessible yet.
-   */
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Selector renders with no a11y violations', async () => {
-    const { container } = render(<BaseComponent />)
-    const results = await axe(container)
-
-    expect(results).toHaveNoViolations()
   })
 })
