@@ -17,13 +17,13 @@ export function Default() {
     <div className="pagination-container">
       <Pagination
         page={page}
-        onPage={(page) => {
+        onPageChange={(page) => {
           setPage(page)
         }}
         total={754}
-        sizes={[25, 50, 100]}
-        pageSize={pageSize}
-        onPageSize={(size) => setPageSize(size)}
+        sizeOptions={[25, 50, 100]}
+        size={pageSize}
+        onSizeChange={(size) => setPageSize(size)}
       />
     </div>
   )
@@ -36,11 +36,11 @@ export function WithoutPageSize() {
     <div className="pagination-container">
       <Pagination
         page={page}
-        onPage={(page) => {
+        onPageChange={(page) => {
           setPage(page)
         }}
         total={754}
-        pageSize={100}
+        size={100}
       />
     </div>
   )

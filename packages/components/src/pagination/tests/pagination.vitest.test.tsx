@@ -7,7 +7,7 @@ import { Pagination } from '../pagination'
 describe('pagination', () => {
   test('renders', () => {
     const { container } = render(
-      <Pagination page={1} total={50} pageSize={25} sizes={[25, 50, 100]} />
+      <Pagination page={1} total={50} size={25} sizeOptions={[25, 50, 100]} />
     )
 
     expect(container.querySelector('[data-sl-pagination]')).toBeInTheDocument()
@@ -23,9 +23,7 @@ describe('pagination', () => {
   })
 
   test('should not render page size selector', () => {
-    const { container } = render(
-      <Pagination page={1} total={50} pageSize={25} />
-    )
+    const { container } = render(<Pagination page={1} total={50} size={25} />)
 
     expect(container.querySelector('[data-sl-pagination]')).toBeInTheDocument()
     expect(
@@ -35,7 +33,7 @@ describe('pagination', () => {
 
   test('action prev should be disabled on the first page', () => {
     const { container } = render(
-      <Pagination page={1} total={50} pageSize={25} sizes={[25, 50, 100]} />
+      <Pagination page={1} total={50} size={25} sizeOptions={[25, 50, 100]} />
     )
 
     expect(
@@ -48,7 +46,7 @@ describe('pagination', () => {
 
   test('action next should be disabled on the last page', () => {
     const { container } = render(
-      <Pagination page={2} total={50} pageSize={25} sizes={[25, 50, 100]} />
+      <Pagination page={2} total={50} size={25} sizeOptions={[25, 50, 100]} />
     )
 
     expect(
@@ -61,7 +59,7 @@ describe('pagination', () => {
 
   test('number of pages', () => {
     const { container, getByText } = render(
-      <Pagination page={1} total={55} pageSize={25} />
+      <Pagination page={1} total={55} size={25} />
     )
 
     expect(

@@ -18,28 +18,28 @@ import { useId } from '@vtex/shoreline-utils'
  *
  * <Pagination
  *   page={page}
- *   onPage={(page, type) => {}}
+ *   onPageChange={(page, type) => {}}
  *   total={total}
- *   pageSize={size}
- *   sizes={[25, 50, 100]}
- *   onPageSize={(size) => {}}
+ *   size={size}
+ *   sizeOptions={[25, 50, 100]}
+ *   onSizeChange={(size) => {}}
  * />
  */
 export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   function Pagination(props, ref) {
     const {
-      sizes = [],
-      pageSize,
+      sizeOptions = [],
+      size,
       page,
       total,
-      onPageSize,
-      onPage,
+      onSizeChange,
+      onPageChange,
       ...otherProps
     } = props
 
-    const hasSizes = sizes.length > 0
+    const hasSizes = sizeOptions.length > 0
 
-    const totalPages = Math.ceil(total / pageSize)
+    const totalPages = Math.ceil(total / size)
 
     const id = useId()
 
@@ -54,13 +54,13 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               <select
                 id={id}
                 data-sl-pagination-size-select
-                value={pageSize}
+                value={size}
                 onChange={(e) => {
-                  onPageSize?.(Number(e.target.value))
+                  onSizeChange?.(Number(e.target.value))
                 }}
               >
-                {sizes.map((size) => (
-                  <option value={size}>Show {size}</option>
+                {sizeOptions.map((sizeOption) => (
+                  <option value={sizeOption}>Show {sizeOption}</option>
                 ))}
               </select>
 
@@ -80,7 +80,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             <Action
               iconOnly
               onClick={() => {
-                onPage?.(page - 1, 'prev')
+                onPageChange?.(page - 1, 'prev')
               }}
               disabled={page === 1}
               aria-label="Previous page"
@@ -94,7 +94,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             <Action
               iconOnly
               onClick={() => {
-                onPage?.(page + 1, 'next')
+                onPageChange?.(page + 1, 'next')
               }}
               disabled={page === totalPages}
               aria-label="Next page"
@@ -110,10 +110,10 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 )
 
 export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
-  onPage?: (page: number, type: 'next' | 'prev') => void
-  onPageSize?: (size: number) => void
-  sizes?: number[]
-  pageSize: number
+  onPageChange?: (page: number, type: 'next' | 'prev') => void
+  onSizeChange?: (size: number) => void
+  sizeOptions?: number[]
+  size: number
   page: number
   total: number
 }
