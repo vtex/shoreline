@@ -4,7 +4,11 @@ import { Compose } from '../compose'
 import { hasSomeTextSelected } from '@vtex/shoreline-utils'
 
 /**
- * Suitable for clicable surfaces
+ * Represents clickable surfaces
+ * @example
+ * <Clickable>
+ *   Text <button>Click Me</button>
+ * </Clickable>
  */
 export const Clickable = forwardRef<HTMLDivElement, ClickableProps>(
   function Clickable(props, ref) {
