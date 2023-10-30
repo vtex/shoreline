@@ -1,0 +1,5 @@
+@layer sl-components {
+  [data-sl-clickable] {
+    user-select: text;
+  }
+}

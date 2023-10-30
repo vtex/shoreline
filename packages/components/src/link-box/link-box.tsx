@@ -1,9 +1,9 @@
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef, hasSomeTextSelected } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 
 import type { NavigationTarget } from './link-box-utils'
-import { navigate, hasSomeTextSelected } from './link-box-utils'
+import { navigate } from './link-box-utils'
 import { Compose } from '../compose'
 
 /**
