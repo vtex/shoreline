@@ -1,10 +1,10 @@
-import { forwardRef, hasSomeTextSelected } from '@vtex/shoreline-utils'
-import type { ComponentPropsWithoutRef } from 'react'
+import { forwardRef } from '@vtex/shoreline-utils'
 import React from 'react'
 
+import type { ClickableProps } from '../clickable'
+import { Clickable } from '../clickable'
 import type { NavigationTarget } from './link-box-utils'
 import { navigate } from './link-box-utils'
-import { Compose } from '../compose'
 
 /**
  * A container that acts as a link. It allows text selection and stop its children event propagation.
@@ -18,28 +18,15 @@ import { Compose } from '../compose'
  */
 export const LinkBox = forwardRef<HTMLDivElement, LinkBoxProps>(
   function LinkBox(props, ref) {
-    const {
-      href,
-      target = '_parent',
-      onClick,
-      asChild = false,
-      ...otherProps
-    } = props
-
-    const Comp = asChild ? Compose : 'div'
+    const { href, target = '_parent', asChild = false, ...otherProps } = props
 
     return (
-      <Comp
+      <Clickable
         data-sl-link-box
+        asChild={asChild}
         ref={ref}
-        onClick={(e) => {
-          if (e.currentTarget !== e.target) return
-
-          if (!hasSomeTextSelected()) {
-            navigate(href, e.metaKey ? '_blank' : target)
-          }
-
-          onClick?.(e as any)
+        onClick={({ metaKey }) => {
+          navigate(href, metaKey ? '_blank' : target)
         }}
         {...otherProps}
       />
@@ -47,7 +34,7 @@ export const LinkBox = forwardRef<HTMLDivElement, LinkBoxProps>(
   }
 )
 
-export interface LinkBoxProps extends ComponentPropsWithoutRef<'div'> {
+export interface LinkBoxProps extends Omit<ClickableProps, 'onClick'> {
   /**
    * The URL that the hyperlink points to.
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href
@@ -59,9 +46,4 @@ export interface LinkBoxProps extends ComponentPropsWithoutRef<'div'> {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target
    */
   target?: NavigationTarget
-  /**
-   * Enable children composition
-   * @default false
-   */
-  asChild?: boolean
 }

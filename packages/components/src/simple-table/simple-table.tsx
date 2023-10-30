@@ -20,6 +20,7 @@ import {
 } from '../table'
 import type { NavigationTarget } from '../link-box/link-box-utils'
 import { LinkBox } from '../link-box'
+import { Clickable } from '../clickable'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -37,7 +38,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     options,
     getRowCanExpand,
     renderDetail,
-    onRowClick,
+    rowClick,
     ...tableProps
   } = props
 
@@ -83,24 +84,45 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
               expanded={row.getIsExpanded()}
             >
               {row.getVisibleCells().map((cell) => {
-                if (onRowClick && onRowClick.type === 'link') {
-                  const { getHref, target } = onRowClick
+                if (rowClick) {
+                  if (rowClick.type === 'action') {
+                    const { onClick } = rowClick
 
-                  return (
-                    <LinkBox
-                      href={getHref(row)}
-                      target={target}
-                      key={cell.id}
-                      asChild
-                    >
-                      <TableCell>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    </LinkBox>
-                  )
+                    return (
+                      <Clickable
+                        onClick={() => onClick(row)}
+                        key={cell.id}
+                        asChild
+                      >
+                        <TableCell>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      </Clickable>
+                    )
+                  }
+
+                  if (rowClick.type === 'link') {
+                    const { getHref, target } = rowClick
+
+                    return (
+                      <LinkBox
+                        href={getHref(row)}
+                        target={target}
+                        key={cell.id}
+                        asChild
+                      >
+                        <TableCell>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      </LinkBox>
+                    )
+                  }
                 }
 
                 return (
@@ -148,7 +170,7 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
   /**
    *
    */
-  onRowClick?:
+  rowClick?:
     | {
         type: 'link'
         getHref: (row: Row<T>) => string

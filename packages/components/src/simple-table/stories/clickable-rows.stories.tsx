@@ -20,7 +20,7 @@ const services: Service[] = [
   { name: 'Azion', url: 'https://www.azion.com', price: '300 USD / Year' },
 ]
 
-export function RowLinks() {
+export function ClickableRows() {
   const columns = useMemo<Array<ColumnDef<Service>>>(
     () => [
       {
@@ -40,11 +40,10 @@ export function RowLinks() {
       data={services}
       columns={columns}
       rowClick={{
-        type: 'link',
-        getHref(row) {
-          return row.original.url
+        type: 'action',
+        onClick: (row) => {
+          alert(`You clicked: ${row.original.name}`)
         },
-        target: '_blank',
       }}
     />
   )
