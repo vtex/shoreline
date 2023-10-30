@@ -11,6 +11,20 @@ import { AccessibleIcon } from '../accessible-icon'
 import { VisuallyHidden } from '../visually-hidden'
 import { useId } from '@vtex/shoreline-utils'
 
+/**
+ * Pagination triggers allow merchants to view the size of a list and navigate between pages.
+ *
+ * @example
+ *
+ * <Pagination
+ *   page={page}
+ *   onPage={(page, type) => {}}
+ *   total={total}
+ *   pageSize={size}
+ *   sizes={[25, 50, 100]}
+ *   onPageSize={(size) => {}}
+ * />
+ */
 export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   function Pagination(props, ref) {
     const {
