@@ -36,5 +36,29 @@ describe('table', () => {
       container.querySelector('[data-sl-table-header-cell]')
     ).toBeInTheDocument()
     expect(container.querySelector('[data-sl-table-cell]')).toBeInTheDocument()
+    expect(
+      container.querySelector(`[data-sl-table-header-sticky='false']`)
+    ).toBeInTheDocument()
+  })
+
+  test('renders with sticky header', () => {
+    const { container } = render(
+      <Table stickyHeader>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>heading</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>cell</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    expect(
+      container.querySelector(`[data-sl-table-header-sticky='true']`)
+    ).toBeInTheDocument()
   })
 })

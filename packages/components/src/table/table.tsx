@@ -7,7 +7,13 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   props,
   ref
 ) {
-  const { columnWidths, asChild = false, style = {}, ...otherProps } = props
+  const {
+    columnWidths,
+    asChild = false,
+    stickyHeader = false,
+    style = {},
+    ...otherProps
+  } = props
 
   const Comp = asChild ? Compose : 'div'
 
@@ -15,6 +21,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
     <Comp
       role="table"
       data-sl-table
+      data-sl-table-header-sticky={stickyHeader}
       ref={ref}
       style={
         {
@@ -32,4 +39,9 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
 export interface TableProps extends ComponentPropsWithoutRef<'div'> {
   columnWidths?: string[]
   asChild?: boolean
+  /**
+   * If true, the header will be sticky
+   * @default false
+   */
+  stickyHeader?: boolean
 }

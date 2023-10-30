@@ -13,6 +13,17 @@
     overflow: auto;
     grid-template-columns: var(--sl-table-grid-template-columns);
     grid-auto-rows: minmax(min-content, auto);
+
+    &[data-sl-table-header-sticky='true'] {
+      overflow: unset;
+
+      [data-sl-table-header-cell] {
+        color: var(--sl-color-fg);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+    }
   }
 
   [data-sl-table-header],
