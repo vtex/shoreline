@@ -1,5 +1,6 @@
 /* PLOP_INJECT_EXPORT */
 export * from './link-box'
+export * from './pagination'
 export * from './popover'
 export * from './checkbox'
 export * from './simple-table'
