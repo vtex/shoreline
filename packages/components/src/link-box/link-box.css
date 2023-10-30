@@ -1,0 +1,10 @@
+@layer sl-components {
+  [data-sl-link-box] {
+    background: var(--sl-bg);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--sl-bg-muted);
+    }
+  }
+}

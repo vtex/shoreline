@@ -8,6 +8,7 @@ export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
       selected = false,
       expanded = false,
       asChild = false,
+      dimOnHover = true,
       ...otherProps
     } = props
 
@@ -19,6 +20,7 @@ export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
         data-sl-table-row
         data-selected={selected}
         data-expanded={expanded}
+        data-dim-on-hover={dimOnHover}
         ref={ref}
         {...otherProps}
       />
@@ -30,4 +32,5 @@ export interface TableRowProps extends ComponentPropsWithoutRef<'div'> {
   selected?: boolean
   expanded?: boolean
   asChild?: boolean
+  dimOnHover?: boolean
 }
