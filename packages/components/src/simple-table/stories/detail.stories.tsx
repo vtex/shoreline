@@ -11,7 +11,6 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
 
-import { Action } from '../../action'
 import { Flex } from '../../flex'
 import { Text } from '../../text'
 import { IconButton } from '../../icon-button'
