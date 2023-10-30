@@ -35,18 +35,17 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
           {hasSizes && (
             <div data-sl-pagination-size>
               <VisuallyHidden>
-                <label htmlFor={id}>Page size select</label>
+                <label htmlFor={id}>Select page size</label>
               </VisuallyHidden>
               <select
                 id={id}
-                aria-label="Page select"
                 data-sl-pagination-size-select
                 value={pageSize}
                 onChange={(e) => {
                   onPageSize?.(Number(e.target.value))
                 }}
               >
-                {sizes?.map((size) => (
+                {sizes.map((size) => (
                   <option value={size}>Show {size}</option>
                 ))}
               </select>
@@ -61,7 +60,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             </div>
           )}
 
-          <div data-sl-pagination-items>{total} items</div>
+          <div data-sl-pagination-total-label>{total} items</div>
 
           <div data-sl-pagination-actions>
             <Action
@@ -71,10 +70,11 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               }}
               disabled={page === 1}
               aria-label="Previous page"
+              data-sl-pagination-action-prev
             >
               <IconCaretLeft />
             </Action>
-            <div>
+            <div data-sl-pagination-page-label>
               {page} of {totalPages}
             </div>
             <Action
@@ -84,6 +84,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               }}
               disabled={page === totalPages}
               aria-label="Next page"
+              data-sl-pagination-action-next
             >
               <IconCaretRight />
             </Action>

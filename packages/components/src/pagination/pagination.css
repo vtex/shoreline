@@ -5,11 +5,6 @@
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
-  [data-sl-pagination-actions] {
-    display: flex;
-    align-items: center;
-  }
-
   [data-sl-pagination-size] {
     position: relative;
   }
@@ -41,5 +36,10 @@
     bottom: var(--sl-space-0);
     margin: auto;
     pointer-events: none;
+  }
+
+  [data-sl-pagination-actions] {
+    display: flex;
+    align-items: center;
   }
 }
