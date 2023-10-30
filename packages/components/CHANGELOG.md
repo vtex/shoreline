@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.10.0...@vtex/shoreline-components@0.11.0) (2023-10-30)
+
+### Features
+
+- **table:** sticky header option ([3c50980](https://github.com/vtex/admin-ui/commit/3c50980d10a159c9bad67de5f37a29413c3e1dcc))
+
 # [0.10.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.9.1...@vtex/shoreline-components@0.10.0) (2023-10-27)
 
 ### Bug Fixes
