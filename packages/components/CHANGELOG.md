@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.11.0...@vtex/shoreline-components@0.12.0) (2023-10-30)
+
+### Features
+
+- **link-box:** asChild composition ([25b4352](https://github.com/vtex/admin-ui/commit/25b435247dbef488b759ccf6db30067e97cd4740))
+- **link-box:** create component ([ec207de](https://github.com/vtex/admin-ui/commit/ec207dec0842ca4529b8b0f6f0ddf1178f57fa76))
+
 # [0.11.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.10.0...@vtex/shoreline-components@0.11.0) (2023-10-30)
 
 ### Features
