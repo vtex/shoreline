@@ -168,7 +168,7 @@ export function Sorting() {
     []
   )
 
-  return <SimpleTable data={products} columns={columns} />
+  return <SimpleTable data={products} columns={columns} sortable />
 }
 
 const fakeAPI = (sorting: SortingState, size: number) => {
@@ -253,11 +253,9 @@ export function SortingControlled() {
       <SimpleTable
         data={fakeAPI(sorting, 5)}
         columns={columns}
-        options={{
-          onSortingChange: setSorting,
-          state: { sorting },
-          manualSorting: true,
-        }}
+        sortable
+        setSort={setSorting}
+        sort={sorting}
       />
     </>
   )

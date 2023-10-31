@@ -1,6 +1,11 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
-import type { Row, TableOptions } from '@tanstack/react-table'
+import type {
+  OnChangeFn,
+  Row,
+  SortingState,
+  TableOptions,
+} from '@tanstack/react-table'
 import {
   flexRender,
   getCoreRowModel,
@@ -41,8 +46,15 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     getRowCanExpand,
     renderDetail,
     rowClick,
+    sortable = false,
+    setSort,
+    sort,
     ...tableProps
   } = props
+
+  // this is necessary because adding onSortingChange below breaks
+  // the uncontrolled behaviour, even when undefined
+  const customSort = setSort ? { onSortingChange: setSort } : {}
 
   const table = useReactTable({
     data,
@@ -51,6 +63,10 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    enableSorting: sortable,
+    state: sort ? { sorting: sort } : undefined,
+    manualSorting: !!setSort,
+    ...customSort,
     ...options,
   })
 
@@ -179,6 +195,19 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
    * Renders function for the detail row
    */
   renderDetail?: (row: Row<T>) => ReactNode
+  /**
+   * Defines if columns will be sortable
+   * default: false
+   */
+  sortable?: boolean
+  /**
+   * SortingState for controlled sort usage
+   */
+  sort?: SortingState
+  /**
+   * Setter for SortingState for controlled sort usage
+   */
+  setSort?: OnChangeFn<SortingState> | undefined
   /**
    *
    */
