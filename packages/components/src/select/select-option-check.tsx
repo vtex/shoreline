@@ -7,7 +7,7 @@ export const SelectOptionCheck = forwardRef<
   SelectOptionCheckProps
 >(function SelectOptionCheck(props, ref) {
   return (
-    <SelectItemCheck data-sl-option-check ref={ref} {...props}>
+    <SelectItemCheck data-sl-select-option-check ref={ref} {...props}>
       <IconCheck />
     </SelectItemCheck>
   )

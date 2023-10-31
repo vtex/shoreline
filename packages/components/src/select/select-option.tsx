@@ -15,7 +15,7 @@ export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
 
     return (
       <SelectItem
-        data-sl-select-item
+        data-sl-select-option
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
         {...otherProps}
