@@ -1,0 +1,43 @@
+@layer sl-components {
+  [data-sl-select] {
+    color: var(--sl-color-fg);
+  }
+
+  [data-sl-select-popover] {
+    background: var(--sl-bg);
+    border: var(--sl-border);
+    box-shadow: var(--sl-shadow-2);
+    border-radius: var(--sl-border-radius-medium);
+    z-index: var(--sl-z-6);
+  }
+
+  [data-sl-select-option] {
+    outline: none;
+    text-decoration: none;
+    justify-content: space-between;
+    display: flex;
+    cursor: pointer;
+    background: var(--sl-bg-muted-plain);
+    color: var(--sl-fg-muted);
+    padding: var(--sl-space-2) var(--sl-space-3);
+    border-radius: var(--sl-border-radius-medium);
+    font: var(--sl-text-action-font);
+    letter-spacing: var(--sl-text-action-letter-spacing);
+    gap: var(--sl-space-2);
+
+    &:hover {
+      background: var(--sl-bg-muted-plain-hover);
+      color: var(--sl-fg-muted-hover);
+    }
+
+    &:active {
+      background: var(--sl-bg-muted-plain-pressed);
+      color: var(--sl-fg-muted-pressed);
+    }
+
+    &[data-active-item] {
+      background: var(--sl-bg-muted-plain-pressed);
+      color: var(--sl-fg-muted-pressed);
+    }
+  }
+}

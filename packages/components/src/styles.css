@@ -1,5 +1,6 @@
 @import '../shoreline/styles.css';
 /* PLOP_INJECT_STYLES */
+@import './select/select.css';
 @import './clickable/clickable.css';
 @import './link/link.css';
 @import './link-box/link-box.css';
