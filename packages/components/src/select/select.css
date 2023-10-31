@@ -11,7 +11,7 @@
     z-index: var(--sl-z-6);
   }
 
-  [data-sl-select-item] {
+  [data-sl-select-option] {
     outline: none;
     text-decoration: none;
     justify-content: space-between;
