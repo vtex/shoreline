@@ -18,16 +18,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     const { children, asChild = false, ...otherProps } = props
 
     return (
-      <Container>
-        <BasePopover
-          data-sl-popover
-          ref={ref}
-          render={asChild && (children as any)}
-          {...otherProps}
-        >
-          {children}
-        </BasePopover>
-      </Container>
+      <BasePopover
+        data-sl-popover
+        ref={ref}
+        render={asChild && (children as any)}
+        {...otherProps}
+      >
+        <Container>{children}</Container>
+      </BasePopover>
     )
   }
 )
