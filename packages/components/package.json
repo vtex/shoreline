@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "main": "dist/vtex-shoreline-components.cjs.js",
   "module": "dist/vtex-shoreline-components.esm.js",
   "types": "dist/vtex-shoreline-components.cjs.d.ts",

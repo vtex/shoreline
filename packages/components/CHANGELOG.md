@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.15.0...@vtex/shoreline-components@0.15.1) (2023-10-31)
+
+### Bug Fixes
+
+- **select-field:** stories ([fab73a9](https://github.com/vtex/admin-ui/commit/fab73a916d4a24b986df8f076171654f64da6c0b))
+
 # [0.15.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.14.0...@vtex/shoreline-components@0.15.0) (2023-10-31)
 
 ### Features
