@@ -6,6 +6,7 @@ import {
   getCoreRowModel,
   useReactTable,
   getExpandedRowModel,
+  getSortedRowModel,
 } from '@tanstack/react-table'
 import { forwardRef } from '@vtex/shoreline-utils'
 
@@ -21,6 +22,7 @@ import {
 import type { NavigationTarget } from '../link-box/link-box-utils'
 import { LinkBox } from '../link-box'
 import { Clickable } from '../clickable'
+import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -48,6 +50,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     getRowCanExpand,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     ...options,
   })
 
@@ -64,13 +67,22 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHeaderCell key={header.id}>
+              <TableHeaderCell
+                key={header.id}
+                onClick={header.column.getToggleSortingHandler()}
+                sortable={header.column.getCanSort()}
+              >
                 {header.isPlaceholder
                   ? null
                   : flexRender(
                       header.column.columnDef.header,
                       header.getContext()
                     )}
+                {header.column.getIsSorted() === 'asc' ? (
+                  <IconArrowUp />
+                ) : header.column.getIsSorted() === 'desc' ? (
+                  <IconArrowDown />
+                ) : null}
               </TableHeaderCell>
             ))}
           </TableRow>
