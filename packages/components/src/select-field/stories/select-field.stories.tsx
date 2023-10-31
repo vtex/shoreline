@@ -1,20 +1,20 @@
 import '../../../dist/styles.min.css'
-import '../select.css'
+import '../select-field.css'
 import './style.css'
 
 import React, { useState } from 'react'
 
-import { Select } from '../index'
+import { SelectField } from '../index'
 
 export default {
-  title: 'shoreline-components/select',
+  title: 'shoreline-components/select-field',
 }
 
 export function Default() {
   const [value, setValue] = useState('')
 
   return (
-    <Select
+    <SelectField
       label="Label"
       value={value}
       onChange={(e) => setValue(e.target.value)}
@@ -24,56 +24,61 @@ export function Default() {
       <option>Maçã</option>
       <option>Banana</option>
       <option>Uva</option>
-    </Select>
+    </SelectField>
   )
 }
 
 export function All() {
   return (
     <div className="select-container">
-      <Select label="Label">
+      <SelectField label="Label">
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" helpText="Error text">
+      <SelectField label="Label" helpText="Error text">
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" errorText="Error text" error>
+      <SelectField label="Label" errorText="Error text" error>
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" helpText="Help text" errorText="Error text" error>
+      <SelectField
+        label="Label"
+        helpText="Help text"
+        errorText="Error text"
+        error
+      >
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" disabled>
+      <SelectField label="Label" disabled>
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" helpText="Help text" disabled>
+      <SelectField label="Label" helpText="Help text" disabled>
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select label="Label" errorText="Error text" error disabled>
+      <SelectField label="Label" errorText="Error text" error disabled>
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
 
-      <Select
+      <SelectField
         label="Label"
         helpText="Help text"
         errorText="Error text"
@@ -83,7 +88,7 @@ export function All() {
         <option>Maçã</option>
         <option>Banana</option>
         <option>Uva</option>
-      </Select>
+      </SelectField>
     </div>
   )
 }
