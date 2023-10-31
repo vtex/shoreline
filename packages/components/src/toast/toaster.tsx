@@ -5,37 +5,7 @@ import { useToaster } from 'react-hot-toast/headless'
 
 import { ToastWrapper } from './toast-wrapper'
 import { Toast } from './toast-markup'
-
-export type ToastPosition =
-  | 'top-left'
-  | 'top-center'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-center'
-  | 'bottom-right'
-
-function getPositionStyle(
-  position: ToastPosition,
-  offset: number
-): CSSProperties {
-  const top = position.includes('top')
-  const verticalStyle: CSSProperties = top ? { top: 0 } : { bottom: 0 }
-  const horizontalStyle: CSSProperties = position.includes('center')
-    ? {
-        justifyContent: 'center',
-      }
-    : position.includes('right')
-    ? {
-        justifyContent: 'flex-end',
-      }
-    : {}
-
-  return {
-    transform: `translateY(${offset * (top ? 1 : -1)}px)`,
-    ...verticalStyle,
-    ...horizontalStyle,
-  }
-}
+import type { ToastPosition } from './types'
 
 export function Toaster(props: ToasterProps) {
   const {
@@ -76,9 +46,10 @@ export function Toaster(props: ToasterProps) {
             <Toast
               id={t.id}
               loading={t.type === 'loading'}
-              variant={(t as any).context as any}
-              message={(t as any).message}
-            />
+              variant={(t as any).variant as any}
+            >
+              {(t as any).message}
+            </Toast>
           </ToastWrapper>
         )
       })}
@@ -86,7 +57,30 @@ export function Toaster(props: ToasterProps) {
   )
 }
 
-interface ToasterProps
+function getPositionStyle(
+  position: ToastPosition,
+  offset: number
+): CSSProperties {
+  const top = position.includes('top')
+  const verticalStyle: CSSProperties = top ? { top: 0 } : { bottom: 0 }
+  const horizontalStyle: CSSProperties = position.includes('center')
+    ? {
+        justifyContent: 'center',
+      }
+    : position.includes('right')
+    ? {
+        justifyContent: 'flex-end',
+      }
+    : {}
+
+  return {
+    transform: `translateY(${offset * (top ? 1 : -1)}px)`,
+    ...verticalStyle,
+    ...horizontalStyle,
+  }
+}
+
+export interface ToasterProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
   position?: ToastPosition
   toastOptions?: DefaultToastOptions

@@ -1,5 +1,5 @@
 import type { MouseEventHandler, ReactNode } from 'react'
-import React from 'react'
+import React, { Children, isValidElement } from 'react'
 import { toast as hotToast } from 'react-hot-toast/headless'
 import {
   IconCheckCircleFill,
@@ -8,34 +8,53 @@ import {
   IconX,
   IconXCircleFill,
 } from '@vtex/shoreline-icons'
-import { IconButton } from '../icon-button'
 import { Spinner } from '../spinner'
+import { Bleed } from '../bleed'
+import { Action } from '../action'
+import { Text } from '../text'
+import type { ToastVariant } from './types'
 
 export function Toast(props: ToastProps) {
-  const { id, variant = 'informational', message, loading, onDismiss } = props
+  const { id, variant = 'informational', children, loading, onDismiss } = props
 
   const icon = loading ? <Spinner /> : getIcon(variant)
 
   return (
     <div data-sl-toast data-loading={loading} data-variant={variant}>
-      <div data-sl-toast-message-container>
-        <div data-sl-toast-icon-container>{icon}</div>
-        <p data-sl-toast-text>{message}</p>
-      </div>
-      <div data-sl-toast-actions>
-        <IconButton
+      <div data-sl-toast-icon-container>{icon}</div>
+      <div data-sl-toast-container>{renderChildren(children)}</div>
+      <Bleed vertical>
+        <Action
+          iconOnly
           onClick={(e) => {
             onDismiss?.(e)
             hotToast.dismiss(id)
           }}
           label="dismiss"
-          variant="tertiary"
         >
           <IconX />
-        </IconButton>
-      </div>
+        </Action>
+      </Bleed>
     </div>
   )
+}
+
+function renderChildren(children: ReactNode) {
+  return Children.map(children, (child) => {
+    if (typeof child === 'string') {
+      return <Text>{child}</Text>
+    }
+
+    if (isValidElement(child) && child.type === Action) {
+      return (
+        <Bleed vertical horizontal>
+          {child}
+        </Bleed>
+      )
+    }
+
+    return child
+  })
 }
 
 function getIcon(variant: ToastVariant = 'informational') {
@@ -58,12 +77,9 @@ function getIcon(variant: ToastVariant = 'informational') {
   }
 }
 
-type ToastVariant = 'informational' | 'success' | 'critical' | 'warning'
-
 interface ToastProps {
-  promise?: Promise<any>
   variant?: ToastVariant
-  message?: ReactNode
+  children?: ReactNode
   onDismiss?: MouseEventHandler<HTMLButtonElement>
   id?: string
   duration?: number
