@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.13.0...@vtex/shoreline-components@0.14.0) (2023-10-31)
+
+### Features
+
+- **clickable:** create component ([6236e93](https://github.com/vtex/admin-ui/commit/6236e938b5e1d7ed95642ca07f93869c286494bd))
+- **simple-table:** add row as link ([b736e71](https://github.com/vtex/admin-ui/commit/b736e716edc16d88933e73a0d2baca1652d88f78))
+- **simple-table:** implement row-click ([e399dac](https://github.com/vtex/admin-ui/commit/e399dac97d3b22fa6dda7382698c9825d5776c74))
+
 # [0.13.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.12.0...@vtex/shoreline-components@0.13.0) (2023-10-30)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.2.0...@vtex/shoreline-utils@0.3.0) (2023-10-31)
+
+### Features
+
+- **clickable:** create component ([6236e93](https://github.com/vtex/shoreline/commit/6236e938b5e1d7ed95642ca07f93869c286494bd))
+
 # [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.1.0...@vtex/shoreline-utils@0.2.0) (2023-10-26)
 
 ### Features

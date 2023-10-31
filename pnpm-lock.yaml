@@ -617,7 +617,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: link:../theme
       commander:
         specifier: 11.0.0
@@ -654,7 +654,7 @@ importers:
         specifier: ^0.2.0
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^0.2.0
+        specifier: ^0.3.0
         version: link:../utils
       react:
         specifier: '>=18'
@@ -682,7 +682,7 @@ importers:
         specifier: workspace
         version: link:../theme
       '@vtex/shoreline-vanilla-extract':
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: link:../vanilla-extract
       lightningcss-cli:
         specifier: 1.22.0
@@ -706,7 +706,7 @@ importers:
   packages/csx:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^0.2.0
+        specifier: ^0.3.0
         version: link:../utils
       csstype:
         specifier: 3.1.2
@@ -780,7 +780,7 @@ importers:
   packages/shoreline-preset-admin:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^0.2.0
+        specifier: ^0.3.0
         version: link:../utils
     devDependencies:
       tsup:
@@ -793,10 +793,10 @@ importers:
         specifier: 1.2.8
         version: 1.2.8(react@18.2.0)
       '@vtex/shoreline-csx':
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.2.0
+        specifier: ^0.3.0
         version: link:../utils
 
   packages/theme:
@@ -857,10 +857,10 @@ importers:
         specifier: 1.12.0
         version: 1.12.0
       '@vtex/shoreline-csx':
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: link:../csx
       '@vtex/shoreline-utils':
-        specifier: ^0.2.0
+        specifier: ^0.3.0
         version: link:../utils
 
 packages:

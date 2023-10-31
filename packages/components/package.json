@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "main": "dist/vtex-shoreline-components.cjs.js",
   "module": "dist/vtex-shoreline-components.esm.js",
   "types": "dist/vtex-shoreline-components.cjs.d.ts",
@@ -49,7 +49,7 @@
     "@vtex/shoreline-preset-admin": "workspace",
     "@vtex/shoreline-theme": "workspace",
     "@vtex/shoreline-utils": "^0.0.1-dev.0",
-    "@vtex/shoreline-vanilla-extract": "^0.1.1",
+    "@vtex/shoreline-vanilla-extract": "^0.1.2",
     "lightningcss-cli": "1.22.0",
     "react-hook-form": "7.47.0",
     "react-window": "1.8.9"
@@ -62,6 +62,6 @@
     "@react-stately/toggle": "3.6.3",
     "@tanstack/react-table": "8.10.7",
     "@vtex/shoreline-icons": "^0.2.0",
-    "@vtex/shoreline-utils": "^0.2.0"
+    "@vtex/shoreline-utils": "^0.3.0"
   }
 }
