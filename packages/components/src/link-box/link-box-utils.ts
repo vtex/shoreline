@@ -17,13 +17,4 @@ export function navigate(
   window.open(href, target, features)
 }
 
-/**
- * Returns true if the user is selecting some text
- */
-export function hasSomeTextSelected(): boolean {
-  if (!canUseDOM) return false
-
-  return !!window?.getSelection?.()?.toString()
-}
-
 export type NavigationTarget = '_blank' | '_self' | '_parent' | '_top'

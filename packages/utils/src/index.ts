@@ -15,6 +15,7 @@ import { canUseDOM } from './can-use-dom'
 import { useId } from './use-id'
 import { useMergeRef } from './use-merge-ref'
 import { useSafeLayoutEffect } from './use-safe-layout-effect'
+import { hasSomeTextSelected } from './has-some-text-selected'
 
 export {
   chain,
@@ -37,6 +38,7 @@ export {
   useId,
   useMergeRef,
   useSafeLayoutEffect,
+  hasSomeTextSelected,
 }
 
 export * from './css-types'

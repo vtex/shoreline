@@ -18,6 +18,9 @@ import {
   TableBody,
   TableCell,
 } from '../table'
+import type { NavigationTarget } from '../link-box/link-box-utils'
+import { LinkBox } from '../link-box'
+import { Clickable } from '../clickable'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -35,6 +38,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     options,
     getRowCanExpand,
     renderDetail,
+    rowClick,
     ...tableProps
   } = props
 
@@ -79,11 +83,54 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
               selected={row.getIsSelected()}
               expanded={row.getIsExpanded()}
             >
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
+              {row.getVisibleCells().map((cell) => {
+                if (rowClick) {
+                  if (rowClick.type === 'action') {
+                    const { onClick } = rowClick
+
+                    return (
+                      <Clickable
+                        onClick={() => onClick(row)}
+                        key={cell.id}
+                        asChild
+                      >
+                        <TableCell>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      </Clickable>
+                    )
+                  }
+
+                  if (rowClick.type === 'link') {
+                    const { getHref, target } = rowClick
+
+                    return (
+                      <LinkBox
+                        href={getHref(row)}
+                        target={target}
+                        key={cell.id}
+                        asChild
+                      >
+                        <TableCell>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      </LinkBox>
+                    )
+                  }
+                }
+
+                return (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                )
+              })}
             </TableRow>
             {row.getIsExpanded() && (
               <TableRow data-sl-detail-row selected={row.getIsSelected()}>
@@ -120,4 +167,17 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
    * Renders function for the detail row
    */
   renderDetail?: (row: Row<T>) => ReactNode
+  /**
+   *
+   */
+  rowClick?:
+    | {
+        type: 'link'
+        getHref: (row: Row<T>) => string
+        target?: NavigationTarget
+      }
+    | {
+        type: 'action'
+        onClick: (row: Row<T>) => void
+      }
 }
