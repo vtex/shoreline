@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './select'
 export * from './clickable'
 export * from './link'
 export * from './link-box'
