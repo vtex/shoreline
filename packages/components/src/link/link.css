@@ -1,0 +1,18 @@
+@layer sl-components {
+  [data-sl-link] {
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--sl-fg-accent);
+
+    &:visited {
+      color: var(--sl-fg-accent-pressed);
+    }
+
+    &:hover {
+      color: var(--sl-fg-accent-hover);
+      text-decoration: underline;
+    }
+  }
+}
