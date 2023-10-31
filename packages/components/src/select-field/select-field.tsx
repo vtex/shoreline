@@ -10,7 +10,7 @@ import { useId } from '@vtex/shoreline-utils'
  *
  * @example
  *
- * <Select
+ * <SelectField
  *   label="Label"
  *   helpText="Help text"
  *   errorText="Error text"
@@ -18,10 +18,10 @@ import { useId } from '@vtex/shoreline-utils'
  *   <option>option</option>
  *   <option>option</option>
  *   <option>option</option>
- * </Select>
+ * </SelectField>
  */
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  function Select(props, ref) {
+export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
+  function SelectField(props, ref) {
     const {
       children,
       value,
@@ -38,15 +38,15 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const id = useId(defaultId)
 
     return (
-      <Field data-sl-select className={className}>
+      <Field data-sl-select-field className={className}>
         {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
-        <div data-sl-select-input-container>
+        <div data-sl-select-field-input-container>
           <select
             ref={ref}
             defaultValue=""
             value={value}
             disabled={disabled}
-            data-sl-select-input
+            data-sl-select-field-input
             data-error={error}
             data-selected={!!value}
             data-disabled={disabled}
@@ -60,7 +60,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             {children}
           </select>
 
-          <IconCaretUpDownSmall data-sl-select-icon />
+          <IconCaretUpDownSmall data-sl-select-field-icon />
         </div>
         <FieldMessage error={error} errorText={errorText} helpText={helpText} />
       </Field>
@@ -68,7 +68,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   }
 )
 
-export type SelectProps = ComponentPropsWithoutRef<'select'> & {
+export interface SelectFieldProps extends ComponentPropsWithoutRef<'select'> {
   error?: boolean
   label?: ReactNode
   errorText?: ReactNode
