@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.18.0...@vtex/shoreline-components@0.19.0) (2023-11-01)
+
+### Features
+
+- **modal:** add modal base ([f8a92d1](https://github.com/vtex/admin-ui/commit/f8a92d195240f76f97369f6ff487890bb5a5cd43))
+
 # [0.18.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.17.0...@vtex/shoreline-components@0.18.0) (2023-11-01)
 
 ### Features
