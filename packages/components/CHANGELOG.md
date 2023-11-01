@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.16.0...@vtex/shoreline-components@0.17.0) (2023-11-01)
+
+### Features
+
+- **popover:** add dismiss component ([6670860](https://github.com/vtex/admin-ui/commit/66708606754e28a95c20d573ccf7195323124c0c))
+- **simple-table:** sticky first column ([7d17bb4](https://github.com/vtex/admin-ui/commit/7d17bb42ff9c7fc7e8016043ebfbf2f6e46269d3))
+
 # [0.16.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.15.1...@vtex/shoreline-components@0.16.0) (2023-10-31)
 
 ### Bug Fixes
