@@ -23,7 +23,7 @@ import {
 import { VisuallyHidden } from '../../visually-hidden'
 import { SimpleTable } from '../index'
 
-const data = [...Array(100)].map((_, index) => ({
+const data = [...Array(30)].map((_, index) => ({
   imageUrl:
     'https://http2.mlstatic.com/D_NQ_NP_2X_649336-MLA71782871946_092023-F.webp',
   name: 'iPhone 15 pro',

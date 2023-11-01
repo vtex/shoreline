@@ -39,6 +39,9 @@ describe('table', () => {
     expect(
       container.querySelector(`[data-sl-table-header-sticky='false']`)
     ).toBeInTheDocument()
+    expect(
+      container.querySelector(`[data-sl-table-sticky-column='false']`)
+    ).toBeInTheDocument()
   })
 
   test('renders with sticky header', () => {
@@ -59,6 +62,51 @@ describe('table', () => {
 
     expect(
       container.querySelector(`[data-sl-table-header-sticky='true']`)
+    ).toBeInTheDocument()
+  })
+
+  test('renders with sticky first column', () => {
+    const { container } = render(
+      <Table stickyColumn>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>heading</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>cell</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    expect(
+      container.querySelector(`[data-sl-table-sticky-column='true']`)
+    ).toBeInTheDocument()
+  })
+
+  test('renders with sticky header and sticky column', () => {
+    const { container } = render(
+      <Table stickyHeader stickyColumn>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>heading</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>cell</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    expect(
+      container.querySelector(`[data-sl-table-header-sticky='true']`)
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector(`[data-sl-table-sticky-column='true']`)
     ).toBeInTheDocument()
   })
 })
