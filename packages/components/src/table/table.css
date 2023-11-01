@@ -25,7 +25,7 @@
       }
     }
 
-    &[data-sl-table-sticky-columns='true'] {
+    &[data-sl-table-sticky-column='true'] {
       > [data-sl-table-header] {
         > [data-sl-table-row] {
           > [data-sl-table-header-cell]:nth-child(1) {

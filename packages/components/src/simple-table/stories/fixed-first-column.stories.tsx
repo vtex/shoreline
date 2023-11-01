@@ -155,7 +155,7 @@ export function StickyFirstColumn() {
     []
   )
 
-  return <SimpleTable data={data} columns={columns} stickyColumns={1} />
+  return <SimpleTable data={data} columns={columns} stickyColumn />
 }
 
 export function StickyFirstColumnWithStickyHeader() {
@@ -264,7 +264,5 @@ export function StickyFirstColumnWithStickyHeader() {
     []
   )
 
-  return (
-    <SimpleTable data={data} columns={columns} stickyColumns={1} stickyHeader />
-  )
+  return <SimpleTable data={data} columns={columns} stickyColumn stickyHeader />
 }
