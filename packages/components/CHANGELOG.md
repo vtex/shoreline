@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.17.0...@vtex/shoreline-components@0.18.0) (2023-11-01)
+
+### Features
+
+- **scroll-area:** create component ([6ccbd02](https://github.com/vtex/admin-ui/commit/6ccbd02bcde868268c5557bb22c095441af6840f))
+- **select:** implement select-list ([389667e](https://github.com/vtex/admin-ui/commit/389667ef7f5eb16b62e13727eecc52604499b48c))
+
 # [0.17.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.16.0...@vtex/shoreline-components@0.17.0) (2023-11-01)
 
 ### Features
