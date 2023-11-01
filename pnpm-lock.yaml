@@ -7476,26 +7476,42 @@ packages:
 
   /@faker-js/faker@8.2.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 <<<<<<< HEAD
     resolution: {integrity: sha512-VacmzZqVxdWdf9y64lDOMZNDMM/FQdtM9IsaOPKOm2suYwEatb8VkdHqOzXcDnZbk7YDE2BmsJmy/2Hmkn563g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-VacmzZqVxdWdf9y64lDOMZNDMM/FQdtM9IsaOPKOm2suYwEatb8VkdHqOzXcDnZbk7YDE2BmsJmy/2Hmkn563g==,
       }
     engines: { node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13' }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 =======
     resolution: {integrity: sha512-VacmzZqVxdWdf9y64lDOMZNDMM/FQdtM9IsaOPKOm2suYwEatb8VkdHqOzXcDnZbk7YDE2BmsJmy/2Hmkn563g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
 >>>>>>> 21059fc7b (feat(simple-table): add simple table virtualization)
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
@@ -8280,6 +8296,35 @@ packages:
       slash: 3.0.0
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@jest/transform@29.5.0:
+    resolution:
+      {
+        integrity: sha512-8vbeZWqLJOvHaDfeMuoHITGKSz5qWc9u04lnWrQE3VyuSw604PzQM824ZeX9XSjUCeDiE3GuxZe5UKa8J61NQw==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    dependencies:
+      '@babel/core': 7.22.5
+      '@jest/types': 29.5.0
+      '@jridgewell/trace-mapping': 0.3.18
+      babel-plugin-istanbul: 6.1.1
+      chalk: 4.1.2
+      convert-source-map: 2.0.0
+      fast-json-stable-stringify: 2.1.0
+      graceful-fs: 4.2.11
+      jest-haste-map: 29.5.0
+      jest-regex-util: 29.4.3
+      jest-util: 29.5.0
+      micromatch: 4.0.5
+      pirates: 4.0.5
+      slash: 3.0.0
+      write-file-atomic: 4.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@jest/transform@29.6.2:
     resolution:
       {
@@ -8320,6 +8365,24 @@ packages:
       chalk: 4.1.2
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@jest/types@29.5.0:
+    resolution:
+      {
+        integrity: sha512-qbu7kN6czmVRc3xWFQcAN03RAUamgppVUdXrvl1Wr3jlNF93o9mJbGcDWrwGB6ht44u7efB1qCFgVQmca24Uog==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    dependencies:
+      '@jest/schemas': 29.6.0
+      '@types/istanbul-lib-coverage': 2.0.4
+      '@types/istanbul-reports': 3.0.1
+      '@types/node': 20.4.5
+      '@types/yargs': 17.0.11
+      chalk: 4.1.2
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@jest/types@29.6.1:
     resolution:
       {
@@ -8335,10 +8398,17 @@ packages:
       chalk: 4.1.2
     dev: true
 
+<<<<<<< HEAD
   /@joshwooding/vite-plugin-react-docgen-typescript@0.3.0(typescript@4.9.5)(vite@4.3.9):
     resolution:
       {
         integrity: sha512-2D6y7fNvFmsLmRt6UCOFJPvFoPMJGT0Uh1Wg0RaigUp7kdQPs6yYn8Dmx6GZkOH/NW0yMTwRz/p0SRMMRo50vA==,
+=======
+  /@joshwooding/vite-plugin-react-docgen-typescript@0.2.1(typescript@4.9.5)(vite@4.3.9):
+    resolution:
+      {
+        integrity: sha512-ou4ZJSXMMWHqGS4g8uNRbC5TiTWxAgQZiVucoUrOCWuPrTbkpJbmVyIi9jU72SBry7gQtuMEDp4YR8EEXAg7VQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       typescript: '>= 4.3.x'
@@ -10681,7 +10751,10 @@ packages:
     dev: true
 
   /@reach/observe-rect@1.2.0:
-    resolution: {integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==}
+    resolution:
+      {
+        integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==,
+      }
     dev: false
 
   /@react-aria/checkbox@3.11.2(react@18.2.0):
@@ -11420,10 +11493,17 @@ packages:
       react: 18.2.0
     dev: false
 
+<<<<<<< HEAD
   /@storybook/addon-a11y@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-Fs6BA4P0xBfsevo8H5E2IhMLLR3Q+FBRWHWAxGzhlkpNeH7ZZd87L5GrrLUmhzbCQvlHdWCVujWkwb21KX7Vsw==,
+=======
+  /@storybook/addon-a11y@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-r4YLTcPfGqoshu3uq+dyydWZ35zIwoumJ/zgFTlPsxmpV9WArXEKg25fKUNfJMuEE+7U5NqC9xq8ocUa9ihMlg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11454,10 +11534,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-actions@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-v3yL6Eq/jCiXfA24JjRdbEQUuorms6tmrywaKcd1tAy4Ftgof0KHB4tTcTyiajrI5bh6PVJoRBkE8IDqmNAHkA==,
+=======
+  /@storybook/addon-actions@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-YUiKksgRIUm80eZacj/x14BEYCQY5iel1/Wo6mrTP7bVQrUNiCmnINSrup0DObg7lmIaq00h3ow7gKeYJ+x6zw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11491,10 +11578,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-backgrounds@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-UCOVd4UNIL5FRiwi9nyiWFocn/7ewwS6bIWnq66AaHg/sv92YwsPmgQJn0DMBGDOvUAWpiHdVsZNOTX6nvw4gA==,
+=======
+  /@storybook/addon-backgrounds@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-F+/eERFnCIjDaOkCbCS0erre1AbjsHoM0IdLu2sGIBwuroFwKYy/ijadSsJ1zk4eBqZFxdyN4CuMN6EsK1Xm+Q==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11522,10 +11616,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-controls@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-KEuU4X5Xr6cJI9xrzOUVGEmUf1iHPfK7cj0GACKv0GElsdIsQryv+OZ7gRnvmNax/e2hm2t9cJcFxB24/p6rVg==,
+=======
+  /@storybook/addon-controls@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-ioILEP4wZo6n8ifr1b+o8xCdMVLWyhHqNWoQoBRixxWwpzR4/fHaKo7wBGSkOOWubkhen6wUMUuiJbDdoGyR7g==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11557,10 +11658,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-docs@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-JVQ6iCXKESij/SbE4Wq47dkSSgBRulvA8SUf8NWL5m9qpiHrg0lPSERHfoTLiB5uC/JwF0OKIlhxoWl+zCmtYg==,
+=======
+  /@storybook/addon-docs@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-QlUM22wK0cE9glMRt1auP3BccjafdRvcsAnaLvDIL12HRaUqMpH6vvNN3A3MXo6XuzbOmDwAov5mXdCenpz02A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11594,10 +11702,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-essentials@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-PYj6swEI4nEzIbOTyHJB8u3K8ABYKoaW8XB5emMwsnrzB/TN7auHVhze2bQ/+ax5wyPKZpArPjxbWlSHtSws+A==,
+=======
+  /@storybook/addon-essentials@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-+ICPYpuljKOoO1oTRfoax4n+3UD2/xAY8qQmAsRNN3xOBNJfdrsrCocrfY1j74xqoX+Zflvp5V481zq+MpP4XQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11626,10 +11741,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-highlight@7.5.3:
     resolution:
       {
         integrity: sha512-jb+aNRhj+tFK7EqqTlNCjGkTrkWqWHGdD1ubgnj29v8XhRuCR9YboPS+306KYwBEkuF4kNCHZofLiEBPf6nCJg==,
+=======
+  /@storybook/addon-highlight@7.2.1:
+    resolution:
+      {
+        integrity: sha512-6nNqpSMImn1mSGmEKF1o+C6o4lWJjduGYnCIO/ouXExaNLMrdcGKUEWrluABLOeDRPcNC9/EkuIEd8IsDnUX4A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/core-events': 7.5.3
@@ -11637,10 +11759,17 @@ packages:
       '@storybook/preview-api': 7.5.3
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-links@7.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-NcigW0HX8AllZ/KJ4u1KMiK30QvjqtC+zApI6Yc3tTaa6+BldbLv06fEgHgMY0yC8R+Ly9mUN7S1HiU7LQ7Qxg==,
+=======
+  /@storybook/addon-links@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-3UQfOZ1+wGlPsHWWjXjPskq6nsDXuB+8QvOcpqy51mK+5Zv/EQe386hWj9VUpjLNMxXarWETa5CXGfoQdFzJTA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11665,10 +11794,17 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-measure@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-fun9BqUTGXgcMpcbX9wUowGDkjCL8oKasZbjp/MvGM3vPTM6HQdwzHTLJGPBnmJ1xK92NhwFRs0BrQX6uF1yrg==,
+=======
+  /@storybook/addon-measure@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-3Rq/B3Iurbo5dZvUN735GHK+9EDm0xw+liK0PdeYvl21/RkXTV+a4aBcWyyeWwwu1S7pdK1B/0WEc9d5Lot8sA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11694,10 +11830,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-outline@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-c9vCi1SCGrtWr8qaOu/1GNWlrlrpl2lg4F9r+xtYf/KopenI3jSMz0YeTfmepZGAl+6Yc2Ywhm60jgpQ6SKciA==,
+=======
+  /@storybook/addon-outline@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-v2dYDhfSzV8Nsi1pmjcLEOHGJLlUnpnSXlQymb338YJEFKP2G5ylHzKAHG16MmzKeZZd3rthTB0246SFCyf0hg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11755,10 +11898,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-toolbars@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-KdLr4sGMJzhtjNTNE2ocfu58yOHHUyZ/cI3BTp7a0gq9YbUpHmC3XTNr26/yOYYrdjkiMD26XusJUjXe+/V2xw==,
+=======
+  /@storybook/addon-toolbars@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-SEDj9f0EgifPK/Eyh703N1tbk7SZ7yAZOnNUK8T0mwdKrMa7jskvYuift8iSnJA2ldp1siqwe1Obq+Oielp9hQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11781,10 +11931,17 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/addon-viewport@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-gT2XX0NNBrzSs1nrxadl6LnvcwgN7z2R0LzTK8/hxvx4D0EnXrV3feXLzjewr8ZYjzfEeSpO+W+bQTVNm3fNsg==,
+=======
+  /@storybook/addon-viewport@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-aHl3rCh4MNByfWVtjBzkwMtz0iHQHFhatWXVt7mQoTQFBbZHpeynKvLfKBprp+2whK9RoDHqBUjqGTZrECdpRA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11811,19 +11968,49 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/blocks@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-Z8yF820v78clQWkwG5OA5qugbQn7rtutq9XCsd03NDB+IEfDaTFQAZG8gs62ZX2ZaXAJsqJSr/mL9oURzXto2A==,
+=======
+  /@storybook/addons@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-I49JOSU5Imv91IWiNQvqGJDZ/llnSxQvttWAh+exhw7+Pq3xfwRmD+fNfyqm1C68/dVGNgwY/w40AP5cQb2PLA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
+<<<<<<< HEAD
       '@storybook/channels': 7.5.3
       '@storybook/client-logger': 7.5.3
       '@storybook/components': 7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/core-events': 7.5.3
+=======
+      '@storybook/manager-api': 7.2.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api': 7.2.1
+      '@storybook/types': 7.2.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /@storybook/blocks@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-1fPsFC6n9R267KwxGHiL80OuIdMDRC9QuIW4sRF0tF/G/yvucbofySYRQl/Y8LjsMJq8D4NpG5xLsneSxMP5cg==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/channels': 7.2.1
+      '@storybook/client-logger': 7.2.1
+      '@storybook/components': 7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/core-events': 7.2.1
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       '@storybook/csf': 0.1.1
       '@storybook/docs-tools': 7.5.3
       '@storybook/global': 5.0.0
@@ -11852,10 +12039,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/builder-manager@7.5.3:
     resolution:
       {
         integrity: sha512-uf4Vyj8ofHaq94m065SMvFKak1XrrxgI83VZAxc2QjiPcbRwcVOZd+wcKFdZydqqA6FlBDdJrU+k9INA4Qkfcw==,
+=======
+  /@storybook/builder-manager@7.2.1:
+    resolution:
+      {
+        integrity: sha512-X8B1cUfDaTtsJY3xJNwPy6W4UN7LWXkKktJBoNUGESigQGKpAMvUAmABCZIjZD8GcdGMtU8y/fA7YimUpy/ZKQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@fal-works/esbuild-plugin-global-externals': 2.1.2
@@ -11879,10 +12073,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/builder-vite@7.5.3(typescript@4.9.5)(vite@4.3.9):
     resolution:
       {
         integrity: sha512-c104V3O75OCVnfZj0Jr70V09g0KSbPGvQK2Zh31omXGvakG8XrhWolYxkmjOcForJmAqsXnKs/nw3F75Gp853g==,
+=======
+  /@storybook/builder-vite@7.2.1(typescript@4.9.5)(vite@4.3.9):
+    resolution:
+      {
+        integrity: sha512-D/RNcH6WAxMAMmC3w9wwgDbYUJ9SjSwc6NPcxGrKk9o0SWDsKWWx4r6mM0W5FJ7Wh11Ca46LLnPC3cFfEg4YDQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       '@preact/preset-vite': '*'
@@ -11920,10 +12121,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/builder-webpack5@7.5.3(esbuild@0.18.10)(typescript@4.9.5):
     resolution:
       {
         integrity: sha512-a2kHXFT61AV1+OPNTqXCsYk7Wk4XSqjAOQkSxWc1HK+kyMT+lahO4U06slji6XAVuXc/KY+naNUoaOfpB1hKVw==,
+=======
+  /@storybook/builder-webpack5@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(esbuild@0.18.10)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution:
+      {
+        integrity: sha512-llN66MbvsGfjgHArVZxfNXxgwhUzQRjpiyqFBfzzP5q83ck16pkqYjffRKRH/Y6CR4VNwXn2XMurPJQqT+aWVA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       typescript: '*'
@@ -11977,6 +12185,23 @@ packages:
       - webpack-cli
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/channels@7.2.1:
+    resolution:
+      {
+        integrity: sha512-3ZogzjwlFG+oarwnI7TTvWvHVOUtJbjrgZkM5QuLMlxNzIR1XuBY8f01yf4K8+VpdNy9DY+7Q/j6tBThfwYvpA==,
+      }
+    dependencies:
+      '@storybook/client-logger': 7.2.1
+      '@storybook/core-events': 7.2.1
+      '@storybook/global': 5.0.0
+      qs: 6.11.0
+      telejson: 7.1.0
+      tiny-invariant: 1.3.1
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/channels@7.5.3:
     resolution:
       {
@@ -11991,10 +12216,17 @@ packages:
       tiny-invariant: 1.3.1
     dev: true
 
+<<<<<<< HEAD
   /@storybook/cli@7.5.3:
     resolution:
       {
         integrity: sha512-XysHSnknZTAcTbQ0bQsbfv5J8ifHpOBsmXjk1HCA05E9WGGrn9JrQRCfpDUQJ6O6UWq0bpMqzP8gFLWXFE7hug==,
+=======
+  /@storybook/cli@7.2.1:
+    resolution:
+      {
+        integrity: sha512-rPZDUvM0FRHZU4Wcm0ASOr/0xZq/6uySulqpLgoSkeZIC0xLXh/bI6YoDrD9UJV6GIRiqHMWMdxWd1e+TH8XHg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     hasBin: true
     dependencies:
@@ -12054,13 +12286,17 @@ packages:
       }
 =======
   /@storybook/client-api@7.2.1:
-    resolution: {integrity: sha512-VeRUxc4ufSaGAQPe/LM4aucpEx2UHHw9c+tzolV3hzGIp6pmIAS8XI6thL2IccYmsNMS2zz9oDESYP9cNlTsyA==}
+    resolution:
+      {
+        integrity: sha512-VeRUxc4ufSaGAQPe/LM4aucpEx2UHHw9c+tzolV3hzGIp6pmIAS8XI6thL2IccYmsNMS2zz9oDESYP9cNlTsyA==,
+      }
     dependencies:
       '@storybook/client-logger': 7.2.1
       '@storybook/preview-api': 7.2.1
     dev: true
 
   /@storybook/client-logger@7.2.1:
+<<<<<<< HEAD
     resolution: {integrity: sha512-Lyht/lJg2S65CXRy9rXAZXP/Mgye7jbi/aqQL8z9VRMGChbL+k/3pSZnXTTrD1OVSpCEr4UWA+9bStzT4VjtYA==}
 <<<<<<< HEAD
     dependencies:
@@ -12071,15 +12307,31 @@ packages:
     resolution: {integrity: sha512-vUFYALypjix5FoJ5M/XUP6KmyTnQJNW1poHdW7WXUVSg+lBM6E5eAtjTm0hdxNNDH8KSrdy24nCLra5h0X0BWg==}
 =======
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+    resolution:
+      {
+        integrity: sha512-Lyht/lJg2S65CXRy9rXAZXP/Mgye7jbi/aqQL8z9VRMGChbL+k/3pSZnXTTrD1OVSpCEr4UWA+9bStzT4VjtYA==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
 
+<<<<<<< HEAD
   /@storybook/codemod@7.5.3:
     resolution:
       {
         integrity: sha512-gzycFdqnF4drUjfzMTrLNHqi2jkw1lDeACUzQdug5uWxynZKAvMTHAgU0q9wvoYRR9Xhq8PhfKtXtYCCj2Er4Q==,
+=======
+  /@storybook/codemod@7.2.1:
+    resolution:
+      {
+        integrity: sha512-R19fdPfslupxfbtyuGcRa2m1nCug2Zm8bS0GhnPtUl7eGBA4glcf4KKwP52pEqgJAsarfiL2cLSnN5wqQGQ/Sw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@babel/core': 7.23.0
@@ -12100,6 +12352,37 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/components@7.2.1(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-7JuMT2yK9FGPu9hFCo38tC3FDyr/hJ3CQwU6dSR6E5rT9E658dq31Xl3y/fM5OMzl8MX8Off7TWiybHSuwYJTA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@radix-ui/react-select': 1.2.2(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/client-logger': 7.2.1
+      '@storybook/csf': 0.1.1
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.1.2(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/theming': 7.2.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/types': 7.2.1
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      use-resize-observer: 9.1.0(react-dom@18.2.0)(react@18.2.0)
+      util-deprecate: 1.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - debug
+      - supports-color
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/components@7.5.3(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -12126,20 +12409,34 @@ packages:
       - '@types/react-dom'
     dev: true
 
+<<<<<<< HEAD
   /@storybook/core-client@7.5.3:
     resolution:
       {
         integrity: sha512-sIviDytbhos02TVXxU8XLymzty7IAtLs5e16hv49JSdBp47iBajRaNBmBj/l+sgTH+3M+R6gP8yGFMsZSCnU2g==,
+=======
+  /@storybook/core-client@7.2.1:
+    resolution:
+      {
+        integrity: sha512-ujJdkaY6LXGCA8pqFBYTNMySmawm3GPcORYevkmM2edSbNKlu904+HvheRirajluzV7ropzGxUBZR9TMwgmDGg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/client-logger': 7.5.3
       '@storybook/preview-api': 7.5.3
     dev: true
 
+<<<<<<< HEAD
   /@storybook/core-common@7.5.3:
     resolution:
       {
         integrity: sha512-WGMwjtVUxUzFwQz7Mgs0gLuNebIGNV55dCdZgurx2/y6QOkJ2v8D0b3iL+xKMV4B5Nwoc2DsM418Y+Hy3UQd+w==,
+=======
+  /@storybook/core-common@7.2.1:
+    resolution:
+      {
+        integrity: sha512-g1MQ04lgL16Ct89tPj6RSw72yd+a+ZJ4ceH3Ev+SmnU8efBLPmr6+G5Bx7+rY1W2c6NdpFgtSidjgOGqQ8gppw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/core-events': 7.5.3
@@ -12173,6 +12470,7 @@ packages:
 <<<<<<< HEAD
 =======
   /@storybook/core-events@7.2.1:
+<<<<<<< HEAD
     resolution: {integrity: sha512-EUXYb3gyQ2EzpDAWkgfoDl1EPabj3OE6+zntsD/gwvzQU85BTocs10ksnRyS55bfrQpYbf+Z+gw2CZboyagLgg==}
 <<<<<<< HEAD
     dev: true
@@ -12187,12 +12485,25 @@ packages:
       ts-dedent: 2.2.0
 =======
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
+=======
+    resolution:
+      {
+        integrity: sha512-EUXYb3gyQ2EzpDAWkgfoDl1EPabj3OE6+zntsD/gwvzQU85BTocs10ksnRyS55bfrQpYbf+Z+gw2CZboyagLgg==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: true
 
+<<<<<<< HEAD
   /@storybook/core-server@7.5.3:
     resolution:
       {
         integrity: sha512-Gmq1w7ulN/VIeTDboNcb6GNM+S8T0SqhJUqeoHzn0vLGnzxeuYRJ0V3ZJhGZiJfSmCNqYAjC8QUBf6uU1gLipw==,
+=======
+  /@storybook/core-server@7.2.1:
+    resolution:
+      {
+        integrity: sha512-jhS918Frl5j6LSB3x7qzHHuRL5e3RXqCkBQe5KtR2zXMgYlalSyGcX5uT8byWFznUsQIjGmUrf6ZIoKdRdslWg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@aw-web-design/x-default-browser': 1.4.126
@@ -12243,10 +12554,17 @@ packages:
       - utf-8-validate
     dev: true
 
+<<<<<<< HEAD
   /@storybook/core-webpack@7.5.3:
     resolution:
       {
         integrity: sha512-dhC94VeLwyPtZ2gvEND6J4alMaiFDsK8lJCYPNAahUr56f3nRDyVibE7prd94sAlfrdind1g5slP9VMP8cX+uQ==,
+=======
+  /@storybook/core-webpack@7.2.1:
+    resolution:
+      {
+        integrity: sha512-8Oc6HJFphDVid8DRKSlFc3wK64zuCAbbRFRI9Flf6he4wPncaDL1tXfCJjCbeujJQHLrgG7BjXYNHwIUiB2wRA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/core-common': 7.5.3
@@ -12259,10 +12577,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/csf-plugin@7.5.3:
     resolution:
       {
         integrity: sha512-yQ3S/IOT08Y7XTnlc3SPkrJKZ6Xld6liAlHn+ddjge4oZa0hUqwYLb+piXUhFMfL6Ij65cj4hu3vMbw89azIhg==,
+=======
+  /@storybook/csf-plugin@7.2.1:
+    resolution:
+      {
+        integrity: sha512-qhxkKOsUjCS/hqsDgwgoM81ZXAXfTNrJJPHCs4Wa1dHoUVUn7rro7VANIO0GVNrRDnha3YR4fEmnD8kklLKmCQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/csf-tools': 7.5.3
@@ -12271,10 +12596,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/csf-tools@7.5.3:
     resolution:
       {
         integrity: sha512-676C3ISn7FQJKjb3DBWXhjGN2OQEv4s71dx+5D0TlmswDCOOGS8dYFjP8wVx51+mAIE8CROAw7vLHLtVKU7SwQ==,
+=======
+  /@storybook/csf-tools@7.2.1:
+    resolution:
+      {
+        integrity: sha512-QqZOBd6lmhPoIBLutyYYJ3wBwEZF+fUjiL8vhw3lgq+Mrer14lmKrImKDSjd1PsqVbbGQEJZ4TAJHZc3vdQs0w==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@babel/generator': 7.23.0
@@ -12306,10 +12638,17 @@ packages:
       }
     dev: true
 
+<<<<<<< HEAD
   /@storybook/docs-tools@7.5.3:
     resolution:
       {
         integrity: sha512-f20EUQlwamcSPrOFn42fj9gpkZIDNCZkC3N19yGzLYiE4UMyaYQgRl18oLvqd3M6aBm6UW6SCoIIgeaOViBSqg==,
+=======
+  /@storybook/docs-tools@7.2.1:
+    resolution:
+      {
+        integrity: sha512-snRdkqdaxAwlalIEtuElySzC68Lo/0KfrGRR6xSDxWIhjAPNqsRLPHEXlZrJ43Tn/V2oxCRU8eb21pP5/58krw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dependencies:
       '@storybook/core-common': 7.5.3
@@ -12328,6 +12667,62 @@ packages:
       {
         integrity: sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==,
       }
+<<<<<<< HEAD
+=======
+    dev: true
+
+  /@storybook/icons@1.1.2(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-rqbaVL2GoelYJzXWvZfAf8GAQw/IXEHM7baac1AzzsiabZv4ANlFImsWmT12GH8Q7v/B/4FJe0F2FQBd/1IX3w==,
+      }
+    engines: { node: '>=14.0.0' }
+    peerDependencies:
+      react: '>=17'
+      react-dom: '>=17'
+    dependencies:
+      '@svgr/core': 5.5.0
+      '@svgr/plugin-prettier': 5.5.0
+      '@svgr/plugin-svgo': 5.5.0
+      axios: 1.4.0
+      chalk: 4.1.2
+      dotenv: 16.3.1
+      figma-api-exporter: 0.0.2
+      fs-extra: 11.1.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - debug
+      - supports-color
+    dev: true
+
+  /@storybook/manager-api@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-jRuYTrsNKq+g1u9kbQRvBsRKVITOdiNu9c633MeCH73oBVo8WNnZF/tW/ER86oTnru0H7EmRdgz3v9ft/wS2GQ==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/channels': 7.2.1
+      '@storybook/client-logger': 7.2.1
+      '@storybook/core-events': 7.2.1
+      '@storybook/csf': 0.1.1
+      '@storybook/global': 5.0.0
+      '@storybook/router': 7.2.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/theming': 7.2.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/types': 7.2.1
+      dequal: 2.0.3
+      lodash: 4.17.21
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      semver: 7.5.3
+      store2: 2.14.2
+      telejson: 7.1.0
+      ts-dedent: 2.2.0
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /@storybook/manager-api@7.5.3(react-dom@18.2.0)(react@18.2.0):
@@ -12358,10 +12753,17 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
+<<<<<<< HEAD
   /@storybook/manager@7.5.3:
     resolution:
       {
         integrity: sha512-3ZZrHYcXWAQXpDQZBvKyScGgQaAaBc63i+KC2mXqzTdXuJhVDUiylvqLRprBnrEprgePQLFrxGC2JSHUwH7dqg==,
+=======
+  /@storybook/manager@7.2.1:
+    resolution:
+      {
+        integrity: sha512-wD2tRH8gLk2VNFMVcWmGZTXGTMNXdM3rnXiyKtmSVwFzacmOtLzEsCOprwI6WJpZv3v1vHY0s6idN9iadTVMhw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dev: true
 
@@ -12372,6 +12774,7 @@ packages:
       }
     dev: true
 
+<<<<<<< HEAD
   /@storybook/node-logger@7.5.3:
     resolution:
       {
@@ -12390,6 +12793,26 @@ packages:
     resolution:
       {
         integrity: sha512-/3Zsh97KpMLsx3lkkQ9LAlEVWwBGbAJTwE+ueVxVnAJgwiDCVe95IN7sVpKuwN/PVStnMRwDADUvZPfmw4m3Sg==,
+=======
+  /@storybook/node-logger@7.2.1:
+    resolution:
+      {
+        integrity: sha512-Ywjqi8iAc26RYbZfmpzvzdKbaQZaD1T/IRNfVGReM/jTXnX0VSdsa6P/pfurbyHcQw//D3TSdqRHOMtbp0nIJg==,
+      }
+    dev: true
+
+  /@storybook/postinstall@7.2.1:
+    resolution:
+      {
+        integrity: sha512-xOzX1MygQ+9xpku6FuODhXvfv/CcKlQPOGpZk8ejE/04Eow0JHluGI1cxdnpqGcCBygkw7DP+xrtQCv75c7Gjg==,
+      }
+    dev: true
+
+  /@storybook/preset-react-webpack@7.2.1(@babel/core@7.22.5)(@swc/core@1.2.241)(esbuild@0.18.10)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution:
+      {
+        integrity: sha512-PhWql1hxpUxy+SJ9jLrt+Db2yc0Qgo8ivRWU0eqZJIrXnZXtUQiGByMqYWdr0MzNbBEJIqrxO4RCpowKmDh/Xw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=16.0.0' }
     peerDependencies:
@@ -12438,6 +12861,31 @@ packages:
       - webpack-plugin-serve
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/preview-api@7.2.1:
+    resolution:
+      {
+        integrity: sha512-WKecuOdeh9+og6bPR9KoQf/JCeSRPCcfZv9uNfJzAp3IiTnS3UpfCz+HBZzZJQrisgbd7OulNY400HQUmxY2Ag==,
+      }
+    dependencies:
+      '@storybook/channels': 7.2.1
+      '@storybook/client-logger': 7.2.1
+      '@storybook/core-events': 7.2.1
+      '@storybook/csf': 0.1.1
+      '@storybook/global': 5.0.0
+      '@storybook/types': 7.2.1
+      '@types/qs': 6.9.7
+      dequal: 2.0.3
+      lodash: 4.17.21
+      memoizerific: 1.11.3
+      qs: 6.11.0
+      synchronous-promise: 2.0.15
+      ts-dedent: 2.2.0
+      util-deprecate: 1.0.2
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/preview-api@7.5.3:
     resolution:
       {
@@ -12460,10 +12908,17 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
+<<<<<<< HEAD
   /@storybook/preview@7.5.3:
     resolution:
       {
         integrity: sha512-Hf90NlLaSrdMZXPOHDCMPjTywVrQKK0e5CtzqWx/ZQz91JDINxJD+sGj2wZU+wuBtQcTtlsXc9OewlJ+9ETwIw==,
+=======
+  /@storybook/preview@7.2.1:
+    resolution:
+      {
+        integrity: sha512-5mLNhuaePx3Zv8mO93Y/M+U7ppqV5bS13rPfMHcVmSb7mQ/3hN7zkF6NhPOX6LoBUxetHiAJh5dA5McNE3adLQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     dev: true
 
@@ -12489,10 +12944,17 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@storybook/react-dom-shim@7.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-9aNcKdhoP36jMrcXgfzE9jVg/SpqPpWnUJM70upYoZXytG2wQSPtawLHHyC6kycvTzwncyfF3rwUnOFBB8zmig==,
+=======
+  /@storybook/react-dom-shim@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-QzQQN2nZkG7c0Mg5HvhfQuH10HjAJEnA8vDlENIFMj3XqtUAq4HE2n73gEcvdFJMXL4G16N58+TgR1e2cFdRKw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -12502,10 +12964,17 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+<<<<<<< HEAD
   /@storybook/react-vite@7.5.3(react-dom@18.2.0)(react@18.2.0)(rollup@3.25.3)(typescript@4.9.5)(vite@4.3.9):
     resolution:
       {
         integrity: sha512-ArPyHgiPbT5YvcyK4xK/DfqBOpn4R4/EP3kfIGhx8QKJyOtxPEYFdkLIZ5xu3KnPX7/z7GT+4a6Rb+8sk9gliA==,
+=======
+  /@storybook/react-vite@7.2.1(react-dom@18.2.0)(react@18.2.0)(rollup@3.25.3)(typescript@4.9.5)(vite@4.3.9):
+    resolution:
+      {
+        integrity: sha512-sBMlrLf/zUDUk6bWQLu5/tERW82j9spGMD++O1mdum3eVfPwvsqjtGokTVx/eOLUYA9kqQFdUtjLSn0sS84bTQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=16' }
     peerDependencies:
@@ -12532,10 +13001,17 @@ packages:
       - vite-plugin-glimmerx
     dev: true
 
+<<<<<<< HEAD
   /@storybook/react-webpack5@7.5.3(@babel/core@7.22.5)(@swc/core@1.2.241)(esbuild@0.18.10)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution:
       {
         integrity: sha512-+sjYMrvmpvztdDkRE1/EkcNNxTTdDdBoXUGrGyE0ig6qEwSewRld0H8ng1jlNQ8treocy7036TXJF+qHZEz/FQ==,
+=======
+  /@storybook/react-webpack5@7.2.1(@babel/core@7.22.5)(@swc/core@1.2.241)(@types/react-dom@18.2.6)(@types/react@18.2.14)(esbuild@0.18.10)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution:
+      {
+        integrity: sha512-hkJ+PzVDXTuA4v/wZF6YQTEuUswiZfYPdKl/c5rJp8XvK6WhcMkSTlwzZ2+vnk4s0vbVdlBZLG78LFUmGZy4jQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=16.0.0' }
     peerDependencies:
@@ -12573,10 +13049,17 @@ packages:
       - webpack-plugin-serve
     dev: true
 
+<<<<<<< HEAD
   /@storybook/react@7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution:
       {
         integrity: sha512-dZILdM36xMFDjdmmy421G5X+sOIncB2qF3IPTooniG1i1Z6v/dVNo57ovdID9lDTNa+AWr2fLB9hANiISMqmjQ==,
+=======
+  /@storybook/react@7.2.1(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution:
+      {
+        integrity: sha512-WRAVrSQKAtCoypUrrIXWGOvyGRVkrh73hSkKVC0gEqxWDmjZIZJ1uc3VrUd/yHJdLsqNphcAyU8Ahu52yozubg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=16.0.0' }
     peerDependencies:
@@ -12616,6 +13099,25 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/router@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-9Cn5boUS+7yhrKlSy1kt7ruNs/znk3555kclBD6+uuhH/dD84feGeiGYE4GUuLmcKrDFtNF185/Gr1huJ556tA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/client-logger': 7.2.1
+      memoizerific: 1.11.3
+      qs: 6.11.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/router@7.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -12650,6 +13152,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+<<<<<<< HEAD
   /@storybook/telemetry@7.5.3:
     resolution:
       {
@@ -12659,6 +13162,27 @@ packages:
       '@storybook/client-logger': 7.5.3
       '@storybook/core-common': 7.5.3
       '@storybook/csf-tools': 7.5.3
+=======
+  /@storybook/store@7.2.1:
+    resolution:
+      {
+        integrity: sha512-0EBD3GMCZpVk2y/Yzk7koH91Ny+kyq+krWaGFgZQ8JrGouuw1JAszxzgO1VVgnRio88UKeK3UALx9hGSHqDXeg==,
+      }
+    dependencies:
+      '@storybook/client-logger': 7.2.1
+      '@storybook/preview-api': 7.2.1
+    dev: true
+
+  /@storybook/telemetry@7.2.1:
+    resolution:
+      {
+        integrity: sha512-ewYvX+ZzuTCl9a8DUbKkSPD6GhxUStl/+Eni1faE1OEnyduwbJFlse0EBpOa4YZTcghlngrHV3pulEW8qOgNFA==,
+      }
+    dependencies:
+      '@storybook/client-logger': 7.2.1
+      '@storybook/core-common': 7.2.1
+      '@storybook/csf-tools': 7.2.1
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       chalk: 4.1.2
       detect-package-manager: 2.0.1
       fetch-retry: 5.0.6
@@ -12669,6 +13193,26 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/theming@7.2.1(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-cfnNCLvKmzxjmoYKfLl7Q64gSTouLvd23CtvBAOlWcRYnMJ9v4/7A2tK3xQyVRlJYh9OuXiHFLL8AXbN58Hkzw==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
+      '@storybook/client-logger': 7.2.1
+      '@storybook/global': 5.0.0
+      memoizerific: 1.11.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/theming@7.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
@@ -12686,6 +13230,21 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@storybook/types@7.2.1:
+    resolution:
+      {
+        integrity: sha512-YwlIY1uyxfJjijbB5x1d1QOKaUUDJnMX8BSb8oGqU4cyT76X/Is4CbGs+vccFsJo0tZu1GfuahYXl0EDT0nnSQ==,
+      }
+    dependencies:
+      '@storybook/channels': 7.2.1
+      '@types/babel__core': 7.1.19
+      '@types/express': 4.17.17
+      file-system-cache: 2.3.0
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@storybook/types@7.5.3:
     resolution:
       {
@@ -12704,7 +13263,10 @@ packages:
         integrity: sha512-ZFf2gs/8/6B8PnSofI0inYXr2SDNTDScPXhN7k5EqD4aZ3gi6u+rbmZHVB8IM3wDyx8ntKACZbtXSm7oZGRqVg==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-add-jsx-attribute@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12724,7 +13286,10 @@ packages:
         integrity: sha512-yaS4o2PgUtwLFGTKbsiAy6D0o3ugcUhWK0Z45umJ66EPWunAz9fuFw2gJuje6wqQvQWOTJvIahUwndOXb7QCPg==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-remove-jsx-attribute@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12744,7 +13309,10 @@ packages:
         integrity: sha512-LA72+88A11ND/yFIMzyuLRSMJ+tRKeYKeQ+mR3DcAZ5I4h5CPWN9AHyUzJbWSYp/u2u0xhmgOe0+E41+GjEueA==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-remove-jsx-empty-expression@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12764,7 +13332,10 @@ packages:
         integrity: sha512-PoiE6ZD2Eiy5mK+fjHqwGOS+IXX0wq/YDtNyIgOrc6ejFnxN4b13pRpiIPbtPwHEc+NT2KCjteAcq33/F1Y9KQ==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-replace-jsx-attribute-value@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12784,7 +13355,10 @@ packages:
         integrity: sha512-zSOZH8PdZOpuG1ZVx/cLVePB2ibo3WPpqo7gFIjLV9a0QsuQAzJiwwqmuEdTaW2pegyBE17Uu15mOgOcgabQZg==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-svg-dynamic-title@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12804,7 +13378,10 @@ packages:
         integrity: sha512-cPzDbDA5oT/sPXDCUYoVXEmm3VIoAWAPT6mSPTJNbQaBNUuEKVKyGH93oDY4e42PYHRW67N5alJx/eEol20abw==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-svg-em-dimensions@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12824,7 +13401,10 @@ packages:
         integrity: sha512-3eYP/SaopZ41GHwXma7Rmxcv9uRslRDTY1estspeB1w1ueZWd/tPlMfEOoccYpEMZU3jD4OU7YitnXcF5hLW2Q==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-transform-react-native-svg@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12844,7 +13424,10 @@ packages:
         integrity: sha512-q4jSH1UUvbrsOtlo/tKcgSeiCHRSBdXoIoqX1pgcKK/aU3JD27wmMKwGtpB8qRYUYoyXvfGxUVKchLuR5pB3rQ==,
       }
     engines: { node: '>=10' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@svgr/babel-plugin-transform-svg-component@6.3.1(@babel/core@7.22.5):
     resolution:
@@ -12977,6 +13560,20 @@ packages:
       - supports-color
     dev: false
 
+<<<<<<< HEAD
+=======
+  /@svgr/plugin-prettier@5.5.0:
+    resolution:
+      {
+        integrity: sha512-mVc+u+eKUmy8sW5UnFpes9NqVtizJfnhasF8Srbi3XdxVTWyU5lmhWlQAgHLhcrsZKowQ0b7xBa4qWHI5Ew/VQ==,
+      }
+    engines: { node: '>=10' }
+    dependencies:
+      deepmerge: 4.3.1
+      prettier: 2.8.8
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@svgr/plugin-svgo@5.5.0:
     resolution:
       {
@@ -13131,10 +13728,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-darwin-arm64@1.3.96:
     resolution:
       {
         integrity: sha512-8hzgXYVd85hfPh6mJ9yrG26rhgzCmcLO0h1TIl8U31hwmTbfZLzRitFQ/kqMJNbIBCwmNH1RU2QcJnL3d7f69A==,
+=======
+  /@swc/core-darwin-arm64@1.3.74:
+    resolution:
+      {
+        integrity: sha512-2rMV4QxM583jXcREfo0MhV3Oj5pgRSfSh/kVrB1twL2rQxOrbzkAPT/8flmygdVoL4f2F7o1EY5lKlYxEBiIKQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [arm64]
@@ -13154,10 +13758,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-darwin-x64@1.3.96:
     resolution:
       {
         integrity: sha512-mFp9GFfuPg+43vlAdQZl0WZpZSE8sEzqL7sr/7Reul5McUHP0BaLsEzwjvD035ESfkY8GBZdLpMinblIbFNljQ==,
+=======
+  /@swc/core-darwin-x64@1.3.74:
+    resolution:
+      {
+        integrity: sha512-KKEGE1wXneYXe15fWDRM8/oekd/Q4yAuccA0vWY/7i6nOSPqWYcSDR0nRtR030ltDxWt0rk/eCTmNkrOWrKs3A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [x64]
@@ -13192,10 +13803,17 @@ packages:
       '@swc/wasm': 1.2.130
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-linux-arm-gnueabihf@1.3.96:
     resolution:
       {
         integrity: sha512-8UEKkYJP4c8YzYIY/LlbSo8z5Obj4hqcv/fUTHiEePiGsOddgGf7AWjh56u7IoN/0uEmEro59nc1ChFXqXSGyg==,
+=======
+  /@swc/core-linux-arm-gnueabihf@1.3.74:
+    resolution:
+      {
+        integrity: sha512-HehH5DR6r/5fIVu7tu8ZqgrHkhSCQNewf1ztFQJgcmaQWn+H4AJERBjwkjosqh4TvUJucZv8vyRTvrFeBXaCSA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [arm]
@@ -13215,10 +13833,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-linux-arm64-gnu@1.3.96:
     resolution:
       {
         integrity: sha512-c/IiJ0s1y3Ymm2BTpyC/xr6gOvoqAVETrivVXHq68xgNms95luSpbYQ28rqaZC8bQC8M5zdXpSc0T8DJu8RJGw==,
+=======
+  /@swc/core-linux-arm64-gnu@1.3.74:
+    resolution:
+      {
+        integrity: sha512-+xkbCRz/wczgdknoV4NwYxbRI2dD7x/qkIFcVM2buzLCq8oWLweuV8+aL4pRqu0qDh7ZSb1jcaVTUIsySCJznA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [arm64]
@@ -13238,10 +13863,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-linux-arm64-musl@1.3.96:
     resolution:
       {
         integrity: sha512-i5/UTUwmJLri7zhtF6SAo/4QDQJDH2fhYJaBIUhrICmIkRO/ltURmpejqxsM/ye9Jqv5zG7VszMC0v/GYn/7BQ==,
+=======
+  /@swc/core-linux-arm64-musl@1.3.74:
+    resolution:
+      {
+        integrity: sha512-maKFZSCD3tQznzPV7T3V+TtiWZFEFM8YrnSS5fQNNb+K9J65sL+170uTb3M7H4cFkG+9Sm5k5yCrCIutlvV48g==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [arm64]
@@ -13261,10 +13893,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-linux-x64-gnu@1.3.96:
     resolution:
       {
         integrity: sha512-USdaZu8lTIkm4Yf9cogct/j5eqtdZqTgcTib4I+NloUW0E/hySou3eSyp3V2UAA1qyuC72ld1otXuyKBna0YKQ==,
+=======
+  /@swc/core-linux-x64-gnu@1.3.74:
+    resolution:
+      {
+        integrity: sha512-LEXpcShF6DLTWJSiBhMSYZkLQ27UvaQ24fCFhoIV/R3dhYaUpHmIyLPPBNC82T03lB3ONUFVwrRw6fxDJ/f00A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [x64]
@@ -13284,10 +13923,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-linux-x64-musl@1.3.96:
     resolution:
       {
         integrity: sha512-QYErutd+G2SNaCinUVobfL7jWWjGTI0QEoQ6hqTp7PxCJS/dmKmj3C5ZkvxRYcq7XcZt7ovrYCTwPTHzt6lZBg==,
+=======
+  /@swc/core-linux-x64-musl@1.3.74:
+    resolution:
+      {
+        integrity: sha512-sxsFctbFMZEFmDE7CmYljG0dMumH8XBTwwtGr8s6z0fYAzXBGNq2AFPcmEh2np9rPWkt7pE1m0ByESD+dMkbxQ==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [x64]
@@ -13309,10 +13955,17 @@ packages:
       '@swc/wasm': 1.2.130
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-win32-arm64-msvc@1.3.96:
     resolution:
       {
         integrity: sha512-hjGvvAduA3Un2cZ9iNP4xvTXOO4jL3G9iakhFsgVhpkU73SGmK7+LN8ZVBEu4oq2SUcHO6caWvnZ881cxGuSpg==,
+=======
+  /@swc/core-win32-arm64-msvc@1.3.74:
+    resolution:
+      {
+        integrity: sha512-F7hY9/BjFCozA4YPFYFH5FGCyWwa44vIXHqG66F5cDwXDGFn8ZtBsYIsiPfUYcx0AeAo1ojnVWKPxokZhYNYqA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [arm64]
@@ -13334,10 +13987,17 @@ packages:
       '@swc/wasm': 1.2.130
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-win32-ia32-msvc@1.3.96:
     resolution:
       {
         integrity: sha512-Far2hVFiwr+7VPCM2GxSmbh3ikTpM3pDombE+d69hkedvYHYZxtTF+2LTKl/sXtpbUnsoq7yV/32c9R/xaaWfw==,
+=======
+  /@swc/core-win32-ia32-msvc@1.3.74:
+    resolution:
+      {
+        integrity: sha512-qBAsiD1AlIdqED6wy3UNRHyAys9pWMUidX0LJ6mj24r/vfrzzTBAUrLJe5m7bzE+F1Rgi001avYJeEW1DLEJ+Q==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [ia32]
@@ -13357,10 +14017,17 @@ packages:
     requiresBuild: true
     optional: true
 
+<<<<<<< HEAD
   /@swc/core-win32-x64-msvc@1.3.96:
     resolution:
       {
         integrity: sha512-4VbSAniIu0ikLf5mBX81FsljnfqjoVGleEkCQv4+zRlyZtO3FHoDPkeLVoy6WRlj7tyrRcfUJ4mDdPkbfTO14g==,
+=======
+  /@swc/core-win32-x64-msvc@1.3.74:
+    resolution:
+      {
+        integrity: sha512-S3YAvvLprTnPRwQuy9Dkwubb5SRLpVK3JJsqYDbGfgj8PGQyKHZcVJ5X3nfFsoWLy3j9B/3Os2nawprRSzeC5A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     cpu: [x64]
@@ -13392,10 +14059,17 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.2.241
       '@swc/core-win32-x64-msvc': 1.2.241
 
+<<<<<<< HEAD
   /@swc/core@1.3.96:
     resolution:
       {
         integrity: sha512-zwE3TLgoZwJfQygdv2SdCK9mRLYluwDOM53I+dT6Z5ZvrgVENmY3txvWDvduzkV+/8IuvrRbVezMpxcojadRdQ==,
+=======
+  /@swc/core@1.3.74:
+    resolution:
+      {
+        integrity: sha512-P+MIExOTdWlfq8Heb1/NhBAke6UTckd4cRDuJoFcFMGBRvgoCMNWhnfP3FRRXPLI7GGg27dRZS+xHiqYyQmSrA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: '>=10' }
     requiresBuild: true
@@ -13702,6 +14376,22 @@ packages:
       {
         integrity: sha512-XTIieEY+gvJ39ChLcB4If5zHtPxt3Syj5rgZR+e1ctpmK8NjPf0zFqsz4JpLJT0xla9GFDKjy8Cpu331nrmE1Q==,
       }
+<<<<<<< HEAD
+=======
+    dev: true
+
+  /@types/babel__core@7.1.19:
+    resolution:
+      {
+        integrity: sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw==,
+      }
+    dependencies:
+      '@babel/parser': 7.22.7
+      '@babel/types': 7.22.5
+      '@types/babel__generator': 7.6.4
+      '@types/babel__template': 7.4.1
+      '@types/babel__traverse': 7.18.0
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /@types/babel__core@7.20.2:
@@ -13834,6 +14524,7 @@ packages:
       {
         integrity: sha512-w5jZ0ee+HaPOaX25X2/2oGR/7rgAQSYII7X7pp0m9KgBfMP7uKfMfTvcpl5Dj+eDBbpxKGiqE+flqDr6XTd2RA==,
       }
+<<<<<<< HEAD
     dev: true
 
   /@types/doctrine@0.0.6:
@@ -13841,6 +14532,8 @@ packages:
       {
         integrity: sha512-KlEqPtaNBHBJ2/fVA4yLdD0Tc8zw34pKU4K5SHBIEwtLJ8xxumIC1xeG+4S+/9qhVj2MqC7O3Ld8WvDG4HqlgA==,
       }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /@types/ejs@3.1.2:
@@ -14224,6 +14917,16 @@ packages:
       form-data: 3.0.1
     dev: true
 
+<<<<<<< HEAD
+=======
+  /@types/node@16.18.37:
+    resolution:
+      {
+        integrity: sha512-ql+4dw4PlPFBP495k8JzUX/oMNRI2Ei4PrMHgj8oT4VhGlYUzF4EYr0qk2fW+XBVGIrq8Zzk13m4cvyXZuv4pA==,
+      }
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /@types/node@17.0.45:
     resolution:
       {
@@ -14298,7 +15001,10 @@ packages:
       {
         integrity: sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@types/qs@6.9.7:
     resolution:
@@ -14559,19 +15265,31 @@ packages:
 
   /@types/unist@3.0.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 
   /@types/webpack-env@1.18.0:
-    resolution: {integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==}
+    resolution:
+      {
+        integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==,
+      }
     dev: true
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
 
@@ -14963,6 +15681,29 @@ packages:
       {
         integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==,
       }
+<<<<<<< HEAD
+=======
+
+  /@vanilla-extract/rollup-plugin@1.3.0(@types/node@20.4.5)(rollup@3.25.3):
+    resolution:
+      {
+        integrity: sha512-IaQWpj0b51BUca+sqKlF2neLIzh30JsNC3afmMj0GT1m8lgkaDiv5I9xT7IjiWYB9tcTMFrAL3/ezW6WSnEB7A==,
+      }
+    peerDependencies:
+      rollup: ^2.0.0 || ^3.0.0
+    dependencies:
+      '@vanilla-extract/integration': 6.2.2(@types/node@20.4.5)
+      rollup: 3.25.3
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /@vanilla-extract/vite-plugin@3.9.0(@types/node@20.4.5)(vite@4.3.9):
     resolution:
@@ -15503,7 +16244,11 @@ packages:
       acorn-walk: 8.2.0
     dev: true
 
+<<<<<<< HEAD
   /acorn-import-assertions@1.9.0(acorn@8.10.0):
+=======
+  /acorn-import-assertions@1.9.0(acorn@8.9.0):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==,
@@ -15535,7 +16280,11 @@ packages:
       acorn: 7.4.1
     dev: true
 
+<<<<<<< HEAD
   /acorn-jsx@5.3.2(acorn@8.10.0):
+=======
+  /acorn-jsx@5.3.2(acorn@8.9.0):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==,
@@ -15584,6 +16333,18 @@ packages:
         integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==,
       }
     engines: { node: '>=0.4.0' }
+<<<<<<< HEAD
+=======
+    hasBin: true
+    dev: true
+
+  /acorn@8.9.0:
+    resolution:
+      {
+        integrity: sha512-jaVNAFBHNLXspO543WnNNPZFRtavh3skAkITqD0/2aeMkKZTN+254PyhwxFYrk3vQ1xfY+2wbesJMs/JC8/PwQ==,
+      }
+    engines: { node: '>=0.4.0' }
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     hasBin: true
 
   /add-stream@1.0.0:
@@ -16411,6 +17172,32 @@ packages:
         integrity: sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==,
       }
     engines: { node: '>=4' }
+<<<<<<< HEAD
+=======
+    dev: true
+
+  /axios@0.19.2:
+    resolution:
+      {
+        integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==,
+      }
+    deprecated: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+    dependencies:
+      follow-redirects: 1.5.10
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /axios@0.21.4:
+    resolution:
+      {
+        integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==,
+      }
+    dependencies:
+      follow-redirects: 1.15.1
+    transitivePeerDependencies:
+      - debug
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /axios@0.25.0:
@@ -16511,6 +17298,25 @@ packages:
       webpack: 5.88.0(@swc/core@1.2.241)(esbuild@0.18.10)
     dev: true
 
+<<<<<<< HEAD
+=======
+  /babel-loader@9.1.2(@babel/core@7.22.9)(webpack@5.88.0):
+    resolution:
+      {
+        integrity: sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==,
+      }
+    engines: { node: '>= 14.15.0' }
+    peerDependencies:
+      '@babel/core': ^7.12.0
+      webpack: '>=5'
+    dependencies:
+      '@babel/core': 7.22.9
+      find-cache-dir: 3.3.2
+      schema-utils: 4.0.0
+      webpack: 5.88.0(@swc/core@1.3.74)(esbuild@0.18.10)
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /babel-plugin-add-react-displayname@0.0.5:
     resolution:
       {
@@ -16636,7 +17442,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   /babel-plugin-polyfill-corejs2@0.4.5(@babel/core@7.23.0):
+=======
+  /babel-plugin-polyfill-corejs2@0.4.5(@babel/core@7.22.9):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-19hwUH5FKl49JEsvyTcoHakh6BE0wgXLLptIyKZ3PijHc/Ci521wygORCUCCred+E/twuqRyAkE02BAWPmsHOg==,
@@ -16666,7 +17476,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   /babel-plugin-polyfill-corejs3@0.8.3(@babel/core@7.23.0):
+=======
+  /babel-plugin-polyfill-corejs3@0.8.3(@babel/core@7.22.9):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-z41XaniZL26WLrvjy7soabMXrfPWARN25PZoriDEiLMxAp50AUW3t35BGQUMg5xK3UrpVTtagIDklxYa+MhiNA==,
@@ -16694,7 +17508,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+<<<<<<< HEAD
   /babel-plugin-polyfill-regenerator@0.5.2(@babel/core@7.23.0):
+=======
+  /babel-plugin-polyfill-regenerator@0.5.2(@babel/core@7.22.9):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-tAlOptU0Xj34V1Y2PNTL4Y0FOJMDB6bZmoW39FeCQIhigGLkqu3Fj6uiXpxIf6Ij274ENdYx64y6Au+ZKlb1IA==,
@@ -17430,12 +18248,15 @@ packages:
       {
         integrity: sha512-rup09/e3I0BKjncL+FesTayKtPrdwKhUufQFd3riFw1hHg8JmIFoInYfB102cFcY/pPgGmdyl/iy+jgiDi2vdA==,
       }
+<<<<<<< HEAD
 
   /caniuse-lite@1.0.30001563:
     resolution:
       {
         integrity: sha512-na2WUmOxnwIZtwnFI2CZ/3er0wdNzU7hN+cPYz/z2ajHThnkWjNBOpEPP4n+4r2WPM847JaMotaJE3bnfzjyKw==,
       }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /capital-case@1.0.4:
     resolution:
@@ -17616,14 +18437,23 @@ packages:
 
   /character-entities-legacy@1.1.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -17637,14 +18467,23 @@ packages:
 
   /character-entities@1.2.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -17658,14 +18497,23 @@ packages:
 
   /character-reference-invalid@1.1.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -17754,10 +18602,17 @@ packages:
     engines: { node: '>=10' }
     dev: true
 
+<<<<<<< HEAD
   /chromatic@9.1.0:
     resolution:
       {
         integrity: sha512-9ib8k4LIfg/88kKufxz1N8vgCB7nlLhJqmx+Vx55cM/6DCB/M6oqroirVRXfdeC7qaZuhyUemPF2QHxBh7GXtQ==,
+=======
+  /chromatic@6.7.4:
+    resolution:
+      {
+        integrity: sha512-QW4i8RQsON0JVnFnRf+8y70aIJptvC0Oi/26YJ669Dl03WmJRpobNO5qWFPTiv3KFKMc1Qf6/qFsRVZCtn+bfA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     hasBin: true
     dev: true
@@ -18190,14 +19045,23 @@ packages:
 
   /comma-separated-tokens@1.0.8:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -18947,6 +19811,7 @@ packages:
         integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==,
       }
     engines: { node: '>=8' }
+<<<<<<< HEAD
 
   /css-blank-pseudo@6.0.0(postcss@8.4.31):
     resolution:
@@ -18960,6 +19825,8 @@ packages:
       postcss: 8.4.31
       postcss-selector-parser: 6.0.13
     dev: true
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /css-box-model@1.2.1:
     resolution:
@@ -19077,7 +19944,10 @@ packages:
       {
         integrity: sha512-jQVeeRG70QI08vSTwf1jHxp74JoZsr2XSgETae8/xC8ovSnL2WF87GTLO86Sbwdt2lK4Umg4HnnwMO4YF3Ce7w==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /css-select@2.1.0:
     resolution:
@@ -19144,7 +20014,10 @@ packages:
         integrity: sha512-ACUm3L0/jiZTqfzRM3Hi9Q8eZqd6IK37mMWPLz9PJxkLWllYeRf+EHUSHYEtFop2Eqytaq1FizFVh7XfBnXCDQ==,
       }
     engines: { node: '>= 6' }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /css-what@6.1.0:
     resolution:
@@ -19158,6 +20031,7 @@ packages:
       {
         integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==,
       }
+<<<<<<< HEAD
     dev: true
 
   /cssdb@7.9.0:
@@ -19165,6 +20039,8 @@ packages:
       {
         integrity: sha512-WPMT9seTQq6fPAa1yN4zjgZZeoTriSN2LqW9C+otjar12DQIWA4LuSfFrvFJiKp4oD0xIk1vumDLw8K9ur4NBw==,
       }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /cssesc@3.0.0:
@@ -19175,7 +20051,11 @@ packages:
     engines: { node: '>=4' }
     hasBin: true
 
+<<<<<<< HEAD
   /cssnano-preset-advanced@5.3.8(postcss@8.4.31):
+=======
+  /cssnano-preset-advanced@5.3.8(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-xUlLLnEB1LjpEik+zgRNlk8Y/koBPPtONZjp7JKbXigeAmCrFvq9H0pXW5jJV45bQWAlmJ0sKy+IMr0XxLYQZg==,
@@ -19902,6 +20782,23 @@ packages:
     dependencies:
       ms: 2.0.0
 
+<<<<<<< HEAD
+=======
+  /debug@3.1.0:
+    resolution:
+      {
+        integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==,
+      }
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.0.0
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /debug@3.2.7:
     resolution:
       {
@@ -20526,7 +21423,10 @@ packages:
       {
         integrity: sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /domelementtype@2.3.0:
     resolution:
@@ -20729,12 +21629,15 @@ packages:
       {
         integrity: sha512-RkrZF//Ya+0aJq2NM3OdisNh5ZodZq1rdXOS96G8DdDgpDKqKE81yTbbQ3F/4CKm1JBPsGu1Lp/akkna2xO06Q==,
       }
+<<<<<<< HEAD
 
   /electron-to-chromium@1.4.590:
     resolution:
       {
         integrity: sha512-hohItzsQcG7/FBsviCYMtQwUSWvVF7NVqPOnJCErWsAshsP/CR2LAXdmq276RbESNdhxiAq5/vRo1g2pxGXVww==,
       }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /elkjs@0.8.2:
     resolution:
@@ -20944,7 +21847,10 @@ packages:
       {
         integrity: sha512-wd6JXUmyHmt8T5a2xreUwKcGPq6f1f+WwIJkijUqiGcJz1qqnZgP6XIK+QyIWU5lT7imeNxUll48bziG+TSYcA==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /es-get-iterator@1.1.3:
     resolution:
@@ -21055,10 +21961,17 @@ packages:
       }
     dev: true
 
+<<<<<<< HEAD
   /esbuild-register@3.5.0(esbuild@0.18.10):
     resolution:
       {
         integrity: sha512-+4G/XmakeBAsvJuDugJvtyF1x+XJT4FMocynNpxrvEBViirpfUn2PgNpCHedfWhF4WokNsO/OvMKrmJOIJsI5A==,
+=======
+  /esbuild-register@3.4.2(esbuild@0.18.10):
+    resolution:
+      {
+        integrity: sha512-kG/XyTDyz6+YDuyfB9ZoSIOOmgyFCH+xPRtsCa8W85HLRV5Csp+o3jWVbOSHgSLfyLc5DmP+KFDNwty4mEjC+Q==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     peerDependencies:
       esbuild: '>=0.12 <1'
@@ -22137,6 +23050,27 @@ packages:
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
 
+<<<<<<< HEAD
+=======
+  /execa@7.1.1:
+    resolution:
+      {
+        integrity: sha512-wH0eMf/UXckdUYnO21+HDztteVv05rq2GXksxT4fCGeHkBhw1DROXh40wcjMcRqDOWE7iPJ4n3M7e2+YFP+76Q==,
+      }
+    engines: { node: ^14.18.0 || ^16.14.0 || >=18.0.0 }
+    dependencies:
+      cross-spawn: 7.0.3
+      get-stream: 6.0.1
+      human-signals: 4.3.1
+      is-stream: 3.0.0
+      merge-stream: 2.0.0
+      npm-run-path: 5.1.0
+      onetime: 6.0.0
+      signal-exit: 3.0.7
+      strip-final-newline: 3.0.0
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /execa@7.2.0:
     resolution:
       {
@@ -22527,6 +23461,45 @@ packages:
       {
         integrity: sha512-3yurQZ2hD9VISAhJJP9bpYFNQrHHBXE2JxxjY5aLEcDi46RmAzJE2OC9FAde0yis5ElW0jTTzs0zfg/Cca4XqQ==,
       }
+<<<<<<< HEAD
+=======
+    dev: true
+
+  /figma-api-exporter@0.0.2:
+    resolution:
+      {
+        integrity: sha512-9cCPZPUKVuD0JetpAnp82wSmBQiYDQ0TTBc7+BFHXwPiW+KxirfiPuCPJY+p4rTplKPzn0hkfrCvGpAS9Rehhg==,
+      }
+    dependencies:
+      axios: 0.19.2
+      figma-js: 1.16.0
+      figma-transformer: 1.0.0
+      fs: 0.0.1-security
+      ramda: 0.26.1
+      rimraf: 3.0.2
+    transitivePeerDependencies:
+      - debug
+      - supports-color
+    dev: true
+
+  /figma-js@1.16.0:
+    resolution:
+      {
+        integrity: sha512-cImQT9DAJp1J0xr6FMUAswXKEnjwrDz4QKAgIBpUyydKAgDS/lm862stjweHp99uco5qLoNv+GbwQWBHyDvDQw==,
+      }
+    engines: { node: '>=8.9' }
+    dependencies:
+      axios: 0.21.4
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
+  /figma-transformer@1.0.0:
+    resolution:
+      {
+        integrity: sha512-7iSOH1UkuRMAfP7jgmM7ca7v20FjxKgryVzd3qIvNBY2u0vrRLwIVMPqQC6PAy4G8iyJFqEDKX1ezHxrthPXbA==,
+      }
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /figures@1.7.0:
@@ -22842,6 +23815,21 @@ packages:
       debug:
         optional: true
 
+<<<<<<< HEAD
+=======
+  /follow-redirects@1.5.10:
+    resolution:
+      {
+        integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==,
+      }
+    engines: { node: '>=4.0' }
+    dependencies:
+      debug: 3.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /for-each@0.3.3:
     resolution:
       {
@@ -23109,6 +24097,16 @@ packages:
       {
         integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==,
       }
+<<<<<<< HEAD
+=======
+
+  /fs@0.0.1-security:
+    resolution:
+      {
+        integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==,
+      }
+    dev: true
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /fsevents@2.3.2:
     resolution:
@@ -24173,14 +25171,23 @@ packages:
 
   /hast-util-parse-selector@2.2.5:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -24696,7 +25703,11 @@ packages:
     dependencies:
       safer-buffer: 2.1.2
 
+<<<<<<< HEAD
   /icss-utils@5.1.0(postcss@8.4.31):
+=======
+  /icss-utils@5.1.0(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==,
@@ -25096,14 +26107,23 @@ packages:
 
   /is-alphabetical@1.0.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -25279,14 +26299,23 @@ packages:
 
   /is-decimal@1.0.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -25455,14 +26484,23 @@ packages:
 
   /is-hexadecimal@1.0.4:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==,
       }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -26316,6 +27354,31 @@ packages:
         integrity: sha512-J5Xez4nRRMjk8emnTpWrlkyb9pfRQQanDrvWHhsR1+VUfbwxi30eVcZFlcdGInRibU4G5LwHXpI7IRHU0CY+gg==,
       }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+<<<<<<< HEAD
+=======
+    dev: true
+
+  /jest-haste-map@29.5.0:
+    resolution:
+      {
+        integrity: sha512-IspOPnnBro8YfVYSw6yDRKh/TiCdRngjxeacCps1cQ9cgVN6+10JUcuJ1EabrgYLOATsIAigxA0rLR9x/YlrSA==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    dependencies:
+      '@jest/types': 29.5.0
+      '@types/graceful-fs': 4.1.6
+      '@types/node': 20.4.5
+      anymatch: 3.1.2
+      fb-watchman: 2.0.1
+      graceful-fs: 4.2.11
+      jest-regex-util: 29.4.3
+      jest-util: 29.5.0
+      jest-worker: 29.5.0
+      micromatch: 4.0.5
+      walker: 1.0.8
+    optionalDependencies:
+      fsevents: 2.3.2
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /jest-haste-map@29.6.2:
@@ -26557,6 +27620,24 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
+=======
+  /jest-util@29.5.0:
+    resolution:
+      {
+        integrity: sha512-RYMgG/MTadOr5t8KdhejfvUU82MxsCu5MF6KuDUHl+NuwzUt+Sm6jJWxTJVrDR1j5M/gJVCPKQEpWXY+yIQ6lQ==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    dependencies:
+      '@jest/types': 29.5.0
+      '@types/node': 20.4.5
+      chalk: 4.1.2
+      ci-info: 3.8.0
+      graceful-fs: 4.2.11
+      picomatch: 2.3.1
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /jest-util@29.6.2:
     resolution:
       {
@@ -26646,6 +27727,22 @@ packages:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
+<<<<<<< HEAD
+=======
+  /jest-worker@29.5.0:
+    resolution:
+      {
+        integrity: sha512-NcrQnevGoSp4b5kg+akIpthoAFHxPBcb5P6mYPY0fUNT+sSvmtu6jlkEle3anczUKIKEbMxFimk9oTP/tpIPgA==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    dependencies:
+      '@types/node': 20.4.5
+      jest-util: 29.5.0
+      merge-stream: 2.0.0
+      supports-color: 8.1.1
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /jest-worker@29.6.2:
     resolution:
       {
@@ -28477,14 +29574,20 @@ packages:
       {
         integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /mdn-data@2.0.4:
     resolution:
       {
         integrity: sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /mdurl@1.0.1:
     resolution:
@@ -29527,6 +30630,16 @@ packages:
       {
         integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==,
       }
+<<<<<<< HEAD
+=======
+
+  /ms@2.1.1:
+    resolution:
+      {
+        integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==,
+      }
+    dev: true
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /ms@2.1.2:
     resolution:
@@ -30127,12 +31240,15 @@ packages:
       {
         integrity: sha512-QzsYKWhXTWx8h1kIvqfnC++o0pEmpRQA/aenALsL2F4pqNVr7YzcdMlDij5WBnwftRbJCNJL/O7zdKaxKPHqgQ==,
       }
+<<<<<<< HEAD
 
   /node-releases@2.0.13:
     resolution:
       {
         integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==,
       }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /non-layered-tidy-tree-layout@2.0.2:
     resolution:
@@ -30212,6 +31328,10 @@ packages:
         integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==,
       }
     engines: { node: '>=0.10.0' }
+<<<<<<< HEAD
+=======
+    dev: false
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /normalize-url@4.5.1:
     resolution:
@@ -31943,10 +33063,17 @@ packages:
       postcss: 8.4.27
     dev: false
 
+<<<<<<< HEAD
   /postcss-discard-overridden@5.1.0(postcss@8.4.31):
     resolution:
       {
         integrity: sha512-21nOL7RqWR1kasIVdKs8HNqQJhFxLsyRfAnUDm4Fe4t4mCWL9OJiHvlHPjcd8zc5Myu89b/7wZDnOSjFgeWRtw==,
+=======
+  /postcss-discard-unused@5.1.0(postcss@8.4.27):
+    resolution:
+      {
+        integrity: sha512-KwLWymI9hbwXmJa0dkrzpRbSJEh0vVUd7r8t0yOGPcfKzyJJxFM8kLyC5Ev9avji6nY95pOp1W6HqIrfT+0VGw==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: ^10 || ^12 || >=14.0 }
     peerDependencies:
@@ -32137,6 +33264,7 @@ packages:
       webpack: 5.88.0(@swc/core@1.2.241)(esbuild@0.18.10)
     dev: false
 
+<<<<<<< HEAD
   /postcss-logical@7.0.0(postcss@8.4.31):
     resolution:
       {
@@ -32151,6 +33279,9 @@ packages:
     dev: true
 
   /postcss-merge-idents@5.1.1(postcss@8.4.31):
+=======
+  /postcss-merge-idents@5.1.1(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-pCijL1TREiCoog5nQp7wUe+TUonA2tC2sQ54UGeMmryK3UFGIYKqDyjnqd6RcuI4znFn9hWSLNN8xKE/vWcUQw==,
@@ -32323,12 +33454,21 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: false
 
+<<<<<<< HEAD
   /postcss-minify-selectors@5.2.1(postcss@8.4.31):
     resolution:
       {
         integrity: sha512-nPJu7OjZJTsVUmPdm2TcaiohIwxP+v8ha9NehQ2ye9szv4orirRU3SDdtUmKH+10nzn0bAyOXZ0UEr7OpvLehg==,
       }
     engines: { node: ^10 || ^12 || >=14.0 }
+=======
+  /postcss-modules-extract-imports@3.0.0(postcss@8.4.27):
+    resolution:
+      {
+        integrity: sha512-bdHleFnP3kZ4NYDhuGlVK+CMrQ/pqUm8bx/oGL93K6gVwiclvX5x0n76fYMKuIGKzlABOy13zsvqjb0f92TEXw==,
+      }
+    engines: { node: ^10 || ^12 || >= 14 }
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
@@ -32336,10 +33476,17 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: false
 
+<<<<<<< HEAD
   /postcss-modules-extract-imports@3.0.0(postcss@8.4.31):
     resolution:
       {
         integrity: sha512-bdHleFnP3kZ4NYDhuGlVK+CMrQ/pqUm8bx/oGL93K6gVwiclvX5x0n76fYMKuIGKzlABOy13zsvqjb0f92TEXw==,
+=======
+  /postcss-modules-local-by-default@4.0.3(postcss@8.4.27):
+    resolution:
+      {
+        integrity: sha512-2/u2zraspoACtrbFRnTijMiQtb4GW4BvatjaG/bCjYQo8kLTdevCUlwuBHx2sCnSyrI3x3qj4ZK1j5LQBgzmwA==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: ^10 || ^12 || >= 14 }
     peerDependencies:
@@ -32361,7 +33508,11 @@ packages:
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
 
+<<<<<<< HEAD
   /postcss-modules-scope@3.0.0(postcss@8.4.31):
+=======
+  /postcss-modules-scope@3.0.0(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-hncihwFA2yPath8oZ15PZqvWGkWf+XUfQgUGamS4LqoP1anQLOsOJw0vr7J7IwLpoY9fatA2qiGUGmuZL0Iqlg==,
@@ -32373,7 +33524,11 @@ packages:
       postcss: 8.4.31
       postcss-selector-parser: 6.0.13
 
+<<<<<<< HEAD
   /postcss-modules-values@4.0.0(postcss@8.4.31):
+=======
+  /postcss-modules-values@4.0.0(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-RDxHkAiEGI78gS2ofyvCsu7iycRv7oqw5xMWn9iMoR0N/7mf9D50ecQqUo5BZ9Zh2vH4bCUR/ktCqbB9m8vJjQ==,
@@ -32674,10 +33829,17 @@ packages:
       postcss-value-parser: 4.2.0
     dev: false
 
+<<<<<<< HEAD
   /postcss-ordered-values@5.1.3(postcss@8.4.31):
     resolution:
       {
         integrity: sha512-9UO79VUhPwEkzbb3RNpqqghc6lcYej1aveQteWY+4POIwlqkYE21HKWaLDF6lWNuqCobEAyTovVhtI32Rbv2RQ==,
+=======
+  /postcss-reduce-idents@5.2.0(postcss@8.4.27):
+    resolution:
+      {
+        integrity: sha512-BTrLjICoSB6gxbc58D5mdBK8OhXRDqud/zodYfdSi52qvDHdMwk+9kB9xsM8yJThH/sZU5A6QVSmMmaN001gIg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: ^10 || ^12 || >=14.0 }
     peerDependencies:
@@ -32911,7 +34073,11 @@ packages:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+<<<<<<< HEAD
   /postcss-sort-media-queries@4.2.1(postcss@8.4.31):
+=======
+  /postcss-sort-media-queries@4.2.1(postcss@8.4.27):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-9VYekQalFZ3sdgcTjXMa0dDjsfBVHXlraYJEMiOJ/2iMmI2JGCMavP16z3kWOaRu8NSaJCTgVpB/IVpH5yT9YQ==,
@@ -32965,10 +34131,23 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: false
 
+<<<<<<< HEAD
   /postcss-unique-selectors@5.1.1(postcss@8.4.31):
     resolution:
       {
         integrity: sha512-5JiODlELrz8L2HwxfPnhOWZYWDxVHWL83ufOv84NrcgipI7TaeRsatAhK4Tr2/ZiYldpK/wBvw5BD3qfaK96GA==,
+=======
+  /postcss-value-parser@4.2.0:
+    resolution:
+      {
+        integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==,
+      }
+
+  /postcss-zindex@5.1.0(postcss@8.4.27):
+    resolution:
+      {
+        integrity: sha512-fgFMf0OtVSBR1va1JNHYgMxYk73yhn/qb4uQDq1DLGYolz8gHCyr/sesEuGUaYs58E3ZJRcpoGuPVoB7Meiq9A==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     engines: { node: ^10 || ^12 || >=14.0 }
     peerDependencies:
@@ -33013,6 +34192,7 @@ packages:
         integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==,
       }
     engines: { node: ^10 || ^12 || >=14 }
+<<<<<<< HEAD
     dependencies:
       nanoid: 3.3.6
       picocolors: 1.0.0
@@ -33024,6 +34204,8 @@ packages:
         integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==,
       }
     engines: { node: ^10 || ^12 || >=14 }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dependencies:
       nanoid: 3.3.6
       picocolors: 1.0.0
@@ -33163,16 +34345,26 @@ packages:
 
   /prismjs@1.28.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==,
       }
     engines: { node: '>=6' }
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
     engines: {node: '>=6'}
 <<<<<<< HEAD
 =======
+=======
+    resolution:
+      {
+        integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==,
+      }
+    engines: { node: '>=6' }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -33369,6 +34561,16 @@ packages:
         integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==,
       }
     engines: { node: '>=6' }
+<<<<<<< HEAD
+=======
+
+  /punycode@2.3.0:
+    resolution:
+      {
+        integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==,
+      }
+    engines: { node: '>=6' }
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dev: true
 
   /punycode@2.3.0:
@@ -33513,6 +34715,16 @@ packages:
       performance-now: 2.1.0
     dev: false
 
+<<<<<<< HEAD
+=======
+  /ramda@0.26.1:
+    resolution:
+      {
+        integrity: sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==,
+      }
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /ramda@0.29.0:
     resolution:
       {
@@ -33763,12 +34975,22 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /react-docgen@6.0.4:
     resolution:
       {
         integrity: sha512-gF+p+1ZwC2eO66bt763Tepmh5q9kDiFIrqW3YjUV/a+L96h0m5+/wSFQoOHL2cffyrPMZMxP03IgbggJ11QbOw==,
       }
     engines: { node: '>=14.18.0' }
+=======
+  /react-docgen@6.0.0-alpha.3:
+    resolution:
+      {
+        integrity: sha512-DDLvB5EV9As1/zoUsct6Iz2Cupw9FObEGD3DMcIs3EDFIoSKyz8FZtoWj3Wj+oodrU4/NfidN0BL5yrapIcTSA==,
+      }
+    engines: { node: '>=12.0.0' }
+    hasBin: true
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dependencies:
       '@babel/core': 7.22.5
       '@babel/traverse': 7.23.0
@@ -34309,7 +35531,10 @@ packages:
     dev: false
 
   /react-virtual@2.10.4(react@18.2.0):
-    resolution: {integrity: sha512-Ir6+oPQZTVHfa6+JL9M7cvMILstFZH/H3jqeYeKI4MSUX+rIruVwFC6nGVXw9wqAw8L0Kg2KvfXxI85OvYQdpQ==}
+    resolution:
+      {
+        integrity: sha512-Ir6+oPQZTVHfa6+JL9M7cvMILstFZH/H3jqeYeKI4MSUX+rIruVwFC6nGVXw9wqAw8L0Kg2KvfXxI85OvYQdpQ==,
+      }
     peerDependencies:
       react: ^16.6.3 || ^17.0.0
     dependencies:
@@ -35066,24 +36291,40 @@ packages:
 
   /remove-accents@0.4.2:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 <<<<<<< HEAD
     resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==,
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 =======
     resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
     dev: false
 >>>>>>> 21059fc7b (feat(simple-table): add simple table virtualization)
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /remove-trailing-separator@1.1.0:
     resolution:
@@ -35581,6 +36822,16 @@ packages:
       mri: 1.2.0
     dev: false
 
+<<<<<<< HEAD
+=======
+  /safe-buffer@5.1.1:
+    resolution:
+      {
+        integrity: sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg==,
+      }
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /safe-buffer@5.1.2:
     resolution:
       {
@@ -35691,7 +36942,10 @@ packages:
       {
         integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /saxes@6.0.0:
     resolution:
@@ -35897,6 +37151,23 @@ packages:
     dependencies:
       randombytes: 2.1.0
 
+<<<<<<< HEAD
+=======
+  /serve-favicon@2.5.0:
+    resolution:
+      {
+        integrity: sha512-FMW2RvqNr03x+C0WxTyu6sOv21oOjkq5j8tjquWccwa6ScNyGFOGJVpuS1NmTVGBAHS07xnSKotgf2ehQmf9iA==,
+      }
+    engines: { node: '>= 0.8.0' }
+    dependencies:
+      etag: 1.8.1
+      fresh: 0.5.2
+      ms: 2.1.1
+      parseurl: 1.3.3
+      safe-buffer: 5.1.1
+    dev: true
+
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
   /serve-handler@6.1.3:
     resolution:
       {
@@ -36664,10 +37935,17 @@ packages:
       }
     dev: true
 
+<<<<<<< HEAD
   /storybook@7.5.3:
     resolution:
       {
         integrity: sha512-lkn9hcedNmSNCzbDIrky2LpZJqlpS7Fy1KpGBZmLY34g5Mb0+KnXaUqzY0dxsd7aFm8Oa7Du/emceMYNNL4DMA==,
+=======
+  /storybook@7.2.1:
+    resolution:
+      {
+        integrity: sha512-uNNqJrWUVaxdZdd3GpMTHt9h2EftoUKxtpAWeQlzx20DDvcliVC1yvLT54sLAzY8nlxxN+fBUuBbTSJ1Dx4TPg==,
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
       }
     hasBin: true
     dependencies:
@@ -36967,6 +38245,7 @@ packages:
         integrity: sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==,
       }
     engines: { node: '>=8' }
+<<<<<<< HEAD
     dependencies:
       min-indent: 1.0.1
     dev: true
@@ -36977,6 +38256,8 @@ packages:
         integrity: sha512-mnVSV2l+Zv6BLpSD/8V87CW/y9EmmbYzGCIavsnsI6/nwn26DwffM/yztm30Z/I2DY9wdS3vXVCMnHDgZaVNoA==,
       }
     engines: { node: '>=12' }
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dependencies:
       min-indent: 1.0.1
     dev: true
@@ -37226,7 +38507,10 @@ packages:
       {
         integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /svgo@1.3.2:
     resolution:
@@ -37269,7 +38553,11 @@ packages:
       stable: 0.1.8
     dev: false
 
+<<<<<<< HEAD
   /swc-loader@0.2.3(@swc/core@1.3.96)(webpack@5.88.0):
+=======
+  /swc-loader@0.2.3(@swc/core@1.3.74)(webpack@5.88.0):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-D1p6XXURfSPleZZA/Lipb3A8pZ17fP4NObZvFCDjK/OKljroqDpPmsBdTraWhVBqUNpcWBQY1imWdoPScRlQ7A==,
@@ -37407,6 +38695,7 @@ packages:
       }
 =======
   /telejson@7.1.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-jFJO4P5gPebZAERPkJsqMAQ0IMA1Hi0AoSfxpnUaV6j6R2SZqlpkbS20U6dEUtA3RUYt2Ak/mTlkQzHH9Rv/hA==}
 <<<<<<< HEAD
     dependencies:
@@ -37417,7 +38706,16 @@ packages:
     resolution: {integrity: sha512-1QTEcJkJEhc8OnStBx/ILRu5J2p0GjvWsBx56bmZRqnrkdBMUe+nX92jxV+p3dB4CP6PZCdJMQJwCggkNBMzkQ==}
 =======
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
+<<<<<<< HEAD
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+=======
+    resolution:
+      {
+        integrity: sha512-jFJO4P5gPebZAERPkJsqMAQ0IMA1Hi0AoSfxpnUaV6j6R2SZqlpkbS20U6dEUtA3RUYt2Ak/mTlkQzHH9Rv/hA==,
+      }
+>>>>>>> 2e5a78547 (feat(simple-table): fix build error)
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     dependencies:
       memoizerific: 1.11.3
     dev: true
@@ -37489,7 +38787,11 @@ packages:
       terser: 5.18.2
       webpack: 5.88.0(@swc/core@1.2.241)(esbuild@0.18.10)
 
+<<<<<<< HEAD
   /terser-webpack-plugin@5.3.9(@swc/core@1.3.96)(esbuild@0.18.10)(webpack@5.88.0):
+=======
+  /terser-webpack-plugin@5.3.9(@swc/core@1.3.74)(esbuild@0.18.10)(webpack@5.88.0):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==,
@@ -38608,6 +39910,7 @@ packages:
         integrity: sha512-eXL4nmJT7oCpkZsHZUOJo8hcX3GbsiDOa0Qu9F646fi8dT3XuSVopVqAcEiVzSKKH7UoDti23wNX3qGFxcW5Qg==,
       }
     engines: { node: '>=0.10.0' }
+<<<<<<< HEAD
 
   /undici-types@5.26.5:
     resolution:
@@ -38615,6 +39918,8 @@ packages:
         integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==,
       }
     dev: true
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /unescape@1.0.1:
     resolution:
@@ -39036,7 +40341,10 @@ packages:
       {
         integrity: sha512-vRCqFv6UhXpWxZPyGDh/F3ZpNv8/qo7w6iufLpQg9aKnQ71qM4B5KiI7Mia9COcjEhrO9LueHpMYjYzsWH3OIg==,
       }
+<<<<<<< HEAD
     dev: false
+=======
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
 
   /unset-value@1.0.0:
     resolution:
@@ -40089,7 +41397,11 @@ packages:
       - esbuild
       - uglify-js
 
+<<<<<<< HEAD
   /webpack@5.88.0(@swc/core@1.3.96)(esbuild@0.18.10):
+=======
+  /webpack@5.88.0(@swc/core@1.3.74)(esbuild@0.18.10):
+>>>>>>> b981d7311 (feat(simple-table): fix build error)
     resolution:
       {
         integrity: sha512-O3jDhG5e44qIBSi/P6KpcCcH7HD+nYIHVBhdWFxcLOcIGN8zGo5nqF3BjyNCxIh4p1vFdNnreZv2h2KkoAw3lw==,
