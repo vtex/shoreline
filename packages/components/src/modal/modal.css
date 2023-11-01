@@ -1,0 +1,36 @@
+
+
+@layer sl-components {
+  [data-sl-modal] {
+    --sl-component-width: 40rem;
+    --sl-component-max-height: calc(100vh - 2 * var(--sl-space-4));
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    margin: auto;
+    height: fit-content;
+    width: var(--sl-component-width);
+    max-height: var(--sl-component-max-height);
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+    border-radius: var(--sl-border-radius-medium);
+    background-color: var(--sl-bg);
+
+    color: var(--sl-fg);
+    box-shadow: var(--sl-shadow-1);
+  }
+  [data-sl-modal-backdrop] {
+    background-color: var(--sl-bg-inverted-plain);
+  }
+
+  [data-sl-modal-title] {
+    font: var(--sl-text-display-1-font);
+    letter-spacing: var(--sl-text-display-1-letter-spacing);
+  }
+}
+
