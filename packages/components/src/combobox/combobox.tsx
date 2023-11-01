@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import type { ComboboxOptions } from '@ariakit/react'
 import { Combobox as ComboboxInput } from '@ariakit/react'
 
 export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
@@ -12,12 +13,18 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
         {...otherProps}
-      />
+      >
+        {children}
+      </ComboboxInput>
     )
   }
 )
 
-export interface ComboboxProps extends ComponentPropsWithoutRef<'input'> {
+type Options = Pick<ComboboxOptions, 'autoSelect'>
+
+export interface ComboboxProps
+  extends ComponentPropsWithoutRef<'input'>,
+    Options {
   /**
    * Enable children composition
    * @default false
