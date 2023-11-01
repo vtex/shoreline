@@ -6,7 +6,12 @@ import './styles.css'
 
 import { Content } from '../../content'
 import { Button } from '../../button'
-import { Popover, PopoverProvider, PopoverTrigger } from '../index'
+import {
+  Popover,
+  PopoverProvider,
+  PopoverTrigger,
+  PopoverDismiss,
+} from '../index'
 
 export default {
   title: 'shoreline-components/popover',
@@ -17,6 +22,18 @@ export function Default() {
     <PopoverProvider>
       <PopoverTrigger>Trigger</PopoverTrigger>
       <Popover>Content</Popover>
+    </PopoverProvider>
+  )
+}
+
+export function Dismiss() {
+  return (
+    <PopoverProvider>
+      <PopoverTrigger>Trigger</PopoverTrigger>
+      <Popover>
+        Content
+        <PopoverDismiss>Dismiss</PopoverDismiss>
+      </Popover>
     </PopoverProvider>
   )
 }
