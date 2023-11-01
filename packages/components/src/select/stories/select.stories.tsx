@@ -2,8 +2,16 @@ import '../../../dist/styles.min.css'
 import '../select.css'
 import React, { useState } from 'react'
 
-import { SelectProvider, Select, SelectOption, SelectPopover } from '../index'
+import {
+  SelectProvider,
+  Select,
+  SelectOption,
+  SelectPopover,
+  SelectList,
+} from '../index'
 import { Button } from '../../button'
+import { Stack } from '../../stack'
+import { Text } from '../../text'
 
 export default {
   title: 'shoreline-components/select',
@@ -56,5 +64,23 @@ export function Multiselect() {
         <SelectOption value="amazon">Amazon</SelectOption>
       </SelectPopover>
     </SelectProvider>
+  )
+}
+
+export function ListBox() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Stack>
+      <Text>Selected Value: {value}</Text>
+      <SelectProvider value={value} setValue={setValue} open>
+        <SelectList>
+          <SelectOption value="apple">Apple</SelectOption>
+          <SelectOption value="google">Google</SelectOption>
+          <SelectOption value="microsoft">Microsoft</SelectOption>
+          <SelectOption value="amazon">Amazon</SelectOption>
+        </SelectList>
+      </SelectProvider>
+    </Stack>
   )
 }
