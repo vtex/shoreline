@@ -1,6 +1,11 @@
 @layer sl-components {
   [data-sl-simple-table] {
     width: 100%;
+
+    &[data-virtualize='true'] {
+      height: 500px;
+      overflow-y: auto;
+    }
   }
 
   [data-sl-detail-row] {

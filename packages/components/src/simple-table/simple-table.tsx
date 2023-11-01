@@ -13,7 +13,7 @@ import {
   getExpandedRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 
 import type { TableProps } from '../table'
 import {
@@ -29,6 +29,7 @@ import { LinkBox } from '../link-box'
 import { Clickable } from '../clickable'
 import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 import './simple-table.css'
+import { useVirtualizer } from './use-virtualizer'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -38,7 +39,7 @@ import './simple-table.css'
  */
 export const SimpleTable = forwardRef(function SimpleTable<T>(
   props: SimpleTableProps<T>,
-  ref: React.Ref<HTMLTableElement>
+  forwardedRef: React.Ref<HTMLTableElement>
 ) {
   const {
     data,
@@ -53,6 +54,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     columnWidths = [
       `repeat(${columns.length}, var(--sl-table-default-column-width))`,
     ],
+    virtualize = false,
     ...tableProps
   } = props
 
@@ -74,9 +76,20 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     ...options,
   })
 
+  const {
+    bottom,
+    top,
+    rows,
+    ref: virtualizeRef,
+    getRow,
+  } = useVirtualizer(table, virtualize)
+
+  const ref = useMergeRef(forwardedRef, virtualizeRef)
+
   return (
     <Table
       data-sl-simple-table
+      data-virtualize={virtualize}
       ref={ref}
       columnWidths={columnWidths}
       {...tableProps}
@@ -107,74 +120,93 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         ))}
       </TableHeader>
       <TableBody>
-        {table.getRowModel().rows.map((row) => (
-          <Fragment key={row.id}>
-            <TableRow
-              selected={row.getIsSelected()}
-              expanded={row.getIsExpanded()}
-            >
-              {row.getVisibleCells().map((cell) => {
-                if (rowClick) {
-                  if (rowClick.type === 'action') {
-                    const { onClick } = rowClick
-
-                    return (
-                      <Clickable
-                        onClick={() => onClick(row)}
-                        key={cell.id}
-                        asChild
-                      >
-                        <TableCell>
-                          {flexRender(
-                            cell.column.columnDef.cell,
-                            cell.getContext()
-                          )}
-                        </TableCell>
-                      </Clickable>
-                    )
-                  }
-
-                  if (rowClick.type === 'link') {
-                    const { getHref, target } = rowClick
-
-                    return (
-                      <LinkBox
-                        href={getHref(row)}
-                        target={target}
-                        key={cell.id}
-                        asChild
-                      >
-                        <TableCell>
-                          {flexRender(
-                            cell.column.columnDef.cell,
-                            cell.getContext()
-                          )}
-                        </TableCell>
-                      </LinkBox>
-                    )
-                  }
-                }
-
-                return (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                )
-              })}
+        {top > 0 &&
+          columns.map((column) => (
+            <TableRow key={column.id}>
+              <TableCell style={{ height: `${top}px` }} />
             </TableRow>
-            {row.getIsExpanded() && (
-              <TableRow data-sl-detail-row selected={row.getIsSelected()}>
-                <TableCell
-                  style={{
-                    gridColumn: `1 / span ${row.getVisibleCells().length}`,
-                  }}
-                >
-                  {renderDetail?.(row)}
-                </TableCell>
+          ))}
+        {rows.map((tableRow) => {
+          const row = getRow(tableRow)
+
+          return (
+            <Fragment key={row.id}>
+              <TableRow
+                selected={row.getIsSelected()}
+                expanded={row.getIsExpanded()}
+              >
+                {row.getVisibleCells().map((cell) => {
+                  if (rowClick) {
+                    if (rowClick.type === 'action') {
+                      const { onClick } = rowClick
+
+                      return (
+                        <Clickable
+                          onClick={() => onClick(row)}
+                          key={cell.id}
+                          asChild
+                        >
+                          <TableCell>
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
+                          </TableCell>
+                        </Clickable>
+                      )
+                    }
+
+                    if (rowClick.type === 'link') {
+                      const { getHref, target } = rowClick
+
+                      return (
+                        <LinkBox
+                          href={getHref(row)}
+                          target={target}
+                          key={cell.id}
+                          asChild
+                        >
+                          <TableCell>
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
+                          </TableCell>
+                        </LinkBox>
+                      )
+                    }
+                  }
+
+                  return (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  )
+                })}
               </TableRow>
-            )}
-          </Fragment>
-        ))}
+              {row.getIsExpanded() && (
+                <TableRow data-sl-detail-row selected={row.getIsSelected()}>
+                  <TableCell
+                    style={{
+                      gridColumn: `1 / span ${row.getVisibleCells().length}`,
+                    }}
+                  >
+                    {renderDetail?.(row)}
+                  </TableCell>
+                </TableRow>
+              )}
+            </Fragment>
+          )
+        })}
+        {bottom > 0 &&
+          columns.map((column) => (
+            <TableRow key={column.id}>
+              <TableCell style={{ height: `${bottom}px` }} />
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   )
@@ -223,4 +255,6 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
         type: 'action'
         onClick: (row: Row<T>) => void
       }
+
+  virtualize?: boolean
 }

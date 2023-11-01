@@ -63,6 +63,7 @@
     "@tanstack/react-table": "8.10.7",
     "@vtex/shoreline-icons": "^0.2.1",
     "@vtex/shoreline-utils": "^0.4.0",
-    "react-hot-toast": "2.4.1"
+    "react-hot-toast": "2.4.1",
+    "react-virtual": "^2.10.4"
   }
 }
