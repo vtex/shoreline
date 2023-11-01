@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { describe, expect, test } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Modal } from '../modal'
-import { useModal } from '..'
+
 import { Content } from '../../content'
 import { Button } from '../../button'
 import userEvent from '@testing-library/user-event'
 
 export function BasicModal() {
-  const { open, show, hide } = useModal()
+  const [open, setOpen] = useState(false)
 
   return (
     <>
-      <Button data-testid="modal-disclosure" onClick={show}>
+      <Button data-testid="modal-disclosure" onClick={() => setOpen(true)}>
         Open modal
       </Button>
-      <Modal open={open} onClose={hide}>
+      <Modal open={open} onClose={() => setOpen(false)}>
         <Content data-testid="modal-content">Modal content</Content>
       </Modal>
     </>

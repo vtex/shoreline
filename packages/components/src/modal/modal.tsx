@@ -22,7 +22,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
 })
 
 export interface ModalProps extends ComponentPropsWithoutRef<'div'> {
-  className?: string
-  onClose?: () => void
+  onClose?: (event: Event) => void
   open?: boolean
 }
