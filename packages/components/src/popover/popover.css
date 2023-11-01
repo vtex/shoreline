@@ -5,5 +5,9 @@
     box-shadow: var(--sl-shadow-2);
     border-radius: var(--sl-border-radius-medium);
     z-index: var(--sl-z-6);
+
+    & [data-sl-container] {
+      height: inherit;
+    }
   }
 }
