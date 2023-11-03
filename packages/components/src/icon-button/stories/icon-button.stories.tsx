@@ -3,7 +3,7 @@ import '../../../dist/styles.min.css'
 import React, { useState } from 'react'
 import { IconButton } from '../index'
 import { Stack } from '../../stack'
-import { IconArrowUpRightSmall, IconTrash } from '@vtex/shoreline-icons'
+import { IconTrash } from '@vtex/shoreline-icons'
 
 import { AccessibleIcon } from '../../accessible-icon'
 
@@ -52,7 +52,7 @@ export function Composition() {
       <IconButton label="Preview" asChild>
         <a href="https://vtex.com" target="_blank" rel="noreferrer">
           <AccessibleIcon label="Preview">
-            <IconArrowUpRightSmall />
+            <IconTrash />
           </AccessibleIcon>
         </a>
       </IconButton>
