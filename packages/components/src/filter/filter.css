@@ -1,0 +1,5 @@
+@layer sl-components {
+  [data-sl-filter] {
+    color: var(--sl-color-fg);
+  }
+}
