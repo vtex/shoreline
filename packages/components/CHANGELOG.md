@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.19.1...@vtex/shoreline-components@0.20.0) (2023-11-06)
+
+### Features
+
+- **combobox:** add combobox list ([bf5684f](https://github.com/vtex/admin-ui/commit/bf5684fe75010c863f88e566334469fe874ccf6a))
+- **combobox:** create component ([9ddc981](https://github.com/vtex/admin-ui/commit/9ddc9819529f757c32517231a576594a5be41bd7))
+
 ## [0.19.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.19.0...@vtex/shoreline-components@0.19.1) (2023-11-01)
 
 **Note:** Version bump only for package @vtex/shoreline-components
