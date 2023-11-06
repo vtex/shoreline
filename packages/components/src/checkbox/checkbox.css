@@ -9,8 +9,7 @@
     color: var(--sl-color-fg);
     width: var(--sl-checkbox-size);
     height: var(--sl-checkbox-size);
-    display: flex;
-    gap: var(--sl-space-2);
+
     width: fit-content;
 
     & > [data-sl-text] {
