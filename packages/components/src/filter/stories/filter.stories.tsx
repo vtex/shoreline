@@ -6,8 +6,8 @@ import { Button } from '../../button'
 import { Stack } from '../../stack'
 import { SelectOption, SelectList, SelectOptionCheck } from '../../select'
 
-import { FilterApply, FilterClear, FilterValue } from '../filter'
-import { FilterProvider } from '../index'
+import { FilterValue } from '../filter'
+import { FilterProvider, FilterApply, FilterClear } from '../index'
 import { Content } from '../../content'
 import { ScrollArea } from '../../scroll-area'
 import type { Country } from './countries'
@@ -55,8 +55,53 @@ export function Default() {
               </SelectList>
             </ScrollArea>
             <Stack direction="row" fluid>
-              <FilterClear />
-              <FilterApply />
+              <FilterClear>Clear</FilterClear>
+              <FilterApply>Apply</FilterApply>
+            </Stack>
+          </Stack>
+        </Content>
+      </Popover>
+    </FilterProvider>
+  )
+}
+
+export function Composition() {
+  return (
+    <FilterProvider defaultSelect={[]} defaultFilter={[]}>
+      <PopoverTrigger asChild>
+        <Button>
+          Filter:
+          <FilterValue />
+        </Button>
+      </PopoverTrigger>
+      <Popover
+        style={{
+          width: 256,
+        }}
+      >
+        <Content>
+          <Stack fluid>
+            <ScrollArea
+              style={{
+                height: 256,
+                width: '100%',
+              }}
+            >
+              <SelectList>
+                {countries.map((country) => (
+                  <SelectOption key={country.name} value={country.emoji}>
+                    {country.emoji} {country.name}
+                  </SelectOption>
+                ))}
+              </SelectList>
+            </ScrollArea>
+            <Stack direction="row" fluid>
+              <FilterClear asChild>
+                <Button>Clear</Button>
+              </FilterClear>
+              <FilterApply asChild>
+                <Button variant="primary">Apply</Button>
+              </FilterApply>
             </Stack>
           </Stack>
         </Content>

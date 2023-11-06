@@ -5,19 +5,6 @@ import { PopoverProvider, usePopoverStore } from '../popover'
 import { SelectProvider, useSelectStore } from '../select'
 import { FilterContext } from './filter-context'
 
-interface FilterProviderProps {
-  children: ReactNode
-  open?: boolean
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
-  defaultOpen?: boolean
-  select?: string | string[]
-  setSelect?: React.Dispatch<React.SetStateAction<string | string[]>>
-  defaultSelect?: string | string[]
-  filter?: string | string[]
-  setFilter?: React.Dispatch<React.SetStateAction<string | string[]>>
-  defaultFilter?: string | string[]
-}
-
 export function FilterProvider(props: FilterProviderProps) {
   const {
     children,
@@ -59,4 +46,17 @@ export function FilterProvider(props: FilterProviderProps) {
       </SelectProvider>
     </PopoverProvider>
   )
+}
+
+export interface FilterProviderProps {
+  children: ReactNode
+  open?: boolean
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
+  defaultOpen?: boolean
+  select?: string | string[]
+  setSelect?: React.Dispatch<React.SetStateAction<string | string[]>>
+  defaultSelect?: string | string[]
+  filter?: string | string[]
+  setFilter?: React.Dispatch<React.SetStateAction<string | string[]>>
+  defaultFilter?: string | string[]
 }
