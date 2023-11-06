@@ -41,6 +41,7 @@
 
     &[data-focus-visible='true'] {
       box-shadow: var(--sl-focus-ring);
+      border: var(--sl-border-strong-hover);
     }
 
     &[data-disabled='true'] {
@@ -57,6 +58,7 @@
         }
         &[data-focus-visible='true'] {
           box-shadow: var(--sl-focus-ring-critical);
+          border: var(--sl-border-critical-strong-hover);
         }
       }
 
@@ -75,6 +77,7 @@
 
         &[data-focus-visible='true'] {
           box-shadow: var(--sl-focus-ring-accent);
+          border: var(--sl-border-accent-strong-hover);
         }
       }
     }

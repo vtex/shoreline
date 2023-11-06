@@ -4,7 +4,7 @@ import React, { useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { FixedSizeList } from 'react-window'
 
-import { Checkbox } from '../index'
+import { CheckboxField } from '../index'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
@@ -27,14 +27,42 @@ export function ReactHookForm() {
           control={control}
           name="terms"
           render={({ field: { onChange, onBlur, value, ref } }) => (
-            <Checkbox
+            <CheckboxField
               checked={value}
               onBlur={onBlur}
               onChange={onChange}
               ref={ref}
-            >
-              I agree with the terms of service
-            </Checkbox>
+              label="I agree with the terms of service"
+            />
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </Stack>
+    </form>
+  )
+}
+
+export function ReactHookFormGroup() {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      terms: true,
+    },
+  })
+
+  return (
+    <form onSubmit={handleSubmit((data) => alert(JSON.stringify(data)))}>
+      <Stack>
+        <Controller
+          control={control}
+          name="terms"
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <CheckboxField
+              checked={value}
+              onBlur={onBlur}
+              onChange={onChange}
+              ref={ref}
+              label="I agree with the terms of service"
+            />
           )}
         />
         <Button type="submit">Submit</Button>
@@ -65,7 +93,7 @@ export function ReactWindow() {
     <Stack>
       <Text> Number of Checkboxes: {numberOfItems}</Text>
 
-      <Checkbox
+      <CheckboxField
         indeterminate={someChecked && !allChecked}
         checked={allChecked}
         onChange={() => {
@@ -75,9 +103,8 @@ export function ReactWindow() {
             setChecked(trueArray)
           }
         }}
-      >
-        Root
-      </Checkbox>
+        label="Root"
+      />
       <FixedSizeList
         height={300}
         itemCount={numberOfItems}
@@ -89,7 +116,7 @@ export function ReactWindow() {
       >
         {({ index, style }) => (
           <div key={index} style={style}>
-            <Checkbox
+            <CheckboxField
               key={index}
               checked={checked[index]}
               onChange={() => {
@@ -101,9 +128,8 @@ export function ReactWindow() {
                   return res
                 })
               }}
-            >
-              Item {index}
-            </Checkbox>
+              label={<>Item {index}</>}
+            />
           </div>
         )}
       </FixedSizeList>

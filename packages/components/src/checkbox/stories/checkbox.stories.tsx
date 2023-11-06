@@ -2,11 +2,13 @@ import '../../../dist/styles.min.css'
 import '../checkbox.css'
 import React, { useState } from 'react'
 
-import { Checkbox } from '../index'
+import { Checkbox, CheckboxField, CheckboxGroup } from '../index'
 import { VisuallyHidden } from '@ariakit/react'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
+
+import { IconInfoFill } from '@vtex/shoreline-icons'
 
 export default {
   title: 'shoreline-components/checkbox',
@@ -15,9 +17,19 @@ export default {
 export function Default() {
   return (
     <Stack>
-      <Checkbox>Default</Checkbox>
-      <Checkbox error>With error</Checkbox>
-      <Checkbox disabled>Disabled</Checkbox>
+      <CheckboxField label="Default">Default</CheckboxField>
+      <CheckboxField error label="With error" />
+      <CheckboxField disabled label="Disabled" />
+    </Stack>
+  )
+}
+
+export function Standalone() {
+  return (
+    <Stack>
+      <Checkbox />
+      <Checkbox error />
+      <Checkbox disabled />
     </Stack>
   )
 }
@@ -29,12 +41,11 @@ export function Controlled() {
     <Stack>
       <Text>{checked ? 'Checked' : 'Unchecked'}</Text>
       <Button onClick={() => setChecked((c) => !c)}>Toggle</Button>
-      <Checkbox
+      <CheckboxField
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}
-      >
-        Controlled
-      </Checkbox>
+        label="Controlled"
+      />
     </Stack>
   )
 }
@@ -42,32 +53,71 @@ export function Controlled() {
 export function Indeterminate() {
   return (
     <Stack>
-      <Checkbox indeterminate>Indeterminate</Checkbox>
-      <Checkbox indeterminate error>
-        With Error
-      </Checkbox>
-      <Checkbox indeterminate disabled>
-        Disabled
-      </Checkbox>
+      <CheckboxField indeterminate label="Indeterminate" />
+      <CheckboxField indeterminate error label="WithError" />
+      <CheckboxField indeterminate disabled label="Disabled" />
     </Stack>
   )
 }
 
-export function DefaultChecked() {
+export function WithMessage() {
   return (
-    <Stack>
-      <Checkbox defaultChecked>Checked by default</Checkbox>
-      <Checkbox defaultChecked disabled>
-        Disabled
-      </Checkbox>
+    <Stack space="$space-10">
+      <CheckboxField
+        label="Checked by default"
+        message="Something wrong"
+        error
+      />
+      <CheckboxField label="Disabled" defaultChecked disabled />
     </Stack>
   )
 }
 
 export function HiddenLabel() {
+  return <CheckboxField label={<VisuallyHidden>With Error</VisuallyHidden>} />
+}
+
+export function Group() {
   return (
-    <Checkbox>
-      <VisuallyHidden>With Error</VisuallyHidden>
-    </Checkbox>
+    <Stack space="5rem">
+      <CheckboxGroup label="Options">
+        <CheckboxField indeterminate label="Everything" />
+        <CheckboxField label="Everywhere" />
+        <CheckboxField label="All at once" />
+        <CheckboxField disabled label="None" />
+      </CheckboxGroup>
+      <CheckboxGroup label="Options (optional)" helpText="Choose one of these">
+        <CheckboxField indeterminate label="Everything" />
+        <CheckboxField label="Everywhere" />
+        <CheckboxField label="All at once" />
+        <CheckboxField disabled label="None" />
+      </CheckboxGroup>
+      <CheckboxGroup
+        error
+        label={
+          <>
+            Options
+            <IconInfoFill />
+          </>
+        }
+        errorText="Bad choice"
+      >
+        <CheckboxField error indeterminate label="Everything" />
+        <CheckboxField error label="Everywhere" />
+        <CheckboxField error label="All at once" />
+        <CheckboxField error disabled label="None" />
+      </CheckboxGroup>
+      <CheckboxGroup
+        error
+        direction="row"
+        label="Options"
+        errorText="Bad choice"
+      >
+        <CheckboxField error indeterminate label="Everything" />
+        <CheckboxField error label="Everywhere" />
+        <CheckboxField error label="All at once" />
+        <CheckboxField error disabled label="None" />
+      </CheckboxGroup>
+    </Stack>
   )
 }

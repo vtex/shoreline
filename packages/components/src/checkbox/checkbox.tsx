@@ -6,7 +6,6 @@ import { VisuallyHidden } from '../visually-hidden'
 import { useAriaCheckbox } from './use-aria-checkbox'
 
 import type { AriaCheckboxProps } from './use-aria-checkbox'
-import { Text } from '../text'
 
 /**
  * Checkbox controls allow users to make multiple independent choices in a form where there are at most five options and each option is binary.
@@ -47,7 +46,6 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
           {isIndeterminate && <IconMinusSmall data-sl-checkbox-check-mixed />}
           {isChecked && <IconCheckSmall data-sl-checkbox-check />}
         </div>
-        <Text>{ariaProps.children}</Text>
       </label>
     )
   }
