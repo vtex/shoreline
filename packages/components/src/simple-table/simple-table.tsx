@@ -1,13 +1,10 @@
-import type { ReactNode } from 'react'
-import React, { Fragment } from 'react'
+import React from 'react'
 import type {
   OnChangeFn,
-  Row,
   SortingState,
   TableOptions,
 } from '@tanstack/react-table'
 import {
-  flexRender,
   getCoreRowModel,
   useReactTable,
   getExpandedRowModel,
@@ -16,20 +13,12 @@ import {
 import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 
 import type { TableProps } from '../table'
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-} from '../table'
-import type { NavigationTarget } from '../link-box/link-box-utils'
-import { LinkBox } from '../link-box'
-import { Clickable } from '../clickable'
-import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 import './simple-table.css'
-import { useVirtualizer } from './use-virtualizer'
+import { Table, TableRow, TableBody, TableCell } from '../table'
+import { Virtual } from '../virtual'
+import { SimpleTableRow } from './simple-table-row'
+import type { SimpleTableRowProps } from './simple-table-row'
+import { SimpleTableHeader } from './simple-table-header'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -39,7 +28,7 @@ import { useVirtualizer } from './use-virtualizer'
  */
 export const SimpleTable = forwardRef(function SimpleTable<T>(
   props: SimpleTableProps<T>,
-  forwardedRef: React.Ref<HTMLTableElement>
+  ref: React.Ref<HTMLTableElement>
 ) {
   const {
     data,
@@ -76,139 +65,73 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     ...options,
   })
 
-  const {
-    bottom,
-    top,
-    rows,
-    ref: virtualizeRef,
-    getRow,
-  } = useVirtualizer(table, virtualize)
+  const { rows } = table.getRowModel()
 
-  const ref = useMergeRef(forwardedRef, virtualizeRef)
-
-  return (
+  return !virtualize ? (
     <Table
       data-sl-simple-table
-      data-virtualize={virtualize}
       ref={ref}
       columnWidths={columnWidths}
       {...tableProps}
     >
-      <TableHeader>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <TableHeaderCell
-                key={header.id}
-                onClick={header.column.getToggleSortingHandler()}
-                sortable={header.column.getCanSort()}
-              >
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                {header.column.getIsSorted() === 'asc' ? (
-                  <IconArrowUp />
-                ) : header.column.getIsSorted() === 'desc' ? (
-                  <IconArrowDown />
-                ) : null}
-              </TableHeaderCell>
-            ))}
-          </TableRow>
-        ))}
-      </TableHeader>
+      <SimpleTableHeader headers={table.getHeaderGroups()} />
+
       <TableBody>
-        {top > 0 &&
-          columns.map((column) => (
-            <TableRow key={column.id}>
-              <TableCell style={{ height: `${top}px` }} />
-            </TableRow>
-          ))}
-        {rows.map((tableRow) => {
-          const row = getRow(tableRow)
-
-          return (
-            <Fragment key={row.id}>
-              <TableRow
-                selected={row.getIsSelected()}
-                expanded={row.getIsExpanded()}
-              >
-                {row.getVisibleCells().map((cell) => {
-                  if (rowClick) {
-                    if (rowClick.type === 'action') {
-                      const { onClick } = rowClick
-
-                      return (
-                        <Clickable
-                          onClick={() => onClick(row)}
-                          key={cell.id}
-                          asChild
-                        >
-                          <TableCell>
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
-                          </TableCell>
-                        </Clickable>
-                      )
-                    }
-
-                    if (rowClick.type === 'link') {
-                      const { getHref, target } = rowClick
-
-                      return (
-                        <LinkBox
-                          href={getHref(row)}
-                          target={target}
-                          key={cell.id}
-                          asChild
-                        >
-                          <TableCell>
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
-                          </TableCell>
-                        </LinkBox>
-                      )
-                    }
-                  }
-
-                  return (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  )
-                })}
-              </TableRow>
-              {row.getIsExpanded() && (
-                <TableRow data-sl-detail-row selected={row.getIsSelected()}>
-                  <TableCell
-                    style={{
-                      gridColumn: `1 / span ${row.getVisibleCells().length}`,
-                    }}
-                  >
-                    {renderDetail?.(row)}
-                  </TableCell>
-                </TableRow>
-              )}
-            </Fragment>
-          )
-        })}
-        {bottom > 0 &&
-          columns.map((column) => (
-            <TableRow key={column.id}>
-              <TableCell style={{ height: `${bottom}px` }} />
-            </TableRow>
-          ))}
+        {rows.map((row) => (
+          <SimpleTableRow
+            row={row}
+            key={row.id}
+            renderDetail={renderDetail}
+            rowClick={rowClick}
+          />
+        ))}
       </TableBody>
     </Table>
+  ) : (
+    <Virtual items={rows}>
+      {({ bottom, top, getItem, items, ref: virtualizerRef }) => {
+        const mergedRef = useMergeRef(ref, virtualizerRef)
+
+        return (
+          <Table
+            data-sl-simple-table
+            ref={mergedRef}
+            columnWidths={columnWidths}
+            data-virtualize
+            {...tableProps}
+          >
+            <SimpleTableHeader headers={table.getHeaderGroups()} />
+
+            <TableBody>
+              {top > 0 &&
+                columns.map((column) => (
+                  <TableRow key={column.id}>
+                    <TableCell style={{ height: `${top}px` }} />
+                  </TableRow>
+                ))}
+              {items.map((tableRow) => {
+                const row = getItem(tableRow)
+
+                return (
+                  <SimpleTableRow
+                    row={row}
+                    key={row.id}
+                    renderDetail={renderDetail}
+                    rowClick={rowClick}
+                  />
+                )
+              })}
+              {bottom > 0 &&
+                columns.map((column) => (
+                  <TableRow key={column.id}>
+                    <TableCell style={{ height: `${bottom}px` }} />
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        )
+      }}
+    </Virtual>
   )
 })
 
@@ -219,16 +142,15 @@ type Options<T> = Omit<TableOptions<T>, CoreProps | 'getCoreRowModel'> &
 
 type TsMirrorProps<T> = Pick<TableOptions<T>, CoreProps>
 
-export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
+export interface SimpleTableProps<T>
+  extends TableProps,
+    TsMirrorProps<T>,
+    Pick<SimpleTableRowProps<T>, 'rowClick' | 'renderDetail'> {
   /**
    * Other TanStack/Table options
    * @see https://tanstack.com/table/v8/docs/api/core/table
    */
   options?: Options<T>
-  /**
-   * Renders function for the detail row
-   */
-  renderDetail?: (row: Row<T>) => ReactNode
   /**
    * Defines if columns will be sortable
    * @default false
@@ -242,19 +164,5 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
    * Setter for SortingState for controlled sort usage
    */
   setSort?: OnChangeFn<SortingState> | undefined
-  /**
-   *
-   */
-  rowClick?:
-    | {
-        type: 'link'
-        getHref: (row: Row<T>) => string
-        target?: NavigationTarget
-      }
-    | {
-        type: 'action'
-        onClick: (row: Row<T>) => void
-      }
-
   virtualize?: boolean
 }

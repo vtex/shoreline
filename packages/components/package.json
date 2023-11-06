@@ -64,6 +64,7 @@
     "@vtex/shoreline-icons": "^0.2.1",
     "@vtex/shoreline-utils": "^0.4.0",
     "react-hot-toast": "2.4.1",
-    "react-virtual": "^2.10.4"
+    "react-virtual": "^2.10.4",
+    "@tanstack/react-virtual": "3.0.0-beta.68"
   }
 }
