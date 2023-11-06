@@ -1,13 +1,8 @@
-import type { ReactNode } from 'react'
-import React, { forwardRef, useContext, createContext } from 'react'
-import { PopoverProvider, PopoverDismiss } from '../popover'
+import React, { forwardRef } from 'react'
+import { PopoverDismiss } from '../popover'
 import { Button } from '../button'
-import {
-  usePopoverStore,
-  useSelectContext,
-  useSelectStore,
-} from '@ariakit/react'
-import { SelectProvider } from '../select'
+import { useFilterContext } from './filter-context'
+import { isString } from '@vtex/shoreline-utils'
 
 export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   props,
@@ -26,57 +21,14 @@ export interface FilterProps {
   className?: string
 }
 
-interface FilterProviderProps {
-  children: ReactNode
-  open?: boolean
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
-  defaultOpen?: boolean
-  // select?: any
-  // setSelect?: React.Dispatch<React.SetStateAction<any>>
-  // defaultSelect?: any
-}
-
-const FilterContext = createContext<any>(null)
-
-export function FilterProvider(props: FilterProviderProps) {
-  const {
-    children,
-    open,
-    setOpen,
-    defaultOpen,
-    // select,
-    // setSelect,
-    // defaultSelect,
-  } = props
-
-  const popover = usePopoverStore({
-    open,
-    setOpen,
-    defaultOpen,
-  })
-
-  const select = useSelectStore({
-    defaultValue: [],
-  })
-
-  const filter = useSelectStore({
-    defaultValue: [],
-  })
-
-  return (
-    <PopoverProvider store={popover}>
-      <SelectProvider store={select}>
-        <FilterContext.Provider value={filter}>
-          {children}
-        </FilterContext.Provider>
-      </SelectProvider>
-    </PopoverProvider>
-  )
-}
-
 export function FilterApply() {
-  const filter = useContext(FilterContext)
-  const select = useSelectContext()
+  const context = useFilterContext()
+
+  if (!context) {
+    return null
+  }
+
+  const { select, filter } = context
 
   if (!filter || !select) {
     return null
@@ -101,16 +53,17 @@ export function FilterApply() {
 }
 
 export function FilterClear() {
-  const filter = useContext(FilterContext)
-  const select = useSelectContext()
+  const context = useFilterContext()
 
-  if (!filter || !select) {
+  if (!context) {
     return null
   }
 
+  const { filter, select } = context
+
   const clear = () => {
-    filter.setValue([])
-    select.setValue([])
+    filter?.setValue([])
+    select?.setValue([])
   }
 
   return (
@@ -121,28 +74,41 @@ export function FilterClear() {
 }
 
 export function FilterValue() {
-  const filter = useContext(FilterContext)
+  const context = useFilterContext()
 
-  if (!filter) {
+  if (!context) {
     return null
   }
 
-  const value = filter.useState('value')
+  const { filter } = context
+
+  const value = filter?.useState('value')
 
   return (
     <span>
-      {value.map((v: any) => (
-        <span key={v}>{v}</span>
-      ))}
+      {Array.isArray(value) ? (
+        value.map((v: any) => <span key={v}>{v}</span>)
+      ) : (
+        <span>{value}</span>
+      )}
     </span>
   )
 }
 
-function shallowEqual(a: any[] | string, b: any[] | string): boolean {
-  return (
-    Array.isArray(a) &&
-    Array.isArray(b) &&
-    a.length === b.length &&
-    a.every((val, index) => val === b[index])
-  )
+function shallowEqual<T>(
+  a: T[] | T,
+  b: T[] | T,
+  equals = (a: T, b: T) => a === b
+): boolean {
+  if (Array.isArray(a) && Array.isArray(b)) {
+    return (
+      a.length === b.length && a.every((val, index) => equals(val, b[index]))
+    )
+  }
+
+  if (isString(a) && isString(b)) {
+    return equals(a, b)
+  }
+
+  return false
 }

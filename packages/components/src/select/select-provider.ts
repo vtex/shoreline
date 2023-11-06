@@ -1,3 +1,7 @@
-import { SelectProvider } from '@ariakit/react'
+import {
+  SelectProvider,
+  useSelectContext,
+  useSelectStore,
+} from '@ariakit/react'
 
-export { SelectProvider }
+export { SelectProvider, useSelectContext, useSelectStore }

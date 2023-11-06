@@ -1,27 +1,24 @@
 import '../../../dist/styles.min.css'
 import '../filter.css'
-import type { ReactNode } from 'react'
-import React, { useState, useContext, createContext } from 'react'
-import {
-  Popover,
-  PopoverProvider,
-  PopoverTrigger,
-  PopoverDismiss,
-} from '../../popover'
+import React, { useState, useMemo, startTransition } from 'react'
+import { Popover, PopoverTrigger } from '../../popover'
 import { Button } from '../../button'
 import { Stack } from '../../stack'
-import { useSelectStore } from '@ariakit/react'
-import { SelectProvider, SelectOption, SelectList } from '../../select'
+import { SelectOption, SelectList, SelectOptionCheck } from '../../select'
 
-import {
-  FilterProvider,
-  FilterApply,
-  FilterClear,
-  FilterValue,
-} from '../filter'
+import { FilterApply, FilterClear, FilterValue } from '../filter'
+import { FilterProvider } from '../index'
 import { Content } from '../../content'
 import { ScrollArea } from '../../scroll-area'
-import { countryArray, countryMap } from './data'
+import type { Country } from './countries'
+import { countries } from './countries'
+import {
+  Combobox,
+  ComboboxProvider,
+  ComboboxItem,
+  ComboboxList,
+} from '../../combobox'
+import { matchSorter } from 'match-sorter'
 
 export default {
   title: 'shoreline-components/filter',
@@ -29,7 +26,7 @@ export default {
 
 export function Default() {
   return (
-    <FilterProvider>
+    <FilterProvider defaultSelect={[]} defaultFilter={[]}>
       <PopoverTrigger asChild>
         <Button>
           Filter:
@@ -50,7 +47,7 @@ export function Default() {
               }}
             >
               <SelectList>
-                {countryArray.slice(0, 30).map((country) => (
+                {countries.map((country) => (
                   <SelectOption key={country.name} value={country.emoji}>
                     {country.emoji} {country.name}
                   </SelectOption>
@@ -65,5 +62,80 @@ export function Default() {
         </Content>
       </Popover>
     </FilterProvider>
+  )
+}
+
+export function WithCombobox() {
+  const [searchValue, setSearchValue] = useState('')
+
+  const matches = useMemo<Country[]>(() => {
+    return matchSorter(countries, searchValue, {
+      keys: ['name', 'code'],
+    })
+  }, [searchValue])
+
+  return (
+    <ComboboxProvider
+      resetValueOnHide
+      setValue={(value) => {
+        startTransition(() => {
+          setSearchValue(value)
+        })
+      }}
+    >
+      <FilterProvider defaultSelect={[]} defaultFilter={[]}>
+        <PopoverTrigger asChild>
+          <Button>
+            Filter:
+            <FilterValue />
+          </Button>
+        </PopoverTrigger>
+        <Popover
+          style={{
+            width: 256,
+          }}
+        >
+          <Content>
+            <Stack fluid>
+              <div>
+                <Combobox
+                  data-sl-text-input
+                  autoSelect
+                  placeholder="Search..."
+                />
+              </div>
+              <ScrollArea
+                style={{
+                  height: 256,
+                  width: '100%',
+                }}
+              >
+                <ComboboxList>
+                  {matches.length ? (
+                    matches.map((country) => (
+                      <SelectOption
+                        key={country.name}
+                        value={country.emoji}
+                        asChild
+                      >
+                        <ComboboxItem>
+                          {country.emoji} {country.name} <SelectOptionCheck />
+                        </ComboboxItem>
+                      </SelectOption>
+                    ))
+                  ) : (
+                    <div>No results found</div>
+                  )}
+                </ComboboxList>
+              </ScrollArea>
+              <Stack direction="row" fluid>
+                <FilterClear />
+                <FilterApply />
+              </Stack>
+            </Stack>
+          </Content>
+        </Popover>
+      </FilterProvider>
+    </ComboboxProvider>
   )
 }
