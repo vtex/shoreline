@@ -81,8 +81,8 @@ export function ListBox() {
   return (
     <Stack>
       <Text>Selected Value: {value}</Text>
-      <SelectProvider value={value} setValue={setValue} open>
-        <SelectList>
+      <SelectProvider value={value} setValue={setValue}>
+        <SelectList aria-label="select companies" alwaysVisible>
           <SelectOption value="apple">Apple</SelectOption>
           <SelectOption value="google">Google</SelectOption>
           <SelectOption value="microsoft">Microsoft</SelectOption>

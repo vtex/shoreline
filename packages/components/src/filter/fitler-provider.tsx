@@ -33,7 +33,7 @@ export function FilterProvider(props: FilterProviderProps) {
 
   const filterStore = useSelectStore({
     value: filter,
-    setValue: setFilter,
+    setValue: setFilter as any,
     defaultValue: defaultFilter,
   })
 
@@ -57,6 +57,8 @@ export interface FilterProviderProps {
   setSelect?: React.Dispatch<React.SetStateAction<string | string[]>>
   defaultSelect?: string | string[]
   filter?: string | string[]
-  setFilter?: React.Dispatch<React.SetStateAction<string | string[]>>
+  setFilter?:
+    | React.Dispatch<React.SetStateAction<string>>
+    | React.Dispatch<React.SetStateAction<string[]>>
   defaultFilter?: string | string[]
 }

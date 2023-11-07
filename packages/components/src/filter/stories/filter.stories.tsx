@@ -7,7 +7,14 @@ import { Stack } from '../../stack'
 import { SelectOption, SelectList, SelectOptionCheck } from '../../select'
 
 import { FilterValue } from '../filter'
-import { FilterProvider, FilterApply, FilterClear } from '../index'
+import {
+  FilterProvider,
+  FilterApply,
+  FilterClear,
+  FilterPopover,
+  FilterList,
+  FilterOption,
+} from '../index'
 import { Content } from '../../content'
 import { ScrollArea } from '../../scroll-area'
 import type { Country } from './countries'
@@ -25,42 +32,98 @@ export default {
 }
 
 export function Default() {
+  const [status, setStatus] = useState<string>('')
+
   return (
-    <FilterProvider defaultSelect={[]} defaultFilter={[]}>
-      <PopoverTrigger asChild>
-        <Button>
-          Filter:
-          <FilterValue />
-        </Button>
+    <FilterProvider filter={status} setFilter={setStatus}>
+      <PopoverTrigger>
+        Status
+        <FilterValue />
       </PopoverTrigger>
-      <Popover
-        style={{
-          width: 256,
-        }}
-      >
+      <FilterPopover>
         <Content>
           <Stack fluid>
-            <ScrollArea
-              style={{
-                height: 256,
-                width: '100%',
-              }}
-            >
-              <SelectList>
+            <FilterList>
+              <ScrollArea>
+                <FilterOption value="Stable">Stable</FilterOption>
+                <FilterOption value="Experimental">Experimental</FilterOption>
+                <FilterOption value="Deprecated">Deprecated</FilterOption>
+              </ScrollArea>
+            </FilterList>
+            <footer>
+              <FilterClear>Clear</FilterClear>
+              <FilterApply>Apply</FilterApply>
+            </footer>
+          </Stack>
+        </Content>
+      </FilterPopover>
+    </FilterProvider>
+  )
+}
+
+export function SingleSelect() {
+  // const [status, setStatus] = useState<string>('')
+
+  return (
+    <FilterProvider>
+      <PopoverTrigger>
+        Status
+        <FilterValue />
+      </PopoverTrigger>
+      <FilterPopover>
+        <Content>
+          <Stack fluid>
+            <FilterList>
+              <ScrollArea>
+                <FilterOption value="Stable">Stable</FilterOption>
+                <FilterOption value="Experimental">Experimental</FilterOption>
+                <FilterOption value="Deprecated">Deprecated</FilterOption>
+              </ScrollArea>
+            </FilterList>
+            <footer>
+              <FilterClear>Clear</FilterClear>
+              <FilterApply>Apply</FilterApply>
+            </footer>
+          </Stack>
+        </Content>
+      </FilterPopover>
+    </FilterProvider>
+  )
+}
+
+export function Controlled() {
+  const [filter, setFilter] = useState<string>('')
+
+  return (
+    <FilterProvider filter={filter} setFilter={setFilter}>
+      <PopoverTrigger>
+        Filter:
+        <FilterValue />
+      </PopoverTrigger>
+      <FilterPopover>
+        <Content>
+          <Stack fluid>
+            <FilterList>
+              <ScrollArea>
                 {countries.map((country) => (
-                  <SelectOption key={country.name} value={country.emoji}>
+                  <SelectOption
+                    hideOnClick={false}
+                    key={country.name}
+                    value={country.emoji}
+                  >
                     {country.emoji} {country.name}
                   </SelectOption>
                 ))}
-              </SelectList>
-            </ScrollArea>
+              </ScrollArea>
+            </FilterList>
+
             <Stack direction="row" fluid>
               <FilterClear>Clear</FilterClear>
               <FilterApply>Apply</FilterApply>
             </Stack>
           </Stack>
         </Content>
-      </Popover>
+      </FilterPopover>
     </FilterProvider>
   )
 }
@@ -70,15 +133,11 @@ export function Composition() {
     <FilterProvider defaultSelect={[]} defaultFilter={[]}>
       <PopoverTrigger asChild>
         <Button>
-          Filter:
+          Filter
           <FilterValue />
         </Button>
       </PopoverTrigger>
-      <Popover
-        style={{
-          width: 256,
-        }}
-      >
+      <FilterPopover>
         <Content>
           <Stack fluid>
             <ScrollArea
@@ -87,13 +146,13 @@ export function Composition() {
                 width: '100%',
               }}
             >
-              <SelectList>
+              <FilterList>
                 {countries.map((country) => (
-                  <SelectOption key={country.name} value={country.emoji}>
+                  <FilterOption key={country.name} value={country.emoji}>
                     {country.emoji} {country.name}
-                  </SelectOption>
+                  </FilterOption>
                 ))}
-              </SelectList>
+              </FilterList>
             </ScrollArea>
             <Stack direction="row" fluid>
               <FilterClear asChild>
@@ -105,7 +164,7 @@ export function Composition() {
             </Stack>
           </Stack>
         </Content>
-      </Popover>
+      </FilterPopover>
     </FilterProvider>
   )
 }

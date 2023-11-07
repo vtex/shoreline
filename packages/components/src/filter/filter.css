@@ -2,4 +2,16 @@
   [data-sl-filter] {
     color: var(--sl-color-fg);
   }
+
+  [data-sl-filter-popover] {
+    --sl-filter-popover-width: 256px;
+    width: var(--sl-filter-popover-width);
+  }
+
+  [data-sl-filter-list] {
+    --sl-filter-list-height: 256px;
+    max-height: var(--sl-filter-list-height);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }

@@ -29,13 +29,13 @@ export function FilterValue() {
 
   const value = filter?.useState('value')
 
+  const isLongArray = Array.isArray(value) && value.length > 1
+
   return (
     <span>
-      {Array.isArray(value) ? (
-        value.map((v: any) => <span key={v}>{v}</span>)
-      ) : (
-        <span>{value}</span>
-      )}
+      {value && value.length > 0 && ': '}
+      {isLongArray ? value[0] : value}
+      {isLongArray && `, +${value.length - 1}`}
     </span>
   )
 }
