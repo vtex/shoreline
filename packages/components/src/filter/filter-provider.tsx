@@ -40,8 +40,7 @@ export function FilterProvider(props: FilterProviderProps) {
     selectStore.setValue(filterStore.getState().value)
   }, [])
 
-  const searchable =
-    !!searchValue || !!setSearchValue || !!defaultSearchValue || true
+  const searchable = !!searchValue || !!setSearchValue || !!defaultSearchValue
 
   return searchable ? (
     <ComboboxProvider

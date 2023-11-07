@@ -1,13 +1,14 @@
 import React, { forwardRef } from 'react'
+
 import type { SelectOptionProps } from '../select'
 import { SelectOption, SelectOptionCheck } from '../select'
-import { useComboboxContext } from '@ariakit/react'
 import { ComboboxItem } from '../combobox'
+import { useSearchable } from './use-searchable'
 
 export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
   function FilterOption(props, ref) {
     const { asChild = false, children, ...otherProps } = props
-    const { searchable } = useFilterOption()
+    const searchable = useSearchable()
 
     return searchable ? (
       <SelectOption
@@ -34,13 +35,5 @@ export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
     )
   }
 )
-
-function useFilterOption() {
-  const combobox = useComboboxContext()
-
-  return {
-    searchable: !!combobox,
-  }
-}
 
 export type FilterOptionProps = Omit<SelectOptionProps, 'hideOnClick'>
