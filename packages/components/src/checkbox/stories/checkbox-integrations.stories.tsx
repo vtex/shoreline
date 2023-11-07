@@ -32,8 +32,9 @@ export function ReactHookForm() {
               onBlur={onBlur}
               onChange={onChange}
               ref={ref}
-              label="I agree with the terms of service"
-            />
+            >
+              I agree with the terms of service
+            </CheckboxField>
           )}
         />
         <Button type="submit">Submit</Button>
@@ -61,8 +62,9 @@ export function ReactHookFormGroup() {
               onBlur={onBlur}
               onChange={onChange}
               ref={ref}
-              label="I agree with the terms of service"
-            />
+            >
+              I agree with the terms of service
+            </CheckboxField>
           )}
         />
         <Button type="submit">Submit</Button>
@@ -103,8 +105,9 @@ export function ReactWindow() {
             setChecked(trueArray)
           }
         }}
-        label="Root"
-      />
+      >
+        Root
+      </CheckboxField>
       <FixedSizeList
         height={300}
         itemCount={numberOfItems}
@@ -128,8 +131,9 @@ export function ReactWindow() {
                   return res
                 })
               }}
-              label={<>Item {index}</>}
-            />
+            >
+              Item {index}
+            </CheckboxField>
           </div>
         )}
       </FixedSizeList>

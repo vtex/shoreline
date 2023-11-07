@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import React, { forwardRef } from 'react'
 
 import type { AriaCheckboxProps } from './use-aria-checkbox'
@@ -12,11 +11,11 @@ import { Checkbox } from './checkbox'
  */
 export const CheckboxField = forwardRef<HTMLDivElement, CheckboxFieldProps>(
   function CheckboxField(props, forwardedRef) {
-    const { error, message, label, ...ariaProps } = props
+    const { error, message, children, ...ariaProps } = props
 
     return (
       <Field variant="control" data-sl-checkbox-field>
-        <FieldLabel>{label}</FieldLabel>
+        <FieldLabel>{children}</FieldLabel>
         <Checkbox error={error} ref={forwardedRef} {...ariaProps} />
 
         <FieldMessage error={error} errorText={message} />
@@ -32,5 +31,4 @@ export interface CheckboxFieldProps extends AriaCheckboxProps {
    */
   error?: boolean
   message?: string
-  label: string | ReactElement
 }

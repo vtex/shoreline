@@ -1,6 +1,6 @@
+import React, { useState } from 'react'
 import '../../../dist/styles.min.css'
 import '../checkbox.css'
-import React, { useState } from 'react'
 
 import { Checkbox, CheckboxField, CheckboxGroup } from '../index'
 import { VisuallyHidden } from '@ariakit/react'
@@ -17,9 +17,9 @@ export default {
 export function Default() {
   return (
     <Stack>
-      <CheckboxField label="Default">Default</CheckboxField>
-      <CheckboxField error label="With error" />
-      <CheckboxField disabled label="Disabled" />
+      <CheckboxField>Default</CheckboxField>
+      <CheckboxField error>With error</CheckboxField>
+      <CheckboxField disabled>Disabled</CheckboxField>
     </Stack>
   )
 }
@@ -44,8 +44,9 @@ export function Controlled() {
       <CheckboxField
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}
-        label="Controlled"
-      />
+      >
+        Controlled
+      </CheckboxField>
     </Stack>
   )
 }
@@ -53,9 +54,13 @@ export function Controlled() {
 export function Indeterminate() {
   return (
     <Stack>
-      <CheckboxField indeterminate label="Indeterminate" />
-      <CheckboxField indeterminate error label="WithError" />
-      <CheckboxField indeterminate disabled label="Disabled" />
+      <CheckboxField indeterminate>Indeterminate</CheckboxField>
+      <CheckboxField indeterminate error>
+        With error
+      </CheckboxField>
+      <CheckboxField indeterminate disabled>
+        Disabled
+      </CheckboxField>
     </Stack>
   )
 }
@@ -63,34 +68,36 @@ export function Indeterminate() {
 export function WithMessage() {
   return (
     <Stack space="$space-10">
-      <CheckboxField
-        label="Checked by default"
-        message="Something wrong"
-        error
-      />
-      <CheckboxField label="Disabled" defaultChecked disabled />
+      <CheckboxField message="Something wrong" error>
+        Cheched by default
+      </CheckboxField>
+      <CheckboxField defaultChecked disabled>
+        Disabled
+      </CheckboxField>
     </Stack>
   )
 }
 
 export function HiddenLabel() {
-  return <CheckboxField label={<VisuallyHidden>With Error</VisuallyHidden>} />
+  return (
+    <CheckboxField>{<VisuallyHidden>With Error</VisuallyHidden>}</CheckboxField>
+  )
 }
 
 export function Group() {
   return (
     <Stack space="5rem">
       <CheckboxGroup label="Options">
-        <CheckboxField indeterminate label="Everything" />
-        <CheckboxField label="Everywhere" />
-        <CheckboxField label="All at once" />
-        <CheckboxField disabled label="None" />
+        <CheckboxField indeterminate>Everything</CheckboxField>
+        <CheckboxField>Everywhere</CheckboxField>
+        <CheckboxField>All at once</CheckboxField>
+        <CheckboxField disabled>None</CheckboxField>
       </CheckboxGroup>
       <CheckboxGroup label="Options (optional)" helpText="Choose one of these">
-        <CheckboxField indeterminate label="Everything" />
-        <CheckboxField label="Everywhere" />
-        <CheckboxField label="All at once" />
-        <CheckboxField disabled label="None" />
+        <CheckboxField indeterminate>Everything</CheckboxField>
+        <CheckboxField>Everywhere</CheckboxField>
+        <CheckboxField>All at once</CheckboxField>
+        <CheckboxField disabled>None</CheckboxField>
       </CheckboxGroup>
       <CheckboxGroup
         error
@@ -102,10 +109,12 @@ export function Group() {
         }
         errorText="Bad choice"
       >
-        <CheckboxField error indeterminate label="Everything" />
-        <CheckboxField error label="Everywhere" />
-        <CheckboxField error label="All at once" />
-        <CheckboxField error disabled label="None" />
+        <CheckboxField error>Everything</CheckboxField>
+        <CheckboxField error>Everywhere</CheckboxField>
+        <CheckboxField error>All at once</CheckboxField>
+        <CheckboxField error disabled>
+          None
+        </CheckboxField>
       </CheckboxGroup>
       <CheckboxGroup
         error
@@ -113,10 +122,12 @@ export function Group() {
         label="Options"
         errorText="Bad choice"
       >
-        <CheckboxField error indeterminate label="Everything" />
-        <CheckboxField error label="Everywhere" />
-        <CheckboxField error label="All at once" />
-        <CheckboxField error disabled label="None" />
+        <CheckboxField error>Everything</CheckboxField>
+        <CheckboxField error>Everywhere</CheckboxField>
+        <CheckboxField error>All at once</CheckboxField>
+        <CheckboxField error disabled>
+          None
+        </CheckboxField>
       </CheckboxGroup>
     </Stack>
   )
