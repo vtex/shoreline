@@ -164,5 +164,9 @@ export interface SimpleTableProps<T>
    * Setter for SortingState for controlled sort usage
    */
   setSort?: OnChangeFn<SortingState> | undefined
+  /**
+   * Whether the table body rows should be virtualized or not
+   * @default false
+   */
   virtualize?: boolean
 }

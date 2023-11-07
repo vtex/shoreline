@@ -3,7 +3,6 @@ import React, { Fragment, useCallback, useRef } from 'react'
 
 import type { VirtualItem } from '@tanstack/react-virtual'
 import { useVirtualizer } from '@tanstack/react-virtual'
-import { isFunction } from '@vtex/shoreline-utils'
 
 const FIXED_SIZE_VALUE = 20
 const FIXED_OVERSCAN_VALUE = 10
@@ -36,16 +35,14 @@ export function Virtual<T>(props: VirtualProps<T>) {
 
   return (
     <Fragment>
-      {isFunction(children)
-        ? children({
-            bottom,
-            top,
-            ref,
-            getItem,
-            items: getVirtualItems(),
-            totalSize: getTotalSize(),
-          })
-        : children}
+      {children({
+        bottom,
+        top,
+        ref,
+        getItem,
+        items: getVirtualItems(),
+        totalSize: getTotalSize(),
+      })}
     </Fragment>
   )
 }
@@ -65,9 +62,9 @@ function getVirtualizerDim(items: VirtualItem[], totalSize: number) {
 
 export interface VirtualProps<T> {
   items: T[]
+  children: (props: VirtualChildProps<T>) => ReactNode
   estimateSize?: (index: number) => number
   overscan?: number
-  children: ReactNode | ((props: VirtualChildProps<T>) => ReactNode)
 }
 
 export interface VirtualChildProps<T> {
