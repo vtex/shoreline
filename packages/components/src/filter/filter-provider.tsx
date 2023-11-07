@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { ReactNode } from 'react'
 
 import { PopoverProvider, usePopoverStore } from '../popover'
@@ -11,12 +11,9 @@ export function FilterProvider(props: FilterProviderProps) {
     open,
     setOpen,
     defaultOpen,
-    select,
-    setSelect,
-    defaultSelect,
-    filter,
-    setFilter,
-    defaultFilter,
+    value,
+    setValue,
+    defaultValue,
   } = props
 
   const popoverStore = usePopoverStore({
@@ -25,17 +22,19 @@ export function FilterProvider(props: FilterProviderProps) {
     defaultOpen,
   })
 
-  const selectStore = useSelectStore({
-    value: select,
-    setValue: setSelect,
-    defaultValue: defaultSelect,
+  const filterStore = useSelectStore({
+    value,
+    setValue: setValue as any,
+    defaultValue,
   })
 
-  const filterStore = useSelectStore({
-    value: filter,
-    setValue: setFilter as any,
-    defaultValue: defaultFilter,
+  const selectStore = useSelectStore({
+    defaultValue,
   })
+
+  useEffect(function syncState() {
+    selectStore.setValue(filterStore.getState().value)
+  }, [])
 
   return (
     <PopoverProvider store={popoverStore}>
@@ -53,12 +52,9 @@ export interface FilterProviderProps {
   open?: boolean
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   defaultOpen?: boolean
-  select?: string | string[]
-  setSelect?: React.Dispatch<React.SetStateAction<string | string[]>>
-  defaultSelect?: string | string[]
-  filter?: string | string[]
-  setFilter?:
+  value?: string | string[]
+  setValue?:
     | React.Dispatch<React.SetStateAction<string>>
     | React.Dispatch<React.SetStateAction<string[]>>
-  defaultFilter?: string | string[]
+  defaultValue?: string | string[]
 }

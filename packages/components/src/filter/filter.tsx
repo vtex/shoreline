@@ -1,41 +1,39 @@
+import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import { useFilterContext } from './filter-context'
+import type { FilterProviderProps } from './filter-provider'
+import { FilterProvider } from './filter-provider'
+import { FilterTrigger } from './filter-trigger'
+import { FilterPopover } from './filter-popover'
+import { FilterList } from './filter-list'
 
 export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   props,
   ref
 ) {
-  const { ...otherProps } = props
+  const { children, label, value, setValue, defaultValue, ...otherProps } =
+    props
 
   return (
     <div data-sl-filter ref={ref} {...otherProps}>
-      Filter
+      <FilterProvider
+        value={value}
+        setValue={setValue}
+        defaultValue={defaultValue}
+      >
+        <FilterTrigger>{label}</FilterTrigger>
+        <FilterPopover>
+          <FilterList>{children}</FilterList>
+        </FilterPopover>
+      </FilterProvider>
     </div>
   )
 })
 
 export interface FilterProps {
+  label: string
+  children: ReactNode
   className?: string
-}
-
-export function FilterValue() {
-  const context = useFilterContext()
-
-  if (!context) {
-    return null
-  }
-
-  const { filter } = context
-
-  const value = filter?.useState('value')
-
-  const isLongArray = Array.isArray(value) && value.length > 1
-
-  return (
-    <span>
-      {value && value.length > 0 && ': '}
-      {isLongArray ? value[0] : value}
-      {isLongArray && `, +${value.length - 1}`}
-    </span>
-  )
+  value?: FilterProviderProps['value']
+  setValue?: FilterProviderProps['setValue']
+  defaultValue?: FilterProviderProps['defaultValue']
 }

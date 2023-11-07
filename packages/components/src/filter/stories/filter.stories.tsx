@@ -6,7 +6,6 @@ import { Button } from '../../button'
 import { Stack } from '../../stack'
 import { SelectOption, SelectList, SelectOptionCheck } from '../../select'
 
-import { FilterValue } from '../filter'
 import {
   FilterProvider,
   FilterApply,
@@ -14,6 +13,9 @@ import {
   FilterPopover,
   FilterList,
   FilterOption,
+  FilterValue,
+  FilterTrigger,
+  Filter,
 } from '../index'
 import { Content } from '../../content'
 import { ScrollArea } from '../../scroll-area'
@@ -32,97 +34,54 @@ export default {
 }
 
 export function Default() {
-  const [status, setStatus] = useState<string>('')
-
   return (
-    <FilterProvider filter={status} setFilter={setStatus}>
-      <PopoverTrigger>
-        Status
-        <FilterValue />
-      </PopoverTrigger>
-      <FilterPopover>
-        <Content>
-          <Stack fluid>
-            <FilterList>
-              <ScrollArea>
-                <FilterOption value="Stable">Stable</FilterOption>
-                <FilterOption value="Experimental">Experimental</FilterOption>
-                <FilterOption value="Deprecated">Deprecated</FilterOption>
-              </ScrollArea>
-            </FilterList>
-            <footer>
-              <FilterClear>Clear</FilterClear>
-              <FilterApply>Apply</FilterApply>
-            </footer>
-          </Stack>
-        </Content>
-      </FilterPopover>
-    </FilterProvider>
+    <Filter label="Status">
+      <FilterOption value="Stable">Stable</FilterOption>
+      <FilterOption value="Experimental">Experimental</FilterOption>
+      <FilterOption value="Deprecated">Deprecated</FilterOption>
+    </Filter>
   )
 }
 
-export function SingleSelect() {
-  // const [status, setStatus] = useState<string>('')
+export function Multiple() {
+  const [value, setValue] = useState<string[]>([])
 
   return (
+    <Filter label="Status" value={value} setValue={setValue} defaultValue={[]}>
+      <FilterOption value="Stable">Stable</FilterOption>
+      <FilterOption value="Experimental">Experimental</FilterOption>
+      <FilterOption value="Deprecated">Deprecated</FilterOption>
+    </Filter>
+  )
+}
+
+export function Expanded() {
+  return (
     <FilterProvider>
-      <PopoverTrigger>
-        Status
-        <FilterValue />
-      </PopoverTrigger>
+      <FilterTrigger>Status</FilterTrigger>
       <FilterPopover>
-        <Content>
-          <Stack fluid>
-            <FilterList>
-              <ScrollArea>
-                <FilterOption value="Stable">Stable</FilterOption>
-                <FilterOption value="Experimental">Experimental</FilterOption>
-                <FilterOption value="Deprecated">Deprecated</FilterOption>
-              </ScrollArea>
-            </FilterList>
-            <footer>
-              <FilterClear>Clear</FilterClear>
-              <FilterApply>Apply</FilterApply>
-            </footer>
-          </Stack>
-        </Content>
+        <FilterList>
+          <FilterOption value="Stable">Stable</FilterOption>
+          <FilterOption value="Experimental">Experimental</FilterOption>
+          <FilterOption value="Deprecated">Deprecated</FilterOption>
+        </FilterList>
       </FilterPopover>
     </FilterProvider>
   )
 }
 
 export function Controlled() {
-  const [filter, setFilter] = useState<string>('')
+  const [status, setStatus] = useState<string>('Stable')
 
   return (
-    <FilterProvider filter={filter} setFilter={setFilter}>
-      <PopoverTrigger>
-        Filter:
-        <FilterValue />
-      </PopoverTrigger>
+    <FilterProvider value={status} setValue={setStatus}>
+      <FilterTrigger>Status</FilterTrigger>
       <FilterPopover>
-        <Content>
-          <Stack fluid>
-            <FilterList>
-              <ScrollArea>
-                {countries.map((country) => (
-                  <SelectOption
-                    hideOnClick={false}
-                    key={country.name}
-                    value={country.emoji}
-                  >
-                    {country.emoji} {country.name}
-                  </SelectOption>
-                ))}
-              </ScrollArea>
-            </FilterList>
-
-            <Stack direction="row" fluid>
-              <FilterClear>Clear</FilterClear>
-              <FilterApply>Apply</FilterApply>
-            </Stack>
-          </Stack>
-        </Content>
+        <FilterList>
+          <FilterOption value="Stable">Stable</FilterOption>
+          <FilterOption value="Experimental">Experimental</FilterOption>
+          <FilterOption value="Deprecated">Deprecated</FilterOption>
+        </FilterList>
       </FilterPopover>
     </FilterProvider>
   )
@@ -130,7 +89,7 @@ export function Controlled() {
 
 export function Composition() {
   return (
-    <FilterProvider defaultSelect={[]} defaultFilter={[]}>
+    <FilterProvider defaultValue={[]}>
       <PopoverTrigger asChild>
         <Button>
           Filter
@@ -138,32 +97,20 @@ export function Composition() {
         </Button>
       </PopoverTrigger>
       <FilterPopover>
-        <Content>
-          <Stack fluid>
-            <ScrollArea
-              style={{
-                height: 256,
-                width: '100%',
-              }}
-            >
-              <FilterList>
-                {countries.map((country) => (
-                  <FilterOption key={country.name} value={country.emoji}>
-                    {country.emoji} {country.name}
-                  </FilterOption>
-                ))}
-              </FilterList>
-            </ScrollArea>
-            <Stack direction="row" fluid>
-              <FilterClear asChild>
-                <Button>Clear</Button>
-              </FilterClear>
-              <FilterApply asChild>
-                <Button variant="primary">Apply</Button>
-              </FilterApply>
-            </Stack>
-          </Stack>
-        </Content>
+        <ScrollArea
+          style={{
+            height: 256,
+            width: '100%',
+          }}
+        >
+          <FilterList>
+            {countries.map((country) => (
+              <FilterOption key={country.name} value={country.emoji}>
+                {country.emoji} {country.name}
+              </FilterOption>
+            ))}
+          </FilterList>
+        </ScrollArea>
       </FilterPopover>
     </FilterProvider>
   )
@@ -187,58 +134,44 @@ export function WithCombobox() {
         })
       }}
     >
-      <FilterProvider defaultSelect={[]} defaultFilter={[]}>
+      <FilterProvider defaultValue={[]}>
         <PopoverTrigger asChild>
           <Button>
             Filter:
             <FilterValue />
           </Button>
         </PopoverTrigger>
-        <Popover
-          style={{
-            width: 256,
-          }}
-        >
-          <Content>
-            <Stack fluid>
-              <div>
-                <Combobox
-                  data-sl-text-input
-                  autoSelect
-                  placeholder="Search..."
-                />
-              </div>
-              <ScrollArea
-                style={{
-                  height: 256,
-                  width: '100%',
-                }}
-              >
-                <ComboboxList>
-                  {matches.length ? (
-                    matches.map((country) => (
-                      <SelectOption
-                        key={country.name}
-                        value={country.emoji}
-                        asChild
-                      >
-                        <ComboboxItem>
-                          {country.emoji} {country.name} <SelectOptionCheck />
-                        </ComboboxItem>
-                      </SelectOption>
-                    ))
-                  ) : (
-                    <div>No results found</div>
-                  )}
-                </ComboboxList>
-              </ScrollArea>
-              <Stack direction="row" fluid>
-                <FilterClear />
-                <FilterApply />
-              </Stack>
-            </Stack>
-          </Content>
-        </Popover>
+        <FilterPopover>
+          <Stack fluid>
+            <div>
+              <Combobox data-sl-text-input autoSelect placeholder="Search..." />
+            </div>
+            <ScrollArea
+              style={{
+                height: 256,
+                width: '100%',
+              }}
+            >
+              <ComboboxList>
+                {matches.length ? (
+                  matches.map((country) => (
+                    <FilterOption
+                      key={country.name}
+                      value={country.emoji}
+                      asChild
+                    >
+                      <ComboboxItem>
+                        {country.emoji} {country.name} <SelectOptionCheck />
+                      </ComboboxItem>
+                    </FilterOption>
+                  ))
+                ) : (
+                  <div>No results found</div>
+                )}
+              </ComboboxList>
+            </ScrollArea>
+          </Stack>
+        </FilterPopover>
       </FilterProvider>
     </ComboboxProvider>
   )
