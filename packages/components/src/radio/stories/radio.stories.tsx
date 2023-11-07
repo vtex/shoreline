@@ -14,10 +14,16 @@ export default {
 export function Default() {
   return (
     <RadioGroup label="">
-      <Radio label="label" value="opt1" />
-      <Radio label="label" value="opt2" error />
-      <Radio label="label" value="opt3" disabled />
-      <Radio label="label" value="opt4" checked error disabled />
+      <Radio value="opt1">label</Radio>
+      <Radio value="opt2" error>
+        label
+      </Radio>
+      <Radio value="opt3" disabled>
+        label
+      </Radio>
+      <Radio value="opt4" checked error disabled>
+        label
+      </Radio>
     </RadioGroup>
   )
 }
@@ -26,16 +32,16 @@ export function RadioGroups() {
   return (
     <Stack>
       <RadioGroup label="Vertical radio group" errorText="Something is wrong">
-        <Radio label="Pen" value="opt1" />
-        <Radio label="Pinapple" value="opt2" />
-        <Radio label="Apple" value="opt3" />
-        <Radio label="Another pen" value="opt4" />
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
       <RadioGroup label="Horizontal radio group" direction="row">
-        <Radio label="Pen" value="opt1" />
-        <Radio label="Pinapple" value="opt2" />
-        <Radio label="Apple" value="opt3" />
-        <Radio label="Another pen" value="opt4" />
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
     </Stack>
   )
@@ -49,10 +55,10 @@ export function Error() {
         errorText="Something is wrong"
         error
       >
-        <Radio label="Pen" value="opt1" />
-        <Radio label="Pinapple" value="opt2" />
-        <Radio label="Apple" value="opt3" />
-        <Radio label="Another pen" value="opt4" />
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
       <RadioGroup
         label="Horizontal radio group"
@@ -60,10 +66,10 @@ export function Error() {
         errorText="Something is wrong"
         error
       >
-        <Radio label="Pen" value="opt1" />
-        <Radio label="Pinapple" value="opt2" />
-        <Radio label="Apple" value="opt3" />
-        <Radio label="Another pen" value="opt4" />
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
       <RadioGroup
         label="Horizontal radio group"
@@ -71,10 +77,46 @@ export function Error() {
         errorText="Something is wrong"
         error
       >
-        <Radio label="Pen" value="opt1" error />
-        <Radio label="Pinapple" value="opt2" error />
-        <Radio label="Apple" value="opt3" error />
-        <Radio label="Another pen" value="opt4" error />
+        <Radio value="opt1" error>
+          Pen
+        </Radio>
+        <Radio value="opt2" error>
+          Pineapple
+        </Radio>
+        <Radio value="opt3" error>
+          Apple
+        </Radio>
+        <Radio value="opt4" error>
+          Another pen
+        </Radio>
+      </RadioGroup>
+    </Stack>
+  )
+}
+
+export function Help() {
+  return (
+    <Stack>
+      <RadioGroup
+        label="Vertical radio group"
+        errorText="Something is wrong"
+        helpText="Pen pinapple apple pen"
+      >
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
+      </RadioGroup>
+
+      <RadioGroup
+        label="Optional group (optional)"
+        errorText="Something is wrong"
+        helpText="Pen pinapple apple pen"
+      >
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
     </Stack>
   )
@@ -104,10 +146,10 @@ export function Controlled() {
       state={state}
       helpText={helpText}
     >
-      <Radio label="Pen" value="opt1" />
-      <Radio label="Pinapple" value="opt2" />
-      <Radio label="Apple" value="opt3" />
-      <Radio label="Another pen" value="opt4" />
+      <Radio value="opt1">Pen</Radio>
+      <Radio value="opt2">Pineapple</Radio>
+      <Radio value="opt3">Apple</Radio>
+      <Radio value="opt4">Another pen</Radio>
     </RadioGroup>
   )
 }

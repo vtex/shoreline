@@ -6,13 +6,13 @@ import { Radio } from '../radio'
 
 describe('radio', () => {
   test('renders', () => {
-    const { container } = render(<Radio label="label" value="id" />)
+    const { container } = render(<Radio value="id" >test</Radio>)
 
     expect(container.querySelector('[data-sl-radio]')).toBeInTheDocument()
   })
 
   test('renders field label', () => {
-    const { getByText } = render(<Radio label="label" value="id" />)
+    const { getByText } = render(<Radio value="id" >label</Radio>)
 
     expect(getByText('label')).toBeInTheDocument()
   })
