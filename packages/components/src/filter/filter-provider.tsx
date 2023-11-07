@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { PopoverProvider, usePopoverStore } from '../popover'
 import { SelectProvider, useSelectStore } from '../select'
 import { FilterContext } from './filter-context'
+import { ComboboxProvider } from '../combobox'
 
 export function FilterProvider(props: FilterProviderProps) {
   const {
@@ -14,6 +15,9 @@ export function FilterProvider(props: FilterProviderProps) {
     value,
     setValue,
     defaultValue,
+    searchValue,
+    setSearchValue,
+    defaultSearchValue,
   } = props
 
   const popoverStore = usePopoverStore({
@@ -36,7 +40,25 @@ export function FilterProvider(props: FilterProviderProps) {
     selectStore.setValue(filterStore.getState().value)
   }, [])
 
-  return (
+  const searchable =
+    !!searchValue || !!setSearchValue || !!defaultSearchValue || true
+
+  return searchable ? (
+    <ComboboxProvider
+      resetValueOnHide
+      value={searchValue}
+      setValue={setSearchValue}
+      defaultValue={defaultSearchValue}
+    >
+      <PopoverProvider store={popoverStore}>
+        <SelectProvider store={selectStore}>
+          <FilterContext.Provider value={filterStore}>
+            {children}
+          </FilterContext.Provider>
+        </SelectProvider>
+      </PopoverProvider>
+    </ComboboxProvider>
+  ) : (
     <PopoverProvider store={popoverStore}>
       <SelectProvider store={selectStore}>
         <FilterContext.Provider value={filterStore}>
@@ -52,6 +74,9 @@ export interface FilterProviderProps {
   open?: boolean
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
   defaultOpen?: boolean
+  searchValue?: string
+  setSearchValue?: React.Dispatch<React.SetStateAction<string>>
+  defaultSearchValue?: string
   value?: string | string[]
   setValue?:
     | React.Dispatch<React.SetStateAction<string>>

@@ -6,7 +6,7 @@ import { Filter } from '../filter'
 
 describe('filter', () => {
   test('renders', () => {
-    const { container } = render(<Filter />)
+    const { container } = render(<Filter label="label">options</Filter>)
 
     expect(container.querySelector('[data-sl-filter]')).toBeInTheDocument()
   })

@@ -5,6 +5,7 @@ import type { PopoverDismissProps } from '../popover'
 import { PopoverDismiss } from '../popover'
 import { useFilterContext } from './filter-context'
 import { shallowEqual } from './shallow-equal'
+import { useSelectContext } from '@ariakit/react'
 
 export const FilterApply = forwardRef<HTMLButtonElement, FilterApplyProps>(
   function FilterApply(props, ref) {
@@ -15,7 +16,8 @@ export const FilterApply = forwardRef<HTMLButtonElement, FilterApplyProps>(
 )
 
 function useFilterApply() {
-  const { select, filter } = useFilterContext()
+  const select = useSelectContext()
+  const filter = useFilterContext()
 
   const selectValue = select?.useState('value') ?? ''
   const filterValue = filter?.useState('value') ?? ''

@@ -126,53 +126,24 @@ export function WithCombobox() {
   }, [searchValue])
 
   return (
-    <ComboboxProvider
-      resetValueOnHide
-      setValue={(value) => {
+    <Filter
+      label="Country"
+      defaultValue={[]}
+      setSearchValue={(value) => {
         startTransition(() => {
           setSearchValue(value)
         })
       }}
     >
-      <FilterProvider defaultValue={[]}>
-        <PopoverTrigger asChild>
-          <Button>
-            Filter:
-            <FilterValue />
-          </Button>
-        </PopoverTrigger>
-        <FilterPopover>
-          <Stack fluid>
-            <div>
-              <Combobox data-sl-text-input autoSelect placeholder="Search..." />
-            </div>
-            <ScrollArea
-              style={{
-                height: 256,
-                width: '100%',
-              }}
-            >
-              <ComboboxList>
-                {matches.length ? (
-                  matches.map((country) => (
-                    <FilterOption
-                      key={country.name}
-                      value={country.emoji}
-                      asChild
-                    >
-                      <ComboboxItem>
-                        {country.emoji} {country.name} <SelectOptionCheck />
-                      </ComboboxItem>
-                    </FilterOption>
-                  ))
-                ) : (
-                  <div>No results found</div>
-                )}
-              </ComboboxList>
-            </ScrollArea>
-          </Stack>
-        </FilterPopover>
-      </FilterProvider>
-    </ComboboxProvider>
+      {matches.length ? (
+        matches.map((country) => (
+          <FilterOption key={country.name} value={country.emoji}>
+            {country.emoji} {country.name}
+          </FilterOption>
+        ))
+      ) : (
+        <div>No results found</div>
+      )}
+    </Filter>
   )
 }

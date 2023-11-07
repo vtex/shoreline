@@ -3,6 +3,7 @@ import { useFilterContext } from './filter-context'
 import type { PopoverDismissProps } from '../popover'
 import { PopoverDismiss } from '../popover'
 import { mergeProps } from '@vtex/shoreline-utils'
+import { useSelectContext } from '@ariakit/react'
 
 export const FilterClear = forwardRef<HTMLButtonElement, PopoverDismissProps>(
   function FilterClear(props, ref) {
@@ -13,7 +14,8 @@ export const FilterClear = forwardRef<HTMLButtonElement, PopoverDismissProps>(
 )
 
 function useFilterClear() {
-  const { filter, select } = useFilterContext()
+  const select = useSelectContext()
+  const filter = useFilterContext()
 
   return {
     onClick() {

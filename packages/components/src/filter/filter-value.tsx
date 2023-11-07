@@ -7,7 +7,7 @@ const countPrefix = ', +'
 
 export const FilterValue = forwardRef<HTMLSpanElement, FilterValueProps>(
   function FilterValue(props, ref) {
-    const { filter } = useFilterContext()
+    const filter = useFilterContext()
     const value = filter?.useState('value')
 
     const isArray = Array.isArray(value)

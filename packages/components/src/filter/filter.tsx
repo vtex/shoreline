@@ -10,8 +10,17 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   props,
   ref
 ) {
-  const { children, label, value, setValue, defaultValue, ...otherProps } =
-    props
+  const {
+    children,
+    label,
+    value,
+    setValue,
+    defaultValue,
+    searchValue,
+    setSearchValue,
+    defaultSearchValue,
+    ...otherProps
+  } = props
 
   return (
     <div data-sl-filter ref={ref} {...otherProps}>
@@ -19,6 +28,9 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
         value={value}
         setValue={setValue}
         defaultValue={defaultValue}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        defaultSearchValue={defaultSearchValue}
       >
         <FilterTrigger>{label}</FilterTrigger>
         <FilterPopover>
@@ -29,11 +41,18 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   )
 })
 
-export interface FilterProps {
+type InheritedProps = Pick<
+  FilterProviderProps,
+  | 'value'
+  | 'setValue'
+  | 'defaultValue'
+  | 'searchValue'
+  | 'setSearchValue'
+  | 'defaultSearchValue'
+>
+
+export interface FilterProps extends InheritedProps {
   label: string
   children: ReactNode
   className?: string
-  value?: FilterProviderProps['value']
-  setValue?: FilterProviderProps['setValue']
-  defaultValue?: FilterProviderProps['defaultValue']
 }
