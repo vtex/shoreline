@@ -3,14 +3,16 @@ import React, { forwardRef } from 'react'
 
 export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
   function FieldLabel(props, ref) {
-    const { children, ...restProps } = props
+    const { children, disabled = false, ...restProps } = props
 
     return (
-      <label ref={ref} data-sl-field-label {...restProps}>
+      <label ref={ref} data-sl-field-label data-sl-disabled={disabled} {...restProps}>
         {children}
       </label>
     )
   }
 )
 
-export type FieldLabelProps = ComponentPropsWithoutRef<'label'>
+export interface FieldLabelProps extends ComponentPropsWithoutRef<'label'> {
+  disabled?: boolean
+}

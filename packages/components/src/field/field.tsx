@@ -15,5 +15,5 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
 })
 
 export interface FieldProps extends ComponentPropsWithoutRef<'div'> {
-  variant?: 'default' | 'control'
+  variant?: 'default' | 'control' | 'group'
 }
