@@ -1,5 +1,6 @@
 import '../../../dist/styles.min.css'
 import './style.css'
+import '../field.css'
 
 import React from 'react'
 
@@ -75,6 +76,31 @@ export function Default() {
           <FieldMessage helpText="Help text" errorText="Error text" />
         </Field>
       </Stack>
+    </form>
+  )
+}
+
+export function Group() {
+  return (
+    <form>
+      <Field variant="group">
+        <FieldLabel>Group label</FieldLabel>
+        <Stack space="$space-4">
+          <Field variant="control">
+            <FieldLabel>Label</FieldLabel>
+            <Radio value="radio-2" data-sl-radio />
+          </Field>
+          <Field variant="control">
+            <FieldLabel>Label</FieldLabel>
+            <Radio value="radio-2" data-sl-radio />
+          </Field>
+          <Field variant="control">
+            <FieldLabel>Label</FieldLabel>
+            <Radio value="radio-2" data-sl-radio />
+          </Field>
+        </Stack>
+        <FieldMessage helpText="Heres a message" />
+      </Field>
     </form>
   )
 }

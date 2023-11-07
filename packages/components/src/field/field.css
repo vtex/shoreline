@@ -1,17 +1,30 @@
 @layer sl-components {
 
   [data-sl-field][data-variant="default"] {
-    grid-template-areas: 'label' 'input' 'message'
+
+    --sl-element-template-areas: 'label' 'input' 'message';
+    --sl-element-vertical-gap: var(--sl-space-1);
+    --sl-element-horizontal-gap: var(--sl-space-0);
+    --sl-element-label-color: var(--sl-fg-soft);
+  }
+
+  [data-sl-field][data-variant="group"] {
+    --sl-element-template-areas: 'label' 'input' 'message';
+    --sl-element-vertical-gap: var(--sl-space-3);
+    --sl-element-horizontal-gap: var(--sl-space-0);
+    --sl-element-label-color: var(--sl-fg-soft);
   }
 
   [data-sl-field][data-variant="control"] {
-    grid-template-areas: 'input label' '- message'
+    --sl-element-template-areas: 'input label' '- message';
+    --sl-element-label-color: var(--sl-fg);
+    --sl-element-vertical-gap: var(--sl-space-0);
+    --sl-element-horizontal-gap: var(--sl-space-2);
   }
 
   [data-sl-field] {
     display: grid;
-    gap: 0.25rem 0.5rem;
-    grid-template-areas: 'label' 'input' 'message';
+    grid-template-areas: var(--sl-element-template-areas);
     width: fit-content;
 
     & > [data-sl-checkbox],
@@ -24,6 +37,8 @@
 
     [data-sl-field-message] {
       grid-area: message;
+      margin-left: var(--sl-element-horizontal-gap);
+      margin-top: var(--sl-element-vertical-gap);
     }
 
     [data-sl-field-message-text] {
@@ -37,12 +52,18 @@
     }
 
     [data-sl-field-label] {
-      color: var(--sl-fg-soft);
+      grid-area: label;
+      margin-left: var(--sl-element-horizontal-gap);
+      margin-bottom: var(--sl-element-vertical-gap);
+      color: var(--sl-element-label-color);
       display: flex;
       align-items: center;
-      grid-area: label;
       font: var(--sl-text-body-font);
       letter-spacing: var(--sl-text-body-letter-spacing);
+
+      &[data-disabled='true'] {
+        color: var(--sl-fg-disabled);
+      }
     }
   }
 }
