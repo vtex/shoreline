@@ -14,7 +14,7 @@
   [data-sl-select-option] {
     outline: none;
     text-decoration: none;
-    justify-content: space-between;
+    justify-content: flex-start;
     display: flex;
     cursor: pointer;
     background: var(--sl-bg-muted-plain);

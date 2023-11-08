@@ -5,17 +5,18 @@ import { SelectOptionCheck } from './select-option-check'
 
 export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
   function SelectOption(props, ref) {
-    const { asChild = false, children, ...otherProps } = props
+    const { asChild = false, children, hideOnClick, ...otherProps } = props
 
     return (
       <SelectItem
         data-sl-select-option
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
+        hideOnClick={hideOnClick}
         {...otherProps}
       >
-        {children}
         <SelectOptionCheck />
+        <span>{children}</span>
       </SelectItem>
     )
   }
@@ -31,4 +32,9 @@ export interface SelectOptionProps extends ComponentPropsWithoutRef<'div'> {
    * Option value
    */
   value?: string
+  /**
+   * Whether to hide the select when this item is clicked. By default, it's true when the value prop is also provided.
+   * @default true
+   */
+  hideOnClick?: boolean
 }

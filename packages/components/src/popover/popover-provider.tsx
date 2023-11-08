@@ -1,3 +1,7 @@
-import { PopoverProvider } from '@ariakit/react'
+import {
+  PopoverProvider,
+  usePopoverContext,
+  usePopoverStore,
+} from '@ariakit/react'
 
-export { PopoverProvider }
+export { PopoverProvider, usePopoverContext, usePopoverStore }

@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './filter'
 export * from './scroll-area'
 export * from './combobox'
 export * from './select'
