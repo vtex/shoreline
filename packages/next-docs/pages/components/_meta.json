@@ -1,0 +1,15 @@
+{
+  "button": "Button",
+  "center": "Center",
+  "checkbox": "Checkbox",
+  "menu": "Menu",
+  "pagination": "Pagination",
+  "radio": "Radio",
+  "search": "Search",
+  "select": "Select",
+  "spinner": "Spinner",
+  "tag": "Tag",
+  "textarea": "Text Area",
+  "textinput": "TextInput",
+  "visually-hidden": "VisuallyHidden"
+}
