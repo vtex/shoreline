@@ -9,6 +9,7 @@ module.exports = {
       },
     },
     '@storybook/addon-a11y',
+    '@storybook/addon-storysource',
   ],
   typescript: {
     check: false,
