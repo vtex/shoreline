@@ -6,6 +6,13 @@ import { FilterTrigger } from './filter-trigger'
 import { FilterPopover } from './filter-popover'
 import { FilterList } from './filter-list'
 
+/**
+ * Filter component
+ * @example
+ * <Filter label="Label">
+ *  <FilterOption value="option">Option</FilterOption>
+ * </Filter>
+ */
 export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   props,
   ref

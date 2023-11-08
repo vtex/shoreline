@@ -4,6 +4,13 @@ import type { PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'
 import { Button } from '../button'
 
+/**
+ * Triggers the Filter Popover box, also displays the Filter applied value
+ * @example
+ * <PopoverProvider>
+ *   <PopoverTrigger>Open</PopoverTrigger>
+ * </PopoverProvider>
+ */
 export const FilterTrigger = forwardRef<HTMLButtonElement, FilterTriggerProps>(
   function FilterTrigger(props, ref) {
     const { children, ...otherProps } = props

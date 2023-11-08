@@ -7,6 +7,11 @@ import { useFilterContext } from './filter-context'
 import { shallowEqual } from './shallow-equal'
 import { useSelectContext } from '@ariakit/react'
 
+/**
+ * Action that applies the Filter value, and closes the popover
+ * @example
+ * <FilterApply>Apply</FilterApply>
+ */
 export const FilterApply = forwardRef<HTMLButtonElement, FilterApplyProps>(
   function FilterApply(props, ref) {
     const applyProps = useFilterApply()

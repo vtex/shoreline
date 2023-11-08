@@ -5,6 +5,9 @@ import { IconCheckSmall } from '@vtex/shoreline-icons'
 import { useSelectContext } from '../select'
 import { SelectItemCheck } from '@ariakit/react'
 
+/**
+ * Check state of the FilterOption
+ */
 export const FilterOptionCheck = forwardRef<
   HTMLDivElement,
   FilterOptionCheckProps

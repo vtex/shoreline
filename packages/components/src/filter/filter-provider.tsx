@@ -6,6 +6,14 @@ import { SelectProvider, useSelectStore } from '../select'
 import { FilterContext } from './filter-context'
 import { ComboboxProvider } from '../combobox'
 
+/**
+ * Provides context to Filter
+ * @example
+ * <FilterProvider>
+ *   <FilterTrigger>...</FilterTrigger>
+ *   <FilterPopover>...</FilterPopover>
+ * </FilterProvider>
+ */
 export function FilterProvider(props: FilterProviderProps) {
   const {
     children,

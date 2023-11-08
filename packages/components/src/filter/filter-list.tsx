@@ -5,6 +5,17 @@ import { SelectList } from '../select'
 import { ComboboxList } from '../combobox'
 import { useSearchable } from './use-searchable'
 
+/**
+ * Filter listbox
+ * @example
+ * <FilterProvider>
+ *  <FilterPopover>
+ *    <FilterList>
+ *      <FilterOption value="option">Option</FilterOption>
+ *    </FilterList>
+ *  </FilterPopover>
+ * </FilterProvider>
+ */
 export const FilterList = forwardRef<HTMLDivElement, FilterListProps>(
   function FilterList(props, ref) {
     const searchable = useSearchable()

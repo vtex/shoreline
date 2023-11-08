@@ -10,6 +10,15 @@ import { Button } from '../button'
 import { Combobox } from '../combobox'
 import { useSearchable } from './use-searchable'
 
+/**
+ * Filter popover box
+ * @example
+ * <FilterProvider>
+ *  <FilterPopover>
+ *   ...
+ *  </FilterPopover>
+ * </FilterProvider>
+ */
 export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
   function FilterPopover(props, ref) {
     const { children, ...otherProps } = props

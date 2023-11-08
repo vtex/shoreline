@@ -5,6 +5,11 @@ import { PopoverDismiss } from '../popover'
 import { mergeProps } from '@vtex/shoreline-utils'
 import { useSelectContext } from '@ariakit/react'
 
+/**
+ * Action that clears both Filter value and UI Select value
+ * @example
+ * <FilterClear>Clear</FilterClear>
+ */
 export const FilterClear = forwardRef<HTMLButtonElement, PopoverDismissProps>(
   function FilterClear(props, ref) {
     const clearProps = useFilterClear()

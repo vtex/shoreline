@@ -5,6 +5,9 @@ import { useFilterContext } from './filter-context'
 const valueSeparator = ': '
 const countPrefix = ', +'
 
+/**
+ * Renders the Filter applied value
+ */
 export const FilterValue = forwardRef<HTMLSpanElement, FilterValueProps>(
   function FilterValue(props, ref) {
     const filter = useFilterContext()

@@ -1,9 +1,10 @@
-import { isString } from '@vtex/shoreline-utils'
-
+/**
+ * Compares two values
+ */
 export function shallowEqual<T>(
   a: T[] | T,
   b: T[] | T,
-  equals = (a: T, b: T) => a === b
+  equals = (a: T | T[], b: T | T[]) => a === b
 ): boolean {
   if (Array.isArray(a) && Array.isArray(b)) {
     return (
@@ -11,9 +12,5 @@ export function shallowEqual<T>(
     )
   }
 
-  if (isString(a) && isString(b)) {
-    return equals(a, b)
-  }
-
-  return false
+  return equals(a, b)
 }
