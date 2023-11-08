@@ -197,7 +197,7 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
   renderDetail?: (row: Row<T>) => ReactNode
   /**
    * Defines if columns will be sortable
-   * default: false
+   * @default false
    */
   sortable?: boolean
   /**
