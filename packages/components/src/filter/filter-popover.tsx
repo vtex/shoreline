@@ -21,16 +21,14 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
         <Content>
           <Stack fluid>
             {searchable && (
-              <div>
-                <Combobox
-                  data-sl-filter-popover-combobox
-                  autoSelect
-                  placeholder="Search..."
-                />
-              </div>
+              <Combobox
+                data-sl-filter-popover-combobox
+                autoSelect
+                placeholder="Search..."
+              />
             )}
             {children}
-            <footer>
+            <footer data-sl-filter-popover-footer>
               <FilterClear asChild>
                 <Button>Clear</Button>
               </FilterClear>

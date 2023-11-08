@@ -5,12 +5,7 @@ import { SelectOptionCheck } from './select-option-check'
 
 export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
   function SelectOption(props, ref) {
-    const {
-      asChild = false,
-      children,
-      hideOnClick = true,
-      ...otherProps
-    } = props
+    const { asChild = false, children, hideOnClick, ...otherProps } = props
 
     return (
       <SelectItem
@@ -20,8 +15,8 @@ export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
         hideOnClick={hideOnClick}
         {...otherProps}
       >
-        {children}
         <SelectOptionCheck />
+        <span>{children}</span>
       </SelectItem>
     )
   }

@@ -14,4 +14,40 @@
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  [data-sl-filter-option-check] {
+    position: relative;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    border: var(--sl-border-strong);
+    border-radius: var(--sl-border-radius-full);
+    &[data-multiselect='true'] {
+      border-radius: var(--sl-border-radius-small);
+    }
+  }
+
+  [data-sl-filter-option-check-indicator] {
+    position: absolute;
+    box-shadow: 0 0 0 1px var(--sl-bg-accent-strong);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: var(--sl-bg-accent-strong);
+    display: grid;
+    place-items: center;
+    color: var(--sl-fg-inverted);
+    border-radius: var(--sl-border-radius-full);
+    &[data-multiselect='true'] {
+      border-radius: var(--sl-border-radius-small);
+    }
+  }
+
+  [data-sl-filter-option-check-radio-center] {
+    background: var(--sl-fg-inverted);
+    height: 10px;
+    width: 10px;
+    border-radius: var(--sl-border-radius-full);
+  }
 }

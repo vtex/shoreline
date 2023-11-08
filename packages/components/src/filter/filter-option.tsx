@@ -1,9 +1,10 @@
 import React, { forwardRef } from 'react'
 
 import type { SelectOptionProps } from '../select'
-import { SelectOption, SelectOptionCheck } from '../select'
+import { SelectOption } from '../select'
 import { ComboboxItem } from '../combobox'
 import { useSearchable } from './use-searchable'
+import { FilterOptionCheck } from './filter-option-check'
 
 export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
   function FilterOption(props, ref) {
@@ -19,7 +20,10 @@ export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
         asChild
       >
         <ComboboxItem asChild={asChild}>
-          {children} <SelectOptionCheck />
+          <span>
+            <FilterOptionCheck />
+            <span>{children}</span>
+          </span>
         </ComboboxItem>
       </SelectOption>
     ) : (
@@ -27,10 +31,13 @@ export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
         hideOnClick={false}
         data-sl-filter-option
         ref={ref}
-        asChild={asChild}
+        asChild
         {...otherProps}
       >
-        {children}
+        <span>
+          <FilterOptionCheck />
+          <span>{children}</span>
+        </span>
       </SelectOption>
     )
   }
