@@ -1,0 +1,92 @@
+# Best Practices
+
+## Components
+
+### Radio vs. Select, Checkbox, or Combobox Single
+
+- **Select:** use if a single option can be selected and more than five options are available.
+- **Checkbox:** use if more than one option can be selected and there are up to five options.
+- **Combobox Single:** use if a single option can be selected and there are more than five available options.
+
+### Radio vs. Radio Group
+
+Never use a single Radio control. It only exists as a separate component to make the component construction and design documentation easier to understand.
+
+### Vertical or horizontal Radio Group
+
+It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters, and don’t vary a lot in length.
+
+## Variants
+
+### Optional
+
+- A Radio Group should be optional when its options may not apply. For example, preferences for notifications can be left unselected if the merchant doesn’t want to receive them. Consider adding a Custom option together with fields to capture the merchant’s needs.
+- By default, the term _(optional)_ is included next to the label.
+- Don’t mark the mandatory fields of a form.
+- Don’t include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.
+
+## Position
+
+### Position in a form
+
+Prefer placing a Radio at the start or end of a form section. However, if the selection affects the state of other fields, place the Radio Group close to the fields it will affect.
+
+## Behavior
+
+### Default value
+
+- Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.
+- Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.
+- When a recommended option is preselected, add (Recommended) to the end of its label so it can still be identified after edits.
+
+### Disabled state
+
+- Use a disabled Radio only if, in some condition, it becomes enabled. For example, when an option is incompatible with another option in a form.
+- Use a tooltip trigger to explain why the Radio is disabled. Display the information when hovering over the tooltip trigger — not the Radio itself.
+
+## Content
+
+### Radio Group label
+
+- Include the name of the entity that is being listed. For example, use the label Fruits when the options are Apple, Orange, and Banana.
+- Visually hide the label of the Radio Group when the form section title already contains the name of the entity being listed.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, don't use Product characteristics as the label for a Radio Group inside a form page that includes Product in its title – use only Characteristics.
+- Don't use verbs. For example, instead of Select characteristics, use only Characteristics.
+- Don't use interrogations.
+
+### Order of options
+
+Order them using one of the following criteria:
+
+- Most to least frequently used.
+- Simplest to most complex.
+- Least to most risky.
+- Alphabetical order.
+
+### Radio label
+
+- Write the label so that it corresponds to the value of the Radio.
+- Use sentence case, but capitalize proper nouns.
+- Don't write Radio labels that vary a lot in length between options.
+- Don't write long Radio labels. Use the help text or the Radio Group label to provide additional context when necessary.
+- Don't use personal pronouns. For example, write Personal email instead of My email.
+- Don't include redundant words. For example, use only S, M, and L instead of Size S, Size M, and Size L.
+
+### Help text
+
+- Include a help text only for critical choices where the consequences of choosing the option need to be explained in more detail.
+- Write the help text as if completing the following sentence: If you check this option, you or the system will [help text].
+- Start with verbs in the simple present tense. For example, for the value Fragile the help text should be Prints this information on the shipping label and not Print this information on the shipping label.
+- Use sentence case but capitalize proper nouns.
+- Don’t include links. Use an alert component if this is necessary.
+- Don’t write more than one sentence.
+- Don’t use periods or commas.
+
+### Error text
+
+- Prevent errors whenever possible. When an option is selected, disable other incompatible fields or options automatically.
+- In a Radio Group, if at least one option needs to be selected and none is chosen, the error text should be Select at least one option.
+- Use the imperative form. For example, write Select at least one option instead of At least one option needs to be selected.
+- Don’t use periods or commas.
+- Don't use incomplete sentences. For example, write Select at least one option instead of Select at least one.

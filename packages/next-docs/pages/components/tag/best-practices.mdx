@@ -1,0 +1,59 @@
+# Best Practices
+
+## Components
+
+### Tag vs. Select Inline, Switch or Text
+
+- **Select Inline:** use when there are more than two possible values and the merchant can alternate between them.
+- **Switch:** use when the value is the state of an item and there are two possible values that can be alternated.
+- **Text:** use when the value can't be edited, doesn't require prominence and isn't positioned next to another value.
+
+## Variants
+
+### Color
+
+- `gray`: use for values that can't be classified, such as _Category page_, and for values that require less attention, such as _Archived_.
+- `blue`: use for information about the system that doesn't require the merchant to act, such as _Indexing_.
+- `red`: use for values that require the merchant to act, such as _Error_, or for negative information, such as _Canceled_.
+- `orange`: use for values that reflect a pending action from the merchant unrelated to an error, such as _Draft_.
+- `green`: use for values that indicate that an item is matching or surpassing expectations, such as _Active_.
+- `cyan`, `teal`, `purple` or `pink`: use for values without a clear semantic that can benefit from visual prominence or that should be visually differentiated by the merchant, such as app categories.
+
+### Size
+
+- `normal`: use next to `$text-body`, `$title-display3`, or `$title-display4` text.
+- `large`: use next to `$title-display1` or `$title-display2` text.
+
+### Prominence
+
+- `regular`: use when the information provided by the tag is as relevant as other information in the interface.
+- `high`: use when the tag has a high prominence in the interface and it should highlight very important information for the merchant.
+
+## Position
+
+### Position in a container
+
+- Position the Tag close to related information, such as a title or label.
+- Clear blank space around the Tag of at least `$space-3` horizontally and `$space-2` vertically.
+- Separate multiple Tags with `$space-3` when listed horizontally and `$space-2` when listed vertically.
+- In a Table, Tags should be one of the last columns, immediately before any column with Menu triggers.
+- In the header of a container, position the Tag on the right side of the title and left-aligned.
+- Don't apply bleed to the Tag. Prefer to position the Tag by its container.
+- Don't position the Tag on the top-right of a container. Prefer to position the Tag next to a title or label.
+
+## Behavior
+
+### Hover or Click
+
+- When hovering or clicking a Tag nothing should happen, because the Tag should not be clickable, removable, or editable.
+- Don't open a Tooltip when a Tag is hovered.
+
+## Content
+
+### Label
+
+- Write a property, such as _Active_, or a category, such as _Product page_.
+- Write as short and direct of a label as possible. For example, write _Pending payment_ instead of _Waiting for payment_.
+- Use sentence case.
+- Don't write text longer than 30 characters.
+- Don't use punctuation or separators. For example, write only _Active_ instead of _Status: active_.
