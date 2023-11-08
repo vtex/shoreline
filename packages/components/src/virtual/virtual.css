@@ -1,0 +1,16 @@
+@layer sl-components {
+  :where([data-sl-virtual-item]) {
+    --sl-virtual-item-size: 0px;
+    --sl-virtual-item-start: 0px;
+  }
+
+  [data-sl-virtual-item] {
+  }
+
+  [data-sl-virtual] {
+    height: 500px;
+    overflow: auto;
+    width: 100%;
+    contain: strict;
+  }
+}

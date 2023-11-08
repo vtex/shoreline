@@ -1,31 +1,38 @@
 import '../../../dist/styles.min.css'
 import React, { useMemo } from 'react'
+import '../virtual.css'
 
-import { Virtual } from '../index'
+import {
+  Virtual,
+  VirtualContainer,
+  VirtualItem,
+  useVirtualizerModel,
+} from '../index'
+
+import { Checkbox } from '../../checkbox'
+import { Button } from '../../button'
 
 export default {
   title: 'shoreline-components/virtual',
 }
 
+const index = 1
+
 export function Default() {
-  const items = useMemo(() => new Array(100000).fill(true), [])
+  const virtualizer = useVirtualizerModel({ count: 1000 })
 
   return (
-    <Virtual items={items} estimateSize={() => 35}>
-      {({ items, bottom, top, ref }) => (
-        <div
-          style={{ height: '500px', width: `400px`, overflow: 'auto' }}
-          ref={ref}
-        >
-          {top > 0 && <div style={{ height: `${top}px` }} />}
-          {items.map((item) => (
-            <div key={item.index} style={{ height: `${item.size}px` }}>
-              Item {item.index}
-            </div>
-          ))}
-          {bottom > 0 && <div style={{ height: `${bottom}px` }} />}
-        </div>
-      )}
+    <Virtual virtualizer={virtualizer}>
+      <VirtualContainer virtualizer={virtualizer}>
+        <VirtualItem>
+          <Button
+            variant={index % 1 === 0 ? 'critical' : 'tertiary'}
+            size="large"
+          >
+            Test {index}
+          </Button>
+        </VirtualItem>
+      </VirtualContainer>
     </Virtual>
   )
 }

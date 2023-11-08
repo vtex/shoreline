@@ -1,7 +1,13 @@
 import '../../../dist/styles.min.css'
-import React, { useMemo, useState } from 'react'
+import '../virtual.css'
 
-import { Virtual } from '../index'
+import React, { useMemo, useState } from 'react'
+import {
+  Virtual,
+  VirtualContainer,
+  VirtualItem,
+  useVirtualizerModel,
+} from '../index'
 import { Stack } from '../../stack'
 import { Checkbox } from '../../checkbox'
 import { Text } from '../../text'
@@ -11,7 +17,7 @@ export default {
 }
 
 export function CheckboxVirtualization() {
-  const numberOfItems = useMemo(() => 100000, [])
+  const numberOfItems = useMemo(() => 100, [])
 
   const items = new Array(numberOfItems).fill(true)
 
@@ -30,6 +36,8 @@ export function CheckboxVirtualization() {
   const someChecked = checked.some((i) => i)
   const allChecked = checked.every((i) => i)
 
+  const virtualizer = useVirtualizerModel({ items })
+
   return (
     <Stack>
       <Text> Number of Checkboxes: {numberOfItems}</Text>
@@ -47,38 +55,27 @@ export function CheckboxVirtualization() {
       >
         Root
       </Checkbox>
-      <Virtual items={items}>
-        {({ items, bottom, top, ref }) => (
-          <div
-            ref={ref}
-            style={{
-              height: `400px`,
-              width: `400px`,
-              overflow: 'auto',
-            }}
-          >
-            {top > 0 && <div style={{ height: `${top}px` }} />}
-            {items.map((item) => (
-              <div key={item.index}>
-                <Checkbox
-                  checked={checked[item.index]}
-                  onChange={() => {
-                    setChecked((prev) => {
-                      const res = [...prev]
+      <Virtual virtualizer={virtualizer}>
+        <VirtualContainer virtualizer={virtualizer}>
+          <VirtualItem asChild>
+            {({ index }) => (
+              <Checkbox
+                checked={checked[index]}
+                onChange={() => {
+                  setChecked((prev) => {
+                    const res = [...prev]
 
-                      res[item.index] = !res[item.index]
+                    res[index] = !res[index]
 
-                      return res
-                    })
-                  }}
-                >
-                  Item {item.index}
-                </Checkbox>
-              </div>
-            ))}
-            {bottom > 0 && <div style={{ height: `${bottom}px` }} />}
-          </div>
-        )}
+                    return res
+                  })
+                }}
+              >
+                Item {index}
+              </Checkbox>
+            )}
+          </VirtualItem>
+        </VirtualContainer>
       </Virtual>
     </Stack>
   )
