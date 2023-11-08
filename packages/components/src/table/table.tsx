@@ -39,6 +39,15 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
 })
 
 export interface TableProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Array of column widths
+   *
+   * When using the Table component
+   * @default []
+   *
+   * When using the SimpleTable component
+   * @default [repeat(${columns.length}, var(--sl-table-default-column-width))]
+   */
   columnWidths?: string[]
   asChild?: boolean
   /**

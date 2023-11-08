@@ -49,6 +49,9 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     sortable = false,
     setSort,
     sort,
+    columnWidths = [
+      `repeat(${columns.length}, var(--sl-table-default-column-width))`,
+    ],
     ...tableProps
   } = props
 
@@ -74,9 +77,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     <Table
       data-sl-simple-table
       ref={ref}
-      columnWidths={[
-        `repeat(${columns.length}, var(--sl-table-default-column-width))`,
-      ]}
+      columnWidths={columnWidths}
       {...tableProps}
     >
       <TableHeader>
