@@ -47,7 +47,11 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
           {isIndeterminate && <IconMinusSmall data-sl-checkbox-check-mixed />}
           {isChecked && <IconCheckSmall data-sl-checkbox-check />}
         </div>
-        <Text>{ariaProps.children}</Text>
+        {ariaProps.children ? (
+          <Text data-sl-checkbox-label data-disabled={isDisabled}>
+            {ariaProps.children}
+          </Text>
+        ) : null}
       </label>
     )
   }

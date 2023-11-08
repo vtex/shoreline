@@ -1,12 +1,14 @@
+import React, { useState } from 'react'
 import '../../../dist/styles.min.css'
 import '../checkbox.css'
-import React, { useState } from 'react'
 
-import { Checkbox } from '../index'
+import { Checkbox, CheckboxField, CheckboxGroup } from '../index'
 import { VisuallyHidden } from '@ariakit/react'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
+
+import { IconInfoFill } from '@vtex/shoreline-icons'
 
 export default {
   title: 'shoreline-components/checkbox',
@@ -15,9 +17,9 @@ export default {
 export function Default() {
   return (
     <Stack>
-      <Checkbox>Default</Checkbox>
-      <Checkbox error>With error</Checkbox>
-      <Checkbox disabled>Disabled</Checkbox>
+      <Checkbox>Label</Checkbox>
+      <Checkbox error>Label</Checkbox>
+      <Checkbox disabled>Label</Checkbox>
     </Stack>
   )
 }
@@ -44,7 +46,7 @@ export function Indeterminate() {
     <Stack>
       <Checkbox indeterminate>Indeterminate</Checkbox>
       <Checkbox indeterminate error>
-        With Error
+        With error
       </Checkbox>
       <Checkbox indeterminate disabled>
         Disabled
@@ -53,21 +55,74 @@ export function Indeterminate() {
   )
 }
 
-export function DefaultChecked() {
+export function AsField() {
   return (
-    <Stack>
-      <Checkbox defaultChecked>Checked by default</Checkbox>
-      <Checkbox defaultChecked disabled>
+    <Stack space="$space-10">
+      <CheckboxField errorText="Something wrong" error>
+        Terms and conditions
+      </CheckboxField>
+      <CheckboxField helpText="By clicking you agree with terms and conditions">
+        Terms and conditions
+      </CheckboxField>
+      <CheckboxField defaultChecked disabled>
         Disabled
-      </Checkbox>
+      </CheckboxField>
     </Stack>
   )
 }
 
 export function HiddenLabel() {
+  return <Checkbox>{<VisuallyHidden>With Error</VisuallyHidden>}</Checkbox>
+}
+
+export function Group() {
   return (
-    <Checkbox>
-      <VisuallyHidden>With Error</VisuallyHidden>
-    </Checkbox>
+    <Stack space="5rem">
+      <CheckboxGroup label="Options">
+        <Checkbox indeterminate>Everything</Checkbox>
+        <Checkbox>Everywhere</Checkbox>
+        <Checkbox>All at once</Checkbox>
+        <Checkbox disabled>None</Checkbox>
+      </CheckboxGroup>
+      <CheckboxGroup
+        label="Options with help (optional)"
+        helpText="Choose one of these"
+      >
+        <Checkbox indeterminate>Everything</Checkbox>
+        <Checkbox>Everywhere</Checkbox>
+        <Checkbox>All at once</Checkbox>
+        <Checkbox disabled>None</Checkbox>
+      </CheckboxGroup>
+      <CheckboxGroup
+        error
+        label={
+          <>
+            Options
+            <IconInfoFill />
+          </>
+        }
+        errorText="Bad choice"
+      >
+        <Checkbox error>Everything</Checkbox>
+        <Checkbox error>Everywhere</Checkbox>
+        <Checkbox error>All at once</Checkbox>
+        <Checkbox error disabled>
+          None
+        </Checkbox>
+      </CheckboxGroup>
+      <CheckboxGroup
+        error
+        direction="row"
+        label="Options with error"
+        errorText="Bad choice"
+      >
+        <Checkbox error>Everything</Checkbox>
+        <Checkbox error>Everywhere</Checkbox>
+        <Checkbox error>All at once</Checkbox>
+        <Checkbox error disabled>
+          None
+        </Checkbox>
+      </CheckboxGroup>
+    </Stack>
   )
 }
