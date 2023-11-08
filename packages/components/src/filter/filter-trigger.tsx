@@ -7,9 +7,9 @@ import { Button } from '../button'
 /**
  * Triggers the Filter Popover box, also displays the Filter applied value
  * @example
- * <PopoverProvider>
- *   <PopoverTrigger>Open</PopoverTrigger>
- * </PopoverProvider>
+ * <FilterProvider>
+ *   <FilterTrigger>Open</FilterTrigger>
+ * </FilterProvider>
  */
 export const FilterTrigger = forwardRef<HTMLButtonElement, FilterTriggerProps>(
   function FilterTrigger(props, ref) {
