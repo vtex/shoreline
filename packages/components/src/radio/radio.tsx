@@ -11,7 +11,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   const {
     error = false,
     disabled,
-    label,
+    children,
     value,
     id: defaultId,
     ...otherProps
@@ -22,7 +22,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   return (
     <Field variant="control" data-sl-radio>
       <FieldLabel htmlFor={id} data-disabled={disabled}>
-        {label}
+        {children}
       </FieldLabel>
       <BaseRadio
         data-sl-radio-input
@@ -41,5 +41,4 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
 export interface RadioProps extends ComponentPropsWithoutRef<'input'> {
   error?: boolean
   value: string
-  label: string
 }

@@ -66,11 +66,11 @@
         --sl-element-border: var(--sl-border-critical-strong);
         --sl-element-border-hover: var(--sl-border-critical-strong-hover);
         --sl-element-bg: var(--sl-bg);
-        --sl-element-border-checked: var(--sl-border-critical-strong);
-        --sl-element-bg-checked: var(--sl-bg-critical-strong);
+        --sl-element-border-checked: var(--sl-bg-accent-strong);
+        --sl-element-bg-checked: var(--sl-bg-accent-strong);
         --sl-element-check-bg: var(--sl-bg);
-        --sl-element-focus-ring: var(--sl-focus-ring-critical);
-        --sl-element-focus-ring-checked: var(--sl-focus-ring-critical);
+        --sl-element-focus-ring: var(--sl-focus-ring);
+        --sl-element-focus-ring-checked: var(--sl-focus-ring-accent);
       }
 
       &:disabled {

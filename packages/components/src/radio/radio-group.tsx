@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import type { RadioStore } from '@ariakit/react'
 import {
@@ -19,20 +19,23 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
       label,
       children,
       className,
-      direction,
+      direction = 'column',
       state,
       id: defaultId,
       ...otherProps
     } = props
 
     const id = useId(defaultId)
+    const stackGap = direction === 'column' ? '$space-4' : '$space-5'
 
     return (
       <RadioProvider store={state}>
-        <Field data-sl-radio-group className={className}>
+        <Field variant="group" data-sl-radio-group className={className}>
           <FieldLabel htmlFor={id}>{label}</FieldLabel>
           <BaseRadioGroup data-sl-group id={id} ref={ref} {...otherProps}>
-            <Stack direction={direction}>{children}</Stack>
+            <Stack direction={direction} space={stackGap}>
+              {children}
+            </Stack>
           </BaseRadioGroup>
           <FieldMessage
             error={error}
@@ -58,7 +61,7 @@ export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
   error?: boolean
   helpText?: string
   errorText?: string
-  label: string
+  label: ReactNode
   direction?: 'row' | 'column'
   state?: RadioStore
 }
