@@ -1,24 +1,44 @@
+import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import type { AriaCheckboxProps } from './use-aria-checkbox'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { Checkbox } from './checkbox'
+import { useId } from '@vtex/shoreline-utils'
 
 /**
  * Checkbox field with label and help message
  * @example
- * <Checkbox label="label" />
+ * <CheckboxField>Label</CheckboxField>
  */
 export const CheckboxField = forwardRef<HTMLDivElement, CheckboxFieldProps>(
   function CheckboxField(props, forwardedRef) {
-    const { error, message, children, ...ariaProps } = props
+    const {
+      error,
+      helpText,
+      errorText,
+      children,
+      id: defaultId,
+      disabled,
+      ...ariaProps
+    } = props
+
+    const id = useId(defaultId)
 
     return (
       <Field variant="control" data-sl-checkbox-field>
-        <FieldLabel>{children}</FieldLabel>
-        <Checkbox error={error} ref={forwardedRef} {...ariaProps} />
+        <FieldLabel disabled={disabled} htmlFor={id}>
+          {children}
+        </FieldLabel>
+        <Checkbox
+          id={id}
+          disabled={disabled}
+          error={error}
+          ref={forwardedRef}
+          {...ariaProps}
+        />
 
-        <FieldMessage error={error} errorText={message} />
+        <FieldMessage error={error} errorText={errorText} helpText={helpText} />
       </Field>
     )
   }
@@ -30,5 +50,12 @@ export interface CheckboxFieldProps extends AriaCheckboxProps {
    * @default false
    */
   error?: boolean
-  message?: string
+  /**
+   * Error message
+   */
+  errorText?: ReactNode
+  /**
+   * Help message
+   */
+  helpText?: ReactNode
 }

@@ -6,7 +6,12 @@ export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
     const { children, disabled = false, ...restProps } = props
 
     return (
-      <label ref={ref} data-sl-field-label data-sl-disabled={disabled} {...restProps}>
+      <label
+        ref={ref}
+        data-sl-field-label
+        data-disabled={disabled}
+        {...restProps}
+      >
         {children}
       </label>
     )

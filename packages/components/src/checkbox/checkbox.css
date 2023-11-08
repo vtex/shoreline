@@ -9,11 +9,19 @@
     color: var(--sl-color-fg);
     width: var(--sl-checkbox-size);
     height: var(--sl-checkbox-size);
-
+    display: flex;
     width: fit-content;
 
     & > [data-sl-text] {
       user-select: none;
+    }
+  }
+
+  [data-sl-checkbox-label] {
+    margin-left: var(--sl-space-2);
+
+    &[data-disabled='true'] {
+      color: var(--sl-fg-disabled);
     }
   }
 

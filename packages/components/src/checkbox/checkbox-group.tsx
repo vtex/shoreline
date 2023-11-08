@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactElement } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Field, FieldLabel, FieldMessage } from '../field'
@@ -26,6 +26,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
         data-sl-checkbox-group
         className={className}
         ref={ref}
+        variant="group"
         {...otherProps}
       >
         <FieldLabel htmlFor={id}>{label}</FieldLabel>
@@ -37,10 +38,9 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 )
 
 export interface CheckboxGroupProps extends ComponentPropsWithoutRef<'div'> {
-  className?: string
   error?: boolean
-  helpText?: string
-  errorText?: string
-  label: string | ReactElement
+  helpText?: ReactNode
+  errorText?: ReactNode
+  label: ReactNode
   direction?: 'row' | 'column'
 }
