@@ -1,0 +1,20 @@
+@layer sl-tokens {
+  :where([data-sl-tooltip-popover]) {
+    --sl-tooltip-popover-max-width: 16rem;
+  }
+}
+
+@layer sl-components {
+  [data-sl-tooltip-popover] {
+    background: var(--sl-bg-inverted);
+    color: var(--sl-fg-inverted);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    max-width: var(--sl-tooltip-popover-max-width);
+    border-radius: var(--sl-border-radius-medium);
+    padding: var(--sl-space-2) var(--sl-space-3);
+    z-index: var(--sl-z-10);
+    border: var(--sl-border-strong);
+    border-color: var(--sl-bg-inverted);
+  }
+}
