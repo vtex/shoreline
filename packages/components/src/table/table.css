@@ -64,6 +64,11 @@
     color: var(--sl-color-fg);
     padding: var(--sl-space-2);
     border-bottom: var(--sl-border);
+
+    &[data-sortable='true'] {
+      color: var(--sl-fg-accent);
+      cursor: pointer;
+    }
   }
 
   [data-sl-table-header] {

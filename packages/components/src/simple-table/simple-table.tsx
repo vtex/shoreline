@@ -1,11 +1,17 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
-import type { Row, TableOptions } from '@tanstack/react-table'
+import type {
+  OnChangeFn,
+  Row,
+  SortingState,
+  TableOptions,
+} from '@tanstack/react-table'
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
   getExpandedRowModel,
+  getSortedRowModel,
 } from '@tanstack/react-table'
 import { forwardRef } from '@vtex/shoreline-utils'
 
@@ -21,6 +27,7 @@ import {
 import type { NavigationTarget } from '../link-box/link-box-utils'
 import { LinkBox } from '../link-box'
 import { Clickable } from '../clickable'
+import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 
 /**
  * Controlled table render built on top of TanStack/Table API
@@ -39,8 +46,15 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     getRowCanExpand,
     renderDetail,
     rowClick,
+    sortable = false,
+    setSort,
+    sort,
     ...tableProps
   } = props
+
+  // this is necessary because adding onSortingChange below breaks
+  // the uncontrolled behaviour, even when undefined
+  const customSort = setSort ? { onSortingChange: setSort } : {}
 
   const table = useReactTable({
     data,
@@ -48,6 +62,11 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     getRowCanExpand,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    enableSorting: sortable,
+    state: sort ? { sorting: sort } : undefined,
+    manualSorting: !!setSort,
+    ...customSort,
     ...options,
   })
 
@@ -64,13 +83,22 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHeaderCell key={header.id}>
+              <TableHeaderCell
+                key={header.id}
+                onClick={header.column.getToggleSortingHandler()}
+                sortable={header.column.getCanSort()}
+              >
                 {header.isPlaceholder
                   ? null
                   : flexRender(
                       header.column.columnDef.header,
                       header.getContext()
                     )}
+                {header.column.getIsSorted() === 'asc' ? (
+                  <IconArrowUp />
+                ) : header.column.getIsSorted() === 'desc' ? (
+                  <IconArrowDown />
+                ) : null}
               </TableHeaderCell>
             ))}
           </TableRow>
@@ -167,6 +195,19 @@ export interface SimpleTableProps<T> extends TableProps, TsMirrorProps<T> {
    * Renders function for the detail row
    */
   renderDetail?: (row: Row<T>) => ReactNode
+  /**
+   * Defines if columns will be sortable
+   * @default false
+   */
+  sortable?: boolean
+  /**
+   * SortingState for controlled sort usage
+   */
+  sort?: SortingState
+  /**
+   * Setter for SortingState for controlled sort usage
+   */
+  setSort?: OnChangeFn<SortingState> | undefined
   /**
    *
    */
