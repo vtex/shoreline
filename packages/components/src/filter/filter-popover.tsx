@@ -10,6 +10,11 @@ import { Button } from '../button'
 import { Combobox } from '../combobox'
 import { useSearchable } from './use-searchable'
 
+import { createMessageHook } from '../locale'
+import { messages } from './messages'
+
+const useMessage = createMessageHook(messages)
+
 /**
  * Filter popover box
  * @example
@@ -24,6 +29,7 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
     const { children, ...otherProps } = props
 
     const searchable = useSearchable()
+    const getMessage = useMessage()
 
     return (
       <Popover data-sl-filter-popover ref={ref} {...otherProps}>
@@ -39,10 +45,10 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
             {children}
             <footer data-sl-filter-popover-footer>
               <FilterClear asChild>
-                <Button>Clear</Button>
+                <Button>{getMessage('clear')}</Button>
               </FilterClear>
               <FilterApply asChild>
-                <Button variant="primary">Apply</Button>
+                <Button variant="primary">{getMessage('apply')}</Button>
               </FilterApply>
             </footer>
           </Stack>
