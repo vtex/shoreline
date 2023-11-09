@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { IconButton } from '../icon-button'
-import { IconMagnifyingGlass, IconXCircle } from '@vtex/shoreline-icons'
+import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
 import { useId } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
@@ -34,7 +34,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       {loading ? (
         <Spinner data-sl-pre-icon />
       ) : (
-        <IconMagnifyingGlass data-sl-pre-icon />
+        <IconMagnifyingGlassSmall data-sl-pre-icon />
       )}
       <input
         id={id}
@@ -49,11 +49,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
         <label htmlFor={id}>{placeholder}</label>
       </VisuallyHidden>
       {value && typeof onClear !== undefined ? (
-        <Bleed horizontal>
-          <IconButton label="Clear" onClick={onClear} variant="tertiary">
-            <IconXCircle />
-          </IconButton>
-        </Bleed>
+        <IconButton
+          label="Clear"
+          onClick={onClear}
+          variant="tertiary"
+          data-sl-search-clear-btn
+        >
+          <IconXCircle />
+        </IconButton>
       ) : null}
     </div>
   )
