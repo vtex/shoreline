@@ -1,0 +1,23 @@
+@layer sl-components {
+  [data-sl-date-field-input] {
+    font: var(--sl-text-action-font);
+    letter-spacing: var(--sl-text-action-letter-spacing);
+    display: inline-flex;
+    gap: var(--sl-space-05);
+    border: var(--sl-border-strong);
+    border-radius: var(--sl-border-radius-medium);
+    height: 44px;
+    padding: var(--sl-space-3) var(--sl-space-4);
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  [data-sl-date-segment] {
+    outline: none;
+    padding: var(--sl-space-05);
+    border-radius: var(--sl-border-radius-small);
+    &:focus-visible {
+      box-shadow: var(--sl-focus-ring-accent);
+    }
+  }
+}

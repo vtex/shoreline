@@ -12,6 +12,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
     space = '$space-gap',
     fluid = false,
     align = 'start',
+    style,
     ...restProps
   } = props
 
@@ -25,6 +26,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
         {
           '--sl-stack-space': cssVar({ token: space }),
           '--sl-stack-align': cssVar({ token: align }),
+          ...style,
         } as CSSProperties
       }
       {...restProps}
