@@ -1,5 +1,6 @@
 @import '../shoreline/styles.css';
 /* PLOP_INJECT_STYLES */
+@import './tab/tab.css';
 @import './filter/filter.css';
 @import './scroll-area/scroll-area.css';
 @import './select/select.css';
