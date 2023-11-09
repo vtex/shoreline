@@ -13,6 +13,7 @@ import {
 } from '../index'
 import type { Country } from './countries'
 import { countries } from './countries'
+import { LocaleProvider } from '../../locale'
 
 export default {
   title: 'shoreline-components/filter',
@@ -47,6 +48,34 @@ export function Controlled() {
       <FilterOption value="Experimental">Experimental</FilterOption>
       <FilterOption value="Deprecated">Deprecated</FilterOption>
     </Filter>
+  )
+}
+
+export function CustomMessages() {
+  return (
+    <Filter
+      label="Status"
+      messages={{
+        apply: 'APL',
+        clear: 'CL',
+      }}
+    >
+      <FilterOption value="Stable">Stable</FilterOption>
+      <FilterOption value="Experimental">Experimental</FilterOption>
+      <FilterOption value="Deprecated">Deprecated</FilterOption>
+    </Filter>
+  )
+}
+
+export function Localization() {
+  return (
+    <LocaleProvider locale="ja-JP">
+      <Filter label="Status">
+        <FilterOption value="Stable">Stable</FilterOption>
+        <FilterOption value="Experimental">Experimental</FilterOption>
+        <FilterOption value="Deprecated">Deprecated</FilterOption>
+      </Filter>
+    </LocaleProvider>
   )
 }
 
