@@ -28,6 +28,20 @@ export function Default() {
   )
 }
 
+export function Placement() {
+  return (
+    <div
+      style={{
+        padding: '1rem',
+      }}
+    >
+      <Tooltip placement="right" text="Tooltip text">
+        <button>I</button>
+      </Tooltip>
+    </div>
+  )
+}
+
 export function Controlled() {
   const [open, setOpen] = useState(false)
 
