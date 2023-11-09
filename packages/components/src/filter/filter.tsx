@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 import type { FilterProviderProps } from './filter-provider'
 import { FilterProvider } from './filter-provider'
 import { FilterTrigger } from './filter-trigger'
+import type { FilterPopoverProps } from './filter-popover'
 import { FilterPopover } from './filter-popover'
 import { FilterList } from './filter-list'
 
@@ -26,6 +27,7 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
     searchValue,
     setSearchValue,
     defaultSearchValue,
+    messages,
     ...otherProps
   } = props
 
@@ -40,7 +42,7 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
         defaultSearchValue={defaultSearchValue}
       >
         <FilterTrigger>{label}</FilterTrigger>
-        <FilterPopover>
+        <FilterPopover messages={messages}>
           <FilterList>{children}</FilterList>
         </FilterPopover>
       </FilterProvider>
@@ -56,7 +58,8 @@ type InheritedProps = Pick<
   | 'searchValue'
   | 'setSearchValue'
   | 'defaultSearchValue'
->
+> &
+  Pick<FilterPopoverProps, 'messages'>
 
 export interface FilterProps extends InheritedProps {
   label: string

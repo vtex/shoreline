@@ -29,6 +29,33 @@ describe('create-message-hook', () => {
     expect(getByText('Word')).toBeInTheDocument()
   })
 
+  test('replaces default messages', () => {
+    const messages = {
+      'en-US': {
+        word: 'Word',
+      },
+      'pt-BR': {
+        word: 'Palavra',
+      },
+    }
+
+    const useMessage = createMessageHook(messages)
+
+    const hook = renderHook(() =>
+      useMessage({
+        word: 'Custom',
+      })
+    )
+
+    const { getByText } = render(
+      <LocaleProvider>
+        <div>{hook.result.current('word')}</div>
+      </LocaleProvider>
+    )
+
+    expect(getByText('Custom')).toBeInTheDocument()
+  })
+
   test('gets message relative to the Locale context', () => {
     const messages = {
       'en-US': {

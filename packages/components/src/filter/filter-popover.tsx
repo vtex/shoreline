@@ -26,10 +26,10 @@ const useMessage = createMessageHook(messages)
  */
 export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
   function FilterPopover(props, ref) {
-    const { children, ...otherProps } = props
+    const { children, messages, ...otherProps } = props
 
     const searchable = useSearchable()
-    const getMessage = useMessage()
+    const getMessage = useMessage(messages)
 
     return (
       <Popover data-sl-filter-popover ref={ref} {...otherProps}>
@@ -58,4 +58,9 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
   }
 )
 
-export type FilterPopoverProps = PopoverProps
+export interface FilterPopoverProps extends PopoverProps {
+  messages?: {
+    apply: string
+    clear: string
+  }
+}
