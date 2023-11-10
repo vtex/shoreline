@@ -10,14 +10,14 @@ export const VirtualItem = forwardRef(function VirtualItem(
 ) {
   const {
     index = 0,
-    start,
+    start = 0,
     end,
-    size,
+    size = 0,
     lane,
     children,
-    style,
-    key,
     asChild = false,
+    style: defaultStyle,
+    dynamic = false,
     ...otherProps
   } = props
 
@@ -26,14 +26,17 @@ export const VirtualItem = forwardRef(function VirtualItem(
   return (
     <Comp
       ref={ref}
+      key={index}
       data-index={index}
-      key={key}
       style={
         {
+          '--sl-virtual-item-size': `${size}px`,
           '--sl-virtual-item-start': `${start}px`,
-          ...style,
+          ...defaultStyle,
         } as any
       }
+      data-sl-virtual-item
+      data-sl-virtual-dynamic={dynamic}
       {...otherProps}
     >
       {isFunction(children) ? children({ index }) : children}
@@ -47,4 +50,5 @@ export interface VirtualItemsProps extends Partial<VirtualItemType> {
     | ((props: Required<Pick<VirtualItemsProps, 'index'>>) => ReactNode)
   style?: React.CSSProperties
   asChild?: boolean
+  dynamic?: boolean
 }

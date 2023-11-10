@@ -1,11 +1,17 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React from 'react'
 
 import { Compose } from '../compose'
 import type { UseVirtualizerModelReturn } from './useVirtualizerModel'
 
-export function Virtual<T>(props: VirtualProps<T>) {
-  const { virtualizer, children, asChild, ...otherProps } = props
+export function Virtual(props: VirtualProps) {
+  const {
+    virtualizer,
+    children,
+    asChild,
+    style: defaultStyle,
+    ...otherProps
+  } = props
 
   const { ref, totalSize } = virtualizer
 
@@ -16,30 +22,20 @@ export function Virtual<T>(props: VirtualProps<T>) {
       data-sl-virtual
       style={
         {
-          height: '500px',
-          overflow: 'auto',
-          width: '100%',
-          contain: 'strict',
           '--sl-virtual-total-size': `${totalSize}px`,
+          ...defaultStyle,
         } as any
       }
+      {...otherProps}
+      ref={ref}
     >
-      <Comp
-        ref={ref}
-        style={{
-          height: 'var(--sl-virtual-total-size)',
-          position: 'relative',
-        }}
-        {...otherProps}
-      >
-        {children}
-      </Comp>
+      <Comp data-sl-virtual-compose>{children}</Comp>
     </div>
   )
 }
 
-export type VirtualProps<T> = {
-  virtualizer: UseVirtualizerModelReturn<T>
+export interface VirtualProps extends ComponentPropsWithoutRef<'div'> {
+  virtualizer: UseVirtualizerModelReturn
   asChild?: boolean
   children: ReactNode
 }

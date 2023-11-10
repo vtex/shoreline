@@ -1,7 +1,7 @@
 import '../../../dist/styles.min.css'
 import '../virtual.css'
 
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import {
   Virtual,
   VirtualContainer,
@@ -36,7 +36,10 @@ export function CheckboxVirtualization() {
   const someChecked = checked.some((i) => i)
   const allChecked = checked.every((i) => i)
 
-  const virtualizer = useVirtualizerModel({ items })
+  const virtualizer = useVirtualizerModel({
+    count: items.length,
+    dynamic: true,
+  })
 
   return (
     <Stack>

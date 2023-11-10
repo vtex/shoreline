@@ -1,5 +1,5 @@
 import '../../../dist/styles.min.css'
-import React, { useMemo } from 'react'
+import React, { Fragment, useMemo } from 'react'
 import '../virtual.css'
 
 import {
@@ -9,28 +9,34 @@ import {
   useVirtualizerModel,
 } from '../index'
 
-import { Checkbox } from '../../checkbox'
-import { Button } from '../../button'
+import { Center } from '../../center'
 
 export default {
   title: 'shoreline-components/virtual',
 }
 
-const index = 1
-
 export function Default() {
-  const virtualizer = useVirtualizerModel({ count: 1000 })
+  const model = useVirtualizerModel({
+    count: 5000,
+    dynamic: true,
+  })
 
   return (
-    <Virtual virtualizer={virtualizer}>
-      <VirtualContainer virtualizer={virtualizer}>
+    <Virtual virtualizer={model}>
+      <VirtualContainer virtualizer={model}>
         <VirtualItem>
-          <Button
-            variant={index % 1 === 0 ? 'critical' : 'tertiary'}
-            size="large"
-          >
-            Test {index}
-          </Button>
+          {({ index }) => {
+            return (
+              <Center
+                style={{
+                  height: index % 2 === 0 ? '40px' : '60px',
+                  background: index % 2 === 0 ? '#cecece' : 'white',
+                }}
+              >
+                Item {index}
+              </Center>
+            )
+          }}
         </VirtualItem>
       </VirtualContainer>
     </Virtual>

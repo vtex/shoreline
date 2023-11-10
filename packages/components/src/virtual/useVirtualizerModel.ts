@@ -2,62 +2,71 @@ import type { VirtualItem } from '@tanstack/react-virtual'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { useRef } from 'react'
 
-const FIXED_SIZE_VALUE = 20
-const FIXED_OVERSCAN_VALUE = 10
+const FIXED_SIZE_VALUE = 40
 
-export function useVirtualizerModel<T>(
-  props: UseVirtualizerModelProps<T>
-): UseVirtualizerModelReturn<T> {
+export function useVirtualizerModel(
+  props: UseVirtualizerModelProps
+): UseVirtualizerModelReturn {
   const {
-    items = [],
-    count: defaultCount,
+    count,
     estimateSize = () => FIXED_SIZE_VALUE,
-    overscan = FIXED_OVERSCAN_VALUE,
+    overscan,
+    dynamic = false,
   } = props
 
-  const count = defaultCount ?? items.length
   const ref = useRef(null)
 
   const virtualizer = useVirtualizer({
     getScrollElement: () => ref.current,
-    count: count ?? items.length,
+    count,
     estimateSize,
     overscan,
   })
 
-  console.log({ count, totalSize: virtualizer.getTotalSize() })
+  const { top, bottom } = getVirtualizerDim(
+    virtualizer.getVirtualItems(),
+    virtualizer.getTotalSize()
+  )
 
   return {
-    items,
     virtualItems: virtualizer.getVirtualItems(),
     totalSize: virtualizer.getTotalSize(),
     count,
-    overscan,
     measure: virtualizer.measureElement,
     ref,
+    top,
+    bottom,
+    dynamic,
   }
 }
 
-export type UseVirtualizerModelProps<T> =
-  | {
-      items: T[]
-      count?: number
-      estimateSize?: (index: number) => number
-      overscan?: number
-    }
-  | {
-      count: number
-      items?: T[]
-      estimateSize?: (index: number) => number
-      overscan?: number
-    }
+/**
+ * Return the dimensions between the first and last items
+ */
+function getVirtualizerDim(items: VirtualItem[], totalSize: number) {
+  const firstItem = items?.[0]
+  const lastItem = items?.[items.length - 1]
 
-export type UseVirtualizerModelReturn<T> = {
-  virtualItems: VirtualItem[]
-  items: T[]
+  const top = firstItem?.start ?? 0
+  const bottom = totalSize - (lastItem?.end ?? 0)
+
+  return { bottom, top }
+}
+
+export type UseVirtualizerModelProps = {
   count: number
-  overscan: number
+  estimateSize?: (index: number) => number
+  overscan?: number
+  dynamic?: boolean
+}
+
+export type UseVirtualizerModelReturn = {
+  virtualItems: VirtualItem[]
+  count: number
   ref: React.MutableRefObject<null>
   totalSize: number
   measure: (node: Element | null) => void
+  top: number
+  bottom: number
+  dynamic: boolean
 }

@@ -15,7 +15,7 @@ import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 import type { TableProps } from '../table'
 import './simple-table.css'
 import { Table, TableRow, TableBody, TableCell } from '../table'
-import { Virtual } from '../virtual'
+import type { UseVirtualizerModelReturn } from '../virtual'
 import { SimpleTableRow } from './simple-table-row'
 import type { SimpleTableRowProps } from './simple-table-row'
 import { SimpleTableHeader } from './simple-table-header'
@@ -43,7 +43,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     columnWidths = [
       `repeat(${columns.length}, var(--sl-table-default-column-width))`,
     ],
-    virtualize = false,
+    virtualizer,
     ...tableProps
   } = props
 
@@ -67,7 +67,9 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
 
   const { rows } = table.getRowModel()
 
-  return !virtualize ? (
+  const mergedRef = useMergeRef(ref, virtualizer?.ref)
+
+  return !virtualizer ? (
     <Table
       data-sl-simple-table
       ref={ref}
@@ -80,7 +82,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
         {rows.map((row) => (
           <SimpleTableRow
             row={row}
-            key={row.id}
+            id={row.id}
             renderDetail={renderDetail}
             rowClick={rowClick}
           />
@@ -88,50 +90,44 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
       </TableBody>
     </Table>
   ) : (
-    <Virtual items={rows}>
-      {({ bottom, top, getItem, items, ref: virtualizerRef }) => {
-        const mergedRef = useMergeRef(ref, virtualizerRef)
+    <Table
+      data-sl-simple-table
+      ref={mergedRef}
+      columnWidths={columnWidths}
+      data-virtualize
+      {...tableProps}
+    >
+      <SimpleTableHeader headers={table.getHeaderGroups()} />
 
-        return (
-          <Table
-            data-sl-simple-table
-            ref={mergedRef}
-            columnWidths={columnWidths}
-            data-virtualize
-            {...tableProps}
-          >
-            <SimpleTableHeader headers={table.getHeaderGroups()} />
+      <TableBody>
+        {virtualizer.top > 0 &&
+          columns.map((column) => (
+            <TableRow key={column.id}>
+              <TableCell style={{ height: `${virtualizer.top}px` }} />
+            </TableRow>
+          ))}
 
-            <TableBody>
-              {top > 0 &&
-                columns.map((column) => (
-                  <TableRow key={column.id}>
-                    <TableCell style={{ height: `${top}px` }} />
-                  </TableRow>
-                ))}
-              {items.map((tableRow) => {
-                const row = getItem(tableRow)
+        {virtualizer.virtualItems.map((tableRow) => {
+          const row = rows[tableRow.index]
 
-                return (
-                  <SimpleTableRow
-                    row={row}
-                    key={row.id}
-                    renderDetail={renderDetail}
-                    rowClick={rowClick}
-                  />
-                )
-              })}
-              {bottom > 0 &&
-                columns.map((column) => (
-                  <TableRow key={column.id}>
-                    <TableCell style={{ height: `${bottom}px` }} />
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        )
-      }}
-    </Virtual>
+          return (
+            <SimpleTableRow
+              row={row}
+              id={String(tableRow.index)}
+              renderDetail={renderDetail}
+              rowClick={rowClick}
+            />
+          )
+        })}
+
+        {virtualizer.bottom > 0 &&
+          columns.map((column) => (
+            <TableRow key={column.id}>
+              <TableCell style={{ height: `${virtualizer.bottom}px` }} />
+            </TableRow>
+          ))}
+      </TableBody>
+    </Table>
   )
 })
 
@@ -165,8 +161,8 @@ export interface SimpleTableProps<T>
    */
   setSort?: OnChangeFn<SortingState> | undefined
   /**
-   * Whether the table body rows should be virtualized or not
+   * Virtualizar table model
    * @default false
    */
-  virtualize?: boolean
+  virtualizer: UseVirtualizerModelReturn
 }

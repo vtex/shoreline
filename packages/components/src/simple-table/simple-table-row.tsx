@@ -7,10 +7,10 @@ import { Clickable } from '../clickable'
 import { LinkBox } from '../link-box'
 
 export function SimpleTableRow<T>(props: SimpleTableRowProps<T>) {
-  const { row, key, rowClick, renderDetail, children, ...otherProps } = props
+  const { row, id, rowClick, renderDetail, children, ...otherProps } = props
 
   return (
-    <Fragment key={key}>
+    <Fragment key={id}>
       <TableRow
         selected={row.getIsSelected()}
         expanded={row.getIsExpanded()}

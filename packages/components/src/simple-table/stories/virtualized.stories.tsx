@@ -4,6 +4,7 @@ import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { SimpleTable } from '../index'
 import { faker } from '@faker-js/faker'
+import { useVirtualizerModel } from '../../virtual'
 
 export default {
   title: 'shoreline-components/simple-table',
@@ -41,6 +42,8 @@ export function VirtualizedRows() {
     []
   )
 
+  const virtualizer = useVirtualizerModel({ count: data.length })
+
   return (
     <>
       <SimpleTable
@@ -52,7 +55,7 @@ export function VirtualizedRows() {
             alert(`You clicked: ${row.original.name}`)
           },
         }}
-        virtualize
+        virtualizer={virtualizer}
       />
       <div style={{ marginTop: '16px' }}>Number of rows: {data.length}</div>
     </>

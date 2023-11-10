@@ -1,16 +1,32 @@
 @layer sl-components {
   :where([data-sl-virtual-item]) {
-    --sl-virtual-item-size: 0px;
-    --sl-virtual-item-start: 0px;
   }
 
-  [data-sl-virtual-item] {
+  [data-sl-virtual-item][data-sl-virtual-dynamic='false'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--sl-virtual-item-size, 0px);
+    transform: translateY(var(--sl-virtual-item-start), 0px);
+  }
+
+  [data-sl-virtual-container][data-sl-virtual-dynamic='true'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(var(--sl-virtual-item-start, 0px));
   }
 
   [data-sl-virtual] {
     height: 500px;
     overflow: auto;
     width: 100%;
-    contain: strict;
+  }
+
+  [data-sl-virtual-compose] {
+    position: relative;
+    height: var(--sl-virtual-total-size);
   }
 }
