@@ -16,6 +16,7 @@
     letter-spacing: var(--sl-text-action-letter-spacing);
     padding: var(--sl-space-3);
     outline: none;
+    text-decoration: none;
 
     &:hover {
       color: var(--sl-fg-muted-hover);

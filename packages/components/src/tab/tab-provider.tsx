@@ -1,5 +1,5 @@
 import type { TabProviderProps } from '@ariakit/react'
-import { TabProvider } from '@ariakit/react'
+import { TabProvider, useTabContext, useTabStore } from '@ariakit/react'
 
 export type { TabProviderProps }
-export { TabProvider }
+export { TabProvider, useTabContext, useTabStore }
