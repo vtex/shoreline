@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup'
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['cjs', 'esm'],
-  external: ['react'],
+  external: ['react', 'next', '@vtex/shoreline-components'],
   splitting: false,
   sourcemap: true,
   clean: true,
