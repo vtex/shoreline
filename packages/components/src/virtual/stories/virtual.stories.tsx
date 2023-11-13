@@ -17,27 +17,14 @@ export default {
 
 export function Default() {
   const virtualizer = useVirtualizerModel({
-    count: 100,
-    dynamic: true,
+    count: 5000,
+    estimateSize: () => 40,
   })
 
   return (
-    <Virtual virtualizer={virtualizer}>
+    <Virtual virtualizer={virtualizer} style={{ width: 200 }}>
       <VirtualContainer virtualizer={virtualizer}>
-        <VirtualItem asChild>
-          {({ index }) => {
-            return (
-              <Center
-                style={{
-                  height: index % 2 === 0 ? '40px' : '60px',
-                  background: index % 2 === 0 ? '#cecece' : 'white',
-                }}
-              >
-                Item {index}
-              </Center>
-            )
-          }}
-        </VirtualItem>
+        <VirtualItem>Virtualized item</VirtualItem>
       </VirtualContainer>
     </Virtual>
   )

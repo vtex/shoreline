@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 
 import { Compose } from '../compose'
@@ -42,5 +42,4 @@ export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(
 export interface VirtualProps extends ComponentPropsWithoutRef<'div'> {
   virtualizer: UseVirtualizerModelReturn
   asChild?: boolean
-  children: ReactNode
 }

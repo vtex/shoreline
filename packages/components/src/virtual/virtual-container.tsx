@@ -7,13 +7,7 @@ export const VirtualContainer = forwardRef<
   HTMLDivElement,
   VirtualContainerProps
 >(function VirtualContainer(props, ref) {
-  const {
-    children,
-    virtualizer,
-    spacer = false,
-    style: defaultStyle,
-    ...otherProps
-  } = props
+  const { children, virtualizer, style: defaultStyle, ...otherProps } = props
 
   const { virtualItems, measure, dynamic } = virtualizer
 
@@ -50,5 +44,4 @@ export const VirtualContainer = forwardRef<
 export interface VirtualContainerProps extends ComponentPropsWithoutRef<'div'> {
   children: ReactNode
   virtualizer: UseVirtualizerModelReturn
-  spacer?: boolean
 }

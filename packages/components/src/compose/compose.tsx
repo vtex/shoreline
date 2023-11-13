@@ -1,4 +1,4 @@
-import React, { Fragment, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import type { HTMLAttributes, ReactNode } from 'react'
 
 import { createComposition } from './create-composition'
@@ -19,13 +19,13 @@ export const Compose = forwardRef<any, ComposeProps>(function Compose(
   const { children, ...rootProps } = props
 
   return (
-    <Fragment>
+    <>
       {createComposition({
         element: children,
         props: rootProps,
         ref,
       })}
-    </Fragment>
+    </>
   )
 })
 
