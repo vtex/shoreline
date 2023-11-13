@@ -1,5 +1,5 @@
 @layer sl-components {
-  @keyframes wave {
+  @keyframes sl-keyframes-wave {
     0% {
       transform: translateX(-100%);
     }
@@ -21,7 +21,7 @@
     background: var(--sl-bg-muted);
     overflow: hidden;
     &::after {
-      animation: wave 1.6s linear 0.5s infinite;
+      animation: sl-keyframes-wave 1.6s linear 0.5s infinite;
       background: linear-gradient(
         90deg,
         transparent,
