@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './skeleton'
 export * from './tab'
 export * from './tooltip'
 export * from './filter'
