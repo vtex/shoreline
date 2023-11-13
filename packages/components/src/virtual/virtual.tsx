@@ -1,23 +1,33 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 
-import { Compose } from '../compose'
-import type { UseVirtualizerModelReturn } from './useVirtualizerModel'
+import {
+  useVirtualizerModel,
+  type UseVirtualizerModelProps,
+} from './useVirtualizerModel'
 import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
+import { VirtualContainer } from './virtual-container'
 
 export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(
   function Virtual(props, forwardedRef) {
     const {
-      virtualizer,
       children,
-      asChild,
+      count,
+      dynamic,
+      estimateSize,
+      overscan,
       style: defaultStyle,
       ...otherProps
     } = props
 
-    const { ref: virtualizerRef, totalSize } = virtualizer
+    const virtualizer = useVirtualizerModel({
+      count,
+      dynamic,
+      estimateSize,
+      overscan,
+    })
 
-    const Comp = asChild ? Compose : 'div'
+    const { ref: virtualizerRef, totalSize } = virtualizer
 
     const ref = useMergeRef(forwardedRef, virtualizerRef)
 
@@ -33,13 +43,16 @@ export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(
         {...otherProps}
         ref={ref}
       >
-        <Comp data-sl-virtual-compose>{children}</Comp>
+        <div data-sl-virtual-compose>
+          <VirtualContainer virtualizer={virtualizer}>
+            {children}
+          </VirtualContainer>
+        </div>
       </div>
     )
   }
 )
 
-export interface VirtualProps extends ComponentPropsWithoutRef<'div'> {
-  virtualizer: UseVirtualizerModelReturn
-  asChild?: boolean
-}
+export interface VirtualProps
+  extends ComponentPropsWithoutRef<'div'>,
+    UseVirtualizerModelProps {}

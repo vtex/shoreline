@@ -1,14 +1,9 @@
 import '../../../dist/styles.min.css'
-import React, { Fragment, useMemo } from 'react'
+import React from 'react'
 import '../virtual.css'
 import './styles.css'
 
-import {
-  Virtual,
-  VirtualContainer,
-  VirtualItem,
-  useVirtualizerModel,
-} from '../index'
+import { Virtual, VirtualItem } from '../index'
 
 import { Center } from '../../center'
 
@@ -17,32 +12,24 @@ export default {
 }
 
 export function Fixed() {
-  const model = useVirtualizerModel({
-    count: 5000,
-    estimateSize() {
-      return 60
-    },
-    overscan: 5,
-  })
-
   return (
     <Virtual
-      virtualizer={model}
+      count={5000}
+      overscan={5}
+      estimateSize={() => 60}
       style={{
         width: `400px`,
       }}
     >
-      <VirtualContainer virtualizer={model}>
-        <VirtualItem asChild>
-          {({ index }) => {
-            return (
-              <Center className="row" data-odd={index % 2 !== 0}>
-                Item {index}
-              </Center>
-            )
-          }}
-        </VirtualItem>
-      </VirtualContainer>
+      <VirtualItem asChild>
+        {({ index }) => {
+          return (
+            <Center className="row" data-odd={index % 2 !== 0}>
+              Item {index}
+            </Center>
+          )
+        }}
+      </VirtualItem>
     </Virtual>
   )
 }

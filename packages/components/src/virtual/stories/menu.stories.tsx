@@ -19,14 +19,6 @@ export default {
 }
 
 export function MenuVirtualization() {
-  const model = useVirtualizerModel({
-    count: 5000,
-    estimateSize() {
-      return 60
-    },
-    dynamic: true,
-  })
-
   return (
     <MenuProvider>
       <MenuTrigger asChild>
@@ -34,18 +26,17 @@ export function MenuVirtualization() {
       </MenuTrigger>
       <Menu>
         <Virtual
-          virtualizer={model}
+          dynamic
+          count={5000}
           style={{
             width: `200px`,
           }}
         >
-          <VirtualContainer virtualizer={model}>
-            <VirtualItem asChild>
-              {({ index }) => {
-                return <MenuItem>Item {index}</MenuItem>
-              }}
-            </VirtualItem>
-          </VirtualContainer>
+          <VirtualItem asChild>
+            {({ index }) => {
+              return <MenuItem>Item {index}</MenuItem>
+            }}
+          </VirtualItem>
         </Virtual>
       </Menu>
     </MenuProvider>

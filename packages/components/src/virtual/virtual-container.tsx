@@ -2,19 +2,28 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { Fragment, cloneElement } from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
 import type { UseVirtualizerModelReturn } from './useVirtualizerModel'
+import { Compose } from '../compose'
 
 export const VirtualContainer = forwardRef<
   HTMLDivElement,
   VirtualContainerProps
 >(function VirtualContainer(props, ref) {
-  const { children, virtualizer, style: defaultStyle, ...otherProps } = props
+  const {
+    children,
+    virtualizer,
+    asChild = false,
+    style: defaultStyle,
+    ...otherProps
+  } = props
 
   const { virtualItems, measure, dynamic } = virtualizer
 
   const start = virtualItems[0]?.start ?? 0
 
+  const Comp = asChild ? Compose : 'div'
+
   return (
-    <div
+    <Comp
       ref={ref}
       data-sl-virtual-container
       data-sl-virtual-dynamic={dynamic}
@@ -37,11 +46,12 @@ export const VirtualContainer = forwardRef<
           </Fragment>
         )
       })}
-    </div>
+    </Comp>
   )
 })
 
 export interface VirtualContainerProps extends ComponentPropsWithoutRef<'div'> {
   children: ReactNode
   virtualizer: UseVirtualizerModelReturn
+  asChild?: boolean
 }
