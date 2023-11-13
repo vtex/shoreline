@@ -79,7 +79,7 @@ module.exports = function (plop) {
       },
       {
         type: 'append',
-        path: 'packages/icons/src/index.ts',
+        path: 'packages/icons/src/icons.ts',
         pattern: `/* PLOP_INJECT_EXPORT */`,
         template: `export * from './{{kebabCase name}}'`,
       },

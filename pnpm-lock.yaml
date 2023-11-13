@@ -739,6 +739,9 @@ importers:
       '@vtex/admin-ui':
         specifier: ^0.136.1
         version: 0.136.1(react-dom@18.2.0)(react@18.2.0)
+      '@vtex/shoreline-icons':
+        specifier: workspace:*
+        version: link:../icons
       '@vtex/shoreline-preset-admin':
         specifier: workspace:*
         version: link:../shoreline-preset-admin
