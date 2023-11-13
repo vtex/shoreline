@@ -29,6 +29,8 @@ import { LinkBox } from '../link-box'
 import { Clickable } from '../clickable'
 import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 
+const Link = LinkBox as any
+
 /**
  * Controlled table render built on top of TanStack/Table API
  * @see https://tanstack.com/table/v8
@@ -137,7 +139,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
                     const { getHref, target } = rowClick
 
                     return (
-                      <LinkBox
+                      <Link
                         href={getHref(row)}
                         target={target}
                         key={cell.id}
@@ -149,7 +151,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
                             cell.getContext()
                           )}
                         </TableCell>
-                      </LinkBox>
+                      </Link>
                     )
                   }
                 }

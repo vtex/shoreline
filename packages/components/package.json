@@ -1,9 +1,9 @@
 {
   "name": "@vtex/shoreline-components",
   "version": "0.20.0",
-  "main": "dist/vtex-shoreline-components.cjs.js",
-  "module": "dist/vtex-shoreline-components.esm.js",
-  "types": "dist/vtex-shoreline-components.cjs.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -13,9 +13,9 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/vtex-shoreline-components.cjs.js",
-      "import": "./dist/vtex-shoreline-components.esm.js",
-      "types": "./dist/vtex-shoreline-components.cjs.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/esm/index.js"
     },
     "./styles": "./dist/styles.min.css"
   },
@@ -24,8 +24,8 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
-    "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
-    "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs && npm run build:css",
+    "dev": "tsup --watch",
+    "build": "npm run prebuild && tsup && npm run build:css",
     "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/styles.css -o ./dist/styles.min.css",
     "theme": "shorelinecss theme"
   },
@@ -54,7 +54,8 @@
     "lightningcss-cli": "1.22.0",
     "match-sorter": "6.3.1",
     "react-hook-form": "7.47.0",
-    "react-window": "1.8.9"
+    "react-window": "1.8.9",
+    "tsup": "7.2.0"
   },
   "dependencies": {
     "@ariakit/react": "0.3.5",

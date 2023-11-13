@@ -1,19 +1,22 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import typescript from '@rollup/plugin-typescript'
-import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
-import dts from 'rollup-plugin-dts'
-import del from 'rollup-plugin-delete'
-import json from '@rollup/plugin-json'
-import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin'
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var resolve = require('@rollup/plugin-node-resolve');
+var commonjs = require('@rollup/plugin-commonjs');
+var typescript = require('@rollup/plugin-typescript');
+var babel = require('@rollup/plugin-babel');
+var rollupPluginTerser = require('rollup-plugin-terser');
+var dts = require('rollup-plugin-dts');
+var del = require('rollup-plugin-delete');
+var json = require('@rollup/plugin-json');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-const packageJson = require('./package.json')
+const packageJson = require('./package.json');
 
-const production = !process.env.ROLLUP_WATCH
+const production = !process.env.ROLLUP_WATCH;
 
-export default [
+var rollupConfig = [
   {
     input: 'src/index.ts',
     output: [
@@ -36,12 +39,11 @@ export default [
         compact: true,
         configFile: '../../babel.config.js',
       }),
-      production && terser(),
+      production && rollupPluginTerser.terser(),
       typescript({
         tsconfig: './tsconfig.json',
         sourceMap: true,
       }),
-      vanillaExtractPlugin(),
     ],
     external: Object.keys({
       ...packageJson.dependencies,
@@ -56,4 +58,6 @@ export default [
       del({ hook: 'buildEnd', targets: './dist/declarations' }),
     ],
   },
-]
+];
+
+exports.default = rollupConfig;
