@@ -29,9 +29,7 @@ export function Fixed() {
     <Virtual
       virtualizer={model}
       style={{
-        height: `500px`,
         width: `400px`,
-        overflow: 'auto',
       }}
     >
       <VirtualContainer virtualizer={model}>
