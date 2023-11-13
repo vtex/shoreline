@@ -5,10 +5,25 @@
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
+  [data-sl-pagination-select-action] {
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
+  }
+
   [data-sl-pagination-select-popover] {
     margin-top: var(--sl-space-1);
     max-height: 12.75rem;
     overflow-y: auto;
+  }
+
+  [data-sl-pagination-select][data-loading='true'] {
+    width: 2.75rem;
+    height: 1.25rem;
+  }
+
+  [data-sl-pagination-total-label][data-loading='true'] {
+    width: 4.125rem;
+    height: 1.25rem;
   }
 
   [data-sl-pagination-actions] {

@@ -2,15 +2,12 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef, useMemo } from 'react'
 import { Stack } from '../stack'
 import { Action } from '../action'
-import {
-  IconCaretDown,
-  IconCaretLeft,
-  IconCaretRight,
-} from '@vtex/shoreline-icons'
+import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 
 import './pagination.css'
-import { Select, SelectOption, SelectPopover, SelectProvider } from '../select'
-import { Bleed } from '../bleed'
+import { SelectOption } from '../select'
+import { Skeleton } from '../skeleton'
+import { PaginationSelect } from './pagination-select'
 
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.
@@ -35,44 +32,43 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
       total,
       onSizeChange,
       onPageChange,
+      loading = false,
       ...otherProps
     } = props
 
     const hasSizes = sizeOptions.length > 0
 
-    const totalPages = Math.ceil(total / size)
+    const totalPages = useMemo(() => Math.ceil(total / size), [total, size])
 
-    const pageOptions = useMemo(
-      () => [...Array(totalPages).keys()].slice(1),
-      [total, size]
-    )
+    const pageOptions = useMemo(() => {
+      const totalPages = Math.ceil(total / size)
+
+      return [...Array(totalPages).keys()].slice(1)
+    }, [total, size])
 
     return (
       <div data-sl-pagination ref={ref} {...otherProps}>
         <Stack direction="row" space="$space-2">
           {hasSizes && (
-            <SelectProvider
-              value={String(size)}
-              setValue={(value) => onSizeChange?.(Number(value))}
+            <PaginationSelect
+              data-sl-pagination-size-select
+              value={size}
+              options={sizeOptions}
+              onValueChange={(value) => onSizeChange?.(value)}
+              label={`Show ${size}`}
+              disabled={loading}
             >
-              <Select asChild>
-                <Action>
-                  Show {size} <IconCaretDown width={16} height={16} />
-                </Action>
-              </Select>
-              <Bleed>
-                <SelectPopover data-sl-pagination-select-popover>
-                  {sizeOptions.map((sizeOption) => (
-                    <SelectOption value={String(sizeOption)}>
-                      Show {sizeOption}
-                    </SelectOption>
-                  ))}
-                </SelectPopover>
-              </Bleed>
-            </SelectProvider>
+              {sizeOptions.map((option) => (
+                <SelectOption value={String(option)}>
+                  Show {option}
+                </SelectOption>
+              ))}
+            </PaginationSelect>
           )}
 
-          <div data-sl-pagination-total-label>{total} items</div>
+          <div data-sl-pagination-total-label data-loading={loading}>
+            {loading ? <Skeleton /> : `${total} items`}
+          </div>
 
           <div data-sl-pagination-actions>
             <Action
@@ -80,45 +76,32 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               onClick={() => {
                 onPageChange?.(page - 1, 'prev')
               }}
-              disabled={page === 1}
+              disabled={page === 1 || loading}
               aria-label="Previous page"
               data-sl-pagination-action-prev
             >
               <IconCaretLeft />
             </Action>
 
-            {totalPages === 1 ? (
-              <div data-sl-pagination-page-label>
-                {page} of {totalPages}
-              </div>
-            ) : (
-              <SelectProvider
-                value={String(page)}
-                setValue={(value) => onPageChange?.(Number(value), 'selection')}
-              >
-                <Select asChild>
-                  <Action>
-                    {page} of {totalPages}
-                  </Action>
-                </Select>
-                <Bleed>
-                  <SelectPopover data-sl-pagination-select-popover>
-                    {pageOptions.map((pageOption) => (
-                      <SelectOption value={String(pageOption)}>
-                        {pageOption}
-                      </SelectOption>
-                    ))}
-                  </SelectPopover>
-                </Bleed>
-              </SelectProvider>
-            )}
+            <PaginationSelect
+              data-sl-pagination-page-select
+              onValueChange={(value) => onPageChange?.(value, 'selection')}
+              value={page}
+              options={pageOptions}
+              loading={loading}
+              label={`${page} of ${pageOptions.length}`}
+            >
+              {pageOptions.map((option) => (
+                <SelectOption value={String(option)}>{option}</SelectOption>
+              ))}
+            </PaginationSelect>
 
             <Action
               iconOnly
               onClick={() => {
                 onPageChange?.(page + 1, 'next')
               }}
-              disabled={page === totalPages}
+              disabled={page === totalPages || loading}
               aria-label="Next page"
               data-sl-pagination-action-next
             >
@@ -138,4 +121,5 @@ export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
   size: number
   page: number
   total: number
+  loading?: boolean
 }

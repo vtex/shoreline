@@ -149,7 +149,7 @@ function getItems(page: number, size: number) {
       const paginatedData = data.slice(currentIndex, currentIndex + size)
 
       res(paginatedData)
-    }, 200)
+    }, 2000)
   })
 }
 
@@ -227,11 +227,15 @@ export function ServerPagination() {
   )
 
   const [{ page, size }, setPagination] = useState({ page: 1, size: 10 })
+  const [loading, setLoading] = useState(true)
 
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
+    if (loading) setLoading(true)
+
     getItems(page, size).then((products: Product[]) => {
+      setLoading(false)
       setProducts(products)
     })
   }, [page, size])
@@ -239,6 +243,7 @@ export function ServerPagination() {
   return (
     <Stack>
       <Pagination
+        loading={loading}
         page={page}
         size={size}
         sizeOptions={[10, 25, 50]}
