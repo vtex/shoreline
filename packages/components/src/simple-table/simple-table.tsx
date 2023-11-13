@@ -162,7 +162,6 @@ export interface SimpleTableProps<T>
   setSort?: OnChangeFn<SortingState> | undefined
   /**
    * Virtualizar table model
-   * @default false
    */
-  virtualizer: UseVirtualizerModelReturn
+  virtualizer?: UseVirtualizerModelReturn
 }

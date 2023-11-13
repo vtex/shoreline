@@ -6439,6 +6439,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> b981d7311 (feat(simple-table): fix build error)
@@ -6483,6 +6484,10 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
 >>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
 >>>>>>> 5e9858409 (feat(simple-table): add table virtualization using Virtual component)
+=======
+    resolution: {integrity: sha512-VacmzZqVxdWdf9y64lDOMZNDMM/FQdtM9IsaOPKOm2suYwEatb8VkdHqOzXcDnZbk7YDE2BmsJmy/2Hmkn563g==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
     dev: true
 
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
@@ -10480,16 +10485,14 @@ packages:
     dev: true
 
   /@storybook/client-logger@7.2.1:
-<<<<<<< HEAD
-<<<<<<< HEAD
     resolution: {integrity: sha512-Lyht/lJg2S65CXRy9rXAZXP/Mgye7jbi/aqQL8z9VRMGChbL+k/3pSZnXTTrD1OVSpCEr4UWA+9bStzT4VjtYA==}
-<<<<<<< HEAD
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
 
   /@storybook/client-logger@7.5.3:
     resolution: {integrity: sha512-vUFYALypjix5FoJ5M/XUP6KmyTnQJNW1poHdW7WXUVSg+lBM6E5eAtjTm0hdxNNDH8KSrdy24nCLra5h0X0BWg==}
+<<<<<<< HEAD
 =======
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 <<<<<<< HEAD
@@ -10508,6 +10511,8 @@ packages:
     resolution: {integrity: sha512-Lyht/lJg2S65CXRy9rXAZXP/Mgye7jbi/aqQL8z9VRMGChbL+k/3pSZnXTTrD1OVSpCEr4UWA+9bStzT4VjtYA==}
 >>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
 >>>>>>> 5e9858409 (feat(simple-table): add table virtualization using Virtual component)
+=======
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
@@ -10670,10 +10675,7 @@ packages:
 <<<<<<< HEAD
 =======
   /@storybook/core-events@7.2.1:
-<<<<<<< HEAD
-<<<<<<< HEAD
     resolution: {integrity: sha512-EUXYb3gyQ2EzpDAWkgfoDl1EPabj3OE6+zntsD/gwvzQU85BTocs10ksnRyS55bfrQpYbf+Z+gw2CZboyagLgg==}
-<<<<<<< HEAD
     dev: true
 
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
@@ -10684,17 +10686,6 @@ packages:
       }
     dependencies:
       ts-dedent: 2.2.0
-=======
->>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
-=======
-    resolution:
-      {
-        integrity: sha512-EUXYb3gyQ2EzpDAWkgfoDl1EPabj3OE6+zntsD/gwvzQU85BTocs10ksnRyS55bfrQpYbf+Z+gw2CZboyagLgg==,
-      }
->>>>>>> 2e5a78547 (feat(simple-table): fix build error)
-=======
-    resolution: {integrity: sha512-EUXYb3gyQ2EzpDAWkgfoDl1EPabj3OE6+zntsD/gwvzQU85BTocs10ksnRyS55bfrQpYbf+Z+gw2CZboyagLgg==}
->>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
     dev: true
 
 <<<<<<< HEAD
@@ -13112,6 +13103,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==,
@@ -13121,20 +13113,9 @@ packages:
 >>>>>>> b981d7311 (feat(simple-table): fix build error)
 =======
 >>>>>>> 5e9858409 (feat(simple-table): add table virtualization using Virtual component)
+=======
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
     resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
-<<<<<<< HEAD
-=======
-=======
-    resolution:
-      {
-        integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==,
-      }
->>>>>>> 2e5a78547 (feat(simple-table): fix build error)
-=======
-    resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
->>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
-    dev: false
->>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 
   /@types/webpack-env@1.18.0:
     resolution: {integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==}
@@ -14710,8 +14691,13 @@ packages:
     resolution: {integrity: sha512-zSuuuAlTMT4mzLj2nPnUm6fsE6270vdOfnpbJ+RmruU75UhLFvL0N2NgI7xpeS7NaB6hGqmd5pVpGTDYvi4Q3w==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
+<<<<<<< HEAD
       '@babel/template': 7.22.15
       '@babel/types': 7.23.0
+=======
+      '@babel/template': 7.22.5
+      '@babel/types': 7.22.5
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
       '@types/babel__core': 7.20.2
       '@types/babel__traverse': 7.18.0
     dev: true
@@ -15514,6 +15500,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==,
@@ -15538,6 +15525,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /character-entities-legacy@3.0.0:
     resolution: {integrity: sha512-RpPp0asT/6ufRm//AJVwpViZbGM/MkjQFxJccQRHmISF/22NBtsHqAWmL+/pmkPWoIUJdWyeVleTl1wydHATVQ==}
@@ -15547,6 +15537,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==,
@@ -15571,6 +15562,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
@@ -15580,6 +15574,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==,
@@ -15604,6 +15599,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
@@ -15964,6 +15962,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==,
@@ -15988,6 +15987,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
@@ -20581,6 +20583,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==,
@@ -20605,6 +20608,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /hast-util-parse-selector@3.1.1:
     resolution: {integrity: sha512-jdlwBjEexy1oGz0aJ2f4GKMaVKkA9jwjr4MjAAI22E5fM/TXVZHuS5OpONtdeIkRKqAaryQ2E9xNQxijoThSZA==}
@@ -21264,6 +21270,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==,
@@ -21288,6 +21295,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
@@ -21405,6 +21415,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==,
@@ -21429,6 +21440,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /is-decimal@2.0.1:
     resolution: {integrity: sha512-AAB9hiomQs5DXWcRB1rqsxGUstbRroFOPPVAomNk/3XHR5JyEZChOyTWe2oayKnsSsr/kcGqF+z6yuH6HHpN0A==}
@@ -21542,6 +21556,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==,
@@ -21566,6 +21581,9 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /is-hexadecimal@2.0.1:
     resolution: {integrity: sha512-DgZQp241c8oO6cA1SbTEWiXeoxV42vlcJxgH+B3hi1AiqqKruZR3ZGF8In3fj4+/y/7rHvlOZLZtgJ/4ttYGZg==}
@@ -27673,6 +27691,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==,
@@ -27701,6 +27720,10 @@ packages:
     dev: false
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 >>>>>>> 03d8528c5 (feat(simple-table): add simple table virtualization)
+=======
+    resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
+    engines: {node: '>=6'}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /proc-log@3.0.0:
     resolution: {integrity: sha512-++Vn7NS4Xf9NacaU9Xq3URUuqZETPsf8L4j5/ckhaRYsfPeRyzGw+iDjFhV/Jr3uNmTvvddEJFWh5R1gRgUH8A==}
@@ -29155,6 +29178,7 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> b981d7311 (feat(simple-table): fix build error)
@@ -29196,6 +29220,9 @@ packages:
     resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
 >>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
 >>>>>>> 5e9858409 (feat(simple-table): add table virtualization using Virtual component)
+=======
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
 
   /remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
@@ -30897,16 +30924,14 @@ packages:
       }
 =======
   /telejson@7.1.0:
-<<<<<<< HEAD
-<<<<<<< HEAD
     resolution: {integrity: sha512-jFJO4P5gPebZAERPkJsqMAQ0IMA1Hi0AoSfxpnUaV6j6R2SZqlpkbS20U6dEUtA3RUYt2Ak/mTlkQzHH9Rv/hA==}
-<<<<<<< HEAD
     dependencies:
       memoizerific: 1.11.3
     dev: true
 
   /telejson@7.2.0:
     resolution: {integrity: sha512-1QTEcJkJEhc8OnStBx/ILRu5J2p0GjvWsBx56bmZRqnrkdBMUe+nX92jxV+p3dB4CP6PZCdJMQJwCggkNBMzkQ==}
+<<<<<<< HEAD
 =======
 >>>>>>> a3fb4b1c0 (feat(simple-table): add simple table virtualization)
 <<<<<<< HEAD
@@ -30925,6 +30950,8 @@ packages:
     resolution: {integrity: sha512-jFJO4P5gPebZAERPkJsqMAQ0IMA1Hi0AoSfxpnUaV6j6R2SZqlpkbS20U6dEUtA3RUYt2Ak/mTlkQzHH9Rv/hA==}
 >>>>>>> 774fd6e19 (feat(simple-table): add table virtualization using Virtual component)
 >>>>>>> 5e9858409 (feat(simple-table): add table virtualization using Virtual component)
+=======
+>>>>>>> b2690417d (feat(virtual): fix rebase errors)
     dependencies:
       memoizerific: 1.11.3
     dev: true
