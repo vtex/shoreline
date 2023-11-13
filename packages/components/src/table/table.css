@@ -46,6 +46,27 @@
         }
       }
     }
+
+    &[data-sl-table-density='default'] {
+      [data-sl-table-header-cell],
+      [data-sl-table-cell] {
+        padding: var(--sl-space-2);
+      }
+    }
+
+    &[data-sl-table-density='comfortable'] {
+      [data-sl-table-header-cell],
+      [data-sl-table-cell] {
+        padding: var(--sl-space-1);
+      }
+    }
+
+    &[data-sl-table-density='compact'] {
+      [data-sl-table-header-cell],
+      [data-sl-table-cell] {
+        padding: var(--sl-space-0);
+      }
+    }
   }
 
   [data-sl-table-header],

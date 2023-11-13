@@ -14,13 +14,34 @@ import { LinkBox } from '../../link-box'
 
 export default {
   title: 'shoreline-components/table',
+  argTypes: {
+    density: {
+      description: 'Table density',
+      default: 'default',
+      options: ['default', 'comfortable', 'compact'],
+      control: { type: 'radio' },
+    },
+    columnWidths: {
+      description: 'Array of column widths',
+      options: [
+        ['minmax(min-content, auto)', 'minmax(min-content, auto)'],
+        ['1fr', '1fr'],
+        ['1fr', '2fr'],
+        ['2fr', '1fr'],
+      ],
+      control: { type: 'radio' },
+    },
+  },
 }
 
-export function Default() {
+export function Default(props) {
+  const {
+    density,
+    columnWidths = ['minmax(min-content, auto)', 'minmax(min-content, auto)'],
+  } = props
+
   return (
-    <Table
-      columnWidths={['minmax(min-content, auto)', 'minmax(min-content, auto)']}
-    >
+    <Table columnWidths={columnWidths} density={density}>
       <TableHeader>
         <TableRow>
           <TableHeaderCell>Name</TableHeaderCell>

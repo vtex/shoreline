@@ -42,6 +42,9 @@ describe('table', () => {
     expect(
       container.querySelector(`[data-sl-table-sticky-column='false']`)
     ).toBeInTheDocument()
+    expect(
+      container.querySelector(`[data-sl-table-density='default']`)
+    ).toBeInTheDocument()
   })
 
   test('renders with sticky header', () => {

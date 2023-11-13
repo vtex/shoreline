@@ -12,6 +12,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
     asChild = false,
     stickyHeader = false,
     stickyColumn = false,
+    density = 'default',
     style = {},
     ...otherProps
   } = props
@@ -24,6 +25,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
       data-sl-table
       data-sl-table-header-sticky={stickyHeader}
       data-sl-table-sticky-column={stickyColumn}
+      data-sl-table-density={density}
       ref={ref}
       style={
         {
@@ -49,6 +51,10 @@ export interface TableProps extends ComponentPropsWithoutRef<'div'> {
    * @default [repeat(${columns.length}, var(--sl-table-default-column-width))]
    */
   columnWidths?: string[]
+  /**
+   * If true, the Table component will be rendered as a child of the Compose component
+   * @default false
+   */
   asChild?: boolean
   /**
    * If true, the header will be sticky
@@ -60,4 +66,9 @@ export interface TableProps extends ComponentPropsWithoutRef<'div'> {
    * @default false
    */
   stickyColumn?: boolean
+  /**
+   * The density of the table
+   * @default 'default'
+   */
+  density?: 'default' | 'comfortable' | 'compact'
 }
