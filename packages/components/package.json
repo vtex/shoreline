@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -63,6 +63,6 @@
     "@react-stately/toggle": "3.6.3",
     "@tanstack/react-table": "8.10.7",
     "@vtex/shoreline-icons": "^0.2.0",
-    "@vtex/shoreline-utils": "^0.3.0"
+    "@vtex/shoreline-utils": "^0.3.1"
   }
 }

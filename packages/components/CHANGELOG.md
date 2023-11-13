@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.20.0...@vtex/shoreline-components@0.21.0) (2023-11-13)
+
+### Bug Fixes
+
+- **field:** label spacing ([3683b5a](https://github.com/vtex/admin-ui/commit/3683b5a34c1e80e67bf3bc5b556f4279c346f184))
+
+### Features
+
+- add skeleton component ([be23972](https://github.com/vtex/admin-ui/commit/be23972e7b53dd3d82975b78b82b96fe635c61ef))
+- **checkbox:** adjust colors ([8744454](https://github.com/vtex/admin-ui/commit/87444549128785a00874e8b9c0e17162644486ba))
+- **filter:** abstract combobox ([6913f16](https://github.com/vtex/admin-ui/commit/6913f165e1b341facde6e8f2467edf9c591ed824))
+- **filter:** add component ([7cdb0db](https://github.com/vtex/admin-ui/commit/7cdb0db503acd1b380255496172761e12cc1cad1))
+- **filter:** add filter radio & checkbox ([88cee02](https://github.com/vtex/admin-ui/commit/88cee025d1096719e681ee5d44e1d6cfa39c7cc4))
+- **locale:** allow message override ([b9cbf1f](https://github.com/vtex/admin-ui/commit/b9cbf1f590776774189df12642da1bbd8a880fe7))
+- **locale:** create locale framework ([f424240](https://github.com/vtex/admin-ui/commit/f4242407aed3b49103e73d1986711b05c21b7713))
+- **simple-table:** ability to customize column width ([d3e69fb](https://github.com/vtex/admin-ui/commit/d3e69fb7ac3bc9fc3125ca1aee3306df528eca9a))
+- **simpletable:** add sorting functionality ([2458cce](https://github.com/vtex/admin-ui/commit/2458ccecdebb059d6c1a2bad55cf4c86d77e4798))
+- **skeleton:** accept pr suggestion ([a240eba](https://github.com/vtex/admin-ui/commit/a240ebaf7e122cc8cad933ac9e93364d88e343da))
+- **tab:** create component ([f130e75](https://github.com/vtex/admin-ui/commit/f130e75ed29ef24263f6a6a56fb00f677a75c6ac))
+- **table:** add density api ([a7da984](https://github.com/vtex/admin-ui/commit/a7da984a2761484f4c422c4aff540f49e1adbc7d))
+- **tooltip:** create component ([c739953](https://github.com/vtex/admin-ui/commit/c73995323e562e7320cced6acadf96bde456dc01))
+
 # [0.20.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.19.1...@vtex/shoreline-components@0.20.0) (2023-11-06)
 
 ### Features

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-utils",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Shoreline utilities",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
