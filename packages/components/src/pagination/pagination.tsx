@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { Stack } from '../stack'
 import { Action } from '../action'
 import {
@@ -7,10 +7,10 @@ import {
   IconCaretLeft,
   IconCaretRight,
 } from '@vtex/shoreline-icons'
-import { AccessibleIcon } from '../accessible-icon'
-import { VisuallyHidden } from '../visually-hidden'
-import { useId } from '@vtex/shoreline-utils'
+
 import './pagination.css'
+import { Select, SelectOption, SelectPopover, SelectProvider } from '../select'
+import { Bleed } from '../bleed'
 
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.
@@ -42,37 +42,34 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 
     const totalPages = Math.ceil(total / size)
 
-    const id = useId()
+    const pageOptions = useMemo(
+      () => [...Array(totalPages).keys()].slice(1),
+      [total, size]
+    )
 
     return (
       <div data-sl-pagination ref={ref} {...otherProps}>
         <Stack direction="row" space="$space-2">
           {hasSizes && (
-            <div data-sl-pagination-size>
-              <VisuallyHidden>
-                <label htmlFor={id}>Select page size</label>
-              </VisuallyHidden>
-              <select
-                id={id}
-                data-sl-pagination-size-select
-                value={size}
-                onChange={(e) => {
-                  onSizeChange?.(Number(e.target.value))
-                }}
-              >
-                {sizeOptions.map((sizeOption) => (
-                  <option value={sizeOption}>Show {sizeOption}</option>
-                ))}
-              </select>
-
-              <AccessibleIcon label="Select caret icon">
-                <IconCaretDown
-                  data-sl-pagination-size-select-icon
-                  width={16}
-                  height={16}
-                />
-              </AccessibleIcon>
-            </div>
+            <SelectProvider
+              value={String(size)}
+              setValue={(value) => onSizeChange?.(Number(value))}
+            >
+              <Select asChild>
+                <Action>
+                  Show {size} <IconCaretDown width={16} height={16} />
+                </Action>
+              </Select>
+              <Bleed>
+                <SelectPopover data-sl-pagination-select-popover>
+                  {sizeOptions.map((sizeOption) => (
+                    <SelectOption value={String(sizeOption)}>
+                      Show {sizeOption}
+                    </SelectOption>
+                  ))}
+                </SelectPopover>
+              </Bleed>
+            </SelectProvider>
           )}
 
           <div data-sl-pagination-total-label>{total} items</div>
@@ -89,9 +86,33 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             >
               <IconCaretLeft />
             </Action>
-            <div data-sl-pagination-page-label>
-              {page} of {totalPages}
-            </div>
+
+            {totalPages === 1 ? (
+              <div data-sl-pagination-page-label>
+                {page} of {totalPages}
+              </div>
+            ) : (
+              <SelectProvider
+                value={String(page)}
+                setValue={(value) => onPageChange?.(Number(value), 'selection')}
+              >
+                <Select asChild>
+                  <Action>
+                    {page} of {totalPages}
+                  </Action>
+                </Select>
+                <Bleed>
+                  <SelectPopover data-sl-pagination-select-popover>
+                    {pageOptions.map((pageOption) => (
+                      <SelectOption value={String(pageOption)}>
+                        {pageOption}
+                      </SelectOption>
+                    ))}
+                  </SelectPopover>
+                </Bleed>
+              </SelectProvider>
+            )}
+
             <Action
               iconOnly
               onClick={() => {
@@ -111,7 +132,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 )
 
 export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
-  onPageChange?: (page: number, type: 'next' | 'prev') => void
+  onPageChange?: (page: number, type: 'next' | 'prev' | 'selection') => void
   onSizeChange?: (size: number) => void
   sizeOptions?: number[]
   size: number
