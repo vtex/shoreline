@@ -2,7 +2,7 @@ import '../../../dist/styles.min.css'
 import React, { useRef } from 'react'
 
 import { Text } from '../index'
-import * as styles from './style.css'
+
 import { Stack } from '../../stack'
 
 export default {
@@ -16,33 +16,15 @@ export function Default() {
 export function as() {
   return (
     <>
-      <Text as="h1" className={styles.asStoryTheme}>
-        Heading 1
-      </Text>
-      <Text as="h2" className={styles.asStoryTheme}>
-        Heading 2
-      </Text>
-      <Text as="h3" className={styles.asStoryTheme}>
-        Heading 3
-      </Text>
-      <Text as="h4" className={styles.asStoryTheme}>
-        Heading 4
-      </Text>
-      <Text as="h5" className={styles.asStoryTheme}>
-        Heading 5
-      </Text>
-      <Text as="h6" className={styles.asStoryTheme}>
-        Heading 6
-      </Text>
-      <Text as="div" className={styles.asStoryTheme}>
-        div
-      </Text>
-      <Text as="p" className={styles.asStoryTheme}>
-        p
-      </Text>
-      <Text as="label" className={styles.asStoryTheme}>
-        label
-      </Text>
+      <Text as="h1">Heading 1</Text>
+      <Text as="h2">Heading 2</Text>
+      <Text as="h3">Heading 3</Text>
+      <Text as="h4">Heading 4</Text>
+      <Text as="h5">Heading 5</Text>
+      <Text as="h6">Heading 6</Text>
+      <Text as="div">div</Text>
+      <Text as="p">p</Text>
+      <Text as="label">label</Text>
     </>
   )
 }
