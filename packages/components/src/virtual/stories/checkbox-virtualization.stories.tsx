@@ -17,7 +17,7 @@ export default {
 }
 
 export function CheckboxVirtualization() {
-  const numberOfItems = useMemo(() => 100, [])
+  const numberOfItems = useMemo(() => 50000, [])
 
   const items = new Array(numberOfItems).fill(true)
 

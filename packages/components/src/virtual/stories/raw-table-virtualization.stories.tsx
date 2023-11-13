@@ -2,23 +2,10 @@ import '../../../dist/styles.min.css'
 import '../virtual.css'
 import '../../table/table.css'
 
-import React, { Fragment, useRef } from 'react'
+import React from 'react'
 import { faker } from '@faker-js/faker'
 
-import {
-  Virtual,
-  VirtualContainer,
-  VirtualItem,
-  useVirtualizerModel,
-} from '../index'
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-} from '../../table'
+import { useVirtualizerModel } from '../index'
 import { useVirtualizer } from '@tanstack/react-virtual'
 
 export default {
@@ -41,40 +28,38 @@ export function RawTableVirtualization() {
   })
 
   return (
-    <div
-      role="table"
+    <table
       data-sl-table
       ref={virtualizer.ref}
       style={{ height: 500, overflow: 'auto' }}
     >
-      <div data-sl-table-header role="presentation">
-        <div data-sl-table-row role="row">
-          <div data-sl-table-header-cell role="columnheader">
-            Index
-          </div>
-        </div>
-      </div>
-      <div data-sl-table-body role="presentation">
+      <thead data-sl-table-header role="presentation">
+        <tr data-sl-table-row>
+          <td data-sl-table-header-cell>Index</td>
+        </tr>
+      </thead>
+      <tbody data-sl-table-body role="presentation">
         {virtualizer.top > 0 && (
-          <div role="row" data-sl-table-row>
-            <TableCell style={{ height: `${virtualizer.top}px` }} />
-          </div>
+          <tr data-sl-table-row>
+            <td data-sl-table-cell style={{ height: `${virtualizer.top}px` }} />
+          </tr>
         )}
         {virtualizer.virtualItems.map((row) => {
           return (
-            <div key={row.index} role="row" data-sl-table-row>
-              <div data-sl-table-cell role="cell">
-                rowIndex: {row.index}
-              </div>
-            </div>
+            <tr key={row.index} data-sl-table-row>
+              <td data-sl-table-cell>rowIndex: {row.index}</td>
+            </tr>
           )
         })}
         {virtualizer.bottom > 0 && (
-          <div role="row" data-sl-table-row>
-            <TableCell style={{ height: `${virtualizer.bottom}px` }} />
-          </div>
+          <tr data-sl-table-row>
+            <td
+              data-sl-table-cell
+              style={{ height: `${virtualizer.bottom}px` }}
+            />
+          </tr>
         )}
-      </div>
-    </div>
+      </tbody>
+    </table>
   )
 }

@@ -1,6 +1,7 @@
 import '../../../dist/styles.min.css'
 import React, { Fragment, useMemo } from 'react'
 import '../virtual.css'
+import './styles.css'
 
 import {
   Virtual,
@@ -15,24 +16,29 @@ export default {
   title: 'shoreline-components/virtual',
 }
 
-export function Default() {
-  const virtualizer = useVirtualizerModel({
-    count: 100,
-    dynamic: true,
+export function Fixed() {
+  const model = useVirtualizerModel({
+    count: 5000,
+    estimateSize() {
+      return 60
+    },
+    overscan: 5,
   })
 
   return (
-    <Virtual virtualizer={virtualizer}>
-      <VirtualContainer virtualizer={virtualizer}>
+    <Virtual
+      virtualizer={model}
+      style={{
+        height: `500px`,
+        width: `400px`,
+        overflow: 'auto',
+      }}
+    >
+      <VirtualContainer virtualizer={model}>
         <VirtualItem asChild>
           {({ index }) => {
             return (
-              <Center
-                style={{
-                  height: index % 2 === 0 ? '40px' : '60px',
-                  background: index % 2 === 0 ? '#cecece' : 'white',
-                }}
-              >
+              <Center className="row" data-odd={index % 2 !== 0}>
                 Item {index}
               </Center>
             )

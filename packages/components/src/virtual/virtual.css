@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: var(--sl-virtual-item-size, 0px);
-    transform: translateY(var(--sl-virtual-item-start), 0px);
+    transform: translateY(var(--sl-virtual-item-start, 0px));
   }
 
   [data-sl-virtual-container][data-sl-virtual-dynamic='true'] {
@@ -21,7 +21,7 @@
 
   [data-sl-virtual] {
     height: 500px;
-    overflow: auto;
+    overflow-y: auto;
     width: 100%;
   }
 

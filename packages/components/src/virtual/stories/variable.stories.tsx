@@ -9,28 +9,30 @@ import {
   useVirtualizerModel,
 } from '../index'
 
+import './styles.css'
 import { Center } from '../../center'
 
 export default {
   title: 'shoreline-components/virtual',
 }
 
-export function Default() {
+export function Dynamic() {
   const virtualizer = useVirtualizerModel({
-    count: 100,
+    count: 5000,
     dynamic: true,
   })
 
   return (
-    <Virtual virtualizer={virtualizer}>
+    <Virtual virtualizer={virtualizer} style={{ width: 500 }}>
       <VirtualContainer virtualizer={virtualizer}>
         <VirtualItem asChild>
           {({ index }) => {
             return (
               <Center
+                className="row"
+                data-odd={index % 2 !== 0}
                 style={{
                   height: index % 2 === 0 ? '40px' : '60px',
-                  background: index % 2 === 0 ? '#cecece' : 'white',
                 }}
               >
                 Item {index}
