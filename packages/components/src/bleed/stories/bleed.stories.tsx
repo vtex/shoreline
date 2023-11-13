@@ -2,7 +2,6 @@ import '../../../dist/styles.min.css'
 import React from 'react'
 
 import { Bleed } from '../index'
-import { containerStyle } from './bleed.stories.css'
 
 export default {
   title: 'shoreline-components/bleed',
@@ -10,8 +9,8 @@ export default {
 
 export function Default() {
   return (
-    <div className={containerStyle}>
-      <Bleed horizontal="16px" vertical="8px">
+    <div style={{ padding: '1rem' }}>
+      <Bleed horizontal="1rem" vertical="0.5rem">
         <button>Button</button>
       </Bleed>
     </div>
