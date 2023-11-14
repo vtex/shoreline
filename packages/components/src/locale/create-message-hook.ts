@@ -17,18 +17,22 @@ import { useLocale } from './use-locale'
  * const getMessage - useMessage()
  * getMessage('test')
  */
-export function createMessageHook<T extends string = ''>(
-  messages: Record<string, Record<T, string>>
-): (overrides?: Record<T, string>) => (id: T) => string {
+export function createMessageHook(
+  messages: Record<string, Record<string, string>>
+): (
+  overrides?: Record<string, string>
+) => (id: string, variables?: Record<string, string | number>) => string {
   return function useMessage(overrides) {
     const locale = useLocale()
 
     return useCallback(
-      (id) => {
-        const query = `${locale}.${id}`
-        const localizedString = get(messages, query, '')
+      (id, variables) => {
+        const localizedMessages = messages[locale]
+        const localizedString = get(localizedMessages, id, variables, '')
 
-        return overrides ? get(overrides, id, localizedString) : localizedString
+        return overrides
+          ? get(overrides, id, variables, localizedString)
+          : localizedString
       },
       [locale, overrides]
     )
@@ -43,19 +47,29 @@ export function createMessageHook<T extends string = ''>(
  * @param def  - the fallback value
  */
 export function get(
-  obj: object | null | undefined,
-  path: string | number | symbol,
-  fallback?: any,
-  index?: number
+  obj: Record<string, string> | null | undefined,
+  path: string,
+  variables?: Record<string, string | number>,
+  fallback?: any
 ) {
-  if (!obj) return fallback
+  const localizedMessage = obj?.[path]
 
-  const key = typeof path === 'string' ? path.split('.') : [path]
+  if (!localizedMessage) return fallback
 
-  for (index = 0; index < key.length; index += 1) {
-    if (!obj) break
-    obj = (obj as any)[key[index]]
-  }
+  if (!variables) return localizedMessage
 
-  return obj === undefined ? fallback : obj
+  const dynamicMessage = localizedMessage
+    .split(' ')
+    .map((word) => {
+      const isDynamicWord = word.startsWith('{') && word.endsWith('}')
+
+      if (!isDynamicWord) return word
+
+      const dynamicValue = word.slice(1, -1)
+
+      return variables[dynamicValue] ?? word
+    })
+    .join(' ')
+
+  return dynamicMessage
 }
