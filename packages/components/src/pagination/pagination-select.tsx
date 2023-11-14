@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Action } from '../action'
@@ -23,8 +23,6 @@ export const PaginationSelect = forwardRef<
   } = props
 
   if (loading) {
-    console.log({ loading })
-
     return (
       <div data-sl-pagination-select data-loading={loading}>
         <Skeleton />
@@ -48,7 +46,7 @@ export const PaginationSelect = forwardRef<
           </Select>
           <Bleed>
             <SelectPopover data-sl-pagination-select-popover>
-              {children}
+              {options.map((option) => children(option))}
             </SelectPopover>
           </Bleed>
         </SelectProvider>
@@ -57,10 +55,11 @@ export const PaginationSelect = forwardRef<
   )
 })
 
-export interface PaginationSelectProps extends ComponentPropsWithoutRef<'div'> {
+export interface PaginationSelectProps {
   onValueChange?: (value: number) => void
   value: number
   options: number[]
+  children: (option: number) => ReactNode
   loading?: boolean
   label: ReactNode
   disabled?: boolean

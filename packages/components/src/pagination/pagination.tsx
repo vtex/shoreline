@@ -8,7 +8,6 @@ import './pagination.css'
 import { SelectOption } from '../select'
 import { Skeleton } from '../skeleton'
 import { PaginationSelect } from './pagination-select'
-
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.
  *
@@ -58,11 +57,11 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               label={`Show ${size}`}
               disabled={loading}
             >
-              {sizeOptions.map((option) => (
+              {(option) => (
                 <SelectOption value={String(option)}>
                   Show {option}
                 </SelectOption>
-              ))}
+              )}
             </PaginationSelect>
           )}
 
@@ -91,9 +90,9 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               loading={loading}
               label={`${page} of ${pageOptions.length}`}
             >
-              {pageOptions.map((option) => (
+              {(option) => (
                 <SelectOption value={String(option)}>{option}</SelectOption>
-              ))}
+              )}
             </PaginationSelect>
 
             <Action

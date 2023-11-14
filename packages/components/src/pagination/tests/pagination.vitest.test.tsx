@@ -18,6 +18,9 @@ describe('pagination', () => {
       container.querySelector('[data-sl-pagination-actions]')
     ).toBeInTheDocument()
     expect(
+      container.querySelector('[data-sl-pagination-page-select]')
+    ).toBeInTheDocument()
+    expect(
       container.querySelector('[data-sl-pagination-total-label]')
     ).toBeInTheDocument()
   })
