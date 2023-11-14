@@ -4,7 +4,7 @@
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
     padding: var(--sl-space-3) var(--sl-space-4);
-    padding-right: var(--sl-space-8);
+    padding-right: var(--sl-space-10);
     border: var(--sl-border-strong);
     border-radius: var(--sl-border-radius-medium);
     background: var(--sl-bg);
@@ -24,9 +24,17 @@
     &[data-error='true'] {
       border: var(--sl-border-critical-strong);
 
+      &:hover {
+        border: var(--sl-border-critical-strong-hover);
+      }
+
       &:focus-visible {
         box-shadow: var(--sl-focus-ring-critical);
       }
+    }
+
+    &:hover {
+      border: var(--sl-border-strong);
     }
 
     &:disabled {
@@ -43,6 +51,8 @@
   [data-sl-select-field-input-container] {
     position: relative;
     width: 100%;
+    min-width: 20rem;
+    height: 2.75rem;
   }
 
   [data-sl-select-field-icon] {
