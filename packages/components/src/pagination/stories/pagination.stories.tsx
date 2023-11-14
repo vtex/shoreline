@@ -3,6 +3,7 @@ import './style.css'
 import React, { useState } from 'react'
 
 import { Pagination } from '../index'
+import { LocaleProvider } from '../../locale'
 
 export default {
   title: 'shoreline-components/pagination',
@@ -55,5 +56,26 @@ export function Loading() {
         loading
       />
     </div>
+  )
+}
+
+export function Intl() {
+  const [pagination, setPagination] = useState({ page: 1, size: 25 })
+
+  return (
+    <LocaleProvider locale="pt-BR">
+      <div className="pagination-container">
+        <Pagination
+          page={pagination.page}
+          onPageChange={(page) => {
+            setPagination((prev) => ({ ...prev, page }))
+          }}
+          total={100}
+          sizeOptions={[25, 50, 100]}
+          size={pagination.size}
+          onSizeChange={(size) => setPagination((prev) => ({ ...prev, size }))}
+        />
+      </div>
+    </LocaleProvider>
   )
 }

@@ -8,6 +8,11 @@ import './pagination.css'
 import { SelectOption } from '../select'
 import { Skeleton } from '../skeleton'
 import { PaginationSelect } from './pagination-select'
+import { createMessageHook } from '../locale'
+import { messages } from './messages'
+
+const useMessage = createMessageHook(messages)
+
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.
  *
@@ -35,14 +40,17 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
       ...otherProps
     } = props
 
+    const getMessage = useMessage()
+
     const hasSizes = sizeOptions.length > 0
 
-    const totalPages = useMemo(() => Math.ceil(total / size), [total, size])
-
-    const pageOptions = useMemo(() => {
+    const { totalPages, pageOptions } = useMemo(() => {
       const totalPages = Math.ceil(total / size)
+      const pageOptions = Array(totalPages)
+        .fill(1)
+        .map((_, index) => index + 1)
 
-      return [...Array(totalPages).keys()].slice(1)
+      return { totalPages, pageOptions }
     }, [total, size])
 
     return (
@@ -54,19 +62,19 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               value={size}
               options={sizeOptions}
               onValueChange={(value) => onSizeChange?.(value)}
-              label={`Show ${size}`}
+              label={getMessage('size-select', { size })}
               disabled={loading}
             >
               {(option) => (
                 <SelectOption value={String(option)}>
-                  Show {option}
+                  {getMessage('size-select', { size: option })}
                 </SelectOption>
               )}
             </PaginationSelect>
           )}
 
           <div data-sl-pagination-total-label data-loading={loading}>
-            {loading ? <Skeleton /> : `${total} items`}
+            {loading ? <Skeleton /> : getMessage('total-label', { total })}
           </div>
 
           <div data-sl-pagination-actions>
@@ -76,7 +84,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
                 onPageChange?.(page - 1, 'prev')
               }}
               disabled={page === 1 || loading}
-              aria-label="Previous page"
+              aria-label={getMessage('previous-page-action')}
               data-sl-pagination-action-prev
             >
               <IconCaretLeft />
@@ -88,7 +96,10 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               value={page}
               options={pageOptions}
               loading={loading}
-              label={`${page} of ${pageOptions.length}`}
+              label={getMessage('page-select', {
+                page,
+                pages: totalPages,
+              })}
             >
               {(option) => (
                 <SelectOption value={String(option)}>{option}</SelectOption>
@@ -101,7 +112,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
                 onPageChange?.(page + 1, 'next')
               }}
               disabled={page === totalPages || loading}
-              aria-label="Next page"
+              aria-label={getMessage('next-page-action')}
               data-sl-pagination-action-next
             >
               <IconCaretRight />
