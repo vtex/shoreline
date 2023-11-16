@@ -13,6 +13,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
       data-sl-menu
       ref={ref}
       render={asChild && (children as any)}
+      gutter={4}
       {...otherProps}
     >
       {children}
