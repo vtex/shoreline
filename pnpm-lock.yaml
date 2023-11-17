@@ -162,8 +162,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(@babel/core@7.22.5)(typescript@4.9.5)
       chromatic:
-        specifier: ^6.4.3
-        version: 6.7.4
+        specifier: ^9.1.0
+        version: 9.1.0
       commitizen:
         specifier: ^4.2.0
         version: 4.2.5(@swc/core@1.2.241)
@@ -11124,10 +11124,6 @@ packages:
   /@types/unist@3.0.0:
     resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
 
-  /@types/webpack-env@1.18.0:
-    resolution: {integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==}
-    dev: true
-
   /@types/websocket@1.0.2:
     resolution: {integrity: sha512-B5m9aq7cbbD/5/jThEr33nUY8WEfVi6A2YKCTOvw5Ldy7mtsOkqRvGjnzy6g7iMMDsgu7xREuCzqATLDLQVKcQ==}
     dependencies:
@@ -13376,12 +13372,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /chromatic@6.7.4:
-    resolution: {integrity: sha512-QW4i8RQsON0JVnFnRf+8y70aIJptvC0Oi/26YJ669Dl03WmJRpobNO5qWFPTiv3KFKMc1Qf6/qFsRVZCtn+bfA==}
+  /chromatic@9.1.0:
+    resolution: {integrity: sha512-9ib8k4LIfg/88kKufxz1N8vgCB7nlLhJqmx+Vx55cM/6DCB/M6oqroirVRXfdeC7qaZuhyUemPF2QHxBh7GXtQ==}
     hasBin: true
-    dependencies:
-      '@discoveryjs/json-ext': 0.5.7
-      '@types/webpack-env': 1.18.0
     dev: true
 
   /chrome-trace-event@1.0.3:
