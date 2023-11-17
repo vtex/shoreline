@@ -1,0 +1,49 @@
+{
+  "name": "@vtex/shoreline-primitives",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "directory": "packages/primitives",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "7.2.0"
+  },
+  "dependencies": {
+    "@ariakit/react": "0.3.5",
+    "@vtex/shoreline-icons": "workspace",
+    "@vtex/shoreline-utils": "workspace"
+  }
+}

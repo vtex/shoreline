@@ -2,7 +2,7 @@ import React from 'react'
 import { Composable, isComposable } from '../composable'
 import { render } from '@testing-library/react'
 
-describe('composable', () => {
+describe('primitives/composable', () => {
   it('renders', () => {
     const { getByText } = render(<Composable>Compound</Composable>)
 

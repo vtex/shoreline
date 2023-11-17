@@ -1,10 +1,14 @@
 import type { ReactNode } from 'react'
 import React, { Children, isValidElement, cloneElement, Fragment } from 'react'
+import type { RenderProps } from '@vtex/shoreline-utils'
+
 import { isComposable } from './composable'
 import type { ComposeElementArgs } from './compose-element'
 import { composeElement } from './compose-element'
-import type { RenderProps } from '@vtex/shoreline-utils'
 
+/**
+ * Create a <Compose> instance
+ */
 export function createComposition({ props, ref, element }: ComposeElementArgs) {
   const childrenArray = Children.toArray(element)
   const composableElement = childrenArray.find(isComposable)

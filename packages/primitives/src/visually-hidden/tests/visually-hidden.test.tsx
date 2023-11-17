@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { VisuallyHidden } from '../visually-hidden'
 
-describe('visually-hidden', () => {
+describe('primitives/visually-hidden', () => {
   it('renders', () => {
     const { getByText } = render(<VisuallyHidden>Hidden</VisuallyHidden>)
 

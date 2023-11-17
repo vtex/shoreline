@@ -25,6 +25,13 @@ export function isComposable(child: ReactNode): child is ReactElement {
 }
 
 export interface ComposableProps {
+  /**
+   * Render functon
+   * @default (node) => <>{node}</>
+   */
   render?: RenderProps
+  /**
+   * Children prop
+   */
   children: ReactNode
 }

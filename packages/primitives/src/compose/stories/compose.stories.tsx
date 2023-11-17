@@ -1,12 +1,11 @@
-import '../../../dist/styles.min.css'
 import React, { useRef } from 'react'
+import type { AnyObject } from '@vtex/shoreline-utils'
 
 import { Compose, Composable } from '../index'
-import type { AnyObject } from '@vtex/shoreline-utils'
 import { VisuallyHidden } from '../../visually-hidden'
 
 export default {
-  title: 'shoreline-components/compose',
+  title: 'primitives/compose',
 }
 
 export function Default() {

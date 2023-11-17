@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Compose } from '../compose'
 
-describe('compose', () => {
+describe('primitives/compose', () => {
   it('renders', () => {
     const { getByText } = render(
       <Compose>

@@ -1,12 +1,10 @@
-import '../../../dist/styles.min.css'
 import React from 'react'
-import type { Meta } from '@storybook/react'
 
 import { VisuallyHidden } from '../index'
 
 export default {
-  title: 'shoreline-components/visually-hidden',
-} as Meta
+  title: 'primitives/visually-hidden',
+}
 
 export function Default() {
   return (
