@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Flex } from '../flex'
+import { Stack } from '../stack'
 
 export const FieldMessage = forwardRef<HTMLDivElement, FieldMessageProps>(
   function FieldMessage(props, ref) {
@@ -11,14 +11,14 @@ export const FieldMessage = forwardRef<HTMLDivElement, FieldMessageProps>(
 
     return (
       <div ref={ref} data-sl-field-message {...restProps}>
-        <Flex direction="column">
+        <Stack space="$space-0">
           {helpText && <p data-sl-field-message-text>{helpText}</p>}
           {hasError && (
             <p data-sl-field-message-text role="alert">
               {errorText}
             </p>
           )}
-        </Flex>
+        </Stack>
       </div>
     )
   }
