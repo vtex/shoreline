@@ -4,14 +4,22 @@ import { MenuItem as BaseMenuItem } from '@ariakit/react'
 
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   function MenuItem(props, ref) {
-    const { children, asChild = false, critical = false, ...otherProps } = props
+    const {
+      children,
+      asChild = false,
+      critical = false,
+      disabled = false,
+      ...otherProps
+    } = props
 
     return (
       <BaseMenuItem
         data-sl-menu-item
         data-critical={critical}
+        data-disabled={disabled}
         ref={ref}
         render={asChild && (children as any)}
+        disabled={disabled}
         {...otherProps}
       >
         {children}
@@ -31,4 +39,9 @@ export interface MenuItemProps extends ComponentPropsWithoutRef<'div'> {
    * @default false
    */
   critical?: boolean
+  /**
+   * Wether is disabled
+   * @default false
+   */
+  disabled?: boolean
 }

@@ -1,7 +1,13 @@
 import '../../../dist/styles.min.css'
 import '../menu.css'
 import React from 'react'
-import { IconCaretDown } from '@vtex/shoreline-icons'
+import {
+  IconCaretDown,
+  IconDotsThreeVertical,
+  IconPencil,
+  IconTrash,
+  IconArchive,
+} from '@vtex/shoreline-icons'
 
 import {
   Menu,
@@ -11,6 +17,8 @@ import {
   MenuTrigger,
 } from '../index'
 import { Button } from '../../button'
+import { IconButton } from '../../icon-button'
+import { Stack } from '../../stack'
 
 export default {
   title: 'shoreline-components/menu',
@@ -51,5 +59,215 @@ export function Composition() {
         </div>
       </Menu>
     </MenuProvider>
+  )
+}
+
+export function MoreActions() {
+  return (
+    <Stack>
+      <Stack direction="row">
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <Button variant="primary">
+              <IconDotsThreeVertical /> More actions
+            </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <IconButton variant="primary" label="more actions">
+              <IconDotsThreeVertical />
+            </IconButton>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <Button variant="primary" disabled>
+              <IconDotsThreeVertical /> More actions
+            </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+      </Stack>
+
+      <Stack direction="row">
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <Button variant="tertiary">
+              <IconDotsThreeVertical /> More actions
+            </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <IconButton variant="tertiary" label="more actions">
+              <IconDotsThreeVertical />
+            </IconButton>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <Button variant="tertiary" disabled>
+              <IconDotsThreeVertical /> More actions
+            </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+      </Stack>
+    </Stack>
+  )
+}
+
+export function CustomLabel() {
+  return (
+    <Stack>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="primary">
+            Create promotion <IconCaretDown />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="tertiary">
+            Create promotion <IconCaretDown />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+    </Stack>
+  )
+}
+
+export function ItemVariants() {
+  return (
+    <Stack>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="primary">
+            Create promotion <IconCaretDown />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem disabled>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="tertiary">
+            Create promotion <IconCaretDown />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem critical>Regular</MenuItem>
+          <MenuItem critical>Buy together</MenuItem>
+          <MenuItem critical>More for less</MenuItem>
+          <MenuItem critical disabled>
+            Progressive discount
+          </MenuItem>
+        </Menu>
+      </MenuProvider>
+    </Stack>
   )
 }
