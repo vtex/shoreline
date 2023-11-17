@@ -30,6 +30,7 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
       label,
       error = false,
       disabled = false,
+      optional = false,
       className,
       id: defaultId,
       ...otherProps
@@ -39,7 +40,11 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
 
     return (
       <Field data-sl-select-field className={className}>
-        {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
+        {label && (
+          <FieldLabel htmlFor={id} optional={optional}>
+            {label}
+          </FieldLabel>
+        )}
         <div data-sl-select-field-input-container>
           <select
             ref={ref}
@@ -74,4 +79,5 @@ export interface SelectFieldProps extends ComponentPropsWithoutRef<'select'> {
   errorText?: ReactNode
   helpText?: ReactNode
   disabled?: boolean
+  optional?: boolean
 }

@@ -11,7 +11,7 @@ export const FieldMessage = forwardRef<HTMLDivElement, FieldMessageProps>(
 
     return (
       <div ref={ref} data-sl-field-message {...restProps}>
-        <Stack space="$space-1">
+        <Stack space="$space-0">
           {helpText && <p data-sl-field-message-text>{helpText}</p>}
           {hasError && (
             <p data-sl-field-message-text role="alert">

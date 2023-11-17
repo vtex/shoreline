@@ -1,21 +1,19 @@
 @layer sl-components {
-
-  [data-sl-field][data-variant="default"] {
-
+  [data-sl-field][data-variant='default'] {
     --sl-element-template-areas: 'label' 'input' 'message';
     --sl-element-vertical-gap: var(--sl-space-1);
     --sl-element-horizontal-gap: var(--sl-space-0);
     --sl-element-label-color: var(--sl-fg-soft);
   }
 
-  [data-sl-field][data-variant="group"] {
+  [data-sl-field][data-variant='group'] {
     --sl-element-template-areas: 'label' 'input' 'message';
     --sl-element-vertical-gap: var(--sl-space-3);
     --sl-element-horizontal-gap: var(--sl-space-0);
     --sl-element-label-color: var(--sl-fg-soft);
   }
 
-  [data-sl-field][data-variant="control"] {
+  [data-sl-field][data-variant='control'] {
     --sl-element-template-areas: 'input label' '- message';
     --sl-element-label-color: var(--sl-fg);
     --sl-element-vertical-gap: var(--sl-space-0);
@@ -42,7 +40,7 @@
     }
 
     [data-sl-field-message-text] {
-      color: var(--sl-fg-muted);
+      color: var(--sl-fg);
       font: var(--sl-text-caption-2-font);
       letter-spacing: var(--sl-text-caption-2-letter-spacing);
     }
