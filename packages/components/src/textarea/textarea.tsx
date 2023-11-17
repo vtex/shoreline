@@ -2,9 +2,8 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { useId } from '@vtex/shoreline-utils'
 
-import { Field, FieldLabel, FieldMessage } from '../field'
+import { Field, FieldLabel } from '../field'
 import { Stack } from '../stack'
-import { Flex } from '../flex'
 import { Grid } from '../grid'
 
 export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
@@ -28,21 +27,19 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
     const id = baseId ?? useId()
 
     return (
-      <Field ref={ref} className={className} data-sl-textarea-container>
+      <Field ref={ref} className={className} data-sl-textarea>
         {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
-        <div data-sl-textarea-container>
-          <textarea
-            id={id}
-            data-sl-textarea
-            data-error={error}
-            data-disabled={disabled}
-            disabled={disabled}
-            maxLength={maxLength}
-            aria-invalid={error}
-            value={value}
-            {...htmlProps}
-          />
-        </div>
+        <textarea
+          id={id}
+          data-sl-textarea-input
+          data-error={error}
+          data-disabled={disabled}
+          disabled={disabled}
+          maxLength={maxLength}
+          aria-invalid={error}
+          value={value}
+          {...htmlProps}
+        />
         <Grid templateColumns="1fr auto" data-sl-field-message>
           <Stack space="$space-0">
             {helpText && <p data-sl-field-message-text>{helpText}</p>}

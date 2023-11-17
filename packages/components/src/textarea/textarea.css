@@ -1,11 +1,11 @@
 @layer sl-components {
 
-  [data-sl-textarea-field] {
+  [data-sl-textarea] {
     width: 100%;
     max-width: 20rem;
   }
 
-  [data-sl-textarea] {
+  [data-sl-textarea-input] {
     display: block;
     border: var(--sl-border-strong);
     width: 100%;
