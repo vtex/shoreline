@@ -58,6 +58,7 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
             data-disabled={disabled}
             aria-invalid={error}
             id={id}
+            aria-required={optional}
             {...otherProps}
           >
             <option value="" disabled>
