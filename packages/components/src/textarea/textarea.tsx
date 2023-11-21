@@ -2,7 +2,9 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { useId } from '@vtex/shoreline-utils'
 
-import { Field, FieldLabel, FieldMessage } from '../field'
+import { Field, FieldLabel } from '../field'
+import { Stack } from '../stack'
+import { Grid } from '../grid'
 
 export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
   function Textarea(props, ref) {
@@ -25,26 +27,34 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
     const id = baseId ?? useId()
 
     return (
-      <Field ref={ref} className={className}>
+      <Field ref={ref} className={className} data-sl-textarea>
         {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
-        <div data-sl-textarea-container>
-          <textarea
-            id={id}
-            data-sl-textarea
-            data-error={error}
-            data-disabled={disabled}
-            disabled={disabled}
-            maxLength={maxLength}
-            aria-invalid={error}
-            {...htmlProps}
-          />
+        <textarea
+          id={id}
+          data-sl-textarea-input
+          data-error={error}
+          data-disabled={disabled}
+          disabled={disabled}
+          maxLength={maxLength}
+          aria-invalid={error}
+          value={value}
+          {...htmlProps}
+        />
+        <Grid templateColumns="1fr auto" data-sl-field-message>
+          <Stack space="$space-0">
+            {helpText && <p data-sl-field-message-text>{helpText}</p>}
+            {error && (
+              <p data-sl-field-message-text role="alert">
+                {errorText}
+              </p>
+            )}
+          </Stack>
           {maxLength && (
-            <p data-sl-textarea-char-counter>
+            <div data-sl-textarea-char-counter>
               {charCount} / {maxLength}
-            </p>
+            </div>
           )}
-        </div>
-        <FieldMessage error={error} errorText={errorText} helpText={helpText} />
+        </Grid>
       </Field>
     )
   }
