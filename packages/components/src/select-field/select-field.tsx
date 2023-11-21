@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { IconCaretUpDownSmall } from '@vtex/shoreline-icons'
 import { useId } from '@vtex/shoreline-utils'
+import './select-field.css'
 
 /**
  * Select fields allow merchants to choose a single option from a list

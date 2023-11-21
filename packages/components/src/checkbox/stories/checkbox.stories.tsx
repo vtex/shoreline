@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import '../../../dist/styles.min.css'
-import '../checkbox.css'
 
 import { Checkbox, CheckboxField, CheckboxGroup } from '../index'
 import { VisuallyHidden } from '@ariakit/react'

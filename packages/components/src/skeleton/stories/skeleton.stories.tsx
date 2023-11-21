@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../skeleton.css'
 import React from 'react'
 
 import { Skeleton } from '../index'

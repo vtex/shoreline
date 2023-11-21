@@ -4,6 +4,7 @@ import React, { forwardRef } from 'react'
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { AccessibleIcon } from '../accessible-icon'
+import './icon-button.css'
 
 /**
  * A button designed specifically for usage with a single icon.

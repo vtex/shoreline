@@ -22,7 +22,7 @@
 
       &:hover {
         border: var(--sl-element-border-hover);
-      };
+      }
 
       &:checked {
         background-color: var(--sl-element-bg-checked);
@@ -30,7 +30,7 @@
 
         &:hover {
           border: var(--sl-element-border-checked);
-        };
+        }
 
         &:after {
           background-color: var(--sl-element-check-bg);
@@ -42,7 +42,7 @@
       }
 
       &:after {
-        content: "";
+        content: '';
         width: 0.5rem;
         height: 0.5rem;
         display: block;
@@ -84,5 +84,5 @@
         --sl-element-focus-ring-checked: none;
       }
     }
-  };
+  }
 }

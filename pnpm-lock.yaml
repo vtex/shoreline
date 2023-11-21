@@ -852,6 +852,31 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(@swc/core@1.2.241)(postcss@8.4.27)(typescript@4.9.5)
 
+  packages/tokens:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 18.2.0
+      react-dom:
+        specifier: '>=18'
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@vtex/shoreline-cli':
+        specifier: workspace
+        version: link:../cli
+      '@vtex/shoreline-preset-admin':
+        specifier: workspace
+        version: link:../shoreline-preset-admin
+      '@vtex/shoreline-theme':
+        specifier: workspace
+        version: link:../theme
+      lightningcss-cli:
+        specifier: 1.22.0
+        version: 1.22.0
+      tsup:
+        specifier: 7.2.0
+        version: 7.2.0(@swc/core@1.2.241)(postcss@8.4.27)(typescript@4.9.5)
+
   packages/utils:
     dependencies:
       csstype:

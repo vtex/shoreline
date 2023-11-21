@@ -1,11 +1,8 @@
-import '../../../dist/styles.min.css'
-
 import React, { useState } from 'react'
-import { IconButton } from '../index'
-import { Stack } from '../../stack'
 import { IconTrash } from '@vtex/shoreline-icons'
-
 import { AccessibleIcon } from '../../accessible-icon'
+import { Stack } from '../../stack'
+import { IconButton } from '../index'
 
 export default {
   title: 'shoreline-components/icon-button',

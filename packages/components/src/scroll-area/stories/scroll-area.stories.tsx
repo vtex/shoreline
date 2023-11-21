@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../scroll-area.css'
 import React from 'react'
 
 import { ScrollArea } from '../index'

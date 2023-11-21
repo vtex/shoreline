@@ -1,6 +1,7 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { CSSProperty } from '@vtex/shoreline-utils'
+import './grid.css'
 
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   props,

@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../clickable.css'
 import React from 'react'
 
 import { Clickable, ClickableBubble } from '../index'

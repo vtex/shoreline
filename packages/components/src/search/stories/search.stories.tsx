@@ -1,6 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../search.css'
-
 import React from 'react'
 
 import { Search } from '../index'

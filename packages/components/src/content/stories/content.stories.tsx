@@ -1,4 +1,3 @@
-import '../../../dist/styles.min.css'
 import './styles.css'
 
 import React from 'react'

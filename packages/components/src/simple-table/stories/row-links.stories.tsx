@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../simple-table.css'
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { SimpleTable } from '../index'

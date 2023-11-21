@@ -1,13 +1,9 @@
-import '../../../dist/styles.min.css'
-import './style.css'
-import '../field.css'
-
 import React from 'react'
+import { Checkbox, Radio } from '@ariakit/react'
 
 import { Field, FieldLabel, FieldMessage } from '../index'
 import { Stack } from '../../stack'
-
-import { Checkbox, Radio } from '@ariakit/react'
+import './style.css'
 
 export default {
   title: 'shoreline-components/field',

@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Select as SelectTrigger } from '@ariakit/react'
+import './select.css'
 
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(
   function Select(props, ref) {

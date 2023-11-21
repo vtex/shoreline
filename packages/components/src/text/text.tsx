@@ -1,6 +1,7 @@
 import type { AnyObject } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import './text.css'
 
 export const Text = forwardRef(function Text(props: TextProps, ref: any) {
   const { children, variant = 'body', ...otherProps } = props

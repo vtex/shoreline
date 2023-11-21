@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Root, Viewport, Scrollbar, Thumb } from '@radix-ui/react-scroll-area'
+import './scroll-area.css'
 
 /**
  * Cross-browser scroll styling

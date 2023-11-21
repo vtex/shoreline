@@ -1,7 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../radio.css'
-import '../radio-group.css'
-import '../../field/field.css'
 import React, { useEffect, useState } from 'react'
 
 import { Radio, RadioGroup, useRadioState } from '../index'

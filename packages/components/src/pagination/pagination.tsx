@@ -10,6 +10,7 @@ import {
 import { AccessibleIcon } from '../accessible-icon'
 import { VisuallyHidden } from '../visually-hidden'
 import { useId } from '@vtex/shoreline-utils'
+import './pagination.css'
 
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.

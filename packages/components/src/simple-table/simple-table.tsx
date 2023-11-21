@@ -28,6 +28,7 @@ import type { NavigationTarget } from '../link-box/link-box-utils'
 import { LinkBox } from '../link-box'
 import { Clickable } from '../clickable'
 import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
+import './simple-table.css'
 
 /**
  * Controlled table render built on top of TanStack/Table API

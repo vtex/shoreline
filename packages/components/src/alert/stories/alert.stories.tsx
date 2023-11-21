@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../alert.css'
 import React, { useState } from 'react'
 
 import { Alert } from '../index'

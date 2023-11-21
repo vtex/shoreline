@@ -6,6 +6,7 @@ import { FilterTrigger } from './filter-trigger'
 import type { FilterPopoverProps } from './filter-popover'
 import { FilterPopover } from './filter-popover'
 import { FilterList } from './filter-list'
+import './filter.css'
 
 /**
  * Filter component

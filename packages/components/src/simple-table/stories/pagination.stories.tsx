@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../simple-table.css'
 import React, { useEffect, useMemo, useState } from 'react'
 import {
   IconCloudArrowUp,

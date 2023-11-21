@@ -5,6 +5,7 @@ import type { ClickableProps } from '../clickable'
 import { Clickable } from '../clickable'
 import type { NavigationTarget } from './link-box-utils'
 import { navigate } from './link-box-utils'
+import './link-box.css'
 
 /**
  * A container that acts as a link. It allows text selection and stop its children event propagation.

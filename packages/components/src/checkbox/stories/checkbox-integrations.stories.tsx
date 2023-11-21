@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../checkbox.css'
 import React, { useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { FixedSizeList } from 'react-window'
