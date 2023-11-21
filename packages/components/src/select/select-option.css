@@ -1,16 +1,4 @@
 @layer sl-components {
-  [data-sl-select] {
-    color: var(--sl-color-fg);
-  }
-
-  [data-sl-select-popover] {
-    background: var(--sl-bg);
-    border: var(--sl-border);
-    box-shadow: var(--sl-shadow-2);
-    border-radius: var(--sl-border-radius-medium);
-    z-index: var(--sl-z-6);
-  }
-
   [data-sl-select-option] {
     outline: none;
     text-decoration: none;

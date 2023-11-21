@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { MenuItem as BaseMenuItem } from '@ariakit/react'
+import './menu-item.css'
 
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   function MenuItem(props, ref) {

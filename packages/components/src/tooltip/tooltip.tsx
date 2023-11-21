@@ -6,7 +6,6 @@ import { TooltipProvider } from './tooltip-provider'
 import { TooltipAnchor } from './tooltip-anchor'
 import { TooltipPopover } from './tooltip-popover'
 import { TooltipArrow } from './tooltip-arrow'
-import './tooltip.css'
 
 /**
  * Tooltip component

@@ -1,0 +1,5 @@
+@layer sl-components {
+  [data-sl-container] {
+    container: sl-container / inline-size;
+  }
+}

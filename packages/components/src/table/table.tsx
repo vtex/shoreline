@@ -1,6 +1,7 @@
 import { constants } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
 import React, { forwardRef } from 'react'
+
 import { Compose } from '../compose'
 import './table.css'
 

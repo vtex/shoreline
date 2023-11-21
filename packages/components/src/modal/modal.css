@@ -1,5 +1,3 @@
-
-
 @layer sl-components {
   [data-sl-modal] {
     --sl-component-width: 40rem;
@@ -24,13 +22,8 @@
     color: var(--sl-fg);
     box-shadow: var(--sl-shadow-1);
   }
+
   [data-sl-modal-backdrop] {
     background-color: var(--sl-bg-inverted-plain);
   }
-
-  [data-sl-modal-title] {
-    font: var(--sl-text-display-1-font);
-    letter-spacing: var(--sl-text-display-1-letter-spacing);
-  }
 }
-

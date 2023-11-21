@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import type { ContentContainerAs } from './types'
+import './container.css'
 
 /**
  * Wraps Content component to support Container Queries

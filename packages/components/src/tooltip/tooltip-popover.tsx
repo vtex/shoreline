@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Tooltip } from '@ariakit/react'
 
+import './tooltip-popover.css'
+
 /**
  * Popover of the Tooltip
  * @example

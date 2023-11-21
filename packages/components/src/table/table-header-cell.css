@@ -1,0 +1,19 @@
+@layer sl-components {
+  [data-sl-table-header-cell] {
+    text-align: start;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--sl-color-fg);
+    padding: var(--sl-space-2);
+    border-bottom: var(--sl-border);
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
+
+    &[data-sortable='true'] {
+      color: var(--sl-fg-accent);
+      cursor: pointer;
+    }
+  }
+}

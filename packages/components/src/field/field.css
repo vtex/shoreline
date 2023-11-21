@@ -1,25 +1,4 @@
 @layer sl-components {
-  [data-sl-field][data-variant='default'] {
-    --sl-element-template-areas: 'label' 'input' 'message';
-    --sl-element-vertical-gap: var(--sl-space-1);
-    --sl-element-horizontal-gap: var(--sl-space-0);
-    --sl-element-label-color: var(--sl-fg-soft);
-  }
-
-  [data-sl-field][data-variant='group'] {
-    --sl-element-template-areas: 'label' 'input' 'message';
-    --sl-element-vertical-gap: var(--sl-space-3);
-    --sl-element-horizontal-gap: var(--sl-space-0);
-    --sl-element-label-color: var(--sl-fg-soft);
-  }
-
-  [data-sl-field][data-variant='control'] {
-    --sl-element-template-areas: 'input label' '- message';
-    --sl-element-label-color: var(--sl-fg);
-    --sl-element-vertical-gap: var(--sl-space-0);
-    --sl-element-horizontal-gap: var(--sl-space-2);
-  }
-
   [data-sl-field] {
     display: grid;
     grid-template-areas: var(--sl-element-template-areas);
@@ -33,35 +12,25 @@
       grid-area: input;
     }
 
-    [data-sl-field-message] {
-      grid-area: message;
-      margin-left: var(--sl-element-horizontal-gap);
-      margin-top: var(--sl-element-vertical-gap);
+    &[data-variant='default'] {
+      --sl-element-template-areas: 'label' 'input' 'message';
+      --sl-element-vertical-gap: var(--sl-space-1);
+      --sl-element-horizontal-gap: var(--sl-space-0);
+      --sl-element-label-color: var(--sl-fg-soft);
     }
 
-    [data-sl-field-message-text] {
-      color: var(--sl-fg);
-      font: var(--sl-text-caption-2-font);
-      letter-spacing: var(--sl-text-caption-2-letter-spacing);
+    &[data-variant='group'] {
+      --sl-element-template-areas: 'label' 'input' 'message';
+      --sl-element-vertical-gap: var(--sl-space-3);
+      --sl-element-horizontal-gap: var(--sl-space-0);
+      --sl-element-label-color: var(--sl-fg-soft);
     }
 
-    [data-sl-field-message-text][role='alert'] {
-      color: var(--sl-fg-critical);
-    }
-
-    [data-sl-field-label] {
-      grid-area: label;
-      margin-left: var(--sl-element-horizontal-gap);
-      margin-bottom: var(--sl-element-vertical-gap);
-      color: var(--sl-element-label-color);
-      display: flex;
-      align-items: center;
-      font: var(--sl-text-body-font);
-      letter-spacing: var(--sl-text-body-letter-spacing);
-
-      &[data-disabled='true'] {
-        color: var(--sl-fg-disabled);
-      }
+    &[data-variant='control'] {
+      --sl-element-template-areas: 'input label' '- message';
+      --sl-element-label-color: var(--sl-fg);
+      --sl-element-vertical-gap: var(--sl-space-0);
+      --sl-element-horizontal-gap: var(--sl-space-2);
     }
   }
 }

@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { SelectPopover as Popover } from '@ariakit/react'
 
+import './select-popover.css'
+
 export const SelectPopover = forwardRef<HTMLDivElement, SelectPopoverProps>(
   function SelectPopover(props, ref) {
     const { asChild = false, children, ...otherProps } = props

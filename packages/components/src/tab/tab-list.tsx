@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { TabList as BaseTabList } from '@ariakit/react'
 
+import './tab-list.css'
+
 /**
  * @example
  * <TabProvider>

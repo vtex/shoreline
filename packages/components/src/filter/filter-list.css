@@ -1,0 +1,13 @@
+@layer sl-tokens {
+  :where([data-sl-filter-list]) {
+    --sl-filter-list-height: 16rem;
+  }
+}
+
+@layer sl-components {
+  [data-sl-filter-list] {
+    max-height: var(--sl-filter-list-height);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

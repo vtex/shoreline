@@ -1,7 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
+import './field-label.css'
 
 const useMessage = createMessageHook(messages)
 

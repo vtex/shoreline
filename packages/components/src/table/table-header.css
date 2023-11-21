@@ -1,0 +1,6 @@
+@layer sl-components {
+  [data-sl-table-header] {
+    display: contents;
+    color: var(--sl-color-fg);
+  }
+}

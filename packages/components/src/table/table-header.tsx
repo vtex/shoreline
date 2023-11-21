@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+
 import { Compose } from '../compose'
+import './table-header.css'
 
 export const TableHeader = forwardRef<HTMLDivElement, TableHeaderProps>(
   function TableHeader(props, ref) {

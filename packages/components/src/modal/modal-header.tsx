@@ -6,6 +6,7 @@ import { IconButton } from '../icon-button'
 import { IconX } from '@vtex/shoreline-icons'
 import { Bleed } from '../bleed'
 import { Content } from '../content'
+import './modal-header.css'
 
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   function Modal(props, ref) {
