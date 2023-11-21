@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '../compose'
 import { hasSomeTextSelected } from '@vtex/shoreline-utils'
+import './clickable.css'
 
 /**
  * Represents clickable surfaces

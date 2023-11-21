@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../modal.css'
 import React, { useState } from 'react'
 
 import { Modal, ModalHeader } from '../index'

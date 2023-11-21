@@ -7,6 +7,7 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
 import React, { forwardRef } from 'react'
+import './alert.css'
 
 import { IconButton } from '../icon-button'
 

@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 import { Radio as BaseRadio } from '@ariakit/react'
 import { Field, FieldLabel } from '../field'
 import { useId } from '@vtex/shoreline-utils'
+import './radio.css'
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   props,

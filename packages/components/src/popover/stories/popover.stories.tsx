@@ -1,7 +1,5 @@
 import React from 'react'
 
-import '../../../dist/styles.min.css'
-import '../popover.css'
 import './styles.css'
 
 import { Content } from '../../content'

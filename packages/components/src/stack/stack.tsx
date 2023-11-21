@@ -1,6 +1,7 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { cssVar } from '@vtex/shoreline-utils'
+import './stack.css'
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   props,

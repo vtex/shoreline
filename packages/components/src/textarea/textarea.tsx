@@ -5,6 +5,7 @@ import { useId } from '@vtex/shoreline-utils'
 import { Field, FieldLabel } from '../field'
 import { Stack } from '../stack'
 import { Grid } from '../grid'
+import './textarea.css'
 
 export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
   function Textarea(props, ref) {

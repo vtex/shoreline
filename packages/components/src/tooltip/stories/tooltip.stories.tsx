@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../tooltip.css'
 import React, { useState } from 'react'
 
 import {

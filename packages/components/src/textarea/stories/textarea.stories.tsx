@@ -1,7 +1,5 @@
-import '../../../dist/styles.min.css'
 import './style.css'
 import React from 'react'
-import '../textarea.css'
 
 import { Textarea } from '../index'
 import { Stack } from '../../stack'

@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../link.css'
 import React from 'react'
 
 import { Link } from '../index'

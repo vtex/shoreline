@@ -1,6 +1,7 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { CSSProperty } from '@vtex/shoreline-utils'
+import './flex.css'
 
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
   props,

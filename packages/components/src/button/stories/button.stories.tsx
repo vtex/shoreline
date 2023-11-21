@@ -1,4 +1,3 @@
-import '../../../dist/styles.min.css'
 import './style.css'
 
 import React, { Fragment } from 'react'

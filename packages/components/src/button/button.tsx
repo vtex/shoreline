@@ -5,6 +5,7 @@ import { Button as BaseButton } from '@ariakit/react'
 import { Spinner } from '../spinner'
 import { Center } from '../center'
 import { Compose, Composable } from '../compose'
+import './button.css'
 
 /**
  * Buttons triggers allow users to identify and start the most important actions in a container.

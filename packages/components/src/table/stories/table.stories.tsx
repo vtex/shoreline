@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../table.css'
 import React from 'react'
 
 import {

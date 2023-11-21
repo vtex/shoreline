@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../link-box.css'
 import React from 'react'
 import { Button } from '../../button'
 import { Menu, MenuTrigger, MenuItem, MenuProvider } from '../../menu'

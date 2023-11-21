@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../pagination.css'
 import './style.css'
 import React, { useState } from 'react'
 

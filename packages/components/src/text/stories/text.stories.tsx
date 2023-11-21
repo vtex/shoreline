@@ -1,8 +1,6 @@
-import '../../../dist/styles.min.css'
 import React, { useRef } from 'react'
 
 import { Text } from '../index'
-
 import { Stack } from '../../stack'
 
 export default {

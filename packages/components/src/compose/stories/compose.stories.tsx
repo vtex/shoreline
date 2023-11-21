@@ -1,4 +1,3 @@
-import '../../../dist/styles.min.css'
 import React, { useRef } from 'react'
 
 import { Compose, Composable } from '../index'

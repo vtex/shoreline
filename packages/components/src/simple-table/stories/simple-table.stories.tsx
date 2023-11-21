@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../simple-table.css'
 import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {

@@ -1,6 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../simple-table.css'
-
 import React, { useMemo, useState } from 'react'
 import type { ColumnDef, SortingState } from '@tanstack/react-table'
 

@@ -9,6 +9,7 @@ import {
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { Stack } from '../stack'
 import { useId } from '@vtex/shoreline-utils'
+import './radio-group.css'
 
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   function Radio(props, ref) {

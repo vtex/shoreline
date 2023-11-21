@@ -1,7 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Dialog } from '@ariakit/react'
+
 import { Container } from '../content'
+import './modal.css'
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   props,

@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../select.css'
 import React, { startTransition, useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 

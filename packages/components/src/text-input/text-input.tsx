@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { useId } from '@vtex/shoreline-utils'
+import './text-input.css'
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput(props, ref) {

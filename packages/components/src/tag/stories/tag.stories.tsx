@@ -1,5 +1,3 @@
-import '../../../dist/styles.min.css'
-import '../tag.css'
 import React from 'react'
 
 import { Tag } from '../index'

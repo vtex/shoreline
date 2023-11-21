@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Compose } from '../compose'
+import './link.css'
 
 /**
  * Anchor component
