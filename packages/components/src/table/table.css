@@ -6,7 +6,7 @@
 
 @layer sl-components {
   [data-sl-table] {
-    color: var(--sl-color-fg);
+    color: var(--sl-fg);
     border-collapse: collapse;
     width: 100%;
     display: grid;
@@ -18,7 +18,7 @@
       overflow: unset;
 
       [data-sl-table-header-cell] {
-        color: var(--sl-color-fg);
+        color: var(--sl-fg);
         position: sticky;
         top: 0;
         z-index: 1;

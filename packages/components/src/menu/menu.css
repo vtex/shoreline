@@ -1,7 +1,7 @@
 @layer sl-components {
   [data-sl-menu] {
     background: var(--sl-bg);
-    color: var(--sl-color-fg);
+    color: var(--sl-fg);
     outline: none;
     border: var(--sl-border);
     border-radius: var(--sl-border-radius-medium);
