@@ -105,9 +105,22 @@ export function Help() {
       </RadioGroup>
 
       <RadioGroup
+        label="Optional group"
+        errorText="Something is wrong"
+        helpText="Pen pinapple apple pen"
+      >
+        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt2">Pineapple</Radio>
+        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt4">Another pen</Radio>
+      </RadioGroup>
+
+
+      <RadioGroup
         label="Optional group (optional)"
         errorText="Something is wrong"
         helpText="Pen pinapple apple pen"
+        error
       >
         <Radio value="opt1">Pen</Radio>
         <Radio value="opt2">Pineapple</Radio>
