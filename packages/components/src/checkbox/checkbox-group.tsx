@@ -20,6 +20,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
     } = props
 
     const id = useId(defaultId)
+    const stackGap = direction === 'column' ? '$space-4' : '$space-5'
 
     return (
       <Field
@@ -30,7 +31,9 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
         {...otherProps}
       >
         <FieldLabel htmlFor={id}>{label}</FieldLabel>
-        <Stack direction={direction}>{children}</Stack>
+        <Stack direction={direction} space={stackGap}>
+          {children}
+        </Stack>
         <FieldMessage error={error} helpText={helpText} errorText={errorText} />
       </Field>
     )

@@ -1,4 +1,5 @@
 @layer sl-components {
+
   [data-sl-field] {
     display: grid;
     grid-template-areas: var(--sl-element-template-areas);
@@ -30,7 +31,7 @@
       --sl-element-template-areas: 'input label' '- message';
       --sl-element-label-color: var(--sl-fg);
       --sl-element-vertical-gap: var(--sl-space-0);
-      --sl-element-horizontal-gap: var(--sl-space-2);
+      --sl-element-vertical-gap: calc(var(--sl-space-05) / 2);
     }
   }
 }
