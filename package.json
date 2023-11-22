@@ -93,7 +93,8 @@
     "tsup": "8.0.1",
     "stylelint": "^15.11.0",
     "stylelint-prettier": "^4.0.2",
-    "@vtex/shoreline-stylelint": "workspace"
+    "@vtex/shoreline-stylelint": "workspace",
+    "jest-preset-stylelint": "^6.3.2"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [

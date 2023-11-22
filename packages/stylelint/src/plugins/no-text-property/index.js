@@ -1,5 +1,5 @@
 const stylelint = require('stylelint')
-const { replaceDeclaration } = require('../../utils/replace-declaration.mjs')
+const { replaceDeclaration } = require('../../utils/replace-declaration.js')
 
 const { ruleMessages, validateOptions, report } = stylelint.utils
 

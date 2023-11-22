@@ -120,6 +120,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.6.2
         version: 29.6.2
+      jest-preset-stylelint:
+        specifier: ^6.3.2
+        version: 6.3.2(jest@29.6.2)
       jest-watch-typeahead:
         specifier: 2.2.2
         version: 2.2.2(jest@29.6.2)
