@@ -129,9 +129,14 @@ function splitIntoMultipleFiles() {
 
   // Update componentsMetaJson with the new paths
   // Adds the components as kebab-case on keys and PascalCase on values
-  const componentsMetaUpdated = components.map((component) => ({
-    [component.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: component,
-  }))
+  const componentsMetaUpdated = components.reduce((acc, cur) => {
+    return {
+      ...acc,
+      [cur.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: cur,
+    }
+  }, {})
+
+  // Write the updated componentsMetaJson to disk as a simple JSON file
 
   fs.writeFileSync(
     componentsMetaJson,
@@ -140,9 +145,12 @@ function splitIntoMultipleFiles() {
 
   // Update hooksMetaJson with the new paths
   // Adds the components as kebab-case on keys and camelCase on values
-  const hooksMetaUpdated = hooks.map((hook) => ({
-    [hook.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: hook,
-  }))
+  const hooksMetaUpdated = hooks.reduce((acc, cur) => {
+    return {
+      ...acc,
+      [cur.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: cur,
+    }
+  }, {})
 
   // Write the updated componentsMetaJson
   fs.writeFileSync(hooksMetaJson, JSON.stringify(hooksMetaUpdated, null, 2))

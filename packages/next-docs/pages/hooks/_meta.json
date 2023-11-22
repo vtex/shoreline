@@ -1,23 +1,9 @@
-[
-  {
-    "use-filter-context": "useFilterContext"
-  },
-  {
-    "use-locale": "useLocale"
-  },
-  {
-    "use-popover-context": "usePopoverContext"
-  },
-  {
-    "use-popover-store": "usePopoverStore"
-  },
-  {
-    "use-radio-state": "useRadioState"
-  },
-  {
-    "use-select-context": "useSelectContext"
-  },
-  {
-    "use-select-store": "useSelectStore"
-  }
-]
+{
+  "use-filter-context": "useFilterContext",
+  "use-locale": "useLocale",
+  "use-popover-context": "usePopoverContext",
+  "use-popover-store": "usePopoverStore",
+  "use-radio-state": "useRadioState",
+  "use-select-context": "useSelectContext",
+  "use-select-store": "useSelectStore"
+}

@@ -1,299 +1,101 @@
-[
-  {
-    "interfaces": "Interfaces"
-  },
-  {
-    "center-props": "CenterProps"
-  },
-  {
-    "filter-apply-props": "FilterApplyProps"
-  },
-  {
-    "filter-clear-props": "FilterClearProps"
-  },
-  {
-    "filter-list-props": "FilterListProps"
-  },
-  {
-    "filter-option-props": "FilterOptionProps"
-  },
-  {
-    "filter-trigger-props": "FilterTriggerProps"
-  },
-  {
-    "filter-value-props": "FilterValueProps"
-  },
-  {
-    "flex-props": "FlexProps"
-  },
-  {
-    "grid-cell-props": "GridCellProps"
-  },
-  {
-    "grid-props": "GridProps"
-  },
-  {
-    "menu-separator-props": "MenuSeparatorProps"
-  },
-  {
-    "modal-header-props": "ModalHeaderProps"
-  },
-  {
-    "text-props": "TextProps"
-  },
-  {
-    "action": "Action"
-  },
-  {
-    "alert": "Alert"
-  },
-  {
-    "bleed": "Bleed"
-  },
-  {
-    "button": "Button"
-  },
-  {
-    "center": "Center"
-  },
-  {
-    "checkbox": "Checkbox"
-  },
-  {
-    "checkbox-field": "CheckboxField"
-  },
-  {
-    "checkbox-group": "CheckboxGroup"
-  },
-  {
-    "clickable": "Clickable"
-  },
-  {
-    "clickable-bubble": "ClickableBubble"
-  },
-  {
-    "combobox": "Combobox"
-  },
-  {
-    "combobox-item": "ComboboxItem"
-  },
-  {
-    "combobox-list": "ComboboxList"
-  },
-  {
-    "combobox-popover": "ComboboxPopover"
-  },
-  {
-    "combobox-provider": "ComboboxProvider"
-  },
-  {
-    "composable": "Composable"
-  },
-  {
-    "compose": "Compose"
-  },
-  {
-    "container": "Container"
-  },
-  {
-    "content": "Content"
-  },
-  {
-    "field": "Field"
-  },
-  {
-    "field-label": "FieldLabel"
-  },
-  {
-    "field-message": "FieldMessage"
-  },
-  {
-    "filter": "Filter"
-  },
-  {
-    "filter-apply": "FilterApply"
-  },
-  {
-    "filter-clear": "FilterClear"
-  },
-  {
-    "filter-list": "FilterList"
-  },
-  {
-    "filter-option": "FilterOption"
-  },
-  {
-    "filter-popover": "FilterPopover"
-  },
-  {
-    "filter-provider": "FilterProvider"
-  },
-  {
-    "filter-trigger": "FilterTrigger"
-  },
-  {
-    "filter-value": "FilterValue"
-  },
-  {
-    "flex": "Flex"
-  },
-  {
-    "grid": "Grid"
-  },
-  {
-    "grid-cell": "GridCell"
-  },
-  {
-    "icon-button": "IconButton"
-  },
-  {
-    "link": "Link"
-  },
-  {
-    "link-box": "LinkBox"
-  },
-  {
-    "locale-provider": "LocaleProvider"
-  },
-  {
-    "menu": "Menu"
-  },
-  {
-    "menu-item": "MenuItem"
-  },
-  {
-    "menu-provider": "MenuProvider"
-  },
-  {
-    "menu-separator": "MenuSeparator"
-  },
-  {
-    "menu-trigger": "MenuTrigger"
-  },
-  {
-    "modal": "Modal"
-  },
-  {
-    "modal-header": "ModalHeader"
-  },
-  {
-    "pagination": "Pagination"
-  },
-  {
-    "popover": "Popover"
-  },
-  {
-    "popover-dismiss": "PopoverDismiss"
-  },
-  {
-    "popover-provider": "PopoverProvider"
-  },
-  {
-    "popover-trigger": "PopoverTrigger"
-  },
-  {
-    "radio": "Radio"
-  },
-  {
-    "radio-group": "RadioGroup"
-  },
-  {
-    "scroll-area": "ScrollArea"
-  },
-  {
-    "search": "Search"
-  },
-  {
-    "select": "Select"
-  },
-  {
-    "select-field": "SelectField"
-  },
-  {
-    "select-list": "SelectList"
-  },
-  {
-    "select-option": "SelectOption"
-  },
-  {
-    "select-option-check": "SelectOptionCheck"
-  },
-  {
-    "select-popover": "SelectPopover"
-  },
-  {
-    "select-provider": "SelectProvider"
-  },
-  {
-    "simple-table": "SimpleTable"
-  },
-  {
-    "skeleton": "Skeleton"
-  },
-  {
-    "spinner": "Spinner"
-  },
-  {
-    "stack": "Stack"
-  },
-  {
-    "tab": "Tab"
-  },
-  {
-    "tab-list": "TabList"
-  },
-  {
-    "tab-panel": "TabPanel"
-  },
-  {
-    "tab-provider": "TabProvider"
-  },
-  {
-    "table": "Table"
-  },
-  {
-    "table-body": "TableBody"
-  },
-  {
-    "table-cell": "TableCell"
-  },
-  {
-    "table-header": "TableHeader"
-  },
-  {
-    "table-header-cell": "TableHeaderCell"
-  },
-  {
-    "table-row": "TableRow"
-  },
-  {
-    "tag": "Tag"
-  },
-  {
-    "text": "Text"
-  },
-  {
-    "text-input": "TextInput"
-  },
-  {
-    "textarea": "Textarea"
-  },
-  {
-    "tooltip": "Tooltip"
-  },
-  {
-    "tooltip-anchor": "TooltipAnchor"
-  },
-  {
-    "tooltip-arrow": "TooltipArrow"
-  },
-  {
-    "tooltip-popover": "TooltipPopover"
-  },
-  {
-    "tooltip-provider": "TooltipProvider"
-  },
-  {
-    "visually-hidden": "VisuallyHidden"
-  }
-]
+{
+  "interfaces": "Interfaces",
+  "center-props": "CenterProps",
+  "filter-apply-props": "FilterApplyProps",
+  "filter-clear-props": "FilterClearProps",
+  "filter-list-props": "FilterListProps",
+  "filter-option-props": "FilterOptionProps",
+  "filter-trigger-props": "FilterTriggerProps",
+  "filter-value-props": "FilterValueProps",
+  "flex-props": "FlexProps",
+  "grid-cell-props": "GridCellProps",
+  "grid-props": "GridProps",
+  "menu-separator-props": "MenuSeparatorProps",
+  "modal-header-props": "ModalHeaderProps",
+  "text-props": "TextProps",
+  "action": "Action",
+  "alert": "Alert",
+  "bleed": "Bleed",
+  "button": "Button",
+  "center": "Center",
+  "checkbox": "Checkbox",
+  "checkbox-field": "CheckboxField",
+  "checkbox-group": "CheckboxGroup",
+  "clickable": "Clickable",
+  "clickable-bubble": "ClickableBubble",
+  "combobox": "Combobox",
+  "combobox-item": "ComboboxItem",
+  "combobox-list": "ComboboxList",
+  "combobox-popover": "ComboboxPopover",
+  "combobox-provider": "ComboboxProvider",
+  "composable": "Composable",
+  "compose": "Compose",
+  "container": "Container",
+  "content": "Content",
+  "field": "Field",
+  "field-label": "FieldLabel",
+  "field-message": "FieldMessage",
+  "filter": "Filter",
+  "filter-apply": "FilterApply",
+  "filter-clear": "FilterClear",
+  "filter-list": "FilterList",
+  "filter-option": "FilterOption",
+  "filter-popover": "FilterPopover",
+  "filter-provider": "FilterProvider",
+  "filter-trigger": "FilterTrigger",
+  "filter-value": "FilterValue",
+  "flex": "Flex",
+  "grid": "Grid",
+  "grid-cell": "GridCell",
+  "icon-button": "IconButton",
+  "link": "Link",
+  "link-box": "LinkBox",
+  "locale-provider": "LocaleProvider",
+  "menu": "Menu",
+  "menu-item": "MenuItem",
+  "menu-provider": "MenuProvider",
+  "menu-separator": "MenuSeparator",
+  "menu-trigger": "MenuTrigger",
+  "modal": "Modal",
+  "modal-header": "ModalHeader",
+  "pagination": "Pagination",
+  "popover": "Popover",
+  "popover-dismiss": "PopoverDismiss",
+  "popover-provider": "PopoverProvider",
+  "popover-trigger": "PopoverTrigger",
+  "radio": "Radio",
+  "radio-group": "RadioGroup",
+  "scroll-area": "ScrollArea",
+  "search": "Search",
+  "select": "Select",
+  "select-field": "SelectField",
+  "select-list": "SelectList",
+  "select-option": "SelectOption",
+  "select-option-check": "SelectOptionCheck",
+  "select-popover": "SelectPopover",
+  "select-provider": "SelectProvider",
+  "simple-table": "SimpleTable",
+  "skeleton": "Skeleton",
+  "spinner": "Spinner",
+  "stack": "Stack",
+  "tab": "Tab",
+  "tab-list": "TabList",
+  "tab-panel": "TabPanel",
+  "tab-provider": "TabProvider",
+  "table": "Table",
+  "table-body": "TableBody",
+  "table-cell": "TableCell",
+  "table-header": "TableHeader",
+  "table-header-cell": "TableHeaderCell",
+  "table-row": "TableRow",
+  "tag": "Tag",
+  "text": "Text",
+  "text-input": "TextInput",
+  "textarea": "Textarea",
+  "tooltip": "Tooltip",
+  "tooltip-anchor": "TooltipAnchor",
+  "tooltip-arrow": "TooltipArrow",
+  "tooltip-popover": "TooltipPopover",
+  "tooltip-provider": "TooltipProvider",
+  "visually-hidden": "VisuallyHidden"
+}
