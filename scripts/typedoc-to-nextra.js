@@ -61,11 +61,15 @@ function splitIntoMultipleFiles() {
 
       // Means that this is a component
       const isPascalCase = /^[A-Z][a-zA-Z0-9]*$/.test(componentName)
-
       // Means that this is a hook, matches camelCase methods starting with "use"
       const isHook = /^use[A-Z][a-zA-Z0-9]*$/.test(componentName)
+      // Check if element is a component. This is a bit hacky, but it works
+      // since typedoc classifies type-declared type as type aliases under
+      // the modules.md file, while it separates interface-declared types
+      // under the interfaces folder
+      const isTypeAlias = componentName.includes('Props')
 
-      if (isHook) {
+      if (isHook && !isTypeAlias) {
         const kebabCaseName = componentName
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
           .toLowerCase()
@@ -87,7 +91,7 @@ function splitIntoMultipleFiles() {
         continue
       }
 
-      if (isPascalCase) {
+      if (isPascalCase && !isHook && !isTypeAlias) {
         const kebabCaseName = componentName
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
           .toLowerCase()
@@ -105,6 +109,27 @@ function splitIntoMultipleFiles() {
         prettify(filePath)
 
         components.push(componentName)
+
+        continue
+      }
+
+      if (isTypeAlias && !isHook) {
+        const kebabCaseName = componentName
+          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+          .toLowerCase()
+          .replace('-props', '')
+
+        const folderPath = `${cwd}/__tmpDocs/components/${kebabCaseName}`
+
+        fs.mkdirSync(folderPath, {
+          recursive: true,
+        })
+
+        const filePath = `${folderPath}/props.mdx`
+
+        fs.writeFileSync(filePath, file)
+
+        prettify(filePath)
 
         continue
       }
@@ -137,7 +162,6 @@ function splitIntoMultipleFiles() {
   }, {})
 
   // Write the updated componentsMetaJson to disk as a simple JSON file
-
   fs.writeFileSync(
     componentsMetaJson,
     JSON.stringify(componentsMetaUpdated, null, 2)
