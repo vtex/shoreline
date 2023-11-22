@@ -67,9 +67,15 @@ importers:
       '@vtex/prettier-config':
         specifier: ^0.3.1
         version: 0.3.6(prettier@2.8.8)
+<<<<<<< HEAD
       '@vtex/shoreline-test-utils':
         specifier: workspace:*
         version: link:packages/test-utils
+=======
+      '@vtex/shoreline-stylelint':
+        specifier: workspace
+        version: link:packages/stylelint
+>>>>>>> 0b99ad60d (feat(stylelint): add @vtex/shoreline-stylelint configuration)
       '@vtex/tsconfig':
         specifier: ^0.5.6
         version: 0.5.6(typescript@4.9.5)
@@ -103,6 +109,24 @@ importers:
       husky:
         specifier: ^8.0.3
         version: 8.0.3
+<<<<<<< HEAD
+=======
+      jest:
+        specifier: 29.6.2
+        version: 29.6.2(@types/node@20.4.5)(babel-plugin-macros@3.1.0)
+      jest-axe:
+        specifier: 8.0.0
+        version: 8.0.0
+      jest-environment-jsdom:
+        specifier: 29.6.2
+        version: 29.6.2
+      jest-preset-stylelint:
+        specifier: ^6.3.2
+        version: 6.3.2(jest@29.6.2)
+      jest-watch-typeahead:
+        specifier: 2.2.2
+        version: 2.2.2(jest@29.6.2)
+>>>>>>> 0b99ad60d (feat(stylelint): add @vtex/shoreline-stylelint configuration)
       jsdom:
         specifier: 23.0.0
         version: 23.0.0
@@ -136,6 +160,12 @@ importers:
       storybook:
         specifier: ^7.5.3
         version: 7.5.3
+      stylelint:
+        specifier: ^15.11.0
+        version: 15.11.0
+      stylelint-prettier:
+        specifier: ^4.0.2
+        version: 4.0.2(prettier@2.8.8)(stylelint@15.11.0)
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -397,6 +427,7 @@ importers:
         specifier: ^0.5.0
         version: link:../utils
 
+<<<<<<< HEAD
   packages/test-utils:
     dependencies:
       '@testing-library/dom':
@@ -412,6 +443,17 @@ importers:
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@23.0.0)
+=======
+  packages/stylelint:
+    dependencies:
+      stylelint:
+        specifier: ^14.15.0 || ^15.0.0
+        version: 15.11.0
+    devDependencies:
+      tsup:
+        specifier: 7.2.0
+        version: 7.2.0(@swc/core@1.2.241)(postcss@8.4.31)(typescript@4.9.5)
+>>>>>>> 0b99ad60d (feat(stylelint): add @vtex/shoreline-stylelint configuration)
 
   packages/theme:
     dependencies:
@@ -11711,6 +11753,10 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /astral-regex@2.0.0:
+    resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
+    engines: {node: '>=8'}
+
   /astring@1.8.6:
     resolution:
       {
@@ -13512,7 +13558,6 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
-    dev: true
 
   /create-require@1.1.1:
     resolution:
@@ -14237,6 +14282,10 @@ packages:
       }
     engines: { node: '>=0.10.0' }
     dev: true
+
+  /decamelize@5.0.1:
+    resolution: {integrity: sha512-VfxadyCECXgQlkoEAjeghAr5gY3Hf+IKjKb+X8tGVDtveCjN+USwprd2q3QXBR9T1+x2DG0XZF5/w+7HAtSaXA==}
+    engines: {node: '>=10'}
 
   /decimal.js@10.4.3:
     resolution:
@@ -16329,6 +16378,10 @@ packages:
       }
     dev: true
 
+  /fastest-levenshtein@1.0.16:
+    resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
+    engines: {node: '>= 4.9.1'}
+
   /fastq@1.13.0:
     resolution:
       {
@@ -17856,7 +17909,6 @@ packages:
     engines: { node: '>=10' }
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /hosted-git-info@6.1.1:
     resolution:
@@ -19165,6 +19217,15 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /jest-preset-stylelint@6.3.2(jest@29.6.2):
+    resolution: {integrity: sha512-OnodJG8lMAzvhx5WjcGdne6TnGSWASlcUySd3sY+4E3Adgv4LcxBaNT6E15u5WTPpDsElaJqYNveANf2htR/Ng==}
+    engines: {node: ^14.15.0 || >=16.10.0}
+    peerDependencies:
+      jest: ^29.0.2
+    dependencies:
+      jest: 29.6.2(@types/node@20.4.5)(babel-plugin-macros@3.1.0)
+    dev: true
+
   /jest-regex-util@29.4.3:
     resolution:
       {
@@ -19548,6 +19609,9 @@ packages:
       }
     engines: { node: '>=6' }
     dev: false
+
+  /known-css-properties@0.29.0:
+    resolution: {integrity: sha512-Ne7wqW7/9Cz54PDt4I3tcV+hAyat8ypyOGzYRJQfdxnnjeWsTxt1cy8pjvvKeI5kfXuyvULyeeAvwvvtAX3ayQ==}
 
   /language-subtag-registry@0.3.22:
     resolution:
@@ -21446,7 +21510,6 @@ packages:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
-    dev: true
 
   /minimist@1.2.6:
     resolution:
@@ -22196,7 +22259,6 @@ packages:
       is-core-module: 2.12.1
       semver: 7.5.4
       validate-npm-package-license: 3.0.4
-    dev: true
 
   /normalize-package-data@5.0.0:
     resolution:
@@ -24907,6 +24969,14 @@ packages:
       type-fest: 0.8.1
     dev: true
 
+  /read-pkg-up@8.0.0:
+    resolution: {integrity: sha512-snVCqPczksT0HS2EC+SxUndvSzn6LRCwpfSvLrIfR5BKDQQZMaI6jPRC9dYvYFDRAuFEAnkwww8kBBNE/3VvzQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      find-up: 5.0.0
+      read-pkg: 6.0.0
+      type-fest: 1.4.0
+
   /read-pkg@3.0.0:
     resolution:
       {
@@ -24931,6 +25001,15 @@ packages:
       parse-json: 5.2.0
       type-fest: 0.6.0
     dev: true
+
+  /read-pkg@6.0.0:
+    resolution: {integrity: sha512-X1Fu3dPuk/8ZLsMhEj5f4wFAF0DWoK7qhGJvgaijocXxBmSToKfbFtqbxMO7bVjNA1dmE5huAzjXj/ey86iw9Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@types/normalize-package-data': 2.4.1
+      normalize-package-data: 3.0.3
+      parse-json: 5.2.0
+      type-fest: 1.4.0
 
   /read@2.1.0:
     resolution:
@@ -26067,6 +26146,22 @@ packages:
       }
     engines: { node: '>=12' }
 
+<<<<<<< HEAD
+=======
+  /slash@5.1.0:
+    resolution: {integrity: sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==}
+    engines: {node: '>=14.16'}
+    dev: true
+
+  /slice-ansi@4.0.0:
+    resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      ansi-styles: 4.3.0
+      astral-regex: 2.0.0
+      is-fullwidth-code-point: 3.0.0
+
+>>>>>>> 0b99ad60d (feat(stylelint): add @vtex/shoreline-stylelint configuration)
   /slice-ansi@5.0.0:
     resolution:
       {
@@ -26614,7 +26709,6 @@ packages:
     engines: { node: '>=12' }
     dependencies:
       min-indent: 1.0.1
-    dev: true
 
   /strip-json-comments@3.1.1:
     resolution:
@@ -26802,6 +26896,13 @@ packages:
     dependencies:
       has-flag: 4.0.0
     dev: true
+
+  /supports-hyperlinks@3.0.0:
+    resolution: {integrity: sha512-QBDPHyPQDRTy9ku4URNGY5Lah8PAaXs6tAAwp55sL5WCsSW7GIfdf6W5ixfziW+t7wh3GVvHyHHyQ1ESsoRvaA==}
+    engines: {node: '>=14.18'}
+    dependencies:
+      has-flag: 4.0.0
+      supports-color: 7.2.0
 
   /supports-preserve-symlinks-flag@1.0.0:
     resolution:
@@ -29250,7 +29351,6 @@ packages:
     dependencies:
       imurmurhash: 0.1.4
       signal-exit: 4.1.0
-    dev: true
 
   /write-json-file@3.2.0:
     resolution:

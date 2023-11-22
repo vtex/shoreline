@@ -23,6 +23,7 @@
     "clean": "pnpm turbo clean && turbo run clean",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\" \"examples/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx \"packages/**/*.{ts,js,tsx,jsx}\" \"examples/**/*.{ts,js,tsx,jsx}\"",
+    "lint:css": "stylelint '**/*.css'",
     "build-storybook": "storybook build",
     "dev-storybook": "pnpm storybook dev -p 6006",
     "build:storybook": "pnpm build && pnpm storybook build",
@@ -89,7 +90,10 @@
     "url-loader": "^4.1.0",
     "vite": "5.0.2",
     "vitest": "0.34.6",
-    "tsup": "8.0.1"
+    "tsup": "8.0.1",
+    "stylelint": "^15.11.0",
+    "stylelint-prettier": "^4.0.2",
+    "@vtex/shoreline-stylelint": "workspace"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
