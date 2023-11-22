@@ -1,7 +1,7 @@
 'use strict'
 
 const textPlugin = require('./plugins/no-text-property')
-const spacePlugin = require('./plugins/no-space-px-values')
+const spacePlugin = require('./plugins/no-space-in-px')
 
 const colorRules = {
   'color-no-invalid-hex': [
@@ -17,7 +17,7 @@ const typographyRules = {
 }
 
 const spaceRules = {
-  'shoreline/no-space-px-values': true,
+  'shoreline/no-space-in-px': true,
 }
 
 module.exports = {

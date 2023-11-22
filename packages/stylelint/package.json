@@ -39,7 +39,8 @@
     "stylelint": "^14.15.0 || ^15.0.0"
   },
   "devDependencies": {
-    "tsup": "7.2.0"
+    "tsup": "7.2.0",
+    "jest-preset-stylelint": "^6.3.2"
   },
   "dependencies": {},
   "jest": {

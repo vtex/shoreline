@@ -19,6 +19,10 @@ testRule({
       code: 'padding-left: 1rem',
       description: 'Defining a padding-left',
     },
+    {
+      code: 'top: 16px',
+      description: 'Defining a top value',
+    },
   ],
   reject: [
     {

@@ -3,7 +3,7 @@ const { replaceDeclaration } = require('../../utils/replace-declaration.mjs')
 
 const { ruleMessages, validateOptions, report } = stylelint.utils
 
-const ruleName = 'shoreline/no-space-px-values'
+const ruleName = 'shoreline/no-space-in-px'
 const messages = ruleMessages(ruleName, {
   expected: (prop, value, expectedValue) =>
     `Expected "${prop}: ${value}" to be "${prop}: ${expectedValue}".`,
