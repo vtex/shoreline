@@ -1,5 +1,40 @@
 const fs = require('fs')
 const prettier = require('prettier')
+var path = require('path')
+
+function copyFileSync(source, target) {
+  var targetFile = target
+
+  // If target is a directory, a new file with the same name will be created
+  if (fs.existsSync(target)) {
+    if (fs.lstatSync(target).isDirectory()) {
+      targetFile = path.join(target, path.basename(source))
+    }
+  }
+
+  fs.writeFileSync(targetFile, fs.readFileSync(source))
+}
+
+function copyFolderRecursiveSync(source, target) {
+  // Check if folder needs to be created or integrated
+  const targetFolder = path.join(target, path.basename(source))
+  if (!fs.existsSync(targetFolder)) {
+    fs.mkdirSync(targetFolder)
+  }
+
+  // Copy
+  if (fs.lstatSync(source).isDirectory()) {
+    const files = fs.readdirSync(source)
+    files.forEach(function (file) {
+      const curSource = path.join(source, file)
+      if (fs.lstatSync(curSource).isDirectory()) {
+        copyFolderRecursiveSync(curSource, targetFolder)
+      } else {
+        fs.copyFileSync(curSource, path.join(targetFolder, file))
+      }
+    })
+  }
+}
 
 function splitIntoMultipleFiles() {
   const cwd = process.cwd()
@@ -58,13 +93,21 @@ function splitIntoMultipleFiles() {
         continue
       }
 
-      const filePath = `${cwd}/__tmpDocs/${componentName}.md`
-      fs.writeFileSync(filePath, file)
-      prettify(filePath)
+      // TODO: Double check what kind of files are these and where they should be placed
+      // const filePath = `${cwd}/__tmpDocs/${componentName}.md`
+      // fs.writeFileSync(filePath, file)
+      // prettify(filePath)
     } catch (error) {
       console.error(error)
     }
   }
+
+  // Move everything under ${cwd}/__tmpDocs to packages/next-docs/pages
+  const tmpDocsPath = `${cwd}/__tmpDocs`
+  const pagesPath = `${cwd}/packages/next-docs/pages`
+
+  copyFolderRecursiveSync(`${tmpDocsPath}/components`, pagesPath)
+  copyFolderRecursiveSync(`${tmpDocsPath}/hooks`, pagesPath)
 }
 
 function prettify(filePath) {

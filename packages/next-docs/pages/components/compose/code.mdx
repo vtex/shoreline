@@ -1,0 +1,29 @@
+### Compose
+
+▸ **Compose**(`props`): `null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+Composes immediate child with its props and child own props.
+Used to implement Shoreline composition
+
+#### Parameters
+
+| Name    | Type                                                                    |
+| :------ | :---------------------------------------------------------------------- |
+| `props` | [`ComposeProps`](interfaces/ComposeProps.md) & `RefAttributes`\<`any`\> |
+
+#### Returns
+
+`null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+**`Example`**
+
+```ts
+function Button({ asChild, ...props }) {
+  const Composition = asChild ? Compose : "button";
+  return <Composition {...props} />;
+}
+```
+
+#### Defined in
+
+node_modules/.pnpm/@types+react@18.2.14/node_modules/@types/react/ts5.0/index.d.ts:355

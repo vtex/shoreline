@@ -1,0 +1,32 @@
+### Pagination
+
+▸ **Pagination**(`props`): `null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+Pagination triggers allow merchants to view the size of a list and navigate between pages.
+
+#### Parameters
+
+| Name    | Type                                                                                     |
+| :------ | :--------------------------------------------------------------------------------------- |
+| `props` | [`PaginationProps`](interfaces/PaginationProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+
+#### Returns
+
+`null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+**`Example`**
+
+```ts
+<Pagination
+  page={page}
+  onPageChange={(page, type) => {}}
+  total={total}
+  size={size}
+  sizeOptions={[25, 50, 100]}
+  onSizeChange={(size) => {}}
+/>
+```
+
+#### Defined in
+
+node_modules/.pnpm/@types+react@18.2.14/node_modules/@types/react/ts5.0/index.d.ts:355

@@ -1,0 +1,32 @@
+### Composable
+
+▸ **Composable**(`props`): `Element`
+
+Defines a composable child inside of a Compose component
+
+#### Parameters
+
+| Name    | Type                                               |
+| :------ | :------------------------------------------------- |
+| `props` | [`ComposableProps`](interfaces/ComposableProps.md) |
+
+#### Returns
+
+`Element`
+
+**`Example`**
+
+```ts
+function Button({ asChild, children, ...props }) {
+  const Composition = asChild ? Compose : "button";
+  return (
+    <Composition {...props}>
+      Prefix <Composable>{children}</Composable>
+    </Composition>
+  );
+}
+```
+
+#### Defined in
+
+[packages/components/src/compose/composable.tsx:17](https://github.com/vtex/shoreline/blob/8e177fa6d/packages/components/src/compose/composable.tsx#L17)
