@@ -11,7 +11,7 @@ const path = require('path')
  * Copy a folder recursively
  *
  * @param {string} source
- * @param {string} target
+ * @param {string} target?
  */
 function copyFolderRecursiveSync(source, target) {
   const targetFolder = path.join(target, path.basename(source))
@@ -44,33 +44,35 @@ function splitIntoMultipleFiles() {
   const cwd = process.cwd()
 
   const rootFile = fs.readFileSync(`${cwd}/__tmpDocs/modules.md`, 'utf8')
+  const interfacesFiles = fs.readdirSync(`${cwd}/__tmpDocs/interfaces`)
+
   // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
-  const files = rootFile.split('___')
+  const methods = rootFile.split('___')
 
   const components = []
   const hooks = []
 
-  for (const file of files) {
+  for (const method of methods) {
     try {
-      const content = file.split('\n')
-      const componentName = content
+      const content = method.split('\n')
+      const methodName = content
         // Find the line that starts with "###", which is the component/method/hook name
         .find((line) => line.startsWith('###'))
         .replace('###', '')
         .trim()
 
       // Means that this is a component
-      const isPascalCase = /^[A-Z][a-zA-Z0-9]*$/.test(componentName)
+      const isPascalCase = /^[A-Z][a-zA-Z0-9]*$/.test(methodName)
       // Means that this is a hook, matches camelCase methods starting with "use"
-      const isHook = /^use[A-Z][a-zA-Z0-9]*$/.test(componentName)
+      const isHook = /^use[A-Z][a-zA-Z0-9]*$/.test(methodName)
       // Check if element is a component. This is a bit hacky, but it works
       // since typedoc classifies type-declared type as type aliases under
       // the modules.md file, while it separates interface-declared types
       // under the interfaces folder
-      const isTypeAlias = componentName.includes('Props')
+      const isTypeAlias = methodName.includes('Props')
 
       if (isHook && !isTypeAlias) {
-        const kebabCaseName = componentName
+        const kebabCaseName = methodName
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
           .toLowerCase()
 
@@ -82,17 +84,17 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/code.mdx`
 
-        fs.writeFileSync(filePath, file)
+        fs.writeFileSync(filePath, method)
 
         prettify(filePath)
 
-        hooks.push(componentName)
+        hooks.push(methodName)
 
         continue
       }
 
       if (isPascalCase && !isHook && !isTypeAlias) {
-        const kebabCaseName = componentName
+        const kebabCaseName = methodName
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
           .toLowerCase()
 
@@ -104,17 +106,37 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/code.mdx`
 
-        fs.writeFileSync(filePath, file)
+        fs.writeFileSync(filePath, method)
 
         prettify(filePath)
 
-        components.push(componentName)
+        components.push(methodName)
+
+        const correspondingInterface = interfacesFiles.find(
+          (i) => i.replace('.md', '').replace('Props', '') === methodName
+        )
+
+        if (correspondingInterface) {
+          const interfaceFile = fs.readFileSync(
+            `${cwd}/__tmpDocs/interfaces/${correspondingInterface}`,
+            'utf8'
+          )
+
+          const interfaceFilePath = `${folderPath}/props.mdx`
+
+          fs.writeFileSync(
+            interfaceFilePath,
+            interfaceFile.replace('Interface: ', '')
+          )
+
+          prettify(interfaceFilePath)
+        }
 
         continue
       }
 
       if (isTypeAlias && !isHook) {
-        const kebabCaseName = componentName
+        const kebabCaseName = methodName
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
           .toLowerCase()
           .replace('-props', '')
@@ -127,17 +149,12 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/props.mdx`
 
-        fs.writeFileSync(filePath, file)
+        fs.writeFileSync(filePath, method)
 
         prettify(filePath)
 
         continue
       }
-
-      // TODO: Double check what kind of files are these and where they should be placed
-      // const filePath = `${cwd}/__tmpDocs/${componentName}.md`
-      // fs.writeFileSync(filePath, file)
-      // prettify(filePath)
     } catch (error) {
       console.error(error)
     }

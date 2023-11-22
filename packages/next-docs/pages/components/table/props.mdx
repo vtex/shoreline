@@ -1,0 +1,119 @@
+# TableProps
+
+## Hierarchy
+
+- `ComponentPropsWithoutRef`\<`"div"`\>
+
+  ↳ **`TableProps`**
+
+  ↳↳ [`SimpleTableProps`](SimpleTableProps.md)
+
+## Table of contents
+
+### Properties
+
+- [asChild](TableProps.md#aschild)
+- [columnWidths](TableProps.md#columnwidths)
+- [density](TableProps.md#density)
+- [stickyColumn](TableProps.md#stickycolumn)
+- [stickyHeader](TableProps.md#stickyheader)
+
+## Properties
+
+### asChild
+
+• `Optional` **asChild**: `boolean`
+
+If true, the Table component will be rendered as a child of the Compose component
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:59](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L59)
+
+---
+
+### columnWidths
+
+• `Optional` **columnWidths**: `string`[]
+
+Array of column widths
+
+When using the Table component
+
+**`Default`**
+
+```ts
+[]
+
+When using the SimpleTable component
+```
+
+**`Default`**
+
+```ts
+[repeat(${columns.length}, var(--sl-table-default-column-width))]
+```
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:54](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L54)
+
+---
+
+### density
+
+• `Optional` **density**: `"default"` \| `"comfortable"` \| `"compact"`
+
+The density of the table
+
+**`Default`**
+
+```ts
+"default";
+```
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:74](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L74)
+
+---
+
+### stickyColumn
+
+• `Optional` **stickyColumn**: `boolean`
+
+If true, the first column will be sticky
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:69](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L69)
+
+---
+
+### stickyHeader
+
+• `Optional` **stickyHeader**: `boolean`
+
+If true, the header will be sticky
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:64](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L64)

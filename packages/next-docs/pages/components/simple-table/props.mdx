@@ -1,0 +1,245 @@
+# SimpleTableProps\<T\>
+
+## Type parameters
+
+| Name |
+| :--- |
+| `T`  |
+
+## Hierarchy
+
+- [`TableProps`](TableProps.md)
+
+- `TsMirrorProps`\<`T`\>
+
+  ↳ **`SimpleTableProps`**
+
+## Table of contents
+
+### Properties
+
+- [asChild](SimpleTableProps.md#aschild)
+- [columnWidths](SimpleTableProps.md#columnwidths)
+- [density](SimpleTableProps.md#density)
+- [options](SimpleTableProps.md#options)
+- [renderDetail](SimpleTableProps.md#renderdetail)
+- [rowClick](SimpleTableProps.md#rowclick)
+- [setSort](SimpleTableProps.md#setsort)
+- [sort](SimpleTableProps.md#sort)
+- [sortable](SimpleTableProps.md#sortable)
+- [stickyColumn](SimpleTableProps.md#stickycolumn)
+- [stickyHeader](SimpleTableProps.md#stickyheader)
+
+## Properties
+
+### asChild
+
+• `Optional` **asChild**: `boolean`
+
+If true, the Table component will be rendered as a child of the Compose component
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Inherited from
+
+[TableProps](TableProps.md).[asChild](TableProps.md#aschild)
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:59](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L59)
+
+---
+
+### columnWidths
+
+• `Optional` **columnWidths**: `string`[]
+
+Array of column widths
+
+When using the Table component
+
+**`Default`**
+
+```ts
+[]
+
+When using the SimpleTable component
+```
+
+**`Default`**
+
+```ts
+[repeat(${columns.length}, var(--sl-table-default-column-width))]
+```
+
+#### Inherited from
+
+[TableProps](TableProps.md).[columnWidths](TableProps.md#columnwidths)
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:54](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L54)
+
+---
+
+### density
+
+• `Optional` **density**: `"default"` \| `"comfortable"` \| `"compact"`
+
+The density of the table
+
+**`Default`**
+
+```ts
+"default";
+```
+
+#### Inherited from
+
+[TableProps](TableProps.md).[density](TableProps.md#density)
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:74](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L74)
+
+---
+
+### options
+
+• `Optional` **options**: `Options`\<`T`\>
+
+Other TanStack/Table options
+
+**`See`**
+
+https://tanstack.com/table/v8/docs/api/core/table
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:195](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L195)
+
+---
+
+### renderDetail
+
+• `Optional` **renderDetail**: (`row`: `Row`\<`T`\>) => `ReactNode`
+
+#### Type declaration
+
+▸ (`row`): `ReactNode`
+
+Renders function for the detail row
+
+##### Parameters
+
+| Name  | Type         |
+| :---- | :----------- |
+| `row` | `Row`\<`T`\> |
+
+##### Returns
+
+`ReactNode`
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:199](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L199)
+
+---
+
+### rowClick
+
+• `Optional` **rowClick**: \{ `getHref`: (`row`: `Row`\<`T`\>) => `string` ; `target?`: `NavigationTarget` ; `type`: `"link"` } \| \{ `onClick`: (`row`: `Row`\<`T`\>) => `void` ; `type`: `"action"` }
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:216](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L216)
+
+---
+
+### setSort
+
+• `Optional` **setSort**: `OnChangeFn`\<`SortingState`\>
+
+Setter for SortingState for controlled sort usage
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:212](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L212)
+
+---
+
+### sort
+
+• `Optional` **sort**: `SortingState`
+
+SortingState for controlled sort usage
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:208](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L208)
+
+---
+
+### sortable
+
+• `Optional` **sortable**: `boolean`
+
+Defines if columns will be sortable
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:204](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/simple-table/simple-table.tsx#L204)
+
+---
+
+### stickyColumn
+
+• `Optional` **stickyColumn**: `boolean`
+
+If true, the first column will be sticky
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Inherited from
+
+[TableProps](TableProps.md).[stickyColumn](TableProps.md#stickycolumn)
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:69](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L69)
+
+---
+
+### stickyHeader
+
+• `Optional` **stickyHeader**: `boolean`
+
+If true, the header will be sticky
+
+**`Default`**
+
+```ts
+false;
+```
+
+#### Inherited from
+
+[TableProps](TableProps.md).[stickyHeader](TableProps.md#stickyheader)
+
+#### Defined in
+
+[packages/components/src/table/table.tsx:64](https://github.com/vtex/shoreline/blob/9b5214c2f/packages/components/src/table/table.tsx#L64)
