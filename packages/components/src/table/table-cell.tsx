@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '../compose'
+import './table-cell.css'
 
 export const TableCell = forwardRef<HTMLDivElement, TableCellProps>(
   function TableCell(props, ref) {

@@ -1,0 +1,16 @@
+@layer sl-components {
+  [data-sl-table-row] {
+    display: contents;
+    color: var(--sl-color-fg);
+
+    &[data-dim-on-hover='true']:hover {
+      & > [data-sl-table-cell] {
+        background: var(--sl-bg-muted);
+      }
+    }
+
+    &[data-selected='true'] {
+      background: var(--sl-bg-muted);
+    }
+  }
+}

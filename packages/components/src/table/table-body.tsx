@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+
 import { Compose } from '../compose'
+import './table-body.css'
 
 export const TableBody = forwardRef<HTMLDivElement, TableBodyProps>(
   function TableBody(props, ref) {

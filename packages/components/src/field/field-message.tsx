@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Stack } from '../stack'
+import './field-message.css'
 
 export const FieldMessage = forwardRef<HTMLDivElement, FieldMessageProps>(
   function FieldMessage(props, ref) {

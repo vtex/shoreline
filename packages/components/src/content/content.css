@@ -1,6 +1,6 @@
 @layer sl-components {
-  [data-sl-container] {
-    container: sl-container / inline-size;
+  [data-sl-content] {
+    padding: var(--sl-content-space-vertical) var(--sl-content-space-horizontal);
   }
 
   @container sl-container (min-width: 0px) {
@@ -51,9 +51,5 @@
         --sl-content-space-vertical: var(--sl-space-8);
       }
     }
-  }
-
-  [data-sl-content] {
-    padding: var(--sl-content-space-vertical) var(--sl-content-space-horizontal);
   }
 }

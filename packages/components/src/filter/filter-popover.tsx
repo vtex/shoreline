@@ -9,9 +9,9 @@ import { FilterApply } from './filter-apply'
 import { Button } from '../button'
 import { Combobox } from '../combobox'
 import { useSearchable } from './use-searchable'
-
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
+import './filter-popover.css'
 
 const useMessage = createMessageHook(messages)
 

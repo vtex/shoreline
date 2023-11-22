@@ -1,0 +1,8 @@
+@layer sl-components {
+  [data-sl-tab-list] {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sl-space-2);
+    outline: none;
+  }
+}

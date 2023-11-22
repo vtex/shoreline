@@ -1,4 +1,3 @@
-import '../tab.css'
 import React from 'react'
 
 import { Tab, TabProvider, TabList, TabPanel } from '../index'

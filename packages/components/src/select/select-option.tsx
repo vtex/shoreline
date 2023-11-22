@@ -1,7 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { SelectItem } from '@ariakit/react'
+
 import { SelectOptionCheck } from './select-option-check'
+import './select-option.css'
 
 export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
   function SelectOption(props, ref) {

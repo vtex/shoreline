@@ -2,6 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { TabPanel as BaseTabPanel } from '@ariakit/react'
 
+import './tab-panel.css'
+
 /**
  * @example
  * <TabProvider>

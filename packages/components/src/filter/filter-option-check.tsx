@@ -4,6 +4,7 @@ import { IconCheckSmall } from '@vtex/shoreline-icons'
 
 import { useSelectContext } from '../select'
 import { SelectItemCheck } from '@ariakit/react'
+import './filter-option-check.css'
 
 /**
  * Check state of the FilterOption

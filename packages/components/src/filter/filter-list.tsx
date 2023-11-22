@@ -4,6 +4,7 @@ import type { SelectListProps } from '../select'
 import { SelectList } from '../select'
 import { ComboboxList } from '../combobox'
 import { useSearchable } from './use-searchable'
+import './filter-list.css'
 
 /**
  * Filter listbox
