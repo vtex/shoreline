@@ -62,6 +62,13 @@ export function AsField() {
       <CheckboxField helpText="By clicking you agree with terms and conditions">
         Terms and conditions
       </CheckboxField>
+      <CheckboxField
+        helpText="By clicking you agree with terms and conditions"
+        errorText="Something wrong"
+        error
+      >
+        Terms and conditions
+      </CheckboxField>
       <CheckboxField defaultChecked disabled>
         Disabled
       </CheckboxField>
@@ -91,6 +98,14 @@ export function Group() {
         <Checkbox>All at once</Checkbox>
         <Checkbox disabled>None</Checkbox>
       </CheckboxGroup>
+      <CheckboxGroup error label="Options" errorText="Bad choice">
+        <Checkbox error>Everything</Checkbox>
+        <Checkbox error>Everywhere</Checkbox>
+        <Checkbox error>All at once</Checkbox>
+        <Checkbox error disabled>
+          None
+        </Checkbox>
+      </CheckboxGroup>
       <CheckboxGroup
         error
         label={
@@ -99,6 +114,7 @@ export function Group() {
             <IconInfoFill />
           </>
         }
+        helpText="Choose one of these"
         errorText="Bad choice"
       >
         <Checkbox error>Everything</Checkbox>
