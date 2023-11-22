@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": "./src",
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "include": ["./src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.*",
+    "**/*.stories.*",
+    "**/*test-utils*"
+  ]
+}
