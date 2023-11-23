@@ -16,7 +16,7 @@ Renders an element that is visually only to screen readers
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <a href="#">
   Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden>
 </a>
@@ -31,11 +31,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { VisuallyHidden } from '@vtex/shoreline-components'
-export default function App() { return (<><a href="#"> Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden></a></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<a href="#">
+Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden>
+</a>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

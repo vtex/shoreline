@@ -17,7 +17,7 @@ Used to implement Shoreline composition
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 function Button({ asChild, ...props }) {
   const Composition = asChild ? Compose : "button";
   return <Composition {...props} />;
@@ -33,11 +33,20 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Composition } from '@vtex/shoreline-components'
-export default function App() { return (<>function Button({ asChild, ...props }){ const Composition = asChild ? Compose : 'button' return <Composition {...props} />}</>)}`,
-  }}
+
+export default function App() {
+return (<>
+function Button({ asChild, ...props }){
+const Composition = asChild ? Compose : 'button'
+return <Composition {...props} />
+}
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

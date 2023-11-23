@@ -17,7 +17,7 @@ information of an item through an overlay.
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <PopoverProvider>
   <PopoverTrigger>Trigger</PopoverTrigger>
   <Popover>Content</Popover>
@@ -33,13 +33,20 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { PopoverProvider } from '@vtex/shoreline-components'
-import { PopoverTrigger } from '@vtex/shoreline-components'
-import { Popover } from '@vtex/shoreline-components'
-export default function App() { return (<><PopoverProvider>   <PopoverTrigger>Trigger</PopoverTrigger>   <Popover>Content</Popover> </PopoverProvider></>)}`,
-  }}
+import { PopoverProvider, PopoverTrigger, Popover } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<PopoverProvider>
+<PopoverTrigger>Trigger</PopoverTrigger>
+<Popover>Content</Popover>
+</PopoverProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ Loading indicator
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Spinner description="loading" size={16} />
 ```
 
@@ -29,11 +29,17 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Spinner } from '@vtex/shoreline-components'
-export default function App() { return (<><Spinner description="loading" size={16} /></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<Spinner description="loading" size={16} />
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

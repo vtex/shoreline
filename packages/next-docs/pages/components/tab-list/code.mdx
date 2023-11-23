@@ -14,7 +14,7 @@
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <TabProvider>
   <TabList>
     <Tab>Tab 1</Tab>
@@ -34,16 +34,28 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { TabProvider } from '@vtex/shoreline-components'
-import { TabList } from '@vtex/shoreline-components'
-import { Tab } from '@vtex/shoreline-components'
-import { Tab } from '@vtex/shoreline-components'
-import { TabPanel } from '@vtex/shoreline-components'
-import { TabPanel } from '@vtex/shoreline-components'
-export default function App() { return (<><TabProvider> <TabList>   <Tab>Tab 1</Tab>   <Tab>Tab 2</Tab> </TabList> <TabPanel>   Tab 1 </TabPanel> <TabPanel>   Tab 2 </TabPanel></TabProvider></>)}`,
-  }}
+import { TabProvider, TabList, Tab, TabPanel } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<TabProvider>
+<TabList>
+<Tab>Tab 1</Tab>
+<Tab>Tab 2</Tab>
+</TabList>
+<TabPanel>
+Tab 1
+</TabPanel>
+<TabPanel>
+Tab 2
+</TabPanel>
+</TabProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ Anchor component
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Link href="https://vtex.com">Go to VTEX</Link>
 ```
 
@@ -29,17 +29,22 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Link } from '@vtex/shoreline-components'
-export default function App() { return (<><Link href="https://vtex.com">Go to VTEX</Link></>)}`,
+
+export default function App() {
+return (<>
+
+<Link href="https://vtex.com">Go to VTEX</Link>
+</>
+  )}`,
   }}
-
->   <SandpackLayout>
-
+>
+  <SandpackLayout>
     <SandpackCodeEditor />
     <SandpackPreview />
-
   </SandpackLayout>
 </SandpackProvider>
 

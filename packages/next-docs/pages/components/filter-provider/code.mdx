@@ -16,7 +16,7 @@ Provides context to Filter
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <FilterProvider>
   <FilterTrigger>...</FilterTrigger>
   <FilterPopover>...</FilterPopover>
@@ -32,13 +32,20 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { FilterProvider } from '@vtex/shoreline-components'
-import { FilterTrigger } from '@vtex/shoreline-components'
-import { FilterPopover } from '@vtex/shoreline-components'
-export default function App() { return (<><FilterProvider>  <FilterTrigger>...</FilterTrigger>  <FilterPopover>...</FilterPopover></FilterProvider></>)}`,
-  }}
+import { FilterProvider, FilterTrigger, FilterPopover } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<FilterProvider>
+<FilterTrigger>...</FilterTrigger>
+<FilterPopover>...</FilterPopover>
+</FilterProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 
@@ -50,4 +57,4 @@ export default function App() { return (<><FilterProvider>  <FilterTrigger>...</
 
 #### Defined in
 
-[packages/components/src/filter/filter-provider.tsx:17](https://github.com/vtex/shoreline/blob/6674ddada/packages/components/src/filter/filter-provider.tsx#L17)
+[packages/components/src/filter/filter-provider.tsx:17](https://github.com/vtex/shoreline/blob/0b6f8d7fa/packages/components/src/filter/filter-provider.tsx#L17)

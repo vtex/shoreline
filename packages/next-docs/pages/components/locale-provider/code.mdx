@@ -16,7 +16,7 @@ Provides the locale
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <LocaleProvider locale="pt-BR">...</LocaleProvider>
 ```
 
@@ -29,11 +29,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { LocaleProvider } from '@vtex/shoreline-components'
-export default function App() { return (<><LocaleProvider locale="pt-BR"> ...</LocaleProvider></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<LocaleProvider locale="pt-BR">
+...
+</LocaleProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 
@@ -45,4 +53,4 @@ export default function App() { return (<><LocaleProvider locale="pt-BR"> ...</L
 
 #### Defined in
 
-[packages/components/src/locale/locale-provider.tsx:12](https://github.com/vtex/shoreline/blob/6674ddada/packages/components/src/locale/locale-provider.tsx#L12)
+[packages/components/src/locale/locale-provider.tsx:12](https://github.com/vtex/shoreline/blob/0b6f8d7fa/packages/components/src/locale/locale-provider.tsx#L12)

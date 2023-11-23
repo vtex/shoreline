@@ -16,7 +16,7 @@ Action that applies the Filter value, and closes the popover
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <FilterApply>Apply</FilterApply>
 ```
 
@@ -29,11 +29,17 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { FilterApply } from '@vtex/shoreline-components'
-export default function App() { return (<><FilterApply>Apply</FilterApply></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<FilterApply>Apply</FilterApply>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ Action that clears both Filter value and UI Select value
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <FilterClear>Clear</FilterClear>
 ```
 
@@ -29,11 +29,17 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { FilterClear } from '@vtex/shoreline-components'
-export default function App() { return (<><FilterClear>Clear</FilterClear></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<FilterClear>Clear</FilterClear>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -17,7 +17,7 @@ that includes between five and seven values.
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <SelectField label="Label" helpText="Help text" errorText="Error text">
   <option>option</option>
   <option>option</option>
@@ -34,17 +34,31 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { SelectField } from '@vtex/shoreline-components'
-export default function App() { return (<><SelectField  label="Label"  helpText="Help text"  errorText="Error text">  <option>option</option>  <option>option</option>  <option>option</option></SelectField></>)}`,
+
+export default function App() {
+return (<>
+<SelectField
+label="Label"
+helpText="Help text"
+errorText="Error text"
+
+>
+
+  <option>option</option>
+  <option>option</option>
+  <option>option</option>
+</SelectField>
+</>
+  )}`,
   }}
-
->   <SandpackLayout>
-
+>
+  <SandpackLayout>
     <SandpackCodeEditor />
     <SandpackPreview />
-
   </SandpackLayout>
 </SandpackProvider>
 

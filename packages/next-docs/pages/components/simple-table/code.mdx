@@ -26,7 +26,7 @@ https://tanstack.com/table/v8
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <SimpleTable data={[]} columsn={[]} options={{}} />
 ```
 
@@ -39,10 +39,16 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { SimpleTable } from '@vtex/shoreline-components'
-export default function App() { return (<><SimpleTable data={[]} columsn={[]} options={{}} /></>)}`,
+
+export default function App() {
+return (<>
+<SimpleTable data={[]} columsn={[]} options={{}} />
+</>
+)}`,
 }}
 
 >   <SandpackLayout>

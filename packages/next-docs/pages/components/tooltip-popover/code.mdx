@@ -16,7 +16,7 @@ Popover of the Tooltip
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <TooltipProvider>
   <TooltipPopover>Text</TooltipPopover>
 </TooltipProvider>
@@ -31,12 +31,21 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { TooltipProvider } from '@vtex/shoreline-components'
-import { TooltipPopover } from '@vtex/shoreline-components'
-export default function App() { return (<><TooltipProvider> <TooltipPopover>   Text </TooltipPopover></TooltipProvider></>)}`,
-  }}
+import { TooltipProvider, TooltipPopover } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<TooltipProvider>
+<TooltipPopover>
+Text
+</TooltipPopover>
+</TooltipProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ Filter listbox
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <FilterProvider>
   <FilterPopover>
     <FilterList>
@@ -35,14 +35,23 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { FilterProvider } from '@vtex/shoreline-components'
-import { FilterPopover } from '@vtex/shoreline-components'
-import { FilterList } from '@vtex/shoreline-components'
-import { FilterOption } from '@vtex/shoreline-components'
-export default function App() { return (<><FilterProvider> <FilterPopover>   <FilterList>     <FilterOption value="option">Option</FilterOption>   </FilterList> </FilterPopover></FilterProvider></>)}`,
-  }}
+import { FilterProvider, FilterPopover, FilterList, FilterOption } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<FilterProvider>
+<FilterPopover>
+<FilterList>
+<FilterOption value="option">Option</FilterOption>
+</FilterList>
+</FilterPopover>
+</FilterProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ The anchor of the Tooltip
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <TooltipProvider>
   <TooltipAnchor asChild>
     <button>i</button>
@@ -33,12 +33,21 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { TooltipProvider } from '@vtex/shoreline-components'
-import { TooltipAnchor } from '@vtex/shoreline-components'
-export default function App() { return (<><TooltipProvider> <TooltipAnchor asChild>   <button>i</button> </TooltipAnchor></TooltipProvider></>)}`,
-  }}
+import { TooltipProvider, TooltipAnchor } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<TooltipProvider>
+<TooltipAnchor asChild>
+<button>i</button>
+</TooltipAnchor>
+</TooltipProvider>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

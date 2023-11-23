@@ -16,7 +16,7 @@ Wraps Content component to support Container Queries
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Container>
   <Content>...</Content>
 </Container>
@@ -31,12 +31,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { Container } from '@vtex/shoreline-components'
-import { Content } from '@vtex/shoreline-components'
-export default function App() { return (<><Container> <Content>...</Content></Container></>)}`,
-  }}
+import { Container, Content } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<Container>
+<Content>...</Content>
+</Container>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

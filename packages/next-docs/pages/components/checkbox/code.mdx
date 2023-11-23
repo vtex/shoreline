@@ -16,7 +16,7 @@ Checkbox controls allow users to make multiple independent choices in a form whe
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Checkbox>Label</Checkbox>
 ```
 
@@ -29,11 +29,17 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Checkbox } from '@vtex/shoreline-components'
-export default function App() { return (<><Checkbox>Label</Checkbox></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<Checkbox>Label</Checkbox>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

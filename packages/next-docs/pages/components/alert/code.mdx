@@ -16,7 +16,7 @@ Alert indicators allow users to view semantic messages that are prominent and ca
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Alert onDismiss={() => {}}>
   <Text>Message</Text>
   <Action>Action</Action>
@@ -32,12 +32,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { Alert } from '@vtex/shoreline-components'
-import { Text } from '@vtex/shoreline-components'
-import { Action } from '@vtex/shoreline-components'
-export default function App() { return (<><Alert onDismiss={() => {}}> <Text>Message</Text> <Action>Action</Action></Alert></>)}`,
+import { Alert, Text, Action } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<Alert onDismiss={() => {}}>
+<Text>Message</Text>
+<Action>Action</Action>
+</Alert>
+</>
+)}`,
 }}
 
 >   <SandpackLayout>

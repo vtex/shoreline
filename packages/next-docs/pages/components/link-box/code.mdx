@@ -16,7 +16,7 @@ A container that acts as a link. It allows text selection and stop its children 
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <LinkBox href="">
   <div>
     <a>...</a>
@@ -34,17 +34,27 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { LinkBox } from '@vtex/shoreline-components'
-export default function App() { return (<><LinkBox href="">  <div>    <a>...</a>  </div>  <button>...</button></LinkBox></>)}`,
+
+export default function App() {
+return (<>
+<LinkBox href="">
+
+  <div>
+    <a>...</a>
+  </div>
+  <button>...</button>
+</LinkBox>
+</>
+  )}`,
   }}
-
->   <SandpackLayout>
-
+>
+  <SandpackLayout>
     <SandpackCodeEditor />
     <SandpackPreview />
-
   </SandpackLayout>
 </SandpackProvider>
 

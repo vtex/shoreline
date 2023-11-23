@@ -16,7 +16,7 @@ Pagination triggers allow merchants to view the size of a list and navigate betw
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Pagination
   page={page}
   onPageChange={(page, type) => {}}
@@ -36,10 +36,23 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Pagination } from '@vtex/shoreline-components'
-export default function App() { return (<><Pagination  page={page}  onPageChange={(page, type) => {}} total={total} size={size} sizeOptions={[25, 50, 100]} onSizeChange={(size) => {}}/></>)}`,
+
+export default function App() {
+return (<>
+<Pagination
+page={page}
+onPageChange={(page, type) => {}}
+total={total}
+size={size}
+sizeOptions={[25, 50, 100]}
+onSizeChange={(size) => {}}
+/>
+</>
+)}`,
 }}
 
 >   <SandpackLayout>

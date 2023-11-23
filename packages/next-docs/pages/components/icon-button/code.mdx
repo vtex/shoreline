@@ -16,7 +16,7 @@ A button designed specifically for usage with a single icon.
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <IconButton label="Delete">
   <IconTrash />
 </IconButton>
@@ -31,12 +31,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { IconButton } from '@vtex/shoreline-components'
-import { IconTrash } from '@vtex/shoreline-components'
-export default function App() { return (<><IconButton label="Delete"> <IconTrash /></IconButton></>)}`,
-  }}
+import { IconButton, IconTrash } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<IconButton label="Delete">
+<IconTrash />
+</IconButton>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

@@ -16,7 +16,7 @@ Represents clickable surfaces
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Clickable>
   Text <button>Click Me</button>
 </Clickable>
@@ -31,11 +31,19 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Clickable } from '@vtex/shoreline-components'
-export default function App() { return (<><Clickable>  Text <button>Click Me</button></Clickable></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<Clickable>
+Text <button>Click Me</button>
+</Clickable>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 

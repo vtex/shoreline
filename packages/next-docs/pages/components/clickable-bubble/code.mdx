@@ -16,7 +16,7 @@ Bubbles events to Clickable
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Clickable>
  <ClickableBubble>
    <p>Clicking the text will bubble the Click event to Clickable</p>
@@ -33,19 +33,26 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
-import { Clickable } from '@vtex/shoreline-components'
-import { ClickableBubble } from '@vtex/shoreline-components'
-import { ClickableBubble } from '@vtex/shoreline-components'
-export default function App() { return (<><Clickable> <ClickableBubble>   <p>Clicking the text will bubble the Click event to Clickable</p> <ClickableBubble></Clickable></>)}`,
+import { Clickable, ClickableBubble } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<Clickable>
+<ClickableBubble>
+
+   <p>Clicking the text will bubble the Click event to Clickable</p>
+ <ClickableBubble>
+</Clickable>
+</>
+  )}`,
   }}
-
->   <SandpackLayout>
-
+>
+  <SandpackLayout>
     <SandpackCodeEditor />
     <SandpackPreview />
-
   </SandpackLayout>
 </SandpackProvider>
 

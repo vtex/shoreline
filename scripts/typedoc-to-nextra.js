@@ -13,31 +13,32 @@ const RESERVED_TYPEDOC_KEYWORDS = {
   md: '.md',
   tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx"',
   tsxCodeBlockEnd: '```',
+  typeAlias: '## Type Aliases',
 }
 
 function exampleToSandpackTemplate(example) {
   // Extract components from example
   const components = example.match(/<([A-Z][a-zA-Z0-9]*)/g)
-  // Import components from @vtex/shoreline-components
-  const imports = components
-    .map((component) => {
-      const componentName = component.replace('<', '')
+  // Remove duplicate components
+  const uniqueComponents = [
+    ...new Set(components.map((component) => component.replace('<', ''))),
+  ]
 
-      return `import { ${componentName} } from '@vtex/shoreline-components'`
-    })
-    .join('\n')
-
-  console.log({ example })
+  // Import components from @vtex/shoreline-components on a single import line
+  const imports = `import { ${uniqueComponents.join(
+    ', '
+  )} } from '@vtex/shoreline-components'`
 
   // Removes markdown code block
   const parsedExample = example
     .replace(RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockHeader, '')
     .replace(RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockEnd, '')
-    // Makes a one liner string
-    .replaceAll('\n', '')
 
   // Add example within export default
-  const exportedExample = `export default function App() { return (<>${parsedExample}</>)}`
+  const exportedExample = `
+  export default function App() { 
+    return (<>${parsedExample}</>
+  )}`
 
   const code = `import React from 'react'\n${imports}\n${exportedExample}`
 
@@ -53,7 +54,8 @@ import {
 
 <SandpackProvider 
   template="react" 
-  customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+  theme="dark"
+  customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
   files={{'/App.js': ` +
     `\`${code}\`` +
     `,
@@ -256,7 +258,16 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/props.mdx`
 
-        fs.writeFileSync(filePath, method)
+        let parsedMethod = method
+
+        // Removes the interfaces list that preceeds the type aliases
+        // from the typedoc generated file. This is only necessary for
+        // the first type alias, since the others are already separated
+        if (method.includes(RESERVED_TYPEDOC_KEYWORDS.typeAlias)) {
+          parsedMethod = method.split(RESERVED_TYPEDOC_KEYWORDS.typeAlias)[1]
+        }
+
+        fs.writeFileSync(filePath, parsedMethod)
 
         prettify(filePath)
 

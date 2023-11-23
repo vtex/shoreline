@@ -16,7 +16,7 @@ Buttons triggers allow users to identify and start the most important actions in
 
 **`Example`**
 
-```tsx copy showLineNumbers filename="example.tsx
+```tsx copy showLineNumbers filename="example.tsx"
 <Button>Action label</Button>
 ```
 
@@ -29,11 +29,17 @@ SandpackPreview,
 
 <SandpackProvider
 template="react"
-customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
 files={{'/App.js': `import React from 'react'
 import { Button } from '@vtex/shoreline-components'
-export default function App() { return (<><Button>Action label</Button></>)}`,
-  }}
+
+export default function App() {
+return (<>
+<Button>Action label</Button>
+</>
+)}`,
+}}
 
 >   <SandpackLayout>
 
