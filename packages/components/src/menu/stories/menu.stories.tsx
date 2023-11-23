@@ -63,7 +63,7 @@ export function Composition() {
 export function MoreActions() {
   return (
     <Stack>
-      <Stack direction="row">
+      <Stack direction="row" space="5rem">
         <MenuProvider>
           <MenuTrigger asChild>
             <Button variant="primary">
