@@ -115,7 +115,6 @@ export function Help() {
         <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
 
-
       <RadioGroup
         label="Optional group (optional)"
         errorText="Something is wrong"
