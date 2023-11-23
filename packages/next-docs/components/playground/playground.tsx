@@ -48,6 +48,7 @@ export function Playground(props: CodeProps) {
         dependencies: {
           ...dependencies,
           '@vtex/admin-ui': 'latest',
+          '@vtex/shoreline-components': 'latest',
         },
         entry: '/index.js',
       }}

@@ -1,0 +1,152 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+# Styling Components
+
+## Overriding styles
+
+### local
+
+<Tabs items={['app.tsx', 'styles.css']}>
+
+<Tab>
+
+```tsx
+import { Button } from '@vtex/shoreline-components'
+import './styles.css'
+
+export default function App() {
+  return (
+    <Button className="my-button">Text</Button> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+```css
+.my-button {
+  cursor: pointer;
+  margin: var(--sl-space-1) var(--sl-space-2);
+  /* ... */
+}
+```
+
+</Tab>
+
+</Tabs>
+
+### global
+
+Every component has its unique data-attribute for styling. It follows the pattern `data-sl-{component-name}`, where sl stands for Shoreline. This is particulary useful for customizing all component instances within a context.
+
+<Tabs items={['app.tsx', 'styles.css']}>
+
+<Tab>
+
+```tsx
+import { Button } from '@vtex/shoreline-components'
+import './styles.css'
+
+export default function App() {
+  return (
+    <Button>Accessible button</Button> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+```css
+:where(.context) [data-sl-button] {
+  cursor: pointer;
+  margin: var(--sl-space-1) var(--sl-space-2);
+  /* ... */
+}
+```
+
+</Tab>
+
+</Tabs>
+
+
+## Creating components
+
+<Tabs items={['app.tsx', 'oms-button.tsx', 'oms-button.css']}>
+
+<Tab>
+
+```tsx
+import { OmsButton } from './components/oms-button'
+
+export default function App() {
+  return (
+    <OmsButton>Button of the OMS Team</OmsButton> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+```tsx
+import type { ComponentPropsWithoutRef} from 'react'
+import { forwardRef } from 'react'
+import './oms-button.css'
+
+export const OmsButton = forwardRef<OmsButtonProps, HTMLButtonElement>(
+  function OmsButton(props, ref) {
+    return (
+      <button data-oms-button ref={ref} {...props} />
+    )
+  }
+)
+
+export type ComponentPropsWithoutRef<'button'>
+```
+
+</Tab>
+
+<Tab>
+
+```css
+@layer sl-components {
+  [data-oms-button] {
+    cursor: pointer;
+    margin: var(--sl-space-1) var(--sl-space-2);
+    /* ... */
+  }
+}
+```
+
+</Tab>
+
+</Tabs>
+
+<Playground files={{
+  '/App.js': `import './style.css'
+import { Button, Stack } from '@vtex/shoreline-components'
+import '@vtex/shoreline-components/styles'
+
+export default function App() {
+  return (
+    <Stack>
+      <div>
+        <Button variant="primary">Text</Button>
+      </div>
+      <div className="context">
+        <Button variant="primary">Text</Button>
+      </div>
+    </Stack>
+  )
+}
+`, 
+  '/style.css': `:where(.context) [data-sl-button] {
+    border-radius: 0px;
+}
+`
+}}/>
