@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1 (2023-11-23)
+
+**Note:** Version bump only for package @vtex/shoreline-icons
+
 # [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-icons@0.1.0...@vtex/shoreline-icons@0.2.0) (2023-10-26)
 
 ### Features

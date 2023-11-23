@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.21.0...@vtex/shoreline-components@0.22.0) (2023-11-23)
+
+### Bug Fixes
+
+- fix wrong usage of fg token ([dad60f3](https://github.com/vtex/admin-ui/commit/dad60f3261e489406d3dc52b877a975c8b9e0c1d))
+- **lint:** fix issues ([d40d441](https://github.com/vtex/admin-ui/commit/d40d4411ab0a9e1898a5538d8f4e68a8c1924d16))
+- **textarea:** style and layout ([58e155e](https://github.com/vtex/admin-ui/commit/58e155e1857c25dcfa947e3f10532ce8d5857ed4))
+
+### Features
+
+- **checkbox:** adjust spacing and add more stories ([069d183](https://github.com/vtex/admin-ui/commit/069d1833aeb8d1982f2a8e67c153b0cc9b37f69c))
+- **field:** add optional field behavior ([24c76fd](https://github.com/vtex/admin-ui/commit/24c76fdb2d217aae3234cc29a6d3c5e36e56adf7))
+- **i18n:** add dynamic message functionality ([c42a22a](https://github.com/vtex/admin-ui/commit/c42a22a35a078be5477977459880769760f14e3a))
+- **menu:** apply planned design specs ([8ca5098](https://github.com/vtex/admin-ui/commit/8ca50982b040a1f6328849c35d8c997b00dc7352))
+- **radio:** add example with helptext and errortext ([ec8aabe](https://github.com/vtex/admin-ui/commit/ec8aabe6b832709d79e383dfe503f50238f32199))
+- **select-field:** implement QA review ([15de917](https://github.com/vtex/admin-ui/commit/15de9179b39ca0c2b15b088ffe21c5bf7cae23cb))
+- **tag:** add all variants ([f72250d](https://github.com/vtex/admin-ui/commit/f72250dab4e3311c4d1c4fa5c1d0e70d3c8077f7))
+- **toast:** create component ([dfb4b4e](https://github.com/vtex/admin-ui/commit/dfb4b4e30ed1d166a04f60cc126e33dfca049c8f))
+- **tokens:** create tokens package ([2406f6d](https://github.com/vtex/admin-ui/commit/2406f6deb450f03eaf9c96b4664d224269ee98de))
+
 # [0.21.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.20.0...@vtex/shoreline-components@0.21.0) (2023-11-13)
 
 ### Bug Fixes

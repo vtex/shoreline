@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.1.3...@vtex/shoreline-theme@0.2.0) (2023-11-23)
+
+### Features
+
+- **tokens:** export token object ([0c8a3a6](https://github.com/vtex/shoreline/commit/0c8a3a64ce887e79cb8ec8c31d8f0caeb946e7e4))
+
 ## [0.1.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.1.2...@vtex/shoreline-theme@0.1.3) (2023-11-13)
 
 **Note:** Version bump only for package @vtex/shoreline-theme

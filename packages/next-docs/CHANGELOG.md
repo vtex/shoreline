@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.4...@shoreline/next-docs@0.1.5) (2023-11-23)
+
+### Bug Fixes
+
+- **lint:** fix issues ([d40d441](https://github.com/vtex/shoreline/commit/d40d4411ab0a9e1898a5538d8f4e68a8c1924d16))
+
 ## [0.1.4](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.3...@shoreline/next-docs@0.1.4) (2023-11-13)
 
 **Note:** Version bump only for package @shoreline/next-docs
