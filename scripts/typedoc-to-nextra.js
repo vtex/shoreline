@@ -124,10 +124,14 @@ function splitIntoMultipleFiles() {
 
           const interfaceFilePath = `${folderPath}/props.mdx`
 
-          fs.writeFileSync(
-            interfaceFilePath,
-            interfaceFile.replace('Interface: ', '')
-          )
+          // TODO: Fix links between components and their props
+          const parsedInterfaceFile = interfaceFile
+            // Replace the interface name with the component name on the title
+            .replace('Interface: ', '')
+            // Use the component kebab-case name when referencing some id on the page
+            .replaceAll(`${correspondingInterface}#`, `props.md#`)
+
+          fs.writeFileSync(interfaceFilePath, parsedInterfaceFile)
 
           prettify(interfaceFilePath)
         }
@@ -196,7 +200,7 @@ function splitIntoMultipleFiles() {
   // Write the updated componentsMetaJson
   fs.writeFileSync(hooksMetaJson, JSON.stringify(hooksMetaUpdated, null, 2))
 
-  // TODO: Copy interfaces to their corresponding components folder
+  // TODO: Remove __tmpDocs folder
 }
 
 /**
