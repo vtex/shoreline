@@ -2,6 +2,7 @@ import type { AnyObject, Dict } from './utility-types'
 import { constants } from './constants'
 import { cssVar } from './css-var'
 import { flattenObject } from './flatten-object'
+import { toVar } from './to-var'
 
 /**
  * Parse token from the config to a Token Dict.
@@ -21,15 +22,6 @@ export function parseTokens(props: ParseTokensProps): Dict {
   }
 
   return tokenDict
-}
-
-/**
- * Parse a prefix-value to a CSS Variable declaration
- * @param {string} value
- * @param {string} prefix
- */
-function toVar(value: string, prefix: string = constants.dsPrefix) {
-  return `--${prefix}-${value}`
 }
 
 interface ParseTokensProps {

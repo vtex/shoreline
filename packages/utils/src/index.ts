@@ -16,6 +16,7 @@ import { useId } from './use-id'
 import { useMergeRef } from './use-merge-ref'
 import { useSafeLayoutEffect } from './use-safe-layout-effect'
 import { hasSomeTextSelected } from './has-some-text-selected'
+import { toVar } from './to-var'
 
 export {
   chain,
@@ -39,6 +40,7 @@ export {
   useMergeRef,
   useSafeLayoutEffect,
   hasSomeTextSelected,
+  toVar,
 }
 
 export * from './css-types'
