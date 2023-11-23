@@ -3,6 +3,10 @@
     "title": "Home",
     "type": "page"
   },
+  "guides": {
+    "title": "Guides",
+    "type": "page"
+  },
   "components": {
     "title": "Components",
     "type": "page"
