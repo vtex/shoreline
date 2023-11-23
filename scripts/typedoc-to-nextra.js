@@ -11,7 +11,7 @@ const RESERVED_TYPEDOC_KEYWORDS = {
   interfaces: 'Interfaces',
   props: 'Props',
   md: '.md',
-  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx',
+  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx"',
   tsxCodeBlockEnd: '```',
 }
 
