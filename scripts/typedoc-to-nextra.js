@@ -7,6 +7,99 @@ const prettierConfigPath = require.resolve('../.prettierrc')
 const prettierConfig = require(prettierConfigPath)
 const path = require('path')
 
+const RESERVED_TYPEDOC_KEYWORDS = {
+  interfaces: 'Interfaces',
+  props: 'Props',
+  md: '.md',
+  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx',
+  tsxCodeBlockEnd: '```',
+}
+
+function exampleToSandpackTemplate(example) {
+  // Extract components from example
+  const components = example.match(/<([A-Z][a-zA-Z0-9]*)/g)
+  // Import components from @vtex/shoreline-components
+  const imports = components
+    .map((component) => {
+      const componentName = component.replace('<', '')
+
+      return `import { ${componentName} } from '@vtex/shoreline-components'`
+    })
+    .join('\n')
+
+  console.log({ example })
+
+  // Removes markdown code block
+  const parsedExample = example
+    .replace(RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockHeader, '')
+    .replace(RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockEnd, '')
+    // Makes a one liner string
+    .replaceAll('\n', '')
+
+  // Add example within export default
+  const exportedExample = `export default function App() { return (<>${parsedExample}</>)}`
+
+  const code = `import React from 'react'\n${imports}\n${exportedExample}`
+
+  // Add imports and example to template
+  const template =
+    `
+import {
+  SandpackProvider,
+  SandpackLayout,
+  SandpackCodeEditor,
+  SandpackPreview,
+} from '@codesandbox/sandpack-react' 
+
+<SandpackProvider 
+  template="react" 
+  customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+  files={{'/App.js': ` +
+    `\`${code}\`` +
+    `,
+  }}
+>
+  <SandpackLayout>
+    <SandpackCodeEditor />
+    <SandpackPreview />
+  </SandpackLayout>
+</SandpackProvider>`
+
+  return template
+}
+
+/**
+ * Add a Sandpack example to the docs based on a given `@example` block
+ *
+ * @param {string} file
+ * @returns
+ */
+function addSandpack(file) {
+  const exampleIndex = file.indexOf(
+    RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockHeader
+  )
+
+  const exampleEndIndex = file.indexOf(
+    `${RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockEnd}\n`,
+    exampleIndex
+  )
+
+  if (exampleIndex === -1 || exampleEndIndex === -1) {
+    return file
+  }
+
+  const example = file.substring(
+    exampleIndex,
+    exampleEndIndex + RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockEnd.length
+  )
+
+  const template = exampleToSandpackTemplate(example)
+
+  const newExample = `${example}\n\n${template}`
+
+  return file.replace(example, newExample)
+}
+
 /**
  * Copy a folder recursively
  *
@@ -69,7 +162,7 @@ function splitIntoMultipleFiles() {
       // since typedoc classifies type-declared type as type aliases under
       // the modules.md file, while it separates interface-declared types
       // under the interfaces folder
-      const isTypeAlias = methodName.includes('Props')
+      const isTypeAlias = methodName.includes(RESERVED_TYPEDOC_KEYWORDS.props)
 
       if (isHook && !isTypeAlias) {
         const kebabCaseName = methodName
@@ -106,14 +199,25 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/code.mdx`
 
-        fs.writeFileSync(filePath, method)
+        let parsedMethod = method
+          // Replace type annotations with the jsx syntax
+          .replaceAll('```ts', RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockHeader)
+          // Replace the link reference to the interface file with the props file
+          .replaceAll(`(interfaces/${methodName}Props.md)`, '(props.md)')
+
+        parsedMethod = addSandpack(parsedMethod)
+
+        fs.writeFileSync(filePath, parsedMethod)
 
         prettify(filePath)
 
         components.push(methodName)
 
         const correspondingInterface = interfacesFiles.find(
-          (i) => i.replace('.md', '').replace('Props', '') === methodName
+          (i) =>
+            i
+              .replace(RESERVED_TYPEDOC_KEYWORDS.md, '')
+              .replace(RESERVED_TYPEDOC_KEYWORDS.props, '') === methodName
         )
 
         if (correspondingInterface) {
@@ -124,7 +228,6 @@ function splitIntoMultipleFiles() {
 
           const interfaceFilePath = `${folderPath}/props.mdx`
 
-          // TODO: Fix links between components and their props
           const parsedInterfaceFile = interfaceFile
             // Replace the interface name with the component name on the title
             .replace('Interface: ', '')

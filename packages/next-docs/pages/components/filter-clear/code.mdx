@@ -6,9 +6,9 @@ Action that clears both Filter value and UI Select value
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`PopoverDismissProps`](interfaces/PopoverDismissProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                                                                |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`PopoverDismissProps`](interfaces/PopoverDismissProps.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Action that clears both Filter value and UI Select value
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <FilterClear>Clear</FilterClear>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { FilterClear } from '@vtex/shoreline-components'
+export default function App() { return (<><FilterClear>Clear</FilterClear></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

@@ -6,9 +6,9 @@ Anchor component
 
 #### Parameters
 
-| Name    | Type                                                                            |
-| :------ | :------------------------------------------------------------------------------ |
-| `props` | [`LinkProps`](interfaces/LinkProps.md) & `RefAttributes`\<`HTMLAnchorElement`\> |
+| Name    | Type                                                                                                                             |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`LinkProps`](props.md) & `RefAttributes`\<[`HTMLAnchorElement`](https://developer.mozilla.org/docs/Web/API/HTMLAnchorElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Anchor component
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Link href="https://vtex.com">Go to VTEX</Link>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Link } from '@vtex/shoreline-components'
+export default function App() { return (<><Link href="https://vtex.com">Go to VTEX</Link></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

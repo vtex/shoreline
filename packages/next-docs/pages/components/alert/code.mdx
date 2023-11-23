@@ -6,9 +6,9 @@ Alert indicators allow users to view semantic messages that are prominent and ca
 
 #### Parameters
 
-| Name    | Type                                                                           |
-| :------ | :----------------------------------------------------------------------------- |
-| `props` | [`AlertProps`](interfaces/AlertProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                        |
+| :------ | :-------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`AlertProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,12 +16,37 @@ Alert indicators allow users to view semantic messages that are prominent and ca
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Alert onDismiss={() => {}}>
   <Text>Message</Text>
   <Action>Action</Action>
 </Alert>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Alert } from '@vtex/shoreline-components'
+import { Text } from '@vtex/shoreline-components'
+import { Action } from '@vtex/shoreline-components'
+export default function App() { return (<><Alert onDismiss={() => {}}> <Text>Message</Text> <Action>Action</Action></Alert></>)}`,
+}}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

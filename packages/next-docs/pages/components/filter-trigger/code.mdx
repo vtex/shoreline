@@ -6,9 +6,9 @@ Triggers the Filter Popover box, also displays the Filter applied value
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`PopoverTriggerProps`](interfaces/PopoverTriggerProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                                                                |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`PopoverTriggerProps`](interfaces/PopoverTriggerProps.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,11 +16,35 @@ Triggers the Filter Popover box, also displays the Filter applied value
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <FilterProvider>
   <FilterTrigger>Open</FilterTrigger>
 </FilterProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { FilterProvider } from '@vtex/shoreline-components'
+import { FilterTrigger } from '@vtex/shoreline-components'
+export default function App() { return (<><FilterProvider>  <FilterTrigger>Open</FilterTrigger></FilterProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

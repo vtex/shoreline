@@ -7,9 +7,9 @@ that includes between five and seven values.
 
 #### Parameters
 
-| Name    | Type                                                                                          |
-| :------ | :-------------------------------------------------------------------------------------------- |
-| `props` | [`SelectFieldProps`](interfaces/SelectFieldProps.md) & `RefAttributes`\<`HTMLSelectElement`\> |
+| Name    | Type                                                                                                                                    |
+| :------ | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`SelectFieldProps`](props.md) & `RefAttributes`\<[`HTMLSelectElement`](https://developer.mozilla.org/docs/Web/API/HTMLSelectElement)\> |
 
 #### Returns
 
@@ -17,13 +17,36 @@ that includes between five and seven values.
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <SelectField label="Label" helpText="Help text" errorText="Error text">
   <option>option</option>
   <option>option</option>
   <option>option</option>
 </SelectField>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { SelectField } from '@vtex/shoreline-components'
+export default function App() { return (<><SelectField  label="Label"  helpText="Help text"  errorText="Error text">  <option>option</option>  <option>option</option>  <option>option</option></SelectField></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

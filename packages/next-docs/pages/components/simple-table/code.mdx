@@ -12,9 +12,9 @@ Controlled table render built on top of TanStack/Table API
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`SimpleTableProps`](interfaces/SimpleTableProps.md)\<`T`\> & `RefAttributes`\<`HTMLTableElement`\> |
+| Name    | Type                                                                                                                                         |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`SimpleTableProps`](props.md)\<`T`\> & `RefAttributes`\<[`HTMLTableElement`](https://developer.mozilla.org/docs/Web/API/HTMLTableElement)\> |
 
 #### Returns
 
@@ -26,9 +26,32 @@ https://tanstack.com/table/v8
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <SimpleTable data={[]} columsn={[]} options={{}} />
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { SimpleTable } from '@vtex/shoreline-components'
+export default function App() { return (<><SimpleTable data={[]} columsn={[]} options={{}} /></>)}`,
+}}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

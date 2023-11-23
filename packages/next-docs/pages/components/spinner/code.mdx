@@ -6,9 +6,9 @@ Loading indicator
 
 #### Parameters
 
-| Name    | Type                                                                               |
-| :------ | :--------------------------------------------------------------------------------- |
-| `props` | [`SpinnerProps`](interfaces/SpinnerProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                          |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`SpinnerProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Loading indicator
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Spinner description="loading" size={16} />
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Spinner } from '@vtex/shoreline-components'
+export default function App() { return (<><Spinner description="loading" size={16} /></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

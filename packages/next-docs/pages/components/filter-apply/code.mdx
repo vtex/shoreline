@@ -6,9 +6,9 @@ Action that applies the Filter value, and closes the popover
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`PopoverDismissProps`](interfaces/PopoverDismissProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                                                                |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`PopoverDismissProps`](interfaces/PopoverDismissProps.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Action that applies the Filter value, and closes the popover
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <FilterApply>Apply</FilterApply>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { FilterApply } from '@vtex/shoreline-components'
+export default function App() { return (<><FilterApply>Apply</FilterApply></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

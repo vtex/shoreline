@@ -11,5 +11,6 @@
   "excludeExternals": true,
   "externalPattern": ["**/node_modules/**"],
   "tsconfig": "packages/components/tsconfig.json",
+  "commentStyle": "all",
   "out": "__tmpDocs"
 }

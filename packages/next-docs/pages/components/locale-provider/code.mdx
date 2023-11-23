@@ -6,9 +6,9 @@ Provides the locale
 
 #### Parameters
 
-| Name    | Type                                                       |
-| :------ | :--------------------------------------------------------- |
-| `props` | [`LocaleProviderProps`](interfaces/LocaleProviderProps.md) |
+| Name    | Type                              |
+| :------ | :-------------------------------- |
+| `props` | [`LocaleProviderProps`](props.md) |
 
 #### Returns
 
@@ -16,10 +16,33 @@ Provides the locale
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <LocaleProvider locale="pt-BR">...</LocaleProvider>
 ```
 
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { LocaleProvider } from '@vtex/shoreline-components'
+export default function App() { return (<><LocaleProvider locale="pt-BR"> ...</LocaleProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
+
 #### Defined in
 
-[packages/components/src/locale/locale-provider.tsx:12](https://github.com/vtex/shoreline/blob/9cdfd7505/packages/components/src/locale/locale-provider.tsx#L12)
+[packages/components/src/locale/locale-provider.tsx:12](https://github.com/vtex/shoreline/blob/6674ddada/packages/components/src/locale/locale-provider.tsx#L12)

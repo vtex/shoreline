@@ -6,9 +6,9 @@ The anchor of the Tooltip
 
 #### Parameters
 
-| Name    | Type                                                                                           |
-| :------ | :--------------------------------------------------------------------------------------------- |
-| `props` | [`TooltipAnchorProps`](interfaces/TooltipAnchorProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`TooltipAnchorProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,13 +16,37 @@ The anchor of the Tooltip
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <TooltipProvider>
   <TooltipAnchor asChild>
     <button>i</button>
   </TooltipAnchor>
 </TooltipProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { TooltipProvider } from '@vtex/shoreline-components'
+import { TooltipAnchor } from '@vtex/shoreline-components'
+export default function App() { return (<><TooltipProvider> <TooltipAnchor asChild>   <button>i</button> </TooltipAnchor></TooltipProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

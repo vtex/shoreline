@@ -7,9 +7,9 @@ Used to implement Shoreline composition
 
 #### Parameters
 
-| Name    | Type                                                                    |
-| :------ | :---------------------------------------------------------------------- |
-| `props` | [`ComposeProps`](interfaces/ComposeProps.md) & `RefAttributes`\<`any`\> |
+| Name    | Type                                                  |
+| :------ | :---------------------------------------------------- |
+| `props` | [`ComposeProps`](props.md) & `RefAttributes`\<`any`\> |
 
 #### Returns
 
@@ -17,12 +17,35 @@ Used to implement Shoreline composition
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 function Button({ asChild, ...props }) {
   const Composition = asChild ? Compose : "button";
   return <Composition {...props} />;
 }
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Composition } from '@vtex/shoreline-components'
+export default function App() { return (<>function Button({ asChild, ...props }){ const Composition = asChild ? Compose : 'button' return <Composition {...props} />}</>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

@@ -6,9 +6,9 @@ Represents clickable surfaces
 
 #### Parameters
 
-| Name    | Type                                                                                   |
-| :------ | :------------------------------------------------------------------------------------- |
-| `props` | [`ClickableProps`](interfaces/ClickableProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                            |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`ClickableProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,11 +16,34 @@ Represents clickable surfaces
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Clickable>
   Text <button>Click Me</button>
 </Clickable>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Clickable } from '@vtex/shoreline-components'
+export default function App() { return (<><Clickable>  Text <button>Click Me</button></Clickable></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

@@ -4,9 +4,9 @@
 
 #### Parameters
 
-| Name    | Type                                                                                 |
-| :------ | :----------------------------------------------------------------------------------- |
-| `props` | [`TabPanelProps`](interfaces/TabPanelProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                           |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`TabPanelProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -14,7 +14,7 @@
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <TabProvider>
   <TabList>
     <Tab>Tab 1</Tab>
@@ -24,6 +24,34 @@
   <TabPanel>Tab 2</TabPanel>
 </TabProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { TabProvider } from '@vtex/shoreline-components'
+import { TabList } from '@vtex/shoreline-components'
+import { Tab } from '@vtex/shoreline-components'
+import { Tab } from '@vtex/shoreline-components'
+import { TabPanel } from '@vtex/shoreline-components'
+import { TabPanel } from '@vtex/shoreline-components'
+export default function App() { return (<><TabProvider> <TabList>   <Tab>Tab 1</Tab>   <Tab>Tab 2</Tab> </TabList> <TabPanel>   Tab 1 </TabPanel> <TabPanel>   Tab 2 </TabPanel></TabProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

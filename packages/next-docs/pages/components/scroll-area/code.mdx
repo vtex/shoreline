@@ -6,9 +6,9 @@ Cross-browser scroll styling
 
 #### Parameters
 
-| Name    | Type                                                                                     |
-| :------ | :--------------------------------------------------------------------------------------- |
-| `props` | [`ScrollAreaProps`](interfaces/ScrollAreaProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                             |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`ScrollAreaProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Cross-browser scroll styling
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <ScrollArea>Content</ScrollArea>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { ScrollArea } from '@vtex/shoreline-components'
+export default function App() { return (<><ScrollArea>  Content</ScrollArea></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

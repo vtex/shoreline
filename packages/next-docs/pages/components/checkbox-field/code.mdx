@@ -6,9 +6,9 @@ Checkbox field with label and help message
 
 #### Parameters
 
-| Name    | Type                                                                                           |
-| :------ | :--------------------------------------------------------------------------------------------- |
-| `props` | [`CheckboxFieldProps`](interfaces/CheckboxFieldProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`CheckboxFieldProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Checkbox field with label and help message
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <CheckboxField>Label</CheckboxField>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { CheckboxField } from '@vtex/shoreline-components'
+export default function App() { return (<><CheckboxField>Label</CheckboxField></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

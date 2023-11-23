@@ -6,9 +6,9 @@ Popover of the Tooltip
 
 #### Parameters
 
-| Name    | Type                                                                                             |
-| :------ | :----------------------------------------------------------------------------------------------- |
-| `props` | [`TooltipPopoverProps`](interfaces/TooltipPopoverProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                 |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`TooltipPopoverProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,11 +16,35 @@ Popover of the Tooltip
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <TooltipProvider>
   <TooltipPopover>Text</TooltipPopover>
 </TooltipProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { TooltipProvider } from '@vtex/shoreline-components'
+import { TooltipPopover } from '@vtex/shoreline-components'
+export default function App() { return (<><TooltipProvider> <TooltipPopover>   Text </TooltipPopover></TooltipProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

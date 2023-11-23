@@ -6,9 +6,9 @@ A container that acts as a link. It allows text selection and stop its children 
 
 #### Parameters
 
-| Name    | Type                                                                               |
-| :------ | :--------------------------------------------------------------------------------- |
-| `props` | [`LinkBoxProps`](interfaces/LinkBoxProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                          |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`LinkBoxProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,7 +16,7 @@ A container that acts as a link. It allows text selection and stop its children 
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <LinkBox href="">
   <div>
     <a>...</a>
@@ -24,6 +24,29 @@ A container that acts as a link. It allows text selection and stop its children 
   <button>...</button>
 </LinkBox>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { LinkBox } from '@vtex/shoreline-components'
+export default function App() { return (<><LinkBox href="">  <div>    <a>...</a>  </div>  <button>...</button></LinkBox></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

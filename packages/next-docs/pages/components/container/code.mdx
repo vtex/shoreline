@@ -6,9 +6,9 @@ Wraps Content component to support Container Queries
 
 #### Parameters
 
-| Name    | Type                                                                                   |
-| :------ | :------------------------------------------------------------------------------------- |
-| `props` | [`ContainerProps`](interfaces/ContainerProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                            |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`ContainerProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,11 +16,35 @@ Wraps Content component to support Container Queries
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Container>
   <Content>...</Content>
 </Container>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Container } from '@vtex/shoreline-components'
+import { Content } from '@vtex/shoreline-components'
+export default function App() { return (<><Container> <Content>...</Content></Container></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

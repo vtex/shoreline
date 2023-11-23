@@ -6,9 +6,9 @@ Provides context to Filter
 
 #### Parameters
 
-| Name    | Type                                                       |
-| :------ | :--------------------------------------------------------- |
-| `props` | [`FilterProviderProps`](interfaces/FilterProviderProps.md) |
+| Name    | Type                              |
+| :------ | :-------------------------------- |
+| `props` | [`FilterProviderProps`](props.md) |
 
 #### Returns
 
@@ -16,13 +16,38 @@ Provides context to Filter
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <FilterProvider>
   <FilterTrigger>...</FilterTrigger>
   <FilterPopover>...</FilterPopover>
 </FilterProvider>
 ```
 
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { FilterProvider } from '@vtex/shoreline-components'
+import { FilterTrigger } from '@vtex/shoreline-components'
+import { FilterPopover } from '@vtex/shoreline-components'
+export default function App() { return (<><FilterProvider>  <FilterTrigger>...</FilterTrigger>  <FilterPopover>...</FilterPopover></FilterProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
+
 #### Defined in
 
-[packages/components/src/filter/filter-provider.tsx:17](https://github.com/vtex/shoreline/blob/9cdfd7505/packages/components/src/filter/filter-provider.tsx#L17)
+[packages/components/src/filter/filter-provider.tsx:17](https://github.com/vtex/shoreline/blob/6674ddada/packages/components/src/filter/filter-provider.tsx#L17)

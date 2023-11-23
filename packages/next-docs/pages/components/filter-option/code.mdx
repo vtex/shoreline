@@ -6,9 +6,9 @@ Filter Option
 
 #### Parameters
 
-| Name    | Type                                                                                      |
-| :------ | :---------------------------------------------------------------------------------------- |
-| `props` | [`FilterOptionProps`](modules.md#filteroptionprops) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                                   |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`FilterOptionProps`](modules.md#filteroptionprops) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,11 +16,35 @@ Filter Option
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Filter label="Label">
   <FilterOption value="option">Option</FilterOption>
 </Filter>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Filter } from '@vtex/shoreline-components'
+import { FilterOption } from '@vtex/shoreline-components'
+export default function App() { return (<><Filter label="Label"> <FilterOption value="option">Option</FilterOption></Filter></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

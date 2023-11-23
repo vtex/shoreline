@@ -6,9 +6,9 @@ Dismiss the Popover
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`PopoverDismissProps`](interfaces/PopoverDismissProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                                       |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`PopoverDismissProps`](props.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,13 +16,38 @@ Dismiss the Popover
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <PopoverProvider>
   <Popover>
     <PopoverDismiss>Dismiss</PopoverDismiss>
   </Popover>
 </PopoverProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { PopoverProvider } from '@vtex/shoreline-components'
+import { Popover } from '@vtex/shoreline-components'
+import { PopoverDismiss } from '@vtex/shoreline-components'
+export default function App() { return (<><PopoverProvider> <Popover>   <PopoverDismiss>Dismiss</PopoverDismiss> </Popover></PopoverProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

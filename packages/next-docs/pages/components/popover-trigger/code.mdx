@@ -6,9 +6,9 @@ Triggers popover containers
 
 #### Parameters
 
-| Name    | Type                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------- |
-| `props` | [`PopoverTriggerProps`](interfaces/PopoverTriggerProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                                       |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`PopoverTriggerProps`](props.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,12 +16,37 @@ Triggers popover containers
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <PopoverProvider>
   <PopoverTrigger>Trigger</PopoverTrigger>
   <Popover>Content</Popover>
 </PopoverProvider>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { PopoverProvider } from '@vtex/shoreline-components'
+import { PopoverTrigger } from '@vtex/shoreline-components'
+import { Popover } from '@vtex/shoreline-components'
+export default function App() { return (<><PopoverProvider>   <PopoverTrigger>Trigger</PopoverTrigger>   <Popover>Content</Popover> </PopoverProvider></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

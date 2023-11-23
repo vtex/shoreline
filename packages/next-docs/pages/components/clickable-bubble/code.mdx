@@ -6,9 +6,9 @@ Bubbles events to Clickable
 
 #### Parameters
 
-| Name    | Type                                                                                               |
-| :------ | :------------------------------------------------------------------------------------------------- |
-| `props` | [`ClickableBubbleProps`](interfaces/ClickableBubbleProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                  |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`ClickableBubbleProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,13 +16,38 @@ Bubbles events to Clickable
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Clickable>
  <ClickableBubble>
    <p>Clicking the text will bubble the Click event to Clickable</p>
  <ClickableBubble>
 </Clickable>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Clickable } from '@vtex/shoreline-components'
+import { ClickableBubble } from '@vtex/shoreline-components'
+import { ClickableBubble } from '@vtex/shoreline-components'
+export default function App() { return (<><Clickable> <ClickableBubble>   <p>Clicking the text will bubble the Click event to Clickable</p> <ClickableBubble></Clickable></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

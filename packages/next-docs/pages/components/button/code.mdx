@@ -6,9 +6,9 @@ Buttons triggers allow users to identify and start the most important actions in
 
 #### Parameters
 
-| Name    | Type                                                                                |
-| :------ | :---------------------------------------------------------------------------------- |
-| `props` | [`ButtonProps`](interfaces/ButtonProps.md) & `RefAttributes`\<`HTMLButtonElement`\> |
+| Name    | Type                                                                                                                               |
+| :------ | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`ButtonProps`](props.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
 
 #### Returns
 
@@ -16,9 +16,32 @@ Buttons triggers allow users to identify and start the most important actions in
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <Button>Action label</Button>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Button } from '@vtex/shoreline-components'
+export default function App() { return (<><Button>Action label</Button></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

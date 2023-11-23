@@ -6,9 +6,9 @@ Renders an element that is visually only to screen readers
 
 #### Parameters
 
-| Name    | Type                                                                                             |
-| :------ | :----------------------------------------------------------------------------------------------- |
-| `props` | [`VisuallyHiddenProps`](interfaces/VisuallyHiddenProps.md) & `RefAttributes`\<`HTMLDivElement`\> |
+| Name    | Type                                                                                                                                 |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | [`VisuallyHiddenProps`](props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 #### Returns
 
@@ -16,11 +16,34 @@ Renders an element that is visually only to screen readers
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 <a href="#">
   Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden>
 </a>
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { VisuallyHidden } from '@vtex/shoreline-components'
+export default function App() { return (<><a href="#"> Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden></a></>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
 
 #### Defined in
 

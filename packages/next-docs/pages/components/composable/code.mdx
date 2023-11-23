@@ -6,9 +6,9 @@ Defines a composable child inside of a Compose component
 
 #### Parameters
 
-| Name    | Type                                               |
-| :------ | :------------------------------------------------- |
-| `props` | [`ComposableProps`](interfaces/ComposableProps.md) |
+| Name    | Type                          |
+| :------ | :---------------------------- |
+| `props` | [`ComposableProps`](props.md) |
 
 #### Returns
 
@@ -16,7 +16,7 @@ Defines a composable child inside of a Compose component
 
 **`Example`**
 
-```ts
+```tsx copy showLineNumbers filename="example.tsx
 function Button({ asChild, children, ...props }) {
   const Composition = asChild ? Compose : "button";
   return (
@@ -27,6 +27,30 @@ function Button({ asChild, children, ...props }) {
 }
 ```
 
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.21.0' } }}
+files={{'/App.js': `import React from 'react'
+import { Composition } from '@vtex/shoreline-components'
+import { Composable } from '@vtex/shoreline-components'
+export default function App() { return (<>function Button({ asChild, children, ...props }){ const Composition = asChild ? Compose : 'button' return (   <Composition {...props}>     Prefix <Composable>{children}</Composable>   </Composition> )}</>)}`,
+  }}
+
+>   <SandpackLayout>
+
+    <SandpackCodeEditor />
+    <SandpackPreview />
+
+  </SandpackLayout>
+</SandpackProvider>
+
 #### Defined in
 
-[packages/components/src/compose/composable.tsx:17](https://github.com/vtex/shoreline/blob/9cdfd7505/packages/components/src/compose/composable.tsx#L17)
+[packages/components/src/compose/composable.tsx:17](https://github.com/vtex/shoreline/blob/6674ddada/packages/components/src/compose/composable.tsx#L17)
