@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.22.0...@vtex/shoreline-components@0.23.0) (2023-11-24)
+
+### Features
+
+- accept pr suggestion ([ab3e0b6](https://github.com/vtex/admin-ui/commit/ab3e0b6480de3eaa0f439cf8a326013270e4e503))
+- add virtualization draft implementation ([3ebfcc2](https://github.com/vtex/admin-ui/commit/3ebfcc2e78c38c0ab5ae6daa1e88553ac97f3682))
+- **simple-table:** add simple table virtualization ([30fe2f1](https://github.com/vtex/admin-ui/commit/30fe2f12fc94cdcc6cdc8f41422a6fb4e9c681c9))
+- **simple-table:** add table virtualization using Virtual component ([88cde82](https://github.com/vtex/admin-ui/commit/88cde82cfd9f8849ca6cdb22b7538630672de8c1))
+- **simple-table:** remove unecessary code ([e291bf0](https://github.com/vtex/admin-ui/commit/e291bf006c8643e0904eceaec272e4525fa5d605))
+- **virtual:** add fixed size behavior ([eacb67c](https://github.com/vtex/admin-ui/commit/eacb67c227fb8942c11599629ddd5f99c05eb61b))
+- **virtual:** add menu virtualization example ([7c870c1](https://github.com/vtex/admin-ui/commit/7c870c1f086dc5a113c1e9bfcb4ce2b44adc83a2))
+- **virtual:** add virtual component ([adc169e](https://github.com/vtex/admin-ui/commit/adc169eb0186e9d2cefd6299607ffbc555b932c5))
+- **virtual:** add Virtual primitive component ([1913fb3](https://github.com/vtex/admin-ui/commit/1913fb3affbc0c24ab1b36b6750fd93db32e15a2))
+- **virtual:** fix rebase errors ([04622a9](https://github.com/vtex/admin-ui/commit/04622a940d1ccf176cf55bb161df0f34fb079580))
+- **virtual:** make virtual an uncontrolled component ([f5845c6](https://github.com/vtex/admin-ui/commit/f5845c69db1e45f0ac8755746ca9dbc164fd8909))
+
 # [0.22.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.21.0...@vtex/shoreline-components@0.22.0) (2023-11-23)
 
 ### Bug Fixes
