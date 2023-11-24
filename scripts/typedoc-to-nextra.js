@@ -16,6 +16,66 @@ const RESERVED_TYPEDOC_KEYWORDS = {
   typeAlias: '## Type Aliases',
 }
 
+const CWD = process.cwd()
+const TMP_DOCS_PATH = `${CWD}/__tmpDocs`
+
+/**
+ * Transform a string from PascalCase to kebab-case
+ *
+ * @param {string} str
+ * @returns
+ */
+function pascalCaseToKebabCase(str) {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+/**
+ * Finds references to interfaces and props files and replaces them with
+ * the correct path
+ *
+ * @param {string} file
+ * @returns
+ */
+function typedocPluginShorelineLinks(file) {
+  let parsedFile = file
+
+  const interfaceLinks = file.match(
+    /\(interfaces\/([A-Z][a-zA-Z0-9]*)Props.md\)/g
+  )
+
+  const propsLinks = file.match(/(\([A-Z][a-zA-Z0-9]*)Props.md\)/g)
+
+  if (interfaceLinks) {
+    for (const link of interfaceLinks) {
+      const componentName = link
+        .replace('(interfaces/', '')
+        .replace('Props.md)', '')
+
+      const updatedLink = link.replaceAll(
+        `interfaces/${componentName}Props.md`,
+        `/components/${pascalCaseToKebabCase(componentName)}/props.md`
+      )
+
+      parsedFile = parsedFile.replaceAll(link, updatedLink)
+    }
+  }
+
+  if (propsLinks) {
+    for (const link of propsLinks) {
+      const componentName = link.replace('(', '').replace('Props.md)', '')
+
+      const updatedLink = link.replace(
+        `${componentName}Props.md`,
+        `/components/${pascalCaseToKebabCase(componentName)}/props.md`
+      )
+
+      parsedFile = parsedFile.replaceAll(link, updatedLink)
+    }
+  }
+
+  return parsedFile
+}
+
 function exampleToSandpackTemplate(example) {
   // Extract components from example
   const components = example.match(/<([A-Z][a-zA-Z0-9]*)/g)
@@ -132,24 +192,25 @@ function copyFolderRecursiveSync(source, target) {
 }
 
 /**
- * Split the generated docs into multiple files.
+ * Split the generated docs from typedoc into multiple nextra files.
  * This is the typedoc-to-nextra.js entrypoint.
  */
-function splitIntoMultipleFiles() {
-  const cwd = process.cwd()
+function typedocToNextra() {
+  const rootFile = fs.readFileSync(`${TMP_DOCS_PATH}/modules.md`, 'utf8')
+  const interfacesFiles = fs.readdirSync(`${TMP_DOCS_PATH}/interfaces`)
 
-  const rootFile = fs.readFileSync(`${cwd}/__tmpDocs/modules.md`, 'utf8')
-  const interfacesFiles = fs.readdirSync(`${cwd}/__tmpDocs/interfaces`)
-
-  // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
-  const methods = rootFile.split('___')
+  const rootFileContent = typedocPluginShorelineLinks(rootFile)
+    // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
+    .split('___')
 
   const components = []
   const hooks = []
 
-  for (const method of methods) {
+  for (const fileContents of rootFileContent) {
     try {
-      const content = method.split('\n')
+      // Parse file contents
+      const content = fileContents.split('\n')
+
       const methodName = content
         // Find the line that starts with "###", which is the component/method/hook name
         .find((line) => line.startsWith('###'))
@@ -167,11 +228,8 @@ function splitIntoMultipleFiles() {
       const isTypeAlias = methodName.includes(RESERVED_TYPEDOC_KEYWORDS.props)
 
       if (isHook && !isTypeAlias) {
-        const kebabCaseName = methodName
-          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-          .toLowerCase()
-
-        const folderPath = `${cwd}/__tmpDocs/hooks/${kebabCaseName}`
+        const kebabCaseName = pascalCaseToKebabCase(methodName)
+        const folderPath = `${TMP_DOCS_PATH}/hooks/${kebabCaseName}`
 
         fs.mkdirSync(folderPath, {
           recursive: true,
@@ -179,7 +237,7 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/code.mdx`
 
-        fs.writeFileSync(filePath, method)
+        fs.writeFileSync(filePath, fileContents)
 
         prettify(filePath)
 
@@ -189,11 +247,8 @@ function splitIntoMultipleFiles() {
       }
 
       if (isPascalCase && !isHook && !isTypeAlias) {
-        const kebabCaseName = methodName
-          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-          .toLowerCase()
-
-        const folderPath = `${cwd}/__tmpDocs/components/${kebabCaseName}`
+        const kebabCaseName = pascalCaseToKebabCase(methodName)
+        const folderPath = `${TMP_DOCS_PATH}/components/${kebabCaseName}`
 
         fs.mkdirSync(folderPath, {
           recursive: true,
@@ -201,15 +256,15 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/code.mdx`
 
-        let parsedMethod = method
+        let parsedFileContents = fileContents
           // Replace type annotations with the jsx syntax
           .replaceAll('```ts', RESERVED_TYPEDOC_KEYWORDS.tsxCodeBlockHeader)
           // Replace the link reference to the interface file with the props file
           .replaceAll(`(interfaces/${methodName}Props.md)`, '(props.md)')
 
-        parsedMethod = addSandpack(parsedMethod)
+        parsedFileContents = addSandpack(parsedFileContents)
 
-        fs.writeFileSync(filePath, parsedMethod)
+        fs.writeFileSync(filePath, parsedFileContents)
 
         prettify(filePath)
 
@@ -224,13 +279,13 @@ function splitIntoMultipleFiles() {
 
         if (correspondingInterface) {
           const interfaceFile = fs.readFileSync(
-            `${cwd}/__tmpDocs/interfaces/${correspondingInterface}`,
+            `${TMP_DOCS_PATH}/interfaces/${correspondingInterface}`,
             'utf8'
           )
 
           const interfaceFilePath = `${folderPath}/props.mdx`
 
-          const parsedInterfaceFile = interfaceFile
+          const parsedInterfaceFile = typedocPluginShorelineLinks(interfaceFile)
             // Replace the interface name with the component name on the title
             .replace('Interface: ', '')
             // Use the component kebab-case name when referencing some id on the page
@@ -245,12 +300,12 @@ function splitIntoMultipleFiles() {
       }
 
       if (isTypeAlias && !isHook) {
-        const kebabCaseName = methodName
-          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-          .toLowerCase()
-          .replace('-props', '')
+        const kebabCaseName = pascalCaseToKebabCase(methodName).replace(
+          '-props',
+          ''
+        )
 
-        const folderPath = `${cwd}/__tmpDocs/components/${kebabCaseName}`
+        const folderPath = `${TMP_DOCS_PATH}/components/${kebabCaseName}`
 
         fs.mkdirSync(folderPath, {
           recursive: true,
@@ -258,16 +313,19 @@ function splitIntoMultipleFiles() {
 
         const filePath = `${folderPath}/props.mdx`
 
-        let parsedMethod = method
+        // Replace the link reference to the interface file with the props file
+        let parsedFileContents = fileContents
 
         // Removes the interfaces list that preceeds the type aliases
         // from the typedoc generated file. This is only necessary for
         // the first type alias, since the others are already separated
-        if (method.includes(RESERVED_TYPEDOC_KEYWORDS.typeAlias)) {
-          parsedMethod = method.split(RESERVED_TYPEDOC_KEYWORDS.typeAlias)[1]
+        if (fileContents.includes(RESERVED_TYPEDOC_KEYWORDS.typeAlias)) {
+          parsedFileContents = fileContents.split(
+            RESERVED_TYPEDOC_KEYWORDS.typeAlias
+          )[1]
         }
 
-        fs.writeFileSync(filePath, parsedMethod)
+        fs.writeFileSync(filePath, parsedFileContents)
 
         prettify(filePath)
 
@@ -278,21 +336,20 @@ function splitIntoMultipleFiles() {
     }
   }
 
-  // Move everything under ${cwd}/__tmpDocs to packages/next-docs/pages
-  const tmpDocsPath = `${cwd}/__tmpDocs`
-  const pagesPath = `${cwd}/packages/next-docs/pages`
-  const componentsMetaJson = `${cwd}/packages/next-docs/pages/components/_meta.json`
-  const hooksMetaJson = `${cwd}/packages/next-docs/pages/hooks/_meta.json`
+  // Move everything under ${TMP_DOCS_PATH} to packages/next-docs/pages
+  const pagesPath = `${CWD}/packages/next-docs/pages`
+  const componentsMetaJson = `${CWD}/packages/next-docs/pages/components/_meta.json`
+  const hooksMetaJson = `${CWD}/packages/next-docs/pages/hooks/_meta.json`
 
-  copyFolderRecursiveSync(`${tmpDocsPath}/components`, pagesPath)
-  copyFolderRecursiveSync(`${tmpDocsPath}/hooks`, pagesPath)
+  copyFolderRecursiveSync(`${TMP_DOCS_PATH}/components`, pagesPath)
+  copyFolderRecursiveSync(`${TMP_DOCS_PATH}/hooks`, pagesPath)
 
   // Update componentsMetaJson with the new paths
   // Adds the components as kebab-case on keys and PascalCase on values
   const componentsMetaUpdated = components.reduce((acc, cur) => {
     return {
       ...acc,
-      [cur.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: cur,
+      [pascalCaseToKebabCase(cur)]: cur,
     }
   }, {})
 
@@ -307,7 +364,7 @@ function splitIntoMultipleFiles() {
   const hooksMetaUpdated = hooks.reduce((acc, cur) => {
     return {
       ...acc,
-      [cur.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()]: cur,
+      [pascalCaseToKebabCase(cur)]: cur,
     }
   }, {})
 
@@ -334,4 +391,4 @@ function prettify(filePath) {
   fs.writeFileSync(filePath, formatted)
 }
 
-splitIntoMultipleFiles()
+typedocToNextra()
