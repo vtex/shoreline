@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.25.0...@vtex/shoreline-components@0.26.0) (2023-11-24)
+
+### Features
+
+- **contextual-help:** create component ([5a3f585](https://github.com/vtex/admin-ui/commit/5a3f585ca9b2d7ee8cbdf381375af3cf8df3ddc4))
+
 # [0.25.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.24.0...@vtex/shoreline-components@0.25.0) (2023-11-24)
 
 ### Features

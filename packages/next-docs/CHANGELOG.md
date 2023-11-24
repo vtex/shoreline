@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.5...@shoreline/next-docs@0.2.0) (2023-11-24)
+
+### Bug Fixes
+
+- **lading:** add font face ([61f0d06](https://github.com/vtex/shoreline/commit/61f0d0625bcc83db5d93de2e6712ca608638f586))
+
+### Features
+
+- **docs:** add landing page ([69eb911](https://github.com/vtex/shoreline/commit/69eb91150b0a7b7dee7c052295daabdd7124476c))
+
 ## [0.1.5](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.4...@shoreline/next-docs@0.1.5) (2023-11-23)
 
 ### Bug Fixes
