@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 
+import './virtual.css'
+
 import {
   useVirtualizerModel,
   type UseVirtualizerModelProps,

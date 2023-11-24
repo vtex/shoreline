@@ -1,16 +1,9 @@
-import '../../../dist/styles.min.css'
 import React, { Fragment, useMemo } from 'react'
 import '../virtual.css'
 import './styles.css'
 
-import {
-  Virtual,
-  VirtualContainer,
-  VirtualItem,
-  useVirtualizerModel,
-} from '../index'
+import { Virtual, VirtualItem } from '../index'
 
-import { Center } from '../../center'
 import { Menu, MenuItem, MenuProvider, MenuTrigger } from '../../menu'
 import { Button } from '../../button'
 

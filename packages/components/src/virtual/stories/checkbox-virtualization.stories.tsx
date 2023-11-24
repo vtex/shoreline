@@ -1,7 +1,6 @@
-import '../../../dist/styles.min.css'
 import '../virtual.css'
 
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Virtual, VirtualItem } from '../index'
 import { Stack } from '../../stack'
 import { Checkbox } from '../../checkbox'

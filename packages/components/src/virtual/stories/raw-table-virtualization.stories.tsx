@@ -1,4 +1,3 @@
-import '../../../dist/styles.min.css'
 import '../virtual.css'
 import '../../table/table.css'
 
@@ -6,7 +5,6 @@ import React from 'react'
 import { faker } from '@faker-js/faker'
 
 import { useVirtualizerModel } from '../index'
-import { useVirtualizer } from '@tanstack/react-virtual'
 
 export default {
   title: 'shoreline-components/virtual',
