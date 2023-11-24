@@ -1,0 +1,7 @@
+{
+  "size-select": "Mostrar {size}",
+  "page-select": "{page} de {pages}",
+  "total-label": "{total} itens",
+  "next-page-action": "Próxima página",
+  "previous-page-action": "Página anterior"
+}

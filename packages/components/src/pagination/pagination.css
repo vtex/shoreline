@@ -5,37 +5,25 @@
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
-  [data-sl-pagination-size] {
-    position: relative;
+  [data-sl-pagination-select-action] {
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
-  [data-sl-pagination-size-select] {
-    color: var(--sl-fg-muted);
-    border: none;
-    border-radius: var(--sl-border-radius-medium);
-    background: var(--sl-bg);
-    padding: var(--sl-space-1) var(--sl-space-3);
-    padding-right: var(--sl-space-8);
-    appearance: none;
-    cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible {
-      box-shadow: var(--sl-focus-ring);
-    }
+  [data-sl-pagination-select-popover] {
+    margin-top: var(--sl-space-1);
+    max-height: 12.75rem;
+    overflow-y: auto;
   }
 
-  [data-sl-pagination-size-select-icon] {
-    color: var(--sl-fg-soft);
-    position: absolute;
-    right: var(--sl-space-3);
-    top: var(--sl-space-0);
-    bottom: var(--sl-space-0);
-    margin: auto;
-    pointer-events: none;
+  [data-sl-pagination-select][data-loading='true'] {
+    width: 2.75rem;
+    height: 1.25rem;
+  }
+
+  [data-sl-pagination-total-label][data-loading='true'] {
+    width: 4.125rem;
+    height: 1.25rem;
   }
 
   [data-sl-pagination-actions] {
