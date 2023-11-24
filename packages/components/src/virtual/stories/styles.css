@@ -1,0 +1,6 @@
+.row {
+  background: white;
+  &[data-odd='true'] {
+    background: #cecece;
+  }
+}
