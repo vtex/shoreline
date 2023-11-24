@@ -30,19 +30,19 @@ module.exports = stylelint.createPlugin(
         if (isAutoFixing) {
           const hasShorelinePrefix = decl.value.includes(textTokenPrefix)
 
-          const newFontValue = hasShorelinePrefix
+          const fontValue = hasShorelinePrefix
             ? decl.value.replace(')', '-font)')
             : decl.value
 
-          const newLetterSpacingValue = hasShorelinePrefix
-            ? newFontValue.replace('font', 'letter-spacing')
+          const letterSpacingValue = hasShorelinePrefix
+            ? fontValue.replace('font', 'letter-spacing')
             : decl.value
 
-          replaceDeclaration(decl, newFontValue, 'font')
+          replaceDeclaration(decl, fontValue, 'font')
 
           decl.cloneAfter({
             prop: 'letter-spacing',
-            value: newLetterSpacingValue,
+            value: letterSpacingValue,
           })
         } else {
           report({
