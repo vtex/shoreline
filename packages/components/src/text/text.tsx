@@ -52,8 +52,13 @@ interface Paragraph extends ComponentProps, ComponentPropsWithoutRef<'p'> {
 interface Div extends ComponentProps, ComponentPropsWithoutRef<'div'> {
   as: 'div'
 }
+
+interface Li extends ComponentProps, ComponentPropsWithoutRef<'li'> {
+  as: 'li'
+}
+
 interface Span extends ComponentProps, ComponentPropsWithoutRef<'span'> {
   as?: 'span'
 }
 
-export type TextProps = Span | Heading | Label | Paragraph | Div
+export type TextProps = Span | Heading | Label | Paragraph | Div | Li

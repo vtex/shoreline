@@ -1,0 +1,9 @@
+@layer sl-components {
+  [data-sl-contextual-help-popover] {
+    max-height: 16rem;
+    width: 16rem;
+    overflow: hidden auto;
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
+  }
+}
