@@ -1,0 +1,30 @@
+{
+  // CSS Var Autocomplete extension setup
+  // https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar
+  "cssvar.files": [
+    "./packages/components/shoreline/styles.css",
+    "shoreline/styles.css"
+    // if you have an alternative path to where your styles are located
+    // you can add it in this array of files
+  ],
+
+  // Do not ignore node_modules css files, which is ignored by default
+  "cssvar.ignore": [],
+
+  // add support for autocomplete in JS or JS like files
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx"],
+
+  // Stylelint
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
