@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.24.0...@vtex/shoreline-components@0.25.0) (2023-11-24)
+
+### Features
+
+- **text-input:** add design qa changes ([27fe991](https://github.com/vtex/admin-ui/commit/27fe9918160eef00f080472980fd5c4e5f5d5818))
+
 # [0.24.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.23.0...@vtex/shoreline-components@0.24.0) (2023-11-24)
 
 ### Features
