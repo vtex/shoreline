@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.23.0...@vtex/shoreline-components@0.24.0) (2023-11-24)
+
+### Features
+
+- **pagination:** add intl messages ([f93cb15](https://github.com/vtex/admin-ui/commit/f93cb157eac02da00ef208d01659d6bd5534e2a8))
+- **pagination:** add loading behavior ([a3dc543](https://github.com/vtex/admin-ui/commit/a3dc543f9c9d0566a994c7e86183fa201a5f4854))
+- **pagination:** fix pagination select ([5985424](https://github.com/vtex/admin-ui/commit/59854243581241960a6b6a757a2608a756033e54))
+- **pagination:** replace native select with Select component ([61846c7](https://github.com/vtex/admin-ui/commit/61846c78a767040b3106f9b24110a0b6d489f72a))
+
 # [0.23.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.22.0...@vtex/shoreline-components@0.23.0) (2023-11-24)
 
 ### Features
