@@ -1,17 +1,22 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, Ref } from 'react'
 import React, { Fragment } from 'react'
 import { TableCell, TableRow, type TableRowProps } from '../table'
 import { flexRender, type Row } from '@tanstack/react-table'
 import type { NavigationTarget } from '../link-box/link-box-utils'
 import { Clickable } from '../clickable'
 import { LinkBox } from '../link-box'
+import { forwardRef } from '@vtex/shoreline-utils'
 
-export function SimpleTableRow<T>(props: SimpleTableRowProps<T>) {
+export const SimpleTableRow = forwardRef(function SimpleTableRow<T>(
+  props: SimpleTableRowProps<T>,
+  ref: Ref<HTMLDivElement>
+) {
   const { row, id, rowClick, renderDetail, children, ...otherProps } = props
 
   return (
     <Fragment key={id}>
       <TableRow
+        ref={ref}
         selected={row.getIsSelected()}
         expanded={row.getIsExpanded()}
         {...otherProps}
@@ -68,7 +73,7 @@ export function SimpleTableRow<T>(props: SimpleTableRowProps<T>) {
       )}
     </Fragment>
   )
-}
+})
 
 export interface SimpleTableRowProps<T> extends TableRowProps {
   row: Row<T>
