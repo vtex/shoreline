@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { Field, FieldLabel, FieldMessage } from '../field'
 import { useId } from '@vtex/shoreline-utils'
@@ -15,6 +15,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       label,
       helpText,
       errorText,
+      optional,
       id: defaultId,
       ...inputProps
     } = props
@@ -23,7 +24,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <Field data-sl-text-input className={className}>
-        <FieldLabel htmlFor={id}>{label}</FieldLabel>
+        <FieldLabel htmlFor={id} optional={optional}>
+          {label}
+        </FieldLabel>
         <div
           data-sl-text-input-container
           data-disabled={disabled}
@@ -39,6 +42,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             id={id}
             ref={ref}
             disabled={disabled}
+            aria-required={optional}
             {...inputProps}
           />
           {suffix && (
@@ -73,7 +77,8 @@ export interface TextInputProps
   Node added before input space
   */
   suffix?: React.ReactNode
-  label: string
+  label: ReactNode
   errorText?: string
   helpText?: string
+  optional?: boolean
 }
