@@ -1,4 +1,5 @@
 import { tokensToDictionary } from '../tokens-to-dictionary'
+import { describe, it, expect } from 'vitest'
 
 const tokens = {
   color: {

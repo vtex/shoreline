@@ -1,4 +1,5 @@
 import { csx } from '../index'
+import { test, expect } from 'vitest'
 
 test('csx must return an object', () => {
   expect(csx()).toStrictEqual({})

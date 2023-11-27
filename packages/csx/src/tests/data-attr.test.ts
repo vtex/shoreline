@@ -1,4 +1,5 @@
 import { dataAttr } from '../index'
+import { test, expect } from 'vitest'
 
 test('it should return a single data-attr', () => {
   expect(dataAttr('size', 'normal')).toBe('&[data-size="normal"]')

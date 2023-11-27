@@ -1,4 +1,5 @@
 import { flattenObject } from '../flatten-object'
+import { describe, it, expect } from 'vitest'
 
 describe('flattenObject', () => {
   it('should flat an object', () => {

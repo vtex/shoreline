@@ -1,4 +1,4 @@
-import { vi } from 'vitest'
+import { vi, test, expect } from 'vitest'
 import { connect } from '../boostrap'
 
 test('connect function should listen for admin shell events', () => {
@@ -7,5 +7,3 @@ test('connect function should listen for admin shell events', () => {
   connect()
   expect(addEventListener).toHaveBeenCalled()
 })
-
-test.todo('bootstrap function should render component with challenge')

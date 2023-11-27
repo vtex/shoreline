@@ -1,4 +1,5 @@
 import { tokensToCssVariables } from '../tokens-to-css-variables'
+import { test, expect } from 'vitest'
 
 function removeSpaces(str: string) {
   return str.replace(/\s/g, '')

@@ -1,5 +1,6 @@
 import { constants } from '../constants'
 import { cssVar } from '../index'
+import { test, expect } from 'vitest'
 
 test('not parses empty strings', () => {
   expect(

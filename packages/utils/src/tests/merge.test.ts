@@ -1,4 +1,5 @@
 import { merge } from '../merge'
+import { describe, it, expect } from 'vitest'
 
 describe('merge', () => {
   it('should merge objects', () => {

@@ -1,4 +1,5 @@
 import { cx } from '../index'
+import { test, expect } from 'vitest'
 
 test('cx should handle null values', () => {
   expect(cx(null)).toEqual('')

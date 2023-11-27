@@ -1,4 +1,5 @@
 import { stackNamespaces } from '../stack-namespaces'
+import { test, expect } from 'vitest'
 
 test('should return an empty object', () => {
   const result = stackNamespaces({})

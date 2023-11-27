@@ -1,4 +1,5 @@
 import { extendConfig } from '../extend-config'
+import { test, expect } from 'vitest'
 
 const presetBase = {
   preset: {

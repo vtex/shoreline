@@ -1,4 +1,5 @@
 import { parseTokens } from '../parse-tokens'
+import { test, expect } from 'vitest'
 
 test('should return an empty object if tokens are empty', () => {
   const result = parseTokens({

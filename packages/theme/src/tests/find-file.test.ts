@@ -1,5 +1,6 @@
 import { join, resolve } from 'path'
 import { climbUp, findFile } from '../find-file'
+import { describe, it, expect } from 'vitest'
 
 const fixtures = join(__dirname, 'fixtures')
 

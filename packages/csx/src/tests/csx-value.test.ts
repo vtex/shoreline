@@ -1,4 +1,5 @@
 import { CsxValue } from '../csx-value'
+import { test, expect } from 'vitest'
 
 test('should be able to tell if csx-value is a token', () => {
   const token = new CsxValue('bg', '$bg-primary')

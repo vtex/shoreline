@@ -1,4 +1,5 @@
 import { min, max, clamp, calc } from '../index'
+import { test, expect } from 'vitest'
 
 test('min should parse a list of values', () => {
   expect(min('1rem', '50%', '4rem')).toBe('min(1rem, 50%, 4rem)')
