@@ -1,7 +1,0 @@
-{
-  "extends": "@vtex/tsconfig",
-  "compilerOptions": {
-    "noImplicitAny": false
-  },
-  "exclude": ["node_modules", "dist", "stories", "test"]
-}

@@ -1,9 +1,0 @@
-{
-  "error": "Quelque chose s'est mal passé",
-  "retry": "Réessayer",
-  "noResultsTitle": "Aucune option ne correspond à votre recherche",
-  "noResultsSubtitle": "Essayez d'utiliser des termes différents",
-  "searchPlaceholder": "Commencez à taper pour rechercher",
-  "removeLabel": "Retirer l'objet",
-  "placeholder": "Continuez à taper..."
-}

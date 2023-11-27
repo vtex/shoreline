@@ -1,9 +1,0 @@
-{
-  "error": "Algo deu errado",
-  "retry": "Tente novamente",
-  "noResultsTitle": "Nenhuma opção corresponde à sua pesquisa",
-  "noResultsSubtitle": "Tente usar termos diferentes",
-  "searchPlaceholder": "Comece a digitar para pesquisar",
-  "removeLabel": "Remover item",
-  "placeholder": "Continue digitando..."
-}
