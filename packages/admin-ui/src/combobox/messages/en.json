@@ -1,9 +1,0 @@
-{
-  "error": "Something went wrong",
-  "retry": "Try again",
-  "noResultsTitle": "No options match your search",
-  "noResultsSubtitle": "Try using different terms",
-  "searchPlaceholder": "Start typing to search",
-  "removeLabel": "Remove item",
-  "placeholder": "Keep typing..."
-}

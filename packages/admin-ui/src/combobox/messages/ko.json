@@ -1,9 +1,0 @@
-{
-  "error": "문제가 발생했습니다.",
-  "retry": "다시 시도하십시오",
-  "noResultsTitle": "검색어와 일치하는 옵션이 없습니다",
-  "noResultsSubtitle": "다른 용어를 사용해 보세요",
-  "searchPlaceholder": "검색을 위해 입력 시작",
-  "removeLabel": "항목 제거",
-  "placeholder": "계속 타자..."
-}

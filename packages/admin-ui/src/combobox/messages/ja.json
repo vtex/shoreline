@@ -1,9 +1,0 @@
-{
-  "error": "何かがうまくいかなかった",
-  "retry": "再試行",
-  "noResultsTitle": "検索に一致するオプションはありません",
-  "noResultsSubtitle": "別の用語を使用してみてください",
-  "searchPlaceholder": "検索するために入力を開始します",
-  "removeLabel": "アイテムを削除",
-  "placeholder": "入力を続けてください..."
-}
