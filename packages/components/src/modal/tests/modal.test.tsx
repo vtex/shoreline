@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { describe, expect, test } from 'vitest'
-import { render } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+import { act, render } from '@testing-library/react'
 
 import { Modal } from '../modal'
 
@@ -24,13 +24,13 @@ export function BasicModal() {
 }
 
 describe('modal', () => {
-  test('renders', () => {
-    const { container } = render(<Modal open>Test</Modal>)
+  it('renders', () => {
+    render(<Modal open>Test</Modal>)
 
     expect(document.querySelector('[data-sl-modal]')).toBeInTheDocument()
   })
 
-  test('opens and closes', async () => {
+  it('opens and closes', async () => {
     const { findByTestId } = render(<BasicModal />)
 
     const modal = document.querySelector('[data-sl-modal]')
@@ -40,14 +40,14 @@ describe('modal', () => {
 
     const button = await findByTestId('modal-disclosure')
 
-    await userEvent.click(button)
+    await act(() => userEvent.click(button))
 
     // expect to not be hidden
     expect(modal && modal.hasAttribute('hidden')).toBeFalsy()
 
-    const backdrop = await document.querySelector('[data-sl-modal-backdrop]')
+    const backdrop = document.querySelector('[data-sl-modal-backdrop]')
 
-    backdrop && (await userEvent.click(backdrop))
+    backdrop && (await act(() => userEvent.click(backdrop)))
 
     // expect to be hidden
     expect(modal && modal.hasAttribute('hidden')).toBeTruthy()

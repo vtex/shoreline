@@ -1,5 +1,5 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/react'
 
 import {
@@ -10,7 +10,7 @@ import {
 } from '../index'
 
 describe('combobox', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <ComboboxProvider open>
         <label>

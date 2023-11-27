@@ -1,12 +1,12 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render, renderHook } from '@testing-library/react'
 
 import { LocaleProvider } from '../locale-provider'
 import { createMessageHook } from '../create-message-hook'
 
 describe('create-message-hook', () => {
-  test('gets the message of the default Locale', () => {
+  it('gets the message of the default Locale', () => {
     const messages = {
       'en-US': {
         word: 'Word',
@@ -29,7 +29,7 @@ describe('create-message-hook', () => {
     expect(getByText('Word')).toBeInTheDocument()
   })
 
-  test('replaces default messages', () => {
+  it('replaces default messages', () => {
     const messages = {
       'en-US': {
         word: 'Word',
@@ -56,7 +56,7 @@ describe('create-message-hook', () => {
     expect(getByText('Custom')).toBeInTheDocument()
   })
 
-  test('gets message relative to the Locale context', () => {
+  it('gets message relative to the Locale context', () => {
     const messages = {
       'en-US': {
         word: 'Word',
@@ -83,7 +83,7 @@ describe('create-message-hook', () => {
     expect(getByText('Palavra')).toBeInTheDocument()
   })
 
-  test('gets dynamic message', () => {
+  it('gets dynamic message', () => {
     const messages = {
       'en-US': {
         pageLabel: '{page} of {pages}',
@@ -107,7 +107,7 @@ describe('create-message-hook', () => {
     expect(getByText('4 of 765')).toBeInTheDocument()
   })
 
-  test('fallbacks message value when dynamic message is not specified correctly', () => {
+  it('fallbacks message value when dynamic message is not specified correctly', () => {
     const messages = {
       'en-US': {
         pageLabel: '{page} of {pages}',

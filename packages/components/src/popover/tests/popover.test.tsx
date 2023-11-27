@@ -1,5 +1,5 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Popover } from '../popover'
@@ -7,7 +7,7 @@ import { PopoverProvider } from '../popover-provider'
 import { PopoverTrigger } from '../popover-trigger'
 
 describe('popover', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <PopoverProvider>
         <PopoverTrigger>Trigger</PopoverTrigger>

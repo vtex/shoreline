@@ -1,12 +1,12 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Filter } from '../filter'
 import { FilterOption } from '../filter-option'
 
 describe('filter', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <Filter label="label">
         <FilterOption value="option">Option</FilterOption>

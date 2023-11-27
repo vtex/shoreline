@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { ScrollArea } from '../scroll-area'
 
 describe('scroll-area', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <ScrollArea>
         <div>Content</div>

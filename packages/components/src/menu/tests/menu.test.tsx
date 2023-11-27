@@ -1,5 +1,5 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Menu } from '../menu'
@@ -9,7 +9,7 @@ import { MenuTrigger } from '../menu-trigger'
 import { MenuSeparator } from '../menu-separator'
 
 describe('menu', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <MenuProvider>
         <MenuTrigger asChild>

@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { IconButton } from '../icon-button'
 
 describe('icon-button', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { getByRole } = render(
       <IconButton label="Test">
         <div />

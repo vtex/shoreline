@@ -14,7 +14,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
       disabled = false,
       className = '',
       children,
-      value = '',
+      value,
       maxLength,
       label,
       helpText = '',

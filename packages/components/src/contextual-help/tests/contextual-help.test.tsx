@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { ContextualHelp } from '../contextual-help'
 
 describe('contextual-help', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <ContextualHelp defaultOpen label="help">
         Help

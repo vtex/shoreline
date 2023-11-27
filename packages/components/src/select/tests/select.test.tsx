@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Select, SelectProvider, SelectOption, SelectPopover } from '../index'
 
 describe('select', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <SelectProvider>
         <Select>Label</Select>

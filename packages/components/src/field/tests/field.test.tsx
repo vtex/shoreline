@@ -1,11 +1,11 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
 import { Field, FieldLabel, FieldMessage } from '..'
 
 describe('field', () => {
-  test('renders', () => {
+  it('renders', () => {
     const { container } = render(
       <Field>
         <FieldLabel>Label</FieldLabel>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Composable, isComposable } from '../composable'
 import { render } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 
 describe('composable', () => {
   it('renders', () => {
