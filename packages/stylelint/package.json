@@ -24,8 +24,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "dev": "tsup --watch",
-    "build": "npm run prebuild && tsup",
-    "test": "jest"
+    "build": "npm run prebuild && tsup"
   },
   "repository": {
     "directory": "packages/stylelint",
@@ -39,11 +38,7 @@
     "stylelint": "^14.15.0 || ^15.0.0"
   },
   "devDependencies": {
-    "tsup": "7.2.0",
-    "jest-preset-stylelint": "^6.3.2"
+    "tsup": "7.2.0"
   },
-  "dependencies": {},
-  "jest": {
-    "preset": "jest-preset-stylelint"
-  }
+  "dependencies": {}
 }
