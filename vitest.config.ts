@@ -4,17 +4,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
-  server: {
-    hmr: {
-      overlay: false,
-    },
-  },
   test: {
     globals: true,
     watch: false,
     include: ['**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    setupFiles: './vitest-setup.mjs',
-    environment: 'happy-dom',
+    setupFiles: ['vitest.setup.ts'],
+    environment: 'jsdom',
     css: false,
   },
 })

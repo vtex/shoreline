@@ -10,7 +10,17 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["vitest/globals"]
   },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs"
+  ],
   "exclude": ["node_modules", "dist", "test", "stories"]
 }
