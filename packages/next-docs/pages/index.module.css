@@ -9,14 +9,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15cqi;
-  padding: 4.625rem 2.125rem;
+  padding: 4.625rem 0rem;
   width: 100%;
 }
 
 .hero h2 {
   font-size: clamp(2.75rem, 7cqi, 3.75rem);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 600;
   line-height: 4.25rem;
@@ -31,8 +30,7 @@
 }
 
 .subtitle {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--ff);
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -42,13 +40,6 @@
 }
 
 .title {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 2.25rem;
-  letter-spacing: -0.07rem;
 }
 
 .features {
@@ -58,11 +49,54 @@
 }
 
 .feature {
+  container: feature / inline-size;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  padding: 1.5rem 0.8rem;
+  cursor: pointer;
+  border-radius: 1.5rem;
+}
+
+.feature:hover {
+  background: hsla(200, 0%, 0%, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature:hover {
+    background: hsla(200, 100%, 100%, 0.05);
+  }
+}
+
+.feature:hover .imgBox,
+.feature:focus .imgBox {
+  transform: scale(1.1);
+}
+
+.imgBoxContainer {
+  border-radius: 1.5rem;
+  width: 100cqi;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.imgBox {
+  width: 100%;
+  height: 100%;
+  background-image: var(--img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 250ms ease-in-out;
 }
 
 .feature h3 {
   padding-bottom: 0.625rem;
+  font-family: var(--ff);
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.25rem;
+  letter-spacing: -0.07rem;
 }

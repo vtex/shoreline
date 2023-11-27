@@ -2,7 +2,8 @@
 title: Shoreline - VTEX Desing System
 ---
 
-import { heroContainer, hero, subtitle, features, feature } from './index.module.css'
+import { heroContainer, hero, subtitle, features, feature, imgBox, imgBoxContainer } from './index.module.css'
+import Link from 'next/link'
 
 <div className={heroContainer}>
   <section className={hero}>
@@ -15,32 +16,48 @@ import { heroContainer, hero, subtitle, features, feature } from './index.module
 </div>
 
 <section className={features}>
-  <div className={feature}>
-    <img src='assets/landing-foundations.png' alt="feature foundations" />
-    <div>
-      <h3>Foundations</h3>
-      <p className={subtitle}>Fundamental design guidance for creating quality admin experiences</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-components.png' alt="feature components" />
-    <div>
-      <h3>Components</h3>
-      <p className={subtitle}>Reusable elements and styles, packaged through code, for building admin interfaces</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-raccoon.png' alt="feature raccoon" />
-    <div>
-      <h3>Raccoon</h3>
-      <p className={subtitle}>Coded names that represent design decisions for color, spacing, typography, and more</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-code.png' alt="feature api" />
-    <div>
-      <h3>API Reference</h3>
-      <p className={subtitle}>Over 400 carefully designed icons focused on commerce and entrepreneurship</p>
-    </div>
-  </div>
+  <Link href="/foundations">
+    <article className={feature}>
+      <div className={imgBoxContainer}>
+        <div className={imgBox} style={{ '--img': 'url(assets/landing-foundations.png)' }} />
+      </div>
+      <div>
+        <h3>Foundations</h3>
+        <p className={subtitle}>Fundamental design guidance for creating quality admin experiences</p>
+      </div>
+    </article>
+  </Link>
+  <Link href="/components/button/best-practices" >
+    <article className={feature}>
+      <div className={imgBoxContainer}>
+        <div className={imgBox} style={{ '--img': 'url(assets/landing-components.png)' }} />
+      </div>
+      <div>
+        <h3>Components</h3>
+        <p className={subtitle}>Reusable elements and styles, packaged through code, for building admin interfaces</p>
+      </div>
+    </article>
+  </Link>
+  <Link href="/raccoon/getting-started">
+    <article className={feature}>
+      <div className={imgBoxContainer}>
+        <div className={imgBox} style={{ '--img': 'url(assets/landing-raccoon.png)' }} />
+      </div>
+      <div>
+        <h3>Raccoon</h3>
+        <p className={subtitle}>Coded names that represent design decisions for color, spacing, typography, and more</p>
+      </div>
+    </article>
+  </Link>
+  <Link href="/api-reference/cli/introduction">
+    <article className={feature}>
+      <div className={imgBoxContainer}>
+        <div className={imgBox} style={{ '--img': 'url(assets/landing-code.png)' }} />
+      </div>
+      <div>
+        <h3>API Reference</h3>
+        <p className={subtitle}>Over 400 carefully designed icons focused on commerce and entrepreneurship</p>
+      </div>
+    </article>
+  </Link>
 </section>
