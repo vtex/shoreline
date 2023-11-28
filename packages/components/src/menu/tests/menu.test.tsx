@@ -9,7 +9,7 @@ import { MenuSeparator } from '../menu-separator'
 
 describe('menu', () => {
   it('renders', () => {
-    const { container } = render(
+    const { container, unmount } = render(
       <MenuProvider>
         <MenuTrigger asChild>
           <button>Open</button>
@@ -20,7 +20,7 @@ describe('menu', () => {
           <MenuSeparator />
           <MenuItem>Item 3</MenuItem>
         </Menu>
-      </MenuProvider>
+      </MenuProvider>, {container: document.body}
     )
 
     expect(container.querySelector('[data-sl-menu]')).toBeInTheDocument()
@@ -31,5 +31,7 @@ describe('menu', () => {
     expect(
       container.querySelector('[data-sl-menu-separator]')
     ).toBeInTheDocument()
+
+    unmount()
   })
 })
