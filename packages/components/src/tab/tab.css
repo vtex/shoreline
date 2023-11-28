@@ -6,6 +6,7 @@
 
 @layer sl-components {
   [data-sl-tab] {
+    height: 2.75rem;
     background: transparent;
     color: var(--sl-fg-muted);
     border-radius: var(--sl-border-radius-none);
@@ -16,6 +17,7 @@
     letter-spacing: var(--sl-text-action-letter-spacing);
     padding: var(--sl-space-3);
     outline: none;
+    cursor: pointer;
 
     &:hover {
       color: var(--sl-fg-muted-hover);
