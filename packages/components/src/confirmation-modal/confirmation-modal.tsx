@@ -4,14 +4,33 @@ import { Content } from '../content'
 import { Modal, ModalHeader } from '../modal'
 import { Flex } from '../flex'
 import { Button } from '../button'
-import { LocaleProvider } from '../locale'
+import { createMessageHook } from '../locale'
+import { messages } from './messages'
 
-const defaultMessages = {
-  title: 'Confirm action',
-  confirm: 'Confirm',
-  cancel: 'Cancel',
-}
+const useMessage = createMessageHook(messages)
 
+/**
+ * Confirmation modal component
+ *
+ * @example
+ *  const [open, setOpen] = useState(false)
+ *
+ *  const handleClose = () => {
+ *   setOpen(false)
+ *  }
+ *
+ *  <Button onClick={() => setOpen((open) => !open)}>
+ *    Open confirmation modal
+ *  </Button>
+ *  <ConfirmationModal
+ *    open={open}
+ *    onClose={handleClose}
+ *    onConfirm={handleClose}
+ *    onCancel={handleClose}
+ *  >
+ *    <Text>Hello world</Text>
+ *  </ConfirmationModal>
+ */
 export const ConfirmationModal = forwardRef<
   HTMLDivElement,
   ConfirmationModalProps
@@ -23,25 +42,27 @@ export const ConfirmationModal = forwardRef<
     onConfirm,
     onCancel,
     locale = 'en-US',
-    messages = defaultMessages,
+    messages,
     ...otherProps
   } = props
 
+  const getMessage = useMessage(messages)
+
   return (
-    <LocaleProvider locale={locale}>
-      <Modal open={open} onClose={onClose} ref={ref} {...otherProps}>
-        {messages.title ? <ModalHeader>{messages.title}</ModalHeader> : null}
-        <Content>{children}</Content>
-        <Content narrow>
-          <Flex justify="end" columnGap="0.5rem">
-            <Button onClick={onConfirm} variant="primary">
-              {messages.confirm}
-            </Button>
-            <Button onClick={onCancel}>{messages.cancel}</Button>
-          </Flex>
-        </Content>
-      </Modal>
-    </LocaleProvider>
+    <Modal open={open} onClose={onClose} ref={ref} {...otherProps}>
+      {getMessage('title') ? (
+        <ModalHeader>{getMessage('title')}</ModalHeader>
+      ) : null}
+      <Content>{children}</Content>
+      <Content narrow>
+        <Flex justify="end" columnGap="0.5rem">
+          <Button onClick={onConfirm} variant="primary">
+            {getMessage('confirm')}
+          </Button>
+          <Button onClick={onCancel}>{getMessage('cancel')}</Button>
+        </Flex>
+      </Content>
+    </Modal>
   )
 })
 
