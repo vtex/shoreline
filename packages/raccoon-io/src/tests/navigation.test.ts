@@ -1,5 +1,5 @@
 import { prepare, navigate } from '../navigation'
-import { describe, it, vi, expect } from 'vitest'
+import { describe, it, vi, expect, beforeEach, afterEach } from 'vitest'
 
 describe.skip('prepare', () => {
   it('should return null adminShell and target when window.top is falsy', () => {
