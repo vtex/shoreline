@@ -4,9 +4,9 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: var(--sl-space-3);
-    padding: var(--sl-space-4) var(--sl-space-3) var(--sl-space-4)
-      var(--sl-space-5);
+    gap: var(--sl-space-2);
+    color: var(--sl-fg);
+    padding: var(--sl-space-4) var(--sl-space-5);
     width: 22.5rem;
 
     border-radius: var(--sl-border-radius-medium);
@@ -31,7 +31,7 @@
       align-items: flex-start;
     }
 
-    &[data-variant='informational'] {
+    & [data-variant='informational'] {
       background: var(--sl-bg-informational);
       border: var(--sl-border-informational);
 

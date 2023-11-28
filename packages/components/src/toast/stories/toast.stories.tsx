@@ -44,13 +44,6 @@ export function Default() {
       </Button>
       <Button
         onClick={() => {
-          toast.loading('Message!')
-        }}
-      >
-        Loading
-      </Button>
-      <Button
-        onClick={() => {
           toast.promise(
             new Promise(function (resolve) {
               setTimeout(resolve, 2000)
@@ -77,9 +70,6 @@ export function Markup() {
         Short message
         <Action>Label</Action>
       </Toast>
-      <Toast variant="informational" loading>
-        Short message
-      </Toast>
       <Toast variant="informational">
         This is a long alert message to illustrate this scenario in the
         component specs.
@@ -94,9 +84,6 @@ export function Markup() {
       <Toast variant="success">
         Short message
         <Action>Label</Action>
-      </Toast>
-      <Toast variant="success" loading>
-        Short message
       </Toast>
       <Toast variant="success">
         This is a long alert message to illustrate this scenario in the
@@ -113,9 +100,6 @@ export function Markup() {
         Short message
         <Action>Label</Action>
       </Toast>
-      <Toast variant="warning" loading>
-        Short message
-      </Toast>
       <Toast variant="warning">
         This is a long alert message to illustrate this scenario in the
         component specs.
@@ -130,9 +114,6 @@ export function Markup() {
       <Toast variant="critical">
         Short message
         <Action>Label</Action>
-      </Toast>
-      <Toast variant="critical" loading>
-        Short message
       </Toast>
       <Toast variant="critical">
         This is a long alert message to illustrate this scenario in the

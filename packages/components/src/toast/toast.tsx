@@ -28,8 +28,9 @@ export function Toast(props: ToastProps) {
     <div data-sl-toast data-loading={loading} data-variant={variant}>
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
-      <Bleed vertical>
+      <Bleed vertical right>
         <Action
+          vertical
           iconOnly
           onClick={(e) => {
             onDismiss?.(e)
