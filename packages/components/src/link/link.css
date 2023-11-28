@@ -3,8 +3,14 @@
     font: inherit;
     letter-spacing: inherit;
     cursor: pointer;
-    text-decoration: none;
     color: var(--sl-fg-accent);
+    text-decoration: underline;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: var(--sl-focus-ring-accent);
+      border-radius: var(--sl-border-radius-small);
+    }
 
     &:visited {
       color: var(--sl-fg-accent-pressed);
@@ -12,7 +18,10 @@
 
     &:hover {
       color: var(--sl-fg-accent-hover);
-      text-decoration: underline;
+    }
+
+    &:focus {
+      color: var(--sl-fg-accent-hover);
     }
   }
 }
