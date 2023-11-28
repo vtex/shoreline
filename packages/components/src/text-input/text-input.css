@@ -32,6 +32,7 @@
     }
     &[data-disabled='true'] {
       border: var(--sl-border-disabled);
+      color: var(--sl-fg-disabled);
       background-color: var(--sl-bg-disabled);
     }
     & > [data-sl-text-input-term] {
