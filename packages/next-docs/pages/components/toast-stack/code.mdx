@@ -1,0 +1,55 @@
+### ToastStack
+
+▸ **ToastStack**(`props`): `Element`
+
+Stack of toasts
+
+#### Parameters
+
+| Name    | Type                                                  |
+| :------ | :---------------------------------------------------- |
+| `props` | [`ToastStackProps`](/components/toast-stack/props.md) |
+
+#### Returns
+
+`Element`
+
+**`Example`**
+
+```tsx copy showLineNumbers filename="example.tsx"
+<ToastStack />
+```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react'
+
+<SandpackProvider
+template="react"
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
+files={{'/App.js': `import React from 'react'
+import { ToastStack } from '@vtex/shoreline-components'
+
+export default function App() {
+return (<>
+<ToastStack />
+</>
+)}`,
+}}
+
+>
+
+    <SandpackLayout>
+      <SandpackCodeEditor />
+      <SandpackPreview />
+    </SandpackLayout>
+
+  </SandpackProvider>
+
+#### Defined in
+
+[packages/components/src/toast/toast-stack.tsx:16](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/toast/toast-stack.tsx#L16)

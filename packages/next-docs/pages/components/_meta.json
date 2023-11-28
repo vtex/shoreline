@@ -1,4 +1,5 @@
 {
+  "use-virtualizer-model-return": "UseVirtualizerModelReturn",
   "action": "Action",
   "alert": "Alert",
   "bleed": "Bleed",
@@ -17,6 +18,7 @@
   "compose": "Compose",
   "container": "Container",
   "content": "Content",
+  "contextual-help": "ContextualHelp",
   "field": "Field",
   "field-label": "FieldLabel",
   "field-message": "FieldMessage",
@@ -73,10 +75,14 @@
   "text": "Text",
   "text-input": "TextInput",
   "textarea": "Textarea",
+  "toast-stack": "ToastStack",
   "tooltip": "Tooltip",
   "tooltip-anchor": "TooltipAnchor",
   "tooltip-arrow": "TooltipArrow",
   "tooltip-popover": "TooltipPopover",
+  "virtual": "Virtual",
+  "virtual-container": "VirtualContainer",
+  "virtual-item": "VirtualItem",
   "visually-hidden": "VisuallyHidden",
   "hooks": "Hooks"
 }

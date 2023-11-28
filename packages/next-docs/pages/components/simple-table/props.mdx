@@ -12,6 +12,8 @@
 
 - `TsMirrorProps`\<`T`\>
 
+- [`Pick`](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys)\<`SimpleTableRowProps`\<`T`\>, `"rowClick"` \| `"renderDetail"`\>
+
   ↳ **`SimpleTableProps`**
 
 ## Properties
@@ -34,7 +36,7 @@ false;
 
 #### Defined in
 
-[packages/components/src/table/table.tsx:59](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/table/table.tsx#L59)
+[packages/components/src/table/table.tsx:60](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/table/table.tsx#L60)
 
 ---
 
@@ -66,13 +68,13 @@ When using the SimpleTable component
 
 #### Defined in
 
-[packages/components/src/table/table.tsx:54](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/table/table.tsx#L54)
+[packages/components/src/table/table.tsx:55](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/table/table.tsx#L55)
 
 ---
 
 ### density
 
-• `Optional` **density**: `"default"` \| `"comfortable"` \| `"compact"`
+• `Optional` **density**: `"default"` \| `"compact"` \| `"comfortable"`
 
 The density of the table
 
@@ -88,7 +90,7 @@ The density of the table
 
 #### Defined in
 
-[packages/components/src/table/table.tsx:74](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/table/table.tsx#L74)
+[packages/components/src/table/table.tsx:75](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/table/table.tsx#L75)
 
 ---
 
@@ -104,7 +106,7 @@ https://tanstack.com/table/v8/docs/api/core/table
 
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:195](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L195)
+[packages/components/src/simple-table/simple-table.tsx:149](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table.tsx#L149)
 
 ---
 
@@ -116,8 +118,6 @@ https://tanstack.com/table/v8/docs/api/core/table
 
 ▸ (`row`): `ReactNode`
 
-Renders function for the detail row
-
 ##### Parameters
 
 | Name  | Type         |
@@ -128,19 +128,27 @@ Renders function for the detail row
 
 `ReactNode`
 
+#### Inherited from
+
+Pick.renderDetail
+
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:199](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L199)
+[packages/components/src/simple-table/simple-table-row.tsx:81](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table-row.tsx#L81)
 
 ---
 
 ### rowClick
 
-• `Optional` **rowClick**: \{ `getHref`: (`row`: `Row`\<`T`\>) => `string` ; `target?`: `NavigationTarget` ; `type`: `"link"` } \| \{ `onClick`: (`row`: `Row`\<`T`\>) => `void` ; `type`: `"action"` }
+• `Optional` **rowClick**: `RowClick`\<`T`\>
+
+#### Inherited from
+
+Pick.rowClick
 
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:216](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L216)
+[packages/components/src/simple-table/simple-table-row.tsx:80](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table-row.tsx#L80)
 
 ---
 
@@ -152,7 +160,7 @@ Setter for SortingState for controlled sort usage
 
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:212](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L212)
+[packages/components/src/simple-table/simple-table.tsx:162](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table.tsx#L162)
 
 ---
 
@@ -164,7 +172,7 @@ SortingState for controlled sort usage
 
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:208](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L208)
+[packages/components/src/simple-table/simple-table.tsx:158](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table.tsx#L158)
 
 ---
 
@@ -182,7 +190,7 @@ false;
 
 #### Defined in
 
-[packages/components/src/simple-table/simple-table.tsx:204](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/simple-table/simple-table.tsx#L204)
+[packages/components/src/simple-table/simple-table.tsx:154](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table.tsx#L154)
 
 ---
 
@@ -204,7 +212,7 @@ false;
 
 #### Defined in
 
-[packages/components/src/table/table.tsx:69](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/table/table.tsx#L69)
+[packages/components/src/table/table.tsx:70](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/table/table.tsx#L70)
 
 ---
 
@@ -226,4 +234,16 @@ false;
 
 #### Defined in
 
-[packages/components/src/table/table.tsx:64](https://github.com/vtex/shoreline/blob/7e966c5a4/packages/components/src/table/table.tsx#L64)
+[packages/components/src/table/table.tsx:65](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/table/table.tsx#L65)
+
+---
+
+### virtualizer
+
+• `Optional` **virtualizer**: [`UseVirtualizerModelReturn`](../modules.md#usevirtualizermodelreturn)
+
+Virtualizar table model
+
+#### Defined in
+
+[packages/components/src/simple-table/simple-table.tsx:166](https://github.com/vtex/shoreline/blob/bf9009f50/packages/components/src/simple-table/simple-table.tsx#L166)
