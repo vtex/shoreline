@@ -94,7 +94,7 @@
     "eslint-config-vtex-react": "9.0.3",
     "eslint-plugin-graphql": "4.0.0",
     "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jest": "27.2.2",
+    "eslint-plugin-vitest": "0.3.10",
     "eslint-plugin-tsc": "2.0.0",
     "happy-dom": "12.9.0",
     "husky": "^8.0.3",
