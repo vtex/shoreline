@@ -10,6 +10,7 @@
     padding: var(--sl-element-space-top) var(--sl-element-space-right)
       var(--sl-element-space-bottom) var(--sl-element-space-left);
     border-radius: var(--sl-border-radius-largest);
+    border: 0.125rem solid var(--sl-color-gray-0);
     font: var(--sl-element-font);
     letter-spacing: var(--sl-element-letter-spacing);
 
