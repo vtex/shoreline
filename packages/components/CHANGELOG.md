@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.26.0...@vtex/shoreline-components@0.27.0) (2023-11-28)
+
+### Features
+
+- **tag:** add white border to tags ([8e8637a](https://github.com/vtex/admin-ui/commit/8e8637a19302ac65669e3526d6b793e4a1948e51))
+
 # [0.26.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.25.0...@vtex/shoreline-components@0.26.0) (2023-11-24)
 
 ### Features
