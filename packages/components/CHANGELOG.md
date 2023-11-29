@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.31.0...@vtex/shoreline-components@0.32.0) (2023-11-29)
+
+### Bug Fixes
+
+- **menu:** popover misaligning inside stacks ([c10e64c](https://github.com/vtex/admin-ui/commit/c10e64cedbb253c9f47f7c1a3e4ccbe2aa42bb52))
+
+### Features
+
+- **menu:** change popover position as designed ([a15e8b9](https://github.com/vtex/admin-ui/commit/a15e8b9717818ae8aaf2fbdfd31a6ee24b624413))
+
 # [0.31.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.30.0...@vtex/shoreline-components@0.31.0) (2023-11-29)
 
 ### Bug Fixes
