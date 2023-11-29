@@ -8,7 +8,7 @@
     margin-block: calc(var(--sl-bleed-vertical) * -1);
   }
   [data-sl-bleed-content] {
-    position: 'relative';
+    position: relative;
 
     &[data-top='true'] {
       & > * {

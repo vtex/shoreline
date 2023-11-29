@@ -8,6 +8,10 @@ import { Compose, Composable } from '../compose'
 import './button.css'
 
 /**
+ * @TODO understand why bleed doesn't work correctly on button with icons
+ */
+
+/**
  * Buttons triggers allow users to identify and start the most important actions in a container.
  * @example
  * <Button>Action label</Button>
