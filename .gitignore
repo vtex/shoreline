@@ -78,7 +78,6 @@ out
 
 # Editor Configs
 .idea
-.vscode
 
 # File system stuff
 **/.DS_Store
