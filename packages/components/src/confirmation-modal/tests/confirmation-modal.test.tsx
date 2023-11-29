@@ -1,6 +1,12 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
-import { vi } from 'vitest'
+import {
+  render,
+  fireEvent,
+  vi,
+  describe,
+  it,
+  expect,
+} from '@vtex/shoreline-test-utils'
 import { ConfirmationModal } from '../confirmation-modal'
 
 describe('ConfirmationModal', () => {
