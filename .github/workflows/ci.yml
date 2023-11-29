@@ -37,8 +37,8 @@ jobs:
         run: pnpm build
 
 
-      - name: Run Stylelint
-        run: pnpm stylelint
+      - name: Stylelint
+        run: pnpm stylelint **/*.css
 
       - name: Test
         run: pnpm test:ci
