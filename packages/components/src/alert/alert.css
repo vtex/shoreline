@@ -3,8 +3,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    font: var(--sl-text-body-font);
-    letter-spacing: var(--sl-text-body-letter-spacing);
     padding: var(--sl-space-4) var(--sl-space-3) var(--sl-space-4)
       var(--sl-space-5);
     border-radius: var(--sl-border-radius-medium);
@@ -25,6 +23,14 @@
       justify-content: space-between;
       width: 100%;
       gap: var(--sl-space-7);
+
+      font: var(--sl-text-emphasis-font);
+      letter-spacing: var(--sl-text-emphasis-letter-spacing);
+
+      & > [data-sl-text] {
+        font: var(--sl-text-emphasis-font);
+        letter-spacing: var(--sl-text-emphasis-letter-spacing);
+      }
     }
 
     & [data-sl-button] {
