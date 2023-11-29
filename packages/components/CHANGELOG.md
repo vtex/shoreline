@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.28.0...@vtex/shoreline-components@0.29.0) (2023-11-29)
+
+### Features
+
+- **checkbox:** remove different color scheme for error ([abe18ca](https://github.com/vtex/admin-ui/commit/abe18ca1facf0adee056dbc9103859399adbdc30))
+
 # [0.28.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.27.1...@vtex/shoreline-components@0.28.0) (2023-11-29)
 
 ### Features
