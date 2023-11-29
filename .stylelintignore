@@ -1,0 +1,25 @@
+# Keep in sync with .gitignore + .prettierignore
+**/node_modules
+**/dist
+packages/icons/native
+packages/admin-ui-docs
+packages/next-docs
+**/.cache
+**/coverage
+**/build
+storybook-static
+**/*.stories.ts
+
+# Resolve: Parsing error: Unexpected token <
+**/gatsby-browser.js
+**/gatsby-ssr.js
+**/404.js
+**/src/theme/**/*.js
+
+# Resolve: Parsing error: Unexpected token .
+# not accepting conditional chaining
+packages/admin-ui-codemod/src/space-tokens-review.js
+packages/create-raccoon-app/src/index.js
+
+# Resolve: Expected exception block, space or tab after '//' in comment
+examples/shoreline-nextjs-integration/next-env.d.ts
