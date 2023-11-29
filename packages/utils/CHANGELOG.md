@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.4.0...@vtex/shoreline-utils@0.5.0) (2023-11-29)
+
+### Features
+
+- **project:** run all tests with vitest ([3341305](https://github.com/vtex/shoreline/commit/334130552c7a54321a0b7f2569560af22b5a0f41))
+- **test-utils:** create package ([390fe1e](https://github.com/vtex/shoreline/commit/390fe1eb58d49281a477fafc19b5c345f20fda0b))
+- **tsup:** add tsup to global scope ([1efec54](https://github.com/vtex/shoreline/commit/1efec5401933eb1d06651e60ebd087a2a1c18e35))
+
 # [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.3.1...@vtex/shoreline-utils@0.4.0) (2023-11-23)
 
 ### Features

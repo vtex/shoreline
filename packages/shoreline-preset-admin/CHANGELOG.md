@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.1.4...@vtex/shoreline-preset-admin@0.2.0) (2023-11-29)
+
+### Features
+
+- **tsup:** add tsup to global scope ([1efec54](https://github.com/vtex/shoreline/commit/1efec5401933eb1d06651e60ebd087a2a1c18e35))
+
 ## [0.1.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.1.3...@vtex/shoreline-preset-admin@0.1.4) (2023-11-23)
 
 **Note:** Version bump only for package @vtex/shoreline-preset-admin
