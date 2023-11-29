@@ -18,20 +18,18 @@
     }
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=12"
   },
   "scripts": {
-    "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
+    "build": "tsup"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "20.4.5",
-    "tsup": "7.1.0"
+    "@types/node": "20.4.5"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",

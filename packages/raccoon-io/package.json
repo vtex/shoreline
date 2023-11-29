@@ -10,8 +10,5 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsup"
-  },
-  "devDependencies": {
-    "tsup": "7.1.0"
   }
 }

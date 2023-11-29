@@ -33,8 +33,7 @@
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
   },
   "devDependencies": {
-    "@types/node": "20.4.5",
-    "tsup": "7.1.0"
+    "@types/node": "20.4.5"
   },
   "dependencies": {
     "@vtex/shoreline-theme": "^0.2.0",
