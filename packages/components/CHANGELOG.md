@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.30.0...@vtex/shoreline-components@0.31.0) (2023-11-29)
+
+### Bug Fixes
+
+- dismiss toast button bleed spacing ([3de2cbb](https://github.com/vtex/admin-ui/commit/3de2cbb11ba0d7d190eebc61ad98718660265698))
+
+### Features
+
+- add confirmation modal architecture ([594db6c](https://github.com/vtex/admin-ui/commit/594db6ca0a4d7c1f2bb5154cf999160d8b305b64))
+- add skeleton design qa ([2c45c39](https://github.com/vtex/admin-ui/commit/2c45c39c32353be38373aceff9ed1d9835aa3c8a))
+- implement alert design qa ([a4bf1ed](https://github.com/vtex/admin-ui/commit/a4bf1ed95dd30d82980ae209974948dd66556d56))
+- implement Link design QA ([d505b9f](https://github.com/vtex/admin-ui/commit/d505b9fdbf67340800ed9fd21a03b084c4339f79))
+- implement Select and TextInput fields design QA ([3e8f2ff](https://github.com/vtex/admin-ui/commit/3e8f2ff10b1d01123c2c1abccfac3ce1845ff5eb))
+- implement toast design QA ([90c8172](https://github.com/vtex/admin-ui/commit/90c8172d65b26533a3c37f0ff624528faa4f8b75))
+
 # [0.30.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.28.0...@vtex/shoreline-components@0.30.0) (2023-11-29)
 
 ### Features
