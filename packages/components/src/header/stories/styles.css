@@ -1,0 +1,10 @@
+.page-content {
+  background-color: var(--sl-bg-muted);
+}
+
+.card-like-component {
+  border: var(--sl-border);
+  border-radius: var(--sl-border-radius-medium);
+  height: 15rem;
+  margin: 1rem;
+}
