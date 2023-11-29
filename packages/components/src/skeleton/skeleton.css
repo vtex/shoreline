@@ -1,15 +1,15 @@
 @layer sl-components {
-  @keyframes sl-keyframes-wave {
+  @keyframes sl-keyframes-pulse {
     0% {
-      transform: translateX(-100%);
+      opacity: 1;
     }
 
     50% {
-      transform: translateX(100%);
+      opacity: 0.3;
     }
 
     100% {
-      transform: translateX(100%);
+      opacity: 1;
     }
   }
 
@@ -21,23 +21,17 @@
     background: var(--sl-bg-muted);
     overflow: hidden;
     &::after {
-      animation: sl-keyframes-wave 1.6s linear 0.5s infinite;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--sl-bg-strong),
-        transparent
-      );
+      animation: sl-keyframes-pulse 2s ease-in-out 0.5s infinite;
+      background: var(--sl-bg-muted-pressed);
       content: '';
       position: absolute;
-      transform: translateX(-100%);
       bottom: var(--sl-space-0);
       left: var(--sl-space-0);
       right: var(--sl-space-0);
       top: var(--sl-space-0);
     }
     &[data-sl-skeleton-shape='rect'] {
-      border-radius: var(--sl-border-radius-medium);
+      border-radius: var(--sl-border-radius-small);
     }
     &[data-sl-skeleton-shape='circle'] {
       border-radius: var(--sl-border-radius-full);
