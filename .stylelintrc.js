@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@vtex/shoreline-stylelint'],
+  extends: ['stylelint-config-recommended', '@vtex/shoreline-stylelint'],
   plugins: ['stylelint-prettier'],
   files: ['**/*.css'],
   reportDescriptionlessDisables: true,

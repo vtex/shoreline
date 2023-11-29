@@ -9,6 +9,7 @@ packages/next-docs
 **/build
 storybook-static
 **/*.stories.ts
+**/stories/*.css
 
 # Resolve: Parsing error: Unexpected token <
 **/gatsby-browser.js

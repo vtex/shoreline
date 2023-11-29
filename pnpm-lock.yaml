@@ -142,6 +142,9 @@ importers:
       stylelint:
         specifier: ^15.11.0
         version: 15.11.0
+      stylelint-config-recommended:
+        specifier: ^13.0.0
+        version: 13.0.0(stylelint@15.11.0)
       stylelint-prettier:
         specifier: ^4.0.2
         version: 4.0.2(prettier@2.8.8)(stylelint@15.11.0)
@@ -26894,6 +26897,15 @@ packages:
       client-only: 0.0.1
       react: 18.2.0
     dev: false
+
+  /stylelint-config-recommended@13.0.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    peerDependencies:
+      stylelint: ^15.10.0
+    dependencies:
+      stylelint: 15.11.0
+    dev: true
 
   /stylelint-prettier@4.0.2(prettier@2.8.8)(stylelint@15.11.0):
     resolution:
