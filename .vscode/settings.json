@@ -12,19 +12,5 @@
   "cssvar.ignore": [],
 
   // add support for autocomplete in JS or JS like files
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx"],
-
-  // Stylelint
-  "stylelint.enable": true,
-  "css.validate": false,
-  "scss.validate": false,
-  "stylelint.validate": ["css", "scss"],
-
-  "[css]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
-      "source.fixAll.stylelint": true
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "cssvar.extensions": ["css", "scss", "jsx", "tsx", "js", "ts"]
 }
