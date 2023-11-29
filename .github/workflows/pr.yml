@@ -6,7 +6,7 @@ on:
 
 jobs:
   # this job uses the configuration file in .github/auto_assign.yml
-  add-reviewers-and-assignee:
+  add-assignee:
     runs-on: ubuntu-latest
     steps:
       - uses: kentaro-m/auto-assign-action@v1.2.5
