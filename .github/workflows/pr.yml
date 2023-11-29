@@ -2,7 +2,7 @@ name: Pull Request workflow
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 jobs:
   # this job uses the configuration file in .github/auto_assign.yml
