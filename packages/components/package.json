@@ -2,7 +2,7 @@
   "name": "@vtex/shoreline-components",
   "version": "0.28.0",
   "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -14,7 +14,7 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/esm/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
     "./styles": "./dist/index.css"
@@ -50,8 +50,7 @@
     "postcss": "8.4.31",
     "postcss-preset-env": "9.3.0",
     "react-hook-form": "7.47.0",
-    "react-window": "1.8.9",
-    "tsup": "7.2.0"
+    "react-window": "1.8.9"
   },
   "dependencies": {
     "@ariakit/react": "0.3.5",

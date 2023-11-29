@@ -21,9 +21,6 @@
     "dev": "tsup --watch",
     "build": "npm run prebuild && tsup"
   },
-  "devDependencies": {
-    "tsup": "7.2.0"
-  },
   "dependencies": {
     "csstype": "3.1.2",
     "deepmerge": "4.3.1"

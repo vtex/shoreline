@@ -27,9 +27,6 @@
   "scripts": {
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
   },
-  "devDependencies": {
-    "tsup": "7.1.0"
-  },
   "dependencies": {
     "@vtex/shoreline-utils": "^0.4.0"
   }
