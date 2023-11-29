@@ -12,6 +12,8 @@
     cursor: pointer;
     appearance: none;
     width: 100%;
+    height: 2.75rem;
+    box-sizing: border-box;
 
     &:focus-visible {
       box-shadow: var(--sl-focus-ring);
@@ -31,19 +33,33 @@
       &:focus-visible {
         box-shadow: var(--sl-focus-ring-critical);
       }
+
+      &:focus {
+        border: var(--sl-border-critical-strong-hover);
+      }
     }
 
     &:hover {
-      border: var(--sl-border-strong);
+      border: var(--sl-border-strong-hover);
+    }
+
+    &:focus {
+      border: var(--sl-border-strong-hover);
     }
 
     &:disabled {
+      opacity: 1;
+      cursor: auto;
       border: var(--sl-border-disabled);
       color: var(--sl-fg-disabled);
       background: var(--sl-bg-disabled);
 
       + svg {
         color: var(--sl-fg-disabled);
+      }
+
+      &:hover {
+        border: var(--sl-border-disabled);
       }
     }
   }
