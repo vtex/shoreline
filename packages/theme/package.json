@@ -31,7 +31,6 @@
     "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.4.5",
-    "@vtex/shoreline-test-utils": "workspace",
     "tsup": "7.1.0"
   },
   "dependencies": {

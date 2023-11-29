@@ -13,6 +13,16 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
+    "./setup": {
+      "import": "./dist/setup.mjs",
+      "types": "./dist/setup.d.mts"
+    }
+  },
   "engines": {
     "node": ">=12"
   },

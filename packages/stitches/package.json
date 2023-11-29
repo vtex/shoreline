@@ -22,9 +22,6 @@
     "dev": "rollup --config rollup.config.js -w --bundleConfigAsCjs",
     "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
   },
-  "devDependencies": {
-    "@vtex/shoreline-test-utils": "workspace"
-  },
   "dependencies": {
     "@stitches/react": "1.2.8",
     "@vtex/shoreline-csx": "^0.1.4",

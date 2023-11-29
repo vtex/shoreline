@@ -23,7 +23,6 @@
     "build": "npm run prebuild && rollup --config rollup.config.js --bundleConfigAsCjs"
   },
   "devDependencies": {
-    "@vtex/shoreline-test-utils": "workspace",
     "runtime-stylesheet": "0.2.1"
   },
   "dependencies": {

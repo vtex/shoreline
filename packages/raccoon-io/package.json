@@ -12,7 +12,6 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@vtex/shoreline-test-utils": "workspace",
     "tsup": "7.1.0"
   }
 }

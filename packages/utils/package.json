@@ -22,7 +22,6 @@
     "build": "npm run prebuild && tsup"
   },
   "devDependencies": {
-    "@vtex/shoreline-test-utils": "workspace",
     "tsup": "7.2.0"
   },
   "dependencies": {

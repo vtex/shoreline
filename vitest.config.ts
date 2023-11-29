@@ -7,7 +7,7 @@ export default defineConfig({
     globals: false,
     watch: false,
     include: ['**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    setupFiles: ['vitest.setup.ts'],
+    setupFiles: ['./packages/test-utils/dist/setup.mjs'],
     environment: 'jsdom',
     css: false,
   },
