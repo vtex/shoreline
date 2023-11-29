@@ -19,6 +19,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
     value,
     onClear,
     id: defaultId,
+    defaultValue,
     ...inputProps
   } = props
 
@@ -43,12 +44,13 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
         disabled={disabled}
         value={value}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         {...inputProps}
       />
       <VisuallyHidden>
         <label htmlFor={id}>{placeholder}</label>
       </VisuallyHidden>
-      {value && typeof onClear !== undefined ? (
+      {(value || defaultValue) && typeof onClear !== undefined ? (
         <IconButton
           label="Clear"
           onClick={onClear}

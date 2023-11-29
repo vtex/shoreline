@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { CsxValue } from '../csx-value'
 
 test('should be able to tell if csx-value is a token', () => {

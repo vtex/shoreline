@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 import { chain } from '../chain'
 
 describe('chain', () => {

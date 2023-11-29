@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { constants } from '../constants'
 import { cssVar } from '../index'
 

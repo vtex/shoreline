@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { min, max, clamp, calc } from '../index'
 
 test('min should parse a list of values', () => {

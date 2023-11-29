@@ -1,3 +1,4 @@
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 import { tokensToDictionary } from '../tokens-to-dictionary'
 
 const tokens = {

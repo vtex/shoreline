@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { dataAttr } from '../index'
 
 test('it should return a single data-attr', () => {

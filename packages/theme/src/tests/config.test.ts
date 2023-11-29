@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { defineConfig, isShorelineConfig, loadConfig } from '../config'
 import { constants } from '@vtex/shoreline-utils'
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 
 describe('defineConfig', () => {
   it('should allow empty configs', () => {

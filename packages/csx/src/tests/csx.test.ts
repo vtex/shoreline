@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { csx } from '../index'
 
 test('csx must return an object', () => {

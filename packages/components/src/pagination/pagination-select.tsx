@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import React, { Fragment, forwardRef } from 'react'
 
 import { Action } from '../action'
 
@@ -46,7 +46,9 @@ export const PaginationSelect = forwardRef<
           </Select>
           <Bleed>
             <SelectPopover data-sl-pagination-select-popover>
-              {options.map((option) => children(option))}
+              {options.map((option, index) => (
+                <Fragment key={index}>{children(option)}</Fragment>
+              ))}
             </SelectPopover>
           </Bleed>
         </SelectProvider>

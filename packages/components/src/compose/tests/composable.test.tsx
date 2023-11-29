@@ -1,6 +1,7 @@
 import React from 'react'
+import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
+
 import { Composable, isComposable } from '../composable'
-import { render } from '@testing-library/react'
 
 describe('composable', () => {
   it('renders', () => {

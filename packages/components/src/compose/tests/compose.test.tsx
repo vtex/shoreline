@@ -1,5 +1,12 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import {
+  describe,
+  it,
+  expect,
+  render,
+  screen,
+} from '@vtex/shoreline-test-utils'
+
 import { Compose } from '../compose'
 
 describe('compose', () => {

@@ -1,3 +1,4 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { tokensToCssVariables } from '../tokens-to-css-variables'
 
 function removeSpaces(str: string) {

@@ -1,5 +1,6 @@
 import { cx } from '../cx'
 import { mergeProps } from '../merge-props'
+import { describe, it, vi, expect } from '@vtex/shoreline-test-utils'
 
 describe('mergeProps', function () {
   it('handles one argument', function () {
@@ -14,7 +15,7 @@ describe('mergeProps', function () {
   })
 
   it('combines callbacks', function () {
-    const mockFn = jest.fn()
+    const mockFn = vi.fn()
     const message1 = 'click1'
     const message2 = 'click2'
     const message3 = 'click3'
@@ -32,7 +33,7 @@ describe('mergeProps', function () {
   })
 
   it('merges props with different keys', function () {
-    const mockFn = jest.fn()
+    const mockFn = vi.fn()
     const click1 = 'click1'
     const click2 = 'click2'
     const hover = 'hover'

@@ -1,5 +1,5 @@
 import { useNavigation } from '../router'
-import { vi } from 'vitest'
+import { vi, test, expect } from '@vtex/shoreline-test-utils'
 import * as message from '../message'
 
 test('navigate should publish message with path', async () => {
