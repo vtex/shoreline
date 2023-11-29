@@ -36,6 +36,10 @@ jobs:
       - name: Build
         run: pnpm build
 
+
+      - name: Run Stylelint
+        run: pnpm stylelint
+
       - name: Test
         run: pnpm test:ci
 
