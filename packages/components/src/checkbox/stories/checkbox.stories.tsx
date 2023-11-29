@@ -16,7 +16,6 @@ export function Default() {
   return (
     <Stack>
       <Checkbox>Label</Checkbox>
-      <Checkbox error>Label</Checkbox>
       <Checkbox disabled>Label</Checkbox>
     </Stack>
   )
@@ -43,9 +42,6 @@ export function Indeterminate() {
   return (
     <Stack>
       <Checkbox indeterminate>Indeterminate</Checkbox>
-      <Checkbox indeterminate error>
-        With error
-      </Checkbox>
       <Checkbox indeterminate disabled>
         Disabled
       </Checkbox>
@@ -99,12 +95,10 @@ export function Group() {
         <Checkbox disabled>None</Checkbox>
       </CheckboxGroup>
       <CheckboxGroup error label="Options" errorText="Bad choice">
-        <Checkbox error>Everything</Checkbox>
-        <Checkbox error>Everywhere</Checkbox>
-        <Checkbox error>All at once</Checkbox>
-        <Checkbox error disabled>
-          None
-        </Checkbox>
+        <Checkbox>Everything</Checkbox>
+        <Checkbox>Everywhere</Checkbox>
+        <Checkbox>All at once</Checkbox>
+        <Checkbox disabled>None</Checkbox>
       </CheckboxGroup>
       <CheckboxGroup
         error
@@ -117,10 +111,10 @@ export function Group() {
         helpText="Choose one of these"
         errorText="Bad choice"
       >
-        <Checkbox error>Everything</Checkbox>
-        <Checkbox error>Everywhere</Checkbox>
-        <Checkbox error>All at once</Checkbox>
-        <Checkbox error disabled>
+        <Checkbox>Everything</Checkbox>
+        <Checkbox>Everywhere</Checkbox>
+        <Checkbox>All at once</Checkbox>
+        <Checkbox disabled>
           None
         </Checkbox>
       </CheckboxGroup>
@@ -130,10 +124,10 @@ export function Group() {
         label="Options with error"
         errorText="Bad choice"
       >
-        <Checkbox error>Everything</Checkbox>
-        <Checkbox error>Everywhere</Checkbox>
-        <Checkbox error>All at once</Checkbox>
-        <Checkbox error disabled>
+        <Checkbox>Everything</Checkbox>
+        <Checkbox>Everywhere</Checkbox>
+        <Checkbox>All at once</Checkbox>
+        <Checkbox disabled>
           None
         </Checkbox>
       </CheckboxGroup>

@@ -15,8 +15,6 @@ import './checkbox.css'
  */
 export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   function Checkbox(props, forwardedRef) {
-    const { error, ...ariaProps } = props
-
     const {
       inputProps,
       inputRef,
@@ -24,7 +22,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
       isIndeterminate,
       isFocusVisible,
       isDisabled,
-    } = useAriaCheckbox(ariaProps)
+    } = useAriaCheckbox(props)
 
     return (
       <label data-sl-checkbox>
@@ -41,15 +39,14 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
           data-indeterminate={isIndeterminate}
           data-disabled={isDisabled}
           data-focus-visible={isFocusVisible}
-          data-error={error}
           aria-hidden="true"
         >
           {isIndeterminate && <IconMinusSmall data-sl-checkbox-check-mixed />}
           {isChecked && <IconCheckSmall data-sl-checkbox-check />}
         </div>
-        {ariaProps.children ? (
+        {props.children ? (
           <Text data-sl-checkbox-label data-disabled={isDisabled}>
-            {ariaProps.children}
+            {props.children}
           </Text>
         ) : null}
       </label>
@@ -57,10 +54,4 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   }
 )
 
-export interface CheckboxProps extends AriaCheckboxProps {
-  /**
-   * Whether the field contains an error or not
-   * @default false
-   */
-  error?: boolean
-}
+export type CheckboxProps = AriaCheckboxProps

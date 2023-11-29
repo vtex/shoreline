@@ -33,7 +33,6 @@ export const CheckboxField = forwardRef<HTMLDivElement, CheckboxFieldProps>(
         <Checkbox
           id={id}
           disabled={disabled}
-          error={error}
           ref={forwardedRef}
           {...ariaProps}
         />
