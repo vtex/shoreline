@@ -2,7 +2,7 @@
   "name": "@vtex/shoreline-stylelint",
   "version": "0.0.0",
   "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -14,12 +14,12 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/esm/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -36,9 +36,5 @@
   },
   "peerDependencies": {
     "stylelint": "^14.15.0 || ^15.0.0"
-  },
-  "devDependencies": {
-    "tsup": "7.2.0"
-  },
-  "dependencies": {}
+  }
 }

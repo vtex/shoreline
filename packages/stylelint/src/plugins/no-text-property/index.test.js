@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { test, expect } from '@vtex/shoreline-test-utils'
 
 const plugin = require('.')
 
@@ -6,12 +6,9 @@ const { ruleName, messages } = plugin
 
 const stylelint = require('stylelint')
 
-test('it allows the use of valid space values on space properties', async () => {
+test('it allows the use of valid typography properties and values', async () => {
   const code = `
-    margin: 1rem;
-    padding: 1rem 0.5rem;
-    padding-left: 1rem;
-    top: 16px;
+    font: var(--sl-text-body-font);
   `
 
   const result = await stylelint.lint({
@@ -22,17 +19,14 @@ test('it allows the use of valid space values on space properties', async () => 
   expect(result.results[0].warnings).toHaveLength(0)
 })
 
-test('it disallows the use of px values on space properties', async () => {
+test('it disallows the use of invalid typography properties', async () => {
   const code = `
-    margin: 16px;
+    text: var(--sl-text-body);
   `
 
   const result = await stylelint.lint({
     code,
-    config: {
-      plugins: [plugin],
-      rules: { [ruleName]: true },
-    },
+    config: { plugins: [plugin], rules: { [ruleName]: true } },
   })
 
   expect(result.results[0].warnings).toHaveLength(1)
@@ -41,12 +35,12 @@ test('it disallows the use of px values on space properties', async () => {
 
   expect(warning.rule).toBe(ruleName)
   expect(warning.severity).toBe('error')
-  expect(warning.text).toBe(messages.expected('margin', '16px', '1rem'))
+  expect(warning.text).toBe(messages.expected)
 })
 
-test('it fix the error of invalid space property value to a valid one', async () => {
+test('it fix the error of invalid typography property usage to a valid one', async () => {
   const code = `
-    padding: 22px 8px;
+    text: var(--sl-text-body);
   `
 
   const result = await stylelint.lint({
@@ -60,7 +54,10 @@ test('it fix the error of invalid space property value to a valid one', async ()
 
   expect(result.results[0].warnings).toHaveLength(0)
 
+  expect(result.results[0].warnings).toHaveLength(0)
+
   expect(result.output).toBe(`
-    padding: 1.375rem 0.5rem;
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   `)
 })
