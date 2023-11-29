@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    // Lint / Formatting
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "phoenisx.cssvar"
+  ]
+}
