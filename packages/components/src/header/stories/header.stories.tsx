@@ -1,4 +1,3 @@
-import '../header.css'
 import './styles.css'
 import React from 'react'
 

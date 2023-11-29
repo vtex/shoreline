@@ -1,5 +1,6 @@
 import React, { ComponentPropsWithoutRef, forwardRef } from 'react'
 import { Container } from '../content'
+import './page.css'
 
 export const Page = forwardRef<HTMLDivElement, PageProps>(function Page(
   props,

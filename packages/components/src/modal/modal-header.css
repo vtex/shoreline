@@ -1,6 +1,0 @@
-@layer sl-components {
-  [data-sl-modal-title] {
-    font: var(--sl-text-display-1-font);
-    letter-spacing: var(--sl-text-display-1-letter-spacing);
-  }
-}
