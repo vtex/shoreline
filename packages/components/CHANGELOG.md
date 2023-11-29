@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.27.0...@vtex/shoreline-components@0.27.1) (2023-11-29)
+
+### Bug Fixes
+
+- **tab:** fix height when active (with border) ([9210c60](https://github.com/vtex/admin-ui/commit/9210c60fd1d2f803ad0dc883c05873a52a931c26))
+
 # [0.27.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.26.0...@vtex/shoreline-components@0.27.0) (2023-11-28)
 
 ### Features
