@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.27.1...@vtex/shoreline-components@0.28.0) (2023-11-29)
+
+### Features
+
+- **test-utils:** create package ([390fe1e](https://github.com/vtex/admin-ui/commit/390fe1eb58d49281a477fafc19b5c345f20fda0b))
+
 ## [0.27.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.27.0...@vtex/shoreline-components@0.27.1) (2023-11-29)
 
 ### Bug Fixes

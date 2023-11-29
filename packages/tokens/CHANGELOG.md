@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-tokens@0.1.0...@vtex/shoreline-tokens@0.2.0) (2023-11-29)
+
+### Features
+
+- **project:** run all tests with vitest ([3341305](https://github.com/vtex/shoreline/commit/334130552c7a54321a0b7f2569560af22b5a0f41))
+
 # 0.1.0 (2023-11-23)
 
 ### Features
