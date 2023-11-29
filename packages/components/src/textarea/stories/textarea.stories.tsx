@@ -32,17 +32,8 @@ export function All() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
-        label="Label (optional)"
-      />
-      <Textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        className="textarea-container"
-        label={
-          <>
-            Label <IconTrash />
-          </>
-        }
+        label="Label"
+        optional
       />
       <Textarea
         value={value}
@@ -62,6 +53,7 @@ export function All() {
         disabled
       />
       <Textarea
+        label="label"
         value="The quick brown fox is tired right now"
         className="textarea-container"
         disabled

@@ -20,6 +20,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
       helpText = '',
       errorText = '',
       id: baseId,
+      optional,
       ...htmlProps
     } = props
 
@@ -29,7 +30,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
 
     return (
       <Field ref={ref} className={className} data-sl-textarea>
-        {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
+        {label && <FieldLabel htmlFor={id} optional={optional}>{label}</FieldLabel>}
         <textarea
           id={id}
           data-sl-textarea-input
@@ -66,4 +67,5 @@ export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
   label?: ReactNode
   helpText?: ReactNode
   errorText?: ReactNode
+  optional?: boolean
 }

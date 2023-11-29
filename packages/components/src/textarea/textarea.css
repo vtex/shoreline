@@ -12,7 +12,7 @@
     min-height: 4.25rem;
     height: auto;
     cursor: text;
-    resize: none;
+    resize: vertical;
     border-radius: var(--sl-border-radius-medium);
     outline: none;
 
