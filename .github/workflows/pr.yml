@@ -10,3 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: kentaro-m/auto-assign-action@v1.2.5
+  comment_pr:
+    runs-on: ubuntu-latest
+    name: Comment PR instructions
+    # only run this when PR is opened
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Hi @${{ github.actor }}! Thanks for opening this PR. Please set the applicable project fields and labels to this PR to improve our workflow. You can do this by clicking on the "Projects" tab on the right side of the PR page and expanding the tab to set other fields, and by clicking on the "Labels" tab on top of it and selecting the applicable labels.
