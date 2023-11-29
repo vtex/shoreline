@@ -15,6 +15,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
       ref={ref}
       render={asChild && (children as any)}
       gutter={4}
+      portal
       {...otherProps}
     >
       {children}

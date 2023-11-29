@@ -1,3 +1,4 @@
+import './style.css'
 import React from 'react'
 import {
   IconCaretDown,
@@ -24,46 +25,50 @@ export default {
 
 export function Default() {
   return (
-    <MenuProvider>
-      <MenuTrigger>Open</MenuTrigger>
-      <Menu>
-        <MenuItem>New Tab</MenuItem>
-        <MenuItem>New Item</MenuItem>
-        <MenuSeparator />
-        <MenuItem>Downloads</MenuItem>
-      </Menu>
-    </MenuProvider>
+    <div className="base-story">
+      <MenuProvider>
+        <MenuTrigger>Open</MenuTrigger>
+        <Menu>
+          <MenuItem>New Tab</MenuItem>
+          <MenuItem>New Item</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Downloads</MenuItem>
+        </Menu>
+      </MenuProvider>
+    </div>
   )
 }
 
 export function Composition() {
   return (
-    <MenuProvider>
-      <MenuTrigger asChild>
-        <Button>
-          Open <IconCaretDown />
-        </Button>
-      </MenuTrigger>
-      <Menu asChild>
-        <div style={{ border: '5px solid red' }}>
-          <MenuItem>New Tab</MenuItem>
-          <MenuItem>New Item</MenuItem>
-          <MenuSeparator />
-          <MenuItem asChild>
-            <a href="htpps://vtex.com" target="_blank" rel="noreferrer">
-              Downloads
-            </a>
-          </MenuItem>
-        </div>
-      </Menu>
-    </MenuProvider>
+    <div className="base-story">
+      <MenuProvider placement="bottom-end">
+        <MenuTrigger asChild>
+          <Button>
+            Open <IconCaretDown />
+          </Button>
+        </MenuTrigger>
+        <Menu asChild>
+          <div style={{ border: '5px solid red' }}>
+            <MenuItem>New Tab</MenuItem>
+            <MenuItem>New Item</MenuItem>
+            <MenuSeparator />
+            <MenuItem asChild>
+              <a href="htpps://vtex.com" target="_blank" rel="noreferrer">
+                Downloads
+              </a>
+            </MenuItem>
+          </div>
+        </Menu>
+      </MenuProvider>
+    </div>
   )
 }
 
 export function MoreActions() {
   return (
-    <Stack>
-      <Stack direction="row">
+    <Stack className="base-story">
+      <Stack direction="row" space="5rem">
         <MenuProvider>
           <MenuTrigger asChild>
             <Button variant="primary">
@@ -204,7 +209,7 @@ export function MoreActions() {
 
 export function CustomLabel() {
   return (
-    <Stack>
+    <Stack className="base-story">
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="primary">
@@ -237,7 +242,7 @@ export function CustomLabel() {
 
 export function ItemVariants() {
   return (
-    <Stack>
+    <Stack className="base-story">
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="primary">
