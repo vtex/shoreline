@@ -1,5 +1,5 @@
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 import { chain } from '../chain'
-import { describe, it, expect } from 'vitest'
 
 describe('chain', () => {
   it('should call all passed functions on event triggered', () => {

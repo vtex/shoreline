@@ -1,5 +1,5 @@
 import { extendConfig } from '../extend-config'
-import { test, expect } from 'vitest'
+import { test, expect } from '@vtex/shoreline-test-utils'
 
 const presetBase = {
   preset: {

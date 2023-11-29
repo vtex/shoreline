@@ -1,7 +1,13 @@
 import React from 'react'
 import { Search } from '../search'
-import { describe, expect, it, vi } from 'vitest'
-import { fireEvent, render } from '@testing-library/react'
+import {
+  describe,
+  expect,
+  it,
+  vi,
+  render,
+  fireEvent,
+} from '@vtex/shoreline-test-utils'
 
 describe('search', () => {
   it('should render correctly', () => {

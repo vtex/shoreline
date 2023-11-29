@@ -1,0 +1,36 @@
+{
+  "name": "@vtex/shoreline-test-utils",
+  "version": "0.0.0",
+  "description": "Shoreline test utilities",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "repository": "vtex/shoreline",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "npm run prebuild && tsup"
+  },
+  "peerDependencies": {
+    "vitest": "0.x"
+  },
+  "devDependencies": {
+    "tsup": "7.2.0",
+    "vitest": "0.34.6"
+  },
+  "dependencies": {
+    "@testing-library/dom": "9.3.3",
+    "@testing-library/jest-dom": "6.1.4",
+    "@testing-library/react": "14.1.2"
+  }
+}

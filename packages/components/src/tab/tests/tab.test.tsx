@@ -1,6 +1,5 @@
 import React from 'react'
-import { describe, expect, test } from 'vitest'
-import { render } from '@testing-library/react'
+import { describe, expect, test, render } from '@vtex/shoreline-test-utils'
 
 import { TabProvider, TabList, Tab, TabPanel } from '../index'
 

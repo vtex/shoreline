@@ -1,6 +1,11 @@
 import React from 'react'
-import { describe, expect, it } from 'vitest'
-import { render, renderHook } from '@testing-library/react'
+import {
+  describe,
+  expect,
+  it,
+  render,
+  renderHook,
+} from '@vtex/shoreline-test-utils'
 
 import { LocaleProvider } from '../locale-provider'
 import { createMessageHook } from '../create-message-hook'

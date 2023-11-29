@@ -1,7 +1,6 @@
 import React from 'react'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
 import { AccessibleIcon } from '../accessible-icon'
-import { render } from '@testing-library/react'
 
 describe('accessible-icon', () => {
   it('renders', () => {

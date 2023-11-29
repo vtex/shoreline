@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
+
 import { VisuallyHidden } from '../visually-hidden'
-import { describe, it, expect } from 'vitest'
 
 describe('visually-hidden', () => {
   it('renders', () => {

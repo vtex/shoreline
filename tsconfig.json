@@ -10,8 +10,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true,
-    "types": ["vitest/globals"]
+    "noEmit": true
   },
   "include": [
     "**/*.ts",

@@ -1,6 +1,5 @@
 import React from 'react'
-import { describe, expect, it } from 'vitest'
-import { render } from '@testing-library/react'
+import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
 
 import { Select, SelectProvider, SelectOption, SelectPopover } from '../index'
 

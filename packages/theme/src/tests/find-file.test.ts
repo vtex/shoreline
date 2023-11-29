@@ -1,6 +1,6 @@
 import { join, resolve } from 'path'
 import { climbUp, findFile } from '../find-file'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 
 const fixtures = join(__dirname, 'fixtures')
 

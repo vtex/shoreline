@@ -1,6 +1,5 @@
 import React from 'react'
-import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
 
 import {
   Combobox,
