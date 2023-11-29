@@ -10,7 +10,7 @@ import { messages } from './messages'
 const useMessage = createMessageHook(messages)
 
 /**
- * Confirmation modal component
+ * Confirmation Modal containers allow merchants to confirm an action through an overlay window that opens on top of the current page.
  *
  * @example
  *  const [open, setOpen] = useState(false)
@@ -56,10 +56,10 @@ export const ConfirmationModal = forwardRef<
       <Content>{children}</Content>
       <Content narrow>
         <Flex justify="end" columnGap="0.5rem">
+          <Button onClick={onCancel}>{getMessage('cancel')}</Button>
           <Button onClick={onConfirm} variant="primary">
             {getMessage('confirm')}
           </Button>
-          <Button onClick={onCancel}>{getMessage('cancel')}</Button>
         </Flex>
       </Content>
     </Modal>
