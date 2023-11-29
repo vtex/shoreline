@@ -58,17 +58,6 @@
     }
 
     &[data-disabled='false'] {
-      &[data-error='true'] {
-        border: var(--sl-border-critical-strong);
-        &:hover {
-          border: var(--sl-border-critical-strong-hover);
-        }
-        &[data-focus-visible='true'] {
-          box-shadow: var(--sl-focus-ring-critical);
-          border: var(--sl-border-critical-strong-hover);
-        }
-      }
-
       &[data-checked='true'] {
         background: var(--sl-bg-accent-strong);
         border: var(--sl-border-accent-strong);
@@ -87,12 +76,6 @@
           border: var(--sl-border-accent-strong-hover);
         }
       }
-    }
-
-    &[data-error='true'][data-disabled='true'] {
-      color: var(--sl-fg-disabled);
-      background: var(--sl-bg-disabled);
-      border: var(--sl-border-disabled);
     }
   }
 }

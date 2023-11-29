@@ -14,7 +14,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
       label,
       children,
       className,
-      direction,
+      direction = 'column',
       id: defaultId,
       ...otherProps
     } = props
