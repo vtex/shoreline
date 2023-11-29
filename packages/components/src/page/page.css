@@ -1,7 +1,7 @@
 @layer sl-components {
   [data-sl-page] {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr;
   }
 }

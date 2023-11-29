@@ -14,9 +14,7 @@ export function Default() {
   return (
     <Page>
       <Header>Header</Header>
-      <Content className="page-content">
-        <div className="page-inner-content">Page content</div>
-      </Content>
+      <Content className="page-content">Page content</Content>
     </Page>
   )
 }
@@ -26,7 +24,7 @@ export function Narrow() {
     <Page>
       <Header narrow>Header</Header>
       <Content narrow className="page-content">
-        <div className="page-inner-content">Page content</div>
+        Page content
       </Content>
     </Page>
   )

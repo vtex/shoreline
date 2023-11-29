@@ -1,4 +1,3 @@
-
 import React, { forwardRef } from 'react'
 import { Content, ContentProps } from '../content'
 import './header.css'

@@ -1,9 +1,3 @@
 .page-content {
-  flex-grow: 1;
-}
-
-.page-inner-content {
-  height: 100%;
-  width: 100%;
   background-color: var(--sl-bg-muted);
 }
