@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.28.0...@vtex/shoreline-components@0.30.0) (2023-11-29)
+
+### Features
+
+- add header and page components ([41a94ba](https://github.com/vtex/admin-ui/commit/41a94ba3b216ea40343f612dbecd0133f52e2a12))
+- **checkbox:** remove different color scheme for error ([abe18ca](https://github.com/vtex/admin-ui/commit/abe18ca1facf0adee056dbc9103859399adbdc30))
+- **modal:** reuse general header ([41018b5](https://github.com/vtex/admin-ui/commit/41018b5e1fc00fb5f66806530d9d0d8b2b7d9cf5))
+- **page:** simplify css for layout ([77627c9](https://github.com/vtex/admin-ui/commit/77627c9c974eecd104e45de7139671774231df5c))
+- **tsup:** add tsup to global scope ([1efec54](https://github.com/vtex/admin-ui/commit/1efec5401933eb1d06651e60ebd087a2a1c18e35))
+
 # [0.29.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.28.0...@vtex/shoreline-components@0.29.0) (2023-11-29)
 
 ### Features
