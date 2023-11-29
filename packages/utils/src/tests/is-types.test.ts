@@ -1,5 +1,5 @@
 import { isString, isFunction } from '../is-types'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 
 describe('isString', () => {
   it('should not be a string', () => {

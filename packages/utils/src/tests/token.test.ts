@@ -1,5 +1,5 @@
 import { cleanTokenString, isToken } from '../index'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from '@vtex/shoreline-test-utils'
 
 describe('cleanTokenString', () => {
   it('should not clean a string that is not a token', () => {

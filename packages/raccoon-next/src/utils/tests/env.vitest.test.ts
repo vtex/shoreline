@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { test, expect } from 'vitest'
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { isIframe, isDev } from '../env'
 
 test('isIframe returns true when running in an iframe', () => {

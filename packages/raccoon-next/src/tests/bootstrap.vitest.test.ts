@@ -1,4 +1,4 @@
-import { vi, test, expect } from 'vitest'
+import { vi, test, expect } from '@vtex/shoreline-test-utils'
 import { connect } from '../boostrap'
 
 test('connect function should listen for admin shell events', () => {

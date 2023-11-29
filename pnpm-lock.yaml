@@ -414,6 +414,9 @@ importers:
         specifier: 3.1.2
         version: 3.1.2
     devDependencies:
+      '@vtex/shoreline-test-utils':
+        specifier: workspace
+        version: link:../test-utils
       runtime-stylesheet:
         specifier: 0.2.1
         version: 0.2.1
@@ -462,6 +465,9 @@ importers:
 
   packages/raccoon-io:
     devDependencies:
+      '@vtex/shoreline-test-utils':
+        specifier: workspace
+        version: link:../test-utils
       tsup:
         specifier: 7.1.0
         version: 7.1.0(@swc/core@1.2.241)(postcss@8.4.31)(typescript@4.9.5)
@@ -475,6 +481,9 @@ importers:
         specifier: '>=18'
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@vtex/shoreline-test-utils':
+        specifier: workspace
+        version: link:../test-utils
       next:
         specifier: 12.3.0
         version: 12.3.0(@babel/core@7.22.5)(babel-plugin-macros@3.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -503,6 +512,10 @@ importers:
       '@vtex/shoreline-utils':
         specifier: ^0.4.0
         version: link:../utils
+    devDependencies:
+      '@vtex/shoreline-test-utils':
+        specifier: workspace
+        version: link:../test-utils
 
   packages/test-utils:
     dependencies:

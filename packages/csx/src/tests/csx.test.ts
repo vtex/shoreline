@@ -1,5 +1,5 @@
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { csx } from '../index'
-import { test, expect } from 'vitest'
 
 test('csx must return an object', () => {
   expect(csx()).toStrictEqual({})

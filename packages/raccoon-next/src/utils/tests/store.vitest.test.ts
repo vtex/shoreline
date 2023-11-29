@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { test, expect } from '@vtex/shoreline-test-utils'
 import { createStore } from '../store'
 
 test('createStore returns a store object with the expected shape', () => {

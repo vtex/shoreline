@@ -5,7 +5,7 @@ import {
   listenForAdminShellEvents,
 } from '../message'
 import { adminStore } from '../admin-store'
-import { vi, test, expect } from 'vitest'
+import { vi, test, expect } from '@vtex/shoreline-test-utils'
 
 test('publishMessage should post message to parent window', () => {
   const mockPostMessage = vi.spyOn(window, 'postMessage')

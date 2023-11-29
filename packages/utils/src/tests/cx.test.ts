@@ -1,5 +1,5 @@
 import { cx } from '../index'
-import { test, expect } from 'vitest'
+import { test, expect } from '@vtex/shoreline-test-utils'
 
 test('cx should handle null values', () => {
   expect(cx(null)).toEqual('')

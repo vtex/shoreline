@@ -1,6 +1,6 @@
 import { cx } from '../cx'
 import { mergeProps } from '../merge-props'
-import { describe, it, vi, expect } from 'vitest'
+import { describe, it, vi, expect } from '@vtex/shoreline-test-utils'
 
 describe('mergeProps', function () {
   it('handles one argument', function () {

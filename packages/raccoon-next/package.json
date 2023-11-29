@@ -17,6 +17,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@vtex/shoreline-test-utils": "workspace",
     "next": "12.3.0",
     "tsup": "7.1.0"
   }
