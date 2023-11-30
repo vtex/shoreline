@@ -38,14 +38,42 @@ describe('search', () => {
 
   it('should show clear button when value is present and onClear prop is provided', () => {
     const onClear = vi.fn()
-    const { container } = render(
-      <Search defaultValue="test" onClear={onClear} />
-    )
+    const { container } = render(<Search value="test" onClear={onClear} />)
 
     const clearButton = container.querySelector('[data-sl-icon-button]')
 
     expect(clearButton).toBeInTheDocument()
     fireEvent.click(clearButton!)
     expect(onClear).toHaveBeenCalled()
+  })
+
+  it('should not show clear button when value is present and onClear prop is provided but element is disabled', () => {
+    const onClear = vi.fn()
+    const { container } = render(
+      <Search value="test" onClear={onClear} disabled />
+    )
+
+    const clearButton = container.querySelector('[data-sl-icon-button]')
+
+    expect(clearButton).not.toBeInTheDocument()
+  })
+
+  it('focus on input when parent div is clicked', () => {
+    const { container } = render(<Search />)
+    const input = container.querySelector('input')
+
+    expect(input).not.toHaveFocus()
+    fireEvent.click(container.querySelector('[data-sl-search]')!)
+    expect(input).toHaveFocus()
+  })
+
+  it('focus on input when parent div is clicked while receiving a ref', () => {
+    const ref = React.createRef<HTMLInputElement>()
+    const { container } = render(<Search ref={ref} />)
+    const input = container.querySelector('input')
+
+    expect(input).not.toHaveFocus()
+    fireEvent.click(container.querySelector('[data-sl-search]')!)
+    expect(input).toHaveFocus()
   })
 })

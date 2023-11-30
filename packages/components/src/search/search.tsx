@@ -1,15 +1,15 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useRef } from 'react'
 import { IconButton } from '../icon-button'
 import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
-import { useId } from '@vtex/shoreline-utils'
+import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
 import './search.css'
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
   props,
-  ref
+  forwardedRef
 ) {
   const {
     disabled = false,
@@ -25,12 +25,21 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
 
   const id = useId(defaultId)
 
+  const ref = useRef<HTMLInputElement | null>(null)
+
+  const handleFocus = () => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }
+
   return (
     <div
       className={className}
       data-disabled={disabled}
       data-loading={loading}
       data-sl-search
+      onClick={handleFocus}
     >
       {loading ? (
         <Spinner data-sl-pre-icon />
@@ -40,7 +49,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       <input
         id={id}
         data-sl-search-input
-        ref={ref}
+        ref={useMergeRef(ref, forwardedRef)}
         disabled={disabled}
         value={value}
         placeholder={placeholder}
@@ -50,7 +59,9 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       <VisuallyHidden>
         <label htmlFor={id}>{placeholder}</label>
       </VisuallyHidden>
-      {(value || defaultValue) && typeof onClear !== undefined ? (
+      {!disabled &&
+      (value || defaultValue) &&
+      typeof onClear !== 'undefined' ? (
         <IconButton
           label="Clear"
           onClick={onClear}

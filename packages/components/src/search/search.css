@@ -23,6 +23,7 @@
 
     &:focus-within {
       box-shadow: var(--sl-focus-ring);
+      border: var(--sl-border-strong-hover);
     }
 
     &[data-disabled='true'] {
@@ -30,8 +31,10 @@
       background-color: var(--sl-bg-disabled);
       color: var(--sl-fg-disabled);
 
-      & > [data-sl-pre-icon] {
-        color: inherit;
+      &:not([data-loading='true']) {
+        & > [data-sl-pre-icon] {
+          color: inherit;
+        }
       }
 
       & > [data-sl-search-input] {
