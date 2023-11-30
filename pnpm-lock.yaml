@@ -319,12 +319,21 @@ importers:
       '@internationalized/date':
         specifier: 3.5.0
         version: 3.5.0
+      '@react-aria/calendar':
+        specifier: 3.5.3
+        version: 3.5.3(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/datepicker':
         specifier: 3.9.0
         version: 3.9.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-stately/calendar':
+        specifier: 3.4.2
+        version: 3.4.2(react@18.2.0)
       '@react-stately/datepicker':
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
+      '@vtex/shoreline-icons':
+        specifier: workspace
+        version: link:../icons
       '@vtex/shoreline-utils':
         specifier: workspace
         version: link:../utils
@@ -7074,6 +7083,26 @@ packages:
       }
     dev: false
 
+  /@react-aria/calendar@3.5.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-jW48jk0TIe0HAJS+z8zqd8M86FEuqrk1qEIjMWnf8rFnA7hPPpjdjUrY9vSIeC95NcbyZbFnr1bHzQjAIzosQw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@internationalized/date': 3.5.0
+      '@react-aria/i18n': 3.9.0(react@18.2.0)
+      '@react-aria/interactions': 3.20.0(react@18.2.0)
+      '@react-aria/live-announcer': 3.3.1
+      '@react-aria/utils': 3.22.0(react@18.2.0)
+      '@react-stately/calendar': 3.4.2(react@18.2.0)
+      '@react-types/button': 3.9.1(react@18.2.0)
+      '@react-types/calendar': 3.4.2(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@react-aria/checkbox@3.11.2(react@18.2.0):
     resolution:
       {
@@ -7463,6 +7492,19 @@ packages:
     peerDependencies:
       react: '>=16.8'
     dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/calendar@3.4.2(react@18.2.0):
+    resolution: {integrity: sha512-RfH40rVa2EhUnQgqH3HTZL+YhL+6tZ8T9GbN1K3AbIM5BBEtkb3P8qGhcaI7WpwNy1rlRFFFXGcqFAMUncDg2Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@internationalized/date': 3.5.0
+      '@react-stately/utils': 3.9.0(react@18.2.0)
+      '@react-types/calendar': 3.4.2(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
+      '@swc/helpers': 0.5.1
       react: 18.2.0
     dev: false
 

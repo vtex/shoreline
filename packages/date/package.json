@@ -46,9 +46,12 @@
     "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
+    "@vtex/shoreline-icons": "workspace",
+    "@vtex/shoreline-utils": "workspace",
     "@internationalized/date": "3.5.0",
+    "@react-aria/calendar": "3.5.3",
     "@react-aria/datepicker": "3.9.0",
     "@react-stately/datepicker": "3.9.0",
-    "@vtex/shoreline-utils": "workspace"
+    "@react-stately/calendar": "3.4.2"
   }
 }

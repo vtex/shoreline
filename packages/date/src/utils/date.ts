@@ -4,6 +4,7 @@ import {
   parseAbsoluteToLocal,
   getLocalTimeZone,
   today,
+  getWeeksInMonth,
 } from '@internationalized/date'
 
 export {
@@ -12,4 +13,5 @@ export {
   parseAbsoluteToLocal,
   getLocalTimeZone,
   today,
+  getWeeksInMonth,
 }
