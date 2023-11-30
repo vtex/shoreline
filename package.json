@@ -88,6 +88,7 @@
     "storybook": "^7.5.3",
     "stylelint": "^15.11.0",
     "stylelint-prettier": "^4.0.2",
+    "stylelint-config-recommended": "^13.0.0",
     "tslib": "2.6.2",
     "tsup": "8.0.1",
     "turbo": "1.4.3",

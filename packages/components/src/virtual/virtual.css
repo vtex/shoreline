@@ -1,7 +1,4 @@
 @layer sl-components {
-  :where([data-sl-virtual-item]) {
-  }
-
   [data-sl-virtual-item][data-sl-virtual-dynamic='false'] {
     position: absolute;
     top: 0;

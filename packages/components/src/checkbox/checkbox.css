@@ -7,7 +7,6 @@
 @layer sl-components {
   [data-sl-checkbox] {
     color: var(--sl-fg);
-    width: var(--sl-checkbox-size);
     height: var(--sl-checkbox-size);
     display: flex;
     width: fit-content;
