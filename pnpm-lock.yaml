@@ -26899,8 +26899,11 @@ packages:
     dev: false
 
   /stylelint-config-recommended@13.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
-    engines: {node: ^14.13.1 || >=16.0.0}
+    resolution:
+      {
+        integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==,
+      }
+    engines: { node: ^14.13.1 || >=16.0.0 }
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
