@@ -1,11 +1,11 @@
 @layer sl-components {
   [data-sl-grid-cell] {
+    grid-area: var(--sl-grid-cell-area);
+    grid-column: var(--sl-grid-cell-column);
+    grid-row: var(--sl-grid-cell-row);
     grid-column-start: var(--sl-grid-cell-columnStart);
     grid-column-end: var(--sl-grid-cell-columnEnd);
     grid-row-start: var(--sl-grid-cell-rowStart);
     grid-row-end: var(--sl-grid-cell-rowEnd);
-    grid-column: var(--sl-grid-cell-column);
-    grid-row: var(--sl-grid-cell-row);
-    grid-area: var(--sl-grid-cell-area);
   }
 }
