@@ -7,13 +7,13 @@
     border-radius: var(--sl-border-radius-medium);
     display: flex;
     flex-direction: column;
-    padding: var(--sl-space-2) var(--sl-space-4);
+    padding: var(--sl-space-3) var(--sl-space-4);
     z-index: var(--sl-z-10);
     box-shadow: var(--sl-shadow-2);
     min-width: 9.5rem;
 
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-accent);
+      box-shadow: var(--sl-focus-ring);
     }
   }
 }
