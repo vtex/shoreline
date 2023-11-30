@@ -48,7 +48,7 @@ export function Toast(props: ToastProps) {
 function renderChildren(children: ReactNode) {
   return Children.map(children, (child) => {
     if (typeof child === 'string') {
-      return <Text>{child}</Text>
+      return <Text variant="emphasis">{child}</Text>
     }
 
     if (isValidElement(child) && child.type === Action) {
