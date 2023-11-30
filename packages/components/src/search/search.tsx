@@ -2,14 +2,14 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef, useRef } from 'react'
 import { IconButton } from '../icon-button'
 import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
-import { useId } from '@vtex/shoreline-utils'
+import { useId, mergeRefs, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
 import './search.css'
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
   props,
-  ref
+  forwardedRef
 ) {
   const {
     disabled = false,
@@ -25,15 +25,11 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
 
   const id = useId(defaultId)
 
-  let defaultRef = useRef<HTMLInputElement | null>(null)
+  const ref = useRef<HTMLInputElement | null>(null)
 
-  if (ref) {
-    defaultRef = ref as React.MutableRefObject<HTMLInputElement | null>
-  }
-
-  const handleFocusFromParent = () => {
-    if (defaultRef.current) {
-      defaultRef.current.focus()
+  const handleFocus = () => {
+    if (ref.current) {
+      ref.current.focus()
     }
   }
 
@@ -43,7 +39,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       data-disabled={disabled}
       data-loading={loading}
       data-sl-search
-      onClick={handleFocusFromParent}
+      onClick={handleFocus}
     >
       {loading ? (
         <Spinner data-sl-pre-icon />
@@ -53,7 +49,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       <input
         id={id}
         data-sl-search-input
-        ref={defaultRef}
+        ref={useMergeRef(ref, forwardedRef)}
         disabled={disabled}
         value={value}
         placeholder={placeholder}
@@ -63,7 +59,9 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
       <VisuallyHidden>
         <label htmlFor={id}>{placeholder}</label>
       </VisuallyHidden>
-      {!disabled && value && typeof onClear !== undefined ? (
+      {!disabled &&
+      (value || defaultValue) &&
+      typeof onClear !== 'undefined' ? (
         <IconButton
           label="Clear"
           onClick={onClear}
