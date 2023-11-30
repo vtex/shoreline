@@ -21,7 +21,7 @@ export function WithPage() {
   return (
     <Page>
       <Header narrow>Header</Header>
-      <Content narrow className='page-content'>
+      <Content narrow className="page-content">
         Page content
       </Content>
     </Page>

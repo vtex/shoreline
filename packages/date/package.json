@@ -41,7 +41,9 @@
     "@vtex/shoreline-components": "0.x"
   },
   "devDependencies": {
-    "@vtex/shoreline-components": "workspace"
+    "@vtex/shoreline-components": "workspace",
+    "postcss": "8.4.31",
+    "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace",

@@ -352,6 +352,12 @@ importers:
       '@vtex/shoreline-components':
         specifier: workspace
         version: link:../components
+      postcss:
+        specifier: 8.4.31
+        version: 8.4.31
+      postcss-preset-env:
+        specifier: 9.3.0
+        version: 9.3.0(postcss@8.4.31)
 
   packages/icons:
     dependencies:

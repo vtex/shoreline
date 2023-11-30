@@ -1,4 +1,5 @@
-import React, { ComponentPropsWithoutRef, forwardRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
 import { Container } from '../content'
 import './page.css'
 
