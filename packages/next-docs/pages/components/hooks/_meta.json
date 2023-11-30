@@ -1,6 +1,0 @@
-{
-  "use-filter-context": "useFilterContext",
-  "use-locale": "useLocale",
-  "use-radio-state": "useRadioState",
-  "use-virtualizer-model": "useVirtualizerModel"
-}
