@@ -1,0 +1,52 @@
+{
+  "name": "@vtex/shoreline-date",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/index.css"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "directory": "packages/shoreline",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@vtex/shoreline-components": "0.x"
+  },
+  "devDependencies": {
+    "@vtex/shoreline-components": "workspace"
+  },
+  "dependencies": {
+    "@vtex/shoreline-utils": "workspace",
+    "@internationalized/date": "3.5.0",
+    "@react-aria/datepicker": "3.9.0",
+    "@react-stately/datepicker": "3.9.0"
+  }
+}
