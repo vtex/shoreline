@@ -8,6 +8,7 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 15cqi;
   padding: 4.625rem 2.125rem;
   width: 100%;
@@ -28,6 +29,10 @@
   .hero {
     grid-template-columns: 1fr;
   }
+
+  .hero h2 {
+    line-height: 3rem;
+  }
 }
 
 .subtitle {
@@ -36,7 +41,7 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5rem; /* 150% */
+  line-height: 1.5rem;
   letter-spacing: -0.02rem;
   opacity: 0.8;
 }
@@ -52,6 +57,11 @@
   padding-bottom: 0.625rem;
 }
 
+.featuresContainer {
+  container: features / inline-size;
+  width: 100%;
+}
+
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
@@ -59,11 +69,48 @@
 }
 
 .feature {
+  container: feature / inline-size;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 1.5rem;
 }
 
-.feature > img {
+.feature:hover > .featureImageContainer > img,
+.feature:focus > .featureImageContainer > img {
+  transform: scale(1.1);
+}
+
+.featureImageContainer {
+  overflow: hidden;
+  width: 100cqi;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: inline-block;
   border-radius: 1.5rem;
+}
+
+.featureImageContainer > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  transition: transform 250ms ease-in-out;
+}
+
+.feature:hover {
+  background: hsla(200, 0%, 0%, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature:hover {
+    background: hsla(200, 100%, 100%, 0.05);
+  }
+}
+
+@container (max-width: 40rem) {
+  .features {
+    gap: 5rem;
+  }
 }
