@@ -49,6 +49,7 @@
   font-weight: 600;
   line-height: 2.25rem;
   letter-spacing: -0.07rem;
+  padding-bottom: 0.625rem;
 }
 
 .features {
@@ -63,6 +64,6 @@
   gap: 1.75rem;
 }
 
-.feature h3 {
-  padding-bottom: 0.625rem;
+.feature > img {
+  border-radius: 1.5rem;
 }
