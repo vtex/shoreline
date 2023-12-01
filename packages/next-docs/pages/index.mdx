@@ -2,45 +2,83 @@
 title: Shoreline - VTEX Desing System
 ---
 
-import { heroContainer, hero, subtitle, features, feature } from './index.module.css'
+import { heroContainer, hero, subtitle, title, features, feature, featuresContainer, featureImageContainer } from './index.module.css'
+import { LightMode, DarkMode } from '../components/mode'
+import { NoSSR } from '../components/no-ssr'
+import Link from 'next/link'
 
-<div className={heroContainer}>
-  <section className={hero}>
-    <img src='assets/landing-shoreline-logo.png' alt="shoreline logo" />
+<section className={heroContainer}>
+  <article className={hero}>
+    <NoSSR fallback={<div />}>
+      <LightMode>
+        <img src='/assets/landing-logo.png' alt="shoreline logo" suppressHydrationWarning />
+      </LightMode>
+      <DarkMode>
+        <img src='/assets/landing-logo-dark.png' alt="shoreline logo" suppressHydrationWarning />
+      </DarkMode>
+    </NoSSR>
     <div>  
-      <h2>Build great experiences for merchants in the VTEX Admin.</h2>
-      <p className={subtitle}>Shoreline is a design system tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</p>
+      <h2>Build great experiences for merchants in the VTEX Admin</h2>
+      <p className={subtitle}>
+        Shoreline is a design system tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience
+      </p>
     </div>
-  </section>
-</div>
+  </article>
+</section>
 
-<section className={features}>
-  <div className={feature}>
-    <img src='assets/landing-foundations.png' alt="feature foundations" />
-    <div>
-      <h3>Foundations</h3>
-      <p className={subtitle}>Fundamental design guidance for creating quality admin experiences</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-components.png' alt="feature components" />
-    <div>
-      <h3>Components</h3>
-      <p className={subtitle}>Reusable elements and styles, packaged through code, for building admin interfaces</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-raccoon.png' alt="feature raccoon" />
-    <div>
-      <h3>Raccoon</h3>
-      <p className={subtitle}>Coded names that represent design decisions for color, spacing, typography, and more</p>
-    </div>
-  </div>
-  <div className={feature}>
-    <img src='assets/landing-code.png' alt="feature api" />
-    <div>
-      <h3>API Reference</h3>
-      <p className={subtitle}>Over 400 carefully designed icons focused on commerce and entrepreneurship</p>
-    </div>
-  </div>
+<section className={featuresContainer}>
+  <ul className={features}>
+    <li>
+      <Link href="/foundations">
+        <article className={feature}>
+          <div className={featureImageContainer}>
+            <img src='assets/landing-foundations.png' alt="feature foundations" />
+          </div>
+          <div>
+            <h3 className={title}>Foundations</h3>
+            <p className={subtitle}>Fundamental design guidance for creating quality admin experiences</p>
+          </div>
+        </article>
+      </Link>
+    </li>
+    <li>
+      <Link href="/components/button/best-practices">
+        <article className={feature}>
+          <div className={featureImageContainer}>
+            <img src='assets/landing-components.png' alt="feature components" />
+          </div>
+          <div>
+            <h3 className={title}>Components</h3>
+            <p className={subtitle}>Reusable elements and styles, packaged through code, for building admin interfaces</p>
+          </div>
+        </article>
+      </Link>
+    </li>
+    <li>
+      <Link href="/raccoon/getting-started">
+        <article className={feature}>
+          <div className={featureImageContainer}>
+            <img src='assets/landing-raccoon.png' alt="feature raccoon" />
+          </div>
+          <div>
+            <h3 className={title}>Raccoon</h3>
+            <p className={subtitle}>Coded names that represent design decisions for color, spacing, typography, and more</p>
+          </div>
+        </article>
+      </Link>
+    </li>
+    <li>
+      <Link href="/api-reference/cli/introduction">
+        <article className={feature}>
+          <div className={featureImageContainer}>
+            <img src='assets/landing-api-reference.png' alt="feature api" />
+          </div>
+          <div>
+            <h3 className={title}>API Reference</h3>
+            <p className={subtitle}>Over 400 carefully designed icons focused on commerce and entrepreneurship</p>
+          </div>
+        </article>
+      </Link>
+    </li>
+  </ul>
 </section>
