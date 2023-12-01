@@ -1,6 +1,6 @@
 {
-  "name": "@vtex/shoreline-date",
-  "version": "0.1.0",
+  "name": "@vtex/shoreline-store",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -36,24 +36,13 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
-    "@vtex/shoreline-components": "0.x",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline-components": "workspace",
-    "postcss": "8.4.31",
-    "postcss-preset-env": "9.3.0"
+    "@types/use-sync-external-store": "0.0.6"
   },
   "dependencies": {
-    "@vtex/shoreline-icons": "workspace",
-    "@vtex/shoreline-utils": "workspace",
-    "@vtex/shoreline-store": "workspace",
-    "@internationalized/date": "3.5.0",
-    "@react-aria/calendar": "3.5.3",
-    "@react-aria/datepicker": "3.9.0",
-    "@react-stately/datepicker": "3.9.0",
-    "@react-stately/calendar": "3.4.2",
-    "@react-aria/i18n": "3.9.0"
+    "use-sync-external-store": "1.2.0"
   }
 }

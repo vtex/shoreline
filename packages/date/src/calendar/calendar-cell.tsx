@@ -3,9 +3,12 @@ import { useCalendarCell } from '@react-aria/calendar'
 import { IconButton } from '@vtex/shoreline-components'
 
 import './calendar-cell.css'
+import { useCalendarContext } from './calendar-provider'
 
-export function CalendarCell({ state, date }: any) {
+export function CalendarCell({ date }: any) {
   const ref = useRef(null)
+  const store = useCalendarContext()
+
   const {
     cellProps,
     buttonProps,
@@ -15,7 +18,7 @@ export function CalendarCell({ state, date }: any) {
     isUnavailable,
     formattedDate,
     isFocused,
-  } = useCalendarCell({ date }, state, ref)
+  } = useCalendarCell({ date }, store.state, ref)
 
   return (
     <td data-sl-calendar-cell {...cellProps}>

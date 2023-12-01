@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 // import { Stack } from '@vtex/shoreline-components'
 
 import { Calendar } from '../index'
+import { LocaleProvider } from '@vtex/shoreline-components'
+
 // import { parseDate } from '../../utils'
 
 export default {
@@ -18,9 +20,13 @@ export function Default() {
 //   return <DateField value={value} onChange={setValue} label="Date" />
 // }
 
-// export function Locale() {
-//   return <DateField label="Date" locale="ja-JP" />
-// }
+export function Locale() {
+  return (
+    <LocaleProvider locale="ja-JP">
+      <Calendar label="Date" />
+    </LocaleProvider>
+  )
+}
 
 // export function Granularity() {
 //   return (
