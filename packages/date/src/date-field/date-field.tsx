@@ -15,6 +15,11 @@ import { Field, FieldLabel } from '@vtex/shoreline-components'
 import { DateSegment } from '../date-segment'
 import './date-field.css'
 
+/**
+ * Allow users to select a date in a segmented field
+ * @example
+ * <DateField label="Date" />
+ */
 export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
   function DateField(props, forwardedRef) {
     const {
@@ -56,18 +61,55 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
 )
 
 export interface DateFieldProps {
+  /**
+   * Custom className
+   */
   className?: string
+  /**
+   * Granularity of the filed
+   * @default 'day'
+   */
   granularity?: 'day' | 'hour' | 'minute' | 'second'
+  /**
+   * Hour cycle
+   * @default 24
+   */
   hourCycle?: 12 | 24
+  /**
+   * Field label
+   */
   label?: string
+  /**
+   * Field locale
+   * @default 'en-US'
+   */
   locale?: string
+  /**
+   * Wheter has error
+   * @default false
+   */
   error?: boolean
+  /**
+   * Field value
+   */
   value?: DateValue
+  /**
+   * Minimal date allowed
+   */
   minValue?: DateValue
+  /**
+   * Maximun date allowed
+   */
   maxValue?: DateValue
+  /**
+   * Callback after value changes
+   */
   onChange?:
     | Dispatch<SetStateAction<CalendarDate>>
     | Dispatch<SetStateAction<ZonedDateTime>>
     | Dispatch<SetStateAction<CalendarDateTime>>
+  /**
+   * Default field value
+   */
   defaultValue?: DateValue
 }

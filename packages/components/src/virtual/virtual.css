@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--sl-virtual-item-size, 0px);
+    height: var(--sl-virtual-item-size, 0rem);
     transform: translateY(var(--sl-virtual-item-start, 0px));
   }
 
@@ -20,7 +20,7 @@
   }
 
   [data-sl-virtual] {
-    height: 500px;
+    height: 31.25rem;
     overflow-y: auto;
     width: 100%;
   }

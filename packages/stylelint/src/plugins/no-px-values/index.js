@@ -20,6 +20,12 @@ const spaceProps = [
   'padding-right',
   'padding-top',
   'padding-bottom',
+  'height',
+  'width',
+  'max-height',
+  'max-width',
+  'min-height',
+  'min-width',
 ]
 
 module.exports = stylelint.createPlugin(

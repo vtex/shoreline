@@ -6,7 +6,7 @@
     gap: var(--sl-space-05);
     border: var(--sl-border-strong);
     border-radius: var(--sl-border-radius-medium);
-    height: 44px;
+    height: 2.75rem;
     padding: var(--sl-space-3) var(--sl-space-4);
     justify-content: flex-start;
     align-items: center;
