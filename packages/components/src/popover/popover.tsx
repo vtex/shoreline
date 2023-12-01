@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Popover as BasePopover } from '@ariakit/react'
-import { Container } from '../content'
 import './popover.css'
 
 /**
@@ -23,9 +22,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         data-sl-popover
         ref={ref}
         render={asChild && (children as any)}
+        portal
         {...otherProps}
       >
-        <Container>{children}</Container>
+        {children}
       </BasePopover>
     )
   }
