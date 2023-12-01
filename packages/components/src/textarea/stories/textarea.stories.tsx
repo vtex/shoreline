@@ -68,6 +68,57 @@ export function All() {
   )
 }
 
+export function withResize() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <>
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        label="Label"
+        resizable
+        optional
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        resizable
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        error
+        resizable
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        disabled
+        resizable
+      />
+      <Textarea
+        label="label"
+        value="The quick brown fox is tired right now"
+        className="textarea-container"
+        disabled
+        resizable
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        maxLength={120}
+        resizable
+      />
+    </>
+  )
+}
+
 export function FormField() {
   const [value, setValue] = React.useState('')
 
