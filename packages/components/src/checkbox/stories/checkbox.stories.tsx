@@ -114,9 +114,7 @@ export function Group() {
         <Checkbox>Everything</Checkbox>
         <Checkbox>Everywhere</Checkbox>
         <Checkbox>All at once</Checkbox>
-        <Checkbox disabled>
-          None
-        </Checkbox>
+        <Checkbox disabled>None</Checkbox>
       </CheckboxGroup>
       <CheckboxGroup
         error
@@ -127,9 +125,7 @@ export function Group() {
         <Checkbox>Everything</Checkbox>
         <Checkbox>Everywhere</Checkbox>
         <Checkbox>All at once</Checkbox>
-        <Checkbox disabled>
-          None
-        </Checkbox>
+        <Checkbox disabled>None</Checkbox>
       </CheckboxGroup>
     </Stack>
   )

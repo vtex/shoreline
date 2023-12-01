@@ -20,7 +20,8 @@ describe('menu', () => {
           <MenuSeparator />
           <MenuItem>Item 3</MenuItem>
         </Menu>
-      </MenuProvider>, {container: document.body}
+      </MenuProvider>,
+      { container: document.body }
     )
 
     expect(container.querySelector('[data-sl-menu]')).toBeInTheDocument()
