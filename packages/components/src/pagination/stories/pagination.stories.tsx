@@ -20,9 +20,6 @@ export function Default() {
           setPagination((prev) => ({ ...prev, page }))
         }}
         total={754}
-        sizeOptions={[25, 50, 100]}
-        size={pagination.size}
-        onSizeChange={(size) => setPagination((prev) => ({ ...prev, size }))}
       />
     </div>
   )
@@ -39,7 +36,6 @@ export function WithoutPageSize() {
           setPage(page)
         }}
         total={754}
-        size={100}
       />
     </div>
   )
@@ -48,13 +44,7 @@ export function WithoutPageSize() {
 export function Loading() {
   return (
     <div className="pagination-container">
-      <Pagination
-        page={1}
-        total={754}
-        sizeOptions={[25, 50, 100]}
-        size={25}
-        loading
-      />
+      <Pagination page={3} total={55} loading />
     </div>
   )
 }
@@ -71,9 +61,6 @@ export function Intl() {
             setPagination((prev) => ({ ...prev, page }))
           }}
           total={100}
-          sizeOptions={[25, 50, 100]}
-          size={pagination.size}
-          onSizeChange={(size) => setPagination((prev) => ({ ...prev, size }))}
         />
       </div>
     </LocaleProvider>

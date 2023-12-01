@@ -5,38 +5,22 @@ import { Pagination } from '../pagination'
 
 describe('pagination', () => {
   test('renders', () => {
-    const { container } = render(
-      <Pagination page={1} total={50} size={25} sizeOptions={[25, 50, 100]} />
-    )
+    const { container } = render(<Pagination page={1} total={50} />)
 
     expect(container.querySelector('[data-sl-pagination]')).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-sl-pagination-size-select]')
-    ).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-pagination-actions]')
     ).toBeInTheDocument()
     expect(
-      container.querySelector('[data-sl-pagination-page-select]')
+      container.querySelector('[data-sl-pagination-label]')
     ).toBeInTheDocument()
     expect(
-      container.querySelector('[data-sl-pagination-total-label]')
+      container.querySelector('[data-sl-pagination-label]')
     ).toBeInTheDocument()
-  })
-
-  test('should not render page size selector', () => {
-    const { container } = render(<Pagination page={1} total={50} size={25} />)
-
-    expect(container.querySelector('[data-sl-pagination]')).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-sl-pagination-size-select]')
-    ).not.toBeInTheDocument()
   })
 
   test('action prev should be disabled on the first page', () => {
-    const { container } = render(
-      <Pagination page={1} total={50} size={25} sizeOptions={[25, 50, 100]} />
-    )
+    const { container } = render(<Pagination page={1} total={50} />)
 
     expect(
       container.querySelector('[data-sl-pagination-actions]')
@@ -47,9 +31,7 @@ describe('pagination', () => {
   })
 
   test('action next should be disabled on the last page', () => {
-    const { container } = render(
-      <Pagination page={2} total={50} size={25} sizeOptions={[25, 50, 100]} />
-    )
+    const { container } = render(<Pagination page={2} total={50} />)
 
     expect(
       container.querySelector('[data-sl-pagination-actions]')
@@ -59,15 +41,23 @@ describe('pagination', () => {
     ).toBeDisabled()
   })
 
-  test('number of pages', () => {
-    const { container, getByText } = render(
-      <Pagination page={1} total={55} size={25} />
-    )
+  test('pagination label should show min between size and the total number of items', () => {
+    const { container, getByText } = render(<Pagination page={3} total={55} />)
 
     expect(
-      container.querySelector('[data-sl-pagination-total-label]')
+      container.querySelector('[data-sl-pagination-label]')
     ).toBeInTheDocument()
 
-    expect(getByText('1 of 3')).toBeTruthy()
+    expect(getByText('50 - 55 of 55')).toBeTruthy()
+  })
+
+  test('pagination label should show 0 items when the total of items is 0', () => {
+    const { container, getByText } = render(<Pagination page={1} total={0} />)
+
+    expect(
+      container.querySelector('[data-sl-pagination-label]')
+    ).toBeInTheDocument()
+
+    expect(getByText('0 - 0 of 0')).toBeTruthy()
   })
 })
