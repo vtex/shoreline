@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.32.3](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.32.2...@vtex/shoreline-components@0.32.3) (2023-12-01)
+
+### Bug Fixes
+
+- **component:** lint issues ([ef3df40](https://github.com/vtex/admin-ui/commit/ef3df40d505db5c3cfbce3b84320b10f5cce5919))
+
 ## [0.32.2](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.32.1...@vtex/shoreline-components@0.32.2) (2023-11-30)
 
 **Note:** Version bump only for package @vtex/shoreline-components
