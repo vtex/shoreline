@@ -1,9 +1,3 @@
-@layer sl-components {
-  [data-sl-calendar-cell] {
-    /* height: 32px; */
-  }
-}
-
 @layer sl-expended-components {
   [data-sl-calendar-cell-button] {
     width: 100%;

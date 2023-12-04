@@ -1,40 +1,49 @@
 import React, { useState } from 'react'
-// import { Stack } from '@vtex/shoreline-components'
-
-import { Calendar } from '../index'
 import { LocaleProvider } from '@vtex/shoreline-components'
 
-// import { parseDate } from '../../utils'
+import { Calendar } from '../index'
+import { getLocalTimeZone, today } from '../../utils'
 
 export default {
   title: 'date/calendar',
 }
 
 export function Default() {
-  return <Calendar label="Event date" />
+  return <Calendar />
 }
 
-// export function Controlled() {
-//   const [value, setValue] = useState(parseDate('2023-09-11'))
+export function Controlled() {
+  const now = today(getLocalTimeZone())
+  const [value, setValue] = useState(now)
+  const [focusedValue, setFocusedValue] = useState(now)
 
-//   return <DateField value={value} onChange={setValue} label="Date" />
-// }
+  return (
+    <>
+      <p>Selected Date: {value.toString()}</p>
+      <p>Focused Date: {focusedValue.toString()}</p>
+
+      <button
+        onClick={() => {
+          setValue(now)
+          setFocusedValue(now)
+        }}
+      >
+        Today
+      </button>
+      <Calendar
+        value={value}
+        onChange={setValue}
+        focusedValue={focusedValue}
+        onFocusChange={setFocusedValue}
+      />
+    </>
+  )
+}
 
 export function Locale() {
   return (
     <LocaleProvider locale="ja-JP">
-      <Calendar label="Date" />
+      <Calendar />
     </LocaleProvider>
   )
 }
-
-// export function Granularity() {
-//   return (
-//     <Stack>
-//       <DateField label="Day (default)" granularity="day" locale="pt-BR" />
-//       <DateField label="Hour" granularity="hour" locale="pt-BR" />
-//       <DateField label="Minute" granularity="minute" locale="pt-BR" />
-//       <DateField label="Second" granularity="second" locale="pt-BR" />
-//     </Stack>
-//   )
-// }

@@ -1,15 +1,23 @@
+import type { CalendarDate } from '@internationalized/date'
 import { createCalendar } from '@internationalized/date'
+import type { CalendarStateOptions } from '@react-stately/calendar'
 import { useCalendarState } from '@react-stately/calendar'
 import { Store } from '@vtex/shoreline-store'
 import { useMemo } from 'react'
 
-export function useCalendarStore(props: any) {
+/**
+ * Returns a calendar store
+ */
+export function useCalendarStore(props: UseCalendarStoreProps) {
   const state = useCalendarState({
     ...props,
     createCalendar,
   })
 
-  const store = useMemo(() => new Store(state), [state])
-
-  return store
+  return useMemo(() => new Store(state), [state])
 }
+
+export type UseCalendarStoreProps = Omit<
+  CalendarStateOptions<CalendarDate>,
+  'createCalendar'
+>

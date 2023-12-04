@@ -1,11 +1,16 @@
 import React, { useRef } from 'react'
 import { useCalendarCell } from '@react-aria/calendar'
 import { IconButton } from '@vtex/shoreline-components'
+import type { CalendarDate } from '@internationalized/date'
 
 import './calendar-cell.css'
 import { useCalendarContext } from './calendar-provider'
 
-export function CalendarCell({ date }: any) {
+/**
+ * Cell of a calendar grid
+ */
+export function CalendarCell(props: CalendarCellProps) {
+  const { date } = props
   const ref = useRef(null)
   const store = useCalendarContext()
 
@@ -38,4 +43,11 @@ export function CalendarCell({ date }: any) {
       </IconButton>
     </td>
   )
+}
+
+interface CalendarCellProps {
+  /**
+   * Date that the cell represents
+   */
+  date: CalendarDate
 }

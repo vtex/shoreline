@@ -1,4 +1,5 @@
 import React from 'react'
+import type { AriaCalendarGridProps } from '@react-aria/calendar'
 import { useCalendarGrid } from '@react-aria/calendar'
 import { useLocale } from '@vtex/shoreline-components'
 
@@ -7,11 +8,12 @@ import { CalendarCell } from './calendar-cell'
 import { useCalendarContext } from './calendar-provider'
 import './calendar-grid.css'
 
-export function CalendarGrid(props: any) {
+/**
+ * Grid of a calendar
+ */
+export function CalendarGrid(props: CalendarGridProps) {
   const locale = useLocale()
-
   const store = useCalendarContext()
-
   const { gridProps, headerProps, weekDays } = useCalendarGrid(
     props,
     store.state
@@ -46,3 +48,5 @@ export function CalendarGrid(props: any) {
     </table>
   )
 }
+
+export type CalendarGridProps = AriaCalendarGridProps

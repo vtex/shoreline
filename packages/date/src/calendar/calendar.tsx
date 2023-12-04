@@ -1,6 +1,7 @@
 import React from 'react'
+import type { AriaCalendarProps } from '@react-aria/calendar'
 import { useCalendar } from '@react-aria/calendar'
-import { createCalendar } from '@internationalized/date'
+import type { CalendarDate } from '@internationalized/date'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 
@@ -10,12 +11,16 @@ import { useCalendarStore } from './calendar-store'
 
 import './calendar.css'
 
-export function Calendar(props: any) {
+/**
+ * Allow users to select a date
+ * @example
+ * <Calendar />
+ */
+export function Calendar(props: CalendarProps) {
   const locale = useLocale()
   const store = useCalendarStore({
     ...props,
     locale,
-    createCalendar,
   })
 
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
@@ -52,3 +57,8 @@ export function Calendar(props: any) {
     </CalendarProvider>
   )
 }
+
+export type CalendarProps = Omit<
+  AriaCalendarProps<CalendarDate>,
+  'createCalendar' | 'locale'
+>
