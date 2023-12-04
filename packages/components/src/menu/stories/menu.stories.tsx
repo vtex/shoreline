@@ -1,11 +1,11 @@
 import './style.css'
 import React from 'react'
 import {
-  IconCaretDown,
   IconDotsThreeVertical,
   IconPencil,
   IconTrash,
   IconArchive,
+  IconCaretDownSmall,
 } from '@vtex/shoreline-icons'
 
 import {
@@ -45,7 +45,7 @@ export function Composition() {
       <MenuProvider placement="bottom-end">
         <MenuTrigger asChild>
           <Button>
-            Open <IconCaretDown />
+            Open <IconCaretDownSmall />
           </Button>
         </MenuTrigger>
         <Menu asChild>
@@ -213,7 +213,7 @@ export function CustomLabel() {
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="primary">
-            Create promotion <IconCaretDown />
+            Create promotion <IconCaretDownSmall />
           </Button>
         </MenuTrigger>
         <Menu>
@@ -226,7 +226,33 @@ export function CustomLabel() {
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="tertiary">
-            Create promotion <IconCaretDown />
+            Create promotion <IconCaretDownSmall />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button size="large" variant="primary">
+            Create promotion <IconCaretDownSmall />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="tertiary" size="large">
+            Create promotion <IconCaretDownSmall />
           </Button>
         </MenuTrigger>
         <Menu>
@@ -246,7 +272,7 @@ export function ItemVariants() {
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="primary">
-            Create promotion <IconCaretDown />
+            Create promotion <IconCaretDownSmall />
           </Button>
         </MenuTrigger>
         <Menu>
@@ -259,7 +285,7 @@ export function ItemVariants() {
       <MenuProvider>
         <MenuTrigger asChild>
           <Button variant="tertiary">
-            Create promotion <IconCaretDown />
+            Create promotion <IconCaretDownSmall />
           </Button>
         </MenuTrigger>
         <Menu>

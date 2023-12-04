@@ -12,16 +12,24 @@
       border-radius: var(--sl-border-radius-small);
     }
 
-    &:visited {
-      color: var(--sl-fg-accent-pressed);
-    }
-
     &:hover {
       color: var(--sl-fg-accent-hover);
     }
 
     &:focus {
       color: var(--sl-fg-accent-hover);
+    }
+
+    &:visited {
+      color: var(--sl-fg-accent-pressed);
+
+      &:hover {
+        color: var(--sl-fg-accent-pressed);
+      }
+
+      &:focus {
+        color: var(--sl-fg-accent-pressed);
+      }
     }
   }
 }
