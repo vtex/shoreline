@@ -5,7 +5,7 @@
     justify-content: flex-start;
     display: flex;
     cursor: pointer;
-    background: var(--sl-bg-muted-plain);
+    background: var(--sl-bg-plain);
     color: var(--sl-fg-muted);
     padding: var(--sl-space-2) var(--sl-space-3);
     border-radius: var(--sl-border-radius-medium);
@@ -14,17 +14,17 @@
     gap: var(--sl-space-2);
 
     &:hover {
-      background: var(--sl-bg-muted-plain-hover);
+      background: var(--sl-bg-plain-hover);
       color: var(--sl-fg-muted-hover);
     }
 
     &:active {
-      background: var(--sl-bg-muted-plain-pressed);
+      background: var(--sl-bg-plain-pressed);
       color: var(--sl-fg-muted-pressed);
     }
 
     &[data-active-item] {
-      background: var(--sl-bg-muted-plain-pressed);
+      background: var(--sl-bg-plain-pressed);
       color: var(--sl-fg-muted-pressed);
     }
   }
