@@ -181,8 +181,8 @@ export const presetAdmin: ShorelineConfig = {
       base: {
         '*': '$color-gray-12',
         soft: '$color-gray-9',
+        disabled: '$color-gray-7',
       },
-      disabled: '$color-gray-7',
       inverted: '$color-gray-0',
       warning: '$color-yellow-9',
       success: '$color-green-9',
@@ -275,12 +275,12 @@ export const presetAdmin: ShorelineConfig = {
     border: {
       base: {
         '*': '1px solid $color-gray-3',
+        disabled: '1px solid $color-gray-6',
         strong: {
           '*': '1px solid $color-gray-5',
           hover: '1px solid $color-gray-6',
         },
       },
-      disabled: '1px solid $color-gray-6',
       success: '1px solid $color-green-3',
       informational: '1px solid $color-blue-3',
       warning: '1px solid $color-yellow-3',
