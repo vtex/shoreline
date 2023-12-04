@@ -17,6 +17,16 @@ import { useMergeRef } from './use-merge-ref'
 import { useSafeLayoutEffect } from './use-safe-layout-effect'
 import { hasSomeTextSelected } from './has-some-text-selected'
 import { toVar } from './to-var'
+import {
+  pascalCase,
+  camelCase,
+  kebabCase,
+  snakeCase,
+  isUppercase,
+  lowerFirst,
+  splitByCase,
+  upperFirst,
+} from './string-case'
 
 export {
   chain,
@@ -41,6 +51,14 @@ export {
   useSafeLayoutEffect,
   hasSomeTextSelected,
   toVar,
+  pascalCase,
+  camelCase,
+  kebabCase,
+  snakeCase,
+  isUppercase,
+  lowerFirst,
+  splitByCase,
+  upperFirst,
 }
 
 export * from './css-types'

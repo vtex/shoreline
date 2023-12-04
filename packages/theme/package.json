@@ -21,25 +21,26 @@
     "dist"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "pnpm run build-ts && pnpm run build-css",
+    "build-ts": "tsup",
+    "build-css": "postcss --config postcss.config.mjs src/*.css --base src --dir dist"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "20.4.5"
+    "@types/node": "20.4.5",
+    "postcss-cli": "10.1.0"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
-    "autoprefixer": "10.4.14",
     "cssesc": "3.0.0",
     "fs-extra": "11.1.1",
-    "jiti": "1.19.1",
+    "c12": "1.5.1",
     "postcss": "8.4.27",
-    "postcss-nested": "6.0.1",
-    "prettier": "3.0.0",
-    "sucrase": "3.34.0"
+    "postcss-preset-env": "9.3.0",
+    "prettier": "3.0.0"
   }
 }
