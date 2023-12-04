@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.33.0...@vtex/shoreline-components@0.34.0) (2023-12-04)
+
+### Features
+
+- **menu:** add design requested changes ([c3be1ec](https://github.com/vtex/admin-ui/commit/c3be1ec8b444b1677045e860fd821cde3f8965ff))
+
 # [0.33.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.32.4...@vtex/shoreline-components@0.33.0) (2023-12-04)
 
 ### Features
