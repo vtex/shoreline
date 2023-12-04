@@ -1,8 +1,8 @@
 @layer sl-components {
   [data-sl-pagination] {
     color: var(--sl-fg-soft);
-    font: var(--sl-text-emphasis-font);
-    letter-spacing: var(--sl-text-emphasis-letter-spacing);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
   [data-sl-pagination-label][data-loading='true'] {

@@ -48,7 +48,7 @@ describe('pagination', () => {
       container.querySelector('[data-sl-pagination-label]')
     ).toBeInTheDocument()
 
-    expect(getByText('50 - 55 of 55')).toBeTruthy()
+    expect(getByText('50 — 55 of 55')).toBeTruthy()
   })
 
   test('pagination label should show 0 items when the total of items is 0', () => {
@@ -58,6 +58,16 @@ describe('pagination', () => {
       container.querySelector('[data-sl-pagination-label]')
     ).toBeInTheDocument()
 
-    expect(getByText('0 - 0 of 0')).toBeTruthy()
+    expect(getByText('0 of 0')).toBeTruthy()
+  })
+
+  test('pagination label should change when there is only one page', () => {
+    const { container, getByText } = render(<Pagination page={1} total={22} />)
+
+    expect(
+      container.querySelector('[data-sl-pagination-label]')
+    ).toBeInTheDocument()
+
+    expect(getByText('22 of 22')).toBeTruthy()
   })
 })

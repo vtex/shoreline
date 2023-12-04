@@ -11,8 +11,6 @@ import { messages } from './messages'
 
 const useMessage = createMessageHook(messages)
 
-const PAGE_SIZE = 25
-
 /**
  * Pagination triggers allow merchants to view the size of a list and navigate between pages.
  *
@@ -26,22 +24,31 @@ const PAGE_SIZE = 25
  */
 export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   function Pagination(props, ref) {
-    const { page, total, onPageChange, loading = false, ...otherProps } = props
+    const {
+      page,
+      total,
+      size = 25,
+      onPageChange,
+      loading = false,
+      ...otherProps
+    } = props
 
     const getMessage = useMessage()
 
     const { firstPosition, lastPosition } = useMemo(() => {
       const minFirstposition = Math.min(total, 1)
 
-      const firstPosition = Math.max(
-        page * PAGE_SIZE - PAGE_SIZE,
-        minFirstposition
-      )
+      const firstPosition = Math.max(page * size - size, minFirstposition)
 
-      const lastPosition = Math.min(page * PAGE_SIZE, total)
+      const lastPosition = Math.min(page * size, total)
 
       return { firstPosition, lastPosition }
     }, [page, total])
+
+    const isSinglePage = total <= size
+    const paginationLabel = isSinglePage
+      ? 'pagination-label-single-page'
+      : 'pagination-label'
 
     return (
       <div data-sl-pagination ref={ref} {...otherProps}>
@@ -50,7 +57,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             {loading ? (
               <Skeleton />
             ) : (
-              getMessage('pagination-label', {
+              getMessage(paginationLabel, {
                 firstPosition,
                 lastPosition,
                 items: total,
@@ -109,4 +116,9 @@ export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
    * @default false
    */
   loading?: boolean
+  /**
+   * Page size
+   * @default 25
+   */
+  size?: number
 }
