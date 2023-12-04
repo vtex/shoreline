@@ -1,20 +1,21 @@
-import { constants } from '@vtex/shoreline-utils'
-
-export const getPreflight = (prefix = constants.dsPrefix) => `
 @layer sl-reset, sl-base, sl-tokens, sl-components;
+
 @layer sl-reset {
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
+
   * {
     margin: 0;
   }
+
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
+
   img,
   picture,
   video,
@@ -23,12 +24,14 @@ export const getPreflight = (prefix = constants.dsPrefix) => `
     display: block;
     max-width: 100%;
   }
+
   input,
   button,
   textarea,
   select {
     font: inherit;
   }
+
   p,
   h1,
   h2,
@@ -38,35 +41,43 @@ export const getPreflight = (prefix = constants.dsPrefix) => `
   h6 {
     overflow-wrap: break-word;
   }
+
   #root,
   #__next {
     isolation: isolate;
   }
 }
+
 @layer sl-base {
   body {
-    background: var(--${prefix}-bg-primary);
-    color: var(--${prefix}-fg-primary);
-    font: var(--${prefix}-text-body);
+    background: var(--sl-bg-primary);
+    color: var(--sl-fg-primary);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   }
+
   p {
-    font: var(--${prefix}-text-body);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font: var(--${prefix}-text-title-1);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
   }
+
   pre,
   code {
-    font: var(--${prefix}-text-code);
+    font-family: monospace;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
 }
-`
