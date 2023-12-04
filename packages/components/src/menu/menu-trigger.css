@@ -1,0 +1,23 @@
+@layer sl-components {
+  [data-sl-menu-trigger] {
+    &[data-variant='critical'][data-active='true'] {
+      background: var(--sl-bg-critical-strong-pressed);
+    }
+
+    &[data-variant='criticalTertiary'][data-active='true'] {
+      background: var(--sl-bg-critical-plain-pressed);
+    }
+
+    &[data-variant='primary'][data-active='true'] {
+      background: var(--sl-bg-accent-strong-pressed);
+    }
+
+    &[data-variant='secondary'][data-active='true'] {
+      background: var(--sl-bg-muted-pressed);
+    }
+
+    &[data-variant='tertiary'][data-active='true'] {
+      background: var(--sl-bg-muted-plain-pressed);
+    }
+  }
+}

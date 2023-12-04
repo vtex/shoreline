@@ -19,7 +19,7 @@
     & > [data-sl-button-content] {
       font: inherit;
       letter-spacing: inherit;
-      gap: var(--sl-space-05);
+      gap: var(--sl-space-1);
       width: 100%;
       display: flex;
       flex-direction: row;
