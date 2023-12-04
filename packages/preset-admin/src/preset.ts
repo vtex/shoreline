@@ -178,8 +178,10 @@ export const presetAdmin: ShorelineConfig = {
       },
     },
     fg: {
-      base: '$color-gray-12',
-      soft: '$color-gray-9',
+      base: {
+        '*': '$color-gray-12',
+        soft: '$color-gray-9',
+      },
       disabled: '$color-gray-7',
       inverted: '$color-gray-0',
       warning: '$color-yellow-9',
