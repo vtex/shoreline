@@ -4,9 +4,10 @@
     --sl-component-max-height: calc(100vh - 2 * var(--sl-space-4));
 
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 50;
     margin: auto;
     height: fit-content;
@@ -21,9 +22,29 @@
 
     color: var(--sl-fg);
     box-shadow: var(--sl-shadow-1);
+
+    &[data-size='small'] {
+      --sl-modal-min-height: 11.25rem;
+      --sl-modal-max-height: 30rem;
+      width: 23rem;
+    }
+
+    &[data-size='medium'] {
+      --sl-modal-min-height: 14rem;
+      --sl-modal-max-height: 42.5rem;
+      width: 38.75rem;
+    }
+
+    &[data-size='large'] {
+      --sl-modal-min-height: 15.25rem;
+      --sl-modal-max-height: 42.5rem;
+      width: 50rem;
+    }
   }
 
   [data-sl-modal-backdrop] {
     background-color: var(--sl-bg-inverted-plain);
+    padding-top: var(--sl-space-20);
+    padding-bottom: var(--sl-space-20);
   }
 }

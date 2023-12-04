@@ -1,0 +1,11 @@
+@layer sl-components {
+  [data-sl-modal-footer] {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 0.5rem;
+
+    & > [data-sl-button] {
+      min-width: 5rem;
+    }
+  }
+}

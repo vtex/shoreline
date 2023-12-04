@@ -1,0 +1,7 @@
+@layer sl-components {
+  [data-sl-modal-content] {
+    min-height: var(--sl-modal-min-height);
+    max-height: var(--sl-modal-max-height);
+    overflow-y: scroll;
+  }
+}
