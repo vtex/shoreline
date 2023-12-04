@@ -13,7 +13,7 @@
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-preset-admin": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
-    "next": "13.4.7",
+    "next": "13.5.1",
     "nextra": "2.10.0",
     "nextra-theme-docs": "2.10.0",
     "react": "18.2.0",
