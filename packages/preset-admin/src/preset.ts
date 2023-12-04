@@ -178,7 +178,7 @@ export const presetAdmin: ShorelineConfig = {
       },
     },
     fg: {
-      '*': '$color-gray-12',
+      base: '$color-gray-12',
       soft: '$color-gray-9',
       disabled: '$color-gray-7',
       inverted: '$color-gray-0',
@@ -202,8 +202,19 @@ export const presetAdmin: ShorelineConfig = {
       },
     },
     bg: {
-      '*': '$color-gray-0',
-      disabled: 'color-mix(in srgb, $color-gray-12 5%, transparent)',
+      base: {
+        '*': '$color-gray-0',
+        disabled: 'color-mix(in srgb, $color-gray-12 5%, transparent)',
+        strong: {
+          '*': '$color-gray-3',
+          disabled: '$color-gray-6',
+        },
+        plain: {
+          '*': 'color-mix(in srgb, $color-gray-12 0%, transparent)',
+          hover: 'color-mix(in srgb, $color-gray-12 5%, transparent)',
+          pressed: 'color-mix(in srgb, $color-gray-12 10%, transparent)',
+        },
+      },
       warning: '$color-yellow-1',
       success: '$color-green-1',
       informational: '$color-blue-1',
@@ -260,15 +271,17 @@ export const presetAdmin: ShorelineConfig = {
       },
     },
     border: {
-      '*': '1px solid $color-gray-3',
+      base: {
+        '*': '1px solid $color-gray-3',
+        strong: {
+          '*': '1px solid $color-gray-5',
+          hover: '1px solid $color-gray-6',
+        },
+      },
       disabled: '1px solid $color-gray-6',
       success: '1px solid $color-green-3',
       informational: '1px solid $color-blue-3',
       warning: '1px solid $color-yellow-3',
-      strong: {
-        '*': '1px solid $color-gray-5',
-        hover: '1px solid $color-gray-6',
-      },
       accent: {
         '*': '1px solid $color-blue-3',
         strong: {
@@ -292,7 +305,7 @@ export const presetAdmin: ShorelineConfig = {
       full: '100%',
     },
     'focus-ring': {
-      '*': '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-gray-5',
+      base: '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-gray-5',
       critical:
         '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-red-6',
       accent:
