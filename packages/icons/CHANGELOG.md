@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.3 (2023-12-04)
+
+### Bug Fixes
+
+- add missing icons exports ([2e5919a](https://github.com/vtex/shoreline/commit/2e5919aa6e37a669c3462159252700a07d0a1ad6))
+
 ## [0.2.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-icons@0.2.1...@vtex/shoreline-icons@0.2.2) (2023-11-29)
 
 **Note:** Version bump only for package @vtex/shoreline-icons

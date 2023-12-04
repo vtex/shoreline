@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.32.4...@vtex/shoreline-components@0.33.0) (2023-12-04)
+
+### Features
+
+- add design requested changes ([960095d](https://github.com/vtex/admin-ui/commit/960095dc73aee1cd1451fe8e84d4c4527949d946))
+- implement Link design qa ([58a6940](https://github.com/vtex/admin-ui/commit/58a69405aadec39a4abcdd7675b0bcbf6e87b704))
+- implement Menu design qa ([2a91b9d](https://github.com/vtex/admin-ui/commit/2a91b9d913c8268549bec75ec0e9aae45a613955))
+- implement Menu design qa ([7bdd6c9](https://github.com/vtex/admin-ui/commit/7bdd6c943fe3d999952d853965dc641bc396d281))
+- implement TextInput design qa ([fc36a44](https://github.com/vtex/admin-ui/commit/fc36a44aaafabdfbd112c2983378cc4214206c85))
+- implement Toast design qa ([132765d](https://github.com/vtex/admin-ui/commit/132765d11b9f4f81ab7a28b158a97cd058730ded))
+- **menu:** add design qa requested changes ([c32884e](https://github.com/vtex/admin-ui/commit/c32884ee6690b916dc1908222d6dd51c0e176bb9))
+
 ## [0.32.4](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.32.3...@vtex/shoreline-components@0.32.4) (2023-12-04)
 
 **Note:** Version bump only for package @vtex/shoreline-components
