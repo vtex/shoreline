@@ -4,8 +4,14 @@
     "allowJs": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "declarationDir": "declarations",
+    "declarationDir": "declarations"
   },
   "include": ["./src"],
-  "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.stories.*", "scripts/*"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.*",
+    "**/*.stories.*",
+    "scripts/*"
+  ]
 }
