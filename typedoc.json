@@ -1,6 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["packages/components/src/index.ts"],
+  "entryPoints": ["packages/components/src/button/index.ts"],
   "exclude": [
     "packages/components/src/**/*+(index|.vitest|.e2e|.test|.stories).(ts|tsx)"
   ],

@@ -19,3 +19,6 @@ packages/create-raccoon-app/src/index.js
 
 # Resolve: Expected exception block, space or tab after '//' in comment
 examples/shoreline-nextjs-integration/next-env.d.ts
+
+# Resolve: Parsing error: Unexpected token
+scripts/generate-docs.js
