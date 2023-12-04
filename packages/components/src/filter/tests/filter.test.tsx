@@ -6,15 +6,18 @@ import { FilterOption } from '../filter-option'
 
 describe('filter', () => {
   it('renders', () => {
-    const { container } = render(
+    const { container, unmount } = render(
       <Filter label="label">
         <FilterOption value="option">Option</FilterOption>
-      </Filter>
+      </Filter>,
+      { container: document.body }
     )
 
     expect(container.querySelector('[data-sl-filter]')).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-filter-option]')
     ).toBeInTheDocument()
+
+    unmount()
   })
 })

@@ -5,10 +5,11 @@ import { ContextualHelp } from '../contextual-help'
 
 describe('contextual-help', () => {
   it('renders', () => {
-    const { container } = render(
+    const { container, unmount } = render(
       <ContextualHelp defaultOpen label="help">
         Help
-      </ContextualHelp>
+      </ContextualHelp>,
+      { container: document.body }
     )
 
     expect(
@@ -17,5 +18,7 @@ describe('contextual-help', () => {
     expect(
       container.querySelector('[data-sl-contextual-help-popover]')
     ).toBeInTheDocument()
+
+    unmount()
   })
 })

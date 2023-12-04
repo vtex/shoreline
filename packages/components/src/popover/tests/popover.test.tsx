@@ -7,16 +7,19 @@ import { PopoverTrigger } from '../popover-trigger'
 
 describe('popover', () => {
   it('renders', () => {
-    const { container } = render(
+    const { container, unmount } = render(
       <PopoverProvider>
         <PopoverTrigger>Trigger</PopoverTrigger>
         <Popover>Content</Popover>
-      </PopoverProvider>
+      </PopoverProvider>,
+      { container: document.body }
     )
 
     expect(container.querySelector('[data-sl-popover]')).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-popover-trigger]')
     ).toBeInTheDocument()
+
+    unmount()
   })
 })
