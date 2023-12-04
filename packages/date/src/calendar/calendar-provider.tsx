@@ -1,6 +1,7 @@
 import type { CalendarState } from '@react-stately/calendar'
 import React, { createContext, useContext } from 'react'
 import type { Store } from '@vtex/shoreline-store'
+import { invariant } from '@vtex/shoreline-utils'
 
 export const CalendarContext = createContext<Store<CalendarState> | null>(null)
 
@@ -15,9 +16,7 @@ export function CalendarProvider({ store, children }: any) {
 export function useCalendarContext() {
   const context = useContext(CalendarContext)
 
-  if (!context) {
-    throw new Error('Calendar components must be wrapped by CalendarProvider')
-  }
+  invariant(context, 'Calendar components must be wrapped by CalendarProvider')
 
   return context
 }

@@ -31,10 +31,9 @@ export function Calendar(props: CalendarProps) {
       <div data-sl-calendar {...calendarProps}>
         <div data-sl-calendar-header>
           <IconButton
-            label="Previous month"
+            label={prevButtonProps['aria-label']}
             variant="tertiary"
             disabled={prevButtonProps.isDisabled}
-            aria-label={prevButtonProps['aria-label']}
             onClick={prevButtonProps.onPress as any}
             onFocus={prevButtonProps.onFocusChange as any}
           >
@@ -42,10 +41,9 @@ export function Calendar(props: CalendarProps) {
           </IconButton>
           <h2 data-sl-calendar-title>{title}</h2>
           <IconButton
-            label="Next month"
+            label={nextButtonProps['aria-label']}
             variant="tertiary"
             disabled={nextButtonProps.isDisabled}
-            aria-label={nextButtonProps['aria-label']}
             onClick={nextButtonProps.onPress as any}
             onFocus={nextButtonProps.onFocusChange as any}
           >

@@ -27,6 +27,8 @@ import {
   splitByCase,
   upperFirst,
 } from './string-case'
+import { invariant } from './invariant'
+import { warning } from './warning'
 
 export {
   chain,
@@ -59,6 +61,8 @@ export {
   lowerFirst,
   splitByCase,
   upperFirst,
+  invariant,
+  warning,
 }
 
 export * from './css-types'
