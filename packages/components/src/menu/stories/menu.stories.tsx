@@ -236,6 +236,32 @@ export function CustomLabel() {
           <MenuItem>Progressive discount</MenuItem>
         </Menu>
       </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button size="large" variant="primary">
+            Create promotion <IconCaretDownSmall />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
+      <MenuProvider>
+        <MenuTrigger asChild>
+          <Button variant="tertiary" size="large">
+            Create promotion <IconCaretDownSmall />
+          </Button>
+        </MenuTrigger>
+        <Menu>
+          <MenuItem>Regular</MenuItem>
+          <MenuItem>Buy together</MenuItem>
+          <MenuItem>More for less</MenuItem>
+          <MenuItem>Progressive discount</MenuItem>
+        </Menu>
+      </MenuProvider>
     </Stack>
   )
 }
