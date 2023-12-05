@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.35.0...@vtex/shoreline-components@0.36.0) (2023-12-05)
+
+### Features
+
+- **tag:** update color and spacing for tag ([2eef21e](https://github.com/vtex/admin-ui/commit/2eef21e06823f73d6ceac1e030789d148e0d46bc))
+
 # [0.35.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.34.1...@vtex/shoreline-components@0.35.0) (2023-12-05)
 
 ### Features
