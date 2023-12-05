@@ -4,16 +4,18 @@ import { useDatePicker } from '@react-aria/datepicker'
 import { useDatePickerState } from '@react-stately/datepicker'
 import {
   Bleed,
+  Flex,
   IconButton,
   Popover,
   PopoverProvider,
   PopoverTrigger,
 } from '@vtex/shoreline-components'
+import type { DateValue } from '@react-aria/calendar'
+import { IconCalendarBlank } from '@vtex/shoreline-icons'
 
 import { Calendar } from '../calendar'
 import { DateField } from '../date-field'
-import { IconCalendarBlank } from '@vtex/shoreline-icons'
-import type { DateValue } from '@react-aria/calendar'
+import './date-picker.css'
 
 /**
  * Allow users to pick a date
@@ -23,10 +25,9 @@ import type { DateValue } from '@react-aria/calendar'
 export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const state = useDatePickerState(props)
   const ref = useRef(null)
+  const anchorRef = useRef<HTMLDivElement>(null)
   const { groupProps, labelProps, fieldProps, buttonProps, calendarProps } =
     useDatePicker(props, state, ref)
-
-  const anchorRef = useRef<HTMLDivElement>(null)
 
   return (
     <PopoverProvider
@@ -34,12 +35,9 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       setOpen={state.setOpen}
       placement="bottom-start"
     >
-      <div
-        ref={anchorRef}
-        style={{ display: 'inline-flex', flexDirection: 'column' }}
-      >
+      <div ref={anchorRef} data-sl-date-picker>
         <div {...labelProps}>{props.label}</div>
-        <div {...groupProps} ref={ref} style={{ display: 'flex' }}>
+        <Flex {...groupProps} ref={ref}>
           <DateField
             {...fieldProps}
             suffix={
@@ -51,10 +49,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
                     aria-describedby={buttonProps['aria-describedby']}
                     size="large"
                     variant="tertiary"
-                    style={{
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                    }}
+                    data-sl-date-picker-icon-button
                   >
                     <IconCalendarBlank />
                   </IconButton>
@@ -62,7 +57,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
               </Bleed>
             }
           />
-        </div>
+        </Flex>
       </div>
       <Popover
         getAnchorRect={() => {
