@@ -28,7 +28,7 @@
     "dev-storybook": "pnpm storybook dev -p 6006",
     "build:storybook": "pnpm build && pnpm storybook build",
     "chromatic": "chromatic --exit-zero-on-changes --build-script-name=build:storybook",
-    "generate-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --hideInPageTOC --plugin typedoc-plugin-mdn-links && node scripts/generate-docs.js",
+    "generate-docs": "node scripts/generate-docs.js",
     "next-docs": "npm --prefix packages/next-docs run dev",
     "build:next-docs": "npm --prefix packages/next-docs run build-docs",
     "commit": "cz",
