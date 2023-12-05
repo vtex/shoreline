@@ -9,7 +9,7 @@ export default {
 }
 
 export function Default() {
-  return <DatePicker />
+  return <DatePicker label="Date" />
 }
 
 // export function Controlled() {
