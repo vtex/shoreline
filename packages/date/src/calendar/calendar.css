@@ -1,0 +1,19 @@
+@layer sl-components {
+  [data-sl-calendar] {
+    width: fit-content;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: var(--sl-space-gap);
+  }
+
+  [data-sl-calendar-header] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  [data-sl-calendar-title] {
+    font: var(--sl-text-display-4-font);
+    letter-spacing: var(--sl-text-display-4-letter-spacing);
+  }
+}

@@ -1,4 +1,4 @@
-@layer sl-reset, sl-base, sl-tokens, sl-components;
+@layer sl-reset, sl-base, sl-tokens, sl-components, sl-extended-components;
 
 @layer sl-reset {
   *,

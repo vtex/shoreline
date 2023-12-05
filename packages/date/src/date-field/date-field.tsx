@@ -10,7 +10,7 @@ import type {
 } from '@internationalized/date'
 import { createCalendar } from '@internationalized/date'
 import { useMergeRef } from '@vtex/shoreline-utils'
-import { Field, FieldLabel } from '@vtex/shoreline-components'
+import { Field, FieldLabel, useLocale } from '@vtex/shoreline-components'
 
 import { DateSegment } from '../date-segment'
 import './date-field.css'
@@ -22,14 +22,9 @@ import './date-field.css'
  */
 export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
   function DateField(props, forwardedRef) {
-    const {
-      granularity = 'day',
-      hourCycle = 24,
-      locale = 'en-US',
-      onChange,
-      className,
-    } = props
+    const { granularity = 'day', hourCycle = 24, onChange, className } = props
 
+    const locale = useLocale()
     const state = useDateFieldState({
       ...props,
       onChange: onChange as Dispatch<SetStateAction<DateValue>>,
@@ -79,11 +74,6 @@ export interface DateFieldProps {
    * Field label
    */
   label?: string
-  /**
-   * Field locale
-   * @default 'en-US'
-   */
-  locale?: string
   /**
    * Wheter has error
    * @default false

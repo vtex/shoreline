@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Stack } from '@vtex/shoreline-components'
+import { LocaleProvider, Stack } from '@vtex/shoreline-components'
 
 import { DateField } from '../index'
 import { parseDate } from '../../utils'
@@ -19,16 +19,22 @@ export function Controlled() {
 }
 
 export function Locale() {
-  return <DateField label="Date" locale="ja-JP" />
+  return (
+    <LocaleProvider locale="ja-JO">
+      <DateField label="Date" />
+    </LocaleProvider>
+  )
 }
 
 export function Granularity() {
   return (
-    <Stack>
-      <DateField label="Day (default)" granularity="day" locale="pt-BR" />
-      <DateField label="Hour" granularity="hour" locale="pt-BR" />
-      <DateField label="Minute" granularity="minute" locale="pt-BR" />
-      <DateField label="Second" granularity="second" locale="pt-BR" />
-    </Stack>
+    <LocaleProvider locale="pt-BR">
+      <Stack>
+        <DateField label="Day (default)" granularity="day" />
+        <DateField label="Hour" granularity="hour" />
+        <DateField label="Minute" granularity="minute" />
+        <DateField label="Second" granularity="second" />
+      </Stack>
+    </LocaleProvider>
   )
 }

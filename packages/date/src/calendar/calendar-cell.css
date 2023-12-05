@@ -1,0 +1,26 @@
+@layer sl-extended-components {
+  [data-sl-calendar-cell-button] {
+    width: 100%;
+    height: 100%;
+
+    &[data-selected='true'] {
+      background: var(--sl-bg-accent-strong);
+      color: var(--sl-fg-inverted);
+
+      &:hover,
+      &:focus {
+        background: var(--sl-bg-accent-strong-hover);
+        color: var(--sl-fg-inverted);
+      }
+
+      &:active {
+        background: var(--sl-bg-accent-strong-pressed);
+        color: var(--sl-fg-inverted);
+      }
+
+      &:focus-visible {
+        box-shadow: var(--sl-focus-ring-accent);
+      }
+    }
+  }
+}

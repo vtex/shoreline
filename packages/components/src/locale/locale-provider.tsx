@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
+import { I18nProvider } from '@react-aria/i18n'
 import { LocaleContext } from './locale-context'
 
 /**
@@ -13,7 +14,10 @@ export function LocaleProvider(props: LocaleProviderProps) {
   const { locale = 'en-US', children } = props
 
   return (
-    <LocaleContext.Provider value={locale}>{children}</LocaleContext.Provider>
+    <LocaleContext.Provider value={locale}>
+      {/** Some react-aria components require this to translate */}
+      <I18nProvider locale={locale}>{children}</I18nProvider>
+    </LocaleContext.Provider>
   )
 }
 
