@@ -5,6 +5,9 @@ import {
   getLocalTimeZone,
   today,
   getWeeksInMonth,
+  isSameDay,
+  isSameMonth,
+  isSameYear,
 } from '@internationalized/date'
 
 export {
@@ -14,4 +17,7 @@ export {
   getLocalTimeZone,
   today,
   getWeeksInMonth,
+  isSameDay,
+  isSameMonth,
+  isSameYear,
 }

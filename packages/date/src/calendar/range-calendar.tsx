@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react'
-import type { AriaCalendarProps } from '@react-aria/calendar'
-import { useCalendar } from '@react-aria/calendar'
+import React, { useMemo, useRef } from 'react'
+import type { AriaRangeCalendarProps } from '@react-aria/calendar'
+import { useRangeCalendar } from '@react-aria/calendar'
+import { useRangeCalendarState } from '@react-stately/calendar'
 import { createCalendar, type CalendarDate } from '@internationalized/date'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { Store } from '@vtex/shoreline-store'
-import { useCalendarState } from '@react-stately/calendar'
 
 import { CalendarGrid } from './calendar-grid'
 import { CalendarProvider } from './calendar-provider'
@@ -17,9 +17,10 @@ import './calendar.css'
  * @example
  * <Calendar />
  */
-export function Calendar(props: CalendarProps) {
+export function RangeCalendar(props: RangeCalendarProps) {
   const locale = useLocale()
-  const state = useCalendarState({
+  const ref = useRef(null)
+  const state = useRangeCalendarState({
     ...props,
     createCalendar,
     locale,
@@ -28,11 +29,11 @@ export function Calendar(props: CalendarProps) {
   const store = useMemo(() => new Store(state), [state])
 
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(props, store.state)
+    useRangeCalendar(props, store.state, ref)
 
   return (
     <CalendarProvider store={store}>
-      <div data-sl-calendar {...calendarProps}>
+      <div ref={ref} data-sl-calendar {...calendarProps}>
         <div data-sl-calendar-header>
           <IconButton
             label={prevButtonProps['aria-label']}
@@ -60,7 +61,7 @@ export function Calendar(props: CalendarProps) {
   )
 }
 
-export type CalendarProps = Omit<
-  AriaCalendarProps<CalendarDate>,
+export type RangeCalendarProps = Omit<
+  AriaRangeCalendarProps<CalendarDate>,
   'createCalendar' | 'locale'
 >

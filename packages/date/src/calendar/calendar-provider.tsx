@@ -1,9 +1,11 @@
-import type { CalendarState } from '@react-stately/calendar'
+import type { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import React, { createContext, useContext } from 'react'
 import type { Store } from '@vtex/shoreline-store'
 import { invariant } from '@vtex/shoreline-utils'
 
-export const CalendarContext = createContext<Store<CalendarState> | null>(null)
+export const CalendarContext = createContext<Store<
+  CalendarState | RangeCalendarState
+> | null>(null)
 
 export function CalendarProvider({ store, children }: any) {
   return (
@@ -19,4 +21,12 @@ export function useCalendarContext() {
   invariant(context, 'Calendar components must be wrapped by CalendarProvider')
 
   return context
+}
+
+export function isRangeCalendar(state: any): state is RangeCalendarState {
+  if (state.highlightedRange) {
+    return true
+  }
+
+  return false
 }
