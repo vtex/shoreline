@@ -5,9 +5,8 @@
     box-shadow: var(--sl-shadow-2);
     border-radius: var(--sl-border-radius-medium);
     z-index: var(--sl-z-6);
-
-    & [data-sl-container] {
-      height: inherit;
-    }
+    /* ideally we should be using Content to handle the padding */
+    /* but Container/Content don't seem to work in this case as documented on https://github.com/vtex/shoreline/issues/1338 */
+    padding: var(--sl-space-6);
   }
 }

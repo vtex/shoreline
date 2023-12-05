@@ -1,8 +1,5 @@
 import React from 'react'
-
 import './styles.css'
-
-import { Content } from '../../content'
 import { Button } from '../../button'
 import {
   Popover,
@@ -43,9 +40,7 @@ export function Composition() {
         <Button>Open</Button>
       </PopoverTrigger>
       <Popover asChild>
-        <Content narrow>
-          <div className="content" />
-        </Content>
+        <div className="content" />
       </Popover>
     </PopoverProvider>
   )
