@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.34.0...@vtex/shoreline-components@0.34.1) (2023-12-05)
+
+### Bug Fixes
+
+- **popover:** content being rendered outside popover ([4392629](https://github.com/vtex/admin-ui/commit/4392629fa3bf288b4cd03fd6c5f47f669fdf98bd))
+
 # [0.34.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.33.0...@vtex/shoreline-components@0.34.0) (2023-12-04)
 
 ### Features
