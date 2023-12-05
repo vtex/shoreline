@@ -10,10 +10,6 @@ Pagination triggers allow merchants to view the size of a list and navigate betw
 | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `props` | [`PaginationProps`](/components/pagination/props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
-#### Returns
-
-`null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
-
 **`Example`**
 
 ```tsx copy showLineNumbers filename="example.tsx"
@@ -32,27 +28,34 @@ SandpackProvider,
 SandpackLayout,
 SandpackCodeEditor,
 SandpackPreview,
-} from '@codesandbox/sandpack-react'
+} from '@codesandbox/sandpack-react';
 
 <SandpackProvider
 template="react"
 theme="dark"
 customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
-files={{'/App.js': `import React from 'react'
+files={{
+'/App.js': `import React from 'react'
 import { Pagination } from '@vtex/shoreline-components'
 
-export default function App() {
-return (<>
-<Pagination
-page={page}
-onPageChange={(page, type) => {}}
-total={total}
-size={size}
-sizeOptions={[25, 50, 100]}
-onSizeChange={(size) => {}}
-/>
-</>
-)}`,
+export default function App () {
+return (
+<>
+
+      <Pagination
+        page={page}
+        onPageChange={(page, type) => {}}
+        total={total}
+        size={size}
+        sizeOptions={[25, 50, 100]}
+        onSizeChange={(size) => {}}
+      />
+
+    </>
+
+)
+}
+`,
 }}
 
 >
@@ -63,7 +66,3 @@ onSizeChange={(size) => {}}
     </SandpackLayout>
 
   </SandpackProvider>
-
-#### Defined in
-
-node_modules/.pnpm/@types+react@18.2.14/node_modules/@types/react/ts5.0/index.d.ts:355

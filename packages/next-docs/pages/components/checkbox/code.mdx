@@ -6,13 +6,9 @@ Checkbox controls allow users to make multiple independent choices in a form whe
 
 #### Parameters
 
-| Name    | Type                                                                                                                                                |
-| :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `props` | [`CheckboxProps`](/components/checkbox/props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
-
-#### Returns
-
-`null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+| Name    | Type                                                                                                                   |
+| :------ | :--------------------------------------------------------------------------------------------------------------------- |
+| `props` | `AriaCheckboxProps` & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
 
 **`Example`**
 
@@ -25,20 +21,27 @@ SandpackProvider,
 SandpackLayout,
 SandpackCodeEditor,
 SandpackPreview,
-} from '@codesandbox/sandpack-react'
+} from '@codesandbox/sandpack-react';
 
 <SandpackProvider
 template="react"
 theme="dark"
 customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
-files={{'/App.js': `import React from 'react'
+files={{
+'/App.js': `import React from 'react'
 import { Checkbox } from '@vtex/shoreline-components'
 
-export default function App() {
-return (<>
-<Checkbox>Label</Checkbox>
-</>
-)}`,
+export default function App () {
+return (
+<>
+
+      <Checkbox>Label</Checkbox>
+
+    </>
+
+)
+}
+`,
 }}
 
 >
@@ -49,7 +52,3 @@ return (<>
     </SandpackLayout>
 
   </SandpackProvider>
-
-#### Defined in
-
-node_modules/.pnpm/@types+react@18.2.14/node_modules/@types/react/ts5.0/index.d.ts:355

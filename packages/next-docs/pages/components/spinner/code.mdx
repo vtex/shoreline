@@ -1,5 +1,54 @@
-# Spinner
+### Spinner
 
-```jsx
-<Spinner />
+▸ **Spinner**(`props`): `null` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
+
+Loading indicator
+
+#### Parameters
+
+| Name    | Type                                                                                                                                              |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `props` | [`SpinnerProps`](/components/spinner/props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
+
+**`Example`**
+
+```tsx copy showLineNumbers filename="example.tsx"
+<Spinner description="loading" size={16} />
 ```
+
+import {
+SandpackProvider,
+SandpackLayout,
+SandpackCodeEditor,
+SandpackPreview,
+} from '@codesandbox/sandpack-react';
+
+<SandpackProvider
+template="react"
+theme="dark"
+customSetup={{ dependencies: { '@vtex/shoreline-components': '^0.x' } }}
+files={{
+'/App.js': `import React from 'react'
+import { Spinner } from '@vtex/shoreline-components'
+
+export default function App () {
+return (
+<>
+
+      <Spinner description='loading' size={16} />
+
+    </>
+
+)
+}
+`,
+}}
+
+>
+
+    <SandpackLayout>
+      <SandpackCodeEditor />
+      <SandpackPreview />
+    </SandpackLayout>
+
+  </SandpackProvider>
