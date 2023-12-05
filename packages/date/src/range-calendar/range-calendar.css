@@ -1,5 +1,5 @@
 @layer sl-components {
-  [data-sl-calendar] {
+  [data-sl-range-calendar] {
     width: fit-content;
     display: grid;
     grid-template-rows: repeat(3, auto);

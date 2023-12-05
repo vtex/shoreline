@@ -1,27 +1,28 @@
-import React, { useMemo } from 'react'
-import type { AriaCalendarProps } from '@react-aria/calendar'
-import { useCalendar } from '@react-aria/calendar'
+import React, { useMemo, useRef } from 'react'
+import type { AriaRangeCalendarProps } from '@react-aria/calendar'
+import { useRangeCalendar } from '@react-aria/calendar'
+import { useRangeCalendarState } from '@react-stately/calendar'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { Store } from '@vtex/shoreline-store'
-import { useCalendarState } from '@react-stately/calendar'
 
-import { CalendarGrid } from './calendar-grid'
-import { CalendarProvider } from './calendar-provider'
-import { CalendarHeader } from './calendar-header'
-import { CalendarTitle } from './calendar-title'
+import { CalendarGrid } from '../calendar/calendar-grid'
+import { CalendarProvider } from '../calendar/calendar-provider'
+import { CalendarHeader } from '../calendar/calendar-header'
+import { CalendarTitle } from '../calendar/calendar-title'
 import type { CalendarDate } from '../utils'
 import { createCalendar } from '../utils'
-import './calendar.css'
+import './range-calendar.css'
 
 /**
- * Allow users to select a date
+ * Allow users to select a date range
  * @example
- * <Calendar />
+ * <RangeCalendar />
  */
-export function Calendar(props: CalendarProps) {
+export function RangeCalendar(props: RangeCalendarProps) {
   const locale = useLocale()
-  const state = useCalendarState({
+  const ref = useRef(null)
+  const state = useRangeCalendarState({
     ...props,
     createCalendar,
     locale,
@@ -30,11 +31,11 @@ export function Calendar(props: CalendarProps) {
   const store = useMemo(() => new Store(state), [state])
 
   const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(props, store.state)
+    useRangeCalendar(props, store.state, ref)
 
   return (
     <CalendarProvider store={store}>
-      <div data-sl-calendar {...calendarProps}>
+      <div ref={ref} data-sl-range-calendar {...calendarProps}>
         <CalendarHeader>
           <IconButton
             label={prevButtonProps['aria-label']}
@@ -62,7 +63,7 @@ export function Calendar(props: CalendarProps) {
   )
 }
 
-export type CalendarProps = Omit<
-  AriaCalendarProps<CalendarDate>,
+export type RangeCalendarProps = Omit<
+  AriaRangeCalendarProps<CalendarDate>,
   'createCalendar' | 'locale'
 >
