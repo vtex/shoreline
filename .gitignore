@@ -81,3 +81,6 @@ out
 
 # File system stuff
 **/.DS_Store
+
+# Auto-generated documentation
+__tmpDocs
