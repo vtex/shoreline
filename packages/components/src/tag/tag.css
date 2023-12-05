@@ -26,9 +26,9 @@
 
     &[data-size='normal'] {
       --sl-element-space-top: var(--sl-space-1);
-      --sl-element-space-right: var(--sl-space-2);
+      --sl-element-space-right: var(--sl-space-3);
       --sl-element-space-bottom: var(--sl-space-1);
-      --sl-element-space-left: var(--sl-space-2);
+      --sl-element-space-left: var(--sl-space-3);
       --sl-element-font: var(--sl-text-caption-1-font);
       --sl-element-letter-spacing: var(--sl-text-caption-1-letter-spacing);
     }
@@ -44,52 +44,52 @@
 
     &[data-color='red'] {
       --sl-element-bg-primary: var(--sl-color-red-9);
-      --sl-element-bg-secondary: var(--sl-color-red-4);
+      --sl-element-bg-secondary: var(--sl-color-red-3);
     }
 
     &[data-color='yellow'] {
       --sl-element-bg-primary: var(--sl-color-yellow-9);
-      --sl-element-bg-secondary: var(--sl-color-yellow-4);
+      --sl-element-bg-secondary: var(--sl-color-yellow-3);
     }
 
     &[data-color='orange'] {
       --sl-element-bg-primary: var(--sl-color-orange-9);
-      --sl-element-bg-secondary: var(--sl-color-orange-4);
+      --sl-element-bg-secondary: var(--sl-color-orange-3);
     }
 
     &[data-color='pink'] {
       --sl-element-bg-primary: var(--sl-color-pink-9);
-      --sl-element-bg-secondary: var(--sl-color-pink-4);
+      --sl-element-bg-secondary: var(--sl-color-pink-3);
     }
 
     &[data-color='purple'] {
       --sl-element-bg-primary: var(--sl-color-purple-9);
-      --sl-element-bg-secondary: var(--sl-color-purple-4);
+      --sl-element-bg-secondary: var(--sl-color-purple-3);
     }
 
     &[data-color='blue'] {
       --sl-element-bg-primary: var(--sl-color-blue-9);
-      --sl-element-bg-secondary: var(--sl-color-blue-4);
+      --sl-element-bg-secondary: var(--sl-color-blue-3);
     }
 
     &[data-color='cyan'] {
       --sl-element-bg-primary: var(--sl-color-cyan-9);
-      --sl-element-bg-secondary: var(--sl-color-cyan-4);
+      --sl-element-bg-secondary: var(--sl-color-cyan-3);
     }
 
     &[data-color='teal'] {
       --sl-element-bg-primary: var(--sl-color-teal-9);
-      --sl-element-bg-secondary: var(--sl-color-teal-4);
+      --sl-element-bg-secondary: var(--sl-color-teal-3);
     }
 
     &[data-color='green'] {
       --sl-element-bg-primary: var(--sl-color-green-9);
-      --sl-element-bg-secondary: var(--sl-color-green-4);
+      --sl-element-bg-secondary: var(--sl-color-green-3);
     }
 
     &[data-color='gray'] {
       --sl-element-bg-primary: var(--sl-color-gray-9);
-      --sl-element-bg-secondary: var(--sl-color-gray-4);
+      --sl-element-bg-secondary: var(--sl-color-gray-3);
     }
   }
 }
