@@ -16,10 +16,6 @@
     border-radius: var(--sl-border-radius-medium);
     outline: none;
 
-    &::-webkit-resizer {
-      display: none;
-    }
-
     padding: var(--sl-space-3) var(--sl-space-4);
     color: var(--sl-fg);
     font: var(--sl-text-body-font);
@@ -63,39 +59,5 @@
     color: var(--sl-fg-soft);
     font: var(--sl-text-caption-2-font);
     letter-spacing: var(--sl-text-caption-2-letter-spacing);
-  }
-
-  [data-sl-textarea-resize-handle-container] {
-    width: 100%;
-    position: relative;
-
-    &[data-resizable='true'] {
-      &:after {
-        content:"";
-        border-top: var(--sl-border-strong);
-        width: 14px;
-        -webkit-transform: rotate(-45deg);
-        z-index: 1;
-        background:transparent;
-        position: absolute;
-        right: 1px;
-        bottom: 8px;
-        pointer-events: none;
-        border-radius:25%;
-      }
-
-      & > [data-sl-textarea-resize-handle] {
-        border-top: var(--sl-border-strong);
-        width: 8px;
-        -webkit-transform: rotate(-45deg);
-        position: absolute;
-        bottom: 4px;
-        right: 1px;
-        pointer-events: none;
-        z-index: 2;
-        border-radius:25%;
-      }
-    }
-
   }
 }

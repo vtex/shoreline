@@ -37,25 +37,18 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
           </FieldLabel>
         )}
 
-        <div
-          data-sl-textarea-resize-handle-container
+        <textarea
+          id={id}
+          data-sl-textarea-input
+          data-error={error}
+          data-disabled={disabled}
           data-resizable={resizable}
-        >
-          <textarea
-            id={id}
-            data-sl-textarea-input
-            data-error={error}
-            data-disabled={disabled}
-            data-resizable={resizable}
-            disabled={disabled}
-            maxLength={maxLength}
-            aria-invalid={error}
-            value={value}
-            {...htmlProps}
-          />
-
-          <div data-sl-textarea-resize-handle />
-        </div>
+          disabled={disabled}
+          maxLength={maxLength}
+          aria-invalid={error}
+          value={value}
+          {...htmlProps}
+        />
 
         <Grid templateColumns="1fr auto" data-sl-field-message>
           <Stack space="$space-0">
