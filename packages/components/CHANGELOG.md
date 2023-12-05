@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.34.1...@vtex/shoreline-components@0.35.0) (2023-12-05)
+
+### Features
+
+- **locale:** add react-aria i18n-provider ([4a336ad](https://github.com/vtex/admin-ui/commit/4a336adea8160c3045ec2dac0095e96b5078341e))
+
 ## [0.34.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.34.0...@vtex/shoreline-components@0.34.1) (2023-12-05)
 
 ### Bug Fixes

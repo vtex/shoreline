@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-date",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -46,13 +46,13 @@
     "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
-    "@vtex/shoreline-icons": "workspace",
-    "@vtex/shoreline-utils": "workspace",
-    "@vtex/shoreline-store": "workspace",
     "@internationalized/date": "3.5.0",
     "@react-aria/calendar": "3.5.3",
     "@react-aria/datepicker": "3.9.0",
+    "@react-stately/calendar": "3.4.2",
     "@react-stately/datepicker": "3.9.0",
-    "@react-stately/calendar": "3.4.2"
+    "@vtex/shoreline-icons": "workspace",
+    "@vtex/shoreline-store": "workspace",
+    "@vtex/shoreline-utils": "workspace"
   }
 }

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.3.1...@vtex/shoreline-theme@0.4.0) (2023-12-05)
+
+### Features
+
+- **store:** add package ([fb3d946](https://github.com/vtex/shoreline/commit/fb3d946f021c914cc30d939567276300d39efdc0))
+- **utils:** add tinyWarning and tinyInvariant ([d77478b](https://github.com/vtex/shoreline/commit/d77478b119ff65e3d63a0715db41c8a643900f55))
+
 ## 0.3.1 (2023-12-04)
 
 **Note:** Version bump only for package @vtex/shoreline-theme

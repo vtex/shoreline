@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.34.1",
+  "version": "0.35.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -56,8 +56,8 @@
     "@radix-ui/react-scroll-area": "1.0.5",
     "@react-aria/checkbox": "3.11.2",
     "@react-aria/focus": "3.14.3",
-    "@react-aria/interactions": "3.19.1",
     "@react-aria/i18n": "3.9.0",
+    "@react-aria/interactions": "3.19.1",
     "@react-stately/toggle": "3.6.3",
     "@tanstack/react-table": "8.10.7",
     "@tanstack/react-virtual": "3.0.0-beta.68",

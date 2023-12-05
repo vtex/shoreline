@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.5.1...@vtex/shoreline-utils@0.6.0) (2023-12-05)
+
+### Features
+
+- **utils:** add tinyWarning and tinyInvariant ([d77478b](https://github.com/vtex/shoreline/commit/d77478b119ff65e3d63a0715db41c8a643900f55))
+
 ## 0.5.1 (2023-12-04)
 
 **Note:** Version bump only for package @vtex/shoreline-utils

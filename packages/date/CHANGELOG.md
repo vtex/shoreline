@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.1.0...@vtex/shoreline-date@0.2.0) (2023-12-05)
+
+### Features
+
+- **calendar:** add component ([9f71f59](https://github.com/vtex/shoreline/commit/9f71f597b58b9a3e1ce9732962779a0c2fed8995))
+- **calendar:** add ts definitions ([d107439](https://github.com/vtex/shoreline/commit/d1074397540d159dcc968c464c66675d5acee4f2))
+- **locale:** add react-aria i18n-provider ([4a336ad](https://github.com/vtex/shoreline/commit/4a336adea8160c3045ec2dac0095e96b5078341e))
+- **store:** add package ([fb3d946](https://github.com/vtex/shoreline/commit/fb3d946f021c914cc30d939567276300d39efdc0))
+- **utils:** add tinyWarning and tinyInvariant ([d77478b](https://github.com/vtex/shoreline/commit/d77478b119ff65e3d63a0715db41c8a643900f55))
+
 # 0.1.0 (2023-12-01)
 
 ### Bug Fixes
