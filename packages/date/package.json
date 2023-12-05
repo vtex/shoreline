@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@internationalized/date": "3.5.0",
+    "@react-aria/button": "3.9.0",
     "@react-aria/calendar": "3.5.3",
     "@react-aria/datepicker": "3.9.0",
     "@react-stately/calendar": "3.4.2",
