@@ -2,20 +2,22 @@ import React, { useMemo, useRef } from 'react'
 import type { AriaRangeCalendarProps } from '@react-aria/calendar'
 import { useRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'
-import { createCalendar, type CalendarDate } from '@internationalized/date'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { Store } from '@vtex/shoreline-store'
 
-import { CalendarGrid } from './calendar-grid'
-import { CalendarProvider } from './calendar-provider'
-
-import './calendar.css'
+import { CalendarGrid } from '../calendar/calendar-grid'
+import { CalendarProvider } from '../calendar/calendar-provider'
+import { CalendarHeader } from '../calendar/calendar-header'
+import { CalendarTitle } from '../calendar/calendar-title'
+import type { CalendarDate } from '../utils'
+import { createCalendar } from '../utils'
+import './range-calendar.css'
 
 /**
- * Allow users to select a date
+ * Allow users to select a date range
  * @example
- * <Calendar />
+ * <RangeCalendar />
  */
 export function RangeCalendar(props: RangeCalendarProps) {
   const locale = useLocale()
@@ -33,8 +35,8 @@ export function RangeCalendar(props: RangeCalendarProps) {
 
   return (
     <CalendarProvider store={store}>
-      <div ref={ref} data-sl-calendar {...calendarProps}>
-        <div data-sl-calendar-header>
+      <div ref={ref} data-sl-range-calendar {...calendarProps}>
+        <CalendarHeader>
           <IconButton
             label={prevButtonProps['aria-label']}
             variant="tertiary"
@@ -44,7 +46,7 @@ export function RangeCalendar(props: RangeCalendarProps) {
           >
             <IconCaretLeft />
           </IconButton>
-          <h2 data-sl-calendar-title>{title}</h2>
+          <CalendarTitle>{title}</CalendarTitle>
           <IconButton
             label={nextButtonProps['aria-label']}
             variant="tertiary"
@@ -54,7 +56,7 @@ export function RangeCalendar(props: RangeCalendarProps) {
           >
             <IconCaretRight />
           </IconButton>
-        </div>
+        </CalendarHeader>
         <CalendarGrid />
       </div>
     </CalendarProvider>

@@ -23,7 +23,6 @@ export function Controlled() {
     <>
       <p>Start Date: {value.start.toString()}</p>
       <p>End Date: {value.end.toString()}</p>
-
       <RangeCalendar value={value} onChange={setValue} />
     </>
   )

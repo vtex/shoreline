@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
 import { useCalendarCell } from '@react-aria/calendar'
 import { IconButton } from '@vtex/shoreline-components'
-import type { CalendarDate } from '@internationalized/date'
 
 import './calendar-cell.css'
 import { isRangeCalendar, useCalendarContext } from './calendar-provider'
+import type { CalendarDate } from '../utils'
 import { isSameDay } from '../utils'
 
 /**

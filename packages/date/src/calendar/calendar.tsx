@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import type { AriaCalendarProps } from '@react-aria/calendar'
 import { useCalendar } from '@react-aria/calendar'
-import { createCalendar, type CalendarDate } from '@internationalized/date'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { Store } from '@vtex/shoreline-store'
@@ -9,7 +8,10 @@ import { useCalendarState } from '@react-stately/calendar'
 
 import { CalendarGrid } from './calendar-grid'
 import { CalendarProvider } from './calendar-provider'
-
+import { CalendarHeader } from './calendar-header'
+import { CalendarTitle } from './calendar-title'
+import type { CalendarDate } from '../utils'
+import { createCalendar } from '../utils'
 import './calendar.css'
 
 /**
@@ -33,7 +35,7 @@ export function Calendar(props: CalendarProps) {
   return (
     <CalendarProvider store={store}>
       <div data-sl-calendar {...calendarProps}>
-        <div data-sl-calendar-header>
+        <CalendarHeader>
           <IconButton
             label={prevButtonProps['aria-label']}
             variant="tertiary"
@@ -43,7 +45,7 @@ export function Calendar(props: CalendarProps) {
           >
             <IconCaretLeft />
           </IconButton>
-          <h2 data-sl-calendar-title>{title}</h2>
+          <CalendarTitle>{title}</CalendarTitle>
           <IconButton
             label={nextButtonProps['aria-label']}
             variant="tertiary"
@@ -53,7 +55,7 @@ export function Calendar(props: CalendarProps) {
           >
             <IconCaretRight />
           </IconButton>
-        </div>
+        </CalendarHeader>
         <CalendarGrid />
       </div>
     </CalendarProvider>

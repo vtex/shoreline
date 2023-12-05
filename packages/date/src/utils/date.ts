@@ -1,3 +1,4 @@
+import type { CalendarDate } from '@internationalized/date'
 import {
   parseDate,
   parseZonedDateTime,
@@ -8,8 +9,10 @@ import {
   isSameDay,
   isSameMonth,
   isSameYear,
+  createCalendar,
 } from '@internationalized/date'
 
+export type { CalendarDate }
 export {
   parseDate,
   parseZonedDateTime,
@@ -20,4 +23,5 @@ export {
   isSameDay,
   isSameMonth,
   isSameYear,
+  createCalendar,
 }
