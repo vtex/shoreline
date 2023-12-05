@@ -1,5 +1,5 @@
 import React from 'react'
-// import { LocaleProvider } from '@vtex/shoreline-components'
+import { LocaleProvider } from '@vtex/shoreline-components'
 
 import { DatePicker } from '../index'
 // import { getLocalTimeZone, today } from '../../utils'
@@ -40,10 +40,10 @@ export function Default() {
 //   )
 // }
 
-// export function Locale() {
-//   return (
-//     <LocaleProvider locale="ja-JP">
-//       <Calendar />
-//     </LocaleProvider>
-//   )
-// }
+export function Locale() {
+  return (
+    <LocaleProvider locale="ja-JP">
+      <DatePicker label="日付" />
+    </LocaleProvider>
+  )
+}

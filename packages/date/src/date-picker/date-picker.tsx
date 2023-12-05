@@ -18,13 +18,18 @@ export function DatePicker(props: any) {
   const { groupProps, labelProps, fieldProps, buttonProps, calendarProps } =
     useDatePicker(props, state, ref)
 
+  const anchorRef = useRef<HTMLDivElement>(null)
+
   return (
     <PopoverProvider
       open={state.isOpen}
       setOpen={state.setOpen}
       placement="bottom-start"
     >
-      <div style={{ display: 'inline-flex', flexDirection: 'column' }}>
+      <div
+        ref={anchorRef}
+        style={{ display: 'inline-flex', flexDirection: 'column' }}
+      >
         <div {...labelProps}>{props.label}</div>
         <div {...groupProps} ref={ref} style={{ display: 'flex' }}>
           <DateField {...(fieldProps as any)} />
@@ -33,15 +38,25 @@ export function DatePicker(props: any) {
               id={buttonProps.id}
               label={buttonProps['aria-label']}
               aria-describedby={buttonProps['aria-describedby']}
+              size="large"
+              variant="tertiary"
             >
               <IconCalendarBlank />
             </IconButton>
           </PopoverTrigger>
         </div>
-        <Popover>
-          <Calendar {...(calendarProps as any)} />
-        </Popover>
       </div>
+      <Popover
+        getAnchorRect={() => {
+          if (anchorRef && anchorRef.current) {
+            return anchorRef.current.getBoundingClientRect()
+          }
+
+          return null
+        }}
+      >
+        <Calendar {...(calendarProps as any)} />
+      </Popover>
     </PopoverProvider>
   )
 }

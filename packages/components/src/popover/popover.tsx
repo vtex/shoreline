@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import type { PopoverProps as BaseProps } from '@ariakit/react'
 import { Popover as BasePopover } from '@ariakit/react'
 import './popover.css'
 
@@ -31,7 +32,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   }
 )
 
-export interface PopoverProps extends ComponentPropsWithoutRef<'div'> {
+export interface PopoverProps
+  extends ComponentPropsWithoutRef<'div'>,
+    Pick<BaseProps, 'getAnchorRect'> {
   /**
    * Children composition
    * @default false
