@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import type { AriaCalendarProps } from '@react-aria/calendar'
+import type { AriaCalendarProps, DateValue } from '@react-aria/calendar'
 import { useCalendar } from '@react-aria/calendar'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
@@ -10,7 +10,6 @@ import { CalendarGrid } from './calendar-grid'
 import { CalendarProvider } from './calendar-provider'
 import { CalendarHeader } from './calendar-header'
 import { CalendarTitle } from './calendar-title'
-import type { CalendarDate } from '../utils'
 import { createCalendar } from '../utils'
 import './calendar.css'
 
@@ -19,7 +18,7 @@ import './calendar.css'
  * @example
  * <Calendar />
  */
-export function Calendar(props: CalendarProps) {
+export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   const locale = useLocale()
   const state = useCalendarState({
     ...props,
@@ -62,7 +61,7 @@ export function Calendar(props: CalendarProps) {
   )
 }
 
-export type CalendarProps = Omit<
-  AriaCalendarProps<CalendarDate>,
+export type CalendarProps<T extends DateValue> = Omit<
+  AriaCalendarProps<T>,
   'createCalendar' | 'locale'
 >

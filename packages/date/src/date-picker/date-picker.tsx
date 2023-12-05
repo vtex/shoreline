@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import type { AriaDatePickerProps } from '@react-aria/datepicker'
 import { useDatePicker } from '@react-aria/datepicker'
 import { useDatePickerState } from '@react-stately/datepicker'
 import {
@@ -12,8 +13,14 @@ import {
 import { Calendar } from '../calendar'
 import { DateField } from '../date-field'
 import { IconCalendarBlank } from '@vtex/shoreline-icons'
+import type { DateValue } from '@react-aria/calendar'
 
-export function DatePicker(props: any) {
+/**
+ * Allow users to pick a date
+ * @example
+ * <DatePicker />
+ */
+export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const state = useDatePickerState(props)
   const ref = useRef(null)
   const { groupProps, labelProps, fieldProps, buttonProps, calendarProps } =
@@ -34,7 +41,7 @@ export function DatePicker(props: any) {
         <div {...labelProps}>{props.label}</div>
         <div {...groupProps} ref={ref} style={{ display: 'flex' }}>
           <DateField
-            {...(fieldProps as any)}
+            {...fieldProps}
             suffix={
               <Bleed vertical="$space-3" horizontal="$space-4">
                 <PopoverTrigger asChild>
@@ -66,8 +73,10 @@ export function DatePicker(props: any) {
           return null
         }}
       >
-        <Calendar {...(calendarProps as any)} />
+        <Calendar {...calendarProps} />
       </Popover>
     </PopoverProvider>
   )
 }
+
+export type DatePickerProps<T extends DateValue> = AriaDatePickerProps<T>

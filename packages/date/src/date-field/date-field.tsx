@@ -111,7 +111,7 @@ export interface DateFieldProps {
   /**
    * Field label
    */
-  label?: string
+  label?: ReactNode
   /**
    * Wheter has error
    * @default false
@@ -120,7 +120,7 @@ export interface DateFieldProps {
   /**
    * Field value
    */
-  value?: DateValue
+  value?: DateValue | null
   /**
    * Minimal date allowed
    */
@@ -133,13 +133,15 @@ export interface DateFieldProps {
    * Callback after value changes
    */
   onChange?:
-    | Dispatch<SetStateAction<CalendarDate>>
-    | Dispatch<SetStateAction<ZonedDateTime>>
-    | Dispatch<SetStateAction<CalendarDateTime>>
+    | ((value: DateValue) => void)
+    | ((value: CalendarDate) => void)
+    | ((value: CalendarDateTime) => void)
+    | ((value: ZonedDateTime) => void)
+
   /**
    * Default field value
    */
-  defaultValue?: DateValue
+  defaultValue?: DateValue | null
   /**
    * Node added before input space
    */
