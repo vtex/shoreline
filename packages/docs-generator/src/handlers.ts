@@ -2,6 +2,7 @@ import { paths, regexes, tokens } from './config'
 import { createOrUpdateFile, prettify } from './io'
 import {
   pascalCaseToKebabCase,
+  removeBetweenStrings,
   removeSubstring,
   toRelativeLinks,
 } from './strings'
@@ -49,13 +50,23 @@ export async function handleComponents(
 
     const interfaceFilePath = `${folderPath}/props.mdx`
 
-    const parsedInterfaceFile = removeSubstring(
+    // Cleans an interface file from unnecessary content
+    let parsedInterfaceFile = removeSubstring(
       toRelativeLinks(interfaceFile)
-        // Replace the interface name with the component name on the title
-        .replace(tokens.interfaceHeader, tokens.empty)
         // Use the component kebab-case name when referencing some id on the page
         .replaceAll(`${correspondingInterface}#`, `props.md#`),
-      [regexes.definedInInternal, regexes.definedInExternal]
+      [
+        tokens.interfaceHeader,
+        regexes.definedInInternal,
+        regexes.definedInExternal,
+      ]
+    )
+
+    // Removes the hierarchy section from the interface file
+    parsedInterfaceFile = removeBetweenStrings(
+      parsedInterfaceFile,
+      tokens.hierarchyHeader,
+      tokens.propertiesHeader
     )
 
     await createOrUpdateFile(interfaceFilePath, parsedInterfaceFile)

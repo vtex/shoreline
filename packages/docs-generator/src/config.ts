@@ -17,6 +17,8 @@ export const tokens = {
   interfaceHeader: 'Interface: ',
   typeAliasHeader: '## Type Aliases',
   functionsHeader: '## Functions',
+  hierarchyHeader: '## Hierarchy',
+  propertiesHeader: '## Properties',
   props: 'Props',
   md: '.md',
   propsMd: 'Props.md',

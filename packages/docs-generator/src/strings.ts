@@ -75,6 +75,25 @@ export function toRelativeLinks(file: string) {
 }
 
 /**
+ * Removes everything between two strings while preserving the last string.
+ * This function is useful for removing sections of file that are not necessary.
+ */
+export function removeBetweenStrings(
+  fileContents: string,
+  startString: string,
+  endString: string
+) {
+  const startIndex = fileContents.indexOf(startString)
+  const endIndex = fileContents.indexOf(endString)
+
+  if (startIndex === -1 || endIndex === -1) {
+    return fileContents
+  }
+
+  return fileContents.slice(0, startIndex) + fileContents.slice(endIndex)
+}
+
+/**
  * Cleans the generated typedoc file from unnecessary content
  */
 export function cleanFile(fileContent: string): string[] {
