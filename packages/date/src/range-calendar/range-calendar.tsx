@@ -10,7 +10,7 @@ import { CalendarGrid } from '../calendar/calendar-grid'
 import { CalendarProvider } from '../calendar/calendar-provider'
 import { CalendarHeader } from '../calendar/calendar-header'
 import { CalendarTitle } from '../calendar/calendar-title'
-import type { CalendarDate } from '../utils'
+import type { DateValue } from '../utils'
 import { createCalendar } from '../utils'
 import './range-calendar.css'
 
@@ -19,7 +19,9 @@ import './range-calendar.css'
  * @example
  * <RangeCalendar />
  */
-export function RangeCalendar(props: RangeCalendarProps) {
+export function RangeCalendar<T extends DateValue>(
+  props: RangeCalendarProps<T>
+) {
   const locale = useLocale()
   const ref = useRef(null)
   const state = useRangeCalendarState({
@@ -63,7 +65,7 @@ export function RangeCalendar(props: RangeCalendarProps) {
   )
 }
 
-export type RangeCalendarProps = Omit<
-  AriaRangeCalendarProps<CalendarDate>,
+export type RangeCalendarProps<T extends DateValue> = Omit<
+  AriaRangeCalendarProps<T>,
   'createCalendar' | 'locale'
 >
