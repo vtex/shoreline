@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.4.0...@vtex/shoreline-date@0.5.0) (2023-12-06)
+
+### Features
+
+- **date-range-picker:** add component ([4bda075](https://github.com/vtex/shoreline/commit/4bda0753232a44e7169b34bcd4071473ff5c875f))
+
 # [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.3.0...@vtex/shoreline-date@0.4.0) (2023-12-06)
 
 ### Features
