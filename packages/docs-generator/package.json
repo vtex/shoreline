@@ -1,0 +1,28 @@
+{
+  "name": "@vtex/docs-generator",
+  "description": "Generate a custom Markdown documentation from your Typescript code leveraging typedoc",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "repository": "vtex/shoreline",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "pnpm run prebuild && tsup",
+    "start": "pnpm run build && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.3",
+    "@types/prettier": "^2.7.3",
+    "typedoc": "0.25.3",
+    "typedoc-plugin-markdown": "3.17.1",
+    "typedoc-plugin-mdn-links": "3.1.4"
+  }
+}

@@ -1,0 +1,1 @@
+# @vtex/docs-generator
