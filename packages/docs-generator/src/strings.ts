@@ -94,6 +94,19 @@ export function removeBetweenStrings(
 }
 
 /**
+ * Removes a line from a string if it contains the specified substring
+ */
+export function removeLineContainingString(
+  fileContent: string,
+  searchString: string
+) {
+  const lines = fileContent.split('\n')
+  const filteredLines = lines.filter((line) => !line.includes(searchString))
+
+  return filteredLines.join('\n')
+}
+
+/**
  * Cleans the generated typedoc file from unnecessary content
  */
 export function cleanFile(fileContent: string): string[] {

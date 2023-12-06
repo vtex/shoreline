@@ -3,6 +3,7 @@ import { createOrUpdateFile, prettify } from './io'
 import {
   pascalCaseToKebabCase,
   removeBetweenStrings,
+  removeLineContainingString,
   removeSubstring,
   toRelativeLinks,
 } from './strings'
@@ -26,7 +27,10 @@ export async function handleComponents(
 
   const filePath = `${folderPath}/code.mdx`
 
-  const parsedFileContents = fileContents
+  const parsedFileContents = removeLineContainingString(
+    fileContents,
+    `**${methodName}**` + '(`props`)'
+  )
     // Replace type annotations with the jsx syntax
     .replaceAll('```ts', tokens.tsxCodeBlockHeader)
     // Replace the link reference to the interface file with the props file
