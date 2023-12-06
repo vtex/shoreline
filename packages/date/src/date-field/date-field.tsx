@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
 import React, { forwardRef } from 'react'
 import { useDateField } from '@react-aria/datepicker'
 import { useDateFieldState } from '@react-stately/datepicker'
@@ -10,7 +10,12 @@ import type {
 } from '@internationalized/date'
 import { createCalendar } from '@internationalized/date'
 import { useMergeRef } from '@vtex/shoreline-utils'
-import { Field, FieldLabel, useLocale } from '@vtex/shoreline-components'
+import {
+  Field,
+  FieldLabel,
+  FieldMessage,
+  useLocale,
+} from '@vtex/shoreline-components'
 
 import { DateSegment } from '../date-segment'
 import './date-field.css'
@@ -22,7 +27,18 @@ import './date-field.css'
  */
 export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
   function DateField(props, forwardedRef) {
-    const { granularity = 'day', hourCycle = 24, onChange, className } = props
+    const {
+      granularity = 'day',
+      hourCycle = 24,
+      onChange,
+      className,
+      prefix,
+      suffix,
+      helpText,
+      error,
+      errorText,
+      optional,
+    } = props
 
     const locale = useLocale()
     const state = useDateFieldState({
@@ -39,17 +55,39 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
 
     return (
       <Field data-sl-date-field className={className}>
-        <FieldLabel {...labelProps}>{props.label}</FieldLabel>
+        <FieldLabel optional={optional} {...labelProps}>
+          {props.label}
+        </FieldLabel>
         <div
-          {...fieldProps}
-          ref={useMergeRef(ref, forwardedRef)}
-          data-sl-date-field-input
+          data-sl-date-input-container
+          data-disabled={fieldProps['aria-disabled']}
+          data-error={state.isInvalid}
         >
-          {state.segments.map((segment, i) => (
-            <DateSegment key={i} segment={segment} state={state} />
-          ))}
-          {state.isInvalid && <span aria-hidden="true">🚫</span>}
+          {prefix && (
+            <div data-sl-date-input-term data-type="prefix">
+              {prefix}
+            </div>
+          )}
+          <div
+            {...fieldProps}
+            ref={useMergeRef(ref, forwardedRef)}
+            data-sl-date-input
+          >
+            {state.segments.map((segment, i) => (
+              <DateSegment key={i} segment={segment} state={state} />
+            ))}
+          </div>
+          {suffix && (
+            <div data-sl-date-input-term data-type="suffix">
+              {suffix}
+            </div>
+          )}
         </div>
+        <FieldMessage
+          helpText={helpText}
+          errorText={errorText}
+          error={error || state.isInvalid}
+        />
       </Field>
     )
   }
@@ -73,7 +111,7 @@ export interface DateFieldProps {
   /**
    * Field label
    */
-  label?: string
+  label?: ReactNode
   /**
    * Wheter has error
    * @default false
@@ -82,7 +120,7 @@ export interface DateFieldProps {
   /**
    * Field value
    */
-  value?: DateValue
+  value?: DateValue | null
   /**
    * Minimal date allowed
    */
@@ -95,11 +133,33 @@ export interface DateFieldProps {
    * Callback after value changes
    */
   onChange?:
-    | Dispatch<SetStateAction<CalendarDate>>
-    | Dispatch<SetStateAction<ZonedDateTime>>
-    | Dispatch<SetStateAction<CalendarDateTime>>
+    | ((value: DateValue) => void)
+    | ((value: CalendarDate) => void)
+    | ((value: CalendarDateTime) => void)
+    | ((value: ZonedDateTime) => void)
+
   /**
    * Default field value
    */
-  defaultValue?: DateValue
+  defaultValue?: DateValue | null
+  /**
+   * Node added before input space
+   */
+  prefix?: ReactNode
+  /**
+   * Node added before input space
+   */
+  suffix?: ReactNode
+  /**
+   * Error message
+   */
+  errorText?: string
+  /**
+   * Help message
+   */
+  helpText?: string
+  /**
+   * Wether the field is optional
+   */
+  optional?: boolean
 }
