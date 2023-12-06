@@ -1,4 +1,4 @@
-import type { CalendarDate } from '@internationalized/date'
+import type { CalendarDate, DateValue } from '@internationalized/date'
 import {
   parseDate,
   parseZonedDateTime,
@@ -12,7 +12,7 @@ import {
   createCalendar,
 } from '@internationalized/date'
 
-export type { CalendarDate }
+export type { CalendarDate, DateValue }
 export {
   parseDate,
   parseZonedDateTime,
