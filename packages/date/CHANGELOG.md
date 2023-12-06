@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.3.0...@vtex/shoreline-date@0.4.0) (2023-12-06)
+
+### Features
+
+- **date-field:** add suffix & prefix ([cfba0ca](https://github.com/vtex/shoreline/commit/cfba0ca2242a32ca44c38265dac172e57201a1b6))
+- **datepicker:** create component ([41ca70b](https://github.com/vtex/shoreline/commit/41ca70b2396dba2442c7f5eefcecf1804c6312c0))
+- **popover:** add getAnchorRect prop ([44736ce](https://github.com/vtex/shoreline/commit/44736ce7a9b2375da3d19f6f7f0069687e70586a))
+
 # [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.2.0...@vtex/shoreline-date@0.3.0) (2023-12-05)
 
 ### Features

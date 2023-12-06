@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.36.0...@vtex/shoreline-components@0.37.0) (2023-12-06)
+
+### Bug Fixes
+
+- **components:** package.json after merge ([72c0ffc](https://github.com/vtex/admin-ui/commit/72c0ffc74c66f7169820080fdc6625cd37f02139))
+
+### Features
+
+- **locale:** add react-aria i18n-provider ([4dcd5fe](https://github.com/vtex/admin-ui/commit/4dcd5fe9947adb69bae9cfcc91e135ff8be2db46))
+- **popover:** add getAnchorRect prop ([44736ce](https://github.com/vtex/admin-ui/commit/44736ce7a9b2375da3d19f6f7f0069687e70586a))
+
 # [0.36.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.35.0...@vtex/shoreline-components@0.36.0) (2023-12-05)
 
 ### Features
