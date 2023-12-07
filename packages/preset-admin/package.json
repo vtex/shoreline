@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-preset-admin",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Shoreline preset admin package",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
