@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { MenuButton, useMenuContext } from '@ariakit/react'
-import invariant from 'tiny-invariant'
+import { invariant } from '@vtex/shoreline-utils'
 
 import './menu-trigger.css'
 
