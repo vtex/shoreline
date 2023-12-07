@@ -8,11 +8,11 @@ Once the markdown files are generated, they are passed down to the docs-generato
 
 ## Usage
 
-Configure the docs-generator.
+Clone the repository, and run `pnpm install` from the root of the repository.
 
-WIP
+Configure the `@vtex/docs-generator` by visiting [the last line of the entry point of this tool](./src/index.ts) and changing the `config` object to your liking.
 
-From the root of this repository (vtex/shoreline), run:
+Once you're done, run `pnpm run generate-docs` from the root of the repository:
 
 ```sh
 pnpm run generate-docs

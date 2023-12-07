@@ -1,4 +1,4 @@
-import { paths, regexes, tokens } from './config'
+import { paths, regexes, tokens, typedocTokens } from './config'
 import { createOrUpdateFile, prettify } from './io'
 import {
   pascalCaseToKebabCase,
@@ -32,9 +32,11 @@ export async function handleComponents(
     `**${methodName}**` + '(`props`)'
   )
     // Replace type annotations with the jsx syntax
-    .replaceAll('```ts', tokens.tsxCodeBlockHeader)
+    .replaceAll(typedocTokens.tsCodeBlockHeader, tokens.tsxCodeBlockHeader)
     // Replace the link reference to the interface file with the props file
     .replaceAll(`(interfaces/${methodName}Props.md)`, '(props.md)')
+    // Make the component page header an h1 instead of h3
+    .replace(`### ${methodName}`, `# ${methodName}`)
 
   await createOrUpdateFile(filePath, parsedFileContents)
 
@@ -43,7 +45,8 @@ export async function handleComponents(
   components.push(methodName)
 
   const correspondingInterface = interfacesFiles.find(
-    (i) => removeSubstring(i, [tokens.md, tokens.props]) === methodName
+    (i) =>
+      removeSubstring(i, [typedocTokens.md, typedocTokens.props]) === methodName
   )
 
   if (correspondingInterface) {
@@ -60,7 +63,7 @@ export async function handleComponents(
         // Use the component kebab-case name when referencing some id on the page
         .replaceAll(`${correspondingInterface}#`, `props.md#`),
       [
-        tokens.interfaceHeader,
+        typedocTokens.interfaceHeader,
         regexes.definedInInternal,
         regexes.definedInExternal,
       ]
@@ -69,8 +72,8 @@ export async function handleComponents(
     // Removes the hierarchy section from the interface file
     parsedInterfaceFile = removeBetweenStrings(
       parsedInterfaceFile,
-      tokens.hierarchyHeader,
-      tokens.propertiesHeader
+      typedocTokens.hierarchyHeader,
+      typedocTokens.propertiesHeader
     )
 
     await createOrUpdateFile(interfaceFilePath, parsedInterfaceFile)
@@ -108,8 +111,8 @@ export async function handleTypeAliases(
   // Removes the interfaces list that preceeds the type aliases
   // from the typedoc generated file. This is only necessary for
   // the first type alias, since the others are already separated
-  if (fileContents.includes(tokens.typeAliasHeader)) {
-    parsedFileContents = fileContents.split(tokens.typeAliasHeader)[1]
+  if (fileContents.includes(typedocTokens.typeAliasHeader)) {
+    parsedFileContents = fileContents.split(typedocTokens.typeAliasHeader)[1]
   }
 
   await createOrUpdateFile(filePath, parsedFileContents)

@@ -1,4 +1,4 @@
-import { regexes, tokens } from './config'
+import { regexes, tokens, typedocTokens } from './config'
 
 /**
  * Removes all occurrences of a substring from a string
@@ -116,12 +116,12 @@ export function cleanFile(fileContent: string): string[] {
     regexes.definedInExternal,
     regexes.returnsHeader,
     regexes.functionsHeader,
-    tokens.functionsHeader,
-    tokens.exoticComponentNote,
+    typedocTokens.functionsHeader,
+    typedocTokens.exoticComponentNote,
   ])
 
   // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
-  const step3 = step2.split(tokens.separator)
+  const step3 = step2.split(typedocTokens.separator)
 
   return step3
 }

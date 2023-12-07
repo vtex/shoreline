@@ -1,4 +1,5 @@
 import { cwd as cwdir } from 'process'
+import type TypeDoc from 'typedoc'
 
 const cwd = cwdir()
 
@@ -10,9 +11,9 @@ const regexPatterns = {
 }
 
 /**
- * Tokens used to parse the generated docs
+ * Tokens from TypeDoc used to parse the generated docs
  */
-export const tokens = {
+export const typedocTokens = {
   interfaces: 'Interfaces',
   interfaceHeader: 'Interface: ',
   typeAliasHeader: '## Type Aliases',
@@ -22,12 +23,20 @@ export const tokens = {
   props: 'Props',
   md: '.md',
   propsMd: 'Props.md',
-  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx"',
-  tsxCodeBlockEnd: '```',
+  tsCodeBlockHeader: '```ts',
+  codeBlockEnd: '```',
   separator: '___',
   methodDocStart: '###',
-  empty: '',
   exoticComponentNote: '**NOTE**: Exotic components are not callable.',
+}
+
+/**
+ * Tokens used to replace certain parts of the generated docs, likely
+ * tokens from the typedocTokens constant
+ */
+export const tokens = {
+  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx"',
+  empty: '',
 }
 
 /**
@@ -47,11 +56,11 @@ export const regexes = {
   functionsHeader: /[\s\S]*?(?=## Functions)/,
   returnsHeader: /#### Returns\n\n((?:(?!\n\n.+)[\s\S])*)/g,
   interfacesLinks: new RegExp(
-    `(interfaces/(${regexPatterns.camelCase})${tokens.propsMd})`,
+    `(interfaces/(${regexPatterns.camelCase})${typedocTokens.propsMd})`,
     'g'
   ),
   propsLinks: new RegExp(
-    `((${regexPatterns.camelCase})${tokens.propsMd})`,
+    `((${regexPatterns.camelCase})${typedocTokens.propsMd})`,
     'g'
   ),
   componentDeclaration: new RegExp(`<(${regexPatterns.camelCase})`, 'g'),
@@ -61,3 +70,15 @@ export const paths = {
   cwd,
   tmp: `${cwd}/__tmpDocs`,
 }
+
+export const defaultTypedocConfig: Partial<TypeDoc.Configuration.TypeDocOptions> =
+  {
+    excludeExternals: true,
+    externalPattern: ['**/node_modules/**'],
+    commentStyle: 'all',
+    out: '__tmpDocs',
+    plugin: ['typedoc-plugin-markdown', 'typedoc-plugin-mdn-links'],
+    // @ts-expect-error - since these options come from typedoc-plugin-markdown options, which are not typed
+    hideInPageTOC: true,
+    hideBreadcrumbs: true,
+  }
