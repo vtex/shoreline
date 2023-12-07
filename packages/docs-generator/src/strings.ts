@@ -120,8 +120,13 @@ export function cleanFile(fileContent: string): string[] {
     typedocTokens.exoticComponentNote,
   ])
 
-  // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
-  const step3 = step2.split(typedocTokens.separator)
+  const step3 = step2.replaceAll(
+    typedocTokens.exampleHeader,
+    tokens.exampleHeader
+  )
 
-  return step3
+  // typedoc-plugin-markdown generates a single file with all the docs separated by "___"
+  const step4 = step3.split(typedocTokens.separator)
+
+  return step4
 }

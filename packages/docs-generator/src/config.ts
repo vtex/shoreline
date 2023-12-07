@@ -20,6 +20,7 @@ export const typedocTokens = {
   functionsHeader: '## Functions',
   hierarchyHeader: '## Hierarchy',
   propertiesHeader: '## Properties',
+  exampleHeader: '**`Example`**',
   props: 'Props',
   md: '.md',
   propsMd: 'Props.md',
@@ -36,6 +37,7 @@ export const typedocTokens = {
  */
 export const tokens = {
   tsxCodeBlockHeader: '```jsx copy showLineNumbers',
+  exampleHeader: '#### Example',
   empty: '',
 }
 
