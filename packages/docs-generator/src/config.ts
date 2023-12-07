@@ -35,7 +35,7 @@ export const typedocTokens = {
  * tokens from the typedocTokens constant
  */
 export const tokens = {
-  tsxCodeBlockHeader: '```tsx copy showLineNumbers filename="example.tsx"',
+  tsxCodeBlockHeader: '```jsx copy showLineNumbers',
   empty: '',
 }
 
