@@ -20,7 +20,7 @@ export function Pre(props: PropsWithChildren) {
   const live = language === 'jsx'
   const code = he.decode(ReactDOMServer.renderToString(children.props.children))
 
-  if (live && isValidElement(props.children) && children.type.name === 'Code') {
+  if (live && isValidElement(props.children)) {
     return (
       <LiveProvider
         code={code}

@@ -4,6 +4,4 @@ const withNextra = require('nextra')({
   codeHighlight: false,
 })
 
-module.exports = withNextra({
-  codeHighlight: false,
-})
+module.exports = withNextra()
