@@ -214,7 +214,7 @@ export const presetAdmin: ShorelineConfig = {
       plain: {
         '*': 'color-mix(in srgb, $color-gray-12 0%, transparent)',
         hover: 'color-mix(in srgb, $color-gray-12 5%, transparent)',
-        pressed: 'color-mix(in srgb, $color-gray-12 10%, transparent)',   
+        pressed: 'color-mix(in srgb, $color-gray-12 10%, transparent)',
       },
       inverted: {
         '*': '$color-gray-12',

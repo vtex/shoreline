@@ -3,6 +3,7 @@ import type { DocsThemeConfig } from 'nextra-theme-docs'
 import { Playground } from './components/playground'
 import { TokensGrid } from './components/tokens-grid'
 import { IconsGrid } from './components/icons-grid'
+import { Pre } from './components/pre'
 
 const containerStyle = {}
 
@@ -70,6 +71,7 @@ const config: DocsThemeConfig = {
     Playground,
     TokensGrid,
     IconsGrid,
+    pre: Pre,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

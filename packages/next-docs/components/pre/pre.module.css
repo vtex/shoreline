@@ -1,0 +1,33 @@
+.livePre {
+  border: var(--sl-border);
+  border-radius: var(--sl-border-radius-large);
+  margin: var(--sl-space-8) var(--sl-space-0);
+}
+
+.livePreview {
+  padding: var(--sl-space-8);
+  background-color: var(--sl-bg-accent);
+  border-top-right-radius: var(--sl-border-radius-large);
+  border-top-left-radius: var(--sl-border-radius-large);
+  background-color: var(--sl-color-gray-1);
+  opacity: 1;
+  background-image: radial-gradient(
+    var(--sl-color-gray-6) 0.025rem,
+    var(--sl-color-gray-1) 0.025rem
+  );
+  background-size: 0.75rem 0.75rem;
+}
+
+.liveEditor {
+  border-bottom-right-radius: var(--sl-border-radius-large);
+  border-bottom-left-radius: var(--sl-border-radius-large);
+  border-top: var(--sl-border);
+  overflow: hidden;
+}
+
+.codeBlock {
+  border-radius: var(--sl-border-radius-large);
+  padding: var(--sl-space-4);
+  margin: var(--sl-space-7) var(--sl-space-0);
+  overflow: auto;
+}
