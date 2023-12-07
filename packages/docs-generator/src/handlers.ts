@@ -55,7 +55,7 @@ export async function handleComponents(
       'utf8'
     )
 
-    const interfaceFilePath = `${folderPath}/props.mdx`
+    // const interfaceFilePath = `${folderPath}/props.mdx`
 
     // Cleans an interface file from unnecessary content
     let parsedInterfaceFile = removeSubstring(
@@ -76,9 +76,11 @@ export async function handleComponents(
       typedocTokens.propertiesHeader
     )
 
-    await createOrUpdateFile(interfaceFilePath, parsedInterfaceFile)
+    const codeAndPropsContent = parsedFileContents + parsedInterfaceFile
 
-    prettify(interfaceFilePath)
+    await createOrUpdateFile(filePath, codeAndPropsContent)
+
+    prettify(filePath)
   }
 }
 

@@ -13,3 +13,72 @@ Pagination triggers allow merchants to view the size of a list and navigate betw
 ```jsx copy showLineNumbers
 <Pagination page={page} onPageChange={(page, type) => {}} total={total} />
 ```
+
+# PaginationProps
+
+## Properties
+
+### loading
+
+• `Optional` **loading**: `boolean`
+
+Whether the pagination is loading or not.
+
+**`Default`**
+
+```ts
+false;
+```
+
+---
+
+### onPageChange
+
+• `Optional` **onPageChange**: (`page`: `number`, `type`: `"next"` \| `"prev"`) => `void`
+
+#### Type declaration
+
+▸ (`page`, `type`): `void`
+
+Function called whenever the pagination actions are triggered and the page changes.
+
+##### Parameters
+
+| Name   | Type                 | Description                               |
+| :----- | :------------------- | :---------------------------------------- |
+| `page` | `number`             | The new page number reference             |
+| `type` | `"next"` \| `"prev"` | The type of the action that was triggered |
+
+##### Returns
+
+`void`
+
+---
+
+### page
+
+• **page**: `number`
+
+Pagination current page
+
+---
+
+### size
+
+• `Optional` **size**: `number`
+
+Page size
+
+**`Default`**
+
+```ts
+25;
+```
+
+---
+
+### total
+
+• **total**: `number`
+
+The total number of items
