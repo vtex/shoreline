@@ -130,10 +130,7 @@ export function ClientPagination() {
     <Stack>
       <Pagination
         page={page}
-        size={size}
-        sizeOptions={[10, 25, 50]}
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
-        onSizeChange={(size) => setPagination((prev) => ({ ...prev, size }))}
         total={data.length}
       />
       <SimpleTable data={paginatedData} columns={columns} />
@@ -245,10 +242,7 @@ export function ServerPagination() {
       <Pagination
         loading={loading}
         page={page}
-        size={size}
-        sizeOptions={[10, 25, 50]}
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
-        onSizeChange={(size) => setPagination((prev) => ({ ...prev, size }))}
         total={data.length}
       />
       <SimpleTable data={products} columns={columns} />

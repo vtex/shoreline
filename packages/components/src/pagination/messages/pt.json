@@ -1,7 +1,6 @@
 {
-  "size-select": "Mostrar {size}",
-  "page-select": "{page} de {pages}",
-  "total-label": "{total} itens",
+  "pagination-label": "{firstPosition} — {lastPosition} de {items}",
+  "pagination-label-single-page": "{lastPosition} de {items}",
   "next-page-action": "Próxima página",
   "previous-page-action": "Página anterior"
 }

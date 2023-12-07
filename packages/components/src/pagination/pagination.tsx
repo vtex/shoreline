@@ -5,9 +5,7 @@ import { Action } from '../action'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 
 import './pagination.css'
-import { SelectOption } from '../select'
 import { Skeleton } from '../skeleton'
-import { PaginationSelect } from './pagination-select'
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
 
@@ -22,19 +20,14 @@ const useMessage = createMessageHook(messages)
  *   page={page}
  *   onPageChange={(page, type) => {}}
  *   total={total}
- *   size={size}
- *   sizeOptions={[25, 50, 100]}
- *   onSizeChange={(size) => {}}
  * />
  */
 export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   function Pagination(props, ref) {
     const {
-      sizeOptions = [],
-      size,
       page,
       total,
-      onSizeChange,
+      size = 25,
       onPageChange,
       loading = false,
       ...otherProps
@@ -42,39 +35,34 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 
     const getMessage = useMessage()
 
-    const hasSizes = sizeOptions.length > 0
+    const { firstPosition, lastPosition } = useMemo(() => {
+      const minFirstposition = Math.min(total, 1)
 
-    const { totalPages, pageOptions } = useMemo(() => {
-      const totalPages = Math.ceil(total / size)
-      const pageOptions = Array(totalPages)
-        .fill(1)
-        .map((_, index) => index + 1)
+      const firstPosition = Math.max(page * size - size, minFirstposition)
 
-      return { totalPages, pageOptions }
-    }, [total, size])
+      const lastPosition = Math.min(page * size, total)
+
+      return { firstPosition, lastPosition }
+    }, [page, total])
+
+    const isSinglePage = total <= size
+    const paginationLabel = isSinglePage
+      ? 'pagination-label-single-page'
+      : 'pagination-label'
 
     return (
       <div data-sl-pagination ref={ref} {...otherProps}>
         <Stack direction="row" space="$space-2">
-          {hasSizes && (
-            <PaginationSelect
-              data-sl-pagination-size-select
-              value={size}
-              options={sizeOptions}
-              onValueChange={(value) => onSizeChange?.(value)}
-              label={getMessage('size-select', { size })}
-              disabled={loading}
-            >
-              {(option) => (
-                <SelectOption value={String(option)}>
-                  {getMessage('size-select', { size: option })}
-                </SelectOption>
-              )}
-            </PaginationSelect>
-          )}
-
-          <div data-sl-pagination-total-label data-loading={loading}>
-            {loading ? <Skeleton /> : getMessage('total-label', { total })}
+          <div data-sl-pagination-label data-loading={loading}>
+            {loading ? (
+              <Skeleton />
+            ) : (
+              getMessage(paginationLabel, {
+                firstPosition,
+                lastPosition,
+                items: total,
+              })
+            )}
           </div>
 
           <div data-sl-pagination-actions>
@@ -90,28 +78,12 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               <IconCaretLeft />
             </Action>
 
-            <PaginationSelect
-              data-sl-pagination-page-select
-              onValueChange={(value) => onPageChange?.(value, 'selection')}
-              value={page}
-              options={pageOptions}
-              loading={loading}
-              label={getMessage('page-select', {
-                page,
-                pages: totalPages,
-              })}
-            >
-              {(option) => (
-                <SelectOption value={String(option)}>{option}</SelectOption>
-              )}
-            </PaginationSelect>
-
             <Action
               iconOnly
               onClick={() => {
                 onPageChange?.(page + 1, 'next')
               }}
-              disabled={page === totalPages || loading}
+              disabled={lastPosition === total || loading}
               aria-label={getMessage('next-page-action')}
               data-sl-pagination-action-next
             >
@@ -125,11 +97,28 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 )
 
 export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
-  onPageChange?: (page: number, type: 'next' | 'prev' | 'selection') => void
-  onSizeChange?: (size: number) => void
-  sizeOptions?: number[]
-  size: number
+  /**
+   * Function called whenever the pagination actions are triggered and the page changes.
+   * @param page The new page number reference
+   * @param type The type of the action that was triggered
+   */
+  onPageChange?: (page: number, type: 'next' | 'prev') => void
+  /**
+   * Pagination current page
+   */
   page: number
+  /**
+   * The total number of items
+   */
   total: number
+  /**
+   * Whether the pagination is loading or not.
+   * @default false
+   */
   loading?: boolean
+  /**
+   * Page size
+   * @default 25
+   */
+  size?: number
 }
