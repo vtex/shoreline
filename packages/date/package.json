@@ -41,8 +41,8 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline-components": "workspace",
-    "postcss": "8.4.31",
+    "@vtex/shoreline-components": "workspace:*",
+    "postcss": "8.4.32",
     "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
@@ -51,8 +51,8 @@
     "@react-aria/datepicker": "3.9.0",
     "@react-stately/calendar": "3.4.2",
     "@react-stately/datepicker": "3.9.0",
-    "@vtex/shoreline-icons": "workspace",
-    "@vtex/shoreline-store": "workspace",
-    "@vtex/shoreline-utils": "workspace"
+    "@vtex/shoreline-icons": "0.2.3",
+    "@vtex/shoreline-store": "0.1.0",
+    "@vtex/shoreline-utils": "0.6.0"
   }
 }
