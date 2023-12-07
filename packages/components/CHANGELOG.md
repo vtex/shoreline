@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.37.0...@vtex/shoreline-components@0.38.0) (2023-12-07)
+
+### Bug Fixes
+
+- implements the design requested changes on pagination component ([f72b27a](https://github.com/vtex/admin-ui/commit/f72b27ad1315f066f697e66beedd1ef3e94c6d49))
+
+### Features
+
+- **pagination:** add design requested changes ([19fb0d6](https://github.com/vtex/admin-ui/commit/19fb0d66d40d3bb8ec70ac0b6ee6c05bf8997ca3))
+
 # [0.37.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.36.0...@vtex/shoreline-components@0.37.0) (2023-12-06)
 
 ### Bug Fixes
