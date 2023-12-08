@@ -32,10 +32,12 @@
     padding: 0rem;
     padding-top: var(--sl-space-2);
     padding-bottom: var(--sl-space-2);
+    color: var(--sl-fg-base);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
 
     &:hover {
       background: var(--sl-bg-plain);
-      color: var(--sl-fg-muted);
     }
 
     &[data-active-item]&[data-focus-visible] {
@@ -49,7 +51,6 @@
 
     &:active, &[data-active-item] {
       background: var(--sl-bg-plain);
-      color: var(--sl-fg-muted);
     }
   }
 }

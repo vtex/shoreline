@@ -23,6 +23,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         ref={ref}
         render={asChild && (children as any)}
         portal
+        gutter={4}
         {...otherProps}
       >
         {children}
