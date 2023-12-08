@@ -4,6 +4,7 @@ import {
   pascalCaseToKebabCase,
   removeBetweenStrings,
   removeLineContainingString,
+  replaceContentBetweenStrings,
   removeSubstring,
   toRelativeLinks,
 } from './strings'
@@ -27,7 +28,7 @@ export async function handleComponents(
 
   const filePath = `${folderPath}/code.mdx`
 
-  const parsedFileContents = removeLineContainingString(
+  let parsedFileContents = removeLineContainingString(
     fileContents,
     `**${methodName}**` + '(`props`)'
   )
@@ -37,10 +38,6 @@ export async function handleComponents(
     .replaceAll(`(interfaces/${methodName}Props.md)`, '(props.md)')
     // Make the component page header an h1 instead of h3
     .replace(`### ${methodName}`, `# ${methodName}`)
-
-  await createOrUpdateFile(filePath, parsedFileContents)
-
-  prettify(filePath)
 
   components.push(methodName)
 
@@ -54,8 +51,6 @@ export async function handleComponents(
       `${paths.tmp}/interfaces/${correspondingInterface}`,
       'utf8'
     )
-
-    // const interfaceFilePath = `${folderPath}/props.mdx`
 
     // Cleans an interface file from unnecessary content
     let parsedInterfaceFile = removeSubstring(
@@ -76,12 +71,29 @@ export async function handleComponents(
       typedocTokens.propertiesHeader
     )
 
-    const codeAndPropsContent = parsedFileContents + parsedInterfaceFile
-
-    await createOrUpdateFile(filePath, codeAndPropsContent)
-
-    prettify(filePath)
+    parsedFileContents += parsedInterfaceFile
   }
+
+  const propsHeader = `# ${methodName}Props`
+
+  // Swap the order of the props and code blocks
+  parsedFileContents = replaceContentBetweenStrings(
+    parsedFileContents,
+    typedocTokens.parametersHeader,
+    tokens.exampleHeader,
+    tokens.exampleHeader,
+    propsHeader
+  )
+
+  parsedFileContents = parsedFileContents
+    .replace(propsHeader, tokens.empty)
+    .replace(typedocTokens.propertiesHeader, tokens.propertiesHeader)
+    .replace(typedocTokens.parametersHeader, tokens.parametersHeader)
+    .replace(tokens.exampleHeader, tokens.empty)
+
+  await createOrUpdateFile(filePath, parsedFileContents)
+
+  prettify(filePath)
 }
 
 /**

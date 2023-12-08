@@ -79,18 +79,56 @@ export function toRelativeLinks(file: string) {
  * This function is useful for removing sections of file that are not necessary.
  */
 export function removeBetweenStrings(
-  fileContents: string,
+  text: string,
   startString: string,
   endString: string
 ) {
-  const startIndex = fileContents.indexOf(startString)
-  const endIndex = fileContents.indexOf(endString)
+  const startIndex = text.indexOf(startString)
+  const endIndex = text.indexOf(endString)
 
   if (startIndex === -1 || endIndex === -1) {
-    return fileContents
+    return text
   }
 
-  return fileContents.slice(0, startIndex) + fileContents.slice(endIndex)
+  return text.slice(0, startIndex) + text.slice(endIndex)
+}
+
+/**
+ * Replaces the content between two strings with the content between two other
+ * strings. This function is useful for swapping sections of file.
+ */
+export function replaceContentBetweenStrings(
+  text: string,
+  startString1: string,
+  endString1: string,
+  startString2: string,
+  endString2: string
+) {
+  const startIndex1 = text.indexOf(startString1)
+  const endIndex1 = text.indexOf(endString1)
+  const startIndex2 = text.indexOf(startString2)
+  let endIndex2 = text.indexOf(endString2)
+
+  if (startIndex1 === -1 || endIndex1 === -1 || startIndex2 === -1) {
+    return text
+  }
+
+  if (endIndex2 === -1) {
+    // If the end string is not found, replace everything until the end of the file
+    endIndex2 = text.length
+  }
+
+  const content1 = text.slice(startIndex1, endIndex1)
+  const content2 = text.slice(startIndex2, endIndex2)
+
+  const replacedText =
+    text.slice(0, startIndex1) +
+    content2 +
+    text.slice(endIndex1, startIndex2) +
+    content1 +
+    text.slice(endIndex2)
+
+  return replacedText
 }
 
 /**
