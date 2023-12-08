@@ -12,7 +12,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
     const {
       error = false,
       disabled = false,
-      resizable = false,
+      resizable = true,
       className = '',
       children,
       value,

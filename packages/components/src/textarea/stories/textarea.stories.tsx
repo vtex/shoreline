@@ -4,8 +4,6 @@ import React from 'react'
 import { Textarea } from '../index'
 import { Stack } from '../../stack'
 
-import { IconTrash } from '@vtex/shoreline-icons'
-
 export default {
   title: 'shoreline-components/textarea',
 }
@@ -68,7 +66,7 @@ export function All() {
   )
 }
 
-export function withResize() {
+export function withoutResize() {
   const [value, setValue] = React.useState('')
 
   return (
@@ -78,42 +76,42 @@ export function withResize() {
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
         label="Label"
-        resizable
+        resizable={false}
         optional
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
-        resizable
+        resizable={false}
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
         error
-        resizable
+        resizable={false}
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
         disabled
-        resizable
+        resizable={false}
       />
       <Textarea
         label="label"
         value="The quick brown fox is tired right now"
         className="textarea-container"
         disabled
-        resizable
+        resizable={false}
       />
       <Textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
         maxLength={120}
-        resizable
+        resizable={false}
       />
     </>
   )
