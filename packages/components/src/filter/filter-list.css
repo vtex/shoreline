@@ -9,5 +9,9 @@
     max-height: var(--sl-filter-list-height);
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: 0rem;
+    &[data-focus-visible] {
+      outline: none;
+    };
   }
 }
