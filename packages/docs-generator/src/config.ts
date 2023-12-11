@@ -6,8 +6,5 @@ export const defaultTypedocConfig: Partial<TypeDoc.Configuration.TypeDocOptions>
     externalPattern: ['**/node_modules/**'],
     commentStyle: 'all',
     out: '__tmpDocs',
-    plugin: ['typedoc-plugin-markdown', 'typedoc-plugin-mdn-links'],
-    // @ts-expect-error - since these options come from typedoc-plugin-markdown options, which are not typed
-    hideInPageTOC: true,
-    hideBreadcrumbs: true,
+    plugin: ['typedoc-plugin-mdn-links'],
   }
