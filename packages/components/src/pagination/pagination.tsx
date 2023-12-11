@@ -1,13 +1,13 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef, useMemo } from 'react'
-import { Stack } from '../stack'
-import { Action } from '../action'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 
 import './pagination.css'
 import { Skeleton } from '../skeleton'
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
+import { IconButton } from '../icon-button'
+import { Stack } from '../stack'
 
 const useMessage = createMessageHook(messages)
 
@@ -66,29 +66,29 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
           </div>
 
           <div data-sl-pagination-actions>
-            <Action
-              iconOnly
+            <IconButton
+              label={getMessage('previous-page-action')}
+              variant="tertiary"
               onClick={() => {
                 onPageChange?.(page - 1, 'prev')
               }}
               disabled={page === 1 || loading}
-              aria-label={getMessage('previous-page-action')}
               data-sl-pagination-action-prev
             >
               <IconCaretLeft />
-            </Action>
+            </IconButton>
 
-            <Action
-              iconOnly
+            <IconButton
+              variant="tertiary"
+              label={getMessage('next-page-action')}
               onClick={() => {
                 onPageChange?.(page + 1, 'next')
               }}
               disabled={lastPosition === total || loading}
-              aria-label={getMessage('next-page-action')}
               data-sl-pagination-action-next
             >
               <IconCaretRight />
-            </Action>
+            </IconButton>
           </div>
         </Stack>
       </div>

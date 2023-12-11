@@ -3,9 +3,9 @@ import React, { forwardRef } from 'react'
 import './contextual-help.css'
 import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
-import { Action } from '../action'
 import { IconQuestion } from '@vtex/shoreline-icons'
 import { Content } from '../content'
+import { IconButton } from '../icon-button'
 
 /**
  * Shows the user information relative to a context
@@ -36,9 +36,9 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
           store={store}
         >
           <PopoverTrigger asChild>
-            <Action label={label} iconOnly>
+            <IconButton variant="tertiary" label={label}>
               <IconQuestion />
-            </Action>
+            </IconButton>
           </PopoverTrigger>
           <Popover data-sl-contextual-help-popover ref={ref} {...otherProps}>
             <Content>{children}</Content>
