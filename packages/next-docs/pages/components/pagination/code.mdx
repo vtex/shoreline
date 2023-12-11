@@ -2,79 +2,48 @@
 
 Pagination triggers allow merchants to view the size of a list and navigate between pages.
 
-```jsx copy showLineNumbers
+```jsx
 <Pagination page={page} onPageChange={(page, type) => {}} total={total} />
 ```
 
 ## Parameters
 
-| Name    | Type                                                                                                                                                    |
-| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `props` | [`PaginationProps`](/components/pagination/props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
+### `props`
+
+- Type: `@vtex/shoreline-components.PaginationProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### loading
-
-• `Optional` **loading**: `boolean`
+### `loading` (optional)
 
 Whether the pagination is loading or not.
 
-**`Default`**
+- Type: `boolean`
 
-```ts
-false;
-```
+- Default: `false`
 
----
+### `onPageChange` (optional)
 
-### onPageChange
+- Type: `{ (page: number, type: next | prev): void; }`
 
-• `Optional` **onPageChange**: (`page`: `number`, `type`: `"next"` \| `"prev"`) => `void`
-
-#### Type declaration
-
-▸ (`page`, `type`): `void`
-
-Function called whenever the pagination actions are triggered and the page changes.
-
-##### Parameters
-
-| Name   | Type                 | Description                               |
-| :----- | :------------------- | :---------------------------------------- |
-| `page` | `number`             | The new page number reference             |
-| `type` | `"next"` \| `"prev"` | The type of the action that was triggered |
-
-##### Returns
-
-`void`
-
----
-
-### page
-
-• **page**: `number`
+### `page`
 
 Pagination current page
 
----
+- Type: `number`
 
-### size
-
-• `Optional` **size**: `number`
+### `size` (optional)
 
 Page size
 
-**`Default`**
+- Type: `number`
 
-```ts
-25;
-```
+- Default: `25`
 
----
-
-### total
-
-• **total**: `number`
+### `total`
 
 The total number of items
+
+- Type: `number`
+
+[View source](https://github.com/vtex/shoreline/blob/53165a544/packages/components/src/pagination/pagination.tsx#L25)

@@ -356,6 +356,13 @@ importers:
         version: 9.3.0(postcss@8.4.32)
 
   packages/docs-generator:
+    dependencies:
+      colorette:
+        specifier: ^2.0.20
+        version: 2.0.20
+      handlebars:
+        specifier: ^4.7.8
+        version: 4.7.8
     devDependencies:
       '@types/node':
         specifier: ^20.10.3
@@ -13118,6 +13125,18 @@ packages:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.17.4
+
+  /handlebars@4.7.8:
+    resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
+    engines: {node: '>=0.4.7'}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.8
+      neo-async: 2.6.2
+      source-map: 0.6.1
+      wordwrap: 1.0.0
+    optionalDependencies:
+      uglify-js: 3.17.0
 
   /hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}

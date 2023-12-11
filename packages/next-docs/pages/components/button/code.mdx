@@ -2,78 +2,52 @@
 
 Buttons triggers allow users to identify and start the most important actions in a container.
 
-```jsx copy showLineNumbers
+```jsx
 <Button>Action label</Button>
 ```
 
 ## Parameters
 
-| Name    | Type                                                                                                                                                  |
-| :------ | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `props` | [`ButtonProps`](/components/button/props.md) & `RefAttributes`\<[`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)\> |
+### `props`
+
+- Type: `@vtex/shoreline-components.ButtonProps & @types/react.React.RefAttributes<typescript.HTMLButtonElement>`
 
 ## Props
 
-### asChild
-
-• `Optional` **asChild**: `boolean`
+### `asChild` (optional)
 
 Merge button props with immediate child.
 
-**`Default`**
+- Type: `boolean`
 
-```ts
-false;
-```
+- Default: `false`
 
----
+### `children`
 
-### children
+- Type: `@types/react.React.ReactNode`
 
-• **children**: `ReactNode`
-
-#### Overrides
-
-ComponentPropsWithoutRef.children
-
----
-
-### loading
-
-• `Optional` **loading**: `boolean`
+### `loading` (optional)
 
 Disable the button and show a spinner.
 
-**`Default`**
+- Type: `boolean`
 
-```ts
-false;
-```
+- Default: `false`
 
----
-
-### size
-
-• `Optional` **size**: `"normal"` \| `"large"`
+### `size` (optional)
 
 Increase or decrease padding.
 
-**`Default`**
+- Type: `normal | large`
 
-```ts
-"normal";
-```
+- Default: `'normal'`
 
----
-
-### variant
-
-• `Optional` **variant**: `"primary"` \| `"secondary"` \| `"tertiary"` \| `"critical"` \| `"criticalTertiary"`
+### `variant` (optional)
 
 Change between color combinations.
 
-**`Default`**
+- Type: `primary | secondary | tertiary | critical | criticalTertiary`
 
-```ts
-"secondary";
-```
+- Default: `'secondary'`
+
+[View source](https://github.com/vtex/shoreline/blob/53165a544/packages/components/src/button/button.tsx#L19)

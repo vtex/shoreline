@@ -1,79 +1,57 @@
 # TextInput
 
+**NOTE**: Exotic components are not callable.
+
 ## Parameters
 
-| Name    | Type                                                                                                                                                       |
-| :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `props` | [`TextInputProps`](/components/text-input/props.md) & `RefAttributes`\<[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)\> |
+### `props`
+
+- Type: `@vtex/shoreline-components.TextInputProps & @types/react.React.RefAttributes<typescript.HTMLInputElement>`
 
 ## Props
 
-### disabled
-
-• `Optional` **disabled**: `boolean`
+### `disabled` (optional)
 
 Whether is disabled or not
 
-**`Default`**
+- Type: `boolean`
 
-```ts
-false;
-```
+- Default: `false`
 
-#### Overrides
-
-Omit.disabled
-
----
-
-### error
-
-• `Optional` **error**: `boolean`
+### `error` (optional)
 
 Whether there is an error
 
-**`Default`**
+- Type: `boolean`
 
-```ts
-false;
-```
+- Default: `false`
 
----
+### `errorText` (optional)
 
-### errorText
+- Type: `string`
 
-• `Optional` **errorText**: `string`
+### `helpText` (optional)
 
----
+- Type: `string`
 
-### helpText
+### `label`
 
-• `Optional` **helpText**: `string`
+- Type: `@types/react.React.ReactNode`
 
----
+### `optional` (optional)
 
-### label
+- Type: `boolean`
 
-• **label**: `ReactNode`
-
----
-
-### optional
-
-• `Optional` **optional**: `boolean`
-
----
-
-### prefix
-
-• `Optional` **prefix**: `ReactNode`
+### `prefix` (optional)
 
 Node added before input space
 
----
+- Type: `@types/react.React.ReactNode`
 
-### suffix
-
-• `Optional` **suffix**: `ReactNode`
+### `suffix` (optional)
 
 Node added before input space
+
+- Type: `@types/react.React.ReactNode`
+
+[View source](https://github.com/vtex/shoreline/blob/53165a544/packages/components/src/text-input/text-input.tsx#L7)

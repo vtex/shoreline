@@ -2,40 +2,32 @@
 
 Loading indicator
 
-```jsx copy showLineNumbers
+```jsx
 <Spinner description="loading" size={16} />
 ```
 
 ## Parameters
 
-| Name    | Type                                                                                                                                              |
-| :------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `props` | [`SpinnerProps`](/components/spinner/props.md) & `RefAttributes`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\> |
+### `props`
+
+- Type: `@vtex/shoreline-components.SpinnerProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### description
-
-• `Optional` **description**: `string`
+### `description` (optional)
 
 Specify a description that would be used to best describe the loading state
 
-**`Default`**
+- Type: `string`
 
-```ts
-"loading";
-```
+- Default: `'loading'`
 
----
-
-### size
-
-• `Optional` **size**: `number`
+### `size` (optional)
 
 Increase or decrease the size of the shape
 
-**`Default`**
+- Type: `number`
 
-```ts
-16;
-```
+- Default: `16`
+
+[View source](https://github.com/vtex/shoreline/blob/53165a544/packages/components/src/spinner/spinner.tsx#L13)

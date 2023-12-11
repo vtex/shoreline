@@ -16,7 +16,8 @@
     "prebuild": "rm -rf dist",
     "dev": "tsup --watch",
     "build": "pnpm run prebuild && tsup",
-    "start": "pnpm run build && node dist/index.js"
+    "start": "pnpm run build && node dist/index.js",
+    "start:json": "npx ts-node src/json-parser.ts"
   },
   "devDependencies": {
     "@types/node": "^20.10.3",
@@ -24,5 +25,9 @@
     "typedoc": "0.25.3",
     "typedoc-plugin-markdown": "3.17.1",
     "typedoc-plugin-mdn-links": "3.1.4"
+  },
+  "dependencies": {
+    "colorette": "^2.0.20",
+    "handlebars": "^4.7.8"
   }
 }
