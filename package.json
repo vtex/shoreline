@@ -112,7 +112,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "typedoc-json-parser@9.0.1": "patches/typedoc-json-parser@9.0.1.patch"
+      "typedoc-json-parser@9.0.1": "packages/docs-generator/patches/typedoc-json-parser@9.0.1.patch"
     }
   }
 }

@@ -7,7 +7,7 @@ settings:
 patchedDependencies:
   typedoc-json-parser@9.0.1:
     hash: c7g6wojegojflpwwbaitk2jfpy
-    path: patches/typedoc-json-parser@9.0.1.patch
+    path: packages/docs-generator/patches/typedoc-json-parser@9.0.1.patch
 
 importers:
 
