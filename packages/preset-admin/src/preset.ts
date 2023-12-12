@@ -299,9 +299,8 @@ export const presetAdmin: ShorelineConfig = {
         '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-blue-6',
     },
     shadow: {
-      1: '0rem 0.125rem 0.5rem 0rem rgba(0, 0, 0, 0.12)',
-      2: '0rem 0.25rem 1rem 0rem rgba(0, 0, 0, 0.16)',
-      3: '0rem 1.5rem 3rem 0rem rgba(0, 0, 0, 0.16)',
+      1: '0rem 0.25rem 1rem 0rem rgba(0, 0, 0, 0.16)',
+      2: '0rem 1.5rem 3rem 0rem rgba(0, 0, 0, 0.16)',
     },
     z: {
       1: '0',
