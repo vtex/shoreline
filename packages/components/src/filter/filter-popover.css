@@ -15,14 +15,14 @@
   }
 
   [data-sl-filter-popover-combobox] {
-    padding-bottom: 0rem;
     & > [data-sl-search] {
       min-width: unset;
-    }
+    };
   }
 
   [data-sl-filter-popover-footer] {
     gap: var(--sl-space-2);
+    border-top: var(--sl-border);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
