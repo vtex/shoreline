@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.38.1...@vtex/shoreline-components@0.39.0) (2023-12-12)
+
+### Features
+
+- **textarea:** adapt to match other inputs design pattern ([542d2f8](https://github.com/vtex/admin-ui/commit/542d2f89261cc7b7229b87beb2ab185615a8ccec))
+- **textarea:** add custom style to resize handle and make it optional ([b5f91a1](https://github.com/vtex/admin-ui/commit/b5f91a1a28cb2b46597b85e86a45065107a01e04))
+
+### Reverts
+
+- **textarea:** make resizable default ([64b624c](https://github.com/vtex/admin-ui/commit/64b624c3385e6487500b4a3620db041c71b01bfb))
+
 ## [0.38.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.38.0...@vtex/shoreline-components@0.38.1) (2023-12-07)
 
 **Note:** Version bump only for package @vtex/shoreline-components
