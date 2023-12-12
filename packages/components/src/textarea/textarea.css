@@ -45,6 +45,10 @@
       color: var(--sl-fg-disabled);
     }
 
+    &[data-resizable='true'] {
+      resize: vertical;
+    }
+
     & > [data-sl-field-message-text] {
       overflow-wrap: break-word;
     }

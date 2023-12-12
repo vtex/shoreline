@@ -12,6 +12,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
     const {
       error = false,
       disabled = false,
+      resizable = true,
       className = '',
       children,
       value,
@@ -20,6 +21,7 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
       helpText = '',
       errorText = '',
       id: baseId,
+      optional,
       ...htmlProps
     } = props
 
@@ -29,18 +31,25 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
 
     return (
       <Field ref={ref} className={className} data-sl-textarea>
-        {label && <FieldLabel htmlFor={id}>{label}</FieldLabel>}
+        {label && (
+          <FieldLabel htmlFor={id} optional={optional}>
+            {label}
+          </FieldLabel>
+        )}
+
         <textarea
           id={id}
           data-sl-textarea-input
           data-error={error}
           data-disabled={disabled}
+          data-resizable={resizable}
           disabled={disabled}
           maxLength={maxLength}
           aria-invalid={error}
           value={value}
           {...htmlProps}
         />
+
         <Grid templateColumns="1fr auto" data-sl-field-message>
           <Stack space="$space-0">
             {helpText && <p data-sl-field-message-text>{helpText}</p>}
@@ -66,4 +75,6 @@ export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
   label?: ReactNode
   helpText?: ReactNode
   errorText?: ReactNode
+  optional?: boolean
+  resizable?: boolean
 }

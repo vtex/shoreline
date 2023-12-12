@@ -4,8 +4,6 @@ import React from 'react'
 import { Textarea } from '../index'
 import { Stack } from '../../stack'
 
-import { IconTrash } from '@vtex/shoreline-icons'
-
 export default {
   title: 'shoreline-components/textarea',
 }
@@ -32,17 +30,8 @@ export function All() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
-        label="Label (optional)"
-      />
-      <Textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        className="textarea-container"
-        label={
-          <>
-            Label <IconTrash />
-          </>
-        }
+        label="Label"
+        optional
       />
       <Textarea
         value={value}
@@ -62,6 +51,7 @@ export function All() {
         disabled
       />
       <Textarea
+        label="label"
         value="The quick brown fox is tired right now"
         className="textarea-container"
         disabled
@@ -71,6 +61,57 @@ export function All() {
         onChange={(e) => setValue(e.target.value)}
         className="textarea-container"
         maxLength={120}
+      />
+    </>
+  )
+}
+
+export function withoutResize() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <>
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        label="Label"
+        resizable={false}
+        optional
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        resizable={false}
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        error
+        resizable={false}
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        disabled
+        resizable={false}
+      />
+      <Textarea
+        label="label"
+        value="The quick brown fox is tired right now"
+        className="textarea-container"
+        disabled
+        resizable={false}
+      />
+      <Textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="textarea-container"
+        maxLength={120}
+        resizable={false}
       />
     </>
   )
