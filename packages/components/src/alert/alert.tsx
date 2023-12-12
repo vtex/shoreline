@@ -16,7 +16,7 @@ import { IconButton } from '../icon-button'
  * @example
  * <Alert onDismiss={() => {}}>
  *  <Text>Message</Text>
- *  <Action>Action</Action>
+ *  <Button variant="tertiary">Action</Button>
  * </Alert>
  */
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(

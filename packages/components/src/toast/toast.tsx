@@ -11,10 +11,11 @@ import {
 
 import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
-import { Action } from '../action'
 import { Text } from '../text'
 import type { ToastVariant } from './toast-types'
 import './toast.css'
+import { IconButton } from '../icon-button'
+import { Button } from '../button'
 
 /**
  * Toast component
@@ -29,17 +30,16 @@ export function Toast(props: ToastProps) {
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
       <Bleed vertical="$space-2" right>
-        <Action
-          vertical
-          iconOnly
+        <IconButton
           onClick={(e) => {
             onDismiss?.(e)
             hotToast.dismiss(id)
           }}
           label="dismiss"
+          variant="tertiary"
         >
           <IconX />
-        </Action>
+        </IconButton>
       </Bleed>
     </div>
   )
@@ -51,7 +51,10 @@ function renderChildren(children: ReactNode) {
       return <Text variant="emphasis">{child}</Text>
     }
 
-    if (isValidElement(child) && child.type === Action) {
+    if (
+      isValidElement(child) &&
+      (child.type === Button || child.type === IconButton)
+    ) {
       return (
         <Bleed vertical horizontal>
           {child}

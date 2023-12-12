@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Alert } from '../index'
 import { Stack } from '../../stack'
 import { Text } from '../../text'
-import { Action } from '../../action'
+import { Button } from '../../button'
 
 export default {
   title: 'shoreline-components/alert',
@@ -68,7 +68,7 @@ export function LongText() {
           Donec ex nisl, dignissim id tortor vel, lobortis lobortis eros. Etiam
           et arcu sapien. Maecenas elementum lorem maximus hendrerit interdum.
         </Text>
-        <Action>Action</Action>
+        <Button variant="tertiary">Action</Button>
       </Alert>
     </Stack>
   )
@@ -87,15 +87,17 @@ export function WithAction() {
     <Stack fluid>
       <Alert variant="warning">
         <Text>Action as button</Text>
-        <Action onClick={() => alert('Clicked')}>Action</Action>
+        <Button variant="tertiary" onClick={() => alert('Clicked')}>
+          Action
+        </Button>
       </Alert>
       <Alert variant="warning">
         <Text>Action as link</Text>
-        <Action asChild>
+        <Button variant="tertiary" asChild>
           <a href="htpps://vtex.com.br" target="_blank" rel="noreferrer">
             See more
           </a>
-        </Action>
+        </Button>
       </Alert>
     </Stack>
   )

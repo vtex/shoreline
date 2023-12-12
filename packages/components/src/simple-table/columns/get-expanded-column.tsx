@@ -2,8 +2,8 @@ import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { IconCaretDown, IconCaretRight } from '@vtex/shoreline-icons'
 
-import { Action } from '../../action'
 import { VisuallyHidden } from '../../visually-hidden'
+import { IconButton } from '../../icon-button'
 
 export function getExpandedColumn<T>(): ColumnDef<T> {
   return {
@@ -12,13 +12,13 @@ export function getExpandedColumn<T>(): ColumnDef<T> {
     cell: ({ row }) => {
       return (
         row.getCanExpand() && (
-          <Action
+          <IconButton
+            variant="tertiary"
             label="Expand row"
             onClick={row.getToggleExpandedHandler()}
-            iconOnly
           >
             {row.getIsExpanded() ? <IconCaretDown /> : <IconCaretRight />}
-          </Action>
+          </IconButton>
         )
       )
     },
