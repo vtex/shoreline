@@ -8,6 +8,8 @@ This is a package that generates documentation from Typescript code. It uses Typ
 
 Clone the repository, and run `pnpm install` from the root of the repository.
 
+Configure the `docs-generator` package by editing the config variable from `docs-generator/src/index.ts` file. The configuration file is documented on code, so you should be able to understand what each configuration option does.
+
 Run `pnpm run generate-docs` from the root of the repository:
 
 ```sh

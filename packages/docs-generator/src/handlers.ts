@@ -2,6 +2,7 @@ import { createOrUpdateFile, prettify } from './io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
 import { isComponent } from './strings'
 import { getTemplate } from './templates'
+import type { PkgToBeDocumentedPaths } from './config'
 
 /**
  * Generate the component documentation using the component template.
@@ -13,7 +14,8 @@ import { getTemplate } from './templates'
  */
 export async function generateComponent(
   project: ProjectParser,
-  func: FunctionParser
+  func: FunctionParser,
+  path: string
 ) {
   const componentProps: Array<{
     propName: string
@@ -107,12 +109,10 @@ export async function generateComponent(
     .toLowerCase()
 
   await createOrUpdateFile(
-    `../next-docs/pages/components/${kebabCaseComponentName}/code.mdx`,
+    `${path}/${kebabCaseComponentName}/code.mdx`,
     component
   )
-  await prettify(
-    `../next-docs/pages/components/${kebabCaseComponentName}/code.mdx`
-  )
+  await prettify(`${path}/${kebabCaseComponentName}/code.mdx`)
 }
 
 /**
@@ -122,11 +122,14 @@ export async function generateComponent(
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
  */
-export async function generateMetaJSON(project: ProjectParser) {
+export async function generateMetaJSON(
+  project: ProjectParser,
+  paths: PkgToBeDocumentedPaths
+) {
   const metaTemplate = getTemplate('_meta.json')
 
-  const components = project.functions.reduce<Array<{ [key: string]: string }>>(
-    (result, func) => {
+  if (paths.components) {
+    const components = project.functions.reduce<MetaFile>((result, func) => {
       if (isComponent(func.name)) {
         const key = func.name
           .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
@@ -136,13 +139,17 @@ export async function generateMetaJSON(project: ProjectParser) {
       }
 
       return result
-    },
-    []
-  )
+    }, [])
 
-  const meta = metaTemplate({
-    components,
-  })
+    const meta = metaTemplate({
+      components,
+    })
 
-  await createOrUpdateFile(`../next-docs/pages/components/_meta.json`, meta)
+    await createOrUpdateFile(`${paths.components}/_meta.json`, meta)
+  }
 }
+
+/**
+ * The _meta.json file interface for Nextra
+ */
+type MetaFile = Array<{ [key: string]: string }>
