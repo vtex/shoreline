@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.39.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.39.0...@vtex/shoreline-components@0.39.1) (2023-12-12)
+
+**Note:** Version bump only for package @vtex/shoreline-components
+
 # [0.39.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.38.1...@vtex/shoreline-components@0.39.0) (2023-12-12)
 
 ### Features
