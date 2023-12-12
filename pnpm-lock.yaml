@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  typedoc-json-parser@9.0.1:
+    hash: c7g6wojegojflpwwbaitk2jfpy
+    path: patches/typedoc-json-parser@9.0.1.patch
+
 importers:
 
   .:
@@ -18,28 +23,28 @@ importers:
         specifier: ^9.1.2
         version: 9.1.2
       '@storybook/addon-a11y':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4
       '@storybook/addon-actions':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4
       '@storybook/addon-essentials':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4(@types/react-dom@18.2.6)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-links':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4(react@18.2.0)
       '@storybook/addon-storysource':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4
       '@storybook/react':
-        specifier: ^7.5.3
-        version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+        specifier: ^7.6.4
+        version: 7.6.4(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@storybook/react-vite':
         specifier: 7.5.3
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(vite@5.0.2)
       '@storybook/react-webpack5':
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4(@babel/core@7.23.6)(@swc/core@1.3.100)(esbuild@0.19.9)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@storybook/theming':
         specifier: 7.5.3
@@ -60,10 +65,10 @@ importers:
         specifier: 4.1.0
         version: 4.1.0(vite@5.0.2)
       '@vtex/prettier-config':
-        specifier: ^0.3.1
+        specifier: ^0.3.6
         version: 0.3.6(prettier@2.8.8)
       '@vtex/shoreline-stylelint':
-        specifier: workspace
+        specifier: workspace:workspace
         version: link:packages/stylelint
       '@vtex/shoreline-test-utils':
         specifier: workspace:*
@@ -75,7 +80,7 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0
       commitizen:
-        specifier: ^4.2.0
+        specifier: ^4.3.0
         version: 4.3.0(typescript@4.9.5)
       eslint:
         specifier: 8.43.0
@@ -132,7 +137,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       storybook:
-        specifier: ^7.5.3
+        specifier: ^7.6.4
         version: 7.6.4
       stylelint:
         specifier: ^15.11.0
@@ -141,7 +146,7 @@ importers:
         specifier: ^13.0.0
         version: 13.0.0(stylelint@15.11.0)
       stylelint-prettier:
-        specifier: ^4.0.2
+        specifier: ^4.1.0
         version: 4.1.0(prettier@2.8.8)(stylelint@15.11.0)
       tslib:
         specifier: 2.6.2
@@ -156,7 +161,7 @@ importers:
         specifier: 4.9.5
         version: 4.9.5
       url-loader:
-        specifier: ^4.1.0
+        specifier: ^4.1.1
         version: 4.1.1(webpack@5.89.0)
       vite:
         specifier: 5.0.2
@@ -360,6 +365,9 @@ importers:
       handlebars:
         specifier: ^4.7.8
         version: 4.7.8
+      typedoc-json-parser:
+        specifier: ^9.0.1
+        version: 9.0.1(patch_hash=c7g6wojegojflpwwbaitk2jfpy)
     devDependencies:
       '@types/node':
         specifier: ^20.10.3
@@ -3459,6 +3467,13 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
+  /@favware/colorette-spinner@1.0.1:
+    resolution: {integrity: sha512-PPYtcLzhSafdylp8NBOxMCYIcLqTUMNiQc7ciBoAIvxNG2egM+P7e2nNPui5+Svyk89Q+Tnbrp139ZRIIBw3IA==}
+    engines: {node: '>=v16'}
+    dependencies:
+      colorette: 2.0.20
+    dev: false
+
   /@floating-ui/core@1.5.2:
     resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}
     dependencies:
@@ -5938,6 +5953,11 @@ packages:
   /@rushstack/eslint-patch@1.6.0:
     resolution: {integrity: sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==}
     dev: true
+
+  /@sapphire/node-utilities@1.0.1:
+    resolution: {integrity: sha512-hE9L35s/j7MhcsGIAINGvnvVWUVoWPxCNQnP77npcqwEpTXIhQu8OV3qos4jDlymKcaRsZ7Jo8iNBPv8PwjL9g==}
+    engines: {node: '>=v16.0.0', npm: '>=7.0.0'}
+    dev: false
 
   /@sigstore/bundle@1.1.0:
     resolution: {integrity: sha512-PFutXEy0SmQxYI4texPw3dd2KewuNqv7OuK1ZFtY2fM754yhvG2KdgwIhRnoEE2uHdtdGNQ8s0lb94dW9sELog==}
@@ -9197,7 +9217,6 @@ packages:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
     dependencies:
       balanced-match: 1.0.2
-    dev: true
 
   /braces@3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -14948,7 +14967,6 @@ packages:
 
   /lunr@2.3.9:
     resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
-    dev: true
 
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -15085,7 +15103,6 @@ packages:
     resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
     engines: {node: '>= 12'}
     hasBin: true
-    dev: true
 
   /match-sorter@6.3.1:
     resolution: {integrity: sha512-mxybbo3pPNuA+ZuCUhm5bwNkXrJTbsk5VWbR5wiwz/GC6LIiegBGn2w3O08UG/jdbYLinw51fSQ5xNU1U3MgBw==}
@@ -15848,7 +15865,6 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
-    dev: true
 
   /minimist-options@4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
@@ -20852,6 +20868,22 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
+  /typedoc-json-parser@9.0.1(patch_hash=c7g6wojegojflpwwbaitk2jfpy):
+    resolution: {integrity: sha512-hvoISd8CMLn4iDXVebaUq32urRjoVtXMsZ1X2bmW1kaQolvVYZRw6NKXOdB1cLKzAxVWN9eHlg6HRduCCsfP7g==}
+    engines: {node: '>=18.17.0', npm: '>=6'}
+    hasBin: true
+    dependencies:
+      '@favware/colorette-spinner': 1.0.1
+      '@sapphire/node-utilities': 1.0.1
+      colorette: 2.0.20
+      commander: 11.0.0
+      js-yaml: 4.1.0
+      tslib: 2.6.2
+      typedoc: 0.25.3(typescript@5.3.3)
+      typescript: 5.3.3
+    dev: false
+    patched: true
+
   /typedoc-plugin-mdn-links@3.1.4(typedoc@0.25.3):
     resolution: {integrity: sha512-uChw0fOIQQOyte+SBVPyeORAvxVmABycG28hIFJCagLHPW6ZxuvvDPcGvD4Wb2dJ8TW9y9pneYqQR+UW2/DhhA==}
     peerDependencies:
@@ -20874,6 +20906,20 @@ packages:
       typescript: 4.9.5
     dev: true
 
+  /typedoc@0.25.3(typescript@5.3.3):
+    resolution: {integrity: sha512-Ow8Bo7uY1Lwy7GTmphRIMEo6IOZ+yYUyrc8n5KXIZg1svpqhZSWgni2ZrDhe+wLosFS8yswowUzljTAV/3jmWw==}
+    engines: {node: '>= 16'}
+    hasBin: true
+    peerDependencies:
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x
+    dependencies:
+      lunr: 2.3.9
+      marked: 4.3.0
+      minimatch: 9.0.3
+      shiki: 0.14.6
+      typescript: 5.3.3
+    dev: false
+
   /typescript-service@2.0.3:
     resolution: {integrity: sha512-FzRlqRp965UBzGvGwc6rbeko84jLILZrHf++I4cN8usZUB7F8Lh8/WDiCOUvy2l5os+jBWEz4fbYkkj1DhYJcw==}
     engines: {node: '>=6', npm: '>=3'}
@@ -20885,6 +20931,12 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+
+  /typescript@5.3.3:
+    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: false
 
   /ua-parser-js@0.7.37:
     resolution: {integrity: sha512-xV8kqRKM+jhMvcHWUKthV9fNebIzrNy//2O9ZwWcfiBFR5f25XVZPLlEajk/sf3Ra15V92isyQqnIEXRDaZWEA==}

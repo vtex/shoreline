@@ -46,26 +46,26 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/prompt": "^9.1.2",
-    "@storybook/addon-a11y": "^7.5.3",
-    "@storybook/addon-actions": "^7.5.3",
-    "@storybook/addon-essentials": "^7.5.3",
-    "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-storysource": "^7.5.3",
-    "@storybook/react": "^7.5.3",
+    "@storybook/addon-a11y": "^7.6.4",
+    "@storybook/addon-actions": "^7.6.4",
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/addon-links": "^7.6.4",
+    "@storybook/addon-storysource": "^7.6.4",
+    "@storybook/react": "^7.6.4",
     "@storybook/react-vite": "7.5.3",
-    "@storybook/react-webpack5": "^7.5.3",
+    "@storybook/react-webpack5": "^7.6.4",
     "@storybook/theming": "7.5.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "5.60.1",
     "@vitejs/plugin-react": "4.1.0",
-    "@vtex/prettier-config": "^0.3.1",
-    "@vtex/shoreline-stylelint": "workspace",
+    "@vtex/prettier-config": "^0.3.6",
+    "@vtex/shoreline-stylelint": "workspace:workspace",
     "@vtex/shoreline-test-utils": "workspace:*",
     "@vtex/tsconfig": "^0.5.6",
     "chromatic": "^9.1.0",
-    "commitizen": "^4.2.0",
+    "commitizen": "^4.3.0",
     "eslint": "8.43.0",
     "eslint-config-vtex": "15.0.2",
     "eslint-config-vtex-react": "9.0.3",
@@ -84,15 +84,15 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
-    "storybook": "^7.5.3",
+    "storybook": "^7.6.4",
     "stylelint": "^15.11.0",
     "stylelint-config-recommended": "^13.0.0",
-    "stylelint-prettier": "^4.0.2",
+    "stylelint-prettier": "^4.1.0",
     "tslib": "2.6.2",
     "tsup": "8.0.1",
     "turbo": "1.4.3",
     "typescript": "4.9.5",
-    "url-loader": "^4.1.0",
+    "url-loader": "^4.1.1",
     "vite": "5.0.2",
     "vitest": "0.34.6"
   },
@@ -108,6 +108,11 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
+    }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "typedoc-json-parser@9.0.1": "patches/typedoc-json-parser@9.0.1.patch"
     }
   }
 }

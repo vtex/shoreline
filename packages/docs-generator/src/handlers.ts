@@ -1,5 +1,5 @@
 import { createOrUpdateFile, prettify } from './io'
-import type { FunctionParser, ProjectParser } from './json-parser'
+import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
 import { isComponent } from './strings'
 import { getTemplate } from './templates'
 

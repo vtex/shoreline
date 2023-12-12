@@ -27,9 +27,7 @@ The TypeDoc parser is a wrapper around TypeDoc's Node API. It is responsible for
 
 ### JSON parser
 
-The JSON parser is responsible for generating markdown files from TypeDoc's JSON output.
-
-[See its README for more details](./src/json-parser/README.md).
+The JSON parser is responsible for generating markdown files from TypeDoc's JSON output. [It is a patch on top of the `typedoc-json-parser` library](../../patches/typedoc-json-parser@9.0.1.patch). This patch is necessary because the `typedoc-json-parser` library types are currently broken.
 
 ### Code organization
 

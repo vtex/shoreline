@@ -1,6 +1,5 @@
 import Handlebars from 'handlebars'
 import { readFileSync } from 'fs'
-import path from 'path'
 
 type Template = 'component.mdx' | '_meta.json'
 
@@ -11,6 +10,6 @@ type Template = 'component.mdx' | '_meta.json'
  */
 export function getTemplate(template: Template) {
   return Handlebars.compile(
-    readFileSync(path.join(__dirname, `./templates/${template}.hbs`), 'utf8')
+    readFileSync(`./dist/esm/templates/${template}.hbs`, 'utf8')
   )
 }

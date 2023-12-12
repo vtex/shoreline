@@ -2,6 +2,7 @@
   "name": "@vtex/docs-generator",
   "description": "Generate a custom Markdown documentation from your Typescript code leveraging typedoc",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "main": "./src/index.ts",
   "repository": "vtex/shoreline",
@@ -16,7 +17,7 @@
     "prebuild": "rm -rf dist",
     "dev": "tsup --watch",
     "build": "pnpm run prebuild && tsup",
-    "start": "pnpm run build && node dist/index.js",
+    "start": "pnpm run build && node dist/esm/index.js",
     "start:json": "npx ts-node src/json-parser.ts"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "colorette": "^2.0.20",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "typedoc-json-parser": "^9.0.1"
   }
 }

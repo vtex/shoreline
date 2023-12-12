@@ -1,7 +1,0 @@
-export * from './comment-parser'
-export * from './method-parser'
-export * from './parameter-parser'
-export * from './property-parser'
-export * from './signature-parser'
-export * from './source-parser'
-export * from './type-parameter-parser'
