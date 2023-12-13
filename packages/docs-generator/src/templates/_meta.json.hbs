@@ -1,0 +1,7 @@
+{
+    {{#if components}}
+    {{#each components}}
+    "{{{key}}}": "{{{value}}}" {{#unless @last}},{{/unless}}
+    {{/each}}
+    {{/if}}
+}

@@ -28,6 +28,7 @@
     "dev-storybook": "pnpm storybook dev -p 6006",
     "build:storybook": "pnpm build && pnpm storybook build",
     "chromatic": "chromatic --exit-zero-on-changes --build-script-name=build:storybook",
+    "generate-docs": "npm --prefix packages/docs-generator run start",
     "next-docs": "npm --prefix packages/next-docs run dev",
     "build:next-docs": "npm --prefix packages/next-docs run build-docs",
     "commit": "cz",
@@ -85,8 +86,8 @@
     "react-test-renderer": "18.2.0",
     "storybook": "^7.5.3",
     "stylelint": "^15.11.0",
-    "stylelint-prettier": "^4.0.2",
     "stylelint-config-recommended": "^13.0.0",
+    "stylelint-prettier": "^4.0.2",
     "tslib": "2.6.2",
     "tsup": "8.0.1",
     "turbo": "1.4.3",
@@ -107,6 +108,11 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
+    }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "typedoc-json-parser@9.0.1": "packages/docs-generator/patches/typedoc-json-parser@9.0.1.patch"
     }
   }
 }

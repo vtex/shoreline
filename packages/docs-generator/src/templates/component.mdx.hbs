@@ -1,0 +1,49 @@
+# {{{name}}}
+
+{{#if description}}
+{{{description}}}
+{{/if}}
+
+{{#if example}}
+
+```jsx
+{{{example}}}
+```
+{{/if}}
+
+{{#if parameters}}
+## Parameters
+
+{{#each parameters}}
+### `{{{paramName}}}`
+
+{{#if paramType}}
+- Type: {{{paramType}}}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if props}}
+## Props
+
+{{#each props}}
+### `{{{propName}}}` {{#if propOptional}}(optional){{/if}}
+
+{{#if propDescription}}
+{{{propDescription}}}
+{{/if}}
+
+{{#if propType}}
+- Type: {{{propType}}}
+{{/if}}
+
+{{#if propDefaultValue}}
+- Default: {{{propDefaultValue}}}
+{{/if}}
+
+{{/each}}
+{{/if}}
+
+{{#if sourceUrl}}
+[View source]({{{sourceUrl}}})
+{{/if}}

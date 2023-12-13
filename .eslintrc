@@ -9,7 +9,8 @@
     ".vscode/",
     ".cache/",
     "__mocks__/",
-    "__generated__/"
+    "__generated__/",
+    "scripts/format-docs.js"
   ],
   "env": {
     "es2022": true

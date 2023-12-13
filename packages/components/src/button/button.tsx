@@ -74,7 +74,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   children: ReactNode
   /**
    * Increase or decrease padding.
-   * @default normal
+   * @default 'normal'
    */
   size?: 'normal' | 'large'
   /**

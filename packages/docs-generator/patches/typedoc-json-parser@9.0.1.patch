@@ -1,0 +1,638 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index 3dca1d785525d464268059f6c6e204cb0bda6740..0000000000000000000000000000000000000000
+diff --git a/dist/.tsbuildinfo b/dist/.tsbuildinfo
+deleted file mode 100644
+index 25cdc3e99cfd758848e0634b6a533c609fd2815e..0000000000000000000000000000000000000000
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 528bed82dc4136afdcc65547656a5f32aad69119..f5fc56477e64618d633175785365b60a049f1982 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,12 +1,12 @@
+-export * from '#lib/structures/FunctionParser';
+-export * from '#lib/structures/NamespaceParser';
+-export * from '#lib/structures/ProjectParser';
+-export * from '#lib/structures/TypeAliasParser';
+-export * from '#lib/structures/VariableParser';
+-export * from '#lib/structures/class-parser';
+-export * from '#lib/structures/enum-parser';
+-export * from '#lib/structures/interface-parser';
+-export * from '#lib/structures/misc';
+-export * from '#lib/structures/type-parsers';
+-export * from '#lib/types';
++export * from './lib/structures/FunctionParser';
++export * from './lib/structures/NamespaceParser';
++export * from './lib/structures/ProjectParser';
++export * from './lib/structures/TypeAliasParser';
++export * from './lib/structures/VariableParser';
++export * from './lib/structures/class-parser';
++export * from './lib/structures/enum-parser';
++export * from './lib/structures/interface-parser';
++export * from './lib/structures/misc';
++export * from './lib/structures/type-parsers';
++export * from './lib/types';
+ //# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/lib/structures/FunctionParser.d.ts b/dist/lib/structures/FunctionParser.d.ts
+index 9e8df6bdef9636b371300385c1f4489066d59093..40a7638c661df6d599fdd2cf9a24fffe458fe60c 100644
+--- a/dist/lib/structures/FunctionParser.d.ts
++++ b/dist/lib/structures/FunctionParser.d.ts
+@@ -1,5 +1,5 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { CommentParser, SignatureParser } from '#lib/structures/misc';
++import { Parser } from '../structures/Parser';
++import { CommentParser, SignatureParser } from '../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a function reflection.
+diff --git a/dist/lib/structures/NamespaceParser.d.ts b/dist/lib/structures/NamespaceParser.d.ts
+index bc1d13895ed38c227685d42f818cd230cd2af190..a6d4205faa5d299c3436748c0b1999324134b896 100644
+--- a/dist/lib/structures/NamespaceParser.d.ts
++++ b/dist/lib/structures/NamespaceParser.d.ts
+@@ -1,12 +1,12 @@
+-import { FunctionParser } from '#lib/structures/FunctionParser';
+-import { Parser } from '#lib/structures/Parser';
+-import { TypeAliasParser } from '#lib/structures/TypeAliasParser';
+-import { VariableParser } from '#lib/structures/VariableParser';
+-import { ClassParser } from '#lib/structures/class-parser';
+-import { EnumParser } from '#lib/structures/enum-parser';
+-import { InterfaceParser } from '#lib/structures/interface-parser';
+-import { CommentParser } from '#lib/structures/misc';
+-import { type SearchResult } from '#lib/types';
++import { FunctionParser } from '../structures/FunctionParser';
++import { Parser } from '../structures/Parser';
++import { TypeAliasParser } from '../structures/TypeAliasParser';
++import { VariableParser } from '../structures/VariableParser';
++import { ClassParser } from '../structures/class-parser';
++import { EnumParser } from '../structures/enum-parser';
++import { InterfaceParser } from '../structures/interface-parser';
++import { CommentParser } from '../structures/misc';
++import { type SearchResult } from '../types';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a namespace reflection.
+diff --git a/dist/lib/structures/Parser.d.ts b/dist/lib/structures/Parser.d.ts
+index 0bb81b7241a774445726d4b31544a72f9e7bbd77..254d4c453ec2096b00d40419baf3a416f551a037 100644
+--- a/dist/lib/structures/Parser.d.ts
++++ b/dist/lib/structures/Parser.d.ts
+@@ -1,4 +1,4 @@
+-import type { SourceParser } from '#lib/structures/misc';
++import type { SourceParser } from '../structures/misc';
+ /**
+  * The base parser for all top level exported parsers.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/ProjectParser.d.ts b/dist/lib/structures/ProjectParser.d.ts
+index 528fdbf11cd7e6caf2e1b4c7ef97a850dc0be607..a8642a4664a3f85ea4063915ab6efea1b245ebc1 100644
+--- a/dist/lib/structures/ProjectParser.d.ts
++++ b/dist/lib/structures/ProjectParser.d.ts
+@@ -1,11 +1,11 @@
+-import { ClassParser } from '#lib/structures/class-parser';
+-import { EnumParser } from '#lib/structures/enum-parser';
+-import { FunctionParser } from '#lib/structures/FunctionParser';
+-import { InterfaceParser } from '#lib/structures/interface-parser';
+-import { NamespaceParser } from '#lib/structures/NamespaceParser';
+-import { TypeAliasParser } from '#lib/structures/TypeAliasParser';
+-import { VariableParser } from '#lib/structures/VariableParser';
+-import { type SearchResult } from '#lib/types';
++import { ClassParser } from '../structures/class-parser';
++import { EnumParser } from '../structures/enum-parser';
++import { FunctionParser } from '../structures/FunctionParser';
++import { InterfaceParser } from '../structures/interface-parser';
++import { NamespaceParser } from '../structures/NamespaceParser';
++import { TypeAliasParser } from '../structures/TypeAliasParser';
++import { VariableParser } from '../structures/VariableParser';
++import { type SearchResult } from '../types';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from `JSONOutput.ProjectReflection` or {@link ProjectParser.Json}
+diff --git a/dist/lib/structures/TypeAliasParser.d.ts b/dist/lib/structures/TypeAliasParser.d.ts
+index c8ef17eeb7ed564bbf48793fe9fa23b40facedad..13fb91e4abf1f8ce556d40290fe17445fd74b7fa 100644
+--- a/dist/lib/structures/TypeAliasParser.d.ts
++++ b/dist/lib/structures/TypeAliasParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { CommentParser, TypeParameterParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { Parser } from '../structures/Parser';
++import { CommentParser, TypeParameterParser } from '../structures/misc';
++import { TypeParser } from '../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a type alias reflection.
+diff --git a/dist/lib/structures/VariableParser.d.ts b/dist/lib/structures/VariableParser.d.ts
+index 5ecf374c50661b246815355ef8f5ce4ddfcbea77..04532e42e692df4ed96606db3d5460df6fe947bf 100644
+--- a/dist/lib/structures/VariableParser.d.ts
++++ b/dist/lib/structures/VariableParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { CommentParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { Parser } from '../structures/Parser';
++import { CommentParser } from '../structures/misc';
++import { TypeParser } from '../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a variable reflection.
+diff --git a/dist/lib/structures/class-parser/ClassConstructorParser.d.ts b/dist/lib/structures/class-parser/ClassConstructorParser.d.ts
+index cba50e03934e9c0176160330d4698a17f0fe869a..6a144a5950e591cc1f8153e537af3abb93c575ef 100644
+--- a/dist/lib/structures/class-parser/ClassConstructorParser.d.ts
++++ b/dist/lib/structures/class-parser/ClassConstructorParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { ClassParser } from '#lib/structures/class-parser';
+-import { CommentParser, ParameterParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { ClassParser } from '../../structures/class-parser';
++import { CommentParser, ParameterParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ export declare class ClassConstructorParser extends Parser {
+     /**
+diff --git a/dist/lib/structures/class-parser/ClassMethodParser.d.ts b/dist/lib/structures/class-parser/ClassMethodParser.d.ts
+index 9bd7d848f073fa43c573167c65f3aeca30754fc6..f36dd87b41d5bd4fb73b05fad5923e75ab8770b2 100644
+--- a/dist/lib/structures/class-parser/ClassMethodParser.d.ts
++++ b/dist/lib/structures/class-parser/ClassMethodParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { ClassParser } from '#lib/structures/class-parser';
+-import { SignatureParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { ClassParser } from '../../structures/class-parser';
++import { SignatureParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a class method reflection.
+diff --git a/dist/lib/structures/class-parser/ClassParser.d.ts b/dist/lib/structures/class-parser/ClassParser.d.ts
+index fc67fdb8c4421dc3ccdaf161fbc4c2abda47b1ee..a02594cd3fafbd05a228cfe378c4fdfbd9f972a8 100644
+--- a/dist/lib/structures/class-parser/ClassParser.d.ts
++++ b/dist/lib/structures/class-parser/ClassParser.d.ts
+@@ -1,7 +1,7 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { ClassConstructorParser, ClassMethodParser, ClassPropertyParser } from '#lib/structures/class-parser';
+-import { CommentParser, TypeParameterParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { Parser } from '../../structures/Parser';
++import { ClassConstructorParser, ClassMethodParser, ClassPropertyParser } from '../../structures/class-parser';
++import { CommentParser, TypeParameterParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a class reflection.
+diff --git a/dist/lib/structures/class-parser/ClassPropertyParser.d.ts b/dist/lib/structures/class-parser/ClassPropertyParser.d.ts
+index cf08dbf39f59a79f114cca6e61986da9d73a01ac..c78ad2b3df43f0c5e4b1e2e1dd9f234594f2eac1 100644
+--- a/dist/lib/structures/class-parser/ClassPropertyParser.d.ts
++++ b/dist/lib/structures/class-parser/ClassPropertyParser.d.ts
+@@ -1,7 +1,7 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { ClassParser } from '#lib/structures/class-parser';
+-import { CommentParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { Parser } from '../../structures/Parser';
++import { ClassParser } from '../../structures/class-parser';
++import { CommentParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a class property reflection.
+diff --git a/dist/lib/structures/enum-parser/EnumMemberParser.d.ts b/dist/lib/structures/enum-parser/EnumMemberParser.d.ts
+index 4be2e8e0114b35c9aa198c871057b35614cd36e1..cf9fd0048856a23596dc9e3a98286424f8f4d90c 100644
+--- a/dist/lib/structures/enum-parser/EnumMemberParser.d.ts
++++ b/dist/lib/structures/enum-parser/EnumMemberParser.d.ts
+@@ -1,5 +1,5 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { CommentParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { CommentParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from an enum property reflection.
+diff --git a/dist/lib/structures/enum-parser/EnumParser.d.ts b/dist/lib/structures/enum-parser/EnumParser.d.ts
+index 328bab38f72aae4b408c0c6516abc38c00568a9d..7b3ae21f305542c4896f2f614c4f1e3aca395674 100644
+--- a/dist/lib/structures/enum-parser/EnumParser.d.ts
++++ b/dist/lib/structures/enum-parser/EnumParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { EnumMemberParser } from '#lib/structures/enum-parser';
+-import { CommentParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { EnumMemberParser } from '../../structures/enum-parser';
++import { CommentParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from an enum reflection.
+diff --git a/dist/lib/structures/interface-parser/InterfaceMethodParser.d.ts b/dist/lib/structures/interface-parser/InterfaceMethodParser.d.ts
+index 8081a98a327b78270a1167aea942203edecec8ac..b81846b5d92bc436165e955c6e282ae1418535aa 100644
+--- a/dist/lib/structures/interface-parser/InterfaceMethodParser.d.ts
++++ b/dist/lib/structures/interface-parser/InterfaceMethodParser.d.ts
+@@ -1,5 +1,5 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { SignatureParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { SignatureParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from an interface method reflection.
+diff --git a/dist/lib/structures/interface-parser/InterfaceParser.d.ts b/dist/lib/structures/interface-parser/InterfaceParser.d.ts
+index dfc4ca2cd4fecd68d118ca92002c68caf928119d..743e4f9dad20d44740aa6d6b3f28f831a01e6203 100644
+--- a/dist/lib/structures/interface-parser/InterfaceParser.d.ts
++++ b/dist/lib/structures/interface-parser/InterfaceParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { InterfaceMethodParser, InterfacePropertyParser } from '#lib/structures/interface-parser';
+-import { CommentParser, TypeParameterParser } from '#lib/structures/misc';
++import { Parser } from '../../structures/Parser';
++import { InterfaceMethodParser, InterfacePropertyParser } from '../../structures/interface-parser';
++import { CommentParser, TypeParameterParser } from '../../structures/misc';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from an interface reflection.
+diff --git a/dist/lib/structures/interface-parser/InterfacePropertyParser.d.ts b/dist/lib/structures/interface-parser/InterfacePropertyParser.d.ts
+index ad93de3b3bb65e2abdf951d24696de9e12dded03..35860936b3314470aeb1b0a2417e102d5387a982 100644
+--- a/dist/lib/structures/interface-parser/InterfacePropertyParser.d.ts
++++ b/dist/lib/structures/interface-parser/InterfacePropertyParser.d.ts
+@@ -1,6 +1,6 @@
+-import { Parser } from '#lib/structures/Parser';
+-import { CommentParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { Parser } from '../../structures/Parser';
++import { CommentParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from an interface property reflection.
+diff --git a/dist/lib/structures/misc/MethodParser.d.ts b/dist/lib/structures/misc/MethodParser.d.ts
+index 0dd3695cf63657024c4923dba75a027ceecdc46e..2274de499eb3766896cc63aa94412d41ff597199 100644
+--- a/dist/lib/structures/misc/MethodParser.d.ts
++++ b/dist/lib/structures/misc/MethodParser.d.ts
+@@ -1,4 +1,4 @@
+-import { SignatureParser } from '#lib/structures/misc';
++import { SignatureParser } from '../../structures/misc';
+ import { JSONOutput } from 'typedoc';
+ export declare class MethodParser {
+     /**
+diff --git a/dist/lib/structures/misc/ParameterParser.d.ts b/dist/lib/structures/misc/ParameterParser.d.ts
+index 898264b91f9b197bd64d6de6c7d13489a088e57b..3dfef48be5d62387937eb07bd083d1179b99641f 100644
+--- a/dist/lib/structures/misc/ParameterParser.d.ts
++++ b/dist/lib/structures/misc/ParameterParser.d.ts
+@@ -1,5 +1,5 @@
+-import { CommentParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { CommentParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a parameter reflection.
+diff --git a/dist/lib/structures/misc/PropertyParser.d.ts b/dist/lib/structures/misc/PropertyParser.d.ts
+index d5008ac07e7f8ff20951e2003feef4e7721faed0..9be6cb82f32e8d485ab7dbd671927d309afc7243 100644
+--- a/dist/lib/structures/misc/PropertyParser.d.ts
++++ b/dist/lib/structures/misc/PropertyParser.d.ts
+@@ -1,5 +1,5 @@
+-import { CommentParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { CommentParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a property reflection.
+diff --git a/dist/lib/structures/misc/SignatureParser.d.ts b/dist/lib/structures/misc/SignatureParser.d.ts
+index 689fca7d284a8157866bc2998944d0c7259efa16..12cb6bbfbe1a743a2ba23f5ad72d825db9a9df2a 100644
+--- a/dist/lib/structures/misc/SignatureParser.d.ts
++++ b/dist/lib/structures/misc/SignatureParser.d.ts
+@@ -1,5 +1,5 @@
+-import { CommentParser, ParameterParser, TypeParameterParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { CommentParser, ParameterParser, TypeParameterParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a signature reflection.
+diff --git a/dist/lib/structures/misc/TypeParameterParser.d.ts b/dist/lib/structures/misc/TypeParameterParser.d.ts
+index ea01453cbb5456110fee8540c5cdfc52cb818f9e..7be9309f4a4bd9e61017c1347e854b49d267ef72 100644
+--- a/dist/lib/structures/misc/TypeParameterParser.d.ts
++++ b/dist/lib/structures/misc/TypeParameterParser.d.ts
+@@ -1,4 +1,4 @@
+-import { TypeParser } from '#lib/structures/type-parsers';
++import { TypeParser } from '../../structures/type-parsers';
+ import type { JSONOutput } from 'typedoc';
+ /**
+  * Parses data from a type parameter reflection.
+diff --git a/dist/lib/structures/type-parsers/ArrayTypeParser.d.ts b/dist/lib/structures/type-parsers/ArrayTypeParser.d.ts
+index 1cfe3aa7ac6df1f780fd46a132cecc4ce61cb1b2..50fed745a1068a54010dabbc0a55393714efeaf3 100644
+--- a/dist/lib/structures/type-parsers/ArrayTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/ArrayTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an array type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/ConditionalTypeParser.d.ts b/dist/lib/structures/type-parsers/ConditionalTypeParser.d.ts
+index 88fe458ac570f369f64c804225d5269c110e5ee6..8ad85aae0e88962598fae3b11bddbac482f1a073 100644
+--- a/dist/lib/structures/type-parsers/ConditionalTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/ConditionalTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a conditional type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/IndexedAccessTypeParser.d.ts b/dist/lib/structures/type-parsers/IndexedAccessTypeParser.d.ts
+index 8ea9514c009d891c5c7c88f5cdc0a4b06c92d7cf..75a260acb1c7b7161d2d912c55345d28088a4c36 100644
+--- a/dist/lib/structures/type-parsers/IndexedAccessTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/IndexedAccessTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an indexed access type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/InferredTypeParser.d.ts b/dist/lib/structures/type-parsers/InferredTypeParser.d.ts
+index 7f72470cf4b5e2797138a55294194fde7710f65b..84426b88f2f65a13eea4af48a4a267f4562ea2d6 100644
+--- a/dist/lib/structures/type-parsers/InferredTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/InferredTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an inferred type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/IntersectionTypeParser.d.ts b/dist/lib/structures/type-parsers/IntersectionTypeParser.d.ts
+index c2774c29f19f909ddb6ad642ebe9da1d6b4ee3e2..844c90ae875ae846c69baf5d52134aebd9926b73 100644
+--- a/dist/lib/structures/type-parsers/IntersectionTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/IntersectionTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an intersection type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/IntrinsicTypeParser.d.ts b/dist/lib/structures/type-parsers/IntrinsicTypeParser.d.ts
+index 259b23db8d891459c361f0d08f19673f0fbd74d8..e3c62649f700590ba89bead90006611ab9fbcba5 100644
+--- a/dist/lib/structures/type-parsers/IntrinsicTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/IntrinsicTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an intrinsic type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/LiteralTypeParser.d.ts b/dist/lib/structures/type-parsers/LiteralTypeParser.d.ts
+index 6d2dedea9e7c1b3d20ac25b400257dcfaebf0473..ac2e0f259771171e14838edbf6c14c76e7f2ff7a 100644
+--- a/dist/lib/structures/type-parsers/LiteralTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/LiteralTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a literal type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/MappedTypeParser.d.ts b/dist/lib/structures/type-parsers/MappedTypeParser.d.ts
+index 7f6c63ea023b542fbde387d4d3ced71b6835dafb..241b8510f1e5b417948476ba48416a63886d6a30 100644
+--- a/dist/lib/structures/type-parsers/MappedTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/MappedTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a mapped type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/NamedTupleMemberTypeParser.d.ts b/dist/lib/structures/type-parsers/NamedTupleMemberTypeParser.d.ts
+index 9216ce0a8d6421edb772d216d923910d8538aea3..66d846e83b38aca444d78040a42b569bf5a73ce8 100644
+--- a/dist/lib/structures/type-parsers/NamedTupleMemberTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/NamedTupleMemberTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a named tuple member.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/OptionalTypeParser.d.ts b/dist/lib/structures/type-parsers/OptionalTypeParser.d.ts
+index f9387e77cdee6ab61d8c17aacf0907faa4cddc40..20e6039ad43a1301d102ebaba1762e9740000d19 100644
+--- a/dist/lib/structures/type-parsers/OptionalTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/OptionalTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an optional type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/PredicateTypeParser.d.ts b/dist/lib/structures/type-parsers/PredicateTypeParser.d.ts
+index b48e75d4da028ba29fbdee32ccc82087f968d5b4..9b677c331f45e416e8646e25070f78e8d6072f93 100644
+--- a/dist/lib/structures/type-parsers/PredicateTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/PredicateTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a predicate type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/QueryTypeParser.d.ts b/dist/lib/structures/type-parsers/QueryTypeParser.d.ts
+index 0b72e0a228d0104586e6a0dea751bdf3ddb92e92..dfbbac89df941e1ae5895be05ddc397dd02b7b10 100644
+--- a/dist/lib/structures/type-parsers/QueryTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/QueryTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser, type ReferenceTypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser, type ReferenceTypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a query type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/ReferenceTypeParser.d.ts b/dist/lib/structures/type-parsers/ReferenceTypeParser.d.ts
+index 927f4c08b10b2b7dc52ad9dc812cec1d9edfe6eb..84fe06c92082f93fa782af4aef44b49a139aac5d 100644
+--- a/dist/lib/structures/type-parsers/ReferenceTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/ReferenceTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a reference type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/ReflectionTypeParser.d.ts b/dist/lib/structures/type-parsers/ReflectionTypeParser.d.ts
+index d712b7e10cc64be682595a9a622c33c6a32b5f83..d6ce1489328a09c1bf8ab3f522aec259e86b7a4f 100644
+--- a/dist/lib/structures/type-parsers/ReflectionTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/ReflectionTypeParser.d.ts
+@@ -1,6 +1,6 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { MethodParser, PropertyParser, SignatureParser } from '#lib/structures/misc';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { MethodParser, PropertyParser, SignatureParser } from '../../structures/misc';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a reflection type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/RestTypeParser.d.ts b/dist/lib/structures/type-parsers/RestTypeParser.d.ts
+index 43458687085d6b586d883de3bd548d900ecb4794..1147a958621eac75c2b8ae85b391f2caff392000 100644
+--- a/dist/lib/structures/type-parsers/RestTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/RestTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a rest type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/TemplateLiteralTypeParser.d.ts b/dist/lib/structures/type-parsers/TemplateLiteralTypeParser.d.ts
+index 4f7c49cabf1efe1a817a08c2d60bd79a3e0e3551..1bd285c5f3b93288dfd6e0702f32cf9754fc0f74 100644
+--- a/dist/lib/structures/type-parsers/TemplateLiteralTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/TemplateLiteralTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a template literal type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/TupleTypeParser.d.ts b/dist/lib/structures/type-parsers/TupleTypeParser.d.ts
+index 8f23d623f84ca78784449b8861b922b2886e72c1..5530340cbdae3acf9e11615a0057f883d678524b 100644
+--- a/dist/lib/structures/type-parsers/TupleTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/TupleTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a tuple type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/TypeOperatorTypeParser.d.ts b/dist/lib/structures/type-parsers/TypeOperatorTypeParser.d.ts
+index 2f5087cfc7ec73601cb220ff9699146995e190b3..16a407a81d764ce4166790c7e8024eb1bd73cae6 100644
+--- a/dist/lib/structures/type-parsers/TypeOperatorTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/TypeOperatorTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a type operator type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/TypeParser.d.ts b/dist/lib/structures/type-parsers/TypeParser.d.ts
+index 79dee76389a70a9fb022c3d7a5eb6f596ee61464..e48b603374752ff28fc8733aa7d58f714a7785fa 100644
+--- a/dist/lib/structures/type-parsers/TypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/TypeParser.d.ts
+@@ -1,4 +1,4 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
++import type { ProjectParser } from '../../structures/ProjectParser';
+ import { type JSONOutput } from 'typedoc';
+ /**
+  * The base interface for all type parsers.
+diff --git a/dist/lib/structures/type-parsers/UnionTypeParser.d.ts b/dist/lib/structures/type-parsers/UnionTypeParser.d.ts
+index f73dde3da36dd173b0ce47340f4b74967ef8648d..6b20b76054c4e2cff844796fe25ecb35bb54b95e 100644
+--- a/dist/lib/structures/type-parsers/UnionTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/UnionTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for a union type.
+  * @since 1.0.0
+diff --git a/dist/lib/structures/type-parsers/UnknownTypeParser.d.ts b/dist/lib/structures/type-parsers/UnknownTypeParser.d.ts
+index e243e2ad34bf6a380069f310076765927d38f9f4..1c2c279ff22f3ece0d010a892996a690af843fe2 100644
+--- a/dist/lib/structures/type-parsers/UnknownTypeParser.d.ts
++++ b/dist/lib/structures/type-parsers/UnknownTypeParser.d.ts
+@@ -1,5 +1,5 @@
+-import type { ProjectParser } from '#lib/structures/ProjectParser';
+-import { TypeParser } from '#lib/structures/type-parsers';
++import type { ProjectParser } from '../../structures/ProjectParser';
++import { TypeParser } from '../../structures/type-parsers';
+ /**
+  * Parses data for an unknown type.
+  * @since 1.0.0
+diff --git a/dist/lib/types/SearchResult.d.ts b/dist/lib/types/SearchResult.d.ts
+index db2365fa43d5e10d190307aee3ed70ab65e9ba64..4a1415882a6f5de31799444532960c1388e14377 100644
+--- a/dist/lib/types/SearchResult.d.ts
++++ b/dist/lib/types/SearchResult.d.ts
+@@ -1,10 +1,10 @@
+-import type { ClassConstructorParser, ClassMethodParser, ClassParser, ClassPropertyParser } from '#lib/structures/class-parser';
+-import type { EnumMemberParser, EnumParser } from '#lib/structures/enum-parser';
+-import type { FunctionParser } from '#lib/structures/FunctionParser';
+-import type { InterfaceParser, InterfacePropertyParser } from '#lib/structures/interface-parser';
+-import type { ParameterParser, SignatureParser, TypeParameterParser } from '#lib/structures/misc';
+-import type { NamespaceParser } from '#lib/structures/NamespaceParser';
+-import type { TypeAliasParser } from '#lib/structures/TypeAliasParser';
+-import type { VariableParser } from '#lib/structures/VariableParser';
++import type { ClassConstructorParser, ClassMethodParser, ClassParser, ClassPropertyParser } from '../structures/class-parser';
++import type { EnumMemberParser, EnumParser } from '../structures/enum-parser';
++import type { FunctionParser } from '../structures/FunctionParser';
++import type { InterfaceParser, InterfacePropertyParser } from '../structures/interface-parser';
++import type { ParameterParser, SignatureParser, TypeParameterParser } from '../structures/misc';
++import type { NamespaceParser } from '../structures/NamespaceParser';
++import type { TypeAliasParser } from '../structures/TypeAliasParser';
++import type { VariableParser } from '../structures/VariableParser';
+ export type SearchResult = ClassParser | ClassConstructorParser | ClassMethodParser | SignatureParser | TypeParameterParser | ParameterParser | ClassPropertyParser | VariableParser | EnumParser | EnumMemberParser | FunctionParser | InterfaceParser | InterfacePropertyParser | NamespaceParser | TypeAliasParser;
+ //# sourceMappingURL=SearchResult.d.ts.map
+\ No newline at end of file
+diff --git a/package.json b/package.json
+index eeceda9a99e91b9e66c069716ad2ab053363ab79..8194741b9be7b940d7de1353beff7737dfc619ac 100644
+--- a/package.json
++++ b/package.json
+@@ -21,10 +21,6 @@
+   "main": "dist/index.js",
+   "module": "dist/index.js",
+   "types": "dist/index.d.ts",
+-  "exports": {
+-    "types": "./dist/index.d.ts",
+-    "import": "./dist/index.js"
+-  },
+   "bin": "./dist/bin/index.js",
+   "sideEffects": false,
+   "scripts": {
+@@ -42,6 +38,9 @@
+     "prepack": "yarn build && pinst --disable",
+     "postpack": "pinst --enable"
+   },
++  "peerDependencies": {
++    "typescript": "4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x"
++  },
+   "dependencies": {
+     "@favware/colorette-spinner": "^1.0.1",
+     "@sapphire/node-utilities": "^1.0.0",
+@@ -49,8 +48,7 @@
+     "commander": "^11.0.0",
+     "js-yaml": "^4.1.0",
+     "tslib": "^2.6.2",
+-    "typedoc": "^0.25.1",
+-    "typescript": "^5.2.2"
++    "typedoc": "^0.25.1"
+   },
+   "devDependencies": {
+     "@commitlint/cli": "^17.7.1",
+@@ -74,7 +72,8 @@
+     "prettier": "^3.0.3",
+     "rimraf": "^5.0.1",
+     "vite-tsconfig-paths": "^4.2.1",
+-    "vitest": "^0.34.5"
++    "vitest": "^0.34.5",
++    "typescript": "5.2.2"
+   },
+   "repository": {
+     "type": "git",

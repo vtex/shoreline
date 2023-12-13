@@ -9,7 +9,7 @@
   "select": "Select",
   "spinner": "Spinner",
   "tag": "Tag",
-  "textarea": "Text Area",
-  "textinput": "TextInput",
+  "text-input": "TextInput",
+  "textarea": "Textarea",
   "visually-hidden": "VisuallyHidden"
 }
