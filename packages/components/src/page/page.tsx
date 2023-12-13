@@ -10,12 +10,10 @@ export const Page = forwardRef<HTMLDivElement, PageProps>(function Page(
   const { children, ...otherProps } = props
 
   return (
-    <Container data-sl-page ref={ref} {...otherProps}>
+    <Container data-sl-page ref={ref} tabIndex={0} {...otherProps}>
       {children}
     </Container>
   )
 })
 
-export interface PageProps extends ComponentPropsWithoutRef<'div'> {
-  className?: string
-}
+export type PageProps = ComponentPropsWithoutRef<'div'>

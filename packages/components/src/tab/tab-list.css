@@ -4,5 +4,7 @@
     flex-direction: row;
     gap: var(--sl-space-2);
     outline: none;
+    width: 100%;
+    border-bottom: var(--sl-border);
   }
 }

@@ -1,0 +1,8 @@
+@layer sl-components {
+  [data-sl-page-header] {
+    /* flex components are always 100% */
+    & *:is([data-sl-flex]) {
+      width: 100%;
+    }
+  }
+}

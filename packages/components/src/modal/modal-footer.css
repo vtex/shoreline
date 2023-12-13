@@ -1,0 +1,11 @@
+@layer sl-components {
+  [data-sl-modal-footer] {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    column-gap: var(--sl-space-2);
+    background: var(--sl-bg);
+    border-top: var(--sl-border);
+  }
+}
