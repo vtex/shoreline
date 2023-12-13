@@ -1,6 +1,0 @@
-{
-  "admin.app.a-vtex-app": {
-    "component": "a-vtex-app",
-    "path": "/admin/app/rocket/not-a-nextjs-route/:id"
-  }
-}
