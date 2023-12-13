@@ -17,13 +17,7 @@ export async function generateComponent(
   func: FunctionParser,
   path: string
 ) {
-  const componentProps: Array<{
-    propName: string
-    propOptional: boolean
-    propDescription: string
-    propType: string
-    propDefaultValue?: string
-  }> = []
+  const componentProps: ComponentProps[] = []
 
   const props = project.interfaces.find((i) => {
     return i.name === `${func.name}Props`
@@ -150,6 +144,33 @@ export async function generateMetaJSON(
 }
 
 /**
+ * Component props interface of the component handlebar template,
+ * organized in the same order as the template.
+ */
+interface ComponentProps {
+  /**
+   * The name of the prop
+   */
+  propName: string
+  /**
+   * Whether the prop is optional or not
+   */
+  propOptional: boolean
+  /**
+   * The description of the prop
+   */
+  propDescription: string
+  /**
+   * The type of the prop
+   */
+  propType: string
+  /**
+   * The default value of the prop. This comes from the `@default` TypeDoc tag
+   */
+  propDefaultValue?: string
+}
+
+/**
  * The _meta.json file interface for Nextra
  */
-type MetaFile = Array<{ [key: string]: string }>
+type MetaFile = Array<Record<string, string>>
