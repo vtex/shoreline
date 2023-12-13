@@ -1,18 +1,49 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { DialogDismiss, DialogHeading } from '@ariakit/react'
+import { IconX } from '@vtex/shoreline-icons'
+
 import { Flex } from '../flex'
 import { IconButton } from '../icon-button'
-import { IconX } from '@vtex/shoreline-icons'
 import { Bleed } from '../bleed'
-import { Header } from '../header'
+import { Content } from '../content'
+import './modal-header.css'
 
+/**
+ * Header of the Modal
+ * @example
+ * ```jsx
+ * function Example() {
+ *  const [open, setOpen] = React.useState(false)
+ *
+ *  return (
+ *    <>
+ *      <Button onClick={() => setOpen(true)}>Open modal</Button>
+ *      <Modal
+ *        open={open}
+ *        onClose={() => {
+ *          setOpen(false)
+ *        }}
+ *      >
+ *        <ModalHeader>Title</ModalHeader>
+ *      </Modal>
+ *    </>
+ *  )
+ * }
+ * ```
+ */
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   function Modal(props, ref) {
     const { children, ...otherProps } = props
 
     return (
-      <Header data-sl-modal-header narrow {...otherProps} ref={ref}>
+      <Content
+        as="header"
+        data-sl-modal-header
+        narrow
+        ref={ref}
+        {...otherProps}
+      >
         <Flex justify="space-between">
           <DialogHeading data-sl-modal-title>{children}</DialogHeading>
           <Bleed vertical horizontal>
@@ -23,7 +54,7 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
             </IconButton>
           </Bleed>
         </Flex>
-      </Header>
+      </Content>
     )
   }
 )
