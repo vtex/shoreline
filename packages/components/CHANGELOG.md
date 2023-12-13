@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.39.1...@vtex/shoreline-components@0.40.0) (2023-12-13)
+
+### Features
+
+- **shadow tokens:** updated shadow tokens ([9c7bb50](https://github.com/vtex/admin-ui/commit/9c7bb50f149469377822ed3320fec18d6d3378ad))
+
 ## [0.39.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.39.0...@vtex/shoreline-components@0.39.1) (2023-12-12)
 
 **Note:** Version bump only for package @vtex/shoreline-components
