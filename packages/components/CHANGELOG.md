@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.40.1...@vtex/shoreline-components@0.41.0) (2023-12-13)
+
+### Features
+
+- **components:** remove header, rebuild scrollable containers ([bb3b449](https://github.com/vtex/admin-ui/commit/bb3b4495f13a245c8cc9108e4d2f0dca510d8aa4))
+
 ## [0.40.1](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.40.0...@vtex/shoreline-components@0.40.1) (2023-12-13)
 
 **Note:** Version bump only for package @vtex/shoreline-components
