@@ -1,4 +1,6 @@
 /* PLOP_INJECT_EXPORT */
+export * from './time-field'
+export * from './date-range-picker'
 export * from './date-input'
 export * from './date-picker'
 export * from './range-calendar'
