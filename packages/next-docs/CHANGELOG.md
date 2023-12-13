@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.2.12...@shoreline/next-docs@0.3.0) (2023-12-13)
+
+### Features
+
+- generate docs with handlebars ([8095e52](https://github.com/vtex/shoreline/commit/8095e5245b4fd4d9aaf90c6213854ea39453bcd3))
+
 ## [0.2.12](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.2.11...@shoreline/next-docs@0.2.12) (2023-12-13)
 
 **Note:** Version bump only for package @shoreline/next-docs
