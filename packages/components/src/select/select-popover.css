@@ -2,7 +2,7 @@
   [data-sl-select-popover] {
     background: var(--sl-bg);
     border: var(--sl-border);
-    box-shadow: var(--sl-shadow-2);
+    box-shadow: var(--sl-shadow-1);
     border-radius: var(--sl-border-radius-medium);
     z-index: var(--sl-z-6);
   }

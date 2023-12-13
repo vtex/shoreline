@@ -2,7 +2,7 @@
   [data-sl-popover] {
     background: var(--sl-bg);
     border: var(--sl-border);
-    box-shadow: var(--sl-shadow-2);
+    box-shadow: var(--sl-shadow-1);
     border-radius: var(--sl-border-radius-medium);
     z-index: var(--sl-z-6);
     /* ideally we should be using Content to handle the padding */

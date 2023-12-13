@@ -20,7 +20,7 @@
     background-color: var(--sl-bg);
 
     color: var(--sl-fg);
-    box-shadow: var(--sl-shadow-1);
+    box-shadow: var(--sl-shadow-2);
   }
 
   [data-sl-modal-backdrop] {
