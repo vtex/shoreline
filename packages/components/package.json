@@ -28,12 +28,12 @@
     "build": "tsup"
   },
   "repository": {
-    "directory": "packages/admin-ui",
+    "directory": "packages/components",
     "type": "git",
-    "url": "git+https://github.com/vtex/admin-ui.git"
+    "url": "git+https://github.com/vtex/shoreline.git"
   },
   "bugs": {
-    "url": "https://github.com/vtex/admin-ui/issues"
+    "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -42,9 +42,6 @@
   "devDependencies": {
     "@faker-js/faker": "8.3.1",
     "@types/react-window": "1.8.8",
-    "@vtex/shoreline-cli": "workspace:*",
-    "@vtex/shoreline-preset-admin": "workspace:*",
-    "@vtex/shoreline-theme": "workspace:*",
     "match-sorter": "6.3.1",
     "postcss": "8.4.32",
     "postcss-preset-env": "9.3.0",
@@ -58,7 +55,6 @@
     "@react-aria/i18n": "3.9.0",
     "@react-aria/interactions": "3.20.0",
     "@react-stately/toggle": "3.7.0",
-    "@tanstack/react-table": "8.10.7",
     "@tanstack/react-virtual": "3.0.1",
     "@vtex/shoreline-icons": "0.2.3",
     "@vtex/shoreline-utils": "0.6.0",

@@ -252,9 +252,6 @@ importers:
       '@react-stately/toggle':
         specifier: 3.7.0
         version: 3.7.0(react@18.2.0)
-      '@tanstack/react-table':
-        specifier: 8.10.7
-        version: 8.10.7(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-virtual':
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -280,15 +277,6 @@ importers:
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
-      '@vtex/shoreline-cli':
-        specifier: workspace:*
-        version: link:../cli
-      '@vtex/shoreline-preset-admin':
-        specifier: workspace:*
-        version: link:../preset-admin
-      '@vtex/shoreline-theme':
-        specifier: workspace:*
-        version: link:../theme
       match-sorter:
         specifier: 6.3.1
         version: 6.3.1
