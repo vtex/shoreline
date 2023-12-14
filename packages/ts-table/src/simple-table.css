@@ -1,0 +1,14 @@
+@layer sl-components {
+  [data-sl-simple-table] {
+    width: 100%;
+
+    &[data-virtualize='true'] {
+      height: 31.25rem;
+      overflow-y: auto;
+    }
+  }
+
+  [data-sl-detail-row] {
+    background: var(--sl-bg-muted);
+  }
+}
