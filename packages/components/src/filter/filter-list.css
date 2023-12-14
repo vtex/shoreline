@@ -9,11 +9,11 @@
     max-height: var(--sl-filter-list-height);
     overflow-y: auto;
     overflow-x: hidden;
-    &[data-focus-visible] {
+    &[data-focus-visible], &:focus-visible {
       outline: none;
     };
     &[data-sl-combobox-list] {
-      padding-top: 0rem;
+      padding-top: var(--sl-space-0);
     };
   }
 }

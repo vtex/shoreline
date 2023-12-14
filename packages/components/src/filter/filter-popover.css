@@ -11,7 +11,7 @@
 
   [data-sl-filter-popover] {
     width: var(--sl-filter-popover-width);
-    padding: 0rem;
+    padding: var(--sl-space-0);
   }
 
   [data-sl-filter-popover-combobox] {
@@ -29,9 +29,7 @@
   }
 
   [data-sl-filter-option] {
-    padding: 0rem;
-    padding-top: var(--sl-space-2);
-    padding-bottom: var(--sl-space-2);
+    padding: var(--sl-space-2) var(--sl-space-0);
     color: var(--sl-fg-base);
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
@@ -40,7 +38,7 @@
       background: var(--sl-bg-plain);
     }
 
-    &[data-active-item]&[data-focus-visible] {
+    &[data-active-item][data-focus-visible] {
         & [data-sl-filter-option-check] {
           box-shadow: var(--sl-focus-ring);
         }
