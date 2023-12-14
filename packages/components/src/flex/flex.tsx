@@ -1,52 +1,45 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
-import type { CSSProperty } from '@vtex/shoreline-utils'
+import { slComponent, type CSSProperty } from '@vtex/shoreline-utils'
 import './flex.css'
 
-export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
-  props,
-  ref
-) {
-  const {
-    children,
-    order = 0,
-    direction = 'row',
-    grow = 0,
-    wrap = 'nowrap',
-    shrink = 1,
-    basis = 'auto',
-    justify = 'flex-start',
-    align = 'stretch',
-    gap = 0,
-    rowGap = 0,
-    columnGap = 0,
-    ...restProps
-  } = props
+export const Flex = slComponent<FlexProps>('div', {
+  name: 'flex',
+  useProps(props) {
+    const {
+      children,
+      order = 0,
+      direction = 'row',
+      grow = 0,
+      wrap = 'nowrap',
+      shrink = 1,
+      basis = 'auto',
+      justify = 'flex-start',
+      align = 'stretch',
+      gap = 0,
+      rowGap = 0,
+      columnGap = 0,
+      style,
+      ...restProps
+    } = props
 
-  return (
-    <div
-      data-sl-flex
-      ref={ref}
-      style={
-        {
-          '--sl-flex-order': order,
-          '--sl-flex-direction': direction,
-          '--sl-flex-grow': grow,
-          '--sl-flex-wrap': wrap,
-          '--sl-flex-shrink': shrink,
-          '--sl-flex-basis': basis,
-          '--sl-flex-justify': justify,
-          '--sl-flex-align': align,
-          '--sl-flex-gap': gap,
-          '--sl-flex-rowGap': rowGap,
-          '--sl-flex-columnGap': columnGap,
-        } as CSSProperties
-      }
-      {...restProps}
-    >
-      {children}
-    </div>
-  )
+    return {
+      style: {
+        '--sl-flex-order': order,
+        '--sl-flex-direction': direction,
+        '--sl-flex-grow': grow,
+        '--sl-flex-wrap': wrap,
+        '--sl-flex-shrink': shrink,
+        '--sl-flex-basis': basis,
+        '--sl-flex-justify': justify,
+        '--sl-flex-align': align,
+        '--sl-flex-gap': gap,
+        '--sl-flex-rowGap': rowGap,
+        '--sl-flex-columnGap': columnGap,
+        ...style,
+      } as CSSProperties,
+      ...restProps,
+    }
+  },
 })
 
 export type FlexProps = ComponentPropsWithoutRef<'div'> & FlexShorthandProps

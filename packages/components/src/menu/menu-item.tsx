@@ -1,33 +1,22 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
 import { MenuItem as BaseMenuItem } from '@ariakit/react'
 import './menu-item.css'
+import { slComponent, useAriakitComposition } from '@vtex/shoreline-utils'
 
-export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-  function MenuItem(props, ref) {
-    const {
-      children,
-      asChild = false,
-      critical = false,
-      disabled = false,
-      ...otherProps
-    } = props
+export const MenuItem = slComponent<MenuItemProps>(BaseMenuItem, {
+  name: 'menu-item',
+  useProps(props) {
+    const { critical = false, disabled = false, ...otherProps } = props
 
-    return (
-      <BaseMenuItem
-        data-sl-menu-item
-        data-critical={critical}
-        data-disabled={disabled}
-        ref={ref}
-        render={asChild && (children as any)}
-        disabled={disabled}
-        {...otherProps}
-      >
-        {children}
-      </BaseMenuItem>
-    )
-  }
-)
+    return {
+      'data-disabled': disabled,
+      'data-critical': critical,
+      disabled,
+      ...otherProps,
+    }
+  },
+  useComposition: useAriakitComposition,
+})
 
 export interface MenuItemProps extends ComponentPropsWithoutRef<'div'> {
   /**

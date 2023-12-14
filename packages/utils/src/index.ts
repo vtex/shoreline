@@ -29,6 +29,10 @@ import {
 } from './string-case'
 import { invariant } from './invariant'
 import { warning } from './warning'
+import {
+  slComponent,
+  useAriakitAsChild as useAriakitComposition,
+} from './sl-component'
 
 export {
   chain,
@@ -63,7 +67,10 @@ export {
   upperFirst,
   invariant,
   warning,
+  slComponent,
+  useAriakitComposition,
 }
 
+export * from './compose'
 export * from './css-types'
 export * from './utility-types'
