@@ -33,20 +33,14 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'packages/components/src/{{kebabCase name}}/tests/{{kebabCase name}}.vitest.test.tsx',
-        templateFile: 'templates/component/tests/component.vitest.test.tsx.hbs',
+        path: 'packages/components/src/{{kebabCase name}}/tests/{{kebabCase name}}.test.tsx',
+        templateFile: 'templates/component/tests/component.test.tsx.hbs',
       },
       {
         type: 'append',
         path: 'packages/components/src/index.ts',
         pattern: `/* PLOP_INJECT_EXPORT */`,
         template: `export * from './{{kebabCase name}}'`,
-      },
-      {
-        type: 'append',
-        path: 'packages/components/src/styles.css',
-        pattern: `/* PLOP_INJECT_STYLES */`,
-        template: `@import './{{kebabCase name}}/{{kebabCase name}}.css';`,
       },
     ],
   })
