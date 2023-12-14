@@ -1,12 +1,11 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
-import { slComponent, type CSSProperty } from '@vtex/shoreline-utils'
+import { createComponent, type CSSProperty } from '@vtex/shoreline-utils'
 import './flex.css'
 
-export const Flex = slComponent<FlexProps>('div', {
+export const Flex = createComponent<FlexProps>('div', {
   name: 'flex',
   useProps(props) {
     const {
-      children,
       order = 0,
       direction = 'row',
       grow = 0,

@@ -30,9 +30,9 @@ import {
 import { invariant } from './invariant'
 import { warning } from './warning'
 import {
-  slComponent,
+  createComponent,
   useAriakitAsChild as useAriakitComposition,
-} from './sl-component'
+} from './create-component'
 
 export {
   chain,
@@ -67,7 +67,7 @@ export {
   upperFirst,
   invariant,
   warning,
-  slComponent,
+  createComponent,
   useAriakitComposition,
 }
 

@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { MenuItem as BaseMenuItem } from '@ariakit/react'
 import './menu-item.css'
-import { slComponent, useAriakitComposition } from '@vtex/shoreline-utils'
+import { createComponent, useAriakitComposition } from '@vtex/shoreline-utils'
 
-export const MenuItem = slComponent<MenuItemProps>(BaseMenuItem, {
+export const MenuItem = createComponent<MenuItemProps>(BaseMenuItem, {
   name: 'menu-item',
   useProps(props) {
     const { critical = false, disabled = false, ...otherProps } = props

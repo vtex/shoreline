@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
-import { slComponent, useAriakitAsChild } from '../sl-component'
+import { createComponent } from '../create-component'
 
 export default {
   title: 'utils',
@@ -10,7 +10,7 @@ export default {
  * A title for something
  * @example
  */
-const Title = slComponent<TitleProps>('h1', {
+const Title = createComponent<TitleProps>('h1', {
   name: 'title',
   useProps(props) {
     const { theme = 'red', ...rest } = props
@@ -20,23 +20,6 @@ const Title = slComponent<TitleProps>('h1', {
       ...rest,
     }
   },
-})
-
-/**
- * A title for something
- * @example
- */
-const AriakitChildren = slComponent<TitleProps>(Title, {
-  name: 'title',
-  useProps(props) {
-    const { theme = 'red', ...rest } = props
-
-    return {
-      'data-theme': theme,
-      ...rest,
-    }
-  },
-  useComposition: useAriakitAsChild,
 })
 
 export interface TitleProps {

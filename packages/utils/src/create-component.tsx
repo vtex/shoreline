@@ -5,7 +5,7 @@ import { kebabCase, pascalCase } from './string-case'
 import type { AnyObject } from './utility-types'
 import { Compose } from './compose'
 
-export function slComponent<P extends AnyObject = {}>(
+export function createComponent<P extends AnyObject = {}>(
   root: Root,
   props: ShorelineComponentProps<P>
 ) {

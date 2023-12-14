@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import { slComponent } from '@vtex/shoreline-utils'
+import { createComponent } from '@vtex/shoreline-utils'
 import './center.css'
 
-export const Center = slComponent<CenterProps>('div', {
+export const Center = createComponent<CenterProps>('div', {
   name: 'center',
 })
 
