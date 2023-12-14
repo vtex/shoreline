@@ -19,11 +19,11 @@ import {
   VisuallyHidden,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 import { getExpandedColumn } from '../columns'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -113,7 +113,7 @@ export function Detail() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:

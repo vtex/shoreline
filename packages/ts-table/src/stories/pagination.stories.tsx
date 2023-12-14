@@ -22,10 +22,10 @@ import {
   Stack,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -133,7 +133,7 @@ export function ClientPagination() {
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
         total={data.length}
       />
-      <SimpleTable data={paginatedData} columns={columns} />
+      <TsTable data={paginatedData} columns={columns} />
     </Stack>
   )
 }
@@ -245,7 +245,7 @@ export function ServerPagination() {
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
         total={data.length}
       />
-      <SimpleTable data={products} columns={columns} />
+      <TsTable data={products} columns={columns} />
     </Stack>
   )
 }

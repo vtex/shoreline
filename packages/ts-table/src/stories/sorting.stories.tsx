@@ -2,10 +2,10 @@ import React, { useMemo, useState } from 'react'
 import type { ColumnDef, SortingState } from '@tanstack/react-table'
 import { Tag, Flex, Text } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 const products = [
@@ -163,7 +163,7 @@ export function Sorting() {
     []
   )
 
-  return <SimpleTable data={products} columns={columns} sortable />
+  return <TsTable data={products} columns={columns} sortable />
 }
 
 const fakeAPI = (sorting: SortingState, size: number) => {
@@ -245,7 +245,7 @@ export function SortingControlled() {
     <>
       <div>Sort state: {JSON.stringify(sorting)}</div>
 
-      <SimpleTable
+      <TsTable
         data={fakeAPI(sorting, 5)}
         columns={columns}
         sortable

@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 interface Service {
@@ -34,7 +34,7 @@ export function ClickableRows() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={services}
       columns={columns}
       rowClick={{

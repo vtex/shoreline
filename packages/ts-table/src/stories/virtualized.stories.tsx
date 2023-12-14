@@ -3,10 +3,10 @@ import type { ColumnDef } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
 import { useVirtualizerModel } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 interface Service {
@@ -45,7 +45,7 @@ export function VirtualizedRows() {
 
   return (
     <>
-      <SimpleTable
+      <TsTable
         data={data}
         columns={columns}
         rowClick={{

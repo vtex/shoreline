@@ -19,10 +19,10 @@ import {
   VisuallyHidden,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
   argTypes: {
     columnWidths: {
       description: 'Array of column widths',
@@ -125,7 +125,7 @@ export function CustomColumnWidths(props) {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:

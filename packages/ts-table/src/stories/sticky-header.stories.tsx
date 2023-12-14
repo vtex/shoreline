@@ -19,7 +19,7 @@ import {
   VisuallyHidden,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 const data = [...Array(30)].map((_, index) => ({
   id: index,
@@ -31,7 +31,7 @@ const data = [...Array(30)].map((_, index) => ({
 }))
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -119,5 +119,5 @@ export function StickyHeader() {
     []
   )
 
-  return <SimpleTable data={data} columns={columns} stickyHeader />
+  return <TsTable data={data} columns={columns} stickyHeader />
 }

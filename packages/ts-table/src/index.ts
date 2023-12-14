@@ -1,2 +1,2 @@
-export * from './simple-table'
+export * from './ts-table'
 export * from './columns'

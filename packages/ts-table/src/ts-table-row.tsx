@@ -1,6 +1,5 @@
 import type { ReactNode, Ref } from 'react'
 import React, { Fragment } from 'react'
-
 import { flexRender, type Row } from '@tanstack/react-table'
 import type {
   TableRowProps,
@@ -12,11 +11,10 @@ import {
   TableCell,
   TableRow,
 } from '@vtex/shoreline-components'
-
 import { forwardRef } from '@vtex/shoreline-utils'
 
-export const SimpleTableRow = forwardRef(function SimpleTableRow<T>(
-  props: SimpleTableRowProps<T>,
+export const TsTableRow = forwardRef(function TsTableRow<T>(
+  props: TsTableRowProps<T>,
   ref: Ref<HTMLDivElement>
 ) {
   const { row, id, rowClick, renderDetail, children, ...otherProps } = props
@@ -69,7 +67,7 @@ export const SimpleTableRow = forwardRef(function SimpleTableRow<T>(
         })}
       </TableRow>
       {row.getIsExpanded() && (
-        <TableRow data-sl-detail-row selected={row.getIsSelected()}>
+        <TableRow data-sl-ts-table-detail-row selected={row.getIsSelected()}>
           <TableCell
             style={{
               gridColumn: `1 / span ${row.getVisibleCells().length}`,
@@ -83,7 +81,7 @@ export const SimpleTableRow = forwardRef(function SimpleTableRow<T>(
   )
 })
 
-export interface SimpleTableRowProps<T> extends TableRowProps {
+export interface TsTableRowProps<T> extends TableRowProps {
   row: Row<T>
   rowClick?: RowClick<T>
   renderDetail?: (row: Row<T>) => ReactNode

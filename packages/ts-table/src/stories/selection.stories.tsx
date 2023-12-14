@@ -20,10 +20,10 @@ import {
   VisuallyHidden,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable, getSelectionColum } from '../index'
+import { TsTable, getSelectionColum } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -113,7 +113,7 @@ export function Selection() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:

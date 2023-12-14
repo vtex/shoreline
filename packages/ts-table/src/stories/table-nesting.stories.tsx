@@ -2,11 +2,11 @@ import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { Flex } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 import { getExpandedColumn } from '../columns'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Country = {
@@ -46,7 +46,7 @@ export function Nesting() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           continent: 'Asia',
@@ -67,7 +67,7 @@ export function Nesting() {
             width: '100%',
           }}
         >
-          <SimpleTable data={row.original.countries} columns={countryColumns} />
+          <TsTable data={row.original.countries} columns={countryColumns} />
         </Flex>
       )}
     />

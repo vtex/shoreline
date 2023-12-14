@@ -1,5 +1,5 @@
 @layer sl-components {
-  [data-sl-simple-table] {
+  [data-sl-ts-table] {
     width: 100%;
 
     &[data-virtualize='true'] {
@@ -8,7 +8,7 @@
     }
   }
 
-  [data-sl-detail-row] {
+  [data-sl-ts-table-detail-row] {
     background: var(--sl-bg-muted);
   }
 }

@@ -21,10 +21,10 @@ import {
   VisuallyHidden,
 } from '@vtex/shoreline-components'
 
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'ts-table/table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -113,7 +113,7 @@ export function Default() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:
