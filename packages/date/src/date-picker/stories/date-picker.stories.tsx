@@ -19,8 +19,8 @@ export function Controlled() {
 
   return (
     <Stack>
-      <p>Selected Date: {value.toString()}</p>
-      <p>Focused Date: {focusedValue.toString()}</p>
+      <p>Selected Date: {value?.toString() ?? 'none'}</p>
+      <p>Focused Date: {focusedValue?.toString() ?? 'none'}</p>
       <button
         onClick={() => {
           setValue(now)

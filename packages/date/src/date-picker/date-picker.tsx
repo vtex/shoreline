@@ -3,7 +3,6 @@ import type { AriaDatePickerProps } from '@react-aria/datepicker'
 import { useDatePicker } from '@react-aria/datepicker'
 import { useDatePickerState } from '@react-stately/datepicker'
 import {
-  Bleed,
   Flex,
   IconButton,
   Popover,
@@ -40,21 +39,18 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         <Flex {...groupProps} ref={ref}>
           <DateField
             {...fieldProps}
-            suffix={
-              <Bleed vertical="$space-3" horizontal="$space-4">
-                <PopoverTrigger asChild>
-                  <IconButton
-                    id={buttonProps.id}
-                    label={buttonProps['aria-label']}
-                    aria-describedby={buttonProps['aria-describedby']}
-                    size="large"
-                    variant="tertiary"
-                    data-sl-date-picker-icon-button
-                  >
-                    <IconCalendarBlank />
-                  </IconButton>
-                </PopoverTrigger>
-              </Bleed>
+            endSlot={
+              <PopoverTrigger asChild>
+                <IconButton
+                  id={buttonProps.id}
+                  label={buttonProps['aria-label']}
+                  aria-label={buttonProps['aria-label']}
+                  aria-describedby={buttonProps['aria-describedby']}
+                  data-sl-date-picker-icon-button
+                >
+                  <IconCalendarBlank />
+                </IconButton>
+              </PopoverTrigger>
             }
           />
         </Flex>
