@@ -101,7 +101,7 @@
       "pnpm lint --fix",
       "prettier --write"
     ],
-    "*.{css}": [
+    "*.css": [
       "pnpm lint:css --fix"
     ],
     "*.{gql,json,yml,md}": [
