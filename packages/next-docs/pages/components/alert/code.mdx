@@ -1,0 +1,28 @@
+# Alert
+
+Alert indicators allow users to view semantic messages that are prominent and can be dismissable.
+
+```jsx
+<Alert onDismiss={() => {}}>
+  <Text>Message</Text>
+  <Button variant="tertiary">Action</Button>
+</Alert>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.AlertProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `onDismiss` (optional)
+
+- Type: `@types/react.React.MouseEventHandler<typescript.HTMLButtonElement>`
+
+### `variant` (optional)
+
+- Type: `@vtex/shoreline-components.AlertVariant`
+
+[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/alert/alert.tsx#L22)
