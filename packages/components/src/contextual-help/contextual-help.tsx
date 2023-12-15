@@ -1,14 +1,14 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import './contextual-help.css'
 import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
-import { IconQuestion } from '@vtex/shoreline-icons'
 import { Content } from '../content'
-import { IconButton } from '../icon-button'
+import { Button } from '../button'
+import './contextual-help.css'
 
 /**
- * Shows the user information relative to a context
+ * Merchants contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.
+ *
  * @example
  * <ContextualHelp label="Meaningful label">
  *  Help message
@@ -24,6 +24,7 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
       setOpen,
       defaultOpen,
       store,
+      narrow = false,
       ...otherProps
     } = props
 
@@ -36,11 +37,16 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
           store={store}
         >
           <PopoverTrigger asChild>
-            <IconButton variant="tertiary" label={label}>
-              <IconQuestion />
-            </IconButton>
+            <Button data-sl-contextual-help-trigger aria-label={label}>
+              <div data-sl-contextual-help-trigger-bg>?</div>
+            </Button>
           </PopoverTrigger>
-          <Popover data-sl-contextual-help-popover ref={ref} {...otherProps}>
+          <Popover
+            data-sl-contextual-help-popover
+            data-sl-contextual-help-popover-narrow={narrow}
+            ref={ref}
+            {...otherProps}
+          >
             <Content>{children}</Content>
           </Popover>
         </PopoverProvider>
@@ -49,15 +55,28 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
   }
 )
 
+/**
+ * Props for the ContextualHelp component
+ */
 export interface ContextualHelpProps
   extends ComponentPropsWithoutRef<'div'>,
     Pick<PopoverProviderProps, 'open' | 'setOpen' | 'defaultOpen' | 'store'> {
   /**
-   * Label for the help
+   * aria-abel for the contextual help trigger
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
    */
   label: string
   /**
    * Children prop
    */
   children?: ReactNode
+  /**
+   * Controls the padding of the contextual help popover.
+   * This prop defines whether it should be narrow or not.
+   * It is not narrow by default.
+   *
+   * @default false
+   */
+  narrow?: boolean
 }
