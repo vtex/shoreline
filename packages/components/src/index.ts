@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './slot'
 export * from './contextual-help'
 export * from './page'
 export * from './toast'
