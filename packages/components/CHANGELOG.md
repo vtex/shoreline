@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.41.0...@vtex/shoreline-components@0.42.0) (2023-12-15)
+
+### Features
+
+- **ts-table:** create package ([46dd537](https://github.com/vtex/shoreline/commit/46dd53704195b929c8aa846f52b92b8b6eea4c72))
+
 # [0.41.0](https://github.com/vtex/admin-ui/compare/@vtex/shoreline-components@0.40.1...@vtex/shoreline-components@0.41.0) (2023-12-13)
 
 ### Features
