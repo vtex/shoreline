@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.42.0...@vtex/shoreline-components@0.43.0) (2023-12-15)
+
+### Features
+
+- **slot:** create component ([f24bc1b](https://github.com/vtex/shoreline/commit/f24bc1b53f085d411d4da23bbbca5c45eeb937b1))
+
 # [0.42.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.41.0...@vtex/shoreline-components@0.42.0) (2023-12-15)
 
 ### Features
