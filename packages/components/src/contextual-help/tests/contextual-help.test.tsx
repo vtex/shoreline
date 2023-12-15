@@ -16,6 +16,12 @@ describe('contextual-help', () => {
       container.querySelector('[data-sl-contextual-help]')
     ).toBeInTheDocument()
     expect(
+      container.querySelector('[data-sl-contextual-help-trigger]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-contextual-help-trigger-bg]')
+    ).toBeInTheDocument()
+    expect(
       container.querySelector('[data-sl-contextual-help-popover]')
     ).toBeInTheDocument()
 
