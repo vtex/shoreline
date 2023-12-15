@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 
+import type { ContextualHelpProps } from '../index'
 import { ContextualHelp } from '../index'
 import { Text } from '../../text'
 import { Stack } from '../../stack'
-import { usePopoverStore } from '../../popover'
 import './contextual-help-stories.css'
 
 type BasePlacement = 'top' | 'bottom' | 'left' | 'right'
@@ -27,112 +28,21 @@ const placementOptions: Placement[] = [
   'right-end',
 ]
 
-export default {
-  title: 'shoreline-components/contextual-help',
-  argTypes: {
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
-    placement: {
-      control: {
-        type: 'select',
-        options: placementOptions,
-      },
-    },
-    narrow: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
-}
-
-export function Playground(props) {
-  const { placement, ...rest } = props
-  const store = usePopoverStore({
-    placement,
-  })
+function PlaygroundStory(props: ContextualHelpProps) {
+  const { label, children, ...otherProps } = props
 
   return (
-    <ContextualHelp label="Catalog indexing" store={store} {...rest}>
-      <Text as="p">
-        Catalog indexing refers to the process of creating an organized and
-        searchable index of information in a catalog. A catalog is a systematic
-        list or collection of items, often with details or descriptions, and
-        indexing is the method of creating an efficient and structured way to
-        access and retrieve information from that catalog.
-      </Text>
-    </ContextualHelp>
+    <Stack className="ch-examples ch-center ch-decorative-box">
+      <Text variant="display1">Playground</Text>
+      <ContextualHelp label={label} {...otherProps}>
+        {children}
+      </ContextualHelp>
+    </Stack>
   )
 }
 
 export function Examples() {
   const [open, setOpen] = useState(true)
-
-  const storeTop = usePopoverStore({
-    placement: 'top',
-  })
-
-  const storeBottom = usePopoverStore({
-    placement: 'bottom',
-  })
-
-  const storeLeft = usePopoverStore({
-    placement: 'left',
-  })
-
-  const storeRight = usePopoverStore({
-    placement: 'right',
-  })
-
-  const storeTopEnd = usePopoverStore({
-    placement: 'top-end',
-  })
-
-  const storeTopStart = usePopoverStore({
-    placement: 'top-start',
-  })
-
-  const storeBottomEnd = usePopoverStore({
-    placement: 'bottom-end',
-  })
-
-  const storeBottomStart = usePopoverStore({
-    placement: 'bottom-start',
-  })
-
-  const storeLeftEnd = usePopoverStore({
-    placement: 'left-end',
-  })
-
-  const storeLeftStart = usePopoverStore({
-    placement: 'left-start',
-  })
-
-  const storeRightEnd = usePopoverStore({
-    placement: 'right-end',
-  })
-
-  const storeRightStart = usePopoverStore({
-    placement: 'right-start',
-  })
-
-  const stores = [
-    storeTop,
-    storeBottom,
-    storeLeft,
-    storeRight,
-    storeTopEnd,
-    storeTopStart,
-    storeBottomEnd,
-    storeBottomStart,
-    storeLeftEnd,
-    storeLeftStart,
-    storeRightEnd,
-    storeRightStart,
-  ]
 
   return (
     <div className="ch-examples">
@@ -145,7 +55,7 @@ export function Examples() {
           I'm slightest narrower!
         </ContextualHelp>
       </Stack>
-      <Stack className="ch-placement ch-decorative-box ch-bg-green">
+      <Stack className="ch-center ch-decorative-box ch-bg-green">
         <Text variant="display1">Placement</Text>
         <table>
           <thead>
@@ -155,14 +65,14 @@ export function Examples() {
             </tr>
           </thead>
           <tbody>
-            {placementOptions.map((placement, index) => {
+            {placementOptions.map((placement) => {
               return (
                 <tr>
                   <th>
                     <span>{placement}</span>
                   </th>
                   <th>
-                    <ContextualHelp label="Message" store={stores[index]}>
+                    <ContextualHelp label="Message" placement={placement}>
                       Message
                     </ContextualHelp>
                   </th>
@@ -182,7 +92,7 @@ export function Examples() {
         </Stack>
       </Stack>
       <Stack className="ch-decorative-box ch-bg-green">
-        <Text variant="display1">Overflow</Text>
+        <Text variant="display1">Overflow & max height</Text>
         <ContextualHelp label="Catalog indexing">
           <Stack>
             <Text as="p">
@@ -239,4 +149,36 @@ export function Examples() {
       </Stack>
     </div>
   )
+}
+
+const meta: Meta<typeof ContextualHelp> = {
+  title: 'shoreline-components/contextual-help',
+  component: PlaygroundStory,
+}
+
+export default meta
+
+type Story = StoryObj<typeof ContextualHelp>
+export const Playground: Story = {
+  argTypes: {
+    placement: {
+      options: placementOptions,
+      control: { type: 'radio' },
+      description: 'Popover placement',
+      defaultValue: 'bottom',
+    },
+    label: {
+      control: { type: 'text' },
+      description: 'aria-abel for the contextual help trigger',
+    },
+    children: {
+      control: { type: 'text' },
+      description: 'Content of the contextual help',
+    },
+  },
+  args: {
+    label: 'Meaningful label',
+    placement: 'bottom-end',
+    children: `Message`,
+  },
 }

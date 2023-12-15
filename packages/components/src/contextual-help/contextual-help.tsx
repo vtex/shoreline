@@ -24,6 +24,7 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
       setOpen,
       defaultOpen,
       store,
+      placement,
       narrow = false,
       ...otherProps
     } = props
@@ -35,6 +36,7 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
           setOpen={setOpen}
           defaultOpen={defaultOpen}
           store={store}
+          placement={placement}
         >
           <PopoverTrigger asChild>
             <Button data-sl-contextual-help-trigger aria-label={label}>
@@ -60,7 +62,10 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
  */
 export interface ContextualHelpProps
   extends ComponentPropsWithoutRef<'div'>,
-    Pick<PopoverProviderProps, 'open' | 'setOpen' | 'defaultOpen' | 'store'> {
+    Pick<
+      PopoverProviderProps,
+      'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
+    > {
   /**
    * aria-abel for the contextual help trigger
    *
