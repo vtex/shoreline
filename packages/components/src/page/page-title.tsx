@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import './page-title.css'
-import { Text } from '../text'
+import { Heading } from '../heading'
 
 /**
  * Title of a page
@@ -18,15 +18,15 @@ export const PageTitle = forwardRef<HTMLHeadingElement, PageTitleProps>(
     const { children, ...otherProps } = props
 
     return (
-      <Text
-        as="h1"
+      <Heading
+        level={1}
         variant="display3"
         data-sl-page-title
         ref={ref}
         {...otherProps}
       >
         {children}
-      </Text>
+      </Heading>
     )
   }
 )

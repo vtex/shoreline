@@ -4,9 +4,4 @@
     top: 0;
     background: var(--sl-bg);
   }
-
-  [data-sl-modal-title] {
-    font: var(--sl-text-display-2-font);
-    letter-spacing: var(--sl-text-display-2-letter-spacing);
-  }
 }

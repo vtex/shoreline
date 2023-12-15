@@ -14,12 +14,6 @@ export function Default() {
 export function as() {
   return (
     <>
-      <Text as="h1">Heading 1</Text>
-      <Text as="h2">Heading 2</Text>
-      <Text as="h3">Heading 3</Text>
-      <Text as="h4">Heading 4</Text>
-      <Text as="h5">Heading 5</Text>
-      <Text as="h6">Heading 6</Text>
       <Text as="div">div</Text>
       <Text as="p">p</Text>
       <Text as="label">label</Text>
@@ -28,12 +22,12 @@ export function as() {
 }
 
 export function ref() {
-  const refHeading = useRef<HTMLHeadingElement>(null)
+  const refParagraph = useRef<HTMLParagraphElement>(null)
   const refLabel = useRef<HTMLLabelElement>(null)
 
   return (
     <>
-      <Text as="h1" ref={refHeading}>
+      <Text as="p" ref={refParagraph}>
         Heading 1
       </Text>
 

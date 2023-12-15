@@ -8,6 +8,7 @@ import { IconButton } from '../icon-button'
 import { Bleed } from '../bleed'
 import { Content } from '../content'
 import './modal-header.css'
+import { Heading } from '../heading'
 
 /**
  * Header of the Modal
@@ -45,7 +46,9 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
         {...otherProps}
       >
         <Flex justify="space-between">
-          <DialogHeading data-sl-modal-title>{children}</DialogHeading>
+          <Heading asChild variant="display2">
+            <DialogHeading data-sl-modal-title>{children}</DialogHeading>
+          </Heading>
           <Bleed vertical horizontal>
             <IconButton variant="tertiary" label="close" asChild>
               <DialogDismiss>
