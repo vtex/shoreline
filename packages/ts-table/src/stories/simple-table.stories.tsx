@@ -1,3 +1,4 @@
+import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {
   IconCloudArrowUp,
@@ -7,34 +8,23 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
 
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { IconButton } from '../../icon-button'
-import { Tag } from '../../tag'
 import {
   Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,
   MenuSeparator,
-} from '../../menu'
-import { VisuallyHidden } from '../../visually-hidden'
-import { SimpleTable } from '../index'
+  Tag,
+  Text,
+  IconButton,
+  Flex,
+  VisuallyHidden,
+} from '@vtex/shoreline-components'
+
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
-  argTypes: {
-    columnWidths: {
-      description: 'Array of column widths',
-      default: ['1fr', '1fr', '1fr', '1fr'],
-      options: [
-        ['1fr', '2fr', '0.8fr', '0.2fr'],
-        ['1fr', '1fr', '2fr', '0fr'],
-        ['3fr', '0.3fr', '0.3fr', '0.3fr'],
-      ],
-      control: { type: 'radio' },
-    },
-  },
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -44,8 +34,7 @@ type Product = {
   status: string
 }
 
-export function CustomColumnWidths(props) {
-  const { columnWidths } = props
+export function Default() {
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
       {
@@ -73,7 +62,6 @@ export function CustomColumnWidths(props) {
       {
         accessorKey: 'updatedAt',
         header: 'Last update',
-        width: '123123rem',
       },
       {
         accessorKey: 'status',
@@ -83,7 +71,7 @@ export function CustomColumnWidths(props) {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -125,7 +113,7 @@ export function CustomColumnWidths(props) {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:
@@ -150,7 +138,6 @@ export function CustomColumnWidths(props) {
         },
       ]}
       columns={columns}
-      columnWidths={columnWidths}
     />
   )
 }

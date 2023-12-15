@@ -1,12 +1,12 @@
-import '../simple-table.css'
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
-import { SimpleTable } from '../index'
 import { faker } from '@faker-js/faker'
-import { useVirtualizerModel } from '../../virtual'
+import { useVirtualizerModel } from '@vtex/shoreline-components'
+
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 interface Service {
@@ -15,7 +15,7 @@ interface Service {
   price: string
 }
 
-export const data: Service[] = Array(50000)
+const data: Service[] = Array(50000)
   .fill(1)
   .map((_, id) => {
     return {
@@ -45,7 +45,7 @@ export function VirtualizedRows() {
 
   return (
     <>
-      <SimpleTable
+      <TsTable
         data={data}
         columns={columns}
         rowClick={{

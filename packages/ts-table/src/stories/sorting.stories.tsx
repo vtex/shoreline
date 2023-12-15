@@ -1,13 +1,11 @@
 import React, { useMemo, useState } from 'react'
 import type { ColumnDef, SortingState } from '@tanstack/react-table'
+import { Tag, Flex, Text } from '@vtex/shoreline-components'
 
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { Tag } from '../../tag'
-import { SimpleTable } from '../index'
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 const products = [
@@ -150,7 +148,7 @@ export function Sorting() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -165,7 +163,7 @@ export function Sorting() {
     []
   )
 
-  return <SimpleTable data={products} columns={columns} sortable />
+  return <TsTable data={products} columns={columns} sortable />
 }
 
 const fakeAPI = (sorting: SortingState, size: number) => {
@@ -228,7 +226,7 @@ export function SortingControlled() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -247,7 +245,7 @@ export function SortingControlled() {
     <>
       <div>Sort state: {JSON.stringify(sorting)}</div>
 
-      <SimpleTable
+      <TsTable
         data={fakeAPI(sorting, 5)}
         columns={columns}
         sortable

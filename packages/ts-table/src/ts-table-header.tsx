@@ -1,14 +1,18 @@
 import type { Ref } from 'react'
 import React from 'react'
-import { TableHeader, TableHeaderCell, TableRow } from '../table'
-import type { TableHeaderProps } from '../table'
+import {
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+} from '@vtex/shoreline-components'
+import type { TableHeaderProps } from '@vtex/shoreline-components'
 import { flexRender } from '@tanstack/react-table'
 import type { HeaderGroup } from '@tanstack/react-table'
 import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 import { forwardRef } from '@vtex/shoreline-utils'
 
-export const SimpleTableHeader = forwardRef(function SimpleTableHeader<T>(
-  props: SimpleTableRowProps<T>,
+export const TsTableHeader = forwardRef(function TsTableHeader<T>(
+  props: TsTableRowProps<T>,
   ref: Ref<HTMLDivElement>
 ) {
   const { headers, children, ...otherProps } = props
@@ -42,6 +46,6 @@ export const SimpleTableHeader = forwardRef(function SimpleTableHeader<T>(
   )
 })
 
-export interface SimpleTableRowProps<T> extends TableHeaderProps {
+export interface TsTableRowProps<T> extends TableHeaderProps {
   headers: Array<HeaderGroup<T>>
 }

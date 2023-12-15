@@ -1,9 +1,7 @@
 import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { IconCaretDown, IconCaretRight } from '@vtex/shoreline-icons'
-
-import { VisuallyHidden } from '../../visually-hidden'
-import { IconButton } from '../../icon-button'
+import { VisuallyHidden, IconButton } from '@vtex/shoreline-components'
 
 export function getExpandedColumn<T>(): ColumnDef<T> {
   return {

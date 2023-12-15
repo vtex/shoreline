@@ -1,8 +1,5 @@
-import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {
-  IconCaretDown,
-  IconCaretRight,
   IconCloudArrowUp,
   IconDotsThreeVertical,
   IconPencil,
@@ -10,22 +7,23 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
 
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { IconButton } from '../../icon-button'
-import { Tag } from '../../tag'
 import {
   Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,
   MenuSeparator,
-} from '../../menu'
-import { VisuallyHidden } from '../../visually-hidden'
-import { SimpleTable, getSelectionColum } from '../index'
+  Flex,
+  Text,
+  IconButton,
+  Tag,
+  VisuallyHidden,
+} from '@vtex/shoreline-components'
+
+import { TsTable, getSelectionColum } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -73,7 +71,7 @@ export function Selection() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -115,7 +113,7 @@ export function Selection() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:

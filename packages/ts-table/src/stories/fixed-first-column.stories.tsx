@@ -6,20 +6,20 @@ import {
   IconTrash,
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
-
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { IconButton } from '../../icon-button'
-import { Tag } from '../../tag'
 import {
   Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,
   MenuSeparator,
-} from '../../menu'
-import { VisuallyHidden } from '../../visually-hidden'
-import { SimpleTable } from '../index'
+  Flex,
+  Text,
+  IconButton,
+  Tag,
+  VisuallyHidden,
+} from '@vtex/shoreline-components'
+
+import { TsTable } from '../index'
 
 const data = [...Array(30)].map((_, index) => ({
   imageUrl:
@@ -37,7 +37,7 @@ const data = [...Array(30)].map((_, index) => ({
 }))
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -84,7 +84,7 @@ export function StickyFirstColumn() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -153,7 +153,7 @@ export function StickyFirstColumn() {
     []
   )
 
-  return <SimpleTable data={data} columns={columns} stickyColumn />
+  return <TsTable data={data} columns={columns} stickyColumn />
 }
 
 export function StickyFirstColumnWithStickyHeader() {
@@ -193,7 +193,7 @@ export function StickyFirstColumnWithStickyHeader() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -262,5 +262,5 @@ export function StickyFirstColumnWithStickyHeader() {
     []
   )
 
-  return <SimpleTable data={data} columns={columns} stickyColumn stickyHeader />
+  return <TsTable data={data} columns={columns} stickyColumn stickyHeader />
 }

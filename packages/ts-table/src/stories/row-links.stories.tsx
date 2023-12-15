@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
-import { SimpleTable } from '../index'
+
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 interface Service {
@@ -18,7 +19,7 @@ const services: Service[] = [
   { name: 'Azion', url: 'https://www.azion.com', price: '300 USD / Year' },
 ]
 
-export function ClickableRows() {
+export function RowLinks() {
   const columns = useMemo<Array<ColumnDef<Service>>>(
     () => [
       {
@@ -34,14 +35,15 @@ export function ClickableRows() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={services}
       columns={columns}
       rowClick={{
-        type: 'action',
-        onClick: (row) => {
-          alert(`You clicked: ${row.original.name}`)
+        type: 'link',
+        getHref(row) {
+          return row.original.url
         },
+        target: '_blank',
       }}
     />
   )

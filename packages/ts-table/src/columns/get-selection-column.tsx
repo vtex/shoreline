@@ -1,8 +1,6 @@
 import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
-
-import { Checkbox } from '../../checkbox'
-import { VisuallyHidden } from '../../visually-hidden'
+import { Checkbox, VisuallyHidden } from '@vtex/shoreline-components'
 
 export function getSelectionColum<T>(): ColumnDef<T> {
   return {

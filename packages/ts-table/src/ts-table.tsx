@@ -11,23 +11,30 @@ import {
   getSortedRowModel,
 } from '@tanstack/react-table'
 import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
+import type {
+  TableProps,
+  UseVirtualizerModelReturn,
+} from '@vtex/shoreline-components'
+import {
+  Table,
+  TableRow,
+  TableBody,
+  TableCell,
+} from '@vtex/shoreline-components'
 
-import type { TableProps } from '../table'
-import './simple-table.css'
-import { Table, TableRow, TableBody, TableCell } from '../table'
-import type { UseVirtualizerModelReturn } from '../virtual'
-import { SimpleTableRow } from './simple-table-row'
-import type { SimpleTableRowProps } from './simple-table-row'
-import { SimpleTableHeader } from './simple-table-header'
+import './ts-table.css'
+import { TsTableRow } from './ts-table-row'
+import type { TsTableRowProps } from './ts-table-row'
+import { TsTableHeader } from './ts-table-header'
 
 /**
  * Controlled table render built on top of TanStack/Table API
  * @see https://tanstack.com/table/v8
  * @example
- * <SimpleTable data={[]} columsn={[]} options={{}} />
+ * <TsTable data={[]} columsn={[]} options={{}} />
  */
-export const SimpleTable = forwardRef(function SimpleTable<T>(
-  props: SimpleTableProps<T>,
+export const TsTable = forwardRef(function TsTable<T>(
+  props: TsTableProps<T>,
   ref: React.Ref<HTMLTableElement>
 ) {
   const {
@@ -71,16 +78,16 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
 
   return !virtualizer ? (
     <Table
-      data-sl-simple-table
+      data-sl-ts-table
       ref={ref}
       columnWidths={columnWidths}
       {...tableProps}
     >
-      <SimpleTableHeader headers={table.getHeaderGroups()} />
+      <TsTableHeader headers={table.getHeaderGroups()} />
 
       <TableBody>
         {rows.map((row) => (
-          <SimpleTableRow
+          <TsTableRow
             row={row}
             id={row.id}
             renderDetail={renderDetail}
@@ -91,13 +98,13 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
     </Table>
   ) : (
     <Table
-      data-sl-simple-table
+      data-sl-ts-table
       ref={mergedRef}
       columnWidths={columnWidths}
       data-virtualize
       {...tableProps}
     >
-      <SimpleTableHeader headers={table.getHeaderGroups()} />
+      <TsTableHeader headers={table.getHeaderGroups()} />
 
       <TableBody>
         {virtualizer.top > 0 &&
@@ -111,7 +118,7 @@ export const SimpleTable = forwardRef(function SimpleTable<T>(
           const row = rows[tableRow.index]
 
           return (
-            <SimpleTableRow
+            <TsTableRow
               row={row}
               id={String(tableRow.index)}
               renderDetail={renderDetail}
@@ -138,10 +145,10 @@ type Options<T> = Omit<TableOptions<T>, CoreProps | 'getCoreRowModel'> &
 
 type TsMirrorProps<T> = Pick<TableOptions<T>, CoreProps>
 
-export interface SimpleTableProps<T>
+export interface TsTableProps<T>
   extends TableProps,
     TsMirrorProps<T>,
-    Pick<SimpleTableRowProps<T>, 'rowClick' | 'renderDetail'> {
+    Pick<TsTableRowProps<T>, 'rowClick' | 'renderDetail'> {
   /**
    * Other TanStack/Table options
    * @see https://tanstack.com/table/v8/docs/api/core/table

@@ -7,25 +7,25 @@ import {
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
-
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { IconButton } from '../../icon-button'
-import { Tag } from '../../tag'
 import {
   Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,
   MenuSeparator,
-} from '../../menu'
-import { VisuallyHidden } from '../../visually-hidden'
-import { Pagination } from '../../pagination'
-import { SimpleTable } from '../index'
-import { Stack } from '../../stack'
+  Flex,
+  Text,
+  IconButton,
+  Tag,
+  VisuallyHidden,
+  Pagination,
+  Stack,
+} from '@vtex/shoreline-components'
+
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
 }
 
 type Product = {
@@ -133,7 +133,7 @@ export function ClientPagination() {
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
         total={data.length}
       />
-      <SimpleTable data={paginatedData} columns={columns} />
+      <TsTable data={paginatedData} columns={columns} />
     </Stack>
   )
 }
@@ -245,7 +245,7 @@ export function ServerPagination() {
         onPageChange={(page) => setPagination((prev) => ({ ...prev, page }))}
         total={data.length}
       />
-      <SimpleTable data={products} columns={columns} />
+      <TsTable data={products} columns={columns} />
     </Stack>
   )
 }

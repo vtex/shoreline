@@ -1,31 +1,40 @@
 import React, { useMemo } from 'react'
 import {
-  IconCaretDown,
-  IconCaretRight,
   IconCloudArrowUp,
   IconDotsThreeVertical,
   IconPencil,
   IconTrash,
 } from '@vtex/shoreline-icons'
 import type { ColumnDef } from '@tanstack/react-table'
-
-import { Flex } from '../../flex'
-import { Text } from '../../text'
-import { IconButton } from '../../icon-button'
-import { Tag } from '../../tag'
 import {
   Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,
   MenuSeparator,
-} from '../../menu'
-import { VisuallyHidden } from '../../visually-hidden'
-import { SimpleTable } from '../index'
-import { getExpandedColumn } from '../columns'
+  Flex,
+  Text,
+  IconButton,
+  Tag,
+  VisuallyHidden,
+} from '@vtex/shoreline-components'
+
+import { TsTable } from '../index'
 
 export default {
-  title: 'shoreline-components/simple-table',
+  title: 'ts-table/ts-table',
+  argTypes: {
+    columnWidths: {
+      description: 'Array of column widths',
+      default: ['1fr', '1fr', '1fr', '1fr'],
+      options: [
+        ['1fr', '2fr', '0.8fr', '0.2fr'],
+        ['1fr', '1fr', '2fr', '0fr'],
+        ['3fr', '0.3fr', '0.3fr', '0.3fr'],
+      ],
+      control: { type: 'radio' },
+    },
+  },
 }
 
 type Product = {
@@ -35,10 +44,10 @@ type Product = {
   status: string
 }
 
-export function Detail() {
+export function CustomColumnWidths(props) {
+  const { columnWidths } = props
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
-      getExpandedColumn(),
       {
         id: 'name',
         cell: ({
@@ -64,6 +73,7 @@ export function Detail() {
       {
         accessorKey: 'updatedAt',
         header: 'Last update',
+        width: '123123rem',
       },
       {
         accessorKey: 'status',
@@ -73,7 +83,7 @@ export function Detail() {
           const variant = value === 'Published' ? 'green' : 'gray'
 
           return (
-            <Tag variant={variant} size="normal">
+            <Tag color={variant} size="normal">
               {value as any}
             </Tag>
           )
@@ -115,7 +125,7 @@ export function Detail() {
   )
 
   return (
-    <SimpleTable
+    <TsTable
       data={[
         {
           imageUrl:
@@ -139,17 +149,8 @@ export function Detail() {
           status: 'Published',
         },
       ]}
-      getRowCanExpand={() => true}
       columns={columns}
-      renderDetail={(row) => (
-        <img
-          style={{
-            width: '10rem',
-          }}
-          alt={row.original.name}
-          src={row.original.imageUrl}
-        />
-      )}
+      columnWidths={columnWidths}
     />
   )
 }
