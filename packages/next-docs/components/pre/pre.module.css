@@ -6,16 +6,9 @@
 
 .livePreview {
   padding: var(--sl-space-8);
-  background-color: var(--sl-bg-accent);
   border-top-right-radius: var(--sl-border-radius-large);
   border-top-left-radius: var(--sl-border-radius-large);
-  background-color: var(--sl-color-gray-1);
-  opacity: 1;
-  background-image: radial-gradient(
-    var(--sl-color-gray-6) 0.025rem,
-    var(--sl-color-gray-1) 0.025rem
-  );
-  background-size: 0.75rem 0.75rem;
+  background: transparent;
 }
 
 .liveEditor {
