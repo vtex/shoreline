@@ -32,16 +32,6 @@
     font: inherit;
   }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
-
   #root,
   #__next {
     isolation: isolate;
@@ -50,23 +40,8 @@
 
 @layer sl-base {
   body {
-    background: var(--sl-bg-primary);
-    color: var(--sl-fg-primary);
-    font: var(--sl-text-body-font);
-    letter-spacing: var(--sl-text-body-letter-spacing);
-  }
-
-  p {
-    font: var(--sl-text-body-font);
-    letter-spacing: var(--sl-text-body-letter-spacing);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+    background: var(--sl-bg);
+    color: var(--sl-fg);
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
@@ -74,10 +49,5 @@
   pre,
   code {
     font-family: monospace;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
   }
 }
