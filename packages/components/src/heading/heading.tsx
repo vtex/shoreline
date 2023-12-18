@@ -4,7 +4,7 @@ import './heading.css'
 import { Compose } from '../compose'
 
 /**
- * Heding is used to define levels of typography
+ * Heading is used to define levels of typography
  * @example
  * <Heading>Headline text</Heading>
  */
