@@ -43,52 +43,52 @@
     }
 
     &[data-color='red'] {
-      --sl-element-bg-primary: var(--sl-color-red-9);
+      --sl-element-bg-primary: var(--sl-color-red-10);
       --sl-element-bg-secondary: var(--sl-color-red-3);
     }
 
     &[data-color='yellow'] {
-      --sl-element-bg-primary: var(--sl-color-yellow-9);
+      --sl-element-bg-primary: var(--sl-color-yellow-10);
       --sl-element-bg-secondary: var(--sl-color-yellow-3);
     }
 
     &[data-color='orange'] {
-      --sl-element-bg-primary: var(--sl-color-orange-9);
+      --sl-element-bg-primary: var(--sl-color-orange-10);
       --sl-element-bg-secondary: var(--sl-color-orange-3);
     }
 
     &[data-color='pink'] {
-      --sl-element-bg-primary: var(--sl-color-pink-9);
+      --sl-element-bg-primary: var(--sl-color-pink-10);
       --sl-element-bg-secondary: var(--sl-color-pink-3);
     }
 
     &[data-color='purple'] {
-      --sl-element-bg-primary: var(--sl-color-purple-9);
+      --sl-element-bg-primary: var(--sl-color-purple-10);
       --sl-element-bg-secondary: var(--sl-color-purple-3);
     }
 
     &[data-color='blue'] {
-      --sl-element-bg-primary: var(--sl-color-blue-9);
+      --sl-element-bg-primary: var(--sl-color-blue-10);
       --sl-element-bg-secondary: var(--sl-color-blue-3);
     }
 
     &[data-color='cyan'] {
-      --sl-element-bg-primary: var(--sl-color-cyan-9);
+      --sl-element-bg-primary: var(--sl-color-cyan-10);
       --sl-element-bg-secondary: var(--sl-color-cyan-3);
     }
 
     &[data-color='teal'] {
-      --sl-element-bg-primary: var(--sl-color-teal-9);
+      --sl-element-bg-primary: var(--sl-color-teal-10);
       --sl-element-bg-secondary: var(--sl-color-teal-3);
     }
 
     &[data-color='green'] {
-      --sl-element-bg-primary: var(--sl-color-green-9);
+      --sl-element-bg-primary: var(--sl-color-green-10);
       --sl-element-bg-secondary: var(--sl-color-green-3);
     }
 
     &[data-color='gray'] {
-      --sl-element-bg-primary: var(--sl-color-gray-9);
+      --sl-element-bg-primary: var(--sl-color-gray-10);
       --sl-element-bg-secondary: var(--sl-color-gray-3);
     }
   }
