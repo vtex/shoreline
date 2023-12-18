@@ -13,9 +13,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
         {...otherProps}
-      >
-        {children}
-      </ComboboxInput>
+      />
     )
   }
 )

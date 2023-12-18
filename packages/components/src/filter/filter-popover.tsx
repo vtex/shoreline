@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react'
 
 import type { PopoverProps } from '../popover'
 import { Popover } from '../popover'
-import { Content } from '../content'
-import { Stack } from '../stack'
+import { Container, Content } from '../content'
 import { FilterClear } from './filter-clear'
 import { FilterApply } from './filter-apply'
 import { Button } from '../button'
@@ -12,6 +11,7 @@ import { useSearchable } from './use-searchable'
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
 import './filter-popover.css'
+import { Search } from '../search'
 
 const useMessage = createMessageHook(messages)
 
@@ -33,16 +33,16 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
 
     return (
       <Popover data-sl-filter-popover ref={ref} {...otherProps}>
-        <Content>
-          <Stack fluid>
-            {searchable && (
-              <Combobox
-                data-sl-filter-popover-combobox
-                autoSelect
-                placeholder="Search..."
-              />
-            )}
-            {children}
+        <Container>
+          {searchable && (
+            <Content data-sl-filter-popover-combobox>
+              <Combobox autoSelect placeholder="Search" asChild>
+                <Search />
+              </Combobox>
+            </Content>
+          )}
+          <Content asChild>{children}</Content>
+          <Content asChild>
             <footer data-sl-filter-popover-footer>
               <FilterClear asChild>
                 <Button>{getMessage('clear')}</Button>
@@ -51,8 +51,8 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
                 <Button variant="primary">{getMessage('apply')}</Button>
               </FilterApply>
             </footer>
-          </Stack>
-        </Content>
+          </Content>
+        </Container>
       </Popover>
     )
   }

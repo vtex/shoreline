@@ -3,6 +3,7 @@ import { FilterValue } from './filter-value'
 import type { PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'
 import { Button } from '../button'
+import { IconCaretDownSmall } from '@vtex/shoreline-icons'
 
 /**
  * Triggers the Filter Popover box, also displays the Filter applied value
@@ -20,6 +21,7 @@ export const FilterTrigger = forwardRef<HTMLButtonElement, FilterTriggerProps>(
         <Button>
           {children}
           <FilterValue />
+          <IconCaretDownSmall />
         </Button>
       </PopoverTrigger>
     )

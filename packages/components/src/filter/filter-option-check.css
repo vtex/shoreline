@@ -17,6 +17,9 @@
     &[data-multiselect='true'] {
       border-radius: var(--sl-border-radius-small);
     }
+    &:focus {
+      box-shadow: var(--sl-focus-ring-accent);
+    }
   }
 
   [data-sl-filter-option-check-indicator] {

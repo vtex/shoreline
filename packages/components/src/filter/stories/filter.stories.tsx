@@ -113,7 +113,10 @@ export function WithCombobox() {
     >
       {matches.length ? (
         matches.map((country) => (
-          <FilterOption key={country.name} value={country.emoji}>
+          <FilterOption
+            key={country.name}
+            value={`${country.emoji} ${country.name}`}
+          >
             {country.emoji} {country.name}
           </FilterOption>
         ))
