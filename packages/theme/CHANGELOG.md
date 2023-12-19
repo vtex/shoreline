@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.4.0...@vtex/shoreline-theme@0.6.0) (2023-12-19)
+
+### Features
+
+- **heading:** create component ([4cb03e4](https://github.com/vtex/shoreline/commit/4cb03e41eaaaead2aed2eb9a9918933e5f7f1d5b))
+
 # [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.4.0...@vtex/shoreline-theme@0.5.0) (2023-12-19)
 
 ### Features
