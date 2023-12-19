@@ -2,6 +2,7 @@
   border: var(--sl-border);
   border-radius: var(--sl-border-radius-large);
   margin: var(--sl-space-8) var(--sl-space-0);
+  font-family: monospace;
 }
 
 .livePreview {
