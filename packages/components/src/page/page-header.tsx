@@ -19,8 +19,10 @@ export const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
     const { children, ...otherProps } = props
 
     return (
-      <Content data-sl-page-header as="header" narrow ref={ref} {...otherProps}>
-        <Stack space="$space-3">{children}</Stack>
+      <Content data-sl-page-header asChild narrow ref={ref} {...otherProps}>
+        <header>
+          <Stack space="$space-3">{children}</Stack>
+        </header>
       </Content>
     )
   }
