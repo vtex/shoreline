@@ -115,9 +115,31 @@ export function MoreActions() {
 
         <MenuProvider>
           <MenuTrigger asChild>
-            <Button variant="primary" disabled>
+            <Button variant="primary" size="large">
               <IconDotsThreeVertical /> More actions
             </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <IconButton variant="primary" label="more actions" size="large">
+              <IconDotsThreeVertical />
+            </IconButton>
           </MenuTrigger>
           <Menu>
             <MenuItem>
@@ -183,9 +205,31 @@ export function MoreActions() {
 
         <MenuProvider>
           <MenuTrigger asChild>
-            <Button variant="tertiary" disabled>
+            <Button variant="tertiary" size="large">
               <IconDotsThreeVertical /> More actions
             </Button>
+          </MenuTrigger>
+          <Menu>
+            <MenuItem>
+              <IconPencil /> Edit
+            </MenuItem>
+            <MenuItem>
+              <IconArchive />
+              Archive
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem critical>
+              <IconTrash />
+              Delete
+            </MenuItem>
+          </Menu>
+        </MenuProvider>
+
+        <MenuProvider>
+          <MenuTrigger asChild>
+            <IconButton variant="tertiary" label="more actions" size="large">
+              <IconDotsThreeVertical />
+            </IconButton>
           </MenuTrigger>
           <Menu>
             <MenuItem>
