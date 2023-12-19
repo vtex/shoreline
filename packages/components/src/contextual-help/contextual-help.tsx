@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
-import { Content } from '../content'
 import { Button } from '../button'
+import { Container, Content } from '../content'
 import './contextual-help.css'
 
 /**
@@ -45,11 +45,13 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
           </PopoverTrigger>
           <Popover
             data-sl-contextual-help-popover
-            data-sl-contextual-help-popover-narrow={narrow}
             ref={ref}
             {...otherProps}
+            asChild
           >
-            <Content>{children}</Content>
+            <Container>
+              <Content narrow={narrow}>{children}</Content>
+            </Container>
           </Popover>
         </PopoverProvider>
       </div>
