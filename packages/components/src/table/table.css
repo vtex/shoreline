@@ -8,6 +8,7 @@
   [data-sl-table] {
     color: var(--sl-fg);
     border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
     display: grid;
     overflow: auto;

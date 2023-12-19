@@ -37,10 +37,6 @@ interface ComponentProps {
     | 'display4'
 }
 
-interface Heading extends ComponentProps, ComponentPropsWithoutRef<'h1'> {
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-}
-
 interface Label extends ComponentProps, ComponentPropsWithoutRef<'label'> {
   as: 'label'
 }
@@ -61,4 +57,4 @@ interface Span extends ComponentProps, ComponentPropsWithoutRef<'span'> {
   as?: 'span'
 }
 
-export type TextProps = Span | Heading | Label | Paragraph | Div | Li
+export type TextProps = Span | Label | Paragraph | Div | Li

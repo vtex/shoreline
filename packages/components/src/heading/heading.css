@@ -1,0 +1,23 @@
+@layer sl-components {
+  [data-sl-heading] {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+
+    &[data-variant='display1'] {
+      font: var(--sl-text-display-1-font);
+      letter-spacing: var(--sl-text-display-1-letter-spacing);
+    }
+    &[data-variant='display2'] {
+      font: var(--sl-text-display-2-font);
+      letter-spacing: var(--sl-text-display-2-letter-spacing);
+    }
+    &[data-variant='display3'] {
+      font: var(--sl-text-display-3-font);
+      letter-spacing: var(--sl-text-display-3-letter-spacing);
+    }
+    &[data-variant='display4'] {
+      font: var(--sl-text-display-4-font);
+      letter-spacing: var(--sl-text-display-4-letter-spacing);
+    }
+  }
+}

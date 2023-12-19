@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Page, PageContent, PageHeader, PageTitle } from '../index'
-import { Text } from '../../text'
 import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Flex } from '../../flex'
+import { Heading } from '../../heading'
 
 export default {
   title: 'shoreline-components/page',
@@ -68,19 +68,19 @@ export function WithTabs(args: StoryArgs) {
         </PageHeader>
         <PageContent layout={args.layout}>
           <TabPanel style={getPanelStyle('teal')}>
-            <Text as="h2" variant="display2">
+            <Heading level={2} variant="display2">
               Tab 1
-            </Text>
+            </Heading>
           </TabPanel>
           <TabPanel style={getPanelStyle('blue')}>
-            <Text as="h2" variant="display2">
+            <Heading level={2} variant="display2">
               Tab 2
-            </Text>
+            </Heading>
           </TabPanel>
           <TabPanel style={getPanelStyle('purple')}>
-            <Text as="h2" variant="display2">
+            <Heading level={2} variant="display2">
               Tab 3
-            </Text>
+            </Heading>
           </TabPanel>
         </PageContent>
       </TabProvider>
