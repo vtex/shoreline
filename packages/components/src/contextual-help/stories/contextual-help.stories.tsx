@@ -14,18 +14,10 @@ type Placement =
   | `${BasePlacement}-end`
 
 const placementOptions: Placement[] = [
-  'top',
-  'bottom',
-  'left',
-  'right',
   'top-start',
   'top-end',
   'bottom-start',
   'bottom-end',
-  'left-start',
-  'left-end',
-  'right-start',
-  'right-end',
 ]
 
 function PlaygroundStory(props: ContextualHelpProps) {
@@ -73,7 +65,8 @@ export function Examples() {
                   </th>
                   <th>
                     <ContextualHelp label="Message" placement={placement}>
-                      Message
+                      Some helpful message here to help our merchants
+                      contextually understand the definition of an item
                     </ContextualHelp>
                   </th>
                 </tr>
@@ -87,7 +80,8 @@ export function Examples() {
         <Stack>
           <Text variant="caption1">{open ? 'Open' : 'Closed'}</Text>
           <ContextualHelp open={open} setOpen={setOpen} label="Message">
-            Message
+            Some helpful message here to help merchants contextually understand
+            the definition of an item
           </ContextualHelp>
         </Stack>
       </Stack>
@@ -179,6 +173,7 @@ export const Playground: Story = {
   args: {
     label: 'Meaningful label',
     placement: 'bottom-end',
-    children: `Message`,
+    children: `Some helpful message here to help merchants contextually understand
+    the definition of an item`,
   },
 }
