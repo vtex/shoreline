@@ -5,8 +5,6 @@ import type { ContextualHelpProps } from '../index'
 import { ContextualHelp } from '../index'
 import { Text } from '../../text'
 import { Stack } from '../../stack'
-import { Button } from '../../button'
-import { IconMinusCircleFill } from '@vtex/shoreline-icons'
 import './contextual-help-stories.css'
 
 type BasePlacement = 'top' | 'bottom' | 'left' | 'right'
@@ -20,43 +18,6 @@ const placementOptions: Placement[] = [
   'top-end',
   'bottom-start',
   'bottom-end',
-]
-
-const placementStoryChildren = [
-  () => (
-    <Stack>
-      <Stack direction="row">
-        <IconMinusCircleFill />
-        <Text variant="display3">Pending product</Text>
-      </Stack>
-      <Text variant="body">
-        Check if this product has all the required prices, information,
-        inventory and logistic settings.
-      </Text>
-      <Button variant="tertiary">Learn more</Button>
-    </Stack>
-  ),
-  () => (
-    <Stack>
-      <Text variant="body">
-        Check if this product has all the required prices, information,
-        inventory and logistic settings.
-      </Text>
-      <Button variant="tertiary">Learn more</Button>
-    </Stack>
-  ),
-  () => (
-    <>
-      Check if this product has all the required prices, information, inventory
-      and logistic settings.
-    </>
-  ),
-  () => (
-    <>
-      Sum of all final values of the orders that were captured in the selected
-      period
-    </>
-  ),
 ]
 
 function PlaygroundStory(props: ContextualHelpProps) {
@@ -104,7 +65,8 @@ export function Examples() {
                   </th>
                   <th>
                     <ContextualHelp label="Message" placement={placement}>
-                      {placementStoryChildren[index]()}
+                      Check if this product has all the required prices,
+                      information, inventory and logistic settings.
                     </ContextualHelp>
                   </th>
                 </tr>
