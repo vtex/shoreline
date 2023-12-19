@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.43.1...@vtex/shoreline-components@0.44.0) (2023-12-19)
+
+### Bug Fixes
+
+- build error ([75c4b7c](https://github.com/vtex/shoreline/commit/75c4b7c291d2f9eaf3050a62346213fbf696a301))
+
+### Features
+
+- **content:** adjust composability ([6ce508e](https://github.com/vtex/shoreline/commit/6ce508e62f76f4e82c46ac71bdebaf92c5a89603))
+- **filter:** adjust spacing and font ([4649830](https://github.com/vtex/shoreline/commit/464983031c9b356ccd4b93c0e642db3b3fedfcd4))
+- **filter:** implement design specs ([1c6c024](https://github.com/vtex/shoreline/commit/1c6c024cb76eb744a22278d51c6c05f44aa7ae01))
+- **filter:** implement single layout for filter with scroll or not ([3706ef9](https://github.com/vtex/shoreline/commit/3706ef9c398e2e4da3a9f4b755b1a23122db2e56))
+- **heading:** create component ([4cb03e4](https://github.com/vtex/shoreline/commit/4cb03e41eaaaead2aed2eb9a9918933e5f7f1d5b))
+- **text:** remove h\* as ([29d69ba](https://github.com/vtex/shoreline/commit/29d69ba9cb06f62ab91f8173d5ffb5347832e5a9))
+
 ## [0.43.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.43.0...@vtex/shoreline-components@0.43.1) (2023-12-18)
 
 **Note:** Version bump only for package @vtex/shoreline-components
