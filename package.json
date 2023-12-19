@@ -34,7 +34,7 @@
     "gen:component": "plop component",
     "create:icon": "plop icon",
     "create:icon-variant": "plop icon-variant",
-    "build-storybook:ci": "storybook build",
+    "build:storybook:ci": "storybook build",
     "build:ci": "pnpm turbo run build",
     "test:ci": "pnpm test",
     "lint:ci": "pnpm lint",
