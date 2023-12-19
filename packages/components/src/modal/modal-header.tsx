@@ -38,25 +38,21 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
     const { children, ...otherProps } = props
 
     return (
-      <Content
-        as="header"
-        data-sl-modal-header
-        narrow
-        ref={ref}
-        {...otherProps}
-      >
-        <Flex justify="space-between">
-          <Heading asChild variant="display2">
-            <DialogHeading data-sl-modal-title>{children}</DialogHeading>
-          </Heading>
-          <Bleed vertical horizontal>
-            <IconButton variant="tertiary" label="close" asChild>
-              <DialogDismiss>
-                <IconX />
-              </DialogDismiss>
-            </IconButton>
-          </Bleed>
-        </Flex>
+      <Content asChild data-sl-modal-header narrow ref={ref} {...otherProps}>
+        <header>
+          <Flex justify="space-between">
+            <Heading asChild variant="display2">
+              <DialogHeading data-sl-modal-title>{children}</DialogHeading>
+            </Heading>
+            <Bleed vertical horizontal>
+              <IconButton variant="tertiary" label="close" asChild>
+                <DialogDismiss>
+                  <IconX />
+                </DialogDismiss>
+              </IconButton>
+            </Bleed>
+          </Flex>
+        </header>
       </Content>
     )
   }
