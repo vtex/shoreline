@@ -221,7 +221,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-theme':
-        specifier: ^0.4.0
+        specifier: ^0.5.0
         version: link:../theme
       commander:
         specifier: 11.0.0
@@ -589,7 +589,7 @@ importers:
         specifier: 1.8.8
         version: 1.8.8
       '@vtex/shoreline-components':
-        specifier: ^0.43.1
+        specifier: ^0.44.0
         version: link:../components
       match-sorter:
         specifier: 6.3.1
