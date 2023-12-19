@@ -3,20 +3,11 @@ title: Shoreline - VTEX Desing System
 ---
 
 import { heroContainer, hero, subtitle, title, features, feature, featuresContainer, featureImageContainer } from './index.module.css'
-import { LightMode, DarkMode } from '../components/mode'
-import { NoSSR } from '../components/no-ssr'
 import Link from 'next/link'
 
 <section className={heroContainer}>
   <article className={hero}>
-    <NoSSR fallback={<div />}>
-      <LightMode>
-        <img src='/assets/landing-logo.webp' alt="shoreline logo" suppressHydrationWarning />
-      </LightMode>
-      <DarkMode>
-        <img src='/assets/landing-logo-dark.webp' alt="shoreline logo" suppressHydrationWarning />
-      </DarkMode>
-    </NoSSR>
+    <img src='/assets/landing-logo.webp' alt="shoreline logo" suppressHydrationWarning />
     <div>  
       <h2>Build great experiences for merchants in the VTEX Admin</h2>
       <p className={subtitle}>Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</p>

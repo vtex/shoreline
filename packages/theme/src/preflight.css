@@ -37,17 +37,3 @@
     isolation: isolate;
   }
 }
-
-@layer sl-base {
-  body {
-    background: var(--sl-bg);
-    color: var(--sl-fg);
-    font: var(--sl-text-body-font);
-    letter-spacing: var(--sl-text-body-letter-spacing);
-  }
-
-  pre,
-  code {
-    font-family: monospace;
-  }
-}
