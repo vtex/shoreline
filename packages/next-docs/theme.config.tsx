@@ -4,6 +4,7 @@ import { TokensGrid } from './components/tokens-grid'
 import { IconsGrid } from './components/icons-grid'
 import { Pre } from './components/pre'
 import { Logo } from './components/logo'
+import { Card, Cards } from './components/component-overview'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -18,6 +19,8 @@ const config: DocsThemeConfig = {
   components: {
     TokensGrid,
     IconsGrid,
+    Card,
+    Cards,
     pre: Pre,
   },
   sidebar: {

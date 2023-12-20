@@ -1,42 +1,35 @@
 # Best Practices
 
-## Components
+## Properties
 
-### Button vs. Link, Tab, and Menu
+### Variant
 
-- **Link:** use when the action is positioned inside a text and/or requires less visual prominence.
-- **Tab:** use when the action is to alternate between related views within the same container.
-- **Menu:** include the action in a Menu when it’s rarely used or repeated multiple times in a list.
+| Value | Usage |
+| --- | --- |
+| `primary` | Use only one at a time, for the most frequently triggered action in a container. |
+| `secondary` | Use for occasionally triggered actions. |
+| `tertiary` | Use for actions that are rarely triggered actions or that exist multiple times in a Page. |
+| `critical` or `criticalTertiary` | Use for irreversible actions. Prefer to keep actions reversible and not use this. |
 
-## Variants
+### Size
 
-### Accent, Muted, Plain and Critical
-
-- Use `primary` for frequently triggered actions, `secondary` for occasionally triggered actions, and `tertiary` for rarely triggered actions.
-- Use `critical` or `criticalTertiary` for irreversible actions. Actions should be reversible whenever possible and not require the critical color.
-- Use `tertiary` when the same action is repeated on the container, such as for each list item.
-- Keep only one `primary` action visible at a time.
-
-### Normal and Large
-
-Use the `large` size for all `primary` actions. Use the `normal` size for `secondary` and `tertiary` actions that are not next to `large` actions.
+| Value | Usage |
+| --- | --- |
+| `large` | Use in the header or footer of a container when its width is 800px or larger. |
+| `normal` | Use in most scenarios. |
 
 ## Position
 
-### Position in a container
-
-- Right align and vertically center actions. For example, in the header or footer of a Modal.
-- In a horizontal list, order actions from `tertiary` to `primary`. In a vertical list, from `primary` to `tertiary`.
-- Use a `secondary` action alone, next to one `primary` action, or next to one or more `tertiary` actions.
-- When a `tertiary` or `tertiaryCritical` action should be aligned with other content, use the Bleed component to ignore the action box and align it based on its icon and/or label.
-- In a form, left-align actions that modify content and right-align those that submit content.
-- Don't include more than one `secondary` action in a group of actions.
+- **Position in a container:** In most scenarios, actions should be listed horizontally, right aligned and vertically centered. In a form, left-align actions that modify content and right-align those that submit content.
+- **Order of actions in a list:** In a horizontal list, order from `tertiary` to `primary`. In a vertical list, from `primary` to `tertiary`.
+- **Pairing a secondary action with other actions:** Use a `secondary` action alone, next to one `primary` action, or next to one or more `tertiary` actions. Don't include more than one `secondary` action in a group.
+- **Pairing a tertiary action with other content:** Use the Bleed component to ignore the box of a `tertiary` or `tertiaryCritical` action and align it based on its icon and/or label.
 
 ## Behavior
 
 ### Disabled state
 
-- Use a disabled action only if it becomes enabled in some condition. For example, a _Save_ action that is only enabled when edits have been made.
+- Use a disabled action only if it becomes enabled in some condition. For example, a *Save* action that is only enabled when edits have been made.
 - When the reason why an action is disabled might be unclear, leave the action enabled and show a modal explaining it when triggered.
 - Don't display a Tooltip when hovering a disabled action.
 
@@ -46,28 +39,23 @@ Use the `large` size for all `primary` actions. Use the `normal` size for `secon
 - Don't show loading or progress indicators for actions that take less than 1s to process.
 - If the action takes more than 5s to process, display progress feedback in an overlay.
 
-### Confirmation modal
+### Confirmation Modal
 
-- Display a ConfirmationModal when the action is irreversible. For example, a _Delete_ action where it isn't possible to restore the item from the trash.
-- Display a ConfirmationModal when the action takes considerable time to undo. For example, a _Publish_ action that takes time and can’t be canceled while in progress.
+- Display a ConfirmationModal when the action is irreversible. For example, a *Delete* action where it isn't possible to restore the item from the trash.
+- Display a ConfirmationModal when the action takes considerable time to undo. For example, a *Publish* action that takes time and can’t be canceled while in progress.
 
 ## Content
 
 ### Label
 
 - Reuse existing labels.
-- Always include a verb in the infinitive followed by an object. For example, _Create product_.
-- Use a verb that reflects the exact action. For example, use _Publish_ instead of _Confirm_.
+- Always include a verb in the infinitive followed by an object. For example, *Create product*.
+- Use a verb that reflects the exact action. For example, use *Publish* instead of *Confirm*.
 - Use sentence case but capitalize proper nouns.
 - Don’t use punctuation, more than three words, or personal pronouns.
 
-### Icon and Label
+### Icon
 
 - Include an icon before the label whenever the action can be represented by an icon, especially when it's part of a group of actions.
 - If the button opens a page in a new tab, include an `IconArrowUpRightSmall` after the label.
-
-### Icon-only
-
-- Hide the label only when the icon is easily recognizable by itself. For example, the Close, Forward, and Back icons.
-- Don’t leave a Button without an alternative label. Always add one in the `aria-label` prop.
-- If there is no easily recognizable icon, prefer to position the action inside a Menu. Don’t use a Tooltip to display the label.
+- Use an Icon Button if the the label of an action should not be visible.
