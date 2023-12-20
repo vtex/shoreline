@@ -3,16 +3,34 @@
     text-align: start;
     white-space: nowrap;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    color: var(--sl-color-fg);
+    color: var(--sl-fg-soft);
     padding: var(--sl-space-2);
     border-bottom: var(--sl-border);
     font: var(--sl-text-emphasis-font);
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
+    & > * [data-sl-sorting-indicator] {
+      display: none;
+    }
 
     &[data-sortable='true'] {
-      color: var(--sl-fg-accent);
+      &:hover {
+        & > * [data-sl-sorting-indicator][data-sorted='false'] {
+          display: block;
+        }
+      }
+
+      [data-sl-sorting-indicator-container] {
+        height: 1.25rem;
+        width: 1.25rem;
+        margin-left: var(--sl-space-2);
+        /* Solution to provide left-align later */
+        /* margin-right: var(--sl-space-2); */
+        /* order: -1; */
+      }
+
       cursor: pointer;
     }
   }
