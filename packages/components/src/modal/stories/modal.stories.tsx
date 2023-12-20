@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
 
-import { Modal, ModalContent, ModalFooter, ModalHeader } from '../index'
+import {
+  Modal,
+  ModalContent,
+  ModalDismiss,
+  ModalFooter,
+  ModalHeader,
+  ModalTitle,
+} from '../index'
+
+import './stories.css'
+import { Slot } from '../../slot'
 import { Button } from '../../button'
+import { Bleed } from '../../bleed'
+import { Tag } from '../../tag'
+import { IconImageSquareFill } from '@vtex/shoreline-icons'
 
 export default {
   title: 'shoreline-components/modal',
@@ -34,7 +47,10 @@ export function Default(args: StoryArgs) {
           setOpen(false)
         }}
       >
-        <ModalHeader>Basic Modal</ModalHeader>
+        <ModalHeader>
+          <ModalTitle>Confirm action</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
         <ModalContent>This is a super basic modal</ModalContent>
       </Modal>
     </>
@@ -48,7 +64,10 @@ export function Complete(args: StoryArgs) {
     <>
       <Button onClick={() => setOpen(true)}>Open modal</Button>
       <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
-        <ModalHeader>Confirm action</ModalHeader>
+        <ModalHeader>
+          <ModalTitle>Confirm action</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
         <ModalContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla
@@ -61,8 +80,10 @@ export function Complete(args: StoryArgs) {
           fermentum odio. At tellus at urna condimentum mattis pellentesque id.
         </ModalContent>
         <ModalFooter>
-          <Button onClick={() => setOpen(false)}>Close</Button>
-          <Button variant="primary" onClick={() => setOpen(false)}>
+          <Button onClick={() => setOpen(false)} size="large">
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => setOpen(false)} size="large">
             Ok
           </Button>
         </ModalFooter>
@@ -78,7 +99,10 @@ export function WithScroll(args: StoryArgs) {
     <>
       <Button onClick={() => setOpen(true)}>Open modal</Button>
       <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
-        <ModalHeader>Confirm action</ModalHeader>
+        <ModalHeader>
+          <ModalTitle>Confirm action</ModalTitle>
+          <ModalDismiss />
+        </ModalHeader>
         <ModalContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
@@ -159,8 +183,58 @@ export function WithScroll(args: StoryArgs) {
           ipsum suspendisse ultrices.
         </ModalContent>
         <ModalFooter>
-          <Button onClick={() => setOpen(false)}>Close</Button>
-          <Button variant="primary" onClick={() => setOpen(false)}>
+          <Button onClick={() => setOpen(false)} size="large">
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => setOpen(false)} size="large">
+            Ok
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+
+export function CompleteHeader(args: StoryArgs) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+      <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
+        <ModalHeader>
+          <Slot>
+            <Bleed left="$space-1">
+              <div className="image-placeholder">
+                <IconImageSquareFill />
+              </div>
+            </Bleed>
+            <ModalTitle>Confirm action</ModalTitle>
+            <Tag>Short text</Tag>
+          </Slot>
+          <Slot>
+            <Button variant="tertiary" size="large">
+              Action
+            </Button>
+            <ModalDismiss />
+          </Slot>
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla
+          posuere sollicitudin aliquam ultrices sagittis orci. Vel risus commodo
+          viverra maecenas. Montes nascetur ridiculus mus mauris vitae ultricies
+          leo. Nibh cras pulvinar mattis nunc. Mattis aliquam faucibus purus in
+          massa tempor nec. Cursus mattis molestie a iaculis at. Dolor sed
+          viverra ipsum nunc aliquet bibendum. In eu mi bibendum neque egestas
+          congue. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+          fermentum odio. At tellus at urna condimentum mattis pellentesque id.
+        </ModalContent>
+        <ModalFooter>
+          <Button onClick={() => setOpen(false)} size="large">
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => setOpen(false)} size="large">
             Ok
           </Button>
         </ModalFooter>

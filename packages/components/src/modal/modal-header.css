@@ -1,7 +1,31 @@
 @layer sl-components {
   [data-sl-modal-header] {
+    & [data-sl-slot]:first-of-type {
+      & > *:not(:first-child) {
+        margin-left: var(--sl-space-3);
+      }
+    }
+
+    & [data-sl-slot]:nth-of-type(2) {
+      margin-top: calc(var(--sl-element-space-top) * -1);
+      margin-bottom: calc(var(--sl-element-space-bottom) * -1);
+
+      & > *:not(:first-child) {
+        margin-left: var(--sl-space-2);
+      }
+    }
+
     position: sticky;
     top: 0;
     background: var(--sl-bg);
+
+    & :where(button:not([data-sl-modal-dismiss-button])) {
+      min-width: 5rem;
+    }
+
+    & :where([data-sl-slot]) {
+      display: flex;
+      align-items: center;
+    }
   }
 }

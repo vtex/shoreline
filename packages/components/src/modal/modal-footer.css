@@ -1,5 +1,9 @@
 @layer sl-components {
   [data-sl-modal-footer] {
+    :where(button) {
+      min-width: var(--sl-footer-button-min-width);
+    }
+
     display: flex;
     justify-content: flex-end;
     position: sticky;

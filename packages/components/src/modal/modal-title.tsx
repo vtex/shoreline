@@ -1,9 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { DialogHeading } from '@ariakit/react'
 
-import { Flex } from '../flex'
-import { Content } from '../content'
-import './modal-header.css'
+import { Heading } from '../heading'
 
 /**
  * Header of the Modal
@@ -23,6 +22,7 @@ import './modal-header.css'
  *      >
  *        <ModalHeader>
  *          <ModalTitle>Title</ModalTitle>
+ *          <ModalDismiss />
  *        </ModalHeader>
  *      </Modal>
  *    </>
@@ -30,20 +30,16 @@ import './modal-header.css'
  * }
  * ```
  */
-export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
-  function ModalHeader(props, ref) {
+export const ModalTitle = forwardRef<HTMLHeadingElement, ModalTitleProps>(
+  function ModalTitle(props, ref) {
     const { children, ...otherProps } = props
 
     return (
-      <Content asChild data-sl-modal-header narrow ref={ref} {...otherProps}>
-        <header>
-          <Flex justify="space-between" align="center">
-            {children}
-          </Flex>
-        </header>
-      </Content>
+      <Heading asChild ref={ref} variant="display2" {...otherProps}>
+        <DialogHeading data-sl-modal-title>{children}</DialogHeading>
+      </Heading>
     )
   }
 )
 
-export type ModalHeaderProps = ComponentPropsWithoutRef<'div'>
+export type ModalTitleProps = ComponentPropsWithoutRef<'h1'>

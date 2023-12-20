@@ -1,5 +1,5 @@
 @layer sl-components {
   [data-sl-modal-content] {
-    margin-top: calc(var(--sl-space-7) * -1);
+    margin-top: calc(var(--sl-element-space-top) * -1);
   }
 }
