@@ -3,6 +3,7 @@ import type { ColumnDef } from '@tanstack/react-table'
 
 import { Checkbox } from '../../checkbox'
 import { VisuallyHidden } from '../../visually-hidden'
+import './selection-column.css'
 
 export function getSelectionColum<T>(): ColumnDef<T> {
   return {

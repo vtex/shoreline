@@ -29,11 +29,19 @@ export const SimpleTableHeader = forwardRef(function SimpleTableHeader<T>(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
-              {header.column.getIsSorted() === 'asc' ? (
-                <IconArrowUp />
-              ) : header.column.getIsSorted() === 'desc' ? (
-                <IconArrowDown />
-              ) : null}
+              <div data-sl-sorting-indicator-container>
+                <div
+                  data-sl-sorting-indicator
+                  data-sorted={header.column.getIsSorted()}
+                >
+                  <IconArrowUp />
+                </div>
+                {header.column.getIsSorted() === 'asc' ? (
+                  <IconArrowUp />
+                ) : header.column.getIsSorted() === 'desc' ? (
+                  <IconArrowDown />
+                ) : null}
+              </div>
             </TableHeaderCell>
           ))}
         </TableRow>

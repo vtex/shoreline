@@ -1,0 +1,7 @@
+@layer sl-components {
+  [data-sl-table-cell], [data-sl-table-header-cell] {
+    & > * [data-sl-checkbox-label] {
+      margin: var(--sl-space-0);
+    }
+  }
+}

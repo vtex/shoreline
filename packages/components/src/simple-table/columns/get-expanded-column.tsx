@@ -4,6 +4,7 @@ import { IconCaretDown, IconCaretRight } from '@vtex/shoreline-icons'
 
 import { Action } from '../../action'
 import { VisuallyHidden } from '../../visually-hidden'
+import { Bleed } from '../../bleed'
 
 export function getExpandedColumn<T>(): ColumnDef<T> {
   return {
@@ -12,13 +13,15 @@ export function getExpandedColumn<T>(): ColumnDef<T> {
     cell: ({ row }) => {
       return (
         row.getCanExpand() && (
-          <Action
-            label="Expand row"
-            onClick={row.getToggleExpandedHandler()}
-            iconOnly
-          >
-            {row.getIsExpanded() ? <IconCaretDown /> : <IconCaretRight />}
-          </Action>
+          <Bleed horizontal="0.5rem" vertical="0.5rem">
+            <Action
+              label="Expand row"
+              onClick={row.getToggleExpandedHandler()}
+              iconOnly
+            >
+              {row.getIsExpanded() ? <IconCaretDown /> : <IconCaretRight />}
+            </Action>
+          </Bleed>
         )
       )
     },
