@@ -4,6 +4,7 @@ import { Page, PageContent, PageHeader, PageTitle } from '../index'
 import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Flex } from '../../flex'
 import { Heading } from '../../heading'
+import type { StoryObj } from '@storybook/react'
 
 export default {
   title: 'shoreline-components/page',
@@ -13,21 +14,37 @@ export default {
       options: ['standard', 'wide', 'narrow'],
       description: 'Page content layout type',
     },
+    pageTitle: {
+      control: 'text',
+      description: 'Title of a page',
+    },
+    withTabs: {
+      control: 'boolean',
+      description: 'Whether to render tabs example or not',
+    },
   },
   args: {
     layout: 'standard',
+    pageTitle: 'Page title',
+    withTabs: false,
   },
-}
+} as StoryObj<StoryArgs>
 
 interface StoryArgs {
   layout: 'standard' | 'wide' | 'narrow'
+  pageTitle: string
+  withTabs: boolean
 }
 
-export function Default(args: StoryArgs) {
+export function Playground(args: StoryArgs) {
+  if (args.withTabs) {
+    return <WithTabs {...args} />
+  }
+
   return (
     <Page>
       <PageHeader>
-        <PageTitle>Page title</PageTitle>
+        <PageTitle>{args.pageTitle}</PageTitle>
       </PageHeader>
       <PageContent layout={args.layout}>
         <div
@@ -56,7 +73,7 @@ export function WithTabs(args: StoryArgs) {
       <TabProvider>
         <PageHeader>
           <Flex>
-            <PageTitle>Page title</PageTitle>
+            <PageTitle>{args.pageTitle}</PageTitle>
           </Flex>
           <Flex>
             <TabList>
