@@ -52,7 +52,11 @@ export function StickyHeader() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex
+              align="center"
+              columnGap="var(--sl-space-2)"
+              style={{ minWidth: '110px' }}
+            >
               <img
                 style={{
                   width: 32,

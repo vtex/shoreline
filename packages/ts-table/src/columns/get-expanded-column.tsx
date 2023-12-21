@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { IconCaretDown, IconCaretRight } from '@vtex/shoreline-icons'
-import { VisuallyHidden, IconButton } from '@vtex/shoreline-components'
+import { VisuallyHidden, IconButton, Bleed } from '@vtex/shoreline-components'
 
 export function getExpandedColumn<T>(): ColumnDef<T> {
   return {
@@ -10,13 +10,15 @@ export function getExpandedColumn<T>(): ColumnDef<T> {
     cell: ({ row }) => {
       return (
         row.getCanExpand() && (
-          <IconButton
-            variant="tertiary"
-            label="Expand row"
-            onClick={row.getToggleExpandedHandler()}
-          >
-            {row.getIsExpanded() ? <IconCaretDown /> : <IconCaretRight />}
-          </IconButton>
+          <Bleed horizontal="$space-2" vertical="$space-2">
+            <IconButton
+              variant="tertiary"
+              label="Expand row"
+              onClick={row.getToggleExpandedHandler()}
+            >
+              {row.getIsExpanded() ? <IconCaretDown /> : <IconCaretRight />}
+            </IconButton>
+          </Bleed>
         )
       )
     },

@@ -1,16 +1,20 @@
 @layer sl-components {
   [data-sl-table-row] {
     display: contents;
-    color: var(--sl-color-fg);
+    color: var(--sl-fg);
 
-    &[data-dim-on-hover='true']:hover {
+    &[data-selected='true'] {
       & > [data-sl-table-cell] {
-        background: var(--sl-bg-muted);
+        background: var(--sl-bg-accent);
       }
     }
 
-    &[data-selected='true'] {
-      background: var(--sl-bg-muted);
+    &[data-dim-on-hover='true']:hover {
+      &[data-selected='false'] {
+      & > [data-sl-table-cell] {
+          background: var(--sl-bg-muted);
+        }
+      }
     }
   }
 }

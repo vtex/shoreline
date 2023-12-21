@@ -6,7 +6,12 @@ import './table-header-cell.css'
 
 export const TableHeaderCell = forwardRef<HTMLDivElement, TableHeaderCellProps>(
   function TableHeaderCell(props, ref) {
-    const { asChild = false, sortable = false, ...otherProps } = props
+    const {
+      asChild = false,
+      sortable = false,
+      align = 'start',
+      ...otherProps
+    } = props
 
     const Comp = asChild ? Compose : 'div'
 
@@ -15,6 +20,7 @@ export const TableHeaderCell = forwardRef<HTMLDivElement, TableHeaderCellProps>(
         role="columnheader"
         data-sl-table-header-cell
         data-sortable={sortable}
+        data-sl-align={align}
         ref={ref}
         {...otherProps}
       />
@@ -25,4 +31,5 @@ export const TableHeaderCell = forwardRef<HTMLDivElement, TableHeaderCellProps>(
 export interface TableHeaderCellProps extends ComponentPropsWithoutRef<'div'> {
   asChild?: boolean
   sortable?: boolean
+  align?: 'start' | 'end'
 }
