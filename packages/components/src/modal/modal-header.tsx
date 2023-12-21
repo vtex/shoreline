@@ -22,7 +22,7 @@ import './modal-header.css'
  *        }}
  *      >
  *        <ModalHeader>
- *          <ModalTitle>Title</ModalTitle>
+ *          <ModalHeading>Title</ModalHeading>
  *        </ModalHeader>
  *      </Modal>
  *    </>

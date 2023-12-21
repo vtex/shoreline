@@ -1,14 +1,15 @@
 @layer sl-components {
   [data-sl-modal-footer] {
     :where(button) {
-      min-width: var(--sl-footer-button-min-width);
+      min-width: var(--sl-modal-footer-button-min-width);
+      width: var(--sl-modal-footer-button-width);
     }
 
     display: flex;
     justify-content: flex-end;
     position: sticky;
     bottom: 0;
-    column-gap: var(--sl-space-2);
+    column-gap: var(--sl-space-3);
     background: var(--sl-bg);
     border-top: var(--sl-border);
   }

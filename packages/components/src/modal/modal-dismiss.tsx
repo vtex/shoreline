@@ -2,9 +2,10 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { DialogDismiss } from '@ariakit/react'
 
+import type { IconButtonProps } from '../icon-button'
 import { IconButton } from '../icon-button'
 import { IconX } from '@vtex/shoreline-icons'
-import { Bleed } from '../bleed'
+import './modal-dismiss.css'
 
 /**
  * Header of the Modal
@@ -23,7 +24,7 @@ import { Bleed } from '../bleed'
  *        }}
  *      >
  *        <ModalHeader>
- *          <ModalTitle>Title</ModalTitle>
+ *          <ModalHeading>Title</ModalHeading>
  *          <ModalDismiss />
  *        </ModalHeader>
  *      </Modal>
@@ -34,25 +35,25 @@ import { Bleed } from '../bleed'
  */
 export const ModalDismiss = forwardRef<HTMLButtonElement, ModalDismissProps>(
   function ModalDismiss(props, ref) {
-    const { children, ...otherProps } = props
+    const { children, size = 'normal', ...otherProps } = props
 
     return (
-      <Bleed right>
-        <IconButton
-          data-sl-modal-dismiss-button
-          variant="tertiary"
-          label="close"
-          asChild
-          {...otherProps}
-          ref={ref}
-        >
-          <DialogDismiss>
-            <IconX />
-          </DialogDismiss>
-        </IconButton>
-      </Bleed>
+      <IconButton
+        data-sl-modal-dismiss
+        variant="tertiary"
+        label="close"
+        asChild
+        size={size}
+        {...otherProps}
+        ref={ref}
+      >
+        <DialogDismiss>
+          <IconX />
+        </DialogDismiss>
+      </IconButton>
     )
   }
 )
 
-export type ModalDismissProps = ComponentPropsWithoutRef<'button'>
+export type ModalDismissProps = ComponentPropsWithoutRef<'button'> &
+  Pick<IconButtonProps, 'size'>

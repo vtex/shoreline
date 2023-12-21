@@ -1,7 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+
 import { DialogHeading } from '@ariakit/react'
 
+import type { HeadingProps } from '../heading'
 import { Heading } from '../heading'
 
 /**
@@ -21,7 +23,7 @@ import { Heading } from '../heading'
  *        }}
  *      >
  *        <ModalHeader>
- *          <ModalTitle>Title</ModalTitle>
+ *          <ModalHeading>Heading</ModalHeading>
  *          <ModalDismiss />
  *        </ModalHeader>
  *      </Modal>
@@ -30,16 +32,17 @@ import { Heading } from '../heading'
  * }
  * ```
  */
-export const ModalTitle = forwardRef<HTMLHeadingElement, ModalTitleProps>(
-  function ModalTitle(props, ref) {
-    const { children, ...otherProps } = props
+export const ModalHeading = forwardRef<HTMLHeadingElement, ModalHeadingProps>(
+  function ModalHeading(props, ref) {
+    const { children, variant = 'display2', ...otherProps } = props
 
     return (
-      <Heading asChild ref={ref} variant="display2" {...otherProps}>
+      <Heading asChild ref={ref} variant={variant} {...otherProps}>
         <DialogHeading data-sl-modal-title>{children}</DialogHeading>
       </Heading>
     )
   }
 )
 
-export type ModalTitleProps = ComponentPropsWithoutRef<'h1'>
+export type ModalHeadingProps = ComponentPropsWithoutRef<'h1'> &
+  Pick<HeadingProps, 'variant'>

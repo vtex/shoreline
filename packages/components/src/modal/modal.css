@@ -12,8 +12,8 @@
     --sl-modal-medium-width: 38.75rem;
     --sl-modal-large-width: 50rem;
     --sl-modal-width: var(--sl-modal-medium-width);
-    --sl-element-space-top: var(--sl-space-3);
-    --sl-footer-button-min-width: 5rem;
+    --sl-modal-footer-button-min-width: 6.25rem;
+    --sl-modal-footer-button-width: auto;
   }
 }
 
@@ -43,6 +43,7 @@
       --sl-modal-min-height: var(--sl-modal-small-min-height);
       --sl-modal-max-height: var(--sl-modal-small-max-height);
       --sl-footer-button-min-width: auto;
+      --sl-modal-footer-button-width: 100%;
       --sl-modal-header-padding: var(--sl-modal-header-padding-small);
     }
     &[data-size='medium'] {
@@ -55,7 +56,6 @@
       --sl-modal-width: var(--sl-modal-large-width);
       --sl-modal-min-height: var(--sl-modal-large-min-height);
       --sl-modal-max-height: var(--sl-modal-large-max-height);
-      --sl-element-space-top: var(--sl-space-5);
       --sl-modal-header-padding: var(--sl-modal-header-padding-large);
     }
   }

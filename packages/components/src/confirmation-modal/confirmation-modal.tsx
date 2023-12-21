@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Content } from '../content'
-import { Modal, ModalDismiss, ModalHeader, ModalTitle } from '../modal'
+import { Modal, ModalDismiss, ModalHeader, ModalHeading } from '../modal'
 import { Flex } from '../flex'
 import { Button } from '../button'
 import { createMessageHook } from '../locale'
@@ -52,7 +52,7 @@ export const ConfirmationModal = forwardRef<
     <Modal open={open} onClose={onClose} ref={ref} {...otherProps}>
       {getMessage('title') ? (
         <ModalHeader>
-          <ModalTitle>{getMessage('title')}</ModalTitle>
+          <ModalHeading>{getMessage('title')}</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
       ) : null}

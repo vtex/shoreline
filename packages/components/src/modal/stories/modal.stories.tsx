@@ -6,7 +6,7 @@ import {
   ModalDismiss,
   ModalFooter,
   ModalHeader,
-  ModalTitle,
+  ModalHeading,
 } from '../index'
 
 import './stories.css'
@@ -48,7 +48,7 @@ export function Default(args: StoryArgs) {
         }}
       >
         <ModalHeader>
-          <ModalTitle>Confirm action</ModalTitle>
+          <ModalHeading>Confirm action</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
         <ModalContent>This is a super basic modal</ModalContent>
@@ -65,7 +65,7 @@ export function Complete(args: StoryArgs) {
       <Button onClick={() => setOpen(true)}>Open modal</Button>
       <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
         <ModalHeader>
-          <ModalTitle>Confirm action</ModalTitle>
+          <ModalHeading>Confirm action</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
         <ModalContent>
@@ -100,7 +100,7 @@ export function WithScroll(args: StoryArgs) {
       <Button onClick={() => setOpen(true)}>Open modal</Button>
       <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
         <ModalHeader>
-          <ModalTitle>Confirm action</ModalTitle>
+          <ModalHeading>Confirm action</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
         <ModalContent>
@@ -209,13 +209,11 @@ export function CompleteHeader(args: StoryArgs) {
                 <IconImageSquareFill />
               </div>
             </Bleed>
-            <ModalTitle>Confirm action</ModalTitle>
+            <ModalHeading>Confirm action</ModalHeading>
             <Tag>Short text</Tag>
           </Slot>
           <Slot>
-            <Button variant="tertiary" size="large">
-              Action
-            </Button>
+            <Button variant="tertiary">Action</Button>
             <ModalDismiss />
           </Slot>
         </ModalHeader>
@@ -235,6 +233,78 @@ export function CompleteHeader(args: StoryArgs) {
             Close
           </Button>
           <Button variant="primary" onClick={() => setOpen(false)} size="large">
+            Ok
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  )
+}
+
+const headingVariant = {
+  small: 'display3',
+  medium: 'display2',
+  large: 'display1',
+}
+
+export function Size(args: StoryArgs) {
+  const [modal, setModal] = useState({ open: false, size: 'medium' })
+
+  return (
+    <>
+      <Button onClick={() => setModal({ open: true, size: 'small' })}>
+        Open modal small
+      </Button>
+      <Button onClick={() => setModal({ open: true, size: 'medium' })}>
+        Open modal medium
+      </Button>
+      <Button onClick={() => setModal({ open: true, size: 'large' })}>
+        Open modal large
+      </Button>
+      <Modal
+        size={modal.size as any}
+        open={modal.open}
+        onClose={() => setModal((prev) => ({ ...prev, open: false }))}
+      >
+        <ModalHeader>
+          <ModalHeading variant={headingVariant[modal.size]}>
+            Confirm action
+          </ModalHeading>
+          <Slot>
+            <Button
+              variant="tertiary"
+              size={modal.size === 'large' ? modal.size : 'normal'}
+            >
+              Action
+            </Button>
+            <ModalDismiss
+              size={modal.size === 'large' ? modal.size : 'normal'}
+            />
+          </Slot>
+        </ModalHeader>
+        <ModalContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla
+          posuere sollicitudin aliquam ultrices sagittis orci. Vel risus commodo
+          viverra maecenas. Montes nascetur ridiculus mus mauris vitae ultricies
+          leo. Nibh cras pulvinar mattis nunc. Mattis aliquam faucibus purus in
+          massa tempor nec. Cursus mattis molestie a iaculis at. Dolor sed
+          viverra ipsum nunc aliquet bibendum. In eu mi bibendum neque egestas
+          congue. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+          fermentum odio. At tellus at urna condimentum mattis pellentesque id.
+        </ModalContent>
+        <ModalFooter>
+          <Button
+            onClick={() => setModal((prev) => ({ ...prev, open: false }))}
+            size={modal.size === 'large' ? modal.size : 'normal'}
+          >
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => setModal((prev) => ({ ...prev, open: false }))}
+            size={modal.size === 'large' ? modal.size : 'normal'}
+          >
             Ok
           </Button>
         </ModalFooter>
