@@ -58,7 +58,11 @@ export function StickyFirstColumn() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex
+              align="center"
+              columnGap="var(--sl-space-2)"
+              style={{ minWidth: '150px' }}
+            >
               <img
                 style={{
                   width: 32,
@@ -167,7 +171,11 @@ export function StickyFirstColumnWithStickyHeader() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex
+              align="center"
+              columnGap="var(--sl-space-2)"
+              style={{ minWidth: '110px' }}
+            >
               <img
                 style={{
                   width: 32,

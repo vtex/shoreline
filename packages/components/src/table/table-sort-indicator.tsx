@@ -2,6 +2,14 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 
+/**
+ * Component that indicates if a column is sortable and its current sort direction
+ * @example
+ * <TableHeaderCell>
+      {title}
+      <TableSortIndicator sorted={sortDirection} />
+    </TableHeaderCell>
+ */
 export const TableSortIndicator = forwardRef<
   HTMLDivElement,
   TableSortIndicatorProps
