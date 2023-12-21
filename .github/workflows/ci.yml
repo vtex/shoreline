@@ -36,7 +36,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-
       - name: Stylelint
         run: pnpm stylelint **/*.css
 
@@ -47,5 +46,5 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: build-storybook:ci
+          buildScriptName: build:storybook:ci
           exitOnceUploaded: true
