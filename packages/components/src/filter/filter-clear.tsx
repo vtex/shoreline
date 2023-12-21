@@ -22,11 +22,15 @@ function useFilterClear() {
   const select = useSelectContext()
   const filter = useFilterContext()
 
+  const selectValue = select?.useState('value') ?? ''
+  const filterValue = filter?.useState('value') ?? ''
+
   return {
     onClick() {
       filter?.setValue(reset)
       select?.setValue(reset)
     },
+    disabled: !selectValue && !filterValue,
   }
 }
 

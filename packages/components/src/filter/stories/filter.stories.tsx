@@ -5,6 +5,7 @@ import {
   FilterProvider,
   FilterPopover,
   FilterList,
+  FilterListSkeleton,
   FilterOption,
   FilterTrigger,
   Filter,
@@ -123,6 +124,14 @@ export function WithCombobox() {
       ) : (
         <div>No results found</div>
       )}
+    </Filter>
+  )
+}
+
+export function Loading() {
+  return (
+    <Filter label="Country">
+      <FilterListSkeleton />
     </Filter>
   )
 }

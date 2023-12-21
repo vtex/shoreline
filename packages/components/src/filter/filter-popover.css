@@ -1,6 +1,6 @@
 @layer sl-tokens {
   :where([data-sl-filter-popover]) {
-    --sl-filter-popover-width: 16rem;
+    --sl-filter-popover-width: 16.25rem;
   }
 }
 
@@ -11,7 +11,12 @@
 
   [data-sl-filter-popover] {
     width: var(--sl-filter-popover-width);
+    max-height: 27.5rem;
     padding: var(--sl-space-0);
+  }
+
+  [data-sl-filter-list] {
+    padding: var(--sl-space-4) var(--sl-space-6);
   }
 
   [data-sl-filter-popover-combobox] {

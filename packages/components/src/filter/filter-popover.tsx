@@ -35,14 +35,14 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
       <Popover data-sl-filter-popover ref={ref} {...otherProps}>
         <Container>
           {searchable && (
-            <Content data-sl-filter-popover-combobox>
+            <Content narrow data-sl-filter-popover-combobox>
               <Combobox autoSelect placeholder="Search" asChild>
                 <Search />
               </Combobox>
             </Content>
           )}
-          <Content asChild>{children}</Content>
-          <Content asChild>
+          {children}
+          <Content narrow asChild>
             <footer data-sl-filter-popover-footer>
               <FilterClear asChild>
                 <Button>{getMessage('clear')}</Button>
