@@ -59,7 +59,7 @@ interface StoryArgs {
  */
 function PageHeaderButton() {
   return (
-    <Bleed vertical>
+    <Bleed vertical className="ph-header-element">
       <Button variant="primary">Submit</Button>
     </Bleed>
   )
@@ -79,7 +79,7 @@ export function Playground(args: StoryArgs) {
       <Page>
         <PageHeader>
           <Flex justify="space-between">
-            <Flex columnGap="var(--sl-space-2)">
+            <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
               <PageTitle>{args.pageTitle}</PageTitle>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>
@@ -115,15 +115,15 @@ function WithTabs(args: StoryArgs) {
   return (
     <Page>
       <TabProvider>
-        <PageHeader className="with-tabs">
+        <PageHeader className="ph-with-tabs">
           <Flex justify="space-between">
-            <Flex columnGap="var(--sl-space-2)">
+            <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
               <PageTitle>{args.pageTitle}</PageTitle>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
           </Flex>
-          <Flex className="tab-list">
+          <Flex className="ph-tab-list">
             <TabList>
               <Tab>Tab 1</Tab>
               <Tab>Tab 2</Tab>
