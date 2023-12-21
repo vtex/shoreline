@@ -6,20 +6,10 @@ export const TableSortIndicator = forwardRef<
   HTMLDivElement,
   TableSortIndicatorProps
 >(function TableSortIndicator(props, ref) {
-  const {
-    sortable = false,
-    sorted = false,
-    align = 'start',
-    ...otherProps
-  } = props
+  const { sorted = false, ...otherProps } = props
 
   return (
-    <div
-      data-sl-table-sort-indicator
-      data-sl-align={align}
-      ref={ref}
-      {...otherProps}
-    >
+    <div data-sl-table-sort-indicator ref={ref} {...otherProps}>
       <div data-sl-table-sort-indicator-hover data-sl-sorted={sorted}>
         <IconArrowUp />
       </div>
@@ -39,10 +29,4 @@ export interface TableSortIndicatorProps
    * @default null
    */
   sorted?: 'asc' | 'desc' | null
-  /**
-   * Indicates if column is sortable
-   * @default null
-   */
-  sortable?: boolean
-  align?: 'start' | 'end'
 }

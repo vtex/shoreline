@@ -28,13 +28,15 @@ export const TsTableRow = forwardRef(function TsTableRow<T>(
         {...otherProps}
       >
         {row.getVisibleCells().map((cell) => {
+          const cellAlign = (cell.column.columnDef.meta as any)?.align
+
           if (rowClick) {
             if (rowClick.type === 'action') {
               const { onClick } = rowClick
 
               return (
                 <Clickable onClick={() => onClick(row)} key={cell.id} asChild>
-                  <TableCell>
+                  <TableCell align={cellAlign}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 </Clickable>
@@ -51,7 +53,7 @@ export const TsTableRow = forwardRef(function TsTableRow<T>(
                   key={cell.id}
                   asChild
                 >
-                  <TableCell>
+                  <TableCell align={cellAlign}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 </LinkBox>
@@ -60,7 +62,7 @@ export const TsTableRow = forwardRef(function TsTableRow<T>(
           }
 
           return (
-            <TableCell key={cell.id}>
+            <TableCell key={cell.id} align={cellAlign}>
               {flexRender(cell.column.columnDef.cell, cell.getContext())}
             </TableCell>
           )

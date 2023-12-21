@@ -26,6 +26,7 @@ export const TsTableHeader = forwardRef(function TsTableHeader<T>(
               key={header.id}
               onClick={header.column.getToggleSortingHandler()}
               sortable={header.column.getCanSort()}
+              align={(header.column.columnDef.meta as any)?.align}
             >
               {header.isPlaceholder
                 ? null
@@ -33,11 +34,7 @@ export const TsTableHeader = forwardRef(function TsTableHeader<T>(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
-              <TableSortIndicator
-                sorted={header.column.getIsSorted()}
-                sortable={header.column.getCanSort()}
-                align="end"
-              />
+              <TableSortIndicator sorted={header.column.getIsSorted()} />
             </TableHeaderCell>
           ))}
         </TableRow>

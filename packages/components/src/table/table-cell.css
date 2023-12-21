@@ -1,14 +1,20 @@
 @layer sl-components {
   [data-sl-table-cell] {
-    text-align: start;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     color: var(--sl-fg);
     padding: var(--sl-space-2);
     border-bottom: var(--sl-border);
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
+    &[data-sl-align='start'] {
+      text-align: start;
+      justify-content: flex-start;
+    }
+    &[data-sl-align='end'] {
+      text-align: end;
+      justify-content: flex-end;
+    }
   }
 }
