@@ -16,7 +16,7 @@ export const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
     const { children, layout = 'standard', ...otherProps } = props
 
     return (
-      <Container>
+      <Container data-sl-page-container>
         <Content
           data-sl-page-content
           data-layout={layout}

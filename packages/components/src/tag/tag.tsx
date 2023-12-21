@@ -1,6 +1,12 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
+/**
+ * Tags are used to categorize or label items.
+ *
+ * @example
+ * <Tag>Short text</Tag>
+ */
 export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
   props,
   ref

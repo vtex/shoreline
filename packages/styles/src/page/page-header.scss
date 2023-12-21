@@ -3,4 +3,8 @@
   & *:is([data-sl-flex]) {
     width: 100%;
   }
+
+  :where(button) {
+    min-width: 6.25rem;
+  }
 }
