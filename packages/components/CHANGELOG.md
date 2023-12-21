@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.47.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.46.0...@vtex/shoreline-components@0.47.0) (2023-12-21)
+
+### Features
+
+- **filter:** add loading content for filter ([da1e49f](https://github.com/vtex/shoreline/commit/da1e49fbabfaf05e88650e35ac86dfbe2d170255))
+- **filter:** adjust spacing and style ([c2ab77c](https://github.com/vtex/shoreline/commit/c2ab77c8be75753c7d6322330ead69cb4ea2e4bb))
+
 # [0.46.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.45.0...@vtex/shoreline-components@0.46.0) (2023-12-19)
 
 ### Features
