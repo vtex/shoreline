@@ -4,11 +4,11 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
+  TableSortIndicator,
 } from '@vtex/shoreline-components'
 import type { TableHeaderProps } from '@vtex/shoreline-components'
 import { flexRender } from '@tanstack/react-table'
 import type { HeaderGroup } from '@tanstack/react-table'
-import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
 import { forwardRef } from '@vtex/shoreline-utils'
 
 export const TsTableHeader = forwardRef(function TsTableHeader<T>(
@@ -33,19 +33,11 @@ export const TsTableHeader = forwardRef(function TsTableHeader<T>(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
-              <div data-sl-sorting-indicator-container>
-                <div
-                  data-sl-sorting-indicator
-                  data-sorted={header.column.getIsSorted()}
-                >
-                  <IconArrowUp />
-                </div>
-                {header.column.getIsSorted() === 'asc' ? (
-                  <IconArrowUp />
-                ) : header.column.getIsSorted() === 'desc' ? (
-                  <IconArrowDown />
-                ) : null}
-              </div>
+              <TableSortIndicator
+                sorted={header.column.getIsSorted()}
+                sortable={header.column.getCanSort()}
+                align="end"
+              />
             </TableHeaderCell>
           ))}
         </TableRow>
