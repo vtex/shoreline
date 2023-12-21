@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.48.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.47.0...@vtex/shoreline-components@0.48.0) (2023-12-21)
+
+### Bug Fixes
+
+- **tstable:** fix sticky header and column styling ([85de8e0](https://github.com/vtex/shoreline/commit/85de8e08f598cd816cf75228ed079c3df9051667))
+
+### Features
+
+- **table:** add column align feature ([74b9243](https://github.com/vtex/shoreline/commit/74b924350b95ca95fba7a895c7d543826f17c48b))
+- **table:** add sortindicator component to table ([24041bc](https://github.com/vtex/shoreline/commit/24041bcca3afbed234f6965a05d7dbdf09988ad0))
+- **table:** adjust table to be closer to design specs ([03d2ea5](https://github.com/vtex/shoreline/commit/03d2ea58b0a4924f78f8efc84e5cd45fb02ff95c))
+
 # [0.47.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.46.0...@vtex/shoreline-components@0.47.0) (2023-12-21)
 
 ### Features
