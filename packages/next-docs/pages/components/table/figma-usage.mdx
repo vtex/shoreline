@@ -1,0 +1,142 @@
+# Figma Usage
+
+**Learn how to use the Table components from the [Figma library](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/%5BDO-NOT-USE%5D-Shoreline-%E2%80%93-Components?type=design&t=m2KFHrOvep58vRjm-6)**
+
+The component is simple in construction and less complex to use. We provide the basic structures in Figma, while allowing flexibility for each designer to create a table that best fits their project needs.
+
+## 1. Add and detach the instace
+- Look for the Table component in Assets, or copy and paste it in your file.
+- Select the instance, click on the more options menu, and then choose Detach instance.
+
+import { Callout } from 'nextra/components'
+ 
+<Callout type="warning" emoji="💡">
+  Make sure to use the smaller components, such as Columns and Cells, and keep them linked. This way, we ensure consistency across Admin tables.
+</Callout>
+
+## 2. Define the Table Header
+
+import { Steps } from 'nextra/components'
+ 
+<Steps>
+### Adjust the Header props
+
+| Prop        | Description |
+| :------------ | :--------- |
+| `checkbox`       |    Turn it on when the table has checkboxes for bulk edits. |
+| `expandableRows` |   Turn it on when the table has expandable rows.            |
+| `menu`           |   Turn it on when the table rows have a menu.               |
+
+<Callout type="warning" emoji="💡">
+  The columns for those props should maintain their original width. When configuring column resizing, these should always be fixed.
+</Callout>
+
+![Table Header Props](public/assets/table-figma-header.webp)
+ 
+### Define the number of columns
+ 
+- Detach the component.
+- Hide or delete unnecessary columns, or add more columns.
+- Configure the resizing in the most suitable way for responsiveness.
+- Create your Table Header as a local component.
+
+<Callout type="warning" emoji="💡">
+  Reuse the existing header structure, maintain a fixed height, and always use the Column components.
+</Callout>
+
+### Adjust the columns props
+
+| Prop        | Description |
+| :------------ | :--------- |
+| `rightAligned`       |    Turn it on if it's a column with numerical content. |
+| `sortable` |   Defines if the column is sortable.            |
+| `contextual help`           |   Defines if there's a Contextual Help besides the column label.               |
+| `label` |   Edits the column label.            |
+
+![Table Columns Props](public/assets/table-figma-columns.webp)
+
+### Create a local component
+
+After creating a local header component, replace it in the Table that is already in your file.
+
+</Steps>
+
+## 3. Define the Table Row
+
+<Steps>
+### Adjust the Row props
+
+| Prop        | Description |
+| :------------ | :--------- |
+| `state`       |    Defines the state of the row. |
+| `minHeight` |   Defines the row minimum height.             |
+| `checkbox`           |   Turn it on when the table has checkboxes for bulk edits.               |
+| `expandable` |   Turn it on when the row expands to show more content.             |
+
+Expandable variants include a placeholder for content. Create a local component with your content and then replace the placeholder, respecting the paddings already applied. Currently, any content can be included within an expanding row, even another table.
+
+![Table Rows Props](public/assets/table-figma-rows.webp)
+
+### Define the number of columns
+
+- Detach the component.
+- Hide or delete unnecessary columns, or add more columns.
+- Configure the resizing in the same way as the Header, so the columns are aligned.
+- Create your Table Row as a local component.
+
+<Callout type="warning" emoji="💡">
+  Reuse the existing row structure, and always use the Cell components.
+</Callout>
+
+### Define the type of cells
+
+The type of cell depends on the property type that will be displayed. Common property types include:
+
+| Property type | Content | Cell |
+| :--- | :--- | :--- |
+| Name or ID | Dedicated 1-line Text column. | Name  |
+| Image | Image of the item. In left-to-right languages, the Image should always be displayed to the left of the Name in a Thumbnail column. | Image  |
+| Name or ID with Description | 2-line Text column. | Name + Text |
+| Tertiary actions | Tertiary Menu. | Menu |
+| Secondary action | Button. | Button |
+| Bulk Actions | Checkbox. | Checkbox |
+| Status or Category | Tag. | Tag |
+| Value or Price | Number. | Value |
+| Creation or Update date | 1-line Text. | Text |
+| Country or payment flag | Icon. | Icon  |
+| Type of object | 1-line Text, with or without an Icon before it. | Text or Icon + Text |
+| Percentage value or tendency | Dedicated 1-line Number column or in a 2-line Number column along with the numeric value. | Trend or Value + Trend |
+
+- Use the existing Cell components whenever possible.
+- The text that best identifies items should use the `$text-action` typography token. For example, the Name or the ID.
+- Percentage values and tendencies should use semantic colors to visually represent information.
+- Descriptions and IDs (when there is a separate Name column) should use the `$fg-soft` token.
+
+**Custom cells**
+
+When none of the provided cell types suit your scenario, create a local custom cell component. Reuse an existing component to replicate spacing and minimum height.
+
+**Minimum Height**
+
+Cells with 1 line have a min height of 44px by default, and those with 2 lines have 64px by default.
+
+The minimum height of the row always respects the minimum height of the cells, and all rows in the table should have the same minimum height.
+
+### Add the rows
+
+The Table component already includes a layer called Rows with auto layout. Replace the rows components that already exist in the Table for your local row component. Delete or add the necessary rows.
+
+![Add Rows](public/assets/table-figma-addrows.webp)
+
+### Create a local component
+
+Turn your table into a local component in your file to make it easier to replicate and edit.
+
+</Steps>
+
+## More
+
+- Create the hover and select states of the Row using the same color styles as the original component.
+- Create a variant for scroll state of the Header applying the same shadow as the original component. It should be used when the header stays fixed on the top of the page.
+- The Table component includes a layer for columns that stay fixed during horizontal scrolling. Use this model in the prototypes.
+
