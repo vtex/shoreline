@@ -9,7 +9,7 @@
 
     &[data-visible='true'] {
       opacity: 1;
-      z-index: 9999;
+      z-index: calc(9999 - var(--sl-toast-index));
       > * {
         pointer-events: auto;
       }

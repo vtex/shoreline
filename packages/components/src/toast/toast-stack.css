@@ -1,6 +1,6 @@
 @layer sl-components {
   [data-sl-toast-stack] {
-    --sl-c-toast-default-offset: 1rem;
+    --sl-c-toast-default-offset: var(--sl-space-10);
     position: fixed;
     z-index: 9999;
     top: var(--sl-c-toast-default-offset);
