@@ -13,13 +13,17 @@ export const Slot = forwardRef<HTMLDivElement, SlotProps>(function Slot(
   props,
   ref
 ) {
-  const { asChild = false, ...otherProps } = props
+  const { asChild = false, name = '', ...otherProps } = props
   const Comp = asChild ? Compose : 'div'
 
-  return <Comp data-sl-slot ref={ref} {...otherProps} />
+  return <Comp data-sl-slot={name} ref={ref} {...otherProps} />
 })
 
 export interface SlotProps {
+  /**
+   * Optional slot label
+   */
+  name?: string
   /**
    * Children composition
    * @default false
