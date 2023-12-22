@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.49.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.48.0...@vtex/shoreline-components@0.49.0) (2023-12-22)
+
+### Bug Fixes
+
+- toast overlap when there are several toasts ([b1e0a21](https://github.com/vtex/shoreline/commit/b1e0a21310abe3f124278b6f8acca708eead04ea))
+
+### Features
+
+- implement modal design qa ([b8cd340](https://github.com/vtex/shoreline/commit/b8cd340ffd41a04ceabade424a51c968ebd6afdf))
+- implement modal design requested changes ([d8e3ead](https://github.com/vtex/shoreline/commit/d8e3ead174535f6420ed03b5980bac6ebd32d4e1))
+- **modal:** implement design requested changes ([e5fa0e0](https://github.com/vtex/shoreline/commit/e5fa0e0af07b1839c690de3d5c88e4d4913b2d7f))
+
 # [0.48.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.47.0...@vtex/shoreline-components@0.48.0) (2023-12-21)
 
 ### Bug Fixes
