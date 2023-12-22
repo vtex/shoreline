@@ -241,12 +241,6 @@ export function CompleteHeader(args: StoryArgs) {
   )
 }
 
-const headingVariant = {
-  small: 'display3',
-  medium: 'display2',
-  large: 'display1',
-}
-
 export function Size(args: StoryArgs) {
   const [modal, setModal] = useState({ open: false, size: 'medium' })
 
@@ -267,19 +261,12 @@ export function Size(args: StoryArgs) {
         onClose={() => setModal((prev) => ({ ...prev, open: false }))}
       >
         <ModalHeader>
-          <ModalHeading variant={headingVariant[modal.size]}>
-            Confirm action
-          </ModalHeading>
+          <ModalHeading>Confirm action</ModalHeading>
           <Slot>
-            <Button
-              variant="tertiary"
-              size={modal.size === 'large' ? modal.size : 'normal'}
-            >
+            <Button variant="tertiary" size="large">
               Action
             </Button>
-            <ModalDismiss
-              size={modal.size === 'large' ? modal.size : 'normal'}
-            />
+            <ModalDismiss />
           </Slot>
         </ModalHeader>
         <ModalContent>
@@ -296,14 +283,14 @@ export function Size(args: StoryArgs) {
         <ModalFooter>
           <Button
             onClick={() => setModal((prev) => ({ ...prev, open: false }))}
-            size={modal.size === 'large' ? modal.size : 'normal'}
+            size="large"
           >
             Close
           </Button>
           <Button
             variant="primary"
             onClick={() => setModal((prev) => ({ ...prev, open: false }))}
-            size={modal.size === 'large' ? modal.size : 'normal'}
+            size="large"
           >
             Ok
           </Button>

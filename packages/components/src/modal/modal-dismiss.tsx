@@ -35,7 +35,7 @@ import './modal-dismiss.css'
  */
 export const ModalDismiss = forwardRef<HTMLButtonElement, ModalDismissProps>(
   function ModalDismiss(props, ref) {
-    const { children, size = 'normal', ...otherProps } = props
+    const { children, size = 'large', ...otherProps } = props
 
     return (
       <IconButton
