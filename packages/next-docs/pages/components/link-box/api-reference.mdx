@@ -1,0 +1,42 @@
+# API Reference
+
+```jsx
+<LinkBox href="">
+  <div>
+    <a>...</a>
+  </div>
+  <button>...</button>
+</LinkBox>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.LinkBoxProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `asChild` (optional)
+
+Enable children composition
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `href`
+
+The URL that the hyperlink points to.
+
+- Type: `string`
+
+### `target` (optional)
+
+Where to display the linked URL
+
+- Type: `@vtex/shoreline-components.NavigationTarget`
+
+- Default: `'_parent'`
+
+[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/link-box/link-box.tsx#L20)

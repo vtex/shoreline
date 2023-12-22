@@ -1,0 +1,47 @@
+# API Reference
+
+```jsx
+<Pagination page={page} onPageChange={(page, type) => {}} total={total} />
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.PaginationProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `loading` (optional)
+
+Whether the pagination is loading or not.
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `onPageChange` (optional)
+
+- Type: `{ (page: number, type: next | prev): void; }`
+
+### `page`
+
+Pagination current page
+
+- Type: `number`
+
+### `size` (optional)
+
+Page size
+
+- Type: `number`
+
+- Default: `25`
+
+### `total`
+
+The total number of items
+
+- Type: `number`
+
+[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/pagination/pagination.tsx#L25)
