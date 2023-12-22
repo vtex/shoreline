@@ -19,6 +19,7 @@
   "container": "Container",
   "content": "Content",
   "contextual-help": "ContextualHelp",
+  "empty-state": "Empty State",
   "field": "Field",
   "field-label": "FieldLabel",
   "field-message": "FieldMessage",
