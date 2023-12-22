@@ -34,8 +34,7 @@
     min-height: var(--sl-modal-min-height);
     max-height: var(--sl-modal-max-height);
     max-width: var(--sl-modal-width);
-    border-radius: var(--sl-border-radius-medium);
-    border: var(--sl-border);
+    border-radius: var(--sl-border-radius-large);
     background-color: var(--sl-bg);
     color: var(--sl-fg);
     box-shadow: var(--sl-shadow-2);
