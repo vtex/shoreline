@@ -31,7 +31,7 @@ export function ToastStack(props: ToastStackProps) {
       onMouseLeave={handlers.endPause}
       {...otherProps}
     >
-      {toasts.map((t) => {
+      {toasts.map((t, index) => {
         const toastPosition = t.position || position
         const offset = handlers.calculateOffset(t, {
           reverseOrder,
@@ -47,7 +47,7 @@ export function ToastStack(props: ToastStackProps) {
             key={t.id}
             onHeightUpdate={handlers.updateHeight}
             visible={t.visible}
-            style={positionStyle}
+            style={{ ...positionStyle, '--sl-toast-index': index } as any}
           >
             <Toast
               id={t.id}

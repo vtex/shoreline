@@ -9,6 +9,7 @@
     padding: var(--sl-space-4) var(--sl-space-5);
     width: 22.5rem;
     border-radius: var(--sl-border-radius-medium);
+    box-shadow: var(--sl-shadow-2);
 
     & [data-sl-toast-icon-container] {
       flex-shrink: 0;
