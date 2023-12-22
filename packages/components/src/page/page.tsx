@@ -8,7 +8,7 @@ import { Container } from '../content'
  * @example
  * <Page>
  *  <PageHeader>
- *    <PageTitle>Title</PageTitle>
+ *    <PageHeading>Title</PageHeading>
  *  </PageHeader>
  *  <PageContent>Content</PageContent>
  * <Page>

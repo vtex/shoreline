@@ -11,7 +11,7 @@ import './page-header.css'
  * @example
  * <Page>
  *  <PageHeader>
- *    <PageTitle>Title</PageTitle>
+ *    <PageHeading>Title</PageHeading>
  *  </PageHeader>
  * </Page>
  */

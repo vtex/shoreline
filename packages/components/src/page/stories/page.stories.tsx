@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Page, PageContent, PageHeader, PageTitle } from '../index'
+import { Page, PageContent, PageHeader, PageHeading } from '../index'
 import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Flex } from '../../flex'
 import { Heading } from '../../heading'
@@ -20,7 +20,7 @@ export default {
       options: ['standard', 'wide', 'narrow'],
       description: 'Page content layout type',
     },
-    pageTitle: {
+    pageHeading: {
       control: 'text',
       description: 'Title of a page',
     },
@@ -39,7 +39,7 @@ export default {
   },
   args: {
     layout: 'standard',
-    pageTitle: 'Page title',
+    pageHeading: 'Page title',
     headerWithTabs: false,
     headerWithButton: false,
     headerWithTag: false,
@@ -48,7 +48,7 @@ export default {
 
 interface StoryArgs {
   layout: 'standard' | 'wide' | 'narrow'
-  pageTitle: string
+  pageHeading: string
   headerWithTabs: boolean
   headerWithButton: boolean
   headerWithTag: boolean
@@ -80,7 +80,7 @@ export function Playground(args: StoryArgs) {
         <PageHeader>
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
-              <PageTitle>{args.pageTitle}</PageTitle>
+              <PageHeading>{args.pageHeading}</PageHeading>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
@@ -118,7 +118,7 @@ function WithTabs(args: StoryArgs) {
         <PageHeader className="ph-with-tabs">
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
-              <PageTitle>{args.pageTitle}</PageTitle>
+              <PageHeading>{args.pageHeading}</PageHeading>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}

@@ -1,5 +1,5 @@
 .ph-with-tabs {
-    padding-bottom: unset;
+    padding-bottom: var(--sl-space-5);
 }
 
 .ph-tab-list {

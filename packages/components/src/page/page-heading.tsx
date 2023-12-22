@@ -8,19 +8,19 @@ import { Heading } from '../heading'
  * @example
  * <Page>
  *  <PageHeader>
- *    <PageTitle>Title</PageTitle>
+ *    <PageHeading>Title</PageHeading>
  *  </PageHeader>
  * </Page>
  */
-export const PageTitle = forwardRef<HTMLHeadingElement, HeadingProps>(
-  function PageTitle(props, ref) {
+export const PageHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
+  function PageHeading(props, ref) {
     const { children, ...otherProps } = props
 
     return (
       <Heading
         level={1}
         variant="display2"
-        data-sl-page-title
+        data-sl-page-heading
         ref={ref}
         {...otherProps}
       >
