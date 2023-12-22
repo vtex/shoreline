@@ -1,24 +1,23 @@
-# Button
+# Spinner
 
-**Buttons triggers allow users to identify and start the most important actions in a container.**
+Loading indicator.
 
-![Button example](public/assets/overview-button.webp)
+![Spinner example](public/assets/overview-spinner.webp)
 
 ### Related components
 <RelatedComponentList>
   <RelatedComponent
-    title="Link"
-    description="Use when the action is positioned inside a text and/or requires less visual prominence."
-    href="/docs/docs-theme/start"
+    title="Skeleton"
+    description="Use only while the entire page loads and for up to 5s."
+    href="/components/skeleton"
   />
   <RelatedComponent
-    title="Tab"
-    description="Use when the action is to alternate between related views within the same container."
-    href="/docs/docs-theme/page-configuration"
-  />
-  <RelatedComponent
-    title="Menu"
-    description="Include the action in a Menu when it’s rarely used or repeated multiple times in a list."
-    href="/docs/docs-theme/theme-configuration"
+    title="Custom loading state"
+    description="Use animations, illustrations, or progress bars for a process that takes more than 5s or when the content that will load has an irregular shape, such as a graph."
+    href="/"
   />
 </RelatedComponentList>
+
+- If a process takes more than 5s, it's recommended to include the option to cancel the task and also the option to leave the page without interrupting the process.
+- When it's not possible to design and implement a custom loading state, use a Spinner and include a short text below it or to its right explaining what is happening.
+- Don’t show any loading feedback for processes that take less than 1s.
