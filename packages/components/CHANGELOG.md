@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.50.0...@vtex/shoreline-components@0.51.0) (2023-12-22)
+
+### Features
+
+- add pr suggestion ([62190b7](https://github.com/vtex/shoreline/commit/62190b7ebd51a4e2a159a81cf00d6b1f2982e433))
+- add toast shadow ([a5ab8aa](https://github.com/vtex/shoreline/commit/a5ab8aa72133fe0f2f189b10e41a3c1127b86d37))
+- adjust toast spacing ([c5b0146](https://github.com/vtex/shoreline/commit/c5b014670c8a9456529114baed9b8087461433cd))
+
 # [0.50.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.49.0...@vtex/shoreline-components@0.50.0) (2023-12-22)
 
 ### Features
