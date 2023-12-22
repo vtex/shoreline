@@ -18,7 +18,7 @@ export function ToastStack(props: ToastStackProps) {
     reverseOrder,
     position = 'bottom-right',
     toastOptions,
-    gutter,
+    gutter = 16,
     ...otherProps
   } = props
 
