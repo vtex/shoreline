@@ -1,0 +1,5 @@
+@layer sl-components {
+  [data-sl-modal-dismiss] {
+    margin-right: calc(var(--sl-element-space-right) * -1);
+  }
+}

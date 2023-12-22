@@ -1,0 +1,101 @@
+# API Reference
+
+```jsx
+<SimpleTable data={[]} columsn={[]} options={{}} />
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.SimpleTableProps<T> & @types/react.React.RefAttributes<typescript.HTMLTableElement>`
+
+## Props
+
+### `asChild` (optional)
+
+If true, the Table component will be rendered as a child of the Compose component
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `columnWidths` (optional)
+
+Array of column widths
+
+When using the Table component
+
+- Type: `string[]`
+
+- Default: `
+  []
+
+When using the SimpleTable component
+`
+
+### `density` (optional)
+
+The density of the table
+
+- Type: `default | compact | comfortable`
+
+- Default: `'default'`
+
+### `options` (optional)
+
+Other TanStack/Table options
+
+- Type: `@vtex/shoreline-components.Options<T>`
+
+### `renderDetail` (optional)
+
+- Type: `{ (row: @tanstack/table-core.Row<T>): @types/react.React.ReactNode; }`
+
+### `rowClick` (optional)
+
+- Type: `@vtex/shoreline-components.RowClick<T>`
+
+### `setSort` (optional)
+
+Setter for SortingState for controlled sort usage
+
+- Type: `@tanstack/table-core.OnChangeFn<@tanstack/table-core.SortingState>`
+
+### `sort` (optional)
+
+SortingState for controlled sort usage
+
+- Type: `@tanstack/table-core.SortingState`
+
+### `sortable` (optional)
+
+Defines if columns will be sortable
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `stickyColumn` (optional)
+
+If true, the first column will be sticky
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `stickyHeader` (optional)
+
+If true, the header will be sticky
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `virtualizer` (optional)
+
+Virtualizar table model
+
+- Type: `@vtex/shoreline-components.UseVirtualizerModelReturn`
+
+[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/simple-table/simple-table.tsx#L29)

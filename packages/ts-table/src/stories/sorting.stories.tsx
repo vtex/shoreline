@@ -158,6 +158,9 @@ export function Sorting() {
         accessorKey: 'inventory',
         header: 'In stock',
         sortingFn: 'basic',
+        meta: {
+          align: 'end',
+        },
       },
     ],
     []

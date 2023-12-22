@@ -1,0 +1,75 @@
+# Best Practices
+
+## Variants
+
+### Maximum input length
+
+- Include a maximum number of characters when the text has a predefined size. For example, a meta description field that is limited to 160 characters.
+- Whenever a maximum input length is defined, a counter appears by default in the bottom-right of the field to guide the merchant.
+
+### Optional
+
+- Mark a TextArea as optional when it's sometimes necessary. For example, to inform the internal description of a promotion or the privacy policy of a seller.
+- Whenever a field is marked as optional, the term _(optional)_ is included by default next to the label.
+- Don’t mark the mandatory fields of a form.
+- Don’t include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.
+
+## Position
+
+### Position in a container
+
+- The width of the field should comfortably fit the values, considering localization as well.
+- Group and sort fields in a way that is logical to the merchant, according to user research. For example, prefer to leave TextArea fields at the end of a section or a form, since they take up more time to fill.
+- Don’t position another component on the same line as the TextArea. For example, a button should not be beside a TextArea.
+- Don’t customize the height of the field. The field has a default initial height that grows automatically as the merchant types until it reaches a default maximum height.
+
+## Behavior
+
+### Disabled state
+
+- Disable a field only if, in some condition, it becomes enabled. For example, a field that becomes unavailable when a specific option is chosen in the form.
+- When the reason why the field is disabled might be unclear, use a Tooltip trigger next to the label to explain. Display the information when hovering over the trigger, not the field itself.
+
+### Error state
+
+- Prevent errors whenever possible. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.
+- The validation behavior should communicate the error at the right moment and make it easier to fix.
+- Show the error in a specific field when the merchant removes the focus or in any fields when they attempt to submit the form. For example, show an error when the merchant removes the focus of an empty mandatory field.
+- Remove the error state of the field as soon as the merchant modifies its value.
+
+## Content
+
+### Label
+
+- Include the name that best describes the value that must be filled. For example, use the label _Privacy policy_ when the content is a privacy policy.
+- Visually hide the field label only when this definition is already present somewhere else, such as a switch label that already describes the field that it activates.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write _Description_ as the label instead of _Promotion description_ when the page or section already includes promotion in its title.
+- Don't use verbs. For example, instead of _Fill description_, use only _Description_.
+- Don't use personal pronouns. For example, write _Privacy policy_ instead of _My privacy policy._
+- Don't use interrogations.
+
+### Placeholder
+
+Don't use placeholder text. Define the field in its label and provide any other necessary information in the help text.
+
+### Help text
+
+- Use a help text to provide any other information that is necessary besides the label.
+- Write a single sentence that is short and direct.
+- Use sentence case, but capitalize proper nouns.
+- When the help text explains the label, write as if you are completing the following sentence: _This is the [help text]_. For example, the help text for a _Privacy Policy_ field could be _Declaration of which parties manage customer data_.
+- When the help text explains how the field value will be used, start with a verb in the present tense as if completing the following sentence: _If you fill a value in this field, it [help text]_. For example, the help text for a _Description_ field could be: _Appears to customers in the store_.
+- When the help text explains the label and how the value will be used, combine the two sentences described in the previous topics. For example, "_Declaration of which parties manage customer data that will appear to customers in the store_".
+- Don’t explain rules that can be implemented. Implement any restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.
+- Don’t include redundant words or repeat the label in the text.
+- Don’t include links. Include an Alert before the field if this is necessary.
+- Don’t use periods or commas.
+
+### Error text
+
+- Use error messages for static validation, such as _Fill this information_, and for dynamic validation, such as _This value is already in use_.
+- Start with imperative verbs. For example, write _Fill this information_ instead of _This field is required_.
+- Include the necessary details in the error message. For example, write _Fill only letters and numbers_ instead of _Fill only valid characters_.
+- Don't use periods or commas.
+- Don't use incomplete sentences. For example, write _Fill this information_ instead of _Fill_.

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.1...@shoreline/next-docs@0.5.2) (2023-12-22)
+
+**Note:** Version bump only for package @shoreline/next-docs
+
+## [0.5.1](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.0...@shoreline/next-docs@0.5.1) (2023-12-22)
+
+**Note:** Version bump only for package @shoreline/next-docs
+
+# [0.5.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.4.2...@shoreline/next-docs@0.5.0) (2023-12-22)
+
+### Features
+
+- add component images ([3d23829](https://github.com/vtex/shoreline/commit/3d23829c3bbe16b8517678e538a726c533998a78))
+- add required href prop ([b8d746e](https://github.com/vtex/shoreline/commit/b8d746e4eceda8c619d2aff14de4bac65018be7a))
+- more yet more content ([7401634](https://github.com/vtex/shoreline/commit/74016349146fe13417398d35fff57d5a25b671bc))
+- move content ([3624898](https://github.com/vtex/shoreline/commit/3624898cc40a64b2c3a5d842076dfc3831b35ade))
+- move more content ([5f9b52a](https://github.com/vtex/shoreline/commit/5f9b52a672266906e4a9cbd77c6db0869192dc84))
+- rename tag image ([03126bc](https://github.com/vtex/shoreline/commit/03126bc08f4511776d4673bbf8d341523d34522a))
+
+## [0.4.2](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.4.1...@shoreline/next-docs@0.4.2) (2023-12-21)
+
+**Note:** Version bump only for package @shoreline/next-docs
+
 ## [0.4.1](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.4.0...@shoreline/next-docs@0.4.1) (2023-12-21)
 
 **Note:** Version bump only for package @shoreline/next-docs
