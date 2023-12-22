@@ -29,6 +29,7 @@ import {
 } from './string-case'
 import { invariant } from './invariant'
 import { warning } from './warning'
+import { useControlledState } from './use-controlled-state'
 
 export {
   chain,
@@ -63,6 +64,7 @@ export {
   upperFirst,
   invariant,
   warning,
+  useControlledState,
 }
 
 export * from './css-types'

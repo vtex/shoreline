@@ -21,10 +21,4 @@ describe('textarea', () => {
 
     expect(getByText('5 / 120')).toBeInTheDocument()
   })
-
-  it('render field label', () => {
-    const { getByText } = render(<Textarea label="label" />)
-
-    expect(getByText('label')).toBeInTheDocument()
-  })
 })

@@ -1,8 +1,0 @@
-.input-container {
-  border: var(--sl-border);
-  & > input,
-  textarea {
-    height: 100%;
-    width: 100%;
-  }
-}

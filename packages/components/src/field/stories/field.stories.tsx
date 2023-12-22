@@ -1,102 +1,71 @@
-import React from 'react'
-import { Checkbox, Radio } from '@ariakit/react'
-
-import { Field, FieldLabel, FieldMessage } from '../index'
-import { Stack } from '../../stack'
-import './style.css'
+import * as React from 'react'
+import { Field, FieldCharCounter, FieldDescription, FieldError } from '..'
+import { Label } from '../../label'
+import { Input } from '../../input'
+import { Textarea } from '../../textarea'
+import { Slot } from '../../slot'
 
 export default {
-  title: 'shoreline-components/field',
-}
-
-function TextArea() {
-  return (
-    <div data-sl-textarea className="input-container">
-      <textarea />
-    </div>
-  )
-}
-
-function TextInput() {
-  return (
-    <div data-sl-textinput className="input-container">
-      <input />
-    </div>
-  )
+  title: 'components/field',
 }
 
 export function Default() {
   return (
-    <form>
-      <Stack space="$space-6">
-        <Field>
-          <FieldLabel>Label</FieldLabel>
-          <TextInput />
-          <FieldMessage helpText="Help text" errorText="Error text" />
-        </Field>
-
-        <Field variant="control">
-          <FieldLabel>Label</FieldLabel>
-          <Checkbox data-sl-checkbox />
-
-          <FieldMessage error helpText="Help text" errorText="Error text" />
-        </Field>
-
-        <div>
-          <Stack space="$space-1">
-            <Field variant="control">
-              <FieldLabel>Label</FieldLabel>
-              <Radio value="radio-1" data-sl-radio />
-
-              <FieldMessage helpText="Help text" errorText="Error text" />
-            </Field>
-            <Field variant="control">
-              <FieldLabel>Label</FieldLabel>
-              <Radio value="radio-2" data-sl-radio />
-
-              <FieldMessage helpText="Help text" errorText="Error text" />
-            </Field>
-            <Field variant="control">
-              <FieldLabel>Label</FieldLabel>
-              <Radio value="radio-3" data-sl-radio />
-
-              <FieldMessage helpText="Help text" errorText="Error text" />
-            </Field>
-          </Stack>
-        </div>
-
-        <Field>
-          <FieldLabel>Label</FieldLabel>
-          <TextArea />
-
-          <FieldMessage helpText="Help text" errorText="Error text" />
-        </Field>
-      </Stack>
-    </form>
+    <Field>
+      <Label>Label</Label>
+      <Input />
+      <FieldDescription>Short description</FieldDescription>
+      <FieldError>Error Message</FieldError>
+    </Field>
   )
 }
 
-export function Group() {
+export function Multiline() {
   return (
-    <form>
-      <Field variant="group">
-        <FieldLabel>Group label</FieldLabel>
-        <Stack space="$space-4">
-          <Field variant="control">
-            <FieldLabel>Label</FieldLabel>
-            <Radio value="radio-2" data-sl-radio />
-          </Field>
-          <Field variant="control">
-            <FieldLabel>Label</FieldLabel>
-            <Radio value="radio-2" data-sl-radio />
-          </Field>
-          <Field variant="control">
-            <FieldLabel>Label</FieldLabel>
-            <Radio value="radio-2" data-sl-radio />
-          </Field>
-        </Stack>
-        <FieldMessage helpText="Heres a message" />
-      </Field>
-    </form>
+    <Field>
+      <Label>Label</Label>
+      <Textarea />
+      <FieldDescription>Short description</FieldDescription>
+      <FieldError>Error Message</FieldError>
+    </Field>
+  )
+}
+
+export function Count() {
+  const [value, setValue] = React.useState('')
+
+  return (
+    <Field>
+      <Label>Label</Label>
+      <Textarea value={value} onChange={setValue} maxLength={120} />
+      <Slot>
+        <FieldDescription>Short description</FieldDescription>
+        <FieldCharCounter count={String(value).length} limit={120} />
+      </Slot>
+      <FieldError>Error Message</FieldError>
+    </Field>
+  )
+}
+
+export function Error() {
+  return (
+    <Field error>
+      <Label>Label</Label>
+      <Input />
+      <FieldDescription>Short description</FieldDescription>
+      <FieldError>Error Message</FieldError>
+    </Field>
+  )
+}
+
+export function Controlled() {
+  const [value, setValue] = React.useState('default value')
+
+  return (
+    <Field>
+      <Label>Label</Label>
+      <Input value={value} onChange={setValue} />
+      <div>value: {value}</div>
+    </Field>
   )
 }
