@@ -13,7 +13,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
     const {
       asChild = false,
       level = 3,
-      variant = 'display4',
+      variant = 'context',
       ...otherProps
     } = props
 
@@ -33,9 +33,9 @@ export interface HeadingProps extends ComponentPropsWithoutRef<'h1'> {
   asChild?: boolean
   /**
    * Heading variant
-   * @default 'display4'
+   * @default 'context'
    */
-  variant?: 'display1' | 'display2' | 'display3' | 'display4'
+  variant?: 'display1' | 'display2' | 'display3' | 'display4' | 'context'
   /**
    * Heading level
    * @default 3
