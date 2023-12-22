@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.49.0...@vtex/shoreline-components@0.50.0) (2023-12-22)
+
+### Features
+
+- **heading:** make heading styless by default ([f840b31](https://github.com/vtex/shoreline/commit/f840b3145ce463706b0de33593aa2263f9909e71))
+- **slot:** add name prop ([4cb534e](https://github.com/vtex/shoreline/commit/4cb534ef4a5bd18dabdde5aba63508857f81a2b1))
+
 # [0.49.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.48.0...@vtex/shoreline-components@0.49.0) (2023-12-22)
 
 ### Bug Fixes
