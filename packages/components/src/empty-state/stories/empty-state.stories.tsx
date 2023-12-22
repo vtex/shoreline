@@ -1,4 +1,3 @@
-import '../empty-state.css'
 import './styles.css'
 import React from 'react'
 
@@ -8,12 +7,7 @@ import { Heading } from '../../heading'
 import { Slot } from '../../slot'
 import { Text } from '../../text'
 import { IconMagnifyingGlass, IconWarningCircle } from '../../../../icons/src'
-import {
-  Filter,
-  FilterPopover,
-  FilterProvider,
-  FilterTrigger,
-} from '../../filter'
+import { Filter, FilterProvider, FilterTrigger } from '../../filter'
 import { Popover } from '../../popover'
 
 export default {

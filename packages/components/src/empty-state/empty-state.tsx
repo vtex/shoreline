@@ -1,6 +1,18 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import './empty-state.css'
 
+/**
+ * Renders a styled empty state area
+ *
+ * @example
+ *    <EmptyState>
+ *      <Heading>Title goes here</Heading>
+ *       <Slot name="actions">
+ *         <Button variant="primary">label</Button>
+ *      </Slot>
+ *   </EmptyState>
+ * */
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   function EmptyState(props, ref) {
     const { size = 'medium', children, ...otherProps } = props
@@ -14,5 +26,9 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
 )
 
 export interface EmptyStateProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Indicates size of empty state area
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large'
 }
