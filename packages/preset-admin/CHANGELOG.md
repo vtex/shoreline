@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.3.3...@vtex/shoreline-preset-admin@0.5.0) (2023-12-22)
+
+### Features
+
+- new green color ([e2a4931](https://github.com/vtex/shoreline/commit/e2a493139b39890ffc8d1969b3cc6a00a30a7083))
+
 # [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.3.4...@vtex/shoreline-preset-admin@0.4.0) (2023-12-13)
 
 ### Features
