@@ -1,59 +1,50 @@
 # Best Practices
 
-## Components
+## Properties
 
-### Tag vs. Select Inline, Switch or Text
+### Variant
 
-- **Select Inline:** use when there are more than two possible values and the merchant can alternate between them.
-- **Switch:** use when the value is the state of an item and there are two possible values that can be alternated.
-- **Text:** use when the value can't be edited, doesn't require prominence and isn't positioned next to another value.
+| Value | Usage |
+| --- | --- |
+| `primary` | Value is related to the main job and it's crucial for merchants to take immediate action such as changing sales strategies or fixing security issues. |
+| `secondary` | Value is not related to the main job. For example, when accessing that products page the merchant may not be interested in the product status. |
 
-## Variants
+### C**olor**
 
-### Color
+| Value | Usage | Example |
+| --- | --- | --- |
+| `gray` | Value can't be classified or requires less attention. | Archived |
+| `blue` | Value contains information about the system and doesn't require the merchant to act. | Indexing |
+| `red` | Value contains negative information and/or require action. | Error or Canceled |
+| `orange` | Value requires action and is not related to an error. | Draft |
+| `green` | Value contains positive information, such as the status of an item that is matching or surpassing expectations. | Active |
+| `cyan`, `teal`, `purple`, or `pink` | Value doesn't have a clear semantic but should be easy to quickly identify and visually differentiate. | App categories |
 
-- `gray`: use for values that can't be classified, such as _Category page_, and for values that require less attention, such as _Archived_.
-- `blue`: use for information about the system that doesn't require the merchant to act, such as _Indexing_.
-- `red`: use for values that require the merchant to act, such as _Error_, or for negative information, such as _Canceled_.
-- `orange`: use for values that reflect a pending action from the merchant unrelated to an error, such as _Draft_.
-- `green`: use for values that indicate that an item is matching or surpassing expectations, such as _Active_.
-- `cyan`, `teal`, `purple` or `pink`: use for values without a clear semantic that can benefit from visual prominence or that should be visually differentiated by the merchant, such as app categories.
+### Si**ze**
 
-### Size
+| Size | Usage |
+| --- | --- |
+| `normal` | Next to text using $text-body, $title-display3, or $title-display4. |
+| `large` | Next to text using $title-display1 or $title-display2. |
 
-- `normal`: use next to `$text-body`, `$title-display3`, or `$title-display4` text.
-- `large`: use next to `$title-display1` or `$title-display2` text.
+### **Label**
 
-### Prominence
-
-- `regular`: use when the information provided by the tag is as relevant as other information in the interface.
-- `high`: use when the tag has a high prominence in the interface and it should highlight very important information for the merchant.
-
-## Position
-
-### Position in a container
-
-- Position the Tag close to related information, such as a title or label.
-- Clear blank space around the Tag of at least `$space-3` horizontally and `$space-2` vertically.
-- Separate multiple Tags with `$space-3` when listed horizontally and `$space-2` when listed vertically.
-- In a Table, Tags should be one of the last columns, immediately before any column with Menu triggers.
-- In the header of a container, position the Tag on the right side of the title and left-aligned.
-- Don't apply bleed to the Tag. Prefer to position the Tag by its container.
-- Don't position the Tag on the top-right of a container. Prefer to position the Tag next to a title or label.
-
-## Behavior
-
-### Hover or Click
-
-- When hovering or clicking a Tag nothing should happen, because the Tag should not be clickable, removable, or editable.
-- Don't open a Tooltip when a Tag is hovered.
-
-## Content
-
-### Label
-
-- Write a property, such as _Active_, or a category, such as _Product page_.
-- Write as short and direct of a label as possible. For example, write _Pending payment_ instead of _Waiting for payment_.
+- Write as short and direct of a label as possible. For example, write *Pending payment* instead of *Waiting for payment*. Don't write text longer than 30 characters.
+- Don't use punctuation or separators. For example, write only *Active* instead of *Status: active*.
+- Write a property, such as *Active*, or a category, such as *Product page*.
 - Use sentence case.
-- Don't write text longer than 30 characters.
-- Don't use punctuation or separators. For example, write only _Active_ instead of _Status: active_.
+
+# **Position**
+
+Considering left-to-right interfaces:
+
+- **Position in a container:** Prefer to position the Tag next to a title or label. Don't position it on the top-right of a container.
+- **Position in a table:** Position a column with Tags as one of the last columns, such as immediately before the column with Menu triggers.
+- **Position in a header:** Position the Tag on the right side of the title and left-aligned.
+- **Space around a tag and between tags:** Consider a safe space around Tags of at least `$space-3` horizontally and `$space-2` vertically. Separate multiple Tags with `$space-3` in horizontal lists and `$space-2` in vertical lists.
+
+# **Behavior**
+
+### H**over or Click**
+
+Tags shouldn't be clickable, removable, or editable. Nothing should happen on hover or click.

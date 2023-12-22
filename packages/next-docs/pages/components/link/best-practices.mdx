@@ -1,0 +1,27 @@
+# Best Practices
+
+## Properties
+
+### Text
+
+- **Style:** Links use by default the `$text-body` token with accent color tokens and an underline on hover. Other typography tokens can be used, but maintaining the color and underline behavior.
+- **Link within a paragraph:** Choose words that define the content that will be visited. It's not necessary to modify the capitalization of the text or start with a verb.
+- **Link at the end of a paragraph:** it should be in sentence case and start with a verb, such as *Learn more* and *View details*.
+- Don’t use more than three words in a Link.
+- Don’t use the verb *See*. Prefer using *View*.
+
+## Position
+
+Always position a Link inline, either in the middle of a paragraph or immediately at the end. Don’t position a Link in the header or footer of a container, prefer to use a Button instead.
+
+## Behavior
+
+### Destination
+
+- **Natively supported destinations:** Besides navigating to a page, Links can also navigate to a specific section of a page, highlighted text on a page, default email client with pre-filled content, and the default telephone app with a pre-filled number.
+- **Open in a new tab:** The destination should open in a new tab when it leads outside the VTEX Admin, such as to documentation or a partner’s website, or when there's a task in the current tab that shouldn't be interrupted, such as filling a form or watching a video.
+- Don't use a Link to download a file or to expand/collapse content, prefer using a [Button](https://admin-ui.vercel.app/next/components/button).
+
+### Visited state
+
+Once the user presses a link, the destination is registered in the browser history and the link stays in the visited state until this history entry is cleared. Visited links maintain the `$fg-accent-pressed` color and this behavior should not be customized.

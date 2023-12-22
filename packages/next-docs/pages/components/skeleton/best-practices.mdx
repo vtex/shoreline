@@ -1,0 +1,32 @@
+# Best Practices
+
+## Properties
+
+### Shape
+
+| Value | Usage |
+| --- | --- |
+| `rect` | Buttons, Text |
+| `circle` | Tags, Avatars |
+
+## Position
+
+Position Skeletons so they resemble the content that will load or represent a common scenario for content that is dynamic. For example, to represent text use a set of `rect` Skeletons with a height equal to the line-height of the Text that will load. Don't use large and generic Skeletons.
+
+## Behavior
+
+### Duration
+
+- Display Skeletons during the initial loading of the container and remove it once it ends. Never show a Skeleton after a container has already loaded.
+- Don't show a loading state for requests that take less than one second.
+- When the container takes longer than 5s to load, prefer to design a custom loading state instead of using a Skeleton.
+
+### Animation
+
+Skeletons have a default pulse animation that is played in a loop. Don't customize this animation.
+
+### Hiding content during loading
+
+- **Only dynamic content:** Skeletons only replace content that needs to load through requests. For example, the label of a piece of information should remain visible during loading.
+- **Actions:** Don't replace actions with Skeletons. Use the disabled state of the component if the action can't be triggered during loading.
+- **Components with loading states:** Consider that some components already have a loading state that shouldn't be customized, such as the Skeletons in Table columns.
