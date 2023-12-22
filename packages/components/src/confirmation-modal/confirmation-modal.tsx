@@ -1,11 +1,17 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { Content } from '../content'
-import { Modal, ModalDismiss, ModalHeader, ModalHeading } from '../modal'
-import { Flex } from '../flex'
+import {
+  Modal,
+  ModalContent,
+  ModalDismiss,
+  ModalFooter,
+  ModalHeader,
+  ModalHeading,
+} from '../modal'
 import { Button } from '../button'
 import { createMessageHook } from '../locale'
 import { messages } from './messages'
+import './confirmation-modal.css'
 
 const useMessage = createMessageHook(messages)
 
@@ -49,22 +55,29 @@ export const ConfirmationModal = forwardRef<
   const getMessage = useMessage(messages)
 
   return (
-    <Modal open={open} onClose={onClose} ref={ref} {...otherProps}>
+    <Modal
+      data-sl-confirmation-modal
+      open={open}
+      onClose={onClose}
+      ref={ref}
+      {...otherProps}
+      size="small"
+    >
       {getMessage('title') ? (
         <ModalHeader>
           <ModalHeading>{getMessage('title')}</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
       ) : null}
-      <Content>{children}</Content>
-      <Content narrow>
-        <Flex justify="end" columnGap="0.5rem">
-          <Button onClick={onCancel}>{getMessage('cancel')}</Button>
-          <Button onClick={onConfirm} variant="primary">
-            {getMessage('confirm')}
-          </Button>
-        </Flex>
-      </Content>
+      <ModalContent>{children}</ModalContent>
+      <ModalFooter data-sl-confirmation-modal-footer>
+        <Button onClick={onCancel} size="large">
+          {getMessage('cancel')}
+        </Button>
+        <Button onClick={onConfirm} size="large" variant="primary">
+          {getMessage('confirm')}
+        </Button>
+      </ModalFooter>
     </Modal>
   )
 })
