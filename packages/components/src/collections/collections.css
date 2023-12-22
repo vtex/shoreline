@@ -1,0 +1,17 @@
+@layer sl-components {
+  [data-sl-collections] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-4);
+
+    & > [data-sl-slot]:first-of-type {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & > [data-sl-slot]:last-of-type {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

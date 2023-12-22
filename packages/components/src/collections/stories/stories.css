@@ -1,0 +1,5 @@
+.ready-view {
+  width: 100%;
+  height: 23.75rem;
+  background-color: var(--sl-bg-muted);
+}
