@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.51.0...@vtex/shoreline-components@0.52.0) (2023-12-22)
+
+### Bug Fixes
+
+- add missing bleed to modal-header buttons ([faff746](https://github.com/vtex/shoreline/commit/faff746df69f338319c00ab0f70a149a743427e3))
+
+### Features
+
+- add confirmation-modal qa ([d5b1eef](https://github.com/vtex/shoreline/commit/d5b1eefee9572d3998b92c9e81ff0748e3b2bc04))
+- add design requested changes ([a4a7191](https://github.com/vtex/shoreline/commit/a4a7191daf027679e363a1852b33c659faffef03))
+- add modal missing border ([c4e34de](https://github.com/vtex/shoreline/commit/c4e34def8c13a1ee0862c02d08d05eb28f36202e))
+
 # [0.51.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.50.0...@vtex/shoreline-components@0.51.0) (2023-12-22)
 
 ### Features
