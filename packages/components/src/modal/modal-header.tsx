@@ -1,14 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { DialogDismiss, DialogHeading } from '@ariakit/react'
-import { IconX } from '@vtex/shoreline-icons'
 
 import { Flex } from '../flex'
-import { IconButton } from '../icon-button'
-import { Bleed } from '../bleed'
 import { Content } from '../content'
 import './modal-header.css'
-import { Heading } from '../heading'
 
 /**
  * Header of the Modal
@@ -26,7 +21,9 @@ import { Heading } from '../heading'
  *          setOpen(false)
  *        }}
  *      >
- *        <ModalHeader>Title</ModalHeader>
+ *        <ModalHeader>
+ *          <ModalHeading>Title</ModalHeading>
+ *        </ModalHeader>
  *      </Modal>
  *    </>
  *  )
@@ -34,23 +31,14 @@ import { Heading } from '../heading'
  * ```
  */
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
-  function Modal(props, ref) {
+  function ModalHeader(props, ref) {
     const { children, ...otherProps } = props
 
     return (
       <Content asChild data-sl-modal-header narrow ref={ref} {...otherProps}>
         <header>
-          <Flex justify="space-between">
-            <Heading asChild variant="display2">
-              <DialogHeading data-sl-modal-title>{children}</DialogHeading>
-            </Heading>
-            <Bleed vertical horizontal>
-              <IconButton variant="tertiary" label="close" asChild>
-                <DialogDismiss>
-                  <IconX />
-                </DialogDismiss>
-              </IconButton>
-            </Bleed>
+          <Flex justify="space-between" align="center">
+            {children}
           </Flex>
         </header>
       </Content>
