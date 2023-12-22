@@ -14,6 +14,7 @@
     --sl-modal-width: var(--sl-modal-medium-width);
     --sl-modal-footer-button-min-width: 6.25rem;
     --sl-modal-footer-button-width: auto;
+    --sl-modal-content-space-top: 1.5rem;
   }
 }
 
@@ -33,7 +34,7 @@
     min-height: var(--sl-modal-min-height);
     max-height: var(--sl-modal-max-height);
     max-width: var(--sl-modal-width);
-    border-radius: var(--sl-border-radius-medium);
+    border-radius: var(--sl-border-radius-large);
     background-color: var(--sl-bg);
     color: var(--sl-fg);
     box-shadow: var(--sl-shadow-2);
@@ -45,18 +46,21 @@
       --sl-footer-button-min-width: auto;
       --sl-modal-footer-button-width: 100%;
       --sl-modal-header-padding: var(--sl-modal-header-padding-small);
+      --sl-modal-content-space-top: 1rem;
     }
     &[data-size='medium'] {
       --sl-modal-width: var(--sl-modal-medium-width);
       --sl-modal-min-height: var(--sl-modal-medium-min-height);
       --sl-modal-max-height: var(--sl-modal-medium-max-height);
       --sl-modal-header-padding: var(--sl-modal-header-padding-medium);
+      --sl-modal-content-space-top: 1.5rem;
     }
     &[data-size='large'] {
       --sl-modal-width: var(--sl-modal-large-width);
       --sl-modal-min-height: var(--sl-modal-large-min-height);
       --sl-modal-max-height: var(--sl-modal-large-max-height);
       --sl-modal-header-padding: var(--sl-modal-header-padding-large);
+      --sl-modal-content-space-top: 1.75rem;
     }
   }
 
