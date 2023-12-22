@@ -15,28 +15,28 @@ export function Default() {
       <ToastStack />
       <Button
         onClick={() => {
-          toast.informational('Message!')
+          toast.informational('Informational!')
         }}
       >
         Informational
       </Button>
       <Button
         onClick={() => {
-          toast.success('Message!')
+          toast.success('Success!')
         }}
       >
         Success
       </Button>
       <Button
         onClick={() => {
-          toast.warning('Message!')
+          toast.warning('Warning!')
         }}
       >
         Warning
       </Button>
       <Button
         onClick={() => {
-          toast.critical('Message!')
+          toast.critical('Critical!')
         }}
       >
         Critical
