@@ -8,15 +8,15 @@
       min-width: 5rem;
     }
 
+    & :where(button) {
+      margin-top: calc(var(--sl-element-space-top) * -1);
+      margin-bottom: calc(var(--sl-element-space-bottom) * -1);
+    }
+
     & :where([data-sl-slot]) {
       display: flex;
       align-items: center;
       column-gap: var(--sl-space-3);
-    }
-
-    & [data-sl-slot] > [data-sl-button] {
-      margin-top: calc(var(--sl-element-space-top) * -1);
-      margin-bottom: calc(var(--sl-element-space-bottom) * -1);
     }
   }
 }
