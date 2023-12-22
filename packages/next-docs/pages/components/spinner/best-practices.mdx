@@ -1,37 +1,31 @@
 # Best Practices
 
-## Variants
+## Properties
 
 ### Color
 
-- When the Spinner is next to a text, replacing a text, or on top of a colored background, its color should use a foreground token from the same surface. For example, a Spinner on top of `bg-muted` should use `fg-muted`.
-- If the background color is strong (color-8 or higher), the Spinner should be `fg-inverted`. For example, use a white Spinner if the background color is `blue-8`.
+- When the Spinner is next to text, replaces text, or on a colored background, use a foreground token from the same surface. For example, when on top of `$bg-muted` use `$fg-muted`.
+- If the background color is strong (color-8 or higher), the Spinner should be `white`. For example, use a `white` Spinner if the background color is `$blue-8`.
 
 ## Position
 
-### Size and position in a container
-
-- When a trigger is pressed, and the Spinner is used to provide immediate feedback, position it as closely as possible to the trigger. For example, use the loading state of the Button.
-- Don’t customize the default size of the spinner.
+- **Position in a container:** When it provides immediate feedback after a trigger was pressed, position it as close as possible to the trigger. For example, use the Button loading state.
+- **Text explaining a Spinner:** Avoid including text, since a Spinner shouldn't take more than 5s. If it's not possible to design and implement a custom loading state, use a Spinner with a short text below it or to its right explaining what is happening.
+- **Size:** Don’t customize the default size of the spinner.
 
 ## Behavior
 
-### Duration
+### Timing
 
-A Spinner should only be used to provide feedback on processes that take between 1s and 5s.
+- **Less than 1s:** Don't show any loading feedback.
+- **Between 1s and 5s:** Use a Spinner to provide feedback.
+- **More than 5s:** Prefer to design a custom loading state, instead of using a Spinner.
 
-### Animation
+### Animating
 
 A Spinner has a default spinning circle animation played in a loop that should not be customized.
 
-### Hiding content
+### Hiding content during loading
 
-- When search results are loading, the loading state of the Search Input should be the only feedback. Maintain the previous results visible in the list until the new ones finish loading.
-- When a process takes more than 2s and less than 5s, content that might be modified should be completely hidden and temporarily replaced with loading feedback such as a Spinner.
-
-## Content
-
-### Explanation
-
-- It's not recommended to include text explaining a Spinner, since it's not recommended to use a Spinner for processes that take more than 5s.
-- When it's not possible to design and implement a custom loading state, a Spinner can be used - with a short text below it or to its right explaining what is happening. For example, the Spinner could be next to the word _Indexing_ or to the text “This release is being published and may take up to 5 minutes”.
+- When a process takes more than 2s and less than 5s, content that might be modified should be completely hidden and temporarily replaced with loading feedback, such as a Spinner.
+- When search results are loading, the loading state of the Search should be the only feedback. Maintain the previous results visible in the list until the new ones finish loading.

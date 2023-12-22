@@ -1,0 +1,54 @@
+# Best Practices
+
+## Properties
+
+### Variant
+
+| Variant | Usage | Example |
+| :--- | :--- | :--- |
+| `info` | Message without a clear semantic that doesn't require immediate attention. | “There are 5 new transactions” with a View new transactions action, when in a page with outdated content |
+| `critical` | Action that failed due to a technical error or a user error. Include a proposed action or, when it's not possible, explain what to do next. | "The font could not be deleted because it's used in styles. Please remove it from styles and try again." with a View styles action |
+| `warning` | Unexpected behavior or something to be cautious about. Consider including a proposed action or explaining what to do next. | “The product was saved with 5 issues” and a Fix issues action |
+| `positive` | Action that matched or surpassed expectations. If the action takes a while to process, use a positive Toast for the submission itself and an info Alert to indicate progress. | “Product successfully created” |
+
+### Icon
+
+Each Alert variant includes a specific semantic icon that should not be customized.
+
+### Message
+
+- Write a brief and direct sentence with 240 characters at most. Prefer to include an action that complements the message when needed.
+- Don't use technical language. For example, use ”*The invoice could not be sent because of a technical issue”* instead of ”*Error 298dx9283 prevented the invoice from being sent”*.
+- Use sentence case, but capitalize proper nouns.
+- Don't use personal pronouns.
+
+### Action
+
+Keep the message brief by including an action that complements it, such as to:
+
+- Provide more details in a modal or related page.
+- Retry a failed action.
+- Undo a successful action.
+- Focus on the first error in a form with issues.
+- Refresh outdated information on the page.
+
+Read the Button documentation for more details.
+
+### Dismissible
+
+Toasts are always dismissible. For non-dismissible notifications, read the Alert documentation.
+
+## Position
+
+Considering left-to-right interfaces, Toasts pop from the bottom of the screen and rest on the lower right-hand corner. This is the default behavior and it should not be customized.
+
+## Behavior
+
+### Timing
+
+- **Trigger:** Toasts appear immediately after an action is triggered (user presses *Save*) or the loading feedback is over (Button stops spinning).
+- **Duration:** Most Toasts should last between 5 and 10 seconds, following an average of 3.5 milliseconds per character. Use a permanent toast only when they require attention, such as critical Toasts, warning Toasts, and any Toast that is not the immediate result of an user action.
+
+### Multiple Toasts
+
+Avoid displaying more than one Toast at the same time. Prefer to summarize the result of an action in a single Toast. For example, use ”*34 products successfully saved”*.

@@ -1,0 +1,76 @@
+# Best Practices
+
+## Properties
+
+### Search
+
+Always include a Search in the Collection to make it easier for merchants to find the information they are looking for. Support at least search by Name and ID.
+
+Read the Search documentation for more information.
+
+### Pagination
+
+Always include Pagination.
+
+Read the Pagination documentation for more information.
+
+### Buttons
+
+- Include tertiary Buttons in the Collection header for actions that are related to the items being shown but that don't modify them. For example, *Export* or *Import*.
+- Include three actions at most. Don't include actions that are not related to the content shown.
+
+Read the Button documentation for more information.
+
+### Filters
+
+Include Filters when there are predefined options for properties that can be chosen as criteria to filter items. Don't a Button to filter items or to toggle the visibility of filters.
+
+Read the Filter documentation for more information.
+
+### Table
+
+Include a list view with a Table when there are important item properties that are textual and may need to be compared. For example, a list of products, promotions, or orders.
+
+Read the Table documentation for more information.
+
+### Card grid
+
+Include a grid view with Cards when there are important item properties that should be exposed more visually. For example, app logos in a list of apps or thumbnails in a media gallery.
+
+## Position
+
+Considering left-to-right interfaces:
+
+- **Position in a container:** Use a Collection directly on a Page or inside a Card or Modal. Fill the entire width of the container, but respect its horizontal margin.
+- **Pagination:** Position one Pagination in the top right, directly above the content and filters, and another after the content in the bottom right. Don't position a Pagination outside the Collection.
+- **Actions:** Position to the left of the Pagination and right-align both in the header.
+- **Filters:** Position them below the Search, directly above the content that will be filtered, and aligned to the left. If there's only one Filter, position it to the right of the Search. Don't position any Filters outside the Collection.
+
+## Behavior
+
+### No items yet
+
+When no items have been created or received:
+
+- Hide elements that are unnecessary in this state such as any Search, Filter, and Pagination.
+- Replace the Table or any container being used to display items with an EmptyState component.
+
+Read the EmptyState documentation for more information.
+
+### No results
+
+When the search works but no results match the terms:
+
+- Keep the Search, Filters, and any Buttons active, and disable both Paginations.
+- Replace the Table or any container being used to display items with an EmptyState component.
+
+Read the EmptyState documentation for more information.
+
+### Error
+
+When items fail to load or the search fails to return results:
+
+- Keep the Search and Filters active, and disable both Paginations. Disable any other button that can't be triggered while in this state.
+- Replace the Table or any container being used to display items with an EmptyState component.
+
+Read the EmptyState documentation for more information.

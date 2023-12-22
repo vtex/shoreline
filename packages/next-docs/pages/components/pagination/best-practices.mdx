@@ -1,42 +1,28 @@
 # Best Practices
 
-## Components
+## Properties
 
-### Pagination vs. infinite scroll
+### Items per page
 
-Use Pagination when a list can have more than 25 results. Infinite scroll is not recommended in any scenario.
+Show 25 items per page by default. If the items are listed in a container where vertical scroll should be avoided, such as a Modal or a Card, limit the number of items accordingly.
 
 ## Position
 
-### Position in a container
-
-Considering left-to-right interfaces:
-
-- Pagination should always be in the top right of a container.
-- If the list has a vertical scroll, the Pagination should also be in the bottom right.
-- Use the Data View component to correctly position the Pagination.
+Considering left-to-right interfaces, position a Pagination in the top right of a container. If the list has vertical scroll, include another Pagination in the bottom right. Use the Collection component to correctly position the Pagination.
 
 ## Behavior
-
-### Items are shown per page
-
-- The standard is to show 25 items per page of a list.
-- When the list is inside a container where vertical scroll should be avoided, such as a Modal or a Card, limit the number of items accordingly.
-- In a Data View, merchants can select the number of results to be shown per page in the footer Pagination. They can choose among 10, 25, 50, and 100 results.
 
 ### Loading
 
 Show a loading Pagination when the list is loading, since the number of results is not loaded and the user can’t navigate between pages yet.
 
-### Updating the number of results
+### Updating items
 
-- Update the number of results when the merchant edits the filter values or the search query, the total number of results should inform the current state of the list.
-- Only load new items when the merchant explicitly triggers an action to update the results, such as the _Refresh_ button in the web browser.
-- When the user has just created an item and returns to the listing page, they should go to the first page with updated results.
-- When the user has just edited an item and returns to the listing page, they should see a list with the same items as before, but with the edited item updated.
-- Don’t load new items while the merchant is navigating between pages.
+- **Displaying search results:** When the user edits a Filter or the Search and the results load, update the total number of results in the Pagination to inform the current state of the list.
+- **Refreshing with new items:** Only load new items when the user explicitly triggers an action to update the results, such as the *Refresh* button in the web browser. Don’t load new items while the user is navigating between pages.
+- **Returning after creating an item:** When the user has just created an item and returns to the listing, they should go to the first page with updated results.
+- **Returning after editing an item:** When the user has just edited an item and returns to the listing, they should see a list with the same items as before, but with the edited item updated.
 
-### Storing the current state of a list in the URL
+### Returning after navigating
 
-- The complete search query, which includes the filters, the current page, and the search terms, should be reflected in the URL. This allows the merchant to easily return to the customized view and easily share it.
-- Don’t use local storage or cookies to store the query.
+The complete search query, which includes the filters, the current page, and the search terms, should be reflected in the URL. This allows the user to easily return to the customized view and easily share it. Don’t use local storage or cookies to store the query.

@@ -1,0 +1,52 @@
+# Best Practices
+
+## Properties
+
+### Size
+
+| Value | Usage |
+| :--- | :--- |
+| `small` | Inside Cards, Dropdowns, Popovers, and small Modals |
+| `medium` | Inside a medium and large Modal |
+| `large` | Inside a Collection |
+
+### Title
+
+- Always include a title.
+- Use sentence case, but capitalize proper nouns.
+- Write at most one line in a direct language.
+- Don't use a marketing tone of voice. Prefer to design a custom introduction page.
+- Don't use question marks or periods.
+- Don’t customize the title style.
+
+### Illustration
+
+- Consider including an illustration to communicate the state quickly and in a pleasant manner.
+- The illustration should be simple and easy to understand. Avoid complex illustrations.
+- When adding a custom illustration, review existing ones to follow the same stroke style, considering the size of the illustration.
+- Don't add shadows and gradients to the illustration.
+- Don't modify the size of the illustration.
+
+### Description
+
+- Include a description only if it is necessary to add more details about the state.
+- Write a short and direct description that starts with an imperative verb. For example, View, Approve, or Create.
+- Use sentence case, but capitalize proper nouns.
+- Don’t include links, periods or question marks.
+
+### Actions
+
+Add one or two Buttons if it is necessary to provide next steps. For example, *Create item, Try again*, and *View documentation*.
+
+Read the Button component documentation for more information.
+
+### Background
+
+Use the background of the content that the EmptyState replaced, either `bg-base` or `bg-muted`. 
+
+## Position
+
+- **Position in a container:** Centralized, occupying the exact space of the content it replaced and respecting the container margins. Use the Collection component to correctly position the EmptyState when it is replacing a list.
+- I**llustration:** Above the title and center-aligned. Don’t customize this behavior.
+- **Description:** Below the title and center-aligned. Don’t customize this behavior.
+- **Actions:** Below the description, if it exists, or below the title. List them horizontally when the EmptyState is `large` or `medium` and vertically when `small`. Don’t customize this behavior.

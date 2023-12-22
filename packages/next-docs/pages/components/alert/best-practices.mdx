@@ -1,0 +1,55 @@
+# Best Practices
+
+## Properties
+
+### Variant
+
+| Value | Usage | Example |
+| :--- | :--- | :--- |
+| `info` | Message without a clear semantic that doesn't require immediate attention. For example, announcements, product invitations, and progress feedback. | "A new Products experience is available. This version will be discontinued in June 2024." with a Try new version action |
+| `critical` | Action that failed due to a technical error or a user error. Include a proposed action or, when it's not possible, explain what to do next. | "There are 2 invoices that could not be processed because of a technical issue" with a Try again action |
+| `warning` | Unexpected behavior or something to be cautious about. Consider including a proposed action or explaining what to do next. | "Stores in this account still can't sell to the final customer" with an Activate account action |
+| `positive` | Action that matched or surpassed expectations. | "The performance of this seller improved and now meets minimum requirements" with a View performance action |
+
+### Icon
+
+Each Alert variant includes a specific semantic icon that should not be customized.
+
+### Message
+
+- Write a brief and direct sentence with 240 characters at most. Prefer to include an action that complements the message when needed.
+- Don't use technical language. For example, use *"The invoice could not be processed because of a technical issue"* instead of *"Error 298dx9283 prevented the invoice from being processed"*.
+- Use sentence case, but capitalize proper nouns.
+- Don't use personal pronouns.
+
+### Action
+
+Keep the message brief by including an action that complements it, such as to:
+
+- Provide more details in a modal or related page.
+- Test a new feature or product.
+- Retry a failed action.
+
+Read the Button documentation for more details.
+
+### Dismissible
+
+Most Alerts should be dismissible, such as success feedback and product invitations. An Alert with crucial information can be non-dismissible if their persistence doesn't harm the user experience.
+
+- **Warning Alert with prominent help text:** Consider these part of the page content and therefore non-dismissible. For example, *"Copy and save the Application Token because it will only be displayed once".*
+- **Critical Alert that blocks the usage of the page:** Errors of this severity shouldn't be dismissible. For example, *"This extension is not available because payment flags are not enabled"* with a *Set up payment* button.
+
+## Position
+
+Position directly on the Page (global context) or inside a Card or Modal (specific context). Always at the start of the container, directly below its header, taking up 100% of the width but respecting the container margins. Don't position the Alert inside, above, or attached to the Page Header.
+
+## Behavior
+
+### Timing
+
+- Most Alerts appear at the same time as other content during loading. Non-dismissive alerts related to progress feedback, however, can appear afterwards as action feedback. For example, “*This release is being published and may take up to 5 minutes*".
+- Don't dismiss an Alert automatically. For temporary notifications, use a Toast instead.
+
+### Multiple Alerts
+
+Avoid displaying more than one Alert at the same time. Prefer to summarize the information in a single Alert. For example, *"There are 10 invoices with recent updates"* with a *View details* button.

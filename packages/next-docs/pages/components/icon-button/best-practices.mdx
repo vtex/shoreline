@@ -18,23 +18,17 @@
 | `large` | Header or footer of Page and Modal. |
 | `normal` | Most scenarios. |
 
-### Label
-
-- Reuse existing labels.
-- Always include a verb in the infinitive followed by an object. For example, *Create product*.
-- Use a verb that reflects the exact action. For example, use *Publish* instead of *Confirm*.
-- Use sentence case but capitalize proper nouns.
-- Don’t use punctuation, more than three words, or personal pronouns.
-
 ### Icon
 
-- Include an icon before the label whenever the action can be represented by an icon, especially when it's part of a group of actions.
-- If the button opens a page in a new tab, include an `IconArrowUpRightSmall` after the label.
-- Use an IconButton if the the label of an action should not be visible.
+- Choose an icon that is easily recognizable by itself. For example, the Close, Forward, and Back icons.
+- Don’t leave an IconButton without an alternative label. Always add one in the `aria-label` prop.
+- If there's no easily recognizable icon, prefer to position the action inside a Menu. Don’t use a Tooltip to display the label.
 
 ## Position
 
-- **Position in a container:** In most scenarios, list actions horizontally, right-aligned, and vertically centered. In a form, left-align actions that modify content and right-align those that submit.
+Considering left-to-right interfaces:
+
+- **Position in a container:** In most scenarios, list actions horizontally, right aligned and vertically centered. In a form, left-align actions that modify content and right-align those that submit.
 - **Order of actions in a list:** In a horizontal list, order from `tertiary` to `primary`. In a vertical list, from `primary` to `tertiary`.
 - **Pairing a secondary action with other actions:** Use a `secondary` action alone, next to one `primary` action, or next to one or more `tertiary` actions. Don't include more than one `secondary` action in a group.
 - **Pairing a tertiary action with other content:** Use the Bleed component to ignore the box of a `tertiary` or `tertiaryCritical` action and align it based on its icon and/or label.
@@ -53,7 +47,7 @@
 - Don't show loading or progress indicators for actions that take less than 1s to process.
 - If the action takes more than 5s to process, display progress feedback in an overlay.
 
-### Confirmation Modal
+### Confirmation modal
 
 - Display a ConfirmationModal when the action is irreversible. For example, a *Delete* action where it isn't possible to restore the item from the trash.
 - Display a ConfirmationModal when the action takes considerable time to undo. For example, a *Publish* action that takes time and can’t be canceled while in progress.

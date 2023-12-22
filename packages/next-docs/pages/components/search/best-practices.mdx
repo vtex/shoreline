@@ -1,72 +1,48 @@
 # Best Practices
 
-## Position
-
-### Position in a container
-
-Considering left-to-right interfaces, follow these recommendations:
-
-- Position the Search directly above the content that will be filtered.
-- The Search should always be in the top left of a container.
-- Use the DataView component to correctly position the Search.
-- Don't position the Search in the header of a container.
-
-## Behavior
-
-### Disabled state
-
-Avoid using a disabled Search. Use the DataView component instead, which automatically hides the Search input when the list is empty.
-
-### Loading state
-
-- Use a loading Search when the search takes more than a second to process.
-- Don't block merchants from editing the input during the loading state.
-- The search process shouldnt take longer than five seconds.
-
-### Feedback in a list
-
-- The loading state with a spinner in the Search field should be the only feedback while the search is being processed. After the results load, the Search field should go back to its default state.
-- Maintain the previous results visible until the new ones finish loading.
-- Dont show a Skeleton when processing a search.
-
-### Clearing or persisting results
-
-- Clear results only when the merchant clicks on the clear Button with the `<IconXCircle />` inside the Search field or manually erases the search terms.
-- Maintain the previous results visible until the new ones finish loading.
-- Dont use local storage or cookies to store the search query.
-
-### Error feedback
-
-When the search doesnt return results due to an error, use the DataView component to correctly display the feedback.
-
-### No results feedback
-
-When the search works but returns empty because there are no results matching the query, use the DataView component to correctly display the feedback.
-
-### Supporting search operators
-
-Avoid supporting search operators. Even though they are powerful, they arent discoverable and can be complex for most merchants. Prefer using Filters as a way to combine criteria.
-
-### Logic
-
-- Ignore typos, capitalization, and accents.
-- Support synonyms.
-- Dont include a Search field for each type of information that can be searched, support all of them in the same input.
-
-## Content
+## Properties
 
 ### Placeholder text
 
-- In most cases, the experience should be intuitive enough not to need instructions on what should be searched. Only customize the placeholder text after UX research to understand the merchants needs.
-- Describe the properties that can be searched when they go beyond the merchants expectations. For example, _Search for Name, ID, or Ref ID_.
-- Considering localization, prioritize the properties that are most relevant according to UX research. For example, _Search for Name, ID, Ref ID, and more_.
-- When a Table column has a label for the same property, reuse the name to maintain consistency.
-- Dont use placeholder text to include important information, since it will be hidden when the merchant types search terms.
-- Avoid redundancy. Instead of writing _Product name_ and _Product ID_ on a _Products_ page, write _Name_ and _ID_.
-- Avoid writing more than 36 characters.
-- Dont customize the width of the Search input on DataView to make the custom placeholder fit.
+Avoid customizing the placeholder text. The user should intuitively know what can be searched.
+
+If it's necessary to customize the placeholder text, follow these recommendations:
+
+- Write at most 36 characters and avoid redundancy. For example, use *Name* and *ID* instead of *Product name* and *Product ID*.
+- Describe the properties that can be searched when they go beyond the merchant’s expectations. For example, *”Search for Name, ID, or Ref ID”*.
+- When a Table column already has a label for the property, reuse the name for consistency.
 - Avoid adding support to search for properties that are not being shown for each result.
+- Don’t customize the width of the Search on a Collection to make the custom placeholder fit.
 
-### Icon
+## Position
 
-Always show `<IconMagnifyingGlassSmall/>` to ensure the Search input is easily recognizable by merchants.
+Considering left-to-right interfaces, position the Search directly above the content that will be filtered, always in the top left of a container. Use the Collection component to correctly position the Search. Don't position the Search in the header of a container.
+
+## Behavior
+
+### Loading
+
+- Show loading feedback when the search takes more than 1s. The loading state with a spinner in the Search should be the only feedback while the search is being processed.
+- Maintain the previous results visible until the new ones finish loading. Don’t show a Skeleton when processing a search.
+- Don’t block users from editing the input during the loading state.
+- Avoid a search process that takes longer than 5s.
+
+### Processing query
+
+- Avoid supporting search operators, since they aren’t discoverable and can be complex for most users. Prefer using Filters as a way to combine criteria.
+- Don’t include a field to search for each item property, support them in the same input.
+- Ignore typos, capitalization, and accents.
+- Support synonyms.
+
+### Returning after navigating
+
+- The complete search query, which includes the filters, the current page, and the search terms, should be reflected in the URL. This allows the user to easily return to the customized view and easily share it. Don’t use local storage or cookies to store the query.
+- Clear results only when the user clicks on the clear Button inside the Search field, or manually erases the search terms.
+
+### Providing feedback
+
+When the search fails to load, or no results are found, use the EmptyState component to provide feedback. Read the EmptyState documentation for more information.
+
+### Disabling
+
+Avoid using a disabled Search. When a list is empty, for example, prefer to hide the Search.
