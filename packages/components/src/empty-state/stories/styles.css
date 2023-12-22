@@ -1,0 +1,5 @@
+.screen-container {
+  width: 80%;
+  height: 80vh;
+  border: var(--sl-border)
+}
