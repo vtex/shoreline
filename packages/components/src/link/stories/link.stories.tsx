@@ -9,7 +9,7 @@ export default {
 
 export function Default() {
   return (
-    <Text>
+    <Text variant="body">
       Get smart about your digital commerce investments:
       <Link href="https://vtex.com" target="_blank" rel="noreferer">
         Get to know VTEX

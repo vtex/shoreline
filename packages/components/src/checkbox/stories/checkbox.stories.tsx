@@ -27,7 +27,7 @@ export function Controlled() {
 
   return (
     <Stack>
-      <Text>{checked ? 'Checked' : 'Unchecked'}</Text>
+      <Text variant="body">{checked ? 'Checked' : 'Unchecked'}</Text>
       <Button onClick={() => setChecked((c) => !c)}>Toggle</Button>
       <Checkbox
         checked={checked}

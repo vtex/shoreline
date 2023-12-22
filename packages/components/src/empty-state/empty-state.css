@@ -6,6 +6,10 @@
     --sl-empty-state-title-letter-spacing: var(
       --sl-text-emphasis-letter-spacing
     );
+    --sl-empty-state-description-font: var(--sl-text-caption-2-font);
+    --sl-empty-state-description-letter-spacing: var(
+      --sl-text-caption-2-letter-spacing
+    );
     --sl-empty-state-title-margin: var(--sl-space-0) auto var(--sl-space-1);
     --sl-empty-actions-direction: column-reverse;
   }
@@ -15,6 +19,10 @@
     --sl-empty-state-title-font: var(--sl-text-display-3-font);
     --sl-empty-state-title-letter-spacing: var(
       --sl-text-display-3-letter-spacing
+    );
+    --sl-empty-state-description-font: var(--sl-text-body-font);
+    --sl-empty-state-description-letter-spacing: var(
+      --sl-text-body-letter-spacing
     );
     --sl-empty-state-title-margin: var(--sl-space-0) auto var(--sl-space-1);
     --sl-empty-actions-direction: row;
@@ -47,13 +55,9 @@
     & > [data-sl-text] {
       margin-bottom: var(--sl-space-2);
       color: var(--sl-fg-soft);
-      font: var(--sl-text-body-font);
-      letter-spacing: var(--sl-text-body-letter-spacing);
+      font: var(--sl-empty-state-description-font);
+      letter-spacing: var(--sl-empty-state-description-letter-spacing);
       text-align: center;
-      [data-sl-size='small'] {
-        font: var(--sl-text-caption-2-font);
-        letter-spacing: var(--sl-text-caption-2-letter-spacing);
-      }
     }
   }
 

@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 export const Text = forwardRef(function Text(props: TextProps, ref: any) {
-  const { children, variant = 'body', ...otherProps } = props
+  const { children, variant = 'context', ...otherProps } = props
 
   const Element = props.as || 'span'
 
@@ -22,9 +22,10 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
 interface ComponentProps {
   /**
    * Text variant
-   * @default 'body'
+   * @default 'context'
    */
   variant?:
+    | 'context'
     | 'body'
     | 'action'
     | 'emphasis'

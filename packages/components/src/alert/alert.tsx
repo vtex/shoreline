@@ -14,7 +14,7 @@ import { IconButton } from '../icon-button'
  * Alert indicators allow users to view semantic messages that are prominent and can be dismissable.
  * @example
  * <Alert onDismiss={() => {}}>
- *  <Text>Message</Text>
+ *  <Text variant="body">Message</Text>
  *  <Button variant="tertiary">Action</Button>
  * </Alert>
  */

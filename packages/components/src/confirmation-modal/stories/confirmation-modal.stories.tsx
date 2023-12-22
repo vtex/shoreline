@@ -50,7 +50,7 @@ export function Default(props) {
         onCancel={handleClose}
         messages={messages}
       >
-        <Text>{children}</Text>
+        <Text variant="body">{children}</Text>
       </ConfirmationModal>
     </LocaleProvider>
   )

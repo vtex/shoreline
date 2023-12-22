@@ -88,7 +88,7 @@ export function FilterNotFound() {
           <IconMagnifyingGlass />
         </Slot>
         <Heading>No results found</Heading>
-        <Text>Try using different terms.</Text>
+        <Text variant="body">Try using different terms.</Text>
       </EmptyState>
     </Filter>
   )

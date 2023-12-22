@@ -8,7 +8,7 @@ export default {
 }
 
 export function Default() {
-  return <Text>Text</Text>
+  return <Text variant="body">Text</Text>
 }
 
 export function as() {

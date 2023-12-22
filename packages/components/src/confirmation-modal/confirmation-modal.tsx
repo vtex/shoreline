@@ -33,7 +33,7 @@ const useMessage = createMessageHook(messages)
  *    onConfirm={handleClose}
  *    onCancel={handleClose}
  *  >
- *    <Text>Hello world</Text>
+ *    <Text variant="body">Hello world</Text>
  *  </ConfirmationModal>
  */
 export const ConfirmationModal = forwardRef<

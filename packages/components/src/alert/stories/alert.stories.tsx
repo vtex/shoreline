@@ -12,7 +12,7 @@ export default {
 export function Default() {
   return (
     <Alert>
-      <Text>Short message</Text>
+      <Text variant="body">Short message</Text>
     </Alert>
   )
 }
@@ -21,16 +21,16 @@ export function Variants() {
   return (
     <Stack fluid>
       <Alert>
-        <Text>Short message</Text>
+        <Text variant="body">Short message</Text>
       </Alert>
       <Alert variant="success">
-        <Text>Short message</Text>
+        <Text variant="body">Short message</Text>
       </Alert>
       <Alert variant="critical">
-        <Text>Short message</Text>
+        <Text variant="body">Short message</Text>
       </Alert>
       <Alert variant="warning">
-        <Text>Short message</Text>
+        <Text variant="body">Short message</Text>
       </Alert>
     </Stack>
   )
@@ -40,7 +40,7 @@ export function LongText() {
   return (
     <Stack fluid>
       <Alert>
-        <Text>
+        <Text variant="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
           dapibus ex. Donec quis elit volutpat, posuere est a, ultrices urna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed
@@ -55,7 +55,7 @@ export function LongText() {
         </Text>
       </Alert>
       <Alert onDismiss={() => null}>
-        <Text>
+        <Text variant="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
           dapibus ex. Donec quis elit volutpat, posuere est a, ultrices urna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed
@@ -86,13 +86,13 @@ export function WithAction() {
   return (
     <Stack fluid>
       <Alert variant="warning">
-        <Text>Action as button</Text>
+        <Text variant="body">Action as button</Text>
         <Button variant="tertiary" onClick={() => alert('Clicked')}>
           Action
         </Button>
       </Alert>
       <Alert variant="warning">
-        <Text>Action as link</Text>
+        <Text variant="body">Action as link</Text>
         <Button variant="tertiary" asChild>
           <a href="htpps://vtex.com.br" target="_blank" rel="noreferrer">
             See more
@@ -112,7 +112,7 @@ export function Dismiss() {
     <div>
       {visible && (
         <Alert variant="success" onDismiss={toggle}>
-          <Text>Alert message</Text>
+          <Text variant="body">Alert message</Text>
         </Alert>
       )}
       <button onClick={toggle}>Toggle alert</button>
