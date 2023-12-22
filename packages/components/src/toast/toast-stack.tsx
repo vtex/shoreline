@@ -47,7 +47,9 @@ export function ToastStack(props: ToastStackProps) {
             key={t.id}
             onHeightUpdate={handlers.updateHeight}
             visible={t.visible}
-            style={{ ...positionStyle, '--sl-toast-index': index } as any}
+            style={
+              { ...positionStyle, '--sl-toast-index': index } as CSSProperties
+            }
           >
             <Toast
               id={t.id}
