@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
-import { Checkbox, CheckboxField, CheckboxGroup } from '../index'
+import { Checkbox, CheckboxGroup } from '../index'
 import { VisuallyHidden } from '@ariakit/react'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
 
 import { IconInfoFill } from '@vtex/shoreline-icons'
+import { Field, FieldDescription, FieldError } from '../../field'
 
 export default {
   title: 'shoreline-components/checkbox',
@@ -52,22 +53,31 @@ export function Indeterminate() {
 export function AsField() {
   return (
     <Stack space="$space-10">
-      <CheckboxField errorText="Something wrong" error>
-        Terms and conditions
-      </CheckboxField>
-      <CheckboxField helpText="By clicking you agree with terms and conditions">
-        Terms and conditions
-      </CheckboxField>
-      <CheckboxField
-        helpText="By clicking you agree with terms and conditions"
-        errorText="Something wrong"
-        error
-      >
-        Terms and conditions
-      </CheckboxField>
-      <CheckboxField defaultChecked disabled>
-        Disabled
-      </CheckboxField>
+      <Field error>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldError>Something wrong</FieldError>
+      </Field>
+      <Field>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+      </Field>
+      <Field error>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+        <FieldError>Something wrong</FieldError>
+      </Field>
+      <Field>
+        <Checkbox defaultChecked disabled>
+          Disabled
+        </Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+      </Field>
     </Stack>
   )
 }

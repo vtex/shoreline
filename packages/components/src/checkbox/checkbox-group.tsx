@@ -1,9 +1,10 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Field, FieldLabel, FieldMessage } from '../field'
+import { Field, FieldDescription, FieldError } from '../field'
 import { Stack } from '../stack'
 import { useId } from '@vtex/shoreline-utils'
+import { Label } from '../label'
 
 export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
   function CheckboxGroup(props, ref) {
@@ -27,14 +28,16 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
         data-sl-checkbox-group
         className={className}
         ref={ref}
-        variant="group"
+        error={error}
+        space="large"
         {...otherProps}
       >
-        <FieldLabel htmlFor={id}>{label}</FieldLabel>
+        <Label htmlFor={id}>{label}</Label>
         <Stack direction={direction} space={stackGap}>
           {children}
         </Stack>
-        <FieldMessage error={error} helpText={helpText} errorText={errorText} />
+        {helpText && <FieldDescription>{helpText}</FieldDescription>}
+        <FieldError>{errorText}</FieldError>
       </Field>
     )
   }

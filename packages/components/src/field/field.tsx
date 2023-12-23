@@ -16,6 +16,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
     error = false,
     children,
     asChild = false,
+    space = 'normal',
     ...otherProps
   } = props
 
@@ -32,7 +33,13 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   )
 
   return (
-    <Comp data-sl-field id={`${id}-field`} ref={ref as any} {...otherProps}>
+    <Comp
+      data-sl-field
+      id={`${id}-field`}
+      ref={ref}
+      data-space={space}
+      {...otherProps}
+    >
       <FieldProvider store={store}>
         <Composable>{children}</Composable>
       </FieldProvider>
@@ -40,7 +47,8 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   )
 })
 
-export interface FieldProps extends React.ComponentProps<'div'> {
+export interface FieldProps extends React.ComponentPropsWithoutRef<'div'> {
   asChild?: boolean
   error?: boolean
+  space?: 'normal' | 'large'
 }

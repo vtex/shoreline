@@ -6,10 +6,11 @@ import {
   RadioProvider,
   useRadioStore,
 } from '@ariakit/react'
-import { Field, FieldLabel, FieldMessage } from '../field'
+import { Field, FieldDescription, FieldError } from '../field'
 import { Stack } from '../stack'
 import { useId } from '@vtex/shoreline-utils'
 import './radio-group.css'
+import { Label } from '../label'
 
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   function Radio(props, ref) {
@@ -31,18 +32,20 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
 
     return (
       <RadioProvider store={state}>
-        <Field variant="group" data-sl-radio-group className={className}>
-          <FieldLabel htmlFor={id}>{label}</FieldLabel>
+        <Field
+          space="large"
+          data-sl-radio-group
+          error={error}
+          className={className}
+        >
+          <Label htmlFor={id}>{label}</Label>
           <BaseRadioGroup data-sl-group id={id} ref={ref} {...otherProps}>
             <Stack direction={direction} space={stackGap}>
               {children}
             </Stack>
           </BaseRadioGroup>
-          <FieldMessage
-            error={error}
-            helpText={helpText}
-            errorText={errorText}
-          />
+          {helpText && <FieldDescription>{helpText}</FieldDescription>}
+          <FieldError>{errorText}</FieldError>
         </Field>
       </RadioProvider>
     )

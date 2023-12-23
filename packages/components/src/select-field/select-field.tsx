@@ -1,9 +1,10 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import { Field, FieldLabel, FieldMessage } from '../field'
+import { Field, FieldDescription, FieldError } from '../field'
 import { IconCaretUpDownSmall } from '@vtex/shoreline-icons'
 import { useId } from '@vtex/shoreline-utils'
 import './select-field.css'
+import { Label } from '../label'
 
 /**
  * Select fields allow merchants to choose a single option from a list
@@ -40,11 +41,11 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
     const id = useId(defaultId)
 
     return (
-      <Field data-sl-select-field className={className}>
+      <Field error={error} data-sl-select-field className={className}>
         {label && (
-          <FieldLabel htmlFor={id} optional={optional}>
+          <Label htmlFor={id} optional={optional}>
             {label}
-          </FieldLabel>
+          </Label>
         )}
         <div data-sl-select-field-input-container>
           <select
@@ -69,7 +70,8 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
 
           <IconCaretUpDownSmall data-sl-select-field-icon />
         </div>
-        <FieldMessage error={error} errorText={errorText} helpText={helpText} />
+        {helpText && <FieldDescription>{helpText}</FieldDescription>}
+        <FieldError>{errorText}</FieldError>
       </Field>
     )
   }

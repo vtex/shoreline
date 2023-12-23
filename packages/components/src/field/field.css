@@ -2,7 +2,6 @@
   [data-sl-field] {
     display: inline-flex;
     flex-direction: column;
-    gap: var(--sl-space-1);
     width: fit-content;
 
     & > [data-sl-slot] {
@@ -10,6 +9,14 @@
       width: 100%;
       justify-content: space-between;
       flex-direction: row;
+      gap: var(--sl-space-3);
+    }
+
+    &[data-space='normal'] {
+      gap: var(--sl-space-1);
+    }
+
+    &[data-space='large'] {
       gap: var(--sl-space-3);
     }
   }
