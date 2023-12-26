@@ -3,7 +3,7 @@ import { matchSorter } from 'match-sorter'
 
 import {
   SelectProvider,
-  Select,
+  SelectTrigger,
   SelectOption,
   SelectPopover,
   SelectList,
@@ -26,7 +26,7 @@ export function Default() {
 
   return (
     <SelectProvider value={value} setValue={setValue}>
-      <Select>Select: {value}</Select>
+      <SelectTrigger>Select: {value}</SelectTrigger>
       <SelectPopover>
         <SelectOption value="apple">Apple</SelectOption>
         <SelectOption value="google">Google</SelectOption>
@@ -42,9 +42,9 @@ export function Composition() {
 
   return (
     <SelectProvider value={value} setValue={setValue}>
-      <Select asChild>
+      <SelectTrigger asChild>
         <button>Select: {value}</button>
-      </Select>
+      </SelectTrigger>
       <SelectPopover>
         <SelectOption value="apple">Apple</SelectOption>
         <SelectOption value="google">Google</SelectOption>
@@ -60,7 +60,7 @@ export function Multiselect() {
 
   return (
     <SelectProvider value={value} setValue={setValue}>
-      <Select>Select: {value.length} Items</Select>
+      <SelectTrigger>Select: {value.length} Items</SelectTrigger>
       <SelectPopover>
         <SelectOption value="apple">Apple</SelectOption>
         <SelectOption value="google">Google</SelectOption>
@@ -144,7 +144,7 @@ export function WithCombobox() {
       }}
     >
       <SelectProvider value={value} setValue={setValue}>
-        <Select>Select: {value}</Select>
+        <SelectTrigger>Select: {value}</SelectTrigger>
         <SelectPopover>
           <div>
             <Combobox autoSelect placeholder="Search..." />

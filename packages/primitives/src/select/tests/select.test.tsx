@@ -1,13 +1,18 @@
 import React from 'react'
 import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
 
-import { Select, SelectProvider, SelectOption, SelectPopover } from '../index'
+import {
+  SelectTrigger,
+  SelectProvider,
+  SelectOption,
+  SelectPopover,
+} from '../index'
 
 describe('primitives/select', () => {
   it('renders', () => {
     const { container } = render(
       <SelectProvider>
-        <Select>Label</Select>
+        <SelectTrigger>Label</SelectTrigger>
         <SelectPopover>
           <SelectOption value="option">Option</SelectOption>
         </SelectPopover>

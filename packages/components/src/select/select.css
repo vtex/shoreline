@@ -1,5 +1,5 @@
 @layer sl-components {
-  [data-sl-select-field-input] {
+  [data-sl-select-input] {
     color: var(--sl-fg-soft);
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
@@ -64,14 +64,14 @@
     }
   }
 
-  [data-sl-select-field-input-container] {
+  [data-sl-select-input-container] {
     position: relative;
     width: 100%;
     min-width: 20rem;
     height: 2.75rem;
   }
 
-  [data-sl-select-field-icon] {
+  [data-sl-select-icon] {
     color: var(--sl-fg-soft);
     position: absolute;
     right: var(--sl-space-4);

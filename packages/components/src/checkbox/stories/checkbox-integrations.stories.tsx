@@ -2,10 +2,12 @@ import React, { useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { FixedSizeList } from 'react-window'
 
-import { CheckboxField } from '../index'
+import { Checkbox } from '../index'
+
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
+import { Field, FieldDescription } from '../../field'
 
 export default {
   title: 'shoreline-components/checkbox/integrations',
@@ -25,14 +27,17 @@ export function ReactHookForm() {
           control={control}
           name="terms"
           render={({ field: { onChange, onBlur, value, ref } }) => (
-            <CheckboxField
-              checked={value}
-              onBlur={onBlur}
-              onChange={onChange}
-              ref={ref}
-            >
-              I agree with the terms of service
-            </CheckboxField>
+            <Field>
+              <Checkbox
+                checked={value}
+                onBlur={onBlur}
+                onChange={onChange}
+                ref={ref}
+              >
+                I agree with the terms of service
+              </Checkbox>
+              <FieldDescription>Some short description</FieldDescription>
+            </Field>
           )}
         />
         <Button type="submit">Submit</Button>
@@ -55,14 +60,14 @@ export function ReactHookFormGroup() {
           control={control}
           name="terms"
           render={({ field: { onChange, onBlur, value, ref } }) => (
-            <CheckboxField
+            <Checkbox
               checked={value}
               onBlur={onBlur}
               onChange={onChange}
               ref={ref}
             >
               I agree with the terms of service
-            </CheckboxField>
+            </Checkbox>
           )}
         />
         <Button type="submit">Submit</Button>
@@ -93,7 +98,7 @@ export function ReactWindow() {
     <Stack>
       <Text> Number of Checkboxes: {numberOfItems}</Text>
 
-      <CheckboxField
+      <Checkbox
         indeterminate={someChecked && !allChecked}
         checked={allChecked}
         onChange={() => {
@@ -105,7 +110,7 @@ export function ReactWindow() {
         }}
       >
         Root
-      </CheckboxField>
+      </Checkbox>
       <FixedSizeList
         height={300}
         itemCount={numberOfItems}
@@ -117,7 +122,7 @@ export function ReactWindow() {
       >
         {({ index, style }) => (
           <div key={index} style={style}>
-            <CheckboxField
+            <Checkbox
               key={index}
               checked={checked[index]}
               onChange={() => {
@@ -131,7 +136,7 @@ export function ReactWindow() {
               }}
             >
               Item {index}
-            </CheckboxField>
+            </Checkbox>
           </div>
         )}
       </FixedSizeList>
