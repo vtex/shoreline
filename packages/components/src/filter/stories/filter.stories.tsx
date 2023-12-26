@@ -12,7 +12,7 @@ import {
 } from '../index'
 import type { Country } from './countries'
 import { countries } from './countries'
-import { LocaleProvider } from '../../locale'
+import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
   title: 'shoreline-components/filter',

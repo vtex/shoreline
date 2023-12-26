@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Label } from '../index'
 import { Stack } from '../../stack'
-import { LocaleProvider } from '../../locale'
+import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
   title: 'components/label',

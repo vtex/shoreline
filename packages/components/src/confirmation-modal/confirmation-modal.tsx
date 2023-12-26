@@ -4,7 +4,7 @@ import { Content } from '../content'
 import { Modal, ModalDismiss, ModalHeader, ModalHeading } from '../modal'
 import { Flex } from '../flex'
 import { Button } from '../button'
-import { createMessageHook } from '../locale'
+import { createMessageHook } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
 
 const useMessage = createMessageHook(messages)

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { Field, FieldCharCounter, FieldDescription, FieldError } from '..'
 import { Label } from '../../label'
 import { Input } from '../../input'
@@ -32,7 +32,7 @@ export function Multiline() {
 }
 
 export function Count() {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = useState('')
 
   return (
     <Field>
@@ -59,7 +59,7 @@ export function Error() {
 }
 
 export function Controlled() {
-  const [value, setValue] = React.useState('default value')
+  const [value, setValue] = useState('default value')
 
   return (
     <Field>

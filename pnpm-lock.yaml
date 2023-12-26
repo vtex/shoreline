@@ -258,6 +258,9 @@ importers:
       '@vtex/shoreline-icons':
         specifier: 0.2.3
         version: link:../icons
+      '@vtex/shoreline-primitives':
+        specifier: 0.0.0
+        version: link:../primitives
       '@vtex/shoreline-store':
         specifier: 0.1.0
         version: link:../store
@@ -443,6 +446,31 @@ importers:
       '@types/node':
         specifier: 20.10.0
         version: 20.10.0
+
+  packages/primitives:
+    dependencies:
+      '@ariakit/react':
+        specifier: 0.3.8
+        version: 0.3.8(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: 3.9.0
+        version: 3.9.0(react@18.2.0)
+      '@vtex/shoreline-icons':
+        specifier: 0.2.3
+        version: link:../icons
+      '@vtex/shoreline-utils':
+        specifier: 0.6.0
+        version: link:../utils
+      react:
+        specifier: '>=18'
+        version: 18.2.0
+      react-dom:
+        specifier: '>=18'
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      match-sorter:
+        specifier: 6.3.1
+        version: 6.3.1
 
   packages/raccoon-io: {}
 

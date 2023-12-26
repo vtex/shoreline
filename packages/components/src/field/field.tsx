@@ -2,11 +2,21 @@ import * as React from 'react'
 import { forwardRef, useId } from '@vtex/shoreline-utils'
 import { Store } from '@vtex/shoreline-store'
 
-import { Composable, Compose } from '../compose'
+import { Composable, Compose } from '@vtex/shoreline-primitives'
 import type { FieldContextType } from './field-context'
 import { FieldProvider } from './field-provider'
 import './field.css'
 
+/**
+ * Implementation of a fieldset
+ * @example
+ * <Field>
+ *  <Label>Label</Label>
+ *  <Input />
+ *  <FieldDescription>Short description</FieldDescription>
+ *  <FieldError>Error message</FieldError>
+ * </Field>
+ */
 export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   props,
   ref
@@ -26,7 +36,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   const store = React.useMemo(
     () =>
       new Store<FieldContextType>({
-        id: id!,
+        id,
         error,
       }),
     [error, id]

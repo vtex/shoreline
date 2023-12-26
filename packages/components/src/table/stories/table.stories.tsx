@@ -1,4 +1,5 @@
 import React from 'react'
+import { LinkBox } from '@vtex/shoreline-primitives'
 
 import {
   Table,
@@ -8,7 +9,6 @@ import {
   TableHeaderCell,
   TableRow,
 } from '../index'
-import { LinkBox } from '../../link-box'
 
 export default {
   title: 'shoreline-components/table',
