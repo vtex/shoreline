@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-cli",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Shoreline cli",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -36,7 +36,7 @@
     "@types/node": "20.4.5"
   },
   "dependencies": {
-    "@vtex/shoreline-theme": "^0.6.0",
+    "@vtex/shoreline-theme": "^0.6.1",
     "commander": "11.0.0"
   }
 }

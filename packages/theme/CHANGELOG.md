@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.6.0...@vtex/shoreline-theme@0.6.1) (2023-12-26)
+
+**Note:** Version bump only for package @vtex/shoreline-theme
+
 # [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme@0.4.0...@vtex/shoreline-theme@0.6.0) (2023-12-19)
 
 ### Features

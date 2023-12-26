@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.7.0 (2023-12-26)
+
+### Features
+
+- **field:** create component ([ba76048](https://github.com/vtex/shoreline/commit/ba7604837582fdeced06f98e166ca71adf495c94))
+
 # [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.5.1...@vtex/shoreline-utils@0.6.0) (2023-12-05)
 
 ### Features

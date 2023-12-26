@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.52.0...@vtex/shoreline-components@0.53.0) (2023-12-26)
+
+### Bug Fixes
+
+- **radio-checkbox:** change form help-text to description ([4c2b4e4](https://github.com/vtex/shoreline/commit/4c2b4e4087fc9d85efbbda265960907efd2be3ce))
+
+### Features
+
+- **field:** create component ([ba76048](https://github.com/vtex/shoreline/commit/ba7604837582fdeced06f98e166ca71adf495c94))
+- **primitives:** create package ([25b38fa](https://github.com/vtex/shoreline/commit/25b38fa8dad0e3327328af30cccb4fe6519c2969))
+- **selecet:** implement composable select ([02852a7](https://github.com/vtex/shoreline/commit/02852a781d6d430ab95d927ad706377550c0d974))
+
 # [0.52.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.51.0...@vtex/shoreline-components@0.52.0) (2023-12-22)
 
 ### Bug Fixes

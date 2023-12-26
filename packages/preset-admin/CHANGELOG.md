@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.5.0...@vtex/shoreline-preset-admin@0.5.1) (2023-12-26)
+
+**Note:** Version bump only for package @vtex/shoreline-preset-admin
+
 # [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-preset-admin@0.3.3...@vtex/shoreline-preset-admin@0.5.0) (2023-12-22)
 
 ### Features
