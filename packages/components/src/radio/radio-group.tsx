@@ -16,7 +16,7 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   function Radio(props, ref) {
     const {
       error,
-      helpText,
+      description,
       errorText,
       label,
       children,
@@ -44,7 +44,7 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
               {children}
             </Stack>
           </BaseRadioGroup>
-          {helpText && <FieldDescription>{helpText}</FieldDescription>}
+          {description && <FieldDescription>{description}</FieldDescription>}
           <FieldError>{errorText}</FieldError>
         </Field>
       </RadioProvider>
@@ -61,9 +61,8 @@ export interface RadioGroupState {
 }
 
 export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
-  className?: string
   error?: boolean
-  helpText?: string
+  description?: string
   errorText?: string
   label: ReactNode
   direction?: 'row' | 'column'

@@ -97,7 +97,7 @@ export function Group() {
       </CheckboxGroup>
       <CheckboxGroup
         label="Options with help (optional)"
-        helpText="Choose one of these"
+        description="Choose one of these"
       >
         <Checkbox indeterminate>Everything</Checkbox>
         <Checkbox>Everywhere</Checkbox>
@@ -118,7 +118,7 @@ export function Group() {
             <IconInfoFill />
           </>
         }
-        helpText="Choose one of these"
+        description="Choose one of these"
         errorText="Bad choice"
       >
         <Checkbox>Everything</Checkbox>

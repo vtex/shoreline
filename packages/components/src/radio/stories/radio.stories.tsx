@@ -96,7 +96,7 @@ export function Help() {
       <RadioGroup
         label="Vertical radio group"
         errorText="Something is wrong"
-        helpText="Pen pinapple apple pen"
+        description="Pen pinapple apple pen"
       >
         <Radio value="opt1">Pen</Radio>
         <Radio value="opt2">Pineapple</Radio>
@@ -107,7 +107,7 @@ export function Help() {
       <RadioGroup
         label="Optional group"
         errorText="Something is wrong"
-        helpText="Pen pinapple apple pen"
+        description="Pen pinapple apple pen"
       >
         <Radio value="opt1">Pen</Radio>
         <Radio value="opt2">Pineapple</Radio>
@@ -118,7 +118,7 @@ export function Help() {
       <RadioGroup
         label="Optional group (optional)"
         errorText="Something is wrong"
-        helpText="Pen pinapple apple pen"
+        description="Pen pinapple apple pen"
         error
       >
         <Radio value="opt1">Pen</Radio>
@@ -134,7 +134,7 @@ export function Controlled() {
   const [value, setValue] = useState<string>()
   const state = useRadioState({
     value,
-    setValue,
+    setValue: setValue as any,
   })
 
   const [helpText, setHelpText] = useState('')
@@ -152,7 +152,7 @@ export function Controlled() {
       label="Vertical radio group"
       errorText="Something is wrong"
       state={state}
-      helpText={helpText}
+      description={helpText}
     >
       <Radio value="opt1">Pen</Radio>
       <Radio value="opt2">Pineapple</Radio>

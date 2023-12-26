@@ -10,7 +10,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
   function CheckboxGroup(props, ref) {
     const {
       error,
-      helpText,
+      description,
       errorText,
       label,
       children,
@@ -36,7 +36,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
         <Stack direction={direction} space={stackGap}>
           {children}
         </Stack>
-        {helpText && <FieldDescription>{helpText}</FieldDescription>}
+        {description && <FieldDescription>{description}</FieldDescription>}
         <FieldError>{errorText}</FieldError>
       </Field>
     )
@@ -45,7 +45,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 
 export interface CheckboxGroupProps extends ComponentPropsWithoutRef<'div'> {
   error?: boolean
-  helpText?: ReactNode
+  description?: ReactNode
   errorText?: ReactNode
   label: ReactNode
   direction?: 'row' | 'column'
