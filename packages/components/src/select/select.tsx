@@ -1,28 +1,88 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { Select as SelectTrigger } from '@ariakit/react'
+import { IconCaretUpDownSmall } from '@vtex/shoreline-icons'
+import { useStore } from '@vtex/shoreline-store'
+import { useControlledState } from '@vtex/shoreline-utils'
 
-export const Select = forwardRef<HTMLButtonElement, SelectProps>(
+import { useFieldContext } from '../field'
+import './select.css'
+
+/**
+ * Select fields allow merchants to choose a single option from a list
+ * that includes between five and seven values.
+ *
+ * @example
+ *
+ * <Select
+ *   label="Label"
+ *   helpText="Help text"
+ *   errorText="Error text"
+ * >
+ *   <option>option</option>
+ *   <option>option</option>
+ *   <option>option</option>
+ * </Select>
+ */
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   function Select(props, ref) {
-    const { asChild = false, children, ...otherProps } = props
+    const {
+      children,
+      value,
+      className,
+      id: defaultId,
+      disabled = false,
+      error: defaultError,
+      defaultValue,
+      onChange,
+      ...otherProps
+    } = props
+
+    const [_value, _setValue] = useControlledState(
+      value,
+      defaultValue || '',
+      onChange
+    )
+
+    const store = useFieldContext()
+    const { id: contextId, error: contextError } = useStore(store, (s) => s)
+
+    const error = defaultError || contextError
+    const id = defaultId || contextId
 
     return (
-      <SelectTrigger
-        data-sl-select
-        ref={ref}
-        render={asChild ? (children as JSX.Element) : undefined}
-        {...otherProps}
-      >
-        {children}
-      </SelectTrigger>
+      <div data-sl-select-input-container className={className}>
+        <select
+          ref={ref}
+          value={_value}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            _setValue(e.target.value)
+          }
+          disabled={disabled}
+          data-sl-select-input
+          data-error={error}
+          data-selected={!!value}
+          data-disabled={disabled}
+          id={id}
+          {...otherProps}
+        >
+          <option value="" disabled>
+            Select&hellip;
+          </option>
+          {children}
+        </select>
+
+        <IconCaretUpDownSmall data-sl-select-icon />
+      </div>
     )
   }
 )
 
-export interface SelectProps extends ComponentPropsWithoutRef<'button'> {
+export interface SelectProps
+  extends Omit<ComponentPropsWithoutRef<'select'>, 'onChange'> {
+  error?: boolean
+  disabled?: boolean
   /**
-   * Enable children composition
-   * @default false
+   * Callback for value change
    */
-  asChild?: boolean
+  onChange?: React.Dispatch<React.SetStateAction<any>>
 }

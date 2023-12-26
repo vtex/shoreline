@@ -4,7 +4,7 @@ import { IconButton } from '../icon-button'
 import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
 import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
-import { VisuallyHidden } from '../visually-hidden'
+import { VisuallyHidden } from '@vtex/shoreline-primitives'
 import './search.css'
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(

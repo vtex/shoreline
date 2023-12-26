@@ -7,7 +7,7 @@ const useReactId = _React.useId
 /**
  * Generates a unique ID. Uses React's useId if available.
  */
-export function useId(defaultId?: string): string | undefined {
+export function useId(defaultId?: string): string {
   if (useReactId) {
     const reactId = useReactId()
 
@@ -25,5 +25,5 @@ export function useId(defaultId?: string): string | undefined {
     setId(`id-${random}`)
   }, [defaultId, id])
 
-  return defaultId || id
+  return defaultId || String(id)
 }

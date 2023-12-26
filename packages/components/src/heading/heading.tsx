@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import './heading.css'
-import { Compose } from '../compose'
+import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Heading is used to define levels of typography

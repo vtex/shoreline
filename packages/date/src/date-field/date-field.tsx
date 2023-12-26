@@ -12,8 +12,9 @@ import { createCalendar } from '@internationalized/date'
 import { useMergeRef } from '@vtex/shoreline-utils'
 import {
   Field,
-  FieldLabel,
-  FieldMessage,
+  Label,
+  FieldDescription,
+  FieldError,
   useLocale,
 } from '@vtex/shoreline-components'
 
@@ -54,10 +55,14 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
     const { labelProps, fieldProps } = useDateField(props, state, ref)
 
     return (
-      <Field data-sl-date-field className={className}>
-        <FieldLabel optional={optional} {...labelProps}>
+      <Field
+        data-sl-date-field
+        className={className}
+        error={error || state.isInvalid}
+      >
+        <Label optional={optional} {...labelProps}>
           {props.label}
-        </FieldLabel>
+        </Label>
         <div
           data-sl-date-input-container
           data-disabled={fieldProps['aria-disabled']}
@@ -83,11 +88,8 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
             </div>
           )}
         </div>
-        <FieldMessage
-          helpText={helpText}
-          errorText={errorText}
-          error={error || state.isInvalid}
-        />
+        {helpText && <FieldDescription>{helpText}</FieldDescription>}
+        <FieldError>{errorText}</FieldError>
       </Field>
     )
   }

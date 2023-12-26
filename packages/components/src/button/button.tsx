@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { Children, forwardRef } from 'react'
 import { Button as BaseButton } from '@ariakit/react'
+import { Compose, Composable } from '@vtex/shoreline-primitives'
 
 import { Spinner } from '../spinner'
 import { Center } from '../center'
-import { Compose, Composable } from '../compose'
 import './button.css'
 
 /**

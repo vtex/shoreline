@@ -4,7 +4,7 @@ import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 
 import './pagination.css'
 import { Skeleton } from '../skeleton'
-import { createMessageHook } from '../locale'
+import { createMessageHook } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
 import { IconButton } from '../icon-button'
 import { Stack } from '../stack'

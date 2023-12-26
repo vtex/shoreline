@@ -14,7 +14,7 @@ export function Default() {
   return (
     <Textarea
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={setValue}
       className="textarea-container"
       maxLength={120}
     />
@@ -28,37 +28,35 @@ export function All() {
     <>
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
-        label="Label"
         optional
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         error
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         disabled
       />
       <Textarea
-        label="label"
         value="The quick brown fox is tired right now"
         className="textarea-container"
         disabled
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         maxLength={120}
       />
@@ -73,34 +71,32 @@ export function withoutResize() {
     <>
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
-        label="Label"
         resizable={false}
         optional
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         resizable={false}
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         error
         resizable={false}
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         disabled
         resizable={false}
       />
       <Textarea
-        label="label"
         value="The quick brown fox is tired right now"
         className="textarea-container"
         disabled
@@ -108,7 +104,7 @@ export function withoutResize() {
       />
       <Textarea
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         className="textarea-container"
         maxLength={120}
         resizable={false}
@@ -124,12 +120,9 @@ export function FormField() {
     <Textarea
       error
       className="textarea-container"
-      label="Label"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={setValue}
       maxLength={120}
-      helpText="Help text"
-      errorText="Error text"
     />
   )
 }
@@ -142,22 +135,16 @@ export function LongText() {
       <Textarea
         error
         className="textarea-container"
-        label="Label"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={setValue}
         maxLength={120}
-        helpText="The quick brown fox jumps over the lazy dog lorem ipsum this is a long help text"
-        errorText="Error text"
       />
 
       <Textarea
         error
         className="textarea-container"
-        label="Label"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
-        helpText="The quick brown fox jumps over the lazy dog lorem ipsum this is a long help text"
-        errorText="Error text"
+        onChange={setValue}
       />
     </Stack>
   )

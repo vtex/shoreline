@@ -22,7 +22,7 @@
   [data-sl-filter-popover-combobox] {
     & > [data-sl-search] {
       min-width: unset;
-    };
+    }
   }
 
   [data-sl-filter-popover-footer] {
@@ -44,15 +44,19 @@
     }
 
     &[data-active-item][data-focus-visible] {
-        & [data-sl-filter-option-check] {
-          box-shadow: var(--sl-focus-ring);
-        }
-        & [data-sl-filter-option-check]:has([data-sl-filter-option-check-indicator]) {
-          box-shadow: var(--sl-focus-ring-accent);
-        }
+      & [data-sl-filter-option-check] {
+        box-shadow: var(--sl-focus-ring);
+      }
+      &
+        [data-sl-filter-option-check]:has(
+          [data-sl-filter-option-check-indicator]
+        ) {
+        box-shadow: var(--sl-focus-ring-accent);
+      }
     }
 
-    &:active, &[data-active-item] {
+    &:active,
+    &[data-active-item] {
       background: var(--sl-bg-plain);
     }
   }

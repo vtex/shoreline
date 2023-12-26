@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import React from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
 
-import { Compose } from '../compose'
+import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Placeholder for stuctural composition

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ConfirmationModal } from '../confirmation-modal'
 import { Button } from '../../button'
 import { Text } from '../../text'
-import { LocaleProvider } from '../../locale'
+import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
   title: 'shoreline-components/confirmation-modal',

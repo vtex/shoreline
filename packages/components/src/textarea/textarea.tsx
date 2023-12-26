@@ -1,43 +1,44 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { useId } from '@vtex/shoreline-utils'
+import { useControlledState } from '@vtex/shoreline-utils'
 
-import { Field, FieldLabel } from '../field'
-import { Stack } from '../stack'
-import { Grid } from '../grid'
 import './textarea.css'
+import { useFieldContext } from '../field'
+import { useStore } from '@vtex/shoreline-store'
 
-export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   function Textarea(props, ref) {
     const {
-      error = false,
+      error: defaultError,
       disabled = false,
       resizable = true,
       className = '',
+      id: defaultId,
       children,
       value,
+      defaultValue,
+      onChange,
       maxLength,
-      label,
-      helpText = '',
-      errorText = '',
-      id: baseId,
       optional,
       ...htmlProps
     } = props
 
-    const charCount = String(value).length
+    const store = useFieldContext()
+    const { id: contextId, error: contextError } = useStore(store, (s) => s)
 
-    const id = baseId ?? useId()
+    const id = defaultId || contextId
+    const error = defaultError || contextError
+
+    const [_value, _setValue] = useControlledState(
+      value,
+      defaultValue || '',
+      onChange
+    )
 
     return (
-      <Field ref={ref} className={className} data-sl-textarea>
-        {label && (
-          <FieldLabel htmlFor={id} optional={optional}>
-            {label}
-          </FieldLabel>
-        )}
-
+      <div data-sl-textarea className={className}>
         <textarea
+          ref={ref}
           id={id}
           data-sl-textarea-input
           data-error={error}
@@ -46,35 +47,24 @@ export const Textarea = forwardRef<HTMLDivElement, TextareaProps>(
           disabled={disabled}
           maxLength={maxLength}
           aria-invalid={error}
-          value={value}
+          value={_value}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            _setValue(e.target.value)
+          }
           {...htmlProps}
         />
-
-        <Grid templateColumns="1fr auto" data-sl-field-message>
-          <Stack space="$space-0">
-            {helpText && <p data-sl-field-message-text>{helpText}</p>}
-            {error && (
-              <p data-sl-field-message-text role="alert">
-                {errorText}
-              </p>
-            )}
-          </Stack>
-          {maxLength && (
-            <div data-sl-textarea-char-counter>
-              {charCount} / {maxLength}
-            </div>
-          )}
-        </Grid>
-      </Field>
+      </div>
     )
   }
 )
 
-export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
+export interface TextareaProps
+  extends Omit<ComponentPropsWithoutRef<'textarea'>, 'onChange'> {
   error?: boolean
-  label?: ReactNode
-  helpText?: ReactNode
-  errorText?: ReactNode
   optional?: boolean
   resizable?: boolean
+  /**
+   * Callback for value change
+   */
+  onChange?: React.Dispatch<React.SetStateAction<any>>
 }

@@ -6,11 +6,11 @@ import {
   IconArrowUpRightSmall,
   IconArrowUp,
 } from '@vtex/shoreline-icons'
+import { VisuallyHidden } from '@vtex/shoreline-primitives'
 
 import { Stack } from '../../stack'
 import { Bleed } from '../../bleed'
 import { Button } from '../index'
-import { VisuallyHidden } from '@ariakit/react'
 
 export default {
   title: 'shoreline-components/button',

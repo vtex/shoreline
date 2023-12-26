@@ -9,7 +9,7 @@ import {
   ModalHeading,
 } from '../modal'
 import { Button } from '../button'
-import { createMessageHook } from '../locale'
+import { createMessageHook } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
 import './confirmation-modal.css'
 

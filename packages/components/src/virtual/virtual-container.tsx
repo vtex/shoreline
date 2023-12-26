@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { Fragment, cloneElement } from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
 import type { UseVirtualizerModelReturn } from './useVirtualizerModel'
-import { Compose } from '../compose'
+import { Compose } from '@vtex/shoreline-primitives'
 
 export const VirtualContainer = forwardRef<
   HTMLDivElement,

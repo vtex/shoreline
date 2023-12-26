@@ -1,36 +1,23 @@
 @layer sl-components {
   [data-sl-field] {
-    display: grid;
-    grid-template-areas: var(--sl-element-template-areas);
+    display: inline-flex;
+    flex-direction: column;
     width: fit-content;
 
-    & > [data-sl-checkbox],
-    [data-sl-input],
-    [data-sl-textarea],
-    [data-sl-radio],
-    [data-sl-select] {
-      grid-area: input;
+    & > [data-sl-slot] {
+      display: inline-flex;
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: var(--sl-space-3);
     }
 
-    &[data-variant='default'] {
-      --sl-element-template-areas: 'label' 'input' 'message';
-      --sl-element-vertical-gap: var(--sl-space-1);
-      --sl-element-horizontal-gap: var(--sl-space-0);
-      --sl-element-label-color: var(--sl-fg-soft);
+    &[data-space='normal'] {
+      gap: var(--sl-space-1);
     }
 
-    &[data-variant='group'] {
-      --sl-element-template-areas: 'label' 'input' 'message';
-      --sl-element-vertical-gap: var(--sl-space-3);
-      --sl-element-horizontal-gap: var(--sl-space-0);
-      --sl-element-label-color: var(--sl-fg-soft);
-    }
-
-    &[data-variant='control'] {
-      --sl-element-template-areas: 'input label' '- message';
-      --sl-element-label-color: var(--sl-fg);
-      --sl-element-vertical-gap: calc(var(--sl-space-05) / 2);
-      --sl-element-horizontal-gap: var(--sl-space-2);
+    &[data-space='large'] {
+      gap: var(--sl-space-3);
     }
   }
 }

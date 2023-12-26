@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { useMergeRef } from '@vtex/shoreline-utils'
 import { IconCheckSmall, IconMinusSmall } from '@vtex/shoreline-icons'
 
-import { VisuallyHidden } from '../visually-hidden'
+import { VisuallyHidden } from '@vtex/shoreline-primitives'
 import { useAriaCheckbox } from './use-aria-checkbox'
 import type { AriaCheckboxProps } from './use-aria-checkbox'
 import { Text } from '../text'

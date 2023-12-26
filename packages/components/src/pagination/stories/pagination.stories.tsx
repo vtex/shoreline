@@ -3,7 +3,7 @@ import './style.css'
 import React, { useState } from 'react'
 
 import { Pagination } from '../index'
-import { LocaleProvider } from '../../locale'
+import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
   title: 'shoreline-components/pagination',
