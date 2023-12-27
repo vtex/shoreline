@@ -6,7 +6,8 @@ import { Compose } from '@vtex/shoreline-primitives'
 import './flex.css'
 
 /**
- * Flexbox implementation
+ * Flexbox layout
+ * @see https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
  * @example
  * <Flex>
  *  <Button>Clear</Button>
@@ -58,23 +59,59 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
 })
 
 export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
-  /** Shorthand for CSS order property */
+  /**
+   * CSS order
+   * @default 0
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/order
+   */
   order?: CSSProperty.Order
-  /** Shorthand for CSS flexDirection property */
+  /**
+   * CSS flex-direction
+   * @default 'row'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
+   */
   direction?: CSSProperty.FlexDirection
-  /** Shorthand for CSS flexGrow property */
+  /**
+   * CSS flex-grow
+   * @default 0
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
+   */
   grow?: CSSProperty.FlexGrow
-  /** Shorthand for CSS flexWrap property */
+  /**
+   * CSS flex-wrap
+   * @default 'nowrap'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
+   */
   wrap?: CSSProperty.FlexWrap
-  /** Shorthand for CSS flexShrink property */
+  /**
+   * CSS flex-shrink
+   * @default 1
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+   */
   shrink?: CSSProperty.FlexShrink
-  /** Shorthand for CSS flexBasis property */
+  /**
+   * CSS flex-basis
+   * @default 'auto'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
+   */
   basis?: CSSProperty.FlexBasis
-  /** Shorthand for CSS justifyContent property */
+  /**
+   * CSS justify-content
+   * @default 'flex-start'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+   */
   justify?: CSSProperty.JustifyContent
-  /** Shorthand for CSS alignItems property */
+  /**
+   * CSS align-items
+   * @default 'stretch'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+   */
   align?: CSSProperty.AlignItems
-  /** Shorthand for CSS order property */
+  /**
+   * CSS Gap
+   * @default '$space-gap'
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/gap
+   */
   gap?: CSSProperty.Gap
   /**
    * Use `inline-flex` instead of `flex`

@@ -13,7 +13,7 @@ const itemStyle = {
 
 export function Default() {
   return (
-    <Flex gap="1.5rem" direction="column" align="center">
+    <Flex gap="$space-2" direction="column" align="center">
       <div style={itemStyle} />
       <div style={itemStyle} />
       <div style={itemStyle} />
