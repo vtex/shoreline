@@ -1,18 +1,22 @@
 import React from 'react'
-
 import { Flex } from '../index'
-import './story.css'
 
 export default {
-  title: 'shoreline-components/flex',
+  title: 'layouts/flex',
+}
+
+const itemStyle = {
+  backgroundColor: 'lightblue',
+  width: '6.25rem',
+  height: '6.25rem',
 }
 
 export function Default() {
   return (
-    <Flex rowGap="10px" direction="column" align="center">
-      <div className="item" />
-      <div className="item" />
-      <div className="item" />
+    <Flex gap="1.5rem" direction="column" align="center">
+      <div style={itemStyle} />
+      <div style={itemStyle} />
+      <div style={itemStyle} />
     </Flex>
   )
 }

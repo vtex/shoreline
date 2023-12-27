@@ -3,7 +3,7 @@ import React from 'react'
 import { Center } from '../index'
 
 export default {
-  title: 'shoreline-components/center',
+  title: 'layouts/center',
 }
 
 export function Default() {

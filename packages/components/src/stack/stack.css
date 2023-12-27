@@ -1,13 +1,25 @@
+@layer sl-tokens {
+  :where([data-sl-stack]) {
+    --sl-stack-space: var(--sl-space-gap);
+    --sl-stack-align: start;
+  }
+}
+
 @layer sl-components {
   [data-sl-stack] {
     display: flex;
-    &[data-direction='column'] {
+
+    &[data-horizontal='false'] {
       flex-direction: column;
-      justify-content: unset;
+      justify-content: flex-start;
       align-items: var(--sl-stack-align);
 
-      & > *:not(:first-child) {
-        margin-top: var(--sl-stack-space);
+      & > * {
+        margin-block: 0;
+      }
+
+      & > * + * {
+        margin-block-start: var(--sl-stack-space);
       }
 
       &[data-fluid='true'] {
@@ -15,13 +27,18 @@
         justify-content: unset;
       }
     }
-    &[data-direction='row'] {
+
+    &[data-horizontal='true'] {
       flex-direction: row;
       align-items: center;
       justify-content: var(--sl-stack-align);
 
-      & > *:not(:first-child) {
-        margin-left: var(--sl-stack-space);
+      & > * {
+        margin-inline: 0;
+      }
+
+      & > * + * {
+        margin-inline-start: var(--sl-stack-space);
       }
     }
   }

@@ -41,7 +41,12 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           <DateField
             {...fieldProps}
             suffix={
-              <Bleed vertical="$space-3" horizontal="$space-4">
+              <Bleed
+                top="$space-3"
+                bottom="$space-3"
+                start="$space-4"
+                end="$space-4"
+              >
                 <PopoverTrigger asChild>
                   <IconButton
                     id={buttonProps.id}

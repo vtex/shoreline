@@ -1,14 +1,25 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import type { CSSProperty } from '@vtex/shoreline-utils'
+import { cssVar, type CSSProperty, style } from '@vtex/shoreline-utils'
+import { Compose } from '@vtex/shoreline-primitives'
+
 import './flex.css'
 
+/**
+ * Flexbox implementation
+ * @example
+ * <Flex>
+ *  <Button>Clear</Button>
+ *  <Button variant="primary">Submit</Button>
+ * </Flex>
+ */
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
   props,
   ref
 ) {
   const {
-    children,
+    asChild = false,
+    inline = false,
     order = 0,
     direction = 'row',
     grow = 0,
@@ -17,41 +28,36 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
     basis = 'auto',
     justify = 'flex-start',
     align = 'stretch',
-    gap = 0,
-    rowGap = 0,
-    columnGap = 0,
-    ...restProps
+    gap = '$space-gap',
+    style: styleObject = {},
+    ...domProps
   } = props
 
+  const Comp = asChild ? Compose : 'div'
+
   return (
-    <div
+    <Comp
       data-sl-flex
       ref={ref}
-      style={
-        {
-          '--sl-flex-order': order,
-          '--sl-flex-direction': direction,
-          '--sl-flex-grow': grow,
-          '--sl-flex-wrap': wrap,
-          '--sl-flex-shrink': shrink,
-          '--sl-flex-basis': basis,
-          '--sl-flex-justify': justify,
-          '--sl-flex-align': align,
-          '--sl-flex-gap': gap,
-          '--sl-flex-rowGap': rowGap,
-          '--sl-flex-columnGap': columnGap,
-        } as CSSProperties
-      }
-      {...restProps}
-    >
-      {children}
-    </div>
+      data-inline={inline}
+      style={style({
+        '--sl-flex-order': order,
+        '--sl-flex-direction': direction,
+        '--sl-flex-grow': grow,
+        '--sl-flex-wrap': wrap,
+        '--sl-flex-shrink': shrink,
+        '--sl-flex-basis': basis,
+        '--sl-flex-justify': justify,
+        '--sl-flex-align': align,
+        '--sl-flex-gap': cssVar({ token: String(gap) }),
+        ...styleObject,
+      })}
+      {...domProps}
+    />
   )
 })
 
-export type FlexProps = ComponentPropsWithoutRef<'div'> & FlexShorthandProps
-
-interface FlexShorthandProps {
+export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   /** Shorthand for CSS order property */
   order?: CSSProperty.Order
   /** Shorthand for CSS flexDirection property */
@@ -70,8 +76,20 @@ interface FlexShorthandProps {
   align?: CSSProperty.AlignItems
   /** Shorthand for CSS order property */
   gap?: CSSProperty.Gap
-  /** Shorthand for CSS order property */
-  rowGap?: CSSProperty.RowGap
-  /** Shorthand for CSS order property */
-  columnGap?: CSSProperty.ColumnGap
+  /**
+   * Use `inline-flex` instead of `flex`
+   * @default false
+   */
+  inline?: boolean
+  /**
+   * Children composition
+   * @default false
+   * @example
+   * <Flex asChild>
+   *  <button>
+   *    A flex button
+   *  </button>
+   * </Flex>
+   */
+  asChild?: boolean
 }

@@ -10,7 +10,12 @@ export function getExpandedColumn<T>(): ColumnDef<T> {
     cell: ({ row }) => {
       return (
         row.getCanExpand() && (
-          <Bleed horizontal="$space-2" vertical="$space-2">
+          <Bleed
+            top="$space-2"
+            bottom="$space-2"
+            start="$space-2"
+            end="$space-2"
+          >
             <IconButton
               variant="tertiary"
               label="Expand row"

@@ -29,7 +29,7 @@ export function Toast(props: ToastProps) {
     <div data-sl-toast data-loading={loading} data-variant={variant}>
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
-      <Bleed vertical="$space-2" right>
+      <Bleed top="$space-2" end="$space-2" bottom="$space-2">
         <IconButton
           onClick={(e) => {
             onDismiss?.(e)
@@ -56,7 +56,7 @@ function renderChildren(children: ReactNode) {
       (child.type === Button || child.type === IconButton)
     ) {
       return (
-        <Bleed vertical horizontal>
+        <Bleed top="$space-2" bottom="$space-2" start="$space-2" end="$space-2">
           {child}
         </Bleed>
       )

@@ -52,7 +52,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
 
     return (
       <div data-sl-pagination ref={ref} {...otherProps}>
-        <Stack direction="row" space="$space-2">
+        <Stack horizontal space="$space-2">
           <div data-sl-pagination-label data-loading={loading}>
             {loading ? (
               <Skeleton />

@@ -204,7 +204,7 @@ export function CompleteHeader(args: StoryArgs) {
       <Modal size={args.size} open={open} onClose={() => setOpen(false)}>
         <ModalHeader>
           <Slot>
-            <Bleed left="$space-1">
+            <Bleed start="$space-1">
               <div className="image-placeholder">
                 <IconImageSquareFill />
               </div>

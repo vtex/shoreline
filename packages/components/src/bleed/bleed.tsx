@@ -1,49 +1,39 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cssVar } from '@vtex/shoreline-utils'
+import { style } from '@vtex/shoreline-utils'
+
 import './bleed.css'
 
-const defaultBleed = '0rem'
-
+/**
+ * Allows the content to bleed into the external container
+ * @example
+ * <Bleed top="$space-2" bottom="$space-2">
+ *   <Button>Text</Button>
+ * </Bleed>
+ */
 export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   props,
   ref
 ) {
   const {
-    top = defaultBleed,
-    left = defaultBleed,
-    bottom = defaultBleed,
-    right = defaultBleed,
-    horizontal = defaultBleed,
-    vertical = defaultBleed,
+    top = '$space-0',
+    bottom = '$space-0',
+    start = '$space-0',
+    end = '$space-0',
     children,
     ...restProps
   } = props
 
   return (
-    <div
-      data-sl-bleed
-      ref={ref}
-      style={
-        {
-          '--sl-bleed-top': cssVar({ token: String(top) }),
-          '--sl-bleed-right': cssVar({ token: String(right) }),
-          '--sl-bleed-bottom': cssVar({ token: String(bottom) }),
-          '--sl-bleed-left': cssVar({ token: String(left) }),
-          '--sl-bleed-horizontal': cssVar({ token: String(horizontal) }),
-          '--sl-bleed-vertical': cssVar({ token: String(vertical) }),
-        } as CSSProperties
-      }
-      {...restProps}
-    >
+    <div data-sl-bleed ref={ref} {...restProps}>
       <div
         data-sl-bleed-content
-        data-top={isStricTrue(top)}
-        data-right={isStricTrue(right)}
-        data-bottom={isStricTrue(bottom)}
-        data-left={isStricTrue(left)}
-        data-horizontal={isStricTrue(horizontal)}
-        data-vertical={isStricTrue(vertical)}
+        style={style({
+          '--sl-bleed-top': top,
+          '--sl-bleed-bottom': bottom,
+          '--sl-bleed-start': start,
+          '--sl-bleed-end': end,
+        })}
       >
         {children}
       </div>
@@ -51,39 +41,25 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   )
 })
 
-function isStricTrue<T extends boolean = boolean>(value: any): value is T {
-  return typeof value === 'boolean' && value
-}
-
 export interface BleedProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Top bleed
    * @default '$space-0'
    */
-  top?: string | boolean
+  top?: string
   /**
    * Bottom bleed
    * @default '$space-0'
    */
-  bottom?: string | boolean
+  bottom?: string
   /**
-   * Left bleed
+   * Start bleed
    * @default '$space-0'
    */
-  left?: string | boolean
+  start?: string
   /**
-   * Right bleed
+   * End bleed
    * @default '$space-0'
    */
-  right?: string | boolean
-  /**
-   * Horizontal bleed
-   * @default '$space-0'
-   */
-  horizontal?: string | boolean
-  /**
-   * Vertical bleed
-   * @default '$space-0'
-   */
-  vertical?: string | boolean
+  end?: string
 }

@@ -1,12 +1,30 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Compose } from '@vtex/shoreline-primitives'
 import './center.css'
 
+/**
+ * Centralizes its content
+ * @example
+ * <Center>
+ *  <Text>In the absolute center</Text>
+ * </Center>
+ */
 export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(
   props,
   ref
 ) {
-  return <div data-sl-center ref={ref} {...props} />
+  const { asChild = false, ...domProps } = props
+
+  const Comp = asChild ? Compose : 'div'
+
+  return <Comp data-sl-center ref={ref} {...domProps} />
 })
 
-export type CenterProps = ComponentPropsWithoutRef<'div'>
+export interface CenterProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Children composition
+   * @default false
+   */
+  asChild?: boolean
+}
