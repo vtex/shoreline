@@ -8,7 +8,6 @@ import {
   createMessageHook,
 } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
-import './label.css'
 import { useFieldContext } from '../field'
 
 const useMessage = createMessageHook(messages)

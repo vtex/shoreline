@@ -1,5 +1,3 @@
-import '../virtual.css'
-
 import React, { useMemo, useState } from 'react'
 import { Virtual, VirtualItem } from '../index'
 import { Stack } from '../../stack'

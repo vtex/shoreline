@@ -1,8 +1,0 @@
-@layer sl-components {
-  [data-sl-field-char-counter] {
-    margin-left: var(--sl-space-3);
-    color: var(--sl-fg-soft);
-    font: var(--sl-text-caption-2-font);
-    letter-spacing: var(--sl-text-caption-2-letter-spacing);
-  }
-}

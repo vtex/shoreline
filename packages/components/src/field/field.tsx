@@ -5,7 +5,6 @@ import { Store } from '@vtex/shoreline-store'
 import { Composable, Compose } from '@vtex/shoreline-primitives'
 import type { FieldContextType } from './field-context'
 import { FieldProvider } from './field-provider'
-import './field.css'
 
 /**
  * Implementation of a fieldset

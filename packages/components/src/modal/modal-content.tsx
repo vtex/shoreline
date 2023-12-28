@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import './modal-content.css'
 import { Content } from '../content'
 
 /**

@@ -13,7 +13,6 @@ import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
 import { Text } from '../text'
 import type { ToastVariant } from './toast-types'
-import './toast.css'
 import { IconButton } from '../icon-button'
 import { Button } from '../button'
 

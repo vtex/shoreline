@@ -4,7 +4,6 @@ import type { PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'
 import { Button } from '../button'
 import { IconCaretDownSmall } from '@vtex/shoreline-icons'
-import './filter-trigger.css'
 
 /**
  * Triggers the Filter Popover box, also displays the Filter applied value

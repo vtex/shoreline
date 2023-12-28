@@ -2,7 +2,6 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { style } from '@vtex/shoreline-utils'
 import { Compose } from '@vtex/shoreline-primitives'
-import './stack.css'
 
 /**
  * Spaces elements consistently

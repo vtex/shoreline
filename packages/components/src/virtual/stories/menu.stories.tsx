@@ -1,5 +1,4 @@
-import React, { Fragment, useMemo } from 'react'
-import '../virtual.css'
+import React from 'react'
 import './styles.css'
 
 import { Virtual, VirtualItem } from '../index'

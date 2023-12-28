@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { Combobox, createMessageHook } from '@vtex/shoreline-primitives'
 
 import type { PopoverProps } from '../popover'
 import { Popover } from '../popover'
@@ -6,10 +7,8 @@ import { Container, Content } from '../content'
 import { FilterClear } from './filter-clear'
 import { FilterApply } from './filter-apply'
 import { Button } from '../button'
-import { Combobox, createMessageHook } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 import { messages } from './messages'
-import './filter-popover.css'
 import { Search } from '../search'
 
 const useMessage = createMessageHook(messages)

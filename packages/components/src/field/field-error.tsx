@@ -4,7 +4,6 @@ import { useStore } from '@vtex/shoreline-store'
 
 import { Compose } from '@vtex/shoreline-primitives'
 import { useFieldContext } from './field-context'
-import './field-error.css'
 
 /**
  * Error of a field

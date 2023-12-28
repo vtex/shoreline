@@ -6,7 +6,6 @@ import { useToaster } from 'react-hot-toast/headless'
 import { ToastAppear } from './toast-appear'
 import { Toast } from './toast'
 import type { ToastPosition } from './toast-types'
-import './toast-stack.css'
 
 /**
  * Stack of toasts

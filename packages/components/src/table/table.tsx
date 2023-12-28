@@ -1,9 +1,7 @@
 import { constants } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
 import React, { forwardRef } from 'react'
-
 import { Compose } from '@vtex/shoreline-primitives'
-import './table.css'
 
 export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   props,

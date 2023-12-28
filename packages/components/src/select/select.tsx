@@ -5,7 +5,6 @@ import { useStore } from '@vtex/shoreline-store'
 import { useControlledState } from '@vtex/shoreline-utils'
 
 import { useFieldContext } from '../field'
-import './select.css'
 
 /**
  * Select fields allow merchants to choose a single option from a list

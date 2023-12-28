@@ -1,13 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
-
-import './virtual.css'
+import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 
 import {
   useVirtualizerModel,
   type UseVirtualizerModelProps,
 } from './useVirtualizerModel'
-import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 import { VirtualContainer } from './virtual-container'
 
 export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(

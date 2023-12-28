@@ -6,7 +6,6 @@ import { VisuallyHidden } from '@vtex/shoreline-primitives'
 import { useAriaCheckbox } from './use-aria-checkbox'
 import type { AriaCheckboxProps } from './use-aria-checkbox'
 import { Text } from '../text'
-import './checkbox.css'
 
 /**
  * Checkbox controls allow users to make multiple independent choices in a form where there are at most five options and each option is binary.

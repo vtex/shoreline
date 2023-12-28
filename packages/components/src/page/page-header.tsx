@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import './page-header.css'
 import { Stack } from '../stack'
 import { Content } from '../content'
 

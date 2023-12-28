@@ -1,8 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-
 import { Compose } from '@vtex/shoreline-primitives'
-import './table-row.css'
 
 export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
   function TableRow(props, ref) {

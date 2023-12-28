@@ -4,7 +4,6 @@ import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
 import { Button } from '../button'
 import { Container, Content } from '../content'
-import './contextual-help.css'
 
 /**
  * Merchants contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.

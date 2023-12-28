@@ -4,7 +4,6 @@ import { AccessibleIcon } from '@vtex/shoreline-primitives'
 
 import type { ButtonProps } from '../button'
 import { Button } from '../button'
-import './icon-button.css'
 
 /**
  * A button designed specifically for usage with a single icon.

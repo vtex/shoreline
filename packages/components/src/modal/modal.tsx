@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 import { Dialog } from '@ariakit/react'
 
 import { Container } from '../content'
-import './modal.css'
 
 /**
  * Modal containers allow users to view content that demands attention through an overlay window that opens on top of the current page.

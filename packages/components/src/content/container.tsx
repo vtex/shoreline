@@ -2,8 +2,6 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
-import './container.css'
-
 /**
  * Wraps Content component to support Container Queries
  * @example

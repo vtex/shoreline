@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './heading.css'
 import { Compose } from '@vtex/shoreline-primitives'
 
 /**

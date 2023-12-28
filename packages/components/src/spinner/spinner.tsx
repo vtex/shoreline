@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './spinner.css'
 
 const DEFAULT_SIZE = 16
 const DEFAULT_DESCRIPTION = 'loading'

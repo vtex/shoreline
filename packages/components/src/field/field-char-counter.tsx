@@ -1,8 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import './field-char-counter.css'
-
 /**
  * Count chars of a field that contains a input or textarea that has a max-length
  */

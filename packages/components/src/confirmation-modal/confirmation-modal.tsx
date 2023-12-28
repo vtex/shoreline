@@ -11,7 +11,6 @@ import {
 import { Button } from '../button'
 import { createMessageHook } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
-import './confirmation-modal.css'
 
 const useMessage = createMessageHook(messages)
 
