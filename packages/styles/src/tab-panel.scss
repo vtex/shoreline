@@ -1,0 +1,7 @@
+[data-sl-tab-panel] {
+  padding: var(--sl-space-3);
+  outline: none;
+  &:focus-visible {
+    box-shadow: var(--sl-focus-ring);
+  }
+}

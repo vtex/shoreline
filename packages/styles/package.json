@@ -1,0 +1,48 @@
+{
+  "name": "@vtex/shoreline-styles",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/index.css"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "postcss ./src/index.scss -o dist/index.css -w",
+    "build": "postcss ./src/index.scss -o dist/index.css"
+  },
+  "repository": {
+    "directory": "packages/styles",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "devDependencies": {
+    "@csstools/postcss-sass": "5.1.1",
+    "cssnano": "6.0.2",
+    "postcss": "8.4.32",
+    "postcss-cli": "11.0.0",
+    "postcss-import": "15.1.0",
+    "postcss-scss": "4.0.9",
+    "postcss-preset-env": "9.3.0"
+  },
+  "dependencies": {}
+}

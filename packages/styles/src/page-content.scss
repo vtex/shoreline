@@ -1,0 +1,22 @@
+[data-sl-page-content] {
+  --sl-page-layout-wide: 100rem;
+  --sl-page-layout-standard: 75rem;
+  --sl-page-layout-narrow: 50rem;
+  --sl-page-layout: var(--sl-page-layout-standard);
+
+  width: 100%;
+  max-width: var(--sl-page-layout);
+  margin: var(--sl-space-0) auto var(--sl-space-0) auto;
+
+  &[data-layout='wide'] {
+    --sl-page-layout: var(--sl-page-layout-wide);
+  }
+
+  &[data-layout='standard'] {
+    --sl-page-layout: var(--sl-page-layout-standard);
+  }
+
+  &[data-layout='narrow'] {
+    --sl-page-layout: var(--sl-page-layout-narrow);
+  }
+}

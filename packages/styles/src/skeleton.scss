@@ -1,0 +1,38 @@
+@keyframes sl-keyframes-pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+[data-sl-skeleton] {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--sl-bg-muted);
+  overflow: hidden;
+  &::after {
+    animation: sl-keyframes-pulse 2s ease-in-out 0.5s infinite;
+    background: var(--sl-bg-muted-pressed);
+    content: '';
+    position: absolute;
+    bottom: var(--sl-space-0);
+    left: var(--sl-space-0);
+    right: var(--sl-space-0);
+    top: var(--sl-space-0);
+  }
+  &[data-sl-skeleton-shape='rect'] {
+    border-radius: var(--sl-border-radius-small);
+  }
+  &[data-sl-skeleton-shape='circle'] {
+    border-radius: var(--sl-border-radius-full);
+  }
+}
