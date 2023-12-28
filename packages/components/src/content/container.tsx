@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Compose } from '@vtex/shoreline-primitives'
 
-import type { ContentContainerAs } from './types'
 import './container.css'
 
 /**
@@ -13,7 +13,9 @@ import './container.css'
  */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   function Container(props, ref) {
-    const { as: Comp = 'div', children, ...otherProps } = props
+    const { asChild = false, children, ...otherProps } = props
+
+    const Comp = asChild ? Compose : 'div'
 
     return (
       <Comp data-sl-container ref={ref} {...otherProps}>
@@ -25,8 +27,8 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
 
 export interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   /**
-   * Select the rendered html tag
-   * @default 'div'
+   * Children composition
+   * @default false
    */
-  as?: ContentContainerAs
+  asChild?: boolean
 }

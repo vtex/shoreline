@@ -26,8 +26,8 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
 
 export interface ContentProps extends ComponentPropsWithoutRef<'div'> {
   /**
-   * Select the rendered html tag
-   * @default 'div'
+   * Children composition
+   * @default false
    */
   asChild?: boolean
   /**
