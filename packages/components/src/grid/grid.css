@@ -1,12 +1,24 @@
+@layer sl-tokens {
+  :where([data-sl-grid]) {
+    --sl-grid-gap: var(--sl-space-gap);
+    --sl-grid-areas: none;
+    --sl-grid-rows: auto;
+    --sl-grid-columns: auto;
+    --sl-grid-auto-columns: auto;
+    --sl-grid-auto-rows: auto;
+    --sl-grid-auto-flow: row;
+  }
+}
+
 @layer sl-components {
   [data-sl-grid] {
     display: grid;
     gap: var(--sl-grid-gap);
-    grid-template-areas: var(--sl-grid-templateAreas);
-    grid-template-rows: var(--sl-grid-templateRows);
-    grid-template-columns: var(--sl-grid-templateColumns);
-    grid-auto-columns: var(--sl-grid-autoColumns);
-    grid-auto-rows: var(--sl-grid-autoRows);
-    grid-auto-flow: var(--sl-grid-autoFlow);
+    grid-template-areas: var(--sl-grid-areas);
+    grid-template-rows: var(--sl-grid-rows);
+    grid-template-columns: var(--sl-grid-columns);
+    grid-auto-columns: var(--sl-grid-auto-columns);
+    grid-auto-rows: var(--sl-grid-auto-rows);
+    grid-auto-flow: var(--sl-grid-auto-flow);
   }
 }
