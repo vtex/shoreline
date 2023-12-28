@@ -1,19 +1,20 @@
 import React from 'react'
 
 import { Stack } from '../index'
+import { style } from '@vtex/shoreline-utils'
 
 export default {
   title: 'layouts/stack',
 }
 
-const itemStyle = {
-  background: 'lightblue',
+const itemStyle = style({
+  background: '$color-blue-3',
+  borderRadius: '$borde-radius-medium',
   width: '5rem',
   height: '3rem',
-  borderRadius: '8px',
   display: 'grid',
   placeItems: 'center',
-}
+})
 
 export function Default() {
   return (

@@ -1,14 +1,23 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { style } from '@vtex/shoreline-utils'
+import { Compose } from '@vtex/shoreline-primitives'
 import './stack.css'
 
+/**
+ * Spaces elements consistently
+ * @example
+ * <Stack>
+ *  <div>Stacked 1</div>
+ *  <div>Stacked 2</div>
+ * </Stack>
+ */
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   props,
   ref
 ) {
   const {
-    children,
+    asChild = false,
     horizontal = false,
     space = '$space-gap',
     fluid = false,
@@ -17,8 +26,10 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
     ...restProps
   } = props
 
+  const Comp = asChild ? Compose : 'div'
+
   return (
-    <div
+    <Comp
       data-sl-stack
       ref={ref}
       data-horizontal={horizontal}
@@ -29,20 +40,23 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
         ...styleObject,
       })}
       {...restProps}
-    >
-      {children}
-    </div>
+    />
   )
 })
 
 export interface StackProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Children composition
+   * @default false
+   */
+  asChild?: boolean
   /**
    * Switches the layout to horizontal
    * @default false
    */
   horizontal?: boolean
   /**
-   * if the items should grow in width to match the container
+   * Grows the width of items to match the parent
    * @default false
    */
   fluid?: boolean
