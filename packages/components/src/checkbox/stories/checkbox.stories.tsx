@@ -128,7 +128,7 @@ export function Group() {
       </CheckboxGroup>
       <CheckboxGroup
         error
-        direction="row"
+        horizontal
         label="Options with error"
         errorText="Bad choice"
       >

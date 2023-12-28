@@ -1,48 +1,62 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { cssVar } from '@vtex/shoreline-utils'
+import { style } from '@vtex/shoreline-utils'
+import { Compose } from '@vtex/shoreline-primitives'
 import './stack.css'
 
+/**
+ * Spaces elements consistently
+ * @example
+ * <Stack>
+ *  <div>Stacked 1</div>
+ *  <div>Stacked 2</div>
+ * </Stack>
+ */
 export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   props,
   ref
 ) {
   const {
-    children,
-    direction = 'column',
+    asChild = false,
+    horizontal = false,
     space = '$space-gap',
     fluid = false,
     align = 'start',
+    style: styleObject = {},
     ...restProps
   } = props
 
+  const Comp = asChild ? Compose : 'div'
+
   return (
-    <div
+    <Comp
       data-sl-stack
       ref={ref}
-      data-direction={direction}
+      data-horizontal={horizontal}
       data-fluid={fluid}
-      style={
-        {
-          '--sl-stack-space': cssVar({ token: space }),
-          '--sl-stack-align': cssVar({ token: align }),
-        } as CSSProperties
-      }
+      style={style({
+        '--sl-stack-space': space,
+        '--sl-stack-align': align,
+        ...styleObject,
+      })}
       {...restProps}
-    >
-      {children}
-    </div>
+    />
   )
 })
 
 export interface StackProps extends ComponentPropsWithoutRef<'div'> {
   /**
-   * direction of items
-   * @default column
+   * Children composition
+   * @default false
    */
-  direction?: 'column' | 'row'
+  asChild?: boolean
   /**
-   * if the items should grow in width to match the container
+   * Switches the layout to horizontal
+   * @default false
+   */
+  horizontal?: boolean
+  /**
+   * Grows the width of items to match the parent
    * @default false
    */
   fluid?: boolean

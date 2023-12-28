@@ -68,7 +68,7 @@ export function Composition() {
 export function MoreActions() {
   return (
     <Stack className="base-story">
-      <Stack direction="row" space="5rem">
+      <Stack horizontal space="5rem">
         <MenuProvider>
           <MenuTrigger asChild>
             <Button variant="primary">
@@ -158,7 +158,7 @@ export function MoreActions() {
         </MenuProvider>
       </Stack>
 
-      <Stack direction="row">
+      <Stack horizontal>
         <MenuProvider>
           <MenuTrigger asChild>
             <Button variant="tertiary">

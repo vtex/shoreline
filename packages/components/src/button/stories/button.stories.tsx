@@ -77,19 +77,19 @@ export function Variants() {
 export function Bleeding() {
   return (
     <header className="bleeding--decorative-box">
-      <Stack direction="row" className="bleeding--custom-stack">
-        <Bleed vertical>
+      <Stack horizontal className="bleeding--custom-stack">
+        <Bleed top="$space-3" bottom="$space-3">
           <Button size="large">Large</Button>
         </Bleed>
-        <Bleed vertical>
+        <Bleed top="$space-2" bottom="$space-2">
           <Button>Normal</Button>
         </Bleed>
-        <Bleed vertical>
+        <Bleed top="$space-3" bottom="$space-3">
           <Button size="large" variant="tertiary">
             Large Tertiary
           </Button>
         </Bleed>
-        <Bleed vertical>
+        <Bleed top="$space-2" bottom="$space-2">
           <Button variant="tertiary">Tertiary</Button>
         </Bleed>
       </Stack>

@@ -1,18 +1,27 @@
 import React from 'react'
-
+import { style } from '@vtex/shoreline-utils'
 import { Grid, GridCell } from '../index'
-import './story.css'
 
 export default {
-  title: 'shoreline-components/grid',
+  title: 'layouts/grid',
 }
+
+const cellStyle = style({
+  backgroundColor: '$color-blue-3',
+  borderRadius: '$border-radius-medium',
+  width: '100%',
+  height: '3.5rem',
+})
 
 export function Default() {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" gap="1rem">
-      <GridCell className="cell" />
-      <GridCell className="cell" />
-      <GridCell className="cell" />
+    <Grid columns="repeat(3, 1fr)">
+      <GridCell style={cellStyle} />
+      <GridCell style={cellStyle} />
+      <GridCell style={cellStyle} />
+      <GridCell style={cellStyle} />
+      <GridCell style={cellStyle} />
+      <GridCell style={cellStyle} />
     </Grid>
   )
 }

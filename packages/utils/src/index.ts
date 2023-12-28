@@ -30,6 +30,7 @@ import {
 import { invariant } from './invariant'
 import { warning } from './warning'
 import { useControlledState } from './use-controlled-state'
+import { style } from './style'
 
 export {
   chain,
@@ -65,6 +66,7 @@ export {
   invariant,
   warning,
   useControlledState,
+  style,
 }
 
 export * from './css-types'

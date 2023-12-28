@@ -33,7 +33,7 @@ export function RadioGroups() {
         <Radio value="opt3">Apple</Radio>
         <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
-      <RadioGroup label="Horizontal radio group" direction="row">
+      <RadioGroup label="Horizontal radio group" horizontal>
         <Radio value="opt1">Pen</Radio>
         <Radio value="opt2">Pineapple</Radio>
         <Radio value="opt3">Apple</Radio>
@@ -58,7 +58,7 @@ export function Error() {
       </RadioGroup>
       <RadioGroup
         label="Horizontal radio group"
-        direction="row"
+        horizontal
         errorText="Something is wrong"
         error
       >
@@ -69,7 +69,7 @@ export function Error() {
       </RadioGroup>
       <RadioGroup
         label="Horizontal radio group"
-        direction="row"
+        horizontal
         errorText="Something is wrong"
         error
       >

@@ -3,7 +3,7 @@ import React from 'react'
 import { Slot } from '../index'
 
 export default {
-  title: 'shoreline-components/slot',
+  title: 'latyouts/slot',
 }
 
 export function Default() {

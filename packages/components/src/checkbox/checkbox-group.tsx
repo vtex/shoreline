@@ -15,13 +15,12 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
       label,
       children,
       className,
-      direction = 'column',
+      horizontal = false,
       id: defaultId,
       ...otherProps
     } = props
 
     const id = useId(defaultId)
-    const stackGap = direction === 'column' ? '$space-4' : '$space-5'
 
     return (
       <Field
@@ -33,7 +32,10 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
         {...otherProps}
       >
         <Label htmlFor={id}>{label}</Label>
-        <Stack direction={direction} space={stackGap}>
+        <Stack
+          horizontal={horizontal}
+          space={horizontal ? '$space-5' : '$space-4'}
+        >
           {children}
         </Stack>
         {description && <FieldDescription>{description}</FieldDescription>}
@@ -48,5 +50,5 @@ export interface CheckboxGroupProps extends ComponentPropsWithoutRef<'div'> {
   description?: ReactNode
   errorText?: ReactNode
   label: ReactNode
-  direction?: 'row' | 'column'
+  horizontal?: boolean
 }

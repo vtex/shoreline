@@ -21,14 +21,13 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
       label,
       children,
       className,
-      direction = 'column',
+      horizontal = false,
       state,
       id: defaultId,
       ...otherProps
     } = props
 
     const id = useId(defaultId)
-    const stackGap = direction === 'column' ? '$space-4' : '$space-5'
 
     return (
       <RadioProvider store={state}>
@@ -40,7 +39,10 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
         >
           <Label htmlFor={id}>{label}</Label>
           <BaseRadioGroup data-sl-group id={id} ref={ref} {...otherProps}>
-            <Stack direction={direction} space={stackGap}>
+            <Stack
+              horizontal={horizontal}
+              space={horizontal ? '$space-5' : '$space-4'}
+            >
               {children}
             </Stack>
           </BaseRadioGroup>
@@ -65,7 +67,7 @@ export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
   description?: string
   errorText?: string
   label: ReactNode
-  direction?: 'row' | 'column'
+  horizontal?: boolean
   state?: RadioStore
 }
 

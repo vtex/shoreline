@@ -1,3 +1,17 @@
+@layer sl-tokens {
+  :where([data-sl-flex]) {
+    --sl-flex-order: 0;
+    --sl-flex-direction: column;
+    --sl-flex-grow: 0;
+    --sl-flex-wrap: nowrap;
+    --sl-flex-shrink: 1;
+    --sl-flex-basis: auto;
+    --sl-flex-justify: flex-start;
+    --sl-flex-align: flex-start;
+    --sl-flex-gap: var(--sl-space-gap);
+  }
+}
+
 @layer sl-components {
   [data-sl-flex] {
     display: flex;
@@ -10,7 +24,9 @@
     justify-content: var(--sl-flex-justify);
     align-items: var(--sl-flex-align);
     gap: var(--sl-flex-gap);
-    row-gap: var(--sl-flex-rowGap);
-    column-gap: var(--sl-flex-columnGap);
+
+    &[data-inline='true'] {
+      display: inline-flex;
+    }
   }
 }

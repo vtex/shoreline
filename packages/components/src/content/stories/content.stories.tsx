@@ -5,7 +5,7 @@ import { Container, Content } from '../index'
 import { Flex } from '../../flex'
 
 export default {
-  title: 'shoreline-components/content',
+  title: 'layouts/content',
 }
 
 export function Default() {

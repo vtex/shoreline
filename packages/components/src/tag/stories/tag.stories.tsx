@@ -28,7 +28,7 @@ export function Variants() {
   return (
     <Stack>
       Primary
-      <Stack direction="row">
+      <Stack horizontal>
         <Tag color="red">Red</Tag>
         <Tag color="yellow">Yellow</Tag>
         <Tag color="orange">Orange</Tag>
@@ -41,7 +41,7 @@ export function Variants() {
         <Tag color="gray">Gray</Tag>
       </Stack>
       Secondary
-      <Stack direction="row">
+      <Stack horizontal>
         <Tag color="red" variant="secondary">
           Red
         </Tag>

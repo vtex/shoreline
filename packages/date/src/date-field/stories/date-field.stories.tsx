@@ -29,7 +29,12 @@ export function Terms() {
         label="Date"
         prefix="Prefix"
         suffix={
-          <Bleed vertical="$space-3" horizontal="$space-4">
+          <Bleed
+            top="$space-3"
+            bottom="$space-3"
+            start="$space-3"
+            end="$space-3"
+          >
             <IconButton
               label="calendar"
               size="large"

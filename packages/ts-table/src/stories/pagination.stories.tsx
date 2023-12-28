@@ -56,7 +56,7 @@ export function ClientPagination() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex align="center" gap="var(--sl-space-2)">
               <img
                 style={{
                   width: 32,
@@ -161,7 +161,7 @@ export function ServerPagination() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex align="center" gap="var(--sl-space-2)">
               <img
                 style={{
                   width: 32,
