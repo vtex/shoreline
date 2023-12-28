@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.53.0...@vtex/shoreline-components@0.54.0) (2023-12-28)
+
+### Features
+
+- **content:** add asChild composition ([db63927](https://github.com/vtex/shoreline/commit/db63927233ee81214c3490a54f7beee02b450057))
+- **flex-center-bleed:** refactor ([cc80294](https://github.com/vtex/shoreline/commit/cc8029404de22769c390cfa072f5385ae44b3354))
+- **stack:** add children composition ([76ca992](https://github.com/vtex/shoreline/commit/76ca99218a5a174130dd608c7dbc6ecebd083256))
+
 # [0.53.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.52.0...@vtex/shoreline-components@0.53.0) (2023-12-26)
 
 ### Bug Fixes

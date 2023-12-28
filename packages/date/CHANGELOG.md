@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.5.19...@vtex/shoreline-date@0.6.0) (2023-12-28)
+
+### Features
+
+- **flex-center-bleed:** refactor ([cc80294](https://github.com/vtex/shoreline/commit/cc8029404de22769c390cfa072f5385ae44b3354))
+
 ## [0.5.19](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.5.18...@vtex/shoreline-date@0.5.19) (2023-12-26)
 
 **Note:** Version bump only for package @vtex/shoreline-date

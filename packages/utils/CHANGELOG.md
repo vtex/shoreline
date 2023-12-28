@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@0.7.0...@vtex/shoreline-utils@0.8.0) (2023-12-28)
+
+### Features
+
+- **flex-center-bleed:** refactor ([cc80294](https://github.com/vtex/shoreline/commit/cc8029404de22769c390cfa072f5385ae44b3354))
+
 # 0.7.0 (2023-12-26)
 
 ### Features

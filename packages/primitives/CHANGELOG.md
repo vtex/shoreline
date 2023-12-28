@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@0.1.0...@vtex/shoreline-primitives@0.1.1) (2023-12-28)
+
+**Note:** Version bump only for package @vtex/shoreline-primitives
+
 # 0.1.0 (2023-12-26)
 
 ### Features

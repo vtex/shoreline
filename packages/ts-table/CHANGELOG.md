@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@0.2.5...@vtex/shoreline-ts-table@0.3.0) (2023-12-28)
+
+### Features
+
+- **flex-center-bleed:** refactor ([cc80294](https://github.com/vtex/shoreline/commit/cc8029404de22769c390cfa072f5385ae44b3354))
+
 ## [0.2.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@0.2.4...@vtex/shoreline-ts-table@0.2.5) (2023-12-26)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table
