@@ -1,9 +1,8 @@
 {
   "name": "@vtex/shoreline-styles",
   "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.css",
+  "module": "./dist/index.css",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -12,12 +11,7 @@
     "dist"
   ],
   "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./styles": "./dist/index.css"
+    ".": "./dist/index.css"
   },
   "engines": {
     "node": ">=16"
