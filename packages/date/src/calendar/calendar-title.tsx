@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import './calendar-title.css'
-
 /**
  * Title of the calendar
  */

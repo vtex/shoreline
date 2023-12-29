@@ -6,7 +6,6 @@ import { useLocale } from '@vtex/shoreline-components'
 import { getWeeksInMonth } from '../utils'
 import { CalendarCell } from './calendar-cell'
 import { useCalendarContext } from './calendar-provider'
-import './calendar-grid.css'
 
 /**
  * Grid of a calendar

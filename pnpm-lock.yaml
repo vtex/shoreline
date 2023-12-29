@@ -286,12 +286,6 @@ importers:
       match-sorter:
         specifier: 6.3.1
         version: 6.3.1
-      postcss:
-        specifier: 8.4.32
-        version: 8.4.32
-      postcss-preset-env:
-        specifier: 9.3.0
-        version: 9.3.0(postcss@8.4.32)
       react-hook-form:
         specifier: 7.48.2
         version: 7.48.2(react@18.2.0)
@@ -344,12 +338,6 @@ importers:
       '@vtex/shoreline-components':
         specifier: workspace:*
         version: link:../components
-      postcss:
-        specifier: 8.4.32
-        version: 8.4.32
-      postcss-preset-env:
-        specifier: 9.3.0
-        version: 9.3.0(postcss@8.4.32)
 
   packages/docs-generator:
     dependencies:
@@ -647,12 +635,6 @@ importers:
       match-sorter:
         specifier: 6.3.1
         version: 6.3.1
-      postcss:
-        specifier: 8.4.32
-        version: 8.4.32
-      postcss-preset-env:
-        specifier: 9.3.0
-        version: 9.3.0(postcss@8.4.32)
       react-window:
         specifier: 1.8.10
         version: 1.8.10(react-dom@18.2.0)(react@18.2.0)

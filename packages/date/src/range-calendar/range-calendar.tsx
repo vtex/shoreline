@@ -12,7 +12,6 @@ import { CalendarHeader } from '../calendar/calendar-header'
 import { CalendarTitle } from '../calendar/calendar-title'
 import type { DateValue } from '../utils'
 import { createCalendar } from '../utils'
-import './range-calendar.css'
 
 /**
  * Allow users to select a date range

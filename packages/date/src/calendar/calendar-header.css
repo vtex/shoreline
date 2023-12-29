@@ -1,7 +1,0 @@
-@layer sl-components {
-  [data-sl-calendar-header] {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}

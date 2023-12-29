@@ -19,7 +19,6 @@ import {
 } from '@vtex/shoreline-components'
 
 import { DateSegment } from '../date-segment'
-import './date-field.css'
 
 /**
  * Allow users to select a date in a segmented field

@@ -1,8 +1,0 @@
-@layer sl-components {
-  [data-sl-calendar] {
-    width: fit-content;
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    gap: var(--sl-space-gap);
-  }
-}

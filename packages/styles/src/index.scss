@@ -35,3 +35,12 @@
 @import 'textarea.scss' layer(sl-components);
 @import 'tooltip-popover.scss' layer(sl-components);
 @import 'virtual.scss' layer(sl-components);
+
+@import 'calendar/index.scss' layer(sl-extended-components);
+@import 'ts-table/index.scss' layer(sl-extended-components);
+@import 'date-field.scss' layer(sl-extended-components);
+@import 'date-input.scss' layer(sl-extended-components);
+@import 'date-picker.scss' layer(sl-extended-components);
+@import 'date-range-picker.scss' layer(sl-extended-components);
+@import 'date-segment.scss' layer(sl-extended-components);
+@import 'range-calendar.scss' layer(sl-extended-components);

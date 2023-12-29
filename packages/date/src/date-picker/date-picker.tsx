@@ -15,7 +15,6 @@ import { IconCalendarBlank } from '@vtex/shoreline-icons'
 
 import { Calendar } from '../calendar'
 import { DateField } from '../date-field'
-import './date-picker.css'
 
 /**
  * Allow users to pick a date
