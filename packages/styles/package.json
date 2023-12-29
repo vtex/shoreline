@@ -11,15 +11,20 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/index.css"
+    ".": "./dist/index.css",
+    "./no-layer": "./dist/index-no-layer.css"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "dev": "postcss ./src/index.scss -o dist/index.css -w",
-    "build": "postcss ./src/index.scss -o dist/index.css"
+    "dev": "concurrently \"pnpm run dev:layer\" \"pnpm run dev:no-layer\"",
+    "dev:layer": "postcss ./src/index.scss -o dist/index.css -w",
+    "dev:no-layer": "postcss ./src/index-no-layer.scss -o dist/index-no-layer.css -w",
+    "build": "pnpm run build:layer && pnpm run build:no-layer",
+    "build:layer": "postcss ./src/index.scss -o dist/index.css",
+    "build:no-layer": "postcss ./src/index-no-layer.scss -o dist/index-no-layer.css"
   },
   "repository": {
     "directory": "packages/styles",
@@ -31,6 +36,7 @@
   },
   "devDependencies": {
     "@csstools/postcss-sass": "5.1.1",
+    "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "postcss": "8.4.32",
     "postcss-cli": "11.0.0",
