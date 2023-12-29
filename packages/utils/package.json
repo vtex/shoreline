@@ -21,11 +21,15 @@
     "dev": "tsup --watch",
     "build": "npm run prebuild && tsup"
   },
+  "devDependencies": {
+    "@types/use-sync-external-store": "0.0.6"
+  },
   "dependencies": {
     "csstype": "3.1.2",
     "deepmerge": "4.3.1",
     "scule": "1.1.1",
     "tiny-invariant": "1.3.1",
-    "tiny-warning": "1.0.3"
+    "tiny-warning": "1.0.3",
+    "use-sync-external-store": "1.2.0"
   }
 }

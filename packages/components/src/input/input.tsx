@@ -1,7 +1,6 @@
 import type { ComponentProps } from 'react'
 import React, { forwardRef } from 'react'
-import { useControlledState } from '@vtex/shoreline-utils'
-import { useStore } from '@vtex/shoreline-store'
+import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
 import { Slot } from '../slot'
 import { useFieldContext } from '../field'

@@ -7,10 +7,10 @@ import {
   userEvent,
   vi,
 } from '@vtex/shoreline-test-utils'
-import * as React from 'react'
+import React, { useState } from 'react'
+
 import { Store } from '../store'
 import { useStore } from '../use-store'
-import { useState } from 'react'
 
 const user = userEvent.setup()
 

@@ -1,4 +1,4 @@
-import { Store } from '@vtex/shoreline-store'
+import { Store } from '@vtex/shoreline-utils'
 import { createContext, useContext } from 'react'
 
 export const FieldContext = createContext<Store<FieldContextType>>(

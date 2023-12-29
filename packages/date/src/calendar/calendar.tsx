@@ -3,7 +3,7 @@ import type { AriaCalendarProps, DateValue } from '@react-aria/calendar'
 import { useCalendar } from '@react-aria/calendar'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
-import { Store } from '@vtex/shoreline-store'
+import { Store } from '@vtex/shoreline-utils'
 import { useCalendarState } from '@react-stately/calendar'
 
 import { CalendarGrid } from './calendar-grid'
