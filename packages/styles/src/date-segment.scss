@@ -2,7 +2,14 @@
   outline: none;
   padding: var(--sl-space-05);
   border-radius: var(--sl-border-radius-small);
-  &:focus-visible {
-    box-shadow: var(--sl-focus-ring-accent);
+  color: var(--sl-fg);
+  text-transform: uppercase;
+
+  &:focus {
+    background: var(--sl-bg-accent-hover);
+  }
+
+  &[data-placeholder='true'] {
+    color: var(--sl-fg-soft);
   }
 }
