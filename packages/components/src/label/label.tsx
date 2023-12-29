@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { useStore } from '@vtex/shoreline-store'
+import { useStore } from '@vtex/shoreline-utils'
 
 import {
   Composable,

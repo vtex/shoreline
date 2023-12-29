@@ -4,7 +4,7 @@ import { useRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'
 import { useLocale, IconButton } from '@vtex/shoreline-components'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
-import { Store } from '@vtex/shoreline-store'
+import { Store } from '@vtex/shoreline-utils'
 
 import { CalendarGrid } from '../calendar/calendar-grid'
 import { CalendarProvider } from '../calendar/calendar-provider'

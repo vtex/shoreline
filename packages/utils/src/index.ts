@@ -31,6 +31,9 @@ import { invariant } from './invariant'
 import { warning } from './warning'
 import { useControlledState } from './use-controlled-state'
 import { style } from './style'
+import { shallowCompare } from './shallow-compare'
+import { Store } from './store'
+import { useStore } from './use-store'
 
 export {
   chain,
@@ -67,6 +70,9 @@ export {
   warning,
   useControlledState,
   style,
+  shallowCompare,
+  Store,
+  useStore,
 }
 
 export * from './css-types'

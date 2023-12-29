@@ -49,7 +49,6 @@
     "@react-stately/calendar": "3.4.2",
     "@react-stately/datepicker": "3.9.0",
     "@vtex/shoreline-icons": "0.2.3",
-    "@vtex/shoreline-store": "0.1.0",
     "@vtex/shoreline-utils": "^0.8.0"
   }
 }

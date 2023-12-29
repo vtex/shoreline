@@ -1,6 +1,6 @@
 import type { AnyUpdater, Store } from './store'
 import { useSyncExternalStoreWithSelector } from 'use-sync-external-store/shim/with-selector.js'
-import { shallow } from './shallow'
+import { shallowCompare } from './shallow-compare'
 
 export type NoInfer<T> = [T][T extends any ? 0 : never]
 
@@ -17,7 +17,7 @@ export function useStore<
     () => store.state,
     () => store.state,
     selector,
-    shallow
+    shallowCompare
   )
 
   return slice

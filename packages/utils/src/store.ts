@@ -1,19 +1,3 @@
-export type AnyUpdater = (...args: any[]) => any
-
-export type Listener = () => void
-
-interface StoreOptions<
-  TState,
-  TUpdater extends AnyUpdater = (cb: TState) => TState
-> {
-  updateFn?: (previous: TState) => (updater: TUpdater) => TState
-  onSubscribe?: (
-    listener: Listener,
-    store: Store<TState, TUpdater>
-  ) => () => void
-  onUpdate?: () => void
-}
-
 export class Store<
   TState,
   TUpdater extends AnyUpdater = (cb: TState) => TState
@@ -74,4 +58,20 @@ export class Store<
     this._batching = false
     this._flush()
   }
+}
+
+export type AnyUpdater = (...args: any[]) => any
+
+type Listener = () => void
+
+interface StoreOptions<
+  TState,
+  TUpdater extends AnyUpdater = (cb: TState) => TState
+> {
+  updateFn?: (previous: TState) => (updater: TUpdater) => TState
+  onSubscribe?: (
+    listener: Listener,
+    store: Store<TState, TUpdater>
+  ) => () => void
+  onUpdate?: () => void
 }

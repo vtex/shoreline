@@ -1,6 +1,6 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar'
 import React, { createContext, useContext } from 'react'
-import type { Store } from '@vtex/shoreline-store'
+import type { Store } from '@vtex/shoreline-utils'
 import { invariant } from '@vtex/shoreline-utils'
 
 export const CalendarContext = createContext<Store<

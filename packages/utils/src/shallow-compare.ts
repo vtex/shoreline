@@ -1,4 +1,4 @@
-export function shallow<T>(objA: T, objB: T) {
+export function shallowCompare<T>(objA: T, objB: T) {
   if (Object.is(objA, objB)) {
     return true
   }
