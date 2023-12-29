@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useRef } from 'react'
 import { useDateSegment } from '@react-aria/datepicker'
 import type {
   DateSegment as SegmentType,
@@ -6,10 +6,13 @@ import type {
 } from '@react-stately/datepicker'
 import { useMergeRef } from '@vtex/shoreline-utils'
 
+/**
+ * Segment of a DateField
+ */
 export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
   function DateSegment(props, forwardedRef) {
     const { segment, state } = props
-    const ref = React.useRef(null)
+    const ref = useRef<HTMLDivElement>(null)
     const { segmentProps } = useDateSegment(segment, state, ref)
 
     return (
@@ -26,6 +29,12 @@ export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
 )
 
 export interface DateSegmentProps {
+  /**
+   * Segment to render
+   */
   segment: SegmentType
+  /**
+   * State of a Datefield
+   */
   state: DateFieldState
 }

@@ -10,10 +10,15 @@ import {
   isSameMonth,
   isSameYear,
   createCalendar,
+  parseTime,
+  parseDateTime,
+  Time,
 } from '@internationalized/date'
 
 export type { CalendarDate, DateValue }
 export {
+  parseTime,
+  parseDateTime,
   parseDate,
   parseZonedDateTime,
   parseAbsoluteToLocal,
@@ -24,4 +29,5 @@ export {
   isSameMonth,
   isSameYear,
   createCalendar,
+  Time,
 }
