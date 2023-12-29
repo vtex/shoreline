@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.54.1",
+  "version": "0.55.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -54,8 +54,8 @@
     "@react-stately/toggle": "3.7.0",
     "@tanstack/react-virtual": "3.0.1",
     "@vtex/shoreline-icons": "0.2.3",
-    "@vtex/shoreline-primitives": "^0.1.1",
-    "@vtex/shoreline-utils": "^0.8.0",
+    "@vtex/shoreline-primitives": "^0.1.2",
+    "@vtex/shoreline-utils": "^0.9.0",
     "react-hot-toast": "2.4.1"
   }
 }

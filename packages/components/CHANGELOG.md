@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.54.1...@vtex/shoreline-components@0.55.0) (2023-12-29)
+
+### Features
+
+- **store:** move contents of the package to utils ([6ae6ae6](https://github.com/vtex/shoreline/commit/6ae6ae698824f95193bbc85b30583cdc0eb058be))
+
 ## [0.54.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.54.0...@vtex/shoreline-components@0.54.1) (2023-12-29)
 
 **Note:** Version bump only for package @vtex/shoreline-components
