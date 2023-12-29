@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.10...@shoreline/next-docs@0.6.0) (2023-12-29)
+
+### Features
+
+- **styles:** add no-layer ([65a20a4](https://github.com/vtex/shoreline/commit/65a20a403a0c31a44eed9b1f8a2fce472d92f170))
+
 ## [0.5.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.9...@shoreline/next-docs@0.5.10) (2023-12-28)
 
 **Note:** Version bump only for package @shoreline/next-docs
