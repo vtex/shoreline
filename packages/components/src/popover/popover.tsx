@@ -2,7 +2,6 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { PopoverProps as BaseProps } from '@ariakit/react'
 import { Popover as BasePopover } from '@ariakit/react'
-import './popover.css'
 
 /**
  * Popover containers allow merchants to access and interact with more

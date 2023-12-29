@@ -1,7 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-
-import './filter-list.css'
 import { Skeleton } from '../skeleton'
 import { Stack } from '../stack'
 

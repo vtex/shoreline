@@ -13,7 +13,6 @@ import { IconCalendarBlank } from '@vtex/shoreline-icons'
 
 import { RangeCalendar } from '../range-calendar'
 import { DateInput } from '../date-input'
-import './date-range-picker.css'
 
 /**
  * Allow users to pick a date range

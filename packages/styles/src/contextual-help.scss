@@ -1,0 +1,48 @@
+[data-sl-contextual-help] {
+  > [data-sl-contextual-help-trigger] {
+    width: var(--sl-space-6);
+    height: var(--sl-space-6);
+    background: transparent;
+    padding: unset;
+
+    [data-sl-contextual-help-trigger-bg] {
+      --sl-contextual-help-trigger-bg-dimensions: 0.875rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--sl-contextual-help-trigger-bg-dimensions);
+      height: var(--sl-contextual-help-trigger-bg-dimensions);
+      border-radius: var(--sl-border-radius-full);
+      background: var(--sl-color-gray-3);
+      color: var(--sl-color-gray-11);
+      font-size: 80%;
+    }
+
+    &:is(:hover, :focus-visible),
+    &[aria-expanded='true'] {
+      background: transparent;
+
+      [data-sl-contextual-help-trigger-bg] {
+        background: var(--sl-color-gray-4);
+        color: var(--sl-color-gray-13);
+      }
+    }
+  }
+}
+
+[data-sl-contextual-help-popover] {
+  --sl-contextual-help-popover-min-height: 3.75rem;
+  --sl-contextual-help-popover-max-height: 27.5rem;
+  --sl-contextual-help-popover-width: 21.375rem;
+
+  min-height: var(--sl-contextual-help-popover-min-height);
+  max-height: var(--sl-contextual-help-popover-max-height);
+  width: var(--sl-contextual-help-popover-width);
+  min-width: var(--sl-contextual-help-popover-width);
+  max-width: var(--sl-contextual-help-popover-width);
+  overflow: hidden auto;
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+  padding: unset;
+}

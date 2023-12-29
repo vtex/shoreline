@@ -16,8 +16,7 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
-    },
-    "./styles": "./dist/index.css"
+    }
   },
   "engines": {
     "node": ">=16"
@@ -41,9 +40,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline-components": "workspace:*",
-    "postcss": "8.4.32",
-    "postcss-preset-env": "9.3.0"
+    "@vtex/shoreline-components": "workspace:*"
   },
   "dependencies": {
     "@internationalized/date": "3.5.0",

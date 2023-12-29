@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import './calendar-header.css'
-
 /**
  * Header of the calendar
  */

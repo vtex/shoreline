@@ -11,7 +11,6 @@ import { CalendarProvider } from './calendar-provider'
 import { CalendarHeader } from './calendar-header'
 import { CalendarTitle } from './calendar-title'
 import { createCalendar } from '../utils'
-import './calendar.css'
 
 /**
  * Allow users to select a date

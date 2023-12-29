@@ -1,6 +1,0 @@
-@layer sl-components {
-  [data-sl-center] {
-    display: grid;
-    place-items: center;
-  }
-}

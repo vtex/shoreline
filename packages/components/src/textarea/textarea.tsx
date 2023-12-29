@@ -1,10 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { useControlledState } from '@vtex/shoreline-utils'
-
-import './textarea.css'
-import { useFieldContext } from '../field'
 import { useStore } from '@vtex/shoreline-store'
+
+import { useFieldContext } from '../field'
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   function Textarea(props, ref) {

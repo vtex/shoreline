@@ -5,8 +5,6 @@ import { SelectOption, ComboboxItem } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 import { FilterOptionCheck } from './filter-option-check'
 
-import './filter-option.css'
-
 /**
  * Filter Option
  * @example

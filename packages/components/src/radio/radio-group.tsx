@@ -6,10 +6,10 @@ import {
   RadioProvider,
   useRadioStore,
 } from '@ariakit/react'
+import { useId } from '@vtex/shoreline-utils'
+
 import { Field, FieldDescription, FieldError } from '../field'
 import { Stack } from '../stack'
-import { useId } from '@vtex/shoreline-utils'
-import './radio-group.css'
 import { Label } from '../label'
 
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(

@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './skeleton.css'
 
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   function Skeleton(props, ref) {

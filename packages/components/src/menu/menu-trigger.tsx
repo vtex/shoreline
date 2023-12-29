@@ -3,8 +3,6 @@ import React, { forwardRef } from 'react'
 import { MenuButton, useMenuContext } from '@ariakit/react'
 import { invariant } from '@vtex/shoreline-utils'
 
-import './menu-trigger.css'
-
 export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
   function MenuTrigger(props, ref) {
     const { children, asChild = false, ...otherProps } = props

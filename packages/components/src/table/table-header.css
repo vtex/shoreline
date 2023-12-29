@@ -1,6 +1,0 @@
-@layer sl-components {
-  [data-sl-table-header] {
-    display: contents;
-    color: var(--sl-fg-soft)
-  }
-}

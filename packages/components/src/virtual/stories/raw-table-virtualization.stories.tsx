@@ -1,6 +1,3 @@
-import '../virtual.css'
-import '../../table/table.css'
-
 import React from 'react'
 import { faker } from '@faker-js/faker'
 

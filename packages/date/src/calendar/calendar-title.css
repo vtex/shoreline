@@ -1,6 +1,0 @@
-@layer sl-components {
-  [data-sl-calendar-title] {
-    font: var(--sl-text-display-4-font);
-    letter-spacing: var(--sl-text-display-4-letter-spacing);
-  }
-}

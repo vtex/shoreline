@@ -18,7 +18,7 @@ import {
 } from '../../combobox'
 
 export default {
-  title: 'shoreline-components/select',
+  title: 'primitives/select',
 }
 
 export function Default() {

@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 import { useControlledState } from '@vtex/shoreline-utils'
 import { useStore } from '@vtex/shoreline-store'
 
-import './input.css'
 import { Slot } from '../slot'
 import { useFieldContext } from '../field'
 

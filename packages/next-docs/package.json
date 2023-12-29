@@ -18,6 +18,7 @@
     "@vtex/shoreline-preset-admin": "workspace:*",
     "@vtex/shoreline-tokens": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
+    "@vtex/shoreline-styles": "workspace:*",
     "he": "1.2.0",
     "next": "13.4.7",
     "nextra": "2.10.0",

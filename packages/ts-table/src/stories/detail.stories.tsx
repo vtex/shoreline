@@ -45,7 +45,7 @@ export function Detail() {
           },
         }) => {
           return (
-            <Flex align="center" columnGap="var(--sl-space-2)">
+            <Flex align="center" gap="var(--sl-space-2)">
               <img
                 style={{
                   width: 32,

@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './tag.css'
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
   props,

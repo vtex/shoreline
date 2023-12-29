@@ -1,11 +1,10 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { DialogDismiss } from '@ariakit/react'
+import { IconX } from '@vtex/shoreline-icons'
 
 import type { IconButtonProps } from '../icon-button'
 import { IconButton } from '../icon-button'
-import { IconX } from '@vtex/shoreline-icons'
-import './modal-dismiss.css'
 
 /**
  * Header of the Modal

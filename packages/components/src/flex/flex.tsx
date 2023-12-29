@@ -3,8 +3,6 @@ import React, { forwardRef } from 'react'
 import { cssVar, type CSSProperty, style } from '@vtex/shoreline-utils'
 import { Compose } from '@vtex/shoreline-primitives'
 
-import './flex.css'
-
 /**
  * Flexbox layout
  * @see https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox

@@ -9,7 +9,6 @@ import { VisuallyHidden, useLocale } from '@vtex/shoreline-components'
 import { DateSegment } from '../date-segment'
 import { createCalendar } from '../utils'
 import type { DateValue } from '../utils'
-import './date-input.css'
 
 /**
  * A list of date-segments

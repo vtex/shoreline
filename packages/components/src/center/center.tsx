@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
-import './center.css'
 
 /**
  * Centralizes its content

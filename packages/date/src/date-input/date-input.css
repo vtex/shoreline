@@ -1,6 +1,0 @@
-@layer sl-components {
-  [data-sl-date-segment-list] {
-    display: flex;
-    flex-direction: row;
-  }
-}

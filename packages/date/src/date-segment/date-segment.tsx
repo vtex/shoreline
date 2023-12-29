@@ -6,8 +6,6 @@ import type {
 } from '@react-stately/datepicker'
 import { useMergeRef } from '@vtex/shoreline-utils'
 
-import './date-segment.css'
-
 export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
   function DateSegment(props, forwardedRef) {
     const { segment, state } = props

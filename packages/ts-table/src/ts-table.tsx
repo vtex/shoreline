@@ -22,7 +22,6 @@ import {
   TableCell,
 } from '@vtex/shoreline-components'
 
-import './ts-table.css'
 import { TsTableRow } from './ts-table-row'
 import type { TsTableRowProps } from './ts-table-row'
 import { TsTableHeader } from './ts-table-header'

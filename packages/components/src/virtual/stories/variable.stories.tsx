@@ -1,5 +1,4 @@
 import React from 'react'
-import '../virtual.css'
 
 import { Virtual, VirtualItem } from '../index'
 

@@ -2,7 +2,6 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Content } from '../content'
-import './modal-footer.css'
 
 /**
  * Footer of the Modal

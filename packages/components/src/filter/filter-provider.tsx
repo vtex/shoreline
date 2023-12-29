@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import type { ReactNode } from 'react'
-
-import { PopoverProvider, usePopoverStore } from '../popover'
 import {
   SelectProvider,
   useSelectStore,
   ComboboxProvider,
 } from '@vtex/shoreline-primitives'
+
+import { PopoverProvider, usePopoverStore } from '../popover'
 import { FilterContext } from './filter-context'
 
 /**

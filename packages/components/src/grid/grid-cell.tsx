@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { style, type CSSProperty } from '@vtex/shoreline-utils'
-import './grid-cell.css'
 import { Compose } from '@vtex/shoreline-primitives'
 
 /**

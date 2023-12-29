@@ -2,8 +2,6 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { style } from '@vtex/shoreline-utils'
 
-import './bleed.css'
-
 /**
  * Allows the content to bleed into the external container
  * @example
