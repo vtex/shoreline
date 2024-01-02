@@ -5,9 +5,11 @@ import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Flex } from '../../flex'
 import { Heading } from '../../heading'
 import { Button } from '../../button'
+import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
 import { Slot } from '../../slot'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 import type { StoryObj } from '@storybook/react'
 
 import './page.stories.css'
@@ -43,6 +45,7 @@ export default {
     headerWithTabs: false,
     headerWithButton: false,
     headerWithTag: false,
+    headerWithBackButton: false,
   },
 } as StoryObj<StoryArgs>
 
@@ -52,6 +55,7 @@ interface StoryArgs {
   headerWithTabs: boolean
   headerWithButton: boolean
   headerWithTag: boolean
+  headerWithBackButton: boolean
 }
 
 /**
@@ -60,8 +64,24 @@ interface StoryArgs {
 function PageHeaderButton() {
   return (
     <Bleed vertical className="ph-header-element">
-      <Button variant="primary">Submit</Button>
+      <Button variant="primary" className="ph-header-button">
+        Submit
+      </Button>
     </Bleed>
+  )
+}
+
+function PageHeadingGuideline(args: StoryArgs) {
+  return (
+    <>
+      {args.headerWithBackButton && (
+        <IconButton label="Return" asChild>
+          <IconArrowLeft />
+        </IconButton>
+      )}
+      <PageHeading>{args.pageHeading}</PageHeading>
+      {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
+    </>
   )
 }
 
@@ -80,6 +100,11 @@ export function Playground(args: StoryArgs) {
         <PageHeader>
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
+              {args.headerWithBackButton && (
+                <IconButton label="Return" asChild>
+                  <IconArrowLeft />
+                </IconButton>
+              )}
               <PageHeading>{args.pageHeading}</PageHeading>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>
@@ -118,6 +143,11 @@ function WithTabs(args: StoryArgs) {
         <PageHeader className="ph-with-tabs">
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
+              {args.headerWithBackButton && (
+                <IconButton label="Return" asChild>
+                  <IconArrowLeft />
+                </IconButton>
+              )}
               <PageHeading>{args.pageHeading}</PageHeading>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
             </Flex>

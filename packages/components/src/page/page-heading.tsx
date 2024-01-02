@@ -19,7 +19,7 @@ export const PageHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
     return (
       <Heading
         level={1}
-        variant="display2"
+        variant="display1"
         data-sl-page-heading
         ref={ref}
         {...otherProps}

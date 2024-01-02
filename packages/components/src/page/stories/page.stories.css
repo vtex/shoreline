@@ -16,4 +16,8 @@
     display: flex;
     align-items: center;
     text-wrap: nowrap;
+    
+    .ph-header-button {
+        margin-left: var(--sl-space-4);
+    }
 }
