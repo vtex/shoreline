@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { MenuPopover } from './menu-popover'
+import type { MenuProviderProps } from './menu-provider'
 import { MenuProvider } from './menu-provider'
 import { MenuTrigger } from './menu-trigger'
 import type { ButtonProps } from '../button'
@@ -24,20 +25,31 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
 ) {
   const {
     children,
-    asChild = false,
     label,
-    variant,
+    asChild = false,
+    variant = 'secondary',
     type = 'menu',
-    iconOnly,
-    size,
-    ...otherProps
+    iconOnly = false,
+    size = 'normal',
+    open,
+    setOpen,
+    defaultOpen,
+    store,
+    placement,
+    ...domProps
   } = props
 
   const Icon = getIcon(type)
 
   return (
-    <div data-sl-menu ref={ref} {...otherProps}>
-      <MenuProvider>
+    <div data-sl-menu ref={ref} {...domProps}>
+      <MenuProvider
+        open={open}
+        setOpen={setOpen}
+        defaultOpen={defaultOpen}
+        store={store}
+        placement={placement}
+      >
         <MenuTrigger asChild>
           {iconOnly ? (
             <IconButton label={label} variant={variant} size={size}>
@@ -72,7 +84,11 @@ function getIcon(type: MenuProps['type'] = 'menu') {
 
 export interface MenuProps
   extends ComponentPropsWithoutRef<'div'>,
-    Pick<ButtonProps, 'variant' | 'size'> {
+    Pick<ButtonProps, 'variant' | 'size'>,
+    Pick<
+      MenuProviderProps,
+      'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
+    > {
   /**
    * Children composition
    * @default false
