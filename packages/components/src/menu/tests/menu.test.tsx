@@ -1,11 +1,11 @@
 import React from 'react'
 import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
 
-import { Menu } from '../menu'
 import { MenuProvider } from '../menu-provider'
 import { MenuItem } from '../menu-item'
 import { MenuTrigger } from '../menu-trigger'
 import { MenuSeparator } from '../menu-separator'
+import { MenuPopover } from '../menu-popover'
 
 describe('menu', () => {
   it('renders', () => {
@@ -14,17 +14,19 @@ describe('menu', () => {
         <MenuTrigger asChild>
           <button>Open</button>
         </MenuTrigger>
-        <Menu>
+        <MenuPopover>
           <MenuItem>Item 1</MenuItem>
           <MenuItem>Item 2</MenuItem>
           <MenuSeparator />
           <MenuItem>Item 3</MenuItem>
-        </Menu>
+        </MenuPopover>
       </MenuProvider>,
       { container: document.body }
     )
 
-    expect(container.querySelector('[data-sl-menu]')).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-menu-popover]')
+    ).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-menu-trigger]')
     ).toBeInTheDocument()

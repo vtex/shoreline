@@ -1,17 +1,3 @@
 [data-sl-menu] {
-  background: var(--sl-bg);
-  color: var(--sl-fg);
-  outline: none;
-  border: var(--sl-border);
-  border-radius: var(--sl-border-radius-medium);
-  display: flex;
-  flex-direction: column;
-  padding: var(--sl-space-3) var(--sl-space-4);
-  z-index: var(--sl-z-10);
-  box-shadow: var(--sl-shadow-1);
-  min-width: 9.5rem;
-
-  &:focus-visible {
-    box-shadow: var(--sl-focus-ring);
-  }
+  position: relative;
 }
