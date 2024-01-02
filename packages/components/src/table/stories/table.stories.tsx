@@ -1,5 +1,6 @@
-import React from 'react'
-import { LinkBox } from '@vtex/shoreline-primitives'
+import React, { useMemo } from 'react'
+import { LinkBox, useVirtualizerModel } from '@vtex/shoreline-primitives'
+import { faker } from '@faker-js/faker'
 
 import {
   Table,
@@ -104,6 +105,55 @@ export function RowAsLink() {
             <TableCell>300 USD / Year</TableCell>
           </LinkBox>
         </TableRow>
+      </TableBody>
+    </Table>
+  )
+}
+
+export function Virtualization() {
+  const data = useMemo(
+    () =>
+      Array(100)
+        .fill(1)
+        .map((_, id) => {
+          return {
+            id,
+            name: faker.person.firstName(),
+            job: faker.person.jobTitle(),
+          }
+        }),
+    []
+  )
+
+  const virtualizer = useVirtualizerModel({
+    count: data.length,
+  })
+
+  return (
+    <Table ref={virtualizer.ref} style={{ height: 500, overflow: 'auto' }}>
+      <TableHeader>
+        <TableRow>
+          <TableHeaderCell>Index</TableHeaderCell>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {virtualizer.top > 0 && (
+          <TableRow>
+            <TableCell style={{ height: `${virtualizer.top}px` }} />
+          </TableRow>
+        )}
+        {virtualizer.virtualItems.map((row) => {
+          return (
+            <TableRow key={row.index}>
+              <TableCell>rowIndex: {row.index}</TableCell>
+            </TableRow>
+          )
+        })}
+        {virtualizer.bottom > 0 && (
+          <TableRow>
+            <TableCell style={{ height: `${virtualizer.bottom}px` }} />
+          </TableRow>
+        )}
       </TableBody>
     </Table>
   )

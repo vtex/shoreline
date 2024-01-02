@@ -7,6 +7,7 @@ import {
   IconArchive,
   IconCaretDownSmall,
 } from '@vtex/shoreline-icons'
+import { Virtual, VirtualItem } from '@vtex/shoreline-primitives'
 
 import {
   Menu,
@@ -342,5 +343,30 @@ export function ItemVariants() {
         </Menu>
       </MenuProvider>
     </Stack>
+  )
+}
+
+export function Virtualization() {
+  return (
+    <MenuProvider>
+      <MenuTrigger asChild>
+        <Button>Menu</Button>
+      </MenuTrigger>
+      <Menu>
+        <Virtual
+          dynamic
+          count={5000}
+          style={{
+            width: `200px`,
+          }}
+        >
+          <VirtualItem asChild>
+            {({ index }) => {
+              return <MenuItem>Item {index}</MenuItem>
+            }}
+          </VirtualItem>
+        </Virtual>
+      </Menu>
+    </MenuProvider>
   )
 }

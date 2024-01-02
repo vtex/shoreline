@@ -2,7 +2,8 @@ import type { ReactNode, Ref } from 'react'
 import React from 'react'
 import type { VirtualItem as VirtualItemType } from '@tanstack/react-virtual'
 import { forwardRef, isFunction } from '@vtex/shoreline-utils'
-import { Compose } from '@vtex/shoreline-primitives'
+
+import { Compose } from '../compose'
 
 export const VirtualItem = forwardRef(function VirtualItem(
   props: VirtualItemsProps,

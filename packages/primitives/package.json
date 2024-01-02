@@ -44,6 +44,7 @@
   "dependencies": {
     "@ariakit/react": "0.3.8",
     "@react-aria/i18n": "3.9.0",
+    "@tanstack/react-virtual": "3.0.1",
     "@vtex/shoreline-icons": "0.2.3",
     "@vtex/shoreline-utils": "^0.9.0"
   }
