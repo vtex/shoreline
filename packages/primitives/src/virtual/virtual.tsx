@@ -5,7 +5,7 @@ import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 import {
   useVirtualizerModel,
   type UseVirtualizerModelProps,
-} from './useVirtualizerModel'
+} from './use-virtualizer-model'
 import { VirtualContainer } from './virtual-container'
 
 export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(
