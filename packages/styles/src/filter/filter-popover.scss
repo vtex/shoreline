@@ -28,7 +28,7 @@
   justify-content: flex-end;
 }
 
-[data-sl-filter-option] {
+[data-sl-filter-item] {
   padding: var(--sl-space-2) var(--sl-space-0);
   color: var(--sl-fg-base);
   font: var(--sl-text-body-font);
@@ -39,13 +39,10 @@
   }
 
   &[data-active-item][data-focus-visible] {
-    & [data-sl-filter-option-check] {
+    & [data-sl-filter-item-check] {
       box-shadow: var(--sl-focus-ring);
     }
-    &
-      [data-sl-filter-option-check]:has(
-        [data-sl-filter-option-check-indicator]
-      ) {
+    & [data-sl-filter-item-check]:has([data-sl-filter-item-check-indicator]) {
       box-shadow: var(--sl-focus-ring-accent);
     }
   }
