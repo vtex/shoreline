@@ -1,5 +1,5 @@
 export * from './tooltip'
 export * from './tooltip-provider'
-export * from './tooltip-anchor'
+export * from './tooltip-trigger'
 export * from './tooltip-popover'
 export * from './tooltip-arrow'

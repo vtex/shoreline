@@ -1,33 +1,33 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { TooltipAnchor as Anchor } from '@ariakit/react'
+import { TooltipAnchor } from '@ariakit/react'
 
 /**
  * The anchor of the Tooltip
  * @example
  * <TooltipProvider>
- *  <TooltipAnchor asChild>
+ *  <TooltipTrigger asChild>
  *    <button>i</button>
- *  </TooltipAnchor>
+ *  </TooltipTrigger>
  * </TooltipProvider>
  */
-export const TooltipAnchor = forwardRef<HTMLDivElement, TooltipAnchorProps>(
-  function TooltipAnchor(props, ref) {
+export const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
+  function TooltipTrigger(props, ref) {
     const { asChild = false, children, ...otherProps } = props
 
     return (
-      <Anchor
-        data-sl-tooltip-anchor
+      <TooltipAnchor
+        data-sl-tooltip-trigger
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
         {...otherProps}
       >
         {children}
-      </Anchor>
+      </TooltipAnchor>
     )
   }
 )
 
-export interface TooltipAnchorProps extends ComponentPropsWithoutRef<'div'> {
+export interface TooltipTriggerProps extends ComponentPropsWithoutRef<'div'> {
   asChild?: boolean
 }

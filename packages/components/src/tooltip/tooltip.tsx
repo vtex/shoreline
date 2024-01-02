@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 import type { TooltipProviderProps } from './tooltip-provider'
 import { TooltipProvider } from './tooltip-provider'
-import { TooltipAnchor } from './tooltip-anchor'
+import { TooltipTrigger } from './tooltip-trigger'
 import { TooltipPopover } from './tooltip-popover'
 import { TooltipArrow } from './tooltip-arrow'
 
@@ -18,7 +18,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   function Tooltip(props, ref) {
     const {
       children,
-      text,
+      label,
       timeout,
       open,
       setOpen,
@@ -36,10 +36,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         placement={placement}
       >
         <span data-sl-tooltip ref={ref} {...otherProps}>
-          <TooltipAnchor asChild>{children}</TooltipAnchor>
+          <TooltipTrigger asChild>{children}</TooltipTrigger>
           <TooltipPopover>
             <TooltipArrow />
-            {text}
+            {label}
           </TooltipPopover>
         </span>
       </TooltipProvider>
@@ -57,5 +57,5 @@ export interface TooltipProps extends InheritedProps {
   /**
    * Text displayed on the popover
    */
-  text: ReactNode
+  label: ReactNode
 }
