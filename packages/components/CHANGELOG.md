@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.55.0...@vtex/shoreline-components@0.56.0) (2024-01-02)
+
+### Features
+
+- **primitives:** move virtual to primitives ([5624acd](https://github.com/vtex/shoreline/commit/5624acdd52aba5a416f36232becadb04b6202837))
+
 # [0.55.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.54.1...@vtex/shoreline-components@0.55.0) (2023-12-29)
 
 ### Features
