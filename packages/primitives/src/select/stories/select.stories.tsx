@@ -4,14 +4,14 @@ import { matchSorter } from 'match-sorter'
 import {
   SelectProvider,
   SelectTrigger,
-  SelectOption,
+  SelectItem,
   SelectPopover,
   SelectList,
-  SelectOptionCheck,
+  SelectItemCheck,
 } from '../index'
 
 import {
-  Combobox,
+  ComboboxInput,
   ComboboxProvider,
   ComboboxList,
   ComboboxItem,
@@ -28,10 +28,10 @@ export function Default() {
     <SelectProvider value={value} setValue={setValue}>
       <SelectTrigger>Select: {value}</SelectTrigger>
       <SelectPopover>
-        <SelectOption value="apple">Apple</SelectOption>
-        <SelectOption value="google">Google</SelectOption>
-        <SelectOption value="microsoft">Microsoft</SelectOption>
-        <SelectOption value="amazon">Amazon</SelectOption>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="google">Google</SelectItem>
+        <SelectItem value="microsoft">Microsoft</SelectItem>
+        <SelectItem value="amazon">Amazon</SelectItem>
       </SelectPopover>
     </SelectProvider>
   )
@@ -46,10 +46,10 @@ export function Composition() {
         <button>Select: {value}</button>
       </SelectTrigger>
       <SelectPopover>
-        <SelectOption value="apple">Apple</SelectOption>
-        <SelectOption value="google">Google</SelectOption>
-        <SelectOption value="microsoft">Microsoft</SelectOption>
-        <SelectOption value="amazon">Amazon</SelectOption>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="google">Google</SelectItem>
+        <SelectItem value="microsoft">Microsoft</SelectItem>
+        <SelectItem value="amazon">Amazon</SelectItem>
       </SelectPopover>
     </SelectProvider>
   )
@@ -62,10 +62,10 @@ export function Multiselect() {
     <SelectProvider value={value} setValue={setValue}>
       <SelectTrigger>Select: {value.length} Items</SelectTrigger>
       <SelectPopover>
-        <SelectOption value="apple">Apple</SelectOption>
-        <SelectOption value="google">Google</SelectOption>
-        <SelectOption value="microsoft">Microsoft</SelectOption>
-        <SelectOption value="amazon">Amazon</SelectOption>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="google">Google</SelectItem>
+        <SelectItem value="microsoft">Microsoft</SelectItem>
+        <SelectItem value="amazon">Amazon</SelectItem>
       </SelectPopover>
     </SelectProvider>
   )
@@ -79,10 +79,10 @@ export function ListBox() {
       <span>Selected Value: {value}</span>
       <SelectProvider value={value} setValue={setValue}>
         <SelectList aria-label="select companies" alwaysVisible>
-          <SelectOption value="apple">Apple</SelectOption>
-          <SelectOption value="google">Google</SelectOption>
-          <SelectOption value="microsoft">Microsoft</SelectOption>
-          <SelectOption value="amazon">Amazon</SelectOption>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="google">Google</SelectItem>
+          <SelectItem value="microsoft">Microsoft</SelectItem>
+          <SelectItem value="amazon">Amazon</SelectItem>
         </SelectList>
       </SelectProvider>
     </div>
@@ -147,16 +147,16 @@ export function WithCombobox() {
         <SelectTrigger>Select: {value}</SelectTrigger>
         <SelectPopover>
           <div>
-            <Combobox autoSelect placeholder="Search..." />
+            <ComboboxInput autoSelect placeholder="Search..." />
           </div>
           <ComboboxList>
             {matches.length ? (
               matches.map((value) => (
-                <SelectOption key={value} value={value} asChild>
+                <SelectItem key={value} value={value} asChild>
                   <ComboboxItem>
-                    {value} <SelectOptionCheck />
+                    {value} <SelectItemCheck />
                   </ComboboxItem>
-                </SelectOption>
+                </SelectItem>
               ))
             ) : (
               <div>No results found</div>

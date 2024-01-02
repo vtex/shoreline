@@ -1,8 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { IconCheckSmall } from '@vtex/shoreline-icons'
-import { useSelectContext } from '@vtex/shoreline-primitives'
-import { SelectItemCheck } from '@ariakit/react'
+import { useSelectContext, SelectItemCheck } from '@vtex/shoreline-primitives'
 
 /**
  * Check state of the FilterOption

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Combobox, createMessageHook } from '@vtex/shoreline-primitives'
+import { ComboboxInput, createMessageHook } from '@vtex/shoreline-primitives'
 
 import type { PopoverProps } from '../popover'
 import { Popover } from '../popover'
@@ -34,9 +34,9 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
         <Container>
           {searchable && (
             <Content narrow data-sl-filter-popover-combobox>
-              <Combobox autoSelect placeholder="Search" asChild>
+              <ComboboxInput autoSelect placeholder="Search" asChild>
                 <Search />
-              </Combobox>
+              </ComboboxInput>
             </Content>
           )}
           {children}

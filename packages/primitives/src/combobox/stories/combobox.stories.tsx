@@ -2,7 +2,7 @@ import React, { startTransition, useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 
 import {
-  Combobox,
+  ComboboxInput,
   ComboboxPopover,
   ComboboxProvider,
   ComboboxItem,
@@ -17,7 +17,7 @@ export function Default() {
     <ComboboxProvider>
       <label>
         Select a fruit
-        <Combobox placeholder="e.g., Apple" />
+        <ComboboxInput placeholder="e.g., Apple" />
       </label>
       <ComboboxPopover>
         <ComboboxItem value="apple">🍎 Apple</ComboboxItem>
@@ -83,7 +83,7 @@ export function Filtering() {
     >
       <label>
         Select a fruit
-        <Combobox placeholder="e.g., Apple" />
+        <ComboboxInput placeholder="e.g., Apple" />
       </label>
       <ComboboxPopover>
         {matches.length ? (
