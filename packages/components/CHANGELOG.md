@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.57.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.56.0...@vtex/shoreline-components@0.57.0) (2024-01-03)
+
+### Features
+
+- **filter:** use normal form ([6a317be](https://github.com/vtex/shoreline/commit/6a317be1ab23bb2a2c268a2b0d6c1551762c791b))
+- **menu:** add controllable to normal form ([4f81190](https://github.com/vtex/shoreline/commit/4f81190566d85013d46c3e38924292aecd8ce61d))
+- **menu:** use normal form ([c3148fc](https://github.com/vtex/shoreline/commit/c3148fcf9df3f5c02fcb3ec6344931b034852f95))
+- **select-combobox:** use normal form ([e85315d](https://github.com/vtex/shoreline/commit/e85315d72077826c14fd6ff9d517a85169499de5))
+- **tooltip:** use normal form ([b42da4d](https://github.com/vtex/shoreline/commit/b42da4d565384f51c03dbd27652af18e0a13f894))
+
 # [0.56.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.55.0...@vtex/shoreline-components@0.56.0) (2024-01-02)
 
 ### Features

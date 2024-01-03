@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@0.2.0...@vtex/shoreline-primitives@0.3.0) (2024-01-03)
+
+### Features
+
+- **select-combobox:** use normal form ([e85315d](https://github.com/vtex/shoreline/commit/e85315d72077826c14fd6ff9d517a85169499de5))
+
 # [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@0.1.2...@vtex/shoreline-primitives@0.2.0) (2024-01-02)
 
 ### Features
