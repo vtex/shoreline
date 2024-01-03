@@ -64,18 +64,21 @@ interface StoryArgs {
 function PageHeaderButton() {
   return (
     <Bleed vertical className="ph-header-element">
-      <Button variant="primary" className="ph-header-button">
+      <Button variant="primary" className="ph-header-button" size="large">
         Submit
       </Button>
     </Bleed>
   )
 }
 
-function PageHeadingGuideline(args: StoryArgs) {
+/**
+ * @guideline
+ */
+function CompletePageHeading(args: StoryArgs) {
   return (
     <>
       {args.headerWithBackButton && (
-        <IconButton label="Return" asChild>
+        <IconButton label="Return" asChild size="large">
           <IconArrowLeft />
         </IconButton>
       )}
@@ -100,13 +103,7 @@ export function Playground(args: StoryArgs) {
         <PageHeader>
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
-              {args.headerWithBackButton && (
-                <IconButton label="Return" asChild>
-                  <IconArrowLeft />
-                </IconButton>
-              )}
-              <PageHeading>{args.pageHeading}</PageHeading>
-              {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
+              <CompletePageHeading {...args} />
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
           </Flex>
@@ -143,13 +140,7 @@ function WithTabs(args: StoryArgs) {
         <PageHeader className="ph-with-tabs">
           <Flex justify="space-between">
             <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
-              {args.headerWithBackButton && (
-                <IconButton label="Return" asChild>
-                  <IconArrowLeft />
-                </IconButton>
-              )}
-              <PageHeading>{args.pageHeading}</PageHeading>
-              {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
+              <CompletePageHeading {...args} />
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
           </Flex>
