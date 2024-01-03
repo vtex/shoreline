@@ -1,4 +1,4 @@
-import type { MenuProviderProps } from '@ariakit/react'
+import type { MenuProviderProps as ProviderProps } from '@ariakit/react'
 import { MenuProvider as Provider } from '@ariakit/react'
 import React from 'react'
 
@@ -7,3 +7,5 @@ export function MenuProvider(props: MenuProviderProps) {
 
   return <Provider placement={placement} {...otherProps} />
 }
+
+export type MenuProviderProps = ProviderProps

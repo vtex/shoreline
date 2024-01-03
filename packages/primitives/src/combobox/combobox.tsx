@@ -1,18 +1,18 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { ComboboxOptions } from '@ariakit/react'
-import { Combobox as ComboboxInput } from '@ariakit/react'
+import { Combobox } from '@ariakit/react'
 
-export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
-  function Combobox(props, ref) {
-    const { asChild = false, children, ...otherProps } = props
+export const ComboboxInput = forwardRef<HTMLInputElement, ComboboxInputProps>(
+  function ComboboxInput(props, ref) {
+    const { asChild = false, children, ...domProps } = props
 
     return (
-      <ComboboxInput
-        data-sl-combobox
+      <Combobox
+        data-sl-combobox-input
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
-        {...otherProps}
+        {...domProps}
       />
     )
   }
@@ -20,7 +20,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(
 
 type Options = Pick<ComboboxOptions, 'autoSelect'>
 
-export interface ComboboxProps
+export interface ComboboxInputProps
   extends ComponentPropsWithoutRef<'input'>,
     Options {
   /**

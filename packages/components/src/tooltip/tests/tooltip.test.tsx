@@ -6,7 +6,7 @@ import { Tooltip } from '../tooltip'
 describe('tooltip', () => {
   it('renders', () => {
     const { container } = render(
-      <Tooltip text="Text" defaultOpen>
+      <Tooltip label="Text" defaultOpen>
         <button>i</button>
       </Tooltip>
     )

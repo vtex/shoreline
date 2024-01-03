@@ -3,40 +3,28 @@ import React, { useState } from 'react'
 import {
   Tooltip,
   TooltipProvider,
-  TooltipAnchor,
+  TooltipTrigger,
   TooltipArrow,
   TooltipPopover,
 } from '../index'
 
 export default {
-  title: 'shoreline-components/tooltip',
+  title: 'components/tooltip',
 }
 
 export function Default() {
   return (
-    <div
-      style={{
-        padding: '1rem',
-      }}
-    >
-      <Tooltip text="Tooltip text">
-        <button>I</button>
-      </Tooltip>
-    </div>
+    <Tooltip label="Tooltip text">
+      <button>I</button>
+    </Tooltip>
   )
 }
 
 export function Placement() {
   return (
-    <div
-      style={{
-        padding: '1rem',
-      }}
-    >
-      <Tooltip placement="right" text="Tooltip text">
-        <button>I</button>
-      </Tooltip>
-    </div>
+    <Tooltip placement="right" label="Tooltip text">
+      <button>I</button>
+    </Tooltip>
   )
 }
 
@@ -44,34 +32,22 @@ export function Controlled() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div
-      style={{
-        padding: '1rem',
-      }}
-    >
-      <Tooltip open={open} setOpen={setOpen} text="Tooltip text">
-        <button>{open ? 'Visible' : 'Hidden'}</button>
-      </Tooltip>
-    </div>
+    <Tooltip open={open} setOpen={setOpen} label="Tooltip text">
+      <button>{open ? 'Visible' : 'Hidden'}</button>
+    </Tooltip>
   )
 }
 
 export function Composition() {
   return (
-    <div
-      style={{
-        padding: '1rem',
-      }}
-    >
-      <TooltipProvider>
-        <TooltipAnchor asChild>
-          <button>i</button>
-        </TooltipAnchor>
-        <TooltipPopover>
-          <TooltipArrow />
-          Tooltip text
-        </TooltipPopover>
-      </TooltipProvider>
-    </div>
+    <TooltipProvider>
+      <TooltipTrigger asChild>
+        <button>i</button>
+      </TooltipTrigger>
+      <TooltipPopover>
+        <TooltipArrow />
+        Tooltip text
+      </TooltipPopover>
+    </TooltipProvider>
   )
 }

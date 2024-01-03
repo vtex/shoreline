@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
 
-import type { SelectOptionProps } from '@vtex/shoreline-primitives'
-import { SelectOption, ComboboxItem } from '@vtex/shoreline-primitives'
+import type { SelectItemProps } from '@vtex/shoreline-primitives'
+import { SelectItem, ComboboxItem } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
-import { FilterOptionCheck } from './filter-option-check'
+import { FilterItemCheck } from './filter-item-check'
 
 /**
  * Filter Option
@@ -12,39 +12,39 @@ import { FilterOptionCheck } from './filter-option-check'
  *  <FilterOption value="option">Option</FilterOption>
  * </Filter>
  */
-export const FilterOption = forwardRef<HTMLDivElement, FilterOptionProps>(
-  function FilterOption(props, ref) {
+export const FilterItem = forwardRef<HTMLDivElement, FilterItemProps>(
+  function FilterItem(props, ref) {
     const { asChild = false, children, ...otherProps } = props
     const searchable = useSearchable()
 
     return searchable ? (
-      <SelectOption
+      <SelectItem
         hideOnClick={false}
-        data-sl-filter-option
+        data-sl-filter-item
         ref={ref}
         {...otherProps}
         asChild
       >
         <ComboboxItem asChild={asChild}>
-          <FilterOptionCheck />
+          <FilterItemCheck />
           <span>{children}</span>
         </ComboboxItem>
-      </SelectOption>
+      </SelectItem>
     ) : (
-      <SelectOption
+      <SelectItem
         hideOnClick={false}
-        data-sl-filter-option
+        data-sl-filter-item
         ref={ref}
         asChild
         {...otherProps}
       >
         <span>
-          <FilterOptionCheck />
+          <FilterItemCheck />
           <span>{children}</span>
         </span>
-      </SelectOption>
+      </SelectItem>
     )
   }
 )
 
-export type FilterOptionProps = Omit<SelectOptionProps, 'hideOnClick'>
+export type FilterItemProps = Omit<SelectItemProps, 'hideOnClick'>

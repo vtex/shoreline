@@ -4,7 +4,7 @@ import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
 import {
   SelectTrigger,
   SelectProvider,
-  SelectOption,
+  SelectItem,
   SelectPopover,
 } from '../index'
 
@@ -14,7 +14,7 @@ describe('primitives/select', () => {
       <SelectProvider>
         <SelectTrigger>Label</SelectTrigger>
         <SelectPopover>
-          <SelectOption value="option">Option</SelectOption>
+          <SelectItem value="option">Option</SelectItem>
         </SelectPopover>
       </SelectProvider>
     )
@@ -23,11 +23,9 @@ describe('primitives/select', () => {
     expect(
       container.querySelector('[data-sl-select-popover]')
     ).toBeInTheDocument()
+    expect(container.querySelector('[data-sl-select-item]')).toBeInTheDocument()
     expect(
-      container.querySelector('[data-sl-select-option]')
-    ).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-sl-select-option-check]')
+      container.querySelector('[data-sl-select-item-check]')
     ).toBeInTheDocument()
   })
 })

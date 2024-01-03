@@ -6,7 +6,7 @@ import {
   FilterPopover,
   FilterList,
   FilterListSkeleton,
-  FilterOption,
+  FilterItem,
   FilterTrigger,
   Filter,
 } from '../index'
@@ -21,9 +21,9 @@ export default {
 export function Default() {
   return (
     <Filter label="Status">
-      <FilterOption value="Stable">Stable</FilterOption>
-      <FilterOption value="Experimental">Experimental</FilterOption>
-      <FilterOption value="Deprecated">Deprecated</FilterOption>
+      <FilterItem value="Stable">Stable</FilterItem>
+      <FilterItem value="Experimental">Experimental</FilterItem>
+      <FilterItem value="Deprecated">Deprecated</FilterItem>
     </Filter>
   )
 }
@@ -31,9 +31,9 @@ export function Default() {
 export function Multiple() {
   return (
     <Filter label="Status" defaultValue={[]}>
-      <FilterOption value="Stable">Stable</FilterOption>
-      <FilterOption value="Experimental">Experimental</FilterOption>
-      <FilterOption value="Deprecated">Deprecated</FilterOption>
+      <FilterItem value="Stable">Stable</FilterItem>
+      <FilterItem value="Experimental">Experimental</FilterItem>
+      <FilterItem value="Deprecated">Deprecated</FilterItem>
     </Filter>
   )
 }
@@ -43,9 +43,9 @@ export function Controlled() {
 
   return (
     <Filter label="Status" value={status} setValue={setStatus}>
-      <FilterOption value="Stable">Stable</FilterOption>
-      <FilterOption value="Experimental">Experimental</FilterOption>
-      <FilterOption value="Deprecated">Deprecated</FilterOption>
+      <FilterItem value="Stable">Stable</FilterItem>
+      <FilterItem value="Experimental">Experimental</FilterItem>
+      <FilterItem value="Deprecated">Deprecated</FilterItem>
     </Filter>
   )
 }
@@ -59,9 +59,9 @@ export function CustomMessages() {
         clear: 'CL',
       }}
     >
-      <FilterOption value="Stable">Stable</FilterOption>
-      <FilterOption value="Experimental">Experimental</FilterOption>
-      <FilterOption value="Deprecated">Deprecated</FilterOption>
+      <FilterItem value="Stable">Stable</FilterItem>
+      <FilterItem value="Experimental">Experimental</FilterItem>
+      <FilterItem value="Deprecated">Deprecated</FilterItem>
     </Filter>
   )
 }
@@ -70,9 +70,9 @@ export function Localization() {
   return (
     <LocaleProvider locale="ja-JP">
       <Filter label="Status">
-        <FilterOption value="Stable">Stable</FilterOption>
-        <FilterOption value="Experimental">Experimental</FilterOption>
-        <FilterOption value="Deprecated">Deprecated</FilterOption>
+        <FilterItem value="Stable">Stable</FilterItem>
+        <FilterItem value="Experimental">Experimental</FilterItem>
+        <FilterItem value="Deprecated">Deprecated</FilterItem>
       </Filter>
     </LocaleProvider>
   )
@@ -84,9 +84,9 @@ export function Composition() {
       <FilterTrigger>Status</FilterTrigger>
       <FilterPopover>
         <FilterList>
-          <FilterOption value="Stable">Stable</FilterOption>
-          <FilterOption value="Experimental">Experimental</FilterOption>
-          <FilterOption value="Deprecated">Deprecated</FilterOption>
+          <FilterItem value="Stable">Stable</FilterItem>
+          <FilterItem value="Experimental">Experimental</FilterItem>
+          <FilterItem value="Deprecated">Deprecated</FilterItem>
         </FilterList>
       </FilterPopover>
     </FilterProvider>
@@ -114,12 +114,12 @@ export function WithCombobox() {
     >
       {matches.length ? (
         matches.map((country) => (
-          <FilterOption
+          <FilterItem
             key={country.name}
             value={`${country.emoji} ${country.name}`}
           >
             {country.emoji} {country.name}
-          </FilterOption>
+          </FilterItem>
         ))
       ) : (
         <div>No results found</div>

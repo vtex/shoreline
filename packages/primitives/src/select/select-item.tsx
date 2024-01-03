@@ -1,29 +1,29 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { SelectItem } from '@ariakit/react'
+import { SelectItem as Item } from '@ariakit/react'
 
-import { SelectOptionCheck } from './select-option-check'
+import { SelectItemCheck } from './select-item-check'
 
-export const SelectOption = forwardRef<HTMLDivElement, SelectOptionProps>(
-  function SelectOption(props, ref) {
-    const { asChild = false, children, hideOnClick, ...otherProps } = props
+export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
+  function SelectItem(props, ref) {
+    const { asChild = false, children, hideOnClick, ...domProps } = props
 
     return (
-      <SelectItem
-        data-sl-select-option
+      <Item
+        data-sl-select-item
         ref={ref}
         render={asChild ? (children as JSX.Element) : undefined}
         hideOnClick={hideOnClick}
-        {...otherProps}
+        {...domProps}
       >
-        <SelectOptionCheck />
+        <SelectItemCheck />
         <span>{children}</span>
-      </SelectItem>
+      </Item>
     )
   }
 )
 
-export interface SelectOptionProps extends ComponentPropsWithoutRef<'div'> {
+export interface SelectItemProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Enable children composition
    * @default false

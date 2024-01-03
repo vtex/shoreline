@@ -2,7 +2,7 @@ import React from 'react'
 import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
 
 import {
-  Combobox,
+  ComboboxInput,
   ComboboxProvider,
   ComboboxPopover,
   ComboboxItem,
@@ -13,7 +13,7 @@ describe('primitives/combobox', () => {
     const { container } = render(
       <ComboboxProvider open>
         <label>
-          <Combobox />
+          <ComboboxInput />
         </label>
         <ComboboxPopover>
           <ComboboxItem value="item">Item</ComboboxItem>
@@ -21,7 +21,9 @@ describe('primitives/combobox', () => {
       </ComboboxProvider>
     )
 
-    expect(container.querySelector('[data-sl-combobox]')).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-combobox-input]')
+    ).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-combobox-popover]')
     ).toBeInTheDocument()

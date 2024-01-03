@@ -1,4 +1,5 @@
 export * from './menu'
+export * from './menu-popover'
 export * from './menu-item'
 export * from './menu-separator'
 export * from './menu-trigger'
