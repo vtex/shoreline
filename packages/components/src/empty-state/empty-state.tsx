@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './empty-state.css'
 
 /**
  * Renders a styled empty state area
