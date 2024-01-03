@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 
 import { Stack } from '../stack'
 import { Container, Content } from '../content'
-import './page-header.css'
 
 /**
  * Header of the page
