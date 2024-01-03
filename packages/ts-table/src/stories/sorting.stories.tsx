@@ -118,7 +118,7 @@ export function Sorting() {
                 src={imageUrl}
                 alt={`product ${name}`}
               />
-              <Text>{name}</Text>
+              <Text variant="body">{name}</Text>
             </Flex>
           )
         },
@@ -204,7 +204,7 @@ export function SortingControlled() {
                 src={imageUrl}
                 alt={`product ${name}`}
               />
-              <Text>{name}</Text>
+              <Text variant="body">{name}</Text>
             </Flex>
           )
         },

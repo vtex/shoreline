@@ -97,7 +97,7 @@ export function ReactWindow() {
 
   return (
     <Stack>
-      <Text> Number of Checkboxes: {numberOfItems}</Text>
+      <Text variant="body"> Number of Checkboxes: {numberOfItems}</Text>
 
       <Checkbox
         indeterminate={someChecked && !allChecked}

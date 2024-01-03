@@ -53,7 +53,7 @@ export function Detail() {
                 src={imageUrl}
                 alt={`product ${name}`}
               />
-              <Text>{name}</Text>
+              <Text variant="body">{name}</Text>
             </Flex>
           )
         },

@@ -70,7 +70,7 @@ export function StickyFirstColumn() {
                 src={imageUrl}
                 alt={`product ${name}`}
               />
-              <Text>{name}</Text>
+              <Text variant="body">{name}</Text>
             </Flex>
           )
         },
@@ -183,7 +183,7 @@ export function StickyFirstColumnWithStickyHeader() {
                 src={imageUrl}
                 alt={`product ${name}`}
               />
-              <Text>{name}</Text>
+              <Text variant="body">{name}</Text>
             </Flex>
           )
         },
