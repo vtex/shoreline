@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.3.0...@vtex/shoreline-styles@0.3.1) (2024-01-03)
+
+**Note:** Version bump only for package @vtex/shoreline-styles
+
 # [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.2.0...@vtex/shoreline-styles@0.3.0) (2024-01-03)
 
 ### Features

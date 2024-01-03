@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.57.0...@vtex/shoreline-components@0.58.0) (2024-01-03)
+
+### Features
+
+- **emptystate:** add emptystate component ([6275676](https://github.com/vtex/shoreline/commit/627567611e17e7caff4a49035a2631ab0ab5e533))
+- **emptystate:** make it composable ([4a8e725](https://github.com/vtex/shoreline/commit/4a8e7250f6e86bfbd9f8234659f12782cb981af8))
+- **text:** make text styless by default ([b1e45d7](https://github.com/vtex/shoreline/commit/b1e45d74decb71611ca3f32c7079c5659bea6f24))
+
 # [0.57.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.56.0...@vtex/shoreline-components@0.57.0) (2024-01-03)
 
 ### Features
