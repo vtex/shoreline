@@ -2,7 +2,7 @@
   margin-left: calc(-1 * var(--sl-space-1));
 }
 
-[data-sl-filter-popover] {
+[data-sl-filter-popover][data-sl-popover] {
   --sl-filter-popover-width: 16.25rem;
 
   width: var(--sl-filter-popover-width);
