@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import './collections.css'
 
 export const Collections = forwardRef<HTMLDivElement, CollectionsProps>(
   function Collections(props, ref) {

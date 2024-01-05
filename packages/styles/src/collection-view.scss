@@ -1,0 +1,15 @@
+[data-collection-view-skeleton] {
+  height: 23.75rem;
+  width: 100%;
+}
+
+[data-sl-collection-view] {
+  min-height: 23.75rem;
+  
+  &:not([data-sl-collection-view-ready]) {
+    display: flex;
+    justify-items: center;
+    align-items: center;  
+  }
+}
+

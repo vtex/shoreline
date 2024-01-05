@@ -5,7 +5,7 @@ import { CollectionView, Collections } from '../index'
 import { Slot } from '../../slot'
 import { Search } from '../../search'
 import { Pagination } from '../../pagination'
-import { Filter, FilterOption } from '../../filter'
+import { Filter, FilterItem } from '../../filter'
 import { Stack } from '../../stack'
 
 export default {
@@ -15,16 +15,16 @@ export default {
 export function Default() {
   return (
     <Collections>
-      <Slot>
-        <Search />
-        <Slot>
+      <Slot name="header">
+        <Slot name="controls">
+          <Search />
           <Pagination page={1} total={74} />
         </Slot>
       </Slot>
       <CollectionView status="ready">
         <div className="ready-view" />
       </CollectionView>
-      <Slot>
+      <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
     </Collections>
@@ -34,24 +34,24 @@ export function Default() {
 export function WithFilter() {
   return (
     <Collections>
-      <Slot>
-        <Stack direction="row" space="$space-3">
-          <Search />
-          <Filter label="Status">
-            <FilterOption value="Stable">Stable</FilterOption>
-            <FilterOption value="Experimental">Experimental</FilterOption>
-            <FilterOption value="Deprecated">Deprecated</FilterOption>
-          </Filter>
-        </Stack>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
 
-        <Slot>
           <Pagination page={1} total={74} />
         </Slot>
       </Slot>
       <CollectionView status="ready">
         <div className="ready-view" />
       </CollectionView>
-      <Slot>
+      <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
     </Collections>
@@ -61,32 +61,28 @@ export function WithFilter() {
 export function WithFilterGroup() {
   return (
     <Collections>
-      <Slot>
-        <Stack space="$space-4">
+      <Slot name="header">
+        <Slot name="controls">
           <Search />
-          <Slot>
-            <Stack direction="row" space="$space-2">
-              <Filter label="Status">
-                <FilterOption value="Stable">Stable</FilterOption>
-                <FilterOption value="Experimental">Experimental</FilterOption>
-                <FilterOption value="Deprecated">Deprecated</FilterOption>
-              </Filter>
-              <Filter label="Status">
-                <FilterOption value="Stable">Stable</FilterOption>
-                <FilterOption value="Experimental">Experimental</FilterOption>
-                <FilterOption value="Deprecated">Deprecated</FilterOption>
-              </Filter>
-              <Filter label="Status">
-                <FilterOption value="Stable">Stable</FilterOption>
-                <FilterOption value="Experimental">Experimental</FilterOption>
-                <FilterOption value="Deprecated">Deprecated</FilterOption>
-              </Filter>
-            </Stack>
-          </Slot>
-        </Stack>
-
-        <Slot>
           <Pagination page={1} total={74} />
+        </Slot>
+
+        <Slot name="filters">
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
         </Slot>
       </Slot>
 
@@ -94,7 +90,140 @@ export function WithFilterGroup() {
         <div className="ready-view" />
       </CollectionView>
 
-      <Slot>
+      <Slot name="footer">
+        <Pagination page={1} total={74} />
+      </Slot>
+    </Collections>
+  )
+}
+
+export function Error() {
+  return (
+    <Collections>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </Slot>
+      </Slot>
+      <CollectionView status="error">
+        <div className="ready-view" />
+      </CollectionView>
+      <Slot name="footer">
+        <Pagination page={1} total={74} />
+      </Slot>
+    </Collections>
+  )
+}
+
+export function Empty() {
+  return (
+    <Collections>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </Slot>
+      </Slot>
+      <CollectionView status="empty">
+        <div className="ready-view" />
+      </CollectionView>
+      <Slot name="footer">
+        <Pagination page={1} total={74} />
+      </Slot>
+    </Collections>
+  )
+}
+
+export function NotFound() {
+  return (
+    <Collections>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </Slot>
+      </Slot>
+      <CollectionView status="not-found">
+        <div className="ready-view" />
+      </CollectionView>
+      <Slot name="footer">
+        <Pagination page={1} total={74} />
+      </Slot>
+    </Collections>
+  )
+}
+
+export function Unauthorized() {
+  return (
+    <Collections>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </Slot>
+      </Slot>
+      <CollectionView status="unauthorized">
+        <div className="ready-view" />
+      </CollectionView>
+      <Slot name="footer">
+        <Pagination page={1} total={74} />
+      </Slot>
+    </Collections>
+  )
+}
+
+export function CustomLabel() {
+  return (
+    <Collections>
+      <Slot name="header">
+        <Slot name="controls">
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </Slot>
+      </Slot>
+      <CollectionView
+        status="ready"
+        messages={{ 'empty-action': 'Create product' }}
+      >
+        <div className="ready-view" />
+      </CollectionView>
+      <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
     </Collections>

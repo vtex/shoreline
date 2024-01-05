@@ -1,0 +1,11 @@
+{
+  "not-found-heading": "No results found",
+  "not-found-description": "Try using different terms or filters.",
+  "empty-heading": "No items yet",
+  "empty-description": "Create an item to start selling.",
+  "empty-action": "Create Item",
+  "error-heading": "Something went wrong",
+  "error-action": "Try again",
+  "unauthorized-heading": "Unauthorized access",
+  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+}

@@ -1,9 +1,0 @@
-@layer sl-components {
-  [data-collection-view-skeleton] {
-    height: 23.75rem;
-    width: 100%;
-  }
-
-  [data-sl-collection-view] {
-  }
-}
