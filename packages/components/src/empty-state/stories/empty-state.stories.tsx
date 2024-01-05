@@ -68,7 +68,7 @@ export function FilterError() {
       <Popover data-sl-filter-popover>
         <EmptyState size="small" style={{ height: '18.25rem' }}>
           <Slot name="illustration">
-            <IconWarningCircle color="red" />
+            <IconWarningCircle color="var(--sl-color-red-8)" />
           </Slot>
           <Heading>Something went wrong</Heading>
           <Slot name="actions">
@@ -85,7 +85,7 @@ export function FilterNotFound() {
     <Filter label="Country" defaultValue={[]} setSearchValue={(value) => {}}>
       <EmptyState size="small" style={{ height: '15rem' }}>
         <Slot name="illustration">
-          <IconMagnifyingGlass />
+          <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
         </Slot>
         <Heading>No results found</Heading>
         <Text variant="body">Try using different terms.</Text>
