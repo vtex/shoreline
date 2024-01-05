@@ -63,7 +63,7 @@ interface StoryArgs {
  */
 function PageHeaderButton() {
   return (
-    <Bleed top="$space-1" bottom="$space-1" className="ph-header-element">
+    <Bleed top="$space-2" bottom="$space-2" className="ph-header-element">
       <Button variant="primary" className="ph-header-button" size="large">
         Submit
       </Button>
@@ -78,7 +78,7 @@ function CompletePageHeading(args: StoryArgs) {
   return (
     <>
       {args.headerWithBackButton && (
-        <Bleed top="$space-1" bottom="$space-1">
+        <Bleed top="$space-2" bottom="$space-2">
           <IconButton label="Return" asChild size="large">
             <IconArrowLeft />
           </IconButton>
