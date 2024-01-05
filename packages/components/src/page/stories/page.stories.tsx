@@ -79,7 +79,7 @@ function CompletePageHeading(args: StoryArgs) {
     <>
       {args.headerWithBackButton && (
         <Bleed top="$space-2" bottom="$space-2">
-          <IconButton label="Return" asChild size="large">
+          <IconButton label="Return" asChild variant="tertiary" size="large">
             <IconArrowLeft />
           </IconButton>
         </Bleed>
