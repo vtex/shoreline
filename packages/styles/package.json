@@ -19,7 +19,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "dev": "concurrently \"pnpm run dev:layer\" \"pnpm run dev:no-layer\"",
+    "dev": "concurrently -p [{name}] -n styles:layer@shoreline,styles:no-layer@shoreline -c bgGreen,bgBlue \"pnpm run dev:layer\" \"pnpm run dev:no-layer\"",
     "dev:layer": "postcss ./src/index.scss -o dist/index.css -w",
     "dev:no-layer": "postcss ./src/index-no-layer.scss -o dist/index-no-layer.css -w",
     "build": "pnpm run build:layer && pnpm run build:no-layer",

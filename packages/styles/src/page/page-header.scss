@@ -1,4 +1,4 @@
-[data-sl-page-header] {
+[data-sl-page-header-container] {
   /* flex components are always 100% */
   & *:is([data-sl-flex]) {
     width: 100%;

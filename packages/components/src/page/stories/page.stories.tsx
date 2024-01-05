@@ -63,7 +63,7 @@ interface StoryArgs {
  */
 function PageHeaderButton() {
   return (
-    <Bleed vertical className="ph-header-element">
+    <Bleed top="$space-1" bottom="$space-1" className="ph-header-element">
       <Button variant="primary" className="ph-header-button" size="large">
         Submit
       </Button>
@@ -78,9 +78,11 @@ function CompletePageHeading(args: StoryArgs) {
   return (
     <>
       {args.headerWithBackButton && (
-        <IconButton label="Return" asChild size="large">
-          <IconArrowLeft />
-        </IconButton>
+        <Bleed top="$space-1" bottom="$space-1">
+          <IconButton label="Return" asChild size="large">
+            <IconArrowLeft />
+          </IconButton>
+        </Bleed>
       )}
       <PageHeading>{args.pageHeading}</PageHeading>
       {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
@@ -102,7 +104,11 @@ export function Playground(args: StoryArgs) {
       <Page>
         <PageHeader>
           <Flex justify="space-between">
-            <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
+            <Flex
+              gap="var(--sl-space-2)"
+              align="center"
+              className="ph-header-element"
+            >
               <CompletePageHeading {...args} />
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
@@ -139,7 +145,11 @@ function WithTabs(args: StoryArgs) {
       <TabProvider>
         <PageHeader className="ph-with-tabs">
           <Flex justify="space-between">
-            <Flex columnGap="var(--sl-space-2)" className="ph-header-element">
+            <Flex
+              gap="var(--sl-space-2)"
+              align="center"
+              className="ph-header-element"
+            >
               <CompletePageHeading {...args} />
             </Flex>
             {args.headerWithButton && <PageHeaderButton />}
