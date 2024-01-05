@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.3.1...@vtex/shoreline-styles@0.4.0) (2024-01-05)
+
+### Features
+
+- **emptystate:** adjust syle ([8ab3f22](https://github.com/vtex/shoreline/commit/8ab3f221833d5e233bc57efb7e6446fc5d08f8bf))
+
 ## [0.3.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.3.0...@vtex/shoreline-styles@0.3.1) (2024-01-03)
 
 **Note:** Version bump only for package @vtex/shoreline-styles
