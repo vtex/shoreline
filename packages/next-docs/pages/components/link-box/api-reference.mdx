@@ -1,5 +1,7 @@
 # API Reference
 
+A container that acts as a link. It allows text selection and stop its children event propagation.
+
 ```jsx
 <LinkBox href="">
   <div>
@@ -13,7 +15,7 @@
 
 ### `props`
 
-- Type: `@vtex/shoreline-components.LinkBoxProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+- Type: `@vtex/shoreline-primitives.LinkBoxProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
@@ -35,8 +37,6 @@ The URL that the hyperlink points to.
 
 Where to display the linked URL
 
-- Type: `@vtex/shoreline-components.NavigationTarget`
+- Type: `@vtex/shoreline-primitives.NavigationTarget`
 
 - Default: `'_parent'`
-
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/link-box/link-box.tsx#L20)

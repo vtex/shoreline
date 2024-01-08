@@ -1,15 +1,27 @@
 # API Reference
 
+Centralizes its content
+
+```jsx
+<Center>
+  <Text>In the absolute center</Text>
+</Center>
+```
+
 ## Parameters
 
 ### `props`
 
-- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.HTMLAttributes<typescript.HTMLDivElement>, typescript.HTMLDivElement>, ref> & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+- Type: `@vtex/shoreline-components.CenterProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### `CenterProps`
+### `asChild` (optional)
 
-- Type: `@types/react.React.ComponentPropsWithoutRef<div>`
+Children composition
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/center/center.tsx#L5)
+- Type: `boolean`
+
+- Default: `false`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/center/center.tsx#L12)

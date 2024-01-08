@@ -1,5 +1,7 @@
 # API Reference
 
+Merchants contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.
+
 ```jsx
 <ContextualHelp label="Meaningful label">Help message</ContextualHelp>
 ```
@@ -20,8 +22,18 @@ Children prop
 
 ### `label`
 
-Label for the help
+aria-abel for the contextual help trigger
 
 - Type: `string`
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/contextual-help/contextual-help.tsx#L17)
+### `narrow` (optional)
+
+Controls the padding of the contextual help popover.
+This prop defines whether it should be narrow or not.
+It is not narrow by default.
+
+- Type: `boolean`
+
+- Default: `false`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/contextual-help/contextual-help.tsx#L16)

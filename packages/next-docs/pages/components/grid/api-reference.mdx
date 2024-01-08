@@ -1,15 +1,86 @@
 # API Reference
 
+Grid layout
+
+```jsx
+<Grid columns="repeat(3, 1fr)">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+</Grid>
+```
+
 ## Parameters
 
 ### `props`
 
-- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.HTMLAttributes<typescript.HTMLDivElement>, typescript.HTMLDivElement>, ref> & @vtex/shoreline-components.GridShorthandProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+- Type: `@vtex/shoreline-components.GridProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### `GridProps`
+### `areas` (optional)
 
-- Type: `@types/react.React.ComponentPropsWithoutRef<div> & @vtex/shoreline-components.GridShorthandProps`
+CSS grid-template-areas
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/grid/grid.tsx#L6)
+- Type: `csstype.Property.GridTemplateAreas`
+
+- Default: `'auto'`
+
+### `asChild` (optional)
+
+Children composition
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `autoColumns` (optional)
+
+CSS grid-auto-columns
+
+- Type: `csstype.Property.GridAutoColumns<0 | string & { }>`
+
+- Default: `'auto'`
+
+### `autoFlow` (optional)
+
+CSS grid-auto-flow
+
+- Type: `csstype.Property.GridAutoFlow`
+
+- Default: `'row'`
+
+### `autoRows` (optional)
+
+CSS grid-auto-rows
+
+- Type: `csstype.Property.GridAutoRows<0 | string & { }>`
+
+- Default: `'auto'`
+
+### `columns` (optional)
+
+CSS grid-template-columns
+
+- Type: `csstype.Property.GridTemplateColumns<0 | string & { }>`
+
+- Default: `'auto'`
+
+### `gap` (optional)
+
+CSS Gap
+
+- Type: `csstype.Property.GridGap<0 | string & { }>`
+
+- Default: `'$space-gap'`
+
+### `rows` (optional)
+
+CSS grid-template-rows
+
+- Type: `csstype.Property.GridTemplateRows<0 | string & { }>`
+
+- Default: `'auto'`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/grid/grid.tsx#L17)

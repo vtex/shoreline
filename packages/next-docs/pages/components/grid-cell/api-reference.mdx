@@ -1,15 +1,86 @@
 # API Reference
 
+Optional cell of a grid layout
+
+```jsx
+<Grid columns="repeat(3, 1fr)">
+  <GridCell>Item 1</GridCell>
+  <GridCell>Item 2</GridCell>
+  <GridCell>Item 3</GridCell>
+  <GridCell>Item 4</GridCell>
+</Grid>
+```
+
 ## Parameters
 
 ### `props`
 
-- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.HTMLAttributes<typescript.HTMLDivElement>, typescript.HTMLDivElement>, ref> & @vtex/shoreline-components.GridCellShorthandProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+- Type: `@vtex/shoreline-components.GridCellProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### `GridCellProps`
+### `area` (optional)
 
-- Type: `@types/react.React.ComponentPropsWithoutRef<div> & @vtex/shoreline-components.GridCellShorthandProps`
+CSS grid-area
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/grid/grid-cell.tsx#L6)
+- Type: `csstype.Property.GridArea`
+
+- Default: `'auto'`
+
+### `asChild` (optional)
+
+Children composition
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `column` (optional)
+
+CSS grid-column
+
+- Type: `csstype.Property.GridColumn`
+
+- Default: `'auto'`
+
+### `columnEnd` (optional)
+
+CSS grid-column-end
+
+- Type: `csstype.Property.GridColumnEnd`
+
+- Default: `'auto'`
+
+### `columnStart` (optional)
+
+CSS grid-column-start
+
+- Type: `csstype.Property.GridColumnStart`
+
+- Default: `'auto'`
+
+### `row` (optional)
+
+CSS grid-row
+
+- Type: `csstype.Property.GridRow`
+
+- Default: `'auto'`
+
+### `rowEnd` (optional)
+
+CSS grid-row-end
+
+- Type: `csstype.Property.GridRowEnd`
+
+- Default: `'auto'`
+
+### `rowStart` (optional)
+
+CSS grid-row-start
+
+- Type: `csstype.Property.GridRowStart`
+
+- Default: `'auto'`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/grid/grid-cell.tsx#L17)

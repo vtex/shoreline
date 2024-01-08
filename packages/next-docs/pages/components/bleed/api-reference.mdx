@@ -1,5 +1,13 @@
 # API Reference
 
+Allows the content to bleed into the external container
+
+```jsx
+<Bleed top="$space-2" bottom="$space-2">
+  <Button>Text</Button>
+</Bleed>
+```
+
 ## Parameters
 
 ### `props`
@@ -12,31 +20,23 @@
 
 Bottom bleed
 
-- Type: `string | boolean`
+- Type: `string`
 
 - Default: `'$space-0'`
 
-### `horizontal` (optional)
+### `end` (optional)
 
-Horizontal bleed
+End bleed
 
-- Type: `string | boolean`
-
-- Default: `'$space-0'`
-
-### `left` (optional)
-
-Left bleed
-
-- Type: `string | boolean`
+- Type: `string`
 
 - Default: `'$space-0'`
 
-### `right` (optional)
+### `start` (optional)
 
-Right bleed
+Start bleed
 
-- Type: `string | boolean`
+- Type: `string`
 
 - Default: `'$space-0'`
 
@@ -44,16 +44,8 @@ Right bleed
 
 Top bleed
 
-- Type: `string | boolean`
+- Type: `string`
 
 - Default: `'$space-0'`
 
-### `vertical` (optional)
-
-Vertical bleed
-
-- Type: `string | boolean`
-
-- Default: `'$space-0'`
-
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/bleed/bleed.tsx#L8)
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/bleed/bleed.tsx#L12)

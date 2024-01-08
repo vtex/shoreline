@@ -1,5 +1,16 @@
 # API Reference
 
+Implementation of a fieldset
+
+```jsx
+<Field>
+  <Label>Label</Label>
+  <Input />
+  <FieldDescription>Short description</FieldDescription>
+  <FieldError>Error message</FieldError>
+</Field>
+```
+
 ## Parameters
 
 ### `props`
@@ -8,8 +19,16 @@
 
 ## Props
 
-### `variant` (optional)
+### `asChild` (optional)
 
-- Type: `default | group | control`
+- Type: `boolean`
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/field/field.tsx#L6)
+### `error` (optional)
+
+- Type: `boolean`
+
+### `space` (optional)
+
+- Type: `normal | large`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/field/field.tsx#L18)

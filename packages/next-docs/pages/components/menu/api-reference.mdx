@@ -1,5 +1,13 @@
 # API Reference
 
+Menu component
+
+```jsx
+<Menu label="Open">
+  <MenuItem>Item 1</MenuItem>
+</Menu>
+```
+
 ## Parameters
 
 ### `props`
@@ -16,4 +24,42 @@ Children composition
 
 - Default: `false`
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/menu/menu.tsx#L6)
+### `iconOnly` (optional)
+
+Hide the textual label
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `label`
+
+Trigger label
+
+- Type: `@types/react.React.ReactNode`
+
+### `size` (optional)
+
+Increase or decrease padding.
+
+- Type: `normal | large`
+
+- Default: `'normal'`
+
+### `type` (optional)
+
+Type of dropdown
+
+- Type: `menu | actions`
+
+- Default: `'menu'`
+
+### `variant` (optional)
+
+Change between color combinations.
+
+- Type: `primary | secondary | tertiary | critical | criticalTertiary`
+
+- Default: `'secondary'`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/menu/menu.tsx#L22)

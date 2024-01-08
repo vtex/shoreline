@@ -1,5 +1,14 @@
 # API Reference
 
+Spaces elements consistently
+
+```jsx
+<Stack>
+  <div>Stacked 1</div>
+  <div>Stacked 2</div>
+</Stack>
+```
+
 ## Parameters
 
 ### `props`
@@ -16,17 +25,25 @@ items alignment
 
 - Default: `start`
 
-### `direction` (optional)
+### `asChild` (optional)
 
-direction of items
+Children composition
 
-- Type: `row | column`
+- Type: `boolean`
 
-- Default: `column`
+- Default: `false`
 
 ### `fluid` (optional)
 
-if the items should grow in width to match the container
+Grows the width of items to match the parent
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `horizontal` (optional)
+
+Switches the layout to horizontal
 
 - Type: `boolean`
 
@@ -40,4 +57,4 @@ space between items
 
 - Default: `0`
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/stack/stack.tsx#L6)
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/stack/stack.tsx#L14)

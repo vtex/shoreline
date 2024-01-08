@@ -1,5 +1,7 @@
 # API Reference
 
+Defines a composable child inside of a Compose component
+
 ```jsx
 function Button({ asChild, children, ...props }) {
   const Composition = asChild ? Compose : "button";
@@ -15,7 +17,7 @@ function Button({ asChild, children, ...props }) {
 
 ### `props`
 
-- Type: `@vtex/shoreline-components.ComposableProps`
+- Type: `@vtex/shoreline-primitives.ComposableProps`
 
 ## Props
 
@@ -26,5 +28,3 @@ function Button({ asChild, children, ...props }) {
 ### `render` (optional)
 
 - Type: `@vtex/shoreline-utils.RenderProps`
-
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/compose/composable.tsx#L17)

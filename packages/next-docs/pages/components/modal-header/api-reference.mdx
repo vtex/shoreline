@@ -1,5 +1,32 @@
 # API Reference
 
+Header of the Modal
+
+```jsx
+jsx;
+function Example() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <ModalHeader>
+          <ModalHeading>Title</ModalHeading>
+        </ModalHeader>
+      </Modal>
+    </>
+  );
+}
+```
+
+```
+
 ## Parameters
 
 ### `props`
@@ -10,6 +37,10 @@
 
 ### `ModalHeaderProps`
 
+
 - Type: `@types/react.React.ComponentPropsWithoutRef<div>`
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/modal/modal-header.tsx#L10)
+
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/modal/modal-header.tsx#L32)
+```

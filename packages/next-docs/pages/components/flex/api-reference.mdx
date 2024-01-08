@@ -1,15 +1,108 @@
 # API Reference
 
+Flexbox layout
+
+```jsx
+<Flex>
+  <Button>Clear</Button>
+  <Button variant="primary">Submit</Button>
+</Flex>
+```
+
 ## Parameters
 
 ### `props`
 
-- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.HTMLAttributes<typescript.HTMLDivElement>, typescript.HTMLDivElement>, ref> & @vtex/shoreline-components.FlexShorthandProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+- Type: `@vtex/shoreline-components.FlexProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
 
 ## Props
 
-### `FlexProps`
+### `align` (optional)
 
-- Type: `@types/react.React.ComponentPropsWithoutRef<div> & @vtex/shoreline-components.FlexShorthandProps`
+CSS align-items
 
-[View source](https://github.com/vtex/shoreline/blob/4b310ee4d/packages/components/src/flex/flex.tsx#L6)
+- Type: `csstype.Property.AlignItems`
+
+- Default: `'stretch'`
+
+### `asChild` (optional)
+
+Children composition
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `basis` (optional)
+
+CSS flex-basis
+
+- Type: `csstype.Property.FlexBasis<0 | string & { }>`
+
+- Default: `'auto'`
+
+### `direction` (optional)
+
+CSS flex-direction
+
+- Type: `csstype.Property.FlexDirection`
+
+- Default: `'row'`
+
+### `gap` (optional)
+
+CSS Gap
+
+- Type: `csstype.Property.Gap<0 | string & { }>`
+
+- Default: `'$space-gap'`
+
+### `grow` (optional)
+
+CSS flex-grow
+
+- Type: `csstype.Property.FlexGrow`
+
+- Default: `0`
+
+### `inline` (optional)
+
+Use `inline-flex` instead of `flex`
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `justify` (optional)
+
+CSS justify-content
+
+- Type: `csstype.Property.JustifyContent`
+
+- Default: `'flex-start'`
+
+### `order` (optional)
+
+CSS order
+
+- Type: `csstype.Property.Order`
+
+- Default: `0`
+
+### `shrink` (optional)
+
+CSS flex-shrink
+
+- Type: `csstype.Property.FlexShrink`
+
+- Default: `1`
+
+### `wrap` (optional)
+
+CSS flex-wrap
+
+- Type: `csstype.Property.FlexWrap`
+
+- Default: `'nowrap'`
+
+[View source](https://github.com/vtex/shoreline/blob/8cdb88c/packages/components/src/flex/flex.tsx#L15)
