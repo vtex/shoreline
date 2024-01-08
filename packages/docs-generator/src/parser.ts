@@ -15,7 +15,11 @@ export async function parseJSONDocs(paths: PkgToBeDocumentedPaths) {
   const project = new ProjectParser({ data })
 
   for (const func of project.functions) {
-    if (paths.components && isComponent(func.name)) {
+    if (
+      paths.components?.docPath &&
+      paths.components?.filename &&
+      isComponent(func.name)
+    ) {
       await generateComponent(project, func, paths.components)
     }
 

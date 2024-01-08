@@ -57,7 +57,10 @@ const config: PkgToBeDocumented[] = [
     name: '@vtex/shoreline-components',
     version: '^0.x',
     paths: {
-      components: `../next-docs/pages/components`,
+      components: {
+        docPath: `../next-docs/pages/components`,
+        filename: 'api-reference.mdx',
+      },
     },
     config: {
       entryPoints: ['../components/src/index.ts'],

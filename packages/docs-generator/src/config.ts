@@ -75,9 +75,22 @@ export interface PkgToBeDocumented {
  */
 export interface PkgToBeDocumentedPaths {
   /**
-   * The path where the components documentation should be generated
+   * The configuration of the components documentation
    */
-  components?: string
+  components?: ComponentDocumentationPaths
+}
+
+export interface ComponentDocumentationPaths {
+  /**
+   * The path where the components documentation should be generated
+   * @example '../next-docs/pages/components'
+   */
+  docPath: string
+  /**
+   * The filename of the components documentation
+   * @example 'api-reference.mdx'
+   */
+  filename: string
 }
 
 /**

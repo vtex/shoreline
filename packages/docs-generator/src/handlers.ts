@@ -2,7 +2,10 @@ import { createOrUpdateFile, prettify } from './io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
 import { isComponent } from './strings'
 import { getTemplate } from './templates'
-import type { PkgToBeDocumentedPaths } from './config'
+import type {
+  ComponentDocumentationPaths,
+  PkgToBeDocumentedPaths,
+} from './config'
 
 /**
  * Generate the component documentation using the component template.
@@ -15,8 +18,9 @@ import type { PkgToBeDocumentedPaths } from './config'
 export async function generateComponent(
   project: ProjectParser,
   func: FunctionParser,
-  path: string
+  paths: ComponentDocumentationPaths
 ) {
+  const { docPath, filename } = paths
   const componentProps: ComponentProps[] = []
 
   const props = project.interfaces.find((i) => {
@@ -103,10 +107,10 @@ export async function generateComponent(
     .toLowerCase()
 
   await createOrUpdateFile(
-    `${path}/${kebabCaseComponentName}/code.mdx`,
+    `${docPath}/${kebabCaseComponentName}/${filename}`,
     component
   )
-  await prettify(`${path}/${kebabCaseComponentName}/code.mdx`)
+  await prettify(`${docPath}/${kebabCaseComponentName}/${filename}`)
 }
 
 /**
@@ -122,7 +126,7 @@ export async function generateMetaJSON(
 ) {
   const metaTemplate = getTemplate('_meta.json')
 
-  if (paths.components) {
+  if (paths.components?.docPath) {
     const components = project.functions.reduce<MetaFile>((result, func) => {
       if (isComponent(func.name)) {
         const key = func.name
@@ -139,7 +143,7 @@ export async function generateMetaJSON(
       components,
     })
 
-    await createOrUpdateFile(`${paths.components}/_meta.json`, meta)
+    await createOrUpdateFile(`${paths.components.docPath}/_meta.json`, meta)
   }
 }
 
