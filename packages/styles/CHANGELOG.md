@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.4.0...@vtex/shoreline-styles@0.5.0) (2024-01-08)
+
+### Bug Fixes
+
+- **page:** scss import ([b903da0](https://github.com/vtex/shoreline/commit/b903da0f787f4b7bce5c632f09dd79166633d8a6))
+
+### Features
+
+- **page:** apply qa changes ([1e7a157](https://github.com/vtex/shoreline/commit/1e7a157a0a80dabf6b6826a4cd5722adbd6a510b))
+
 # [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.3.1...@vtex/shoreline-styles@0.4.0) (2024-01-05)
 
 ### Features

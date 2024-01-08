@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.59.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.58.0...@vtex/shoreline-components@0.59.0) (2024-01-08)
+
+### Bug Fixes
+
+- **page:** remove unexisting import ([febf4db](https://github.com/vtex/shoreline/commit/febf4db5cbfd574fed7c3682bb49cdbdd7e9c5ca))
+
+### Features
+
+- **emptystate:** adjust syle ([8ab3f22](https://github.com/vtex/shoreline/commit/8ab3f221833d5e233bc57efb7e6446fc5d08f8bf))
+- **page:** apply qa changes ([1e7a157](https://github.com/vtex/shoreline/commit/1e7a157a0a80dabf6b6826a4cd5722adbd6a510b))
+
 # [0.58.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.57.0...@vtex/shoreline-components@0.58.0) (2024-01-03)
 
 ### Features
