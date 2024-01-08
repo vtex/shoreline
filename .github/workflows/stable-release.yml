@@ -51,11 +51,6 @@ jobs:
           buildScriptName: build:storybook:ci
           exitOnceUploaded: true
 
-      - name: Generate Documentation
-        run:
-          pnpm docs:generate
-          # git commit -am "docs: generate documentation" --allow-empty
-
       - name: Publish
         run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
         env:
