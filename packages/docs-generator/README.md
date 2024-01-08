@@ -38,7 +38,6 @@ The `docs-generator` package is organized as follows:
 ```bash
 docs-generator
 ├── src
-│   ├── json-parser # The typedoc-json-parser library patch
 │   ├── templates # The Handlebars templates used to generate .mdx files
 │   ├── config.ts # The configuration file for TypeDoc
 │   ├── templates.ts # Handlebars utilities
@@ -46,6 +45,7 @@ docs-generator
 │   ├── io.ts # A set of functions that handle IO operations
 │   ├── parser.ts # The JSON parser entrypoint
 │   └── index.ts # The entrypoint of this package where TypeDoc is configured, executed and its output is passed down the pipeline to our JSON parser
+|   └── strings.ts # String utilities such as toKebabCase used across the package
 ```
 
 ## Best practices when writing documentation on code

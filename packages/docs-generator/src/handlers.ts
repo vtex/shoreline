@@ -1,8 +1,12 @@
 import { createOrUpdateFile, prettify } from './io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
-import { isComponent } from './strings'
+import { isComponent, toKebabCase, acronyms } from './strings'
 import { getTemplate } from './templates'
-import type { PkgToBeDocumentedPaths } from './config'
+import type {
+  ComponentDocumentationPaths,
+  PkgToBeDocumentedPaths,
+} from './config'
+import { existsSync, readFileSync } from 'fs'
 
 /**
  * Generate the component documentation using the component template.
@@ -11,12 +15,14 @@ import type { PkgToBeDocumentedPaths } from './config'
  *
  * @param project The project parser
  * @param func The function parser of the component
+ * @param paths The paths of the component documentation
  */
 export async function generateComponent(
   project: ProjectParser,
   func: FunctionParser,
-  path: string
+  paths: ComponentDocumentationPaths
 ) {
+  const { docPath, filename } = paths
   const componentProps: ComponentProps[] = []
 
   const props = project.interfaces.find((i) => {
@@ -76,7 +82,7 @@ export async function generateComponent(
   // Generate component documentation
   const component = componentTemplate({
     sourceUrl: func.source?.url,
-    name: func.name,
+    name: 'API Reference',
     description: func.signatures[0].comment.description,
     example: (() => {
       const codeBlock = func.signatures[0].comment.blockTags.find(
@@ -98,15 +104,13 @@ export async function generateComponent(
     props: componentProps,
   })
 
-  const kebabCaseComponentName = func.name
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .toLowerCase()
+  const kebabCaseComponentName = toKebabCase(func.name)
 
   await createOrUpdateFile(
-    `${path}/${kebabCaseComponentName}/code.mdx`,
+    `${docPath}/${kebabCaseComponentName}/${filename}`,
     component
   )
-  await prettify(`${path}/${kebabCaseComponentName}/code.mdx`)
+  await prettify(`${docPath}/${kebabCaseComponentName}/${filename}`)
 }
 
 /**
@@ -116,13 +120,13 @@ export async function generateComponent(
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
  */
-export async function generateMetaJSON(
+export async function generateRootMetaJSON(
   project: ProjectParser,
   paths: PkgToBeDocumentedPaths
 ) {
-  const metaTemplate = getTemplate('_meta.json')
+  const metaTemplate = getTemplate('meta.json')
 
-  if (paths.components) {
+  if (paths.components?.docPath) {
     const components = project.functions.reduce<MetaFile>((result, func) => {
       if (isComponent(func.name)) {
         const key = func.name
@@ -139,7 +143,58 @@ export async function generateMetaJSON(
       components,
     })
 
-    await createOrUpdateFile(`${paths.components}/_meta.json`, meta)
+    await createOrUpdateFile(`${paths.components.docPath}/_meta.json`, meta)
+  }
+}
+
+/**
+ * Generates the _meta.json file for Nextra for React components.
+ * To learn more about the _meta.json file, check out the Nextra docs.
+ *
+ * @link https://nextra.site/docs/guide/organize-files#_metajson
+ * @param project The project parser
+ */
+export async function generateComponentMetaJSON(
+  func: FunctionParser,
+  paths: ComponentDocumentationPaths
+) {
+  if (paths.docPath) {
+    const metaTemplate = getTemplate('componentMeta.json')
+
+    const metaPath = `${paths.docPath}/${toKebabCase(func.name)}/_meta.json`
+    const name = paths.filename.replace(/\.[^/.]+$/, '')
+    const capitalizedName = name
+      .split('-')
+      .map((word) => {
+        if (acronyms[word]) {
+          return acronyms[word]
+        }
+
+        return word.charAt(0).toUpperCase() + word.slice(1)
+      })
+      .join(' ')
+
+    if (!existsSync(metaPath)) {
+      const meta = metaTemplate({
+        name,
+        capitalizedName,
+      })
+
+      await createOrUpdateFile(metaPath, meta)
+
+      return
+    }
+
+    // Check if meta has filename and if it's correct.
+    // Update it accordingly.
+    const metaFile = JSON.parse(readFileSync(metaPath, 'utf8'))
+    const metaFilenameValue = metaFile[name]
+
+    if (metaFilenameValue !== capitalizedName) {
+      // Update meta with correct filename
+      metaFile[name] = capitalizedName
+      await createOrUpdateFile(metaPath, JSON.stringify(metaFile))
+    }
   }
 }
 
