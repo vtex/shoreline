@@ -1,22 +1,61 @@
-[data-sl-page-content] {
+:where([data-sl-page-content]) {
   --sl-page-layout-wide: 100rem;
   --sl-page-layout-standard: 75rem;
   --sl-page-layout-narrow: 50rem;
   --sl-page-layout: var(--sl-page-layout-standard);
+}
 
-  width: 100%;
-  max-width: var(--sl-page-layout);
-  margin: var(--sl-space-0) auto var(--sl-space-0) auto;
+[data-sl-page-container] {
+  /* Overrides some of the Container+Content behaviours */
+  container: sl-page-container / inline-size;
 
-  &[data-layout='wide'] {
-    --sl-page-layout: var(--sl-page-layout-wide);
-  }
+  [data-sl-page-content] {
+    width: 100%;
+    max-width: var(--sl-page-layout);
+    margin: var(--sl-space-0) auto var(--sl-space-0) auto;
+    margin-bottom: var(--sl-page-content-mb);
+    padding: var(--sl-page-content-space-top)
+      var(--sl-page-content-space-horizontal)
+      var(--sl-page-content-space-bottom);
 
-  &[data-layout='standard'] {
-    --sl-page-layout: var(--sl-page-layout-standard);
-  }
+    &[data-layout='wide'] {
+      --sl-page-layout: var(--sl-page-layout-wide);
+    }
 
-  &[data-layout='narrow'] {
-    --sl-page-layout: var(--sl-page-layout-narrow);
+    &[data-layout='standard'] {
+      --sl-page-layout: var(--sl-page-layout-standard);
+    }
+
+    &[data-layout='narrow'] {
+      --sl-page-layout: var(--sl-page-layout-narrow);
+    }
+
+    @container sl-page-container (min-width: 0px) {
+      --sl-page-content-mb: var(--sl-space-6);
+      --sl-page-content-space-top: var(--sl-space-3);
+      --sl-page-content-space-bottom: var(--sl-space-6);
+      --sl-page-content-space-horizontal: var(--sl-space-6);
+    }
+
+    @container sl-page-container (min-width: 380px) {
+      --sl-page-content-mb: var(--sl-space-5);
+      --sl-page-content-space-top: var(--sl-space-4);
+      --sl-page-content-space-bottom: var(--sl-space-7);
+      --sl-page-content-space-horizontal: var(--sl-space-7);
+    }
+
+    @container sl-page-container (min-width: 560px) {
+      --sl-page-content-mb: var(--sl-space-12);
+      --sl-page-content-space-top: var(--sl-space-5);
+      --sl-page-content-space-bottom: var(--sl-space-8);
+      --sl-page-content-space-horizontal: var(--sl-space-8);
+    }
+
+    @container sl-page-container (min-width: 800px) {
+      --sl-page-content-mb: var(--sl-space-10);
+      --sl-page-content-space-top: var(--sl-space-5);
+      --sl-page-content-space-bottom: var(--sl-space-10);
+      --sl-page-content-space-horizontal: var(--sl-space-10);
+    }
   }
 }

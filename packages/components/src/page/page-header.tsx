@@ -2,14 +2,15 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Stack } from '../stack'
-import { Content } from '../content'
+import { Container, Content } from '../content'
 
 /**
  * Header of the page
+ *
  * @example
  * <Page>
  *  <PageHeader>
- *    <PageTitle>Title</PageTitle>
+ *    <PageHeading>Title</PageHeading>
  *  </PageHeader>
  * </Page>
  */
@@ -18,11 +19,21 @@ export const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
     const { children, ...otherProps } = props
 
     return (
-      <Content data-sl-page-header asChild narrow ref={ref} {...otherProps}>
-        <header>
-          <Stack space="$space-3">{children}</Stack>
-        </header>
-      </Content>
+      <Container>
+        <Content
+          data-sl-page-header-container
+          asChild
+          narrow
+          ref={ref}
+          {...otherProps}
+        >
+          <header>
+            <Stack space="$space-3" data-sl-page-header>
+              {children}
+            </Stack>
+          </header>
+        </Content>
+      </Container>
     )
   }
 )

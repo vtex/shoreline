@@ -1,10 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Content } from '../content'
+import { Container, Content } from '../content'
 
 /**
  * Content of a page
+ *
  * @example
  * <Page>
  *  <PageContent>Content</PageContent>
@@ -15,14 +16,16 @@ export const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
     const { children, layout = 'standard', ...otherProps } = props
 
     return (
-      <Content
-        data-sl-page-content
-        data-layout={layout}
-        ref={ref}
-        {...otherProps}
-      >
-        {children}
-      </Content>
+      <Container data-sl-page-container>
+        <Content
+          data-sl-page-content
+          data-layout={layout}
+          ref={ref}
+          {...otherProps}
+        >
+          {children}
+        </Content>
+      </Container>
     )
   }
 )
