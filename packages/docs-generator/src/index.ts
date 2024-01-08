@@ -59,7 +59,7 @@ const config: PkgToBeDocumented[] = [
     paths: {
       components: {
         docPath: `../next-docs/pages/components`,
-        filename: 'api-reference.mdx',
+        filename: 'code.mdx',
       },
     },
     config: {

@@ -14,6 +14,7 @@ import type {
  *
  * @param project The project parser
  * @param func The function parser of the component
+ * @param paths The paths of the component documentation
  */
 export async function generateComponent(
   project: ProjectParser,
