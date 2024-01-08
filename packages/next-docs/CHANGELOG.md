@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.2...@shoreline/next-docs@0.7.3) (2024-01-08)
+
+### Bug Fixes
+
+- **docs:** duplicate api reference entries ([e7a7f01](https://github.com/vtex/shoreline/commit/e7a7f0198bd3a8aaf8a6ada9dbc00fa2cf369d6b))
+
 ## [0.7.2](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.1...@shoreline/next-docs@0.7.2) (2024-01-08)
 
 **Note:** Version bump only for package @shoreline/next-docs
