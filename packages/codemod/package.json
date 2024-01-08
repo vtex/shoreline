@@ -1,0 +1,34 @@
+{
+  "name": "@vtex/shoreline-codemod",
+  "version": "0.0.1",
+  "description": "Shoreline codemod scripts",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": "vtex/shoreline",
+  "scripts": {
+    "jscodeshift": "jscodeshift"
+  },
+  "peerDependencies": {
+    "@vtex/shoreline-components": "0.x",
+    "react": "^16.9 || ^17.0 || ^18.0",
+    "react-dom": "^16.9 || ^17.0 || ^18.0"
+  },
+  "dependencies": {
+    "chalk": "2.4.1",
+    "execa": "3.2.0",
+    "globby": "10.0.1",
+    "inquirer": "7.0.0",
+    "is-git-clean": "1.1.0",
+    "jscodeshift": "0.13.1",
+    "meow": "5.0.0"
+  },
+  "bin": {
+    "shoreline-codemod": "./bin/shoreline-codemod.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
