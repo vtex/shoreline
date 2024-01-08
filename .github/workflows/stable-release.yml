@@ -33,7 +33,7 @@ jobs:
       - name: Configure CI Git User
         run: |
           git config user.name vtexgithubbot
-          git config user.email vtexgithubbot@github.com
+          git config user.email vtex.githubbot@vtex.com.br
 
       - name: Install dependencies
         run: pnpm install
