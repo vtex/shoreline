@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.5.0...@vtex/shoreline-styles@0.5.1) (2024-01-09)
+
+### Bug Fixes
+
+- **filter:** extra padding after scss migration ([f10ff29](https://github.com/vtex/shoreline/commit/f10ff295a6976dea44adfe4d65487f4b6fc3d497))
+
 # [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.4.0...@vtex/shoreline-styles@0.5.0) (2024-01-08)
 
 ### Bug Fixes

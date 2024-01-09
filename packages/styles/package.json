@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-styles",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "./dist/index.css",
   "module": "./dist/index.css",
   "publishConfig": {
