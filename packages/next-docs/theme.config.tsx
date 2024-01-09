@@ -16,7 +16,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/next-docs',
   footer: {
-    text: 'VTEX Design System for backoffice experiences',
+    text: 'VTEX Design System for back-office experiences.',
   },
   darkMode: false,
   components: {
