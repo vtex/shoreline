@@ -33,6 +33,9 @@ jobs:
 
       - name: Configure CI Git User
         run: bash ./scripts/configure-git-user.sh
+        env:
+          GIT_USERS: ${{ secrets.GIT_USERS }}
+          GIT_EMAILS: ${{ secrets.GIT_EMAILS }}
 
       - name: Install dependencies
         run: pnpm install

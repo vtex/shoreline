@@ -1,6 +1,6 @@
 # bin/bash
-names=("anitavincent" "lucasaarcoverde" "marcelovicentegc" "matheusps")
-emails=("anita.paes@vtex.com" "lucas.nascimento@vtex.com" "marcelo.cardoso@vtex.com" "matheus.procopio@vtex.com")
+names=($GIT_USERS)
+emails=($GIT_EMAILS)
 
 randomIndex=$(( RANDOM % ${#names[@]} ))
 randomName=${names[randomIndex]}
