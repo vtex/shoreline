@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.2.0...@vtex/docs-generator@0.3.0) (2024-01-09)
+
+### Features
+
+- **docs:** generate playground from storybook ([fbd0e8c](https://github.com/vtex/shoreline/commit/fbd0e8c718b71ad1b1e228ba7e61044ccba64d09))
+
 # 0.2.0 (2024-01-08)
 
 ### Bug Fixes

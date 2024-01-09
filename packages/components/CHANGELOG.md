@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.59.0...@vtex/shoreline-components@0.60.0) (2024-01-09)
+
+### Features
+
+- **docs:** generate playground from storybook ([fbd0e8c](https://github.com/vtex/shoreline/commit/fbd0e8c718b71ad1b1e228ba7e61044ccba64d09))
+
 # [0.59.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.58.0...@vtex/shoreline-components@0.59.0) (2024-01-08)
 
 ### Bug Fixes
