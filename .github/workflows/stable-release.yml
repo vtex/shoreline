@@ -33,7 +33,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Configure CI Git User
-        run: ./scripts/configure-git-user.sh
+        run: bash ./scripts/configure-git-user.sh
 
       - name: Install dependencies
         run: pnpm install
@@ -90,7 +90,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Configure CI Git User
-        run: sh ./scripts/configure-git-user.sh
+        run: bash ./scripts/configure-git-user.sh
 
       - name: Install dependencies
         run: pnpm install
