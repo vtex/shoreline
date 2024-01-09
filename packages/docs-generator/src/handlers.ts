@@ -85,15 +85,51 @@ export async function generateComponent(
     name: 'API Reference',
     description: func.signatures[0].comment.description,
     example: (() => {
-      const codeBlock = func.signatures[0].comment.blockTags.find(
-        (tag) => tag.name === 'example'
-      )?.text
+      if (!process.env.STORYBOOK_URL) {
+        const codeBlock = func.signatures[0].comment.blockTags.find(
+          (tag) => tag.name === 'example'
+        )?.text
 
-      if (!codeBlock) {
-        return false
+        if (!codeBlock) {
+          return false
+        }
+
+        return codeBlock.replace('```ts', '```jsx')
       }
 
-      return codeBlock.replace('```ts', '').replace('```', '')
+      const playgroundTag = func.signatures[0].comment.blockTags.find(
+        (tag) => tag.name === 'playground'
+      )?.text
+
+      if (typeof playgroundTag === 'undefined') {
+        const codeBlock = func.signatures[0].comment.blockTags.find(
+          (tag) => tag.name === 'example'
+        )?.text
+
+        if (!codeBlock) {
+          return false
+        }
+
+        return codeBlock.replace('```ts', '```jsx')
+      }
+
+      const storybookFeatures = '&full=1&shortcuts=false&singleStory=true'
+
+      const playgroundUrl = `${
+        process.env.STORYBOOK_URL
+      }?path=/story/shoreline-components-${toKebabCase(
+        func.name
+      )}--playground${storybookFeatures}`
+
+      const iframeStyles = {
+        width: '100%',
+        height: 600,
+        border: 0,
+        borderRadius: 4,
+      }
+
+      return `<iframe src="${playgroundUrl}" 
+        style={${JSON.stringify(iframeStyles)}}></iframe>`
     })(),
     parameters: func.signatures[0].parameters.map((param) => {
       return {

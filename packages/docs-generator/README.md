@@ -53,7 +53,8 @@ docs-generator
 ### For React components
 
 - Always provide a description for the component.
-- Always use the `@example` tag to provide examples of how to use the component. From this tag, a playground is generated.
+- Always use the `@example` tag to provide examples of how to use the component. This makes it easy for developers that look for documentation on the code itself.
+- Always use the `@playground` tag once you have written the playground for the component on Storybook following the [Best practices when writing Playgrounds with Storybook](#best-practices-when-writing-playgrounds-with-torybook). This makes our documentation site a powerful tool featuring live examples of how to use our components.
 - Always provide a description of each property of the component, including the `@default` value when necessary.
 
 Example:
@@ -62,6 +63,7 @@ Example:
 /**
  * Buttons triggers allow users to identify and start the most important actions in a container.
  *
+ * @playground
  * @example
  * <Button>Action label</Button>
  */
@@ -91,3 +93,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'tertiary'
 }
 ```
+
+## Best practices when writing Playgrounds with Storybook
+
+- Always use a `Playground` component to wrap your component. This component is responsible for rendering the component on a beautiful background.
+- Always write as much use cases as possible.
