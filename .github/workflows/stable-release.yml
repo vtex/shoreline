@@ -33,22 +33,21 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Configure CI Git User
-        run: |
-          names=("anitavincent" "lucasaarcoverde" "marcelovicentegc" "matheusps")
-          emails=("anita.paes@vtex.com.br" "lucasaarcoverde@gmail.com" "marcelovicentegc@gmail.com" "cout.matheusps@gmail.com")
-
-          randomIndex=$(( RANDOM % ${#names[@]} ))
-          randomName=${names[randomIndex]}
-          randomEmail=${emails[randomIndex]}
-
-          git config user.name $randomName
-          git config user.email $randomEmail
+        run: ./scripts/configure-git-user.sh
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build
         run: pnpm build
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            $(find packages -type d -name dist)
+          retention-days: 1
 
       - name: Test
         run: pnpm test
@@ -68,7 +67,7 @@ jobs:
           HUSKY: 0
 
   docs:
-    name: Docs
+    name: Docs generator
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -90,13 +89,21 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Configure CI Git User
+        run: ./scripts/configure-git-user.sh
+
       - name: Install dependencies
         run: pnpm install
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
 
       - name: Generate Documentation
         env:
           STORYBOOK_URL: ${{needs.build.outputs.storybookUrl}}
         run: |
           pnpm run gen:docs
-          git commit -am "docs: generate documentation from $GITHUB_SHA" --allow-empty
+          git commit -am "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
           git push -u origin main
