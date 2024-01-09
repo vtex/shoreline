@@ -16,6 +16,21 @@ import { createMessageHook } from '@vtex/shoreline-primitives'
 
 const useMessage = createMessageHook(messages)
 
+/**
+ * A collection view is a component that renders a collection based on its status
+ *
+ * @example
+ * ```tsx
+ * import { CollectionView } from '@vtex/shoreline'
+ *
+ * function Example() {
+ *  return (
+ *   <Collection>
+ *     <CollectionView status="loading" />
+ *   </Collection>
+ * )
+ * ```
+ */
 export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
   function CollectionMessage(props, ref) {
     const { status, children, onError, onEmpty, messages, ...otherProps } =
@@ -57,12 +72,20 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
     return (
       <div data-sl-collection-view ref={ref} {...otherProps}>
         <EmptyState size="medium">
-          <Slot name="illustration">{getIcon(status)}</Slot>
-          <Heading>{heading}</Heading>
-          {description && <Text>{description}</Text>}
+          <Slot name="illustration" data-sl-collection-view-illustration>
+            {getIcon(status)}
+          </Slot>
+          <Heading data-sl-collection-view-heading>{heading}</Heading>
+          {description && (
+            <Text data-sl-collection-view-description>{description}</Text>
+          )}
           {action && (
             <Slot>
-              <Button onClick={handleAction} variant="primary">
+              <Button
+                data-sl-collection-view-action
+                onClick={handleAction}
+                variant="primary"
+              >
                 {status === 'empty' && <IconPlus />}
                 {action}
               </Button>
@@ -90,6 +113,9 @@ function getIcon(status: CollectionStatus) {
   }
 }
 
+/**
+ * Represents the status of a collection
+ */
 export type CollectionStatus =
   | 'ready'
   | 'error'
@@ -99,9 +125,22 @@ export type CollectionStatus =
   | 'unauthorized'
 
 export interface CollectionViewProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Collection status
+   * @default 'ready'
+   */
   status: CollectionStatus
+  /**
+   * On status error action callback
+   */
   onError?: () => void
+  /**
+   * On status empty action callback
+   */
   onEmpty?: () => void
+  /**
+   * Collection internal messages
+   */
   messages?: CollectionMessages
 }
 
@@ -109,6 +148,9 @@ type CollectionMessages = Partial<{
   [key in CollectionMessagesKeys]: string
 }>
 
+/**
+ * Collection internal messages intl keys
+ */
 type CollectionMessagesKeys =
   | 'not-found-heading'
   | 'not-found-description'
