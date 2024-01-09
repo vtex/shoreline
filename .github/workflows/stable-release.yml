@@ -61,7 +61,7 @@ jobs:
       - name: Generate Documentation
         run: |
           pnpm run gen:docs
-          git commit -am 'docs: generate documentation from "$GITHUB_SHA"' --allow-empty
+          git commit -am "docs: generate documentation from $GITHUB_SHA" --allow-empty
 
       - name: Publish
         run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
