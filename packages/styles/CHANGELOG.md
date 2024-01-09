@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.5.1...@vtex/shoreline-styles@0.5.2) (2024-01-09)
+
+### Bug Fixes
+
+- **contextual-help:** regression from https://github.com/vtex/shoreline/pull/1418 ([bbe36cd](https://github.com/vtex/shoreline/commit/bbe36cde8d79840d5bc0e7a8369ce6e058755180))
+
 ## [0.5.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.5.0...@vtex/shoreline-styles@0.5.1) (2024-01-09)
 
 ### Bug Fixes
