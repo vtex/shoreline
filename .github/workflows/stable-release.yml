@@ -32,8 +32,15 @@ jobs:
 
       - name: Configure CI Git User
         run: |
-          git config user.name vtexgithubbot
-          git config user.email vtex.githubbot@vtex.com.br
+          names=("anitavincent" "lucasaarcoverde" "marcelovicentegc" "matheusps")
+          emails=("anita.paes@vtex.com.br" "lucasaarcoverde@gmail.com" "marcelovicentegc@gmail.com" "matheus.procopio@vtex.com")
+
+          randomIndex=$(( RANDOM % ${#names[@]} ))
+          randomName=${names[randomIndex]}
+          randomEmail=${emails[randomIndex]}
+
+          git config user.name $randomName
+          git config user.email $randomEmail
 
       - name: Install dependencies
         run: pnpm install
