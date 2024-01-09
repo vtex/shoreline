@@ -64,7 +64,7 @@ describe('collections', () => {
     ).toBeInTheDocument()
     expect(
       container.querySelector('[data-sl-collection-view-description]')
-    ).toBeInTheDocument()
+    ).not.toBeInTheDocument()
 
     expect(
       container.querySelector('[data-sl-collection-view-action]')

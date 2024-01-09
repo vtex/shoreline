@@ -158,7 +158,6 @@ type CollectionMessagesKeys =
   | 'empty-description'
   | 'empty-action'
   | 'error-heading'
-  | 'error-description'
   | 'error-action'
   | 'unauthorized-heading'
   | 'unauthorized-description'
