@@ -5,6 +5,7 @@ import { Container } from '../content'
 /**
  * Page containers allow merchants to identify where they are, view content related to a single main job, and perform related actions.
  *
+ * @playground
  * @example
  * <Page>
  *  <PageHeader>

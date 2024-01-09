@@ -10,6 +10,8 @@ jobs:
     name: Shoreline
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    outputs:
+      storybookUrl: ${{ steps.publish-to-chromatic.outputs.storybookUrl }}
 
     steps:
       - name: Check out code
@@ -52,19 +54,49 @@ jobs:
         run: pnpm test
 
       - name: Publish to Chromatic
+        id: publish-to-chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build:storybook:ci
           exitOnceUploaded: true
 
-      - name: Generate Documentation
-        run: |
-          pnpm run gen:docs
-          git commit -am "docs: generate documentation from $GITHUB_SHA" --allow-empty
-
       - name: Publish
         run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           HUSKY: 0
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
+          fetch-depth: 25
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate Documentation
+        env:
+          STORYBOOK_URL: ${{needs.build.outputs.storybookUrl}}
+        run: |
+          pnpm run gen:docs
+          git commit -am "docs: generate documentation from $GITHUB_SHA" --allow-empty
+          git push -u origin main

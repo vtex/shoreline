@@ -8,6 +8,7 @@ import { Container, Content } from '../content'
 /**
  * Merchants contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.
  *
+ * @playground
  * @example
  * <ContextualHelp label="Meaningful label">
  *  Help message
