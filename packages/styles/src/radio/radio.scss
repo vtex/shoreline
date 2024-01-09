@@ -24,24 +24,24 @@
     justify-content: center;
 
     &[data-error='false'] {
-      --sl-element-border: var(--sl-border-strong);
-      --sl-element-border-hover: var(--sl-border-strong-hover);
-      --sl-element-bg: var(--sl-bg);
+      --sl-element-border: var(--sl-border-base-strong);
+      --sl-element-border-hover: var(--sl-border-base-strong-hover);
+      --sl-element-bg: var(--sl-bg-base);
       --sl-element-border-checked: var(--sl-bg-accent-strong);
       --sl-element-bg-checked: var(--sl-bg-accent-strong);
-      --sl-element-check-bg: var(--sl-bg);
-      --sl-element-focus-ring: var(--sl-focus-ring);
+      --sl-element-check-bg: var(--sl-bg-base);
+      --sl-element-focus-ring: var(--sl-focus-ring-base);
       --sl-element-focus-ring-checked: var(--sl-focus-ring-accent);
     }
 
     &[data-error='true'] {
       --sl-element-border: var(--sl-border-critical-strong);
       --sl-element-border-hover: var(--sl-border-critical-strong-hover);
-      --sl-element-bg: var(--sl-bg);
+      --sl-element-bg: var(--sl-bg-base);
       --sl-element-border-checked: var(--sl-bg-accent-strong);
       --sl-element-bg-checked: var(--sl-bg-accent-strong);
-      --sl-element-check-bg: var(--sl-bg);
-      --sl-element-focus-ring: var(--sl-focus-ring);
+      --sl-element-check-bg: var(--sl-bg-base);
+      --sl-element-focus-ring: var(--sl-focus-ring-base);
       --sl-element-focus-ring-checked: var(--sl-focus-ring-accent);
     }
 
@@ -64,12 +64,12 @@
     }
 
     &:disabled {
-      --sl-element-border: var(--sl-border-disabled);
-      --sl-element-border-hover: var(--sl-border-disabled);
-      --sl-element-bg: var(--sl-bg-disabled);
-      --sl-element-border-checked: var(--sl-border-disabled);
-      --sl-element-bg-checked: var(--sl-bg-disabled);
-      --sl-element-check-bg: var(--sl-fg-disabled);
+      --sl-element-border: var(--sl-border-base-disabled);
+      --sl-element-border-hover: var(--sl-border-base-disabled);
+      --sl-element-bg: var(--sl-bg-base-disabled);
+      --sl-element-border-checked: var(--sl-border-base-disabled);
+      --sl-element-bg-checked: var(--sl-bg-base-disabled);
+      --sl-element-check-bg: var(--sl-fg-base-disabled);
       --sl-element-focus-ring: none;
       --sl-element-focus-ring-checked: none;
     }
@@ -79,12 +79,12 @@
       border: var(--sl-element-border-checked);
 
       &:disabled {
-        --sl-element-border: var(--sl-border-disabled);
-        --sl-element-border-hover: var(--sl-border-disabled);
-        --sl-element-bg: var(--sl-bg-disabled);
-        --sl-element-border-checked: var(--sl-border-disabled);
-        --sl-element-bg-checked: var(--sl-bg-disabled);
-        --sl-element-check-bg: var(--sl-fg-disabled);
+        --sl-element-border: var(--sl-border-base-disabled);
+        --sl-element-border-hover: var(--sl-border-base-disabled);
+        --sl-element-bg: var(--sl-bg-base-disabled);
+        --sl-element-border-checked: var(--sl-border-base-disabled);
+        --sl-element-bg-checked: var(--sl-bg-base-disabled);
+        --sl-element-check-bg: var(--sl-fg-base-disabled);
         --sl-element-focus-ring: none;
         --sl-element-focus-ring-checked: none;
       }

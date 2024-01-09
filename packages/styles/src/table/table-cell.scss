@@ -2,12 +2,12 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
-  color: var(--sl-fg);
+  color: var(--sl-fg-base);
   padding: var(--sl-space-2);
-  border-bottom: var(--sl-border);
+  border-bottom: var(--sl-border-base);
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
-  background: var(--sl-bg);
+  background: var(--sl-bg-base);
 
   &[data-sl-align='start'] {
     text-align: start;

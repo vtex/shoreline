@@ -2,7 +2,7 @@
   outline: none;
   padding: var(--sl-space-05);
   border-radius: var(--sl-border-radius-small);
-  color: var(--sl-fg);
+  color: var(--sl-fg-base);
   text-transform: uppercase;
 
   &:focus {
@@ -10,6 +10,6 @@
   }
 
   &[data-placeholder='true'] {
-    color: var(--sl-fg-soft);
+    color: var(--sl-fg-base-soft);
   }
 }

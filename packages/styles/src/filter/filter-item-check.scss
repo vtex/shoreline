@@ -7,7 +7,7 @@
   flex-shrink: 0;
   width: var(--sl-filter-item-check-size);
   height: var(--sl-filter-item-check-size);
-  border: var(--sl-border-strong);
+  border: var(--sl-border-base-strong);
   border-radius: var(--sl-border-radius-full);
   &[data-multiselect='true'] {
     border-radius: var(--sl-border-radius-small);

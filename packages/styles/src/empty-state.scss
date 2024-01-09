@@ -63,12 +63,12 @@
       margin: var(--sl-empty-state-title-margin);
       font: var(--sl-empty-state-title-font);
       letter-spacing: var(--sl-empty-state-title-letter-spacing);
-      color: var(--sl-fg);
+      color: var(--sl-fg-base);
     }
 
     & > [data-sl-text] {
       margin-bottom: var(--sl-space-2);
-      color: var(--sl-fg-soft);
+      color: var(--sl-fg-base-soft);
       font: var(--sl-empty-state-description-font);
       letter-spacing: var(--sl-empty-state-description-letter-spacing);
       text-align: center;

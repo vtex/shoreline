@@ -87,40 +87,40 @@
       color: var(--sl-fg-muted-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring);
+      box-shadow: var(--sl-focus-ring-base);
       background: var(--sl-bg-muted-plain-hover);
       color: var(--sl-fg-muted-hover);
     }
     &:disabled {
-      background: var(--sl-bg-disabled);
-      color: var(--sl-fg-disabled);
+      background: var(--sl-bg-base-disabled);
+      color: var(--sl-fg-base-disabled);
       & > [data-sl-button-overlay] {
-        color: var(--sl-fg-soft);
+        color: var(--sl-fg-base-soft);
       }
     }
   }
 
   &[data-variant='tertiary'] {
-    background: var(--sl-bg-plain);
+    background: var(--sl-bg-base-plain);
     color: var(--sl-fg-muted);
     &:hover {
-      background: var(--sl-bg-plain-hover);
+      background: var(--sl-bg-base-plain-hover);
       color: var(--sl-fg-muted-hover);
     }
     &:active {
-      background: var(--sl-bg-plain-pressed);
+      background: var(--sl-bg-base-plain-pressed);
       color: var(--sl-fg-muted-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring);
-      background: var(--sl-bg-plain-hover);
+      box-shadow: var(--sl-focus-ring-base);
+      background: var(--sl-bg-base-plain-hover);
       color: var(--sl-fg-muted-hover);
     }
     &:disabled {
       background: transparent;
-      color: var(--sl-fg-disabled);
+      color: var(--sl-fg-base-disabled);
       & > [data-sl-button-overlay] {
-        color: var(--sl-fg-soft);
+        color: var(--sl-fg-base-soft);
       }
     }
   }
@@ -138,7 +138,7 @@
       box-shadow: var(--sl-focus-ring-accent);
     }
     &:disabled {
-      background: var(--sl-bg-strong-disabled);
+      background: var(--sl-bg-base-strong-disabled);
     }
   }
   &[data-variant='critical'] {
@@ -155,7 +155,7 @@
       background: var(--sl-bg-critical-strong-hover);
     }
     &:disabled {
-      background: var(--sl-bg-strong-disabled);
+      background: var(--sl-bg-base-strong-disabled);
     }
   }
   &[data-variant='criticalTertiary'] {
@@ -176,9 +176,9 @@
     }
     &:disabled {
       background: transparent;
-      color: var(--sl-fg-disabled);
+      color: var(--sl-fg-base-disabled);
       & > [data-sl-button-overlay] {
-        color: var(--sl-fg-soft);
+        color: var(--sl-fg-base-soft);
       }
     }
   }

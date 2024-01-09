@@ -11,20 +11,20 @@
   border-radius: var(--sl-border-radius-medium);
   display: flex;
   align-items: center;
-  border: var(--sl-border-strong);
+  border: var(--sl-border-base-strong);
 
   &:hover {
-    border: var(--sl-border-strong-hover);
+    border: var(--sl-border-base-strong-hover);
   }
 
   &:has(:focus-visible) {
-    box-shadow: var(--sl-focus-ring);
-    border: var(--sl-border-strong-hover);
+    box-shadow: var(--sl-focus-ring-base);
+    border: var(--sl-border-base-strong-hover);
   }
 }
 
 [data-sl-date-range-picker-icon-button] {
   border-top-left-radius: 0rem;
   border-bottom-left-radius: 0rem;
-  border-left: var(--sl-border);
+  border-left: var(--sl-border-base);
 }

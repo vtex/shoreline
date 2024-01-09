@@ -118,7 +118,7 @@ export function ReactWindow() {
         itemSize={40}
         width={300}
         style={{
-          border: 'var(--sl-border)',
+          border: 'var(--sl-border-base)',
         }}
       >
         {({ index, style }) => (

@@ -20,7 +20,7 @@ describe('tokens-to-dictionary', () => {
       })
     ).toStrictEqual({
       ColorRed6: 'var(--sl-color-red-6)',
-      Bg: 'var(--sl-bg)',
+      Bg: 'var(--sl-bg-base)',
     })
   })
 })
