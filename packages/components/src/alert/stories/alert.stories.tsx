@@ -1,12 +1,60 @@
 import React, { useState } from 'react'
 
+import type { AlertProps, AlertVariant } from '../index'
 import { Alert } from '../index'
 import { Stack } from '../../stack'
 import { Text } from '../../text'
 import { Button } from '../../button'
+import type { StoryObj } from '@storybook/react'
+
+const variants: AlertVariant[] = [
+  'success',
+  'critical',
+  'warning',
+  'informational',
+]
 
 export default {
   title: 'shoreline-components/alert',
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'Alert message',
+    },
+    variant: {
+      control: 'select',
+      options: variants,
+      description: 'Alert variant',
+    },
+    withAction: {
+      control: 'boolean',
+      description: 'Whether to render an action or not',
+    },
+  },
+  args: {
+    variant: 'informational',
+    children: 'Alert message',
+    withAction: false,
+  },
+} as StoryObj<StoryArgs>
+
+interface StoryArgs extends AlertProps {
+  withAction: boolean
+}
+
+export function Playground(args: StoryArgs) {
+  const { variant, children, withAction, ...props } = args
+
+  return (
+    <Alert variant={variant} {...props}>
+      <Text variant="body">{children}</Text>
+      {withAction && (
+        <Button variant="tertiary" onClick={() => alert('Clicked')}>
+          Action
+        </Button>
+      )}
+    </Alert>
+  )
 }
 
 export function Default() {

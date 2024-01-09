@@ -12,6 +12,7 @@ import { IconButton } from '../icon-button'
 
 /**
  * Alert indicators allow users to view semantic messages that are prominent and can be dismissable.
+ * @playground
  * @example
  * <Alert onDismiss={() => {}}>
  *  <Text variant="body">Message</Text>
@@ -66,9 +67,20 @@ function getIcon(variant: AlertVariant = 'informational') {
   }
 }
 
-type AlertVariant = 'informational' | 'success' | 'critical' | 'warning'
+export type AlertVariant = 'informational' | 'success' | 'critical' | 'warning'
 
 export interface AlertProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Variants of the alert, one of: informational, success, critical, warning.
+   * @default 'informational'
+   */
   variant?: AlertVariant
+  /**
+   * Callback fired when the alert is dismissed.
+   */
   onDismiss?: MouseEventHandler<HTMLButtonElement>
+  /**
+   * The content of the alert.
+   */
+  children?: React.ReactNode
 }
