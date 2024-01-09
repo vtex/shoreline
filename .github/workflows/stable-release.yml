@@ -46,7 +46,8 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            $(find packages -type d -name dist)
+            **/dist
+            !**/node_modules
           retention-days: 1
 
       - name: Test
