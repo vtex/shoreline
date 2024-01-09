@@ -114,7 +114,7 @@ function getIcon(status: CollectionStatus) {
 }
 
 /**
- * Represents the status of a collection
+ * Represents the status of a collection and indicates what should be rendered
  */
 export type CollectionStatus =
   | 'ready'
