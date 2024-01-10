@@ -6,7 +6,7 @@ This directory contains scripts that are used on the CI/CD pipelines.
 
 Randomly picks a Shoreline member and sets it as the git user. This makes it possible to automate deployments of the documentation site to Vercel.
 
-User and email are set as secret variables in the CI/CD pipelines.
+User and email are set as secret variables in the CI/CD pipelines and you can refer to their values by visiting our doc (only available for VTEXers) here: [GIT_USERS and GIT_EMAILS from vtex/shoreline](https://docs.google.com/spreadsheets/d/1DWNqJED40wceC5Qmd56sEKPnir8rjktt6mzOPuhtQBM/edit#gid=0).
 
 ### Testing
 
