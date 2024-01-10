@@ -111,6 +111,7 @@ jobs:
         env:
           STORYBOOK_URL: ${{needs.build.outputs.storybookUrl}}
         run: |
+          git pull --rebase
           pnpm run gen:docs
           git commit -am "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
-          git push -u origin main
+          git push -u origin main --force
