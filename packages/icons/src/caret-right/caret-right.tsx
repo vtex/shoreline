@@ -19,10 +19,11 @@ export const IconCaretRight = forwardRef<
       {...props}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6.96967 3.21967C7.26256 2.92678 7.73744 2.92678 8.03033 3.21967L14.2803 9.46967C14.5732 9.76256 14.5732 10.2374 14.2803 10.5303L8.03033 16.7803C7.73744 17.0732 7.26256 17.0732 6.96967 16.7803C6.67678 16.4874 6.67678 16.0126 6.96967 15.7197L12.6893 10L6.96967 4.28033C6.67678 3.98744 6.67678 3.51256 6.96967 3.21967Z"
-        fill="currentColor"
+        d="M7.5 3.75L13.75 10L7.5 16.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )

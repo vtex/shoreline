@@ -19,22 +19,25 @@ export const IconListBullets = forwardRef<
       {...props}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6.125 5C6.125 4.58579 6.46079 4.25 6.875 4.25H16.875C17.2892 4.25 17.625 4.58579 17.625 5C17.625 5.41421 17.2892 5.75 16.875 5.75H6.875C6.46079 5.75 6.125 5.41421 6.125 5Z"
-        fill="currentColor"
+        d="M6.875 5H16.875"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6.12549 10C6.12549 9.58579 6.46127 9.25 6.87549 9.25H16.875C17.2892 9.25 17.625 9.58579 17.625 10C17.625 10.4142 17.2892 10.75 16.875 10.75H6.87549C6.46127 10.75 6.12549 10.4142 6.12549 10Z"
-        fill="currentColor"
+        d="M6.87549 10H16.875"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6.12549 15C6.12549 14.5858 6.46127 14.25 6.87549 14.25H16.875C17.2892 14.25 17.625 14.5858 17.625 15C17.625 15.4142 17.2892 15.75 16.875 15.75H6.87549C6.46127 15.75 6.12549 15.4142 6.12549 15Z"
-        fill="currentColor"
+        d="M6.87549 15H16.875"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M3.4375 5.78125C3.86897 5.78125 4.21875 5.43147 4.21875 5C4.21875 4.56853 3.86897 4.21875 3.4375 4.21875C3.00603 4.21875 2.65625 4.56853 2.65625 5C2.65625 5.43147 3.00603 5.78125 3.4375 5.78125Z"

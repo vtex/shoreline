@@ -158,6 +158,10 @@ const iconsInfo = [
     description: 'technical; development; developer; center',
   },
   {
+    name: 'Coffee',
+    description: 'wait; empty',
+  },
+  {
     name: 'CopySimple',
     description: 'duplicate; url',
   },
@@ -387,8 +391,16 @@ const iconsInfo = [
     description: 'add; new; +',
   },
   {
+    name: 'PlusCircle',
+    description: 'empty; created',
+  },
+  {
     name: 'Printer',
     description: '–',
+  },
+  {
+    name: 'Prohibit',
+    description: 'permission; denied; block',
   },
   {
     name: 'Pulse',
