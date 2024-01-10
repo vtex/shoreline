@@ -19,10 +19,32 @@ export const IconCalendarBlank = forwardRef<
       {...props}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M14.5 1.875C14.5 1.46079 14.1642 1.125 13.75 1.125C13.3358 1.125 13 1.46079 13 1.875V2.375H7V1.875C7 1.46079 6.66421 1.125 6.25 1.125C5.83579 1.125 5.5 1.46079 5.5 1.875V2.375H3.75C2.99061 2.375 2.375 2.99061 2.375 3.75V16.25C2.375 17.0094 2.99061 17.625 3.75 17.625H16.25C17.0094 17.625 17.625 17.0094 17.625 16.25V3.75C17.625 2.99061 17.0094 2.375 16.25 2.375H14.5V1.875ZM16.125 6.125V3.875H14.5V4.375C14.5 4.78921 14.1642 5.125 13.75 5.125C13.3358 5.125 13 4.78921 13 4.375V3.875H7V4.375C7 4.78921 6.66421 5.125 6.25 5.125C5.83579 5.125 5.5 4.78921 5.5 4.375V3.875H3.875V6.125H16.125ZM3.875 7.625H16.125V16.125H3.875V7.625Z"
-        fill="currentColor"
+        d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.75 1.875V4.375"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.25 1.875V4.375"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.125 6.875H16.875"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )

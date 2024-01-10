@@ -16,8 +16,18 @@ export const IconX = forwardRef<SVGSVGElement, ComponentPropsWithoutRef<'svg'>>(
         {...props}
       >
         <path
-          d="M16.1553 4.90533C16.4482 4.61244 16.4482 4.13756 16.1553 3.84467C15.8624 3.55178 15.3876 3.55178 15.0947 3.84467L10 8.93934L4.90533 3.84467C4.61244 3.55178 4.13756 3.55178 3.84467 3.84467C3.55178 4.13756 3.55178 4.61244 3.84467 4.90533L8.93934 10L3.84467 15.0947C3.55178 15.3876 3.55178 15.8624 3.84467 16.1553C4.13756 16.4482 4.61244 16.4482 4.90533 16.1553L10 11.0607L15.0947 16.1553C15.3876 16.4482 15.8624 16.4482 16.1553 16.1553C16.4482 15.8624 16.4482 15.3876 16.1553 15.0947L11.0607 10L16.1553 4.90533Z"
-          fill="currentColor"
+          d="M15.625 4.375L4.375 15.625"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.625 15.625L4.375 4.375"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     )
