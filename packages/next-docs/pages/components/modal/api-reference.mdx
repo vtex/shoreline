@@ -2,25 +2,8 @@
 
 Modal containers allow users to view content that demands attention through an overlay window that opens on top of the current page.
 
-```jsx
-function Example() {
-  const [open, setOpen] = React.useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-      >
-        <ModalContent>Content</ModalContent>
-      </Modal>
-    </>
-  );
-}
-```
+<iframe src="https://620e870c28c4ae003a705d42-molepqbheg.chromatic.com/?path=/story/shoreline-components-modal--playground&full=1&shortcuts=false&singleStory=true" 
+        style={{"width":"100%","height":600,"border":0,"borderRadius":4}}></iframe>
 
 ## Parameters
 
@@ -36,14 +19,26 @@ function Example() {
 
 ### `open` (optional)
 
+Whether the modal is open or not
+
 - Type: `boolean`
+
+- Default: `false`
 
 ### `portal` (optional)
 
+Whether to render the modal inside a portal or not
+
 - Type: `boolean`
+
+- Default: `true`
 
 ### `size` (optional)
 
+Modal size
+
 - Type: `small | large | medium`
 
-[View source](https://github.com/vtex/shoreline/blob/e5a9138b1/packages/components/src/modal/modal.tsx#L30)
+- Default: `medium`
+
+[View source](https://github.com/vtex/shoreline/blob/f7b6f1ffa/packages/components/src/modal/modal.tsx#L32)
