@@ -17,6 +17,7 @@ const useMessage = createMessageHook(messages)
 /**
  * Confirmation Modal containers allow merchants to confirm an action through an overlay window that opens on top of the current page.
  *
+ * @playground
  * @example
  *  const [open, setOpen] = useState(false)
  *
