@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.61.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.61.0...@vtex/shoreline-components@0.61.1) (2024-01-10)
+
+### Bug Fixes
+
+- **alert:** font color ([6ed74c0](https://github.com/vtex/shoreline/commit/6ed74c040b729ac50eddd2f43c11957f55648957))
+
 # [0.61.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.60.0...@vtex/shoreline-components@0.61.0) (2024-01-10)
 
 ### Features
