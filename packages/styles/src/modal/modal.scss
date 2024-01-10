@@ -1,12 +1,4 @@
 [data-sl-modal] {
-  --sl-modal-small-min-height: 11.25rem;
-  --sl-modal-small-max-height: 30rem;
-  --sl-modal-medium-min-height: 14rem;
-  --sl-modal-medium-max-height: 42.5rem;
-  --sl-modal-large-min-height: 15.25rem;
-  --sl-modal-large-max-height: 42.5rem;
-  --sl-modal-min-height: var(--sl-modal-medium-min-height);
-  --sl-modal-max-height: var(--sl-modal-medium-max-height);
   --sl-modal-small-width: 23rem;
   --sl-modal-medium-width: 38.75rem;
   --sl-modal-large-width: 50rem;
@@ -22,22 +14,22 @@
   z-index: 99999;
   display: flex;
   flex-direction: column;
-  overflow: hidden auto;
-  height: fit-content;
+  justify-content: center;
   top: var(--sl-space-20);
   bottom: var(--sl-space-20);
-  min-height: var(--sl-modal-min-height);
-  max-height: var(--sl-modal-max-height);
   max-width: var(--sl-modal-width);
-  border-radius: var(--sl-border-radius-large);
-  background-color: var(--sl-bg);
   color: var(--sl-fg);
-  box-shadow: var(--sl-shadow-2);
+
+  [data-sl-modal-container] {
+    height: fit-content;
+    overflow: hidden auto;
+    background-color: var(--sl-bg);
+    box-shadow: var(--sl-shadow-2);
+    border-radius: var(--sl-border-radius-large);
+  }
 
   &[data-size='small'] {
     --sl-modal-width: var(--sl-modal-small-width);
-    --sl-modal-min-height: var(--sl-modal-small-min-height);
-    --sl-modal-max-height: var(--sl-modal-small-max-height);
     --sl-footer-button-min-width: auto;
     --sl-modal-footer-button-width: 100%;
     --sl-modal-header-padding: var(--sl-modal-header-padding-small);
@@ -45,15 +37,11 @@
   }
   &[data-size='medium'] {
     --sl-modal-width: var(--sl-modal-medium-width);
-    --sl-modal-min-height: var(--sl-modal-medium-min-height);
-    --sl-modal-max-height: var(--sl-modal-medium-max-height);
     --sl-modal-header-padding: var(--sl-modal-header-padding-medium);
     --sl-modal-content-space-top: 1.5rem;
   }
   &[data-size='large'] {
     --sl-modal-width: var(--sl-modal-large-width);
-    --sl-modal-min-height: var(--sl-modal-large-min-height);
-    --sl-modal-max-height: var(--sl-modal-large-max-height);
     --sl-modal-header-padding: var(--sl-modal-header-padding-large);
     --sl-modal-content-space-top: 1.75rem;
   }
