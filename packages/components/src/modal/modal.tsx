@@ -56,6 +56,7 @@ export interface ModalProps extends ComponentPropsWithoutRef<'div'> {
   onClose?: (event: Event) => void
   /**
    * Whether the modal is open or not
+   * @default false
    */
   open?: boolean
   /**
