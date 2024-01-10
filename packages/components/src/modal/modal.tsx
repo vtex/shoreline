@@ -6,6 +6,8 @@ import { Container } from '../content'
 
 /**
  * Modal containers allow users to view content that demands attention through an overlay window that opens on top of the current page.
+ *
+ * @playground
  * @example
  * ```jsx
  * function Example() {
@@ -48,8 +50,23 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
 })
 
 export interface ModalProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Callback fired when the backdrop or close button is clicked.
+   */
   onClose?: (event: Event) => void
+  /**
+   * Whether the modal is open or not
+   * @default false
+   */
   open?: boolean
+  /**
+   * Whether to render the modal inside a portal or not
+   * @default true
+   */
   portal?: boolean
+  /**
+   * Modal size
+   * @default medium
+   */
   size?: 'small' | 'medium' | 'large'
 }
