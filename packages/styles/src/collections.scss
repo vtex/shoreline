@@ -1,0 +1,30 @@
+
+[data-sl-collections] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-space-4);
+
+
+  [data-sl-slot="header"]{
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-4);
+  }
+
+  [data-sl-slot="filters"]{
+    display: flex;
+    gap: var(--sl-space-2);
+  }
+
+
+  [data-sl-slot="controls"]{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  [data-sl-slot="footer"] {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
