@@ -55,7 +55,9 @@ jobs:
           onlyChanged: true
 
       - name: Publish
-        run: pnpm lerna publish prerelease --preid dev --dist-tag dev --yes --no-verify-access
+        run: |
+          bash ./scripts/maybe-skip-ci.sh
+          pnpm lerna publish prerelease --preid dev --dist-tag dev --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           HUSKY: 0

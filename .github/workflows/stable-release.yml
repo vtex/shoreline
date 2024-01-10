@@ -65,7 +65,9 @@ jobs:
           exitOnceUploaded: true
 
       - name: Publish
-        run: pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
+        run: |
+          bash ./scripts/maybe-skip-ci.sh
+          pnpm lerna publish --yes --no-verify-access --conventional-graduate --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           HUSKY: 0
@@ -111,9 +113,7 @@ jobs:
         env:
           STORYBOOK_URL: ${{needs.build.outputs.storybookUrl}}
         run: |
-          if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
-            exit 0
-          fi
+          bash ./scripts/maybe-skip-ci.sh
           git pull --rebase
           pnpm run gen:docs
           git commit -am "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
