@@ -111,6 +111,9 @@ jobs:
         env:
           STORYBOOK_URL: ${{needs.build.outputs.storybookUrl}}
         run: |
+          if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
+            exit 0
+          fi
           git pull --rebase
           pnpm run gen:docs
           git commit -am "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
