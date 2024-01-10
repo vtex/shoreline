@@ -44,7 +44,11 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
           {isChecked && <IconCheckSmall data-sl-checkbox-check />}
         </div>
         {props.children ? (
-          <Text data-sl-checkbox-label data-disabled={isDisabled}>
+          <Text
+            variant="body"
+            data-sl-checkbox-label
+            data-disabled={isDisabled}
+          >
             {props.children}
           </Text>
         ) : null}
