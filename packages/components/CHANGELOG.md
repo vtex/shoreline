@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.62.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.61.2...@vtex/shoreline-components@0.62.0) (2024-01-10)
+
+### Features
+
+- **collections:** add collections architecture ([29e33a8](https://github.com/vtex/shoreline/commit/29e33a84aeff482f1f45384be6a40ced495b7168))
+- **collections:** add collections draft implementation ([198d92c](https://github.com/vtex/shoreline/commit/198d92cbecf48290035bc0affc7da5d9d38b73ec))
+
 ## [0.61.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.61.1...@vtex/shoreline-components@0.61.2) (2024-01-10)
 
 **Note:** Version bump only for package @vtex/shoreline-components
