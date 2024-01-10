@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.38](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.37...@shoreline/next-docs@0.7.38) (2024-01-10)
+
+**Note:** Version bump only for package @shoreline/next-docs
+
 ## [0.7.37](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.36...@shoreline/next-docs@0.7.37) (2024-01-10)
 
 **Note:** Version bump only for package @shoreline/next-docs
