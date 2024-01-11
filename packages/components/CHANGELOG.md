@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.61.1...@vtex/shoreline-components@0.62.1) (2024-01-11)
+
+### Bug Fixes
+
+- fix layout and font for checkbox and radio ([1be8c19](https://github.com/vtex/shoreline/commit/1be8c19e1966a8d78e47e7ac8583031078ce7d6b))
+
 # [0.62.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.61.2...@vtex/shoreline-components@0.62.0) (2024-01-10)
 
 ### Features
