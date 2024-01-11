@@ -9,7 +9,7 @@ import { Stack } from '../stack'
  * <FilterProvider>
  *  <FilterPopover>
  *    <FilterList>
- *      <FilterOption value="option">Option</FilterOption>
+ *      <FilterItem value="option">Option</FilterItem>
  *    </FilterList>
  *  </FilterPopover>
  * </FilterProvider>
