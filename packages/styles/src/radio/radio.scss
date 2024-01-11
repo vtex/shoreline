@@ -1,6 +1,14 @@
 [data-sl-radio] {
-  font: var(--sl-text-body-font);
-  letter-spacing: var(--sl-text-body-spacing);
+  display: flex;
+
+  & > [data-sl-label] {
+    margin-left: var(--sl-space-2);
+    color: var(--sl-fg);
+
+    &[data-disabled='true'] {
+      color: var(--sl-fg-disabled);
+    }
+  }
 
   & > [data-sl-radio-input] {
     appearance: none;
