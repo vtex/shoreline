@@ -20,6 +20,7 @@ export const IconWarningCircle = forwardRef<
     >
       <path
         d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,14 +28,18 @@ export const IconWarningCircle = forwardRef<
       />
       <path
         d="M10 6.25V10.625"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M10 14.2188C10.4315 14.2188 10.7812 13.869 10.7812 13.4375C10.7812 13.006 10.4315 12.6562 10 12.6562C9.56853 12.6562 9.21875 13.006 9.21875 13.4375C9.21875 13.869 9.56853 14.2188 10 14.2188Z"
-        fill="currentColor"
+        d="M 10 13.4 l 0.0001 0"
+        vectorEffect="non-scaling-stroke"
+        strokeWidth="3"
+        strokeLinecap="round"
+        stroke="currentColor"
       />
     </svg>
   )

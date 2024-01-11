@@ -17,6 +17,7 @@ export const IconX = forwardRef<SVGSVGElement, ComponentPropsWithoutRef<'svg'>>(
       >
         <path
           d="M15.625 4.375L4.375 15.625"
+          vectorEffect="non-scaling-stroke"
           stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -24,6 +25,7 @@ export const IconX = forwardRef<SVGSVGElement, ComponentPropsWithoutRef<'svg'>>(
         />
         <path
           d="M15.625 15.625L4.375 4.375"
+          vectorEffect="non-scaling-stroke"
           stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"

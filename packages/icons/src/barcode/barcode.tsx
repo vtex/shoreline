@@ -20,6 +20,7 @@ export const IconBarcode = forwardRef<
     >
       <path
         d="M14.375 3.75H17.5V6.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M5.625 16.25H2.5V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M17.5 13.125V16.25H14.375"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -41,6 +44,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M2.5 6.875V3.75H5.625"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -48,6 +52,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M6.25 6.875V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -55,6 +60,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M13.75 6.875V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -62,6 +68,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M11.25 6.875V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -69,6 +76,7 @@ export const IconBarcode = forwardRef<
       />
       <path
         d="M8.75 6.875V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

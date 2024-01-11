@@ -20,6 +20,7 @@ export const IconPulse = forwardRef<
     >
       <path
         d="M1.875 10H4.375L7.5 3.125L12.5 16.25L15.625 10H18.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

@@ -20,6 +20,7 @@ export const IconCheck = forwardRef<
     >
       <path
         d="M3.125 11.25L7.5 15.625L17.5 5.625"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

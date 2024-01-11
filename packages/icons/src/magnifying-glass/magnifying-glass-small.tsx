@@ -20,6 +20,7 @@ export const IconMagnifyingGlassSmall = forwardRef<
     >
       <path
         d="M7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12Z"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconMagnifyingGlassSmall = forwardRef<
       />
       <path
         d="M10.5356 10.5356L14 14"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

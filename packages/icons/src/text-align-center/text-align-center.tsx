@@ -20,6 +20,7 @@ export const IconTextAlignCenter = forwardRef<
     >
       <path
         d="M3.125 5H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconTextAlignCenter = forwardRef<
       />
       <path
         d="M5 8.125H15"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconTextAlignCenter = forwardRef<
       />
       <path
         d="M3.125 11.25H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -41,6 +44,7 @@ export const IconTextAlignCenter = forwardRef<
       />
       <path
         d="M5 14.375H15"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

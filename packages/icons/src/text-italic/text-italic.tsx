@@ -20,6 +20,7 @@ export const IconTextItalic = forwardRef<
     >
       <path
         d="M11.8745 4.375L8.12451 15.625"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconTextItalic = forwardRef<
       />
       <path
         d="M4.99951 15.625H11.2495"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconTextItalic = forwardRef<
       />
       <path
         d="M8.74951 4.375H14.9995"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

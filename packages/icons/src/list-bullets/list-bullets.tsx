@@ -20,6 +20,7 @@ export const IconListBullets = forwardRef<
     >
       <path
         d="M6.875 5H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconListBullets = forwardRef<
       />
       <path
         d="M6.87549 10H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconListBullets = forwardRef<
       />
       <path
         d="M6.87549 15H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

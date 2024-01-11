@@ -20,6 +20,7 @@ export const IconCaretDown = forwardRef<
     >
       <path
         d="M16.25 7.5L10 13.75L3.75 7.5"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

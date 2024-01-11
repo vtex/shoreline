@@ -20,6 +20,7 @@ export const IconChartBar = forwardRef<
     >
       <path
         d="M3.75 16.25V10.625H7.5"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconChartBar = forwardRef<
       />
       <path
         d="M17.5 16.25H2.5"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconChartBar = forwardRef<
       />
       <path
         d="M7.5 16.25V6.875H11.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -41,6 +44,7 @@ export const IconChartBar = forwardRef<
       />
       <path
         d="M11.875 16.25V3.125H16.25V16.25"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
