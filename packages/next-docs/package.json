@@ -1,6 +1,6 @@
 {
   "name": "@shoreline/next-docs",
-  "version": "0.7.47",
+  "version": "0.7.48",
   "private": true,
   "scripts": {
     "dev": "next dev",
