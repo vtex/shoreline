@@ -1,4 +1,10 @@
 {
+  "index": {
+    "title": "All Components",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "accessible-icon": "AccessibleIcon",
   "alert": "Alert",
   "bleed": "Bleed",
