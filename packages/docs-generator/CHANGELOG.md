@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.3.0...@vtex/docs-generator@0.3.1) (2024-01-11)
+
+### Bug Fixes
+
+- adjust docs template ([a62f295](https://github.com/vtex/shoreline/commit/a62f29555ea3435bfca4fe2cf37f29a0b671eba9))
+
 # [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.2.0...@vtex/docs-generator@0.3.0) (2024-01-09)
 
 ### Features
