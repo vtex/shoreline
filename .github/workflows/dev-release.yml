@@ -56,7 +56,9 @@ jobs:
 
       - name: Publish
         run: |
-          bash ./scripts/maybe-skip-ci.sh
+          if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
+            exit 0
+          fi
           pnpm lerna publish prerelease --preid dev --dist-tag dev --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
