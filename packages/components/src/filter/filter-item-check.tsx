@@ -4,7 +4,7 @@ import { IconCheckSmall } from '@vtex/shoreline-icons'
 import { useSelectContext, SelectItemCheck } from '@vtex/shoreline-primitives'
 
 /**
- * Check state of the FilterOption
+ * Check state of the FilterItem
  */
 export const FilterItemCheck = forwardRef<HTMLDivElement, FilterItemCheckProps>(
   function FilterItemCheck(props, ref) {

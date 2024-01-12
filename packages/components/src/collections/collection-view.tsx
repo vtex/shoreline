@@ -20,16 +20,9 @@ const useMessage = createMessageHook(messages)
  * A collection view is a component that renders a collection based on its status
  *
  * @example
- * ```tsx
- * import { CollectionView } from '@vtex/shoreline'
- *
- * function Example() {
- *  return (
- *   <Collection>
- *     <CollectionView status="loading" />
- *   </Collection>
- * )
- * ```
+ * <Collection>
+ *    <CollectionView status="loading" />
+ * </Collection>
  */
 export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
   function CollectionMessage(props, ref) {

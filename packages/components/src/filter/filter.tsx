@@ -11,7 +11,7 @@ import { FilterList } from './filter-list'
  * Filter component
  * @example
  * <Filter label="Label">
- *  <FilterOption value="option">Option</FilterOption>
+ *  <FilterItem value="option">Option</FilterItem>
  * </Filter>
  */
 export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(

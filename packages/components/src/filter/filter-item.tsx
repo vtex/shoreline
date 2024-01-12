@@ -9,7 +9,7 @@ import { FilterItemCheck } from './filter-item-check'
  * Filter Option
  * @example
  * <Filter label="Label">
- *  <FilterOption value="option">Option</FilterOption>
+ *  <FilterItem value="option">Option</FilterItem>
  * </Filter>
  */
 export const FilterItem = forwardRef<HTMLDivElement, FilterItemProps>(

@@ -9,7 +9,7 @@ import { Compose } from '../compose'
  * <Clickable>
  *  <ClickableBubble>
  *    <p>Clicking the text will bubble the Click event to Clickable</p>
- *  <ClickableBubble>
+ *  </ClickableBubble>
  * </Clickable>
  */
 export const ClickableBubble = forwardRef<HTMLDivElement, ClickableBubbleProps>(
