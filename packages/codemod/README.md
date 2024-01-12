@@ -4,7 +4,7 @@ This repository contains a collection of codemod scripts to use with [JSCodeshif
 
 ### Usage
 
-`pnpm shoreline-codemod <transform> <path> [...options]`
+`npx shoreline-codemod <transform> <path> [...options]`
 
 - `transform` - name of transform, see available transforms below.
 - `path` - files or directory to transform

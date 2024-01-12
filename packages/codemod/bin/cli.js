@@ -94,8 +94,8 @@ function runTransform({ files, flags, parser, transformer }) {
 // update here with more choices
 const TRANSFORMER_INQUIRER_CHOICES = [
   {
-    name: 'example: Example transform',
-    value: 'example',
+    name: 'migrate-flex: Migrates Flex from admin-ui to shoreline',
+    value: 'migrate-flex',
   },
 ]
 
@@ -127,7 +127,7 @@ function run() {
       description: 'Codemods for updating Shoreline APIs.',
       help: `
     Usage
-      $ pnpm shoreline-codemod <transform> <path> <...options>
+      $ npx @vtex/shoreline-codemod <transform> <path> <...options>
         transform    One of the choices from https://github.com/shoreline/packages/codemod
         path         Files or directory to transform. Can be a glob like src/**.test.js
     Options
