@@ -39,7 +39,7 @@ interface StoryArgs {
 export function Playground(args: StoryArgs) {
   const { content, messages, locale } = args
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const handleClose = () => {
     setOpen(false)
@@ -47,9 +47,7 @@ export function Playground(args: StoryArgs) {
 
   return (
     <LocaleProvider locale={locale}>
-      <Button onClick={() => setOpen((open) => !open)}>
-        Open confirmation modal
-      </Button>
+      <Button onClick={() => setOpen((open) => !open)}>Open modal</Button>
       <ConfirmationModal
         open={open}
         onClose={handleClose}
