@@ -3,10 +3,10 @@
 
   & > [data-sl-label] {
     margin-left: var(--sl-space-2);
-    color: var(--sl-fg);
+    color: var(--sl-fg-base);
 
     &[data-disabled='true'] {
-      color: var(--sl-fg-disabled);
+      color: var(--sl-fg-base-disabled);
     }
   }
 
@@ -17,8 +17,8 @@
     cursor: pointer;
     width: 1.25rem;
     height: 1.25rem;
-    background-color: var(--sl-element-bg);
-    border: var(--sl-element-border);
+    background-color: var(--sl-element-bg-base);
+    border: var(--sl-element-border-base);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,7 +94,7 @@
       }
 
       &:after {
-        background-color: var(--sl-element-check-bg);
+        background-color: var(--sl-element-check-bg-base);
       }
 
       &:focus {
