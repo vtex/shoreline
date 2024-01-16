@@ -298,8 +298,7 @@ export const presetAdmin: ShorelineConfig = {
       full: '100%',
     },
     'focus-ring': {
-      base:
-        '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-gray-5',
+      base: '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-gray-5',
       critical:
         '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-red-6',
       accent:
