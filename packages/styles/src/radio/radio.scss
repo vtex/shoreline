@@ -24,9 +24,9 @@
     justify-content: center;
 
     &[data-error='false'] {
-      --sl-element-border: var(--sl-border-base-strong);
+      --sl-element-border-base: var(--sl-border-base-strong);
       --sl-element-border-hover: var(--sl-border-base-strong-hover);
-      --sl-element-bg: var(--sl-bg-base);
+      --sl-element-bg-base: var(--sl-bg-base);
       --sl-element-border-checked: var(--sl-bg-accent-strong);
       --sl-element-bg-checked: var(--sl-bg-accent-strong);
       --sl-element-check-bg: var(--sl-bg-base);
@@ -35,9 +35,9 @@
     }
 
     &[data-error='true'] {
-      --sl-element-border: var(--sl-border-critical-strong);
+      --sl-element-border-base: var(--sl-border-critical-strong);
       --sl-element-border-hover: var(--sl-border-critical-strong-hover);
-      --sl-element-bg: var(--sl-bg-base);
+      --sl-element-bg-base: var(--sl-bg-base);
       --sl-element-border-checked: var(--sl-bg-accent-strong);
       --sl-element-bg-checked: var(--sl-bg-accent-strong);
       --sl-element-check-bg: var(--sl-bg-base);
@@ -64,9 +64,9 @@
     }
 
     &:disabled {
-      --sl-element-border: var(--sl-border-base-disabled);
+      --sl-element-border-base: var(--sl-border-base-disabled);
       --sl-element-border-hover: var(--sl-border-base-disabled);
-      --sl-element-bg: var(--sl-bg-base-disabled);
+      --sl-element-bg-base: var(--sl-bg-base-disabled);
       --sl-element-border-checked: var(--sl-border-base-disabled);
       --sl-element-bg-checked: var(--sl-bg-base-disabled);
       --sl-element-check-bg: var(--sl-fg-base-disabled);
@@ -94,7 +94,7 @@
       }
 
       &:after {
-        background-color: var(--sl-element-check-bg-base);
+        background-color: var(--sl-element-check-bg);
       }
 
       &:focus {
