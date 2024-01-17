@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2024-01-17)
+
+### Features
+
+- **icons:** make icon strokes preserve width ([80ddb7d](https://github.com/vtex/shoreline/commit/80ddb7dcc9d1429c9736e131867be6cc527fa827))
+
 ## 0.2.4 (2024-01-10)
 
 **Note:** Version bump only for package @vtex/shoreline-icons

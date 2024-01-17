@@ -295,10 +295,10 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.2.4
+        specifier: ^0.3.0
         version: link:../icons
       '@vtex/shoreline-primitives':
-        specifier: ^0.3.2
+        specifier: ^0.3.3
         version: link:../primitives
       '@vtex/shoreline-utils':
         specifier: ^0.9.0
@@ -356,7 +356,7 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.2.4
+        specifier: ^0.3.0
         version: link:../icons
       '@vtex/shoreline-utils':
         specifier: ^0.9.0
@@ -483,7 +483,7 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.2.4
+        specifier: ^0.3.0
         version: link:../icons
       '@vtex/shoreline-utils':
         specifier: ^0.9.0
@@ -637,7 +637,7 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^0.2.4
+        specifier: ^0.3.0
         version: link:../icons
       '@vtex/shoreline-utils':
         specifier: ^0.9.0
@@ -656,7 +656,7 @@ importers:
         specifier: 1.8.8
         version: 1.8.8
       '@vtex/shoreline-components':
-        specifier: ^0.62.2
+        specifier: ^0.62.3
         version: link:../components
       match-sorter:
         specifier: 6.3.1
