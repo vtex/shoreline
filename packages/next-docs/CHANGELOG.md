@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.8.3...@shoreline/next-docs@0.9.0) (2024-01-17)
+
+### Features
+
+- rename base surface ([0bb5bf0](https://github.com/vtex/shoreline/commit/0bb5bf0d61992bf14296672aadd6b8992374a48f))
+
 ## [0.8.3](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.8.2...@shoreline/next-docs@0.8.3) (2024-01-17)
 
 **Note:** Version bump only for package @shoreline/next-docs

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.63.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.62.3...@vtex/shoreline-components@0.63.0) (2024-01-17)
+
+### Bug Fixes
+
+- **components:** regressions from base token renaming ([31f3550](https://github.com/vtex/shoreline/commit/31f3550f7d2c1bcf4faa18e91ade2149b27aa872))
+
+### Features
+
+- rename base surface ([0bb5bf0](https://github.com/vtex/shoreline/commit/0bb5bf0d61992bf14296672aadd6b8992374a48f))
+
 ## [0.62.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.62.2...@vtex/shoreline-components@0.62.3) (2024-01-17)
 
 **Note:** Version bump only for package @vtex/shoreline-components

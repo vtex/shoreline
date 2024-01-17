@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.7.1...@vtex/shoreline-styles@0.8.0) (2024-01-17)
+
+### Bug Fixes
+
+- **components:** regressions from base token renaming ([31f3550](https://github.com/vtex/shoreline/commit/31f3550f7d2c1bcf4faa18e91ade2149b27aa872))
+- **radio:** contextual vars name ([324c44a](https://github.com/vtex/shoreline/commit/324c44a1d41181caa9dc9c213baa6f5be388170b))
+
+### Features
+
+- rename base surface ([0bb5bf0](https://github.com/vtex/shoreline/commit/0bb5bf0d61992bf14296672aadd6b8992374a48f))
+- rename tokens with base surface prefix ([a30d3ff](https://github.com/vtex/shoreline/commit/a30d3ff00614970f80f729f3a6f9a09348a3c27f))
+
 ## [0.7.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-styles@0.6.1...@vtex/shoreline-styles@0.7.1) (2024-01-11)
 
 ### Bug Fixes

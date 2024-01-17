@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-components",
-  "version": "0.62.3",
+  "version": "0.63.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
