@@ -20,6 +20,7 @@ export const IconCode = forwardRef<
     >
       <path
         d="M5 6.875L1.25 10L5 13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconCode = forwardRef<
       />
       <path
         d="M15 6.875L18.75 10L15 13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconCode = forwardRef<
       />
       <path
         d="M12.5 3.125L7.5 16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

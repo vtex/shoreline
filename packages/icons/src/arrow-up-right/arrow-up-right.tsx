@@ -20,6 +20,7 @@ export const IconArrowUpRight = forwardRef<
     >
       <path
         d="M5 15L15 5"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconArrowUpRight = forwardRef<
       />
       <path
         d="M6.875 5H15V13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

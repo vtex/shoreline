@@ -20,6 +20,7 @@ export const IconCaretUpSmall = forwardRef<
     >
       <path
         d="M3 10L8 5L13 10"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

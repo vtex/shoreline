@@ -20,6 +20,7 @@ export const IconCopySimple = forwardRef<
     >
       <path
         d="M16.8743 14.3746V3.12451H5.62378"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconCopySimple = forwardRef<
       />
       <path
         d="M14.3742 5.62451H3.12378V16.8745H14.3742V5.62451Z"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

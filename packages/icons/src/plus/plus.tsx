@@ -20,6 +20,7 @@ export const IconPlus = forwardRef<
     >
       <path
         d="M3.125 10H16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconPlus = forwardRef<
       />
       <path
         d="M10 3.125V16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

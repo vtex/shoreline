@@ -20,6 +20,7 @@ export const IconFlag = forwardRef<
     >
       <path
         d="M3.125 16.875V3.75"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconFlag = forwardRef<
       />
       <path
         d="M3.125 13.1251C8.125 8.79463 11.875 17.4556 16.875 13.1251V3.7501C11.875 8.08057 8.125 -0.58037 3.125 3.7501"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

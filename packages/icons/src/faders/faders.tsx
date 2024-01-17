@@ -20,6 +20,7 @@ export const IconFaders = forwardRef<
     >
       <path
         d="M10 9.375L10 16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M10 3.125L10 6.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M15.625 15.625L15.6251 16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -41,6 +44,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M15.6251 3.125L15.625 13.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -48,6 +52,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M17.5 13.125H13.75"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -55,6 +60,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M4.37506 13.125L4.375 16.875"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -62,6 +68,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M4.375 3.125L4.37506 10.625"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -69,6 +76,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M2.5 10.625H6.25"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -76,6 +84,7 @@ export const IconFaders = forwardRef<
       />
       <path
         d="M11.875 6.875H8.125"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"

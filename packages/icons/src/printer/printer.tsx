@@ -20,6 +20,7 @@ export const IconPrinter = forwardRef<
     >
       <path
         d="M5 6.25V3.125H15V6.25"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -27,6 +28,7 @@ export const IconPrinter = forwardRef<
       />
       <path
         d="M15 11.875H5V16.875H15V11.875Z"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -34,6 +36,7 @@ export const IconPrinter = forwardRef<
       />
       <path
         d="M5 13.75H1.875V7.5C1.875 6.80937 2.48125 6.25 3.22891 6.25H16.7711C17.5187 6.25 18.125 6.80937 18.125 7.5V13.75H15"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -42,6 +45,7 @@ export const IconPrinter = forwardRef<
       <path
         d="M15.5625 9.0625C15.5625 9.54575 15.1707 9.9375 14.6875 9.9375C14.2043 9.9375 13.8125 9.54575 13.8125 9.0625C13.8125 8.57925 14.2043 8.1875 14.6875 8.1875C15.1707 8.1875 15.5625 8.57925 15.5625 9.0625Z"
         fill="currentColor"
+        vectorEffect="non-scaling-stroke"
         stroke="currentColor"
         strokeWidth="0.125"
       />
