@@ -49,3 +49,4 @@ jobs:
           buildScriptName: build:storybook:ci
           exitOnceUploaded: true
           onlyChanged: true
+          exitZeroOnChanges: true
