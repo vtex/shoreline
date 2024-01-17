@@ -1,0 +1,51 @@
+# API Reference
+
+Text Input component
+
+```jsx
+<Input />
+```
+
+## Parameters
+
+### `props`
+
+- Type: `typescript.Omit<@vtex/shoreline-components.InputProps, ref> & @types/react.React.RefAttributes<typescript.HTMLInputElement>`
+
+## Props
+
+### `disabled` (optional)
+
+Whether is disabled or not
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `error` (optional)
+
+Whether there is an error
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `onChange` (optional)
+
+Callback for value change
+
+- Type: `@types/react.React.Dispatch<any>`
+
+### `prefix` (optional)
+
+Node added before input space
+
+- Type: `@types/react.React.ReactNode`
+
+### `suffix` (optional)
+
+Node added before input space
+
+- Type: `@types/react.React.ReactNode`
+
+[View source](https://github.com/vtex/shoreline/blob/4a5bce6b0/packages/components/src/input/input.tsx#L13)

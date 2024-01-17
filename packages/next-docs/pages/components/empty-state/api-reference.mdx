@@ -1,0 +1,30 @@
+# API Reference
+
+Renders a styled empty state area
+
+```jsx
+<EmptyState>
+  <Heading>Title goes here</Heading>
+  <Slot name="actions">
+    <Button variant="primary">label</Button>
+  </Slot>
+</EmptyState>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.EmptyStateProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `size` (optional)
+
+Indicates size of empty state area
+
+- Type: `small | large | medium`
+
+- Default: `'medium'`
+
+[View source](https://github.com/vtex/shoreline/blob/4a5bce6b0/packages/components/src/empty-state/empty-state.tsx#L15)

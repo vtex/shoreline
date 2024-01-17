@@ -1,0 +1,40 @@
+# API Reference
+
+Header of the Modal
+
+```jsx
+function Example() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <ModalHeader>
+          <ModalHeading>Title</ModalHeading>
+          <ModalDismiss />
+        </ModalHeader>
+      </Modal>
+    </>
+  );
+}
+```
+
+## Parameters
+
+### `props`
+
+- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.ButtonHTMLAttributes<typescript.HTMLButtonElement>, typescript.HTMLButtonElement>, ref> & typescript.Pick<@vtex/shoreline-components.IconButtonProps, size> & @types/react.React.RefAttributes<typescript.HTMLButtonElement>`
+
+## Props
+
+### `ModalDismissProps`
+
+- Type: `@types/react.React.ComponentPropsWithoutRef<button> & typescript.Pick<@vtex/shoreline-components.IconButtonProps, size>`
+
+[View source](https://github.com/vtex/shoreline/blob/4a5bce6b0/packages/components/src/modal/modal-dismiss.tsx#L35)
