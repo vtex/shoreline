@@ -8,7 +8,9 @@ const tokens = {
     },
   },
   bg: {
-    '*': '$color-red-6',
+    base: {
+      '*': '$color-red-6',
+    },
   },
 }
 
@@ -20,7 +22,7 @@ describe('tokens-to-dictionary', () => {
       })
     ).toStrictEqual({
       ColorRed6: 'var(--sl-color-red-6)',
-      Bg: 'var(--sl-bg)',
+      BgBase: 'var(--sl-bg-base)',
     })
   })
 })

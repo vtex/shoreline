@@ -1,6 +1,6 @@
 [data-sl-table-row] {
   display: contents;
-  color: var(--sl-fg);
+  color: var(--sl-fg-base);
 
   &[data-selected='true'] {
     & > [data-sl-table-cell] {

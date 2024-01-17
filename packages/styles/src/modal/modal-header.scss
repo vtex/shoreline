@@ -1,7 +1,7 @@
 [data-sl-modal-header] {
   position: sticky;
   top: 0;
-  background: var(--sl-bg);
+  background: var(--sl-bg-base);
 
   & :where(button:not([data-sl-modal-dismiss])) {
     min-width: 5rem;

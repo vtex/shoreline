@@ -1,7 +1,7 @@
 [data-sl-table] {
   --sl-table-default-column-width: minmax(min-content, auto);
 
-  color: var(--sl-fg);
+  color: var(--sl-fg-base);
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
@@ -14,11 +14,11 @@
     overflow: unset;
 
     [data-sl-table-header-cell] {
-      color: var(--sl-fg);
+      color: var(--sl-fg-base);
       position: sticky;
       top: 0;
       z-index: 1;
-      background: var(--sl-bg);
+      background: var(--sl-bg-base);
     }
   }
 
@@ -51,7 +51,7 @@
           top: 0;
           left: 0;
           z-index: 2;
-          background: var(--sl-bg);
+          background: var(--sl-bg-base);
         }
       }
     }

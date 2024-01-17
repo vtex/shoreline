@@ -1,5 +1,5 @@
 .livePre {
-  border: var(--sl-border);
+  border: var(--sl-border-base);
   border-radius: var(--sl-border-radius-large);
   margin: var(--sl-space-8) var(--sl-space-0);
   font-family: monospace;
@@ -15,7 +15,7 @@
 .liveEditor {
   border-bottom-right-radius: var(--sl-border-radius-large);
   border-bottom-left-radius: var(--sl-border-radius-large);
-  border-top: var(--sl-border);
+  border-top: var(--sl-border-base);
   overflow: hidden;
 }
 

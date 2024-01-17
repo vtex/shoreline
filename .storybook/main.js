@@ -10,6 +10,7 @@ module.exports = {
     },
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
+    '@storybook/addon-interactions',
   ],
   typescript: {
     check: false,

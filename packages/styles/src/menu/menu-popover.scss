@@ -1,8 +1,8 @@
 [data-sl-menu-popover] {
-  background: var(--sl-bg);
-  color: var(--sl-fg);
+  background: var(--sl-bg-base);
+  color: var(--sl-fg-base);
   outline: none;
-  border: var(--sl-border);
+  border: var(--sl-border-base);
   border-radius: var(--sl-border-radius-medium);
   display: flex;
   flex-direction: column;
@@ -12,6 +12,6 @@
   min-width: 9.5rem;
 
   &:focus-visible {
-    box-shadow: var(--sl-focus-ring);
+    box-shadow: var(--sl-focus-ring-base);
   }
 }

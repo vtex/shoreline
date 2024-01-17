@@ -22,7 +22,7 @@
 
 [data-sl-filter-popover-footer] {
   gap: var(--sl-space-2);
-  border-top: var(--sl-border);
+  border-top: var(--sl-border-base);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -35,12 +35,12 @@
   letter-spacing: var(--sl-text-body-letter-spacing);
 
   &:hover {
-    background: var(--sl-bg-plain);
+    background: var(--sl-bg-base-plain);
   }
 
   &[data-active-item][data-focus-visible] {
     & [data-sl-filter-item-check] {
-      box-shadow: var(--sl-focus-ring);
+      box-shadow: var(--sl-focus-ring-base);
     }
     & [data-sl-filter-item-check]:has([data-sl-filter-item-check-indicator]) {
       box-shadow: var(--sl-focus-ring-accent);
@@ -49,6 +49,6 @@
 
   &:active,
   &[data-active-item] {
-    background: var(--sl-bg-plain);
+    background: var(--sl-bg-base-plain);
   }
 }

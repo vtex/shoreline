@@ -35,7 +35,7 @@ function Button({ asChild, style, children, ...props }: AnyObject) {
         appearance: 'button',
         cursor: 'pointer',
         textDecoration: 'none',
-        color: 'var(--sl-fg)',
+        color: 'var(--sl-fg-base)',
         background: 'var(--sl-bg-muted)',
         padding: 'var(--sl-space-gap)',
         borderRadius: 'var(--sl-border-radius-medium)',
