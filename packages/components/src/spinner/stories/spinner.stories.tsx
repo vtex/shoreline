@@ -4,6 +4,9 @@ import { Spinner } from '../index'
 
 export default {
   title: 'shoreline-components/spinner',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

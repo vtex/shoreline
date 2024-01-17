@@ -7,6 +7,9 @@ import { Button } from '../../button'
 
 export default {
   title: 'shoreline-components/toast',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

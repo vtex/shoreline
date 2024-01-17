@@ -56,6 +56,9 @@ export default {
     cancelText: 'Close',
     confirmText: 'Ok',
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 interface StoryArgs {

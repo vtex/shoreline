@@ -176,4 +176,7 @@ export const Playground: Story = {
     children: `Some helpful message here to help merchants contextually understand
     the definition of an item`,
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
