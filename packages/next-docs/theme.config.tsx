@@ -19,6 +19,9 @@ const config: DocsThemeConfig = {
     text: 'VTEX Design System for back-office experiences.',
   },
   darkMode: false,
+  nextThemes: {
+    forcedTheme: 'light',
+  },
   components: {
     TokensGrid,
     IconsGrid,
