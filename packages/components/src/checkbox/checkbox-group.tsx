@@ -6,6 +6,15 @@ import { Stack } from '../stack'
 import { useId } from '@vtex/shoreline-utils'
 import { Label } from '../label'
 
+/**
+ * Checkbox groups allow users to select multiple options from a list.
+ *
+ * @example
+ * <CheckboxGroup label="Checkbox group">
+ *  <Checkbox value="1">Option 1</Checkbox>
+ *  <Checkbox value="2">Option 2</Checkbox>
+ * </CheckboxGroup>
+ */
 export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
   function CheckboxGroup(props, ref) {
     const {
@@ -46,9 +55,25 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 )
 
 export interface CheckboxGroupProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Whether the checkbox group is in an error state
+   */
   error?: boolean
+  /**
+   * Checkbox group description
+   */
   description?: ReactNode
+  /**
+   * Checkbox group error message
+   */
   errorText?: ReactNode
+  /**
+   * Checkbox group label
+   */
   label: ReactNode
+  /**
+   * Whether the checkbox group is horizontal or vertical
+   * @default false
+   */
   horizontal?: boolean
 }

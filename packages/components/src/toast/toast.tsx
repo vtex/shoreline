@@ -18,6 +18,8 @@ import { Button } from '../button'
 
 /**
  * Toast component
+ * @example
+ * <Toast variant="success">Success!</Toast>
  */
 export function Toast(props: ToastProps) {
   const { id, variant = 'informational', children, loading, onDismiss } = props
@@ -86,10 +88,27 @@ function getIcon(variant: ToastVariant = 'informational') {
 }
 
 interface ToastProps {
+  /**
+   * Toast variant
+   * @default 'informational'
+   */
   variant?: ToastVariant
+  /**
+   * Toast children
+   */
   children?: ReactNode
+  /**
+   * Callback to be called when the toast is dismissed
+   */
   onDismiss?: MouseEventHandler<HTMLButtonElement>
+  /**
+   * Toast id
+   */
   id?: string
+  /**
+   * How long the toast should be visible for in milliseconds
+   * @default 5000
+   */
   duration?: number
   loading?: boolean
 }

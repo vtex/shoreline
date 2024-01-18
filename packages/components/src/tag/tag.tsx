@@ -34,7 +34,15 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
 })
 
 export interface TagProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Tag variant
+   * @default 'primary'
+   */
   variant?: 'primary' | 'secondary'
+  /**
+   * Tag color
+   * @default 'gray'
+   */
   color?:
     | 'gray'
     | 'red'
@@ -46,5 +54,9 @@ export interface TagProps extends ComponentPropsWithoutRef<'div'> {
     | 'blue'
     | 'orange'
     | 'yellow'
+  /**
+   * Tag size
+   * @default 'normal'
+   */
   size?: 'normal' | 'large'
 }

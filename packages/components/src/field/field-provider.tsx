@@ -14,6 +14,12 @@ export function FieldProvider(props: FieldProviderProps) {
 }
 
 export interface FieldProviderProps {
+  /**
+   * Field store
+   */
   store: Store<FieldContextType>
+  /**
+   * Children to be rendered within the provider
+   */
   children?: React.ReactNode
 }

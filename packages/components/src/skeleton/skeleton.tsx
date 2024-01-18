@@ -1,6 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
+/**
+ * Skeleton represents a loading state
+ * @example
+ * <Skeleton shape="circle" style={{ width: 200, height: 200 }} />
+ */
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   function Skeleton(props, ref) {
     const { shape = 'rect', ...otherProps } = props

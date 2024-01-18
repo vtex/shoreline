@@ -57,8 +57,17 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
 )
 
 export interface FilterPopoverProps extends PopoverProps {
+  /**
+   * Filter messages
+   */
   messages?: {
+    /**
+     * Apply button text message
+     */
     apply: string
+    /**
+     * Clear button text message
+     */
     clear: string
   }
 }

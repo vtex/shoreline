@@ -12,6 +12,12 @@ import { useFieldContext } from '../field'
 
 const useMessage = createMessageHook(messages)
 
+/**
+ * Label component
+ *
+ * @example
+ * <Label>Label</Label>
+ */
 export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
   props,
   ref
@@ -42,6 +48,14 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
 })
 
 export interface LabelProps extends ComponentPropsWithoutRef<'label'> {
+  /**
+   * Enables component composition
+   * @default false
+   */
   asChild?: boolean
+  /**
+   * Whether the input linked to this label is optional
+   * @default false
+   */
   optional?: boolean
 }

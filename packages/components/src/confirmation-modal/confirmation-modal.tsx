@@ -111,8 +111,17 @@ export interface ConfirmationModalProps
    * Object containing all messages to be displayed internally in the modal. They include "title", "ok" and "cancel".
    */
   messages?: {
+    /**
+     * The title of the modal.
+     */
     title?: string
+    /**
+     * The text of the confirm button.
+     */
     confirm?: string
+    /**
+     * The text of the cancel button.
+     */
     cancel?: string
   }
 }

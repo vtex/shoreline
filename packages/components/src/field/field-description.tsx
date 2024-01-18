@@ -22,5 +22,9 @@ export const FieldDescription = forwardRef<
 })
 
 export interface FieldDescriptionProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Enables component composition
+   * @default false
+   */
   asChild?: boolean
 }

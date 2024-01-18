@@ -12,6 +12,15 @@ import { Field, FieldDescription, FieldError } from '../field'
 import { Stack } from '../stack'
 import { Label } from '../label'
 
+/**
+ * Radio groups allow users to select one option from a list.
+ * @example
+ * <RadioGroup label="Radio group">
+ *  <Radio value="1">Option 1</Radio>
+ *  <Radio value="2">Option 2</Radio>
+ *  <Radio value="3">Option 3</Radio>
+ * </RadioGroup>
+ */
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   function Radio(props, ref) {
     const {
@@ -55,19 +64,53 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
 )
 
 export interface RadioGroupState {
+  /**
+   * The value of the active radio
+   */
   value?: string | number | null
+  /**
+   * The callback to set the active radio
+   */
   setValue?: ((value: string | number | null) => void) | undefined
+  /**
+   * The id of the active radio group item
+   */
   activeId?: string | null
+  /**
+   * Default active id of the radio group
+   */
   defaultActiveId?: string | null
+  /**
+   * Default value of the radio group
+   */
   defaultValue?: string | number | null
 }
 
 export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Whether the radio group is in an error state
+   */
   error?: boolean
+  /**
+   * Radio group description
+   */
   description?: string
+  /**
+   * Radio group error message
+   */
   errorText?: string
+  /**
+   * Radio group label
+   */
   label: ReactNode
+  /**
+   * Whether the radio group is horizontal or vertical
+   * @default false
+   */
   horizontal?: boolean
+  /**
+   * Radio group state
+   */
   state?: RadioStore
 }
 
