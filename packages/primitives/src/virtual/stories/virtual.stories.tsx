@@ -48,16 +48,7 @@ export function Fixed() {
     >
       <VirtualItem asChild>
         {({ index }) => {
-          return (
-            <div
-              className="row"
-              style={{
-                background: index % 2 !== 0 ? 'gray' : 'white',
-              }}
-            >
-              Item {index}
-            </div>
-          )
+          return <div className="row">Item {index}</div>
         }}
       </VirtualItem>
     </Virtual>
