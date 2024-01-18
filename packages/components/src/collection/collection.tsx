@@ -2,10 +2,10 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 /**
- * Collections containers allow merchants to view and control a set of items in one or more layout types.
+ * Collection containers allow merchants to view and control a set of items in one or more layout types.
  *
  * @example
- * <Collections>
+ * <Collection>
  *    <Slot name="header">
  *      <Slot name="controls">
  *        <Search />
@@ -18,18 +18,18 @@ import React, { forwardRef } from 'react'
  *    <Slot name="footer">
  *      <Pagination page={1} total={74} />
  *    </Slot>
- *  </Collections>
+ *  </Collection>
  */
-export const Collections = forwardRef<HTMLDivElement, CollectionsProps>(
-  function Collections(props, ref) {
+export const Collection = forwardRef<HTMLDivElement, CollectionProps>(
+  function Collection(props, ref) {
     const { children, ...otherProps } = props
 
     return (
-      <div data-sl-collections ref={ref} {...otherProps}>
+      <div data-sl-collection ref={ref} {...otherProps}>
         {children}
       </div>
     )
   }
 )
 
-export type CollectionsProps = ComponentPropsWithoutRef<'div'>
+export type CollectionProps = ComponentPropsWithoutRef<'div'>

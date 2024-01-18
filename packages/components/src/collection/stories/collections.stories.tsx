@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './stories.css'
-import { CollectionView, Collections } from '../index'
+import { CollectionView, Collection } from '../index'
 import { Slot } from '../../slot'
 import { Search } from '../../search'
 import { Pagination } from '../../pagination'
@@ -9,7 +9,7 @@ import { Filter, FilterItem } from '../../filter'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/collections',
+  title: 'shoreline-components/collection',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -17,7 +17,7 @@ export default {
 
 export function Default() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Search />
@@ -30,13 +30,13 @@ export function Default() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function WithFilter() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -57,13 +57,13 @@ export function WithFilter() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function WithFilterGroup() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Search />
@@ -96,13 +96,13 @@ export function WithFilterGroup() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function Error() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -122,13 +122,13 @@ export function Error() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function Empty() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -148,13 +148,13 @@ export function Empty() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function NotFound() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -174,13 +174,13 @@ export function NotFound() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function Unauthorized() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -200,13 +200,13 @@ export function Unauthorized() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }
 
 export function CustomLabel() {
   return (
-    <Collections>
+    <Collection>
       <Slot name="header">
         <Slot name="controls">
           <Stack horizontal space="$space-3">
@@ -229,6 +229,6 @@ export function CustomLabel() {
       <Slot name="footer">
         <Pagination page={1} total={74} />
       </Slot>
-    </Collections>
+    </Collection>
   )
 }

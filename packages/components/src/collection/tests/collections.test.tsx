@@ -1,13 +1,13 @@
 import React from 'react'
 import { describe, expect, test, render } from '@vtex/shoreline-test-utils'
 
-import { Collections, CollectionView } from '../index'
+import { Collection, CollectionView } from '../index'
 
-describe('collections', () => {
+describe('collection', () => {
   test('renders', () => {
-    const { container } = render(<Collections />)
+    const { container } = render(<Collection />)
 
-    expect(container.querySelector('[data-sl-collections]')).toBeInTheDocument()
+    expect(container.querySelector('[data-sl-collection]')).toBeInTheDocument()
   })
 
   test('status ready', () => {
