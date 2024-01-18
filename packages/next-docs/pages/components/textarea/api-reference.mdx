@@ -1,6 +1,10 @@
 # API Reference
 
-**NOTE**: Exotic components are not callable.
+Textarea fields allow merchants to enter multiple lines of text.
+
+```jsx
+<Textarea label="Label" maxLength={120} optional resizable={false} />
+```
 
 ## Parameters
 
@@ -12,6 +16,8 @@
 
 ### `error` (optional)
 
+Whether is in error state
+
 - Type: `boolean`
 
 ### `onChange` (optional)
@@ -22,10 +28,16 @@ Callback for value change
 
 ### `optional` (optional)
 
+Whether the textarea is optional or not
+
 - Type: `boolean`
 
 ### `resizable` (optional)
 
+Whether the textarea is resizable or not
+
 - Type: `boolean`
 
-[View source](https://github.com/vtex/shoreline/blob/2e31bd62b/packages/components/src/textarea/textarea.tsx#L7)
+- Default: `true`
+
+[View source](https://github.com/vtex/shoreline/blob/f511fc130/packages/components/src/textarea/textarea.tsx#L12)

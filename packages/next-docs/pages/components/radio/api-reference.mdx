@@ -1,6 +1,14 @@
 # API Reference
 
-**NOTE**: Exotic components are not callable.
+Radio inputs allow users to select one option from a list. It should be used inside a RadioGroup component.
+
+```jsx
+<RadioGroup label="Radio group">
+  <Radio value="1">Option 1</Radio>
+  <Radio value="2">Option 2</Radio>
+  <Radio value="3">Option 3</Radio>
+</RadioGroup>
+```
 
 ## Parameters
 
@@ -12,10 +20,16 @@
 
 ### `error` (optional)
 
+Wether is disabled
+
 - Type: `boolean`
+
+- Default: `false`
 
 ### `value`
 
+The value of the radio
+
 - Type: `string`
 
-[View source](https://github.com/vtex/shoreline/blob/2e31bd62b/packages/components/src/radio/radio.tsx#L8)
+[View source](https://github.com/vtex/shoreline/blob/f511fc130/packages/components/src/radio/radio.tsx#L18)
