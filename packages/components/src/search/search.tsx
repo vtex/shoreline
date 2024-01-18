@@ -6,6 +6,11 @@ import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '@vtex/shoreline-primitives'
 
+/**
+ * Search component
+ * @example
+ * <Search placeholder="Search" />
+ */
 export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
   props,
   forwardedRef

@@ -56,7 +56,19 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
 })
 
 export interface FieldProps extends React.ComponentPropsWithoutRef<'div'> {
+  /**
+   * Enables component composition
+   * @default false
+   */
   asChild?: boolean
+  /**
+   * Whether the field is in an error state
+   * @default false
+   */
   error?: boolean
+  /**
+   * Space between the field's children
+   * @default 'normal'
+   */
   space?: 'normal' | 'large'
 }

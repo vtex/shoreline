@@ -80,16 +80,46 @@ export function FilterProvider(props: FilterProviderProps) {
 }
 
 export interface FilterProviderProps {
+  /**
+   * Children of FilterProvider
+   */
   children: ReactNode
+  /**
+   * Whether the filter is open
+   */
   open?: boolean
+  /**
+   * Callback to set the filter open state
+   */
   setOpen?: React.Dispatch<React.SetStateAction<boolean>>
+  /**
+   * Whether the filter is open by default
+   */
   defaultOpen?: boolean
+  /**
+   * Whether the filter is searchable
+   */
   searchValue?: string
+  /**
+   * Callback to set the filter search value
+   */
   setSearchValue?: React.Dispatch<React.SetStateAction<string>>
+  /**
+   * Whether the filter is searchable by default
+   */
   defaultSearchValue?: string
+  /**
+   * Filter value
+   */
   value?: string | string[]
+  /**
+   * Callback to set the filter value
+   */
   setValue?:
     | React.Dispatch<React.SetStateAction<string>>
     | React.Dispatch<React.SetStateAction<string[]>>
+  /**
+   * Filter default value
+   */
   defaultValue?: string | string[]
 }

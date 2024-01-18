@@ -4,6 +4,11 @@ import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
 import { useFieldContext } from '../field'
 
+/**
+ * Textarea fields allow merchants to enter multiple lines of text.
+ * @example
+ * <Textarea label="Label" maxLength={120} optional resizable={false} />
+ */
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   function Textarea(props, ref) {
     const {
@@ -58,8 +63,18 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
 export interface TextareaProps
   extends Omit<ComponentPropsWithoutRef<'textarea'>, 'onChange'> {
+  /**
+   * Whether is in error state
+   */
   error?: boolean
+  /**
+   * Whether the textarea is optional or not
+   */
   optional?: boolean
+  /**
+   * Whether the textarea is resizable or not
+   * @default true
+   */
   resizable?: boolean
   /**
    * Callback for value change

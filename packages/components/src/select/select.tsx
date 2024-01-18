@@ -77,7 +77,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
 export interface SelectProps
   extends Omit<ComponentPropsWithoutRef<'select'>, 'onChange'> {
+  /**
+   * Whether is in error state
+   */
   error?: boolean
+  /**
+   * Whether is disabled
+   * @default false
+   */
   disabled?: boolean
   /**
    * Callback for value change

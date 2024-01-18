@@ -62,7 +62,16 @@ type InheritedProps = Pick<
   Pick<FilterPopoverProps, 'messages'>
 
 export interface FilterProps extends InheritedProps {
+  /**
+   * Filter label
+   */
   label: string
+  /**
+   * Filter children
+   */
   children: ReactNode
+  /**
+   * Additional className
+   */
   className?: string
 }
