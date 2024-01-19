@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@0.2.0...@vtex/shoreline-codemod@0.3.0) (2024-01-19)
+
+### Features
+
+- codemod to migrate adminui stack to shoreline ([6109ee5](https://github.com/vtex/shoreline/commit/6109ee5c5e9496c8c9a0cde029135c6a67982fbf))
+
 # 0.2.0 (2024-01-15)
 
 ### Features
