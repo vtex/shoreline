@@ -49,7 +49,7 @@ describe('collection', () => {
     ).not.toBeInTheDocument()
 
     expect(
-      container.querySelector('[data-collection-view-skeleton]')
+      container.querySelector('[data-sl-collection-view-skeleton]')
     ).toBeInTheDocument()
   })
 
