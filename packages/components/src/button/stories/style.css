@@ -1,9 +1,8 @@
 .variants--grid {
-  --cell-size: 96px;
-  --column-number: 6;
+  --column-count: 6;
 
   display: grid;
-  grid-template-columns: repeat(var(--column-number), var(--cell-size));
+  grid-template-columns: repeat(var(--column-count), max-content);
   width: 100%;
   gap: var(--sl-space-gap);
   padding: var(--sl-space-gap);
@@ -18,16 +17,4 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.bleeding--decorative-box {
-  height: 100%;
-  background-clip: padding-box;
-  background-color: var(--sl-color-purple-3);
-  padding: var(--sl-space-4) var(--sl-space-5);
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.bleeding--custom-stack {
-  background-color: var(--sl-color-purple-4);
 }
