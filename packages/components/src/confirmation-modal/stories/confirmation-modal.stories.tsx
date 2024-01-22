@@ -59,7 +59,7 @@ interface StoryArgs {
 export function Playground(args: StoryArgs) {
   const { content, messages, locale } = args
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const handleClose = () => {
     setOpen(false)
