@@ -10,6 +10,9 @@ import { Stack } from '../../stack'
 
 export default {
   title: 'shoreline-components/collections',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

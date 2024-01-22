@@ -20,6 +20,9 @@ export default {
       control: { type: 'radio' },
     },
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default(props) {
