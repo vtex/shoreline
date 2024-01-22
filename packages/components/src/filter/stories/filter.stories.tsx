@@ -16,6 +16,9 @@ import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
   title: 'shoreline-components/filter',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

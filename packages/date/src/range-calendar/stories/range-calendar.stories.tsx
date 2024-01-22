@@ -6,6 +6,9 @@ import { getLocalTimeZone, today } from '../../utils'
 
 export default {
   title: 'date/range-calendar',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

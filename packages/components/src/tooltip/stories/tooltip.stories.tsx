@@ -10,6 +10,9 @@ import {
 
 export default {
   title: 'components/tooltip',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

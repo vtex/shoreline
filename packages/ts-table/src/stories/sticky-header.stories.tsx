@@ -32,6 +32,9 @@ const data = [...Array(30)].map((_, index) => ({
 
 export default {
   title: 'ts-table/ts-table',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 type Product = {

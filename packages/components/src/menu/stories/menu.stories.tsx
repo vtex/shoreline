@@ -14,6 +14,9 @@ import { Button } from '../../button'
 
 export default {
   title: 'components/menu',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

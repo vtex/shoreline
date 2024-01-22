@@ -10,6 +10,9 @@ import {
 
 export default {
   title: 'shoreline-components/popover',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

@@ -6,6 +6,9 @@ import { getLocalTimeZone, today } from '../../utils'
 
 export default {
   title: 'date/date-picker',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Default() {

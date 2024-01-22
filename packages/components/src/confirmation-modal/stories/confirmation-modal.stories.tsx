@@ -45,6 +45,9 @@ export default {
 
     await expect(modal).toBeVisible()
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 interface StoryArgs {

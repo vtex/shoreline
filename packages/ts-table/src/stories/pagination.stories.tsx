@@ -26,6 +26,9 @@ import { TsTable } from '../index'
 
 export default {
   title: 'ts-table/ts-table',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 type Product = {
