@@ -665,7 +665,7 @@ importers:
         specifier: 1.8.8
         version: 1.8.8
       '@vtex/shoreline-components':
-        specifier: ^0.63.1
+        specifier: ^0.63.2
         version: link:../components
       match-sorter:
         specifier: 6.3.1
