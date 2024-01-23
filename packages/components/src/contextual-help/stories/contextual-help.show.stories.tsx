@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
-import type { ContextualHelpProps } from '../index'
 import { ContextualHelp } from '../index'
 import { Text } from '../../text'
 import { Stack } from '../../stack'
 import './contextual-help-stories.css'
+
+export default {
+  title: 'components/contextual-help',
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+} as Meta<typeof ContextualHelp>
 
 type BasePlacement = 'top' | 'bottom' | 'left' | 'right'
 type Placement =
@@ -20,20 +26,7 @@ const placementOptions: Placement[] = [
   'bottom-end',
 ]
 
-function PlaygroundStory(props: ContextualHelpProps) {
-  const { label, children, ...otherProps } = props
-
-  return (
-    <Stack className="ch-examples ch-center ch-decorative-box">
-      <Text variant="display1">Playground</Text>
-      <ContextualHelp label={label} {...otherProps}>
-        {children}
-      </ContextualHelp>
-    </Stack>
-  )
-}
-
-export function Examples() {
+export function Show() {
   const [open, setOpen] = useState(true)
 
   return (
@@ -143,40 +136,4 @@ export function Examples() {
       </Stack>
     </div>
   )
-}
-
-const meta: Meta<typeof ContextualHelp> = {
-  title: 'shoreline-components/contextual-help',
-  component: PlaygroundStory,
-}
-
-export default meta
-
-type Story = StoryObj<typeof ContextualHelp>
-export const Playground: Story = {
-  argTypes: {
-    placement: {
-      options: placementOptions,
-      control: { type: 'radio' },
-      description: 'Popover placement',
-      defaultValue: 'bottom',
-    },
-    label: {
-      control: { type: 'text' },
-      description: 'aria-abel for the contextual help trigger',
-    },
-    children: {
-      control: { type: 'text' },
-      description: 'Content of the contextual help',
-    },
-  },
-  args: {
-    label: 'Meaningful label',
-    placement: 'bottom-end',
-    children: `Some helpful message here to help merchants contextually understand
-    the definition of an item`,
-  },
-  parameters: {
-    chromatic: { disableSnapshot: true },
-  },
 }
