@@ -1,0 +1,57 @@
+# Best Practices
+
+## Properties
+
+### Optional
+
+- Mark a CheckboxGroup as optional when its options may not apply. For example, preferences for notifications can be left unselected if the merchant doesn’t want to receive them.
+- By default, the term *(optional)* is included next to the label.
+- Don’t mark the mandatory fields or include many optional fields in a form.
+
+### Direction
+
+In most scenarios, distribute options in a `column`. Only distribute in a `row` if the option labels don't vary a lot in length and fit in a single line, considering localization.
+
+### CheckboxGroup label
+
+- Write the name of the object that is being listed. For example, use the label *Fruits* when the options are *Apple*, *Orange*, and *Banana*.
+- Visually hide the label of the CheckboxGroup only when the form section title already contains the name of the object that is being listed.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, use only *Characteristics* instead of *Product characteristics* in a form page that already includes *Product* in its title.
+- Don't use verbs. For example, instead of Select characteristics, use only Characteristics.
+- Don't use interrogations.
+
+### Checkbox label
+
+Read the Checkbox documentation.
+
+### Help text
+
+- Include when it's necessary to explain the consequences of checking the option.
+- Write as if completing the sentence “If you check this option, you or the system…”.
+- Start with a verb in the simple present tense. For example, for the option *Fragile* the help text should be *Prints this information on the shipping label.*
+- Use sentence case, but capitalize proper nouns.
+- Don't write more than one sentence and don't use periods or commas.
+
+### Error text
+
+- Prevent errors whenever possible. When the value of a field is modified, disable other incompatible fields or options automatically.
+- Start with an imperative verb. For example, *Check at least one option* instead of *This field is required.*
+- Don't use incomplete sentences. For example, write *Check at least one option* instead of *Check at least one*.
+- Don't use periods or commas.
+
+## Position
+
+Prefer placing a CheckboxGroup at the start or end of a form section.
+
+## Behavior
+
+### Preselecting
+
+- Check common or recommended options by default when this can make the user more efficient and when it isn’t important for the choice to be conscious. Leverage information that the user previously provided to guess the option that should be preselected.
+- When a recommended option is preselected, add *(Recommended)* to the end of its label so it can still be identified after edits.
+
+### Disabling
+
+- Disable a Checkbox only if it becomes enabled in some condition. For example, an option that becomes unavailable when another field has an specific value.
+- When the reason why the option is disabled might be unclear, include a ContextualHelp next to the label to explain.

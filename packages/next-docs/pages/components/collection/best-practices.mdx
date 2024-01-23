@@ -48,29 +48,12 @@ Considering left-to-right interfaces:
 
 ## Behavior
 
-### No items yet
+### Providing feedback
 
-When no items have been created or received:
-
-- Hide elements that are unnecessary in this state such as any Search, Filter, and Pagination.
-- Replace the Table or any container being used to display items with an EmptyState component.
+Replace the Table or any container being used to display items with an EmptyState component.
 
 Read the EmptyState documentation for more information.
 
-### No results
-
-When the search works but no results match the terms:
-
-- Keep the Search, Filters, and any Buttons active, and disable both Paginations.
-- Replace the Table or any container being used to display items with an EmptyState component.
-
-Read the EmptyState documentation for more information.
-
-### Error
-
-When items fail to load or the search fails to return results:
-
-- Keep the Search and Filters active, and disable both Paginations. Disable any other button that can't be triggered while in this state.
-- Replace the Table or any container being used to display items with an EmptyState component.
-
-Read the EmptyState documentation for more information.
+- **No items have been created or received:** Hide elements that are unnecessary in this state such as any Search, Filter, and Pagination.
+- **The search works but no results match the terms:** Keep the Search, Filters, and any Buttons active, and disable both Paginations.
+- **Items fail to load or the search fails to return results:** Keep the Search and Filters active, and disable both Paginations. Disable any other button that can't be triggered while in this state.

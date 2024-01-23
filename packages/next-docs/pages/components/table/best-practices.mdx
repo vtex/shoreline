@@ -1,0 +1,38 @@
+# Best Practices
+
+## Properties
+
+### Columns and Cells
+
+- **Content alignment:** Considering left-to-right languages, the column label and the content of cells should be left-aligned, except for columns with numbers, where they should be right-aligned.
+- **Column label:** Write the name of the property whose values are in the column. Use sentence case and two words at most. Avoid labels that vary a lot in length between columns and don't include redundant words.
+
+### Actions
+
+- **Actions for each row:** Include up to five actions in a Button or a Menu, depending on their relevance. Actions that exist in a details page should also be included in each row. Common actions include: View details, Edit, Delete, Rename, Duplicate, Share, or Archive.
+- **Button in each row:** If the action is very important or frequently triggered, it can be outside a Menu. For example, activating/deactivating items or approving/refusing requests. Don’t include more than two actions outside the Menu on each Table row.
+- **Clickable rows:** If there is a way to open a Modal or a Page to view or edit an item, trigger this action when users click the row. Don’t open a Popover or Menu when a row is clicked. Only open the Menu if the user clicks the Menu directly.
+- **Menu in each row:** When rows are clickable, add a Menu including a *View details* action with the same purpose as clicking the row, even if there are no other actions for the Menu. Destructive actions should always be inside a Menu. If the Table fits all the information and actions, or if the line can’t be clicked, there is no need to include a Menu.
+
+## Position
+
+- **Position in a container:** Use the Collection component to correctly position the Table.
+- **Column width:** Specify using the [fr unit](https://css-tricks.com/introduction-fr-css-unit/), which represents a fraction of the available space in the row. For example, the width of the Name column can be `2 fr` and the width of the Status column can be `1 fr`. Besides defining a responsive width, it is also important to define a comfortable minimum width in `rem` to avoid line breaks in tighter viewports.
+- **Order of columns:** Define the order based on user research. Position properties that identify list items first, such as *ID* and *Name.* When they exist, the last columns should be a column with Tags and then the column with a Menu.
+- **Row height:** The default is 44px. Only use the larger 64px height when there are columns that occupy the additional space, such as an image or two lines of text. Don't customize the height for aesthetic reasons.
+
+## Behavior
+
+### Loading
+
+- Only display the Table loading state during the initial load of the page or during pagination.
+- Don’t show the loading state of a Table during a search. Prefer to keep the previous results visible until the new ones load.
+
+### Sorting
+
+- **Columns with sorting:** Support sorting in all columns where the content can follow an ascending or descending order, such as dates, texts, and numbers. Images, for example, can’t be sorted. When a Name column exists, always allow it to be sorted.
+- **Default sorting:** In most cases, sort by default from most recently to the least recently modified, such as in the *Products*, *Brands* and *Orders* pages. However, there are exceptions, such as the *Promotions* page where a default sorting by status is more appropriate.
+
+### Scrolling horizontally
+
+The column with the information that identifies the item, such as ID or Name, should be fixed so the user can understand the information even during horizontal scroll.

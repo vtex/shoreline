@@ -1,0 +1,47 @@
+# Best Practices
+
+## Properties
+
+### Optional
+
+- Mark a Date Picker as optional when it's sometimes necessary.
+- By default, the term *(optional)* is included next to the label.
+- Don’t mark the mandatory fields or include many optional fields in a form.
+
+### Time
+
+Include the time mask beside the date mask in the Date Picker when the merchant can fill a specific time when picking a date.
+
+### Label
+
+- Write the name that best describes the value that must be filled. For example, use *Publish date* when the value should be the date when a release should be published.
+- Visually hide the label only when this definition is already present somewhere else, such as a column label that already describes the fields in the column.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write *Publish date* as the label instead of *Release publish date* on a page that includes Release in its title.
+- Don't use verbs, personal pronouns, or interrogations.
+
+### Help text
+
+- **When to include:** Include it when additional information is necessary besides the label, such as to explain the label and/or how the field value will be used.
+- **How to write:** Write a single sentence that is short and direct. Use sentence case, but capitalize proper nouns. Don’t use periods, commas, or include redundant words.
+    - **Explaining the label:** Write as if completing the sentence “*This is the…”*. For example, write for a *Publish date* field the text "*Day in which the changes made will appear in the store*".
+    - **Explaining how the value will be used:** Write as if completing the sentence “*When you fill a value in this field, it…”* and start with a verb in the simple present tense. For example, write for a *Publish date* field the text "*Considers the time zone where the store is located*”.
+    - **Explaining the label and how the value will be used:** Combine the two sentences described in the previous topics and adapt them if necessary. For example, “*Day in which the changes made will be published considering the time zone where the store is located*".
+
+## Position
+
+- **Width and height:** The width of the field should comfortably fit the values, considering localization as well. Don't customize the height of the field.
+- **Position in a form:** Group and sort fields in a logical way, considering user research. Don't position two fields that are not complementary on the same line and don't include more than three fields on the same line.
+
+## Behavior
+
+### Disabling
+
+- Disable a field only if it becomes enabled in some condition. For example, a field that becomes unavailable when a specific option is chosen in the form.
+- When the reason why the field is disabled might be unclear, include a ContextualHelp next to the label to explain.
+
+### Validation
+
+- Prevent errors whenever possible. For example, implement restrictions in the field itself whenever possible, such as not allowing letters and limiting the number of characters.
+- Show the error in a specific field when the user leaves the field or in any field when they attempt to submit the form. For example, when the user removes the focus of an empty mandatory field. Remove the error state of the field as soon as the user modifies its value.
+- When the field is in an error state, always include an error text. Start with an imperative verb (e.g. *Fill this information* instead of *This field is required),* don't use incomplete or imprecise sentences (e.g. *Fill only numbers* instead of *Fill only valid characters)*, and don’t use periods or commas.

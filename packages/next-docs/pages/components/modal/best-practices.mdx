@@ -1,0 +1,44 @@
+# Best Practices
+
+## Properties
+
+### Size
+
+| Value | Usage |
+| --- | --- |
+| `small` | Small messages or forms with only a few fields, such as the form for a Rename action. To confirm actions, use a ConfirmationModal. |
+| `medium` | Long texts, such as terms and conditions. This width provides the ideal character count for comfortable reading. |
+| `large` | Other scenarios that are still very related to the main job of the current Page. Avoid using columns and focus the content in a specific action. |
+
+### Title
+
+- When the Modal contains a form, the Title should include a verb in the infinitive and an object. For example, *Create release*. When possible, reuse the label of the action that triggered the Modal.
+- When the Modal only displays information, the Title should be a label that describes the content. For example, *Terms and conditions*.
+- Use sentence case, but capitalize proper nouns.
+- Don't use punctuation, more than three words, or personal pronouns.
+
+### Content
+
+Include in a Modal content that is related to a minor job within the main job of a Page. For example, minor jobs can be filling a small form before performing an action (e.g. to create a new release) or viewing additional information (e.g. technical events of an order).
+
+## Position
+
+- **Modal in relation to the Page:** By default, the Modal appears on top of the page, centered, and with a backdrop behind it. Don't customize this behavior.
+- **Content in a Modal:** Any content inside the Modal should respect its margins.
+- **Actions in a Modal:** Position the main actions of a Modal in its Footer. For example, the action that submits the form.
+
+## Behavior
+
+### Opening
+
+- A Modal should always be triggered by a user action, such as pressing a Button or MenuItem.
+- Don't open a Modal automatically after a page loads.
+
+### Closing
+
+- Always include a *Close* button in the header. When there's an action to submit the form in the footer, also include a *Cancel* action to its left that has the same effect as the *Close* button.
+- When the Modal contains a list for the user to select a single option, pressing the option should submit the selection and close the Modal. Don't require a separate submit action.
+
+### Scrolling
+
+When the Modal reaches its maximum height it starts to have vertical scroll. Prefer to make the content brief and avoid scroll.

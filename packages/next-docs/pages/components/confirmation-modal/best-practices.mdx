@@ -1,0 +1,26 @@
+# Best Practices
+
+## Properties
+
+### Title
+
+- Start with a verb in the infinitive and then an object. For example, *Delete shipping policy*. When possible, reuse the verb in the label of the action that triggered the modal.
+- Use sentence case, but capitalize proper nouns.
+- Don't use punctuation, more than three words, or personal pronouns.
+
+### Message
+
+- Write a brief and direct message that informs the consequences of the action and asks the user for confirmation. For example, for a *Delete product* modal the message can be “*This action is irreversible. Are you sure you want to delete this product?”*.
+- Use sentence case, but capitalize proper nouns.
+- Don't use personal pronouns.
+
+### Actions
+
+- Below the message there should always be a `secondary` *Cancel* Button on the left that closes the modal and a primary Button on the right that confirms the action. Don't add any other action in the modal.
+- Use the verb in the modal title as the label for the button that confirms the action.
+
+## Behavior
+
+### Triggering
+
+Actions that have consequences that are irreversible or that are hard to revert should open a ConfirmationModal when triggered. The modal should never open or close automatically.

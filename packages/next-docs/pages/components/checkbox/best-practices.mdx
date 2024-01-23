@@ -1,81 +1,41 @@
 # Best Practices
 
-## Variants
+## Properties
 
-### Checkbox Group vs. Checkbox
+### Label
 
-Since the Checkbox label should only correspond to its value, the choice of using a Checkbox Group or a Checkbox should be contextualized. The Checkbox Group is usually the right choice even for binary choices where there is only a single Checkbox. But if the title of the form section already informs the choice that should be made, then use the Checkbox.
+- Write a short label that corresponds to the value of the Checkbox. Use the help text or the Checkbox Group label to provide additional context when necessary.
+- Use sentence case but capitalize proper nouns.
+- Don't use personal pronouns. For example, write Receive promotional emails instead of I want to receive emails.
+- Don't include negative words. For example, write Receive promotional emails instead of I don't want to receive emails.
 
-### Vertical or horizontal Checkbox Group
+### Help text
 
-It is more scalable to distribute options in a vertical direction. Only distribute horizontally if — considering localization — all their labels fit in a single line, have up to 20 characters and don’t vary a lot in length.
+- Include when it's necessary to explain the consequences of checking the option.
+- Write as if completing the sentence “If you check this option, you or the system…”.
+- Start with a verb in the simple present tense. For example, for the option *Fragile* the help text should be *Prints this information on the shipping label.*
+- Use sentence case, but capitalize proper nouns.
+- Don't write more than one sentence and don't use periods or commas.
 
-### Optional
+### Error text
 
-- A Checkbox should be optional when its options may not apply. For example, preferences for notifications can be left unselected if the merchant doesn’t want to receive them. Consider adding a Custom option together with fields to capture the merchant’s needs.
-- By default, the term _(optional)_ is included next to the label.
-- Don’t mark the mandatory fields of a form.
-- Don’t include many optional fields in a form. Prefer keeping it short, so it's easier to understand and navigate.
+- Prevent errors whenever possible. When the value of a field is modified, disable other incompatible fields or options automatically.
+- Start with an imperative verb. For example, Check *this option* instead of *This field is required.*
+- Don't use incomplete sentences. For example, write *Check this option* instead of *Check this*.
+- Don't use periods or commas.
 
 ## Position
-
-### Position in a form
 
 Prefer placing a Checkbox at the start or end of a form section.
 
 ## Behavior
 
-### Default value
+### Preselecting
 
-- Preselect an option when this can make the merchant more efficient and when it isn’t important for the choice to be conscious.
-- Common or recommended options can be preselected. Information that the merchant has previously provided can be preselected to indicate the option that should be chosen.
-- When a recommended option is preselected, add _(Recommended)_ to the end of its label so it can still be identified after edits.
+- Check a common or recommended option by default when this can make the user more efficient and when it isn’t important for the choice to be conscious.
+- When a recommended option is preselected, add *(Recommended)* to the end of its label so it can still be identified after edits.
 
-### Disabled state
+### Disabling
 
-- Disable a Checkbox only if in some condition it becomes enabled. Example: when an option is incompatible with another option in a form.
-- Use a tooltip trigger to explain why the Checkbox is disabled. Display the information when hovering over the tooltip trigger — not the Checkbox itself.
-
-### Indeterminate state
-
-- In scenarios where it might be necessary to check or uncheck all options, a Checkbox can be placed at the beginning of the group with the _Select all_ label. Make sure the options below are nested and vertically aligned with the _Select all_ label.
-- The indeterminate state should be displayed in these scenarios when only a few options (not all) are checked. When clicking the indeterminate state, all options must be checked. When clicking for a second time, all options must be unchecked.
-
-## Content
-
-### Checkbox label
-
-- Write the label so it corresponds to the value of the Checkbox.
-- Use sentence case but capitalize proper nouns.
-- Don't write long Checkbox labels. Use the help text or the Checkbox Group label to provide additional context when necessary.
-- Don't write Checkbox labels that vary a lot in length between options.
-- Don't use personal pronouns. For example, write Receive promotional emails instead of I want to receive emails.
-- Don't include redundant words. For example, use only S, M, and L instead of Size S, Size M, and Size L.
-- Don't include negative words. For example, write Receive promotional emails instead of I don't want to receive emails.
-
-### Checkbox Group label
-
-- Include the name of the entity that is being listed. For example, use the label Fruits when the options are Apple, Orange and Banana.
-- Visually hide the label of the Checkbox Group when the form section title already contains the name of the entity that is being listed.
-- Use sentence case, but capitalize proper nouns.
-- Don't include redundant words. For example, don't use Product characteristics as the label for a Checkbox Group inside a form page that includes Product in its title – use only Characteristics.
-- Don't use verbs. For example, instead of Select characteristics, use only Characteristics.
-- Don't use interrogations.
-
-### Help text
-
-- Include a help text only for critical choices where the consequences of checking the option need to be explained in more detail.
-- Write the help text as if you are completing the following sentence: If you check this option, you or the system will [help text].
-- Start with verbs in the simple present tense. For example, for the value Fragile the help text should be Prints this information on the shipping label and not Print this information on the shipping label.
-- Use sentence case, but capitalize proper nouns.
-- Don't include links. Use an alert component if this is necessary.
-- Don't write more than one sentence.
-- Don't use periods or commas.
-
-### Error text
-
-- Prevent errors whenever possible. When an option is checked, disable other incompatible fields or options automatically.
-- In a Checkbox Group, if at least one option needs to be checked and none is checked by the merchant, the error text should be Check at least one option.
-- Use the imperative form. For example, write Check at least one option instead of At least one option needs to be checked.
-- Don't use periods or commas.
-- Don't use incomplete sentences. For example, write Check at least one option instead of Check at least one.
+- Disable a Checkbox only if it becomes enabled in some condition. For example, an option that becomes unavailable when another field has an specific value.
+- When the reason why the field is disabled might be unclear, include a ContextualHelp next to the label to explain.

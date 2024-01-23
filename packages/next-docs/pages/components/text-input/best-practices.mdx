@@ -1,0 +1,57 @@
+# Best Practices
+
+## Properties
+
+### Prefix
+
+- Use a `prefix` when the value always starts with the same characters. For example, URLs that always start with `https://`.
+- Don't use a field as the prefix of another field. For example, instead of using a Select as a prefix, include it as a separate field in the same line.
+
+### Suffix
+
+- Use a `suffix` when the value always ends with the same characters. For example, a monetary amount that ends in `USD`, a weight value that ends in `kg`, a size measurement that ends in `cm`, or a number that ends in `%`.
+- Don't use a suffix with an icon.
+- Don't use a field as the suffix of another field. For example, instead of using a Select as a suffix, include it as a separate field in the same line.
+
+### Optional
+
+- Mark a TextInput as optional when it's sometimes necessary. For example, the phone number of a store or the second line of an address.
+- By default, the term *(optional)* is included next to the label.
+- Don’t mark the mandatory fields or include many optional fields in a form.
+
+### Label
+
+- Write the name that best describes the value that must be filled. For example, use the label *Email address* when the value should be an email address.
+- Visually hide the label only when this definition is already present somewhere else, such as in the column label that already describes the fields in the column or in the Form section title.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write *Name* as the label instead of *Promotion name* on a page that includes *Promotion* in its title.
+- Don't use an icon in a prefix to replace a label that isn't present anywhere else.
+- Don't use verbs. For example, instead of *Fill name*, use only *Name*.
+- Don't use personal pronouns. For example, write *VTEX account* instead of *My VTEX account*.
+- Don't use interrogations.
+
+### Help text
+
+- **When to include:** Include it when additional information is necessary besides the label, such as to explain the label and/or how the field value will be used.
+- **How to write:** Write a single sentence that is short and direct. Use sentence case, but capitalize proper nouns. Don’t use periods, commas, or include redundant words.
+    - **Explaining the label:** Write as if completing the sentence “*This is the…”*. For example, write for a *Seller ID* field the text "*Seller identifier in the marketplace*".
+    - **Explaining how the value will be used:** Write as if completing the sentence “*When you fill a value in this field, it…”* and start with a verb in the simple present tense. For example, write for a *Seller ID* field the text "*Appears to customers in the store*”.
+    - **Explaining the label and how the value will be used:** Combine the two sentences described in the previous topics and adapt them if necessary. For example, “*Seller identifier in the marketplace that appears to customers in the store*".
+
+## Position
+
+- **Width and height:** The width of the field should comfortably fit the values, considering localization as well. Don't customize the height of the field.
+- **Position in a form:** Group and sort fields in a logical way, considering user research. Don't position two fields that are not complementary on the same line and don't include more than three fields on the same line.
+
+## Behavior
+
+### Disabled state
+
+- Disable a field only if it becomes enabled in some condition. For example, a field that becomes unavailable when a specific option is chosen in the form.
+- When the reason why the field is disabled might be unclear, include a ContextualHelp next to the label to explain.
+
+### Error state
+
+- Prevent errors whenever possible. For example, implement restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.
+- Show the error in a specific field when the user leaves the field or in any field when they attempt to submit the form. For example, when the user removes the focus of an empty mandatory field. Remove the error state of the field as soon as the user modifies its value.
+- When the field is in an error state, always include an error text. Start with an imperative verb (e.g. *Fill this information* instead of *This field is required),* don't use incomplete or imprecise sentences (e.g. *Fill only letters* instead of *Fill only valid characters)*, and don’t use periods or commas.
