@@ -1,14 +1,13 @@
 import type { NextPage } from 'next'
 import { useAdmin, useNavigation } from '@vtex/raccoon-next'
 import {
-  Alert,
   Page,
   PageContent,
   PageHeader,
   PageHeaderTitle,
   PageHeaderTop,
-  Button,
 } from '@vtex/admin-ui'
+import { Alert, Button } from '@vtex/shoreline-components'
 import { faker } from '@faker-js/faker'
 import { generateRandomId } from '../lib/generate-random-id'
 
