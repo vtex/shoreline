@@ -43,7 +43,7 @@ jobs:
         run: pnpm test:ci
 
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
 
       - name: Test Storybook
         run: pnpm test:storybook:ci
