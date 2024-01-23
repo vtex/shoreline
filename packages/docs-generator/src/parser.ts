@@ -1,11 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import { readFileSync } from 'fs'
-import {
-  generateComponent,
-  generateComponentMetaJSON,
-  generateRootMetaJSON,
-} from './handlers'
-import { isComponent } from './strings'
+import { generateComponents } from './handlers'
 import { ProjectParser } from 'typedoc-json-parser'
 import type { PkgToBeDocumentedPaths } from './config'
 import { tmpDocsJsonPath } from './config'
@@ -19,15 +14,6 @@ export async function parseJSONDocs(paths: PkgToBeDocumentedPaths) {
   const project = new ProjectParser({ data })
 
   if (paths.components?.docPath && paths.components?.filename) {
-    for (const func of project.functions) {
-      if (isComponent(func.name)) {
-        await Promise.all([
-          generateComponent(project, func, paths.components),
-          generateComponentMetaJSON(func, paths.components),
-        ])
-      }
-    }
-
-    await generateRootMetaJSON(project, paths)
+    await generateComponents(project, paths.components)
   }
 }

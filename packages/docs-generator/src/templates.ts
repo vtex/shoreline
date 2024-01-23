@@ -1,7 +1,11 @@
 import Handlebars from 'handlebars'
 import { readFileSync } from 'fs'
 
-type Template = 'component.mdx' | 'meta.json' | 'componentMeta.json'
+type Template =
+  | 'component.mdx'
+  | 'meta.json'
+  | 'componentMeta.json'
+  | 'componentsIndex.mdx'
 
 /**
  * Gets a documentation template from the templates folder

@@ -37,15 +37,17 @@ The `docs-generator` package is organized as follows:
 
 ```bash
 docs-generator
-├── src
-│   ├── templates # The Handlebars templates used to generate .mdx files
-│   ├── config.ts # The configuration file for TypeDoc
-│   ├── templates.ts # Handlebars utilities
-│   ├── handlers.ts # A set of functions that handle our different use cases (such as genreating a component documentation)
-│   ├── io.ts # A set of functions that handle IO operations
-│   ├── parser.ts # The JSON parser entrypoint
-│   └── index.ts # The entrypoint of this package where TypeDoc is configured, executed and its output is passed down the pipeline to our JSON parser
-|   └── strings.ts # String utilities such as toKebabCase used across the package
+└── src
+   ├── templates # The Handlebars templates used to generate .mdx files
+   ├── config.ts # The configuration file for TypeDoc
+   ├── templates.ts # Handlebars utilities
+   ├── handlers # A set of functions that handle our different use cases
+   │   ├── components.ts # Handles all component documentation use cases
+   │   └── index.ts # Exports all handlers
+   ├── io.ts # A set of functions that handle IO operations
+   ├── parser.ts # The JSON parser entrypoint
+   ├── index.ts # The entrypoint of this package where TypeDoc is configured, executed and its output is passed down the pipeline to our JSON parser
+   └── strings.ts # String utilities such as toKebabCase used across the package
 ```
 
 ## Best practices when writing documentation on code
@@ -96,5 +98,5 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 ## Best practices when writing Playgrounds with Storybook
 
-- Always use a `Playground` component to wrap your component. This component is responsible for rendering the component on a beautiful background.
+- Make sure to follow Shoreline's [Storybook best practices]() when writing stories.
 - Always write as much use cases as possible.
