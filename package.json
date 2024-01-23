@@ -34,7 +34,7 @@
     "build:storybook:ci": "storybook build",
     "build:ci": "pnpm turbo run build",
     "test:ci": "pnpm test",
-    "test:storybook": "test-storybook",
+    "test:storybook": "pnpm dlx playwright install --with-deps && test-storybook",
     "test:storybook:ci": "concurrently -k -s first -n storybook@shoreline,test:storybook@shoreline -c magenta,blue \"http-server storybook-static --port 6006\" \"wait-on tcp:127.0.0.1:6006 && pnpm run test:storybook\"",
     "lint:ci": "pnpm lint",
     "prepare": "husky install",

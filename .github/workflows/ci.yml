@@ -42,9 +42,6 @@ jobs:
       - name: Test
         run: pnpm test:ci
 
-      - name: Install Playwright
-        run: pnpm exec playwright install --with-deps
-
       - name: Test Storybook
         run: pnpm test:storybook:ci
 
