@@ -1,71 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import type { AlertProps, AlertVariant } from '../index'
 import { Alert } from '../index'
 import { Stack } from '../../stack'
 import { Text } from '../../text'
 import { Button } from '../../button'
-import type { StoryObj } from '@storybook/react'
-
-const variants: AlertVariant[] = [
-  'success',
-  'critical',
-  'warning',
-  'informational',
-]
 
 export default {
-  title: 'shoreline-components/alert',
-  argTypes: {
-    children: {
-      control: 'text',
-      description: 'Alert message',
-    },
-    variant: {
-      control: 'select',
-      options: variants,
-      description: 'Alert variant',
-    },
-    withAction: {
-      control: 'boolean',
-      description: 'Whether to render an action or not',
-    },
-  },
-  args: {
-    variant: 'informational',
-    children: 'Alert message',
-    withAction: false,
-  },
-} as StoryObj<StoryArgs>
-
-interface StoryArgs extends AlertProps {
-  withAction: boolean
+  title: 'components/alert',
 }
 
-export function Playground(args: StoryArgs) {
-  const { variant, children, withAction, ...props } = args
-
-  return (
-    <Alert variant={variant} {...props}>
-      <Text variant="body">{children}</Text>
-      {withAction && (
-        <Button variant="tertiary" onClick={() => alert('Clicked')}>
-          Action
-        </Button>
-      )}
-    </Alert>
-  )
-}
-
-export function Default() {
-  return (
-    <Alert>
-      <Text variant="body">Short message</Text>
-    </Alert>
-  )
-}
-
-export function Variants() {
+export function Show() {
   return (
     <Stack fluid>
       <Alert>
@@ -80,13 +24,6 @@ export function Variants() {
       <Alert variant="warning">
         <Text variant="body">Short message</Text>
       </Alert>
-    </Stack>
-  )
-}
-
-export function LongText() {
-  return (
-    <Stack fluid>
       <Alert>
         <Text variant="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
@@ -102,7 +39,7 @@ export function LongText() {
           et arcu sapien. Maecenas elementum lorem maximus hendrerit interdum.
         </Text>
       </Alert>
-      <Alert onDismiss={() => null}>
+      <Alert variant="success" onDismiss={() => null}>
         <Text variant="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
           dapibus ex. Donec quis elit volutpat, posuere est a, ultrices urna.
@@ -118,28 +55,13 @@ export function LongText() {
         </Text>
         <Button variant="tertiary">Action</Button>
       </Alert>
-    </Stack>
-  )
-}
-
-export function AsAlert() {
-  return (
-    <Alert role="alert" variant="critical">
-      Alert message
-    </Alert>
-  )
-}
-
-export function WithAction() {
-  return (
-    <Stack fluid>
       <Alert variant="warning">
         <Text variant="body">Action as button</Text>
         <Button variant="tertiary" onClick={() => alert('Clicked')}>
           Action
         </Button>
       </Alert>
-      <Alert variant="warning">
+      <Alert variant="critical" onDismiss={() => null}>
         <Text variant="body">Action as link</Text>
         <Button variant="tertiary" asChild>
           <a href="htpps://vtex.com.br" target="_blank" rel="noreferrer">
@@ -148,22 +70,5 @@ export function WithAction() {
         </Button>
       </Alert>
     </Stack>
-  )
-}
-
-export function Dismiss() {
-  const [visible, setVisible] = useState(true)
-
-  const toggle = () => setVisible((v) => !v)
-
-  return (
-    <div>
-      {visible && (
-        <Alert variant="success" onDismiss={toggle}>
-          <Text variant="body">Alert message</Text>
-        </Alert>
-      )}
-      <button onClick={toggle}>Toggle alert</button>
-    </div>
   )
 }
