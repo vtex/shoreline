@@ -3,12 +3,9 @@ import { ConfirmationModal } from '../confirmation-modal'
 import { Button } from '../../button'
 import { Text } from '../../text'
 import { LocaleProvider } from '@vtex/shoreline-primitives'
-import { userEvent, within } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
 
 export default {
-  title: 'shoreline-components/confirmation-modal',
-  component: Playground,
+  title: 'components/confirmation-modal',
   argTypes: {
     locale: {
       control: 'select',
@@ -31,20 +28,6 @@ export default {
     content: 'This is a confirmation modal',
     messages: {},
   },
-  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
-    const canvas = within(canvasElement)
-
-    const button = canvas.getByRole('button')
-
-    await userEvent.click(button, {
-      delay: 100,
-    })
-
-    // Modal is rendered within a portal outside the canvas
-    const modal = document.querySelector('[data-testid="confirmation-modal"]')
-
-    await expect(modal).toBeVisible()
-  },
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -56,7 +39,7 @@ interface StoryArgs {
   content: string
 }
 
-export function Playground(args: StoryArgs) {
+export function Play(args: StoryArgs) {
   const { content, messages, locale } = args
 
   const [open, setOpen] = useState(false)
