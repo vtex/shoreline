@@ -7,7 +7,6 @@ import { Container } from '../content'
 /**
  * Modal containers allow users to view content that demands attention through an overlay window that opens on top of the current page.
  *
- * @playground
  * @example
  * ```jsx
  * function Example() {
