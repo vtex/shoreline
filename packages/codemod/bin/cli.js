@@ -97,6 +97,14 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'migrate-flex: Migrates Flex from admin-ui to shoreline',
     value: 'migrate-flex',
   },
+  {
+    name: 'migrate-stack: Migrates Stack from admin-ui to shoreline',
+    value: 'migrate-stack',
+  },
+  {
+    name: 'migrate-button: Migrates Button from admin-ui to shorelines Button or IconButton',
+    value: 'migrate-button',
+  },
 ]
 
 // tsx or jsx
