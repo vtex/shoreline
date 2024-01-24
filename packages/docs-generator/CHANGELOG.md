@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.3.1...@vtex/docs-generator@0.4.0) (2024-01-24)
+
+### Features
+
+- **docs-generator:** components idx page generator ([83c88e7](https://github.com/vtex/shoreline/commit/83c88e7f9a2730a8ec782c721b3f22ccec9acfa0))
+
 ## [0.3.1](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.3.0...@vtex/docs-generator@0.3.1) (2024-01-11)
 
 ### Bug Fixes
