@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.8.15...@vtex/shoreline-date@0.8.16) (2024-01-24)
+
+**Note:** Version bump only for package @vtex/shoreline-date
+
 ## [0.8.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline-date@0.8.14...@vtex/shoreline-date@0.8.15) (2024-01-22)
 
 **Note:** Version bump only for package @vtex/shoreline-date
