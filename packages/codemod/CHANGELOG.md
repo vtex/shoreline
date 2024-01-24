@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@0.3.0...@vtex/shoreline-codemod@0.4.0) (2024-01-24)
+
+### Features
+
+- add codemod for button migration ([1a6f471](https://github.com/vtex/shoreline/commit/1a6f471b4e4b0a8c2784bed55fee270b7257396e))
+
 # [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@0.2.0...@vtex/shoreline-codemod@0.3.0) (2024-01-19)
 
 ### Features
