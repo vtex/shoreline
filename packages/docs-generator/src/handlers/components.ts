@@ -1,11 +1,9 @@
-import { createOrUpdateFile, prettify } from './io'
+/* eslint-disable no-await-in-loop */
+import { createOrUpdateFile, prettify } from '../io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
-import { isComponent, toKebabCase, acronyms } from './strings'
-import { getTemplate } from './templates'
-import type {
-  ComponentDocumentationPaths,
-  PkgToBeDocumentedPaths,
-} from './config'
+import { isComponent, toKebabCase, acronyms } from '../strings'
+import { getTemplate } from '../templates'
+import type { ComponentDocumentationPaths } from '../config'
 import { existsSync, readFileSync } from 'fs'
 
 /**
@@ -17,7 +15,7 @@ import { existsSync, readFileSync } from 'fs'
  * @param func The function parser of the component
  * @param paths The paths of the component documentation
  */
-export async function generateComponent(
+async function generateComponent(
   project: ProjectParser,
   func: FunctionParser,
   paths: ComponentDocumentationPaths
@@ -156,31 +154,31 @@ export async function generateComponent(
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
  */
-export async function generateRootMetaJSON(
+async function generateRootMetaJSON(
   project: ProjectParser,
-  paths: PkgToBeDocumentedPaths
+  paths: ComponentDocumentationPaths
 ) {
   const metaTemplate = getTemplate('meta.json')
 
-  if (paths.components?.docPath) {
-    const components = project.functions.reduce<MetaFile>((result, func) => {
-      if (isComponent(func.name)) {
-        const key = func.name
-          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-          .toLowerCase()
-
-        result.push({ key, value: func.name })
-      }
-
-      return result
-    }, [])
-
-    const meta = metaTemplate({
-      components,
-    })
-
-    await createOrUpdateFile(`${paths.components.docPath}/_meta.json`, meta)
+  if (paths?.docPath) {
+    return
   }
+
+  const components = project.functions.reduce<ArrayFile>((result, func) => {
+    if (isComponent(func.name)) {
+      const key = func.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+
+      result.push({ key, value: func.name })
+    }
+
+    return result
+  }, [])
+
+  const meta = metaTemplate({
+    components,
+  })
+
+  await createOrUpdateFile(`${paths.docPath}/_meta.json`, meta)
 }
 
 /**
@@ -190,48 +188,108 @@ export async function generateRootMetaJSON(
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
  */
-export async function generateComponentMetaJSON(
+async function generateComponentMetaJSON(
   func: FunctionParser,
   paths: ComponentDocumentationPaths
 ) {
-  if (paths.docPath) {
-    const metaTemplate = getTemplate('componentMeta.json')
+  if (!paths?.docPath) {
+    return
+  }
 
-    const metaPath = `${paths.docPath}/${toKebabCase(func.name)}/_meta.json`
-    const name = paths.filename.replace(/\.[^/.]+$/, '')
-    const capitalizedName = name
-      .split('-')
-      .map((word) => {
-        if (acronyms[word]) {
-          return acronyms[word]
-        }
+  const metaTemplate = getTemplate('componentMeta.json')
 
-        return word.charAt(0).toUpperCase() + word.slice(1)
-      })
-      .join(' ')
+  const metaPath = `${paths.docPath}/${toKebabCase(func.name)}/_meta.json`
+  const name = paths.filename.replace(/\.[^/.]+$/, '')
+  const capitalizedName = name
+    .split('-')
+    .map((word) => {
+      if (acronyms[word]) {
+        return acronyms[word]
+      }
 
-    if (!existsSync(metaPath)) {
-      const meta = metaTemplate({
-        name,
-        capitalizedName,
-      })
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    .join(' ')
 
-      await createOrUpdateFile(metaPath, meta)
+  if (!existsSync(metaPath)) {
+    const meta = metaTemplate({
+      name,
+      capitalizedName,
+    })
 
-      return
+    await createOrUpdateFile(metaPath, meta)
+
+    return
+  }
+
+  // Check if meta has filename and if it's correct.
+  // Update it accordingly.
+  const metaFile = JSON.parse(readFileSync(metaPath, 'utf8'))
+  const metaFilenameValue = metaFile[name]
+
+  if (metaFilenameValue !== capitalizedName) {
+    // Update meta with correct filename
+    metaFile[name] = capitalizedName
+    await createOrUpdateFile(metaPath, JSON.stringify(metaFile))
+  }
+}
+
+/**
+ * Generates the index page for the components documentation.
+ *
+ * @param project The project parser
+ * @param paths The paths of the components documentation
+ */
+async function generateComponentsIdxPage(
+  project: ProjectParser,
+  paths: ComponentDocumentationPaths
+) {
+  const componentsIdxTemplate = getTemplate('componentsIndex.mdx')
+
+  if (!paths?.docPath) {
+    return
+  }
+
+  const components = project.functions.reduce<ArrayFile>((result, func) => {
+    if (isComponent(func.name)) {
+      const path = `/components/${toKebabCase(func.name)}`
+
+      result.push({ path, name: func.name })
     }
 
-    // Check if meta has filename and if it's correct.
-    // Update it accordingly.
-    const metaFile = JSON.parse(readFileSync(metaPath, 'utf8'))
-    const metaFilenameValue = metaFile[name]
+    return result
+  }, [])
 
-    if (metaFilenameValue !== capitalizedName) {
-      // Update meta with correct filename
-      metaFile[name] = capitalizedName
-      await createOrUpdateFile(metaPath, JSON.stringify(metaFile))
+  const idxPage = componentsIdxTemplate({
+    components,
+  })
+
+  await createOrUpdateFile(`${paths.docPath}/index.mdx`, idxPage)
+}
+
+/**
+ * This is the entry point of the components documentation generation.
+ *
+ * @param project The project parser
+ * @param paths The paths of the components documentation
+ */
+export async function generateComponents(
+  project: ProjectParser,
+  paths: ComponentDocumentationPaths
+) {
+  for (const func of project.functions) {
+    if (isComponent(func.name)) {
+      await Promise.all([
+        generateComponent(project, func, paths),
+        generateComponentMetaJSON(func, paths),
+      ])
     }
   }
+
+  await Promise.all([
+    generateComponentsIdxPage(project, paths),
+    generateRootMetaJSON(project, paths),
+  ])
 }
 
 /**
@@ -262,6 +320,6 @@ interface ComponentProps {
 }
 
 /**
- * The _meta.json file interface for Nextra
+ * A file interface for Nextra
  */
-type MetaFile = Array<Record<string, string>>
+type ArrayFile = Array<Record<string, string>>
