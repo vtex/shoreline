@@ -6,9 +6,7 @@ import { Text } from '../../../text'
 export default {
   title: 'components/alert/examples',
   parameters: {
-    chromatic: {
-      disableSnapshots: true,
-    },
+    chromatic: { disableSnapshot: true },
   },
 }
 
