@@ -16,17 +16,13 @@
     "@vtex/shoreline-date": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-preset-admin": "workspace:*",
-    "@vtex/shoreline-styles": "workspace:*",
-    "@vtex/shoreline-tokens": "workspace:*",
+    "@vtex/shoreline-theme-arpoador": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
-    "he": "1.2.0",
     "next": "13.4.7",
-    "nextra": "2.10.0",
-    "nextra-theme-docs": "2.10.0",
-    "prism-react-renderer": "2.3.0",
+    "nextra": "2.13.2",
+    "nextra-theme-docs": "2.13.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-live": "4.1.5"
+    "react-dom": "18.2.0"
   },
   "browserslist": {
     "production": [

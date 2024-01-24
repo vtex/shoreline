@@ -1,0 +1,55 @@
+{
+  "name": "@vtex/shoreline-theme-arpoador",
+  "version": "0.0.0",
+  "main": "./dist/arpoador.css",
+  "module": "./dist/arpoador.css",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/arpoador.css",
+    "./tokens": "./dist/tokens.css",
+    "./components": "./dist/components.css"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prepare": "pnpm run theme",
+    "prebuild": "rm -rf dist",
+    "dev": "concurrently -p [{name}] -n styles:all@shoreline,styles:tokens@shoreline,styles:components@shoreline -c bgGreen,bgBlue,bgPink \"pnpm run dev:all\" \"pnpm run dev:tokens\" \"pnpm run dev:components\"",
+    "dev:all": "postcss ./src/index.scss -o dist/arpoador.css -w",
+    "dev:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css -w",
+    "dev:components": "postcss ./src/components/index.scss -o dist/components.css -w",
+    "build": "pnpm run build:all && pnpm run build:tokens && pnpm run build:components",
+    "build:all": "postcss ./src/index.scss -o dist/arpoador.css",
+    "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
+    "build:components": "postcss ./src/components/index.scss -o dist/components.css",
+    "theme": "shorelinecss theme"
+  },
+  "repository": {
+    "directory": "packages/theme-arpoador",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.6",
+    "@csstools/postcss-sass": "5.1.1",
+    "concurrently": "8.2.2",
+    "cssnano": "6.0.2",
+    "postcss": "8.4.32",
+    "postcss-cli": "11.0.0",
+    "postcss-import": "15.1.0",
+    "postcss-preset-env": "9.3.0",
+    "postcss-scss": "4.0.9",
+    "@vtex/shoreline-cli": "workspace",
+    "@vtex/shoreline-theme": "workspace"
+  }
+}
