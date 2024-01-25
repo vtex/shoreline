@@ -256,7 +256,7 @@ importers:
     dependencies:
       '@vtex/shoreline-components':
         specifier: 0.x
-        version: 0.62.3(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
+        version: link:../components
       chalk:
         specifier: 2.4.1
         version: 2.4.1
@@ -10963,71 +10963,6 @@ packages:
     dependencies:
       prettier: 2.8.8
     dev: true
-
-  /@vtex/shoreline-components@0.62.3(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-wqjFMegmQ/HxbBRE38DuTfXdEFglvzIN1Mt0sgNpOacDAKplsrq1/CdL7ragKmu8wwd02e0AOlxx717QvJqg0A==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      '@ariakit/react': 0.3.8(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/checkbox': 3.12.0(react@18.2.0)
-      '@react-aria/focus': 3.15.0(react@18.2.0)
-      '@react-aria/i18n': 3.9.0(react@18.2.0)
-      '@react-aria/interactions': 3.20.0(react@18.2.0)
-      '@react-stately/toggle': 3.7.0(react@18.2.0)
-      '@tanstack/react-virtual': 3.0.1(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-icons': 0.3.0(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-primitives': 0.3.3(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-utils': 0.9.0(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-hot-toast: 2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - csstype
-    dev: false
-
-  /@vtex/shoreline-icons@0.3.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Wa7HPQgD0C4Z1/ijFzY8675rATVwXczZnmtq6I+VhIZG8oK6RUQu3u72K0p4ort4IREF7uTfL6vO7nOefr3slg==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@vtex/shoreline-primitives@0.3.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-8kWaMYxoYx1TCV9Rappcvg+LjgyMUs26+YP4j1vkpsxJgCm4rwBQlRIXe48VZ2+SmVOUI2sJ4A3ahmDDodwEMw==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      '@ariakit/react': 0.3.8(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/i18n': 3.9.0(react@18.2.0)
-      '@tanstack/react-virtual': 3.0.1(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-icons': 0.3.0(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-utils': 0.9.0(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@vtex/shoreline-utils@0.9.0(react@18.2.0):
-    resolution: {integrity: sha512-W4dCqLsBLfJMOnGRd47tURRaZgMkfcUjg+W9nSHXqlWIiXd1hWkOx0dWoPdrYg1AvoagaeM9qC/LA1dleR0KAg==}
-    engines: {node: '>=12'}
-    dependencies:
-      csstype: 3.1.2
-      deepmerge: 4.3.1
-      scule: 1.1.1
-      tiny-invariant: 1.3.1
-      tiny-warning: 1.0.3
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - react
-    dev: false
 
   /@vtex/tsconfig@0.5.6(typescript@4.9.5):
     resolution:

@@ -6,6 +6,8 @@ import { Slot } from '../slot'
 import {
   IconMagnifyingGlass,
   IconPlus,
+  IconPlusCircle,
+  IconProhibit,
   IconWarningCircle,
 } from '@vtex/shoreline-icons'
 import { Heading } from '../heading'
@@ -102,13 +104,13 @@ function getIcon(status: CollectionStatus) {
       return <IconWarningCircle color="var(--sl-color-red-8)" />
 
     case 'empty':
-      return <IconPlus color="var(--sl-color-gray-8)" />
+      return <IconPlusCircle color="var(--sl-color-gray-8)" />
 
     case 'not-found':
       return <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
 
     default:
-      return <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
+      return <IconProhibit color="var(--sl-color-gray-8)" />
   }
 }
 
