@@ -1,0 +1,1001 @@
+# Migration Guide
+
+Migrating your Admin projects from `@vtex/admin-ui` to `@vtex/shoreline-components`.
+
+Shoreline is a major update on the design system library with focus to provide a more stable and reliable library, with a better DX and a more consistent UI.
+
+You can notice some breaking changes on the components API, this was necessary to improve the DX and to make the components more reliable. 
+We also removed some components that were not being used and some that were not being used correctly.
+
+For upcoming updates you will notice that stability will be our focus and we will work hard to make any breaking changes.
+
+## Getting Started
+
+Upgrading to Shoreline requires several automated and manual migrations of tokens, components, and component prop names that have been removed, replaced, or renamed and also changes on the way the style is applied to the components.
+Those upgrades can be done on a component by component basis, since `admin-ui` and `Shoreline` can coexist in the same project.
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-components
+```
+
+## Component Migrations
+
+### Alert
+
+1. Removed the `action` property. <br/>
+Now you must add the action by hand using the `Button` component.
+2. The `variant` property values has changed.
+
+<details>
+
+<summary>Prop replacements</summary>
+<br/>
+| Before | After |
+|--------|-------|
+| `variant="info"` | `variant="informational"` |
+| `variant="positive"` | `variant="success"` |
+| `variant="warning"` | `variant="warning"` |
+| `variant="critical"` | `variant="critical"` |
+
+</details>
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Alert
+  variant="warning"  
+  action={{
+    children: 'See order',
+    onClick: () => alert('Order #123'),
+  }}
+>
+  <Text variant="body">Action as button</Text>
+  <Button variant="tertiary" onClick={() => alert('Clicked')}>
+    Action
+  </Button>
+</Alert>
+/**
+ * After ✅ 
+ */
+<Alert variant="warning">
+  <Text variant="body">Action as button</Text>
+  <Button variant="tertiary" onClick={() => alert('Clicked')}>
+    Action
+  </Button>
+</Alert>
+```
+
+</details>
+
+### Bleed
+tags: `codemod`;
+
+1. The properties `left` and `right` has changed to `start` and `end`.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Bleed left="" right="" bottom="" top="">
+  ...
+</Bleed>
+/**
+ * After ✅ 
+ */
+<Bleed start="" end="" bottom="" top="">
+  ...
+</Bleed>
+```
+
+</details>
+
+### Button
+tags: `codemod`
+
+1. The `variant` property values has changed.
+2. Removed the `icon` and `iconPosition` properties. <br/>
+  Now you must use the `IconButton` component. 
+
+<details>
+
+<summary>Prop replacements</summary>
+
+| Before | After |
+|--------|-------|
+| `variant="primary"` | `variant="primary"` |
+| `variant="secondary"` | `variant="secondary"` |
+| `variant="tertiary"` | `variant="tertiary"` |
+| `variant="critical"` | `variant="critical"` |
+| `variant="criticalSecondary"` | `-` |
+| `variant="criticalTertiary"` | `variant="criticalTertiary"` |
+| `variant="neutralTertiary"` | `-` |
+
+</details>
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Button icon={<IconPlus />} iconPosition="start">
+  Create item
+</Button>
+/**
+ * After ✅ 
+ */
+<IconButton>
+  <IconPlus />
+  Create item
+</IconButton>
+```
+
+</details>
+
+### Center
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+### Checkbox
+tags:  `documentation`;
+
+1. Removed `helpText`, `errorText`, and `error` properties <br />
+  Now you must use the `Field` component. You can check the `Field` documentation for detailed info.
+2. Removed the `label` property <br />
+  Now you must pass the label as the `Checkbox` children.
+3. Removed the `state` property <br />
+  Now you must use the `checked` and `onChange` combination in order to control the checkbox state. The `indeterminate` property was also added to represent this state.
+
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Checkbox label="" errorText="" error state={state} helpText="" />
+/**
+ * After ✅ 
+ */
+<Field error>
+  <Checkbox onChange={} checked>Label</Checkbox>
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+</details>
+
+### Collections
+tags: `documentation`;
+
+This component replaces the old `DataView` component. 
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+### ContextualHelp 🆕
+
+It renders an trigger that can be used to display contextual help through an overlay.
+
+### EmptyState 🆕
+
+It renders a styled empty state area. This component can be used combined with the `Collections` or `Filter` component.
+
+### Field 🆕
+
+This component helps to implement form fields and it’s used combined with form components such as: `Checkbox`, `Input`, `Textarea`, `Radio`, etc.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Input
+  value={}
+  onChange={}
+  label=""
+  errorText=""
+  error
+  helpText=""
+/>
+/**
+ * After ✅ 
+ */
+<Field error>
+  <Input
+    value={}
+    onChange={}
+    label=""
+    errorText=""
+    error
+    helpText=""
+  />
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+</details>
+
+### Filter
+tags: `documentation`;
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const filterState = useFilterState()
+
+<> 
+  <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+  <FilterPopover state={filterState}>
+    <FilterListbox>
+      <FilterOptionRadio id="#1" label="Full" />
+      <FilterOptionRadio id="#2" label="Empty" />
+      <FilterOptionRadio id="#3" label="Half full" />
+    </FilterListbox>
+    <FilterFooter />
+  </FilterPopover>
+</>
+/**
+ * After ✅ 
+ */
+const [status, setStatus] = useState<string>('Experimental')
+
+<Filter label="Status" value={status} setValue={setStatus}>
+  <FilterItem value="Stable">Stable</FilterItem>
+  <FilterItem value="Experimental">Experimental</FilterItem>
+  <FilterItem value="Deprecated">Deprecated</FilterItem>
+</Filter>
+```
+
+</details>
+
+### Flex
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+### Grid
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+### Heading
+
+tags: `codemod`; `import-only`;
+
+1. Added the `variant` property which changes text style.
+
+### Input
+tags: `codemod`
+
+1. The name has changed from `TextInput` to `Input`.
+2. Removed `helpText` and `errorText` properties. <br />
+  Now you must use the `Field` component. You can check the `Field` documentation for detailed info.
+
+### Label
+tags: `codemod`; `import-only`;
+
+1. Added the `optional` property that indicates whether the form field is optional or not.
+
+### Link
+tags: `codemod`;
+
+1 The name has changed from `Anchor` to `Link`.
+
+### Menu
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const state = useMenuState()
+
+<MenuButton state={state} />
+<Menu state={state}>
+  <MenuItem label="Create" icon={<IconPlus />} />
+  <MenuItem label="Edit" icon={<IconPencil />} />
+  <MenuItem label="Download" icon={<IconArrowLineDown />} />
+</Menu>
+/**
+ * After ✅ 
+ */
+// default
+<Menu label="Open">
+  <MenuItem>New Tab</MenuItem>
+  <MenuItem>New Item</MenuItem>
+  <MenuSeparator />
+  <MenuItem>Downloads</MenuItem>
+</Menu>
+
+// composition
+<MenuProvider>
+  <MenuTrigger asChild>
+    <Button>Open</Button>
+  </MenuTrigger>
+  <MenuPopover>
+    <MenuItem>New Tab</MenuItem>
+    <MenuItem>New Item</MenuItem>
+    <MenuSeparator />
+    <MenuItem>Downloads</MenuItem>
+  </MenuPopover>
+</MenuProvider>
+```
+
+</details>
+
+
+### Modal
+tags: `documentation`;
+
+1. We split the Modal component into two components: 
+
+`ConfirmationModal`: allow merchants to confirm an action through an overlay window that opens on top of the current page.<br/>
+`Modal`: allow users to view content that demands attention through an overlay window that opens on top of the current page.
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+### Page
+tags: `documentation`;
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+### Pagination
+tags: `codemod`;
+
+1. Removed the `usePaginationState` hook. <br />
+  Now you must pass the state values as props.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const state = usePaginationState({ pageSize: 5, total: 35 })
+
+<Pagination state={state} />
+/**
+ * After ✅ 
+ */
+const [page, setPage] = useState({ page: 1 })
+
+<Pagination
+  page={pagination.page}
+  onPageChange={(page) => {
+    setPage(page)
+  }}
+  total={35}
+  size={5}
+ />
+```
+
+</details>
+
+### Radio
+tags:  `codemod`;
+
+1. Removed `helpText`, `errorText`, and `error` properties. <br />
+  Now you must use the `Field` component. You can check the `Field` documentation for detailed info.
+2. Removed the `label` property <br />
+  Now you must pass the label as the `Radio` children.
+3. The `direction` property has changed to a `horizontal` which is a boolean prop and by default the direction is `vertical`.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const state = useRadioState({ defaultValue: 'disabled' })
+
+<RadioGroup state={state} label="Accounts" direction="column">
+  <Radio
+     label="Accounts are disabled"
+     value="disabled"
+  />
+  <Radio
+    label="Accounts are optional"
+    value="optional"
+  />
+</RadioGroup>
+/**
+ * After ✅ 
+ */
+const [value, setValue] = useState<string>()
+const state = useRadioState({
+  value,
+  setValue: setValue as any,
+})
+
+<RadioGroup state={state} label="Accounts" direction="column">
+  <Radio value="disabled">Accounts are disabled</Radio>
+  <Radio value="optional">Accounts are optional</Radio>
+</RadioGroup>
+```
+
+</details>
+
+### Search
+tags: `documentation`;
+
+1. Removed the `disabled` property.
+2. Removed the `useSearchState` hook. <br />
+  Now you must pass the state values as props.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const { getInputProps } = useSearchState()
+
+<Search {...getInputProps()} />
+/**
+ * After ✅ 
+ */
+const [value, setValue] = useState('')
+
+<Search
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  onClear={() => setValue('')}
+/>
+```
+
+</details>
+
+### Select
+tags: `codemod`; 
+
+1. Removed `label`, `helpText`, `errorText`, and `error` properties. <br />
+  Now you must use the `Field` component. You can check the `Field` documentation for detailed info.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Select label="Accounts" helpText="" error errorText="">
+  <option value="disabled">Accounts are disabled</option>
+  <option value="optional">Accounts are optional</option>
+</Select>
+/**
+ * After ✅ 
+ */
+const [value, setValue] = useState('')
+
+<Field error>
+  <Label>Accounts</Label>
+  <Select helpText="">
+    <option value="disabled">Accounts are disabled</option>
+    <option value="optional">Accounts are optional</option>
+  </Select>
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+</details>
+
+### Skeleton
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+### Slot 🆕
+tags: `new`;
+
+A layout component to help in the structural composition.
+
+### Spinner
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+### Stack
+tags: `codemod`; 
+
+```sh copy
+npx @vtex/shoreline-codemod migrate-stack {folder_path}
+```
+
+1. The `direction` property has changed to a `horizontal` which is a boolean prop and by default the direction is `vertical`.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Stack direction="row">...</Stack>
+/**
+ * After ✅ 
+ */
+<Stack horizontal>...</Stack>
+```
+
+</details>
+
+### Tab
+tags: `documentation`;
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const state = useTabState()
+
+<>
+  <TabList state={state}>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanel state={state} />
+  <TabPanel state={state} />
+</>
+/**
+ * After ✅ 
+ */
+<TabProvider>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanel />
+  <TabPanel />
+</TabProvider>
+```
+
+</details>
+
+
+### Table
+tags: `documentation`;
+
+Now the table component is exported from a different package, so in order to use it you must install it.
+
+```sh npm2yarn copy
+npm i @shoreline/shoreline-ts-table
+```
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+### Tag
+tags: `codemod`;
+
+1. Removed the `label` property <br />
+  Now you must pass the label as the `Tag` children.
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+<Tag label="Short text" />
+/**
+ * After ✅ 
+ */
+<Tag>Short text</Tag>
+```
+
+</details>
+
+### Text
+
+1. Removed the `tone` property <br />
+  Now you must set the text color by applying CSS to it.
+2. The `variant` property values has changed.
+
+
+<details>
+
+<summary>Prop changes</summary>
+<br/>
+| Before | 
+|--------|
+| `variant="pageTitle"` |
+| `variant="title1"` |
+| `variant="title2"` |
+| `variant="action1"` |
+| `variant="action2"` |
+| `variant="display"` |
+| `variant="body"` |
+| `variant="detail"` |
+
+| After |
+| ----- |
+| `variant="context"` |
+| `variant="body"` |
+| `variant="action"` |
+| `variant="emphasis"` |
+| `variant="caption1"` |
+| `variant="caption2"` |
+| `variant="display1"` |
+| `variant="display2"` |
+| `variant="display3"` |
+| `variant="display4"` |
+
+</details>
+
+
+### TextArea
+tags: `codemod`
+
+1. Removed `helpText` and `errorText` properties. <br />
+  Now you must use the `Field` component. You can check the `Field` documentation for detailed info.
+
+### Tooltip
+tags: `documentation`;
+
+1. The Tooltip can be used as an uncontrolled component or as a controlled component.
+2. The `text` property has changed to `label`.
+
+
+<details>
+
+<summary>Migration example</summary>
+
+```tsx
+/**
+ * Before 🚫 
+ */
+const [visible, setVisible] = useState(false)
+
+<Tooltip text="Tooltip text">...</Tooltip>
+/**
+ * After ✅ 
+ */
+// uncontrolled
+<Tooltip label="Tooltip text">...</Tooltip>
+
+// controlled
+const [open, setOpen] = useState(false)
+
+<Tooltip open={} setOpen={} label="Tooltip text">...</Tooltip>
+
+// composition
+<TooltipProvider>
+  <TooltipTrigger asChild>
+    <button>i</button>
+  </TooltipTrigger>
+  <TooltipPopover>
+    <TooltipArrow />
+    Tooltip text
+  </TooltipPopover>
+</TooltipProvider>
+```
+
+</details>
+
+### Toast
+tags: `documentation`;
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+### VisuallyHidden
+tags: `codemod`; `import-only`;
+
+There are no changes.
+
+## New components
+* ConfirmationModal
+* Content
+* ContextualHelp
+* EmptyState
+* IconButton
+* Popover
+* Slot
+* Field
+
+### Primitives
+* AccessibleIcon
+* Clickable
+* Combobox
+* LinkBox
+* Select (Custom select)
+* Virtual
+
+## Renamed components
+* `Anchor` -> `Link`
+* `DataView` -> `Collections`
+
+## Deleted components
+
+You can refer to our Styling and Component creation guidelines in order to implement on your side if necessary.
+
+| Deleted Component | Replacement |
+| ----------------- | ----------- |
+| `Avatar` | Should we implement? |
+| `BulkActions` | Implement on your side |
+| `Card` | ? |
+| `Collapsible` | Should we implement? |
+| `Columns` | ? |
+| `Divider` | Should we implement? |
+| `Dropdown` | Use `Select` instead |
+| `Form` | Use native form combined with `Field` instead |
+| `Inline` | Use `Stack` instead |
+| `List` | Use native HTML lists |
+| `NumberInput` | Should we implement? |
+| `Paragraph` | Use `Text` instead |
+| `Switch` | Does not make part of the design system anymore |
+| `Toolbar` | Should we implement? |
+
+## Tokens
+
+All tokens has been renamed to follow the same pattern and to be more intuitive. In the following table the comparison between them.
+You can use the token automation to apply those changes
+
+```sh
+npx @shoreline/codemod migrate-tokens .
+```
+
+### Border
+
+
+<details>
+<summary>Detailed diff</summary>
+<br />
+
+| Old token name | New token name |
+|----------------|----------------|
+| \--admin-ui-border-neutral                      | \--sl-border-base                                                   |
+| \--admin-ui-border-mainSelected                 | \--sl-border-accent-strong                                          |
+| \--admin-ui-border-positive                     | \--sl-border-success                                                |
+| \--admin-ui-border-info                         | \--sl-border-informational                                          |
+| \--admin-ui-border-critical                     | \--sl-border-critical                                               |
+| \--admin-ui-border-warning                      | \--sl-border-warning                                                |
+| \--admin-ui-border-disabled                     | \--sl-border-base-disabled                                          |
+| \--admin-ui-border-form-neutral                 | \--sl-border-base-strong                                            |
+| \--admin-ui-border-form-neutralHover            | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-neutralFocus            | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-neutralPressed          | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-neutralChecked          | \--sl-border-base-strong                                            |
+| \--admin-ui-border-form-neutralCheckedHover     | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-neutralCheckedPressed   | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-critical                | \--sl-border-critical-strong                                        |
+| \--admin-ui-border-form-criticalHover           | \--sl-border-critical-strong-hover                                  |
+| \--admin-ui-border-form-criticalFocus           | \--sl-border-critical-strong-hover                                  |
+| \--admin-ui-border-form-control                 | \--sl-border-base-strong                                            |
+| \--admin-ui-border-form-controlHover            | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-controlFocus            | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-controlChecked          | \--sl-border-base-strong                                            |
+| \--admin-ui-border-form-controlCheckedHover     | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-border-form-controlCheckedFocus     | \--sl-border-base-strong-hover                                      |
+| \--admin-ui-borderRadius-none                   | \--sl-border-radius-none                                            |
+| \--admin-ui-borderRadius-base                   | \--sl-border-radius-medium                                          |
+| \--admin-ui-borderRadius-pill                   | \--sl-border-radius-full                                            |
+
+</details>
+
+### Color
+
+<details>
+<summary>Detailed diff</summary>
+<br />
+
+| Old token name | New token name |
+|----------------|----------------|
+| \--admin-ui-bg-primary                          | \--sl-bg-base                                                       |
+| \--admin-ui-bg-secondary                        | \--sl-bg-muted                                                      |
+| \--admin-ui-bg-disabled                         | \--sl-bg-base-disabled                                              |
+| \--admin-ui-bg-positive                         | \--sl-bg-success                                                    |
+| \--admin-ui-bg-critical                         | \--sl-bg-critical                                                   |
+| \--admin-ui-bg-warning                          | \--sl-bg-warning                                                    |
+| \--admin-ui-bg-info                             | \--sl-bg-informational                                              |
+| \--admin-ui-bg-inverted                         | \--sl-bg-inverted                                                   |
+| \--admin-ui-bg-overlay                          | \--sl-bg-inverted-plain                                             |
+| \--admin-ui-bg-skeleton                         | linear-gradient(90deg, transparent, --sl-color-gray-3, transparent) |
+| \--admin-ui-bg-action-neutral-secondary         | \--sl-bg-muted-plain                                                |
+| \--admin-ui-bg-action-neutral-secondaryHover    | \--sl-bg-muted-plain-hover                                          |
+| \--admin-ui-bg-action-neutral-secondaryPressed  | \--sl-bg-muted-plain-pressed                                        |
+| \--admin-ui-bg-action-neutral-tertiary          | \--sl-bg-base-plain                                                 |
+| \--admin-ui-bg-action-neutral-tertiaryHover     | \--sl-bg-base-plain-hover                                           |
+| \--admin-ui-bg-action-neutral-tertiaryPressed   | \--sl-bg-base-plain-pressed                                         |
+| \--admin-ui-bg-action-main-primary              | \--sl-bg-accent-strong                                              |
+| \--admin-ui-bg-action-main-primaryHover         | \--sl-bg-accent-strong-hover                                        |
+| \--admin-ui-bg-action-main-primaryPressed       | \--sl-bg-accent-strong-pressed                                      |
+| \--admin-ui-bg-action-main-secondary            | \--sl-bg-accent                                                     |
+| \--admin-ui-bg-action-main-secondaryHover       | \--sl-bg-accent-hover                                               |
+| \--admin-ui-bg-action-main-secondaryPressed     | \--sl-bg-accent-pressed                                             |
+| \--admin-ui-bg-action-main-tertiary             | \--sl-bg-accent-plain                                               |
+| \--admin-ui-bg-action-main-tertiaryHover        | \--sl-bg-accent-plain-hover                                         |
+| \--admin-ui-bg-action-main-tertiaryPressed      | \--sl-bg-accent-plain-pressed                                       |
+| \--admin-ui-bg-action-main-tertiarySelected     | \--sl-bg-accent                                                     |
+| \--admin-ui-bg-action-critical-primary          | \--sl-bg-critical-strong                                            |
+| \--admin-ui-bg-action-critical-primaryHover     | \--sl-bg-critical-strong-hover                                      |
+| \--admin-ui-bg-action-critical-primaryPressed   | \--sl-bg-critical-strong-pressed                                    |
+| \--admin-ui-bg-action-critical-secondary        | \--sl-color-red-2                                                   |
+| \--admin-ui-bg-action-critical-secondaryHover   | \--sl-color-red-3                                                   |
+| \--admin-ui-bg-action-critical-secondaryPressed | \--sl-color-red-4                                                   |
+| \--admin-ui-bg-action-critical-tertiary         | \--sl-bg-critical-plain                                             |
+| \--admin-ui-bg-action-critical-tertiaryHover    | \--sl-bg-critical-plain-hover                                       |
+| \--admin-ui-bg-action-critical-tertiaryPressed  | \--sl-bg-critical-plain-pressed                                     |
+| \--admin-ui-bg-action-critical-tertiarySelected | \--sl-bg-critical                                                   |
+| \--admin-ui-bg-form-neutral                     | \--sl-bg-base                                                       |
+| \--admin-ui-bg-form-neutralHover                | \--sl-color-gray-2                                                  |
+| \--admin-ui-bg-form-neutralPressed              | \--sl-color-gray-5                                                  |
+| \--admin-ui-bg-form-neutralChecked              | \--sl-color-gray-12                                                 |
+| \--admin-ui-bg-form-neutralCheckedHover         | \--sl-color-gray-11                                                 |
+| \--admin-ui-bg-form-neutralCheckedPressed       | \--sl-color-gray-10                                                 |
+| \--admin-ui-bg-form-neutralInactive             | \--sl-color-gray-5                                                  |
+| \--admin-ui-bg-form-neutralInactiveHover        | \--sl-color-gray-10                                                 |
+| \--admin-ui-bg-form-neutralInactivePressed      | \--sl-color-gray-11                                                 |
+| \--admin-ui-bg-form-neutralActive               | \--sl-color-gray-12                                                 |
+| \--admin-ui-bg-form-neutralActiveHover          | \--sl-color-gray-11                                                 |
+| \--admin-ui-bg-form-neutralActivePressed        | \--sl-color-gray-10                                                 |
+| \--admin-ui-bg-form-controlHover                | \--sl-bg-base                                                       |
+| \--admin-ui-bg-form-controlChecked              | \--sl-bg-accent-strong                                              |
+| \--admin-ui-bg-form-controlCheckedHover         | \--sl-bg-accent-strong-hover                                        |
+| \--admin-ui-bg-form-controlCheckedFocus         | \--sl-bg-accent-strong-hover                                        |
+| \--admin-ui-bg-form-controlActive               | \--sl-color-green-10                                                |
+| \--admin-ui-bg-form-controlActiveHover          | \--sl-color-green-11                                                |
+| \--admin-ui-bg-form-controlInactive             | \--sl-color-gray-6                                                  |
+| \--admin-ui-bg-form-controlInactiveHover        | \--sl-color-gray-7                                                  |
+| \--admin-ui-fg-primary                          | \--sl-fg-base                                                       |
+| \--admin-ui-fg-secondary                        | \--sl-fg-base-soft                                                  |
+| \--admin-ui-fg-disabled                         | \--sl-fg-base-disabled                                              |
+| \--admin-ui-fg-inverted                         | \--sl-fg-base-inverted                                              |
+| \--admin-ui-fg-positive                         | \--sl-fg-success                                                    |
+| \--admin-ui-fg-info                             | \--sl-fg-informational                                              |
+| \--admin-ui-fg-critical                         | \--sl-fg-critical                                                   |
+| \--admin-ui-fg-warning                          | \--sl-fg-warning                                                    |
+| \--admin-ui-fg-action-neutral-tertiary          | \--sl-fg-muted                                                      |
+| \--admin-ui-fg-action-neutral-tertiaryHover     | \--sl-fg-muted-hover                                                |
+| \--admin-ui-fg-action-neutral-tertiaryPressed   | \--sl-fg-muted-pressed                                              |
+| \--admin-ui-fg-action-main-primary              | \--sl-fg-accent                                                     |
+| \--admin-ui-fg-action-main-primaryHover         | \--sl-fg-accent-hover                                               |
+| \--admin-ui-fg-action-main-primaryPressed       | \--sl-fg-accent-pressed                                             |
+| \--admin-ui-fg-action-main-secondary            | \--sl-fg-accent                                                     |
+| \--admin-ui-fg-action-main-secondaryHover       | \--sl-fg-accent-hover                                               |
+| \--admin-ui-fg-action-main-secondaryPressed     | \--sl-fg-accent-pressed                                             |
+| \--admin-ui-fg-action-main-tertiary             | \--sl-fg-accent                                                     |
+| \--admin-ui-fg-action-main-tertiaryHover        | \--sl-fg-accent-hover                                               |
+| \--admin-ui-fg-action-main-tertiaryPressed      | \--sl-fg-accent-pressed                                             |
+| \--admin-ui-fg-action-main-tertiarySelected     | \--sl-fg-accent                                                     |
+| \--admin-ui-fg-action-critical-primary          | \--sl-fg-critical                                                   |
+| \--admin-ui-fg-action-critical-primaryHover     | \--sl-fg-critical-hover                                             |
+| \--admin-ui-fg-action-critical-primaryPressed   | \--sl-fg-critical-pressed                                           |
+| \--admin-ui-fg-action-critical-secondary        | \--sl-fg-critical                                                   |
+| \--admin-ui-fg-action-critical-secondaryHover   | \--sl-fg-critical-hover                                             |
+| \--admin-ui-fg-action-critical-secondaryPressed | \--sl-fg-critical-pressed                                           |
+| \--admin-ui-fg-action-critical-tertiary         | \--sl-fg-critical                                                   |
+| \--admin-ui-fg-action-critical-tertiaryHover    | \--sl-fg-critical-hover                                             |
+| \--admin-ui-fg-action-critical-tertiaryPressed  | \--sl-fg-critical-pressed                                           |
+| \--admin-ui-fg-action-critical-tertiarySelected | \--sl-fg-critical                                                   |
+| \--admin-ui-fg-form-neutral                     | \--sl-fg-base                                                       |
+| \--admin-ui-fg-form-neutralChecked              | \--sl-fg-base-inverted                                              |
+| \--admin-ui-fg-form-controlNeutral              | \--sl-fg-base                                                       |
+| \--admin-ui-fg-form-controlChecked              | \--sl-fg-base-inverted                                              |
+| \--admin-ui-fg-form-control                     | \--sl-fg-base-inverted                                              |
+| \--admin-ui-shadow-ring-critical                | \--sl-focus-ring-critical                                           |
+| \--admin-ui-shadow-ring-neutral                 | \--sl-focus-ring-base                                               |
+| \--admin-ui-shadow-ring-main                    | \--sl-focus-ring-accent                                             |
+| \--admin-ui-shadow-overlay-center               | \--sl-shadow-1                                                      |
+| \--admin-ui-shadow-overlay-bottom               | \--sl-shadow-2                                                      |
+
+| \--admin-ui-fontStack-sans                      | \--sl-font-family-sans                                              |
+| \--admin-ui-fontStack-mono                      | \--sl-font-weight-regular                                           |
+| \--admin-ui-fontWeight-hairline                 | \--sl-font-weight-regular                                           |
+| \--admin-ui-fontWeight-thin                     | \--sl-font-weight-regular                                           |
+| \--admin-ui-fontWeight-light                    | \--sl-font-weight-regular                                           |
+| \--admin-ui-fontWeight-regular                  | \--sl-font-weight-regular                                           |
+| \--admin-ui-fontWeight-medium                   | \--sl-font-weight-medium                                            |
+| \--admin-ui-fontWeight-bold                     | \--sl-font-weight-semibold                                          |
+| \--admin-ui-fontWeight-black                    | \--sl-font-weight-semibold                                          |
+| \--admin-ui-fontSize-detail                     | \--sl-font-size-1                                                   |
+| \--admin-ui-fontSize-action                     | \--sl-font-size-2                                                   |
+| \--admin-ui-fontSize-body                       | \--sl-font-size-2                                                   |
+| \--admin-ui-fontSize-title                      | \--sl-font-size-3                                                   |
+| \--admin-ui-fontSize-pageTitle                  | \--sl-font-size-5                                                   |
+| \--admin-ui-fontSize-display                    | \--sl-font-size-5                                                   |
+| \--admin-ui-text-pageTitle                      | \--sl-text-display-1                                                |
+| \--admin-ui-text-title1                         | \--sl-text-display-3                                                |
+| \--admin-ui-text-title2                         | \--sl-text-display-4                                                |
+| \--admin-ui-text-action1 | \--sl-text-action    |
+| \--admin-ui-text-action2 | \--sl-text-emphasis  |
+| \--admin-ui-text-display | \--sl-text-display-1 |
+| \--admin-ui-text-body    | \--sl-text-body      |
+| \--admin-ui-text-detail  | \--sl-text-caption-2 |
+| \--admin-ui-text-code    | —                    |
+| \--admin-ui-z-1  | \--sl-z-1  |
+| \--admin-ui-z-2  | \--sl-z-2  |
+| \--admin-ui-z-3  | \--sl-z-3  |
+| \--admin-ui-z-4  | \--sl-z-4  |
+| \--admin-ui-z-5  | \--sl-z-5  |
+| \--admin-ui-z-6  | \--sl-z-6  |
+| \--admin-ui-z-7  | \--sl-z-7  |
+| \--admin-ui-z-8  | \--sl-z-8  |
+| \--admin-ui-z-9  | \--sl-z-9  |
+| \--admin-ui-z-10 | \--sl-z-10 |
+
+<br />
+
+</details>
+
+## Space
+
+<details>
+<summary>Detailed diff</summary>
+<br />
+
+| Old token name | New token name |
+|----------------|----------------|
+| \--admin-ui-space-0                             | \--sl-space-0                                                       |
+| \--admin-ui-space-05                            | \--sl-space-05                                                      |
+| \--admin-ui-space-1                             | \--sl-space-1                                                       |
+| \--admin-ui-space-2                             | \--sl-space-2                                                       |
+| \--admin-ui-space-3                             | \--sl-space-3                                                       |
+| \--admin-ui-space-4                             | \--sl-space-4                                                       |
+| \--admin-ui-space-5                             | \--sl-space-5                                                       |
+| \--admin-ui-space-6                             | \--sl-space-6,                                                      |
+| \--admin-ui-space-7                             | \--sl-space-7                                                       |
+| \--admin-ui-space-8                             | \--sl-space-8                                                       |
+| \--admin-ui-space-10                            | \--sl-space-10                                                      |
+| \--admin-ui-space-12                            | \--sl-space-12                                                      |
+| \--admin-ui-space-16                            | \--sl-space-16                                                      |
+| \--admin-ui-space-20                            | \--sl-space-20                                                      |
+| \--admin-ui-space-24                            | \--sl-space-24                                                      |
+| \--admin-ui-space-28                            | \--sl-space-28                                                      |
+| \--admin-ui-space-32                            | \--sl-space-32                                                      |
+
+</details>
