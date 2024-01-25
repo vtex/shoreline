@@ -41,9 +41,7 @@ export default {
     dismissible: false,
   },
   parameters: {
-    chromatic: {
-      disableSnapshots: true,
-    },
+    chromatic: { disableSnapshot: true },
   },
 } as StoryObj<StoryArgs>
 
