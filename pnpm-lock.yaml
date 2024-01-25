@@ -242,9 +242,9 @@ importers:
 
   packages/cli:
     dependencies:
-      '@vtex/shoreline-theme':
-        specifier: ^0.6.3
-        version: link:../theme
+      '@vtex/shoreline-css':
+        specifier: 0.0.0
+        version: link:../css
       commander:
         specifier: 11.0.0
         version: 11.0.0
@@ -356,6 +356,43 @@ importers:
       plop:
         specifier: 3.1.2
         version: 3.1.2
+
+  packages/css:
+    dependencies:
+      '@vtex/shoreline-utils':
+        specifier: workspace:*
+        version: link:../utils
+      c12:
+        specifier: 1.5.1
+        version: 1.5.1
+      cssesc:
+        specifier: 3.0.0
+        version: 3.0.0
+      fs-extra:
+        specifier: 11.1.1
+        version: 11.1.1
+      postcss:
+        specifier: 8.4.27
+        version: 8.4.27
+      postcss-preset-env:
+        specifier: 9.3.0
+        version: 9.3.0(postcss@8.4.27)
+      prettier:
+        specifier: 3.0.0
+        version: 3.0.0
+    devDependencies:
+      '@types/cssesc':
+        specifier: 3.0.0
+        version: 3.0.0
+      '@types/fs-extra':
+        specifier: 11.0.1
+        version: 11.0.1
+      '@types/node':
+        specifier: 20.4.5
+        version: 20.4.5
+      postcss-cli:
+        specifier: 10.1.0
+        version: 10.1.0(postcss@8.4.27)
 
   packages/date:
     dependencies:
@@ -533,43 +570,6 @@ importers:
         specifier: 0.34.6
         version: 0.34.6(jsdom@23.0.0)
 
-  packages/theme:
-    dependencies:
-      '@vtex/shoreline-utils':
-        specifier: workspace:*
-        version: link:../utils
-      c12:
-        specifier: 1.5.1
-        version: 1.5.1
-      cssesc:
-        specifier: 3.0.0
-        version: 3.0.0
-      fs-extra:
-        specifier: 11.1.1
-        version: 11.1.1
-      postcss:
-        specifier: 8.4.27
-        version: 8.4.27
-      postcss-preset-env:
-        specifier: 9.3.0
-        version: 9.3.0(postcss@8.4.27)
-      prettier:
-        specifier: 3.0.0
-        version: 3.0.0
-    devDependencies:
-      '@types/cssesc':
-        specifier: 3.0.0
-        version: 3.0.0
-      '@types/fs-extra':
-        specifier: 11.0.1
-        version: 11.0.1
-      '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
-      postcss-cli:
-        specifier: 10.1.0
-        version: 10.1.0(postcss@8.4.27)
-
   packages/theme-arpoador:
     dependencies:
       '@vtex/shoreline-utils':
@@ -585,9 +585,9 @@ importers:
       '@vtex/shoreline-cli':
         specifier: workspace
         version: link:../cli
-      '@vtex/shoreline-theme':
+      '@vtex/shoreline-css':
         specifier: workspace
-        version: link:../theme
+        version: link:../css
       concurrently:
         specifier: 8.2.2
         version: 8.2.2
@@ -2297,9 +2297,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /@csstools/postcss-cascade-layers@4.0.1(postcss@8.4.32):
@@ -2308,9 +2308,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /@csstools/postcss-color-function@3.0.7(postcss@8.4.27):
@@ -2529,9 +2529,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /@csstools/postcss-is-pseudo-class@4.0.3(postcss@8.4.32):
@@ -2540,9 +2540,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /@csstools/postcss-logical-float-and-clear@2.0.0(postcss@8.4.27):
@@ -2820,7 +2820,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /@csstools/postcss-scope-pseudo-class@3.0.0(postcss@8.4.32):
@@ -2830,7 +2830,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /@csstools/postcss-stepped-value-functions@3.0.2(postcss@8.4.27):
@@ -2933,6 +2933,14 @@ packages:
       postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.13
+
+  /@csstools/selector-specificity@3.0.0(postcss-selector-parser@6.0.15):
+    resolution: {integrity: sha512-hBI9tfBtuPIi885ZsZ32IMEU/5nlZH/KOVYJCOh7gyMxaVLGmLedYqFN6Ui1LXkI8JlC8IsuC0rF0btcRZKd5g==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss-selector-parser: ^6.0.13
+    dependencies:
+      postcss-selector-parser: 6.0.15
 
   /@discoveryjs/json-ext@0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -10781,7 +10789,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /css-blank-pseudo@6.0.0(postcss@8.4.32):
@@ -10791,7 +10799,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /css-declaration-sorter@7.1.1(postcss@8.4.32):
@@ -10813,9 +10821,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
     dev: false
 
@@ -10825,9 +10833,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.15)
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -19243,7 +19251,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-attribute-case-insensitive@6.0.2(postcss@8.4.32):
@@ -19253,7 +19261,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-calc@9.0.1(postcss@8.4.32):
@@ -19483,7 +19491,7 @@ packages:
       '@csstools/css-parser-algorithms': 2.3.2(@csstools/css-tokenizer@2.2.1)
       '@csstools/css-tokenizer': 2.2.1
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-custom-selectors@7.1.6(postcss@8.4.32):
@@ -19496,7 +19504,7 @@ packages:
       '@csstools/css-parser-algorithms': 2.3.2(@csstools/css-tokenizer@2.2.1)
       '@csstools/css-tokenizer': 2.2.1
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-dir-pseudo-class@8.0.0(postcss@8.4.27):
@@ -19506,7 +19514,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-dir-pseudo-class@8.0.0(postcss@8.4.32):
@@ -19516,7 +19524,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-discard-comments@6.0.1(postcss@8.4.32):
@@ -19584,7 +19592,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-focus-visible@9.0.0(postcss@8.4.32):
@@ -19594,7 +19602,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-focus-within@8.0.0(postcss@8.4.27):
@@ -19604,7 +19612,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-focus-within@8.0.0(postcss@8.4.32):
@@ -19614,7 +19622,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-font-variant@5.0.0(postcss@8.4.27):
@@ -20231,7 +20239,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: false
 
   /postcss-pseudo-class-any-link@9.0.0(postcss@8.4.32):
@@ -20241,7 +20249,7 @@ packages:
       postcss: ^8.4
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-reduce-initial@6.0.2(postcss@8.4.32):
@@ -20356,7 +20364,6 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-    dev: true
 
   /postcss-svgo@6.0.2(postcss@8.4.32):
     resolution: {integrity: sha512-IH5R9SjkTkh0kfFOQDImyy1+mTCb+E830+9SV1O+AaDcoHTvfsvt6WwJeo7KwcHbFnevZVCsXhDmjFiGVuwqFQ==}
