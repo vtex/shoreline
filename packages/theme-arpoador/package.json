@@ -1,8 +1,9 @@
 {
   "name": "@vtex/shoreline-theme-arpoador",
   "version": "0.0.0",
-  "main": "./dist/arpoador.css",
-  "module": "./dist/arpoador.css",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -11,21 +12,26 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/arpoador.css",
-    "./tokens": "./dist/tokens.css",
-    "./components": "./dist/components.css"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "./dist/arpoador.css",
+    "./css-tokens": "./dist/tokens.css",
+    "./css-components": "./dist/components.css"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "prepare": "pnpm run theme",
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
     "dev": "concurrently -p [{name}] -n styles:all@shoreline,styles:tokens@shoreline,styles:components@shoreline -c bgGreen,bgBlue,bgPink \"pnpm run dev:all\" \"pnpm run dev:tokens\" \"pnpm run dev:components\"",
     "dev:all": "postcss ./src/index.scss -o dist/arpoador.css -w",
     "dev:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css -w",
     "dev:components": "postcss ./src/components/index.scss -o dist/components.css -w",
-    "build": "pnpm run build:all && pnpm run build:tokens && pnpm run build:components",
+    "build": "pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts",
+    "build:ts": "tsup",
     "build:all": "postcss ./src/index.scss -o dist/arpoador.css",
     "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
     "build:components": "postcss ./src/components/index.scss -o dist/components.css",
@@ -38,6 +44,9 @@
   },
   "bugs": {
     "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "dependencies": {
+    "@vtex/shoreline-utils": "0.9.0"
   },
   "devDependencies": {
     "@types/node": "20.11.6",

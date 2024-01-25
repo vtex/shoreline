@@ -1,6 +1,6 @@
 import { defineConfig } from '@vtex/shoreline-theme'
-import { presetAdmin as preset } from '@vtex/shoreline-preset-admin'
+import { presetArpoador } from './src/presets/index'
 
 export default defineConfig({
-  preset,
+  preset: presetArpoador,
 })

@@ -439,9 +439,6 @@ importers:
       '@vtex/shoreline-icons':
         specifier: workspace:*
         version: link:../icons
-      '@vtex/shoreline-preset-admin':
-        specifier: workspace:*
-        version: link:../preset-admin
       '@vtex/shoreline-theme-arpoador':
         specifier: workspace:*
         version: link:../theme-arpoador
@@ -467,16 +464,6 @@ importers:
       '@types/he':
         specifier: 1.2.3
         version: 1.2.3
-
-  packages/preset-admin:
-    dependencies:
-      '@vtex/shoreline-utils':
-        specifier: ^0.9.0
-        version: link:../utils
-    devDependencies:
-      '@types/node':
-        specifier: 20.10.0
-        version: 20.10.0
 
   packages/primitives:
     dependencies:
@@ -584,6 +571,10 @@ importers:
         version: 10.1.0(postcss@8.4.27)
 
   packages/theme-arpoador:
+    dependencies:
+      '@vtex/shoreline-utils':
+        specifier: 0.9.0
+        version: link:../utils
     devDependencies:
       '@csstools/postcss-sass':
         specifier: 5.1.1
@@ -618,28 +609,6 @@ importers:
       postcss-scss:
         specifier: 4.0.9
         version: 4.0.9(postcss@8.4.32)
-
-  packages/tokens:
-    dependencies:
-      react:
-        specifier: '>=18'
-        version: 18.2.0
-      react-dom:
-        specifier: '>=18'
-        version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@vtex/shoreline-cli':
-        specifier: workspace
-        version: link:../cli
-      '@vtex/shoreline-preset-admin':
-        specifier: workspace
-        version: link:../preset-admin
-      '@vtex/shoreline-theme':
-        specifier: workspace
-        version: link:../theme
-      lightningcss-cli:
-        specifier: 1.22.0
-        version: 1.22.0
 
   packages/ts-table:
     dependencies:
@@ -7917,12 +7886,6 @@ packages:
     dependencies:
       undici-types: 5.26.5
 
-  /@types/node@20.10.0:
-    resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: true
-
   /@types/node@20.10.4:
     resolution: {integrity: sha512-D08YG6rr8X90YB56tSIuBaddy/UXAA9RKJoFvrsnogAum/0pmjkgi4+2nx96A330FmioegBWmEYQ+syqCFaveg==}
     dependencies:
@@ -11648,12 +11611,6 @@ packages:
   /detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
-    dev: true
-
-  /detect-libc@1.0.3:
-    resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
-    engines: {node: '>=0.10'}
-    hasBin: true
     dev: true
 
   /detect-newline@3.1.0:
@@ -16372,106 +16329,6 @@ packages:
       object.map: 1.0.1
       rechoir: 0.8.0
       resolve: 1.22.8
-
-  /lightningcss-cli-darwin-arm64@1.22.0:
-    resolution: {integrity: sha512-4JDDccSTOX0JItTvPovPIr3HR+YfHl+3f6WUq/Xl+0jlA66YHcm1xmL8wUAf34GGrBrA+tTVEFozKkxCmORYHA==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-darwin-x64@1.22.0:
-    resolution: {integrity: sha512-4UEIUqyoQ5k0Kby2XJbYUmqXs8qWbPmVzNcyzEZK6jIPAuQsFh6RQEak7sVreqYN1rTbtLTP+BkWbJ36brLnsA==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-freebsd-x64@1.22.0:
-    resolution: {integrity: sha512-OEBKEsisTM837qEGMME41MlQ/YTrdvSG5UV6+81jhUIVNYGPiHv42iyIKUEa8C9gqiRqRWOMIU60ksuC9UdotQ==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-linux-arm-gnueabihf@1.22.0:
-    resolution: {integrity: sha512-r95vVVmNlY3hQPiHz9aeGPMAlvht1OvKyVMSUJ3nXkG8W9XbsOVXwjSI60QAaEj1FlezuUeDjQ1I3JfB6dYHhQ==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-linux-arm64-gnu@1.22.0:
-    resolution: {integrity: sha512-UrzE1KKt7lcwoUAM9VP+3gSRrT1mRWZDNxvj7WaQt77SVjxcOKIW4xgrcr3hyn+BpojYXex2nHCh/kCpBu7YIw==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-linux-arm64-musl@1.22.0:
-    resolution: {integrity: sha512-mSXEMKQt1/ZYxQ/d/GPtjr3yvrCrzV7SIMc+uADnWZelM41hWmeB4D5JRw2PP9ZgNCRVSui5umaLuyjDdeMgeg==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-linux-x64-gnu@1.22.0:
-    resolution: {integrity: sha512-Gd84GEZcuL/0gxGxuDKZj0D9dROb+mjz5fjBsj9CJnFFwv0K6K0T6bjoigCH8Snmrv8xlkCoou3amvarNdq+cQ==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-linux-x64-musl@1.22.0:
-    resolution: {integrity: sha512-Hg4Swn57RlwdgQSiGWwqggTPqJQuDtPNXLoEJTFjvQw506ISKnyKsvhonNlEX0gGYNlnKKsaZTVVNzBgjhHuOg==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli-win32-x64-msvc@1.22.0:
-    resolution: {integrity: sha512-+S3mMn4fV8yWsOEIrz214Z10O5vkdEjzApZufSzZBN4fpmqONgk0F+hjOwJyQTJ8mpCXmWM+nU3afyC6jt1XoA==}
-    engines: {node: '>= 12.0.0'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /lightningcss-cli@1.22.0:
-    resolution: {integrity: sha512-uJA+a1Yv5Nwq9VD8pAuHv+yS8G0yJP55W2qLwERSetDVxJdnU8QBvfyW8/BFM4GfO4xLliIx31wxMbhmuyxkGw==}
-    engines: {node: '>= 12.0.0'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      detect-libc: 1.0.3
-    optionalDependencies:
-      lightningcss-cli-darwin-arm64: 1.22.0
-      lightningcss-cli-darwin-x64: 1.22.0
-      lightningcss-cli-freebsd-x64: 1.22.0
-      lightningcss-cli-linux-arm-gnueabihf: 1.22.0
-      lightningcss-cli-linux-arm64-gnu: 1.22.0
-      lightningcss-cli-linux-arm64-musl: 1.22.0
-      lightningcss-cli-linux-x64-gnu: 1.22.0
-      lightningcss-cli-linux-x64-musl: 1.22.0
-      lightningcss-cli-win32-x64-msvc: 1.22.0
-    dev: true
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
