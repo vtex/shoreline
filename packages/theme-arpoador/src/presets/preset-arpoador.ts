@@ -1,7 +1,7 @@
 import type { ShorelineConfig } from '@vtex/shoreline-utils'
 
 export const presetArpoador: ShorelineConfig = {
-  outdir: './arpoador',
+  outdir: './shoreline',
   cwd: process.cwd(),
   tokens: {
     space: {

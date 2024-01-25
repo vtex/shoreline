@@ -1,1 +1,1 @@
-export * from '../../arpoador/tokens'
+export * from '../../shoreline/tokens'

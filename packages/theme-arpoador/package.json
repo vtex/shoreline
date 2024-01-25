@@ -30,7 +30,7 @@
     "dev:all": "postcss ./src/index.scss -o dist/arpoador.css -w",
     "dev:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css -w",
     "dev:components": "postcss ./src/components/index.scss -o dist/components.css -w",
-    "build": "pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts",
+    "build": "pnpm run prebuild && pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts",
     "build:ts": "tsup",
     "build:all": "postcss ./src/index.scss -o dist/arpoador.css",
     "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
