@@ -1,6 +1,5 @@
 import React from 'react'
-import '../packages/tokens/dist/styles.min.css'
-import '../packages/styles/dist/index.css'
+import '../packages/theme-arpoador/dist/arpoador.css'
 
 export function themeDecorator(storyFn) {
   return (

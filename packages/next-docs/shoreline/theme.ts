@@ -1,8 +1,8 @@
-import { presetAdmin } from '@vtex/shoreline-preset-admin'
+import { presetArpoador } from '@vtex/shoreline-theme-arpoador'
 import { parseTokens } from '@vtex/shoreline-utils'
 
 export const theme = parseTokens({
-  tokens: presetAdmin?.tokens ?? {},
+  tokens: presetArpoador?.tokens ?? {},
 })
 
 const tokens = Object.keys(theme)

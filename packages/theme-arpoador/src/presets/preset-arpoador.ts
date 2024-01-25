@@ -1,6 +1,6 @@
 import type { ShorelineConfig } from '@vtex/shoreline-utils'
 
-export const presetAdmin: ShorelineConfig = {
+export const presetArpoador: ShorelineConfig = {
   outdir: './shoreline',
   cwd: process.cwd(),
   tokens: {

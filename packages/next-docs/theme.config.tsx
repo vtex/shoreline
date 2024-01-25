@@ -2,7 +2,7 @@ import React from 'react'
 import type { DocsThemeConfig } from 'nextra-theme-docs'
 import { TokensGrid } from './components/tokens-grid'
 import { IconsGrid } from './components/icons-grid'
-import { Pre } from './components/pre'
+
 import { Logo } from './components/logo'
 import {
   RelatedComponent,
@@ -27,7 +27,6 @@ const config: DocsThemeConfig = {
     IconsGrid,
     RelatedComponentList: RelatedComponentList as React.FC,
     RelatedComponent: RelatedComponent as React.FC,
-    pre: Pre,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
