@@ -3,7 +3,7 @@ import React from 'react'
 import { Spinner } from '../index'
 
 export default {
-  title: 'shoreline-components/spinner',
+  title: 'components/spinner',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

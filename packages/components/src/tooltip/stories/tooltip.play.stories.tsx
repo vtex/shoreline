@@ -5,7 +5,7 @@ import { Tooltip } from '../index'
 import { IconButton } from '../../icon-button'
 
 export default {
-  title: 'play/tooltip',
+  title: 'components/tooltip',
   argTypes: {
     label: {
       control: 'text',
@@ -38,7 +38,7 @@ export default {
   },
 }
 
-export function Playground(args: any) {
+export function Play(args: any) {
   return (
     <Tooltip {...args}>
       <IconButton label="info">

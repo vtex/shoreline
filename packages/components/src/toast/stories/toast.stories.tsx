@@ -6,7 +6,7 @@ import { Stack } from '../../stack'
 import { Button } from '../../button'
 
 export default {
-  title: 'shoreline-components/toast',
+  title: 'components/toast',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

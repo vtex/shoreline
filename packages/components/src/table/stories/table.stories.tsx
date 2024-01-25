@@ -12,7 +12,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'shoreline-components/table',
+  title: 'components/table',
   argTypes: {
     density: {
       description: 'Table density',

@@ -11,7 +11,7 @@ import { Field, FieldDescription } from '../../field'
 import { Virtual, VirtualItem } from '@vtex/shoreline-primitives'
 
 export default {
-  title: 'shoreline-components/checkbox/integrations',
+  title: 'components/checkbox/integrations',
 }
 
 export function ReactHookForm() {

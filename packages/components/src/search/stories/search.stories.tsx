@@ -4,7 +4,7 @@ import { Search } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/search',
+  title: 'components/search',
   argTypes: {
     value: {
       control: 'text',

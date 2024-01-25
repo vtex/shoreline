@@ -3,7 +3,7 @@ import React from 'react'
 import { Tab, TabProvider, TabList, TabPanel } from '../index'
 
 export default {
-  title: 'shoreline-components/tab',
+  title: 'components/tab',
 }
 
 export function Default() {
