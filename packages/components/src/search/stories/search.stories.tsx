@@ -35,7 +35,7 @@ export function Default() {
   )
 }
 
-export function Playground(props) {
+export function Play(props) {
   return (
     <Stack>
       <Search {...props} />
