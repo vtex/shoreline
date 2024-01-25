@@ -8,6 +8,8 @@ import { VisuallyHidden } from '@vtex/shoreline-primitives'
 
 /**
  * Search component
+ *
+ * @playground
  * @example
  * <Search placeholder="Search" />
  */

@@ -8,6 +8,7 @@ import { Center } from '../center'
 
 /**
  * Buttons triggers allow users to identify and start the most important actions in a container.
+ * @playground
  * @example
  * <Button>Action label</Button>
  */
