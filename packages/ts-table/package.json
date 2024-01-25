@@ -45,7 +45,7 @@
     "@faker-js/faker": "8.3.1",
     "@tanstack/react-table": "8.10.7",
     "@types/react-window": "1.8.8",
-    "@vtex/shoreline-components": "^0.63.4",
+    "@vtex/shoreline-components": "workspace:*",
     "match-sorter": "6.3.1",
     "react-window": "1.8.10"
   },

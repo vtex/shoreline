@@ -1,7 +1,7 @@
 /* PLOP_INJECT_EXPORT */
 export * from './label'
 export * from './input'
-export * from './collections'
+export * from './collection'
 export * from './heading'
 export * from './slot'
 export * from './empty-state'

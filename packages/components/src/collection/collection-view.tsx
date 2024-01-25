@@ -6,6 +6,8 @@ import { Slot } from '../slot'
 import {
   IconMagnifyingGlass,
   IconPlus,
+  IconPlusCircle,
+  IconProhibit,
   IconWarningCircle,
 } from '@vtex/shoreline-icons'
 import { Heading } from '../heading'
@@ -32,7 +34,11 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
     const getMessage = useMessage(messages)
 
     if (status === 'loading') {
-      return <Skeleton data-collection-view-skeleton {...otherProps} />
+      return (
+        <div data-sl-collection-view-skeleton>
+          <Skeleton {...otherProps} />
+        </div>
+      )
     }
 
     if (status === 'ready') {
@@ -62,9 +68,11 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
       }
     }
 
+    const actionVariant = status === 'empty' ? 'primary' : 'secondary'
+
     return (
       <div data-sl-collection-view ref={ref} {...otherProps}>
-        <EmptyState size="medium">
+        <EmptyState size="large">
           <Slot name="illustration" data-sl-collection-view-illustration>
             {getIcon(status)}
           </Slot>
@@ -77,7 +85,7 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
               <Button
                 data-sl-collection-view-action
                 onClick={handleAction}
-                variant="primary"
+                variant={actionVariant}
               >
                 {status === 'empty' && <IconPlus />}
                 {action}
@@ -96,13 +104,13 @@ function getIcon(status: CollectionStatus) {
       return <IconWarningCircle color="var(--sl-color-red-8)" />
 
     case 'empty':
-      return <IconPlus color="var(--sl-color-gray-8)" />
+      return <IconPlusCircle color="var(--sl-color-gray-8)" />
 
     case 'not-found':
       return <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
 
     default:
-      return <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
+      return <IconProhibit color="var(--sl-color-gray-8)" />
   }
 }
 
