@@ -42,6 +42,9 @@ jobs:
       - name: Test
         run: pnpm test:ci
 
+      - name: Test Storybook
+        run: pnpm test:storybook:ci
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
