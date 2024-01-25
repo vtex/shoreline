@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.9.10...@shoreline/next-docs@0.10.0) (2024-01-25)
+
+### Features
+
+- **arpoador:** create arpoador theme package & delete styles package ([92d8f96](https://github.com/vtex/shoreline/commit/92d8f96a179f6964b29b62c66f91a1a28e89fbee))
+- **arpoador:** merge tokens and preset ([58c68e4](https://github.com/vtex/shoreline/commit/58c68e4bd5bdb169692e0195cd659a6a20758748))
+
 ## [0.9.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.9.9...@shoreline/next-docs@0.9.10) (2024-01-24)
 
 **Note:** Version bump only for package @shoreline/next-docs

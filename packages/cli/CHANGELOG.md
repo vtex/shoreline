@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2024-01-25)
+
+### Features
+
+- **css:** create shoreline-css package ([6b69edd](https://github.com/vtex/shoreline/commit/6b69edd8daa600deabc386e128e7779f6a6cf952))
+
 ## [0.2.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline-cli@0.2.6...@vtex/shoreline-cli@0.2.7) (2023-12-29)
 
 **Note:** Version bump only for package @vtex/shoreline-cli
