@@ -17,7 +17,6 @@ const useMessage = createMessageHook(messages)
 /**
  * Confirmation Modal containers allow merchants to confirm an action through an overlay window that opens on top of the current page.
  *
- * @playground
  * @example
  *  const [open, setOpen] = useState(false)
  *
@@ -54,6 +53,10 @@ export const ConfirmationModal = forwardRef<
 
   const getMessage = useMessage(messages)
 
+  const title = getMessage('title')
+  const cancel = getMessage('cancel')
+  const confirm = getMessage('confirm')
+
   return (
     <Modal
       data-sl-confirmation-modal
@@ -63,19 +66,24 @@ export const ConfirmationModal = forwardRef<
       {...otherProps}
       size="small"
     >
-      {getMessage('title') ? (
+      {title ? (
         <ModalHeader>
-          <ModalHeading>{getMessage('title')}</ModalHeading>
+          <ModalHeading>{title}</ModalHeading>
           <ModalDismiss />
         </ModalHeader>
       ) : null}
       <ModalContent>{children}</ModalContent>
       <ModalFooter data-sl-confirmation-modal-footer>
-        <Button onClick={onCancel} size="large">
-          {getMessage('cancel')}
+        <Button onClick={onCancel} size="large" aria-label={cancel}>
+          {cancel}
         </Button>
-        <Button onClick={onConfirm} size="large" variant="primary">
-          {getMessage('confirm')}
+        <Button
+          onClick={onConfirm}
+          size="large"
+          variant="primary"
+          aria-label={confirm}
+        >
+          {confirm}
         </Button>
       </ModalFooter>
     </Modal>
