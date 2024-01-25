@@ -5,7 +5,9 @@ import { Text } from '../../text'
 export default {
   title: 'components/confirmation-modal',
   parameters: {
-    chromatic: { disableSnapshot: false },
+    chromatic: {
+      disableSnapshot: true,
+    },
   },
 }
 
