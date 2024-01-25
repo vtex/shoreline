@@ -9,7 +9,7 @@ import { Filter, FilterItem } from '../../filter'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/collection',
+  title: 'components/collections',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

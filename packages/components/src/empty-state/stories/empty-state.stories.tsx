@@ -11,7 +11,7 @@ import { Filter, FilterProvider, FilterTrigger } from '../../filter'
 import { Popover } from '../../popover'
 
 export default {
-  title: 'shoreline-components/empty-state',
+  title: 'components/empty-state',
   argTypes: {
     size: {
       description: 'Size',

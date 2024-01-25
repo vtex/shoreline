@@ -6,7 +6,7 @@ import { Stack } from '../../stack'
 import { IconButton } from '../index'
 
 export default {
-  title: 'shoreline-components/icon-button',
+  title: 'components/icon-button',
 }
 
 export function Default() {

@@ -4,7 +4,7 @@ import { Search } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/search',
+  title: 'components/search',
   argTypes: {
     value: {
       control: 'text',
@@ -35,7 +35,7 @@ export function Default() {
   )
 }
 
-export function Playground(props) {
+export function Play(props) {
   return (
     <Stack>
       <Search {...props} />

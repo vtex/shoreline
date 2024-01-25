@@ -4,7 +4,7 @@ import { Tag } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/tag',
+  title: 'components/tag',
 }
 
 export function Default() {

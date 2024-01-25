@@ -10,7 +10,7 @@ import { IconInfoFill } from '@vtex/shoreline-icons'
 import { Field, FieldDescription, FieldError } from '../../field'
 
 export default {
-  title: 'shoreline-components/checkbox',
+  title: 'components/checkbox',
 }
 
 export function Default() {

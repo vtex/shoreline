@@ -4,7 +4,7 @@ import { Link } from '../index'
 import { Text } from '../../text'
 
 export default {
-  title: 'shoreline-components/link',
+  title: 'components/link',
 }
 
 export function Default() {

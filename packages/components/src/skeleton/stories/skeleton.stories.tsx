@@ -3,7 +3,7 @@ import React from 'react'
 import { Skeleton } from '../index'
 
 export default {
-  title: 'shoreline-components/skeleton',
+  title: 'components/skeleton',
 }
 
 export function Default() {

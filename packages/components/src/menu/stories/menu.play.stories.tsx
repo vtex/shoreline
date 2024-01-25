@@ -3,7 +3,7 @@ import { IconPencil, IconTrash, IconArchive } from '@vtex/shoreline-icons'
 import { Menu, MenuItem, MenuSeparator } from '../index'
 
 export default {
-  title: 'play/menu',
+  title: 'components/menu',
   argTypes: {
     label: {
       control: 'text',
@@ -40,7 +40,7 @@ export default {
   },
 }
 
-export function Playground(args: any) {
+export function Play(args: any) {
   return (
     <Menu {...args}>
       <MenuItem>New Tab</MenuItem>

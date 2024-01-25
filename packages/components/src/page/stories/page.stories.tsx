@@ -15,7 +15,7 @@ import type { StoryObj } from '@storybook/react'
 import './page.stories.css'
 
 export default {
-  title: 'shoreline-components/page',
+  title: 'components/page',
   argTypes: {
     layout: {
       control: 'select',
@@ -90,7 +90,7 @@ function CompletePageHeading(args: StoryArgs) {
   )
 }
 
-export function Playground(args: StoryArgs) {
+export function Play(args: StoryArgs) {
   if (args.headerWithTabs) {
     return (
       <Slot className="ph-decorative-box">

@@ -4,7 +4,7 @@ import { Radio, RadioGroup, useRadioState } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/radio',
+  title: 'components/radio',
 }
 
 export function Default() {

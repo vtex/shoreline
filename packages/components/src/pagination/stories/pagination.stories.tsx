@@ -6,7 +6,7 @@ import { Pagination } from '../index'
 import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
-  title: 'shoreline-components/pagination',
+  title: 'components/pagination',
 }
 
 export function Default() {

@@ -5,7 +5,7 @@ import { Textarea } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'shoreline-components/textarea',
+  title: 'components/textarea',
 }
 
 export function Default() {

@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'shoreline-components/popover',
+  title: 'components/popover',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
