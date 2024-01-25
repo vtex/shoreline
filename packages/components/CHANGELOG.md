@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.63.4...@vtex/shoreline-components@0.64.0) (2024-01-25)
+
+### Bug Fixes
+
+- rebase issues ([43f9ff0](https://github.com/vtex/shoreline/commit/43f9ff04618f94bfe46a9e0715399e9638fd8c78))
+
+### Features
+
+- add collections design qa required changes ([c9fafb1](https://github.com/vtex/shoreline/commit/c9fafb14b162ddd1f6a46d76bbaeb48a01fdb4c6))
+- implement collection qa ([228dbed](https://github.com/vtex/shoreline/commit/228dbed8042ec39e9d38b56fe2b96eba6d03d93d))
+
 ## [0.63.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.63.3...@vtex/shoreline-components@0.63.4) (2024-01-25)
 
 **Note:** Version bump only for package @vtex/shoreline-components

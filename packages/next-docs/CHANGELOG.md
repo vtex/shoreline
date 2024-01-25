@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.10.0...@shoreline/next-docs@0.11.0) (2024-01-25)
+
+### Features
+
+- implement collection qa ([228dbed](https://github.com/vtex/shoreline/commit/228dbed8042ec39e9d38b56fe2b96eba6d03d93d))
+
 # [0.10.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.9.10...@shoreline/next-docs@0.10.0) (2024-01-25)
 
 ### Features
