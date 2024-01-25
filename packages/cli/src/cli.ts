@@ -1,13 +1,13 @@
 import { Command } from 'commander'
-import { theme } from '@vtex/shoreline-theme'
+import { css } from '@vtex/shoreline-css'
 
 const program = new Command()
 
 program.name('shoreline-cli').description('Shoreline CLI').version('1.0.0')
 
 program
-  .command('theme')
+  .command('css')
   .description('Generate CSS Variables from tokens')
-  .action(theme)
+  .action(css)
 
 program.parse()

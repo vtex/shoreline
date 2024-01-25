@@ -1,7 +1,7 @@
 {
-  "name": "@vtex/shoreline-theme",
-  "version": "0.6.3",
-  "description": "Shoreline theme package",
+  "name": "@vtex/shoreline-css",
+  "version": "0.0.0",
+  "description": "Shoreline css engine",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -24,9 +24,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "pnpm run build-ts && pnpm run build-css",
-    "build-ts": "tsup",
-    "build-css": "postcss --config postcss.config.mjs src/*.css --base src --dir dist"
+    "build": "pnpm run build:ts && pnpm run build:css",
+    "build:ts": "tsup",
+    "build:css": "postcss --config postcss.config.mjs src/*.css --base src --dir dist"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",

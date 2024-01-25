@@ -11,7 +11,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "bin": {
-    "shorelinecss": "bin.js"
+    "shoreline": "bin.js"
   },
   "exports": {
     ".": {
@@ -27,7 +27,7 @@
     "bin.js"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "scripts": {
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims"
@@ -36,7 +36,7 @@
     "@types/node": "20.4.5"
   },
   "dependencies": {
-    "@vtex/shoreline-theme": "^0.6.3",
+    "@vtex/shoreline-css": "0.0.0",
     "commander": "11.0.0"
   }
 }

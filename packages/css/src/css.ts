@@ -6,7 +6,7 @@ import { outputFile } from './output-file'
 import { extendConfig } from './extend-config'
 import { genTokensObject } from './gen-tokens-object'
 
-export async function theme() {
+export async function css() {
   const loadedConfig = await loadConfig({
     name: 'shoreline',
     cwd: process.cwd(),

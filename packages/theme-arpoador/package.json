@@ -35,7 +35,7 @@
     "build:all": "postcss ./src/index.scss -o dist/arpoador.css",
     "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
     "build:components": "postcss ./src/components/index.scss -o dist/components.css",
-    "theme": "shorelinecss theme"
+    "theme": "shoreline css"
   },
   "repository": {
     "directory": "packages/theme-arpoador",
@@ -59,6 +59,6 @@
     "postcss-preset-env": "9.3.0",
     "postcss-scss": "4.0.9",
     "@vtex/shoreline-cli": "workspace",
-    "@vtex/shoreline-theme": "workspace"
+    "@vtex/shoreline-css": "workspace"
   }
 }
