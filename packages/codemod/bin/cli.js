@@ -102,6 +102,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     value: 'migrate-stack',
   },
   {
+    name: 'migrate-grid: Migrates Grid from admin-ui to shoreline',
+    value: 'migrate-grid',
+  },
+  {
     name: 'migrate-button: Migrates Button from admin-ui to shorelines Button or IconButton',
     value: 'migrate-button',
   },

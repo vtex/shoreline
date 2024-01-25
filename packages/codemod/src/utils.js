@@ -128,10 +128,29 @@ function updateComponentImports({
   return addNewImport(source, j, importSpecifier, importSource)
 }
 
+function renameProp(source, j, componentName, oldPropName, newPropName) {
+  return j(source)
+    .find(j.JSXElement, { openingElement: { name: { name: componentName } } })
+    .forEach((p) => {
+      const { attributes } = p.value.openingElement
+
+      attributes.forEach((attribute) => {
+        if (!attribute || !attribute.name) return attribute
+        if (attribute.name.name === oldPropName) {
+          attribute.name.name = newPropName
+        }
+
+        return attribute
+      })
+    })
+    .toSource()
+}
+
 module.exports = {
   attachToImport,
   addNewImport,
   removeLegacyImports,
   replaceUnsuportedResponsiveObjects,
   updateComponentImports,
+  renameProp,
 }
