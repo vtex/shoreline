@@ -8,7 +8,7 @@ export default {
   title: 'layouts/content',
 }
 
-export function Default() {
+export function Show() {
   return (
     <>
       <Container className="decorative-box bg-purple">

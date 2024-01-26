@@ -6,62 +6,15 @@ import { Button } from '../../button'
 import { Heading } from '../../heading'
 import { Slot } from '../../slot'
 import { Text } from '../../text'
-import { IconMagnifyingGlass, IconWarningCircle } from '../../../../icons/src'
+import { IconMagnifyingGlass, IconWarningCircle } from '@vtex/shoreline-icons'
 import { Filter, FilterProvider, FilterTrigger } from '../../filter'
 import { Popover } from '../../popover'
 
 export default {
-  title: 'components/empty-state',
-  argTypes: {
-    size: {
-      description: 'Size',
-      default: 'medium',
-      options: ['small', 'medium', 'large'],
-      control: { type: 'radio' },
-    },
-  },
+  title: 'components/empty-state/examples',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-}
-
-export function Default(props) {
-  const { size } = props
-
-  return (
-    <div className="screen-container">
-      <EmptyState size={size}>
-        <Slot name="illustration">
-          <IconWarningCircle />
-        </Slot>
-        <Heading>Title goes here</Heading>
-        <Text>
-          Before you write the description here please visit the Shoreline
-          documentation website to learn more about this componente and its
-          usage.
-        </Text>
-        <Slot name="actions">
-          <Button>Label</Button>
-          <Button variant="primary">Label</Button>
-        </Slot>
-      </EmptyState>
-    </div>
-  )
-}
-
-export function Simple(props) {
-  const { size } = props
-
-  return (
-    <div className="screen-container">
-      <EmptyState size={size}>
-        <Heading>Title goes here</Heading>
-        <Slot name="actions">
-          <Button variant="primary">label</Button>
-        </Slot>
-      </EmptyState>
-    </div>
-  )
 }
 
 export function FilterError() {

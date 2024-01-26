@@ -7,7 +7,7 @@ export default {
   title: 'components/link',
 }
 
-export function Default() {
+export function Show() {
   return (
     <Text variant="body">
       Get smart about your digital commerce investments:

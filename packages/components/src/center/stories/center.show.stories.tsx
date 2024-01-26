@@ -5,6 +5,6 @@ export default {
   title: 'layouts/center',
 }
 
-export function Default() {
+export function Show() {
   return <Center>Centered</Center>
 }

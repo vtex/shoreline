@@ -3,19 +3,7 @@ import React from 'react'
 import { Input } from '../index'
 
 export default {
-  title: 'components/input',
-}
-
-export function Default() {
-  return <Input />
-}
-
-export function Slots() {
-  return <Input prefix="Prefix" suffix="Suffix" />
-}
-
-export function Error() {
-  return <Input error />
+  title: 'components/input/examples',
 }
 
 export function Controlled() {

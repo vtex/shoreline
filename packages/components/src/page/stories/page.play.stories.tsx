@@ -47,6 +47,11 @@ export default {
     headerWithTag: false,
     headerWithBackButton: false,
   },
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 } as StoryObj<StoryArgs>
 
 interface StoryArgs {

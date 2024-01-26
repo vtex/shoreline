@@ -11,7 +11,7 @@ const itemStyle = {
   height: '6.25rem',
 }
 
-export function Default() {
+export function Show() {
   return (
     <Flex gap="$space-2" direction="column" align="center">
       <div style={itemStyle} />

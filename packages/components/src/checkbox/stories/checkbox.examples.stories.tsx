@@ -7,11 +7,65 @@ import { Checkbox } from '../index'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
 import { Text } from '../../text'
-import { Field, FieldDescription } from '../../field'
+import { Field, FieldDescription, FieldError } from '../../field'
 import { Virtual, VirtualItem } from '@vtex/shoreline-primitives'
 
 export default {
-  title: 'components/checkbox/integrations',
+  title: 'components/checkbox/examples',
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
+}
+
+export function AsField() {
+  return (
+    <Stack space="$space-10">
+      <Field error>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldError>Something wrong</FieldError>
+      </Field>
+      <Field>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+      </Field>
+      <Field error>
+        <Checkbox>Terms and conditions</Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+        <FieldError>Something wrong</FieldError>
+      </Field>
+      <Field>
+        <Checkbox defaultChecked disabled>
+          Disabled
+        </Checkbox>
+        <FieldDescription>
+          By clicking you agree with terms and conditions
+        </FieldDescription>
+      </Field>
+    </Stack>
+  )
+}
+
+export function Controlled() {
+  const [checked, setChecked] = useState(true)
+
+  return (
+    <Stack>
+      <Text variant="body">{checked ? 'Checked' : 'Unchecked'}</Text>
+      <Button onClick={() => setChecked((c) => !c)}>Toggle</Button>
+      <Checkbox
+        checked={checked}
+        onChange={(e) => setChecked(e.target.checked)}
+      >
+        Controlled
+      </Checkbox>
+    </Stack>
+  )
 }
 
 export function ReactHookForm() {

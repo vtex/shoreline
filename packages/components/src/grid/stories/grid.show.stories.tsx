@@ -13,7 +13,7 @@ const cellStyle = style({
   height: '3.5rem',
 })
 
-export function Default() {
+export function Show() {
   return (
     <Grid columns="repeat(3, 1fr)">
       <GridCell style={cellStyle} />

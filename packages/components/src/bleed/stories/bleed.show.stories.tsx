@@ -5,7 +5,7 @@ export default {
   title: 'layouts/bleed',
 }
 
-export function Default() {
+export function Show() {
   return (
     <div style={{ padding: '1rem' }}>
       <Bleed start="0.5rem" end="1rem">

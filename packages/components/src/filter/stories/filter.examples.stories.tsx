@@ -5,7 +5,6 @@ import {
   FilterProvider,
   FilterPopover,
   FilterList,
-  FilterListSkeleton,
   FilterItem,
   FilterTrigger,
   Filter,
@@ -15,30 +14,10 @@ import { countries } from './countries'
 import { LocaleProvider } from '@vtex/shoreline-primitives'
 
 export default {
-  title: 'components/filter',
+  title: 'components/filter/examples',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-}
-
-export function Default() {
-  return (
-    <Filter label="Status">
-      <FilterItem value="Stable">Stable</FilterItem>
-      <FilterItem value="Experimental">Experimental</FilterItem>
-      <FilterItem value="Deprecated">Deprecated</FilterItem>
-    </Filter>
-  )
-}
-
-export function Multiple() {
-  return (
-    <Filter label="Status" defaultValue={[]}>
-      <FilterItem value="Stable">Stable</FilterItem>
-      <FilterItem value="Experimental">Experimental</FilterItem>
-      <FilterItem value="Deprecated">Deprecated</FilterItem>
-    </Filter>
-  )
 }
 
 export function Controlled() {
@@ -127,14 +106,6 @@ export function WithCombobox() {
       ) : (
         <div>No results found</div>
       )}
-    </Filter>
-  )
-}
-
-export function Loading() {
-  return (
-    <Filter label="Country">
-      <FilterListSkeleton />
     </Filter>
   )
 }
