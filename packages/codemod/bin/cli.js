@@ -109,6 +109,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'migrate-button: Migrates Button from admin-ui to shorelines Button or IconButton',
     value: 'migrate-button',
   },
+  {
+    name: 'migrate-text: Migrates Text from admin-ui to shorelines Text',
+    value: 'migrate-text',
+  },
 ]
 
 // tsx or jsx
