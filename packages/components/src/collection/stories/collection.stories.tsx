@@ -9,7 +9,7 @@ import { Filter, FilterItem } from '../../filter'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'components/collections',
+  title: 'components/collection',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
