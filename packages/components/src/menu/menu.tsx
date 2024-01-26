@@ -14,6 +14,8 @@ import { IconButton } from '../icon-button'
 
 /**
  * Menu component
+ *
+ * @playground
  * @example
  * <Menu label="Open">
  *  <MenuItem>Item 1</MenuItem>

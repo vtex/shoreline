@@ -9,6 +9,8 @@ import { TooltipArrow } from './tooltip-arrow'
 
 /**
  * Tooltip component
+ *
+ * @playground
  * @example
  * <Tooltip text="Text">
  *   <button>i</button>

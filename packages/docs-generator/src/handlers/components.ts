@@ -115,9 +115,9 @@ async function generateComponent(
 
       const playgroundUrl = `${
         process.env.STORYBOOK_URL
-      }?path=/story/shoreline-components-${toKebabCase(
+      }?path=/story/components-${toKebabCase(
         func.name
-      )}--playground${storybookFeatures}`
+      )}--play${storybookFeatures}`
 
       const iframeStyles = {
         width: '100%',
