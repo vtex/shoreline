@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@0.4.0...@vtex/shoreline-codemod@0.5.0) (2024-01-26)
+
+### Features
+
+- add codemod to help migrate grid ([021f3eb](https://github.com/vtex/shoreline/commit/021f3ebb3acd3692c6fc4a6b29723db8526ac144))
+- add codemod to help with Text migration ([661370a](https://github.com/vtex/shoreline/commit/661370a7c9cc65dee75b80dce8f1d2738c1b08e9))
+
 # [0.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@0.3.0...@vtex/shoreline-codemod@0.4.0) (2024-01-24)
 
 ### Features
