@@ -1,0 +1,27 @@
+import { FileTree } from 'nextra/components'
+
+# Introduction
+
+You can create your own theme to be used by Shoreline's components. Although Shoreline exports a theme appropriate for use in admin modules, developers can create their own custom themes based on ours. It's possible to overwrite our design tokens definition as well as creating new tokens.
+
+## Goal
+
+By following the steps to generate a custom theme you should get a folder in your repository with a `styles.css` file and a `token.ts` file, these files will allow for theming according to your config definitions.
+
+In the end your file structure will look similar to this:
+
+<FileTree>
+  <FileTree.Folder name="project" defaultOpen>
+    <FileTree.Folder name="src">
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="[...files].extension" />
+    </FileTree.Folder>
+    <FileTree.Folder name="shoreline" defaultOpen>
+      <FileTree.File name="styles.css" />
+      <FileTree.File name="tokens.ts" />
+    </FileTree.Folder>
+    <FileTree.File name="shoreline.config.ts" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>

@@ -1,8 +1,8 @@
 import { FileTree } from 'nextra/components'
 
-# Code Generation
+# JS API
 
-The code generation can also be done programmatically. Consider the project with the structure:
+Instead of using Shoreline's CLI the theme files generation can be made programmatically using only `@vtex/shoreline-css`. Consider the project with the structure:
 
 <FileTree>
   <FileTree.Folder name="project" defaultOpen>
@@ -15,7 +15,7 @@ The code generation can also be done programmatically. Consider the project with
 The configuration file is:
 
 ```js filename="shoreline.config.js"
-import { defineConfig } from '@vtex/shoreline-theme'
+import { defineConfig } from '@vtex/shoreline-css'
 
 export default defineConfig({
   preset: 'base',
@@ -27,13 +27,13 @@ export default defineConfig({
 })
 ```
 
-The main script should call the async function `theme`, with the return type `Promise<void>`.
+The main script should call the async function `theme`, that has the return type `Promise<void>`.
 
 ```js filename="index.js"
-import { theme } from '@vtex/shoreline-theme'
+import { css } from '@vtex/shoreline-css'
 
 async function generate() {
-  await theme()
+  await css()
 }
 
 generate()
@@ -49,23 +49,13 @@ The script runs on a node environment.
 }
 ```
 
-In the case of typescript, you can use [ts-node](https://typestrong.org/ts-node/).
-
-```json filename="package.json"
-{
-  "scripts": {
-    "start": "ts-node index.ts"
-  }
-}
-```
-
-The `theme()` generates the contents on the `shoreline` folder.
+The call to `theme()` generates the contents of the `shoreline` folder.
 
 <FileTree>
   <FileTree.Folder name="project" defaultOpen>
     <FileTree.Folder name="shoreline" defaultOpen>
       <FileTree.File name="styles.css" />
-      <FileTree.File name="types.d.ts" />
+      <FileTree.File name="tokens.ts" />
     </FileTree.Folder>
     <FileTree.File name="shoreline.config.js" />
     <FileTree.File name="index.js" />

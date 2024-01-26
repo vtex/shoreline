@@ -1,0 +1,156 @@
+import { FileTree, Steps } from 'nextra/components'
+
+# Generating a new theme
+
+## Using the CLI
+
+<Steps>
+
+### Install the necessary packages
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-cli @vtex/shoreline-css
+```
+
+### Create a `shoreline.config.ts` file
+
+The `shoreline.config.ts` should export a config definition based on a created [preset](/guides/theming/configuration-presets). You can also [extend our arpoador preset](/guides/theming/generating-theme#extending-shorelines-theme).
+
+```ts filename="shoreline.config.ts" copy
+import { defineConfig } from '@vtex/shoreline-css'
+
+const examplePreset = {
+    outdir: './shoreline',
+    cwd: process.cwd(),
+    tokens: {
+        space: {
+          0: '0rem',
+          1: '0.25rem',
+          2: '0.5rem',
+          3: '0.75rem',
+        },
+    }
+  },
+
+export default defineConfig({
+  preset: examplePreset,
+})
+```
+
+Your project's folder structure would become something similar to:
+
+<FileTree>
+  <FileTree.Folder name="project" defaultOpen>
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="[...files].extension" />
+    </FileTree.Folder>
+    <FileTree.File name="shoreline.config.ts" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>
+
+### Update package.json scripts
+
+You can now run the `theme` command to generate your theme files.
+
+```sh npm2yarn copy
+npm run shorelinecss css
+```
+
+Your project's folder structure should now have a new folder with the name shoreline (or a custom name) and with files in it:
+
+<FileTree>
+  <FileTree.Folder name="project" defaultOpen>
+    <FileTree.Folder name="src">
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="[...files].extension" />
+    </FileTree.Folder>
+    <FileTree.Folder name="shoreline" defaultOpen>
+      <FileTree.File name="styles.css" />
+      <FileTree.File name="tokens.ts" />
+    </FileTree.Folder>
+    <FileTree.File name="shoreline.config.ts" />
+    <FileTree.File name="package.json" />
+    <FileTree.File name="tsconfig.json" />
+  </FileTree.Folder>
+</FileTree>
+
+Go ahead and add the command to your package json as the prepare script. The [prepare](https://docs.npmjs.com/cli/v9/using-npm/scripts#life-cycle-scripts) script runs after every installation, or before any publish.
+
+```json {3} filename="package.json"
+{
+  "scripts": {
++    "prepare": "shorelinecss css",
+  }
+}
+```
+
+### Integrate the CSS on the application root
+
+To use the generated CSS in your project simply import it to your root.
+
+```tsx filename="src/index.ts"
+import '../shoreline/styles.css'
+
+export function App() {
+  return <div>Page</div>
+}
+```
+
+### Update tsconfig.json (Optional)
+
+```json {3} filename="tsconfig.json"
+{
+  // ...
+  "include": ["src", "shoreline"]
+}
+```
+
+### Update gitignore (Optional)
+
+Since we added the code generation in the `prepare` script, the `/shoreline` folder will always be re-created and can be added to `.gitignore` to avoid commiting it.
+
+```txt {1} filename=".gitignore" copy
+/shoreline
+```
+
+</Steps>
+
+## Extending shorelines theme
+
+In order to expand on our existing theme you will have to import the arpoador theme preset and use it as a base preset in your config file.
+
+<Steps>
+
+### Install the theme package
+
+```sh npm2yarn copy
+npm i @vtex/shoreline-theme-arpoador
+```
+
+### Use imported theme as base in the `shoreline.config.ts` file
+
+In defineConfig use the preset `presetArpoador` and add other properties to overwrite what you would like to change
+
+```ts filename="shoreline.config.ts" copy
+import { defineConfig } from '@vtex/shoreline-css'
+import { presetArpoador } from '@vtex/shoreline-theme-arpoador'
+
+export default defineConfig({
+  preset: presetArpoador,
+  tokens: {
+    newToken: 'a',
+    space: {
+        0: 'prefered-space-0',
+    }
+  }
+})
+```
+
+In this example all of the normal tokens for `presetArpoador` will be generated, with the addition of `newToken` and with a new value for the token `--space-0`. You can edit the values for `outdir`, `cwd` and `prefix` as well.
+
+### Follow the remaining usual steps to generate and use the new theme
+
+</Steps>
