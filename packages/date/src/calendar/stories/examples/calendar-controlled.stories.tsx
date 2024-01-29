@@ -1,18 +1,13 @@
 import React, { useState } from 'react'
-import { LocaleProvider } from '@vtex/shoreline-components'
 
-import { Calendar } from '../index'
-import { getLocalTimeZone, today } from '../../utils'
+import { Calendar } from '../../index'
+import { getLocalTimeZone, today } from '../../../utils'
 
 export default {
-  title: 'date/calendar',
+  title: 'date/calendar/examples',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-}
-
-export function Default() {
-  return <Calendar />
 }
 
 export function Controlled() {
@@ -40,13 +35,5 @@ export function Controlled() {
         onFocusChange={setFocusedValue}
       />
     </>
-  )
-}
-
-export function Locale() {
-  return (
-    <LocaleProvider locale="ja-JP">
-      <Calendar />
-    </LocaleProvider>
   )
 }
