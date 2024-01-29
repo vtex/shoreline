@@ -36,6 +36,9 @@ export default {
     timeout: 500,
     placement: 'top',
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Play(args: any) {
