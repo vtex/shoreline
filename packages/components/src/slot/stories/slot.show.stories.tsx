@@ -6,6 +6,6 @@ export default {
   title: 'layouts/slot',
 }
 
-export function Default() {
+export function Show() {
   return <Slot>Slot</Slot>
 }
