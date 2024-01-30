@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.64.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.64.1...@vtex/shoreline-components@0.64.2) (2024-01-30)
+
+**Note:** Version bump only for package @vtex/shoreline-components
+
 ## [0.64.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@0.64.0...@vtex/shoreline-components@0.64.1) (2024-01-26)
 
 **Note:** Version bump only for package @vtex/shoreline-components
