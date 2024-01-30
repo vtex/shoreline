@@ -1,5 +1,6 @@
 import React from 'react'
 import { IconPencil, IconTrash, IconArchive } from '@vtex/shoreline-icons'
+import type { MenuProps } from '../index'
 import { Menu, MenuItem, MenuSeparator } from '../index'
 
 export default {
@@ -40,7 +41,7 @@ export default {
   },
 }
 
-export function Play(args: any) {
+export function Play(args: MenuProps) {
   return (
     <Menu {...args}>
       <MenuItem>New Tab</MenuItem>

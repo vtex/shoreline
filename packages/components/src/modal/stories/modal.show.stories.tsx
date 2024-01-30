@@ -20,6 +20,7 @@ export default {
   title: 'components/modal',
   parameters: {
     chromatic: {
+      // This is disabled because the modal is not rendered in the storybook canvas
       disableSnapshot: true,
     },
   },

@@ -1,59 +1,63 @@
 import React, { useState } from 'react'
 import { IconTrash } from '@vtex/shoreline-icons'
-import { AccessibleIcon } from '@vtex/shoreline-primitives'
 
 import { Stack } from '../../stack'
+import type { IconButtonProps } from '../index'
 import { IconButton } from '../index'
+import { Grid, GridCell } from '../../grid'
 
 export default {
   title: 'components/icon-button',
 }
 
-export function Default() {
-  return (
-    <IconButton label="Delete">
-      <IconTrash />
-    </IconButton>
-  )
+const sizes: Array<IconButtonProps['size']> = ['normal', 'large']
+const variants: Array<IconButtonProps['variant']> = [
+  'critical',
+  'criticalTertiary',
+  'primary',
+  'secondary',
+  'tertiary',
+]
+
+function generatePermutations() {
+  const permutations: Array<{
+    size: IconButtonProps['size']
+    variant: IconButtonProps['variant']
+  }> = []
+
+  for (const size of sizes) {
+    for (const variant of variants) {
+      permutations.push({ size, variant })
+    }
+  }
+
+  return permutations
 }
 
-export function Size() {
-  return (
-    <Stack>
-      <IconButton label="Delete">
-        <IconTrash />
-      </IconButton>
-      <IconButton label="Delete" size="large">
-        <IconTrash />
-      </IconButton>
-    </Stack>
-  )
-}
-
-export function Loading() {
-  const [loading, setLoading] = useState(true)
+export function Show() {
+  const permutations = generatePermutations()
 
   return (
-    <IconButton
-      label="Delete"
-      onClick={() => setLoading((l) => !l)}
-      loading={loading}
-    >
-      <IconTrash />
-    </IconButton>
-  )
-}
-
-export function Composition() {
-  return (
-    <Stack>
-      <IconButton label="Preview" asChild>
-        <a href="https://vtex.com" target="_blank" rel="noreferrer">
-          <AccessibleIcon label="Preview">
-            <IconTrash />
-          </AccessibleIcon>
-        </a>
-      </IconButton>
-    </Stack>
+    <Grid columns={`repeat(${variants.length}, 1fr)`}>
+      {permutations.map((permutation) => {
+        return (
+          <GridCell>
+            <IconButton
+              key={`${permutation.size}-${permutation.variant}`}
+              label="Delete"
+              size={permutation.size}
+              variant={permutation.variant}
+            >
+              <IconTrash />
+            </IconButton>
+          </GridCell>
+        )
+      })}
+      <GridCell>
+        <IconButton label="Delete" onClick={() => null} loading>
+          <IconTrash />
+        </IconButton>
+      </GridCell>
+    </Grid>
   )
 }
