@@ -53,7 +53,7 @@ export function Show() {
                     <IconArrowLeft />
                   </IconButton>
                 </Bleed>
-                <PageHeading>Page title</PageHeading>
+                <PageHeading>Title</PageHeading>
                 <Tag variant="secondary">Short text</Tag>
               </Slot>
               <Slot name="right">
@@ -105,7 +105,7 @@ export function Show() {
                   <IconArrowLeft />
                 </IconButton>
               </Bleed>
-              <PageHeading>Page title</PageHeading>
+              <PageHeading>Title</PageHeading>
               <Tag variant="secondary">Short text</Tag>
             </Slot>
             <Slot name="right">
