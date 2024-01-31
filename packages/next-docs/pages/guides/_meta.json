@@ -3,5 +3,6 @@
   "layouts": "Layouts",
   "state-management": "State Management",
   "styling": "Styling",
-  "theming": "Theming"
+  "theming": "Theming",
+  "composition": "Composition"
 }

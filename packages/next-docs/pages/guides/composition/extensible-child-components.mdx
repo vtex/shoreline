@@ -1,0 +1,24 @@
+## Requirements for Child Components
+
+To be cloned and extended, custom components must be extensible. All components in Shoreline adhere to this requirement and can be used as children for composable components. The criteria for a component to be extensible include:
+
+1. Forward a Ref: Components need to forward a [ref](https://react.dev/reference/react/forwardRef).
+2. Forward Received Props: Components must forward the props they receive.
+
+### Extensible Component Example
+
+Here is an example of an extensible component:
+
+```
+const CustomComponent = forwardRef((props, ref) => {
+  const { name, ...otherProps } = props
+
+  return (
+    <div {...otherProps} ref={ref}>
+      {name}
+    </div>
+  )
+})
+```
+
+This component successfully forwards a ref and ensures that all received props are also forwarded. This adherence to extensibility makes it compatible as a child for composable components in the Shoreline library.
