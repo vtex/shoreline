@@ -62,7 +62,7 @@
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "5.60.1",
     "@vitejs/plugin-react": "4.1.0",
-    "@vtex/prettier-config": "^0.3.1",
+    "@vtex/prettier-config": "^0.3.6",
     "@vtex/shoreline-stylelint": "workspace",
     "@vtex/shoreline-test-utils": "workspace:*",
     "@vtex/tsconfig": "^0.5.6",

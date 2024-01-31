@@ -7,4 +7,27 @@
   :where(button) {
     min-width: 6.25rem;
   }
+
+  [data-sl-page-header] {
+    & > [data-sl-slot] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+
+      // Bottom
+      &:nth-child(2) {
+        margin-top: var(--sl-space-4);
+        margin-bottom: calc(var(--sl-space-3) * -1);
+        overflow: auto;
+      }
+    }
+
+    & :where([data-sl-slot]) {
+      display: flex;
+      align-items: center;
+      column-gap: var(--sl-space-2);
+    }
+  }
 }
