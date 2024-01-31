@@ -8,10 +8,8 @@ import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
 import { Slot } from '../../slot'
-import { IconArrowLeft } from '@vtex/shoreline-icons'
-
-import './page.stories.css'
 import { Stack } from '../../stack'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 
 export default {
   title: 'components/page',

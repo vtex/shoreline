@@ -12,8 +12,6 @@ import { Slot } from '../../slot'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
 import type { StoryObj } from '@storybook/react'
 
-import './page.stories.css'
-
 export default {
   title: 'components/page',
   argTypes: {
