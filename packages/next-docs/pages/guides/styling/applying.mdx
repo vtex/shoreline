@@ -1,0 +1,55 @@
+
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+# Applying Styles
+
+You can refer to the [Design Tokens page]() to understand how is the tokens definition. You can use them in your app as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) which are defined in the theme, as mentioned in the Theme guide.
+
+The way you will apply the styles in your application depends on the tooling you are using. In the following example we will show how to apply styles using `CSS` and html `style` property.
+
+
+1. Check the [Design Tokens page]() to find the token you want to use. For example, the `$space-1` token.
+2. Use the token in your application using the `style` property.
+
+```jsx
+import '@vtex/shoreline-theme-arpoador/css'
+
+function Example() {
+  return (
+    <div style={{ padding: 'var(--sl-space-2)' }}>Example</div>
+  )
+}
+```
+3. You can also use the token in your CSS files.
+
+
+<Tabs items={['usage.css', 'usage.tsx']}>
+
+<Tab>
+
+```css
+[data-example] {
+  padding: var(--sl-space-2);
+}
+```
+
+</Tab>
+
+<Tab>
+
+```jsx
+import '@vtex/shoreline-theme-arpoador/css'
+import './usage.css'
+
+function Example() {
+  return (
+    <div data-example>Example</div>
+  )
+}
+```
+
+</Tab>
+
+</Tabs>
+
+

@@ -1,0 +1,148 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+# Styling API
+
+The architecture defined in the components is based on the [data-attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) pattern. 
+This allows you to style the components using the `data-attributes` in your CSS.
+
+> Make sure you understand data-attributes before continuing.
+
+## Data Attributes
+
+Every component has its unique data-attribute for styling. It follows the pattern `data-sl-{component-name}`, where `sl` stands for Shoreline. 
+
+```jsx
+import { Flex } from '@vtex/shoreline-components'
+import '@vtex/shoreline-theme-arpoador/css'
+
+export default function App() {
+  return (
+    <Flex>Flex container</Flex> 
+  )
+}
+```
+
+In the component implementation it looks something like this:
+
+<Tabs items={['Flex.tsx', 'Flex.css']}>
+
+<Tab>
+
+```tsx
+export function Flex(props) {
+  const { children, ...restProps } = props
+  return (
+    <div data-sl-flex {restProps}>{children}</div> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+
+```css
+[data-sl-flex] {
+  display: flex;
+  /* ... */
+}
+```
+
+</Tab>
+
+</Tabs>
+
+## Variants
+
+The components often have variants which are also represented by data-attributes. For example, the `Button` component has the `size` variant. It can be used like this:
+
+```jsx
+import { Button } from '@vtex/shoreline-components'
+import '@vtex/shoreline-theme-arpoador/css'
+
+export default function App() {
+  return (
+    <Button size="large">Button</Button>
+  )
+}
+```
+
+In the component implementation it looks something like this:
+
+<Tabs items={['Button.tsx', 'Button.css']}>
+
+<Tab>
+
+```jsx
+export function Button(props) {
+  const { children, size, ...restProps } = props
+
+  return (
+    <button data-sl-button data-size={size} {...restProps}>{children}</button> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+```css
+[data-sl-button] {
+  &[data-size="large"] {
+    /* Size variant styles */
+  }
+}
+```
+
+</Tab>
+
+</Tabs>
+
+
+If necessary to override or apply style to this variant, you can do it like this:
+
+```css
+[data-sl-button] {
+  &[data-size="large"] {
+    /* Apply the styles here */
+  }
+}
+```
+
+## Local variables
+
+Sometimes you need to apply a style that is not a variant, but a dynamic value. You can do it by using local variables. 
+For example, the `Stack` component has the `space` prop which can receive a `token` value and any `space unit` value. 
+To handle this scenario we implement a local variable called `--sl-stack-space` and use it to apply the desired space between the children of the component.
+
+<Tabs items={['Stack.tsx', 'Stack.css']}>
+
+<Tab>
+
+```jsx
+export function Stack(props) {
+  const { children, space, ...restProps } = props
+
+  return (
+    <div data-sl-stack style={{ '--sl-stack-space': space }} {...restProps}>{children}</div> 
+  )
+}
+```
+
+</Tab>
+
+<Tab>
+
+```css
+[data-sl-stack] {
+  & > * + * {
+    margin-block-start: var(--sl-stack-space);
+  }
+}
+```
+
+</Tab>
+
+</Tabs>
