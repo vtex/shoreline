@@ -420,12 +420,14 @@ function getSubComponents(functions: FunctionParser[], componentName?: string) {
 
   const subComponents = functions
     .map((func) => {
-      const firstPart = getPart(func.name)
+      if (!isComponent(func.name)) {
+        const firstPart = getPart(func.name)
 
-      if (func.name !== componentName && firstPart === componentName) {
-        return {
-          key: toKebabCase(func.name),
-          value: func.name,
+        if (func.name !== componentName && firstPart === componentName) {
+          return {
+            key: toKebabCase(func.name),
+            value: func.name,
+          }
         }
       }
 
