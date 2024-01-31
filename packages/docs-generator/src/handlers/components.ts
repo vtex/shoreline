@@ -119,7 +119,6 @@ async function generateRootMetaJSON(
  *
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
- * @todo Update to add subcomponents to _meta.json (if any)
  */
 async function generateComponentMetaJSON(
   functions: FunctionParser[],
