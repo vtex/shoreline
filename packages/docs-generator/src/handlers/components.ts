@@ -1,10 +1,25 @@
 /* eslint-disable no-await-in-loop */
 import { createOrUpdateFile, prettify } from '../io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
-import { isComponent, toKebabCase, acronyms } from '../strings'
+import { isComponent, toKebabCase, acronyms, getPart } from '../strings'
 import { getTemplate } from '../templates'
 import type { ComponentDocumentationPaths } from '../config'
 import { existsSync, readFileSync } from 'fs'
+
+/**
+ * Tokens used to replace content from the component template.
+ */
+const TOKENS = {
+  CODE_BLOCKS: {
+    TS_START: '```ts',
+    END: '```',
+  },
+  TAGS: {
+    DEFAULT: 'default',
+    EXAMPLE: 'example',
+    PLAYGROUND: 'playground',
+  },
+}
 
 /**
  * Generate the component documentation using the component template.
@@ -21,58 +36,7 @@ async function generateComponent(
   paths: ComponentDocumentationPaths
 ) {
   const { docPath, filename } = paths
-  const componentProps: ComponentProps[] = []
-
-  const props = project.interfaces.find((i) => {
-    return i.name === `${func.name}Props`
-  })
-
-  if (props) {
-    props.properties.forEach((prop) => {
-      componentProps.push({
-        propName: prop.name,
-        propOptional: prop.optional,
-        propDescription: prop.comment?.description ?? '',
-        propType: (() => {
-          return `\`${prop.type
-            .toString()
-            .replaceAll('```ts', '')
-            .replaceAll('```', '')}\``
-        })(),
-        propDefaultValue: (() => {
-          const defaultValue =
-            prop.comment.blockTags.find((tag) => {
-              return tag.name === 'default'
-            })?.text ?? ''
-
-          if (!defaultValue) {
-            return undefined
-          }
-
-          return defaultValue.replace('```ts', '`').replace('```', '`')
-        })(),
-      })
-    })
-  } else {
-    const types = project.typeAliases.find((t) => {
-      return t.name === `${func.name}Props`
-    })
-
-    if (types) {
-      componentProps.push({
-        propName: types.name,
-        propOptional: false,
-        propDescription: types.comment?.description ?? '',
-        propType: (() => {
-          return `\`${types.type
-            .toString()
-            .replaceAll('```ts', '')
-            .replaceAll('```', '')}\``
-        })(),
-        propDefaultValue: undefined,
-      })
-    }
-  }
+  const componentProps = generateComponentProps(project, func)
 
   // Use component template
   const componentTemplate = getTemplate('component.mdx')
@@ -82,53 +46,7 @@ async function generateComponent(
     sourceUrl: func.source?.url,
     name: 'API Reference',
     description: func.signatures[0].comment.description,
-    example: (() => {
-      if (!process.env.STORYBOOK_URL) {
-        const codeBlock = func.signatures[0].comment.blockTags.find(
-          (tag) => tag.name === 'example'
-        )?.text
-
-        if (!codeBlock) {
-          return false
-        }
-
-        return codeBlock.replace('```ts', '```jsx')
-      }
-
-      const playgroundTag = func.signatures[0].comment.blockTags.find(
-        (tag) => tag.name === 'playground'
-      )?.text
-
-      if (typeof playgroundTag === 'undefined') {
-        const codeBlock = func.signatures[0].comment.blockTags.find(
-          (tag) => tag.name === 'example'
-        )?.text
-
-        if (!codeBlock) {
-          return false
-        }
-
-        return codeBlock.replace('```ts', '```jsx')
-      }
-
-      const storybookFeatures = '&full=1&shortcuts=false&singleStory=true'
-
-      const playgroundUrl = `${
-        process.env.STORYBOOK_URL
-      }?path=/story/components-${toKebabCase(
-        func.name
-      )}--play${storybookFeatures}`
-
-      const iframeStyles = {
-        width: '100%',
-        height: 600,
-        border: 0,
-        borderRadius: 4,
-      }
-
-      return `<iframe src="${playgroundUrl}" 
-        style={${JSON.stringify(iframeStyles)}}></iframe>`
-    })(),
+    example: generateComponentPlayground(func),
     parameters: func.signatures[0].parameters.map((param) => {
       return {
         paramName: param.name,
@@ -140,11 +58,18 @@ async function generateComponent(
 
   const kebabCaseComponentName = toKebabCase(func.name)
 
-  await createOrUpdateFile(
-    `${docPath}/${kebabCaseComponentName}/${filename}`,
-    component
-  )
-  await prettify(`${docPath}/${kebabCaseComponentName}/${filename}`)
+  let filePath = `${docPath}/${kebabCaseComponentName}/${filename}`
+
+  const parentComponent = isSubComponent(project.functions, func.name)
+
+  if (parentComponent) {
+    filePath = `${docPath}/${toKebabCase(
+      parentComponent
+    )}/${kebabCaseComponentName}/${filename}`
+  }
+
+  await createOrUpdateFile(filePath, component)
+  await prettify(filePath)
 }
 
 /**
@@ -152,7 +77,7 @@ async function generateComponent(
  * To learn more about the _meta.json file, check out the Nextra docs.
  *
  * @link https://nextra.site/docs/guide/organize-files#_metajson
- * @param project The project parser
+ * @param project The project ProjectParser
  */
 async function generateRootMetaJSON(
   project: ProjectParser,
@@ -160,15 +85,22 @@ async function generateRootMetaJSON(
 ) {
   const metaTemplate = getTemplate('meta.json')
 
-  if (paths?.docPath) {
+  if (!paths?.docPath) {
     return
   }
 
   const components = project.functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
-      const key = func.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+      // Do not add subcomponents to the root _meta.json
+      const parentComponent = isSubComponent(project.functions, func.name)
 
-      result.push({ key, value: func.name })
+      if (!parentComponent) {
+        const key = func.name
+          .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+          .toLowerCase()
+
+        result.push({ key, value: func.name })
+      }
     }
 
     return result
@@ -187,8 +119,10 @@ async function generateRootMetaJSON(
  *
  * @link https://nextra.site/docs/guide/organize-files#_metajson
  * @param project The project parser
+ * @todo Update to add subcomponents to _meta.json (if any)
  */
 async function generateComponentMetaJSON(
+  functions: FunctionParser[],
   func: FunctionParser,
   paths: ComponentDocumentationPaths
 ) {
@@ -198,7 +132,16 @@ async function generateComponentMetaJSON(
 
   const metaTemplate = getTemplate('componentMeta.json')
 
-  const metaPath = `${paths.docPath}/${toKebabCase(func.name)}/_meta.json`
+  let metaPath = `${paths.docPath}/${toKebabCase(func.name)}/_meta.json`
+  const parentComponent = isSubComponent(functions, func.name)
+
+  if (parentComponent) {
+    metaPath = `${paths.docPath}/${toKebabCase(parentComponent)}/${toKebabCase(
+      func.name
+    )}/_meta.json`
+  }
+
+  const subComponents = getSubComponents(functions, func.name)
   const name = paths.filename.replace(/\.[^/.]+$/, '')
   const capitalizedName = name
     .split('-')
@@ -211,27 +154,47 @@ async function generateComponentMetaJSON(
     })
     .join(' ')
 
+  const hasSubComponents = subComponents && subComponents.length > 0
+
+  // Creates a _meta.json file in case it doesn't exist
   if (!existsSync(metaPath)) {
     const meta = metaTemplate({
       name,
       capitalizedName,
+      subComponents: hasSubComponents ? subComponents : false,
     })
 
     await createOrUpdateFile(metaPath, meta)
+    await prettify(metaPath, {
+      parser: 'json',
+    })
 
     return
   }
 
+  // Updates the _meta.json while preserving existing data inserted manually.
   // Check if meta has filename and if it's correct.
-  // Update it accordingly.
   const metaFile = JSON.parse(readFileSync(metaPath, 'utf8'))
   const metaFilenameValue = metaFile[name]
 
   if (metaFilenameValue !== capitalizedName) {
     // Update meta with correct filename
     metaFile[name] = capitalizedName
-    await createOrUpdateFile(metaPath, JSON.stringify(metaFile))
   }
+
+  if (hasSubComponents) {
+    // Update meta with subcomponents
+    for (const component of subComponents) {
+      if (component) {
+        metaFile[component.key] = component.value
+      }
+    }
+  }
+
+  await createOrUpdateFile(metaPath, JSON.stringify(metaFile))
+  await prettify(metaPath, {
+    parser: 'json',
+  })
 }
 
 /**
@@ -252,9 +215,14 @@ async function generateComponentsIdxPage(
 
   const components = project.functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
-      const path = `/components/${toKebabCase(func.name)}`
+      // Do not add subcomponents to the components index page.
+      const parentComponent = isSubComponent(project.functions, func.name)
 
-      result.push({ path, name: func.name })
+      if (!parentComponent) {
+        const path = `/components/${toKebabCase(func.name)}`
+
+        result.push({ path, name: func.name })
+      }
     }
 
     return result
@@ -281,7 +249,7 @@ export async function generateComponents(
     if (isComponent(func.name)) {
       await Promise.all([
         generateComponent(project, func, paths),
-        generateComponentMetaJSON(func, paths),
+        generateComponentMetaJSON(project.functions, func, paths),
       ])
     }
   }
@@ -290,6 +258,183 @@ export async function generateComponents(
     generateComponentsIdxPage(project, paths),
     generateRootMetaJSON(project, paths),
   ])
+}
+
+/**
+ * Parses the component props from the interfaces and type aliases reflections generated by TypeDoc.
+ *
+ * @param project The project parser
+ * @param func The function parser of the component
+ */
+function generateComponentProps(project: ProjectParser, func: FunctionParser) {
+  const componentProps: ComponentProps[] = []
+
+  const props = project.interfaces.find((i) => {
+    return i.name === `${func.name}Props`
+  })
+
+  if (props) {
+    props.properties.forEach((prop) => {
+      componentProps.push({
+        propName: prop.name,
+        propOptional: prop.optional,
+        propDescription: prop.comment?.description ?? '',
+        propType: (() => {
+          return `\`${prop.type
+            .toString()
+            .replaceAll(TOKENS.CODE_BLOCKS.TS_START, '')
+            .replaceAll(TOKENS.CODE_BLOCKS.END, '')}\``
+        })(),
+        propDefaultValue: (() => {
+          const defaultValue =
+            prop.comment.blockTags.find((tag) => {
+              return tag.name === TOKENS.TAGS.DEFAULT
+            })?.text ?? ''
+
+          if (!defaultValue) {
+            return undefined
+          }
+
+          return defaultValue
+            .replace(TOKENS.CODE_BLOCKS.TS_START, '`')
+            .replace(TOKENS.CODE_BLOCKS.END, '`')
+        })(),
+      })
+    })
+  } else {
+    const types = project.typeAliases.find((t) => {
+      return t.name === `${func.name}Props`
+    })
+
+    if (types) {
+      componentProps.push({
+        propName: types.name,
+        propOptional: false,
+        propDescription: types.comment?.description ?? '',
+        propType: (() => {
+          return `\`${types.type
+            .toString()
+            .replaceAll(TOKENS.CODE_BLOCKS.TS_START, '')
+            .replaceAll(TOKENS.CODE_BLOCKS.END, '')}\``
+        })(),
+        propDefaultValue: undefined,
+      })
+    }
+  }
+
+  return componentProps
+}
+
+/**
+ * Handles the component playground generation.
+ *
+ * @param func Function parser of the component
+ */
+function generateComponentPlayground(func: FunctionParser) {
+  if (!process.env.STORYBOOK_URL) {
+    const codeBlock = func.signatures[0].comment.blockTags.find(
+      (tag) => tag.name === TOKENS.TAGS.EXAMPLE
+    )?.text
+
+    if (!codeBlock) {
+      return false
+    }
+
+    return codeBlock.replace(TOKENS.CODE_BLOCKS.TS_START, '```jsx')
+  }
+
+  const playgroundTag = func.signatures[0].comment.blockTags.find(
+    (tag) => tag.name === TOKENS.TAGS.PLAYGROUND
+  )?.text
+
+  if (typeof playgroundTag === 'undefined') {
+    const codeBlock = func.signatures[0].comment.blockTags.find(
+      (tag) => tag.name === TOKENS.TAGS.EXAMPLE
+    )?.text
+
+    if (!codeBlock) {
+      return false
+    }
+
+    return codeBlock.replace(TOKENS.CODE_BLOCKS.TS_START, '```jsx')
+  }
+
+  const storybookFeatures = '&full=1&shortcuts=false&singleStory=true'
+
+  const playgroundUrl = `${
+    process.env.STORYBOOK_URL
+  }?path=/story/components-${toKebabCase(func.name)}--play${storybookFeatures}`
+
+  const iframeStyles = {
+    width: '100%',
+    height: 600,
+    border: 0,
+    borderRadius: 4,
+  }
+
+  return `<iframe src="${playgroundUrl}" 
+    style={${JSON.stringify(iframeStyles)}}></iframe>`
+}
+
+/**
+ * Checks whether a function is a subcomponent or not.
+ *
+ * @param functions Functions of the package
+ * @param componentName Current function name
+ */
+function isSubComponent(functions: FunctionParser[], componentName?: string) {
+  if (!componentName) {
+    return false
+  }
+
+  const firstPart = getPart(componentName)
+
+  if (!firstPart) {
+    return false
+  }
+
+  const parentComponent = functions.find(
+    (func) => func.name === firstPart
+  )?.name
+
+  if (
+    !parentComponent ||
+    firstPart !== parentComponent ||
+    parentComponent === componentName
+  ) {
+    return false
+  }
+
+  return parentComponent
+}
+
+/**
+ * Grabs the subcomponents from a component.
+ *
+ * @param functions Functions of the package
+ * @param componentName Current function name
+ */
+function getSubComponents(functions: FunctionParser[], componentName?: string) {
+  if (!componentName) {
+    return false
+  }
+
+  const subComponents = functions
+    .map((func) => {
+      const firstPart = getPart(func.name)
+
+      if (func.name !== componentName && firstPart === componentName) {
+        return {
+          key: toKebabCase(func.name),
+          value: func.name,
+        }
+      }
+
+      return false
+    })
+    .filter(Boolean)
+
+  return subComponents
 }
 
 /**

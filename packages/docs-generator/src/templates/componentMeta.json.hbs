@@ -1,7 +1,19 @@
 {
-    {{#if name}}
+{{#if name}}
+  {{#if subComponents}}
     {{#if capitalizedName}}
-    "{{{name}}}": "{{{capitalizedName}}}"
+      "{{{name}}}": "{{{capitalizedName}}}",
     {{/if}}
+  {{else}}
+    {{#if capitalizedName}}
+      "{{{name}}}": "{{{capitalizedName}}}"
     {{/if}}
+  {{/if}}
+{{/if}}
+{{#if subComponents}}
+  {{#each subComponents}}
+    "{{{key}}}": "{{{value}}}"
+    {{#unless @last}},{{/unless}}
+  {{/each}}
+{{/if}}
 }
