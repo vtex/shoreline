@@ -525,7 +525,7 @@ async function validateAndCorrect(
   const filesToDelete = updatedIdxPaths
     .map(({ oldIdxPath }) => oldIdxPath)
     // Must delete the outdated components entire folder
-    .concat(outdatedComponentsPaths.map((p) => path.dirname(p)))
+    .concat(outdatedComponentsPaths)
     .concat(unexistentComponents)
 
   // Delete any possibly misplaced component docs
