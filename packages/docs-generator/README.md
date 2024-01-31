@@ -1,4 +1,15 @@
-# @vtex/docs-generator
+# @vtex/docs-generator <!-- omit in toc -->
+
+- [Description](#description)
+- [Usage](#usage)
+- [Development](#development)
+- [Architecture](#architecture)
+  - [TypeDoc parser](#typedoc-parser)
+  - [JSON parser](#json-parser)
+  - [Code organization](#code-organization)
+- [Best practices when writing documentation on code](#best-practices-when-writing-documentation-on-code)
+  - [For React components](#for-react-components)
+- [Best practices when writing Playgrounds with Storybook](#best-practices-when-writing-playgrounds-with-storybook)
 
 ## Description
 
@@ -10,11 +21,19 @@ Clone the repository, and run `pnpm install` from the root of the repository.
 
 Configure the `docs-generator` package by editing the config variable from `docs-generator/src/index.ts` file. The configuration file is documented on code, so you should be able to understand what each configuration option does.
 
-Run `pnpm run generate-docs` from the root of the repository:
+Run `pnpm run gen:docs` from the root of the repository:
 
 ```sh
-pnpm run generate-docs
+pnpm run gen:docs
 ```
+
+Utterly you should use this command to generate the documentation site within CI/CD pipelines.
+
+See our [stable release CI/CD workflow](../../.github/workflows/stable-release.yml) to understand how to use this package within CI/CD pipelines.
+
+## Development
+
+The development workflow of the `docs-generator` package is very similar to what's described in the section above. Once you've made changes to the code, you can run `pnpm run gen:docs` to see the changes reflected on the documentation site package.
 
 ## Architecture
 
@@ -98,5 +117,5 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 ## Best practices when writing Playgrounds with Storybook
 
-- Make sure to follow Shoreline's [Storybook best practices]() when writing stories.
+- Make sure to follow Shoreline's [Storybook best practices](https://github.com/vtex/shoreline/issues/1455) when writing stories.
 - Always write as much use cases as possible.

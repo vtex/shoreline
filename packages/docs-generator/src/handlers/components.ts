@@ -4,7 +4,9 @@ import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
 import { isComponent, toKebabCase, acronyms, getPart } from '../strings'
 import { getTemplate } from '../templates'
 import type { ComponentDocumentationPaths } from '../config'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync, readFileSync, readdirSync } from 'fs'
+import path from 'path'
+import { rm } from 'fs/promises'
 
 /**
  * Tokens used to replace content from the component template.
@@ -257,6 +259,9 @@ export async function generateComponents(
     generateComponentsIdxPage(project, paths),
     generateRootMetaJSON(project, paths),
   ])
+
+  // Must run after all components have been generated
+  await validateAndCorrect(project.functions, paths)
 }
 
 /**
@@ -436,6 +441,102 @@ function getSubComponents(functions: FunctionParser[], componentName?: string) {
     .filter(Boolean)
 
   return subComponents
+}
+
+/**
+ * Validates and corrects the components documentation on the fly for the following cases:
+ * - Removes subcomponents that should now live within their parent component
+ * - Removes components that no longer exist
+ * - Moves index files of subcomponents from the root to within their parent component
+ *
+ * @param functions The functions of the package
+ * @param paths The component documentation paths
+ */
+async function validateAndCorrect(
+  functions: FunctionParser[],
+  paths: ComponentDocumentationPaths
+) {
+  // Read all the files in the components directory
+  const componentsDir = path.resolve(paths.docPath)
+  const componentsDirFiles = readdirSync(componentsDir)
+
+  const unexistentComponents = componentsDirFiles.reduce<string[]>(
+    (result, file) => {
+      const filePath = `${componentsDir}/${file}`
+
+      if (
+        !functions.some(
+          (func) => toKebabCase(func.name) === file.replace('.mdx', '')
+        ) &&
+        file !== '_meta.json' &&
+        file !== 'index.mdx'
+      ) {
+        result.push(filePath)
+      }
+
+      return result
+    },
+    []
+  )
+
+  const updatedIdxPaths: Array<{ oldIdxPath: string; updatedIdxPath: string }> =
+    []
+
+  const outdatedComponentsPaths = functions.reduce<string[]>((result, func) => {
+    if (isComponent(func.name)) {
+      const directoryPath = `${paths.docPath}/${toKebabCase(func.name)}`
+
+      const isSubComp = isSubComponent(functions, func.name)
+
+      // Removes subcomponents that now live within their parent component
+      if (isSubComp && existsSync(directoryPath)) {
+        result.push(directoryPath)
+      }
+
+      // Moves index files of subcomponents from the root to within their parent component
+      const idxPath = `${paths.docPath}/${toKebabCase(func.name)}.mdx`
+
+      if (isSubComp && existsSync(idxPath)) {
+        const parentComponent = isSubComp
+
+        const updatedIdxPath = `${paths.docPath}/${toKebabCase(
+          parentComponent
+        )}/${toKebabCase(func.name)}.mdx`
+
+        updatedIdxPaths.push({ oldIdxPath: idxPath, updatedIdxPath })
+      }
+
+      return result
+    }
+
+    return result
+  }, [])
+
+  // First copy the index files of subcomponents to their parent component
+  await Promise.all(
+    updatedIdxPaths.map(({ oldIdxPath, updatedIdxPath }) => {
+      return createOrUpdateFile(
+        updatedIdxPath,
+        readFileSync(oldIdxPath, 'utf8')
+      )
+    })
+  )
+
+  const filesToDelete = updatedIdxPaths
+    .map(({ oldIdxPath }) => oldIdxPath)
+    // Must delete the outdated components entire folder
+    .concat(outdatedComponentsPaths.map((p) => path.dirname(p)))
+    .concat(unexistentComponents)
+
+  // Delete any possibly misplaced component docs
+  await Promise.all(
+    filesToDelete.map((filePath) =>
+      rm(filePath, {
+        recursive: true,
+        force: true,
+      })
+    )
+  )
 }
 
 /**
