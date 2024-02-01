@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.4.1...@vtex/docs-generator@0.5.0) (2024-02-01)
+
+### Features
+
+- **docs-generator:** aggregate subcomponents ([5e65a5f](https://github.com/vtex/shoreline/commit/5e65a5fdd1161d531d0503bf64f3e32b595f305a))
+- **docs-generator:** method to autofix docs ([cc2ef69](https://github.com/vtex/shoreline/commit/cc2ef69fb99b71e3a414f2e3b033f3dbec4ac868))
+
 ## [0.4.1](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.4.0...@vtex/docs-generator@0.4.1) (2024-01-26)
 
 **Note:** Version bump only for package @vtex/docs-generator
