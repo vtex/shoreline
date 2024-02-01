@@ -1,0 +1,101 @@
+# Introduction
+
+Shoreline components have a common state management philosophy: it's up to you. We don't prescribe a specific state management library or pattern. All components are controlled. This means that they accept state and callbacks as props, while they also manage their own state. This makes them flexible and easy to use with any state management library (React's State or Context API, Redux, MobX, Jotai, etc.), or none at all. By the end of the day, it's simply up to you to decide how to manage state of Shoreline components in your application.
+
+## Use cases
+
+As mentioned, Shoreline components are controlled, so you can use the state management approach that best fits your application's needs.
+
+For example, here's how the Menu component can be used with no state management library at all:
+
+```jsx filename="uncontrolled-menu.jsx"
+export function UncontrolledUsage() {
+  return (
+    <Menu label="Open">
+      <MenuItem>New Tab</MenuItem>
+      <MenuItem>New Item</MenuItem>
+      <MenuSeparator />
+      <MenuItem>Downloads</MenuItem>
+    </Menu>
+  )
+}
+```
+
+And here's how it can be used with React's State API or any other state management library for more fine-grained control or custom side effects, like sending analytics events, for example:
+
+```jsx filename="controlled-menu.jsx"
+export function ControlledUsage() {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = (open) => {
+    sendAnalyticsEvent('menu-opened', { open }) // Some callback or side effect
+    setOpen(open)
+  }
+
+  return (
+    <Menu label="Open" open={open} setOpen={handleOpen}>
+      <MenuItem>New Tab</MenuItem>
+      <MenuItem>New Item</MenuItem>
+      <MenuSeparator />
+      <MenuItem>Downloads</MenuItem>
+    </Menu>
+  )
+}
+```
+
+Sometimes you may want to use Shoreline's composition pattern, which is a way to compose components together to create more complex components. For example, you might want a Menu with a different button than the default one. In this case, you can also manage state yourself or leave it to the component when implementing more complex use cases.
+
+Here's how you can use the Menu component applying Shoreline's composition pattern, with no state management library:
+
+```jsx filename="uncontrolled-menu-with-composition.jsx"
+export function UncontrolledUsageWithComposition() {
+  return (
+    <MenuProvider>
+      <MenuTrigger asChild>
+        <Button>
+          Open <IconCaretDownSmall />
+        </Button>
+      </MenuTrigger>
+      <Menu>
+        <MenuItem>New Tab</MenuItem>
+        <MenuItem>New Item</MenuItem>
+        <MenuSeparator />
+        <MenuItem>Downloads</MenuItem>
+      </Menu>
+    </MenuProvider>
+  )
+}
+```
+
+And here's how it can be used with any other state management library for more complex use cases:
+
+```jsx filename="controlled-menu-with-composition.jsx"
+export function ControlledUsageWithComposition() {
+  const [open, setOpen] = useState(false)
+  const handleOpen = (open) => {
+    sendAnalyticsEvent('menu-opened', { open }) // Some callback or side effect
+    setOpen(open)
+  }
+  return (
+    <MenuProvider open={open} setOpen={setOpen}>
+      <MenuTrigger asChild>
+        <Button>
+          Open <IconCaretDownSmall />
+        </Button>
+      </MenuTrigger>
+      <Menu>
+        <MenuItem>New Tab</MenuItem>
+        <MenuItem>New Item</MenuItem>
+        <MenuSeparator />
+        <MenuItem>Downloads</MenuItem>
+      </Menu>
+    </MenuProvider>
+  )
+}
+```
+
+## Useful resources
+
+{/* TODO: - [Composition pattern in Shoreline]() */}
+
+- [React's controlled and uncontrolled components](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
