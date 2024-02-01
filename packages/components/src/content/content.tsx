@@ -5,6 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 /**
  * Content containers allow merchants to easily scan information to understand its hierarchy and rhythm.
  *
+ * @group layout
  * @playground
  * @example
  * <Container>

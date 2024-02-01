@@ -5,6 +5,8 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Placeholder for stuctural composition
+ *
+ * @group layout
  * @example
  * <Slot>Content</Slot>
  */
