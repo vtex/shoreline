@@ -20,6 +20,18 @@ export function toKebabCase(name: string) {
 }
 
 /**
+ * Gets a given part of a PascalCase string
+ *
+ * @param name - The string to be get the part of
+ * @param part - The part to be returned
+ * @example
+ * getPart('CheckboxGroup', 0) // 'Checkbox'
+ */
+export function getPart(name: string, part = 0) {
+  return name.match(/[A-Z][a-z]+/)?.[part]
+}
+
+/**
  * Acronyms list that should be capitalized when
  * converting a filename to capitalized case.
  *
