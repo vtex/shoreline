@@ -1,166 +1,58 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react'
-import React, { forwardRef } from 'react'
+import type { Ref } from 'react'
+import React from 'react'
+import type { AriaDateFieldProps } from '@react-aria/datepicker'
 import { useDateField } from '@react-aria/datepicker'
 import { useDateFieldState } from '@react-stately/datepicker'
-import type {
-  CalendarDate,
-  ZonedDateTime,
-  DateValue,
-  CalendarDateTime,
-} from '@internationalized/date'
-import { createCalendar } from '@internationalized/date'
-import { useMergeRef } from '@vtex/shoreline-utils'
-import {
-  Field,
-  Label,
-  FieldDescription,
-  FieldError,
-  useLocale,
-} from '@vtex/shoreline-components'
+import { useMergeRef, forwardRef } from '@vtex/shoreline-utils'
+import { VisuallyHidden, useLocale } from '@vtex/shoreline-components'
 
 import { DateSegment } from '../date-segment'
+import { createCalendar } from '../utils'
+import type { DateValue } from '../utils'
 
 /**
- * Allow users to select a date in a segmented field
+ * A list of date-segments used as base for date-picker and date-range-picker
  * @example
- * <DateField label="Date" />
+ * <DateField />
  */
-export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
-  function DateField(props, forwardedRef) {
-    const {
-      granularity = 'day',
-      hourCycle = 24,
-      onChange,
-      className,
-      prefix,
-      suffix,
-      helpText,
-      error,
-      errorText,
-      optional,
-    } = props
+export const DateField = forwardRef(function DateField<T extends DateValue>(
+  props: DateFieldProps<T>,
+  forwardedRef: Ref<HTMLDivElement>
+) {
+  const { granularity = 'day', hourCycle = 24, onChange, className } = props
 
-    const locale = useLocale()
-    const state = useDateFieldState({
-      ...props,
-      onChange: onChange as Dispatch<SetStateAction<DateValue>>,
-      granularity,
-      hourCycle,
-      locale,
-      createCalendar,
-    })
+  const locale = useLocale()
+  const state = useDateFieldState({
+    ...props,
+    onChange,
+    granularity,
+    hourCycle,
+    locale,
+    createCalendar,
+  })
 
-    const ref = React.useRef<HTMLDivElement>(null)
-    const { labelProps, fieldProps } = useDateField(props, state, ref)
+  const ref = React.useRef<HTMLDivElement>(null)
+  const { labelProps, fieldProps } = useDateField(props, state, ref)
 
-    return (
-      <Field
-        data-sl-date-field
-        className={className}
-        error={error || state.isInvalid}
+  return (
+    <div data-sl-date-field className={className}>
+      <VisuallyHidden>
+        <label {...labelProps} />
+      </VisuallyHidden>
+      <div
+        {...fieldProps}
+        ref={useMergeRef(ref, forwardedRef)}
+        data-sl-date-field-segment-list
       >
-        <Label optional={optional} {...labelProps}>
-          {props.label}
-        </Label>
-        <div
-          data-sl-date-input-container
-          data-disabled={fieldProps['aria-disabled']}
-          data-error={state.isInvalid}
-        >
-          {prefix && (
-            <div data-sl-date-input-term data-type="prefix">
-              {prefix}
-            </div>
-          )}
-          <div
-            {...fieldProps}
-            ref={useMergeRef(ref, forwardedRef)}
-            data-sl-date-input
-          >
-            {state.segments.map((segment, i) => (
-              <DateSegment key={i} segment={segment} state={state} />
-            ))}
-          </div>
-          {suffix && (
-            <div data-sl-date-input-term data-type="suffix">
-              {suffix}
-            </div>
-          )}
-        </div>
-        {helpText && <FieldDescription>{helpText}</FieldDescription>}
-        <FieldError>{errorText}</FieldError>
-      </Field>
-    )
-  }
-)
+        {state.segments.map((segment, i) => (
+          <DateSegment key={i} segment={segment} state={state} />
+        ))}
+      </div>
+    </div>
+  )
+})
 
-export interface DateFieldProps {
-  /**
-   * Custom className
-   */
+export interface DateFieldProps<T extends DateValue>
+  extends AriaDateFieldProps<T> {
   className?: string
-  /**
-   * Granularity of the filed
-   * @default 'day'
-   */
-  granularity?: 'day' | 'hour' | 'minute' | 'second'
-  /**
-   * Hour cycle
-   * @default 24
-   */
-  hourCycle?: 12 | 24
-  /**
-   * Field label
-   */
-  label?: ReactNode
-  /**
-   * Wheter has error
-   * @default false
-   */
-  error?: boolean
-  /**
-   * Field value
-   */
-  value?: DateValue | null
-  /**
-   * Minimal date allowed
-   */
-  minValue?: DateValue
-  /**
-   * Maximun date allowed
-   */
-  maxValue?: DateValue
-  /**
-   * Callback after value changes
-   */
-  onChange?:
-    | ((value: DateValue) => void)
-    | ((value: CalendarDate) => void)
-    | ((value: CalendarDateTime) => void)
-    | ((value: ZonedDateTime) => void)
-
-  /**
-   * Default field value
-   */
-  defaultValue?: DateValue | null
-  /**
-   * Node added before input space
-   */
-  prefix?: ReactNode
-  /**
-   * Node added before input space
-   */
-  suffix?: ReactNode
-  /**
-   * Error message
-   */
-  errorText?: string
-  /**
-   * Help message
-   */
-  helpText?: string
-  /**
-   * Wether the field is optional
-   */
-  optional?: boolean
 }
