@@ -1,0 +1,59 @@
+# API Reference
+
+Radio groups allow users to select one option from a list.
+
+```jsx
+<RadioGroup label="Radio group">
+  <Radio value="1">Option 1</Radio>
+  <Radio value="2">Option 2</Radio>
+  <Radio value="3">Option 3</Radio>
+</RadioGroup>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.RadioGroupProps & @types/react.React.RefAttributes<typescript.HTMLInputElement>`
+
+## Props
+
+### `description` (optional)
+
+Radio group description
+
+- Type: `string`
+
+### `error` (optional)
+
+Whether the radio group is in an error state
+
+- Type: `boolean`
+
+### `errorText` (optional)
+
+Radio group error message
+
+- Type: `string`
+
+### `horizontal` (optional)
+
+Whether the radio group is horizontal or vertical
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `label`
+
+Radio group label
+
+- Type: `@types/react.React.ReactNode`
+
+### `state` (optional)
+
+Radio group state
+
+- Type: `@ariakit/react-core.RadioStore`
+
+[View source](https://github.com/vtex/shoreline/blob/7bdef2cde/packages/components/src/radio/radio-group.tsx#L24)

@@ -1,3 +1,6 @@
 {
-  "api-reference": "API Reference"
+  "api-reference": "API Reference",
+  "tooltip-arrow": "TooltipArrow",
+  "tooltip-popover": "TooltipPopover",
+  "tooltip-trigger": "TooltipTrigger"
 }

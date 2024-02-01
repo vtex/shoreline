@@ -1,3 +1,6 @@
 {
-  "api-reference": "API Reference"
+  "api-reference": "API Reference",
+  "page-content": "PageContent",
+  "page-header": "PageHeader",
+  "page-heading": "PageHeading"
 }

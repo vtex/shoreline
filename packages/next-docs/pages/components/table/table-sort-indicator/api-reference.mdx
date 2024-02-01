@@ -1,0 +1,28 @@
+# API Reference
+
+Component that indicates if a column is sortable and its current sort direction
+
+```jsx
+<TableHeaderCell>
+  {title}
+  <TableSortIndicator sorted={sortDirection} />
+</TableHeaderCell>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.TableSortIndicatorProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `sorted` (optional)
+
+Indicates if column is currently sorted, and in witch order
+
+- Type: `null | desc | asc`
+
+- Default: `null`
+
+[View source](https://github.com/vtex/shoreline/blob/7bdef2cde/packages/components/src/table/table-sort-indicator.tsx#L13)

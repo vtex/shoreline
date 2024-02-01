@@ -1,0 +1,36 @@
+# API Reference
+
+```jsx
+<TabProvider>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanel>Tab 1</TabPanel>
+  <TabPanel>Tab 2</TabPanel>
+</TabProvider>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.TabPanelProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `asChild` (optional)
+
+Enable children composition
+
+- Type: `boolean`
+
+- Default: `false`
+
+### `tabId` (optional)
+
+The id of the tab that controls this panel. By default, this value will be inferred based on the order of the tabs and the panels.
+
+- Type: `string`
+
+[View source](https://github.com/vtex/shoreline/blob/7bdef2cde/packages/components/src/tab/tab-panel.tsx#L20)

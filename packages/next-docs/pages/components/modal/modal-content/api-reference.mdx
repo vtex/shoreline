@@ -1,0 +1,37 @@
+# API Reference
+
+Content of the Modal
+
+```jsx
+function Example() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <ModalContent>Content</ModalContent>
+      </Modal>
+    </>
+  );
+}
+```
+
+## Parameters
+
+### `props`
+
+- Type: `typescript.Omit<@types/react.React.DetailedHTMLProps<@types/react.React.HTMLAttributes<typescript.HTMLDivElement>, typescript.HTMLDivElement>, ref> & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `ModalContentProps`
+
+- Type: `@types/react.React.ComponentPropsWithoutRef<div>`
+
+[View source](https://github.com/vtex/shoreline/blob/7bdef2cde/packages/components/src/modal/modal-content.tsx#L29)

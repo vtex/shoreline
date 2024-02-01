@@ -1,0 +1,41 @@
+# API Reference
+
+A collection view is a component that renders a collection based on its status
+
+```jsx
+<Collection>
+  <CollectionView status="loading" />
+</Collection>
+```
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.CollectionViewProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `messages` (optional)
+
+Collection internal messages
+
+- Type: `typescript.Partial<{ empty-action: string; empty-description: string; empty-heading: string; error-action: string; error-heading: string; not-found-description: string; not-found-heading: string; unauthorized-description: string; unauthorized-heading: string; }>`
+
+### `onEmpty` (optional)
+
+- Type: `{ (): void; }`
+
+### `onError` (optional)
+
+- Type: `{ (): void; }`
+
+### `status`
+
+Collection status
+
+- Type: `@vtex/shoreline-components.CollectionStatus`
+
+- Default: `'ready'`
+
+[View source](https://github.com/vtex/shoreline/blob/7bdef2cde/packages/components/src/collection/collection-view.tsx#L29)
