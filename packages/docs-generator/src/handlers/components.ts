@@ -143,6 +143,8 @@ async function generateComponentMetaJSON(
   }
 
   const subComponents = getSubComponents(functions, func.name)
+
+  console.log({ subComponents })
   const name = paths.filename.replace(/\.[^/.]+$/, '')
   const capitalizedName = name
     .split('-')
@@ -180,6 +182,7 @@ async function generateComponentMetaJSON(
 
   if (metaFilenameValue !== capitalizedName) {
     // Update meta with correct filename
+    console.log({})
     metaFile[name] = capitalizedName
   }
 
@@ -425,7 +428,7 @@ function getSubComponents(functions: FunctionParser[], componentName?: string) {
 
   const subComponents = functions
     .map((func) => {
-      if (!isComponent(func.name)) {
+      if (isComponent(func.name)) {
         const firstPart = getPart(func.name)
 
         if (func.name !== componentName && firstPart === componentName) {
