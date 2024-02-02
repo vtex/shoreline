@@ -1,0 +1,70 @@
+import { Steps, Cards, Card } from 'nextra/components'
+
+# Getting Started
+
+Install Shoreline and start building your project in minutes.
+
+## Installation
+
+Getting up and running is quick and easy.
+
+<Steps>
+
+### Create a new project
+
+If you are starting a new project you can refer to the Raccoon section of the documentation to create a new project.
+
+<Cards>
+
+<Card title="Start with Raccoon" href="../raccoon/getting-started" />
+
+</Cards>
+
+### Install Shoreline components
+
+```sh npm2yarn copy
+npm install @vtex/shoreline-components
+```
+
+### Install Arpoador theme
+
+```sh npm2yarn copy
+npm install @vtex/shoreline-theme-arpoador
+```
+
+### Import the CSS theme file
+
+Import the theme file at the root of your application.
+
+```jsx copy
+import '@vtex/shoreline-theme-arpoador/css'
+```
+
+### Start building
+
+You're all set! Start building your project with Shoreline.
+
+```jsx
+import { Button } from '@vtex/shoreline-components'
+
+export default function Home() {
+  return (
+    <Button>Let's build!</Button>
+  )
+}
+```
+
+</Steps>
+
+## Take it further
+
+Now that you are all set, you can start building your project with Shoreline. Check out the documentations to understand how to make the better usage of Shoreline.
+
+<Cards>
+
+<Card title="Styling" href="guides/styling/introduction" />
+<Card title="Theming" href="guides/theming/introduction" />
+<Card title="Components" href="../components" />
+<Card title="Foundations" href="../foundations" />
+
+</Cards>
