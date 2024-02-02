@@ -22,7 +22,7 @@ export default {
         'th-TH',
       ],
       control: { type: 'radio' },
-      description: 'Language of the callendar',
+      description: 'Language of the calendar',
     },
   },
   args: {
