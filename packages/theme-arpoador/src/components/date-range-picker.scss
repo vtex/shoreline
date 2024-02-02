@@ -1,30 +1,57 @@
 [data-sl-date-range-picker] {
   display: inline-flex;
-  flex-direction: column;
 }
 
-[data-sl-date-range-picker-group] {
-  height: 2.75rem;
-  width: 100%;
-  font: var(--sl-text-body-font);
-  letter-spacing: var(--sl-text-body-letter-spacing);
-  border-radius: var(--sl-border-radius-medium);
-  display: flex;
+[data-sl-date-range-picker-field-group] {
+  display: inline-flex;
+  gap: var(--sl-space-2);
   align-items: center;
+}
+
+[data-sl-date-range-picker-input] {
+  --sl-datepicker-min-width: 20rem;
+  --sl-datepicker-height: 2.75rem;
+
+  display: inline-flex;
+  height: var(--sl-datepicker-height);
+  min-width: var(--sl-datepicker-min-width);
+  font: var(--sl-text-action-font);
+  letter-spacing: var(--sl-text-action-letter-spacing);
+  border-radius: var(--sl-border-radius-medium);
   border: var(--sl-border-base-strong);
+  padding: var(--sl-space-2) var(--sl-space-3);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 
   &:hover {
     border: var(--sl-border-base-strong-hover);
   }
 
-  &:has(:focus-visible) {
+  &:focus-within {
     box-shadow: var(--sl-focus-ring-base);
     border: var(--sl-border-base-strong-hover);
   }
-}
 
-[data-sl-date-range-picker-icon-button] {
-  border-top-left-radius: 0rem;
-  border-bottom-left-radius: 0rem;
-  border-left: var(--sl-border-base);
+  &[data-error='true'] {
+    border: var(--sl-border-critical-strong);
+
+    &:hover {
+      border: var(--sl-border-critical-strong-hover);
+    }
+    &:focus-within {
+      box-shadow: var(--sl-focus-ring-critical);
+      border: var(--sl-border-critical-strong-hover);
+    }
+  }
+
+  &[data-disabled='true'] {
+    border: var(--sl-border-base-disabled);
+    color: var(--sl-fg-base-disabled);
+    background-color: var(--sl-bg-base-disabled);
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

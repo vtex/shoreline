@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Bleed,
-  IconButton,
-  LocaleProvider,
-  Stack,
-} from '@vtex/shoreline-components'
-import { IconCalendarBlank } from '@vtex/shoreline-icons'
+import { LocaleProvider, Stack } from '@vtex/shoreline-components'
 
 import { DateField } from '../index'
 import { parseDate } from '../../utils'
@@ -16,41 +10,6 @@ export default {
 
 export function Default() {
   return <DateField label="Date" />
-}
-
-export function Terms() {
-  return (
-    <Stack>
-      <DateField label="Date" />
-      <DateField label="Date" prefix="Prefix" />
-      <DateField label="Date" suffix="Suffix" />
-      <DateField label="Date" prefix="Prefix" suffix="Suffix" />
-      <DateField
-        label="Date"
-        prefix="Prefix"
-        suffix={
-          <Bleed
-            top="$space-3"
-            bottom="$space-3"
-            start="$space-3"
-            end="$space-3"
-          >
-            <IconButton
-              label="calendar"
-              size="large"
-              variant="tertiary"
-              style={{
-                borderTopLeftRadius: 0,
-                borderBottomLeftRadius: 0,
-              }}
-            >
-              <IconCalendarBlank />
-            </IconButton>
-          </Bleed>
-        }
-      />
-    </Stack>
-  )
 }
 
 export function Controlled() {

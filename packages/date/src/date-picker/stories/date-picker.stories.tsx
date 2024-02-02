@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { LocaleProvider, Stack } from '@vtex/shoreline-components'
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  Label,
+  LocaleProvider,
+  Stack,
+} from '@vtex/shoreline-components'
 
 import { DatePicker } from '../index'
 import { getLocalTimeZone, today } from '../../utils'
@@ -12,7 +19,14 @@ export default {
 }
 
 export function Default() {
-  return <DatePicker label="Date" />
+  return (
+    <Field error>
+      <Label>Date</Label>
+      <DatePicker />
+      <FieldDescription>The event starting date</FieldDescription>
+      <FieldError>Something went wrong</FieldError>
+    </Field>
+  )
 }
 
 export function Controlled() {
@@ -32,7 +46,7 @@ export function Controlled() {
       >
         Today
       </button>
-      <DatePicker label="Date" value={value} onChange={setValue} />
+      <DatePicker value={value} onChange={setValue} />
     </Stack>
   )
 }
@@ -40,7 +54,7 @@ export function Controlled() {
 export function Locale() {
   return (
     <LocaleProvider locale="ja-JP">
-      <DatePicker label="日付" />
+      <DatePicker />
     </LocaleProvider>
   )
 }
