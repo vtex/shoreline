@@ -1,3 +1,5 @@
+<a href="https://shoreline.storybook.vtex.com" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
+
 # 🌊 Shoreline <!-- omit in toc -->
 
 Shoreline is a set of tools designed specifically to enhance the experience of designing and implementing apps for the VTEX Admin. The focus is on simplifying the application design, creation, coding, visualization, and QA processes.
