@@ -20,6 +20,7 @@ const TOKENS = {
     DEFAULT: 'default',
     EXAMPLE: 'example',
     PLAYGROUND: 'playground',
+    KIND: 'kind',
   },
 }
 
@@ -91,10 +92,30 @@ async function generateRootMetaJSON(
     return
   }
 
+  const sections: Record<string, object[]> = {}
+
   const components = project.functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
       // Do not add subcomponents to the root _meta.json
       const parentComponent = isSubComponent(project.functions, func.name)
+      const kind = func.signatures[0].comment.blockTags.find(
+        (tag) => tag.name === TOKENS.TAGS.KIND
+      )?.text
+
+      if (kind) {
+        if (!parentComponent) {
+          if (!sections[kind]) {
+            sections[kind] = []
+          }
+
+          sections[kind].push({
+            key: func.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+            value: func.name,
+          })
+
+          return result
+        }
+      }
 
       if (!parentComponent) {
         const key = func.name
@@ -110,6 +131,7 @@ async function generateRootMetaJSON(
 
   const meta = metaTemplate({
     components,
+    sections,
   })
 
   await createOrUpdateFile(`${paths.docPath}/_meta.json`, meta)
@@ -144,7 +166,6 @@ async function generateComponentMetaJSON(
 
   const subComponents = getSubComponents(functions, func.name)
 
-  console.log({ subComponents })
   const name = paths.filename.replace(/\.[^/.]+$/, '')
   const capitalizedName = name
     .split('-')
@@ -182,7 +203,6 @@ async function generateComponentMetaJSON(
 
   if (metaFilenameValue !== capitalizedName) {
     // Update meta with correct filename
-    console.log({})
     metaFile[name] = capitalizedName
   }
 
