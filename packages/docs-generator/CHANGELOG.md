@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.5.0...@vtex/docs-generator@0.6.0) (2024-02-05)
+
+### Features
+
+- **docs-generator:** group under common group ([8c7e26f](https://github.com/vtex/shoreline/commit/8c7e26f246fbce880adc7b75dd736fc05abecd59))
+
 # [0.5.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.4.1...@vtex/docs-generator@0.5.0) (2024-02-01)
 
 ### Features

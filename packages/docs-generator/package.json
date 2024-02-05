@@ -1,7 +1,7 @@
 {
   "name": "@vtex/docs-generator",
   "description": "Generate a custom Markdown documentation from your Typescript code leveraging typedoc",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "private": true,
   "main": "./src/index.ts",
