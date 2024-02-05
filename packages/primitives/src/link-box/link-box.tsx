@@ -8,6 +8,7 @@ import { navigate } from './link-box-utils'
 
 /**
  * A container that acts as a link. It allows text selection and stop its children event propagation.
+ * @kind primitives
  * @example
  * <LinkBox href="">
  *   <div>

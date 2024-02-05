@@ -5,7 +5,8 @@ import { createComposition } from './create-composition'
 
 /**
  * Composes immediate child with its props and child own props.
- * Used to implement Shoreline composition
+ * Used to implement Shoreline composition]
+ * @kind primitives
  * @example
  * function Button({ asChild, ...props }){
  *  const Composition = asChild ? Compose : 'button'

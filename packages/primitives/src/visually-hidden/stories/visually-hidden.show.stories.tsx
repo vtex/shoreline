@@ -7,7 +7,7 @@ export default {
   title: 'primitives/visually-hidden',
 } as Meta
 
-export function Default() {
+export function Show() {
   return (
     <a href="https://vtex.com">
       Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden>

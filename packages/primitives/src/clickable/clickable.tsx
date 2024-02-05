@@ -6,6 +6,8 @@ import { Compose } from '../compose'
 
 /**
  * Represents clickable surfaces
+ *
+ * @kind primitives
  * @example
  * <Clickable>
  *   Text <button>Click Me</button>

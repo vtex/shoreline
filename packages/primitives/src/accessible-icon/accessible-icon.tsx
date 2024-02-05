@@ -5,6 +5,8 @@ import { VisuallyHidden } from '../visually-hidden'
 
 /**
  * Makes icons accessible by adding a label
+ *
+ * @kind primitives
  * @example
  * <AccessibleIcon>
  *  <svg

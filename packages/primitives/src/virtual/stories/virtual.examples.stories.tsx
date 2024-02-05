@@ -3,15 +3,12 @@ import React from 'react'
 import { Virtual, VirtualItem } from '../index'
 
 export default {
-  title: 'primitives/virtual',
-}
-
-export function Default() {
-  return (
-    <Virtual count={5000} estimateSize={() => 40} style={{ width: 200 }}>
-      <VirtualItem>Virtualized item</VirtualItem>
-    </Virtual>
-  )
+  title: 'primitives/virtual/examples',
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 }
 
 export function Dynamic() {

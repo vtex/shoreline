@@ -7,7 +7,7 @@ export default {
   title: 'primitives/accessible-icon',
 }
 
-export function Default() {
+export function Show() {
   return (
     <AccessibleIcon label="Trash">
       <IconTrash />

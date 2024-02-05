@@ -3,6 +3,11 @@ import React, { forwardRef } from 'react'
 import type { ComboboxItemOptions } from '@ariakit/react'
 import { ComboboxItem as Item } from '@ariakit/react'
 
+/**
+ * Renders an item for the combobox
+ *
+ * @kind primitives
+ */
 export const ComboboxItem = forwardRef<HTMLDivElement, ComboboxItemProps>(
   function ComboboxItem(props, ref) {
     const { asChild = false, children, ...otherProps } = props

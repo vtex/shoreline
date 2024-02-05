@@ -6,7 +6,7 @@ export default {
   title: 'primitives/link-box',
 }
 
-export function Default() {
+export function Show() {
   return (
     <LinkBox href="https://vtex.com">
       <a href="https://google.com">Link to Google</a>

@@ -5,6 +5,15 @@ import { forwardRef, isFunction } from '@vtex/shoreline-utils'
 
 import { Compose } from '../compose'
 
+/**
+ * Renders a virtual item
+ *
+ * @kind primitives
+ * @example
+ * <Virtual count={100} estimateSize={50} overscan={5}>
+ *   {({ index }) => <VirtualItem>{index}</VirtualItem>}
+ * </Virtual>
+ */
 export const VirtualItem = forwardRef(function VirtualItem(
   props: VirtualItemsProps,
   ref: Ref<any>

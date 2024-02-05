@@ -4,6 +4,7 @@ import React, { isValidElement } from 'react'
 
 /**
  * Defines a composable child inside of a Compose component
+ * @kind primitives
  * @example
  * function Button({ asChild, children, ...props }){
  *  const Composition = asChild ? Compose : 'button'
