@@ -1,0 +1,29 @@
+# Form Fields
+
+Single input components in Shoreline don't have labels or help messages by default, in order to build a field to be used on a form you must use the [Field](/components/field/api-reference) compound components set.
+
+## Labels and help text
+
+In order to be accessible, fields in a form should have labels, and in use cases where we want to provide more information fields must have helper text. In Shoreline you can use `Label` and `FieldDescription` to add those elements to a field.
+
+```tsx
+<Field>
+  <Label>Label</Label>
+  <InputElement />
+  <FieldDescription>Short description</FieldDescription>
+</Field>
+```
+
+## Indicating error
+
+Some fields might have error states when a value is invalid. You can use `FieldError` and the `error` prop in `Field` to indicate a form error.
+
+Since `Field` provides context to its children components `FieldError` won't be rendered when the error prop is set to false.
+
+```tsx
+<Field error>
+  <Label>Label</Label>
+  <InputElement />
+  <FieldError>Short description</FieldError>
+</Field>
+```

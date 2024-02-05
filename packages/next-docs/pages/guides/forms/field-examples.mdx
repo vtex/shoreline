@@ -1,0 +1,39 @@
+# Field Examples
+
+Examples of component structure for some common field use cases.
+
+## Text field
+
+```tsx
+<Field>
+  <Label>Text</Label>
+  <Input />
+  <FieldDescription>Short description</FieldDescription>
+  <FieldError>Error Message</FieldError>
+</Field>
+```
+
+## TextArea field
+
+```tsx
+<Field>
+  <Label>Multiline input</Label>
+  <Textarea />
+  <FieldDescription>Short description</FieldDescription>
+  <FieldError>Error Message</FieldError>
+</Field>
+```
+
+## TextArea with char counter
+
+```tsx
+<Field>
+  <Label>Textarea with counter</Label>
+  <Textarea value={value} onChange={setValue} maxLength={120} />
+  <Slot>
+    <FieldDescription>Short description</FieldDescription>
+    <FieldCharCounter count={String(value).length} limit={120} />
+  </Slot>
+  <FieldError>Error Message</FieldError>
+</Field>
+```

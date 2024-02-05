@@ -1,0 +1,63 @@
+# Controlled form
+
+Shoreline doesn't currently offer state management for forms, you may choose your prefered method of state handling and validation.
+
+Here's an example of a simple controlled form.
+
+```tsx
+export function Controlled() {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState(false)
+
+  let onSubmit = (e) => {
+    e.preventDefault()
+    setError(false)
+
+
+    if (value === ''){
+      setError(true)
+    }
+
+    // perform submit action on backend
+  }
+
+  return (
+    <Stack>
+      <form onSubmit={onSubmit}>
+        <Field error={error}>
+          <Label>Poem</Label>
+          <Textarea name="poem" value={value} onChange={setValue} />
+          <FieldDescription>Write a poem</FieldDescription>
+          <FieldError>You must write something</FieldError>
+        </Field>
+        <Button type="submit" variant="primary">
+          Submit
+        </Button>
+      </form>
+    </Stack>
+  )
+}
+
+```
+
+# Uncontrolled form
+
+```tsx
+export function Uncontrolled() {
+
+  return (
+    <Stack>
+      <form>
+        <Field>
+          <Label>Poem</Label>
+          <Textarea name="poem" />
+          <FieldDescription>Write a poem</FieldDescription>
+        </Field>
+        <Button type="submit" variant="primary">
+          Submit
+        </Button>
+      </form>
+    </Stack>
+  )
+}
+```
