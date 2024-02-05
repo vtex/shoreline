@@ -8,7 +8,7 @@
 {{/if}}
 {{#if sections}}
   {{#each sections}}
-    "---": { "type": "separator", "title": "{{@key}}" },
+    "{{@key}}": { "type": "separator", "title": "{{@key}}" },
     {{#each this}}
       "{{{key}}}": "{{{value}}}"
       {{#unless @last}},{{/unless}}
