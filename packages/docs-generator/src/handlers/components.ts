@@ -1,7 +1,12 @@
 /* eslint-disable no-await-in-loop */
 import { createOrUpdateFile, prettify } from '../io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
-import { isComponent, toKebabCase, acronyms, getPart } from '../strings'
+import {
+  isComponent,
+  toKebabCase,
+  toCapitalizedCase,
+  getPart,
+} from '../strings'
 import { getTemplate } from '../templates'
 import type { ComponentDocumentationPaths } from '../config'
 import { existsSync, readFileSync, readdirSync } from 'fs'
@@ -20,6 +25,7 @@ const TOKENS = {
     DEFAULT: 'default',
     EXAMPLE: 'example',
     PLAYGROUND: 'playground',
+    KIND: 'kind',
   },
 }
 
@@ -91,10 +97,33 @@ async function generateRootMetaJSON(
     return
   }
 
+  const sections: Record<string, object[]> = {}
+
   const components = project.functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
       // Do not add subcomponents to the root _meta.json
       const parentComponent = isSubComponent(project.functions, func.name)
+      let kind = func.signatures[0].comment.blockTags.find(
+        (tag) => tag.name === TOKENS.TAGS.KIND
+      )?.text
+
+      if (kind) {
+        // Converts kebab-case string to Capitalized Case
+        kind = toCapitalizedCase(kind)
+
+        if (!parentComponent) {
+          if (!sections[kind]) {
+            sections[kind] = []
+          }
+
+          sections[kind].push({
+            key: func.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+            value: func.name,
+          })
+
+          return result
+        }
+      }
 
       if (!parentComponent) {
         const key = func.name
@@ -110,6 +139,7 @@ async function generateRootMetaJSON(
 
   const meta = metaTemplate({
     components,
+    sections,
   })
 
   await createOrUpdateFile(`${paths.docPath}/_meta.json`, meta)
@@ -144,18 +174,8 @@ async function generateComponentMetaJSON(
 
   const subComponents = getSubComponents(functions, func.name)
 
-  console.log({ subComponents })
   const name = paths.filename.replace(/\.[^/.]+$/, '')
-  const capitalizedName = name
-    .split('-')
-    .map((word) => {
-      if (acronyms[word]) {
-        return acronyms[word]
-      }
-
-      return word.charAt(0).toUpperCase() + word.slice(1)
-    })
-    .join(' ')
+  const capitalizedName = toCapitalizedCase(name)
 
   const hasSubComponents = subComponents && subComponents.length > 0
 
@@ -182,7 +202,6 @@ async function generateComponentMetaJSON(
 
   if (metaFilenameValue !== capitalizedName) {
     // Update meta with correct filename
-    console.log({})
     metaFile[name] = capitalizedName
   }
 

@@ -1,13 +1,19 @@
-{
-    "index": {
-        "title": "All Components",
-        "theme": {
-        "layout": "full"
-        }
-    },
-    {{#if components}}
-    {{#each components}}
-    "{{{key}}}": "{{{value}}}" {{#unless @last}},{{/unless}}
-    {{/each}}
+{ "index": { "title": "All Components", "theme": { "layout": "full" } },
+{{#if components}}
+  {{#each components}}
+    "{{{key}}}": "{{{value}}}"
+    {{#if sections}}{{#unless @last}},{{/unless}}{{else}},
     {{/if}}
+  {{/each}}
+{{/if}}
+{{#if sections}}
+  {{#each sections}}
+    "{{@key}}": { "type": "separator", "title": "{{@key}}" },
+    {{#each this}}
+      "{{{key}}}": "{{{value}}}"
+      {{#unless @last}},{{/unless}}
+    {{/each}}
+    {{#unless @last}},{{/unless}}
+  {{/each}}
+{{/if}}
 }

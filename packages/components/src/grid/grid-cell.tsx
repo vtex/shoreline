@@ -5,7 +5,9 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Optional cell of a grid layout
+ *
  * @see https://developer.mozilla.org/en-US/docs/Glossary/Grid
+ * @kind layout
  * @example
  * <Grid columns="repeat(3, 1fr)">
  *  <GridCell>Item 1</GridCell>

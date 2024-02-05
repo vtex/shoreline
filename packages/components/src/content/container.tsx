@@ -4,6 +4,8 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Wraps Content component to support Container Queries
+ *
+ * @kind layout
  * @example
  * <Container>
  *  <Content>...</Content>
