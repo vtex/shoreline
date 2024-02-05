@@ -1,15 +1,8 @@
 {
-  "index": {
-    "title": "All Components",
-    "theme": {
-      "layout": "full"
-    }
-  },
+  "index": { "title": "All Components", "theme": { "layout": "full" } },
   "accessible-icon": "AccessibleIcon",
   "alert": "Alert",
-  "bleed": "Bleed",
   "button": "Button",
-  "center": "Center",
   "checkbox": "Checkbox",
   "clickable": "Clickable",
   "collection": "Collection",
@@ -19,14 +12,10 @@
   "combobox-popover": "ComboboxPopover",
   "composable": "Composable",
   "compose": "Compose",
-  "container": "Container",
-  "content": "Content",
   "contextual-help": "ContextualHelp",
   "empty-state": "EmptyState",
   "field": "Field",
   "filter": "Filter",
-  "flex": "Flex",
-  "grid": "Grid",
   "heading": "Heading",
   "icon-button": "IconButton",
   "input": "Input",
@@ -42,9 +31,7 @@
   "search": "Search",
   "select": "Select",
   "skeleton": "Skeleton",
-  "slot": "Slot",
   "spinner": "Spinner",
-  "stack": "Stack",
   "tab": "Tab",
   "table": "Table",
   "tag": "Tag",
@@ -53,5 +40,14 @@
   "toast-stack": "ToastStack",
   "tooltip": "Tooltip",
   "virtual": "Virtual",
-  "visually-hidden": "VisuallyHidden"
+  "visually-hidden": "VisuallyHidden",
+  "Layout": { "type": "separator", "title": "Layout" },
+  "bleed": "Bleed",
+  "center": "Center",
+  "container": "Container",
+  "content": "Content",
+  "flex": "Flex",
+  "grid": "Grid",
+  "slot": "Slot",
+  "stack": "Stack"
 }
