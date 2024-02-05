@@ -7,7 +7,7 @@ import { Compose } from '@vtex/shoreline-primitives'
  * Flexbox layout
  *
  * @see https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
- * @group layout
+ * @kind layout
  * @example
  * <Flex>
  *  <Button>Clear</Button>

@@ -1,7 +1,12 @@
 /* eslint-disable no-await-in-loop */
 import { createOrUpdateFile, prettify } from '../io'
 import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
-import { isComponent, toKebabCase, acronyms, getPart } from '../strings'
+import {
+  isComponent,
+  toKebabCase,
+  toCapitalizedCase,
+  getPart,
+} from '../strings'
 import { getTemplate } from '../templates'
 import type { ComponentDocumentationPaths } from '../config'
 import { existsSync, readFileSync, readdirSync } from 'fs'
@@ -98,11 +103,14 @@ async function generateRootMetaJSON(
     if (isComponent(func.name)) {
       // Do not add subcomponents to the root _meta.json
       const parentComponent = isSubComponent(project.functions, func.name)
-      const kind = func.signatures[0].comment.blockTags.find(
+      let kind = func.signatures[0].comment.blockTags.find(
         (tag) => tag.name === TOKENS.TAGS.KIND
       )?.text
 
       if (kind) {
+        // Converts kebab-case string to Capitalized Case
+        kind = toCapitalizedCase(kind)
+
         if (!parentComponent) {
           if (!sections[kind]) {
             sections[kind] = []
@@ -167,16 +175,7 @@ async function generateComponentMetaJSON(
   const subComponents = getSubComponents(functions, func.name)
 
   const name = paths.filename.replace(/\.[^/.]+$/, '')
-  const capitalizedName = name
-    .split('-')
-    .map((word) => {
-      if (acronyms[word]) {
-        return acronyms[word]
-      }
-
-      return word.charAt(0).toUpperCase() + word.slice(1)
-    })
-    .join(' ')
+  const capitalizedName = toCapitalizedCase(name)
 
   const hasSubComponents = subComponents && subComponents.length > 0
 

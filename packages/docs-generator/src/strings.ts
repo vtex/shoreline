@@ -32,11 +32,29 @@ export function getPart(name: string, part = 0) {
 }
 
 /**
+ * Transform a kebab-case string to Capitalized Case
+ *
+ * @param name - The string to be converted
+ */
+export function toCapitalizedCase(name: string) {
+  return name
+    .split('-')
+    .map((word) => {
+      if (acronyms[word]) {
+        return acronyms[word]
+      }
+
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    .join(' ')
+}
+
+/**
  * Acronyms list that should be capitalized when
  * converting a filename to capitalized case.
  *
  * Useful while generating _meta.json files.
  */
-export const acronyms: Record<string, string> = {
+const acronyms: Record<string, string> = {
   api: 'API',
 }

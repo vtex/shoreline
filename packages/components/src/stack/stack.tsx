@@ -6,7 +6,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 /**
  * Spaces elements consistently
  *
- * @group layout
+ * @kind layout
  * @example
  * <Stack>
  *  <div>Stacked 1</div>

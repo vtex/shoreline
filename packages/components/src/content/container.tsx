@@ -5,7 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 /**
  * Wraps Content component to support Container Queries
  *
- * @group layout
+ * @kind layout
  * @example
  * <Container>
  *  <Content>...</Content>

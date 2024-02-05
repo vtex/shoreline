@@ -5,7 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 /**
  * Centralizes its content
  *
- * @group layout
+ * @kind layout
  * @example
  * <Center>
  *  <Text>In the absolute center</Text>
