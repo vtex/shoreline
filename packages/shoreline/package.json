@@ -1,0 +1,57 @@
+{
+  "name": "@vtex/shoreline",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "./dist/index.css"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "directory": "packages/shoreline",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.6",
+    "cssnano": "6.0.2",
+    "postcss": "8.4.32",
+    "postcss-import": "15.1.0",
+    "postcss-preset-env": "9.3.0"
+  },
+  "dependencies": {
+    "@vtex/shoreline-icons": "^0.3.0",
+    "@vtex/shoreline-primitives": "^0.3.4",
+    "@vtex/shoreline-utils": "^0.9.0",
+    "@vtex/shoreline-date": "^0.8.23",
+    "@vtex/shoreline-theme-arpoador": "^0.2.2",
+    "@vtex/shoreline-components": "^0.64.4"
+  }
+}
