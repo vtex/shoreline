@@ -1,0 +1,55 @@
+# Tooling
+
+## CSS
+
+The Shoreline team uses [Sass](https://sass-lang.com/) under the hood to apply style to its components. This doesn't means that you have to use `Sass` to customize your application. You can use any CSS preprocessor or even plain CSS.
+To do that you only need to use the Shoreline CSS theme available with every token.
+
+## Stylelint
+
+Stylelint is a tool to help you avoid errors and enforce conventions in your styles. It can be configured to work with any style syntax, and has a wide range of rules to help you write your styles in a consistent way.
+
+We provide a default configuration for Stylelint that you can use in your project. The configuration works with plain CSS and `Sass`.
+If you are using another CSS preprocessor, you can extend the configuration to add the rules that you need.
+
+First you need to install the package in your project:
+
+```sh npm2yarn copy
+npm install @vtex/shoreline-stylelint --save-dev
+```
+
+To use the configuration, you need to create a `.stylelintrc.js` file in the root of your project with the following content:
+
+```js
+module.exports = {
+  extends: ['@vtex/shoreline-stylelint'],
+  /** ... */
+}
+```
+
+
+## VSCode plugins
+
+### CSS Var Autocomplete
+
+This plugin provides autocomplete for CSS variables in your stylesheets. It's very useful when you are using the Shoreline theme and want to use the tokens in your styles.
+
+To use it, you need to install the [plugin](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar) in your VSCode and add the following configuration file in the root of your project.
+
+```json
+{
+  "cssvar.files": [
+    // default path to the styles file, it may be located under the node_modules folder.
+    "{path-to}/shoreline/styles.css"
+
+    // if you have an alternative path to where your styles are located
+    // you can add it in this array of files
+  ],
+
+  // Do not ignore node_modules css files, which is ignored by default
+  "cssvar.ignore": [],
+
+  // add support for autocomplete in JS or JS like files
+  "cssvar.extensions": ["css", "scss", "jsx", "tsx", "js", "ts"]
+}
+```
