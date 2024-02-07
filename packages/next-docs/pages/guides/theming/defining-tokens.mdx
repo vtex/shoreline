@@ -1,10 +1,10 @@
 # Defining Tokens
 
-Before reading this doc, make sure you understand [Design tokens](/api-reference/csx/design-tokens).
+Here you will learn how to define tokens inside a preset for theme generation, before reading this doc, make sure you understand [Design tokens](/guides/styling/design-tokens).
 
 ## The token tree
 
-The token tree is represented by the [tokens](/api-reference/theme/config#tokens) javascript object on the [defineConfig](/api-reference/theme/config) function. Consider the following configuration:
+The token tree is represented by the [tokens](/guides/theming/config-file#tokens) javascript object use inside the `defineConfig` function. Consider the following configuration:
 
 ```ts filename="shoreline.config.ts"
 export default defineConfig({
@@ -129,12 +129,6 @@ In CSS:
 }
 ```
 
-In Typescript:
-
-```ts filename="shoreline/types.d.ts"
-export type Tokens = '$color-pink-50' | '$color-pink-60' | '$color-pink-70'
-```
-
 ### Default Values
 
 The default value of a branch is represented by the `'*'` key. Use default values to simplify your tokens:
@@ -165,18 +159,9 @@ In CSS:
 }
 ```
 
-In Typescript:
-
-```ts filename="shoreline/types.d.ts"
-export type Tokens =
-  | '$color-primary'
-  | '$color-primary-hover'
-  | '$color-primary-active'
-```
-
 ## Alias
 
-Tokens can [reference other tokens](/api-reference/csx/design-tokens#token-alias):
+Tokens can [reference other tokens](/guides/styling/design-tokens#token-alias):
 
 ```ts filename="shoreline.config.ts"
 export default defineConfig({
@@ -214,21 +199,9 @@ In CSS:
 }
 ```
 
-In Typescript:
-
-```ts filename="shoreline/types.d.ts"
-export type Tokens =
-  | '$color-pink-50'
-  | '$color-pink-60'
-  | '$color-pink-70'
-  | '$bg-primary'
-  | '$bg-primary-hover'
-  | '$bg-primary-active'
-```
-
 ## Composite tokens
 
-By using aliases[#alias], you can define [composite tokens](/api-reference/csx/design-tokens#composite-tokens):
+By using aliases[#alias], you can define [composite tokens](/guides/styling/design-tokens#composite-tokens):
 
 ```ts filename="shoreline.config.ts"
 export default defineConfig({
@@ -314,23 +287,4 @@ In CSS:
     );
   }
 }
-```
-
-In Typescript:
-
-```ts filename='shoreline/types.d.ts'
-export type Tokens =
-  | '$lightness-bright'
-  | '$lightness-dark'
-  | '$lightness-darkest'
-  | '$color-pink-chroma'
-  | '$color-pink-hue'
-  | '$color-pink-50'
-  | '$color-pink-60'
-  | '$color-pink-70'
-  | '$color-blue-chroma'
-  | '$color-blue-hue'
-  | '$color-blue-50'
-  | '$color-blue-60'
-  | '$color-blue-70'
 ```

@@ -1,0 +1,83 @@
+# Config file
+
+ The config file (`shoreline.config.ts`) creates a configuration based on the preset you pass to it. *Presets* are objects with specifications for the generation of theming files.
+
+```ts filename="shoreline.config.ts"
+import { defineConfig } from '@vtex/shoreline-theme'
+import preset from '../preset'
+
+export default defineConfig({
+  preset,
+})
+```
+
+# Basic preset example
+
+This very basic preset will generate files with no tokens defined.
+
+```ts
+const presetBase = {
+  prefix: 'sl',
+  outdir: './shoreline',
+  cwd: process.cwd(),
+  tokens: {},
+}
+```
+
+# Preset format specification
+
+## `prefix`
+
+The namespace [prefix](/api-reference/csx/design-tokens#vendor-and-prefix) for the generated CSS. The Shoreline theme preset has the `'sl'` prefix.
+
+- Type: `string`
+- Default: `undefined`
+
+## `outdir`
+
+Output directory for the generated code. The Shoreline theme preset has the `'./shoreline'` outdir.
+
+- Type: `string`
+- Default: `undefined`
+
+Example:
+```ts filename="shoreline.config.ts"
+export default defineConfig({
+  outdir: './shoreline',
+})
+```
+
+## `cwd`
+
+The current working directory. The Shoreline theme preset uses `process.cwd()` outdir.
+
+- Type: `string`
+- Default: `undefined`
+
+Example:
+```ts filename="shoreline.config.ts"
+export default defineConfig({
+  cwd: process.cwd(),
+})
+```
+
+## `tokens`
+
+An object that represents a tree for token generation. To know more about how the tokens are defined read [defining tokens](/guides/theming/defining-tokens) docs.
+
+- Type: `Record<string, any>`
+- Default: `undefined`
+
+```ts filename="shoreline.config.ts"
+export default defineConfig({
+  // ...
+  tokens: {
+    color: {
+      blue: {
+        100: 'oklch(56.03% 0.212 282)',
+        // ...
+      },
+    },
+  },
+})
+```
