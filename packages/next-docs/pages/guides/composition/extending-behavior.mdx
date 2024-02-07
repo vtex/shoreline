@@ -1,0 +1,46 @@
+## Extending Component Behavior
+
+Composable components, by definition, possess a prop named `asChild`. When this property is set to `true`, it alters the behavior of the component. Instead of rendering in the usual manner, it renders its `children` and injects its internal props into them.
+
+Here is an example of using a composable component, rendering it as a `div`:
+
+```jsx
+<Component asChild>
+  <div {...myProps}>...</div>
+</Component>
+```
+
+This results in rendering analogous to:
+
+```jsx
+<div {...myProps} {...injectedComponentProps}></div>
+```
+
+## Usage Example
+
+An illustrative example is provided using the `MenuTrigger` component, which is composable. It can be rendered as a button or any other clickable element:
+
+```jsx
+function ComposabilityExample() {
+  return (
+    <MenuProvider>
+      <MenuTrigger asChild>
+        <Button>Open</Button>
+      </MenuTrigger>
+      <MenuPopover>
+        {...}
+      </MenuPopover>
+    </MenuProvider>
+  )
+}
+```
+
+## Availability in Shoreline
+
+### Not all components are composable
+
+The composition feature will not be present in every component of Shoreline. This decision was made to keep the simplicity of most components, only components where the use case is relevant will be composable. When available, the feature will be documented.
+
+### Compability of child components
+
+All Shoreline components are inherently designed to be compatible with composable components. This means that any component within Shoreline can seamlessly be used as a child for composable components, providing a high degree of flexibility and modularity in component composition.
