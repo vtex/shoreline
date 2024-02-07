@@ -8,6 +8,15 @@ import {
 } from './use-virtualizer-model'
 import { VirtualContainer } from './virtual-container'
 
+/**
+ * Renders a virtual container
+ *
+ * @kind primitives
+ * @example
+ * <Virtual count={100} estimateSize={50} overscan={5}>
+ *   {({ index }) => <div>{index}</div>}
+ * </Virtual>
+ */
 export const Virtual = forwardRef<HTMLDivElement, VirtualProps>(
   function Virtual(props, forwardedRef) {
     const {

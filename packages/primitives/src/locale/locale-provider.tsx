@@ -5,6 +5,8 @@ import { LocaleContext } from './locale-context'
 
 /**
  * Provides the locale
+ *
+ * @kind primitives
  * @example
  * <LocaleProvider locale="pt-BR">
  *  ...

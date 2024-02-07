@@ -5,6 +5,15 @@ import type { UseVirtualizerModelReturn } from './use-virtualizer-model'
 
 import { Compose } from '../compose'
 
+/**
+ * Renders a virtual container
+ *
+ * @kind primitives
+ * @example
+ * <Virtual count={100} estimateSize={50} overscan={5}>
+ *   {({ index }) => <div>{index}</div>}
+ * </Virtual>
+ */
 export const VirtualContainer = forwardRef<
   HTMLDivElement,
   VirtualContainerProps

@@ -5,6 +5,8 @@ import { Compose } from '../compose'
 
 /**
  * Bubbles events to Clickable
+ *
+ * @kind primitives
  * @example
  * <Clickable>
  *  <ClickableBubble>

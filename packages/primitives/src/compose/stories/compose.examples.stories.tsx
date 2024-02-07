@@ -5,24 +5,12 @@ import { Compose, Composable } from '../index'
 import { VisuallyHidden } from '../../visually-hidden'
 
 export default {
-  title: 'primitives/compose',
-}
-
-export function Default() {
-  const ref = useRef()
-
-  return (
-    <Compose
-      onClick={() => {
-        console.log('clicked')
-      }}
-      ref={ref}
-    >
-      <a href="https://vtex.com.br" target="_blank" rel="noreferrer">
-        Go to VTEX
-      </a>
-    </Compose>
-  )
+  title: 'primitives/compose/examples',
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 }
 
 function Button({ asChild, style, children, ...props }: AnyObject) {

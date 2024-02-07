@@ -3,6 +3,11 @@ import React, { forwardRef } from 'react'
 import type { ComboboxPopoverOptions } from '@ariakit/react'
 import { ComboboxPopover as Popover } from '@ariakit/react'
 
+/**
+ * Renders a popover for the combobox
+ *
+ * @kind primitives
+ */
 export const ComboboxPopover = forwardRef<HTMLDivElement, ComboboxPopoverProps>(
   function ComboboxPopover(props, ref) {
     const { asChild = false, children, ...otherProps } = props
