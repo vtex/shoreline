@@ -1,0 +1,164 @@
+# Design
+
+The transition from Admin UI to Shoreline 1.0 includes the update, addition, and removal of components. Understand what has changed and how to use the new resources.
+
+## Library
+
+A new library was created for Shoreline components in Figma, so the Admin UI components won't change to the Shoreline components automatically. Activate the [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design&node-id=1840%3A17704&mode=design&t=OETsXsw4sIAhEcfA-1) library in your file to start using the new components. In ongoing files that use Admin UI and that will now use Shoreline, we recommend that you deactivate the Admin UI library to avoid confusion when applying foundations and components.
+
+## Migrating
+
+Find below the list of Admin UI components and which Shoreline components and their variants replace them in Figma. If you want to know more about the components’ usage, consult their best practices documentation.
+
+### Alert
+
+The previous `info` and `positive` variants are now called `informational` and `success`, respectively.
+
+### Anchor
+
+The component is now called `Link`.
+
+### Avatar
+
+The component doesn't exist in Shoreline 1.0. If necessary, use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+### Bulk Actions
+
+The component doesn't exist in Shoreline 1.0. If necessary, use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+### Button
+
+- `tertiary neutral` was removed and should be replaced by `tertiary` in most cases.
+- `critical secondary` was removed and should be replaced by `tertiaryCritical` in most cases.
+- A button that includes only an icon now exists as a separate component called `IconButton`.
+
+### Card
+
+The component doesn't exist in Shoreline 1.0. Create and implement a card using the Shoreline 1.0 foundations. The border radius should be `border-radius-medium` and the border color should be `border-base`.
+
+### Checkbox
+
+This component now only includes a single checkbox. For a group of checkboxes, use the the `CheckboxGroup` component.
+
+### Combobox
+
+The component doesn't exist in Shoreline 1.0. If necessary, use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+### Data View
+
+The component is now called `Collection`.
+
+### Date Picker
+
+- The component now called `DatePicker` includes only a single date selection.
+- For a date range selection, use the new component `DateRangePicker`.
+
+### Divider
+
+The component doesn't exist in Shoreline 1.0. Create and implement a divider using the Shoreline 1.0 foundations. The border color should be `border-base` and the stroke should be 1px.
+
+### Filter
+
+This component now only includes a single filter. A group of filters can be implemented using the single filters.
+
+### Menu
+
+- `secondary` and `tertiary neutral` variants were removed and should be replaced by `tertiary` in most cases.
+- `iconPosition start` and `iconPosition end` variants were replaced by `more actions` and `custom label` variants respectively.
+
+### Modal
+
+- The size variants continue the same.
+- A modal that serves to confirm an action should use the new component `ConfirmationModal`.
+
+### Number Input
+
+The component doesn't exist in Shoreline 1.0. Use the `TextInput` component and implement it in a way that accepts only numbers.
+
+### Page
+
+The layout variants continue the same. Screen size variants were added.
+
+### Pagination
+
+The component exists with the same name.
+
+### Popover
+
+- Popover doesn't exist as a separate component in Figma. It exists in code and can be implemented.
+- Create a popover using the `content` component from the Support Elements library, the border radius should be `border-radius-medium`, the border color should be `border-base`, and the shadow should be `shadow-1`.
+
+### Radio Group
+
+The component exists with the same name.
+
+### Search
+
+The component exists with the same name.
+
+### Select
+
+The component exists with the same name.
+
+### Select Inline
+
+The component doesn't exist in Shoreline 1.0. If necessary, use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+### Skeleton
+
+The previous `roundrect` variant is now called `rect.`
+
+### Spinner
+
+- `white` was replaced by `fg-inverted`.
+- `gray` was replaced by `fg-soft`.
+- `blue` was replaced by `fg-accent`.
+- `red` was replaced by `fg-critical`.
+- `orange` was replaced by `fg-warning`.
+- `green` was replaced by `fg-success`.
+- `lightBlue` was replaced by `fg-informational`.
+- `cyan`, `pink`, `purple`, and `teal` were removed and should be replaced by one of the currently existing options, according to the scenario.
+- `yellow` was added.
+
+### Switch
+
+The component doesn't exist in Shoreline 1.0. Previous applications can be replaced with another more suitable component, such as a Checkbox if it is a binary selection that needs to be submitted, a Button if it represents an action that requires confirmation, or a custom solution. If it is the case of using a Switch – a binary selection that has an immediate effect – use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+### Tab
+
+The component is now called `TabList`.
+
+### Tag
+
+Tags now have two variants related to prominence: `primary` and `secondary`. Use according to your context. Size and color variants remain the same.
+
+### Text Area
+
+The component exists with the same name.
+
+### Text Input
+
+The component exists with the same name.
+
+### Toast
+
+The previous `info` and `positive` variants are now called `informational` and `success`, respectively.
+
+### Tooltip
+
+The component exists but its usage was refined. It can be replaced by a `Tooltip` or a `ContextualHelp` according to the scenario.
+
+### Totalizer
+
+The component doesn't exist in Shoreline 1.0. If necessary, use the Admin UI component and customize it with the Shoreline 1.0 foundations.
+
+## What is new
+
+Components that didn't exist in the Admin UI library and were added to Shoreline:
+
+- Confirmation Modal
+- Date Range Picker
+- Empty State
+- Icon Button
+
+Understand their usage by reading their best practices documentation.
