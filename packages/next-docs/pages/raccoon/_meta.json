@@ -4,5 +4,6 @@
   "i18n": "I18n",
   "proxy": "Proxy",
   "functions": "Functions",
-  "hooks": "Hooks"
+  "hooks": "Hooks",
+  "navigation": "Navigation"
 }
