@@ -1,5 +1,13 @@
 # API Reference
 
+Renders a virtual container
+
+```jsx
+<Virtual count={100} estimateSize={50} overscan={5}>
+  {({ index }) => <div>{index}</div>}
+</Virtual>
+```
+
 ## Parameters
 
 ### `props`

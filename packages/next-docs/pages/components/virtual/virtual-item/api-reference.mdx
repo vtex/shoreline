@@ -1,5 +1,13 @@
 # API Reference
 
+Renders a virtual item
+
+```jsx
+<Virtual count={100} estimateSize={50} overscan={5}>
+  {({ index }) => <VirtualItem>{index}</VirtualItem>}
+</Virtual>
+```
+
 ## Parameters
 
 ### `props`
