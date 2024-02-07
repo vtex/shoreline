@@ -120,26 +120,26 @@ Since we added the code generation in the `prepare` script, the `/shoreline` fol
 
 ## Extending shorelines theme
 
-In order to expand on our existing theme you will have to import the arpoador theme preset and use it as a base preset in your config file.
+In order to expand on our existing theme you will have to import the sunrise theme preset and use it as a base preset in your config file.
 
 <Steps>
 
 ### Install the theme package
 
 ```sh npm2yarn copy
-npm i @vtex/shoreline-theme-arpoador
+npm i @vtex/shoreline-theme-sunrise
 ```
 
 ### Use imported theme as base in the `shoreline.config.ts` file
 
-In defineConfig use the preset `presetArpoador` and add other properties to overwrite what you would like to change
+In defineConfig use the preset `presetSunrise` and add other properties to overwrite what you would like to change
 
 ```ts filename="shoreline.config.ts" copy
 import { defineConfig } from '@vtex/shoreline-css'
-import { presetArpoador } from '@vtex/shoreline-theme-arpoador'
+import { presetSunrise } from '@vtex/shoreline-theme-sunrise'
 
 export default defineConfig({
-  preset: presetArpoador,
+  preset: presetSunrise,
   tokens: {
     newToken: 'a',
     space: {

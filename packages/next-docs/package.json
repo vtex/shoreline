@@ -15,7 +15,7 @@
     "@vtex/shoreline-components": "workspace:*",
     "@vtex/shoreline-date": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
-    "@vtex/shoreline-theme-arpoador": "workspace:*",
+    "@vtex/shoreline-theme-sunrise": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
     "next": "13.4.7",
     "nextra": "2.13.2",

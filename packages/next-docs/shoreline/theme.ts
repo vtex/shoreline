@@ -1,8 +1,8 @@
-import { presetArpoador } from '@vtex/shoreline-theme-arpoador'
+import { presetSunrise } from '@vtex/shoreline-theme-sunrise'
 import { parseTokens } from '@vtex/shoreline-utils'
 
 export const theme = parseTokens({
-  tokens: presetArpoador?.tokens ?? {},
+  tokens: presetSunrise?.tokens ?? {},
 })
 
 const tokens = Object.keys(theme)

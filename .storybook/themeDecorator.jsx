@@ -1,5 +1,5 @@
 import React from 'react'
-import '../packages/theme-arpoador/dist/arpoador.css'
+import '../packages/theme-sunrise/dist/sunrise.css'
 
 export function themeDecorator(storyFn) {
   return (
