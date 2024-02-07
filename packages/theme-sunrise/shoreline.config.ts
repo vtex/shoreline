@@ -1,6 +1,6 @@
 import { defineConfig } from '@vtex/shoreline-css'
-import { presetArpoador } from './src/presets/index'
+import { presetSunrise } from './src/presets/index'
 
 export default defineConfig({
-  preset: presetArpoador,
+  preset: presetSunrise,
 })

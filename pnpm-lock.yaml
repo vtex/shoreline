@@ -476,9 +476,9 @@ importers:
       '@vtex/shoreline-icons':
         specifier: workspace:*
         version: link:../icons
-      '@vtex/shoreline-theme-arpoador':
+      '@vtex/shoreline-theme-sunrise':
         specifier: workspace:*
-        version: link:../theme-arpoador
+        version: link:../theme-sunrise
       '@vtex/shoreline-utils':
         specifier: workspace:*
         version: link:../utils
@@ -559,9 +559,9 @@ importers:
       '@vtex/shoreline-primitives':
         specifier: ^0.3.4
         version: link:../primitives
-      '@vtex/shoreline-theme-arpoador':
-        specifier: ^0.2.2
-        version: link:../theme-arpoador
+      '@vtex/shoreline-theme-sunrise':
+        specifier: ^0.0.0
+        version: link:../theme-sunrise
       '@vtex/shoreline-utils':
         specifier: ^0.9.0
         version: link:../utils
@@ -613,7 +613,7 @@ importers:
         specifier: 0.34.6
         version: 0.34.6(jsdom@23.0.0)
 
-  packages/theme-arpoador:
+  packages/theme-sunrise:
     dependencies:
       '@vtex/shoreline-utils':
         specifier: 0.9.0
@@ -19916,7 +19916,7 @@ packages:
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.32)
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -19927,7 +19927,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /postcss-modules-values@4.0.0(postcss@8.4.32):
