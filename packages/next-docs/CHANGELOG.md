@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.11.14...@shoreline/next-docs@0.12.0) (2024-02-08)
+
+### Features
+
+- **sunrise:** create sunrise theme extracted from arpoador ([5988220](https://github.com/vtex/shoreline/commit/5988220f9812cce176eba60470c85b605008fbdb))
+
 ## [0.11.14](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.11.13...@shoreline/next-docs@0.11.14) (2024-02-07)
 
 **Note:** Version bump only for package @shoreline/next-docs
