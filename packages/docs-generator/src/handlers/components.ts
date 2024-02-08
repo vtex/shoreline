@@ -1,6 +1,10 @@
 /* eslint-disable no-await-in-loop */
 import { createOrUpdateFile, prettify } from '../io'
-import type { FunctionParser, ProjectParser } from 'typedoc-json-parser'
+import type {
+  FunctionParser,
+  InterfaceParser,
+  TypeAliasParser,
+} from 'typedoc-json-parser'
 import {
   isComponent,
   toKebabCase,
@@ -39,12 +43,14 @@ const TOKENS = {
  * @param paths The paths of the component documentation
  */
 async function generateComponent(
-  project: ProjectParser,
+  functions: FunctionParser[],
+  interfaces: InterfaceParser[],
+  typeAliases: TypeAliasParser[],
   func: FunctionParser,
   paths: ComponentDocumentationPaths
 ) {
   const { docPath, filename } = paths
-  const componentProps = generateComponentProps(project, func)
+  const componentProps = generateComponentProps(interfaces, typeAliases, func)
 
   // Use component template
   const componentTemplate = getTemplate('component.mdx')
@@ -68,7 +74,7 @@ async function generateComponent(
 
   let filePath = `${docPath}/${kebabCaseComponentName}/${filename}`
 
-  const parentComponent = isSubComponent(project.functions, func.name)
+  const parentComponent = isSubComponent(functions, func.name)
 
   if (parentComponent) {
     filePath = `${docPath}/${toKebabCase(
@@ -88,7 +94,7 @@ async function generateComponent(
  * @param project The project ProjectParser
  */
 async function generateRootMetaJSON(
-  project: ProjectParser,
+  functions: FunctionParser[],
   paths: ComponentDocumentationPaths
 ) {
   const metaTemplate = getTemplate('meta.json')
@@ -99,10 +105,10 @@ async function generateRootMetaJSON(
 
   const sections: Record<string, object[]> = {}
 
-  const components = project.functions.reduce<ArrayFile>((result, func) => {
+  const components = functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
       // Do not add subcomponents to the root _meta.json
-      const parentComponent = isSubComponent(project.functions, func.name)
+      const parentComponent = isSubComponent(functions, func.name)
       let kind = func.signatures[0].comment.blockTags.find(
         (tag) => tag.name === TOKENS.TAGS.KIND
       )?.text
@@ -227,7 +233,7 @@ async function generateComponentMetaJSON(
  * @param paths The paths of the components documentation
  */
 async function generateComponentsIdxPage(
-  project: ProjectParser,
+  functions: FunctionParser[],
   paths: ComponentDocumentationPaths
 ) {
   const componentsIdxTemplate = getTemplate('componentsIndex.mdx')
@@ -236,13 +242,13 @@ async function generateComponentsIdxPage(
     return
   }
 
-  const components = project.functions.reduce<ArrayFile>((result, func) => {
+  const components = functions.reduce<ArrayFile>((result, func) => {
     if (isComponent(func.name)) {
       // Do not add subcomponents to the components index page.
-      const parentComponent = isSubComponent(project.functions, func.name)
+      const parentComponent = isSubComponent(functions, func.name)
 
       if (!parentComponent) {
-        const path = `/components/${toKebabCase(func.name)}`
+        const path = `/components/${toKebabCase(func.name)}/api-reference`
 
         result.push({ path, name: func.name })
       }
@@ -265,25 +271,27 @@ async function generateComponentsIdxPage(
  * @param paths The paths of the components documentation
  */
 export async function generateComponents(
-  project: ProjectParser,
+  functions: FunctionParser[],
+  interfaces: InterfaceParser[],
+  typeAliases: TypeAliasParser[],
   paths: ComponentDocumentationPaths
 ) {
-  for (const func of project.functions) {
+  for (const func of functions) {
     if (isComponent(func.name)) {
       await Promise.all([
-        generateComponent(project, func, paths),
-        generateComponentMetaJSON(project.functions, func, paths),
+        generateComponent(functions, interfaces, typeAliases, func, paths),
+        generateComponentMetaJSON(functions, func, paths),
       ])
     }
   }
 
   await Promise.all([
-    generateComponentsIdxPage(project, paths),
-    generateRootMetaJSON(project, paths),
+    generateComponentsIdxPage(functions, paths),
+    generateRootMetaJSON(functions, paths),
   ])
 
   // Must run after all components have been generated
-  await validateAndCorrect(project.functions, paths)
+  await validateAndCorrect(functions, paths)
 }
 
 /**
@@ -292,10 +300,14 @@ export async function generateComponents(
  * @param project The project parser
  * @param func The function parser of the component
  */
-function generateComponentProps(project: ProjectParser, func: FunctionParser) {
+function generateComponentProps(
+  interfaces: InterfaceParser[],
+  typeAliases: TypeAliasParser[],
+  func: FunctionParser
+) {
   const componentProps: ComponentProps[] = []
 
-  const props = project.interfaces.find((i) => {
+  const props = interfaces.find((i) => {
     return i.name === `${func.name}Props`
   })
 
@@ -328,7 +340,7 @@ function generateComponentProps(project: ProjectParser, func: FunctionParser) {
       })
     })
   } else {
-    const types = project.typeAliases.find((t) => {
+    const types = typeAliases.find((t) => {
       return t.name === `${func.name}Props`
     })
 
@@ -474,7 +486,7 @@ function getSubComponents(functions: FunctionParser[], componentName?: string) {
  * @param functions The functions of the package
  * @param paths The component documentation paths
  */
-async function validateAndCorrect(
+export async function validateAndCorrect(
   functions: FunctionParser[],
   paths: ComponentDocumentationPaths
 ) {

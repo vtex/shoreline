@@ -15,6 +15,7 @@ import { createCalendar } from '../utils'
 
 /**
  * Allow users to select a date range
+ * @kind date
  * @example
  * <RangeCalendar />
  */
