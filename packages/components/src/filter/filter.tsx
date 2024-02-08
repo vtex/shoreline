@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import type { FilterProviderProps } from './filter-provider'
 import { FilterProvider } from './filter-provider'
@@ -59,19 +59,12 @@ type InheritedProps = Pick<
   | 'setSearchValue'
   | 'defaultSearchValue'
 > &
-  Pick<FilterPopoverProps, 'messages'>
+  Pick<FilterPopoverProps, 'messages'> &
+  ComponentPropsWithoutRef<'div'>
 
 export interface FilterProps extends InheritedProps {
   /**
    * Filter label
    */
   label: string
-  /**
-   * Filter children
-   */
-  children: ReactNode
-  /**
-   * Additional className
-   */
-  className?: string
 }
