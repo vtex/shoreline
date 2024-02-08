@@ -1,0 +1,23 @@
+.token {
+  background: #f7f7f7;
+  border: var(--sl-border-base);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+  border-radius: var(--sl-border-radius-medium);
+  padding-inline: var(--sl-space-2);
+  margin-inline-end: var(--sl-space-2);
+}
+
+.copyButton {
+  padding: var(--sl-space-2);
+  background: transparent;
+  border-radius: var(--sl-border-radius-medium);
+}
+
+.copyButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.copyButton:active {
+  background: rgba(0, 0, 0, 0.1);
+}

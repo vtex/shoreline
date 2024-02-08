@@ -1,8 +1,10 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { Cell } from './cell'
-import { previewCellTheme } from './tokens-grid.css'
+
 import type { Foundation } from './theme-utils'
+import type { CSSProperties } from '@vtex/shoreline-utils'
+import styles from './preview-cell.module.css'
 
 export function PreviewCell(props: PreviewCellProps) {
   const { foundation, token, ...restProps } = props
@@ -16,9 +18,9 @@ export function PreviewCell(props: PreviewCellProps) {
             '--preview-cell-token-value': token.value,
             '--preview-cell-text-letter-spacing': `var(${token.variable}-letter-spacing)`,
             '--preview-cell-text-font': `var(${token.variable}-font)`,
-          } as any
+          } as CSSProperties
         }
-        className={previewCellTheme}
+        className={styles.previewCell}
       />
     </Cell>
   )

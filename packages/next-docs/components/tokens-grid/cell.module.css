@@ -1,0 +1,14 @@
+.cell {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: var(--sl-border-base);
+  padding: var(--sl-space-4);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+  white-space: pre-line;
+}
+
+.cell[data-type='preview'] {
+  padding-right: var(--sl-space-0);
+}

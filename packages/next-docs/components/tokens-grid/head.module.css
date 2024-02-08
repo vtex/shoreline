@@ -1,0 +1,9 @@
+.head {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: var(--sl-border-base);
+  padding: var(--sl-space-2) var(--sl-space-4);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+}
