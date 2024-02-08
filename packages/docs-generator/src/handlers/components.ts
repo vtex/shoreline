@@ -248,7 +248,7 @@ async function generateComponentsIdxPage(
       const parentComponent = isSubComponent(functions, func.name)
 
       if (!parentComponent) {
-        const path = `/components/${toKebabCase(func.name)}`
+        const path = `/components/${toKebabCase(func.name)}/api-reference`
 
         result.push({ path, name: func.name })
       }
@@ -290,10 +290,6 @@ export async function generateComponents(
     generateRootMetaJSON(functions, paths),
   ])
 
-  // This line is commented out temporarily! It will be uncommented back
-  // once each docs generation run is aware of its context (other packages
-  // and their components) and can validate and correct the components
-  // limited to their scope.
   // Must run after all components have been generated
   await validateAndCorrect(functions, paths)
 }
