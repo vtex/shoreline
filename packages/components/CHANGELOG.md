@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.2...@vtex/shoreline-components@1.0.0-rc.3) (2024-02-08)
+
+### Bug Fixes
+
+- **filter:** add style property to typescript ([23b7a13](https://github.com/vtex/shoreline/commit/23b7a13902321e23dc6f70e6bac1e7bffdb1d427))
+
 # [1.0.0-rc.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.1...@vtex/shoreline-components@1.0.0-rc.2) (2024-02-08)
 
 **Note:** Version bump only for package @vtex/shoreline-components

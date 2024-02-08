@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-css",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "description": "Shoreline css engine",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
