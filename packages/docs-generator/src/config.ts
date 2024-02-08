@@ -14,7 +14,7 @@ export const defaultTypedocConfig: Partial<TypeDoc.Configuration.TypeDocOptions>
 /**
  * The TypeDoc configuration interface for a package
  */
-export interface Config {
+export interface TypeDocConfig {
   /**
    * The pattern which will be used to match the files to be documented
    *
@@ -57,15 +57,9 @@ export interface PkgToBeDocumented {
    */
   version: string
   /**
-   * The paths to specific kinds of elements within the package.
-   * This is used to let the generator know where to look for
-   * the metadata of the supported elements.
-   */
-  paths: PkgToBeDocumentedPaths
-  /**
    * The configuration of the package for TypeDoc
    */
-  config: Config
+  config: TypeDocConfig
 }
 
 /**
@@ -73,7 +67,7 @@ export interface PkgToBeDocumented {
  * This is used to let the generator know where to look for
  * the metadata of the supported elements.
  */
-export interface PkgToBeDocumentedPaths {
+export interface ConfigPaths {
   /**
    * The configuration of the components documentation
    */
@@ -93,7 +87,21 @@ export interface ComponentDocumentationPaths {
   filename: string
 }
 
+export interface Config {
+  /**
+   * The packages to be documented
+   */
+  pkgs: PkgToBeDocumented[]
+  /**
+   * The paths to specific kinds of elements within the package.
+   * This is used to let the generator know where to look for
+   * the metadata of the supported elements.
+   */
+  paths: ConfigPaths
+}
+
 /**
  * The temporary path where the JSON docs will be generated
  */
-export const tmpDocsJsonPath = './tmp/documentation.json'
+export const getTmpDocsJsonPath = (id: string) =>
+  `./tmp/documentation-${id}.json`
