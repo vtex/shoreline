@@ -8,6 +8,7 @@ import { useMergeRef } from '@vtex/shoreline-utils'
 
 /**
  * Segment of a DateField
+ * @kind date
  */
 export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
   function DateSegment(props, forwardedRef) {

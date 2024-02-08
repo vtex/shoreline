@@ -20,6 +20,7 @@ import { useStore } from '@vtex/shoreline-utils'
 
 /**
  * Allow users to pick a date
+ * @kind date
  * @example
  * <DatePicker />
  */

@@ -17,6 +17,7 @@ import { IconXCircle } from '@vtex/shoreline-icons'
 
 /**
  * Allow users to select a time in a segmented field
+ * @kind date
  * @example
  * <TimeInput />
  */

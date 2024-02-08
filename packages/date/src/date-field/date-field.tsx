@@ -12,6 +12,7 @@ import type { DateValue } from '../utils'
 
 /**
  * A list of date-segments used as base for date-picker and date-range-picker
+ * @kind date
  * @example
  * <DateField />
  */
