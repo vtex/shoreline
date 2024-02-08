@@ -28,6 +28,8 @@
   "tag": "Tag",
   "text": "Text",
   "textarea": "Textarea",
+  "text-input": "TextInput",
+  "time-field": "TimeField",
   "toast-stack": "ToastStack",
   "tooltip": "Tooltip",
   "Primitives": { "type": "separator", "title": "Primitives" },

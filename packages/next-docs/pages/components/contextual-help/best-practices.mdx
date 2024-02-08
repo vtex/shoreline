@@ -1,0 +1,26 @@
+# Best Practices
+
+## Properties
+
+### Content
+
+- The content inside the popover should answer the question “*What does this mean?”.* For example, a trigger next to a *Sessions* label can include the message *Visits to the store which can include a series of user interactions and end after 30 minutes of inactivity*.
+- Start with a noun followed by additional information, such as conditions and definitions.
+- Use sentence case, but capitalize proper nouns.
+- Don't explain the benefits of the content, only its meaning.
+- When more information is needed, add a Button below the message that redirects to external documentation. Read the Button documentation for more details.
+
+### Trigger
+
+The default button with a question mark represents instructions and should not be customized.
+
+## Position
+
+- **Trigger position:** On left-to-right interfaces, position it to the right of a label or title.
+- **Popover position:** By default, it opens below the trigger, left-aligned, and it's repositioned automatically according to the available space. Use the `placement` prop when necessary to adjust the preferred position so it won't hide important content around it.
+
+## Behavior
+
+### Triggering
+
+The popover opens on click and this behavior should not be customized.

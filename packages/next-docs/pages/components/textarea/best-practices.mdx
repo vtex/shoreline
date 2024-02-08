@@ -1,0 +1,45 @@
+# Best Practices
+
+## Properties
+
+### Optional
+
+- Mark a TextArea as optional when it's sometimes necessary. For example, to inform the internal description of a promotion or the privacy policy of a seller.
+- By default, the term *(optional)* is included next to the label.
+- Don’t mark the mandatory fields or include many optional fields in a form.
+
+### Label
+
+- Write the name that best describes the value that must be filled. For example, use the label *Privacy policy* when the value should be a privacy policy.
+- Visually hide the label only when this definition is already present somewhere else, such as a Checkbox label that already describes the field that it activates.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, write *Description* as the label instead of *Promotion description* when the page or section already includes *Promotion* in its title.
+- Don't use verbs. For example, instead of *Fill description*, use only *Description*.
+- Don't use personal pronouns. For example, write *Privacy policy* instead of *My privacy policy.*
+- Don't use interrogations.
+
+### Help text
+
+- **When to include:** Include it when additional information is necessary besides the label, such as to explain the label and/or how the field value will be used.
+- **How to write:** Write a single sentence that is short and direct. Use sentence case, but capitalize proper nouns. Don’t use periods, commas, or include redundant words.
+    - **Explaining the label:** Write as if completing the sentence “*This is the…”*. For example, write for a *Privacy Policy* field the text "*Declaration of which parties manage customer data*".
+    - **Explaining how the value will be used:** Write as if completing the sentence “*When you fill a value in this field, it…”* and start with a verb in the simple present tense. For example, write for a *Privacy Policy* field the text "*Appears to customers in the store*”.
+    - **Explaining the label and how the value will be used:** Combine the two sentences described in the previous topics and adapt them if necessary. For example, “*Declaration of which parties manage customer data that will appear to customers in the store*".
+
+## Position
+
+- **Width and height:** The width of the field should comfortably fit the values, considering localization. Customize the default height of the field based on the average content length.
+- **Position in a form:** Group and sort fields in a logical way, considering user research. For example, prefer to leave TextArea fields at the end of a section or a form since they take up more time to fill. Don’t position another component on the same line as the TextArea.
+
+## Behavior
+
+### Disabled state
+
+- Disable a field only if it becomes enabled in some condition. For example, a field that becomes unavailable when a specific option is chosen in the form.
+- When the reason why the field is disabled might be unclear, include a ContextualHelp next to the label to explain.
+
+### Error state
+
+- Prevent errors whenever possible. For example, implement restrictions in the field itself whenever possible, such as not allowing spaces and limiting the number of characters.
+- Show the error in a specific field when the user leaves the field or in any field when they attempt to submit the form. For example, when the user removes the focus of an empty mandatory field. Remove the error state of the field as soon as the user modifies its value.
+- When the field is in an error state, always include an error text. Start with an imperative verb (e.g. *Fill this information* instead of *This field is required),* don't use incomplete or imprecise sentences (e.g. *Fill only letters* instead of *Fill only valid characters)*, and don’t use periods or commas.

@@ -1,0 +1,46 @@
+# Best Practices
+
+## Properties
+
+### Layout
+
+Define a max-width that allows the PageContent to always be comfortably consumed.
+
+| Variants | Usage |
+| --- | --- |
+| `wide` | Listing Pages and Dashboards. |
+| `standard` | Detail Pages with two columns. |
+| `narrow` | Detail Pages with a single column and Form Pages. |
+
+### Tag
+
+- In second-level pages, such as Form Pages and Detail Pages, include a Tag in the PageHeader that mirrors the item status shown in the Listing Page (when it exists).
+- Don't include a Tag in the header of Listing Pages.
+
+### Tab
+
+Include Tabs in the PageHeader when appropriate, according to the component documentation.
+
+### Actions
+
+- Include a `secondary` action and a `primary` action, in this order, for the two most important actions that are related to all the content on the page.
+- Include a `tertiary` *More actions* Menu when there is a destructive global action or when the primary and secondary actions have already been added and there are other global actions of tertiary importance.
+- Include a back button in second-level pages to direct the user to the first-level. For example, a *Product* form page should have a back button that leads to the *Product* listing page.
+
+### Page title
+
+- Always include a title in the PageHeader that describes the content of the page. It should be the same in the URL, in the Title meta tag, and, when it applies, in Admin navigation entry.
+- The title of a listing page should be the name of the object that is being listed. Use only nouns in the plural form and in title case, such as *Products* and *Orders*. Don't add a prefix, such as *All Products*, or a suffix, such as *Orders listing*. Read the Admin Navigation documentation for more information.
+- In a Form page, when an existing object is being edited, use name of the object as the page title, such as *Christmas Discount*. When a new item is being created, use the word *New* and the name of the object, such as *New Product*.
+
+## Content
+
+Don’t create pages for very specific jobs or pages that contain different main jobs. For example, merchants should export products through a Modal on the *Products* listing page; and managing the account profile is a different job from managing the stores of the account.
+
+## Behavior
+
+### Navigating
+
+Only Listing Pages and Dashboard pages should be listed in the Admin Navigation. Don’t include Form pages or specific actions such as Import and Export in the Admin Navigation.
+
+Read the Admin Navigation documentation for more information.

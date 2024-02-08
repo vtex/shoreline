@@ -1,0 +1,21 @@
+# Best Practices
+
+## Properties
+
+### Text
+
+- Write exactly the label that was omitted but is available as an alternative description for the element. For example, the label of a green dot next to a product is *Available for sale.*
+- Use sentence case, but capitalize proper nouns.
+- Don't write more than 40 characters and don't use periods.
+- Don't write instructions or include actions, use the ContextualHelp component instead.
+
+## Position
+
+By default, the Tooltip opens above the trigger, center-aligned, and it's repositioned automatically according to the available space. Use the `placement` prop when necessary to adjust the preferred position so it won't hide important content around it.
+
+## Behavior
+
+### Triggering
+
+- Any element on an interface that has a label omitted can be used as the trigger of a Tooltip. For example, a IconButton or a green dot that represents the state of product.
+- A Tooltip should only open on hover and this behavior should not be customized.

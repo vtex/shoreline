@@ -1,0 +1,48 @@
+# Best Practices
+
+## Properties
+
+### Search
+
+Include a Search when there are usually more than five FilterItems.
+
+### Filter label
+
+- Write the name of the property that is being listed. For example, write *Status* for the options *Active*, *Inactive* and *Archived*. When possible, reuse the name in the Table column label.
+- Use sentence case, but capitalize proper nouns.
+- Don't include redundant words. For example, use *Status* instead of *Product status* in a page that includes *Products* in its title.
+- Don't use verbs. For example, instead of *Select status*, use only *Status*.
+- Don't use interrogations.
+
+### FilterItem label
+
+- Use sentence case, but capitalize proper nouns.
+- Don't write long FilterItem labels.
+- Don't include redundant words. For example, use only *Permanent* and *Temporary* instead of *Permanent error* and *Temporary error*.
+- Don't include negative words. For example, write *More than 6 months* instead of *Not in the last 6 months*.
+- Don't use personal pronouns. For example, write *Current account* instead of *My account.*
+
+## Position
+
+- **Position of FilterTriggers in a Container:** Position them directly above the content that will be filtered and left-aligned. Use the Collection component for adequate positioning.
+- **Order of FilterTriggers:** Order from most to least frequently used.
+- **Order of FilterItems:** Order by most results to least results, most recent to least recent, most to least frequently used, or alphabetical order.
+
+## Behavior
+
+### Returning after navigating
+
+The complete search query, which includes the filters, the current page, and the search terms, should be reflected in the URL. This allows the user to easily return to the customized view and easily share it. Don’t use local storage or cookies to store the query.
+
+### Displaying selection
+
+The FilterTrigger displays the label of the first selected option and then the number of other selected options. Don't customize this behavior.
+
+### Loading
+
+- Use the loading state of the FilterPopover when options take more than 1s to load for the first time or during a search.
+- Don't show the loading state after a Filter is selected or applied. When a Filter is applied, close the popover immediately and display a loading state inside the Collection if necessary.
+
+### Preselecting
+
+Filters shouldn't have a preselected value. Don't pre-filter items due to system limitations. Prefer to paginate API requests to avoid overload.
