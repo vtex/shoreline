@@ -18,7 +18,7 @@
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\" \"examples/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx \"packages/**/*.{ts,js,tsx,jsx}\" \"examples/**/*.{ts,js,tsx,jsx}\"",
     "commit": "cz",
-    "dev:styles": "npm --prefix packages/theme-arpoador run dev",
+    "dev:styles": "npm --prefix packages/theme-sunrise run dev",
     "dev:storybook": "concurrently -p [{name}] -n storybook@shoreline,styles@shoreline -c bgMagenta,bgYellow \"pnpm storybook dev -p 6006\" \"pnpm run dev:styles\"",
     "dev:docs": "npm --prefix packages/next-docs run dev",
     "build:docs": "npm --prefix packages/next-docs run build-docs",
