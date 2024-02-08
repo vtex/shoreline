@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/vtex/shoreline/compare/@vtex/raccoon-next@0.8.0...@vtex/raccoon-next@1.0.0-rc.0) (2024-02-08)
+
+**Note:** Version bump only for package @vtex/raccoon-next
+
 # 0.8.0 (2023-11-29)
 
 ### Features

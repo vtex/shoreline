@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.6.0...@vtex/docs-generator@1.0.0-rc.0) (2024-02-08)
+
+### Features
+
+- **docs-gen:** support multiple pkgs ([ef3dc58](https://github.com/vtex/shoreline/commit/ef3dc58eabb9c1df983ba8f55981c63ab06ad768))
+
 # [0.6.0](https://github.com/vtex/shoreline/compare/@vtex/docs-generator@0.5.0...@vtex/docs-generator@0.6.0) (2024-02-05)
 
 ### Features

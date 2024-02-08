@@ -1,7 +1,7 @@
 {
   "name": "@vtex/create-raccoon-app",
   "description": "Create racccoon applications",
-  "version": "0.1.0",
+  "version": "1.0.0-rc.0",
   "type": "module",
   "main": "./src/index.js",
   "repository": "vtex/shoreline",
