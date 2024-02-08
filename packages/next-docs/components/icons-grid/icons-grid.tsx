@@ -1,11 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
+import type { CSSProperties } from '@vtex/shoreline-utils'
 
 import { icons, names } from './icons'
-
 import { IconCard } from './icon-card'
 import { variables } from '../../shoreline/theme'
-import { iconsGridStyle } from './icons.css'
+import styles from './icons-grid.module.css'
 
 export function IconsGrid(props: IconsGridProps) {
   const { children, variant = 'default', ...restProps } = props
@@ -13,7 +13,11 @@ export function IconsGrid(props: IconsGridProps) {
   const resolvedIcons = resolveIcons(variant)
 
   return (
-    <div className={iconsGridStyle} style={variables as any} {...restProps}>
+    <div
+      className={styles.iconsGrid}
+      style={variables as CSSProperties}
+      {...restProps}
+    >
       {resolvedIcons.map((icon) => {
         const Icon = icons[icon]
 

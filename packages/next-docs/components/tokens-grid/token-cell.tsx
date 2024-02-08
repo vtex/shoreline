@@ -2,8 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { useClipboard } from '../hooks/use-clipboard'
 import { Cell } from './cell'
-import { copyButtonTheme, tokenTheme } from './tokens-grid.css'
-import { IconCopySimple } from '@vtex/admin-ui'
+
+import { IconCopySimple } from '@vtex/shoreline-icons'
+import styles from './token-cell.module.css'
 
 export function TokenCell(props: ComponentPropsWithoutRef<'div'>) {
   const { children, ...restProps } = props
@@ -14,9 +15,9 @@ export function TokenCell(props: ComponentPropsWithoutRef<'div'>) {
 
   return (
     <Cell {...restProps}>
-      <span className={tokenTheme}>{children}</span>
-      <button className={copyButtonTheme} onClick={() => handleCopy(token)}>
-        <IconCopySimple width={12} height={12} />
+      <span className={styles.token}>{children}</span>
+      <button className={styles.copyButton} onClick={() => handleCopy(token)}>
+        <IconCopySimple width={16} height={16} />
       </button>
     </Cell>
   )

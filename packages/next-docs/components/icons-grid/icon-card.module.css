@@ -1,0 +1,23 @@
+.iconCard {
+  display: flex;
+  padding: 1.5rem 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.iconCard svg {
+  margin-bottom: 1rem;
+}
+
+.iconDescription {
+  font: var(--sl-text-body-font);
+  text-align: center;
+  color: var(--sl-color-gray-9);
+}
+
+.iconName {
+  font: var(--sl-text-action-font);
+  text-align: center;
+  font-family: monospace;
+}

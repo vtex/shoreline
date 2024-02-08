@@ -1,11 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { descriptions } from './icons'
-import {
-  iconNameStyle,
-  iconsCardStyle,
-  iconDescriptionStyle,
-} from './icons.css'
+
+import styles from './icon-card.module.css'
 
 export function IconCard(props: IconCardProps) {
   const { children, name = '', ...restProps } = props
@@ -13,10 +10,10 @@ export function IconCard(props: IconCardProps) {
   const description = descriptions[name] ?? '-'
 
   return (
-    <div className={iconsCardStyle} {...restProps}>
+    <div className={styles.iconCard} {...restProps}>
       {children}
-      <span className={iconNameStyle}>{name}</span>
-      <span className={iconDescriptionStyle}>{description}</span>
+      <span className={styles.iconName}>{name}</span>
+      <span className={styles.iconDescription}>{description}</span>
     </div>
   )
 }

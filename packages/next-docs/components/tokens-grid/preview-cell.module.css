@@ -1,0 +1,89 @@
+.previewCell {
+  --cell-size: 3rem;
+  --value: var(--preview-cell-token-value);
+
+  border-radius: var(--sl-border-radius-medium);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+}
+
+.previewCell[data-foundation='color'],
+.previewCell[data-foundation='bg'],
+.previewCell[data-foundation='fg'] {
+  background: var(--value);
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: var(--sl-border-radius-medium);
+}
+
+.previewCell[data-foundation='border'] {
+  border: var(--value);
+  background: transparent;
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: var(--sl-border-radius-medium);
+}
+
+.previewCell[data-foundation='border-radius'] {
+  background: var(--sl-color-gray-5);
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: var(--value);
+}
+
+.previewCell[data-foundation='space'] {
+  background: var(--sl-color-gray-5);
+  height: var(--cell-size);
+  width: var(--value);
+  border-radius: var(--sl-space-05);
+}
+
+.previewCell[data-foundation='letter-spacing'],
+.previewCell[data-foundation='font-size'],
+.previewCell[data-foundation='font-weight'],
+.previewCell[data-foundation='text'],
+.previewCell[data-foundation='line-height'] {
+  display: flex;
+  align-items: center;
+  height: var(--cell-size);
+}
+
+.previewCell[data-foundation='letter-spacing']::after,
+.previewCell[data-foundation='font-size']::after,
+.previewCell[data-foundation='font-weight']::after,
+.previewCell[data-foundation='text']::after,
+.previewCell[data-foundation='line-height']::after {
+  content: 'Aa';
+}
+
+.previewCell[data-foundation='letter-spacing'] {
+  font-size: 0.875rem;
+  letter-spacing: var(--value);
+}
+
+.previewCell[data-foundation='font-size'] {
+  font-size: var(--value);
+}
+
+.previewCell[data-foundation='line-height'] {
+  font-size: 0.875rem;
+  line-height: var(--value);
+}
+
+.previewCell[data-foundation='font-weight'] {
+  font-size: 0.875rem;
+  font-weight: var(--value);
+}
+
+.previewCell[data-foundation='text'] {
+  font: var(--preview-cell-text-font);
+  letter-spacing: var(--preview-cell-text-letter-spacing);
+}
+
+.previewCell[data-foundation='shadow'],
+.previewCell[data-foundation='focus-ring'] {
+  height: var(--cell-size);
+  width: var(--cell-size);
+  display: flex;
+  box-shadow: var(--value);
+}
