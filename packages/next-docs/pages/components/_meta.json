@@ -51,5 +51,14 @@
   "flex": "Flex",
   "grid": "Grid",
   "slot": "Slot",
-  "stack": "Stack"
+  "stack": "Stack",
+
+  "Date": { "type": "separator", "title": "Date" },
+  "calendar": "Calendar",
+  "date-field": "DateField",
+  "date-picker": "DatePicker",
+  "date-range-picker": "DateRangePicker",
+  "date-segment": "DateSegment",
+  "range-calendar": "RangeCalendar",
+  "time-input": "TimeInput"
 }
