@@ -1,0 +1,54 @@
+# API Reference
+
+Confirmation Modal containers allow merchants to confirm an action through an overlay window that opens on top of the current page.
+
+<iframe src="https://620e870c28c4ae003a705d42-lzpvysxbgm.chromatic.com/?path=/story/components-confirmation-modal--play&full=1&shortcuts=false&singleStory=true" 
+    style={{"width":"100%","height":600,"border":0,"borderRadius":4}}></iframe>
+
+## Parameters
+
+### `props`
+
+- Type: `@vtex/shoreline-components.ConfirmationModalProps & @types/react.React.RefAttributes<typescript.HTMLDivElement>`
+
+## Props
+
+### `locale` (optional)
+
+The BCP47 language code for the locale.
+
+- Type: `string`
+
+- Default: `en-US`
+
+### `messages` (optional)
+
+Object containing all messages to be displayed internally in the modal. They include "title", "ok" and "cancel".
+
+- Type: `{ cancel: string; confirm: string; title: string; }`
+
+### `onCancel` (optional)
+
+Callback fired when the cancel button is clicked.
+
+- Type: `@types/react.React.MouseEventHandler<typescript.HTMLButtonElement>`
+
+### `onClose` (optional)
+
+- Type: `{ (event: typescript.Event): void; }`
+
+### `onConfirm` (optional)
+
+Callback fired when the ok button is clicked.
+
+- Type: `@types/react.React.MouseEventHandler<typescript.HTMLButtonElement>`
+
+### `open` (optional)
+
+Whether the modal is open or not.
+
+- Type: `boolean`
+
+- Default: `false`
+
+[View source](https://github.com/vtex/shoreline/blob/be289703d/packages/components/src/confirmation-modal/confirmation-modal.tsx#L40)
