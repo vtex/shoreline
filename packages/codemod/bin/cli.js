@@ -113,6 +113,10 @@ const TRANSFORMER_INQUIRER_CHOICES = [
     name: 'migrate-text: Migrates Text from admin-ui to shorelines Text',
     value: 'migrate-text',
   },
+  {
+    name: 'migrate-skeleton: Migrates Skeleton from admin-ui to shorelines Skeleton',
+    value: 'migrate-skeleton',
+  },
 ]
 
 // tsx or jsx
