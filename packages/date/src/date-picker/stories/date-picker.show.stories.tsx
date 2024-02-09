@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Calendar } from '../index'
+import { DatePicker } from '../index'
 
 export default {
-  title: 'components/calendar',
+  title: 'components/date-picker',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
 }
 
 export function Show() {
-  return <Calendar />
+  return <DatePicker />
 }

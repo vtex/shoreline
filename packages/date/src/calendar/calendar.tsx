@@ -14,6 +14,7 @@ import { createCalendar } from '../utils'
 
 /**
  * Allow users to select a date
+ * @playground
  * @kind date
  * @example
  * <Calendar />
