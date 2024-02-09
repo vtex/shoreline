@@ -199,7 +199,7 @@ importers:
         specifier: ^0.137.2
         version: 0.137.2(react-dom@18.2.0)(react@18.2.0)
       '@vtex/raccoon-next':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../../packages/raccoon-next
       next:
         specifier: 13.4.8
@@ -233,7 +233,7 @@ importers:
   examples/shoreline-nextjs-integration/react:
     dependencies:
       '@vtex/raccoon-io':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../../../packages/raccoon-io
       react:
         specifier: ^16.5.2
@@ -242,7 +242,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-css':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../css
       commander:
         specifier: 11.0.0
@@ -313,13 +313,13 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../icons
       '@vtex/shoreline-primitives':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../primitives
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
       react:
         specifier: '>=18'
@@ -411,10 +411,10 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
       react:
         specifier: '>=18'
@@ -510,10 +510,10 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
       react:
         specifier: '>=18'
@@ -544,22 +544,22 @@ importers:
   packages/shoreline:
     dependencies:
       '@vtex/shoreline-components':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../components
       '@vtex/shoreline-date':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../date
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../icons
       '@vtex/shoreline-primitives':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../primitives
       '@vtex/shoreline-theme-sunrise':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../theme-sunrise
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
       react:
         specifier: '>=18'
@@ -612,7 +612,7 @@ importers:
   packages/theme-sunrise:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
     devDependencies:
       '@csstools/postcss-sass':
@@ -661,10 +661,10 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.4
+        specifier: ^1.0.0-rc.5
         version: link:../utils
       react:
         specifier: '>=18'

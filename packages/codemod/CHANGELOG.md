@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@1.0.0-rc.4...@vtex/shoreline-codemod@1.0.0-rc.5) (2024-02-09)
+
+### Features
+
+- add codemod to migrate skeleton ([b3025b3](https://github.com/vtex/shoreline/commit/b3025b3fbd7901642efd81097b25a2892ebb719b))
+
 # [1.0.0-rc.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@1.0.0-rc.3...@vtex/shoreline-codemod@1.0.0-rc.4) (2024-02-09)
 
 **Note:** Version bump only for package @vtex/shoreline-codemod
