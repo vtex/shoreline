@@ -10,6 +10,12 @@
   padding: var(--sl-space-0);
 }
 
+[data-sl-filter-popover] > [data-sl-container] {
+  max-height: 27.5rem;
+  display: grid;
+  grid-auto-rows: auto 1fr auto;
+}
+
 [data-sl-filter-list] {
   padding: var(--sl-space-4) var(--sl-space-6);
 }

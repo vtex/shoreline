@@ -1,7 +1,4 @@
 [data-sl-filter-list] {
-  --sl-filter-list-height: 16rem;
-
-  max-height: var(--sl-filter-list-height);
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -12,6 +9,5 @@
 
   &[data-sl-combobox-list] {
     padding-top: var(--sl-space-0);
-    margin-top: calc(-1 * var(--sl-space-3));
   }
 }

@@ -1,9 +1,13 @@
 [data-sl-filter-trigger] {
-  font: var(--sl-text-emphasis-font);
-  letter-spacing: var(--sl-text-emphasis-letter-spacing);
+  &[data-sl-button] {
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
+  }
   &[aria-expanded='true'] {
-    background: var(--sl-bg-base-plain-pressed);
-    color: var(--sl-fg-muted-pressed);
+    &[data-sl-button][data-variant=secondary] {
+      background: var(--sl-bg-base-plain-pressed);
+      color: var(--sl-fg-muted-pressed);
+    }
   }
 }
 
