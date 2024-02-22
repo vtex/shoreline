@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.6...@vtex/shoreline-theme-sunrise@1.0.0-rc.7) (2024-02-22)
+
+### Bug Fixes
+
+- **filter:** reported styling and spacing issues ([d3c1bfb](https://github.com/vtex/shoreline/commit/d3c1bfb978ff81e9b27913c2b60da2a1b891ce73))
+
 # [1.0.0-rc.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.5...@vtex/shoreline-theme-sunrise@1.0.0-rc.6) (2024-02-09)
 
 **Note:** Version bump only for package @vtex/shoreline-theme-sunrise

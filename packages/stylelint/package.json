@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-stylelint",
-  "version": "1.0.0-rc.6",
+  "version": "1.0.0-rc.7",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

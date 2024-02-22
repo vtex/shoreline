@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.6...@vtex/shoreline-components@1.0.0-rc.7) (2024-02-22)
+
+### Features
+
+- **filter:** change combobox filter example to use emptyState ([7b11d7e](https://github.com/vtex/shoreline/commit/7b11d7e45be6c9002552626fba482657bea78f47))
+
 # [1.0.0-rc.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.5...@vtex/shoreline-components@1.0.0-rc.6) (2024-02-09)
 
 **Note:** Version bump only for package @vtex/shoreline-components
