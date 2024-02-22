@@ -1,0 +1,8 @@
+.box {
+  display: flex;
+  height: 10rem;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sl-color-blue-1);
+}
