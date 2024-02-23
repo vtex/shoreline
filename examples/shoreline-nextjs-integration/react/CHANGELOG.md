@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.8](https://github.com/vtex/shoreline/compare/a-vtex-app@1.0.0-rc.7...a-vtex-app@1.0.0-rc.8) (2024-02-23)
+
+**Note:** Version bump only for package a-vtex-app
+
 # [1.0.0-rc.7](https://github.com/vtex/shoreline/compare/a-vtex-app@1.0.0-rc.6...a-vtex-app@1.0.0-rc.7) (2024-02-22)
 
 **Note:** Version bump only for package a-vtex-app
