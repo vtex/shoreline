@@ -6,6 +6,7 @@
   "collection": "Collection",
   "confirmation-modal": "ConfirmationModal",
   "contextual-help": "ContextualHelp",
+  "divider": "Divider",
   "empty-state": "EmptyState",
   "field": "Field",
   "filter": "Filter",
