@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './divider'
 export * from './label'
 export * from './input'
 export * from './collection'
