@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.8...@vtex/shoreline-components@1.0.0-rc.9) (2024-02-23)
+
+### Features
+
+- **divider:** add new component ([5a4bccd](https://github.com/vtex/shoreline/commit/5a4bccdd27bd789f67e20ebc0eaa1715133424a8))
+
 # [1.0.0-rc.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.7...@vtex/shoreline-components@1.0.0-rc.8) (2024-02-23)
 
 **Note:** Version bump only for package @vtex/shoreline-components
