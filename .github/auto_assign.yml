@@ -1,7 +1,0 @@
-# This configuration file is used on the workflows/pr.yml
-# It configures the add-assignee job, which adds an assignee to a pull request.
-# This makes it easier to visualize who is responsible for the pull request
-# and also helps to manage the workload of the team.
-
-# The author of the PR is assigned to it
-addAssignees: author

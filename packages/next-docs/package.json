@@ -11,11 +11,13 @@
     "@types/he": "1.2.3"
   },
   "dependencies": {
+    "@next/third-parties": "^14.1.0",
     "@vtex/shoreline-components": "workspace:*",
     "@vtex/shoreline-date": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-theme-sunrise": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
+    "google": "link:@next/third-parties/google",
     "next": "13.4.7",
     "nextra": "2.13.2",
     "nextra-theme-docs": "2.13.2",
