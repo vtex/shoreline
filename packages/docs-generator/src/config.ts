@@ -77,7 +77,7 @@ export interface ConfigPaths {
 export interface ComponentDocumentationPaths {
   /**
    * The path where the components documentation should be generated
-   * @example '../next-docs/pages/components'
+   * @example '../docs/pages/components'
    */
   docPath: string
   /**

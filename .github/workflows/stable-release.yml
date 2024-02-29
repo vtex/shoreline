@@ -121,6 +121,6 @@ jobs:
           fi
           git pull --rebase
           pnpm run gen:docs
-          git add ./packages/next-docs
+          git add ./packages/docs
           git commit -m "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
           git push -u origin main --force

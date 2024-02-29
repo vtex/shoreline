@@ -14,7 +14,7 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/vtex/shoreline',
   },
-  docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/next-docs',
+  docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/docs',
   footer: {
     text: 'VTEX Design System for back-office experiences.',
   },
