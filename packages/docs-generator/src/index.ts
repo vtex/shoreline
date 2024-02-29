@@ -121,7 +121,7 @@ const config: Config = {
   pkgs,
   paths: {
     components: {
-      docPath: `../next-docs/pages/components`,
+      docPath: `../docs/pages/components`,
       filename: 'api-reference.mdx',
     },
   },

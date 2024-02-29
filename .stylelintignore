@@ -2,8 +2,7 @@
 **/node_modules
 **/dist
 packages/icons/native
-packages/admin-ui-docs
-packages/next-docs
+packages/docs
 **/.cache
 **/coverage
 **/build
