@@ -1,11 +1,14 @@
 import {
   Button,
   Page,
-  PageContent,
   PageHeader,
-  PageHeaderTitle,
-  PageHeaderTop,
-} from '@vtex/admin-ui'
+  PageHeading,
+  PageContent,
+  Slot,
+  Bleed,
+  IconButton,
+} from '@vtex/shoreline-components'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
 import { generateRandomId } from '../../lib/generate-random-id'
 
@@ -14,10 +17,23 @@ export default function NextJSInternalRoute() {
 
   return (
     <Page>
-      <PageHeader onPopNavigation={() => navigate('/')}>
-        <PageHeaderTop>
-          <PageHeaderTitle>NextJS App Internal Static Route</PageHeaderTitle>
-        </PageHeaderTop>
+      <PageHeader>
+        <Slot name="top">
+          <Slot name="left">
+            <Bleed top="$space-2" bottom="$space-2">
+              <IconButton
+                label="Return"
+                asChild
+                variant="tertiary"
+                size="large"
+                onClick={() => navigate('/')}
+              >
+                <IconArrowLeft />
+              </IconButton>
+            </Bleed>
+            <PageHeading>NextJS App Internal Static Route</PageHeading>
+          </Slot>
+        </Slot>
       </PageHeader>
       <PageContent>
         <Button onClick={() => navigate('/')}>Navigate to base route</Button>

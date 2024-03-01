@@ -1,11 +1,14 @@
 import {
   Button,
   Page,
-  PageContent,
   PageHeader,
-  PageHeaderTitle,
-  PageHeaderTop,
-} from '@vtex/admin-ui'
+  PageHeading,
+  PageContent,
+  Slot,
+  Bleed,
+  IconButton,
+} from '@vtex/shoreline-components'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
 import { useRouter } from 'next/router'
 import { items } from '../index'
@@ -21,12 +24,25 @@ export default function PromotionEdit() {
 
   return (
     <Page>
-      <PageHeader onPopNavigation={() => navigate(`/`)}>
-        <PageHeaderTop>
-          <PageHeaderTitle>
-            NextJS App Internal Dynamic Route: {item?.name}
-          </PageHeaderTitle>
-        </PageHeaderTop>
+      <PageHeader>
+        <Slot name="top">
+          <Slot name="left">
+            <Bleed top="$space-2" bottom="$space-2">
+              <IconButton
+                label="Return"
+                asChild
+                variant="tertiary"
+                size="large"
+                onClick={() => navigate('/')}
+              >
+                <IconArrowLeft />
+              </IconButton>
+            </Bleed>
+            <PageHeading>
+              NextJS App Internal Dynamic Route: {item?.name}
+            </PageHeading>
+          </Slot>
+        </Slot>
       </PageHeader>
       <PageContent>
         <Button onClick={() => navigate('/')}>Navigate to base route</Button>

@@ -12,7 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) and [https://localhost--team
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## @vtex/raccoon-next Package Development 
+## @vtex/raccoon-next Package Development
 
 If you are developing the `@vtex/raccoon-next` package, run the command below after making changes to it:
 
@@ -35,10 +35,10 @@ If you have never initialized Vercel on this project, simply run `vercel` and fo
 ```bash
 vercel
 ? Set up and deploy “shoreline-nextjs-integration”? [Y/n] y
-? Which scope do you want to deploy to? Admin Team
+? Which scope do you want to deploy to? VTEX
 ? Link to existing project? [y/N] y
-? What’s the name of your existing project? shoreline-nextjs-integratio
-🔗 Linked to awesome-team/my-lovely-project (created .vercel and added it to .gitignore)
+? What’s the name of your existing project? shoreline-nextjs-integration
+🔗 Linked to vtex/shoreline-nextjs-integration (created .vercel and added it to .gitignore)
 ```
 
 After making changes to this repository, you can deploy them with:
@@ -57,5 +57,3 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-> Deploy on the provider that is best suited for your use case

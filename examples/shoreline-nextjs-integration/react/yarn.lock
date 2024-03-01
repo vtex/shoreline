@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@vtex/raccoon-io@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-0.7.1.tgz#55d9f8d87a863aaff6dd667a6a92c59ca711a901"
-  integrity sha512-RYmIgkPcKA1pPmZNghZH9pe7JOcsNQWF0cP/PFFgBeGu2ajqcCQb6alNVo5ZhLOmSjnVKM/hDS6vexfGdTYBfA==
+"@vtex/raccoon-io@^1.0.0-rc.11":
+  version "1.0.0-rc.11"
+  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-1.0.0-rc.11.tgz#f0d2c8f151240d3edd3ef051ea92d0f628ab7b50"
+  integrity sha512-jRJsZ0OJqAsF9F0hKHxH8YhhtNGsFfOdbrl0nkQ5bdJM+IxSSrfvy5h61JEn49KFrmqY+baLwoWk6Vr/90K4jQ==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
