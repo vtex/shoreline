@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.1.0",
+    "@sentry/nextjs": "^7.103.0",
     "@vtex/shoreline-components": "workspace:*",
     "@vtex/shoreline-date": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
