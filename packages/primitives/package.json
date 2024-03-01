@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-primitives",
-  "version": "1.0.0-rc.13",
+  "version": "1.0.0-rc.14",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -45,7 +45,7 @@
     "@ariakit/react": "0.3.8",
     "@react-aria/i18n": "3.9.0",
     "@tanstack/react-virtual": "3.0.1",
-    "@vtex/shoreline-icons": "^1.0.0-rc.13",
-    "@vtex/shoreline-utils": "^1.0.0-rc.13"
+    "@vtex/shoreline-icons": "^1.0.0-rc.14",
+    "@vtex/shoreline-utils": "^1.0.0-rc.14"
   }
 }

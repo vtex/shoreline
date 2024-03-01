@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.14](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.13...example@1.0.0-rc.14) (2024-03-01)
+
+### Bug Fixes
+
+- **examples:** replace admin-ui icons by shoreline's ([2a81d3c](https://github.com/vtex/shoreline/commit/2a81d3c6248a2b549f47dbe396f162397d5daecc))
+
 # [1.0.0-rc.13](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.12...example@1.0.0-rc.13) (2024-03-01)
 
 **Note:** Version bump only for package example
