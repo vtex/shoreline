@@ -208,6 +208,9 @@ importers:
       '@vtex/shoreline-components':
         specifier: workspace:^
         version: link:../../packages/components
+      '@vtex/shoreline-theme-sunrise':
+        specifier: workspace:1.0.0-rc.11
+        version: link:../../packages/theme-sunrise
       next:
         specifier: 13.4.8
         version: 13.4.8(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)

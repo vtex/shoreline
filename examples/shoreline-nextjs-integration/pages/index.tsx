@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 import { useAdmin, useNavigation } from '@vtex/raccoon-next'
 import {
+  Alert,
+  Button,
   Page,
-  PageContent,
   PageHeader,
-  PageHeaderTitle,
-  PageHeaderTop,
-} from '@vtex/admin-ui'
-import { Alert, Button } from '@vtex/shoreline-components'
+  PageHeading,
+  PageContent,
+} from '@vtex/shoreline-components'
 import { faker } from '@faker-js/faker'
 import { generateRandomId } from '../lib/generate-random-id'
 
@@ -31,9 +31,7 @@ const Home: NextPage = () => {
   return (
     <Page>
       <PageHeader>
-        <PageHeaderTop>
-          <PageHeaderTitle>NextJS App Base Route</PageHeaderTitle>
-        </PageHeaderTop>
+        <PageHeading>NextJS App Base Route</PageHeading>
       </PageHeader>
       <PageContent layout="wide">
         <Alert>
