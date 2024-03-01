@@ -128,12 +128,13 @@ export default bootstrap(App)
 
 ### Develop the application
 
-To start developing your Next.js app, make sure that dependencies are installed and start the application with:
+To start developing your Next.js application, you need to make sure that the dependencies have been installed and that you are authenticated with the VTEX Toolbelt:
 
 ```bash
-yarn dev
+vtex login teamadmin # authenticate with the teamadmin account
+vtex use localhost # create the localhost workspace
+yarn dev # start the development server
 ```
-
-Make sure you are within the Admin, on https://localhost--teamadmin.myvtex.com, for example, and navigate to the path you declared as the route of your application.
+> `teamadmin` is just an example of a VTEX Account, you can use the one you are interested in. The Workspace name does not have to be `localhost`, however, it is mandatory to include then (for example: `localhostadmin` or `adminlocalhost`).
 
 </Steps>
