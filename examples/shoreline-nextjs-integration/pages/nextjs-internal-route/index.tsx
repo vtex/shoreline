@@ -8,9 +8,9 @@ import {
   Bleed,
   IconButton,
 } from '@vtex/shoreline-components'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
 import { generateRandomId } from '../../lib/generate-random-id'
-import { IconArrowLeft } from '@vtex/admin-ui'
 
 export default function NextJSInternalRoute() {
   const { navigate } = useNavigation()

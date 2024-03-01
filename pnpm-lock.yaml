@@ -208,8 +208,11 @@ importers:
       '@vtex/shoreline-components':
         specifier: workspace:^
         version: link:../../packages/components
+      '@vtex/shoreline-icons':
+        specifier: workspace:^
+        version: link:../../packages/icons
       '@vtex/shoreline-theme-sunrise':
-        specifier: workspace:1.0.0-rc.11
+        specifier: workspace:^
         version: link:../../packages/theme-sunrise
       next:
         specifier: 13.4.8

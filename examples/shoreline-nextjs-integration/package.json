@@ -14,7 +14,8 @@
     "@vtex/admin-ui": "^0.137.2",
     "@vtex/raccoon-next": "workspace:^",
     "@vtex/shoreline-components": "workspace:^",
-    "@vtex/shoreline-theme-sunrise": "workspace:1.0.0-rc.11",
+    "@vtex/shoreline-icons": "workspace:^",
+    "@vtex/shoreline-theme-sunrise": "workspace:^",
     "next": "13.4.8",
     "react": "^18.2.0",
     "react-dom": "18.2.0"

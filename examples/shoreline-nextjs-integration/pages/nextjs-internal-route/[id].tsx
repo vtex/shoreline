@@ -8,11 +8,11 @@ import {
   Bleed,
   IconButton,
 } from '@vtex/shoreline-components'
+import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
 import { useRouter } from 'next/router'
 import { items } from '../index'
 import { generateRandomId } from '../../lib/generate-random-id'
-import { IconArrowLeft } from '@vtex/admin-ui'
 
 const getItem = (id: any) => items.find((item) => item.id === id)
 
