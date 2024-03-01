@@ -1,11 +1,11 @@
 {
   "name": "a-vtex-app",
-  "version": "1.0.0-rc.12",
+  "version": "1.0.0-rc.13",
   "scripts": {
     "test": "vtex-test-tools test"
   },
   "dependencies": {
-    "@vtex/raccoon-io": "^1.0.0-rc.12",
+    "@vtex/raccoon-io": "^1.0.0-rc.13",
     "react": "^16.5.2"
   }
 }
