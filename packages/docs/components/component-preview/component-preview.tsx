@@ -3,19 +3,21 @@
 import React, { Suspense, useMemo } from 'react'
 import { Spinner } from '@vtex/shoreline-components'
 import Frame from 'react-frame-component'
+import codes from '../../examples'
 
 interface Props {
   name: string
 }
 
-const examples = {
-  'button-demo': React.lazy(() => import('../../examples/button-demo')),
-}
-
 export function ComponentPreview(props: Props) {
   const { name } = props
+
+  const code = useMemo(() => {
+    return codes[name].code
+  }, [name])
+
   const Preview = useMemo(() => {
-    const Comp = examples[name]
+    const Comp = codes[name].component
 
     if (!Comp) {
       return <div>not found</div>
@@ -27,6 +29,9 @@ export function ComponentPreview(props: Props) {
   return (
     <div>
       <Frame
+        style={{
+          width: '100%',
+        }}
         head={
           <link
             rel="stylesheet"
@@ -38,6 +43,11 @@ export function ComponentPreview(props: Props) {
           {Preview}
         </Suspense>
       </Frame>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: code,
+        }}
+      />
     </div>
   )
 }

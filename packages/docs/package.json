@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build-docs": "npm --prefix ../../ run build && next build",
-    "start": "next start"
+    "start": "next start",
+    "crazy": "node ./scripts/build-examples.mjs"
   },
   "devDependencies": {
-    "@types/he": "1.2.3"
+    "@types/he": "1.2.3",
+    "@types/fs-extra": "11.0.4"
   },
   "dependencies": {
     "@next/third-parties": "^14.1.0",
@@ -17,13 +19,16 @@
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-theme-sunrise": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
+    "fs-extra": "11.2.0",
     "google": "link:@next/third-parties/google",
     "next": "13.4.7",
     "nextra": "2.13.2",
     "nextra-theme-docs": "2.13.2",
+    "prettier": "3.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-frame-component": "5.2.6"
+    "react-frame-component": "5.2.6",
+    "shiki": "1.1.7"
   },
   "browserslist": {
     "production": [
