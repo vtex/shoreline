@@ -3,7 +3,7 @@
 import React, { Suspense, useMemo } from 'react'
 import { Spinner } from '@vtex/shoreline-components'
 import Frame from 'react-frame-component'
-import codes from '../../examples'
+import codes from '../../__examples__'
 
 interface Props {
   name: string

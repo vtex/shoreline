@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build-docs": "npm --prefix ../../ run build && next build",
     "start": "next start",
-    "crazy": "node ./scripts/build-examples.mjs"
+    "gen:examples": "node ./scripts/build-examples.mjs"
   },
   "devDependencies": {
     "@types/he": "1.2.3",
