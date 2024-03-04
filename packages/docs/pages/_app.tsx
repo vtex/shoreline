@@ -1,7 +1,7 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import '@vtex/shoreline-theme-sunrise/css'
+import '@vtex/shoreline-theme-sunrise/css-no-layer'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

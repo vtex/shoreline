@@ -18,6 +18,7 @@
       "types": "./dist/index.d.ts"
     },
     "./css": "./dist/sunrise.css",
+    "./css-no-layer": "./dist/sunrise-no-layer.css",
     "./css-tokens": "./dist/tokens.css",
     "./css-components": "./dist/components.css"
   },
@@ -30,8 +31,9 @@
     "dev:all": "postcss ./src/index.scss -o dist/sunrise.css -w",
     "dev:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css -w",
     "dev:components": "postcss ./src/components/index.scss -o dist/components.css -w",
-    "build": "pnpm run prebuild && pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts",
+    "build": "pnpm run prebuild && pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts && pnpm build:no-layer",
     "build:ts": "tsup",
+    "build:no-layer": "postcss ./src/index-no-layer.scss -o dist/sunrise-no-layer.css",
     "build:all": "postcss ./src/index.scss -o dist/sunrise.css",
     "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
     "build:components": "postcss ./src/components/index.scss -o dist/components.css",

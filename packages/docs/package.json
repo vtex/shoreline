@@ -9,10 +9,12 @@
     "gen:examples": "node ./scripts/build-examples.mjs"
   },
   "devDependencies": {
+    "@types/fs-extra": "11.0.4",
     "@types/he": "1.2.3",
-    "@types/fs-extra": "11.0.4"
+    "@types/node": "20.11.24"
   },
   "dependencies": {
+    "@ariakit/react": "0.4.2",
     "@next/third-parties": "^14.1.0",
     "@vtex/shoreline-components": "workspace:*",
     "@vtex/shoreline-date": "workspace:*",

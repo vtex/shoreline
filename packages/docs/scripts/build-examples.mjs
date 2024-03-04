@@ -25,8 +25,8 @@ async function main() {
     const code = fileBuffer.toString()
 
     return codeToHtml(code, {
-      lang: 'javascript',
-      theme: 'github-light',
+      lang: 'tsx',
+      theme: 'material-theme-palenight',
     })
   })
 
