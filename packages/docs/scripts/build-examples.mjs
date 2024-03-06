@@ -15,9 +15,12 @@ import * as React from "react"
 export default {
 `
 
+/**
+ * This script generates the code previews for all files on examples/ folder.
+ *
+ */
 async function main() {
   fse.removeSync(outputDirectory)
-
   const files = fse.readdirSync(inputDirectory)
 
   const promises = files.map((file) => {

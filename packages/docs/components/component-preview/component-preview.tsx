@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useMemo } from 'react'
+import React, { Suspense, useMemo, useState } from 'react'
 import { Spinner } from '@vtex/shoreline-components'
 import * as Ariakit from '@ariakit/react'
 
@@ -9,6 +9,8 @@ import styles from './component-preview.module.css'
 
 export function ComponentPreview(props: Props) {
   const { name } = props
+
+  const [activeId, setActiveId] = useState<string>('preview')
 
   const code = useMemo(() => {
     return codes[name].code
@@ -25,15 +27,21 @@ export function ComponentPreview(props: Props) {
   }, [name])
 
   return (
-    <div className={styles.wrapper}>
-      <Ariakit.TabProvider>
+    <div className={styles.wrapper} data-active-id={activeId}>
+      <Ariakit.TabProvider
+        selectedId={activeId}
+        setSelectedId={setActiveId as any}
+      >
         <Ariakit.TabList className={styles.tablist} aria-label="Preview mode">
-          <Ariakit.Tab className={styles.tab}>Preview</Ariakit.Tab>
-
-          <Ariakit.Tab className={styles.tab}>Code</Ariakit.Tab>
+          <Ariakit.Tab id="preview" className={styles.tab}>
+            Preview
+          </Ariakit.Tab>
+          <Ariakit.Tab id="code" className={styles.tab}>
+            Code
+          </Ariakit.Tab>
         </Ariakit.TabList>
         <div>
-          <Ariakit.TabPanel>
+          <Ariakit.TabPanel className={styles.tabpanel}>
             <Suspense fallback={<Spinner description="Loading component" />}>
               {Preview}
             </Suspense>
