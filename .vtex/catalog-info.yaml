@@ -1,0 +1,73 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: create-raccoon-app
+  title: Create Raccoon App
+  description: Setup a raccoon app and creates a GitHub respository
+spec:
+  owner: admin
+  type: frontend-ui
+
+  # these are the steps which are rendered in the frontend with the form input
+  parameters:
+    - title: Fill in some steps
+      required:
+        - appName
+        - section
+        - subSection
+      properties:
+        appName:
+          title: App Name
+          type: string
+          description: Name of the raccoon app to be created
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        section:
+          title: Section
+          type: string
+          description: Which section should it appear on the sidebar
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        subSection:
+          title: Sub Section
+          type: string
+          description: What is the subSection
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  # here's the steps that are executed in series in the scaffolder backend
+  steps:
+    - action: fetch:plain
+      id: fetch-plain
+      name: Fetch plain
+      input:
+        url: https://github.com/vtex/shoreline/tree/main/packages/create-raccoon-app
+    - id: app-template
+      name: Generate raccoon app from template
+      action: vtex:raccoon:generate
+      input:
+        appName: ${{ parameters.appName }}
+        section: ${{ parameters.section }}
+        subSection: ${{ parameters.subSection }}
+    - id: publish
+      action: publish:github
+      name: Publish to GitHub
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        sourcePath: admin-${{ parameters.appName }}
