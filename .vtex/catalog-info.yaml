@@ -28,14 +28,12 @@ spec:
           title: Section
           type: string
           description: Which section should it appear on the sidebar
-          ui:autofocus: true
           ui:options:
             rows: 5
         subSection:
           title: Sub Section
           type: string
           description: What is the subSection
-          ui:autofocus: true
           ui:options:
             rows: 5
         
