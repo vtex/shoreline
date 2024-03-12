@@ -1,0 +1,6 @@
+{
+  "admin.app.vtex-render-app": {
+    "component": "vtex-render-app",
+    "path": "/admin/app/nextjs-base-route/not-a-nextjs-route/:id"
+  }
+}

@@ -24,6 +24,8 @@ export function withChallenge<P>(WrappedComponent: ComponentType<P>) {
   }
 }
 
+const ADMIN_BASE_PATH = '/admin'
+
 function Router({ children }: PropsWithChildren) {
   const ctx = useAdmin()
   const router = useRouter()
@@ -35,7 +37,7 @@ function Router({ children }: PropsWithChildren) {
   // to the Admin Shell.
   useEffect(() => {
     router.beforePopState(({ as }) => {
-      const raccoonUrl = ctx.basePath + as
+      const raccoonUrl = ADMIN_BASE_PATH + as
 
       if (ctx.path && raccoonUrl !== ctx.path) {
         navigate(as)
@@ -58,7 +60,7 @@ function Router({ children }: PropsWithChildren) {
       return
     }
 
-    const internalPath = ctx.path?.replace(ctx.basePath, '') || '/'
+    const internalPath = ctx.path?.replace(ADMIN_BASE_PATH, '') || '/'
     const ioAndNextjsRoutingMatch = internalPath === router.asPath
 
     if (!ioAndNextjsRoutingMatch) {
