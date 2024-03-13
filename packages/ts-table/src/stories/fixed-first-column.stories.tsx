@@ -17,6 +17,7 @@ import {
   IconButton,
   Tag,
   VisuallyHidden,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
 import { TsTable } from '../index'
@@ -137,7 +138,7 @@ export function StickyFirstColumn() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -148,7 +149,7 @@ export function StickyFirstColumn() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },
@@ -250,7 +251,7 @@ export function StickyFirstColumnWithStickyHeader() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -261,7 +262,7 @@ export function StickyFirstColumnWithStickyHeader() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },

@@ -1,2 +1,3 @@
-export * from './ts-table'
-export * from './columns'
+export { getExpandedColumn, getSelectionColumn } from './columns'
+export { TsTable } from './ts-table'
+export type { TsTableProps } from './ts-table'

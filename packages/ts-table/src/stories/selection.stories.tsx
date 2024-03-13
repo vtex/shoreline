@@ -18,9 +18,10 @@ import {
   IconButton,
   Tag,
   VisuallyHidden,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
-import { TsTable, getSelectionColum } from '../index'
+import { TsTable, getSelectionColumn } from '../index'
 
 export default {
   title: 'ts-table/ts-table',
@@ -36,7 +37,7 @@ type Product = {
 export function Selection() {
   const columns = useMemo<Array<ColumnDef<Product>>>(
     () => [
-      getSelectionColum(),
+      getSelectionColumn(),
       {
         id: 'name',
         cell: ({
@@ -92,7 +93,7 @@ export function Selection() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -103,7 +104,7 @@ export function Selection() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },
