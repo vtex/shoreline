@@ -20,7 +20,7 @@ export const TsTableRow = forwardRef(function TsTableRow<T>(
   const { row, id, rowClick, renderDetail, children, ...otherProps } = props
 
   return (
-    <Fragment key={id}>
+    <Fragment>
       <TableRow
         ref={ref}
         selected={row.getIsSelected()}
