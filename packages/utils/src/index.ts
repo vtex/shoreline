@@ -26,7 +26,9 @@ import {
   lowerFirst,
   splitByCase,
   upperFirst,
+  stringCase,
 } from './string-case'
+import type { StringCaseOptions } from './string-case'
 import { invariant } from './invariant'
 import { warning } from './warning'
 import { useControlledState } from './use-controlled-state'
@@ -66,6 +68,7 @@ export {
   lowerFirst,
   splitByCase,
   upperFirst,
+  stringCase,
   invariant,
   warning,
   useControlledState,
@@ -77,3 +80,4 @@ export {
 
 export * from './css-types'
 export * from './utility-types'
+export type { StringCaseOptions }

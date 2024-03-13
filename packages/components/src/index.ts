@@ -23,7 +23,6 @@ export {
   VirtualItem,
   VisuallyHidden,
   createMessageHook,
-  get,
   isComposable,
   navigate,
   useLocale,

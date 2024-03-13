@@ -113,7 +113,6 @@ export {
   VirtualItem,
   VisuallyHidden,
   createMessageHook,
-  get,
   isComposable,
   navigate,
   toast,

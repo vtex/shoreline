@@ -28,10 +28,15 @@ export function createMessageHook(
     return useCallback(
       (id, variables) => {
         const localizedMessages = messages[locale]
-        const localizedString = get(localizedMessages, id, variables, '')
+        const localizedString = _getMessage(
+          localizedMessages,
+          id,
+          variables,
+          ''
+        )
 
         return overrides
-          ? get(overrides, id, variables, localizedString)
+          ? _getMessage(overrides, id, variables, localizedString)
           : localizedString
       },
       [locale, overrides]
@@ -46,7 +51,7 @@ export function createMessageHook(
  * @param path - the string path
  * @param def  - the fallback value
  */
-export function get(
+function _getMessage(
   obj: Record<string, string> | null | undefined,
   path: string,
   variables?: Record<string, string | number>,
