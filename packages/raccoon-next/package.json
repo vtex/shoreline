@@ -1,6 +1,6 @@
 {
   "name": "@vtex/raccoon-next",
-  "version": "1.0.0-rc.14",
+  "version": "1.0.0-rc.15",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",

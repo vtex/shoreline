@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.15](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.14...@shoreline/docs@1.0.0-rc.15) (2024-03-13)
+
+**Note:** Version bump only for package @shoreline/docs
+
 # [1.0.0-rc.14](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.13...@shoreline/docs@1.0.0-rc.14) (2024-03-01)
 
 **Note:** Version bump only for package @shoreline/docs

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.14...@vtex/shoreline@1.0.0-rc.15) (2024-03-13)
+
+### Bug Fixes
+
+- **packages:** use named exports ([5066e05](https://github.com/vtex/shoreline/commit/5066e055fd3446977d1bc6a9d816bd96f943d0e4))
+
 # [1.0.0-rc.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.13...@vtex/shoreline@1.0.0-rc.14) (2024-03-01)
 
 **Note:** Version bump only for package @vtex/shoreline
