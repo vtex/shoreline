@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Page>
       <PageHeader>
-        <PageHeading>Shoreline 🖤 Next 14</PageHeading>
+        <PageHeading>Shoreline 💙 Next 14</PageHeading>
       </PageHeader>
       <PageContent>
         <TsTable
