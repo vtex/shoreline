@@ -204,7 +204,14 @@ export { Spinner } from './spinner'
 export type { SpinnerProps } from './spinner'
 export { Stack } from './stack'
 export type { StackProps } from './stack'
-export { Tab, TabList, TabPanel, TabProvider } from './tab'
+export {
+  Tab,
+  TabList,
+  TabPanel,
+  TabProvider,
+  useTabContext,
+  useTabStore,
+} from './tab'
 export type {
   TabListProps,
   TabPanelProps,

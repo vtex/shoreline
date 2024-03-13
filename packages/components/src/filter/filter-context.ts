@@ -1,7 +1,9 @@
 import type { SelectStore } from '@ariakit/react'
 import { createContext, useContext } from 'react'
 
-export const FilterContext = createContext<SelectStore | undefined>(undefined)
+export const FilterContext = createContext<SelectStore<any> | undefined>(
+  undefined
+)
 
 /**
  * Recovers the filter store
