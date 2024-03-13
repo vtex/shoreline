@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 
-import { getExpandedColumn, getSelectionColum } from '../columns'
+import { getExpandedColumn, getSelectionColumn } from '../columns'
 import { Flex } from '@vtex/shoreline-components'
 import { TsTable } from '../index'
 
@@ -22,7 +22,7 @@ type RegionalData = {
 export function NestingExpand() {
   const continetColumns = useMemo<Array<ColumnDef<RegionalData>>>(
     () => [
-      getSelectionColum(),
+      getSelectionColumn(),
       getExpandedColumn(),
       {
         accessorKey: 'continent',

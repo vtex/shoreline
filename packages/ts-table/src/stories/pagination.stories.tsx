@@ -20,6 +20,7 @@ import {
   VisuallyHidden,
   Pagination,
   Stack,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
 import { TsTable } from '../index'
@@ -101,7 +102,7 @@ export function ClientPagination() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -112,7 +113,7 @@ export function ClientPagination() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },
@@ -206,7 +207,7 @@ export function ServerPagination() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -217,7 +218,7 @@ export function ServerPagination() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },

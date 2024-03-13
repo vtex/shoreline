@@ -17,6 +17,7 @@ import {
   IconButton,
   Tag,
   VisuallyHidden,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
 import { TsTable } from '../index'
@@ -92,7 +93,7 @@ export function Detail() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -103,7 +104,7 @@ export function Detail() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },

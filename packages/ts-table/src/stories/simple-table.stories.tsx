@@ -1,4 +1,3 @@
-import type { HTMLProps } from 'react'
 import React, { useMemo } from 'react'
 import {
   IconCloudArrowUp,
@@ -19,6 +18,7 @@ import {
   IconButton,
   Flex,
   VisuallyHidden,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
 import { TsTable } from '../index'
@@ -92,7 +92,7 @@ export function Default() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -103,7 +103,7 @@ export function Default() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },

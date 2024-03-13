@@ -17,6 +17,7 @@ import {
   MenuTrigger,
   MenuSeparator,
   VisuallyHidden,
+  MenuPopover,
 } from '@vtex/shoreline-components'
 
 import { TsTable } from '../index'
@@ -106,7 +107,7 @@ export function StickyHeader() {
                   <IconDotsThreeVertical />
                 </IconButton>
               </MenuTrigger>
-              <Menu>
+              <MenuPopover>
                 <MenuItem>
                   <IconPencil /> Edit
                 </MenuItem>
@@ -117,7 +118,7 @@ export function StickyHeader() {
                 <MenuItem critical onClick={() => alert(`Deleted ${name}`)}>
                   <IconTrash /> Delete
                 </MenuItem>
-              </Menu>
+              </MenuPopover>
             </MenuProvider>
           )
         },
