@@ -1,7 +1,7 @@
 {
   "name": "@vtex/shoreline-next",
   "description": "Nextjs-aware Shoreline components",
-  "version": "1.0.0-rc.16",
+  "version": "1.0.0-rc.17",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -36,13 +36,13 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
+    "@vtex/shoreline": "0.x || 1.x",
     "next": ">=13",
-    "@vtex/shoreline": "0.x || 1.x"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline": "1.0.0-rc.16",
+    "@vtex/shoreline": "^1.0.0-rc.17",
     "next": "14.1.3"
   }
 }
