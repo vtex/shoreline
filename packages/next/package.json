@@ -1,0 +1,48 @@
+{
+  "name": "@vtex/shoreline-next",
+  "description": "Nextjs-aware Shoreline components",
+  "version": "1.0.0-rc.16",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "directory": "packages/next-components",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "next": ">=13",
+    "@vtex/shoreline": "0.x || 1.x"
+  },
+  "devDependencies": {
+    "@vtex/shoreline": "1.0.0-rc.16",
+    "next": "14.1.3"
+  }
+}

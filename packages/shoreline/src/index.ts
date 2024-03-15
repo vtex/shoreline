@@ -126,6 +126,8 @@ export {
   useSelectContext,
   useSelectStore,
   useVirtualizerModel,
+  useTabContext,
+  useTabStore,
 } from '@vtex/shoreline-components'
 export type {
   AccessibleIconProps,

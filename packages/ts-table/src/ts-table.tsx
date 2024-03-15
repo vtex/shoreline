@@ -87,6 +87,7 @@ export const TsTable = forwardRef(function TsTable<T>(
       <TableBody>
         {rows.map((row) => (
           <TsTableRow
+            key={row.id}
             row={row}
             id={row.id}
             renderDetail={renderDetail}
@@ -118,6 +119,7 @@ export const TsTable = forwardRef(function TsTable<T>(
 
           return (
             <TsTableRow
+              key={row.id}
               row={row}
               id={String(tableRow.index)}
               renderDetail={renderDetail}
