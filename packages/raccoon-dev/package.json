@@ -1,0 +1,24 @@
+{
+  "name": "@vtex/raccoon-dev",
+  "version": "1.0.0-rc.14",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "bin": {
+    "raccoon-dev": "dist/esm/index.js"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "11.0.1",
+    "next": "12.3.0"
+  },
+  "dependencies": {
+    "env-cmd": "10.1.0",
+    "fs-extra": "11.1.1",
+    "open": "^10.1.0"
+  }
+}

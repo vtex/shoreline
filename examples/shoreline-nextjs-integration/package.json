@@ -3,8 +3,8 @@
   "version": "1.0.0-rc.14",
   "private": true,
   "scripts": {
-    "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex use localhost && vtex link\"",
-    "dev:next": "next dev",
+    "dev:vtex": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex use localhost && vtex link\"",
+    "dev": "raccoon-dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -15,6 +15,7 @@
     "@vtex/shoreline-components": "workspace:^",
     "@vtex/shoreline-icons": "workspace:^",
     "@vtex/shoreline-theme-sunrise": "workspace:^",
+    "env-cmd": "^10.1.0",
     "next": "13.4.8",
     "react": "^18.2.0",
     "react-dom": "18.2.0"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "20.4.0",
     "@types/react-dom": "18.2.6",
+    "@vtex/raccoon-dev": "workspace:^",
     "concurrently": "^8.2.1",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.8",
