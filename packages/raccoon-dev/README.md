@@ -1,6 +1,6 @@
 # @vtex/raccoon-dev
 
-This is the development setup for Next.js apps to run locally while accessing VTEX services, not necessarily within the Admin, like what Raccoon currently does. This is a standalone project that simply grabs the VTEX credentials from the `vtex` CLI and load them into the environment variables so that the Next.js app can access them.
+This library simply grabs the VTEX credentials from the `vtex` CLI, writes them on a hidden `.venv/.env` file and loads them into the Next.js application environment.
 
 ## Usage
 
@@ -16,4 +16,12 @@ Create any Next.js project and replace your `package.json`'s `dev` script with t
     "scripts: {
 -        "dev": "next dev",
 +        "dev": "raccoon-dev",
+```
+
+When you run the `dev` script from your terminal, the `raccoon-dev` library will make your VTEX credentials available to your Next.js application while in development as:
+
+```js
+process.env.NEXT_PUBLIC_VTEX_ACCOUNT
+process.env.NEXT_PUBLIC_VTEX_WORKSPACE
+process.env.NEXT_PUBLIC_VTEX_TOKEN
 ```

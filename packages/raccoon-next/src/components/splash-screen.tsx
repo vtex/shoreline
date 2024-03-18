@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Center, Container, Skeleton } from './layout'
-import { isDev, isIframe } from '../utils/env'
+import { hasVtexDevCredentials, isDev, isIframe } from '../utils/env'
 
 export function SplashScreen() {
   const display = useDisplay()
@@ -45,7 +45,7 @@ function useDisplay() {
   useEffect(() => {
     if (!isIframe() && !isDev()) {
       setDisplay('deny')
-    } else if (!isIframe() && isDev()) {
+    } else if (!isIframe() && !hasVtexDevCredentials()) {
       setDisplay('tip')
     }
   }, [])

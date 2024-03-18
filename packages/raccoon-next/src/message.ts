@@ -8,6 +8,9 @@ type MessageParams = {
   }
 }
 
+/**
+ * Publish a message to the parent iframe, which is the admin shell.
+ */
 export function publishMessage(params: MessageParams) {
   window.parent.postMessage(
     {

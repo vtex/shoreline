@@ -1,4 +1,11 @@
+import { adminStore } from './admin-store'
 import { publishMessage } from './message'
+import {
+  DEV_ACCOUNT,
+  DEV_TOKEN,
+  DEV_WORKSPACE,
+  hasVtexDevCredentials,
+} from './utils/env'
 
 /**
  * This hook exposes the `navigation` method responsible
@@ -19,6 +26,29 @@ export function useNavigation() {
     }
 
     const { type = 'navigation' } = options ?? {}
+
+    if (hasVtexDevCredentials()) {
+      if (type === 'adminRelativeNavigation') {
+        alert(
+          'adminRelativeNavigation is not supported in development mode and outside of Admin environment'
+        )
+
+        return
+      }
+
+      // Navigate to admin with mocked data
+      return adminStore.set({
+        path,
+        account: DEV_ACCOUNT,
+        workspace: DEV_WORKSPACE,
+        token: DEV_TOKEN,
+        prodUrl: 'https://admin-platform.vtex.com/',
+        production: false,
+        basePath: '/',
+        topWindowHref: '/',
+        locale: 'en-US',
+      })
+    }
 
     publishMessage({
       type,
