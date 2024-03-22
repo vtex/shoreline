@@ -3,8 +3,8 @@
   "version": "1.0.0-rc.14",
   "private": true,
   "scripts": {
-    "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex use localhost && vtex link\"",
-    "dev:next": "next dev",
+    "dev": "concurrently -p [{name}] -n nextjs,vtex \"pnpm run dev:next\" \"vtex link\"",
+    "dev:next": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

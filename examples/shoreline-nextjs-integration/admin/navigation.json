@@ -8,6 +8,7 @@
       "labelId": "admin-rocket.navigation.label-main",
       "path": "/admin/rocket",
       "raccoon": {
+        "devUrl": "http://localhost:3000",
         "prodUrl": "https://shoreline-nextjs-integration-pgeg412vj-admin-team.vercel.app",
         "routes": [
           "/admin/rocket/nextjs-internal-route",

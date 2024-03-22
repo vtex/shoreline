@@ -33,7 +33,7 @@ export default function PromotionEdit() {
                 asChild
                 variant="tertiary"
                 size="large"
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/nextjs-base-route')}
               >
                 <IconArrowLeft />
               </IconButton>
@@ -45,9 +45,12 @@ export default function PromotionEdit() {
         </Slot>
       </PageHeader>
       <PageContent>
-        <Button onClick={() => navigate('/')}>Navigate to base route</Button>
-        <Button onClick={() => navigate(`/nextjs-internal-route`)}>
-          Navigate to Internal Static Route
+        <Button
+          onClick={() =>
+            navigate(`/another-nextjs-base-route/${generateRandomId()}`)
+          }
+        >
+          Navigate to another-nextjs-base-route
         </Button>
         <Button
           onClick={() =>

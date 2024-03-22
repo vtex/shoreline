@@ -3,9 +3,9 @@
 
 
 "@vtex/raccoon-io@^1.0.0-rc.14":
-  version "1.0.0-rc.14"
-  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-1.0.0-rc.14.tgz#11ece77ccbb197b63dc728f304d010a633370b63"
-  integrity sha512-+Vtsit7XE12qKDUpMmWG/0+9We41wt+tCzMgWYLqheJBvNcIk2fdrmmmThQrdITgnXSLK9yR65mUn41XLuO8fg==
+  version "1.0.0-rc.17"
+  resolved "https://registry.yarnpkg.com/@vtex/raccoon-io/-/raccoon-io-1.0.0-rc.17.tgz#650bc92f83aee4855104c5bf531b8630fca7e493"
+  integrity sha512-cl5eiQI9qN4tINayrzZHE8Zajs9n1GdTWXWmUkShsIuIHJnfZoVptk6FbhxpqhLC8cJcVhGYNT+PUXanaE8JPg==
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"

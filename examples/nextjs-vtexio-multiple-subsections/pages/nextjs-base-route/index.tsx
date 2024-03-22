@@ -26,29 +26,25 @@ export default function NextJSInternalRoute() {
                 asChild
                 variant="tertiary"
                 size="large"
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/nextjs-base-route')}
               >
                 <IconArrowLeft />
               </IconButton>
             </Bleed>
             <PageHeading>
-              NextJS App Base Static Route: rocket-base-route
+              NextJS App Base Static Route: nextjs-base-route
             </PageHeading>
           </Slot>
         </Slot>
       </PageHeader>
       <PageContent>
-        <Button
-          onClick={() =>
-            navigate('/admin/another-nextjs-base-route', {
-              type: 'adminRelativeNavigation',
-            })
-          }
-        >
+        <Button onClick={() => navigate('/another-nextjs-base-route')}>
           Navigate to another-rocket-base-route
         </Button>
-        <Button onClick={() => navigate(`/${generateRandomId()}`)}>
-          Navigate to Internal Dynamic Route
+        <Button
+          onClick={() => navigate(`/nextjs-base-route/${generateRandomId()}`)}
+        >
+          Navigate to internal dynamic route
         </Button>
         <Button
           onClick={() =>

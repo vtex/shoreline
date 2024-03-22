@@ -9,7 +9,7 @@
       "path": "/admin/nextjs-base-route",
       "raccoon": {
         "apiVersion": 1,
-        "devUrl": "http://localhost:3000/nextjs-base-route",
+        "devUrl": "http://localhost:3001/nextjs-base-route",
         "prodUrl": "https://ficticious-nextjs-app.vtex.com/nextjs-base-route",
         "routes": ["/admin/nextjs-base-route", "/admin/nextjs-base-route/:id"]
       }
@@ -19,7 +19,7 @@
       "path": "/admin/another-nextjs-base-route",
       "raccoon": {
         "apiVersion": 1,
-        "devUrl": "http://localhost:3000/another-nextjs-base-route",
+        "devUrl": "http://localhost:3001/another-nextjs-base-route",
         "prodUrl": "https://ficticious-nextjs-app.vtex.com/another-nextjs-base-route",
         "routes": [
           "/admin/another-nextjs-base-route",
