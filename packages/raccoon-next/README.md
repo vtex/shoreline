@@ -2,24 +2,23 @@
 
 To learn more about this package, read our internal documentation at: https://shoreline.vtex.com/raccoon/getting-started.
 
-## Development
+## Development guidelines
 
-Use one of the examples available on the `examples` folder to test your changes.
+While making changes to this package you want to see them reflected upon real applications. For this reason, to develop @vtex/raccoon-next you will use one, or all the examples available on the `examples` folder to test the changes you make.
 
-Once you made changes to the package, run the command below to build it and make it available to the example project through [Turbo's ability to link dependencies within this monorepo](https://turbo.build/repo/docs/core-concepts/monorepos/task-dependencies)
-
-```bash
-pnpm build
-```
-
-Get back to the example project, build it (since it's not built along with the packages), and run the development server to see your changes in action.
+Below you will find a list of commands that streamline the development process for each use case:
 
 ```bash
-pnpm i
-pnpm build
-pnpm dev
+# Builds all raccoon packages in parallel > builds all examples in parallel > watches for
+# changes in all raccoon packages and starts the development server for the examples
+# all in parallel. This is the most convenient command to test raccoon applications.
+# This command doesn't link the examples to VTEX.
+pnpm run dev:raccoon-examples
+
+# This command links the examples to VTEX
+pnpm run dev:raccoon-examples:link
 ```
 
 ## Contributing
 
-If you found a way of improving this package, please open a pull request and we will be happy to review it.
+If you found a way of improving this package, please open a pull request or issue and we will be happy to review it.
