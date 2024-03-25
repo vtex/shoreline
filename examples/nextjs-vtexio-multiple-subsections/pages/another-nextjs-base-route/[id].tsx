@@ -53,7 +53,7 @@ export default function PromotionEdit() {
             navigate(`/another-nextjs-base-route/${generateRandomId()}`)
           }
         >
-          Navigate to <kbd>/another-nextjs-base-route/foo</kbd>
+          Navigate to /another-nextjs-base-route/:dynamic-route
         </Button>
         <Button
           onClick={() =>

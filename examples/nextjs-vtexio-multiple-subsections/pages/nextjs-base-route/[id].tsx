@@ -53,7 +53,7 @@ export default function PromotionEdit() {
             })
           }
         >
-          Navigate to another-nextjs-base-route
+          Navigate to another-nextjs-base-route dynamic route
         </Button>
         <Button
           onClick={() =>
