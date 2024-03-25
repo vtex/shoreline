@@ -47,7 +47,10 @@ export default function PromotionEdit() {
       <PageContent>
         <Button
           onClick={() =>
-            navigate(`/another-nextjs-base-route/${generateRandomId()}`)
+            // Must be an admin relative navigation type since the base route is different
+            navigate(`/admin/another-nextjs-base-route/${generateRandomId()}`, {
+              type: 'adminRelativeNavigation',
+            })
           }
         >
           Navigate to another-nextjs-base-route
@@ -55,7 +58,7 @@ export default function PromotionEdit() {
         <Button
           onClick={() =>
             navigate(
-              `/admin/vtex-render/not-a-nextjs-route/${generateRandomId()}`,
+              `/admin/nextjs-base-route/not-a-nextjs-route/${generateRandomId()}`,
               {
                 type: 'adminRelativeNavigation',
               }

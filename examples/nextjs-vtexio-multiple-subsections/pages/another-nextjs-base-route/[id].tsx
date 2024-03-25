@@ -58,6 +58,7 @@ export default function PromotionEdit() {
         <Button
           onClick={() =>
             navigate(
+              // Must be an admin relative navigation type since the base route is different
               `/admin/nextjs-base-route/not-a-nextjs-route/${generateRandomId()}`,
               {
                 type: 'adminRelativeNavigation',

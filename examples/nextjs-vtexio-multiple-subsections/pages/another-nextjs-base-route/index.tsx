@@ -24,7 +24,14 @@ export default function NextJSBaseRoute() {
         </Slot>
       </PageHeader>
       <PageContent>
-        <Button onClick={() => navigate('/nextjs-base-route')}>
+        <Button
+          onClick={() =>
+            // Must be an admin relative navigation type since the base route is different
+            navigate('/admin/nextjs-base-route', {
+              type: 'adminRelativeNavigation',
+            })
+          }
+        >
           Navigate to nextjs-base-route
         </Button>
         <Button
@@ -37,6 +44,7 @@ export default function NextJSBaseRoute() {
         <Button
           onClick={() =>
             navigate(
+              // Must be an admin relative navigation type since the base route is different
               `/admin/nextjs-base-route/not-a-nextjs-route/${generateRandomId()}`,
               {
                 type: 'adminRelativeNavigation',

@@ -38,7 +38,14 @@ export default function NextJSInternalRoute() {
         </Slot>
       </PageHeader>
       <PageContent>
-        <Button onClick={() => navigate('/another-nextjs-base-route')}>
+        <Button
+          onClick={() =>
+            // Must be an admin relative navigation type since the base route is different
+            navigate('/admin/another-nextjs-base-route', {
+              type: 'adminRelativeNavigation',
+            })
+          }
+        >
           Navigate to another-rocket-base-route
         </Button>
         <Button
