@@ -91,7 +91,6 @@ export function Router({ children }: PropsWithChildren) {
  */
 export function useAppBaseRoute() {
   const { devUrl, prodUrl, production } = useAdmin()
-  // Get pathname from devUrl and prodUrl
   const [devPathname, prodPathname] = [devUrl, prodUrl].map((url) => {
     if (url) {
       const urlObj = new URL(url)
@@ -102,7 +101,6 @@ export function useAppBaseRoute() {
     return '/'
   })
 
-  // Compare them to make sure they match
   if (devPathname !== prodPathname) {
     // We shouldn't necessarily throw an error here, since the app might be in development
     console.warn(
@@ -110,7 +108,7 @@ export function useAppBaseRoute() {
     )
   }
 
-  // Get the app base path based on the environment
+  // Get the app base path based from the corresponding environment
   const appBasePath = production ? prodPathname : devPathname
 
   return appBasePath
