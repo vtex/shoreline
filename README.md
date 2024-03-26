@@ -8,6 +8,9 @@ Shoreline is a set of tools designed specifically to enhance the experience of d
   - [Components](#components)
     - [What about tests?](#what-about-tests)
     - [Where does all Storybook stories go?](#where-does-all-storybook-stories-go)
+- [How does our CI/CD works?](#how-does-our-cicd-works)
+  - [Pull Request workflow](#pull-request-workflow)
+  - [Release workflow](#release-workflow)
 
 ## How to develop locally?
 
@@ -48,3 +51,33 @@ All Shoreline components are tested by default. We have a CI/CD in place which t
 We use [Chromatic](https://www.chromatic.com/) to power our Storybook documentation. This is the tool that takes screenshots of all our stories and compares them to the previous version of our Storybook to make sure that we are not introducing any unexpected visual regression to our components.
 
 We also make a responsible use of Chromatic, by taking snapshots of our components from a single story containing all possible variations of a component, instead of taking snapshots of every single story. This is a good practice that helps us keep our Storybook documentation lean and easy to navigate. Now go back and read our [Storybook guidelines](https://github.com/vtex/shoreline/issues/1455).
+
+## How does our CI/CD works?
+
+We use GitHub Actions to run our CI/CD. We have a robust workflow that runs every time a:
+
+1. PR is opened
+2. PR is merged
+
+These workflows ensure that our code is always up to date and that we are not introducing any unexpected issues to our packages, as well as automates the process of generating the docs site, publishing new versions of our packages to NPM and deploying our storybook stories to Chromatic. Vercel takes care of deploying our docs website on a pipeline that runs in parallel with ours.
+
+### Pull Request workflow
+
+Our [Pull Request workflow](.github/workflows/pr.yml) runs the following steps:
+
+1. Builds all packages, ensuring their build is ok
+2. Lints all JavaScript, TypeScript, and CSS files
+3. Runs unit tests for all packages
+4. Run interaction tests for all components
+5. Publishes the components package to Chromatic, which in turn will run visual tests
+
+### Release workflow
+
+Our [Release workflow](.github/workflows/release.yml) runs the following steps:
+
+1. Builds all packages, ensuring their build is ok
+2. Stores the build artifacts on a temporary cache
+3. Publishes the components package to Chromatic
+4. Publishes all publishable packages to NPM
+5. Retrieves the build artifacts from the cache
+6. Generates a new version of the docs website from the retrieved build artifacts

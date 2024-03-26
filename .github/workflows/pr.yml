@@ -1,5 +1,4 @@
-# This Action should run on each PR by verifying if they pass on lint, test and build
-name: CI
+name: Pull Request workflow
 
 on:
   push:
@@ -35,6 +34,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Code lint
+        run: pnpm lint
 
       - name: Stylelint
         run: pnpm stylelint **/*.css
