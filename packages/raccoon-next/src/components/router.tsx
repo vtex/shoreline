@@ -104,7 +104,7 @@ export function useAppBaseRoute() {
   if (devPathname !== prodPathname) {
     // We shouldn't necessarily throw an error here, since the app might be in development
     console.warn(
-      `The devUrl and prodUrl pathnames are different. devUrl: ${devPathname}, prodUrl: ${prodPathname}. Ensure that the pathnames for both environments are the same to guarantee consistency`
+      `The devUrl and prodUrl pathnames are different. Development pathname: ${devPathname}, production pathname: ${prodPathname}. Ensure that the pathnames for both environments are the same to guarantee consistency`
     )
   }
 
