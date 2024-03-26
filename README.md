@@ -65,11 +65,12 @@ These workflows ensure that our code is always up to date and that we are not in
 
 Our [Pull Request workflow](.github/workflows/pr.yml) runs the following steps:
 
-1. Builds all packages, ensuring their build is ok
-2. Lints all JavaScript, TypeScript, and CSS files
-3. Runs unit tests for all packages
-4. Run interaction tests for all components
-5. Publishes the components package to Chromatic, which in turn will run visual tests
+1. Validates the PR title according to semantic commit rules to ensure that we are able to generate release notes from it
+2. Builds all packages, ensuring their build is ok
+3. Lints all JavaScript, TypeScript, and CSS files
+4. Runs unit tests for all packages
+5. Run interaction tests for all components
+6. Publishes the components package to Chromatic, which in turn will run visual tests
 
 ### Release workflow
 
