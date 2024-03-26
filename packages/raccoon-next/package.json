@@ -9,7 +9,8 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "peerDependencies": {
     "next": ">=12",

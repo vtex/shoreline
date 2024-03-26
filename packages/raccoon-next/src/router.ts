@@ -4,6 +4,8 @@ import { publishMessage } from './message'
  * This hook exposes the `navigation` method responsible
  * for enabling navigation between Next.js and Render pages.
  *
+ * It triggers the triggerNextJSNavigation method from admin-shell.
+ *
  * Read more about Raccoon's navigation architecture under the
  * navigation section of its docs.
  */
