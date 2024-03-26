@@ -1,16 +1,15 @@
 name: Pull Request workflow
 
 on:
-  push:
-    branches-ignore:
-      - main
-      - dev
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
 
 jobs:
   build:
-    name: Shoreline
+    name: Build and test all packages
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    if: ${{ github.event.action != 'edited' }}
 
     steps:
       - name: Checkout code
