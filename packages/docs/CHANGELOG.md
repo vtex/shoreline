@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.18](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.17...@shoreline/docs@1.0.0-rc.18) (2024-03-26)
+
+### Features
+
+- **raccoon:** support multiple subsections ([58ff028](https://github.com/vtex/shoreline/commit/58ff0286386a6f6204a71b5a7917736d22778f6e))
+
 # [1.0.0-rc.17](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.16...@shoreline/docs@1.0.0-rc.17) (2024-03-15)
 
 **Note:** Version bump only for package @shoreline/docs
