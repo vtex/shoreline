@@ -19,6 +19,10 @@ packages/create-raccoon-app/src/index.js
 
 # Resolve: Expected exception block, space or tab after '//' in comment
 examples/shoreline-nextjs-integration/next-env.d.ts
+examples/next-14x/next-env.d.ts
 
 # Resolve: ES2015 module syntax is preferred over namespaces
 packages/docs-generator/src/json-parser
+
+# Resolve: No named exports found in module './tokens' TODO needs to be fixed
+packages/theme-sunrise/src/index.ts

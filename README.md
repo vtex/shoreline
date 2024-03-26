@@ -82,3 +82,4 @@ Our [Release workflow](.github/workflows/release.yml) runs the following steps:
 4. Publishes all publishable packages to NPM
 5. Retrieves the build artifacts from the cache
 6. Generates a new version of the docs website from the retrieved build artifacts
+<!-- 7. TODO: Generates a release note -->
