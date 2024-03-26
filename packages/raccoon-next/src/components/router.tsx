@@ -87,7 +87,7 @@ export function Router({ children }: PropsWithChildren) {
  *
  * Returns '/nextjs-base-route' if app entry point is declared as https://myapp.vtex.app/nextjs-base-route
  *
- * Returns '/' if app entry point is declared as https://myapp.vtex.app
+ * Returns '/' if app entry point is declared as https://myapp.vtex.com
  */
 export function useAppBaseRoute() {
   const { devUrl, prodUrl, production } = useAdmin()
