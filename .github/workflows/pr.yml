@@ -1,17 +1,15 @@
-# This Action should run on each PR by verifying if they pass on lint, test and build
-name: CI
+name: Pull Request workflow
 
 on:
-  push:
-    branches-ignore:
-      - main
-      - dev
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
 
 jobs:
   build:
-    name: Shoreline
+    name: Build and test all packages
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    if: ${{ github.event.action != 'edited' }}
 
     steps:
       - name: Checkout code
@@ -36,6 +34,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Code lint
+        run: pnpm lint
+
       - name: Stylelint
         run: pnpm stylelint **/*.css
 
@@ -52,3 +53,11 @@ jobs:
           buildScriptName: build:storybook:ci
           exitOnceUploaded: true
           exitZeroOnChanges: true
+
+  semantic-pr:
+    name: Validate PR title for semantic versioning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
