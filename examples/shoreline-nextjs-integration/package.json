@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "8.0.2",
-    "@vtex/raccoon-next": "workspace:^",
+    "@vtex/raccoon-next": "latest",
     "@vtex/shoreline-components": "workspace:^",
     "@vtex/shoreline-icons": "workspace:^",
     "@vtex/shoreline-theme-sunrise": "workspace:^",
