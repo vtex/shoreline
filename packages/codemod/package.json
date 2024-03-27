@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-codemod",
-  "version": "1.0.0-rc.18",
+  "version": "1.0.0-rc.19",
   "description": "Shoreline codemod scripts",
   "license": "MIT",
   "publishConfig": {
