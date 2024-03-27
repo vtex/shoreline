@@ -69,6 +69,7 @@ jobs:
             exit 0
           fi
           pnpm lerna publish --preid rc --dist-tag rc --yes --force-publish --no-verify-access --conventional-commits --create-release github
+        env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           HUSKY: 0
 
