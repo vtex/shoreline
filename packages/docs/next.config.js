@@ -3,7 +3,17 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
-module.exports = withNextra()
+module.exports = withNextra({
+  redirects: async () => {
+    return [
+      {
+        source: '/raccoon/:slug',
+        destination: 'https://admin-platform.vtex.com/raccoon/getting-started',
+        permanent: true,
+      },
+    ]
+  },
+})
 
 // Injected content via Sentry wizard below
 

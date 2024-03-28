@@ -18,13 +18,5 @@
   "foundations": {
     "title": "Foundations",
     "type": "page"
-  },
-  "raccoon": {
-    "title": "Raccoon",
-    "type": "page"
-  },
-  "api-reference": {
-    "title": "API Reference",
-    "type": "page"
   }
 }
