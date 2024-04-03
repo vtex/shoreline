@@ -1,6 +1,6 @@
 {
   "name": "@shoreline/docs",
-  "version": "1.0.0-rc.21",
+  "version": "1.0.0-rc.22",
   "private": true,
   "scripts": {
     "dev": "next dev",

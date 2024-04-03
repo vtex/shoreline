@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.0.0-rc.21",
+  "version": "1.0.0-rc.22",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -47,11 +47,11 @@
     "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
-    "@vtex/shoreline-components": "^1.0.0-rc.21",
-    "@vtex/shoreline-date": "^1.0.0-rc.21",
-    "@vtex/shoreline-icons": "^1.0.0-rc.21",
-    "@vtex/shoreline-primitives": "^1.0.0-rc.21",
-    "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.21",
-    "@vtex/shoreline-utils": "^1.0.0-rc.21"
+    "@vtex/shoreline-components": "^1.0.0-rc.22",
+    "@vtex/shoreline-date": "^1.0.0-rc.22",
+    "@vtex/shoreline-icons": "^1.0.0-rc.22",
+    "@vtex/shoreline-primitives": "^1.0.0-rc.22",
+    "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.22",
+    "@vtex/shoreline-utils": "^1.0.0-rc.22"
   }
 }
