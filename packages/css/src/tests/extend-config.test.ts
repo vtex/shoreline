@@ -1,4 +1,4 @@
-import { extendConfig } from '../extend-config'
+import { extendConfig } from '../config'
 import { test, expect } from '@vtex/shoreline-test-utils'
 
 const presetBase = {

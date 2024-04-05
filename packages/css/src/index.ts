@@ -1,2 +1,3 @@
 export * from './css'
-export * from './define-config'
+export * from './config'
+export * from './token-collection'
