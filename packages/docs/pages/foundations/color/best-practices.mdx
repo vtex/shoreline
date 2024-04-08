@@ -1,0 +1,81 @@
+# Best Practices
+
+The color values used in Shoreline come from the Platform Foundations library and are the same in all VTEX products. These values can be accessed through the four types of tokens related to color in the system. The `$fg`, `$bg` and `$border` types identify **semantic** tokens, meaning they are intended for usage in specific scenarios. The `$color` type identifies **primitive** tokens that serve as the basis for the semantic tokens. These can be directly applied when no semantic token is appropriate, such as in custom components. 
+
+It's important to understand the naming convention for each token since the name explains its meaning and how it should be used. Regarding color, primitive and semantic tokens are classified differently, as explained below.
+
+## Primitive Colors
+
+It's always better to use a color value through a semantic token whenever possible since this preserves product consistency. However, if no semantic tokens apply, primitive color tokens are how these values can be used directly to design and implement interfaces. They are the solution for when the rule is unclear and creating a semantic token is too soon. As explained in the rationale, the improper use of semantic tokens hinders the visibility of new use cases.
+
+Is using a primitive token the right call? If that's the case, their naming convention is `$[type]-[hue]-[tone]`, such as `$color-blue-10`. Each of these properties is explained below.
+
+### Type
+
+All token names start with a basic classification that usually reflects the CSS property to which the values apply. Primitive color tokens have only one type, `$color`.
+
+### Hue
+
+![Primitive Color Hue](public/assets/color-hue.webp)
+
+Hue is the property that references the color family (such as red, blue, yellow, green, etc). There are nine color hues included in Shoreline besides gray. As explained in the rationale, this large breadth of color hues is intended to allow experimentation. Five hues (gray, blue, red, yellow, green) are already used by semantic tokens and, therefore, have a meaning attached, but the others (orange, teal, purple, pink, cyan) can be used freely. 
+
+### Tone
+
+![Primitive Color Tone](public/assets/color-tone.webp)
+
+Tone refers to the luminosity of the color in a range that goes from lightest (1) to darkest (13). The only exception is white, which is $color-gray-0. When choosing a color tone, consider that not all combinations work since, for accessibility reasons, there must be enough contrast between the foreground and background.
+
+## Semantic Colors
+
+![Semantic Color Table](public/assets/color-semantic-table.webp)
+*The naming convention for semantic color tokens is very scalable. It allows for more tokens than currently exist since only tokens that have common use cases are created.*
+
+The rationale explains that semantic tokens help design components with consistent visuals and behaviors. Color hues carry meaning and improve usability if applied consistently. That's why it's always better to use a semantic token if there's one that applies. Understanding their naming convention is the best way to become more proficient in applying them.
+
+When reading the name of a semantic color token (`$fg`, `$bg`, `$border`), consider the convention `$[type]-[surface]-[modifier]-[state]`, such as `$fg-accent-strong-hover`. Type and surface are always specified in the token name, but modifier and state are optional. Each of these properties is explained below.
+
+### Type
+
+![Semantic Color Type](public/assets/color-type.webp)
+
+All token names start with a basic classification that usually reflects the CSS property to which the values apply. Color tokens, in particular, have so many applications that they are divided into three primary categories.
+
+- **fg:** Foreground is the opposite of background. These are tokens to be applied to the content itself, such as text and icons. Apply only foreground tokens in these scenarios to guarantee the appropriate contrast.
+- **bg:** Background color tokens should be used in all elements, even if their value is transparent. Color should be used sparingly in interfaces to retain meaning, so avoid applying strong colors on large surfaces.
+- **border:** Border tokens combine color and border thickness, which is always 1px in Shoreline. Since they are surface-based, these tokens follow the same naming convention as foreground and background tokens.
+
+### Surface
+
+![Semantic Color Surface](public/assets/color-surface.webp)
+
+Semantic color tokens (`$fg`, `$bg`, `$border`) are then divided based on the meaning they imply. Elements should adopt a single surface (and modifier, when applicable) to communicate semantics and aid usability.
+
+- **base (default):** Most elements express no specific semantics, so they are placed on a base surface. For example, if you were creating a “Hello World” page, `$fg-base` would be your text, and `$bg-base` your background.
+- **inverted:** The values used in this surface are the opposite of the base surface. It can be used sparingly to focus the user’s attention, such as the backdrop of a modal that draws attention to its content.
+- **warning:** Represents behavior that might be unexpected or something to be cautious about. This can be a number that is slightly below average or a setting that is harmful but was intentionally applied.
+- **success:** Expresses that an action matched or surpassed expectations. This surface should be used only when no further actions are required since it implies something has already been done.
+- **informational:** Communicates a message that needs to be prominent but doesn't require the user’s immediate attention. This can be announcements, product invitations, and progress feedback.
+- **critical:** Conveys that an action failed due to a system or user error. These scenarios are stressful for users, so provide proper feedback by following the guidelines described in the components.
+- **accent:** The most important actions on a page should be placed on this surface, such as primary buttons and selected elements. Applying this surface sparingly is important so it can properly guide the user’s attention.
+- **muted:** Uses the same hue as the base surface but is subdued by default. Secondary actions are placed on this surface. It’s important to subdue elements sparingly to preserve cognitive load.
+
+### Modifier
+
+![Semantic Color Modifier](public/assets/color-modifier.webp)
+
+Surfaces have medium prominence by default, sometimes needing to be softened or intensified. Therefore, alternatives are offered.
+
+- **strong:** Shifts the token to a darker tone, increasing its prominence. Examples include the background of primary actions (`$bg-accent-strong`) and the border of form fields (`$border-base-strong`).
+- **soft:** Reduces the prominence of a token by switching to a lighter color tone. The most common usage is for descriptions (`$fg-base-soft`).
+- **plain:** Used for interactive elements with a transparent background in their default state, such as tertiary actions (`$bg-muted-plain`).
+
+### State
+
+![Semantic Color State](public/assets/color-state.webp)
+
+Tokens used in interactive elements, such as buttons or form fields, need to react to user actions, and this feedback usually relies on color. It’s worth noting that the default state is omitted from the token name.
+
+- **hover:** Used in the :hover CSS selector to communicate that the user placed its cursor above an interactive element.
+- **pressed:** Used in the :active CSS selector to communicate that the user is clicking/tapping on an interactive element and triggering an action.
+- **disabled:** Used in the :disabled CSS selector to communicate that an interactive element is currently unavailable for some reason.
