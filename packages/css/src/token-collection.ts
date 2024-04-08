@@ -9,11 +9,12 @@ import {
   toVar,
 } from '@vtex/shoreline-utils'
 import cssesc from 'cssesc'
-import fse from 'fs-extra'
-import path from 'path'
 import postcss from 'postcss'
 import { format } from 'prettier'
 import presetEnv from 'postcss-preset-env'
+
+export const shorelineLayers =
+  '@layer sl-reset, sl-base, sl-tokens, sl-components, sl-extended-components;'
 
 export class TokenCollecton {
   private collection: Map<string, Token>
@@ -77,100 +78,67 @@ export class TokenCollecton {
     return this.collection.get(name)
   }
 
-  public getObject(): Record<string, string> {
-    const result: Record<string, string> = {}
-
-    for (const key of this.collection.keys()) {
-      const token = this.findToken(key)
-
-      if (token) {
-        result[pascalCase(token.name)] = token.cssReference
-      }
-    }
-
-    return result
-  }
-
   /**
-   * Returns the resolved token object,
-   * Which means that all references are turned into actual values.
-   */
-  public getResolvedObject(): Record<string, string> {
-    const result: Record<string, string> = {}
-
-    for (const key of this.collection.keys()) {
-      const token = this.findToken(key)
-
-      if (token) {
-        result[pascalCase(token.name)] = token.resolvedValue
-      }
-    }
-
-    return result
-  }
-
-  /**
-   *
-   * @param literal The name of the constant
+   * Get a javascript reference object
+   * @param resolved All references are resolved as values
    * @returns
    */
-  public getTsString(literal = 'ShorelineTokens') {
-    return `export const ${literal} = ${JSON.stringify(this.getObject())};`
+  public getObject(resolved = false): Record<string, string> {
+    const result: Record<string, string> = {}
+
+    for (const key of this.collection.keys()) {
+      const token = this.findToken(key)
+
+      if (token) {
+        result[pascalCase(token.name)] = resolved
+          ? token.resolvedValue
+          : token.cssReference
+      }
+    }
+
+    return result
   }
 
-  public async getTsCode(literal = 'ShorelineTokens'): Promise<string> {
-    const code = await format(this.getTsString(literal), {
+  /**
+   * Return ts code for the reference object
+   * @param literal The name of the constant
+   * @param resolved All references are resolved as values
+   */
+  public async getTs(literal = 'ShorelineTokens', resolved = false) {
+    const unformatedTs = `export const ${literal} = ${JSON.stringify(
+      this.getObject(resolved)
+    )};`
+
+    const formattedTs = await format(unformatedTs, {
       parser: 'typescript',
       semi: false,
       singleQuote: true,
     })
 
-    return code
+    return formattedTs
   }
 
-  public getCssString(layer = 'sl-tokens') {
+  /**
+   * Return css code
+   * @param useLayers Add layer declaration and scoping
+   * @param resolved All references are resolved as values
+   */
+  public async getCss(useLayers = true, resolved = false) {
     let cssString = ''
 
     for (const key of this.collection.keys()) {
       const token = this.findToken(key)
 
       if (token) {
-        cssString += `${cssesc(token.cssProperty)}: ${cssesc(
-          token.cssValue
-        )};\n`
+        const tokenValue = resolved ? token.resolvedValue : token.cssValue
+
+        cssString += `${cssesc(token.cssProperty)}: ${cssesc(tokenValue)};\n`
       }
     }
 
-    return layer
-      ? `@layer ${layer} { :root { ${cssString} }}`
+    const cssCode = useLayers
+      ? `${shorelineLayers} @layer sl-tokens { :root { ${cssString} }}`
       : `:root { ${cssString} }`
-  }
-
-  public getResolvedCssString() {
-    let draftCssString = ''
-
-    for (const key of this.collection.keys()) {
-      const token = this.findToken(key)
-
-      if (token) {
-        draftCssString += `${cssesc(token.cssProperty)}: ${cssesc(
-          token.resolvedValue
-        )};\n`
-      }
-    }
-
-    return `@layer sl-tokens { :root { ${draftCssString} }}`
-  }
-
-  public async getCssCode(
-    layer = 'sl-tokens',
-    preflight = true
-  ): Promise<string> {
-    const cssString = this.getCssString(layer)
-
-    const preflightCode = preflight
-      ? fse.readFileSync(path.resolve(__dirname, 'preflight.css')).toString()
-      : ''
 
     const { css: unformatedCss } = await postcss([
       presetEnv({
@@ -181,15 +149,15 @@ export class TokenCollecton {
           'nesting-rules': true,
         },
       }),
-    ]).process(preflightCode + cssString)
+    ]).process(cssCode)
 
-    const cssCode = await format(unformatedCss, {
+    const formattedCss = await format(unformatedCss, {
       parser: 'css',
       semi: false,
       singleQuote: true,
     })
 
-    return cssCode
+    return formattedCss
   }
 }
 

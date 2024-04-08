@@ -16,8 +16,8 @@ export async function css() {
 
   const collection = new TokenCollecton(extendedConfig?.tokens ?? {})
 
-  const css = await collection.getCssCode()
-  const tokens = await collection.getTsCode()
+  const css = await collection.getCss()
+  const tokens = await collection.getTs()
 
   outputFile({
     path: `${extendedConfig.outdir}/styles.css`,

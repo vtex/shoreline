@@ -24,15 +24,12 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "pnpm run build:ts && pnpm run build:css",
-    "build:ts": "tsup",
-    "build:css": "postcss --config postcss.config.mjs src/*.css --base src --dir dist"
+    "build": "tsup"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "20.4.5",
-    "postcss-cli": "10.1.0"
+    "@types/node": "20.4.5"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
