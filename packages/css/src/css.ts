@@ -1,8 +1,8 @@
 import { loadConfig } from 'c12'
-import type { ShorelineConfig } from '@vtex/shoreline-utils'
 import fse from 'fs-extra'
 
 import { extendConfig } from './config'
+import type { ShorelineConfig } from './types'
 import { TokenCollecton } from './token-collection'
 
 export async function css() {

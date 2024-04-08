@@ -1,5 +1,5 @@
-import type { ShorelineConfig } from '@vtex/shoreline-utils'
 import { merge, constants } from '@vtex/shoreline-utils'
+import type { ShorelineConfig } from './types'
 
 /**
  * Extends the Shoreline config by merging the preset with aditional properties.

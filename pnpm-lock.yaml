@@ -597,6 +597,9 @@ importers:
       '@vtex/shoreline-components':
         specifier: ^1.0.0-rc.23
         version: link:../components
+      '@vtex/shoreline-css':
+        specifier: ^1.0.0-rc.23
+        version: link:../css
       '@vtex/shoreline-date':
         specifier: ^1.0.0-rc.23
         version: link:../date

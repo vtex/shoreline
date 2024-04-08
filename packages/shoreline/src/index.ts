@@ -487,12 +487,11 @@ export type {
   ElementWithRef,
   LiteralUnion,
   NullToObject,
-  Preset,
   Primitive,
   Recursive,
   RenderProps,
-  ShorelineConfig,
   StripEnums,
   TupleTypes,
   UnionToIntersection,
 } from '@vtex/shoreline-utils'
+export type { ShorelineConfig } from '@vtex/shoreline-css'
