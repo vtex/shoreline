@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.24](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.23...@vtex/shoreline-theme-sunrise@1.0.0-rc.24) (2024-04-09)
+
+### Bug Fixes
+
+- **config:** move shoreline config to css ([7356ffe](https://github.com/vtex/shoreline/commit/7356ffe4709148e5f79f79f165ccd254ac2bdd16))
+
 # [1.0.0-rc.23](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.22...@vtex/shoreline-theme-sunrise@1.0.0-rc.23) (2024-04-09)
 
 **Note:** Version bump only for package @vtex/shoreline-theme-sunrise

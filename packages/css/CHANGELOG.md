@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.24](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.23...@vtex/shoreline-css@1.0.0-rc.24) (2024-04-09)
+
+### Bug Fixes
+
+- **config:** move shoreline config to css ([7356ffe](https://github.com/vtex/shoreline/commit/7356ffe4709148e5f79f79f165ccd254ac2bdd16))
+- **css:** fix token-collection typo ([edc501f](https://github.com/vtex/shoreline/commit/edc501f4892a2a403b4e1affb7a93328c20e0a44))
+
 # [1.0.0-rc.23](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.22...@vtex/shoreline-css@1.0.0-rc.23) (2024-04-09)
 
 **Note:** Version bump only for package @vtex/shoreline-css

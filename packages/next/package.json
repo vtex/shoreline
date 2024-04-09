@@ -1,7 +1,7 @@
 {
   "name": "@vtex/shoreline-next",
   "description": "Nextjs-aware Shoreline components",
-  "version": "1.0.0-rc.23",
+  "version": "1.0.0-rc.24",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -42,7 +42,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline": "^1.0.0-rc.23",
+    "@vtex/shoreline": "^1.0.0-rc.24",
     "next": "14.1.3"
   }
 }

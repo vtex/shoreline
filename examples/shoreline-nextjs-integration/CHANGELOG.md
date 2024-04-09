@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.24](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.23...example@1.0.0-rc.24) (2024-04-09)
+
+**Note:** Version bump only for package example
+
 # [1.0.0-rc.23](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.22...example@1.0.0-rc.23) (2024-04-09)
 
 **Note:** Version bump only for package example
