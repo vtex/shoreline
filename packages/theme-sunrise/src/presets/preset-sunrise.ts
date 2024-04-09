@@ -1,4 +1,4 @@
-import type { ShorelineConfig } from '@vtex/shoreline-utils'
+import type { ShorelineConfig } from '@vtex/shoreline-css'
 
 export const presetSunrise: ShorelineConfig = {
   outdir: './shoreline',

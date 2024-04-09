@@ -47,28 +47,3 @@ export type StripEnums<T extends Record<string, any>> = {
     ? undefined
     : any
 }
-
-export type Preset = ShorelineConfig
-
-export interface ShorelineConfig {
-  /**
-   * The preset
-   */
-  preset?: ShorelineConfig
-  /**
-   * The output directory.
-   */
-  outdir?: string
-  /**
-   * The current working directory.
-   */
-  cwd?: string
-  /**
-   * The namespace prefix for the generated CSS classes and css variables.
-   */
-  prefix?: string
-  /**
-   * Tokens
-   */
-  tokens?: Record<string, any>
-}

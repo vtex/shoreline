@@ -1,3 +1,3 @@
-import { defineConfig } from '../../../define-config'
+import { defineConfig } from '../../../config'
 
 export default defineConfig()

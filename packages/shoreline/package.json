@@ -52,6 +52,7 @@
     "@vtex/shoreline-icons": "^1.0.0-rc.23",
     "@vtex/shoreline-primitives": "^1.0.0-rc.23",
     "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.23",
-    "@vtex/shoreline-utils": "^1.0.0-rc.23"
+    "@vtex/shoreline-utils": "^1.0.0-rc.23",
+    "@vtex/shoreline-css": "^1.0.0-rc.23"
   }
 }
