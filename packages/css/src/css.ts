@@ -3,7 +3,7 @@ import fse from 'fs-extra'
 
 import { extendConfig } from './config'
 import type { ShorelineConfig } from './types'
-import { TokenCollecton } from './token-collection'
+import { TokenCollection } from './token-collection'
 
 export async function css() {
   const loadedConfig = await loadConfig({
@@ -14,7 +14,7 @@ export async function css() {
   const config: ShorelineConfig = loadedConfig?.config ?? {}
   const extendedConfig = extendConfig(config)
 
-  const collection = new TokenCollecton(extendedConfig?.tokens ?? {})
+  const collection = new TokenCollection(extendedConfig?.tokens ?? {})
 
   const css = await collection.getCss()
   const tokens = await collection.getTs()

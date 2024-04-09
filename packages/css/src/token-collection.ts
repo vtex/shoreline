@@ -16,7 +16,7 @@ import presetEnv from 'postcss-preset-env'
 export const shorelineLayers =
   '@layer sl-reset, sl-base, sl-tokens, sl-components, sl-extended-components;'
 
-export class TokenCollecton {
+export class TokenCollection {
   private collection: Map<string, Token>
 
   constructor(tokens: AnyObject) {

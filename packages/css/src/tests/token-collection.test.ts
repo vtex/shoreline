@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@vtex/shoreline-test-utils'
-import { TokenCollecton, shorelineLayers } from '../token-collection'
+import { TokenCollection, shorelineLayers } from '../token-collection'
 
 const testTokens = {
   color: {
@@ -16,7 +16,7 @@ const testTokens = {
   },
 }
 
-const testCollection = new TokenCollecton(testTokens)
+const testCollection = new TokenCollection(testTokens)
 
 function removeWhiteSpace(str: string) {
   return str.replace(/\s/g, '')
