@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-date",
-  "version": "1.0.0-rc.24",
+  "version": "1.0.0-rc.25",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -48,7 +48,7 @@
     "@react-aria/datepicker": "3.9.0",
     "@react-stately/calendar": "3.4.2",
     "@react-stately/datepicker": "3.9.0",
-    "@vtex/shoreline-icons": "^1.0.0-rc.24",
-    "@vtex/shoreline-utils": "^1.0.0-rc.24"
+    "@vtex/shoreline-icons": "^1.0.0-rc.25",
+    "@vtex/shoreline-utils": "^1.0.0-rc.25"
   }
 }

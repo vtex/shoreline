@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-theme-sunrise",
-  "version": "1.0.0-rc.24",
+  "version": "1.0.0-rc.25",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -43,7 +43,7 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "dependencies": {
-    "@vtex/shoreline-utils": "^1.0.0-rc.24"
+    "@vtex/shoreline-utils": "^1.0.0-rc.25"
   },
   "devDependencies": {
     "@csstools/postcss-sass": "5.1.1",

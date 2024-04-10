@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.0.0-rc.24",
+  "version": "1.0.0-rc.25",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -49,17 +49,17 @@
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "postcss": "8.4.32",
+    "postcss-cli": "11.0.0",
     "postcss-import": "15.1.0",
-    "postcss-preset-env": "9.3.0",
-    "postcss-cli": "11.0.0"
+    "postcss-preset-env": "9.3.0"
   },
   "dependencies": {
-    "@vtex/shoreline-components": "^1.0.0-rc.24",
-    "@vtex/shoreline-css": "^1.0.0-rc.24",
-    "@vtex/shoreline-date": "^1.0.0-rc.24",
-    "@vtex/shoreline-icons": "^1.0.0-rc.24",
-    "@vtex/shoreline-primitives": "^1.0.0-rc.24",
-    "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.24",
-    "@vtex/shoreline-utils": "^1.0.0-rc.24"
+    "@vtex/shoreline-components": "^1.0.0-rc.25",
+    "@vtex/shoreline-css": "^1.0.0-rc.25",
+    "@vtex/shoreline-date": "^1.0.0-rc.25",
+    "@vtex/shoreline-icons": "^1.0.0-rc.25",
+    "@vtex/shoreline-primitives": "^1.0.0-rc.25",
+    "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.25",
+    "@vtex/shoreline-utils": "^1.0.0-rc.25"
   }
 }

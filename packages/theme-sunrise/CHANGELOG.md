@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.25](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.24...@vtex/shoreline-theme-sunrise@1.0.0-rc.25) (2024-04-10)
+
+### Features
+
+- **shoreline:** add unlayered css ([35bdb8b](https://github.com/vtex/shoreline/commit/35bdb8b76f9e28430b033d2f8d20e121647b6105))
+
 # [1.0.0-rc.24](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.23...@vtex/shoreline-theme-sunrise@1.0.0-rc.24) (2024-04-09)
 
 ### Bug Fixes
