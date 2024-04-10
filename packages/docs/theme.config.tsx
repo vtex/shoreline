@@ -8,6 +8,7 @@ import {
   RelatedComponent,
   RelatedComponentList,
 } from './components/related-component'
+import { Preview } from './components/preview'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -27,6 +28,7 @@ const config: DocsThemeConfig = {
     IconsGrid,
     RelatedComponentList: RelatedComponentList as React.FC,
     RelatedComponent: RelatedComponent as React.FC,
+    Preview: Preview as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
