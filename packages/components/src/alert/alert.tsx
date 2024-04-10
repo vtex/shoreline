@@ -69,7 +69,7 @@ function getIcon(variant: AlertVariant = 'informational') {
 
 export type AlertVariant = 'informational' | 'success' | 'critical' | 'warning'
 
-export interface AlertProps extends ComponentPropsWithoutRef<'div'> {
+export interface AlertOptions {
   /**
    * Variants of the alert, one of: informational, success, critical, warning.
    * @default 'informational'
@@ -79,8 +79,6 @@ export interface AlertProps extends ComponentPropsWithoutRef<'div'> {
    * Callback fired when the alert is dismissed.
    */
   onDismiss?: MouseEventHandler<HTMLButtonElement>
-  /**
-   * The content of the alert.
-   */
-  children?: React.ReactNode
 }
+
+export type AlertProps = AlertOptions & ComponentPropsWithoutRef<'div'>

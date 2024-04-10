@@ -110,16 +110,3 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifacts
-
-      - name: Generate Documentation
-        env:
-          STORYBOOK_URL: 'https://shoreline.storybook.vtex.com'
-        run: |
-          if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
-            exit 0
-          fi
-          git pull --rebase
-          pnpm run gen:docs
-          git add ./packages/docs
-          git commit -m "docs: generate documentation from $GITHUB_SHA [skip-ci]" --allow-empty
-          git push -u origin main --force

@@ -22,10 +22,12 @@ export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(
   return <Comp data-sl-center ref={ref} {...domProps} />
 })
 
-export interface CenterProps extends ComponentPropsWithoutRef<'div'> {
+export interface CenterOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type CenterProps = CenterOptions & ComponentPropsWithoutRef<'div'>
