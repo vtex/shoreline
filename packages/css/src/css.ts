@@ -17,17 +17,24 @@ export async function css() {
   const collection = new TokenCollection(extendedConfig?.tokens ?? {})
 
   const css = await collection.getCss()
-  const tokens = await collection.getTs()
+  const cssUnlayered = await collection.getCss(false, false)
+  const ts = await collection.getTs()
 
   outputFile({
-    path: `${extendedConfig.outdir}/styles.css`,
+    path: `${extendedConfig.outdir}/tokens.css`,
     code: Buffer.from(css),
-    successMessage: '🎨 Style generated!',
+    successMessage: '🎨 CSS tokens generated!',
+  })
+
+  outputFile({
+    path: `${extendedConfig.outdir}/tokens-unlayered.css`,
+    code: Buffer.from(cssUnlayered),
+    successMessage: '🎨 Unlayered CSS tokens generated!',
   })
 
   outputFile({
     path: `${extendedConfig.outdir}/tokens.ts`,
-    code: Buffer.from(tokens),
+    code: Buffer.from(ts),
     successMessage: '🍰 Tokens generated!',
   })
 }

@@ -14,7 +14,7 @@ import { format } from 'prettier'
 import presetEnv from 'postcss-preset-env'
 
 export const shorelineLayers =
-  '@layer sl-reset, sl-base, sl-tokens, sl-components, sl-extended-components;'
+  '@layer sl-reset, sl-base, sl-tokens, sl-components;'
 
 export class TokenCollection {
   private collection: Map<string, Token>

@@ -18,23 +18,20 @@
       "types": "./dist/index.d.ts"
     },
     "./css": "./dist/sunrise.css",
-    "./css-tokens": "./dist/tokens.css",
-    "./css-components": "./dist/components.css"
+    "./css-unlayered": "./dist/sunrise-unlayered.css"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "prebuild": "rm -rf dist && rm -rf shoreline && pnpm run theme",
-    "dev": "concurrently -p [{name}] -n styles:all@shoreline,styles:tokens@shoreline,styles:components@shoreline -c bgGreen,bgBlue,bgPink \"pnpm run dev:all\" \"pnpm run dev:tokens\" \"pnpm run dev:components\"",
-    "dev:all": "postcss ./src/index.scss -o dist/sunrise.css -w",
-    "dev:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css -w",
-    "dev:components": "postcss ./src/components/index.scss -o dist/components.css -w",
-    "build": "pnpm run prebuild && pnpm run build:all && pnpm run build:tokens && pnpm run build:components && pnpm run build:ts",
+    "dev": "concurrently -p [{name}] -n css@shoreline,css-unlayered@shoreline -c bgGreen,bgBlue \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
+    "dev:css": "postcss ./src/index.scss -o dist/sunrise.css -w",
+    "dev:css-unlayered": "postcss ./src/index-unlayered.scss -o dist/sunrise-unlayered.css -w",
+    "build": "pnpm run prebuild && pnpm run build:css && pnpm run build:css-unlayered && pnpm run build:ts",
     "build:ts": "tsup",
-    "build:all": "postcss ./src/index.scss -o dist/sunrise.css",
-    "build:tokens": "postcss ./src/tokens/index.scss -o dist/tokens.css",
-    "build:components": "postcss ./src/components/index.scss -o dist/components.css",
+    "build:css": "postcss ./src/index.scss -o dist/sunrise.css",
+    "build:css-unlayered": "postcss ./src/index-unlayered.scss -o dist/sunrise-unlayered.css",
     "theme": "shoreline css"
   },
   "repository": {
