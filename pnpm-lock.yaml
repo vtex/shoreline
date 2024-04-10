@@ -625,6 +625,9 @@ importers:
       '@types/node':
         specifier: 20.11.6
         version: 20.11.6
+      concurrently:
+        specifier: 8.2.2
+        version: 8.2.2
       cssnano:
         specifier: 6.0.2
         version: 6.0.2(postcss@8.4.32)
