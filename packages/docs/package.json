@@ -3,27 +3,33 @@
   "version": "1.0.0-rc.25",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build-docs": "npm --prefix ../../ run build && next build",
-    "start": "next start"
+    "dev": "npm run gen:examples && next dev",
+    "build-docs": "npm --prefix ../../ run build && npm run gen:examples && next build",
+    "start": "next start",
+    "gen:examples": "node ./scripts/build-examples.mjs"
   },
   "devDependencies": {
-    "@types/he": "1.2.3"
+    "@types/fs-extra": "11.0.4",
+    "@types/node": "20.12.7"
   },
   "dependencies": {
     "@next/third-parties": "^14.1.0",
     "@sentry/nextjs": "^7.103.0",
     "@vtex/shoreline-components": "workspace:*",
+    "@vtex/shoreline": "workspace:*",
     "@vtex/shoreline-date": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-theme-sunrise": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
+    "fs-extra": "11.2.0",
     "google": "link:@next/third-parties/google",
     "next": "13.4.7",
     "nextra": "2.13.2",
     "nextra-theme-docs": "2.13.2",
+    "prettier": "3.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "shiki": "1.3.0"
   },
   "browserslist": {
     "production": [

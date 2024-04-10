@@ -1,0 +1,47 @@
+.preview {
+  --min-h: 15rem;
+  --max-h: 30rem;
+  --space: var(--sl-space-3);
+  --radii: var(--sl-border-radius-large);
+}
+
+.previewWrapper {
+  padding: var(--space);
+  min-height: var(--min-h);
+  border-radius: var(--radii);
+  background-color: color-mix(
+    in srgb,
+    var(--sl-color-gray-1) 50%,
+    transparent 50%
+  );
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.codeWrapper > pre {
+  padding: var(--space);
+  min-height: var(--min-h);
+  max-height: var(--max-h);
+  border-radius: var(--radii);
+  overflow: auto;
+}
+
+.copyButton {
+  --bg-hue: 0 0 100;
+
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: var(--sl-fg-inverted);
+  padding: var(--sl-space-2);
+  border-radius: var(--sl-border-radius-medium);
+  background-color: hsla(var(--bg-hue) / 0%);
+}
+
+.copyButton:hover {
+  background-color: hsla(var(--bg-hue) / 5%);
+}
+
+.copyButton:active {
+  background-color: hsla(var(--bg-hue) / 10%);
+}
