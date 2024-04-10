@@ -68,6 +68,10 @@ function spanizeString(children: ReactNode) {
 
 export interface ButtonOptions {
   /**
+   * Button contents
+   */
+  children: ReactNode
+  /**
    * Increase or decrease padding.
    * @default 'normal'
    */
