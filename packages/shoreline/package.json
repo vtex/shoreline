@@ -17,15 +17,20 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
-    "./css": "./dist/index.css"
+    "./css": "./dist/styles.css",
+    "./css-unlayered": "./dist/styles-unlayered.css"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "dev": "tsup --watch",
-    "build": "tsup"
+    "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
+    "dev:css": "postcss ./src/styles.css -o dist/styles.css -w",
+    "dev:css-unlayered": "postcss ./src/styles-unlayered.css -o dist/styles-unlayered.css -w",
+    "build": "concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
+    "build:css": "postcss ./src/styles.css -o dist/styles.css",
+    "build:css-unlayered": "postcss ./src/styles-unlayered.css -o dist/styles-unlayered.css"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -41,10 +46,12 @@
   },
   "devDependencies": {
     "@types/node": "20.11.6",
+    "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "postcss": "8.4.32",
     "postcss-import": "15.1.0",
-    "postcss-preset-env": "9.3.0"
+    "postcss-preset-env": "9.3.0",
+    "postcss-cli": "11.0.0"
   },
   "dependencies": {
     "@vtex/shoreline-components": "^1.0.0-rc.24",
