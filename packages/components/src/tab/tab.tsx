@@ -43,4 +43,4 @@ export interface TabOptions {
   asChild?: boolean
 }
 
-type TabProps = TabOptions & ComponentPropsWithoutRef<'button'>
+export type TabProps = TabOptions & ComponentPropsWithoutRef<'button'>
