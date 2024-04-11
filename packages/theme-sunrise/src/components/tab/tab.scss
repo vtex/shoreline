@@ -17,8 +17,8 @@
 
   & [data-sl-tab-content] {
     background: var(--sl-bg-base-plain);
-    color: var(--sl-fg-base-soft);
-    border-radius: var(--sl-border-radius-small);
+    color: var(--sl-fg-muted);
+    border-radius: var(--sl-border-radius-medium);
     padding: var(--sl-space-1) var(--sl-space-2);
     margin: calc(var(--sl-space-1) * -1) calc(var(--sl-space-2) * -1);
   }
@@ -26,6 +26,7 @@
   &:hover {
     & [data-sl-tab-content] {
       background: var(--sl-bg-base-plain-hover);
+      color: var(--sl-fg-muted-hover);
 
       &:disabled {
         background: transparent;
@@ -46,14 +47,22 @@
     border-color: var(--sl-bg-accent-strong);
 
     & > [data-sl-tab-content] {
-      color: var(--sl-fg-base);
+      color: var(--sl-fg-accent);
+      background: var(--sl-bg-accent-plain);
+    }
+
+    &:hover {
+      & > [data-sl-tab-content] {
+        color: var(--sl-fg-accent-hover);
+        background: var(--sl-bg-accent-plain-hover);
+      }
     }
 
     &:focus-visible {
       & [data-sl-tab-content] {
         box-shadow: var(--sl-focus-ring-accent);
-        background: var(--sl-bg-base-plain-hover);
-        color: var(--sl-fg-muted-hover);
+        background: var(--sl-bg-accent-plain-hover);
+        color: var(--sl-fg-accent);
       }
     }
   }
