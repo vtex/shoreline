@@ -1,0 +1,33 @@
+.propsDocs {
+  border: var(--sl-border-base);
+  border-radius: var(--sl-border-radius-large);
+  margin-top: var(--sl-space-3);
+  padding: var(--sl-space-3) var(--sl-space-0);
+}
+
+.prop {
+  padding: var(--sl-space-0) var(--sl-space-3);
+}
+
+.tag {
+  --color: #000;
+  --background: #fff;
+
+  border-radius: var(--sl-border-radius-medium);
+  color: var(--color);
+  background: var(--background);
+  padding: var(--sl-space-1) var(--sl-space-2);
+  font-family: monospace;
+  font-size: 0.75rem;
+  display: inline-flex;
+}
+
+.tag[data-color='purple'] {
+  --color: #6847ba;
+  --background: #6847ba14;
+}
+
+.tag[data-color='green'] {
+  --color: #458443;
+  --background: #45844314;
+}

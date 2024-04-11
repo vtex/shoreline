@@ -27,7 +27,6 @@
     "version": "lerna run version",
     "lint:css": "stylelint \"**/*.css\"",
     "chromatic": "chromatic --exit-zero-on-changes --build-script-name=build:storybook",
-    "gen:docs": "npm --prefix packages/docs-generator run start",
     "gen:component": "plop component",
     "create:icon": "plop icon",
     "create:icon-variant": "plop icon-variant",

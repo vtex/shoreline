@@ -20,7 +20,6 @@ export function Show() {
         <Checkbox indeterminate disabled>
           Indeterminate and disabled
         </Checkbox>
-        <Checkbox>{<VisuallyHidden>With Error</VisuallyHidden>}</Checkbox>
       </Stack>
       <Stack space="5rem">
         <CheckboxGroup label="Options">

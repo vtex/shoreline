@@ -1,12 +1,11 @@
 import React from 'react'
 
-import type { AlertProps, AlertVariant } from '../index'
+import type { AlertProps } from '../index'
 import { Alert } from '../index'
 import { Text } from '../../text'
 import { Button } from '../../button'
-import type { StoryObj } from '@storybook/react'
 
-const variants: AlertVariant[] = [
+const variants: Array<AlertProps['variant']> = [
   'success',
   'critical',
   'warning',
@@ -43,7 +42,7 @@ export default {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-} as StoryObj<StoryArgs>
+}
 
 interface StoryArgs extends AlertProps {
   withAction: boolean

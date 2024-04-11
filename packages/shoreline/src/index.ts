@@ -130,7 +130,6 @@ export {
 export type {
   AccessibleIconProps,
   AlertProps,
-  AlertVariant,
   BleedProps,
   ButtonProps,
   CenterProps,

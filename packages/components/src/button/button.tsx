@@ -66,7 +66,10 @@ function spanizeString(children: ReactNode) {
   })
 }
 
-export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+export interface ButtonOptions {
+  /**
+   * Button contents
+   */
   children: ReactNode
   /**
    * Increase or decrease padding.
@@ -94,3 +97,5 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
    */
   asChild?: boolean
 }
+
+export type ButtonProps = ButtonOptions & ComponentPropsWithoutRef<'button'>

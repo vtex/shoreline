@@ -41,7 +41,7 @@ export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
   )
 })
 
-export interface BleedProps extends ComponentPropsWithoutRef<'div'> {
+export interface BleedOptions {
   /**
    * Top bleed
    * @default '$space-0'
@@ -63,3 +63,5 @@ export interface BleedProps extends ComponentPropsWithoutRef<'div'> {
    */
   end?: string
 }
+
+export type BleedProps = BleedOptions & ComponentPropsWithoutRef<'div'>

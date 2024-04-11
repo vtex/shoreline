@@ -2,51 +2,30 @@
 
 Buttons triggers allow users to identify and start the most important actions in a container.
 
-<iframe src="https://shoreline.storybook.vtex.com?path=/story/components-button--play&full=1&shortcuts=false&singleStory=true" 
-    style={{"width":"100%","height":600,"border":0,"borderRadius":4}}></iframe>
+<Preview name="button" />
 
-## Parameters
+## Examples
 
-### `props`
+### Variants
 
-- Type: `@vtex/shoreline-components.ButtonProps & @types/react.React.RefAttributes<typescript.HTMLButtonElement>`
+<Preview name="button-variants" />
+
+### Sizes
+
+<Preview name="button-sizes" />
+
+### Upload
+
+<Preview name="button-upload" />
 
 ## Props
 
-### `asChild` (optional)
+### Required
 
-Merge button props with immediate child.
+<PropsDocs name="button" required />
 
-- Type: `boolean`
+### Optional
 
-- Default: `false`
+<PropsDocs name="button" />
 
-### `children`
 
-- Type: `@types/react.React.ReactNode`
-
-### `loading` (optional)
-
-Disable the button and show a spinner.
-
-- Type: `boolean`
-
-- Default: `false`
-
-### `size` (optional)
-
-Increase or decrease padding.
-
-- Type: `normal | large`
-
-- Default: `'normal'`
-
-### `variant` (optional)
-
-Change between color combinations.
-
-- Type: `primary | secondary | tertiary | critical | criticalTertiary`
-
-- Default: `'secondary'`
-
-[View source](https://github.com/vtex/shoreline/blob/7e03f7690/packages/components/src/button/button.tsx#L15)
