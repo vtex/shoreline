@@ -30,15 +30,17 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
       render={asChild ? (children as JSX.Element) : undefined}
       {...otherProps}
     >
-      {children}
+      <div data-sl-tab-content>{children}</div>
     </BaseTab>
   )
 })
 
-export interface TabProps extends ComponentPropsWithoutRef<'button'> {
+export interface TabOptions {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type TabProps = TabOptions & ComponentPropsWithoutRef<'button'>

@@ -1,49 +1,69 @@
 [data-sl-tab] {
-  --sl-tab-border-width: 0rem 0rem 0.1875rem 0rem;
+  --sl-tab-border-bottom-width: 0.125rem;
+  --sl-tab-border-width: 0rem 0rem var(--sl-tab-border-bottom-width) 0rem;
 
   height: 2.75rem;
   background: transparent;
-  color: var(--sl-fg-muted);
   border-radius: var(--sl-border-radius-none);
   border-width: var(--sl-tab-border-width);
   border-color: transparent;
   border-style: solid;
   font: var(--sl-text-action-font);
   letter-spacing: var(--sl-text-action-letter-spacing);
-  padding: var(--sl-space-3);
+  padding-right: var(--sl-space-3);
+  padding-left: var(--sl-space-3);
+  margin-bottom: -0.0625rem;
   outline: none;
-  cursor: pointer;
 
-  &:hover {
-    color: var(--sl-fg-muted-hover);
-    border-color: var(--sl-color-gray-6);
+  & [data-sl-tab-content] {
+    background: var(--sl-bg-base-plain);
+    color: var(--sl-fg-muted);
+    border-radius: var(--sl-border-radius-medium);
+    padding: var(--sl-space-1) var(--sl-space-2);
+    margin: calc(var(--sl-space-1) * -1) calc(var(--sl-space-2) * -1);
   }
 
-  &:active {
-    color: var(--sl-fg-muted-pressed);
-    border-color: var(--sl-color-gray-7);
+  &:hover {
+    & [data-sl-tab-content] {
+      background: var(--sl-bg-base-plain-hover);
+      color: var(--sl-fg-muted-hover);
+
+      &:disabled {
+        background: transparent;
+        color: var(--sl-fg-base-disabled);
+      }
+    }
   }
 
   &:focus-visible {
-    box-shadow: var(--sl-focus-ring-base);
+    & [data-sl-tab-content]:focus-within {
+      box-shadow: var(--sl-focus-ring-base);
+      background: var(--sl-bg-base-plain-hover);
+      color: var(--sl-fg-muted-hover);
+    }
   }
 
   &[aria-selected='true'] {
-    color: var(--sl-fg-accent);
     border-color: var(--sl-bg-accent-strong);
 
-    &:hover {
-      color: var(--sl-fg-accent-hover);
-      border-color: var(--sl-bg-accent-strong-hover);
+    & > [data-sl-tab-content] {
+      color: var(--sl-fg-accent);
+      background: var(--sl-bg-accent-plain);
     }
 
-    &:active {
-      color: var(--sl-fg-accent-pressed);
-      border-color: var(--sl-bg-accent-strong-pressed);
+    &:hover {
+      & > [data-sl-tab-content] {
+        color: var(--sl-fg-accent-hover);
+        background: var(--sl-bg-accent-plain-hover);
+      }
     }
 
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-accent);
+      & [data-sl-tab-content] {
+        box-shadow: var(--sl-focus-ring-accent);
+        background: var(--sl-bg-accent-plain-hover);
+        color: var(--sl-fg-accent);
+      }
     }
   }
 }
