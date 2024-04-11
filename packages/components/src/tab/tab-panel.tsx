@@ -34,7 +34,7 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
   }
 )
 
-export interface TabPanelProps extends ComponentPropsWithoutRef<'div'> {
+export interface TabPanelOptions extends ComponentPropsWithoutRef<'div'> {
   /**
    * Enable children composition
    * @default false
@@ -45,3 +45,5 @@ export interface TabPanelProps extends ComponentPropsWithoutRef<'div'> {
    */
   tabId?: string
 }
+
+export type TabPanelProps = TabPanelOptions & ComponentPropsWithoutRef<'div'>

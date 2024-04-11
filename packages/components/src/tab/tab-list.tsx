@@ -34,10 +34,12 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   }
 )
 
-export interface TabListProps extends ComponentPropsWithoutRef<'div'> {
+export interface TabListOptions {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type TabListProps = TabListOptions & ComponentPropsWithoutRef<'div'>
