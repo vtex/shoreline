@@ -10,6 +10,7 @@ import {
 } from './components/related-component'
 import { Preview } from './components/preview'
 import { PropsDocs } from './components/props-docs'
+import { ComponentDescription } from './components/component-description'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -31,6 +32,7 @@ const config: DocsThemeConfig = {
     RelatedComponent: RelatedComponent as React.FC,
     Preview: Preview as React.FC,
     PropsDocs: PropsDocs as React.FC,
+    ComponentDescription: ComponentDescription as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

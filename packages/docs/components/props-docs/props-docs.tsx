@@ -34,8 +34,8 @@ export function PropsDocs(props: PropsDocsProps) {
           String(prop.defaultValue).trim().replace(/'/g, '') ?? 'undefined'
 
         return (
-          <Fragment>
-            <div key={prop.name} className={styles.prop}>
+          <Fragment key={prop.name}>
+            <div className={styles.prop}>
               <h4 className="nx-font-semibold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100 ">
                 {prop.name}
               </h4>

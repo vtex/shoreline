@@ -8,6 +8,7 @@ const outputDirectory = `${dirname('')}/__props__`
 const outputFile = 'index.ts'
 
 const files = [
+  getPath('primitives', 'accessible-icon', 'accessible-icon'),
   getPath('components', 'alert', 'alert'),
   getPath('components', 'bleed', 'bleed'),
   getPath('components', 'button', 'button'),
