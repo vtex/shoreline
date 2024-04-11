@@ -3,6 +3,7 @@
   --max-h: 30rem;
   --space: var(--sl-space-3);
   --radii: var(--sl-border-radius-large);
+  margin-top: var(--sl-space-5);
 }
 
 .previewWrapper {
