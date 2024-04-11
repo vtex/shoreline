@@ -57,7 +57,7 @@ export type {
   VisuallyHiddenProps,
 } from '@vtex/shoreline-primitives'
 export { Alert } from './alert'
-export type { AlertProps, AlertVariant } from './alert'
+export type { AlertProps } from './alert'
 export { Bleed } from './bleed'
 export type { BleedProps } from './bleed'
 export { Button } from './button'

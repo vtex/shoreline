@@ -1,11 +1,11 @@
 import React from 'react'
 
-import type { AlertProps, AlertVariant } from '../index'
+import type { AlertProps } from '../index'
 import { Alert } from '../index'
 import { Text } from '../../text'
 import { Button } from '../../button'
 
-const variants: AlertVariant[] = [
+const variants: Array<AlertProps['variant']> = [
   'success',
   'critical',
   'warning',
