@@ -1,11 +1,10 @@
-import type { ReactElement, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
 import React, { Children, cloneElement, forwardRef } from 'react'
 
 import { VisuallyHidden } from '../visually-hidden'
 
 /**
- * Makes icons accessible by adding a label
- *
+ * Makes icons accessible by adding a label. It can be used with Shoreline icons or other svg.
  * @kind primitives
  * @example
  * <AccessibleIcon>
@@ -63,10 +62,16 @@ export const AccessibleIcon = forwardRef<HTMLDivElement, AccessibleIconProps>(
   }
 )
 
-export interface AccessibleIconProps {
+export interface AccessibleIconOptions {
   /**
-   * Describe the icon
+   * Icon description
    */
   label: ReactNode
+  /**
+   * Component children, normally a <svg />.
+   */
   children?: ReactNode
 }
+
+export type AccessibleIconProps = AccessibleIconOptions &
+  ComponentPropsWithoutRef<'div'>
