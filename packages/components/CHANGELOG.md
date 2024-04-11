@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.28](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.27...@vtex/shoreline-components@1.0.0-rc.28) (2024-04-11)
+
+### Bug Fixes
+
+- **components:** fix tabs build ([c98551a](https://github.com/vtex/shoreline/commit/c98551ab1c60d8f06ce80c3bcadc366dd7b0b898))
+- **tabs:** adjust design specs ([9d9922e](https://github.com/vtex/shoreline/commit/9d9922e0be4c6cd1d11639b35973849f14faf1e2))
+
 # [1.0.0-rc.27](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.26...@vtex/shoreline-components@1.0.0-rc.27) (2024-04-11)
 
 **Note:** Version bump only for package @vtex/shoreline-components
