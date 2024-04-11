@@ -12,6 +12,8 @@ const files = [
   getPath('components', 'bleed', 'bleed'),
   getPath('components', 'button', 'button'),
   getPath('components', 'center', 'center'),
+  getPath('components', 'checkbox', 'checkbox'),
+  getPath('components', 'checkbox', 'checkbox-group'),
 ]
 
 let tsCode = `

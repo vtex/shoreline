@@ -1,10 +1,13 @@
-import React, { forwardRef } from 'react'
-import { useMergeRef } from '@vtex/shoreline-utils'
+import React, { forwardRef, useMemo, useRef } from 'react'
+import { useMergeRef, mergeProps, useId } from '@vtex/shoreline-utils'
 import { IconCheckSmall, IconMinusSmall } from '@vtex/shoreline-icons'
-
 import { VisuallyHidden } from '@vtex/shoreline-primitives'
-import { useAriaCheckbox } from './use-aria-checkbox'
-import type { AriaCheckboxProps } from './use-aria-checkbox'
+import type { ComponentPropsWithoutRef, Ref } from 'react'
+import { useToggleState } from '@react-stately/toggle'
+import { useCheckbox as useReactAriaCheckbox } from '@react-aria/checkbox'
+import { useFocusRing } from '@react-aria/focus'
+import type { AnyObject } from '@vtex/shoreline-utils'
+
 import { Text } from '../text'
 
 /**
@@ -21,7 +24,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
       isIndeterminate,
       isFocusVisible,
       isDisabled,
-    } = useAriaCheckbox(props)
+    } = useCheckbox(props)
 
     return (
       <label data-sl-checkbox>
@@ -57,4 +60,92 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   }
 )
 
-export type CheckboxProps = AriaCheckboxProps
+export function useCheckbox(props: CheckboxProps): AriaCheckbox {
+  const {
+    id: defaultId,
+    indeterminate = false,
+    disabled,
+    checked,
+    defaultChecked,
+    required,
+    onFocus,
+    onBlur,
+    onChange,
+    ...rest
+  } = props
+
+  const typeUnsafe: AnyObject = {
+    onFocus,
+    onBlur,
+  }
+
+  const { isFocusVisible, focusProps } = useFocusRing()
+  const id = useId(defaultId)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const state = useToggleState({
+    isSelected: checked,
+    defaultSelected: defaultChecked,
+    isDisabled: disabled,
+    isRequired: required,
+    onChange: (checked) =>
+      onChange?.({
+        target: {
+          value: checked,
+          checked,
+        },
+      } as any),
+    ...typeUnsafe,
+    ...rest,
+  })
+
+  const { inputProps } = useReactAriaCheckbox(
+    {
+      id,
+      isIndeterminate: indeterminate,
+      isDisabled: disabled,
+      ...typeUnsafe,
+      ...rest,
+    },
+    state,
+    inputRef
+  )
+
+  const isChecked = useMemo(
+    () => state.isSelected && !indeterminate,
+    [state.isSelected, indeterminate]
+  )
+
+  return {
+    inputRef,
+    isChecked,
+    isFocusVisible,
+    isIndeterminate: indeterminate,
+    isDisabled: inputProps.disabled ?? false,
+    inputProps: mergeProps(inputProps, focusProps),
+  }
+}
+
+export interface AriaCheckbox {
+  inputRef: Ref<HTMLInputElement>
+  isChecked: boolean
+  isFocusVisible: boolean
+  isIndeterminate: boolean
+  isDisabled: boolean
+  inputProps: ComponentPropsWithoutRef<'input'>
+}
+
+export interface CheckboxOptions {
+  /**
+   * Indicates the indeterminate state
+   * @default
+   */
+  indeterminate?: boolean
+  /**
+   * Indicator value
+   */
+  value?: string
+}
+
+export type CheckboxProps = CheckboxOptions &
+  Omit<ComponentPropsWithoutRef<'input'>, 'value'>

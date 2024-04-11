@@ -3,9 +3,9 @@ import React, { Fragment } from 'react'
 
 import allProps from '../../__props__'
 import { Divider, Flex, Grid, GridCell, Text } from '@vtex/shoreline'
-import styles from './props-of.module.css'
+import styles from './props-docs.module.css'
 
-export function PropsOf(props: PropsOfProps) {
+export function PropsDocs(props: PropsDocsProps) {
   const { name, required = false } = props
 
   const reference = allProps[name]
@@ -23,7 +23,7 @@ export function PropsOf(props: PropsOfProps) {
   }
 
   return (
-    <Flex direction="column" className={styles.propsOf}>
+    <Flex direction="column" className={styles.propsDocs}>
       {propsToRender.map((prop: Record<string, any>, index: number) => {
         const type = prop.type
           .split('|')
@@ -84,7 +84,7 @@ interface TagProps {
   children?: ReactNode
 }
 
-interface PropsOfProps {
+interface PropsDocsProps {
   name: string
   required?: boolean
 }
