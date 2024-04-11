@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.27](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@1.0.0-rc.26...@vtex/shoreline-primitives@1.0.0-rc.27) (2024-04-11)
+
+**Note:** Version bump only for package @vtex/shoreline-primitives
+
 # [1.0.0-rc.26](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@1.0.0-rc.25...@vtex/shoreline-primitives@1.0.0-rc.26) (2024-04-10)
 
 **Note:** Version bump only for package @vtex/shoreline-primitives

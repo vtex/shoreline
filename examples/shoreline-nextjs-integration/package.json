@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "1.0.0-rc.26",
+  "version": "1.0.0-rc.27",
   "private": true,
   "scripts": {
     "dev": "concurrently -p [{name}] -n nextjs,vtex \"next dev\" \"vtex link\"",
