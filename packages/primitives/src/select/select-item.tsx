@@ -4,6 +4,9 @@ import { SelectItem as Item } from '@ariakit/react'
 
 import { SelectItemCheck } from './select-item-check'
 
+/**
+ * Option of the Select
+ */
 export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   function SelectItem(props, ref) {
     const { asChild = false, children, hideOnClick, ...domProps } = props
@@ -23,7 +26,7 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   }
 )
 
-export interface SelectItemProps extends ComponentPropsWithoutRef<'div'> {
+export interface SelectItemOptions {
   /**
    * Enable children composition
    * @default false
@@ -39,3 +42,6 @@ export interface SelectItemProps extends ComponentPropsWithoutRef<'div'> {
    */
   hideOnClick?: boolean
 }
+
+export type SelectItemProps = SelectItemOptions &
+  ComponentPropsWithoutRef<'div'>

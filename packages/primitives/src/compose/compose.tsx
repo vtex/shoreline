@@ -5,8 +5,7 @@ import { createComposition } from './create-composition'
 
 /**
  * Composes immediate child with its props and child own props.
- * Used to implement Shoreline composition]
- * @kind primitives
+ * Used to implement Shoreline composition
  * @example
  * function Button({ asChild, ...props }){
  *  const Composition = asChild ? Compose : 'button'
@@ -30,6 +29,8 @@ export const Compose = forwardRef<any, ComposeProps>(function Compose(
   )
 })
 
-export interface ComposeProps extends HTMLAttributes<HTMLElement> {
+export interface ComposeOptions extends HTMLAttributes<HTMLElement> {
   children?: ReactNode
 }
+
+export type ComposeProps = ComposeOptions & HTMLAttributes<HTMLElement>

@@ -5,7 +5,6 @@ import { VisuallyHidden } from '../visually-hidden'
 
 /**
  * Makes icons accessible by adding a label. It can be used with Shoreline icons or other svg.
- * @kind primitives
  * @example
  * <AccessibleIcon>
  *  <svg

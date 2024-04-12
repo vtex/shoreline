@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { SelectList as List } from '@ariakit/react'
 
 /**
- *
+ * List that wraps the SelectItems
  */
 export const SelectList = forwardRef<HTMLDivElement, SelectListProps>(
   function SelectList(props, ref) {
@@ -28,7 +28,7 @@ export const SelectList = forwardRef<HTMLDivElement, SelectListProps>(
   }
 )
 
-export interface SelectListProps extends ComponentPropsWithoutRef<'div'> {
+export interface SelectListOptions {
   /**
    * Enable children composition
    * @default false
@@ -40,3 +40,6 @@ export interface SelectListProps extends ComponentPropsWithoutRef<'div'> {
    */
   alwaysVisible?: boolean
 }
+
+export type SelectListProps = SelectListOptions &
+  ComponentPropsWithoutRef<'div'>

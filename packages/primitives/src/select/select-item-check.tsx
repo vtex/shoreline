@@ -1,8 +1,11 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { SelectItemCheck as ItemCheck } from '@ariakit/react'
 import { IconCheck } from '@vtex/shoreline-icons'
 
+/**
+ * Check indicator of the SelectItem
+ */
 export const SelectItemCheck = forwardRef<
   HTMLSpanElement,
   SelectItemCheckProps
@@ -16,7 +19,12 @@ export const SelectItemCheck = forwardRef<
   )
 })
 
-export interface SelectItemCheckProps {
-  className?: string
+export interface SelectItemCheckOptions {
+  /**
+   * Indicator icon override
+   */
   children?: ReactNode
 }
+
+export type SelectItemCheckProps = SelectItemCheckOptions &
+  ComponentPropsWithoutRef<'span'>

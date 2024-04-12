@@ -8,7 +8,6 @@ import { navigate } from './link-box-utils'
 
 /**
  * A container that acts as a link. It allows text selection and stop its children event propagation.
- * @kind primitives
  * @example
  * <LinkBox href="">
  *   <div>
@@ -35,7 +34,7 @@ export const LinkBox = forwardRef<HTMLDivElement, LinkBoxProps>(
   }
 )
 
-export interface LinkBoxProps extends Omit<ClickableProps, 'onClick'> {
+export interface LinkBoxOptions extends Omit<ClickableProps, 'onClick'> {
   /**
    * The URL that the hyperlink points to.
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href
@@ -48,3 +47,5 @@ export interface LinkBoxProps extends Omit<ClickableProps, 'onClick'> {
    */
   target?: NavigationTarget
 }
+
+export type LinkBoxProps = LinkBoxOptions
