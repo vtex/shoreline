@@ -17,10 +17,12 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   return <Comp data-sl-link ref={ref} {...otherProps} />
 })
 
-export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
+export interface LinkOptions {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type LinkProps = LinkOptions & ComponentPropsWithoutRef<'a'>

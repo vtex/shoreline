@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
+/**
+ * Cell of the table header
+ */
 export const TableHeaderCell = forwardRef<HTMLDivElement, TableHeaderCellProps>(
   function TableHeaderCell(props, ref) {
     const {
@@ -26,8 +29,23 @@ export const TableHeaderCell = forwardRef<HTMLDivElement, TableHeaderCellProps>(
   }
 )
 
-export interface TableHeaderCellProps extends ComponentPropsWithoutRef<'div'> {
+export interface TableHeaderCellOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
+  /**
+   * Represents a sortable column
+   * @default false
+   */
   sortable?: boolean
+  /**
+   * Cell content alignment
+   * @default 'start'
+   */
   align?: 'start' | 'end'
 }
+
+export type TableHeaderCellProps = TableHeaderCellOptions &
+  ComponentPropsWithoutRef<'div'>

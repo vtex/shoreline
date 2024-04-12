@@ -34,7 +34,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
   }
 )
 
-export interface SpinnerProps extends ComponentPropsWithoutRef<'div'> {
+export interface SpinnerOptions {
   /**
    * Specify a description that would be used to best describe the loading state
    * @default 'loading'
@@ -46,3 +46,5 @@ export interface SpinnerProps extends ComponentPropsWithoutRef<'div'> {
    */
   size?: number
 }
+
+export type SpinnerProps = SpinnerOptions & ComponentPropsWithoutRef<'div'>

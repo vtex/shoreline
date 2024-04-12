@@ -30,11 +30,13 @@ export const TableSortIndicator = forwardRef<
   )
 })
 
-export interface TableSortIndicatorProps
-  extends ComponentPropsWithoutRef<'div'> {
+export interface TableSortIndicatorOptions {
   /**
    * Indicates if column is currently sorted, and in witch order
    * @default null
    */
   sorted?: 'asc' | 'desc' | null
 }
+
+export type TableSortIndicatorProps = TableSortIndicatorOptions &
+  ComponentPropsWithoutRef<'div'>

@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
+/**
+ * Body of the table
+ */
 export const TableBody = forwardRef<HTMLDivElement, TableBodyProps>(
   function TableBody(props, ref) {
     const { asChild = false, ...otherProps } = props
@@ -14,6 +17,12 @@ export const TableBody = forwardRef<HTMLDivElement, TableBodyProps>(
   }
 )
 
-export interface TableBodyProps extends ComponentPropsWithoutRef<'div'> {
+export interface TableBodyOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
 }
+
+export type TableBodyProps = TableBodyOptions & ComponentPropsWithoutRef<'div'>

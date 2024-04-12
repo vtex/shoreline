@@ -4,8 +4,6 @@ import { style } from '@vtex/shoreline-utils'
 
 /**
  * Allows the content to bleed into the external container
- *
- * @kind layout
  * @example
  * <Bleed top="$space-2" bottom="$space-2">
  *   <Button>Text</Button>

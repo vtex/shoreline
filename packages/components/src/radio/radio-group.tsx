@@ -86,7 +86,7 @@ export interface RadioGroupState {
   defaultValue?: string | number | null
 }
 
-export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
+export interface RadioGroupOptions {
   /**
    * Whether the radio group is in an error state
    */
@@ -113,6 +113,9 @@ export interface RadioGroupProps extends ComponentPropsWithoutRef<'div'> {
    */
   state?: RadioStore
 }
+
+export type RadioGroupProps = RadioGroupOptions &
+  ComponentPropsWithoutRef<'div'>
 
 export const useRadioState: (props?: RadioGroupState) => RadioStore =
   useRadioStore

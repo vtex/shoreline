@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
+import type { ContentOptions } from '../content'
 import { Content } from '../content'
 
 /**
@@ -38,4 +39,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   }
 )
 
-export type ModalContentProps = ComponentPropsWithoutRef<'div'>
+export type ModalContentOptions = ContentOptions
+
+export type ModalContentProps = ModalContentOptions &
+  ComponentPropsWithoutRef<'div'>

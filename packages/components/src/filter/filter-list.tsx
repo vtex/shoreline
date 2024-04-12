@@ -1,5 +1,8 @@
 import React, { forwardRef } from 'react'
-import type { SelectListProps } from '@vtex/shoreline-primitives'
+import type {
+  SelectListOptions,
+  SelectListProps,
+} from '@vtex/shoreline-primitives'
 import { SelectList, ComboboxList } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 
@@ -32,4 +35,5 @@ export const FilterList = forwardRef<HTMLDivElement, FilterListProps>(
   }
 )
 
+export type FilterListOptions = Omit<SelectListOptions, 'alwaysVisible'>
 export type FilterListProps = Omit<SelectListProps, 'alwaysVisible'>

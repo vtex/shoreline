@@ -81,7 +81,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
   )
 })
 
-export interface SearchProps extends ComponentPropsWithoutRef<'input'> {
+export interface SearchOptions {
   /**
    * Whether component is loading or not
    * @default false
@@ -93,3 +93,5 @@ export interface SearchProps extends ComponentPropsWithoutRef<'input'> {
    */
   onClear?: () => void
 }
+
+export type SearchProps = SearchOptions & ComponentPropsWithoutRef<'input'>

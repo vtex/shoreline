@@ -95,7 +95,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   }
 )
 
-export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
+export interface PaginationOptions {
   /**
    * Function called whenever the pagination actions are triggered and the page changes.
    * @param page The new page number reference
@@ -121,3 +121,6 @@ export interface PaginationProps extends ComponentPropsWithoutRef<'div'> {
    */
   size?: number
 }
+
+export type PaginationProps = PaginationOptions &
+  ComponentPropsWithoutRef<'div'>

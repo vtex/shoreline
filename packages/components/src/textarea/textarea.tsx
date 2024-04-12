@@ -61,8 +61,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 )
 
-export interface TextareaProps
-  extends Omit<ComponentPropsWithoutRef<'textarea'>, 'onChange'> {
+export interface TextareaOptions {
   /**
    * Whether is in error state
    */
@@ -81,3 +80,6 @@ export interface TextareaProps
    */
   onChange?: React.Dispatch<React.SetStateAction<any>>
 }
+
+export type TextareaProps = TextareaOptions &
+  Omit<ComponentPropsWithoutRef<'textarea'>, 'onChange'>

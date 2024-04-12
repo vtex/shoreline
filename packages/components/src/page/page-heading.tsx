@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import type { HeadingProps } from '../heading'
+import type { HeadingOptions, HeadingProps } from '../heading'
 import { Heading } from '../heading'
 
 /**
@@ -12,7 +12,7 @@ import { Heading } from '../heading'
  *  </PageHeader>
  * </Page>
  */
-export const PageHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
+export const PageHeading = forwardRef<HTMLHeadingElement, PageHeadingProps>(
   function PageHeading(props, ref) {
     const { children, ...otherProps } = props
 
@@ -29,3 +29,6 @@ export const PageHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
     )
   }
 )
+
+export type PageHeadingOptions = HeadingOptions
+export type PageHeadingProps = HeadingProps

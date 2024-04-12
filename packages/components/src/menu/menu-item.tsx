@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { MenuItem as BaseMenuItem } from '@ariakit/react'
 
+/**
+ * Option within a menu popover box
+ */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   function MenuItem(props, ref) {
     const {
@@ -28,7 +31,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   }
 )
 
-export interface MenuItemProps extends ComponentPropsWithoutRef<'div'> {
+export interface MenuItemOptions {
   /**
    * Children composition
    * @default false
@@ -45,3 +48,5 @@ export interface MenuItemProps extends ComponentPropsWithoutRef<'div'> {
    */
   disabled?: boolean
 }
+
+export type MenuItemProps = MenuItemOptions & ComponentPropsWithoutRef<'div'>

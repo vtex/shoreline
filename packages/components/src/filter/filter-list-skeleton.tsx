@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Skeleton } from '../skeleton'
+import type { StackOptions } from '../stack'
 import { Stack } from '../stack'
 
 /**
@@ -41,4 +42,6 @@ export const FilterListSkeleton = forwardRef<
   )
 })
 
-export type FilterListSkeletonProps = ComponentPropsWithoutRef<'div'>
+export type FilterListSkeletonOptions = StackOptions
+export type FilterListSkeletonProps = StackOptions &
+  ComponentPropsWithoutRef<'div'>

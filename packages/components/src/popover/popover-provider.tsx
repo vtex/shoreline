@@ -7,3 +7,4 @@ import type { PopoverProviderProps } from '@ariakit/react'
 
 export { PopoverProvider, usePopoverContext, usePopoverStore }
 export type { PopoverProviderProps }
+export type PopoverProviderOptions = PopoverProviderProps

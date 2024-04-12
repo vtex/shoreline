@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { ComboboxInput, createMessageHook } from '@vtex/shoreline-primitives'
 
-import type { PopoverProps } from '../popover'
+import type { PopoverOptions, PopoverProps } from '../popover'
 import { Popover } from '../popover'
 import { Container, Content } from '../content'
 import { FilterClear } from './filter-clear'
@@ -56,7 +56,7 @@ export const FilterPopover = forwardRef<HTMLDivElement, FilterPopoverProps>(
   }
 )
 
-export interface FilterPopoverProps extends PopoverProps {
+export interface FilterPopoverOptions extends PopoverOptions {
   /**
    * Filter messages
    */
@@ -71,3 +71,5 @@ export interface FilterPopoverProps extends PopoverProps {
     clear: string
   }
 }
+
+export type FilterPopoverProps = FilterPopoverOptions & PopoverProps

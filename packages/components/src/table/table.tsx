@@ -3,6 +3,9 @@ import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
+/**
+ * Table root component. It is used to render data in a tabular structure.
+ */
 export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   props,
   ref
@@ -40,7 +43,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   )
 })
 
-export interface TableProps extends ComponentPropsWithoutRef<'div'> {
+export interface TableOptions {
   /**
    * Array of column widths
    *
@@ -72,3 +75,5 @@ export interface TableProps extends ComponentPropsWithoutRef<'div'> {
    */
   density?: 'default' | 'comfortable' | 'compact'
 }
+
+export type TableProps = TableOptions & ComponentPropsWithoutRef<'div'>

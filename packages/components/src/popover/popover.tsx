@@ -32,12 +32,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   }
 )
 
-export interface PopoverProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Pick<BaseProps, 'getAnchorRect'> {
+export interface PopoverOptions extends Pick<BaseProps, 'getAnchorRect'> {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type PopoverProps = PopoverOptions & ComponentPropsWithoutRef<'div'>

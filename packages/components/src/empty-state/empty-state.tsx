@@ -3,14 +3,13 @@ import React, { forwardRef } from 'react'
 
 /**
  * Renders a styled empty state area
- *
  * @example
- *    <EmptyState>
- *      <Heading>Title goes here</Heading>
- *       <Slot name="actions">
- *         <Button variant="primary">label</Button>
- *      </Slot>
- *   </EmptyState>
+ * <EmptyState>
+ *  <Heading>Title goes here</Heading>
+ *  <Slot name="actions">
+ *    <Button variant="primary">label</Button>
+ *  </Slot>
+ * </EmptyState>
  * */
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   function EmptyState(props, ref) {
@@ -24,10 +23,13 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   }
 )
 
-export interface EmptyStateProps extends ComponentPropsWithoutRef<'div'> {
+export interface EmptyStateOptions {
   /**
    * Indicates size of empty state area
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large'
 }
+
+export type EmptyStateProps = EmptyStateOptions &
+  ComponentPropsWithoutRef<'div'>

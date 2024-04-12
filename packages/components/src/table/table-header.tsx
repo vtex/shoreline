@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
+/**
+ * Header of the table
+ */
 export const TableHeader = forwardRef<HTMLDivElement, TableHeaderProps>(
   function TableHeader(props, ref) {
     const { asChild = false, ...otherProps } = props
@@ -19,6 +22,13 @@ export const TableHeader = forwardRef<HTMLDivElement, TableHeaderProps>(
   }
 )
 
-export interface TableHeaderProps extends ComponentPropsWithoutRef<'div'> {
+export interface TableHeaderOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
 }
+
+export type TableHeaderProps = TableHeaderOptions &
+  ComponentPropsWithoutRef<'div'>

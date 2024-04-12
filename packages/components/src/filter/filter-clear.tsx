@@ -3,6 +3,7 @@ import { useFilterContext } from './filter-context'
 import type { PopoverDismissProps } from '../popover'
 import { PopoverDismiss } from '../popover'
 import { mergeProps } from '@vtex/shoreline-utils'
+import type { PopoverDismissOptions } from '@ariakit/react'
 import { useSelectContext } from '@ariakit/react'
 
 /**
@@ -38,4 +39,5 @@ function reset(value: string | string[]): string[] | string {
   return Array.isArray(value) ? [] : ''
 }
 
+export type FilterClearOptions = PopoverDismissOptions
 export type FilterClearProps = PopoverDismissProps

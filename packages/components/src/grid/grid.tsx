@@ -5,9 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Grid layout
- *
  * @see https://developer.mozilla.org/en-US/docs/Glossary/Grid
- * @kind layout
  * @example
  * <Grid columns="repeat(3, 1fr)">
  *  <div>Item 1</div>
@@ -54,7 +52,7 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   )
 })
 
-export interface GridProps extends ComponentPropsWithoutRef<'div'> {
+export interface GridOptions {
   /**
    * Children composition
    * @default false
@@ -103,3 +101,5 @@ export interface GridProps extends ComponentPropsWithoutRef<'div'> {
    */
   autoFlow?: CSSProperty.GridAutoFlow
 }
+
+export type GridProps = GridOptions & ComponentPropsWithoutRef<'div'>

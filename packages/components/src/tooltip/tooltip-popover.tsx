@@ -29,7 +29,18 @@ export const TooltipPopover = forwardRef<HTMLDivElement, TooltipPopoverProps>(
   }
 )
 
-export interface TooltipPopoverProps extends ComponentPropsWithoutRef<'div'> {
+export interface TooltipPopoverOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
+  /**
+   * Distance (in px) from the trigger reference
+   * @default 2
+   */
   gutter?: number
 }
+
+export type TooltipPopoverProps = TooltipPopoverOptions &
+  ComponentPropsWithoutRef<'div'>

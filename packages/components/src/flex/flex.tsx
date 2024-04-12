@@ -5,9 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Flexbox layout
- *
  * @see https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
- * @kind layout
  * @example
  * <Flex>
  *  <Button>Clear</Button>
@@ -58,7 +56,7 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
   )
 })
 
-export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
+export interface FlexOptions {
   /**
    * CSS order
    * @default 0
@@ -130,3 +128,5 @@ export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
    */
   asChild?: boolean
 }
+
+export type FlexProps = FlexOptions & ComponentPropsWithoutRef<'div'>

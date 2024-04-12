@@ -49,7 +49,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   )
 })
 
-export interface RadioProps extends ComponentPropsWithoutRef<'input'> {
+export interface RadioOptions {
   /**
    * Wether is disabled
    * @default false
@@ -60,3 +60,5 @@ export interface RadioProps extends ComponentPropsWithoutRef<'input'> {
    */
   value: string
 }
+
+export type RadioProps = RadioOptions & ComponentPropsWithoutRef<'input'>

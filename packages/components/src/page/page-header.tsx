@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Stack } from '../stack'
+import type { ContentOptions } from '../content'
 import { Container, Content } from '../content'
 
 /**
@@ -38,4 +39,7 @@ export const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
   }
 )
 
-export type PageHeaderProps = ComponentPropsWithoutRef<'header'>
+export type PageHeaderOptions = Omit<ContentOptions, 'narrow'>
+
+export type PageHeaderProps = PageHeaderOptions &
+  ComponentPropsWithoutRef<'header'>

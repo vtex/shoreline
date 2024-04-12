@@ -54,7 +54,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
   }
 )
 
-export interface CheckboxGroupOptions extends ComponentPropsWithoutRef<'div'> {
+export interface CheckboxGroupOptions {
   /**
    * Whether the checkbox group is in an error state
    */

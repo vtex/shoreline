@@ -14,7 +14,6 @@ const useMessage = createMessageHook(messages)
 
 /**
  * Label component
- *
  * @example
  * <Label>Label</Label>
  */
@@ -47,7 +46,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
   )
 })
 
-export interface LabelProps extends ComponentPropsWithoutRef<'label'> {
+export interface LabelOptions {
   /**
    * Enables component composition
    * @default false
@@ -59,3 +58,5 @@ export interface LabelProps extends ComponentPropsWithoutRef<'label'> {
    */
   optional?: boolean
 }
+
+export type LabelProps = LabelOptions & ComponentPropsWithoutRef<'label'>

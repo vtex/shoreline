@@ -5,9 +5,7 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Optional cell of a grid layout
- *
  * @see https://developer.mozilla.org/en-US/docs/Glossary/Grid
- * @kind layout
  * @example
  * <Grid columns="repeat(3, 1fr)">
  *  <GridCell>Item 1</GridCell>
@@ -53,7 +51,7 @@ export const GridCell = forwardRef<HTMLDivElement, GridCellProps>(
   }
 )
 
-export interface GridCellProps extends ComponentPropsWithoutRef<'div'> {
+export interface GridCellOptions {
   /**
    * Children composition
    * @default false
@@ -102,3 +100,5 @@ export interface GridCellProps extends ComponentPropsWithoutRef<'div'> {
    */
   area?: CSSProperty.GridArea
 }
+
+export type GridCellProps = GridCellOptions & ComponentPropsWithoutRef<'div'>

@@ -24,7 +24,7 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
   )
 })
 
-interface ComponentProps {
+export interface TextOptions {
   /**
    * Text variant
    * @default 'context'
@@ -42,23 +42,23 @@ interface ComponentProps {
     | 'display4'
 }
 
-interface Label extends ComponentProps, ComponentPropsWithoutRef<'label'> {
+interface Label extends TextOptions, ComponentPropsWithoutRef<'label'> {
   as: 'label'
 }
 
-interface Paragraph extends ComponentProps, ComponentPropsWithoutRef<'p'> {
+interface Paragraph extends TextOptions, ComponentPropsWithoutRef<'p'> {
   as: 'p'
 }
 
-interface Div extends ComponentProps, ComponentPropsWithoutRef<'div'> {
+interface Div extends TextOptions, ComponentPropsWithoutRef<'div'> {
   as: 'div'
 }
 
-interface Li extends ComponentProps, ComponentPropsWithoutRef<'li'> {
+interface Li extends TextOptions, ComponentPropsWithoutRef<'li'> {
   as: 'li'
 }
 
-interface Span extends ComponentProps, ComponentPropsWithoutRef<'span'> {
+interface Span extends TextOptions, ComponentPropsWithoutRef<'span'> {
   as?: 'span'
 }
 

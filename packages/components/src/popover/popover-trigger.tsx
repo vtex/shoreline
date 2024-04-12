@@ -29,11 +29,13 @@ export const PopoverTrigger = forwardRef<
   )
 })
 
-export interface PopoverTriggerProps
-  extends ComponentPropsWithoutRef<'button'> {
+export interface PopoverTriggerOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type PopoverTriggerProps = PopoverTriggerOptions &
+  ComponentPropsWithoutRef<'button'>

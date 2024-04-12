@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import type { ContainerOptions } from '../content'
 import { Container } from '../content'
 
 /**
@@ -27,4 +28,5 @@ export const Page = forwardRef<HTMLDivElement, PageProps>(function Page(
   )
 })
 
-export type PageProps = ComponentPropsWithoutRef<'div'>
+export type PageOptions = ContainerOptions
+export type PageProps = ContainerOptions & ComponentPropsWithoutRef<'div'>

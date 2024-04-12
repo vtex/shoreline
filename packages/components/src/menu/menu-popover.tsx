@@ -25,10 +25,13 @@ export const MenuPopover = forwardRef<HTMLDivElement, MenuPopoverProps>(
   }
 )
 
-export interface MenuPopoverProps extends ComponentPropsWithoutRef<'div'> {
+export interface MenuPopoverOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type MenuPopoverProps = MenuPopoverOptions &
+  ComponentPropsWithoutRef<'div'>

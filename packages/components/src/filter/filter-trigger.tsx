@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { FilterValue } from './filter-value'
-import type { PopoverTriggerProps } from '../popover'
+import type { PopoverTriggerOptions, PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'
 import { Button } from '../button'
 import { IconCaretDownSmall } from '@vtex/shoreline-icons'
@@ -28,4 +28,5 @@ export const FilterTrigger = forwardRef<HTMLButtonElement, FilterTriggerProps>(
   }
 )
 
+export type FilterTriggerOptions = PopoverTriggerOptions
 export type FilterTriggerProps = PopoverTriggerProps

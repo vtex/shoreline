@@ -79,7 +79,7 @@ export function FilterProvider(props: FilterProviderProps) {
   )
 }
 
-export interface FilterProviderProps {
+export interface FilterProviderOptions {
   /**
    * Children of FilterProvider
    */
@@ -123,3 +123,5 @@ export interface FilterProviderProps {
    */
   defaultValue?: string | string[]
 }
+
+export type FilterProviderProps = FilterProviderOptions

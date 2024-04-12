@@ -5,7 +5,6 @@ import { Separator as BaseDivider } from '@ariakit/react'
 
 /**
  * Divider line for separing content
- *
  * @example
  * <div>Content <Divider /> Content</div>
  */
@@ -26,10 +25,12 @@ export const Divider = forwardRef<HTMLHRElement, DividerProps>(function Divider(
   )
 })
 
-export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
+export interface DividerOptions {
   /**
    * Divider axis orientation
    * @default 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical'
 }
+
+export type DividerProps = DividerOptions & ComponentPropsWithoutRef<'hr'>

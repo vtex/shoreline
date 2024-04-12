@@ -24,7 +24,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   }
 )
 
-export interface HeadingProps extends ComponentPropsWithoutRef<'h1'> {
+export interface HeadingOptions {
   /**
    * Children composition
    * @default false
@@ -41,3 +41,5 @@ export interface HeadingProps extends ComponentPropsWithoutRef<'h1'> {
    */
   level?: 1 | 2 | 3 | 4 | 5 | 6
 }
+
+export type HeadingProps = HeadingOptions & ComponentPropsWithoutRef<'h1'>

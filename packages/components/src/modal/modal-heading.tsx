@@ -43,5 +43,7 @@ export const ModalHeading = forwardRef<HTMLHeadingElement, ModalHeadingProps>(
   }
 )
 
-export type ModalHeadingProps = ComponentPropsWithoutRef<'h1'> &
-  Pick<HeadingProps, 'variant'>
+export type ModalHeadingOptions = Pick<HeadingProps, 'variant'>
+
+export type ModalHeadingProps = ModalHeadingOptions &
+  ComponentPropsWithoutRef<'h1'>

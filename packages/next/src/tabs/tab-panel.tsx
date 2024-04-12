@@ -1,6 +1,8 @@
+import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import type { TabPanelProps } from '@vtex/shoreline'
 import { TabPanel, forwardRef, useTabContext, invariant } from '@vtex/shoreline'
+import type { TabPanelOptions } from '../../../components/dist'
 
 /**
  * This component uses Next's Parallel Routes to allow tabs to change the browser URL
@@ -30,4 +32,6 @@ export const NextTabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
   }
 )
 
-export type NextTabPanelProps = Omit<TabPanelProps, 'tabId'>
+export type NextTabPanelOptions = Omit<TabPanelOptions, 'tabId'>
+export type NextTabPanelProps = NextTabPanelOptions &
+  ComponentPropsWithoutRef<'div'>
