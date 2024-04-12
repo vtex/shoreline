@@ -11,10 +11,7 @@ import {
   getSortedRowModel,
 } from '@tanstack/react-table'
 import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
-import type {
-  TableProps,
-  UseVirtualizerModelReturn,
-} from '@vtex/shoreline-components'
+import type { TableProps } from '@vtex/shoreline-components'
 import {
   Table,
   TableRow,
@@ -25,6 +22,7 @@ import {
 import { TsTableRow } from './ts-table-row'
 import type { TsTableRowProps } from './ts-table-row'
 import { TsTableHeader } from './ts-table-header'
+import type { UseVirtualizerModelReturn } from './use-virtualizer-model'
 
 /**
  * Controlled table render built on top of TanStack/Table API

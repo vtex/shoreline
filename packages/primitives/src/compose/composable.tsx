@@ -4,7 +4,6 @@ import React, { isValidElement } from 'react'
 
 /**
  * Defines a composable child inside of a Compose component
- * @kind primitives
  * @example
  * function Button({ asChild, children, ...props }){
  *  const Composition = asChild ? Compose : 'button'
@@ -25,7 +24,9 @@ export function isComposable(child: ReactNode): child is ReactElement {
   return isValidElement(child) && child.type === Composable
 }
 
-export interface ComposableProps {
+export interface ComposableOptions {
   render?: RenderProps
   children: ReactNode
 }
+
+export type ComposableProps = ComposableOptions

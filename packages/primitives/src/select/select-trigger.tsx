@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Select } from '@ariakit/react'
 
+/**
+ * Trigger of the PopoverBox
+ */
 export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
   function SelectTrigger(props, ref) {
     const { asChild = false, children, ...otherProps } = props
@@ -19,10 +22,13 @@ export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
   }
 )
 
-export interface SelectTriggerProps extends ComponentPropsWithoutRef<'button'> {
+export interface SelectTriggerOptions {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type SelectTriggerProps = SelectTriggerOptions &
+  ComponentPropsWithoutRef<'button'>

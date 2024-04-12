@@ -42,7 +42,6 @@
   "composable": "Composable",
   "compose": "Compose",
   "locale-provider": "LocaleProvider",
-  "virtual": "Virtual",
   "visually-hidden": "VisuallyHidden",
 
   "Layout": { "type": "separator", "title": "Layout" },

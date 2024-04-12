@@ -4,7 +4,6 @@ import { VisuallyHidden as BaseVisuallyHidden } from '@ariakit/react'
 
 /**
  * Renders an element that is visually only to screen readers
- * @kind primitives
  * @example
  * <a href="#">
  *  Learn more<VisuallyHidden> about brazilian beaches</VisuallyHidden>
@@ -16,6 +15,11 @@ export const VisuallyHidden = forwardRef<HTMLDivElement, VisuallyHiddenProps>(
   }
 )
 
-export interface VisuallyHiddenProps {
+export interface VisuallyHiddenOptions {
+  /**
+   * Content that will be only available for a screen reader
+   */
   children?: ReactNode
 }
+
+export type VisuallyHiddenProps = VisuallyHiddenOptions

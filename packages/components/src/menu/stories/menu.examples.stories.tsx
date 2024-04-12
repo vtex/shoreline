@@ -1,6 +1,5 @@
 import React from 'react'
 import { IconCaretDownSmall } from '@vtex/shoreline-icons'
-import { Virtual, VirtualItem } from '@vtex/shoreline-primitives'
 
 import {
   Menu,
@@ -56,25 +55,5 @@ export function Composition() {
         </div>
       </MenuPopover>
     </MenuProvider>
-  )
-}
-
-export function Virtualization() {
-  return (
-    <Menu label="Menu">
-      <Virtual
-        dynamic
-        count={5000}
-        style={{
-          width: `200px`,
-        }}
-      >
-        <VirtualItem asChild>
-          {({ index }) => {
-            return <MenuItem>Item {index}</MenuItem>
-          }}
-        </VirtualItem>
-      </Virtual>
-    </Menu>
   )
 }

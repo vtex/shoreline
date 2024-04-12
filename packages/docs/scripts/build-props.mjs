@@ -8,7 +8,32 @@ const outputDirectory = `${dirname('')}/__props__`
 const outputFile = 'index.ts'
 
 const files = [
+  /**
+   * Primitives
+   */
   getPath('primitives', 'accessible-icon', 'accessible-icon'),
+  getPath('primitives', 'clickable', 'clickable'),
+  getPath('primitives', 'clickable', 'clickable-bubble'),
+  getPath('primitives', 'combobox', 'combobox'),
+  getPath('primitives', 'combobox', 'combobox-provider'),
+  getPath('primitives', 'combobox', 'combobox-popover'),
+  getPath('primitives', 'combobox', 'combobox-list'),
+  getPath('primitives', 'combobox', 'combobox-item'),
+  getPath('primitives', 'compose', 'compose'),
+  getPath('primitives', 'compose', 'composable'),
+  getPath('primitives', 'link-box', 'link-box'),
+  getPath('primitives', 'locale', 'locale-provider'),
+  getPath('primitives', 'select', 'select-trigger'),
+  getPath('primitives', 'select', 'select-provider'),
+  getPath('primitives', 'select', 'select-popover'),
+  getPath('primitives', 'select', 'select-list'),
+  getPath('primitives', 'select', 'select-item'),
+  getPath('primitives', 'select', 'select-item-check'),
+  getPath('primitives', 'visually-hidden', 'visually-hidden'),
+
+  /**
+   * Components
+   */
   getPath('components', 'alert', 'alert'),
   getPath('components', 'bleed', 'bleed'),
   getPath('components', 'button', 'button'),

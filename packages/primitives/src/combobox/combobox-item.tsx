@@ -1,12 +1,10 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import type { ComboboxItemOptions } from '@ariakit/react'
+import type { ComboboxItemOptions as AriakitComboboxItemOptions } from '@ariakit/react'
 import { ComboboxItem as Item } from '@ariakit/react'
 
 /**
  * Renders an item for the combobox
- *
- * @kind primitives
  */
 export const ComboboxItem = forwardRef<HTMLDivElement, ComboboxItemProps>(
   function ComboboxItem(props, ref) {
@@ -25,14 +23,14 @@ export const ComboboxItem = forwardRef<HTMLDivElement, ComboboxItemProps>(
   }
 )
 
-type Options = Pick<ComboboxItemOptions, 'value' | 'disabled'>
-
-export interface ComboboxItemProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Options {
+export interface ComboboxItemOptions
+  extends Pick<AriakitComboboxItemOptions, 'value' | 'disabled'> {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type ComboboxItemProps = ComboboxItemOptions &
+  ComponentPropsWithoutRef<'div'>

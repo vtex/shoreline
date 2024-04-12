@@ -106,9 +106,6 @@ export {
   TooltipPopover,
   TooltipProvider,
   TooltipTrigger,
-  Virtual,
-  VirtualContainer,
-  VirtualItem,
   VisuallyHidden,
   createMessageHook,
   get,
@@ -123,7 +120,6 @@ export {
   useRadioState,
   useSelectContext,
   useSelectStore,
-  useVirtualizerModel,
   useTabContext,
   useTabStore,
 } from '@vtex/shoreline-components'
@@ -232,11 +228,6 @@ export type {
   TooltipProps,
   TooltipProviderProps,
   TooltipTriggerProps,
-  UseVirtualizerModelProps,
-  UseVirtualizerModelReturn,
-  VirtualContainerProps,
-  VirtualItemsProps,
-  VirtualProps,
   VisuallyHiddenProps,
 } from '@vtex/shoreline-components'
 export {

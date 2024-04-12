@@ -4,8 +4,6 @@ import { ComboboxList as List } from '@ariakit/react'
 
 /**
  * Renders a list for the combobox
- *
- * @kind primitives
  */
 export const ComboboxList = forwardRef<HTMLDivElement, ComboboxListProps>(
   function ComboboxList(props, ref) {
@@ -24,10 +22,13 @@ export const ComboboxList = forwardRef<HTMLDivElement, ComboboxListProps>(
   }
 )
 
-export interface ComboboxListProps extends ComponentPropsWithoutRef<'div'> {
+export interface ComboboxListOptions extends ComponentPropsWithoutRef<'div'> {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type ComboboxListProps = ComboboxListOptions &
+  ComponentPropsWithoutRef<'div'>
