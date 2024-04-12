@@ -1,6 +1,6 @@
 {
   "name": "@shoreline/docs",
-  "version": "1.0.0-rc.32",
+  "version": "1.0.0-rc.33",
   "private": true,
   "scripts": {
     "dev": "npm run gen:examples && npm run gen:props && next dev",
