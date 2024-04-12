@@ -15,6 +15,12 @@ const files = [
   getPath('components', 'center', 'center'),
   getPath('components', 'checkbox', 'checkbox'),
   getPath('components', 'checkbox', 'checkbox-group'),
+  getPath('components', 'collection', 'collection'),
+  getPath('components', 'collection', 'collection-view'),
+  getPath('components', 'confirmation-modal', 'confirmation-modal'),
+  getPath('components', 'content', 'content'),
+  getPath('components', 'content', 'container'),
+  getPath('components', 'contextual-help', 'contextual-help'),
 ]
 
 let tsCode = `

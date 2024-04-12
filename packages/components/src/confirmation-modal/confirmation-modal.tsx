@@ -91,8 +91,7 @@ export const ConfirmationModal = forwardRef<
   )
 })
 
-export interface ConfirmationModalProps
-  extends ComponentPropsWithoutRef<'div'> {
+export interface ConfirmationModalOptions {
   /**
    * Callback fired when the backdrop or close button is clicked.
    */
@@ -134,3 +133,6 @@ export interface ConfirmationModalProps
     cancel?: string
   }
 }
+
+export type ConfirmationModalProps = ConfirmationModalOptions &
+  ComponentPropsWithoutRef<'div'>

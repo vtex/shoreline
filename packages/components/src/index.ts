@@ -67,11 +67,7 @@ export type { CenterProps } from './center'
 export { Checkbox, CheckboxGroup } from './checkbox'
 export type { CheckboxGroupProps, CheckboxProps } from './checkbox'
 export { Collection, CollectionView } from './collection'
-export type {
-  CollectionProps,
-  CollectionStatus,
-  CollectionViewProps,
-} from './collection'
+export type { CollectionProps, CollectionViewProps } from './collection'
 export { ConfirmationModal } from './confirmation-modal'
 export type { ConfirmationModalProps } from './confirmation-modal'
 export { Container, Content } from './content'

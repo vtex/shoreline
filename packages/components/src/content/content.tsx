@@ -25,7 +25,7 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
   }
 )
 
-export interface ContentProps extends ComponentPropsWithoutRef<'div'> {
+export interface ContentOptions {
   /**
    * Children composition
    * @default false
@@ -37,3 +37,5 @@ export interface ContentProps extends ComponentPropsWithoutRef<'div'> {
    */
   narrow?: boolean
 }
+
+export type ContentProps = ContentOptions & ComponentPropsWithoutRef<'div'>

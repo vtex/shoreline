@@ -6,7 +6,7 @@ import { Button } from '../button'
 import { Container, Content } from '../content'
 
 /**
- * Merchants contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.
+ * Users contextually understand the definition of an item through an overlay, that can be interactive, when clicking on the trigger.
  *
  * @playground
  * @example
@@ -59,15 +59,12 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
   }
 )
 
-/**
- * Props for the ContextualHelp component
- */
-export interface ContextualHelpProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Pick<
-      PopoverProviderProps,
-      'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
-    > {
+export type PopoverOptions = Pick<
+  PopoverProviderProps,
+  'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
+>
+
+export interface ContextualHelpOptions extends PopoverOptions {
   /**
    * aria-abel for the contextual help trigger
    *
@@ -87,3 +84,6 @@ export interface ContextualHelpProps
    */
   narrow?: boolean
 }
+
+export type ContextualHelpProps = ContextualHelpOptions &
+  ComponentPropsWithoutRef<'div'>

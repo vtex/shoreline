@@ -1,4 +1,6 @@
 [data-sl-center] {
+  --sl-center-height: 100%;
   display: grid;
   place-items: center;
+  height: var(--sl-center-height);
 }

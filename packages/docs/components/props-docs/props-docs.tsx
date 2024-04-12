@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react'
 import React, { Fragment } from 'react'
+import Markdown from 'react-markdown'
 
 import allProps from '../../__props__'
-import { Divider, Flex, Grid, GridCell, Text } from '@vtex/shoreline'
+import { Divider, Flex, Grid, GridCell, Link, Text } from '@vtex/shoreline'
 import styles from './props-docs.module.css'
 
 export function PropsDocs(props: PropsDocsProps) {
@@ -39,9 +40,15 @@ export function PropsDocs(props: PropsDocsProps) {
               <h4 className="nx-font-semibold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100 ">
                 {prop.name}
               </h4>
-              <p className="nx-mt-1 nx-mb-2 nx-leading-7 nx-text-gray-500">
-                {prop.description}
-              </p>
+              <div className="nx-mt-1 nx-mb-2 nx-leading-7 ">
+                <Markdown
+                  components={{
+                    a: (props: any) => <Link {...props} />,
+                  }}
+                >
+                  {prop.description}
+                </Markdown>
+              </div>
               <Grid columns="auto 1fr">
                 <GridCell>
                   <Text variant="body">type</Text>

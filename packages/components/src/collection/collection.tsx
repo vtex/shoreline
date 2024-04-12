@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 /**
@@ -32,4 +32,12 @@ export const Collection = forwardRef<HTMLDivElement, CollectionProps>(
   }
 )
 
-export type CollectionProps = ComponentPropsWithoutRef<'div'>
+export interface CollectionOptions {
+  /**
+   * Component children
+   */
+  children?: ReactNode
+}
+
+export type CollectionProps = CollectionOptions &
+  ComponentPropsWithoutRef<'div'>
