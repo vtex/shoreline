@@ -25,10 +25,12 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   }
 )
 
-export interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
+export interface ContainerOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type ContainerProps = ContainerOptions & ComponentPropsWithoutRef<'div'>

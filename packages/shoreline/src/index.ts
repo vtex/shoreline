@@ -138,7 +138,6 @@ export type {
   ClickableBubbleProps,
   ClickableProps,
   CollectionProps,
-  CollectionStatus,
   CollectionViewProps,
   ComboboxInputProps,
   ComboboxItemProps,

@@ -98,7 +98,7 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
   }
 )
 
-function getIcon(status: CollectionStatus) {
+function getIcon(status: CollectionViewOptions['status']) {
   switch (status) {
     case 'error':
       return <IconWarningCircle color="var(--sl-color-red-8)" />
@@ -114,23 +114,12 @@ function getIcon(status: CollectionStatus) {
   }
 }
 
-/**
- * Represents the status of a collection and indicates what should be rendered
- */
-export type CollectionStatus =
-  | 'ready'
-  | 'error'
-  | 'loading'
-  | 'empty'
-  | 'not-found'
-  | 'unauthorized'
-
-export interface CollectionViewProps extends ComponentPropsWithoutRef<'div'> {
+export interface CollectionViewOptions {
   /**
-   * Collection status
+   * Represents the status of a collection and indicates what should be rendered
    * @default 'ready'
    */
-  status: CollectionStatus
+  status: 'ready' | 'error' | 'loading' | 'empty' | 'not-found' | 'unauthorized'
   /**
    * On status error action callback
    */
@@ -144,6 +133,9 @@ export interface CollectionViewProps extends ComponentPropsWithoutRef<'div'> {
    */
   messages?: CollectionMessages
 }
+
+export type CollectionViewProps = CollectionViewOptions &
+  ComponentPropsWithoutRef<'div'>
 
 type CollectionMessages = Partial<{
   [key in CollectionMessagesKeys]: string
