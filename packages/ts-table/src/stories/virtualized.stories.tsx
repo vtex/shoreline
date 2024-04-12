@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
-import { useVirtualizerModel } from '@vtex/shoreline-components'
 
+import { useVirtualizerModel } from '../use-virtualizer-model'
 import { TsTable } from '../index'
 
 export default {

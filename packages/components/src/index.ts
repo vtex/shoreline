@@ -18,9 +18,6 @@ export {
   SelectPopover,
   SelectProvider,
   SelectTrigger,
-  Virtual,
-  VirtualContainer,
-  VirtualItem,
   VisuallyHidden,
   createMessageHook,
   get,
@@ -29,7 +26,6 @@ export {
   useLocale,
   useSelectContext,
   useSelectStore,
-  useVirtualizerModel,
 } from '@vtex/shoreline-primitives'
 export type {
   AccessibleIconProps,
@@ -49,11 +45,6 @@ export type {
   SelectListProps,
   SelectPopoverProps,
   SelectTriggerProps,
-  UseVirtualizerModelProps,
-  UseVirtualizerModelReturn,
-  VirtualContainerProps,
-  VirtualItemsProps,
-  VirtualProps,
   VisuallyHiddenProps,
 } from '@vtex/shoreline-primitives'
 export { Alert } from './alert'
