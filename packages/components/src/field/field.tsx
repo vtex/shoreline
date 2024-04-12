@@ -55,7 +55,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   )
 })
 
-export interface FieldProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface FieldOptions {
   /**
    * Enables component composition
    * @default false
@@ -72,3 +72,5 @@ export interface FieldProps extends React.ComponentPropsWithoutRef<'div'> {
    */
   space?: 'normal' | 'large'
 }
+
+export type FieldProps = FieldOptions & React.ComponentPropsWithoutRef<'div'>

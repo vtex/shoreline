@@ -29,10 +29,13 @@ export const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
   }
 )
 
-export interface FieldErrorProps extends ComponentPropsWithoutRef<'div'> {
+export interface FieldErrorOptions {
   /**
    * Enables component composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type FieldErrorProps = FieldErrorOptions &
+  ComponentPropsWithoutRef<'div'>

@@ -17,8 +17,7 @@ export const FieldCharCounter = forwardRef<
   )
 })
 
-export interface FieldCharCounterProps
-  extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
+export interface FieldCharCounterOptions {
   /**
    * Current count
    */
@@ -28,3 +27,6 @@ export interface FieldCharCounterProps
    */
   limit: number
 }
+
+export type FieldCharCounterProps = FieldCharCounterOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>

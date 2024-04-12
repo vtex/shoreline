@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { AccessibleIcon } from '@vtex/shoreline-primitives'
 
-import type { ButtonProps } from '../button'
+import type { ButtonOptions } from '../button'
 import { Button } from '../button'
 
 /**
@@ -28,9 +28,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   }
 )
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconButtonOtions extends ButtonOptions {
   /**
    * Icon button label. Needed for accessibility.
    */
   label: ReactNode
 }
+
+export type IconButtonProps = IconButtonOtions &
+  ComponentPropsWithoutRef<'button'>

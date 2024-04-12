@@ -26,4 +26,12 @@ export const FilterValue = forwardRef<HTMLSpanElement, FilterValueProps>(
   }
 )
 
-export type FilterValueProps = ComponentPropsWithoutRef<'span'>
+export interface FilterValueOptions {
+  /**
+   * Custom styles
+   */
+  className?: string
+}
+
+export type FilterValueProps = FilterValueOptions &
+  ComponentPropsWithoutRef<'span'>

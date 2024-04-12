@@ -5,7 +5,6 @@ import { Container, Content } from '../content'
 
 /**
  * Content of a page
- *
  * @example
  * <Page>
  *  <PageContent>Content</PageContent>
@@ -30,10 +29,13 @@ export const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
   }
 )
 
-export interface PageContentProps extends ComponentPropsWithoutRef<'div'> {
+export interface PageContentOptions extends ComponentPropsWithoutRef<'div'> {
   /**
    * Layout type
    * @default 'standard'
    */
   layout?: 'wide' | 'standard' | 'narrow'
 }
+
+export type PageContentProps = PageContentOptions &
+  ComponentPropsWithoutRef<'div'>

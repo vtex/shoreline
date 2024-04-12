@@ -49,7 +49,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   )
 })
 
-export interface ModalProps extends ComponentPropsWithoutRef<'div'> {
+export interface ModalOptions {
   /**
    * Callback fired when the backdrop or close button is clicked.
    */
@@ -70,3 +70,5 @@ export interface ModalProps extends ComponentPropsWithoutRef<'div'> {
    */
   size?: 'small' | 'medium' | 'large'
 }
+
+export type ModalProps = ModalOptions & ComponentPropsWithoutRef<'div'>

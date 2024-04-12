@@ -26,6 +26,13 @@ export const TooltipArrow = forwardRef<HTMLDivElement, TooltipArrowProps>(
   }
 )
 
-export interface TooltipArrowProps extends ComponentPropsWithoutRef<'div'> {
+export interface TooltipArrowOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
 }
+
+export type TooltipArrowProps = TooltipArrowOptions &
+  ComponentPropsWithoutRef<'div'>

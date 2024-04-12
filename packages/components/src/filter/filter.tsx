@@ -50,7 +50,7 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(function Filter(
   )
 })
 
-type InheritedProps = Pick<
+type InheritedOptions = Pick<
   FilterProviderProps,
   | 'value'
   | 'setValue'
@@ -59,12 +59,13 @@ type InheritedProps = Pick<
   | 'setSearchValue'
   | 'defaultSearchValue'
 > &
-  Pick<FilterPopoverProps, 'messages'> &
-  ComponentPropsWithoutRef<'div'>
+  Pick<FilterPopoverProps, 'messages'>
 
-export interface FilterProps extends InheritedProps {
+export interface FilterOptions extends InheritedOptions {
   /**
    * Filter label
    */
   label: string
 }
+
+export type FilterProps = FilterOptions & ComponentPropsWithoutRef<'div'>

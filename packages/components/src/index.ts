@@ -204,6 +204,7 @@ export type {
   TabPanelProps,
   TabProps,
   TabProviderProps,
+  TabPanelOptions,
 } from './tab'
 export {
   Table,

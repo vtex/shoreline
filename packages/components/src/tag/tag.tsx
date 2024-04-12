@@ -33,7 +33,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
   )
 })
 
-export interface TagProps extends ComponentPropsWithoutRef<'div'> {
+export interface TagOptions {
   /**
    * Tag variant
    * @default 'primary'
@@ -60,3 +60,5 @@ export interface TagProps extends ComponentPropsWithoutRef<'div'> {
    */
   size?: 'normal' | 'large'
 }
+
+export type TagProps = TagOptions & ComponentPropsWithoutRef<'div'>

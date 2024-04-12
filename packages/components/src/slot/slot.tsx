@@ -1,12 +1,10 @@
-import type { CSSProperties, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
 import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Placeholder for stuctural composition
- *
- * @kind layout
  * @example
  * <Slot>Content</Slot>
  */
@@ -20,7 +18,7 @@ export const Slot = forwardRef<HTMLDivElement, SlotProps>(function Slot(
   return <Comp data-sl-slot={name} ref={ref} {...otherProps} />
 })
 
-export interface SlotProps {
+export interface SlotOptions {
   /**
    * Optional slot label
    */
@@ -30,16 +28,6 @@ export interface SlotProps {
    * @default false
    */
   asChild?: boolean
-  /**
-   * ClassName used for styling
-   */
-  className?: string
-  /**
-   * Style property
-   */
-  style?: CSSProperties
-  /**
-   * Children prop
-   */
-  children?: ReactNode
 }
+
+export type SlotProps = SlotOptions & ComponentPropsWithoutRef<'div'>

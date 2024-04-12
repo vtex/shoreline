@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Flex } from '../flex'
+import type { ContentOptions } from '../content'
 import { Content } from '../content'
 
 /**
@@ -45,4 +46,7 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   }
 )
 
-export type ModalHeaderProps = ComponentPropsWithoutRef<'div'>
+export type ModalHeaderOptions = Omit<ContentOptions, 'narrow'>
+
+export type ModalHeaderProps = ModalHeaderOptions &
+  ComponentPropsWithoutRef<'div'>

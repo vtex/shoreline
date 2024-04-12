@@ -5,8 +5,6 @@ import { Compose } from '@vtex/shoreline-primitives'
 
 /**
  * Spaces elements consistently
- *
- * @kind layout
  * @example
  * <Stack>
  *  <div>Stacked 1</div>
@@ -45,7 +43,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
   )
 })
 
-export interface StackProps extends ComponentPropsWithoutRef<'div'> {
+export interface StackOptions {
   /**
    * Children composition
    * @default false
@@ -72,3 +70,5 @@ export interface StackProps extends ComponentPropsWithoutRef<'div'> {
    */
   align?: 'start' | 'end'
 }
+
+export type StackProps = StackOptions & ComponentPropsWithoutRef<'div'>

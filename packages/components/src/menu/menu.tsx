@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { MenuPopover } from './menu-popover'
-import type { MenuProviderProps } from './menu-provider'
+import type { MenuProviderOptions } from './menu-provider'
 import { MenuProvider } from './menu-provider'
 import { MenuTrigger } from './menu-trigger'
-import type { ButtonProps } from '../button'
+import type { ButtonOptions } from '../button'
 import { Button } from '../button'
 import {
   IconCaretDownSmall,
@@ -84,13 +84,13 @@ function getIcon(type: MenuProps['type'] = 'menu') {
   }
 }
 
-export interface MenuProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Pick<ButtonProps, 'variant' | 'size'>,
-    Pick<
-      MenuProviderProps,
-      'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
-    > {
+type InheritedOptions = Pick<ButtonOptions, 'variant' | 'size'> &
+  Pick<
+    MenuProviderOptions,
+    'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
+  >
+
+export interface MenuOptions extends InheritedOptions {
   /**
    * Children composition
    * @default false
@@ -111,3 +111,5 @@ export interface MenuProps
    */
   iconOnly?: boolean
 }
+
+export type MenuProps = MenuOptions & ComponentPropsWithoutRef<'div'>

@@ -5,6 +5,7 @@ import type { PopoverDismissProps } from '../popover'
 import { PopoverDismiss } from '../popover'
 import { useFilterContext } from './filter-context'
 import { shallowEqual } from './shallow-equal'
+import type { PopoverDismissOptions } from '@ariakit/react'
 import { useSelectContext } from '@ariakit/react'
 
 /**
@@ -35,4 +36,5 @@ function useFilterApply() {
   }
 }
 
+export type FilterApplyOptions = PopoverDismissOptions
 export type FilterApplyProps = PopoverDismissProps

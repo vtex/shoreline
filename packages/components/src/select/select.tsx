@@ -8,9 +8,7 @@ import { useFieldContext } from '../field'
 /**
  * Select fields allow merchants to choose a single option from a list
  * that includes between five and seven values.
- *
  * @example
- *
  * <Select
  *   label="Label"
  *   helpText="Help text"
@@ -75,8 +73,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   }
 )
 
-export interface SelectProps
-  extends Omit<ComponentPropsWithoutRef<'select'>, 'onChange'> {
+export interface SelectOptions {
   /**
    * Whether is in error state
    */
@@ -91,3 +88,6 @@ export interface SelectProps
    */
   onChange?: React.Dispatch<React.SetStateAction<any>>
 }
+
+export type SelectProps = SelectOptions &
+  Omit<ComponentPropsWithoutRef<'select'>, 'onChange'>

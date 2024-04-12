@@ -13,7 +13,7 @@ export function FieldProvider(props: FieldProviderProps) {
   return <FieldContext.Provider value={store}>{children}</FieldContext.Provider>
 }
 
-export interface FieldProviderProps {
+export interface FieldProviderOptions {
   /**
    * Field store
    */
@@ -23,3 +23,5 @@ export interface FieldProviderProps {
    */
   children?: React.ReactNode
 }
+
+export type FieldProviderProps = FieldProviderOptions

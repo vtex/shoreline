@@ -28,6 +28,13 @@ export const TooltipTrigger = forwardRef<HTMLDivElement, TooltipTriggerProps>(
   }
 )
 
-export interface TooltipTriggerProps extends ComponentPropsWithoutRef<'div'> {
+export interface TooltipTriggerOptions {
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
 }
+
+export type TooltipTriggerProps = TooltipTriggerOptions &
+  ComponentPropsWithoutRef<'div'>

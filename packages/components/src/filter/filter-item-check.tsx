@@ -1,6 +1,9 @@
-import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { IconCheckSmall } from '@vtex/shoreline-icons'
+import type {
+  SelectItemCheckOptions,
+  SelectItemCheckProps,
+} from '@vtex/shoreline-primitives'
 import { useSelectContext, SelectItemCheck } from '@vtex/shoreline-primitives'
 
 /**
@@ -36,4 +39,5 @@ export const FilterItemCheck = forwardRef<HTMLDivElement, FilterItemCheckProps>(
   }
 )
 
-export type FilterItemCheckProps = ComponentPropsWithoutRef<'div'>
+export type FilterItemCheckOptions = SelectItemCheckOptions
+export type FilterItemCheckProps = SelectItemCheckProps

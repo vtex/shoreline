@@ -2,6 +2,9 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
+/**
+ * Row of the table
+ */
 export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
   function TableRow(props, ref) {
     const {
@@ -28,9 +31,27 @@ export const TableRow = forwardRef<HTMLDivElement, TableRowProps>(
   }
 )
 
-export interface TableRowProps extends ComponentPropsWithoutRef<'div'> {
+export interface TableRowOptions {
+  /**
+   * Indicates the row selection
+   * @default false
+   */
   selected?: boolean
+  /**
+   * Indicates the row expansion
+   * @default false
+   */
   expanded?: boolean
+  /**
+   * Children composition
+   * @default false
+   */
   asChild?: boolean
+  /**
+   * Indicates that the row dims while hovered
+   * @default true
+   */
   dimOnHover?: boolean
 }
+
+export type TableRowProps = TableRowOptions & ComponentPropsWithoutRef<'div'>

@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react'
 
-import type { SelectItemProps } from '@vtex/shoreline-primitives'
+import type {
+  SelectItemOptions,
+  SelectItemProps,
+} from '@vtex/shoreline-primitives'
 import { SelectItem, ComboboxItem } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 import { FilterItemCheck } from './filter-item-check'
@@ -47,4 +50,5 @@ export const FilterItem = forwardRef<HTMLDivElement, FilterItemProps>(
   }
 )
 
+export type FilterItemOptions = Omit<SelectItemOptions, 'hideOnClick'>
 export type FilterItemProps = Omit<SelectItemProps, 'hideOnClick'>

@@ -29,11 +29,13 @@ export const PopoverDismiss = forwardRef<
   )
 })
 
-export interface PopoverDismissProps
-  extends ComponentPropsWithoutRef<'button'> {
+export interface PopoverDismissOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type PopoverDismissProps = PopoverDismissOptions &
+  ComponentPropsWithoutRef<'button'>

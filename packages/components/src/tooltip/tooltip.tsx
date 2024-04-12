@@ -9,8 +9,6 @@ import { TooltipArrow } from './tooltip-arrow'
 
 /**
  * Tooltip component
- *
- * @playground
  * @example
  * <Tooltip text="Text">
  *   <button>i</button>
@@ -49,15 +47,16 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   }
 )
 
-type InheritedProps = ComponentPropsWithoutRef<'span'> &
-  Pick<
-    TooltipProviderProps,
-    'placement' | 'open' | 'setOpen' | 'defaultOpen' | 'timeout'
-  >
+type InheritedOptions = Pick<
+  TooltipProviderProps,
+  'placement' | 'open' | 'setOpen' | 'defaultOpen' | 'timeout'
+>
 
-export interface TooltipProps extends InheritedProps {
+export interface TooltipOptions extends InheritedOptions {
   /**
    * Text displayed on the popover
    */
   label: ReactNode
 }
+
+export type TooltipProps = TooltipOptions & ComponentPropsWithoutRef<'span'>

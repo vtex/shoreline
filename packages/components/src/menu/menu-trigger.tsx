@@ -3,6 +3,9 @@ import React, { forwardRef } from 'react'
 import { MenuButton, useMenuContext } from '@ariakit/react'
 import { invariant } from '@vtex/shoreline-utils'
 
+/**
+ * Menu's trigger action
+ */
 export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
   function MenuTrigger(props, ref) {
     const { children, asChild = false, ...otherProps } = props
@@ -27,10 +30,13 @@ export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
   }
 )
 
-interface MenuTriggerProps extends ComponentPropsWithoutRef<'button'> {
+interface MenuTriggerOptions {
   /**
    * Children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type MenuTriggerProps = MenuTriggerOptions &
+  ComponentPropsWithoutRef<'button'>

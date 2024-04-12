@@ -70,8 +70,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   )
 })
 
-export interface InputProps
-  extends Omit<ComponentProps<'input'>, 'prefix' | 'onChange'> {
+export interface InputOptions {
   /**
    * Whether there is an error
    * @default false
@@ -95,3 +94,6 @@ export interface InputProps
    */
   onChange?: React.Dispatch<React.SetStateAction<any>>
 }
+
+export type InputProps = InputOptions &
+  Omit<ComponentProps<'input'>, 'prefix' | 'onChange'>

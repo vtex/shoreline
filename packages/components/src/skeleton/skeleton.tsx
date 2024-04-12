@@ -21,10 +21,12 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   }
 )
 
-export interface SkeletonProps extends ComponentPropsWithoutRef<'div'> {
+export interface SkeletonOptions {
   /**
    * Skeleton shape
    * @default rect
    */
   shape?: 'circle' | 'rect'
 }
+
+export type SkeletonProps = SkeletonOptions & ComponentPropsWithoutRef<'div'>
