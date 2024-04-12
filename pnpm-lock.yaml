@@ -560,9 +560,6 @@ importers:
       '@react-aria/i18n':
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
-      '@tanstack/react-virtual':
-        specifier: 3.0.1
-        version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
         specifier: ^1.0.0-rc.31
         version: link:../icons
