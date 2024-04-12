@@ -1,12 +1,10 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import type { ComboboxPopoverOptions } from '@ariakit/react'
+import type { ComboboxPopoverOptions as AriakitComboboxPopoverOptions } from '@ariakit/react'
 import { ComboboxPopover as Popover } from '@ariakit/react'
 
 /**
  * Renders a popover for the combobox
- *
- * @kind primitives
  */
 export const ComboboxPopover = forwardRef<HTMLDivElement, ComboboxPopoverProps>(
   function ComboboxPopover(props, ref) {
@@ -25,14 +23,14 @@ export const ComboboxPopover = forwardRef<HTMLDivElement, ComboboxPopoverProps>(
   }
 )
 
-type Options = Pick<ComboboxPopoverOptions, 'sameWidth'>
-
-export interface ComboboxPopoverProps
-  extends ComponentPropsWithoutRef<'div'>,
-    Options {
+export interface ComboboxPopoverOptions
+  extends Pick<AriakitComboboxPopoverOptions, 'sameWidth'> {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type ComboboxPopoverProps = ComboboxPopoverOptions &
+  ComponentPropsWithoutRef<'div'>

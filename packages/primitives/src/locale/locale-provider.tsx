@@ -5,8 +5,6 @@ import { LocaleContext } from './locale-context'
 
 /**
  * Provides the locale
- *
- * @kind primitives
  * @example
  * <LocaleProvider locale="pt-BR">
  *  ...
@@ -23,11 +21,16 @@ export function LocaleProvider(props: LocaleProviderProps) {
   )
 }
 
-export interface LocaleProviderProps {
+export interface LocaleProviderOptions {
   /**
    * The BCP47 language code for the locale.
    * @link https://www.ietf.org/rfc/bcp/bcp47.txt
    */
   locale?: string
+  /**
+   * Component children
+   */
   children?: ReactNode
 }
+
+export type LocaleProviderProps = LocaleProviderOptions

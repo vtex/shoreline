@@ -6,8 +6,6 @@ import { Compose } from '../compose'
 
 /**
  * Represents clickable surfaces
- *
- * @kind primitives
  * @example
  * <Clickable>
  *   Text <button>Click Me</button>
@@ -55,10 +53,12 @@ interface ExtendedMouseEvent extends Omit<React.MouseEvent<any>, 'target'> {
   }
 }
 
-export interface ClickableProps extends ComponentPropsWithoutRef<'div'> {
+export interface ClickableOptions {
   /**
    * Enable children composition
    * @default false
    */
   asChild?: boolean
 }
+
+export type ClickableProps = ClickableOptions & ComponentPropsWithoutRef<'div'>

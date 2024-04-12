@@ -1,12 +1,10 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 import { Compose } from '../compose'
 
 /**
  * Bubbles events to Clickable
- *
- * @kind primitives
  * @example
  * <Clickable>
  *  <ClickableBubble>
@@ -20,9 +18,12 @@ export const ClickableBubble = forwardRef<HTMLDivElement, ClickableBubbleProps>(
   }
 )
 
-export interface ClickableBubbleProps {
+export interface ClickableBubbleOptions {
   /**
    * Children to bubble event
    */
   children: ReactNode
 }
+
+export type ClickableBubbleProps = ClickableBubbleOptions &
+  ComponentPropsWithoutRef<'div'>
