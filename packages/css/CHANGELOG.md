@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.32](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.31...@vtex/shoreline-css@1.0.0-rc.32) (2024-04-12)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
 # [1.0.0-rc.31](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.30...@vtex/shoreline-css@1.0.0-rc.31) (2024-04-12)
 
 **Note:** Version bump only for package @vtex/shoreline-css
