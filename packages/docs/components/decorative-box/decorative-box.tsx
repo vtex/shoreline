@@ -8,6 +8,8 @@ export function DecorativeBox(props: DecorativeBoxProps) {
   const {
     style: styleOverride,
     height = '100%',
+    width = '100%',
+
     className = '',
     color = 'gray',
     ...rest
@@ -17,6 +19,7 @@ export function DecorativeBox(props: DecorativeBoxProps) {
     <div
       style={style({
         '--sl-local-height': height,
+        '--sl-local-width': width,
         '--sl-local-bg': `var(--sl-color-${color}-3)`,
         '--sl-local-bc': `var(--sl-color-${color}-6)`,
         ...styleOverride,
@@ -33,6 +36,11 @@ interface DecorativeBoxProps extends ComponentPropsWithoutRef<'div'> {
    * @default '100%''
    */
   height?: string
+  /**
+   * Component width
+   * @default '100%''
+   */
+  width?: string
   /**
    * Decorative color
    * @default 'gray'

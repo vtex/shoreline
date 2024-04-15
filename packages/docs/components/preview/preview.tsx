@@ -16,7 +16,7 @@ import styles from './preview.module.css'
 import { useClipboard } from '../hooks/use-clipboard'
 
 export function Preview(props: Props) {
-  const { name } = props
+  const { name, fixedHeight = false } = props
 
   const [activeId, setActiveId] = useState<string>('preview')
   const { isCopied, handleCopy } = useClipboard()
@@ -44,7 +44,12 @@ export function Preview(props: Props) {
         </TabList>
         <TabPanel>
           <Suspense fallback={<Spinner description="Loading component" />}>
-            <div className={styles.previewWrapper}>{Preview}</div>
+            <div
+              className={styles.previewWrapper}
+              data-fixed-height={fixedHeight}
+            >
+              {Preview}
+            </div>
           </Suspense>
         </TabPanel>
         <TabPanel style={{ position: 'relative' }}>
@@ -70,4 +75,5 @@ export function Preview(props: Props) {
 
 interface Props {
   name: string
+  fixedHeight: boolean
 }

@@ -1,10 +1,11 @@
 .decorativeBox {
   --sl-local-height: 100%;
+  --sl-local-width: 100%;
   --sl-local-bg: var(--sl-color-gray-3);
   --sl-local-bc: var(--sl-color-gray-6);
 
   height: var(--sl-local-height);
-  width: 100%;
+  width: var(--sl-local-width);
   background-clip: padding-box;
   background-color: var(--sl-local-bg);
   border: 1px solid var(--sl-local-bc);

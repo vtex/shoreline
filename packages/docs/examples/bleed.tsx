@@ -1,10 +1,15 @@
 import React from 'react'
-import { Bleed, Button } from '@vtex/shoreline'
+import { Bleed, Button, IconCaretLeft } from '@vtex/shoreline'
+import { DecorativeBox } from '../components/decorative-box'
 
 export default function Example() {
   return (
-    <Bleed top="$space-2" bottom="$space-2">
-      <Button>Text</Button>
-    </Bleed>
+    <DecorativeBox color="blue">
+      <Bleed top="$space-2" bottom="$space-2" start="$space-2">
+        <Button variant="tertiary">
+          <IconCaretLeft /> Action
+        </Button>
+      </Bleed>
+    </DecorativeBox>
   )
 }

@@ -1,3 +1,14 @@
+/**
+* Nextra Overrides
+*/
+
 h2.nx-border-b {
   border: none;
+}
+
+input:focus-visible,
+button:focus-visible {
+  --tw-ring-shadow: 0 !important;
+  --tw-ring-offset-shadow: 0 !important;
+  --tw-ring-opacity: 0 !important;
 }
