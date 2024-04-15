@@ -1,10 +1,15 @@
 # Spinner
 
-A Spinner informs that a specific element in the page is loading or a task is in progress. Use only for request that take over 1s and less than 5s.
+<ComponentDescription name="spinner" />
 
-![Spinner example](public/assets/overview-spinner.webp)
+<Preview name="spinner" />
 
-### Related components
+## Optional props
+
+<PropsDocs name="spinner" />
+
+## Related components
+
 <RelatedComponentList>
   <RelatedComponent
     title="Skeleton"
@@ -12,7 +17,3 @@ A Spinner informs that a specific element in the page is loading or a task is in
     href="/components/skeleton"
   />
 </RelatedComponentList>
-
-- If a process takes more than 5s, it's recommended to include the option to cancel the task and also the option to leave the page without interrupting the process.
-- When it's not possible to design and implement a custom loading state, use a Spinner and include a short text below it or to its right explaining what is happening.
-- Don’t show any loading feedback for processes that take less than 1s.
