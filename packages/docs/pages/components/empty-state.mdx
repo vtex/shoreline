@@ -1,5 +1,16 @@
 # EmptyState
 
-An Empty State represents the state of a container, such as when there are no items to display or when the user isn't allowed to access items.
+<ComponentDescription name="empty-state" />
 
-![EmptyState example](public/assets/overview-empty-state.webp)
+```jsx
+<EmptyState>
+  <Heading>Title goes here</Heading>
+  <Slot name="actions">
+    <Button variant="primary">label</Button>
+  </Slot>
+</EmptyState>
+```
+
+## Optional props
+
+<PropsDocs name="empty-state" />

@@ -1,0 +1,22 @@
+# Composable
+
+<ComponentDescription name="composable" />
+
+```jsx
+function Button({ asChild, children, ...props }) {
+  const Composition = asChild ? Compose : "button";
+  return (
+    <Composition {...props}>
+      Prefix <Composable>{children}</Composable>
+    </Composition>
+  );
+}
+```
+
+## Required props
+
+<PropsDocs name="composable" required />
+
+## Optional props
+
+<PropsDocs name="composable" />

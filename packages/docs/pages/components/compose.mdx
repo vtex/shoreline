@@ -1,6 +1,14 @@
 # Compose
 
-Composes immediate child with its props and child own props.
-Used to implement Shoreline composition.
+<ComponentDescription name="compose" />
 
-![Compose example](public/assets/overview-compose.webp)
+```jsx
+function Button({ asChild, ...props }) {
+  const Composition = asChild ? Compose : "button";
+  return <Composition {...props} />;
+}
+```
+
+## Optional props
+
+<PropsDocs name="compose" />

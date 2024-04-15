@@ -29,7 +29,10 @@ export const Compose = forwardRef<any, ComposeProps>(function Compose(
   )
 })
 
-export interface ComposeOptions extends HTMLAttributes<HTMLElement> {
+export interface ComposeOptions {
+  /**
+   * Children to compose
+   */
   children?: ReactNode
 }
 
