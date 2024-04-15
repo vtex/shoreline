@@ -25,7 +25,13 @@ export function isComposable(child: ReactNode): child is ReactElement {
 }
 
 export interface ComposableOptions {
+  /**
+   * Render function. Use it to wrap the root with containers
+   */
   render?: RenderProps
+  /**
+   * Defines the composition root
+   */
   children: ReactNode
 }
 
