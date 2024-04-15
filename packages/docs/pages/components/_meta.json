@@ -38,6 +38,7 @@
   "clickable": "Clickable",
   "combobox": "Combobox",
   "compose": "Compose",
+  "link-box": "LinkBox",
   "locale-provider": "LocaleProvider",
   "visually-hidden": "VisuallyHidden",
 
