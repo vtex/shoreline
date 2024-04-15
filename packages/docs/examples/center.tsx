@@ -1,10 +1,11 @@
 import React from 'react'
-import { Center, Text } from '@vtex/shoreline'
+import { Center } from '@vtex/shoreline'
+import { DecorativeBox } from '../components/decorative-box'
 
 export default function Example() {
   return (
     <Center>
-      <Text variant="body">Centered content</Text>
+      <DecorativeBox width="64px" height="64px" />
     </Center>
   )
 }

@@ -9,6 +9,7 @@
 .previewWrapper {
   padding: var(--space);
   min-height: var(--min-h);
+  height: fit-content;
   border-radius: var(--radii);
   background-color: color-mix(
     in srgb,
@@ -17,6 +18,10 @@
   );
   overflow-y: hidden;
   overflow-x: auto;
+}
+
+.previewWrapper[data-fixed-height='true'] {
+  height: var(--min-h);
 }
 
 .codeWrapper > pre {
