@@ -34,7 +34,7 @@ export const TsTableHeader = forwardRef(function TsTableHeader<T>(
                     header.column.columnDef.header,
                     header.getContext()
                   )}
-              <TableSortIndicator sorted={header.column.getIsSorted()} />
+              <TableSortIndicator sorted={header.column.getIsSorted() as any} />
             </TableHeaderCell>
           ))}
         </TableRow>

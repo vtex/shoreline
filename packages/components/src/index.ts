@@ -223,6 +223,7 @@ export type {
   TableProps,
   TableRowProps,
   TableSortIndicatorProps,
+  TableOptions,
 } from './table'
 export { Tag } from './tag'
 export type { TagProps } from './tag'
