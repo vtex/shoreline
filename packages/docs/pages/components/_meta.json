@@ -30,7 +30,7 @@
   "tag": "Tag",
   "text": "Text",
   "textarea": "Textarea",
-  "toast-stack": "ToastStack",
+  "toast": "Toast",
   "tooltip": "Tooltip",
 
   "Primitives": { "type": "separator", "title": "Primitives" },

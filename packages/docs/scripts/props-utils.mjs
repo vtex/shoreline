@@ -147,6 +147,16 @@ function getDeprecated(node) {
 /**
  * @param {Node | ReturnType<typeof getTags>} node
  */
+function getStatus(node) {
+  const tags = Array.isArray(node) ? node : getTags(node)
+  const tag = tags.find((tag) => tag.tagName === 'status')
+  if (!tag) return ''
+  return tag.text?.toString()
+}
+
+/**
+ * @param {Node | ReturnType<typeof getTags>} node
+ */
 function getDefaultValue(node) {
   const tags = Array.isArray(node) ? node : getTags(node)
   const tag = tags.find((tag) => tag.tagName === 'default')
@@ -216,6 +226,7 @@ function getProps(node) {
       optional: prop.isOptional(),
       defaultValue: getDefaultValue(decl),
       deprecated: getDeprecated(decl),
+      status: getStatus(decl),
       examples: getExamples(decl),
     })
   }
@@ -269,6 +280,7 @@ function getReference(filename, node, props, returnedProps) {
     name,
     description: getDescription(node),
     deprecated: getDeprecated(node),
+    status: getStatus(node),
     examples: getExamples(node),
     props: props ? getProps(props) : [],
     returnProps: returnedProps ? getProps(returnedProps) : undefined,
