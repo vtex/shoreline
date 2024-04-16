@@ -15,7 +15,7 @@ import { createCalendar } from '../utils'
 
 /**
  * Allow users to select a date range
- * @kind date
+ * @status stable
  * @example
  * <RangeCalendar />
  */
@@ -36,7 +36,7 @@ export function RangeCalendar<T extends DateValue>(
     useRangeCalendar(props, store.state, ref)
 
   return (
-    <CalendarProvider store={store}>
+    <CalendarProvider store={store as any}>
       <div ref={ref} data-sl-range-calendar {...calendarProps}>
         <CalendarHeader>
           <IconButton
@@ -65,7 +65,9 @@ export function RangeCalendar<T extends DateValue>(
   )
 }
 
-export type RangeCalendarProps<T extends DateValue> = Omit<
+export type RangeCalendarOptions<T extends DateValue> = Omit<
   AriaRangeCalendarProps<T>,
   'createCalendar' | 'locale'
 >
+
+export type RangeCalendarProps<T extends DateValue> = RangeCalendarOptions<T>

@@ -8,7 +8,7 @@ import { useMergeRef } from '@vtex/shoreline-utils'
 
 /**
  * Segment of a DateField
- * @kind date
+ * @status stable
  */
 export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
   function DateSegment(props, forwardedRef) {
@@ -29,7 +29,7 @@ export const DateSegment = forwardRef<HTMLDivElement, DateSegmentProps>(
   }
 )
 
-export interface DateSegmentProps {
+export interface DateSegmentOptions {
   /**
    * Segment to render
    */
@@ -39,3 +39,5 @@ export interface DateSegmentProps {
    */
   state: DateFieldState
 }
+
+export type DateSegmentProps = DateSegmentOptions

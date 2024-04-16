@@ -12,7 +12,7 @@ import type { DateValue } from '../utils'
 
 /**
  * A list of date-segments used as base for date-picker and date-range-picker
- * @kind date
+ * @status stable
  * @example
  * <DateField />
  */
@@ -53,7 +53,12 @@ export const DateField = forwardRef(function DateField<T extends DateValue>(
   )
 })
 
-export interface DateFieldProps<T extends DateValue>
+export interface DateFieldOptions<T extends DateValue>
   extends AriaDateFieldProps<T> {
+  /**
+   * Custom className
+   */
   className?: string
 }
+
+export type DateFieldProps<T extends DateValue> = DateFieldOptions<T>
