@@ -54,9 +54,11 @@ export function CalendarCell(props: CalendarCellProps) {
   )
 }
 
-interface CalendarCellProps {
+interface CalendarCellOptions {
   /**
    * Date that the cell represents
    */
   date: CalendarDate
 }
+
+export type CalendarCellProps = CalendarCellOptions

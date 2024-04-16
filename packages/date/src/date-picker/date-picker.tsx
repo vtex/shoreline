@@ -20,8 +20,7 @@ import { useStore } from '@vtex/shoreline-utils'
 
 /**
  * Allow users to pick a date
- * @playground
- * @kind date
+ * @status stable
  * @example
  * <DatePicker />
  */
@@ -85,10 +84,8 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   )
 }
 
-export type DatePickerProps<T extends DateValue> = Omit<
-  AriaDatePickerProps<T>,
-  'label'
-> & {
+export interface DatePickerOptions<T extends DateValue>
+  extends Omit<AriaDatePickerProps<T>, 'label'> {
   /**
    * Custom className
    */
@@ -98,3 +95,5 @@ export type DatePickerProps<T extends DateValue> = Omit<
    */
   error?: boolean
 }
+
+export type DatePickerProps<T extends DateValue> = DatePickerOptions<T>

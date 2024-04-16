@@ -48,4 +48,5 @@ export function CalendarGrid(props: CalendarGridProps) {
   )
 }
 
-export type CalendarGridProps = AriaCalendarGridProps
+export type CalendarGridOptions = AriaCalendarGridProps
+export type CalendarGridProps = CalendarGridOptions

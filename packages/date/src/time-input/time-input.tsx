@@ -17,7 +17,7 @@ import { IconXCircle } from '@vtex/shoreline-icons'
 
 /**
  * Allow users to select a time in a segmented field
- * @kind date
+ * @status stable
  * @example
  * <TimeInput />
  */
@@ -103,7 +103,7 @@ export const TimeInput = forwardRef(function TimeInput<T extends TimeValue>(
   )
 })
 
-export interface TimeInputProps<T extends TimeValue>
+export interface TimeInputOptions<T extends TimeValue>
   extends Omit<AriaTimeFieldProps<T>, 'locale' | 'label'> {
   /**
    * Custom className
@@ -114,3 +114,5 @@ export interface TimeInputProps<T extends TimeValue>
    */
   error?: boolean
 }
+
+export type TimeInputProps<T extends TimeValue> = TimeInputOptions<T>

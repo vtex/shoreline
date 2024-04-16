@@ -10,6 +10,11 @@ export function CalendarTitle(props: CalendarTitleProps) {
   return <h2 data-sl-calendar-title>{children}</h2>
 }
 
-export interface CalendarTitleProps {
+export interface CalendarTitleOptions {
+  /**
+   * Component children
+   */
   children?: ReactNode
 }
+
+export type CalendarTitleProps = CalendarTitleOptions

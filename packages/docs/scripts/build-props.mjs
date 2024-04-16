@@ -120,6 +120,21 @@ const files = [
   getPath('components', 'tooltip', 'tooltip-provider'),
   getPath('components', 'tooltip', 'tooltip-popover'),
   getPath('components', 'tooltip', 'tooltip-arrow'),
+  /**
+   * Date
+   */
+  getPath('date', 'calendar', 'calendar'),
+  getPath('date', 'calendar', 'calendar-cell'),
+  getPath('date', 'calendar', 'calendar-grid'),
+  getPath('date', 'calendar', 'calendar-header'),
+  getPath('date', 'calendar', 'calendar-provider'),
+  getPath('date', 'calendar', 'calendar-title'),
+  getPath('date', 'date-field', 'date-field'),
+  getPath('date', 'date-picker', 'date-picker'),
+  getPath('date', 'date-range-picker', 'date-range-picker'),
+  getPath('date', 'date-segment', 'date-segment'),
+  getPath('date', 'range-calendar', 'range-calendar'),
+  getPath('date', 'time-input', 'time-input'),
 ]
 
 let tsCode = `

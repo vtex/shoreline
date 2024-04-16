@@ -1,4 +1,5 @@
 import type { CalendarState, RangeCalendarState } from '@react-stately/calendar'
+import type { ReactNode } from 'react'
 import React, { createContext, useContext } from 'react'
 import type { Store } from '@vtex/shoreline-utils'
 import { invariant } from '@vtex/shoreline-utils'
@@ -7,13 +8,31 @@ export const CalendarContext = createContext<Store<
   CalendarState | RangeCalendarState
 > | null>(null)
 
-export function CalendarProvider({ store, children }: any) {
+/**
+ * Calendar state provider
+ */
+export function CalendarProvider(props: CalendarProviderProps) {
+  const { store, children } = props
+
   return (
     <CalendarContext.Provider value={store}>
       {children}
     </CalendarContext.Provider>
   )
 }
+
+export interface CalendarProviderOptions {
+  /**
+   * Calendar store
+   */
+  store: Store<CalendarState | RangeCalendarState> | null
+  /**
+   * Component children
+   */
+  children: ReactNode
+}
+
+export type CalendarProviderProps = CalendarProviderOptions
 
 export function useCalendarContext() {
   const context = useContext(CalendarContext)

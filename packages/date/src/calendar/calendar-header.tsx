@@ -10,6 +10,11 @@ export function CalendarHeader(props: CalendarHeaderProps) {
   return <div data-sl-calendar-header>{children}</div>
 }
 
-export interface CalendarHeaderProps {
+export interface CalendarHeaderOptions {
+  /**
+   * Component children
+   */
   children?: ReactNode
 }
+
+export type CalendarHeaderProps = CalendarHeaderOptions
