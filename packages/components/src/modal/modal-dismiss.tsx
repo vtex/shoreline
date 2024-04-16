@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { DialogDismiss } from '@ariakit/react'
 import { IconX } from '@vtex/shoreline-icons'
 
-import type { IconButtonOtions } from '../icon-button'
+import type { IconButtonOptions } from '../icon-button'
 import { IconButton } from '../icon-button'
 
 /**
@@ -54,7 +54,7 @@ export const ModalDismiss = forwardRef<HTMLButtonElement, ModalDismissProps>(
   }
 )
 
-export type ModalDismissOptions = Pick<IconButtonOtions, 'size'>
+export type ModalDismissOptions = Pick<IconButtonOptions, 'size'>
 
 export type ModalDismissProps = ModalDismissOptions &
   ComponentPropsWithoutRef<'button'>

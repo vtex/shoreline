@@ -1,11 +1,10 @@
-import type { CSSProperties, ComponentPropsWithoutRef } from 'react'
+import type { CSSProperties } from 'react'
 import React from 'react'
 import type { DefaultToastOptions } from 'react-hot-toast/headless'
 import { useToaster } from 'react-hot-toast/headless'
 
 import { ToastAppear } from './toast-appear'
 import { Toast } from './toast'
-import type { ToastPosition } from './toast-types'
 
 /**
  * Stack of toasts
@@ -65,9 +64,11 @@ export function ToastStack(props: ToastStackProps) {
 }
 
 function getPositionStyle(
-  position: ToastPosition,
+  position: ToastStackOptions['position'],
   offset: number
 ): CSSProperties {
+  if (!position) return {}
+
   const top = position.includes('top')
   const verticalStyle: CSSProperties = top ? { top: 0 } : { bottom: 0 }
   const horizontalStyle: CSSProperties = position.includes('center')
@@ -87,10 +88,31 @@ function getPositionStyle(
   }
 }
 
-export interface ToastStackProps
-  extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
-  position?: ToastPosition
+export interface ToastStackOptions {
+  /**
+   * Postion of the toasts
+   * @default 'bottom-right'
+   */
+  position?:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right'
+  /**
+   * Options of each toast
+   */
   toastOptions?: DefaultToastOptions
+  /**
+   * Wether should invert the order
+   */
   reverseOrder?: boolean
+  /**
+   * Position distance
+   * @default 16
+   */
   gutter?: number
 }
+
+export type ToastStackProps = ToastStackOptions

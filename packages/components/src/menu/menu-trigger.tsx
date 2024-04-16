@@ -30,7 +30,7 @@ export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
   }
 )
 
-interface MenuTriggerOptions {
+export interface MenuTriggerOptions {
   /**
    * Children composition
    * @default false

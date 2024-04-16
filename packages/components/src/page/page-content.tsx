@@ -29,7 +29,7 @@ export const PageContent = forwardRef<HTMLDivElement, PageContentProps>(
   }
 )
 
-export interface PageContentOptions extends ComponentPropsWithoutRef<'div'> {
+export interface PageContentOptions {
   /**
    * Layout type
    * @default 'standard'

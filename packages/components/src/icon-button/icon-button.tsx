@@ -28,12 +28,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   }
 )
 
-export interface IconButtonOtions extends ButtonOptions {
+export interface IconButtonOptions extends ButtonOptions {
   /**
    * Icon button label. Needed for accessibility.
    */
   label: ReactNode
 }
 
-export type IconButtonProps = IconButtonOtions &
+export type IconButtonProps = IconButtonOptions &
   ComponentPropsWithoutRef<'button'>
