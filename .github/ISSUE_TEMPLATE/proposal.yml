@@ -1,0 +1,33 @@
+name: Proposal
+description: Report a problem with Shoreline
+labels: ['proposal', 'status: pending']
+body:
+  - type: markdown
+    attributes:
+      value: Hello! Use this template if you have designed a solution and want to share it with the community. If this doesn't look right, choose another template.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: Provide a clear and concise description of what the problem this proposal is trying to solve. (For example, I find it frustrating when...). Be sure to attach screenshots or videos to illustrate the problem. If this proposal is related to an existing issue, mention it here.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: The solution
+      description: Provide sample content, references, or audits of solutions solving the same problem in other applications/websites/projects.
+    validations:
+      required: true
+  - type: textarea
+    id: usage-examples
+    attributes:
+      label: Usage examples
+      description: If you are proposing a component or an icon, provide examples of how they would be used. You can use images or links with a small description.
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: List any content, references, or benchmarks you used for this proposal.
+    validations:
+      required: true
