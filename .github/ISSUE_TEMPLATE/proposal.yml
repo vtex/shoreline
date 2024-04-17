@@ -1,5 +1,5 @@
 name: Proposal
-description: Report a problem with Shoreline
+description: Propose an idea for this project.
 labels: ['proposal', 'status: pending']
 body:
   - type: markdown
@@ -16,7 +16,7 @@ body:
     id: solution
     attributes:
       label: The solution
-      description: Provide sample content, references, or audits of solutions solving the same problem in other applications/websites/projects.
+      description: Provide sample content, references, or audits of solutions solving the same problem in other applications/websites/projects. You can use one of our templates, [Component figma template](), [Component API template](), or [Icon figma template]().
     validations:
       required: true
   - type: textarea
@@ -24,6 +24,11 @@ body:
     attributes:
       label: Usage examples
       description: If you are proposing a component or an icon, provide examples of how they would be used. You can use images or links with a small description.
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: If your proposal is a dependency of or depends on another component, explain here how they interact and if there is any possible impact.
   - type: textarea
     id: references
     attributes:
