@@ -9,6 +9,13 @@ import {
   TabPanel,
   IconCopySimple,
   IconCheck,
+  SelectProvider,
+  SelectTrigger,
+  SelectPopover,
+  SelectItem,
+  Text,
+  SelectItemCheck,
+  Tooltip,
 } from '@vtex/shoreline'
 
 import codes from '../../__examples__'
@@ -19,6 +26,7 @@ export function Preview(props: Props) {
   const { name, fixedHeight = false } = props
 
   const [activeId, setActiveId] = useState<string>('preview')
+  const [bg, setBg] = useState('muted')
   const { isCopied, handleCopy } = useClipboard()
 
   const codePreview = useMemo(() => {
@@ -47,8 +55,66 @@ export function Preview(props: Props) {
             <div
               className={styles.previewWrapper}
               data-fixed-height={fixedHeight}
+              data-bg={bg}
+              style={{
+                position: 'relative',
+              }}
             >
               {Preview}
+
+              <SelectProvider value={bg} setValue={setBg} placement="top-end">
+                <Tooltip label="Switch theme">
+                  <SelectTrigger
+                    style={{ position: 'absolute', bottom: 16, right: 16 }}
+                  >
+                    <div
+                      style={{
+                        height: 32,
+                        width: 32,
+                        borderRadius: 32,
+                        boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
+                        background: `var(--sl-color-${
+                          bg === 'base' ? 'gray-0' : 'gray-1'
+                        })`,
+                      }}
+                    />
+                  </SelectTrigger>
+                </Tooltip>
+                <SelectPopover className={styles.themeSelectPopover}>
+                  <SelectItem value="muted" asChild>
+                    <div className={styles.themeSelectItem}>
+                      <div
+                        style={{
+                          height: 24,
+                          width: 24,
+                          borderRadius: 24,
+                          boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
+                          background: `var(--sl-color-gray-1)`,
+                          cursor: 'default',
+                        }}
+                      />
+                      <Text>Muted</Text>
+                      <SelectItemCheck />
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="base" asChild>
+                    <div className={styles.themeSelectItem}>
+                      <div
+                        style={{
+                          height: 24,
+                          width: 24,
+                          borderRadius: 24,
+                          boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
+                          background: `var(--sl-color-gray-0)`,
+                          cursor: 'default',
+                        }}
+                      />
+                      <Text>Base</Text>
+                      <SelectItemCheck />
+                    </div>
+                  </SelectItem>
+                </SelectPopover>
+              </SelectProvider>
             </div>
           </Suspense>
         </TabPanel>
