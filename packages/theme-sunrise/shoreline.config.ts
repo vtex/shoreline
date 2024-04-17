@@ -3,4 +3,5 @@ import { presetSunrise } from './src/preset-sunrise'
 
 export default defineConfig({
   preset: presetSunrise,
+  cwd: process.cwd(),
 })

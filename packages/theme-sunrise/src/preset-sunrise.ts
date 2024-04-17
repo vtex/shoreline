@@ -2,7 +2,6 @@ import type { ShorelineConfig } from '@vtex/shoreline-css'
 
 export const presetSunrise: ShorelineConfig = {
   outdir: './shoreline',
-  cwd: process.cwd(),
   tokens: {
     space: {
       0: '0rem',

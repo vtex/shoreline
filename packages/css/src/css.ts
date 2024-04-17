@@ -19,6 +19,7 @@ export async function css() {
   const css = await collection.getCss()
   const cssUnlayered = await collection.getCss(false, false)
   const ts = await collection.getTs()
+  const tsResolved = await collection.getTs('ShorelineResolvedTokens', true)
 
   outputFile({
     path: `${extendedConfig.outdir}/tokens.css`,
@@ -36,6 +37,11 @@ export async function css() {
     path: `${extendedConfig.outdir}/tokens.ts`,
     code: Buffer.from(ts),
     successMessage: '🍰 Tokens generated!',
+  })
+  outputFile({
+    path: `${extendedConfig.outdir}/tokens-resolved.ts`,
+    code: Buffer.from(tsResolved),
+    successMessage: '🍰 Resolved Tokens generated!',
   })
 }
 
