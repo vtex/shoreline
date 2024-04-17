@@ -121,6 +121,10 @@ const files = [
   getPath('components', 'tooltip', 'tooltip-popover'),
   getPath('components', 'tooltip', 'tooltip-arrow'),
   /**
+   * ts-table
+   */
+  join(dirname(''), `../ts-table/src/ts-table.tsx`),
+  /**
    * Date
    */
   getPath('date', 'calendar', 'calendar'),

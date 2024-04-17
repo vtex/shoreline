@@ -11,7 +11,10 @@ import {
   getSortedRowModel,
 } from '@tanstack/react-table'
 import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
-import type { TableProps } from '@vtex/shoreline-components'
+import type {
+  TableOptions as ShorelineTableOptions,
+  TableProps,
+} from '@vtex/shoreline-components'
 import {
   Table,
   TableRow,
@@ -139,20 +142,16 @@ export const TsTable = forwardRef(function TsTable<T>(
 
 type CoreProps = 'data' | 'columns' | 'getRowCanExpand'
 
-type Options<T> = Omit<TableOptions<T>, CoreProps | 'getCoreRowModel'> &
-  Partial<Pick<TableOptions<T>, 'getCoreRowModel'>>
-
-type TsMirrorProps<T> = Pick<TableOptions<T>, CoreProps>
-
-export interface TsTableProps<T>
-  extends TableProps,
-    TsMirrorProps<T>,
+export interface TsTableOptions<T>
+  extends ShorelineTableOptions,
+    Pick<TableOptions<T>, CoreProps>,
     Pick<TsTableRowProps<T>, 'rowClick' | 'renderDetail'> {
   /**
    * Other TanStack/Table options
    * @see https://tanstack.com/table/v8/docs/api/core/table
    */
-  options?: Options<T>
+  options?: Omit<TableOptions<T>, CoreProps | 'getCoreRowModel'> &
+    Partial<Pick<TableOptions<T>, 'getCoreRowModel'>>
   /**
    * Defines if columns will be sortable
    * @default false
@@ -171,3 +170,5 @@ export interface TsTableProps<T>
    */
   virtualizer?: UseVirtualizerModelReturn
 }
+
+export type TsTableProps<T> = TsTableOptions<T> & TableProps

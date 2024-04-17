@@ -1,4 +1,5 @@
 {
+  "tanstack-table": "@tanstack/react-table",
   "best-practices": "Best Practices",
   "figma-usage": "Figma Usage",
   "table-body": "TableBody",
