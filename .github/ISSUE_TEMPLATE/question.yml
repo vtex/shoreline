@@ -1,6 +1,6 @@
 name: Question & Feedback
 description: Question or feedback about Shoreline.
-labels: ['bug', 'question']
+labels: ['question', 'status: pending']
 body:
   - type: textarea
     id: how-we-can-help
