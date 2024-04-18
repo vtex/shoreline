@@ -6,5 +6,11 @@
   "theming": "Theming",
   "composition": "Composition",
   "forms": "Forms",
-  "migration": "Migration from Admin UI"
+  "migration": "Migration from Admin UI",
+  "-- Contributing": {
+    "type": "separator",
+    "title": "Contributing"
+  },
+  "introduction": "Introduction",
+  "processes": "Processes"
 }

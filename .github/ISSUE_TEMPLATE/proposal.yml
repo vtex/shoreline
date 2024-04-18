@@ -2,9 +2,6 @@ name: Proposal
 description: Propose an idea for this project.
 labels: ['proposal', 'status: pending']
 body:
-  - type: markdown
-    attributes:
-      value: Hello! Use this template if you have designed a solution and want to share it with the community. If this doesn't look right, choose another template.
   - type: textarea
     id: problem
     attributes:
@@ -36,3 +33,6 @@ body:
       description: List any content, references, or benchmarks you used for this proposal.
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this proposal ✨
