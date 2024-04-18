@@ -1,0 +1,10 @@
+.grid {
+  --rows: 3;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(250px, calc((100% - 1rem * 2) / var(--rows))), 1fr)
+  );
+  margin-top: var(--sl-space-4);
+  gap: var(--sl-space-gap);
+}

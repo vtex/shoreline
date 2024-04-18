@@ -1,0 +1,45 @@
+.card {
+  --radii: var(--sl-border-radius-large);
+  border-radius: var(--radii);
+}
+
+.card:hover {
+  background: var(--sl-color-gray-1);
+}
+
+.card:hover img,
+.card:focus img {
+  transform: scale(1.1);
+}
+
+.imgWrapper {
+  --radii: var(--sl-border-radius-large);
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radii);
+}
+
+.card img {
+  border-radius: var(--radii);
+  transition: transform 250ms ease-in-out;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sl-space-1) var(--sl-space-3) var(--sl-space-6)
+    var(--sl-space-3);
+  gap: var(--sl-space-2);
+}
+
+.title {
+  font: var(--sl-text-display-2-font);
+  letter-spacing: var(--sl-text-display-2-letter-spacing);
+}
+
+.description {
+  font: var(--sl-text-display-4-font);
+  letter-spacing: var(--sl-text-display-4-letter-spacing);
+  color: var(--sl-color-gray-10);
+}

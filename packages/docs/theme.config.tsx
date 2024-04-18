@@ -11,6 +11,10 @@ import {
 import { Preview } from './components/preview'
 import { PropsDocs } from './components/props-docs'
 import { ComponentDescription } from './components/component-description'
+import {
+  ComponentSummary,
+  ComponentSummaryGrid,
+} from './components/component-summary'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -33,6 +37,8 @@ const config: DocsThemeConfig = {
     Preview: Preview as React.FC,
     PropsDocs: PropsDocs as React.FC,
     ComponentDescription: ComponentDescription as React.FC,
+    ComponentSummary: ComponentSummary as React.FC,
+    ComponentSummaryGrid: ComponentSummaryGrid as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
