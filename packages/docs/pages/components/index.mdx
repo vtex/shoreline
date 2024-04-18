@@ -1,6 +1,5 @@
 # Components
 
-import Image from 'next/image'
 import { allComponentsList, allLayoutsList, allPrimitivesList } from '../../utils/all-components-list'
 import { pascalCase } from '@vtex/shoreline'
 
@@ -9,10 +8,6 @@ import { pascalCase } from '@vtex/shoreline'
     <ComponentSummary 
       key={component}
       name={component}
-      image={
-        <Image src={`/assets/all-${component}.png`} alt={component} width={370} height={218} />
-      }
-      href={`/components/${component}`}
     />
   ))}
 </ComponentSummaryGrid>
@@ -24,10 +19,6 @@ import { pascalCase } from '@vtex/shoreline'
     <ComponentSummary 
       key={component}
       name={component}
-      image={
-        <Image src={`/assets/all-${component}.png`} alt={component} width={370} height={218} />
-      }
-      href={`/components/${component}`}
     />
   ))}
 </ComponentSummaryGrid>
@@ -39,10 +30,6 @@ import { pascalCase } from '@vtex/shoreline'
     <ComponentSummary 
       key={component}
       name={component}
-      image={
-        <Image src={`/assets/all-${component}.png`} alt={component} width={370} height={218} />
-      }
-      href={`/components/${component}`}
     />
   ))}
 </ComponentSummaryGrid>
