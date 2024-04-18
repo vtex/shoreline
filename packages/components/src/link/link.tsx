@@ -3,7 +3,8 @@ import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
 /**
- * Anchor component
+ * Links represent navigation inside a page or between pages, including to pages outside the Admin. They exist within or directly after a text.
+ * @status stable
  * @example
  * <Link href="https://vtex.com">Go to VTEX</Link>
  */

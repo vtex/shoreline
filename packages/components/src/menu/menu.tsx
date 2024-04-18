@@ -13,9 +13,8 @@ import {
 import { IconButton } from '../icon-button'
 
 /**
- * Menu component
- *
- * @playground
+ * Menus summarize actions in a dropdown. They can include actions that are rarely used, complementary, or repeated for each item in a Collection.
+ * @status stable
  * @example
  * <Menu label="Open">
  *  <MenuItem>Item 1</MenuItem>

@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 /**
- * Tags are used to categorize or label items.
- *
+ * Tags differentiate items through a read-only text value in a colored bg. They can be secondary or primary, given their relevance to the main job.
+ * @status stable
  * @example
  * <Tag>Short text</Tag>
  */

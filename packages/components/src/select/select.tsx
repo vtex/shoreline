@@ -6,8 +6,8 @@ import { useStore, useControlledState } from '@vtex/shoreline-utils'
 import { useFieldContext } from '../field'
 
 /**
- * Select fields allow merchants to choose a single option from a list
- * that includes between five and seven values.
+ * Select opens a dropdown with between five and seven values for users to choose one. Use Radios for less items or a Combobox for more items.
+ * @status stable
  * @example
  * <Select
  *   label="Label"

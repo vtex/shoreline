@@ -20,7 +20,7 @@ const useMessage = createMessageHook(messages)
 
 /**
  * A collection view is a component that renders a collection based on its status
- *
+ * @status stable
  * @example
  * <Collection>
  *    <CollectionView status="loading" />

@@ -6,7 +6,8 @@ import { Slot } from '../slot'
 import { useFieldContext } from '../field'
 
 /**
- * Text Input component
+ * An Input is a field for short text values. It can include masks and character restrictions, such as accepting only numbers.
+ * @status stable
  * @example
  * <Input />
  */

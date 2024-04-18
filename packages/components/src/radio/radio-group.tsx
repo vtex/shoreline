@@ -13,7 +13,8 @@ import { Stack } from '../stack'
 import { Label } from '../label'
 
 /**
- * Radio groups allow users to select one option from a list.
+ * A group of Radios includes five options at most and only one can be selected at a time. Options can be listed horizontally or vertically.
+ * @status stable
  * @example
  * <RadioGroup label="Radio group">
  *  <Radio value="1">Option 1</Radio>

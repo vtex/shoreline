@@ -3,6 +3,8 @@ import React, { forwardRef } from 'react'
 import { TabPanel as BaseTabPanel } from '@ariakit/react'
 
 /**
+ * Tabs are used to create up to five views inside a page. Use for related content that is not comparable, when a unified view is not necessary.
+ * @status stable
  * @example
  * <TabProvider>
  *  <TabList>

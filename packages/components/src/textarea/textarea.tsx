@@ -5,7 +5,8 @@ import { useControlledState, useStore } from '@vtex/shoreline-utils'
 import { useFieldContext } from '../field'
 
 /**
- * Textarea fields allow merchants to enter multiple lines of text.
+ * Text Area is a field for text values that can take up more than one line in a form, such as descriptions or comments.
+ * @status stable
  * @example
  * <Textarea label="Label" maxLength={120} optional resizable={false} />
  */

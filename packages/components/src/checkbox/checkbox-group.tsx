@@ -7,8 +7,8 @@ import { useId } from '@vtex/shoreline-utils'
 import { Label } from '../label'
 
 /**
- * Checkbox groups allow users to select multiple options from a list.
- *
+ * A group of Checkboxes includes five independent choices at most. Each option is binary and they can be listed horizontally or vertically.
+ * @status stable
  * @example
  * <CheckboxGroup label="Checkbox group">
  *  <Checkbox value="1">Option 1</Checkbox>

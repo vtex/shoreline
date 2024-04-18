@@ -2,8 +2,8 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 
 /**
- * Collection containers allow merchants to view and control a set of items in one or more layout types.
- *
+ * Collection combines a list of items with controls for the view. The list can be a Table and the controls can be a Search, Filters, and Pagination.
+ * @status stable
  * @example
  * <Collection>
  *    <Slot name="header">

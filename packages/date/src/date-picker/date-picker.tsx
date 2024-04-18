@@ -19,7 +19,7 @@ import { DateField } from '../date-field'
 import { useStore } from '@vtex/shoreline-utils'
 
 /**
- * Allow users to pick a date
+ * A Date Picker is a field for single date values that may include time. The date can be typed or selected with the help of a Calendar.
  * @status stable
  * @example
  * <DatePicker />

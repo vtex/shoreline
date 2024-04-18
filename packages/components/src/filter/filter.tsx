@@ -8,7 +8,8 @@ import { FilterPopover } from './filter-popover'
 import { FilterList } from './filter-list'
 
 /**
- * Filter component
+ * Filters represent criteria that users can choose to narrow down a Collection. They can include single or multiple selection.
+ * @status stable
  * @example
  * <Filter label="Label">
  *  <FilterItem value="option">Option</FilterItem>

@@ -2,7 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
 /**
- * Skeleton represents a loading state
+ * Skeletons compose a low-fidelity representation of content that will load. They appear when the entire page is loading and take up to 5s.
+ * @status stable
  * @example
  * <Skeleton shape="circle" style={{ width: 200, height: 200 }} />
  */
