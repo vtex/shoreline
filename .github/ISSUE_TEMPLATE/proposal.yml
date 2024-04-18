@@ -1,0 +1,38 @@
+name: Proposal
+description: Propose an idea for this project.
+labels: ['proposal', 'status: pending']
+body:
+  - type: markdown
+    attributes:
+      value: Hello! Use this template if you have designed a solution and want to share it with the community. If this doesn't look right, choose another template.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Provide a clear and concise description of the problem this proposal is trying to solve. Include data from previous research, screenshots or videos to illustrate the problem. If this proposal is related to an existing issue, mention it here.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+      description: Provide the links, for example from a Figma file or a CodeSandbox, or code snippets that apply to your proposal. You can use one of our templates, [Component figma template](), [Component API template](), or [Icon figma template]().
+    validations:
+      required: true
+  - type: textarea
+    id: usage-examples
+    attributes:
+      label: Usage examples
+      description: If you are proposing a component or an icon, provide examples of how they would be used. You can use images or links with a small description.
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: If your proposal is a dependency of or depends on another component, explain here how they interact and if there is any possible impact.
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: List any content, references, or benchmarks you used for this proposal.
+    validations:
+      required: true
