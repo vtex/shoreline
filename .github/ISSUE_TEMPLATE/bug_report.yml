@@ -4,7 +4,7 @@ labels: ['bug', 'status: pending']
 body:
   - type: markdown
     attributes:
-      value: Thanks for taking the time to fill out this bug report ✨
+      value: Hello! Use this template if you had trouble using our library and want to share it with the community. If this doesn't look right, choose another template.
   - type: textarea
     id: summary
     attributes:
@@ -21,7 +21,7 @@ body:
     id: current-behavior
     attributes:
       label: Current behavior
-      description: What happens instead of the expected behavior? If applicable, add screenshots/videos to help explain the problem.
+      description: Describe what happens instead of the expected behavior. If applicable, add screenshots/videos to help explain the problem.
       value: |
         Wrap animated gifs/videos in a details tag:
         <details>
@@ -33,13 +33,11 @@ body:
     attributes:
       label: Reproducible Example
       description: Provide a reduced test case with the [Shoreline sandbox template]().
-      value: |
-        [Link to sandbox]()
   - type: textarea
     id: suggested-solution
     attributes:
       label: Suggested solution
-      description: How could we solve this bug? What changes would need to made?
+      description: Describe how could the bug could be solved or what changes would need to be made. Provide the links, for example from a Figma file or a CodeSandbox, or code snippets that apply to your solution.
   - type: textarea
     id: additional-context
     attributes:
@@ -49,7 +47,6 @@ body:
     id: package
     attributes:
       label: Package
-      description: Which package(s) are you using?
       multiple: true
       options:
         - '@vtex/shoreline'
@@ -58,10 +55,10 @@ body:
         - '@vtex/shoreline-stylelint'
         - '@vtex/shoreline-codemod'
         - '@vtex/shoreline-icons'
-  - type: input
-    id: shoreline-package-version
+  - type: textarea
+    id: packages-version
     attributes:
-      label: Shoreline package version
+      label: Packages version
   - type: input
     id: browser
     attributes:
@@ -74,6 +71,5 @@ body:
         - pnpm
         - npm
         - yarn
+        - bun
       default: 0
-    validations:
-      required: true
