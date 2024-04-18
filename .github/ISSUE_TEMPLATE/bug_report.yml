@@ -2,9 +2,6 @@ name: Bug Report
 description: Report a problem with Shoreline
 labels: ['bug', 'status: pending']
 body:
-  - type: markdown
-    attributes:
-      value: Hello! Use this template if you had trouble using our library and want to share it with the community. If this doesn't look right, choose another template.
   - type: textarea
     id: summary
     attributes:
@@ -73,3 +70,6 @@ body:
         - yarn
         - bun
       default: 0
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report ✨
