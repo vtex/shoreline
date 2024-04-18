@@ -11,8 +11,8 @@ import React, { forwardRef } from 'react'
 import { IconButton } from '../icon-button'
 
 /**
- * Alert indicators allow users to view semantic messages that are prominent and can be dismissable.
- * @playground
+ * Alerts call attention to a semantic message and load alongside the rest of the page content. They can optionally be dismissed upon user action.
+ * @status stable
  * @example
  * <Alert onDismiss={() => {}}>
  *  <Text variant="body">Message</Text>

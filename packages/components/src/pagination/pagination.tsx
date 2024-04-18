@@ -11,10 +11,9 @@ import { Stack } from '../stack'
 const useMessage = createMessageHook(messages)
 
 /**
- * Pagination triggers allow merchants to view the size of a list and navigate between pages.
- *
+ * Pagination handles navigation inside a Collection. It displays the number of items, filtered or not, and allow users to navigate between pages.
+ * @status stable
  * @example
- *
  * <Pagination
  *   page={page}
  *   onPageChange={(page, type) => {}}

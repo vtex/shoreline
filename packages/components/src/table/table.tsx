@@ -4,7 +4,8 @@ import React, { forwardRef } from 'react'
 import { Compose } from '@vtex/shoreline-primitives'
 
 /**
- * Table root component. It is used to render data in a tabular structure.
+ * Table lists items vertically and can include actions for each row. The columns display property values for users to scan, sort, and compare.
+ * @status stable
  */
 export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
   props,

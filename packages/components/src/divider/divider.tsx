@@ -4,7 +4,8 @@ import { forwardRef } from '@vtex/shoreline-utils'
 import { Separator as BaseDivider } from '@ariakit/react'
 
 /**
- * Divider line for separing content
+ * Creates distinction between sections in containers with constrained space or rows in a table.
+ * @status stable
  * @example
  * <div>Content <Divider /> Content</div>
  */

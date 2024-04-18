@@ -5,7 +5,8 @@ const DEFAULT_SIZE = 16
 const DEFAULT_DESCRIPTION = 'loading'
 
 /**
- * Loading indicator
+ * Spinner informs that a specific element in the page is loading or a task is in progress. Use only for request that take over 1s and less than 5s.
+ * @status stable
  * @example
  * <Spinner description="loading" size={16} />
  */

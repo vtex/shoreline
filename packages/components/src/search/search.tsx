@@ -7,9 +7,8 @@ import { Spinner } from '../spinner'
 import { VisuallyHidden } from '@vtex/shoreline-primitives'
 
 /**
- * Search component
- *
- * @playground
+ * Search is a text input that users can type to narrow down a Collection. Use Filters if values can be classified in predefined options.
+ * @status stable
  * @example
  * <Search placeholder="Search" />
  */

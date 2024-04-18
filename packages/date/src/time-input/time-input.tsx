@@ -16,7 +16,7 @@ import { DateSegment } from '../date-segment'
 import { IconXCircle } from '@vtex/shoreline-icons'
 
 /**
- * Allow users to select a time in a segmented field
+ * A Time Input is a field for a single time value.
  * @status stable
  * @example
  * <TimeInput />

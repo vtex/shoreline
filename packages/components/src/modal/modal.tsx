@@ -5,9 +5,8 @@ import { Dialog } from '@ariakit/react'
 import { Container } from '../content'
 
 /**
- * Modal containers allow users to view content that demands attention through an overlay window that opens on top of the current page.
- *
- * @playground
+ * Modal displays content related to a minor job within a page's main job. It demands complete attention and blocks interactions outside the overlay.
+ * @status stable
  * @example
  * ```jsx
  * function Example() {

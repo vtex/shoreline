@@ -17,7 +17,8 @@ import { IconButton } from '../icon-button'
 import { Button } from '../button'
 
 /**
- * Toast component
+ * Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
+ * @status stable
  * @example
  * <Toast variant="success">Success!</Toast>
  */

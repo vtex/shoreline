@@ -6,7 +6,8 @@ import type { ButtonOptions } from '../button'
 import { Button } from '../button'
 
 /**
- * A button designed specifically for usage with a single icon.
+ * Icon Buttons represent minor actions in a flow. It includes a label only for accessibility that is not visible, so the icon must be recognizable by itself.
+ * @status stable
  * @example
  * <IconButton label="Delete">
  *  <IconTrash />

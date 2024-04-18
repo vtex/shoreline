@@ -7,7 +7,7 @@ import { Spinner } from '../spinner'
 import { Center } from '../center'
 
 /**
- * Buttons triggers allow users to identify and start the most important actions in a container.
+ * Buttons with labels represent the most important actions that users frequently trigger. They can vary in prominence and can include an icon.
  * @status stable
  * @example
  * <Button>Action label</Button>

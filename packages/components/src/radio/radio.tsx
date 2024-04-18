@@ -7,7 +7,7 @@ import { Label } from '../label'
 
 /**
  * Radio inputs allow users to select one option from a list. It should be used inside a RadioGroup component.
- *
+ * @status stable
  * @example
  * <RadioGroup label="Radio group">
  *  <Radio value="1">Option 1</Radio>

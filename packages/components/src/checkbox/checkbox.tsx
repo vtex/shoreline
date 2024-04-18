@@ -11,7 +11,8 @@ import type { AnyObject } from '@vtex/shoreline-utils'
 import { Text } from '../text'
 
 /**
- * Checkbox controls allow users to make multiple independent choices in a form where there are at most five options and each option is binary.
+ * A single Checkbox represents binary choices, such as accepting terms and conditions or activating and deactivating notifications.
+ * @status stable
  * @example
  * <Checkbox>Label</Checkbox>
  */

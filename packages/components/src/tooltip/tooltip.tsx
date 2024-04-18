@@ -8,7 +8,8 @@ import { TooltipPopover } from './tooltip-popover'
 import { TooltipArrow } from './tooltip-arrow'
 
 /**
- * Tooltip component
+ * Tooltips display a label that was omitted when hovering the element. They shouldn't be essential for users to complete tasks.
+ * @status stable
  * @example
  * <Tooltip text="Text">
  *   <button>i</button>
