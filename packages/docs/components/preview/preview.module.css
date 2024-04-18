@@ -23,7 +23,7 @@
   transition: all 250ms cubic-bezier(0, 0.12, 0, 1.05);
 }
 
-.previewWrapper[data-bg='muted'] {
+.previewWrapper[data-theme='muted'] {
   --sl-local-bg: color-mix(
     in srgb,
     var(--sl-color-gray-1) 50%,
@@ -31,7 +31,7 @@
   );
 }
 
-.previewWrapper[data-bg='base'] {
+.previewWrapper[data-theme='base'] {
   --sl-local-bg: var(--sl-bg-base);
 }
 
@@ -53,6 +53,7 @@
 .themeSelectItem {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: var(--sl-space-2);
   padding: var(--sl-space-1) var(--sl-space-2);
   border-radius: var(--sl-border-radius-medium);
@@ -73,24 +74,4 @@
   max-height: var(--max-h);
   border-radius: var(--radii);
   overflow: auto;
-}
-
-.copyButton {
-  --bg-hue: 0 0 100;
-
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: var(--sl-fg-inverted);
-  padding: var(--sl-space-2);
-  border-radius: var(--sl-border-radius-medium);
-  background-color: hsla(var(--bg-hue) / 0%);
-}
-
-.copyButton:hover {
-  background-color: hsla(var(--bg-hue) / 5%);
-}
-
-.copyButton:active {
-  background-color: hsla(var(--bg-hue) / 10%);
 }

@@ -7,7 +7,6 @@ import {
   TabList,
   Tab,
   TabPanel,
-  IconCopySimple,
   IconCheck,
   SelectProvider,
   SelectTrigger,
@@ -16,6 +15,10 @@ import {
   Text,
   SelectItemCheck,
   Tooltip,
+  Flex,
+  Slot,
+  IconButton,
+  IconCode,
 } from '@vtex/shoreline'
 
 import codes from '../../__examples__'
@@ -26,7 +29,7 @@ export function Preview(props: Props) {
   const { name, fixedHeight = false } = props
 
   const [activeId, setActiveId] = useState<string>('preview')
-  const [bg, setBg] = useState('muted')
+  const [theme, setTheme] = useState<Theme>('muted')
   const { isCopied, handleCopy } = useClipboard()
 
   const codePreview = useMemo(() => {
@@ -47,97 +50,122 @@ export function Preview(props: Props) {
     <div className={styles.preview}>
       <TabProvider selectedId={activeId} setSelectedId={setActiveId as any}>
         <TabList aria-label="Preview mode">
-          <Tab id="preview">Preview</Tab>
-          <Tab id="code">Code</Tab>
-        </TabList>
-        <TabPanel>
-          <Suspense fallback={<Spinner description="Loading component" />}>
-            <div
-              className={styles.previewWrapper}
-              data-fixed-height={fixedHeight}
-              data-bg={bg}
-              style={{
-                position: 'relative',
-              }}
-            >
-              {Preview}
-
-              <SelectProvider value={bg} setValue={setBg} placement="top-end">
+          <Flex
+            align="center"
+            justify="space-between"
+            style={{
+              width: '100%',
+            }}
+          >
+            <Slot>
+              <Tab id="preview">Preview</Tab>
+              <Tab id="code">Code</Tab>
+            </Slot>
+            <Flex gap="$space-1">
+              <SelectProvider
+                value={theme}
+                setValue={setTheme as (a: string) => void}
+                placement="top-end"
+              >
                 <Tooltip label="Switch theme">
-                  <SelectTrigger
-                    style={{ position: 'absolute', bottom: 16, right: 16 }}
-                  >
-                    <div
-                      style={{
-                        height: 32,
-                        width: 32,
-                        borderRadius: 32,
-                        boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
-                        background: `var(--sl-color-${
-                          bg === 'base' ? 'gray-0' : 'gray-1'
-                        })`,
-                      }}
-                    />
+                  <SelectTrigger asChild>
+                    <IconButton variant="tertiary" label="Switch theme">
+                      <ThemeIndicator theme={theme} />
+                    </IconButton>
                   </SelectTrigger>
                 </Tooltip>
                 <SelectPopover className={styles.themeSelectPopover}>
                   <SelectItem value="muted" asChild>
                     <div className={styles.themeSelectItem}>
-                      <div
-                        style={{
-                          height: 24,
-                          width: 24,
-                          borderRadius: 24,
-                          boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
-                          background: `var(--sl-color-gray-1)`,
-                          cursor: 'default',
-                        }}
-                      />
+                      <ThemeIndicator theme="muted" />
                       <Text>Muted</Text>
                       <SelectItemCheck />
                     </div>
                   </SelectItem>
                   <SelectItem value="base" asChild>
                     <div className={styles.themeSelectItem}>
-                      <div
-                        style={{
-                          height: 24,
-                          width: 24,
-                          borderRadius: 24,
-                          boxShadow: '0 0 0 1px var(--sl-color-gray-4)',
-                          background: `var(--sl-color-gray-0)`,
-                          cursor: 'default',
-                        }}
-                      />
+                      <ThemeIndicator theme="base" />
                       <Text>Base</Text>
                       <SelectItemCheck />
                     </div>
                   </SelectItem>
                 </SelectPopover>
               </SelectProvider>
+              <Tooltip label={isCopied ? 'Copied' : 'Copy code'}>
+                <IconButton
+                  variant="tertiary"
+                  label="Copy code"
+                  onClick={() => {
+                    handleCopy(codes[name].code)
+                  }}
+                >
+                  {isCopied ? <IconCheck /> : <IconCode />}
+                </IconButton>
+              </Tooltip>
+            </Flex>
+          </Flex>
+        </TabList>
+        <TabPanel>
+          <Suspense fallback={<Spinner description="Loading component" />}>
+            <div
+              className={styles.previewWrapper}
+              data-fixed-height={fixedHeight}
+              data-theme={theme}
+            >
+              {Preview}
             </div>
           </Suspense>
         </TabPanel>
-        <TabPanel style={{ position: 'relative' }}>
+        <TabPanel>
           <div
             className={styles.codeWrapper}
             dangerouslySetInnerHTML={{
               __html: codePreview,
             }}
           />
-          <button
-            onClick={() => {
-              handleCopy(codes[name].code)
-            }}
-            className={styles.copyButton}
-          >
-            {isCopied ? <IconCheck /> : <IconCopySimple />}
-          </button>
         </TabPanel>
       </TabProvider>
     </div>
   )
 }
+
+function getIndicatorBackground(theme: Theme) {
+  switch (theme) {
+    case 'base': {
+      return 'var(--sl-color-gray-0)'
+    }
+
+    case 'muted': {
+      return 'var(--sl-color-gray-1)'
+    }
+
+    default: {
+      return 'transparent'
+    }
+  }
+}
+
+function ThemeIndicator(props: ThemeIndicatorProps) {
+  const { theme } = props
+
+  return (
+    <div
+      style={{
+        height: 20,
+        width: 20,
+        borderRadius: 20,
+        boxShadow: '0 0 1px 1px var(--sl-color-gray-8)',
+        background: getIndicatorBackground(theme),
+      }}
+    />
+  )
+}
+
+interface ThemeIndicatorProps {
+  theme: Theme
+}
+
+type Theme = 'base' | 'muted'
 
 interface Props {
   name: string
