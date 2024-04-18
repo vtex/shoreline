@@ -8,15 +8,15 @@ body:
   - type: textarea
     id: problem
     attributes:
-      label: The problem
-      description: Provide a clear and concise description of what the problem this proposal is trying to solve. (For example, I find it frustrating when...). Be sure to attach screenshots or videos to illustrate the problem. If this proposal is related to an existing issue, mention it here.
+      label: Problem
+      description: Provide a clear and concise description of the problem this proposal is trying to solve. Include data from previous research, screenshots or videos to illustrate the problem. If this proposal is related to an existing issue, mention it here.
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
-      label: The solution
-      description: Provide sample content, references, or audits of solutions solving the same problem in other applications/websites/projects. You can use one of our templates, [Component figma template](), [Component API template](), or [Icon figma template]().
+      label: Solution
+      description: Provide the links, for example from a Figma file or a CodeSandbox, or code snippets that apply to your proposal. You can use one of our templates, [Component figma template](), [Component API template](), or [Icon figma template]().
     validations:
       required: true
   - type: textarea
