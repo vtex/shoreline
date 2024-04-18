@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.39](https://github.com/vtex/shoreline/compare/@vtex/shoreline-stylelint@1.0.0-rc.38...@vtex/shoreline-stylelint@1.0.0-rc.39) (2024-04-18)
+
+**Note:** Version bump only for package @vtex/shoreline-stylelint
+
 # [1.0.0-rc.38](https://github.com/vtex/shoreline/compare/@vtex/shoreline-stylelint@1.0.0-rc.37...@vtex/shoreline-stylelint@1.0.0-rc.38) (2024-04-18)
 
 **Note:** Version bump only for package @vtex/shoreline-stylelint
