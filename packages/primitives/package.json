@@ -42,7 +42,7 @@
     "match-sorter": "6.3.1"
   },
   "dependencies": {
-    "@ariakit/react": "0.3.8",
+    "@ariakit/react": "0.4.5",
     "@react-aria/i18n": "3.9.0",
     "@vtex/shoreline-icons": "^1.0.0-rc.37",
     "@vtex/shoreline-utils": "^1.0.0-rc.37"
