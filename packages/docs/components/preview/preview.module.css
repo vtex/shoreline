@@ -7,21 +7,65 @@
 }
 
 .previewWrapper {
-  padding: var(--space);
-  min-height: var(--min-h);
-  height: fit-content;
-  border-radius: var(--radii);
-  background-color: color-mix(
+  --sl-local-bg: color-mix(
     in srgb,
     var(--sl-color-gray-1) 50%,
     transparent 50%
   );
+  padding: var(--space);
+  min-height: var(--min-h);
+  height: fit-content;
+  border-radius: var(--radii);
+  background-color: var(--sl-local-bg);
   overflow-y: hidden;
   overflow-x: auto;
+  box-shadow: 0 0 0 1px var(--sl-color-gray-4);
+  transition: all 250ms cubic-bezier(0, 0.12, 0, 1.05);
+}
+
+.previewWrapper[data-theme='muted'] {
+  --sl-local-bg: color-mix(
+    in srgb,
+    var(--sl-color-gray-1) 50%,
+    transparent 50%
+  );
+}
+
+.previewWrapper[data-theme='base'] {
+  --sl-local-bg: var(--sl-bg-base);
 }
 
 .previewWrapper[data-fixed-height='true'] {
   height: var(--min-h);
+}
+
+.themeSelectPopover {
+  background: var(--sl-bg-base);
+  padding: var(--sl-space-2) var(--sl-space-1);
+  box-shadow: 0 0 0.25rem 0.125rem hsla(0 0 0 / 0.1);
+  border-radius: var(--sl-border-radius-large);
+  margin-bottom: var(--sl-space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-space-1);
+}
+
+.themeSelectItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sl-space-2);
+  padding: var(--sl-space-1) var(--sl-space-2);
+  border-radius: var(--sl-border-radius-medium);
+  cursor: default;
+}
+
+.themeSelectItem:hover {
+  background: var(--sl-bg-muted-hover);
+}
+
+.themeSelectItem:focus-visible {
+  background: var(--sl-bg-muted-hover);
 }
 
 .codeWrapper > pre {
@@ -30,24 +74,4 @@
   max-height: var(--max-h);
   border-radius: var(--radii);
   overflow: auto;
-}
-
-.copyButton {
-  --bg-hue: 0 0 100;
-
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: var(--sl-fg-inverted);
-  padding: var(--sl-space-2);
-  border-radius: var(--sl-border-radius-medium);
-  background-color: hsla(var(--bg-hue) / 0%);
-}
-
-.copyButton:hover {
-  background-color: hsla(var(--bg-hue) / 5%);
-}
-
-.copyButton:active {
-  background-color: hsla(var(--bg-hue) / 10%);
 }
