@@ -194,13 +194,13 @@ importers:
         specifier: 8.13.2
         version: 8.13.2(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../../packages/shoreline
       '@vtex/shoreline-next':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../../packages/next
       '@vtex/shoreline-ts-table':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../../packages/ts-table
       next:
         specifier: 14.1.3
@@ -289,7 +289,7 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-css':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../css
       commander:
         specifier: 11.0.0
@@ -357,13 +357,13 @@ importers:
         specifier: 3.7.0
         version: 3.7.0(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../icons
       '@vtex/shoreline-primitives':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../primitives
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
       react:
         specifier: '>=18'
@@ -443,10 +443,10 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
       react:
         specifier: '>=18'
@@ -551,7 +551,7 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@vtex/shoreline':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../shoreline
       next:
         specifier: 14.1.3
@@ -566,10 +566,10 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
       react:
         specifier: '>=18'
@@ -585,25 +585,25 @@ importers:
   packages/shoreline:
     dependencies:
       '@vtex/shoreline-components':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../components
       '@vtex/shoreline-css':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../css
       '@vtex/shoreline-date':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../date
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../icons
       '@vtex/shoreline-primitives':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../primitives
       '@vtex/shoreline-theme-sunrise':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../theme-sunrise
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
       react:
         specifier: '>=18'
@@ -662,7 +662,7 @@ importers:
   packages/theme-sunrise:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
     devDependencies:
       '@csstools/postcss-sass':
@@ -708,10 +708,10 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.41
+        specifier: ^1.0.0-rc.42
         version: link:../utils
       react:
         specifier: '>=18'
