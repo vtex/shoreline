@@ -50,7 +50,6 @@
     "react-window": "1.8.10"
   },
   "dependencies": {
-    "@ariakit/react": "0.3.8",
     "@tanstack/react-table": "8.10.7",
     "@tanstack/react-virtual": "3.0.1",
     "@vtex/shoreline-icons": "^1.0.0-rc.40",
