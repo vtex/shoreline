@@ -1,0 +1,31 @@
+# Best Practices
+
+Icons should communicate a message, so prioritize applying ones that are simple, easily recognizable, or well-established as conventions, and avoid metaphoric symbols.
+
+In Shoreline, they are identified by the prefix `Icon` and their naming convention is `Icon[IconName][Modifier]`. The IconName is always the same from the [Phosphor](https://phosphoricons.com/) library and the modifier can be related to weight or size. Since the default icons have a **Regular** size and an **Outline** weight, these modifiers won't be mentioned in their names. The modifiers **Fill** and **Small** are always specified. For example, the icon `IconTag` is regular and outlined, the icon `IconBellFill` is regular and filled, and the icon `IconCheckSmall` is small and outlined.
+
+## Modifiers
+
+### Weight
+
+![Icons weight](public/assets/icons-weight.webp)
+
+- **Outline:** Used in interactive context, such as actions (Button, Search) and navigation (Sidebar sections). It has the default weight with a 1.5px stroke, that corresponds to the Light weight in the Phosphor library.
+- **Fill:** Used in non-interactive context, such as for informative purposes (Alerts and Toasts).
+
+### Size
+
+![Icons size](public/assets/icons-size.webp)
+
+- **Regular:** Used in most scenarios, such as in a Button, Alert, Toast, and Sidebar sections. It is the default size, with a value of 20px.
+- **Small:** Used for affordance purposes, such as a caret in a Menu or Filter or an arrow on the right side of a label for external links. The size value is 16px.
+
+## Usage
+
+- Only modify the size of an icon when applying as an [Empty State](https://shoreline.vtex.com/components/empty-state) illustration, and keep the 1.5px stroke. Avoid modifying the size of an icon for any other scenario.
+- If you want to represent an action with an icon, use the [IconButton](https://shoreline.vtex.com/components/icon-button).
+- When applying color to an icon, follow the [Color](https://shoreline.vtex.com/foundations/color) guidelines. Do not change the color of an icon that is applied in components by default, such as in Buttons, Alerts, and Toasts.
+
+## New icons
+
+As mentioned in the rationale, we strongly discourage custom icons to avoid unnecessary inconsistencies, but there are no solutions for your scenario in the Shoreline – Icons library or in the Phosphor library, reach out to the Admin team with a proposal for alignment.
