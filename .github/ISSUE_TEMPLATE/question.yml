@@ -1,0 +1,24 @@
+name: Question & Feedback
+description: Question or feedback about Shoreline.
+labels: ['question', 'status: pending']
+body:
+  - type: textarea
+    id: how-can-we-help
+    attributes:
+      label: How can we help?
+      description: 'Feel free to ask questions or provide feedback.'
+    validations:
+      required: true
+  - type: textarea
+    id: what-have-you-tried
+    attributes:
+      label: What have you tried?
+      description: 'Describe in detail what you have tried and what you have found from any research you may have done.'
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: 'Add more context, links or screenshots about the feedback / support issue.'
+  - type: markdown
+    attributes:
+      value: Thanks for reaching out! We are happy to help and will get back to you as soon as possible. ✨
