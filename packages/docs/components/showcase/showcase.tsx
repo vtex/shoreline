@@ -1,7 +1,8 @@
 'use client'
 
 import React, { Suspense, useMemo } from 'react'
-import { Spinner } from '@vtex/shoreline'
+import { Spinner, cx } from '@vtex/shoreline'
+import NextLink from 'next/link'
 
 import codes from '../../__examples__'
 import styles from './showcase.module.css'
@@ -31,8 +32,17 @@ export function Showcase(props: ShowcaseProps) {
         </Suspense>
       </div>
       <div className={summaryStyles.contentWrapper}>
-        <h3 className={summaryStyles.title}>{componentProps?.name}</h3>
-        <p className={summaryStyles.description}>
+        <NextLink href={`/components/${name}`}>
+          <h3 className={cx(summaryStyles.title, styles.title)}>
+            {componentProps?.name}
+          </h3>
+        </NextLink>
+        <p
+          style={{
+            opacity: 0.7,
+          }}
+          className={summaryStyles.description}
+        >
           {componentProps?.description}
         </p>
       </div>
