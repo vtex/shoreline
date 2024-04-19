@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.44](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@1.0.0-rc.43...@vtex/shoreline-codemod@1.0.0-rc.44) (2024-04-19)
+
+**Note:** Version bump only for package @vtex/shoreline-codemod
+
 # [1.0.0-rc.43](https://github.com/vtex/shoreline/compare/@vtex/shoreline-codemod@1.0.0-rc.42...@vtex/shoreline-codemod@1.0.0-rc.43) (2024-04-18)
 
 **Note:** Version bump only for package @vtex/shoreline-codemod
