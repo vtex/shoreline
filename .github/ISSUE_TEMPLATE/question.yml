@@ -3,9 +3,9 @@ description: Question or feedback about Shoreline.
 labels: ['question', 'status: pending']
 body:
   - type: textarea
-    id: how-we-can-help
+    id: how-can-we-help
     attributes:
-      label: How we can help?
+      label: How can we help?
       description: 'Feel free to ask questions or provide feedback.'
     validations:
       required: true
