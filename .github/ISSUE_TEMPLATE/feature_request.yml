@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an enhacement to Shoreline.
+labels: ['suggestion / request', 'status: pending']
+body:
+  - type: markdown
+    attributes:
+      value: Please search open/closed issues before submitting, as the issue may have already been reported/addressed.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: 'Provide a description of the suggestion or feature you want to see. Include any relevant links, screenshots or videos.'
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: 'Explain the benefit and the rationale of adding this feature to Shoreline.'
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this request ✨
