@@ -1,6 +1,7 @@
 .card {
   --radii: var(--sl-border-radius-large);
   border-radius: var(--radii);
+  transition: background 250ms ease-in-out;
 }
 
 .card:hover {
@@ -9,7 +10,7 @@
 
 .card:hover img,
 .card:focus img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .imgWrapper {
