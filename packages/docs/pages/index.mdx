@@ -2,25 +2,16 @@
 title: Shoreline - VTEX Design System
 ---
 
-import { heroContainer, hero, subtitle, title, features, feature, featuresContainer, featureImageContainer } from './index.module.css'
+import styles from './index.module.css'
 import Link from 'next/link'
 import { Showcase } from '../components/showcase'
 import Image from 'next/image'
 import { Flex, Heading, Text, Button, Stack, IconArrowRight } from '@vtex/shoreline'
 
-<Flex direction="column" justify="center" align='center' gap="1rem" style={{
-  marginTop: '1rem',
-  marginBottom: '5rem'
-}}>
+<Flex direction="column" justify="center" align='center' gap="1rem" className={styles.hero}>
   <Image src='/assets/landing-logo.webp' alt="shoreline logo" width={256} height={256} suppressHydrationWarning />
-  <Flex direction="column" justify="center" align='center' style={{
-    textAlign: 'center',
-      width: '75ch',
-  }}>
-    <Text variant="display1" style={{
-      fontSize: '4rem',
-      lineHeight: '1'
-    }}>Build great experiences for merchants in the VTEX Admins</Text>
+  <Flex direction="column" justify="center" align='center' className={styles.textContainer}>
+    <Text variant="display1" className={styles.heading}>Build great experiences for merchants in the VTEX Admins</Text>
     <Text variant="display1">Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
   </Flex>
   <Stack horizontal>
@@ -41,70 +32,3 @@ import { Flex, Heading, Text, Button, Stack, IconArrowRight } from '@vtex/shorel
   <Showcase name="checkbox-group" />
   <Showcase name="tooltip" />
 </ComponentSummaryGrid>
-
-{/* <section className={heroContainer}>
-  <article className={hero}>
-    <img src='/assets/landing-logo.webp' alt="shoreline logo" suppressHydrationWarning />
-    <div>  
-      <h2>Build great experiences for merchants in the VTEX Admin</h2>
-      <p className={subtitle}>Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</p>
-    </div>
-  </article>
-</section>
-
-<section className={featuresContainer}>
-  <ul className={features}>
-    <li>
-      <Link href="/foundations">
-        <article className={feature}>
-          <div className={featureImageContainer}>
-            <img src='assets/landing-foundations.webp' alt="feature foundations" />
-          </div>
-          <div>
-            <h3 className={title}>Foundations</h3>
-            <p className={subtitle}>Explore our foundations to build consistent and high-quality admin experiences.</p>
-          </div>
-        </article>
-      </Link>
-    </li>
-    <li>
-      <Link href="/components">
-        <article className={feature}>
-          <div className={featureImageContainer}>
-            <img src='assets/landing-components.webp' alt="feature components" />
-          </div>
-          <div>
-            <h3 className={title}>Components</h3>
-            <p className={subtitle}>Leverage our library of elements and styles to speed up admin interface creation.</p>
-          </div>
-        </article>
-      </Link>
-    </li>
-    <li>
-      <Link href="/raccoon/getting-started">
-        <article className={feature}>
-          <div className={featureImageContainer}>
-            <img src='assets/landing-raccoon.webp' alt="feature raccoon" />
-          </div>
-          <div>
-            <h3 className={title}>Raccoon</h3>
-            <p className={subtitle}>Streamline advanced development for a secure and efficient framework in VTEX front-end stack.</p>
-          </div>
-        </article>
-      </Link>
-    </li>
-    <li>
-      <Link href="/api-reference/cli/introduction">
-        <article className={feature}>
-          <div className={featureImageContainer}>
-            <img src='assets/landing-api-reference.webp' alt="feature api" />
-          </div>
-          <div>
-            <h3 className={title}>API Reference</h3>
-            <p className={subtitle}>Access comprehensive API references for seamless integration in VTEX admin development.</p>
-          </div>
-        </article>
-      </Link>
-    </li>
-  </ul>
-</section> */}

@@ -1,116 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-.heroContainer {
-  container: hero / inline-size;
-  width: 100%;
-}
-
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 15cqi;
-  padding: 4.625rem 2.125rem;
-  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 
-.hero h2 {
-  font-size: clamp(2.75rem, 7cqi, 3.75rem);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 4.25rem;
-  letter-spacing: -0.15rem;
-  padding-bottom: 1.5rem;
+.textContainer {
+  text-align: center;
+  max-width: 75ch;
 }
 
-@container (max-width: 40rem) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h2 {
-    line-height: 3rem;
-  }
-}
-
-.subtitle {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: -0.02rem;
-  opacity: 0.8;
-}
-
-.title {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 2.25rem;
-  letter-spacing: -0.07rem;
-  padding-bottom: 0.625rem;
-}
-
-.featuresContainer {
-  container: features / inline-size;
-  width: 100%;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
-  gap: 1.25rem;
-}
-
-.feature {
-  container: feature / inline-size;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  padding: 0.8rem;
-  cursor: pointer;
-  border-radius: 1.5rem;
-}
-
-.feature:hover > .featureImageContainer > img,
-.feature:focus > .featureImageContainer > img {
-  transform: scale(1.1);
-}
-
-.featureImageContainer {
-  overflow: hidden;
-  width: 100cqi;
-  aspect-ratio: 1 / 1;
-  position: relative;
-  display: inline-block;
-  border-radius: 1.5rem;
-}
-
-.featureImageContainer > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
-  transition: transform 250ms ease-in-out;
-}
-
-.feature:hover {
-  background: hsla(200, 0%, 0%, 0.05);
-}
-
-@media (prefers-color-scheme: dark) {
-  .feature:hover {
-    background: hsla(200, 100%, 100%, 0.05);
-  }
-}
-
-@container (max-width: 40rem) {
-  .features {
-    gap: 5rem;
-  }
+.heading {
+  font-size: 3.5rem !important; /* !important is necessary because we use the unlayered version on the site */
+  line-height: 1.1 !important; /* !important is necessary because we use the unlayered version on the site */
 }

@@ -4,7 +4,7 @@ import React, { Suspense, useMemo } from 'react'
 import { Spinner } from '@vtex/shoreline'
 
 import codes from '../../__examples__'
-import styles from './preview.module.css'
+import styles from './showcase.module.css'
 import { getComponentProps } from '../../utils/get-component-props'
 import summaryStyles from '../component-summary/component-summary.module.css'
 
