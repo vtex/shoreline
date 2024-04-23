@@ -1,9 +1,8 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
-import NextLink from 'next/link'
 import Image from 'next/image'
-import styles from './component-summary.module.css'
 import { getComponentProps } from '../../utils/get-component-props'
+import { ImgCard } from '../img-card'
 
 const imageEstimatedWidth = 370
 const imageEstimatedHeight = 218
@@ -12,29 +11,24 @@ const imageEstimatedHeight = 218
  * Renders a component summary
  */
 export function ComponentSummary(props: ComponentSummaryProps) {
-  const { href, image, name, ...restProps } = props
+  const { href, name } = props
 
   const componentProps = getComponentProps(name)
 
   return (
-    <NextLink
-      className={styles.card}
+    <ImgCard
       href={href || `/components/${name}`}
-      {...restProps}
-    >
-      <div className={styles.imgWrapper}>
+      title={componentProps?.name}
+      description={componentProps?.description}
+      image={
         <Image
           src={`/assets/all-${name}.png`}
           alt={name}
           width={imageEstimatedWidth}
           height={imageEstimatedHeight}
         />
-      </div>
-      <div className={styles.contentWrapper}>
-        <h3 className={styles.title}>{componentProps?.name}</h3>
-        <p className={styles.description}>{componentProps?.description}</p>
-      </div>
-    </NextLink>
+      }
+    />
   )
 }
 
@@ -43,10 +37,6 @@ interface ComponentSummaryProps extends ComponentPropsWithoutRef<'a'> {
    * Link href
    */
   href?: string
-  /**
-   * Component image
-   */
-  image?: ReactNode
   /**
    * Component name
    */

@@ -15,6 +15,7 @@ import {
   ComponentSummary,
   ComponentSummaryGrid,
 } from './components/component-summary'
+import { ImgCard, ImgCardGrid } from './components/img-card'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -39,6 +40,8 @@ const config: DocsThemeConfig = {
     ComponentDescription: ComponentDescription as React.FC,
     ComponentSummary: ComponentSummary as React.FC,
     ComponentSummaryGrid: ComponentSummaryGrid as React.FC,
+    ImgCard: ImgCard as React.FC,
+    ImgCardGrid: ImgCardGrid as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

@@ -6,29 +6,55 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import { Showcase } from '../components/showcase'
 import Image from 'next/image'
-import { Flex, Heading, Text, Button, Stack, IconArrowRight } from '@vtex/shoreline'
+import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/shoreline'
 
-<Flex direction="column" justify="center" align='center' gap="1rem" className={styles.hero}>
-  <Image src='/assets/landing-logo.webp' alt="shoreline logo" width={256} height={256} suppressHydrationWarning />
-  <Flex gap="2rem" direction="column" justify="center" align='center' className={styles.textContainer}>
-    <Text variant="display1" className={styles.heading}>Build great experiences for merchants in the VTEX Admins</Text>
-    <Text style={{ opacity: 0.7 }} variant="display1">Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
-  </Flex>
-  <Stack horizontal>
-    <Button size="large" asChild variant="primary">
-      <Link href="/guides/getting-started">Get started</Link>
-    </Button>
-    <Button size="large" asChild variant="secondary">
-      <Link href="/components">All components <IconArrowRight suppressHydrationWarning /></Link>
-    </Button>
-  </Stack>
+<Flex direction="column" justify="flex-start" align='flex-start' gap="$space-6" className={styles.hero}>
+  <Text className={styles.heading}>Build great experiences for merchants in the VTEX Admins.</Text>
+  <Text className={styles.subtitle}>Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
+  <Button className={styles.button} size="large" asChild variant="primary">
+    <Link href="/guides/getting-started">Get started <IconArrowRight /></Link>
+  </Button>
 </Flex>
 
-<ComponentSummaryGrid>
-  <Showcase name="button" />
-  <Showcase name="table" />
-  <Showcase name="menu" />
-  <Showcase name="date-range-picker" />
-  <Showcase name="checkbox-group" />
-  <Showcase name="tooltip" />
-</ComponentSummaryGrid>
+<ImgCardGrid mb="7.5rem">
+  <ImgCard 
+    href="/foundations"
+    title="Foundations"
+    description="Fundamental design guidance for creating quality admin experiences"
+    image={
+      <img className={styles.image} src='assets/landing-foundations.webp' alt="feature foundations" />
+    }
+  />
+  <ImgCard 
+    href="/components"
+    title="Components"
+    description="Reusable elements and styles, packaged through code, for building admin interfaces"
+    image={
+      <img className={styles.image} src='assets/landing-components.webp' alt="feature components" />
+    }
+  />
+  <ImgCard 
+    href="/guides/getting-started"
+    title="Guides"
+    description="Learn how to use the Shoreline resources and how to contribute to evolve the system"
+    image={
+      <img className={styles.image} src='assets/landing-guides.webp' alt="feature guides" />
+    }
+  />
+</ImgCardGrid>
+
+<Flex direction="column" justify="flex-start" align='flex-start' gap="$space-6">
+  <Text as="h2" className={styles.heading2}>See some examples</Text>
+  <ComponentSummaryGrid>
+    <Showcase name="button" />
+    <Showcase name="table" />
+    <Showcase name="menu" />
+    <Showcase name="date-range-picker" />
+    <Showcase name="checkbox-group" />
+    <Showcase name="tooltip" />
+  </ComponentSummaryGrid>
+  <Button className={styles.button} size="large" asChild variant="secondary">
+    <Link href="/components">All components <IconArrowRight suppressHydrationWarning /></Link>
+  </Button>
+</Flex>
+

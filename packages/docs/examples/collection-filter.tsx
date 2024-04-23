@@ -28,7 +28,7 @@ export default function Example() {
         </Slot>
       </Slot>
       <CollectionView status="ready">
-        <DecorativeBox height="25rem" />
+        <DecorativeBox subtle height="25rem" />
       </CollectionView>
       <Slot name="footer">
         <Pagination page={1} total={74} />

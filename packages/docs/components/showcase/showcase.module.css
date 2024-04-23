@@ -13,21 +13,10 @@
   height: fit-content;
   border-radius: var(--radii);
   --opacity: 25%;
-  background-image: linear-gradient(
-    120deg,
-    hsl(189deg 100% 82% / var(--opacity)) 0%,
-    hsl(185deg 87% 81% / var(--opacity)) 8%,
-    hsl(180deg 74% 80% / var(--opacity)) 17%,
-    hsl(174deg 73% 81% / var(--opacity)) 25%,
-    hsl(186deg 82% 83% / var(--opacity)) 33%,
-    hsl(196deg 97% 87% / var(--opacity)) 42%,
-    hsl(205deg 100% 90% / var(--opacity)) 50%,
-    hsl(215deg 100% 91% / var(--opacity)) 58%,
-    hsl(237deg 100% 94% / var(--opacity)) 67%,
-    hsl(270deg 94% 93% / var(--opacity)) 75%,
-    hsl(297deg 64% 92% / var(--opacity)) 83%,
-    hsl(322deg 84% 93% / var(--opacity)) 92%,
-    hsl(338deg 100% 94% / var(--opacity)) 100%
+  background-color: color-mix(
+    in srgb,
+    transparent 75%,
+    var(--sl-color-blue-3) 25%
   );
   overflow-y: hidden;
   overflow-x: auto;

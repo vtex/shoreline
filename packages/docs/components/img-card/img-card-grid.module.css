@@ -1,0 +1,15 @@
+.grid {
+  --rows: 3;
+  --mt: 0rem;
+  --mr: 0rem;
+  --mb: 0rem;
+  --ml: 0rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(250px, calc((100% - 1.25rem * 2) / var(--rows))), 1fr)
+  );
+  gap: var(--sl-space-5);
+  margin: var(--mt) var(--mr) var(--mb) var(--ml);
+}

@@ -29,7 +29,7 @@ export function Preview(props: Props) {
   const { name, fixedHeight = false } = props
 
   const [activeId, setActiveId] = useState<string>('preview')
-  const [theme, setTheme] = useState<Theme>('muted')
+  const [theme, setTheme] = useState<Theme>('base')
   const { isCopied, handleCopy } = useClipboard()
 
   const codePreview = useMemo(() => {

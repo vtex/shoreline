@@ -8,6 +8,7 @@ import {
   ModalHeader,
   ModalHeading,
 } from '@vtex/shoreline'
+import { DecorativeBox } from '../components/decorative-box'
 
 export default function Example() {
   const [open, setOpen] = useState(false)
@@ -25,15 +26,7 @@ export default function Example() {
           <ModalDismiss />
         </ModalHeader>
         <ModalContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
-          scelerisque mauris pellentesque pulvinar pellentesque habitant morbi
-          tristique senectus. Morbi tristique senectus et netus et. Nec
-          tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.
-          Morbi tristique senectus et netus et malesuada fames ac. Ultricies leo
-          integer malesuada nunc vel risus commodo viverra maecenas. Nunc congue
-          nisi vitae suscipit tellus mauris a diam maecenas. Dui accumsan sit
-          amet nulla facilisi morbi tempus.
+          <DecorativeBox subtle height="360px" />
         </ModalContent>
         <ModalFooter>
           <Button onClick={toggle}>Close</Button>

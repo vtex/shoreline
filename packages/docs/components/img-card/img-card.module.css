@@ -35,12 +35,21 @@
 }
 
 .title {
-  font: var(--sl-text-display-2-font);
-  letter-spacing: var(--sl-text-display-2-letter-spacing);
+  font-family: var(--sl-font-family-sans);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -1.12px;
+  color: var(--sl-fg-base);
 }
 
 .description {
-  font: var(--sl-text-display-4-font);
-  letter-spacing: var(--sl-text-display-4-letter-spacing);
-  color: var(--sl-color-gray-10);
+  font-family: var(--sl-font-family-sans);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  color: var(--sl-color-gray-8);
 }
