@@ -6,7 +6,7 @@
   "theming": "Theming",
   "composition": "Composition",
   "forms": "Forms",
-  "migration": "Migration from Admin UI",
+  "design-migration": "Design Migration",
   "-- Contributing": {
     "type": "separator",
     "title": "Contributing"
