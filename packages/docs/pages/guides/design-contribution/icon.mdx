@@ -1,0 +1,51 @@
+# Icon
+
+Understand the requirements for a Shoreline icon, whether to add a new icon or fix a bug. Only icons that follow these guidelines can be added to the library.
+
+## Structure
+
+### 1. Icon design
+
+- Shoreline uses icons from the [Phosphor](https://phosphoricons.com/) library. Always prioritize using icons from there when proposing the addition of a new icon to the library.
+    - As stated in Shoreline's icon [best practices](https://shoreline.vtex.com/foundations/icons/best-practices), the use of custom icons is discouraged but still possible, depending on the scenario.
+    - To design a custom icon, use a Phosphor icon as a base to maintain the same style. Remember that the stroke should always be 1.5px
+- Use the Phosphor plugin in Figma. Go to *Resources > Plugins > search for Phosphor icons*.
+
+![Phosphor icons plugin](/assets/icon-plugin.png)
+
+- Define the icon size (Normal or Small) and weight (Outline or Fill). Learn more in the icon [best practices](https://shoreline.vtex.com/foundations/icons/best-practices).
+    - For outline icons, select the Light option in the plugin. For fill icons, select the Fill option.
+    - A Normal icon has a size of 20px, and a Small icon has a size of 16px.
+- If the icon needs to have more than one version, add all necessary versions.
+
+### 2. Layers
+
+- Look at other icons to better understand the patterns.
+- An icon should always contain two layers: *Shape* and *Line (original)*.
+- Shape – Contains the drawing of the icon in curves. The curved shape should be created from the original vectors of the icon, using the *Boolean Groups > Union Selection* tool. If the shape of the component breaks in Figma, use Illustrator to refine it.
+
+![Icon shape](/assets/icon-shape.png)
+
+- Line (original) – This is a group that contains the drawing of the icon in vectors, just as imported from Phosphor. This layer should always remain hidden.
+
+![Icon layers](/assets/icon-layers.png)
+
+## Library organization
+
+### 1. Name and description
+
+- The name should always be `Icon[IconName][Modifier(optional)]`. 
+    - The `IconName` will be the same name as the icon in the Phosphor library or, if it's a custom icon, it will be the literal name of the shape.
+    - The `Modifier` can be related to weight or size. When the icon has an Outline weight or a Normal size, it is not necessary to mention it in the name.
+    - For example, the icon IconTag is Normal and Outline, the icon IconBellFill is Normal and Fill, and the icon IconCheckSmall is Small and Outline.
+
+### 2. Icon
+
+- New icons in the [library](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&node-id=0%3A1&mode=design&t=YYWQqGKEw5bb2ayK-1) are always added at the end of the list of one of the existing 3 categories: Normal outline, Normal fill, or Small outline. 
+- The color of the shape and vector of the icon should be `$fg-base`.
+- Fill in the Component configuration with the icon's keywords. The keywords should be related to possible applications of the icon, aiming to facilitate search during application. For example, for the icon IconCaretUp, the keywords are chevron, expand, collapse, accordion.
+
+![Icon configuration](/assets/icon-configuration.png)
+
+
+
