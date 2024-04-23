@@ -9,14 +9,15 @@ export function DecorativeBox(props: DecorativeBoxProps) {
     style: styleOverride,
     height = '100%',
     width = '100%',
-
     className = '',
     color = 'gray',
+    subtle = false,
     ...rest
   } = props
 
   return (
     <div
+      data-subtle={subtle}
       style={style({
         '--sl-local-height': height,
         '--sl-local-width': width,
@@ -55,4 +56,5 @@ interface DecorativeBoxProps extends ComponentPropsWithoutRef<'div'> {
     | 'teal'
     | 'orange'
     | 'yellow'
+  subtle?: boolean
 }

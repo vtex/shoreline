@@ -9,7 +9,7 @@ export default function Example() {
         <PageHeading>Heading</PageHeading>
       </PageHeader>
       <PageContent>
-        <DecorativeBox height="200px" />
+        <DecorativeBox subtle height="200px" />
       </PageContent>
     </Page>
   )

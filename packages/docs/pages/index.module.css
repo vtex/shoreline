@@ -1,15 +1,44 @@
 .hero {
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
-.textContainer {
-  text-align: center;
-  max-width: 75ch;
-  padding-bottom: 1.5rem;
+.heading {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 68px;
+  letter-spacing: -4%;
+  max-width: 50ch;
+  /* margin-bottom: 24px; */
 }
 
-.heading {
-  font-size: 3.5rem !important; /* !important is necessary because we use the unlayered version on the site */
-  line-height: 1.1 !important; /* !important is necessary because we use the unlayered version on the site */
+.subtitle {
+  font-weight: 500;
+  size: 18px;
+  line-height: 28px;
+  letter-spacing: -2%;
+  color: var(--sl-fg-base-soft);
+  max-width: 75ch;
+  /* margin-bottom: 24px; */
+}
+
+.image {
+  border-radius: 1rem;
+}
+
+.featureLink {
+  transition: all 200ms ease-in-out;
+}
+
+.featureLink:hover h2 {
+  text-decoration: underline;
+}
+
+.featureLink:hover {
+  opacity: 0.85;
+}
+
+.button {
+  transform: scale(1.1);
+  transform-origin: top left;
 }

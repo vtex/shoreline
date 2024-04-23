@@ -6,7 +6,7 @@ export default function Example() {
   return (
     <Collection>
       <CollectionView status="empty">
-        <DecorativeBox height="25rem" />
+        <DecorativeBox subtle height="25rem" />
       </CollectionView>
     </Collection>
   )

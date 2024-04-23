@@ -6,23 +6,46 @@ import styles from './index.module.css'
 import Link from 'next/link'
 import { Showcase } from '../components/showcase'
 import Image from 'next/image'
-import { Flex, Heading, Text, Button, Stack, IconArrowRight } from '@vtex/shoreline'
+import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/shoreline'
 
-<Flex direction="column" justify="center" align='center' gap="1rem" className={styles.hero}>
-  <Image src='/assets/landing-logo.webp' alt="shoreline logo" width={256} height={256} suppressHydrationWarning />
-  <Flex gap="2rem" direction="column" justify="center" align='center' className={styles.textContainer}>
-    <Text variant="display1" className={styles.heading}>Build great experiences for merchants in the VTEX Admins</Text>
-    <Text style={{ opacity: 0.7 }} variant="display1">Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
-  </Flex>
-  <Stack horizontal>
-    <Button size="large" asChild variant="primary">
-      <Link href="/guides/getting-started">Get started</Link>
-    </Button>
-    <Button size="large" asChild variant="secondary">
+<Flex direction="column" justify="flex-start" align='flex-start' gap="24px" className={styles.hero}>
+  <Text className={styles.heading}>Build great experiences for merchants in the VTEX Admins</Text>
+  <Text className={styles.subtitle}>Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
+
+  {/* <Stack horizontal space='$space-8'>
+    
+    <Button style={{ transform: 'scale(1.1)'}} size="large" asChild variant="secondary">
       <Link href="/components">All components <IconArrowRight suppressHydrationWarning /></Link>
     </Button>
-  </Stack>
+  </Stack> */}
+  <Button className={styles.button} size="large" asChild variant="primary">
+    <Link href="/guides/getting-started">Get started</Link>
+  </Button>
 </Flex>
+
+<Grid columns="repeat(auto-fit, minmax(13.75rem, 1fr))" gap="2.5rem" style={{ marginBottom: '5rem'}}>
+  <Link className={styles.featureLink} href="/foundations">
+    <Flex direction="column">
+      <img className={styles.image} src='assets/landing-foundations.webp' alt="feature foundations" />
+      <Heading level={2} variant='display2'>Foundations</Heading>
+      <Text as="p">Fundamental design guidance for creating quality admin experiences</Text>
+    </Flex>
+  </Link>
+  <Link className={styles.featureLink} href="/components">
+    <Flex direction="column">
+      <img className={styles.image} src='assets/landing-components.webp' alt="feature foundations" />
+      <Heading level={2} variant='display2'>Components</Heading>
+      <Text as="p">Reusable elements and styles, packaged through code, for building admin interfaces</Text>
+    </Flex>
+  </Link>
+  <Link className={styles.featureLink} href="/foundations">
+    <Flex direction="column">
+      <img className={styles.image} src='assets/landing-guides.webp' alt="feature foundations" />
+      <Heading level={2} variant='display2'>Guides</Heading>
+      <Text as="p">Learn how to use the Shoreline resources and how to contribute to evolve the system.</Text>
+    </Flex>
+  </Link>
+</Grid>
 
 <ComponentSummaryGrid>
   <Showcase name="button" />
@@ -32,3 +55,7 @@ import { Flex, Heading, Text, Button, Stack, IconArrowRight } from '@vtex/shorel
   <Showcase name="checkbox-group" />
   <Showcase name="tooltip" />
 </ComponentSummaryGrid>
+
+<Button className={styles.button} size="large" asChild variant="secondary">
+  <Link href="/components">All components <IconArrowRight suppressHydrationWarning /></Link>
+</Button>
