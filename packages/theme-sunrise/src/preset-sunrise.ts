@@ -290,12 +290,12 @@ export const presetSunrise: ShorelineConfig = {
         },
       },
     },
-    'border-radius': {
-      none: '0rem',
-      small: '0.25rem',
-      medium: '0.5rem',
-      large: '0.75rem',
-      full: '100%',
+    radius: {
+      0: '0rem',
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      full: '9999rem',
     },
     'focus-ring': {
       base: '0rem 0rem 0rem 0.0625rem $color-gray-0, 0rem 0rem 0rem 0.1875rem $color-gray-5',

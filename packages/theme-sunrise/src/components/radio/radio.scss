@@ -13,7 +13,7 @@
   & > [data-sl-radio-input] {
     appearance: none;
     position: relative;
-    border-radius: var(--sl-border-radius-full);
+    border-radius: var(--sl-radius-full);
     cursor: pointer;
     width: 1.25rem;
     height: 1.25rem;
@@ -58,7 +58,7 @@
       width: 0.5rem;
       height: 0.5rem;
       display: block;
-      border-radius: var(--sl-border-radius-full);
+      border-radius: var(--sl-radius-full);
       background-color: transparent;
       position: absolute;
     }

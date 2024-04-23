@@ -19,7 +19,7 @@ function getPanelStyle(color: string) {
   return {
     background: `var(--sl-color-${color}-3)`,
     height: '50rem',
-    borderRadius: 'var(--sl-border-radius-large)',
+    borderRadius: 'var(--sl-radius-3)',
   }
 }
 

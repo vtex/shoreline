@@ -2,7 +2,7 @@
   --cell-size: 3rem;
   --value: var(--preview-cell-token-value);
 
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
 }
@@ -13,7 +13,7 @@
   background: var(--value);
   height: var(--cell-size);
   width: var(--cell-size);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
 }
 
 .previewCell[data-foundation='border'] {
@@ -21,7 +21,7 @@
   background: transparent;
   height: var(--cell-size);
   width: var(--cell-size);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
 }
 
 .previewCell[data-foundation='border-radius'] {

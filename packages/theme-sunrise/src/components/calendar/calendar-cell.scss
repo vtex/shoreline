@@ -27,13 +27,13 @@
     }
 
     &:is([data-selection-start='true']) {
-      border-top-left-radius: var(--sl-border-radius-medium);
-      border-bottom-left-radius: var(--sl-border-radius-medium);
+      border-top-left-radius: var(--sl-radius-2);
+      border-bottom-left-radius: var(--sl-radius-2);
     }
 
     &:is([data-selection-end='true']) {
-      border-top-right-radius: var(--sl-border-radius-medium);
-      border-bottom-right-radius: var(--sl-border-radius-medium);
+      border-top-right-radius: var(--sl-radius-2);
+      border-bottom-right-radius: var(--sl-radius-2);
     }
 
     &:is([data-selection-start='true']),

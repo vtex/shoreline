@@ -3,7 +3,7 @@
   border: var(--sl-border-base);
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
   padding-inline: var(--sl-space-2);
   margin-inline-end: var(--sl-space-2);
 }
@@ -11,7 +11,7 @@
 .copyButton {
   padding: var(--sl-space-2);
   background: transparent;
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
 }
 
 .copyButton:hover {

@@ -4,7 +4,7 @@
 
   height: 2.75rem;
   background: transparent;
-  border-radius: var(--sl-border-radius-none);
+  border-radius: var(--sl-radius-0);
   border-width: var(--sl-tab-border-width);
   border-color: transparent;
   border-style: solid;
@@ -18,7 +18,7 @@
   & [data-sl-tab-content] {
     background: var(--sl-bg-base-plain);
     color: var(--sl-fg-muted);
-    border-radius: var(--sl-border-radius-medium);
+    border-radius: var(--sl-radius-2);
     padding: var(--sl-space-1) var(--sl-space-2);
     margin: calc(var(--sl-space-1) * -1) calc(var(--sl-space-2) * -1);
   }

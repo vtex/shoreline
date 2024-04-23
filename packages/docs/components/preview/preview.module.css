@@ -2,7 +2,7 @@
   --min-h: 15rem;
   --max-h: 30rem;
   --space: var(--sl-space-3);
-  --radii: var(--sl-border-radius-large);
+  --radii: var(--sl-radius-3);
   margin-top: var(--sl-space-5);
 }
 
@@ -43,7 +43,7 @@
   background: var(--sl-bg-base);
   padding: var(--sl-space-2) var(--sl-space-1);
   box-shadow: 0 0 0.25rem 0.125rem hsla(0 0 0 / 0.1);
-  border-radius: var(--sl-border-radius-large);
+  border-radius: var(--sl-radius-3);
   margin-bottom: var(--sl-space-2);
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
   align-items: center;
   gap: var(--sl-space-2);
   padding: var(--sl-space-1) var(--sl-space-2);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
   cursor: default;
 }
 
