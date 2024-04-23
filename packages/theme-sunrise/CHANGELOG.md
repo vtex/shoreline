@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.48](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.47...@vtex/shoreline-theme-sunrise@1.0.0-rc.48) (2024-04-23)
+
+### Bug Fixes
+
+- **fields:** use bg base on form fields ([1ee06f1](https://github.com/vtex/shoreline/commit/1ee06f19682bd46f8e93d76210ea3c977645d59d))
+
 # [1.0.0-rc.47](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.46...@vtex/shoreline-theme-sunrise@1.0.0-rc.47) (2024-04-23)
 
 **Note:** Version bump only for package @vtex/shoreline-theme-sunrise
