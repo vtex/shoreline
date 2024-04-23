@@ -3,7 +3,7 @@
 import { allComponentsList, allLayoutsList, allPrimitivesList } from '../../utils/all-components-list'
 import { pascalCase } from '@vtex/shoreline'
 
-<ComponentSummaryGrid>
+<ComponentSummaryGrid mt="var(--sl-space-4)">
   {allComponentsList.map(component => (
     <ComponentSummary 
       key={component}
@@ -14,7 +14,7 @@ import { pascalCase } from '@vtex/shoreline'
 
 ## Layouts
 
-<ComponentSummaryGrid>
+<ComponentSummaryGrid mt="var(--sl-space-4)">
   {allLayoutsList.map(component => (
     <ComponentSummary 
       key={component}
@@ -25,7 +25,7 @@ import { pascalCase } from '@vtex/shoreline'
 
 ## Primitives
 
-<ComponentSummaryGrid>
+<ComponentSummaryGrid mt="var(--sl-space-4)">
   {allPrimitivesList.map(component => (
     <ComponentSummary 
       key={component}

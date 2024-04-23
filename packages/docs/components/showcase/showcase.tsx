@@ -7,7 +7,7 @@ import NextLink from 'next/link'
 import codes from '../../__examples__'
 import styles from './showcase.module.css'
 import { getComponentProps } from '../../utils/get-component-props'
-import summaryStyles from '../component-summary/component-summary.module.css'
+import summaryStyles from '../img-card/img-card.module.css'
 
 export function Showcase(props: ShowcaseProps) {
   const { name } = props
@@ -37,12 +37,7 @@ export function Showcase(props: ShowcaseProps) {
             {componentProps?.name}
           </h3>
         </NextLink>
-        <p
-          style={{
-            opacity: 0.7,
-          }}
-          className={summaryStyles.description}
-        >
+        <p className={summaryStyles.description}>
           {componentProps?.description}
         </p>
       </div>

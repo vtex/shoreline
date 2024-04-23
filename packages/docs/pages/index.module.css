@@ -1,25 +1,32 @@
 .hero {
-  margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .heading {
   font-weight: 600;
   font-size: 60px;
   line-height: 68px;
-  letter-spacing: -4%;
-  max-width: 50ch;
-  /* margin-bottom: 24px; */
+  letter-spacing: -2.4px;
+  max-width: 824px;
+  color: var(--sl-fg-base);
+}
+
+.heading2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 36px;
+  letter-spacing: -1.6px;
+  color: var(--sl-fg-base);
 }
 
 .subtitle {
   font-weight: 500;
   size: 18px;
   line-height: 28px;
-  letter-spacing: -2%;
+  letter-spacing: -0.36px;
   color: var(--sl-fg-base-soft);
-  max-width: 75ch;
-  /* margin-bottom: 24px; */
+  max-width: 575px;
 }
 
 .image {
