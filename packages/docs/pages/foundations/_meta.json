@@ -4,7 +4,7 @@
   "typography": "Typography",
   "spacing": "Spacing",
   "border": "Border",
-  "border-radius": "Border Radius",
+  "radius": "Radius",
   "elevation": "Elevation",
   "icons": "Icons"
 }

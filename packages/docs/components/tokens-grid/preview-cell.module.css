@@ -24,7 +24,7 @@
   border-radius: var(--sl-radius-2);
 }
 
-.previewCell[data-foundation='border-radius'] {
+.previewCell[data-foundation='radius'] {
   background: var(--sl-color-gray-5);
   height: var(--cell-size);
   width: var(--cell-size);

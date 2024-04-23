@@ -92,7 +92,7 @@ export type Foundation =
   | 'fg'
   | 'space'
   | 'border'
-  | 'border-radius'
+  | 'radius'
   | 'typography'
   | 'elevation'
   | 'shadow'
