@@ -7,6 +7,7 @@
   --sl-datepicker-height: 2.75rem;
 
   display: inline-flex;
+  background: var(--sl-bg-base);
   height: var(--sl-datepicker-height);
   min-width: var(--sl-datepicker-min-width);
   font: var(--sl-text-action-font);
