@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.52](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.51...@vtex/shoreline-components@1.0.0-rc.52) (2024-04-24)
+
+**Note:** Version bump only for package @vtex/shoreline-components
+
 # [1.0.0-rc.51](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.50...@vtex/shoreline-components@1.0.0-rc.51) (2024-04-23)
 
 **Note:** Version bump only for package @vtex/shoreline-components
