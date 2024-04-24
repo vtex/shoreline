@@ -11,7 +11,7 @@
   &[data-dim-on-hover='true']:hover {
     &[data-selected='false'] {
       & > [data-sl-table-cell] {
-        background: var(--sl-bg-muted);
+        background: var(--sl-bg-base-soft);
       }
     }
   }

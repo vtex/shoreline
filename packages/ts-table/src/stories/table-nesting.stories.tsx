@@ -63,7 +63,7 @@ export function Nesting() {
         <Flex
           style={{
             padding: 'var(--sl-space-4) var(--sl-space-10)',
-            background: 'var(--sl-bg-muted)',
+            background: 'var(--sl-bg-base-soft)',
             width: '100%',
           }}
         >

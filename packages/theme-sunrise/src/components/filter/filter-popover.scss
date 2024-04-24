@@ -41,7 +41,7 @@
   letter-spacing: var(--sl-text-body-letter-spacing);
 
   &:hover {
-    background: var(--sl-bg-base-plain);
+    background: var(--sl-bg-muted-plain);
   }
 
   &[data-active-item][data-focus-visible] {
@@ -55,6 +55,6 @@
 
   &:active,
   &[data-active-item] {
-    background: var(--sl-bg-base-plain);
+    background: var(--sl-bg-muted-plain);
   }
 }
