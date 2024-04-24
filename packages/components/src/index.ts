@@ -159,8 +159,19 @@ export type {
   ModalHeadingProps,
   ModalProps,
 } from './modal'
-export { Page, PageContent, PageHeader, PageHeading } from './page'
-export type { PageContentProps, PageHeaderProps, PageProps } from './page'
+export {
+  Page,
+  PageContent,
+  PageHeader,
+  PageHeading,
+  PageHeaderRow,
+} from './page'
+export type {
+  PageContentProps,
+  PageHeaderProps,
+  PageProps,
+  PageHeaderRowProps,
+} from './page'
 export { Pagination } from './pagination'
 export type { PaginationProps } from './pagination'
 export {

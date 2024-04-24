@@ -1,15 +1,21 @@
 import React from 'react'
 
-import { Page, PageContent, PageHeader, PageHeading } from '../index'
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  PageHeaderRow,
+  PageHeading,
+} from '../index'
 import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Heading } from '../../heading'
 import { Button } from '../../button'
 import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
-import { Slot } from '../../slot'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
 import type { StoryObj } from '@storybook/react'
+import { Flex } from '../../flex'
 
 export default {
   title: 'components/page',
@@ -77,8 +83,8 @@ export function Play(args: StoryArgs) {
     <Page>
       <TabProvider defaultSelectedId="selected">
         <PageHeader>
-          <Slot name="top">
-            <Slot name="left">
+          <PageHeaderRow>
+            <Flex>
               {args.headerWithBackButton && (
                 <Bleed top="$space-2" bottom="$space-2">
                   <IconButton
@@ -93,7 +99,7 @@ export function Play(args: StoryArgs) {
               )}
               <PageHeading>{args.pageHeading}</PageHeading>
               {args.headerWithTag && <Tag variant="secondary">Short text</Tag>}
-            </Slot>
+            </Flex>
             {args.headerWithButton && (
               <Bleed top="$space-2" bottom="$space-2">
                 <Button
@@ -105,8 +111,8 @@ export function Play(args: StoryArgs) {
                 </Button>
               </Bleed>
             )}
-          </Slot>
-          <Slot name="bottom">
+          </PageHeaderRow>
+          <PageHeaderRow>
             {args.withTabs && (
               <TabList defaultChecked>
                 <Tab id="selected">Tab 1</Tab>
@@ -114,7 +120,7 @@ export function Play(args: StoryArgs) {
                 <Tab>Tab 3</Tab>
               </TabList>
             )}
-          </Slot>
+          </PageHeaderRow>
         </PageHeader>
         <PageContent layout={args.layout}>
           {args.withTabs ? (

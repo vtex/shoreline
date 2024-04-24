@@ -1,15 +1,21 @@
 import React from 'react'
 
-import { Page, PageContent, PageHeader, PageHeading } from '../index'
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  PageHeaderRow,
+  PageHeading,
+} from '../index'
 import { Tab, TabProvider, TabList, TabPanel } from '../../tab'
 import { Heading } from '../../heading'
 import { Button } from '../../button'
 import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
-import { Slot } from '../../slot'
 import { Stack } from '../../stack'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
+import { Flex } from '../../flex'
 
 export default {
   title: 'components/page',
@@ -41,8 +47,8 @@ export function Show() {
       <Page>
         <TabProvider>
           <PageHeader>
-            <Slot name="top">
-              <Slot name="left">
+            <PageHeaderRow>
+              <Flex>
                 <Bleed top="$space-2" bottom="$space-2">
                   <IconButton
                     label="Return"
@@ -55,22 +61,20 @@ export function Show() {
                 </Bleed>
                 <PageHeading>Title</PageHeading>
                 <Tag variant="secondary">Short text</Tag>
-              </Slot>
-              <Slot name="right">
-                <Bleed top="$space-2" bottom="$space-2">
-                  <Button variant="primary" size="large">
-                    Submit
-                  </Button>
-                </Bleed>
-              </Slot>
-            </Slot>
-            <Slot name="bottom">
+              </Flex>
+              <Bleed top="$space-2" bottom="$space-2">
+                <Button variant="primary" size="large">
+                  Submit
+                </Button>
+              </Bleed>
+            </PageHeaderRow>
+            <PageHeaderRow>
               <TabList>
                 <Tab>Tab 1</Tab>
                 <Tab>Tab 2</Tab>
                 <Tab>Tab 3</Tab>
               </TabList>
-            </Slot>
+            </PageHeaderRow>
           </PageHeader>
           <PageContent layout="standard">
             <TabPanel style={getPanelStyle('teal')}>
@@ -93,8 +97,8 @@ export function Show() {
       </Page>
       <Page>
         <PageHeader>
-          <Slot name="top">
-            <Slot name="left">
+          <PageHeaderRow>
+            <Flex>
               <Bleed top="$space-2" bottom="$space-2">
                 <IconButton
                   label="Return"
@@ -107,15 +111,13 @@ export function Show() {
               </Bleed>
               <PageHeading>Title</PageHeading>
               <Tag variant="secondary">Short text</Tag>
-            </Slot>
-            <Slot name="right">
-              <Bleed top="$space-2" bottom="$space-2">
-                <Button variant="primary" size="large">
-                  Submit
-                </Button>
-              </Bleed>
-            </Slot>
-          </Slot>
+            </Flex>
+            <Bleed top="$space-2" bottom="$space-2">
+              <Button variant="primary" size="large">
+                Submit
+              </Button>
+            </Bleed>
+          </PageHeaderRow>
         </PageHeader>
         <PageContent layout="standard">
           <PlaceholderContent />
@@ -123,8 +125,8 @@ export function Show() {
       </Page>
       <Page>
         <PageHeader>
-          <Slot name="top">
-            <Slot name="left">
+          <PageHeaderRow>
+            <Flex>
               <Bleed top="$space-2" bottom="$space-2">
                 <IconButton
                   label="Return"
@@ -137,13 +139,13 @@ export function Show() {
               </Bleed>
               <PageHeading>Title</PageHeading>
               <Tag variant="secondary">Short text</Tag>
-            </Slot>
+            </Flex>
             <Bleed top="$space-2" bottom="$space-2">
               <Button variant="primary" size="large">
                 Submit
               </Button>
             </Bleed>
-          </Slot>
+          </PageHeaderRow>
         </PageHeader>
         <PageContent layout="narrow">
           <PlaceholderContent />
@@ -151,8 +153,8 @@ export function Show() {
       </Page>
       <Page>
         <PageHeader>
-          <Slot name="top">
-            <Slot name="left">
+          <PageHeaderRow>
+            <Flex>
               <Bleed top="$space-2" bottom="$space-2">
                 <IconButton
                   label="Return"
@@ -165,8 +167,8 @@ export function Show() {
               </Bleed>
               <PageHeading>Title</PageHeading>
               <Tag variant="secondary">Short text</Tag>
-            </Slot>
-          </Slot>
+            </Flex>
+          </PageHeaderRow>
         </PageHeader>
         <PageContent layout="standard">
           <PlaceholderContent />
@@ -182,14 +184,14 @@ export function Show() {
       </Page>
       <Page>
         <PageHeader>
-          <Slot name="top">
+          <PageHeaderRow>
             <PageHeading>Title</PageHeading>
             <Bleed top="$space-2" bottom="$space-2">
               <Button variant="primary" size="large">
                 Submit
               </Button>
             </Bleed>
-          </Slot>
+          </PageHeaderRow>
         </PageHeader>
         <PageContent layout="standard">
           <PlaceholderContent />

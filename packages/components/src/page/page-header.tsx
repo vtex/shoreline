@@ -1,7 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Stack } from '../stack'
 import type { ContentOptions } from '../content'
 import { Container, Content } from '../content'
 
@@ -29,9 +28,7 @@ export const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           {...otherProps}
         >
           <header>
-            <Stack space="$space-3" data-sl-page-header>
-              {children}
-            </Stack>
+            <div data-sl-page-header>{children}</div>
           </header>
         </Content>
       </Container>
