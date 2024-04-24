@@ -1,8 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Skeleton } from '../skeleton'
-import { EmptyState } from '../empty-state'
-import { Slot } from '../slot'
+import {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateIllustration,
+} from '../empty-state'
 import {
   IconMagnifyingGlass,
   IconPlus,
@@ -73,15 +76,15 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
     return (
       <div data-sl-collection-view ref={ref} {...otherProps}>
         <EmptyState size="large">
-          <Slot name="illustration" data-sl-collection-view-illustration>
+          <EmptyStateIllustration data-sl-collection-view-illustration>
             {getIcon(status)}
-          </Slot>
+          </EmptyStateIllustration>
           <Heading data-sl-collection-view-heading>{heading}</Heading>
           {description && (
             <Text data-sl-collection-view-description>{description}</Text>
           )}
           {action && (
-            <Slot>
+            <EmptyStateActions>
               <Button
                 data-sl-collection-view-action
                 onClick={handleAction}
@@ -90,7 +93,7 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
                 {status === 'empty' && <IconPlus />}
                 {action}
               </Button>
-            </Slot>
+            </EmptyStateActions>
           )}
         </EmptyState>
       </div>

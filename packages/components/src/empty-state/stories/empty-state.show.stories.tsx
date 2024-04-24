@@ -1,10 +1,9 @@
 import './styles.css'
 import React from 'react'
 
-import { EmptyState } from '../index'
+import { EmptyState, EmptyStateActions, EmptyStateIllustration } from '../index'
 import { Button } from '../../button'
 import { Heading } from '../../heading'
-import { Slot } from '../../slot'
 import { Text } from '../../text'
 import { IconWarningCircle } from '@vtex/shoreline-icons'
 
@@ -16,25 +15,25 @@ export default {
   },
 }
 
-export function Show(props) {
+export function Show(props: { size: 'small' | 'medium' | 'large' }) {
   const { size } = props
 
   return (
     <div className="screen-container">
       <EmptyState size={size}>
-        <Slot name="illustration">
+        <EmptyStateIllustration>
           <IconWarningCircle />
-        </Slot>
+        </EmptyStateIllustration>
         <Heading>Title goes here</Heading>
         <Text>
           Before you write the description here please visit the Shoreline
           documentation website to learn more about this componente and its
           usage.
         </Text>
-        <Slot name="actions">
+        <EmptyStateActions>
           <Button>Label</Button>
           <Button variant="primary">Label</Button>
-        </Slot>
+        </EmptyStateActions>
       </EmptyState>
     </div>
   )

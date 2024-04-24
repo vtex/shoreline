@@ -7,9 +7,9 @@ import React, { forwardRef } from 'react'
  * @example
  * <EmptyState>
  *  <Heading>Title goes here</Heading>
- *  <Slot name="actions">
+ *  <EmptyStateActions>
  *    <Button variant="primary">label</Button>
- *  </Slot>
+ *  </EmptyStateActions>
  * </EmptyState>
  * */
 export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
