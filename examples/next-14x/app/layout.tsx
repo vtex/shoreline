@@ -5,8 +5,8 @@ import {
   Page,
   PageContent,
   PageHeader,
+  PageHeaderRow,
   PageHeading,
-  Slot,
 } from '@vtex/shoreline'
 import {
   NextTab,
@@ -29,15 +29,15 @@ export default function RootLayout(props: Props) {
         <Page>
           <NextTabProvider>
             <PageHeader>
-              <Slot name="top">
+              <PageHeaderRow>
                 <PageHeading>Shoreline 💙 Next 14</PageHeading>
-              </Slot>
-              <Slot name="bottom">
+              </PageHeaderRow>
+              <PageHeaderRow>
                 <NextTabList>
                   <NextTab href="/">Features</NextTab>
                   <NextTab href="/details">Details</NextTab>
                 </NextTabList>
-              </Slot>
+              </PageHeaderRow>
             </PageHeader>
             <PageContent>
               <NextTabPanel>{props.tabs}</NextTabPanel>

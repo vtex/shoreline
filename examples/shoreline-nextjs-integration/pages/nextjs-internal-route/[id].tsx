@@ -7,6 +7,8 @@ import {
   Slot,
   Bleed,
   IconButton,
+  PageHeaderRow,
+  Flex,
 } from '@vtex/shoreline-components'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
@@ -25,8 +27,8 @@ export default function PromotionEdit() {
   return (
     <Page>
       <PageHeader>
-        <Slot name="top">
-          <Slot name="left">
+        <PageHeaderRow>
+          <Flex>
             <Bleed top="$space-2" bottom="$space-2">
               <IconButton
                 label="Return"
@@ -41,8 +43,8 @@ export default function PromotionEdit() {
             <PageHeading>
               NextJS App Internal Dynamic Route: {item?.name}
             </PageHeading>
-          </Slot>
-        </Slot>
+          </Flex>
+        </PageHeaderRow>
       </PageHeader>
       <PageContent>
         <Button onClick={() => navigate('/')}>Navigate to base route</Button>

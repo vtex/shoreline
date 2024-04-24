@@ -4,9 +4,10 @@ import {
   PageHeader,
   PageHeading,
   PageContent,
-  Slot,
   Bleed,
   IconButton,
+  PageHeaderRow,
+  Flex,
 } from '@vtex/shoreline-components'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
@@ -18,8 +19,8 @@ export default function NextJSInternalRoute() {
   return (
     <Page>
       <PageHeader>
-        <Slot name="top">
-          <Slot name="left">
+        <PageHeaderRow>
+          <Flex>
             <Bleed top="$space-2" bottom="$space-2">
               <IconButton
                 label="Return"
@@ -32,8 +33,8 @@ export default function NextJSInternalRoute() {
               </IconButton>
             </Bleed>
             <PageHeading>NextJS App Internal Static Route</PageHeading>
-          </Slot>
-        </Slot>
+          </Flex>
+        </PageHeaderRow>
       </PageHeader>
       <PageContent>
         <Button onClick={() => navigate('/')}>Navigate to base route</Button>
