@@ -4,8 +4,8 @@
     letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
   &[aria-expanded='true'] {
-    &[data-sl-button][data-variant=secondary] {
-      background: var(--sl-bg-base-plain-pressed);
+    &[data-sl-button][data-variant='secondary'] {
+      background: var(--sl-bg-muted-plain-pressed);
       color: var(--sl-fg-muted-pressed);
     }
   }

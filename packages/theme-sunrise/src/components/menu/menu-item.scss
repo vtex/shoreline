@@ -3,7 +3,7 @@
   text-decoration: none;
   display: flex;
   cursor: pointer;
-  background: var(--sl-bg-base-plain);
+  background: var(--sl-bg-muted-plain);
   color: var(--sl-fg-muted);
   padding: var(--sl-space-2) var(--sl-space-3);
   border-radius: var(--sl-border-radius-medium);
@@ -12,12 +12,12 @@
   gap: var(--sl-space-2);
 
   &:hover {
-    background: var(--sl-bg-base-plain-hover);
+    background: var(--sl-bg-muted-plain-hover);
     color: var(--sl-fg-muted-hover);
   }
 
   &:active {
-    background: var(--sl-bg-base-plain-pressed);
+    background: var(--sl-bg-muted-plain-pressed);
     color: var(--sl-fg-muted-pressed);
   }
 
@@ -46,6 +46,6 @@
 
   &[data-disabled='true'] {
     color: var(--sl-fg-base-disabled);
-    background: var(--sl-bg-base-plain);
+    background: var(--sl-bg-muted-plain);
   }
 }

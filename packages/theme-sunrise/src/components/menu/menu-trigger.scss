@@ -28,9 +28,9 @@
   }
 
   &[data-variant='tertiary'][data-active='true'] {
-    background: var(--sl-bg-muted-plain-pressed);
+    background: var(--sl-bg-muted-pressed);
     &:hover {
-      background: var(--sl-bg-muted-plain-pressed);
+      background: var(--sl-bg-muted-pressed);
     }
   }
 }
