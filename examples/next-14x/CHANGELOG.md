@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/next-14x@0.2.38...next-14x@0.3.0) (2024-04-24)
+
+### Features
+
+- **page:** replace slot by page-header-row ([2ddd50a](https://github.com/vtex/shoreline/commit/2ddd50a5250f6c1b84a874cc0d4b1092465a418d))
+
 ## [0.2.38](https://github.com/vtex/shoreline/compare/next-14x@0.2.37...next-14x@0.2.38) (2024-04-24)
 
 **Note:** Version bump only for package next-14x

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.55...@vtex/shoreline@1.0.0-rc.56) (2024-04-24)
+
+### Features
+
+- **page:** replace slot by page-header-row ([2ddd50a](https://github.com/vtex/shoreline/commit/2ddd50a5250f6c1b84a874cc0d4b1092465a418d))
+
 # [1.0.0-rc.55](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.54...@vtex/shoreline@1.0.0-rc.55) (2024-04-24)
 
 **Note:** Version bump only for package @vtex/shoreline

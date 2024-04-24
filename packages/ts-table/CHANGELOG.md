@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.0-rc.55...@vtex/shoreline-ts-table@1.0.0-rc.56) (2024-04-24)
+
+### Bug Fixes
+
+- **theme-sunrise:** plain modifier usage ([10597d5](https://github.com/vtex/shoreline/commit/10597d5e7b7e34a88ea1a600bf994c6c6ac4d04f))
+
 # [1.0.0-rc.55](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.0-rc.54...@vtex/shoreline-ts-table@1.0.0-rc.55) (2024-04-24)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table

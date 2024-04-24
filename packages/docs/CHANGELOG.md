@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.55...@shoreline/docs@1.0.0-rc.56) (2024-04-24)
+
+### Features
+
+- **sunrise:** replace border-radius token by radius ([5b30d50](https://github.com/vtex/shoreline/commit/5b30d5035bfd51c7715d2151e7d4a70772e329b2))
+
 # [1.0.0-rc.55](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.54...@shoreline/docs@1.0.0-rc.55) (2024-04-24)
 
 **Note:** Version bump only for package @shoreline/docs

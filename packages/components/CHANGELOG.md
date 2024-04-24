@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.55...@vtex/shoreline-components@1.0.0-rc.56) (2024-04-24)
+
+### Bug Fixes
+
+- **theme-sunrise:** plain modifier usage ([10597d5](https://github.com/vtex/shoreline/commit/10597d5e7b7e34a88ea1a600bf994c6c6ac4d04f))
+
+### Features
+
+- **page:** replace slot by page-header-row ([2ddd50a](https://github.com/vtex/shoreline/commit/2ddd50a5250f6c1b84a874cc0d4b1092465a418d))
+- **sunrise:** replace border-radius token by radius ([5b30d50](https://github.com/vtex/shoreline/commit/5b30d5035bfd51c7715d2151e7d4a70772e329b2))
+
 # [1.0.0-rc.55](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.54...@vtex/shoreline-components@1.0.0-rc.55) (2024-04-24)
 
 **Note:** Version bump only for package @vtex/shoreline-components
