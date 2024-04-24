@@ -8,9 +8,9 @@
   width: var(--sl-filter-item-check-size);
   height: var(--sl-filter-item-check-size);
   border: var(--sl-border-base-strong);
-  border-radius: var(--sl-border-radius-full);
+  border-radius: var(--sl-radius-full);
   &[data-multiselect='true'] {
-    border-radius: var(--sl-border-radius-small);
+    border-radius: var(--sl-radius-1);
   }
   &:focus {
     box-shadow: var(--sl-focus-ring-accent);
@@ -30,9 +30,9 @@
   display: grid;
   place-items: center;
   color: var(--sl-fg-inverted);
-  border-radius: var(--sl-border-radius-full);
+  border-radius: var(--sl-radius-full);
   &[data-multiselect='true'] {
-    border-radius: var(--sl-border-radius-small);
+    border-radius: var(--sl-radius-1);
   }
 }
 
@@ -40,5 +40,5 @@
   background: var(--sl-fg-inverted);
   height: calc(var(--sl-filter-item-check-size) / 2);
   width: calc(var(--sl-filter-item-check-size) / 2);
-  border-radius: var(--sl-border-radius-full);
+  border-radius: var(--sl-radius-full);
 }

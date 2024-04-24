@@ -13,7 +13,7 @@
       align-items: center;
       width: var(--sl-contextual-help-trigger-bg-dimensions);
       height: var(--sl-contextual-help-trigger-bg-dimensions);
-      border-radius: var(--sl-border-radius-full);
+      border-radius: var(--sl-radius-full);
       background: var(--sl-color-gray-3);
       color: var(--sl-color-gray-11);
       font-size: 80%;
@@ -44,8 +44,8 @@
   overflow: hidden auto;
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
-  
-  &[data-sl-popover]{ 
+
+  &[data-sl-popover] {
     padding: unset;
   }
 }

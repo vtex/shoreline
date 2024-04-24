@@ -1,5 +1,5 @@
 [data-sl-tag] {
-  --sl-border-radius-largest: calc(var(--sl-border-radius-large) * 2);
+  --sl-border-radius-largest: calc(var(--sl-radius-3) * 2);
 
   width: fit-content;
   padding: var(--sl-element-space-top) var(--sl-element-space-right)

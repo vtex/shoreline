@@ -1,5 +1,5 @@
 .card {
-  --radii: var(--sl-border-radius-large);
+  --radii: var(--sl-radius-3);
   border-radius: var(--radii);
   transition: background 250ms ease-in-out;
 }
@@ -14,7 +14,7 @@
 }
 
 .imgWrapper {
-  --radii: var(--sl-border-radius-large);
+  --radii: var(--sl-radius-3);
   overflow: hidden;
   position: relative;
   display: inline-block;

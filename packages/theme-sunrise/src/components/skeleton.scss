@@ -30,9 +30,9 @@
     top: var(--sl-space-0);
   }
   &[data-sl-skeleton-shape='rect'] {
-    border-radius: var(--sl-border-radius-small);
+    border-radius: var(--sl-radius-1);
   }
   &[data-sl-skeleton-shape='circle'] {
-    border-radius: var(--sl-border-radius-full);
+    border-radius: var(--sl-radius-full);
   }
 }

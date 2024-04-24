@@ -2,7 +2,7 @@
   --min-h: 15rem;
   --max-h: 30rem;
   --space: var(--sl-space-3);
-  --radii: var(--sl-border-radius-large);
+  --radii: var(--sl-radius-3);
 }
 
 .previewWrapper {

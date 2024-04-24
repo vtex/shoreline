@@ -7,7 +7,7 @@
   min-width: var(--sl-time-input-min-width);
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
   border: var(--sl-border-base-strong);
   padding: var(--sl-space-2) var(--sl-space-3);
   width: 100%;
@@ -47,7 +47,7 @@
   letter-spacing: var(--sl-text-action-letter-spacing);
   display: inline-flex;
   gap: var(--sl-space-05);
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--sl-radius-2);
   justify-content: flex-start;
   align-items: center;
   border: none;

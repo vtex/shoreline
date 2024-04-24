@@ -26,7 +26,7 @@ function Button({ asChild, style, children, ...props }: AnyObject) {
         color: 'var(--sl-fg-base)',
         background: 'var(--sl-bg-muted)',
         padding: 'var(--sl-space-gap)',
-        borderRadius: 'var(--sl-border-radius-medium)',
+        borderRadius: 'var(--sl-radius-2)',
         margin: 'var(--sl-space-gap)',
         ...style,
       }}
