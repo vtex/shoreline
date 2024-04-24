@@ -9,7 +9,7 @@ export default {
 
 const itemStyle = style({
   background: '$color-blue-3',
-  borderRadius: '$border-radius-medium',
+  borderRadius: '$border-radius-2',
   width: '5rem',
   height: '3rem',
   display: 'grid',
