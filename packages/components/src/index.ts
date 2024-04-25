@@ -12,20 +12,12 @@ export {
   Compose,
   LinkBox,
   LocaleProvider,
-  SelectItem,
-  SelectItemCheck,
-  SelectList,
-  SelectPopover,
-  SelectProvider,
-  SelectTrigger,
   VisuallyHidden,
   createMessageHook,
   get,
   isComposable,
   navigate,
   useLocale,
-  useSelectContext,
-  useSelectStore,
 } from '@vtex/shoreline-primitives'
 export type {
   AccessibleIconProps,
@@ -40,11 +32,6 @@ export type {
   LinkBoxProps,
   LocaleProviderProps,
   NavigationTarget,
-  SelectItemCheckProps,
-  SelectItemProps,
-  SelectListProps,
-  SelectPopoverProps,
-  SelectTriggerProps,
   VisuallyHiddenProps,
 } from '@vtex/shoreline-primitives'
 export { Alert } from './alert'
@@ -204,8 +191,25 @@ export { Radio, RadioGroup, useRadioState } from './radio'
 export type { RadioGroupProps, RadioGroupState, RadioProps } from './radio'
 export { Search } from './search'
 export type { SearchProps } from './search'
-export { Select } from './select'
-export type { SelectProps } from './select'
+export {
+  Select,
+  SelectItem,
+  SelectItemCheck,
+  SelectList,
+  SelectPopover,
+  SelectProvider,
+  SelectTrigger,
+  useSelectContext,
+  useSelectStore,
+} from './select'
+export type {
+  SelectProps,
+  SelectItemCheckProps,
+  SelectItemProps,
+  SelectListProps,
+  SelectPopoverProps,
+  SelectTriggerProps,
+} from './select'
 export { Skeleton } from './skeleton'
 export type { SkeletonProps } from './skeleton'
 export { Spinner } from './spinner'

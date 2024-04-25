@@ -1,10 +1,7 @@
 import React, { forwardRef } from 'react'
 import { IconCheckSmall } from '@vtex/shoreline-icons'
-import type {
-  SelectItemCheckOptions,
-  SelectItemCheckProps,
-} from '@vtex/shoreline-primitives'
-import { useSelectContext, SelectItemCheck } from '@vtex/shoreline-primitives'
+import type { SelectItemCheckOptions, SelectItemCheckProps } from '../select'
+import { useSelectContext, SelectItemCheck } from '../select'
 
 /**
  * Check state of the FilterItem

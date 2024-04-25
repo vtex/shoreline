@@ -1,10 +1,8 @@
 import React, { forwardRef } from 'react'
 
-import type {
-  SelectItemOptions,
-  SelectItemProps,
-} from '@vtex/shoreline-primitives'
-import { SelectItem, ComboboxItem } from '@vtex/shoreline-primitives'
+import { SelectItem } from '../select'
+import type { SelectItemOptions, SelectItemProps } from '../select'
+import { ComboboxItem } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 import { FilterItemCheck } from './filter-item-check'
 

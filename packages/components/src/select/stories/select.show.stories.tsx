@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Select } from '../index'
+import { Select, SelectItem } from '../index'
 import { Stack } from '../../stack'
 import { Field, FieldDescription, FieldError } from '../../field'
 import { Label } from '../../label'
@@ -10,51 +10,40 @@ export default {
 }
 
 export function Show() {
-  const [value, setValue] = useState('')
-
   return (
     <Stack>
       <Field>
-        <Label>Favorite fruit</Label>
-        <Select value={value} onChange={setValue}>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
-        </Select>
-        <FieldDescription>The fruit you most like eating</FieldDescription>
-      </Field>
-      <Field>
         <Label>Fruit</Label>
         <Select>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
+          <SelectItem value="Apple">Apple</SelectItem>
+          <SelectItem value="Banana">Banana</SelectItem>
+          <SelectItem value="Grape">Grape</SelectItem>
         </Select>
       </Field>
       <Field>
         <Label>Fruit</Label>
         <Select>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
+          <SelectItem value="Apple">Apple</SelectItem>
+          <SelectItem value="Banana">Banana</SelectItem>
+          <SelectItem value="Grape">Grape</SelectItem>
         </Select>
         <FieldDescription>Short description</FieldDescription>
       </Field>
       <Field error>
         <Label>Fruit</Label>
         <Select>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
+          <SelectItem value="Apple">Apple</SelectItem>
+          <SelectItem value="Banana">Banana</SelectItem>
+          <SelectItem value="Grape">Grape</SelectItem>
         </Select>
         <FieldError>Short error message</FieldError>
       </Field>
       <Field error>
         <Label>Fruit</Label>
         <Select>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
+          <SelectItem value="Apple">Apple</SelectItem>
+          <SelectItem value="Banana">Banana</SelectItem>
+          <SelectItem value="Grape">Grape</SelectItem>
         </Select>
         <FieldDescription>Short description</FieldDescription>
         <FieldError>Short error message</FieldError>
@@ -62,9 +51,9 @@ export function Show() {
       <Field error>
         <Label>Fruit</Label>
         <Select disabled>
-          <option>Apple</option>
-          <option>Banana</option>
-          <option>Grape</option>
+          <SelectItem value="Apple">Apple</SelectItem>
+          <SelectItem value="Banana">Banana</SelectItem>
+          <SelectItem value="Grape">Grape</SelectItem>
         </Select>
         <FieldDescription>Short description</FieldDescription>
         <FieldError>Short error message</FieldError>

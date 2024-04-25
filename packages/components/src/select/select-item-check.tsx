@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
 import { SelectItemCheck as ItemCheck } from '@ariakit/react'
-import { IconCheck } from '@vtex/shoreline-icons'
+import { IconCheckSmall } from '@vtex/shoreline-icons'
 
 /**
  * Check indicator of the SelectItem
@@ -14,7 +14,7 @@ export const SelectItemCheck = forwardRef<
 
   return (
     <ItemCheck data-sl-select-item-check ref={ref} {...domProps}>
-      {children || <IconCheck />}
+      {children || <IconCheckSmall />}
     </ItemCheck>
   )
 })
