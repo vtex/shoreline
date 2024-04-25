@@ -1,32 +1,10 @@
 # Best Practices
 
-Spacing tokens are identified in Shoreline by the prefix `$space`. They can be followed by a number suffix that is the space value in rems (or the value in pixels if multiplied by 4), for example the token for a 16px space is `$space-4`, or by the suffix `gap`.
+Spacing tokens are identified in Shoreline by the prefix `$space`. They can be followed by a suffix that is a number which is the space value in rems (or the value in pixels if multiplied by 4), for example the token for a 16px space is `$space-4`, or by the suffix `gap`, which is the default spacing between elements in a page.
+
+Spacing can be applied horizontally or vertically in any CSS property that receives a space value.
 
 ## Usage
-
-Spacing can be applied horizontally or vertically in any CSS property that receives a space value. See below the main scenarios where the tokens are used.
-
-| Token         | Usage         |
-| :------------ | :---------- |
-| `$space-0`       | **Vertical:** <br/>- `$text-body` texts (Text + Text cell in Table) <br/>- `$text-action` text → $text-body text (Name + Text cell in Table) <br/>- `$text-caption` texts (Help Text and Error Text in fields)     |
-| `$space-5`       | **Vertical:** <br/>- `$text-body` text → `$text-caption` text (Label and Help Text in a single Checkbox)     |
-| `$space-1`       | **Vertical:** <br/>- Label → Input <br/>- Input → `$text-caption2` text (Help or Error Text) <br/>- Trigger → Popover (Menu, Filter, DatePicker) <br/><br/>**Horizontal:** <br/>- IconButtons `normal` (Admin Shell Topbar, DatePicker input buttons)     |
-| `$space-2`       | **Vertical:** <br/>- Buttons `normal` (Empty State small) <br/><br/>**Horizontal:** <br/>- Control → Label (Checkbox, Radio) <br/>- Icon → Short text (Search) <br/>- Normal Actions with a background (Buttons `normal`) <br/>- Large Actions without a background (Tab List)     |
-| `$space-3`       | **Vertical:** <br/>- Control Fields Group → `$text-caption2` text (Checkbox Group or Radio Group help text) <br/>- Content paddings top and bottom in narrow containers 120 - 239px <br/>- Content padding-top in Pages without tabs in screens < 380px <br/><br/>**Horizontal:** <br/>- Label → Control Fields (Checkbox Group, Radio Group) <br/>- Icon → Long Text (Toast, Alert) <br/>- Page Title → Tag Large (Page Header) |
-| `$space-4`       | - Content paddings in containers 120 - 239px <br/><br/>**Vertical:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/>- Content padding-top in Pages without tabs in screens 380 - 559px |
-| `$space-5`       | **Horizontal:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/><br/>**Vertical:** <br/>- Fields in a form section <br/>- Content padding-top in Pages without tabs in screens > 560px <br/>- Content paddings top and bottom in narrow containers 240 - 379px |
-| `$space-6`       | - Content paddings in containers 240 - 379px <br/><br/>**Vertical:** <br/>- Form section title → Fields <br/>- Content paddings top and bottom in narrow containers 380 - 559px |
-| `$space-7`       | - Content paddings in containers 380 - 559px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 560 - 799px |
-| `$space-8`       | - Content paddings in containers 560 - 799px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 800 - 1600px |
-| `$space-10`      | - Content paddings in containers 800 - 1600px <br/><br/>**Vertical and Horizontal:** <br/>- Toast bottom and right margins |
-| `$space-12`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens < 560px |
-| `$space-16`      | **Vertical:** <br/>- Form sections |
-| `$space-20`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens > 560px |
-| `$space-24`      | *No scenarios mapped.* |
-| `$space-28`      | *No scenarios mapped.* |
-| `$space-32`      | *No scenarios mapped.* |
-
-## Application principles
 
 ### Relationships and hierarchy
 
@@ -65,3 +43,26 @@ Spacing can be applied horizontally or vertically in any CSS property that recei
 
 ![Space density](public/assets/space-density.png)
 *Examples of tighter and looser spacing.*
+
+### Examples 
+
+| Token         | Usage         |
+| :------------ | :---------- |
+| `$space-0`       | **Vertical:** <br/>- `$text-body` texts (Text + Text cell in Table) <br/>- `$text-action` text → $text-body text (Name + Text cell in Table) <br/>- `$text-caption` texts (Help Text and Error Text in fields)     |
+| `$space-5`       | **Vertical:** <br/>- `$text-body` text → `$text-caption` text (Label and Help Text in a single Checkbox)     |
+| `$space-1`       | **Vertical:** <br/>- Label → Input <br/>- Input → `$text-caption2` text (Help or Error Text) <br/>- Trigger → Popover (Menu, Filter, DatePicker) <br/><br/>**Horizontal:** <br/>- IconButtons `normal` (Admin Shell Topbar, DatePicker input buttons)     |
+| `$space-2`       | **Vertical:** <br/>- Buttons `normal` (Empty State small) <br/><br/>**Horizontal:** <br/>- Control → Label (Checkbox, Radio) <br/>- Icon → Short text (Search) <br/>- Normal Actions with a background (Buttons `normal`) <br/>- Large Actions without a background (Tab List)     |
+| `$space-3`       | **Vertical:** <br/>- Control Fields Group → `$text-caption2` text (Checkbox Group or Radio Group help text) <br/>- Content paddings top and bottom in narrow containers 120 - 239px <br/>- Content padding-top in Pages without tabs in screens < 380px <br/><br/>**Horizontal:** <br/>- Label → Control Fields (Checkbox Group, Radio Group) <br/>- Icon → Long Text (Toast, Alert) <br/>- Page Title → Tag Large (Page Header) |
+| `$space-4`       | - Content paddings in containers 120 - 239px <br/><br/>**Vertical:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/>- Content padding-top in Pages without tabs in screens 380 - 559px |
+| `$space-5`       | **Horizontal:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/><br/>**Vertical:** <br/>- Fields in a form section <br/>- Content padding-top in Pages without tabs in screens > 560px <br/>- Content paddings top and bottom in narrow containers 240 - 379px |
+| `$space-6`       | - Content paddings in containers 240 - 379px <br/><br/>**Vertical:** <br/>- Form section title → Fields <br/>- Content paddings top and bottom in narrow containers 380 - 559px |
+| `$space-7`       | - Content paddings in containers 380 - 559px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 560 - 799px |
+| `$space-8`       | - Content paddings in containers 560 - 799px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 800 - 1600px |
+| `$space-10`      | - Content paddings in containers 800 - 1600px <br/><br/>**Vertical and Horizontal:** <br/>- Toast bottom and right margins |
+| `$space-12`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens < 560px |
+| `$space-16`      | **Vertical:** <br/>- Form sections |
+| `$space-20`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens > 560px |
+| `$space-24`      | *No scenarios mapped.* |
+| `$space-28`      | *No scenarios mapped.* |
+| `$space-32`      | *No scenarios mapped.* |
+
