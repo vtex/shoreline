@@ -1,12 +1,12 @@
 import React from 'react'
-import { Select } from '@vtex/shoreline'
+import { Select, SelectItem } from '@vtex/shoreline'
 
 export default function Example() {
   return (
     <Select>
-      <option>option 1</option>
-      <option>option 2</option>
-      <option>option 3</option>
+      <SelectItem value="option 1">option 1</SelectItem>
+      <SelectItem value="option 2">option 2</SelectItem>
+      <SelectItem value="option 3">option 3</SelectItem>
     </Select>
   )
 }

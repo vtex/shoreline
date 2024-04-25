@@ -40,7 +40,6 @@
   "compose": "Compose",
   "link-box": "LinkBox",
   "locale-provider": "LocaleProvider",
-  "primitive-select": "Select",
   "visually-hidden": "VisuallyHidden",
 
   "Layout": { "type": "separator", "title": "Layout" },
