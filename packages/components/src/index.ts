@@ -67,8 +67,16 @@ export { ContextualHelp } from './contextual-help'
 export type { ContextualHelpProps } from './contextual-help'
 export { Divider } from './divider'
 export type { DividerProps } from './divider'
-export { EmptyState } from './empty-state'
-export type { EmptyStateProps } from './empty-state'
+export {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateIllustration,
+} from './empty-state'
+export type {
+  EmptyStateProps,
+  EmptyStateActionsProps,
+  EmptyStateIllustrationProps,
+} from './empty-state'
 export {
   Field,
   FieldCharCounter,

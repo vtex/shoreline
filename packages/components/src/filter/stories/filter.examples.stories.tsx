@@ -14,6 +14,7 @@ import { countries } from './countries'
 import { LocaleProvider } from '@vtex/shoreline-primitives'
 import { IconMagnifyingGlass } from '@vtex/shoreline-icons'
 import { EmptyState, Slot, Text, Heading } from '../..'
+import { EmptyStateIllustration } from '../../empty-state'
 
 export default {
   title: 'components/filter/examples',
@@ -107,9 +108,9 @@ export function WithCombobox() {
         ))
       ) : (
         <EmptyState size="small" style={{ height: '15rem' }}>
-          <Slot name="illustration">
+          <EmptyStateIllustration>
             <IconMagnifyingGlass color="var(--sl-color-gray-8)" />
-          </Slot>
+          </EmptyStateIllustration>
           <Heading>No results found</Heading>
           <Text variant="body">Try using different terms.</Text>
         </EmptyState>

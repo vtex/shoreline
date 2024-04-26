@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, EmptyState, Heading, Slot } from '@vtex/shoreline'
+import { Button, EmptyState, Heading, EmptyStateActions } from '@vtex/shoreline'
 
 export default function Example() {
   return (
     <EmptyState>
       <Heading>Title goes here</Heading>
-      <Slot name="actions">
+      <EmptyStateActions>
         <Button variant="primary">label</Button>
-      </Slot>
+      </EmptyStateActions>
     </EmptyState>
   )
 }

@@ -16,7 +16,6 @@ import {
   SelectItemCheck,
   Tooltip,
   Flex,
-  Slot,
   IconButton,
   IconCode,
 } from '@vtex/shoreline'
@@ -57,10 +56,10 @@ export function Preview(props: Props) {
               width: '100%',
             }}
           >
-            <Slot>
+            <div>
               <Tab id="preview">Preview</Tab>
               <Tab id="code">Code</Tab>
-            </Slot>
+            </div>
             <Flex gap="$space-1">
               <SelectProvider
                 value={theme}

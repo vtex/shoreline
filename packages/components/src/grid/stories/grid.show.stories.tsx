@@ -8,7 +8,7 @@ export default {
 
 const cellStyle = style({
   backgroundColor: '$color-blue-3',
-  borderRadius: '$border-radius-medium',
+  borderRadius: '$border-radius-2',
   width: '100%',
   height: '3.5rem',
 })

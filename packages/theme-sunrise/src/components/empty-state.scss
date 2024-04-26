@@ -75,14 +75,14 @@
     }
   }
 
-  [data-sl-slot='actions'] {
+  [data-sl-empty-state-actions] {
     margin-top: var(--sl-space-2);
     display: flex;
     flex-direction: var(--sl-empty-actions-direction);
     gap: var(--sl-empty-state-actions-gap);
   }
 
-  [data-sl-slot='illustration'] {
+  [data-sl-empty-state-illustration] {
     height: var(--sl-empty-state-illustration-size);
     width: var(--sl-empty-state-illustration-size);
     margin-bottom: var(--sl-space-3);
