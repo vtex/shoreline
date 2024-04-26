@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.57](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.56...@shoreline/docs@1.0.0-rc.57) (2024-04-26)
+
+### Features
+
+- **empty-state:** add EmptyStateActions and EmptyStateIllustration components ([5159630](https://github.com/vtex/shoreline/commit/51596302e4211d6a58e22507fabb985be350697d))
+
 # [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.55...@shoreline/docs@1.0.0-rc.56) (2024-04-24)
 
 ### Features

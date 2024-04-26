@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.57](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.56...@vtex/shoreline-components@1.0.0-rc.57) (2024-04-26)
+
+### Bug Fixes
+
+- **stories:** border-radius for grid and stack ([b1699f2](https://github.com/vtex/shoreline/commit/b1699f28748e546a81b2654175a85b2482b3b37e))
+
+### Features
+
+- **empty-state:** add EmptyStateActions and EmptyStateIllustration components ([5159630](https://github.com/vtex/shoreline/commit/51596302e4211d6a58e22507fabb985be350697d))
+
 # [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@vtex/shoreline-components@1.0.0-rc.55...@vtex/shoreline-components@1.0.0-rc.56) (2024-04-24)
 
 ### Bug Fixes
