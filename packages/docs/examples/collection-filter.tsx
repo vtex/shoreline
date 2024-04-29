@@ -6,7 +6,7 @@ import {
   FilterItem,
   Pagination,
   Search,
-  Slot,
+  CollectionRow,
   Stack,
 } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
@@ -14,25 +14,23 @@ import { DecorativeBox } from '../components/decorative-box'
 export default function Example() {
   return (
     <Collection>
-      <Slot name="header">
-        <Slot name="controls">
-          <Stack horizontal space="$space-3">
-            <Search />
-            <Filter label="Status">
-              <FilterItem value="Stable">Stable</FilterItem>
-              <FilterItem value="Experimental">Experimental</FilterItem>
-              <FilterItem value="Deprecated">Deprecated</FilterItem>
-            </Filter>
-          </Stack>
-          <Pagination page={1} total={74} />
-        </Slot>
-      </Slot>
+      <CollectionRow>
+        <Stack horizontal>
+          <Search />
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+        </Stack>
+        <Pagination page={1} total={74} />
+      </CollectionRow>
       <CollectionView status="ready">
         <DecorativeBox subtle height="25rem" />
       </CollectionView>
-      <Slot name="footer">
+      <CollectionRow align="flex-end">
         <Pagination page={1} total={74} />
-      </Slot>
+      </CollectionRow>
     </Collection>
   )
 }

@@ -10,17 +10,13 @@
   --sl-flex-gap: var(--sl-space-gap);
 
   display: flex;
-  order: var(--sl-flex-order);
-  flex-direction: var(--sl-flex-direction);
-  flex-grow: var(--sl-flex-grow);
-  flex-wrap: var(--sl-flex-wrap);
-  flex-shrink: var(--sl-flex-shrink);
-  flex-basis: var(--sl-flex-basis);
-  justify-content: var(--sl-flex-justify);
-  align-items: var(--sl-flex-align);
-  gap: var(--sl-flex-gap);
-
-  &[data-inline='true'] {
-    display: inline-flex;
-  }
+  order: var(--sl-flex-order, 0);
+  flex-direction: var(--sl-flex-direction, column);
+  flex-grow: var(--sl-flex-grow, 0);
+  flex-wrap: var(--sl-flex-wrapm, nowrap);
+  flex-shrink: var(--sl-flex-shrink, 1);
+  flex-basis: var(--sl-flex-basis, auto);
+  justify-content: var(--sl-flex-justify, flex-start);
+  align-items: var(--sl-flex-align, stretch);
+  gap: var(--sl-flex-gap, var(--sl-space-gap));
 }

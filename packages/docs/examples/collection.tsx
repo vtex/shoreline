@@ -1,28 +1,26 @@
 import React from 'react'
 import {
   Collection,
+  CollectionRow,
   CollectionView,
   Pagination,
   Search,
-  Slot,
 } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
 
 export default function Example() {
   return (
     <Collection>
-      <Slot name="header">
-        <Slot name="controls">
-          <Search />
-          <Pagination page={1} total={74} />
-        </Slot>
-      </Slot>
+      <CollectionRow>
+        <Search />
+        <Pagination page={1} total={74} />
+      </CollectionRow>
       <CollectionView status="ready">
         <DecorativeBox subtle height="25rem" />
       </CollectionView>
-      <Slot name="footer">
+      <CollectionRow align="flex-end">
         <Pagination page={1} total={74} />
-      </Slot>
+      </CollectionRow>
     </Collection>
   )
 }

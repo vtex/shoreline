@@ -1,11 +1,3 @@
-import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
-import { Skeleton } from '../skeleton'
-import {
-  EmptyState,
-  EmptyStateActions,
-  EmptyStateIllustration,
-} from '../empty-state'
 import {
   IconMagnifyingGlass,
   IconPlus,
@@ -13,11 +5,19 @@ import {
   IconProhibit,
   IconWarningCircle,
 } from '@vtex/shoreline-icons'
-import { Heading } from '../heading'
+import { createMessageHook } from '@vtex/shoreline-primitives'
+import type { ComponentPropsWithoutRef } from 'react'
+import React, { forwardRef } from 'react'
 import { Button } from '../button'
+import {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateIllustration,
+} from '../empty-state'
+import { Heading } from '../heading'
+import { Skeleton } from '../skeleton'
 import { Text } from '../text'
 import { messages } from './messages'
-import { createMessageHook } from '@vtex/shoreline-primitives'
 
 const useMessage = createMessageHook(messages)
 
