@@ -14,6 +14,13 @@ import { SelectPopover } from './select-popover'
 import { SelectTrigger } from './select-trigger'
 import { SelectArrow } from '@ariakit/react'
 
+import { messages } from './messages'
+import { createMessageHook } from '@vtex/shoreline-primitives'
+import { SelectValue } from './select-value'
+import { isEmpty } from './select-utils'
+
+const useMessage = createMessageHook(messages)
+
 /**
  * Select opens a dropdown with between five and seven values for users to choose one. Use Radios for less items or a Combobox for more items.
  * @status stable
@@ -35,6 +42,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
       error: defaultError,
       defaultValue,
       setValue,
+      messages,
       ...otherProps
     } = props
 
@@ -52,6 +60,8 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
 
     const { id: contextId, error: contextError } = useStore(store, (s) => s)
 
+    const getMessage = useMessage(messages)
+
     const error = defaultError || contextError
     const id = defaultId || contextId
 
@@ -63,12 +73,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
             ref={ref}
             disabled={disabled}
             data-error={error}
-            data-selected={!!_value}
+            data-selected={!isEmpty(_value)}
             data-disabled={disabled}
             id={id}
             {...otherProps}
           >
-            <div>{_value}</div>
+            <SelectValue placeholder={getMessage('placeholder')} />
             <SelectArrow render={<IconCaretUpDownSmall />} />
           </SelectTrigger>
           <SelectPopover
@@ -95,6 +105,12 @@ export interface SelectOptions extends SelectProviderOptions {
    * @default false
    */
   disabled?: boolean
+  /**
+   * Select messages
+   */
+  messages?: {
+    placeholder: string
+  }
 }
 
 export type SelectProps = SelectOptions & ComponentPropsWithoutRef<'button'>

@@ -73,14 +73,15 @@
     gap: var(--sl-space-1);
     border-radius: var(--sl-radius-2);
     padding: var(--sl-space-2) var(--sl-space-3);
-    font: var(--sl-text-action-font);
-    letter-spacing: var(--sl-text-action-letter-spacing);
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
   }
 
   [data-sl-select-item-check] {
     --icon-size: 1rem;
     width: var(--icon-size) !important;
     height: var(--icon-size) !important;
+    color: var(--sl-fg-accent);
   }
 
   [data-sl-select-item][aria-disabled='true'] {
@@ -90,6 +91,10 @@
   [data-sl-select-item][data-active-item] {
     background-color: var(--sl-bg-accent-strong);
     color: var(--sl-fg-inverted);
+
+    & > [data-sl-select-item-check] {
+      color: var(--sl-fg-inverted);
+    }
   }
 
   [data-sl-select-popover] {

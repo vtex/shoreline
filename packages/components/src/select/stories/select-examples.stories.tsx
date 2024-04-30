@@ -19,6 +19,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxProvider,
+  LocaleProvider,
 } from '@vtex/shoreline-primitives'
 
 export default {
@@ -31,6 +32,32 @@ export default {
 export function Simple() {
   return (
     <Select>
+      <SelectItem value="Apple">Apple</SelectItem>
+      <SelectItem value="Banana">Banana</SelectItem>
+      <SelectItem value="Grape">Grape</SelectItem>
+    </Select>
+  )
+}
+
+export function Locale() {
+  return (
+    <LocaleProvider locale="ja-JP">
+      <Select>
+        <SelectItem value="りんご">りんご</SelectItem>
+        <SelectItem value="バナナ">バナナ</SelectItem>
+        <SelectItem value="葡萄">葡萄</SelectItem>
+      </Select>
+    </LocaleProvider>
+  )
+}
+
+export function CustomPlaceholder() {
+  return (
+    <Select
+      messages={{
+        placeholder: 'Select a fruit',
+      }}
+    >
       <SelectItem value="Apple">Apple</SelectItem>
       <SelectItem value="Banana">Banana</SelectItem>
       <SelectItem value="Grape">Grape</SelectItem>
