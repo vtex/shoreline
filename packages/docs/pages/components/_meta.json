@@ -49,7 +49,6 @@
   "content": "Content",
   "flex": "Flex",
   "grid": "Grid",
-  "slot": "Slot",
   "stack": "Stack",
 
   "Date": { "type": "separator", "title": "Date" },

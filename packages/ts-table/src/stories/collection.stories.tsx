@@ -12,7 +12,6 @@ import { TsTable } from '../index'
 import {
   CollectionView,
   Collection,
-  Slot,
   Search,
   Pagination,
   Filter,
@@ -28,6 +27,7 @@ import {
   IconButton,
   Tag,
   VisuallyHidden,
+  CollectionRow,
 } from '@vtex/shoreline-components'
 
 export default {
@@ -123,22 +123,20 @@ export function WithCollection() {
 
   return (
     <Collection>
-      <Slot name="header">
-        <Slot name="controls">
-          <Stack horizontal space="$space-3">
-            <Search />
-            <Filter label="Status" value={status} setValue={setStatus}>
-              <FilterItem value="loading">Loading</FilterItem>
-              <FilterItem value="error">Error</FilterItem>
-              <FilterItem value="not-found">Not found</FilterItem>
-              <FilterItem value="empty">Empty</FilterItem>
-              <FilterItem value="unauthorized">Unauthorized</FilterItem>
-              <FilterItem value="ready">Ready</FilterItem>
-            </Filter>
-          </Stack>
-          <Pagination page={1} total={74} />
-        </Slot>
-      </Slot>
+      <CollectionRow>
+        <Stack horizontal>
+          <Search />
+          <Filter label="Status" value={status} setValue={setStatus}>
+            <FilterItem value="loading">Loading</FilterItem>
+            <FilterItem value="error">Error</FilterItem>
+            <FilterItem value="not-found">Not found</FilterItem>
+            <FilterItem value="empty">Empty</FilterItem>
+            <FilterItem value="unauthorized">Unauthorized</FilterItem>
+            <FilterItem value="ready">Ready</FilterItem>
+          </Filter>
+        </Stack>
+        <Pagination page={1} total={74} />
+      </CollectionRow>
       <CollectionView
         status={status as any}
         messages={{ 'empty-action': 'Create product' }}
@@ -170,9 +168,9 @@ export function WithCollection() {
           columns={columns}
         />
       </CollectionView>
-      <Slot name="footer">
+      <CollectionRow align="flex-end">
         <Pagination page={1} total={74} />
-      </Slot>
+      </CollectionRow>
     </Collection>
   )
 }

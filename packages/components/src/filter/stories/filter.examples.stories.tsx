@@ -13,7 +13,7 @@ import type { Country } from './countries'
 import { countries } from './countries'
 import { LocaleProvider } from '@vtex/shoreline-primitives'
 import { IconMagnifyingGlass } from '@vtex/shoreline-icons'
-import { EmptyState, Slot, Text, Heading } from '../..'
+import { EmptyState, Text, Heading } from '../..'
 import { EmptyStateIllustration } from '../../empty-state'
 
 export default {

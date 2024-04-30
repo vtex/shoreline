@@ -11,10 +11,10 @@ import {
 
 import './stories.css'
 import { Button } from '../../button'
-import { Slot } from '../../slot'
 import { Bleed } from '../../bleed'
 import { IconImageSquareFill } from '@vtex/shoreline-icons'
 import { Tag } from '../../tag'
+import { Stack } from '../../stack'
 
 export default {
   title: 'components/modal',
@@ -30,7 +30,7 @@ export function Show() {
   return (
     <Modal open size="large" onClose={() => null}>
       <ModalHeader>
-        <Slot>
+        <Stack horizontal>
           <Bleed start="$space-1">
             <div className="image-placeholder">
               <IconImageSquareFill />
@@ -38,11 +38,11 @@ export function Show() {
           </Bleed>
           <ModalHeading>Confirm action</ModalHeading>
           <Tag>Short text</Tag>
-        </Slot>
-        <Slot>
+        </Stack>
+        <Stack horizontal>
           <Button variant="tertiary">Action</Button>
           <ModalDismiss />
-        </Slot>
+        </Stack>
       </ModalHeader>
       <ModalContent>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

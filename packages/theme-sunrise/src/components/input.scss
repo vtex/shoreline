@@ -36,7 +36,7 @@
     background-color: var(--sl-bg-base-disabled);
   }
 
-  & > [data-sl-slot='term'] {
+  & > [data-sl-input-term] {
     padding: var(--sl-space-3) var(--sl-space-4);
     height: 100%;
 

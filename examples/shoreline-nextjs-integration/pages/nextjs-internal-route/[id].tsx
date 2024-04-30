@@ -4,7 +4,6 @@ import {
   PageHeader,
   PageHeading,
   PageContent,
-  Slot,
   Bleed,
   IconButton,
   PageHeaderRow,

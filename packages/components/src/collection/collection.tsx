@@ -15,7 +15,7 @@ import React, { forwardRef } from 'react'
  *  </CollectionView>
  *  <CollectionRow align="flex-end">
  *    <Pagination page={1} total={74} />
- *  </Slot>
+ *  </CollectionRow>
  * </Collection>
  */
 export const Collection = forwardRef<HTMLDivElement, CollectionProps>(

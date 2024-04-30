@@ -101,7 +101,6 @@ const files = [
   getPath('components', 'search', 'search'),
   getPath('components', 'select', 'select'),
   getPath('components', 'skeleton', 'skeleton'),
-  getPath('components', 'slot', 'slot'),
   getPath('components', 'spinner', 'spinner'),
   getPath('components', 'stack', 'stack'),
   getPath('components', 'tab', 'tab'),
