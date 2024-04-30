@@ -1,39 +1,29 @@
 /* PLOP_INJECT_EXPORT */
+export { AccessibleIcon } from './accessible-icon'
+export { Clickable, ClickableBubble } from './clickable'
 export {
-  AccessibleIcon,
-  Clickable,
-  ClickableBubble,
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
   ComboboxPopover,
   ComboboxProvider,
-  Composable,
-  Compose,
-  LinkBox,
-  LocaleProvider,
-  VisuallyHidden,
-  createMessageHook,
-  get,
-  isComposable,
-  navigate,
-  useLocale,
-} from '@vtex/shoreline-primitives'
+} from './combobox'
+export { Composable, Compose, isComposable } from './compose'
+export { LinkBox, navigate } from './link-box'
+export { LocaleProvider, createMessageHook, useLocale } from './locale'
+export { VisuallyHidden } from './visually-hidden'
+export type { AccessibleIconProps } from './accessible-icon'
+export type { ClickableBubbleProps, ClickableProps } from './clickable'
 export type {
-  AccessibleIconProps,
-  ClickableBubbleProps,
-  ClickableProps,
   ComboboxInputProps,
   ComboboxItemProps,
   ComboboxListProps,
   ComboboxPopoverProps,
-  ComposableProps,
-  ComposeProps,
-  LinkBoxProps,
-  LocaleProviderProps,
-  NavigationTarget,
-  VisuallyHiddenProps,
-} from '@vtex/shoreline-primitives'
+} from './combobox'
+export type { ComposableProps, ComposeProps } from './compose'
+export type { LinkBoxProps, NavigationTarget } from './link-box'
+export type { LocaleProviderProps } from './locale'
+export type { VisuallyHiddenProps } from './visually-hidden'
 export { Alert } from './alert'
 export type { AlertProps } from './alert'
 export { Bleed } from './bleed'
@@ -272,3 +262,48 @@ export type {
   TooltipProviderProps,
   TooltipTriggerProps,
 } from './tooltip'
+export { DatePicker } from './date-picker'
+export type { DatePickerProps } from './date-picker'
+export { RangeCalendar } from './range-calendar'
+export type { RangeCalendarProps } from './range-calendar'
+export {
+  Calendar,
+  CalendarCell,
+  CalendarContext,
+  CalendarGrid,
+  CalendarHeader,
+  CalendarProvider,
+  CalendarTitle,
+  isRangeCalendar,
+  useCalendarContext,
+} from './calendar'
+export type {
+  CalendarGridProps,
+  CalendarHeaderProps,
+  CalendarProps,
+  CalendarTitleProps,
+} from './calendar'
+export { DateField } from './date-field'
+export type { DateFieldProps } from './date-field'
+export { DateSegment } from './date-segment'
+export type { DateSegmentProps } from './date-segment'
+export { DateRangePicker } from './date-range-picker'
+export type { DateRangePickerProps } from './date-range-picker'
+export {
+  Time,
+  createCalendar,
+  getLocalTimeZone,
+  getWeeksInMonth,
+  isSameDay,
+  isSameMonth,
+  isSameYear,
+  parseAbsoluteToLocal,
+  parseDate,
+  parseDateTime,
+  parseTime,
+  parseZonedDateTime,
+  today,
+} from './utils'
+export type { DateValue, CalendarDate } from './utils'
+export { TimeInput } from './time-input'
+export type { TimeInputProps } from './time-input'

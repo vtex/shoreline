@@ -12,8 +12,8 @@ This allows you to style the components using the `data-attributes` in your CSS.
 Every component has its unique data-attribute for styling. It follows the pattern `data-sl-{component-name}`, where `sl` stands for Shoreline. 
 
 ```jsx
-import { Flex } from '@vtex/shoreline-components'
-import '@vtex/shoreline-theme-sunrise/css'
+import { Flex } from '@vtex/shoreline'
+import '@vtex/shoreline/css'
 
 export default function App() {
   return (
@@ -58,7 +58,7 @@ export function Flex(props) {
 The components often have variants which are also represented by data-attributes. For example, the `Button` component has the `size` variant. It can be used like this:
 
 ```jsx
-import { Button } from '@vtex/shoreline-components'
+import { Button } from '@vtex/shoreline'
 import '@vtex/shoreline-theme-sunrise/css'
 
 export default function App() {
