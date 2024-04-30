@@ -50,7 +50,6 @@ body:
         - '@vtex/shoreline-primitives'
         - '@vtex/shoreline-ts-table'
         - '@vtex/shoreline-stylelint'
-        - '@vtex/shoreline-codemod'
         - '@vtex/shoreline-icons'
   - type: textarea
     id: packages-version

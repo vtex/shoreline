@@ -16,9 +16,5 @@ storybook-static
 **/404.js
 **/src/theme/**/*.js
 
-# Resolve: Parsing error: Unexpected token .
-# not accepting conditional chaining
-packages/admin-ui-codemod/src/space-tokens-review.js
-
 # Resolve: Expected exception block, space or tab after '//' in comment
 examples/shoreline-nextjs-integration/next-env.d.ts
