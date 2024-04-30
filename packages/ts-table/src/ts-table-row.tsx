@@ -1,16 +1,8 @@
 import type { ReactNode, Ref } from 'react'
 import React, { Fragment } from 'react'
 import { flexRender, type Row } from '@tanstack/react-table'
-import type {
-  TableRowProps,
-  NavigationTarget,
-} from '@vtex/shoreline-components'
-import {
-  Clickable,
-  LinkBox,
-  TableCell,
-  TableRow,
-} from '@vtex/shoreline-components'
+import type { TableRowProps, NavigationTarget } from '@vtex/shoreline'
+import { Clickable, LinkBox, TableCell, TableRow } from '@vtex/shoreline'
 import { forwardRef } from '@vtex/shoreline-utils'
 
 export const TsTableRow = forwardRef(function TsTableRow<T>(

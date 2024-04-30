@@ -152,7 +152,7 @@ export {
   parseZonedDateTime,
   today,
   useCalendarContext,
-} from '@vtex/shoreline-components'
+} from './components'
 export type {
   AccessibleIconProps,
   AlertProps,
@@ -243,6 +243,7 @@ export type {
   StackProps,
   TabListProps,
   TabPanelProps,
+  TabPanelOptions,
   TabProps,
   TabProviderProps,
   TableBodyProps,
@@ -250,6 +251,7 @@ export type {
   TableHeaderCellProps,
   TableHeaderProps,
   TableProps,
+  TableOptions,
   TableRowProps,
   TableSortIndicatorProps,
   TagProps,
@@ -274,7 +276,7 @@ export type {
   RangeCalendarProps,
   TimeInputProps,
   CalendarDate,
-} from '@vtex/shoreline-components'
+} from './components'
 export {
   IconAlarm,
   IconArchive,

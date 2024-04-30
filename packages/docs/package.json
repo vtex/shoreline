@@ -18,7 +18,6 @@
     "@sentry/nextjs": "^7.103.0",
     "@tanstack/react-table": "8.16.0",
     "@vtex/shoreline": "workspace:*",
-    "@vtex/shoreline-components": "workspace:*",
     "@vtex/shoreline-icons": "workspace:*",
     "@vtex/shoreline-theme-sunrise": "workspace:*",
     "@vtex/shoreline-ts-table": "workspace:*",

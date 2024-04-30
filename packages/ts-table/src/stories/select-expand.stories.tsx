@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 
 import { getExpandedColumn, getSelectionColumn } from '../columns'
-import { Flex } from '@vtex/shoreline-components'
+import { Flex } from '@vtex/shoreline'
 import { TsTable } from '../index'
 
 export default {

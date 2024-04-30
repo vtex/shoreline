@@ -8,7 +8,7 @@ import {
   IconButton,
   PageHeaderRow,
   Flex,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
 import { IconArrowLeft } from '@vtex/shoreline-icons'
 import { useNavigation } from '@vtex/raccoon-next'
 import { useRouter } from 'next/router'

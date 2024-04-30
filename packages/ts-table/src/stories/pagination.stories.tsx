@@ -21,7 +21,7 @@ import {
   Pagination,
   Stack,
   MenuPopover,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
 
 import { TsTable } from '../index'
 

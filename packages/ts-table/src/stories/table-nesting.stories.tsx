@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
-import { Flex } from '@vtex/shoreline-components'
+import { Flex } from '@vtex/shoreline'
 
 import { TsTable } from '../index'
 import { getExpandedColumn } from '../columns'

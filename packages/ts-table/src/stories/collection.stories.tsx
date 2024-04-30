@@ -28,7 +28,7 @@ import {
   Tag,
   VisuallyHidden,
   CollectionRow,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
 
 export default {
   title: 'ts-table/ts-table',

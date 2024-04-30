@@ -5,8 +5,8 @@ import {
   TableHeaderCell,
   TableRow,
   TableSortIndicator,
-} from '@vtex/shoreline-components'
-import type { TableHeaderProps } from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
+import type { TableHeaderProps } from '@vtex/shoreline'
 import { flexRender } from '@tanstack/react-table'
 import type { HeaderGroup } from '@tanstack/react-table'
 import { forwardRef } from '@vtex/shoreline-utils'
