@@ -41,7 +41,6 @@ export const allLayoutsList = [
   'content',
   'flex',
   'grid',
-  'slot',
   'stack',
 ]
 

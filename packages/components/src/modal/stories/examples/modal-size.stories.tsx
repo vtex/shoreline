@@ -11,7 +11,7 @@ import {
 
 import '../stories.css'
 import { Button } from '../../../button'
-import { Slot } from '../../../slot'
+import { Stack } from '../../../stack'
 
 export default {
   title: 'components/modal/examples',
@@ -43,12 +43,12 @@ export function Size() {
       >
         <ModalHeader>
           <ModalHeading>Confirm action</ModalHeading>
-          <Slot>
+          <Stack horizontal>
             <Button variant="tertiary" size="large">
               Action
             </Button>
             <ModalDismiss />
-          </Slot>
+          </Stack>
         </ModalHeader>
         <ModalContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

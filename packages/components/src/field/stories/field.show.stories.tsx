@@ -3,8 +3,8 @@ import { Field, FieldCharCounter, FieldDescription, FieldError } from '..'
 import { Label } from '../../label'
 import { Input } from '../../input'
 import { Textarea } from '../../textarea'
-import { Slot } from '../../slot'
 import { Stack } from '../../stack'
+import { Flex } from '../../flex'
 
 export default {
   title: 'components/field',
@@ -32,10 +32,10 @@ export function Show() {
       <Field>
         <Label>Count</Label>
         <Textarea value={value} onChange={setValue} maxLength={120} />
-        <Slot>
+        <Flex justify="space-between">
           <FieldDescription>Short description</FieldDescription>
           <FieldCharCounter count={String(value).length} limit={120} />
-        </Slot>
+        </Flex>
         <FieldError>Error Message</FieldError>
       </Field>
 

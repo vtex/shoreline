@@ -2,7 +2,6 @@ import type { ComponentProps } from 'react'
 import React, { forwardRef } from 'react'
 import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
-import { Slot } from '../slot'
 import { useFieldContext } from '../field'
 
 /**
@@ -48,9 +47,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       className={className}
     >
       {prefix && (
-        <Slot name="term" data-type="prefix">
+        <div data-sl-input-term data-type="prefix">
           {prefix}
-        </Slot>
+        </div>
       )}
       <input
         data-sl-input-element
@@ -63,9 +62,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         {...otherProps}
       />
       {suffix && (
-        <Slot name="term" data-type="suffix">
+        <div data-sl-input-term data-type="suffix">
           {suffix}
-        </Slot>
+        </div>
       )}
     </div>
   )
