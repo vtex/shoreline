@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.60...@vtex/shoreline-theme-sunrise@1.0.0-rc.61) (2024-04-30)
+
+### Bug Fixes
+
+- **pr:** accept suggestions ([01b9ed8](https://github.com/vtex/shoreline/commit/01b9ed8e2b7e966a22d4e74eb1ae1f02714a8903))
+
+### Features
+
+- **select:** add select value ([3b400a3](https://github.com/vtex/shoreline/commit/3b400a3cf73053ee7b3a7c60f4d8ba45784c8b06))
+- **select:** unify select approaches ([ec7a474](https://github.com/vtex/shoreline/commit/ec7a474dd19b1290193ea2e3d90382b3d9d28744))
+
 # [1.0.0-rc.60](https://github.com/vtex/shoreline/compare/@vtex/shoreline-theme-sunrise@1.0.0-rc.59...@vtex/shoreline-theme-sunrise@1.0.0-rc.60) (2024-04-30)
 
 **Note:** Version bump only for package @vtex/shoreline-theme-sunrise

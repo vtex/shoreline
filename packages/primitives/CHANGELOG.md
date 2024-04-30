@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@1.0.0-rc.60...@vtex/shoreline-primitives@1.0.0-rc.61) (2024-04-30)
+
+### Features
+
+- **select:** unify select approaches ([ec7a474](https://github.com/vtex/shoreline/commit/ec7a474dd19b1290193ea2e3d90382b3d9d28744))
+
 # [1.0.0-rc.60](https://github.com/vtex/shoreline/compare/@vtex/shoreline-primitives@1.0.0-rc.59...@vtex/shoreline-primitives@1.0.0-rc.60) (2024-04-30)
 
 **Note:** Version bump only for package @vtex/shoreline-primitives
