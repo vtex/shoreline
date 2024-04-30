@@ -1,8 +1,7 @@
 import React from 'react'
 
 import './stories.css'
-import { CollectionView, Collection } from '../index'
-import { Slot } from '../../slot'
+import { CollectionView, Collection, CollectionRow } from '../index'
 import { Search } from '../../search'
 import { Pagination } from '../../pagination'
 import { Filter, FilterItem } from '../../filter'
@@ -21,189 +20,169 @@ export function Show() {
     <Stack fluid>
       {/* Simple */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Search />
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Search />
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="ready">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow justify="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
-      {/* With Filter */}
+      {/* With Single Filter */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="ready">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow justify="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* With Filter Group */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Search />
-            <Pagination page={1} total={74} />
-          </Slot>
-
-          <Slot name="filters">
-            <Filter label="Status">
-              <FilterItem value="Stable">Stable</FilterItem>
-              <FilterItem value="Experimental">Experimental</FilterItem>
-              <FilterItem value="Deprecated">Deprecated</FilterItem>
-            </Filter>
-            <Filter label="Status">
-              <FilterItem value="Stable">Stable</FilterItem>
-              <FilterItem value="Experimental">Experimental</FilterItem>
-              <FilterItem value="Deprecated">Deprecated</FilterItem>
-            </Filter>
-            <Filter label="Status">
-              <FilterItem value="Stable">Stable</FilterItem>
-              <FilterItem value="Experimental">Experimental</FilterItem>
-              <FilterItem value="Deprecated">Deprecated</FilterItem>
-            </Filter>
-          </Slot>
-        </Slot>
-
+        <CollectionRow>
+          <Search />
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionRow justify="flex-start">
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+          <Filter label="Status">
+            <FilterItem value="Stable">Stable</FilterItem>
+            <FilterItem value="Experimental">Experimental</FilterItem>
+            <FilterItem value="Deprecated">Deprecated</FilterItem>
+          </Filter>
+        </CollectionRow>
         <CollectionView status="ready">
           <div className="ready-view" />
         </CollectionView>
-
-        <Slot name="footer">
+        <CollectionRow justify="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* Error */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="error">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow align="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* Empty */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="empty">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow align="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* Not found */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="not-found">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow align="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* Unauthorized */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView status="unauthorized">
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow align="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
       {/* Custom label */}
       <Collection>
-        <Slot name="header">
-          <Slot name="controls">
-            <Stack horizontal space="$space-3">
-              <Search />
-              <Filter label="Status">
-                <FilterItem value="Stable">Stable</FilterItem>
-                <FilterItem value="Experimental">Experimental</FilterItem>
-                <FilterItem value="Deprecated">Deprecated</FilterItem>
-              </Filter>
-            </Stack>
-            <Pagination page={1} total={74} />
-          </Slot>
-        </Slot>
+        <CollectionRow>
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
         <CollectionView
           status="ready"
           messages={{ 'empty-action': 'Create product' }}
         >
           <div className="ready-view" />
         </CollectionView>
-        <Slot name="footer">
+        <CollectionRow align="flex-end">
           <Pagination page={1} total={74} />
-        </Slot>
+        </CollectionRow>
       </Collection>
     </Stack>
   )

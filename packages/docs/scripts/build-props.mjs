@@ -41,6 +41,7 @@ const files = [
   getPath('components', 'checkbox', 'checkbox-group'),
   getPath('components', 'collection', 'collection'),
   getPath('components', 'collection', 'collection-view'),
+  getPath('components', 'collection', 'collection-row'),
   getPath('components', 'confirmation-modal', 'confirmation-modal'),
   getPath('components', 'content', 'content'),
   getPath('components', 'content', 'container'),

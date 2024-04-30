@@ -6,19 +6,17 @@ import React, { forwardRef } from 'react'
  * @status stable
  * @example
  * <Collection>
- *    <Slot name="header">
- *      <Slot name="controls">
- *        <Search />
- *        <Pagination page={1} total={74} />
- *      </Slot>
- *    </Slot>
- *    <CollectionView status="ready">
- *      <div className="ready-view" />
- *    </CollectionView>
- *    <Slot name="footer">
- *      <Pagination page={1} total={74} />
- *    </Slot>
- *  </Collection>
+ *  <CollectionRow>
+ *    <Search />
+ *    <Pagination page={1} total={74} />
+ *  </CollectionRow>
+ *  <CollectionView status="ready">
+ *    <div className="ready-view" />
+ *  </CollectionView>
+ *  <CollectionRow align="flex-end">
+ *    <Pagination page={1} total={74} />
+ *  </Slot>
+ * </Collection>
  */
 export const Collection = forwardRef<HTMLDivElement, CollectionProps>(
   function Collection(props, ref) {

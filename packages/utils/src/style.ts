@@ -3,7 +3,7 @@ import { cssVar } from './css-var'
 import type { AnyObject } from './utility-types'
 
 export interface ShorelineCSSProperties extends CSSProperties {
-  [key: `--sl-${string}`]: string | number | boolean
+  [key: `--${string}`]: string | number | boolean
 }
 
 /**
