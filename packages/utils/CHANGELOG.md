@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.58](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.0-rc.57...@vtex/shoreline-utils@1.0.0-rc.58) (2024-04-30)
+
+### Features
+
+- **collection-row:** create new component and replace slot usages ([b3f95a3](https://github.com/vtex/shoreline/commit/b3f95a337c1b2c3b67b89987c2a789b6aca39702))
+
 # [1.0.0-rc.57](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.0-rc.56...@vtex/shoreline-utils@1.0.0-rc.57) (2024-04-26)
 
 **Note:** Version bump only for package @vtex/shoreline-utils
