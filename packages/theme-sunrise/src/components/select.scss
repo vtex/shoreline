@@ -1,7 +1,7 @@
 [data-sl-select] {
   [data-sl-select-button] {
     --height: 2.75rem;
-    --min-width: 320px;
+    --min-width: 20rem;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -95,7 +95,7 @@
   [data-sl-select-popover] {
     z-index: var(--z-10);
     display: flex;
-    max-height: min(var(--popover-available-height, 300px), 300px);
+    max-height: min(var(--popover-available-height, 18.75rem), 18.75rem);
     flex-direction: column;
     overflow: auto;
     overscroll-behavior: contain;
