@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import type { SelectPopoverOptions as PopoverOptions } from '@ariakit/react'
 import { SelectPopover as Popover } from '@ariakit/react'
 
 /**
@@ -22,7 +23,7 @@ export const SelectPopover = forwardRef<HTMLDivElement, SelectPopoverProps>(
   }
 )
 
-export interface SelectPopoverOptions {
+export interface SelectPopoverOptions extends PopoverOptions {
   /**
    * Enable children composition
    * @default false

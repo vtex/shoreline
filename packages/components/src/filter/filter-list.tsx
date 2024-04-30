@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react'
-import type {
-  SelectListOptions,
-  SelectListProps,
-} from '@vtex/shoreline-primitives'
-import { SelectList, ComboboxList } from '@vtex/shoreline-primitives'
+import { SelectList } from '../select'
+import type { SelectListOptions, SelectListProps } from '../select'
+import { ComboboxList } from '@vtex/shoreline-primitives'
 import { useSearchable } from './use-searchable'
 
 /**
