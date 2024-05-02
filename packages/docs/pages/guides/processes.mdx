@@ -4,7 +4,7 @@ You can contribute in several ways, depending on your interest and bandwidth.
 Whether you want to volunteer for existing work or just submit an idea or report
 a bug, there are processes to follow. Learn about them here.
 
-## Report a bug
+## Bug report
 
 Reporting a bug means that you’ve found a potential problem with the library, in
 Figma or code, and want to share it with the community or even propose a solution
@@ -12,7 +12,11 @@ for it.
 
 ![Bug report flow](/assets/bug-report.png)
 
-**Step 1: Open a GitHub issue in the Shoreline repository**
+import { Steps } from 'nextra/components'
+
+<Steps>
+
+### Open a GitHub issue in the Shoreline repository
 
 Use the [bug report template](https://github.com/vtex/shoreline/issues/new/choose) and answer important questions like what is the 
 context, the issue you are facing, and the evidence you have. If you already 
@@ -23,13 +27,13 @@ as possible.
 For bug fixes in Figma, propose a solution by creating a branch in the library
 with the name _Fix [Component or Icon name]_.
 
-**Step 2: Discussion**
+### Discussion
 
 You can get feedback through comments on the GitHub issue. Make sure to share 
 all the necessary information about the issue so the community can help to 
 understand the problem. As you make progress, make sure to update your issue.
 
-**Step 3: Definition**
+### Definition
 
 As the discussions and refinements occur, your issue can be classified as valid to
 be resolved or not. If it is valid, the issue can have three destinations. 
@@ -46,9 +50,11 @@ to implement it.
 
 After that, the issue will be tagged with the label `status: active` which means that it is ready to be resolved.
 
-## Submit a proposal
+</Steps>
 
-Submitting a proposal means that you've already designed a solution and want to share it with the community. 
+## Proposal
+
+Submitting a proposal means that you want to propose an idea, you've already designed a solution, and want to share it with the community. 
 
 ![Feature proposal flow](/assets/feature-proposal.png)
 
@@ -62,21 +68,23 @@ yourself if you're clear on the scope of the project, if the task is feasible fo
 you to do, and if you would need to collaborate with someone else. Feel free to 
 ask any questions!
 
-If everything is clear, move on with submitting your proposal:
+If everything is clear, move on with submitting your proposal.
 
-**Step 1: Open a GitHub issue in the Shoreline repository**
+<Steps>
+
+### Open a GitHub issue in the Shoreline repository
 
 Use the [proposal template](https://github.com/vtex/shoreline/issues/new/choose) and answer important questions like the problem you
 are solving, your solution, and the references you had. If the proposal is
 related to an existing issue, remember to mention it. Don't worry if your proposal
 is not finalized yet! Share it and start a discussion as early as possible.
 
-**Step 2: Discussion**
+### Discussion
 
 You can get feedback through comments on the GitHub issue or by attending office hours.
 As you make progress, make sure to update your issue.
 
-**Step 3: Definition**
+### Definition
 
 As the discussions and refinements occur, your issue can be classified as valid to be resolved or not.
 - **If it is valid and it is a design proposal:** Prepare the handoff following
@@ -90,14 +98,17 @@ summarizing the previous one and will move it to the Shoreline Backlog.
 
 After that, the issue will be tagged with the label `status: active` which means that it is ready to be resolved.
 
-## Request a feature
+</Steps>
 
-Requesting a feature means that you have an idea that you want to share with the 
-community. You can request a feature in Figma or code.
+## Feature request
+
+Requesting a feature means that you want to suggest an enhancement to Shoreline. You can request a feature in Figma or code.
 
 ![Feature request flow](/assets/feature-request.png)
 
-**Step 1: Open a GitHub issue in the Shoreline repository**
+<Steps>
+
+### Open a GitHub issue in the Shoreline repository
 
 Use the [feature request](https://github.com/vtex/shoreline/issues/new/choose) template and answer important questions about the feature
 like what is the context, how can we benefit from it, and the rationale behind it. 
@@ -105,14 +116,14 @@ If you already have a potential solution to this issue don’t forget to share i
 Don't worry if you aren’t sure about the issue! Share it and start a discussion as early 
 as possible.
 
-**Step 2: Discussion**
+### Discussion
 
 You can get feedback through comments on the GitHub issue. Make sure to share 
 all the necessary information about the feature so the community can help giving
 insights and sharing their context as well. As you make progress, make sure to
 update your issue.
 
-**Step 3: Definition**
+### Definition
 
 As the discussions and refinements occur, your issue can be classified as valid to
 be resolved or not.
@@ -130,8 +141,9 @@ After that, the issue will be tagged with the label `status: active` which means
 that it is ready to be resolved. Keep in mind that when requesting a feature
 the issue can be tackled by a maintainer, the community or even you.
 
+</Steps>
 
-## Ask a question or send a feedback
+## Question & Feedback
 
 Asking a question or sending a feedback means that you have something to share with
 maintainers or the community that probably is bothering you. Feel free to reach
@@ -139,27 +151,31 @@ us anytime you need!
 
 ![Question and Feedback flow](/assets/question-feedback.png)
 
-**Step 1: Open a GitHub issue in the Shoreline repository**
+<Steps>
+
+### Open a GitHub issue in the Shoreline repository
 
 Use the [question template](https://github.com/vtex/shoreline/issues/new/choose) and answer important questions about your submission
 like how we can help, what have you tried, and any additional information. Don't
 be shy! Share it and start a discussion as early as possible.
 
-**Step 2: Discussion**
+### Discussion
 
 You can get feedback through comments on the GitHub issue. Make sure to share 
 all the necessary information about the feature so the community can help giving
 insights and sharing their context as well. As you make progress, make sure to
 update your issue.
 
-**Step 3: Definition**
+### Definition
 
 The idea here is that your issue act as a forum for discussion and resource for
 others that might have the same question. If the issue is resolved, a maintainer
 will close it.
 
-It may be that your question or feedback can be used as a reference for a future
-feature request or potential bug fix, in this case the issue will be summarized in
+Your question or feedback can be used as a reference for a future
+feature request or potential bug fix. In this case, the issue will be summarized in
 a new one and moved to the Shoreline backlog. After that, the issue will be tagged
-with the label status: active which means that it is ready to be resolved. Keep in
+with the label `status: active` which means that it is ready to be resolved. Keep in
 mind that in this case the issue can be tackled by a maintainer, the community or even you.
+
+</Steps>

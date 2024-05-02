@@ -4,24 +4,80 @@ Read the [processes](https://shoreline.vtex.com/guides/processes) guidelines bef
 
 ## New component
 
-- Branch in the [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library adding the new component with the name *Add [Component name]*, and using the [component section template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=5%3A6&mode=design&t=p7YfrIpPzse68e3F-1) when adding the component.
-- Component structure, and library and website documentation following the [component guidelines](https://shoreline.vtex.comguides/design-contribution/component).
-- Specs file using the [component handoff template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=5%3A6&mode=design&t=p7YfrIpPzse68e3F-1) in the Figma [Handoff Project](https://www.figma.com/files/1039547871204188270/project/222840705/%5B%F0%9F%94%92temp%5D-InnerSource-Handoffs?fuid=971115106686349023) inside the Shoreline Team.
+import { Steps } from 'nextra/components'
+ 
+<Steps>
+### Structure and documentation
+
+Component structure, library and website documentation following the [component guidelines](https://shoreline.vtex.comguides/design-contribution/component).
+
+### Branch in Figma library
+
+Create a branch in the [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library adding the new component with the name *Add [Component name]*, and using the [component section template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=5%3A6&mode=design&t=p7YfrIpPzse68e3F-1) when adding the component.
+
+### Specs file
+
+Create a specs file using the [component handoff template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=5%3A6&mode=design&t=p7YfrIpPzse68e3F-1) in the Figma [Handoff Project](https://www.figma.com/files/1039547871204188270/project/222840705/%5B%F0%9F%94%92temp%5D-InnerSource-Handoffs?fuid=971115106686349023) inside the Shoreline Team.
+
+#### How to fill in the implementation specifications?
+Ask yourself which aspects of the component may cause doubts during implementation or could go unnoticed. Remember that the instructions added to the file will guide a frontend developer on how to better implement the component, so be as detailed as possible.
+
+- Include the component name, description, and a link to the best practices and related components documentation.
+- Include examples detailing the variants, specially the ones that are not exposed in the component itself.
+- List anything specific to tokens usage in the component.
+- Specify any element that is optional in the component.
+- If the component includes icons or labels, specify if they can be replaced or if there are any restrictions.
+- Include examples detailing how the elements behave when the component changes size.
+- Specify the component spacing and bleed usage.
+- Detail when a different cursor than the default should be displayed when overlaying an element.
+- Detail when a component should have a z-index different from the applied default.
+- Detail max/min or height/width, when they are applied.
+- Suggest when it is possible to localize a text string in the component.
+
+</Steps>
+
 
 ## New icon
+ 
+<Steps>
+### Structure and documentation
 
-- Icon structure and library documentation following the [icon guidelines](https://shoreline.vtex.comguides/design-contribution/icon).
-- Branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) Figma library adding the new icon with the name *Add [Icon name]*.
+Icon structure and library documentation following the [icon guidelines](https://shoreline.vtex.comguides/design-contribution/icon).
 
-## Bug fix
+### Branch in Figma library
 
-### Bug restricted to Figma
+Create a branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) Figma library adding the new icon with the name *Add [Icon name]*.
 
-- Branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) or [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library including the bug fix with the name *Fix [Component or Icon]*.
-- Component or icon fix follows the [component](https://shoreline.vtex.comguides/design-contribution/component) or [icon](https://shoreline.vtex.comguides/design-contribution/icon) guidelines.
+</Steps>
 
-### Bug fix that needs to be implemented
+## Bug fix restricted to Figma
 
-- Branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) or [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library including the bug fix with the name *Fix [Component or Icon]*.
-- Component or icon fix follows the [component](https://shoreline.vtex.comguides/design-contribution/component) or [icon](https://shoreline.vtex.comguides/design-contribution/icon) guidelines.
-- If it is a component, the specs file follows the [component handoff template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=5%3A6&mode=design&t=p7YfrIpPzse68e3F-1) in the Figma [Handoff Project](https://www.figma.com/files/1039547871204188270/project/222840705/%5B%F0%9F%94%92temp%5D-InnerSource-Handoffs?fuid=971115106686349023) inside the Shoreline Team.
+<Steps>
+
+### Structure and documentation
+
+Component or icon fix follows the [component](https://shoreline.vtex.comguides/design-contribution/component) or [icon](https://shoreline.vtex.comguides/design-contribution/icon) guidelines.
+
+### Branch in Figma library 
+
+Create a branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) or [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library including the bug fix with the name *Fix [Component or Icon]*.
+
+</Steps>
+
+## Bug fix that needs to be implemented
+
+<Steps>
+
+### Structure and documentation
+
+Component or icon fix follows the [component](https://shoreline.vtex.comguides/design-contribution/component) or [icon](https://shoreline.vtex.comguides/design-contribution/icon) guidelines.
+
+### Branch in Figma library
+
+Create a branch in the [Shoreline – Icons](https://www.figma.com/file/o3s49SJn2lIfmXBkHd9aXi/Shoreline-%E2%80%93-Icons?type=design&t=2tKhLTdmAl3dOZBm-6) or [Shoreline – Components](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design) Figma library including the bug fix with the name *Fix [Component or Icon]*.
+
+### Specs file
+
+If it is a component, follow the same [specs guidelines](https://shoreline.vtex.com/guides/design-contribution/handoff-requirements#specs-file) from a new component.
+
+</Steps>
