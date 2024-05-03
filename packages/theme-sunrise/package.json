@@ -48,8 +48,8 @@
   "devDependencies": {
     "@csstools/postcss-sass": "5.1.1",
     "@types/node": "20.11.6",
-    "@vtex/shoreline-cli": "workspace",
-    "@vtex/shoreline-css": "workspace",
+    "@vtex/shoreline-cli": "workspace:*",
+    "@vtex/shoreline-css": "workspace:*",
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "postcss": "8.4.32",
