@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
-import { Compose } from '@vtex/shoreline-primitives'
+import { Compose } from '../compose'
 
 /**
  * Content containers allow merchants to easily scan information to understand its hierarchy and rhythm.

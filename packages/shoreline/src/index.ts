@@ -421,7 +421,6 @@ export {
   IconXCircleFill,
   IconXSmall,
 } from '@vtex/shoreline-icons'
-export { ShorelineTokens, presetSunrise } from '@vtex/shoreline-theme-sunrise'
 export {
   Store,
   camelCase,
@@ -484,4 +483,3 @@ export type {
   TupleTypes,
   UnionToIntersection,
 } from '@vtex/shoreline-utils'
-export type { ShorelineConfig } from '@vtex/shoreline-css'

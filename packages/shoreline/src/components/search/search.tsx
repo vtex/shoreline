@@ -4,7 +4,7 @@ import { IconButton } from '../icon-button'
 import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
 import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
-import { VisuallyHidden } from '@vtex/shoreline-primitives'
+import { VisuallyHidden } from '../visually-hidden'
 
 /**
  * Search is a text input that users can type to narrow down a Collection. Use Filters if values can be classified in predefined options.

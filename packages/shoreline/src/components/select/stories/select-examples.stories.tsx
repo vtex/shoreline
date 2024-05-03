@@ -19,8 +19,8 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxProvider,
-  LocaleProvider,
-} from '@vtex/shoreline-primitives'
+} from '../../combobox'
+import { LocaleProvider } from '../../locale'
 
 export default {
   title: 'components/select/examples',

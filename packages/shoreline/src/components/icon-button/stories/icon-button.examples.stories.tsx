@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IconTrash } from '@vtex/shoreline-icons'
-import { AccessibleIcon } from '@vtex/shoreline-primitives'
+import { AccessibleIcon } from '../../accessible-icon'
 
 import { Stack } from '../../stack'
 import { IconButton } from '../index'

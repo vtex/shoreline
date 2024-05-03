@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 
-import { Compose } from '@vtex/shoreline-primitives'
+import { Compose } from '../compose'
 
 /**
  * Description of a Field

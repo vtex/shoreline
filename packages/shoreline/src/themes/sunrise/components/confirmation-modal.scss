@@ -1,0 +1,6 @@
+[data-sl-confirmation-modal] {
+  & [data-sl-confirmation-modal-footer] {
+    border: none;
+    padding-top: var(--sl-space-0);
+  }
+}

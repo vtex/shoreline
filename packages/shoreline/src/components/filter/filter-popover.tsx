@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
-import { ComboboxInput, createMessageHook } from '@vtex/shoreline-primitives'
+import { createMessageHook } from '../locale'
+import { ComboboxInput } from '../combobox'
 
 import type { PopoverOptions, PopoverProps } from '../popover'
 import { Popover } from '../popover'

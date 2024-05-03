@@ -1,0 +1,13 @@
+[data-sl-divider] {
+  border: var(--sl-border-base);
+  margin: var(--sl-space-0);
+
+  &[data-orientation='horizontal'] {
+    border-bottom: 0;
+    width: 100%;
+  }
+  &[data-orientation='vertical'] {
+    height: auto;
+    border-left: 0;
+  }
+}

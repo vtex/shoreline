@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
-import { Compose } from '@vtex/shoreline-primitives'
+import { Compose } from '../compose'
 
 /**
  * Empty actions section

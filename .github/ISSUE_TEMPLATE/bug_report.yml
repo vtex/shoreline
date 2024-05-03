@@ -47,7 +47,6 @@ body:
       multiple: true
       options:
         - '@vtex/shoreline'
-        - '@vtex/shoreline-primitives'
         - '@vtex/shoreline-ts-table'
         - '@vtex/shoreline-stylelint'
         - '@vtex/shoreline-icons'

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
-import { AccessibleIcon } from '@vtex/shoreline-primitives'
+import { AccessibleIcon } from '../accessible-icon'
 
 import type { ButtonOptions } from '../button'
 import { Button } from '../button'

@@ -1,7 +1,7 @@
-import { Compose } from '@vtex/shoreline-primitives'
 import { forwardRef, style } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
+import { Compose } from '../compose'
 import type { FlexOptions } from '../flex'
 
 /**

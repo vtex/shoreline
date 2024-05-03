@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconArrowUp } from '@vtex/shoreline-icons'
-import { VisuallyHidden } from '@vtex/shoreline-primitives'
+import { VisuallyHidden } from '../../../visually-hidden'
 
 import { Button } from '../../index'
 

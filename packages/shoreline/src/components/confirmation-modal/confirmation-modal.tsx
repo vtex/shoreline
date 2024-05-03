@@ -1,5 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
+import { Button } from '../button'
+import { createMessageHook } from '../locale'
 import {
   Modal,
   ModalContent,
@@ -8,8 +10,6 @@ import {
   ModalHeader,
   ModalHeading,
 } from '../modal'
-import { Button } from '../button'
-import { createMessageHook } from '@vtex/shoreline-primitives'
 import { messages } from './messages'
 
 const useMessage = createMessageHook(messages)

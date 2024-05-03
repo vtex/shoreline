@@ -1,0 +1,14 @@
+[data-sl-bleed] {
+  --sl-bleed-top: var(--sl-space-0);
+  --sl-bleed-bottom: var(--sl-space-0);
+  --sl-bleed-start: var(--sl-space-0);
+  --sl-bleed-end: var(--sl-space-0);
+
+  & > [data-sl-bleed-content] {
+    position: relative;
+    margin-block-start: calc(var(--sl-bleed-top) * -1);
+    margin-block-end: calc(var(--sl-bleed-bottom) * -1);
+    margin-inline-start: calc(var(--sl-bleed-start) * -1);
+    margin-inline-end: calc(var(--sl-bleed-end) * -1);
+  }
+}

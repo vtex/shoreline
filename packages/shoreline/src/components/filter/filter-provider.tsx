@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { ComboboxProvider } from '@vtex/shoreline-primitives'
+import { ComboboxProvider } from '../combobox'
 
 import { SelectProvider, useSelectStore } from '../select'
 import { PopoverProvider, usePopoverStore } from '../popover'

@@ -1,7 +1,7 @@
 import { constants } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
 import React, { forwardRef } from 'react'
-import { Compose } from '@vtex/shoreline-primitives'
+import { Compose } from '../compose'
 
 /**
  * Table lists items vertically and can include actions for each row. The columns display property values for users to scan, sort, and compare.

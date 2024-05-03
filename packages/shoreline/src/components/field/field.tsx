@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { forwardRef, useId, Store } from '@vtex/shoreline-utils'
 
-import { Composable, Compose } from '@vtex/shoreline-primitives'
+import { Composable, Compose } from '../compose'
 import type { FieldContextType } from './field-context'
 import { FieldProvider } from './field-provider'
 

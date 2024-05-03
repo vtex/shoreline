@@ -1,0 +1,13 @@
+[data-sl-filter-list] {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &[data-focus-visible],
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[data-sl-combobox-list] {
+    padding-top: var(--sl-space-0);
+  }
+}

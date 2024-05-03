@@ -461,21 +461,9 @@ importers:
       '@react-stately/toggle':
         specifier: 3.7.0
         version: 3.7.0(react@18.2.0)
-      '@vtex/shoreline-css':
-        specifier: ^1.0.0-rc.61
-        version: 1.0.0-rc.61(react@18.2.0)
-      '@vtex/shoreline-date':
-        specifier: ^1.0.0-rc.61
-        version: 1.0.0-rc.61(@vtex/shoreline-components@1.0.0-rc.61(csstype@3.1.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@vtex/shoreline-icons':
         specifier: ^1.0.0-rc.61
         version: 1.0.0-rc.61(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@vtex/shoreline-primitives':
-        specifier: ^1.0.0-rc.61
-        version: 1.0.0-rc.61(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@vtex/shoreline-theme-sunrise':
-        specifier: ^1.0.0-rc.61
-        version: 1.0.0-rc.61(react@18.2.0)
       '@vtex/shoreline-utils':
         specifier: ^1.0.0-rc.61
         version: 1.0.0-rc.61(react@18.2.0)
@@ -489,6 +477,9 @@ importers:
         specifier: 2.4.1
         version: 2.4.1(csstype@3.1.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
+      '@csstools/postcss-sass':
+        specifier: 5.1.1
+        version: 5.1.1(postcss@8.4.32)
       '@faker-js/faker':
         specifier: 8.3.1
         version: 8.3.1
@@ -498,6 +489,12 @@ importers:
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
+      '@vtex/shoreline-cli':
+        specifier: workspace:*
+        version: link:../cli
+      '@vtex/shoreline-css':
+        specifier: workspace:*
+        version: link:../css
       concurrently:
         specifier: 8.2.2
         version: 8.2.2

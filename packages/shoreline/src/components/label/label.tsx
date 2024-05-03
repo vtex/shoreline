@@ -2,11 +2,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { useStore } from '@vtex/shoreline-utils'
 
-import {
-  Composable,
-  Compose,
-  createMessageHook,
-} from '@vtex/shoreline-primitives'
+import { Composable, Compose } from '../compose'
+import { createMessageHook } from '../locale'
 import { messages } from './messages'
 import { useFieldContext } from '../field'
 

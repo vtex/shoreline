@@ -5,7 +5,6 @@ import {
   IconProhibit,
   IconWarningCircle,
 } from '@vtex/shoreline-icons'
-import { createMessageHook } from '@vtex/shoreline-primitives'
 import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { Button } from '../button'
@@ -15,6 +14,7 @@ import {
   EmptyStateIllustration,
 } from '../empty-state'
 import { Heading } from '../heading'
+import { createMessageHook } from '../locale'
 import { Skeleton } from '../skeleton'
 import { Text } from '../text'
 import { messages } from './messages'

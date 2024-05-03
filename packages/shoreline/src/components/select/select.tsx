@@ -15,7 +15,7 @@ import { SelectTrigger } from './select-trigger'
 import { SelectArrow } from '@ariakit/react'
 
 import { messages } from './messages'
-import { createMessageHook } from '@vtex/shoreline-primitives'
+import { createMessageHook } from '../locale'
 import { SelectValue } from './select-value'
 import { isEmpty } from './select-utils'
 

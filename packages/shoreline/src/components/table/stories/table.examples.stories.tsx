@@ -1,6 +1,5 @@
 import React from 'react'
-import { LinkBox } from '@vtex/shoreline-primitives'
-
+import { LinkBox } from '../../link-box'
 import {
   Table,
   TableBody,

@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React, { forwardRef } from 'react'
 import { useStore } from '@vtex/shoreline-utils'
 
-import { Compose } from '@vtex/shoreline-primitives'
+import { Compose } from '../compose'
 import { useFieldContext } from './field-context'
 
 /**
