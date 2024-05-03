@@ -24,7 +24,11 @@ export function getFoundationTokens(foundation: Foundation) {
 
 function sanitizeTypographyTokens(tokens: string[]) {
   return tokens.reduce((acc: string[], token) => {
-    if (!token.startsWith(`${tokenPrefix}text`)) return [...acc, token]
+    if (!token.startsWith(`${tokenPrefix}text`)) {
+      const draft = acc
+      draft.push(token)
+      return draft
+    }
 
     const [sanitizedToken] = token.endsWith('letter-spacing')
       ? token.split('-letter-spacing')
@@ -32,7 +36,9 @@ function sanitizeTypographyTokens(tokens: string[]) {
 
     if (acc.includes(sanitizedToken)) return acc
 
-    return [...acc, sanitizedToken]
+    const draft = acc
+    draft.push(sanitizedToken)
+    return draft
   }, [])
 }
 

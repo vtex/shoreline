@@ -47,7 +47,7 @@ export default function PromotionEdit() {
       </PageHeader>
       <PageContent>
         <Button onClick={() => navigate('/')}>Navigate to base route</Button>
-        <Button onClick={() => navigate(`/nextjs-internal-route`)}>
+        <Button onClick={() => navigate('/nextjs-internal-route')}>
           Navigate to Internal Static Route
         </Button>
         <Button

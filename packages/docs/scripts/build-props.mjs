@@ -126,7 +126,7 @@ const files = [
   /**
    * ts-table
    */
-  join(dirname(''), `../ts-table/src/ts-table.tsx`),
+  join(dirname(''), '../ts-table/src/ts-table.tsx'),
   /**
    * Date
    */

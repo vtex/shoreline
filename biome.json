@@ -38,26 +38,19 @@
         "useOptionalChain": "off",
         "noBannedTypes": "off"
       },
-      "performance": {
-        "noAccumulatingSpread": "off"
-      },
       "security": {
         "noDangerouslySetInnerHtml": "off"
       },
       "a11y": {
         "noSvgWithoutTitle": "off",
         "useButtonType": "off",
-        "useAnchorContent": "off",
-        "useValidAnchor": "off",
-        "useKeyWithClickEvents": "off",
-        "noAutofocus": "off"
+        "useKeyWithClickEvents": "off"
       },
       "suspicious": {
         "noExplicitAny": "off",
         "noShadowRestrictedNames": "off",
         "noConfusingVoidType": "off",
         "noArrayIndexKey": "off",
-        "noAssignInExpressions": "off",
         "noRedeclare": "off"
       },
       "correctness": {
@@ -67,9 +60,7 @@
       },
       "style": {
         "noParameterAssign": "off",
-        "noUnusedTemplateLiteral": "off",
         "noNonNullAssertion": "off",
-        "noUselessElse": "off",
         "useNodejsImportProtocol": "off"
       }
     }

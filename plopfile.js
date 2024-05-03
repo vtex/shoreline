@@ -39,7 +39,7 @@ module.exports = (plop) => {
       {
         type: 'append',
         path: 'packages/components/src/index.ts',
-        pattern: `/* PLOP_INJECT_EXPORT */`,
+        pattern: '/* PLOP_INJECT_EXPORT */',
         template: `export * from './{{kebabCase name}}'`,
       },
     ],
@@ -68,13 +68,13 @@ module.exports = (plop) => {
       {
         type: 'append',
         path: `packages/icons/src/${fileName}/index.ts`,
-        pattern: `/* PLOP_INJECT_EXPORT */`,
+        pattern: '/* PLOP_INJECT_EXPORT */',
         template: `export * from './{{kebabCase name}}'`,
       },
       {
         type: 'append',
         path: 'packages/icons/src/icons.ts',
-        pattern: `/* PLOP_INJECT_EXPORT */`,
+        pattern: '/* PLOP_INJECT_EXPORT */',
         template: `export * from './{{kebabCase name}}'`,
       },
     ],
@@ -104,7 +104,7 @@ module.exports = (plop) => {
       {
         type: 'append',
         path: `packages/icons/src/${fileName}/index.ts`,
-        pattern: `/* PLOP_INJECT_EXPORT */`,
+        pattern: '/* PLOP_INJECT_EXPORT */',
         template: `export * from './{{kebabCase name}}-{{lowerCase variant}}'`,
       },
     ],
