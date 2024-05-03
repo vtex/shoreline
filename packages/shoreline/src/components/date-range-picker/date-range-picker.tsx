@@ -80,7 +80,7 @@ export function DateRangePicker<T extends DateValue>(
       </div>
       <Popover
         getAnchorRect={() => {
-          if (anchorRef && anchorRef.current) {
+          if (anchorRef?.current) {
             return anchorRef.current.getBoundingClientRect()
           }
 

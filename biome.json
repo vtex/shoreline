@@ -34,8 +34,7 @@
     "rules": {
       "recommended": true,
       "complexity": {
-        "noForEach": "off",
-        "useOptionalChain": "off"
+        "noForEach": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
