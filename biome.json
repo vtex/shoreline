@@ -59,7 +59,6 @@
         "noUnusedImports": "error"
       },
       "style": {
-        "noParameterAssign": "off",
         "noNonNullAssertion": "off"
       }
     }
