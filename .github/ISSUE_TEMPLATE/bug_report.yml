@@ -29,7 +29,7 @@ body:
     id: reproducible-example
     attributes:
       label: Reproducible Example
-      description: Provide a reduced test case with the [Shoreline sandbox template]().
+      description: Provide a reduced test case with the [Shoreline sandbox template](https://codesandbox.io/p/sandbox/shoreline-react-vg67lx).
   - type: textarea
     id: suggested-solution
     attributes:
