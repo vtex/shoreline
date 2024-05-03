@@ -17,20 +17,23 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
-    "./css": "./dist/styles.css",
-    "./css-unlayered": "./dist/styles-unlayered.css"
+    "./css": "./dist/themes/sunrise/styles.css",
+    "./css/unlayered": "./dist/themes/sunrise/styles-unlayered.css",
+    "./themes/sunrise": "./dist/themes/sunrise/styles.css",
+    "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__ && pnpm run theme",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
-    "dev:css": "postcss ./src/styles.css -o dist/styles.css -w",
-    "dev:css-unlayered": "postcss ./src/styles-unlayered.css -o dist/styles-unlayered.css -w",
-    "build": "concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
-    "build:css": "postcss ./src/styles.css -o dist/styles.css",
-    "build:css-unlayered": "postcss ./src/styles-unlayered.css -o dist/styles-unlayered.css"
+    "dev:css": "pnpm run build:css -w",
+    "dev:css-unlayered": "pnpm run build:css-unlayered -w",
+    "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
+    "build:css": "postcss ./src/themes/sunrise/index.scss -o dist/themes/sunrise/styles.css",
+    "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.scss -o dist/themes/sunrise/styles-unlayered.css",
+    "theme": "shoreline css"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -49,17 +52,33 @@
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "postcss": "8.4.32",
+    "@csstools/postcss-sass": "5.1.1",
     "postcss-cli": "11.0.0",
     "postcss-import": "15.1.0",
-    "postcss-preset-env": "9.3.0"
+    "postcss-preset-env": "9.3.0",
+    "postcss-scss": "4.0.9",
+    "@faker-js/faker": "8.3.1",
+    "@types/react-window": "1.8.8",
+    "match-sorter": "6.3.1",
+    "react-hook-form": "7.48.2",
+    "react-window": "1.8.10",
+    "@vtex/shoreline-cli": "workspace:*",
+    "@vtex/shoreline-css": "workspace:*"
   },
   "dependencies": {
-    "@vtex/shoreline-components": "^1.0.0-rc.61",
-    "@vtex/shoreline-css": "^1.0.0-rc.61",
-    "@vtex/shoreline-date": "^1.0.0-rc.61",
     "@vtex/shoreline-icons": "^1.0.0-rc.61",
-    "@vtex/shoreline-primitives": "^1.0.0-rc.61",
-    "@vtex/shoreline-theme-sunrise": "^1.0.0-rc.61",
-    "@vtex/shoreline-utils": "^1.0.0-rc.61"
+    "@vtex/shoreline-utils": "^1.0.0-rc.61",
+    "@ariakit/react": "0.4.5",
+    "@react-aria/checkbox": "3.14.2",
+    "@react-aria/focus": "3.17.0",
+    "@react-aria/i18n": "3.11.0",
+    "@react-aria/interactions": "3.21.2",
+    "@react-stately/toggle": "3.7.3",
+    "@internationalized/date": "3.5.3",
+    "@react-aria/calendar": "3.5.7",
+    "@react-aria/datepicker": "3.10.0",
+    "@react-stately/calendar": "3.5.0",
+    "@react-stately/datepicker": "3.9.3",
+    "react-hot-toast": "2.4.1"
   }
 }

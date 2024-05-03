@@ -11,19 +11,19 @@ const files = [
   /**
    * Primitives
    */
-  getPath('primitives', 'accessible-icon', 'accessible-icon'),
-  getPath('primitives', 'clickable', 'clickable'),
-  getPath('primitives', 'clickable', 'clickable-bubble'),
-  getPath('primitives', 'combobox', 'combobox'),
-  getPath('primitives', 'combobox', 'combobox-provider'),
-  getPath('primitives', 'combobox', 'combobox-popover'),
-  getPath('primitives', 'combobox', 'combobox-list'),
-  getPath('primitives', 'combobox', 'combobox-item'),
-  getPath('primitives', 'compose', 'compose'),
-  getPath('primitives', 'compose', 'composable'),
-  getPath('primitives', 'link-box', 'link-box'),
-  getPath('primitives', 'locale', 'locale-provider'),
-  getPath('primitives', 'visually-hidden', 'visually-hidden'),
+  getPath('components', 'accessible-icon', 'accessible-icon'),
+  getPath('components', 'clickable', 'clickable'),
+  getPath('components', 'clickable', 'clickable-bubble'),
+  getPath('components', 'combobox', 'combobox'),
+  getPath('components', 'combobox', 'combobox-provider'),
+  getPath('components', 'combobox', 'combobox-popover'),
+  getPath('components', 'combobox', 'combobox-list'),
+  getPath('components', 'combobox', 'combobox-item'),
+  getPath('components', 'compose', 'compose'),
+  getPath('components', 'compose', 'composable'),
+  getPath('components', 'link-box', 'link-box'),
+  getPath('components', 'locale', 'locale-provider'),
+  getPath('components', 'visually-hidden', 'visually-hidden'),
   /**
    * Components
    */
@@ -130,18 +130,18 @@ const files = [
   /**
    * Date
    */
-  getPath('date', 'calendar', 'calendar'),
-  getPath('date', 'calendar', 'calendar-cell'),
-  getPath('date', 'calendar', 'calendar-grid'),
-  getPath('date', 'calendar', 'calendar-header'),
-  getPath('date', 'calendar', 'calendar-provider'),
-  getPath('date', 'calendar', 'calendar-title'),
-  getPath('date', 'date-field', 'date-field'),
-  getPath('date', 'date-picker', 'date-picker'),
-  getPath('date', 'date-range-picker', 'date-range-picker'),
-  getPath('date', 'date-segment', 'date-segment'),
-  getPath('date', 'range-calendar', 'range-calendar'),
-  getPath('date', 'time-input', 'time-input'),
+  getPath('components', 'calendar', 'calendar'),
+  getPath('components', 'calendar', 'calendar-cell'),
+  getPath('components', 'calendar', 'calendar-grid'),
+  getPath('components', 'calendar', 'calendar-header'),
+  getPath('components', 'calendar', 'calendar-provider'),
+  getPath('components', 'calendar', 'calendar-title'),
+  getPath('components', 'date-field', 'date-field'),
+  getPath('components', 'date-picker', 'date-picker'),
+  getPath('components', 'date-range-picker', 'date-range-picker'),
+  getPath('components', 'date-segment', 'date-segment'),
+  getPath('components', 'range-calendar', 'range-calendar'),
+  getPath('components', 'time-input', 'time-input'),
 ]
 
 let tsCode = `
@@ -182,7 +182,7 @@ async function main() {
 }
 
 function getPath(pkg, folder, file) {
-  return join(dirname(''), `../${pkg}/src/${folder}/${file}.tsx`)
+  return join(dirname(''), `../shoreline/src/${pkg}/${folder}/${file}.tsx`)
 }
 
 main()

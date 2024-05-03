@@ -18,7 +18,7 @@ import {
   Tag,
   VisuallyHidden,
   MenuPopover,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
 
 import { TsTable } from '../index'
 

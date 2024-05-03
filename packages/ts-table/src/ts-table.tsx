@@ -14,13 +14,8 @@ import { forwardRef, useMergeRef } from '@vtex/shoreline-utils'
 import type {
   TableOptions as ShorelineTableOptions,
   TableProps,
-} from '@vtex/shoreline-components'
-import {
-  Table,
-  TableRow,
-  TableBody,
-  TableCell,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
+import { Table, TableRow, TableBody, TableCell } from '@vtex/shoreline'
 
 import { TsTableRow } from './ts-table-row'
 import type { TsTableRowProps } from './ts-table-row'

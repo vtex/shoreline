@@ -1,4 +1,4 @@
-import { presetSunrise } from '@vtex/shoreline-theme-sunrise'
+import { presetSunrise } from '@vtex/shoreline'
 import { parseTokens } from '@vtex/shoreline-utils'
 
 export const theme = parseTokens({

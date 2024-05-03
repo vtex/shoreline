@@ -42,7 +42,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@vtex/shoreline": "^1.0.0-rc.61",
+    "@vtex/shoreline": "workspace:*",
     "next": "14.1.3"
   }
 }

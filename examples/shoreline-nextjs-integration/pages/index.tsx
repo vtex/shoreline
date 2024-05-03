@@ -7,7 +7,7 @@ import {
   PageHeader,
   PageHeading,
   PageContent,
-} from '@vtex/shoreline-components'
+} from '@vtex/shoreline'
 import { faker } from '@faker-js/faker'
 import { generateRandomId } from '../lib/generate-random-id'
 

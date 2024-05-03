@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { connect, bootstrap } from '@vtex/raccoon-next'
-import '@vtex/shoreline-theme-sunrise/css'
+import '@vtex/shoreline/themes/sunrise'
 
 connect()
 

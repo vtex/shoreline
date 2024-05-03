@@ -111,7 +111,6 @@ export {
   TooltipTrigger,
   VisuallyHidden,
   createMessageHook,
-  get,
   isComposable,
   navigate,
   toast,
@@ -125,7 +124,36 @@ export {
   useSelectStore,
   useTabContext,
   useTabStore,
-} from '@vtex/shoreline-components'
+  Calendar,
+  CalendarCell,
+  CalendarContext,
+  CalendarGrid,
+  CalendarHeader,
+  CalendarProvider,
+  CalendarTitle,
+  DateField,
+  DatePicker,
+  DateRangePicker,
+  DateSegment,
+  RangeCalendar,
+  Time,
+  TimeInput,
+  createCalendar,
+  getLocalTimeZone,
+  getWeeksInMonth,
+  isRangeCalendar,
+  isSameDay,
+  isSameMonth,
+  isSameYear,
+  parseAbsoluteToLocal,
+  parseDate,
+  parseDateTime,
+  parseTime,
+  parseZonedDateTime,
+  today,
+  useCalendarContext,
+} from './components'
+export { presetSunrise } from './themes/sunrise/preset'
 export type {
   AccessibleIconProps,
   AlertProps,
@@ -216,6 +244,7 @@ export type {
   StackProps,
   TabListProps,
   TabPanelProps,
+  TabPanelOptions,
   TabProps,
   TabProviderProps,
   TableBodyProps,
@@ -223,6 +252,7 @@ export type {
   TableHeaderCellProps,
   TableHeaderProps,
   TableProps,
+  TableOptions,
   TableRowProps,
   TableSortIndicatorProps,
   TagProps,
@@ -235,38 +265,6 @@ export type {
   TooltipProviderProps,
   TooltipTriggerProps,
   VisuallyHiddenProps,
-} from '@vtex/shoreline-components'
-export {
-  Calendar,
-  CalendarCell,
-  CalendarContext,
-  CalendarGrid,
-  CalendarHeader,
-  CalendarProvider,
-  CalendarTitle,
-  DateField,
-  DatePicker,
-  DateRangePicker,
-  DateSegment,
-  RangeCalendar,
-  Time,
-  TimeInput,
-  createCalendar,
-  getLocalTimeZone,
-  getWeeksInMonth,
-  isRangeCalendar,
-  isSameDay,
-  isSameMonth,
-  isSameYear,
-  parseAbsoluteToLocal,
-  parseDate,
-  parseDateTime,
-  parseTime,
-  parseZonedDateTime,
-  today,
-  useCalendarContext,
-} from '@vtex/shoreline-date'
-export type {
   CalendarGridProps,
   CalendarHeaderProps,
   CalendarProps,
@@ -279,7 +277,7 @@ export type {
   RangeCalendarProps,
   TimeInputProps,
   CalendarDate,
-} from '@vtex/shoreline-date'
+} from './components'
 export {
   IconAlarm,
   IconArchive,
@@ -424,7 +422,6 @@ export {
   IconXCircleFill,
   IconXSmall,
 } from '@vtex/shoreline-icons'
-export { ShorelineTokens, presetSunrise } from '@vtex/shoreline-theme-sunrise'
 export {
   Store,
   camelCase,
@@ -487,4 +484,3 @@ export type {
   TupleTypes,
   UnionToIntersection,
 } from '@vtex/shoreline-utils'
-export type { ShorelineConfig } from '@vtex/shoreline-css'

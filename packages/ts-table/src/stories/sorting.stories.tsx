@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import type { ColumnDef, SortingState } from '@tanstack/react-table'
-import { Tag, Flex, Text } from '@vtex/shoreline-components'
+import { Tag, Flex, Text } from '@vtex/shoreline'
 
 import { TsTable } from '../index'
 

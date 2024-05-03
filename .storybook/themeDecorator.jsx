@@ -1,5 +1,5 @@
 import React from 'react'
-import '../packages/theme-sunrise/dist/sunrise.css'
+import '../packages/shoreline/dist/themes/sunrise/styles.css'
 
 export function themeDecorator(storyFn) {
   return (
