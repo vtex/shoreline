@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.64](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.0-rc.63...@vtex/shoreline-utils@1.0.0-rc.64) (2024-05-03)
+
+### Bug Fixes
+
+- **lint:** apply biome lint ([bb36ea3](https://github.com/vtex/shoreline/commit/bb36ea3e6545f31ae6c4c9e90a2d1fec348689db))
+- **lint:** remove biome errors & eslint ([f7bcfa9](https://github.com/vtex/shoreline/commit/f7bcfa94f031f8a4cd9380f5e0d7f9ab67338b35))
+
 # [1.0.0-rc.63](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.0-rc.62...@vtex/shoreline-utils@1.0.0-rc.63) (2024-05-03)
 
 **Note:** Version bump only for package @vtex/shoreline-utils

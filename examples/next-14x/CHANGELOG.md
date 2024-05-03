@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/vtex/shoreline/compare/next-14x@0.3.7...next-14x@0.3.8) (2024-05-03)
+
+**Note:** Version bump only for package next-14x
+
 ## [0.3.7](https://github.com/vtex/shoreline/compare/next-14x@0.3.6...next-14x@0.3.7) (2024-05-03)
 
 **Note:** Version bump only for package next-14x

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-utils",
-  "version": "1.0.0-rc.63",
+  "version": "1.0.0-rc.64",
   "description": "Shoreline utilities",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
@@ -10,7 +10,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=12"
   },

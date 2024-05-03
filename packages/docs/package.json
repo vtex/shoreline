@@ -1,6 +1,6 @@
 {
   "name": "@shoreline/docs",
-  "version": "1.0.0-rc.63",
+  "version": "1.0.0-rc.64",
   "private": true,
   "scripts": {
     "dev": "npm run gen:examples && npm run gen:props && next dev",
@@ -34,7 +34,11 @@
     "ts-morph": "22.0.0"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
