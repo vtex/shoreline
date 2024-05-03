@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import type { CSSProperties } from '@vtex/shoreline-utils'
 
 import { icons, names } from './icons'

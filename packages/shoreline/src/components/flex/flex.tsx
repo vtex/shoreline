@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { cssVar, type CSSProperty, style } from '@vtex/shoreline-utils'
 import { Compose } from '../compose'
 
@@ -12,49 +12,48 @@ import { Compose } from '../compose'
  *  <Button variant="primary">Submit</Button>
  * </Flex>
  */
-export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
-  props,
-  ref
-) {
-  const {
-    asChild = false,
-    inline = false,
-    order = 0,
-    direction = 'row',
-    grow = 0,
-    wrap = 'nowrap',
-    shrink = 1,
-    basis = 'auto',
-    justify = 'flex-start',
-    align = 'stretch',
-    gap = '$space-gap',
-    style: styleObject = {},
-    ...domProps
-  } = props
+export const Flex = forwardRef<HTMLDivElement, FlexProps>(
+  function Flex(props, ref) {
+    const {
+      asChild = false,
+      inline = false,
+      order = 0,
+      direction = 'row',
+      grow = 0,
+      wrap = 'nowrap',
+      shrink = 1,
+      basis = 'auto',
+      justify = 'flex-start',
+      align = 'stretch',
+      gap = '$space-gap',
+      style: styleObject = {},
+      ...domProps
+    } = props
 
-  const Comp = asChild ? Compose : 'div'
+    const Comp = asChild ? Compose : 'div'
 
-  return (
-    <Comp
-      data-sl-flex
-      ref={ref}
-      data-inline={inline}
-      style={style({
-        '--sl-flex-order': order,
-        '--sl-flex-direction': direction,
-        '--sl-flex-grow': grow,
-        '--sl-flex-wrap': wrap,
-        '--sl-flex-shrink': shrink,
-        '--sl-flex-basis': basis,
-        '--sl-flex-justify': justify,
-        '--sl-flex-align': align,
-        '--sl-flex-gap': cssVar({ token: String(gap) }),
-        ...styleObject,
-      })}
-      {...domProps}
-    />
-  )
-})
+    return (
+      <Comp
+        data-sl-flex
+        ref={ref}
+        data-inline={inline}
+        style={style({
+          '--sl-flex-order': order,
+          '--sl-flex-direction': direction,
+          '--sl-flex-grow': grow,
+          '--sl-flex-wrap': wrap,
+          '--sl-flex-shrink': shrink,
+          '--sl-flex-basis': basis,
+          '--sl-flex-justify': justify,
+          '--sl-flex-align': align,
+          '--sl-flex-gap': cssVar({ token: String(gap) }),
+          ...styleObject,
+        })}
+        {...domProps}
+      />
+    )
+  }
+)
 
 export interface FlexOptions {
   /**

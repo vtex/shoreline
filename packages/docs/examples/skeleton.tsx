@@ -1,4 +1,3 @@
-import React from 'react'
 import { Skeleton } from '@vtex/shoreline'
 
 export default function Example() {

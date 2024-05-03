@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import { forwardRef } from '@vtex/shoreline-utils'
 import { Separator as BaseDivider } from '@ariakit/react'
 
@@ -9,22 +8,21 @@ import { Separator as BaseDivider } from '@ariakit/react'
  * @example
  * <div>Content <Divider /> Content</div>
  */
-export const Divider = forwardRef<HTMLHRElement, DividerProps>(function Divider(
-  props,
-  ref
-) {
-  const { orientation = 'horizontal', ...otherProps } = props
+export const Divider = forwardRef<HTMLHRElement, DividerProps>(
+  function Divider(props, ref) {
+    const { orientation = 'horizontal', ...otherProps } = props
 
-  return (
-    <BaseDivider
-      data-sl-divider
-      data-orientation={orientation}
-      orientation={orientation}
-      ref={ref}
-      {...otherProps}
-    />
-  )
-})
+    return (
+      <BaseDivider
+        data-sl-divider
+        data-orientation={orientation}
+        orientation={orientation}
+        ref={ref}
+        {...otherProps}
+      />
+    )
+  }
+)
 
 export interface DividerOptions {
   /**

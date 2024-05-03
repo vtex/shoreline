@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import type { AnyObject } from '@vtex/shoreline-utils'
 
 import { Compose, Composable } from '../index'

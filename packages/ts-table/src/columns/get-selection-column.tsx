@@ -1,4 +1,3 @@
-import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { Checkbox, VisuallyHidden } from '@vtex/shoreline'
 

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { HeadingOptions, HeadingProps } from '../heading'
 import { Heading } from '../heading'
 

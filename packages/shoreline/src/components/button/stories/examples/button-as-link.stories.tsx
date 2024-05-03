@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconArrowUpRightSmall } from '@vtex/shoreline-icons'
 
 import { Button } from '../../index'

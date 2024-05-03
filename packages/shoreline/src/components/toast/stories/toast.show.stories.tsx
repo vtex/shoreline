@@ -1,6 +1,3 @@
-import React from 'react'
-
-import { ToastStack, toast } from '../index'
 import { Toast } from '../toast'
 import { Stack } from '../../stack'
 import { Button } from '../../button'

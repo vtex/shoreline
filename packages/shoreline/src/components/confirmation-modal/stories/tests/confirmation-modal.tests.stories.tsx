@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { ConfirmationModal } from '../../confirmation-modal'
 import { Button } from '../../../button'
 import { Text } from '../../../text'

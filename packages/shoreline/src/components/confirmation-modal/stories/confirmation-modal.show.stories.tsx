@@ -1,4 +1,3 @@
-import React from 'react'
 import { ConfirmationModal } from '../confirmation-modal'
 import { Text } from '../../text'
 

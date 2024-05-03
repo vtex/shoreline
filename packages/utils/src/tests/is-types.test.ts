@@ -25,22 +25,10 @@ describe('isFunction', () => {
   it('should be true if is function', () => {
     expect(isFunction(() => {})).toBe(true)
     expect(isFunction(() => () => {})).toBe(true)
-    expect(isFunction(function () {})).toBe(true)
-    expect(
-      isFunction(function () {
-        return null
-      })
-    ).toBe(true)
-    expect(
-      isFunction(function () {
-        return () => {}
-      })
-    ).toBe(true)
-    expect(
-      isFunction(function (a: number) {
-        return a
-      })
-    ).toBe(true)
+    expect(isFunction(() => {})).toBe(true)
+    expect(isFunction(() => null)).toBe(true)
+    expect(isFunction(() => () => {})).toBe(true)
+    expect(isFunction((a: number) => a)).toBe(true)
   })
   it('should be false if is not a function', () => {
     expect(isFunction(null)).toBe(false)

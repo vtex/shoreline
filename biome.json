@@ -21,7 +21,8 @@
       "quoteStyle": "single",
       "semicolons": "asNeeded",
       "trailingComma": "es5"
-    }
+    },
+    "jsxRuntime": "transparent"
   },
   "linter": {
     "enabled": true,
@@ -55,7 +56,8 @@
       },
       "correctness": {
         "useExhaustiveDependencies": "off",
-        "useJsxKeyInIterable": "off"
+        "useJsxKeyInIterable": "off",
+        "noUnusedImports": "error"
       },
       "style": {
         "noParameterAssign": "off",

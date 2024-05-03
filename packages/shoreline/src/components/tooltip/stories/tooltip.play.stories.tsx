@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconInfo } from '@vtex/shoreline-icons'
 
 import { Tooltip } from '../index'

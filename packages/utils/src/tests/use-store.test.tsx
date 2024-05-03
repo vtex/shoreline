@@ -7,7 +7,7 @@ import {
   userEvent,
   vi,
 } from '@vtex/shoreline-test-utils'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { Store } from '../store'
 import { useStore } from '../use-store'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Alert } from '../index'
 import { Stack } from '../../stack'
 import { Text } from '../../text'

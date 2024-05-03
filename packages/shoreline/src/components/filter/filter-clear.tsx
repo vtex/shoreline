@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { useFilterContext } from './filter-context'
 import type { PopoverDismissProps } from '../popover'
 import { PopoverDismiss } from '../popover'

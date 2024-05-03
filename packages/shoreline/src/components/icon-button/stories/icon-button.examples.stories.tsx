@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { IconTrash } from '@vtex/shoreline-icons'
 import { AccessibleIcon } from '../../accessible-icon'
 

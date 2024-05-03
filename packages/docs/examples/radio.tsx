@@ -1,4 +1,3 @@
-import React from 'react'
 import { Radio, RadioGroup } from '@vtex/shoreline'
 
 export default function Example() {

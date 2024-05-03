@@ -1,4 +1,3 @@
-import React from 'react'
 import { TsTable } from '@vtex/shoreline-ts-table'
 import { Tag } from '@vtex/shoreline'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconArrowUp } from '@vtex/shoreline-icons'
 import { VisuallyHidden } from '../../../visually-hidden'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Page, PageContent, PageHeader, PageHeading } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
 

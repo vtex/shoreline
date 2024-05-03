@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Tab, style } from '@vtex/shoreline'
 import Link from 'next/link'
 

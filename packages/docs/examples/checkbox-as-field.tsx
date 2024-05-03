@@ -1,4 +1,3 @@
-import React from 'react'
 import { Checkbox, Field, FieldDescription, FieldError } from '@vtex/shoreline'
 
 export default function Example() {

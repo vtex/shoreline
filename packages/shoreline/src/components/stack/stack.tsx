@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { style } from '@vtex/shoreline-utils'
 import { Compose } from '../compose'
 
@@ -11,37 +11,36 @@ import { Compose } from '../compose'
  *  <div>Stacked 2</div>
  * </Stack>
  */
-export const Stack = forwardRef<HTMLDivElement, StackProps>(function Stack(
-  props,
-  ref
-) {
-  const {
-    asChild = false,
-    horizontal = false,
-    space = '$space-gap',
-    fluid = false,
-    align = 'start',
-    style: styleObject = {},
-    ...restProps
-  } = props
+export const Stack = forwardRef<HTMLDivElement, StackProps>(
+  function Stack(props, ref) {
+    const {
+      asChild = false,
+      horizontal = false,
+      space = '$space-gap',
+      fluid = false,
+      align = 'start',
+      style: styleObject = {},
+      ...restProps
+    } = props
 
-  const Comp = asChild ? Compose : 'div'
+    const Comp = asChild ? Compose : 'div'
 
-  return (
-    <Comp
-      data-sl-stack
-      ref={ref}
-      data-horizontal={horizontal}
-      data-fluid={fluid}
-      style={style({
-        '--sl-stack-space': space,
-        '--sl-stack-align': align,
-        ...styleObject,
-      })}
-      {...restProps}
-    />
-  )
-})
+    return (
+      <Comp
+        data-sl-stack
+        ref={ref}
+        data-horizontal={horizontal}
+        data-fluid={fluid}
+        style={style({
+          '--sl-stack-space': space,
+          '--sl-stack-align': align,
+          ...styleObject,
+        })}
+        {...restProps}
+      />
+    )
+  }
+)
 
 export interface StackOptions {
   /**

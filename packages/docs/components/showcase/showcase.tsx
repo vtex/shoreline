@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useMemo } from 'react'
+import { Suspense, useMemo } from 'react'
 import { Spinner, cx } from '@vtex/shoreline'
 import NextLink from 'next/link'
 

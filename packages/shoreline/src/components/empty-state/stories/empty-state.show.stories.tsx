@@ -1,5 +1,4 @@
 import './styles.css'
-import React from 'react'
 
 import { EmptyState, EmptyStateActions, EmptyStateIllustration } from '../index'
 import { Button } from '../../button'

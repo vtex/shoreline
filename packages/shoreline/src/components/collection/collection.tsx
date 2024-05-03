@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 /**
  * Collection combines a list of items with controls for the view. The list can be a Table and the controls can be a Search, Filters, and Pagination.

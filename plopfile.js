@@ -1,6 +1,6 @@
 const fileName = '{{kebabCase name}}'
 
-module.exports = function (plop) {
+module.exports = (plop) => {
   plop.setGenerator('component', {
     description: 'Custom component',
     prompts: [

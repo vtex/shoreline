@@ -20,12 +20,7 @@
       "import": "./dist/index.mjs"
     }
   },
-  "files": [
-    "dist",
-    "src",
-    "bin",
-    "bin.js"
-  ],
+  "files": ["dist", "src", "bin", "bin.js"],
   "engines": {
     "node": ">=16"
   },

@@ -1,9 +1,8 @@
-import React from 'react'
 import { Button, ToastStack, toast } from '@vtex/shoreline'
 
 export default function Example() {
   function promiseToResolve() {
-    return new Promise(function (resolve) {
+    return new Promise((resolve) => {
       setTimeout(resolve, 2000)
     })
   }

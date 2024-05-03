@@ -1,4 +1,3 @@
-import React from 'react'
 import { Divider, Flex } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
 

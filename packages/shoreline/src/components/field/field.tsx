@@ -15,45 +15,44 @@ import { FieldProvider } from './field-provider'
  *  <FieldError>Error message</FieldError>
  * </Field>
  */
-export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
-  props,
-  ref
-) {
-  const {
-    id: defaultId,
-    error = false,
-    children,
-    asChild = false,
-    space = 'normal',
-    ...otherProps
-  } = props
+export const Field = forwardRef<HTMLDivElement, FieldProps>(
+  function Field(props, ref) {
+    const {
+      id: defaultId,
+      error = false,
+      children,
+      asChild = false,
+      space = 'normal',
+      ...otherProps
+    } = props
 
-  const id = useId(defaultId)
-  const Comp = asChild ? Compose : 'div'
+    const id = useId(defaultId)
+    const Comp = asChild ? Compose : 'div'
 
-  const store = React.useMemo(
-    () =>
-      new Store<FieldContextType>({
-        id,
-        error,
-      }),
-    [error, id]
-  )
+    const store = React.useMemo(
+      () =>
+        new Store<FieldContextType>({
+          id,
+          error,
+        }),
+      [error, id]
+    )
 
-  return (
-    <Comp
-      data-sl-field
-      id={`${id}-field`}
-      ref={ref}
-      data-space={space}
-      {...otherProps}
-    >
-      <FieldProvider store={store}>
-        <Composable>{children}</Composable>
-      </FieldProvider>
-    </Comp>
-  )
-})
+    return (
+      <Comp
+        data-sl-field
+        id={`${id}-field`}
+        ref={ref}
+        data-space={space}
+        {...otherProps}
+      >
+        <FieldProvider store={store}>
+          <Composable>{children}</Composable>
+        </FieldProvider>
+      </Comp>
+    )
+  }
+)
 
 export interface FieldOptions {
   /**

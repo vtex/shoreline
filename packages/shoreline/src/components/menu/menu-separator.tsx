@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { MenuSeparator as BaseMenuSeparator } from '@ariakit/react'
 import type { DividerOptions, DividerProps } from '../divider'
 

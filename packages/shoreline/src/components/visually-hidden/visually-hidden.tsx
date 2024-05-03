@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { VisuallyHidden as BaseVisuallyHidden } from '@ariakit/react'
 
 /**

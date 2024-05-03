@@ -1,48 +1,47 @@
 import { constants } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Compose } from '../compose'
 
 /**
  * Table lists items vertically and can include actions for each row. The columns display property values for users to scan, sort, and compare.
  * @status stable
  */
-export const Table = forwardRef<HTMLDivElement, TableProps>(function Table(
-  props,
-  ref
-) {
-  const {
-    columnWidths,
-    asChild = false,
-    stickyHeader = false,
-    stickyColumn = false,
-    density = 'default',
-    style = {},
-    ...otherProps
-  } = props
+export const Table = forwardRef<HTMLDivElement, TableProps>(
+  function Table(props, ref) {
+    const {
+      columnWidths,
+      asChild = false,
+      stickyHeader = false,
+      stickyColumn = false,
+      density = 'default',
+      style = {},
+      ...otherProps
+    } = props
 
-  const Comp = asChild ? Compose : 'div'
+    const Comp = asChild ? Compose : 'div'
 
-  return (
-    <Comp
-      role="table"
-      data-sl-table
-      data-sl-table-header-sticky={stickyHeader}
-      data-sl-table-sticky-column={stickyColumn}
-      data-sl-table-density={density}
-      ref={ref}
-      style={
-        {
-          ...style,
-          '--sl-table-grid-template-columns': columnWidths?.join(
-            constants.whiteSpace
-          ),
-        } as CSSProperties
-      }
-      {...otherProps}
-    />
-  )
-})
+    return (
+      <Comp
+        role="table"
+        data-sl-table
+        data-sl-table-header-sticky={stickyHeader}
+        data-sl-table-sticky-column={stickyColumn}
+        data-sl-table-density={density}
+        ref={ref}
+        style={
+          {
+            ...style,
+            '--sl-table-grid-template-columns': columnWidths?.join(
+              constants.whiteSpace
+            ),
+          } as CSSProperties
+        }
+        {...otherProps}
+      />
+    )
+  }
+)
 
 export interface TableOptions {
   /**

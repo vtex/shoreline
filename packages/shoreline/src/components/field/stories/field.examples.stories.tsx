@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Field } from '..'
 import { Label } from '../../label'
 import { Input } from '../../input'

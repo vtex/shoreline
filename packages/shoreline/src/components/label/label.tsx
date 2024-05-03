@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { useStore } from '@vtex/shoreline-utils'
 
 import { Composable, Compose } from '../compose'
@@ -14,34 +14,33 @@ const useMessage = createMessageHook(messages)
  * @example
  * <Label>Label</Label>
  */
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
-  props,
-  ref
-) {
-  const {
-    asChild = false,
-    optional = false,
-    children,
-    id: defaultId,
-    ...domProps
-  } = props
+export const Label = forwardRef<HTMLLabelElement, LabelProps>(
+  function Label(props, ref) {
+    const {
+      asChild = false,
+      optional = false,
+      children,
+      id: defaultId,
+      ...domProps
+    } = props
 
-  const Comp = asChild ? Compose : 'label'
+    const Comp = asChild ? Compose : 'label'
 
-  const getMessage = useMessage()
+    const getMessage = useMessage()
 
-  const store = useFieldContext()
-  const id = useStore(store, (s) => s.id)
+    const store = useFieldContext()
+    const id = useStore(store, (s) => s.id)
 
-  return (
-    <Comp data-sl-label ref={ref} htmlFor={defaultId || id} {...domProps}>
-      <Composable>{children}</Composable>
-      {optional && (
-        <span data-sl-label-optional-flag>{getMessage('optional')}</span>
-      )}
-    </Comp>
-  )
-})
+    return (
+      <Comp data-sl-label ref={ref} htmlFor={defaultId || id} {...domProps}>
+        <Composable>{children}</Composable>
+        {optional && (
+          <span data-sl-label-optional-flag>{getMessage('optional')}</span>
+        )}
+      </Comp>
+    )
+  }
+)
 
 export interface LabelOptions {
   /**

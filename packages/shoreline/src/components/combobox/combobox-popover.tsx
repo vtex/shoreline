@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { ComboboxPopoverOptions as AriakitComboboxPopoverOptions } from '@ariakit/react'
 import { ComboboxPopover as Popover } from '@ariakit/react'
 

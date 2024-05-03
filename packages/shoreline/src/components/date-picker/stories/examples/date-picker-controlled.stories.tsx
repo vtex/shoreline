@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Stack } from '../../../stack'
 
 import { DatePicker } from '../../index'

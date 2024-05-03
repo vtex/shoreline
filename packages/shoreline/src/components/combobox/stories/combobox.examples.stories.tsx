@@ -1,4 +1,4 @@
-import React, { startTransition, useMemo, useState } from 'react'
+import { startTransition, useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 
 import {

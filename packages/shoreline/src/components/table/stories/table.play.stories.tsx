@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { TableProps } from '../index'
 import {
   Table,

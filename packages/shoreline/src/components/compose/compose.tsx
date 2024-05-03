@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { HTMLAttributes, ReactNode } from 'react'
 
 import { createComposition } from './create-composition'
@@ -12,22 +12,21 @@ import { createComposition } from './create-composition'
  *  return <Composition {...props} />
  * }
  */
-export const Compose = forwardRef<any, ComposeProps>(function Compose(
-  props,
-  ref
-) {
-  const { children, ...rootProps } = props
+export const Compose = forwardRef<any, ComposeProps>(
+  function Compose(props, ref) {
+    const { children, ...rootProps } = props
 
-  return (
-    <>
-      {createComposition({
-        element: children,
-        props: rootProps,
-        ref,
-      })}
-    </>
-  )
-})
+    return (
+      <>
+        {createComposition({
+          element: children,
+          props: rootProps,
+          ref,
+        })}
+      </>
+    )
+  }
+)
 
 export interface ComposeOptions {
   /**

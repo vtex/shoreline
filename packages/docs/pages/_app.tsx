@@ -1,4 +1,3 @@
-import React from 'react'
 import type { AppProps } from 'next/app'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import '@vtex/shoreline/themes/sunrise/unlayered'

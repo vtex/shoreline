@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { LinkBox } from '../index'
 
 export default {

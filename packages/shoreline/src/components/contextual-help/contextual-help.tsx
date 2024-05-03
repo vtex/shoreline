@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
 import { Button } from '../button'

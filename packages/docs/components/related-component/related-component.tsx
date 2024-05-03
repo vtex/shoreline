@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React from 'react'
 import NextLink from 'next/link'
 import { cx } from '@vtex/shoreline-utils'
 

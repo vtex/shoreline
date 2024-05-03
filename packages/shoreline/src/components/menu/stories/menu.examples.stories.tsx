@@ -1,8 +1,6 @@
-import React from 'react'
 import { IconCaretDownSmall } from '@vtex/shoreline-icons'
 
 import {
-  Menu,
   MenuItem,
   MenuProvider,
   MenuSeparator,

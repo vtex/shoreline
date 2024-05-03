@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'react'
-import React from 'react'
 import type { DefaultToastOptions } from 'react-hot-toast/headless'
 import { useToaster } from 'react-hot-toast/headless'
 
@@ -77,10 +76,10 @@ function getPositionStyle(
         justifyContent: 'center',
       }
     : position.includes('right')
-    ? {
-        justifyContent: 'flex-end',
-      }
-    : {}
+      ? {
+          justifyContent: 'flex-end',
+        }
+      : {}
 
   return {
     transform: `translateY(${offset * (top ? 1 : -1)}px)`,

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { Children, isValidElement, cloneElement, Fragment } from 'react'
+import { Children, isValidElement, cloneElement, Fragment } from 'react'
 import { isComposable } from './composable'
 import type { ComposeElementArgs } from './compose-element'
 import { composeElement } from './compose-element'

@@ -3,7 +3,7 @@ import { useRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { Store } from '@vtex/shoreline-utils'
-import React, { useMemo, useRef } from 'react'
+import { useMemo, useRef } from 'react'
 
 import { CalendarGrid } from '../calendar/calendar-grid'
 import { CalendarHeader } from '../calendar/calendar-header'

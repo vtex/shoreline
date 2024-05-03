@@ -6,7 +6,7 @@ import {
   IconXCircleFill,
 } from '@vtex/shoreline-icons'
 import type { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { IconButton } from '../icon-button'
 
@@ -19,33 +19,32 @@ import { IconButton } from '../icon-button'
  *  <Button variant="tertiary">Action</Button>
  * </Alert>
  */
-export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  const {
-    variant = 'informational',
-    children,
-    onDismiss,
-    ...otherProps
-  } = props
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
+  function Alert(props, ref) {
+    const {
+      variant = 'informational',
+      children,
+      onDismiss,
+      ...otherProps
+    } = props
 
-  const icon = getIcon(variant)
+    const icon = getIcon(variant)
 
-  return (
-    <div data-sl-alert data-variant={variant} ref={ref} {...otherProps}>
-      <div data-sl-alert-icon-container>{icon}</div>
-      <div data-sl-alert-container>{children}</div>
-      <div data-sl-alert-dismiss-container>
-        {onDismiss && (
-          <IconButton onClick={onDismiss} label="dismiss" variant="tertiary">
-            <IconX />
-          </IconButton>
-        )}
+    return (
+      <div data-sl-alert data-variant={variant} ref={ref} {...otherProps}>
+        <div data-sl-alert-icon-container>{icon}</div>
+        <div data-sl-alert-container>{children}</div>
+        <div data-sl-alert-dismiss-container>
+          {onDismiss && (
+            <IconButton onClick={onDismiss} label="dismiss" variant="tertiary">
+              <IconX />
+            </IconButton>
+          )}
+        </div>
       </div>
-    </div>
-  )
-})
+    )
+  }
+)
 
 function getIcon(variant: AlertOptions['variant'] = 'informational') {
   switch (variant) {

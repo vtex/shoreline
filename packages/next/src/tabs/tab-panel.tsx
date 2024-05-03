@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import type { TabPanelProps, TabPanelOptions } from '@vtex/shoreline'
 import { TabPanel, forwardRef, useTabContext, invariant } from '@vtex/shoreline'
 

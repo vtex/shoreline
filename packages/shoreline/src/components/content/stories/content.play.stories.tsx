@@ -1,6 +1,4 @@
 import './styles.css'
-
-import React from 'react'
 import type { ContentProps } from '../index'
 import { Container, Content } from '../index'
 import { Flex } from '../../flex'

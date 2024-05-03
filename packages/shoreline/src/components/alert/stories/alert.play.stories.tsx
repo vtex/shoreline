@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { AlertProps } from '../index'
 import { Alert } from '../index'
 import { Text } from '../../text'

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { RadioStore } from '@ariakit/react'
 import {
   RadioGroup as BaseRadioGroup,

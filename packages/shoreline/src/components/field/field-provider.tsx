@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import type { Store } from '@vtex/shoreline-utils'
 
 import type { FieldContextType } from './field-context'

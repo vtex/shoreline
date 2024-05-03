@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { FilterValue } from './filter-value'
 import type { PopoverTriggerOptions, PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'

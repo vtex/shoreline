@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Tab as BaseTab } from '@ariakit/react'
 
 /**
@@ -19,23 +19,22 @@ import { Tab as BaseTab } from '@ariakit/react'
  *  </TabPanel>
  * </TabProvider>
  */
-export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
-  props,
-  ref
-) {
-  const { asChild = false, children, ...otherProps } = props
+export const Tab = forwardRef<HTMLButtonElement, TabProps>(
+  function Tab(props, ref) {
+    const { asChild = false, children, ...otherProps } = props
 
-  return (
-    <BaseTab
-      data-sl-tab
-      ref={ref}
-      render={asChild ? (children as JSX.Element) : undefined}
-      {...otherProps}
-    >
-      <div data-sl-tab-content>{children}</div>
-    </BaseTab>
-  )
-})
+    return (
+      <BaseTab
+        data-sl-tab
+        ref={ref}
+        render={asChild ? (children as JSX.Element) : undefined}
+        {...otherProps}
+      >
+        <div data-sl-tab-content>{children}</div>
+      </BaseTab>
+    )
+  }
+)
 
 export interface TabOptions {
   /**

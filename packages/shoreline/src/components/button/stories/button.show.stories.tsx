@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { IconTrash, IconArrowUpRightSmall } from '@vtex/shoreline-icons'
 
 import { Button } from '../index'

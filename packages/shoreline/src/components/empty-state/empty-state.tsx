@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 /**
  * An Empty State represents the state of a container, such as when there are no items to display or when the user isn't allowed to access items.

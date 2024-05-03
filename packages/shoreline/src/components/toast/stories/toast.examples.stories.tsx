@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ToastStack, toast } from '../index'
 import { Stack } from '../../stack'
 import { Button } from '../../button'
@@ -46,7 +44,7 @@ export function ToastFunction() {
       <Button
         onClick={() => {
           toast.promise(
-            new Promise(function (resolve) {
+            new Promise((resolve) => {
               setTimeout(resolve, 2000)
             }),
             {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Field, FieldDescription, FieldError } from '../../field'
 import { LocaleProvider } from '../../locale'
 import { Label } from '../../label'

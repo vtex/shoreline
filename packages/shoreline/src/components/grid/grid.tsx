@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { style, type CSSProperty } from '@vtex/shoreline-utils'
 import { Compose } from '../compose'
 
@@ -14,43 +14,42 @@ import { Compose } from '../compose'
  *  <div>Item 4</div>
  * </Grid>
  */
-export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
-  props,
-  ref
-) {
-  const {
-    asChild = false,
-    gap = '$space-gap',
-    areas = 'none',
-    rows = 'auto',
-    columns = 'auto',
-    autoColumns = 'auto',
-    autoRows = 'auto',
-    autoFlow = 'row',
-    style: styleObject = {},
-    ...otherProps
-  } = props
+export const Grid = forwardRef<HTMLDivElement, GridProps>(
+  function Grid(props, ref) {
+    const {
+      asChild = false,
+      gap = '$space-gap',
+      areas = 'none',
+      rows = 'auto',
+      columns = 'auto',
+      autoColumns = 'auto',
+      autoRows = 'auto',
+      autoFlow = 'row',
+      style: styleObject = {},
+      ...otherProps
+    } = props
 
-  const Comp = asChild ? Compose : 'div'
+    const Comp = asChild ? Compose : 'div'
 
-  return (
-    <Comp
-      data-sl-grid
-      ref={ref}
-      style={style({
-        '--sl-grid-gap': gap,
-        '--sl-grid-areas': areas,
-        '--sl-grid-rows': rows,
-        '--sl-grid-columns': columns,
-        '--sl-grid-auto-columns': autoColumns,
-        '--sl-grid-auto-rows': autoRows,
-        '--sl-grid-auto-flow': autoFlow,
-        ...styleObject,
-      })}
-      {...otherProps}
-    />
-  )
-})
+    return (
+      <Comp
+        data-sl-grid
+        ref={ref}
+        style={style({
+          '--sl-grid-gap': gap,
+          '--sl-grid-areas': areas,
+          '--sl-grid-rows': rows,
+          '--sl-grid-columns': columns,
+          '--sl-grid-auto-columns': autoColumns,
+          '--sl-grid-auto-rows': autoRows,
+          '--sl-grid-auto-flow': autoFlow,
+          ...styleObject,
+        })}
+        {...otherProps}
+      />
+    )
+  }
+)
 
 export interface GridOptions {
   /**

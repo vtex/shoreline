@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import type { AriaCalendarProps, DateValue } from '@react-aria/calendar'
 import { useCalendar } from '@react-aria/calendar'
 import { useLocale } from '../locale'

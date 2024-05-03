@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconPencil, IconTrash, IconArchive } from '@vtex/shoreline-icons'
 import type { MenuProps } from '../index'
 import { Menu, MenuItem, MenuSeparator } from '../index'

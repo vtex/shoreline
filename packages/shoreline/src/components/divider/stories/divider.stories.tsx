@@ -1,5 +1,3 @@
-import React from 'react'
-
 import './styles.css'
 import { Stack, Flex } from '../..'
 import { Divider } from '../index'

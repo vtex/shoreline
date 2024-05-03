@@ -1,4 +1,3 @@
-import React from 'react'
 import * as Sentry from '@sentry/nextjs'
 import type { ErrorProps } from 'next/error'
 import Error from 'next/error'

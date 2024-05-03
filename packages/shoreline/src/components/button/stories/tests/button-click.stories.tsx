@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { userEvent, within, expect } from '@storybook/test'
 
 import { Button } from '../../index'

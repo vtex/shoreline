@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { ComboboxItemOptions as AriakitComboboxItemOptions } from '@ariakit/react'
 import { ComboboxItem as Item } from '@ariakit/react'
 

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { MenuPopover } from './menu-popover'
 import type { MenuProviderOptions } from './menu-provider'
 import { MenuProvider } from './menu-provider'
@@ -20,55 +20,54 @@ import { IconButton } from '../icon-button'
  *  <MenuItem>Item 1</MenuItem>
  * </Menu>
  */
-export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
-  props,
-  ref
-) {
-  const {
-    children,
-    label,
-    asChild = false,
-    variant = 'secondary',
-    type = 'menu',
-    iconOnly = false,
-    size = 'normal',
-    open,
-    setOpen,
-    defaultOpen,
-    store,
-    placement,
-    ...domProps
-  } = props
+export const Menu = forwardRef<HTMLDivElement, MenuProps>(
+  function Menu(props, ref) {
+    const {
+      children,
+      label,
+      asChild = false,
+      variant = 'secondary',
+      type = 'menu',
+      iconOnly = false,
+      size = 'normal',
+      open,
+      setOpen,
+      defaultOpen,
+      store,
+      placement,
+      ...domProps
+    } = props
 
-  const Icon = getIcon(type)
+    const Icon = getIcon(type)
 
-  return (
-    <div data-sl-menu ref={ref} {...domProps}>
-      <MenuProvider
-        open={open}
-        setOpen={setOpen}
-        defaultOpen={defaultOpen}
-        store={store}
-        placement={placement}
-      >
-        <MenuTrigger asChild>
-          {iconOnly ? (
-            <IconButton label={label} variant={variant} size={size}>
-              {Icon}
-            </IconButton>
-          ) : (
-            <Button variant={variant} size={size}>
-              {type === 'actions' && Icon}
-              {label}
-              {type === 'menu' && Icon}
-            </Button>
-          )}
-        </MenuTrigger>
-        <MenuPopover>{children}</MenuPopover>
-      </MenuProvider>
-    </div>
-  )
-})
+    return (
+      <div data-sl-menu ref={ref} {...domProps}>
+        <MenuProvider
+          open={open}
+          setOpen={setOpen}
+          defaultOpen={defaultOpen}
+          store={store}
+          placement={placement}
+        >
+          <MenuTrigger asChild>
+            {iconOnly ? (
+              <IconButton label={label} variant={variant} size={size}>
+                {Icon}
+              </IconButton>
+            ) : (
+              <Button variant={variant} size={size}>
+                {type === 'actions' && Icon}
+                {label}
+                {type === 'menu' && Icon}
+              </Button>
+            )}
+          </MenuTrigger>
+          <MenuPopover>{children}</MenuPopover>
+        </MenuProvider>
+      </div>
+    )
+  }
+)
 
 function getIcon(type: MenuProps['type'] = 'menu') {
   switch (type) {

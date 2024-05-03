@@ -1,4 +1,3 @@
-import React from 'react'
 import type { ComponentPropsWithoutRef } from 'react'
 
 import styles from './decorative-box.module.css'

@@ -1,5 +1,4 @@
 import { forwardRef } from '@vtex/shoreline-utils'
-import React from 'react'
 
 import type { ClickableProps } from '../clickable'
 import { Clickable } from '../clickable'

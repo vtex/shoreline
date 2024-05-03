@@ -1,7 +1,4 @@
-import React from 'react'
-
 import { Checkbox, CheckboxGroup } from '../index'
-import { VisuallyHidden } from '@ariakit/react'
 import { Stack } from '../../stack'
 
 import { IconInfoFill } from '@vtex/shoreline-icons'

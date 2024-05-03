@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import Markdown from 'react-markdown'
 
 import allProps from '../../__props__'

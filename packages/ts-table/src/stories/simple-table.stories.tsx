@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import {
   IconCloudArrowUp,
   IconDotsThreeVertical,
@@ -8,7 +8,6 @@ import {
 import type { ColumnDef } from '@tanstack/react-table'
 
 import {
-  Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,

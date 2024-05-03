@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import React from 'react'
 import { I18nProvider } from '@react-aria/i18n'
 import { LocaleContext } from './locale-context'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { AccessibleIcon, IconTrash } from '@vtex/shoreline'
 
 export default function Example() {
