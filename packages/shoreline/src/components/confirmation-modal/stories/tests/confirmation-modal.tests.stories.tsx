@@ -7,8 +7,8 @@ import {
   within,
   getByText,
   getByTestId,
-} from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+  expect,
+} from '@storybook/test'
 
 export default {
   title: 'components/confirmation-modal/tests',

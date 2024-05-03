@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 import { Alert } from '../../index'
 import { Text } from '../../../text'
-import { within, userEvent } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+import { within, userEvent, expect } from '@storybook/test'
 
 export default {
   title: 'components/alert/tests',
