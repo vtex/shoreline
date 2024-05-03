@@ -17,7 +17,7 @@ export interface ShorelineExpect
   assertions(expected: number): void
   hasAssertions(): void
   anything(): any
-  any(constructor: unknown): any
+  any(construct: unknown): any
   getState(): any
   setState(state: Partial<any>): void
   not: <T>(
