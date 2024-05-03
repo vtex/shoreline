@@ -26,7 +26,7 @@ export type TupleTypes<T> = { [P in keyof T]: T[P] } extends {
   ? NullToObject<V>
   : never
 
-export type NullToObject<T> = T extends null | undefined ? {} : T
+export type NullToObject<T> = T extends null | undefined ? Record<any, any> : T
 
 export type UnionToIntersection<U> = (
   U extends any

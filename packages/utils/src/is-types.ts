@@ -1,11 +1,12 @@
 import { constants } from './constants'
+import type { AnyFunction } from './utility-types'
 
 /**
  * Returns wether a value is a function
  * @example
  * isFunction(() => {}) // true
  */
-export function isFunction<T extends Function = Function>(
+export function isFunction<T extends AnyFunction = AnyFunction>(
   value: any
 ): value is T {
   return typeof value === 'function'

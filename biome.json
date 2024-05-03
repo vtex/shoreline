@@ -35,8 +35,7 @@
       "recommended": true,
       "complexity": {
         "noForEach": "off",
-        "useOptionalChain": "off",
-        "noBannedTypes": "off"
+        "useOptionalChain": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
