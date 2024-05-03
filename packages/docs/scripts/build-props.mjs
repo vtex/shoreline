@@ -1,4 +1,4 @@
-import { join, dirname } from 'path'
+import { join, dirname } from 'node:path'
 import { getReferences } from './props-utils.mjs'
 import { kebabCase } from '@vtex/shoreline-utils'
 import fse from 'fs-extra'

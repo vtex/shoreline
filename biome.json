@@ -60,8 +60,7 @@
       },
       "style": {
         "noParameterAssign": "off",
-        "noNonNullAssertion": "off",
-        "useNodejsImportProtocol": "off"
+        "noNonNullAssertion": "off"
       }
     }
   }

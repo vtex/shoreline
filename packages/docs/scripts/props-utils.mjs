@@ -2,7 +2,7 @@
  * Thanks to ariakit 💙
  * https://github.com/ariakit/ariakit/blob/main/website/build-pages/reference-utils.js
  */
-import { dirname, join } from 'path'
+import { dirname, join } from 'node:path'
 import { Node, Project, ts } from 'ts-morph'
 
 const project = new Project({
