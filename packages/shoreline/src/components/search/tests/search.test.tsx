@@ -43,7 +43,9 @@ describe('search', () => {
     const clearButton = container.querySelector('[data-sl-icon-button]')
 
     expect(clearButton).toBeInTheDocument()
-    fireEvent.click(clearButton!)
+    if (clearButton) {
+      fireEvent.click(clearButton)
+    }
     expect(onClear).toHaveBeenCalled()
   })
 
@@ -61,9 +63,13 @@ describe('search', () => {
   it('focus on input when parent div is clicked', () => {
     const { container } = render(<Search />)
     const input = container.querySelector('input')
+    const searchElement = container.querySelector('[data-sl-search]')
 
     expect(input).not.toHaveFocus()
-    fireEvent.click(container.querySelector('[data-sl-search]')!)
+
+    if (searchElement) {
+      fireEvent.click(searchElement)
+    }
     expect(input).toHaveFocus()
   })
 
@@ -71,9 +77,12 @@ describe('search', () => {
     const ref = React.createRef<HTMLInputElement>()
     const { container } = render(<Search ref={ref} />)
     const input = container.querySelector('input')
+    const searchElement = container.querySelector('[data-sl-search]')
 
     expect(input).not.toHaveFocus()
-    fireEvent.click(container.querySelector('[data-sl-search]')!)
+    if (searchElement) {
+      fireEvent.click(searchElement)
+    }
     expect(input).toHaveFocus()
   })
 })

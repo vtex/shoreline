@@ -47,7 +47,6 @@
       "suspicious": {
         "noExplicitAny": "off",
         "noShadowRestrictedNames": "off",
-        "noConfusingVoidType": "off",
         "noArrayIndexKey": "off",
         "noRedeclare": "off"
       },
@@ -55,9 +54,6 @@
         "useExhaustiveDependencies": "off",
         "useJsxKeyInIterable": "off",
         "noUnusedImports": "error"
-      },
-      "style": {
-        "noNonNullAssertion": "off"
       }
     }
   }
