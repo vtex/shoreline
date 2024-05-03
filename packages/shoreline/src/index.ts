@@ -153,6 +153,7 @@ export {
   today,
   useCalendarContext,
 } from './components'
+export { presetSunrise } from './themes/sunrise/preset'
 export type {
   AccessibleIconProps,
   AlertProps,

@@ -246,9 +246,6 @@ importers:
       '@vtex/shoreline-icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@vtex/shoreline-theme-sunrise':
-        specifier: workspace:*
-        version: link:../../packages/theme-sunrise
       next:
         specifier: 13.4.8
         version: 13.4.8(@babel/core@7.23.6)(babel-plugin-macros@2.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(sass@1.69.7)
@@ -351,9 +348,6 @@ importers:
       '@vtex/shoreline-icons':
         specifier: workspace:*
         version: link:../icons
-      '@vtex/shoreline-theme-sunrise':
-        specifier: workspace:*
-        version: link:../theme-sunrise
       '@vtex/shoreline-ts-table':
         specifier: workspace:*
         version: link:../ts-table
@@ -516,6 +510,9 @@ importers:
       postcss-preset-env:
         specifier: 9.3.0
         version: 9.3.0(postcss@8.4.32)
+      postcss-scss:
+        specifier: 4.0.9
+        version: 4.0.9(postcss@8.4.32)
       react-hook-form:
         specifier: 7.48.2
         version: 7.48.2(react@18.2.0)
@@ -547,46 +544,6 @@ importers:
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@23.0.0)(playwright@1.43.0)(sass@1.69.7)(terser@5.26.0)
-
-  packages/theme-sunrise:
-    dependencies:
-      '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.61
-        version: 1.0.0-rc.61(react@18.2.0)
-    devDependencies:
-      '@csstools/postcss-sass':
-        specifier: 5.1.1
-        version: 5.1.1(postcss@8.4.32)
-      '@types/node':
-        specifier: 20.11.6
-        version: 20.11.6
-      '@vtex/shoreline-cli':
-        specifier: workspace:*
-        version: link:../cli
-      '@vtex/shoreline-css':
-        specifier: workspace:*
-        version: link:../css
-      concurrently:
-        specifier: 8.2.2
-        version: 8.2.2
-      cssnano:
-        specifier: 6.0.2
-        version: 6.0.2(postcss@8.4.32)
-      postcss:
-        specifier: 8.4.32
-        version: 8.4.32
-      postcss-cli:
-        specifier: 11.0.0
-        version: 11.0.0(jiti@1.21.0)(postcss@8.4.32)
-      postcss-import:
-        specifier: 15.1.0
-        version: 15.1.0(postcss@8.4.32)
-      postcss-preset-env:
-        specifier: 9.3.0
-        version: 9.3.0(postcss@8.4.32)
-      postcss-scss:
-        specifier: 4.0.9
-        version: 4.0.9(postcss@8.4.32)
 
   packages/ts-table:
     dependencies:
