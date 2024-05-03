@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, IconArrowUp, VisuallyHidden } from '@vtex/shoreline'
 
 export default function Example() {

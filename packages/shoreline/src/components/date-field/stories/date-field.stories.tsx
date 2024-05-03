@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LocaleProvider } from '../../locale'
 import { Stack } from '../../stack'
 

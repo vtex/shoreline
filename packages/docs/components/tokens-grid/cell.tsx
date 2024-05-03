@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import { cx } from '@vtex/shoreline-utils'
 
 import styles from './cell.module.css'

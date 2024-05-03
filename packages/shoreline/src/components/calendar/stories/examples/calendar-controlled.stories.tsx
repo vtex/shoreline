@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { Calendar } from '../../index'
 import { getLocalTimeZone, today } from '../../../utils'

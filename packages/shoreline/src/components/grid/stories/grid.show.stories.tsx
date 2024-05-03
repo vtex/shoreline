@@ -1,4 +1,3 @@
-import React from 'react'
 import { style } from '@vtex/shoreline-utils'
 import { Grid, GridCell } from '../index'
 

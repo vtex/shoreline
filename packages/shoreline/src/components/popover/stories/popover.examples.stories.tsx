@@ -1,4 +1,3 @@
-import React from 'react'
 import './styles.css'
 import { Button } from '../../button'
 import { Popover, PopoverProvider, PopoverTrigger } from '../index'

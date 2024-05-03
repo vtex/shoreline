@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { SelectItemCheck as ItemCheck } from '@ariakit/react'
 import { IconCheckSmall } from '@vtex/shoreline-icons'
 

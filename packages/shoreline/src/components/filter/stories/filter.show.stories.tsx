@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { FilterListSkeleton, FilterItem, Filter } from '../index'
 import { Stack } from '../../stack'
 

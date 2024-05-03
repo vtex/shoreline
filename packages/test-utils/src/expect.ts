@@ -5,7 +5,10 @@ import * as matchers from '@testing-library/jest-dom/matchers'
 export interface ShorelineExpect
   extends Omit<Chai.ExpectStatic, 'not'>,
     AsymmetricMatchersContaining {
-  <T>(actual: T, message?: string): Omit<Assertion<T>, 'not'> &
+  <T>(
+    actual: T,
+    message?: string
+  ): Omit<Assertion<T>, 'not'> &
     matchers.TestingLibraryMatchers<void, T> & {
       not: Assertion<T> & matchers.TestingLibraryMatchers<void, T>
     }

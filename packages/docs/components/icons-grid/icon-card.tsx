@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import { descriptions } from './icons'
 
 import styles from './icon-card.module.css'

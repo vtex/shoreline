@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Label } from '../index'
 import { Stack } from '../../stack'
 

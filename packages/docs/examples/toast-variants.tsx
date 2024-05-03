@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Flex, ToastStack, toast } from '@vtex/shoreline'
 
 export default function Example() {

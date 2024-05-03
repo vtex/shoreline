@@ -1,4 +1,3 @@
-import React from 'react'
 import { Center, Container, Content, Text } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
 

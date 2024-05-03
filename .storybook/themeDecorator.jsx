@@ -1,4 +1,3 @@
-import React from 'react'
 import '../packages/shoreline/dist/themes/sunrise/styles.css'
 
 export function themeDecorator(storyFn) {

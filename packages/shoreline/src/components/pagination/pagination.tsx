@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef, useMemo } from 'react'
+import { forwardRef, useMemo } from 'react'
 import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
 import { createMessageHook } from '../locale'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { ButtonProps } from '../index'
 import { Button } from '../index'
 import './style.css'

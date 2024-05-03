@@ -7,7 +7,7 @@ export type NoInfer<T> = [T][T extends any ? 0 : never]
 export function useStore<
   TState,
   TSelected = NoInfer<TState>,
-  TUpdater extends AnyUpdater = AnyUpdater
+  TUpdater extends AnyUpdater = AnyUpdater,
 >(
   store: Store<TState, TUpdater>,
   selector: (state: NoInfer<TState>) => TSelected = (d) => d as any

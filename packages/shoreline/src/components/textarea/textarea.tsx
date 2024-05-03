@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import type React from 'react'
+import { forwardRef } from 'react'
 import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
 import { useFieldContext } from '../field'

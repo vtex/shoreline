@@ -1,4 +1,3 @@
-import React from 'react'
 import { Select, SelectItem } from '@vtex/shoreline'
 
 export default function Example() {

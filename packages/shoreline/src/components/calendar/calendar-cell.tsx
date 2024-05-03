@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useCalendarCell } from '@react-aria/calendar'
 import { IconButton } from '../icon-button'
 

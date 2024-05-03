@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LocaleProvider } from '../../locale'
 import { Field, FieldDescription, FieldError } from '../../field'
 import { Stack } from '../../stack'

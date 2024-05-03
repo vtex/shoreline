@@ -1,6 +1,6 @@
 export class Store<
   TState,
-  TUpdater extends AnyUpdater = (cb: TState) => TState
+  TUpdater extends AnyUpdater = (cb: TState) => TState,
 > {
   private listeners = new Set<Listener>()
   private _state: TState
@@ -66,7 +66,7 @@ type Listener = () => void
 
 interface StoreOptions<
   TState,
-  TUpdater extends AnyUpdater = (cb: TState) => TState
+  TUpdater extends AnyUpdater = (cb: TState) => TState,
 > {
   updateFn?: (previous: TState) => (updater: TUpdater) => TState
   onSubscribe?: (

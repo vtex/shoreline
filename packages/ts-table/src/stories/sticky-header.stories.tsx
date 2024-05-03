@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import {
   IconCloudArrowUp,
   IconDotsThreeVertical,
@@ -11,7 +11,6 @@ import {
   Text,
   IconButton,
   Tag,
-  Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,

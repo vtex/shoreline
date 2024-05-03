@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { HeadingProps } from '../index'
 import { Heading } from '../index'
 import { Stack } from '../../stack'

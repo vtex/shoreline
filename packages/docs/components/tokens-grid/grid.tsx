@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 import {
   getFoundationTokens,

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Label } from '../../../label'
 import { Field, FieldDescription, FieldError } from '../../../field'
 

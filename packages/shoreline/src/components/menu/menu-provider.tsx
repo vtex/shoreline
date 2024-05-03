@@ -1,6 +1,5 @@
 import type { MenuProviderProps as ProviderProps } from '@ariakit/react'
 import { MenuProvider as Provider } from '@ariakit/react'
-import React from 'react'
 
 /**
  * Menu state provider

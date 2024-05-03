@@ -1,6 +1,6 @@
 import type { RenderProps } from '@vtex/shoreline-utils'
 import type { ReactElement, ReactNode } from 'react'
-import React, { isValidElement } from 'react'
+import { isValidElement } from 'react'
 
 /**
  * Defines a composable child inside of a Compose component

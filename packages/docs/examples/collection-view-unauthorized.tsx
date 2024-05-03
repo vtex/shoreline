@@ -1,4 +1,3 @@
-import React from 'react'
 import { Collection, CollectionView } from '@vtex/shoreline'
 import { DecorativeBox } from '../components/decorative-box'
 

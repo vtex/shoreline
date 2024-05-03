@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { SelectList } from '../select'
 import type { SelectListOptions, SelectListProps } from '../select'
 import { ComboboxList } from '../combobox'

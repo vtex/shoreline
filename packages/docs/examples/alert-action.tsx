@@ -1,4 +1,3 @@
-import React from 'react'
 import { Alert, Button, Text } from '@vtex/shoreline'
 
 export default function Example() {

@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react'
+import { forwardRef, useRef } from 'react'
 import { useDateSegment } from '@react-aria/datepicker'
 import type {
   DateSegment as SegmentType,

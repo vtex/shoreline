@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelectContext } from './select-provider'
 import { isEmpty } from './select-utils'
 

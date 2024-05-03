@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, EmptyState, Heading, EmptyStateActions } from '@vtex/shoreline'
 
 export default function Example() {

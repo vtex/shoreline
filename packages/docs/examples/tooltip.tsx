@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconButton, IconInfo, Tooltip } from '@vtex/shoreline'
 
 export default function Example() {

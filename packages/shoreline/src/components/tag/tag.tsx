@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 /**
  * Tags differentiate items through a read-only text value in a colored bg. They can be secondary or primary, given their relevance to the main job.
@@ -7,31 +7,30 @@ import React, { forwardRef } from 'react'
  * @example
  * <Tag>Short text</Tag>
  */
-export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
-  props,
-  ref
-) {
-  const {
-    variant = 'primary',
-    size = 'normal',
-    color = 'gray',
-    children,
-    ...otherProps
-  } = props
+export const Tag = forwardRef<HTMLDivElement, TagProps>(
+  function Tag(props, ref) {
+    const {
+      variant = 'primary',
+      size = 'normal',
+      color = 'gray',
+      children,
+      ...otherProps
+    } = props
 
-  return (
-    <div
-      data-sl-tag
-      data-variant={variant}
-      data-size={size}
-      data-color={color}
-      ref={ref}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  )
-})
+    return (
+      <div
+        data-sl-tag
+        data-variant={variant}
+        data-size={size}
+        data-color={color}
+        ref={ref}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    )
+  }
+)
 
 export interface TagOptions {
   /**

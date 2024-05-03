@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { ColumnDef, SortingState } from '@tanstack/react-table'
 import { Tag, Flex, Text } from '@vtex/shoreline'
 

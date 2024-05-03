@@ -1,4 +1,3 @@
-import React from 'react'
 import type { TabProviderProps } from '@vtex/shoreline'
 import { TabProvider } from '@vtex/shoreline'
 import { usePathname, useRouter } from 'next/navigation'

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import React, { Children, forwardRef } from 'react'
+import { Children, forwardRef } from 'react'
 import { Button as BaseButton } from '@ariakit/react'
 import { Compose, Composable } from '../compose'
 

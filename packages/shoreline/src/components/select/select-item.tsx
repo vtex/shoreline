@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { SelectItem as Item } from '@ariakit/react'
 
 import { SelectItemCheck } from './select-item-check'

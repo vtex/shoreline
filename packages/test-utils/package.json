@@ -10,9 +10,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",

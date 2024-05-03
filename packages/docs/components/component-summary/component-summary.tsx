@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import Image from 'next/image'
 import { getComponentProps } from '../../utils/get-component-props'
 import { ImgCard } from '../img-card'

@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
 import { useClipboard } from '../hooks/use-clipboard'
 import { Cell } from './cell'
 

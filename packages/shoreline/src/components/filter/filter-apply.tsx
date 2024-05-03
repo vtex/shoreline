@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { mergeProps } from '@vtex/shoreline-utils'
 
 import type { PopoverDismissProps } from '../popover'

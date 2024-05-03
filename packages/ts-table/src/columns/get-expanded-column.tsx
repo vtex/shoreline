@@ -1,4 +1,3 @@
-import React from 'react'
 import type { ColumnDef } from '@tanstack/react-table'
 import { IconCaretDown, IconCaretRight } from '@vtex/shoreline-icons'
 import { VisuallyHidden, IconButton, Bleed } from '@vtex/shoreline'

@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-
 import { Select, SelectItem } from '../index'
 import { Stack } from '../../stack'
 import { Field, FieldDescription, FieldError } from '../../field'

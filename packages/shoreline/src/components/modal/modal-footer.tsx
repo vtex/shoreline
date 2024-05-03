@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import type { ContentOptions } from '../content'
 import { Content } from '../content'

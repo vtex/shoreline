@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from 'react'
-import React, { Children, cloneElement, forwardRef } from 'react'
+import { Children, cloneElement, forwardRef } from 'react'
 
 import { VisuallyHidden } from '../visually-hidden'
 

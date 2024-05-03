@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useRef } from 'react'
+import { forwardRef, useMemo, useRef } from 'react'
 import { useMergeRef, mergeProps, useId } from '@vtex/shoreline-utils'
 import { IconCheckSmall, IconMinusSmall } from '@vtex/shoreline-icons'
 import { VisuallyHidden } from '../visually-hidden'

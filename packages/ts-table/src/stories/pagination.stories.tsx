@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   IconCloudArrowUp,
   IconDotsThreeVertical,
@@ -8,7 +8,6 @@ import {
 import type { ColumnDef } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
 import {
-  Menu,
   MenuProvider,
   MenuItem,
   MenuTrigger,

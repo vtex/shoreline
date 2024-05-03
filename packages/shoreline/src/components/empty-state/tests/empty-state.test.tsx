@@ -1,4 +1,3 @@
-import React from 'react'
 import { describe, expect, test, render } from '@vtex/shoreline-test-utils'
 
 import { EmptyState } from '../empty-state'

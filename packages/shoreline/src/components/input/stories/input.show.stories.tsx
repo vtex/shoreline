@@ -1,4 +1,3 @@
-import React from 'react'
 import { Stack } from '../../stack'
 
 import { Input } from '../index'

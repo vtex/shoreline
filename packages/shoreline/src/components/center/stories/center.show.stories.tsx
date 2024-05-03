@@ -1,4 +1,3 @@
-import React from 'react'
 import { Center } from '../index'
 
 export default {

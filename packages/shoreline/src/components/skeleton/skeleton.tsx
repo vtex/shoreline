@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 /**
  * Skeletons compose a low-fidelity representation of content that will load. They appear when the entire page is loading and take up to 5s.

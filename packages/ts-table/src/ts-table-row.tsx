@@ -1,5 +1,5 @@
 import type { ReactNode, Ref } from 'react'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { flexRender, type Row } from '@tanstack/react-table'
 import type { TableRowProps, NavigationTarget } from '@vtex/shoreline'
 import { Clickable, LinkBox, TableCell, TableRow } from '@vtex/shoreline'

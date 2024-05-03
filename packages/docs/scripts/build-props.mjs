@@ -157,11 +157,13 @@ async function main() {
   files.forEach((file) => {
     const ref = getReferences(file)[0]
 
-    refs[kebabCase(ref.name)] = ref
+    if (ref) {
+      refs[kebabCase(ref?.name)] = ref
 
-    tsCode += `
-      "${kebabCase(ref.name)}": ${JSON.stringify(ref)},
+      tsCode += `
+      "${kebabCase(ref?.name)}": ${JSON.stringify(ref)},
       `
+    }
   })
 
   tsCode += '}'

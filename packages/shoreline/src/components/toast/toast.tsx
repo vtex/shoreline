@@ -1,5 +1,5 @@
 import type { MouseEventHandler, ReactNode } from 'react'
-import React, { Children, isValidElement } from 'react'
+import { Children, isValidElement } from 'react'
 import { toast as hotToast } from 'react-hot-toast/headless'
 import {
   IconCheckCircleFill,

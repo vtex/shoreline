@@ -2,8 +2,8 @@ import { cx } from '../cx'
 import { mergeProps } from '../merge-props'
 import { describe, it, vi, expect } from '@vtex/shoreline-test-utils'
 
-describe('mergeProps', function () {
-  it('handles one argument', function () {
+describe('mergeProps', () => {
+  it('handles one argument', () => {
     const onClick = () => {}
     const className = 'primary'
     const id = 'test_id'
@@ -14,7 +14,7 @@ describe('mergeProps', function () {
     expect(mergedProps.id).toBe(id)
   })
 
-  it('combines callbacks', function () {
+  it('combines callbacks', () => {
     const mockFn = vi.fn()
     const message1 = 'click1'
     const message2 = 'click2'
@@ -32,7 +32,7 @@ describe('mergeProps', function () {
     expect(mockFn).toHaveBeenCalledTimes(3)
   })
 
-  it('merges props with different keys', function () {
+  it('merges props with different keys', () => {
     const mockFn = vi.fn()
     const click1 = 'click1'
     const click2 = 'click2'
@@ -56,7 +56,7 @@ describe('mergeProps', function () {
     expect(mergedProps.styles.margin).toBe(margin)
   })
 
-  it('combines classNames', function () {
+  it('combines classNames', () => {
     const className1 = 'primary'
     const className2 = 'hover'
     const className3 = 'focus'

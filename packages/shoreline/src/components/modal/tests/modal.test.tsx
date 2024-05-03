@@ -1,4 +1,3 @@
-import React from 'react'
 import { describe, expect, it, act, render } from '@vtex/shoreline-test-utils'
 
 import { Modal } from '../modal'

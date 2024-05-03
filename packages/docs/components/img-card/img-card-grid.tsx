@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
-import React from 'react'
 import styles from './img-card-grid.module.css'
 
 /**

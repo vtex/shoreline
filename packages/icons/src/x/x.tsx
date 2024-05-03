@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 export const IconX = forwardRef<SVGSVGElement, ComponentPropsWithoutRef<'svg'>>(
   function IconX(props, ref) {

@@ -1,6 +1,6 @@
 import './style.css'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { Pagination } from '../index'
 import { LocaleProvider } from '../../locale'

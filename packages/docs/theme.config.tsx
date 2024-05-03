@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import type { DocsThemeConfig } from 'nextra-theme-docs'
 import { TokensGrid } from './components/tokens-grid'
 import { IconsGrid } from './components/icons-grid'

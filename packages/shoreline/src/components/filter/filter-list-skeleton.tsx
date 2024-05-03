@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Skeleton } from '../skeleton'
 import type { StackOptions } from '../stack'
 import { Stack } from '../stack'

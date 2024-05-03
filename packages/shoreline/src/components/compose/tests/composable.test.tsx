@@ -1,4 +1,3 @@
-import React from 'react'
 import { describe, it, expect, render } from '@vtex/shoreline-test-utils'
 
 import { Composable, isComposable } from '../composable'

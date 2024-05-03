@@ -1,5 +1,3 @@
-import React from 'react'
-
 import './stories.css'
 import { CollectionView, Collection, CollectionRow } from '../index'
 import { Search } from '../../search'

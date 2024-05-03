@@ -1,7 +1,7 @@
 import type { AriaDateRangePickerProps } from '@react-aria/datepicker'
 import { useDateRangePicker } from '@react-aria/datepicker'
 import { useDateRangePickerState } from '@react-stately/datepicker'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Bleed } from '../bleed'
 import { useFieldContext } from '../field'
 import { IconButton } from '../icon-button'

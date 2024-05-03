@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 const DEFAULT_SIZE = 16
 const DEFAULT_DESCRIPTION = 'loading'

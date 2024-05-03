@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { style } from '@vtex/shoreline-utils'
 
 /**
@@ -9,35 +9,34 @@ import { style } from '@vtex/shoreline-utils'
  *   <Button>Text</Button>
  * </Bleed>
  */
-export const Bleed = forwardRef<HTMLDivElement, BleedProps>(function Bleed(
-  props,
-  ref
-) {
-  const {
-    top = '$space-0',
-    bottom = '$space-0',
-    start = '$space-0',
-    end = '$space-0',
-    children,
-    ...restProps
-  } = props
+export const Bleed = forwardRef<HTMLDivElement, BleedProps>(
+  function Bleed(props, ref) {
+    const {
+      top = '$space-0',
+      bottom = '$space-0',
+      start = '$space-0',
+      end = '$space-0',
+      children,
+      ...restProps
+    } = props
 
-  return (
-    <div data-sl-bleed ref={ref} {...restProps}>
-      <div
-        data-sl-bleed-content
-        style={style({
-          '--sl-bleed-top': top,
-          '--sl-bleed-bottom': bottom,
-          '--sl-bleed-start': start,
-          '--sl-bleed-end': end,
-        })}
-      >
-        {children}
+    return (
+      <div data-sl-bleed ref={ref} {...restProps}>
+        <div
+          data-sl-bleed-content
+          style={style({
+            '--sl-bleed-top': top,
+            '--sl-bleed-bottom': bottom,
+            '--sl-bleed-start': start,
+            '--sl-bleed-end': end,
+          })}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  )
-})
+    )
+  }
+)
 
 export interface BleedOptions {
   /**

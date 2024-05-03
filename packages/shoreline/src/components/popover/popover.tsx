@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { PopoverProps as BaseProps } from '@ariakit/react'
 import { Popover as BasePopover } from '@ariakit/react'
 

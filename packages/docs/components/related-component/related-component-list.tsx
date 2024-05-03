@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef, CSSProperties } from 'react'
-import React from 'react'
 import { cx } from '@vtex/shoreline-utils'
 
 export function RelatedComponentList(props: RelatedComponentListProps) {

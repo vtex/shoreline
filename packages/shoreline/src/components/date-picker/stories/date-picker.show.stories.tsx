@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DatePicker } from '../index'
 
 export default {

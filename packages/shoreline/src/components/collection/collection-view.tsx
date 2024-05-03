@@ -6,7 +6,7 @@ import {
   IconWarningCircle,
 } from '@vtex/shoreline-icons'
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Button } from '../button'
 import {
   EmptyState,

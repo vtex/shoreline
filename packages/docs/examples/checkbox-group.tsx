@@ -1,4 +1,3 @@
-import React from 'react'
 import { Checkbox, CheckboxGroup } from '@vtex/shoreline'
 
 export default function Example() {

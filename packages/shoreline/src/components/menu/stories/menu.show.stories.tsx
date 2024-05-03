@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Menu, MenuItem, MenuSeparator } from '../index'
 
 export default {

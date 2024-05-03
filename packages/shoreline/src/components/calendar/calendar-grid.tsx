@@ -1,4 +1,3 @@
-import React from 'react'
 import type { AriaCalendarGridProps } from '@react-aria/calendar'
 import { useCalendarGrid } from '@react-aria/calendar'
 import { useLocale } from '../locale'

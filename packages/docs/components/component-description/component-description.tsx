@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './component-description.module.css'
 import { getComponentProps } from '../../utils/get-component-props'
 

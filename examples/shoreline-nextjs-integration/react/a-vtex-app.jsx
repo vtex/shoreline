@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigation } from '@vtex/raccoon-io'
 
 const generateRandomId = () => {

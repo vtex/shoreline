@@ -1,5 +1,3 @@
-'use strict'
-
 const textPlugin = require('./plugins/no-text-property')
 const spacePlugin = require('./plugins/no-px-values')
 

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import type { ContainerOptions } from '../content'
 import { Container } from '../content'
 
@@ -14,18 +14,17 @@ import { Container } from '../content'
  *  <PageContent>Content</PageContent>
  * <Page>
  */
-export const Page = forwardRef<HTMLDivElement, PageProps>(function Page(
-  props,
-  ref
-) {
-  const { children, ...otherProps } = props
+export const Page = forwardRef<HTMLDivElement, PageProps>(
+  function Page(props, ref) {
+    const { children, ...otherProps } = props
 
-  return (
-    <Container data-sl-page ref={ref} tabIndex={0} {...otherProps}>
-      {children}
-    </Container>
-  )
-})
+    return (
+      <Container data-sl-page ref={ref} tabIndex={0} {...otherProps}>
+        {children}
+      </Container>
+    )
+  }
+)
 
 export type PageOptions = ContainerOptions
 export type PageProps = ContainerOptions & ComponentPropsWithoutRef<'div'>

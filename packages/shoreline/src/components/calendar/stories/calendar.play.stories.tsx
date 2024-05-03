@@ -1,4 +1,3 @@
-import React from 'react'
 import { LocaleProvider } from '../../locale'
 
 import { Calendar } from '../index'

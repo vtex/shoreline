@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
 import { IconTrash } from '@vtex/shoreline-icons'
-
-import { Stack } from '../../stack'
 import type { IconButtonProps } from '../index'
 import { IconButton } from '../index'
 import { Grid, GridCell } from '../../grid'

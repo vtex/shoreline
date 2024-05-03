@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Stack } from '../index'
 import { style } from '@vtex/shoreline-utils'
 

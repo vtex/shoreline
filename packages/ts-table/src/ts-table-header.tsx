@@ -1,5 +1,4 @@
 import type { Ref } from 'react'
-import React from 'react'
 import {
   TableHeader,
   TableHeaderCell,

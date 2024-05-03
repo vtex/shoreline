@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 
 /**
  * Controls toast appearance

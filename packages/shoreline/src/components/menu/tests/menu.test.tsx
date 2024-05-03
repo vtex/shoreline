@@ -1,4 +1,3 @@
-import React from 'react'
 import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
 
 import { MenuProvider } from '../menu-provider'
