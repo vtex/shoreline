@@ -10,16 +10,31 @@
     "ignore": ["website/.next/**", "website/.pages/**"]
   },
   "organizeImports": {
-    "enabled": true
+    "enabled": false
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space"
   },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingComma": "es5"
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "complexity": {
+        "noForEach": "off",
+        "useOptionalChain": "off",
+        "noBannedTypes": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off"
+      },
       "security": {
         "noDangerouslySetInnerHtml": "off"
       },
@@ -46,7 +61,8 @@
         "noParameterAssign": "off",
         "noUnusedTemplateLiteral": "off",
         "noNonNullAssertion": "off",
-        "noUselessElse": "off"
+        "noUselessElse": "off",
+        "useNodejsImportProtocol": "off"
       }
     }
   }

@@ -41,6 +41,7 @@
     "commitlint": "commitlint --edit"
   },
   "devDependencies": {
+    "@types/node": "20.12.8",
     "@biomejs/biome": "1.7.2",
     "@chromatic-com/storybook": "^1",
     "@commitlint/cli": "^9.1.2",

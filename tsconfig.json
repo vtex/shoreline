@@ -1,5 +1,4 @@
 {
-  "extends": "@vtex/tsconfig",
   "compilerOptions": {
     "stripInternal": true,
     "isolatedModules": true,
@@ -10,7 +9,27 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true
+    "noEmit": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": ["es2017", "dom", "es2018.promise", "esnext.asynciterable"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es2017"
+  },
+  "typeAcquisition": {
+    "enable": false
   },
   "include": [
     "**/*.ts",
