@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import type { Meta } from '@storybook/react'
 
 import { ContextualHelp } from '../index'
 import { Text } from '../../text'
@@ -11,7 +10,7 @@ export default {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-} as Meta<typeof ContextualHelp>
+}
 
 type BasePlacement = 'top' | 'bottom' | 'left' | 'right'
 type Placement =
@@ -50,9 +49,9 @@ export function Show() {
             </tr>
           </thead>
           <tbody>
-            {placementOptions.map((placement, index) => {
+            {placementOptions.map((placement) => {
               return (
-                <tr>
+                <tr key={placement}>
                   <th>
                     <span>{placement}</span>
                   </th>
