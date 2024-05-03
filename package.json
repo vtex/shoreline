@@ -16,7 +16,8 @@
     "dev": "pnpm turbo run dev --no-cache --parallel --continue",
     "clean": "pnpm i && pnpm build",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\" \"examples/**/*.{ts,js,tsx,jsx,json}\"",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx \"packages/**/*.{ts,js,tsx,jsx}\" \"examples/**/*.{ts,js,tsx,jsx}\"",
+    "lint": "biome check .",
+    "lint-fix": "biome check --apply .",
     "commit": "cz",
     "dev:styles": "npm --prefix packages/shoreline run dev",
     "dev:storybook": "concurrently -p [{name}] -n storybook@shoreline,styles@shoreline -c bgMagenta,bgYellow \"pnpm storybook dev -p 6006\" \"pnpm run dev:styles\"",
@@ -40,6 +41,7 @@
     "commitlint": "commitlint --edit"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.2",
     "@chromatic-com/storybook": "^1",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
@@ -101,16 +103,9 @@
     "wait-on": "^7.2.0"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "pnpm lint --fix",
-      "prettier --write"
-    ],
-    "*.css": [
-      "pnpm lint:css --fix"
-    ],
-    "*.{gql,json,yml,md}": [
-      "prettier --write"
-    ]
+    "package.json": ["biome check --apply"],
+    "*.{ts,tsx,js,jsx,json}": "biome check --apply",
+    "*.css": "stylelint --fix"
   },
   "config": {
     "commitizen": {
