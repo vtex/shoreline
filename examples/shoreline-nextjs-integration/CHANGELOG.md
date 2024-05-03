@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.62](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.61...example@1.0.0-rc.62) (2024-05-03)
+
+### Features
+
+- **shoreline:** merge components into shoreline ([2757752](https://github.com/vtex/shoreline/commit/2757752071178d67d9bcf1ab2026c139f3d8cc65))
+- **sunrise:** remove package ([d33e549](https://github.com/vtex/shoreline/commit/d33e549f52ef1ddfc53f9363c4d28f73bfb3fdde))
+
 # [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/example@1.0.0-rc.60...example@1.0.0-rc.61) (2024-04-30)
 
 **Note:** Version bump only for package example

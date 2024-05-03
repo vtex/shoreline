@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.62](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.61...@vtex/shoreline@1.0.0-rc.62) (2024-05-03)
+
+### Bug Fixes
+
+- **shoreline:** build step ([83aa60c](https://github.com/vtex/shoreline/commit/83aa60c1a0d1f967499748975d52aa369476a0d1))
+
+### Features
+
+- **pnpm:** downgrade to 8 ([58e2cf3](https://github.com/vtex/shoreline/commit/58e2cf33456e5c740c34ebfede984955e624a056))
+- **shoreline:** join shoreline components, date, and primitives ([0055a83](https://github.com/vtex/shoreline/commit/0055a83c517692a25b5e1377577be0cbf20c42e9))
+- **shoreline:** merge components into shoreline ([2757752](https://github.com/vtex/shoreline/commit/2757752071178d67d9bcf1ab2026c139f3d8cc65))
+- **storybook:** update to version 8 ([482a145](https://github.com/vtex/shoreline/commit/482a1453d762f1f5e616cd6df52590acb942dd1f))
+- **sunrise:** join theme under shoreline ([546cbba](https://github.com/vtex/shoreline/commit/546cbbadf7c37ebe71ff2914d9efac6bfb4f5273))
+- **sunrise:** remove package ([d33e549](https://github.com/vtex/shoreline/commit/d33e549f52ef1ddfc53f9363c4d28f73bfb3fdde))
+
 # [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.60...@vtex/shoreline@1.0.0-rc.61) (2024-04-30)
 
 **Note:** Version bump only for package @vtex/shoreline

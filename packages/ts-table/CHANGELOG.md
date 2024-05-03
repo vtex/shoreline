@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.62](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.0-rc.61...@vtex/shoreline-ts-table@1.0.0-rc.62) (2024-05-03)
+
+### Features
+
+- **shoreline:** merge components into shoreline ([2757752](https://github.com/vtex/shoreline/commit/2757752071178d67d9bcf1ab2026c139f3d8cc65))
+
 # [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.0-rc.60...@vtex/shoreline-ts-table@1.0.0-rc.61) (2024-04-30)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table
