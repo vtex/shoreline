@@ -39,7 +39,7 @@ const permutations = generatePermutations(levels, variants)
 
 function generateHeadingPermutations() {
   return permutations.map(({ level, variant }) => (
-    <Heading level={level} variant={variant}>
+    <Heading key={`${variant}-${level}`} level={level} variant={variant}>
       {`Level ${level}/Variant ${variant}`}
     </Heading>
   ))

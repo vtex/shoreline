@@ -68,7 +68,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       </div>
       <Popover
         getAnchorRect={() => {
-          if (anchorRef && anchorRef.current) {
+          if (anchorRef?.current) {
             return anchorRef.current.getBoundingClientRect()
           }
 

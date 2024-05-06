@@ -38,9 +38,8 @@ export function Show() {
     <Grid columns={`repeat(${variants.length}, 1fr)`}>
       {permutations.map((permutation) => {
         return (
-          <GridCell>
+          <GridCell key={`${permutation.size}-${permutation.variant}`}>
             <IconButton
-              key={`${permutation.size}-${permutation.variant}`}
               label="Delete"
               size={permutation.size}
               variant={permutation.variant}

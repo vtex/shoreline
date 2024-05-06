@@ -116,7 +116,7 @@ export function AsField() {
   )
 }
 
-export function Error() {
+export function WithError() {
   return (
     <Field error>
       <Label>Favorite fruit</Label>

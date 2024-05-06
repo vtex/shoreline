@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import { Fragment, type ComponentPropsWithoutRef } from 'react'
 import type { CSSProperties } from '@vtex/shoreline-utils'
 
 import { icons, names } from './icons'
@@ -20,12 +20,12 @@ export function IconsGrid(props: IconsGridProps) {
       {resolvedIcons.map((icon) => {
         const Icon = icons[icon]
 
+        if (!icon) return <Fragment key={icon} />
+
         return (
-          !!Icon && (
-            <IconCard name={icon} key={icon}>
-              <Icon />
-            </IconCard>
-          )
+          <IconCard name={icon} key={icon}>
+            <Icon />
+          </IconCard>
         )
       })}
     </div>

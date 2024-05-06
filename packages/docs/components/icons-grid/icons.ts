@@ -569,7 +569,8 @@ const iconsInfo = [
 ]
 
 export const descriptions = iconsInfo.reduce((acc, info) => {
-  return { ...acc, [`Icon${info.name}`]: info.description }
+  acc[`Icon${info.name}`] = info.description
+  return acc
 }, {})
 
 export * as icons from '@vtex/shoreline-icons'

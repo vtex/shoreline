@@ -2,7 +2,7 @@
  * Thanks to ariakit 💙
  * https://github.com/ariakit/ariakit/blob/main/website/build-pages/reference-utils.js
  */
-import { dirname, join } from 'path'
+import { dirname, join } from 'node:path'
 import { Node, Project, ts } from 'ts-morph'
 
 const project = new Project({
@@ -264,12 +264,13 @@ function getNodeName(node) {
  */
 function getReference(filename, node, props, returnedProps) {
   const name = getNodeName(node)
-  node = Node.isVariableDeclaration(node)
+
+  const declaration = Node.isVariableDeclaration(node)
     ? node.getVariableStatementOrThrow()
     : node
 
-  props = props || getFunction(node)?.getParameters()?.at(0)
-  returnedProps =
+  const parsedProps = props || getFunction(node)?.getParameters()?.at(0)
+  const resolvedReturnedProps =
     returnedProps ||
     (name.endsWith('Store')
       ? getFunction(node)?.getReturnTypeNode()
@@ -278,11 +279,13 @@ function getReference(filename, node, props, returnedProps) {
   return {
     filename,
     name,
-    description: getDescription(node),
-    deprecated: getDeprecated(node),
-    status: getStatus(node),
-    examples: getExamples(node),
-    props: props ? getProps(props) : [],
-    returnProps: returnedProps ? getProps(returnedProps) : undefined,
+    description: getDescription(declaration),
+    deprecated: getDeprecated(declaration),
+    status: getStatus(declaration),
+    examples: getExamples(declaration),
+    props: parsedProps ? getProps(parsedProps) : [],
+    returnProps: resolvedReturnedProps
+      ? getProps(resolvedReturnedProps)
+      : undefined,
   }
 }

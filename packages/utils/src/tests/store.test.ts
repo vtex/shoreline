@@ -2,13 +2,13 @@ import { describe, test, expect, vi } from '@vtex/shoreline-test-utils'
 import { Store } from '../store'
 
 describe('store', () => {
-  test(`should set the initial value`, () => {
+  test('should set the initial value', () => {
     const store = new Store(0)
 
     expect(store.state).toEqual(0)
   })
 
-  test(`basic subscriptions should work`, () => {
+  test('basic subscriptions should work', () => {
     const store = new Store(0)
 
     const subscription = vi.fn()
@@ -29,7 +29,7 @@ describe('store', () => {
     expect(subscription).toHaveBeenCalledTimes(1)
   })
 
-  test(`setState passes previous state`, () => {
+  test('setState passes previous state', () => {
     const store = new Store(3)
 
     store.setState((v) => v + 1)
@@ -37,7 +37,7 @@ describe('store', () => {
     expect(store.state).toEqual(4)
   })
 
-  test(`updateFn acts as state transformer`, () => {
+  test('updateFn acts as state transformer', () => {
     const store = new Store(1, {
       updateFn: (v) => (updater) => Number(updater(v)),
     })

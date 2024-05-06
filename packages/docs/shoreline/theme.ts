@@ -8,5 +8,6 @@ export const theme = parseTokens({
 const tokens = Object.keys(theme)
 
 export const variables = tokens.reduce((acc, token) => {
-  return { ...acc, [token.replace('$', '--sl-')]: theme[token] }
+  acc[token.replace('$', '--sl-')] = theme[token]
+  return acc
 }, {})

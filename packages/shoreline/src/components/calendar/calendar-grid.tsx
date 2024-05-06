@@ -5,6 +5,7 @@ import { useLocale } from '../locale'
 import { getWeeksInMonth } from '../utils'
 import { CalendarCell } from './calendar-cell'
 import { useCalendarContext } from './calendar-provider'
+import { Fragment } from 'react'
 
 /**
  * Grid of a calendar
@@ -23,23 +24,23 @@ export function CalendarGrid(props: CalendarGridProps) {
     <table data-sl-calendar-grid {...gridProps}>
       <thead data-sl-calendar-grid-header {...headerProps}>
         <tr>
-          {weekDays.map((day, index) => (
-            <th key={index}>{day}</th>
+          {weekDays.map((day) => (
+            <th key={day}>{day}</th>
           ))}
         </tr>
       </thead>
       <tbody>
         {[...new Array(weeksInMonth).keys()].map((weekIndex) => (
           <tr key={weekIndex}>
-            {store.state
-              .getDatesInWeek(weekIndex)
-              .map((date: any, i: number) =>
-                date ? (
-                  <CalendarCell key={i} date={date} />
+            {store.state.getDatesInWeek(weekIndex).map((date, index) => (
+              <Fragment key={index}>
+                {date ? (
+                  <CalendarCell date={date} />
                 ) : (
-                  <td data-sl-calendar-cell key={i} />
-                )
-              )}
+                  <td data-sl-calendar-cell />
+                )}
+              </Fragment>
+            ))}
           </tr>
         ))}
       </tbody>

@@ -21,7 +21,7 @@ export function Default() {
   )
 }
 
-export function Error() {
+export function WithError() {
   return (
     <Field error>
       <Label>Time</Label>
