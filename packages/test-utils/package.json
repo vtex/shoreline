@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-test-utils",
-  "version": "1.0.0-rc.64",
+  "version": "1.0.0-rc.65",
   "description": "Shoreline test utilities",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -10,7 +10,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",

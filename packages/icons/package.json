@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-icons",
-  "version": "1.0.0-rc.64",
+  "version": "1.0.0-rc.65",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -8,7 +8,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "require": "./dist/index.js",

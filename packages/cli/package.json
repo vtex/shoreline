@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-cli",
-  "version": "1.0.0-rc.64",
+  "version": "1.0.0-rc.65",
   "description": "Shoreline cli",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -20,7 +20,12 @@
       "import": "./dist/index.mjs"
     }
   },
-  "files": ["dist", "src", "bin", "bin.js"],
+  "files": [
+    "dist",
+    "src",
+    "bin",
+    "bin.js"
+  ],
   "engines": {
     "node": ">=16"
   },
@@ -31,7 +36,7 @@
     "@types/node": "20.4.5"
   },
   "dependencies": {
-    "@vtex/shoreline-css": "^1.0.0-rc.64",
+    "@vtex/shoreline-css": "^1.0.0-rc.65",
     "commander": "11.0.0"
   }
 }
