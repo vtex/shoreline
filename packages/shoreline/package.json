@@ -8,9 +8,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -33,7 +31,8 @@
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
     "build:css": "postcss ./src/themes/sunrise/index.scss -o dist/themes/sunrise/styles.css",
     "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.scss -o dist/themes/sunrise/styles-unlayered.css",
-    "theme": "shoreline css"
+    "theme": "shoreline css",
+    "transform": "shoreline theme -f src/themes/sunrise/theme.css -o test.css"
   },
   "repository": {
     "directory": "packages/shoreline",

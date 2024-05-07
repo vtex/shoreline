@@ -17,9 +17,7 @@
       "import": "./dist/index.mjs"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "engines": {
     "node": ">=18"
   },
@@ -38,6 +36,8 @@
     "fs-extra": "11.1.1",
     "postcss": "8.4.27",
     "postcss-preset-env": "9.3.0",
-    "prettier": "3.0.0"
+    "prettier": "3.0.0",
+    "browserslist": "4.23.0",
+    "lightningcss": "1.24.1"
   }
 }
