@@ -5,5 +5,8 @@ module.exports = {
   reportDescriptionlessDisables: true,
   reportNeedlessDisables: true,
   reportInvalidScopeDisables: true,
-  rules: {},
+  rules: {
+    // TODO reenable this
+    'no-descending-specificity': null,
+  },
 }

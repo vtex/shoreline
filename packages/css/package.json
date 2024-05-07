@@ -22,7 +22,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "devDependencies": {
     "@types/cssesc": "3.0.0",

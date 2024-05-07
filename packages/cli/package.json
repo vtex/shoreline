@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --format=esm,cjs --dts --no-splitting --shims",
+    "dev": "tsup src --format=esm,cjs --dts --no-splitting --shims --watch",
     "cli": "node ./bin.js"
   },
   "devDependencies": {

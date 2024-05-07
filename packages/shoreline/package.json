@@ -24,15 +24,14 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__ && pnpm run theme",
+    "prebuild": "rm -rf dist && rm -rf __themes__ && pnpm run theme",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
     "dev:css": "pnpm run build:css -w",
     "dev:css-unlayered": "pnpm run build:css-unlayered -w",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
-    "build:css": "postcss ./src/themes/sunrise/index.scss -o dist/themes/sunrise/styles.css",
-    "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.scss -o dist/themes/sunrise/styles-unlayered.css",
-    "theme": "shoreline css",
-    "transform": "shoreline theme -f src/themes/sunrise/theme.css -o test.css"
+    "build:css": "lightningcss --bundle --targets '>= 0.25%' ./src/themes/sunrise/index.css -o dist/themes/sunrise/styles.css",
+    "build:css-unlayered": "lightningcss --bundle --targets '>= 0.25%' ./src/themes/sunrise/index-unlayered.css -o dist/themes/sunrise/styles-unlayered.css",
+    "theme": "shoreline theme -f src/themes/sunrise/theme.css -o __themes__/sunrise.css"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -62,7 +61,8 @@
     "postcss-preset-env": "9.3.0",
     "postcss-scss": "4.0.9",
     "react-hook-form": "7.48.2",
-    "react-window": "1.8.10"
+    "react-window": "1.8.10",
+    "lightningcss-cli": "1.24.1"
   },
   "dependencies": {
     "@ariakit/react": "0.4.5",

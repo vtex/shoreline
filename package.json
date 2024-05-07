@@ -94,7 +94,8 @@
   },
   "lint-staged": {
     "package.json": ["biome check --apply"],
-    "*.{ts,tsx,js,jsx,json}": "biome check --apply"
+    "*.{ts,tsx,js,jsx,json}": "biome check --apply",
+    "*.css": "stylelint --fix"
   },
   "config": {
     "commitizen": {

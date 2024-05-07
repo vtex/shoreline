@@ -5,8 +5,6 @@ import fs from 'fs-extra'
 
 const targets = browserslistToTargets(browserslist('>= 0.25%'))
 
-const themes = new Map()
-
 interface Props {
   filepath: string
   out: string
@@ -27,29 +25,23 @@ export function theme(props: Props) {
       },
     },
     visitor: {
-      Rule: {
-        custom: {
-          theme(rule) {
-            themes.set(rule.prelude.value, rule.body.value)
+      Selector(selectors) {
+        const [themeSelector] = selectors
 
-            return {
-              type: 'layer-block',
-              value: {
-                name: ['theme'],
-                loc: rule.loc,
-                rules: rule.body.value,
-              },
-            }
-          },
-        },
-      },
-      Selector() {
-        return [
-          {
-            type: 'pseudo-class',
-            kind: 'root',
-          },
-        ]
+        if (
+          themeSelector.type === 'attribute' &&
+          themeSelector.name === 'data-sl-theme' &&
+          themeSelector.operation?.operator === 'equal'
+        ) {
+          return [
+            {
+              type: 'pseudo-class',
+              kind: 'root',
+            },
+          ]
+        }
+
+        throw new Error('A new theme must be declared under [data-sl-theme]')
       },
     },
   })

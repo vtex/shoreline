@@ -1,0 +1,6 @@
+@layer sl-reset, sl-base, sl-tokens, sl-components;
+
+@import '../baseline/reset.css' layer(sl-reset);
+@import '../baseline/base.css' layer(sl-base);
+@import '../../../__themes__/sunrise.css' layer(sl-tokens);
+@import '../baseline/components/index.css' layer(sl-components);
