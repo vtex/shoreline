@@ -15,6 +15,9 @@ import styles from './grid.module.css'
 
 export function TokensGrid(props: TokensTableProps) {
   const { foundation = 'color' } = props
+  console.log({
+    foundation,
+  })
 
   return (
     <div
@@ -26,7 +29,11 @@ export function TokensGrid(props: TokensTableProps) {
       <Head>CSS Variable</Head>
       <Head>Value</Head>
       {foundation === 'breakpoint' ? null : <Head>Preview</Head>}
+
       {getFoundationTokens(foundation).map((token) => {
+        console.log({
+          token,
+        })
         const {
           name,
           variable,

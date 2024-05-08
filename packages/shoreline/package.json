@@ -26,8 +26,8 @@
   "scripts": {
     "prebuild": "rm -rf dist && rm -rf __themes__ && pnpm run theme",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
-    "dev:css": "pnpm run build:css -w",
-    "dev:css-unlayered": "pnpm run build:css-unlayered -w",
+    "dev:css": "lightningcss --bundle --watch --targets '>= 0.25%' ./src/themes/sunrise/index.css -o dist/themes/sunrise/styles.css",
+    "dev:css-unlayered": "lightningcss --bundle --watch --targets '>= 0.25%' ./src/themes/sunrise/index-unlayered.css -o dist/themes/sunrise/styles-unlayered.css",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
     "build:css": "lightningcss --bundle --targets '>= 0.25%' ./src/themes/sunrise/index.css -o dist/themes/sunrise/styles.css",
     "build:css-unlayered": "lightningcss --bundle --targets '>= 0.25%' ./src/themes/sunrise/index-unlayered.css -o dist/themes/sunrise/styles-unlayered.css",

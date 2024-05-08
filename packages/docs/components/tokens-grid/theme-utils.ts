@@ -1,9 +1,9 @@
-import { theme } from '../../shoreline/theme'
+import { presetSunrise } from '@vtex/shoreline'
 
 const tokenPrefix = '--sl-'
 
 export function getFoundationTokens(foundation: Foundation) {
-  const tokens = Object.keys(theme)
+  const tokens = Object.keys(presetSunrise)
 
   const foundationTokens = tokens.filter((token) => {
     if (foundation === 'border') {
@@ -16,6 +16,7 @@ export function getFoundationTokens(foundation: Foundation) {
   })
 
   if (foundation === 'typography') {
+    console.log(sanitizeTypographyTokens(foundationTokens))
     return sanitizeTypographyTokens(foundationTokens)
   }
 
@@ -42,7 +43,11 @@ function sanitizeTypographyTokens(tokens: string[]) {
   }, [])
 }
 
-export function getTokenValues(token: string, foundation: Foundation) {
+export function getTokenValues(
+  token: string,
+  foundation: Foundation,
+  theme = presetSunrise
+) {
   const resolvedFoundation = resolveFoundation(token, foundation)
 
   const name = token.replace(tokenPrefix, '$')
@@ -58,7 +63,10 @@ export function getTokenValues(token: string, foundation: Foundation) {
   }
 }
 
-function getTextValue(token: string) {
+function getTextValue(token: string, theme = presetSunrise) {
+  console.log({
+    token,
+  })
   const { font, letterSpacing } = {
     font: theme[`${token}-font`],
     letterSpacing: theme[`${token}-letter-spacing`],
