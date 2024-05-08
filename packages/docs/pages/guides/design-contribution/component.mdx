@@ -10,23 +10,23 @@ Understand how to create a Shoreline component, whether it is a new component, p
 
 ## Structure
 
-### 1. Tokens usage
+### Tokens usage
 
 - Always use Shoreline [tokens](https://shoreline.vtex.com/foundations) for all spacing, color, typography, and shadow values when building a component.
 - We do not recommend using custom values. Always thoroughly test the use of tokens before proposing anything customized.
 
-### 2. Autolayout and constraints
+### Autolayout and constraints
 
 - Apply auto layout and constraints whenever possible, ensuring responsiveness, correct spacing, and scalability in the component's application.
 - We do not recommend using Groups in components.
 
 ![Component tokens](/assets/component-tokens.png)
 
-### 3. Height and width
+### Height and width
 
 Apply definitions of max/min-height or width whenever they exist. For example, form fields always use 320px, since the mobile width is 360px and has a 20px margin on each side.
 
-### 4. Layers
+### Layers
 
 - Optimize the use of layers as much as possible.
 - Look at other components with similar elements to better understand the names already used.
@@ -38,7 +38,7 @@ Apply definitions of max/min-height or width whenever they exist. For example, f
 
 ![Component layers example](/assets/component-layers-alert.png)
 
-### 5. Variants and properties
+### Variants and properties
 
 #### Usage
 
@@ -66,13 +66,13 @@ Apply definitions of max/min-height or width whenever they exist. For example, f
 
 ## Library organization
 
-### 1. Name and description
+### Name and description
 
 - Define the name according to how the component is best known in the market and use TitleCase, without spaces between words.
 - Write the description using a maximum of two short sentences, including the component's function and, if necessary, any relevant behavior or property.
 - Use [W3C](https://www.w3.org/WAI/ARIA/apg/patterns/), [The Component Gallery](https://component.gallery/components/), [Material Design](https://m3.material.io/), and other well-established design systems as references.
 
-### 2. Component
+### Component
 
 - The documentation of a component in the [library](https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design&t=TS78wGSzUvIRBRKY-6) should always follow the [component section template](https://www.figma.com/file/1rQH2tU85kYEYRHRoAP5gZ/InnerSource-%E2%80%93-Design-Templates?type=design&node-id=23-28325&mode=design&t=5JmOPDBymodF7bUk-4). Follow the instructions included in the template.
 - Follow the alphabetical order to organize the sections of the components, including the order of the layers.
@@ -99,11 +99,11 @@ Apply definitions of max/min-height or width whenever they exist. For example, f
 
 All components must have documentation on the [Shoreline website](https://shoreline.vtex.com/components).
 
-### 1. Related components
+### Related components
 
 Define the related components that appear on the main page of a component by answering the question: *which other components have an application that may generate doubt regarding the new component?* For example, there may be confusion between the application of a Button and an IconButton, so the IconButton is included as a [related component](https://shoreline.vtex.com/components/button#related-components) of the Button.
 
-### 2. Best practices
+### Best practices
 
 - Visual components should always have Best practices documentation.
 - Look at other components to better understand the patterns.
