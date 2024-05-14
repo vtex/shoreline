@@ -1,22 +1,16 @@
 # Development guide
 
-## Semantic versioning
+Before starting the development be sure to install and build the project dependencies.
 
-We follow [semantic versioning](https://semver.org/) which means that we release patch versions for bug fixes, minor version for features and major for breaking changes.
-
-Our release workflow is automated and to help us following best practices during development we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) which adds a semantic pattern to commit messages representing the kind of change you are applying, whether is a bug, feature, breaking change or another type of change.
-
-You can benefit of that by running the following command
-
-```sh
-pnpm commit
+```bash
+pnpm i && pnpm build
 ```
 
-## Developing a component
+## Implement a component
 
-1. Create a component
+1. Generate from template
 
-You can use the create component script as template, this command will generate the component skeleton with all necessary files, after that you can start developing the component. To use it just run the following command.
+We have a command that generates the component with all necessary files, after that you can start developing the component. To use it just run the following command.
 
 ```sh
 pnpm gen:component
@@ -24,7 +18,7 @@ pnpm gen:component
 
 2. Run storybook
 
-We use [Storybook](https://storybook.js.org/) as a playground to help in the development process of components in Shoreline. To use it just run the following command.
+We use [Storybook](https://storybook.js.org/) as a playground to help in the development process of components in Shoreline. It's really helpful since you can see all changes applied in the story. To use it just run the following command.
 
 ```sh
 pnpm dev:storybook
@@ -52,7 +46,115 @@ Chromatic is also the tool responsible for run the visual regression tests, by c
 
 ## What about documentation?
 
-[WIP]
+We use [Nextra](https://nextra.site/) to write Shoreline documentation. The component documentation is written under the [packages/docs/pages/components](https://github.com/vtex/shoreline/tree/main/packages/docs/pages/components) folder and is generated partially automatically during the build process, you can check the [scripts](https://github.com/vtex/shoreline/tree/main/packages/docs/scripts) under the docs package to see how it works.
+
+In order to make your component documentation available in the site you must follow some conventions.
+
+### Props
+
+1. Every new prop that aren't HTML native must be under the `[YourComponent]Options` interface.
+2. Every property must have a JSDoc with a description.
+3. Add the files that must have the documentation generated in the [props script](https://github.com/vtex/shoreline/blob/main/packages/docs/scripts/build-props.mjs#L10).
+
+For example, in the button component we have something like that:
+
+```ts
+interface ButtonOptions {
+  /**
+   * Button contents
+   */
+  children: ReactNode;
+  /**
+   * Change between color combinations.
+   * @default 'secondary'
+   */
+  variant: "primary" | "secondary" | "tertiary";
+}
+```
+
+### Component
+
+Every component must have a JSDoc with a description of what the component represents and an example of the usage.
+
+For example, in the button component we have something like that:
+
+```ts
+/**
+ * Buttons with labels represent the most important actions that users
+ * frequently trigger. They can vary in prominence and can include an icon.
+ * @status stable
+ * @example
+ * <Button>Action label</Button>
+ */
+export function Button() { ... }
+```
+
+### Examples
+
+The examples are implemented under the [packages/docs/examples](https://github.com/vtex/shoreline/tree/main/packages/docs/examples) folder, you can create as many examples as necessary to your component.
+
+### Documentation file
+
+In this file is where you will get together the generated documentation with the written one in the examples, be sure to cover all the sections in the template below:
+
+```md
+# Component name
+
+## Examples
+
+## Required props
+
+## Optional props
+
+## Related components
+```
+
+In this example you can check how the button documentation looks like in the end:
+
+```md
+# Button
+
+<!-- It shows the component description written in the component file -->
+<ComponentDescription name="button" />
+<!-- It shows the button.tsx example written in the examples folder -->
+<Preview name="button" />
+
+## Examples
+
+### Variants
+
+<!-- It shows the button-variants.tsx example written in the examples folder -->
+<Preview name="button-variants" />
+
+## Required props
+
+<!-- It shows all the required props in the ButtonOptions interface -->
+<PropsDocs name="button" required />
+
+## Optional props
+
+<!-- It shows all the optional props in the ButtonOptions interface -->
+<PropsDocs name="button" />
+
+## Related components
+
+<ComponentSummaryGrid>
+  <!-- It shows a link card reference to the Link component -->
+  <ComponentSummary name="link" />
+</ComponentSummaryGrid>
+```
+
+## Semantic versioning
+
+We follow [semantic versioning](https://semver.org/) which means that we release patch versions for bug fixes, minor version for features and major for breaking changes.
+
+Our release workflow is automated and to help us following best practices during development we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) which adds a semantic pattern to commit messages representing the kind of change you are applying, whether is a bug, feature, breaking change or another type of change.
+
+You can benefit of that by running the following command
+
+```sh
+pnpm commit
+```
 
 ## How does our CI/CD works?
 

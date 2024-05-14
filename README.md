@@ -6,12 +6,7 @@ Shoreline is a set of tools designed specifically to enhance the experience of d
 
 - [Install and build dependencies](#install-and-build-dependencies)
 - [Run a command](#run-a-command)
-  - [Components](#components)
-    - [What about tests?](#what-about-tests)
-    - [Where does all Storybook stories go?](#where-does-all-storybook-stories-go)
-- [How does our CI/CD works?](#how-does-our-cicd-works)
-  - [Pull Request workflow](#pull-request-workflow)
-  - [Release workflow](#release-workflow)
+- [Contribute to this repo](#contribute-to-this-repo)
 
 ## Install and build dependencies
 
@@ -30,4 +25,4 @@ pnpm dev:docs # [docs package] runs the docs website
 
 ## Contribute to this repo
 
-Pull requests are welcome, please check our [development guide](https://github.com/vtex/shoreline/blob/main/.github//DEVELOPMENT_GUIDE.md)!
+Pull requests are welcome, please check our [development guide](https://github.com/vtex/shoreline/blob/main/.github/DEVELOPMENT_GUIDE.md)!
