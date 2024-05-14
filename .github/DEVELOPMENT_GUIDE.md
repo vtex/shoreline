@@ -1,12 +1,19 @@
 # Development guide
 
+- [Implement a component](#install-and-build-dependencies)
+- [Write tests](#write-tests)
+- [Write documentation](#write-documentation)
+- [Commit convention](#commit-convention)
+- [How does our CI/CD works?](#how-does-our-cicd-works)
+- [Usefull commands](#usefull-commands)
+
+## Implement a component
+
 Before starting the development be sure to install and build the project dependencies.
 
 ```bash
 pnpm i && pnpm build
 ```
-
-## Implement a component
 
 1. Generate from template
 
@@ -28,7 +35,7 @@ pnpm dev:storybook
 
 Make sure that you read our [Storybook guidelines](https://github.com/vtex/shoreline/issues/1455) before you start developing components.
 
-## What about tests?
+## Write tests
 
 All Shoreline components are tested by default and we have three types of tests:
 
@@ -44,7 +51,7 @@ We use [Chromatic](https://www.chromatic.com/) to power our Storybook documentat
 
 Chromatic is also the tool responsible for run the visual regression tests, by comparing the stable stories with the new ones after a change is made. We need to make a responsible use of this tool, so we take snapshots of our components from a single story containing all possible variations of a component, instead of taking snapshots of every single story. This is a good practice that helps us keep our Storybook documentation lean and easy to navigate.
 
-## What about documentation?
+## Write documentation
 
 We use [Nextra](https://nextra.site/) to write Shoreline documentation. The component documentation is written under the [packages/docs/pages/components](https://github.com/vtex/shoreline/tree/main/packages/docs/pages/components) folder and is generated partially automatically during the build process, you can check the [scripts](https://github.com/vtex/shoreline/tree/main/packages/docs/scripts) under the docs package to see how it works.
 
@@ -144,7 +151,7 @@ In this example you can check how the button documentation looks like in the end
 </ComponentSummaryGrid>
 ```
 
-## Semantic versioning
+## Commit convention
 
 We follow [semantic versioning](https://semver.org/) which means that we release patch versions for bug fixes, minor version for features and major for breaking changes.
 
@@ -187,3 +194,15 @@ Our [Release workflow](.github/workflows/release.yml) runs the following steps:
 5. Retrieves the build artifacts from the cache
 6. Generates a new version of the docs website from the retrieved build artifacts
 7. Generates a release note
+
+## Usefull commands
+
+- `pnpm test` which runs all the tests in the repository.
+- `pnpm test watch` to run tests in watch mode.
+- `pnpm dev:docs` which runs the documentation site.
+- `pnpm build:docs` which builds the docs package.
+- `pnpm dev:storybook` which runs the storybook.
+- `pnpm build:storybook` which builds the storybook package.
+- `pnpm format` which runs prettier and formats the code.
+- `pnpm lint` which runs the eslint and stylelint in the code.
+- `pnpm commit` which runs the commit using the commit convention.
