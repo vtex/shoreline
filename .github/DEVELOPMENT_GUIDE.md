@@ -31,9 +31,7 @@ We use [Storybook](https://storybook.js.org/) as a playground to help in the dev
 pnpm dev:storybook
 ```
 
-<!-- TODO: Maybe update the Storybook guidelines in case they move to a GH discussion or docs -->
-
-Make sure that you read our [Storybook guidelines](https://github.com/vtex/shoreline/issues/1455) before you start developing components.
+Make sure that you read our [Storybook guidelines](https://github.com/vtex/shoreline/tree/main/.github/STORYBOOK_GUIDE.md) before you start developing components.
 
 ## Write tests
 
@@ -45,9 +43,7 @@ All Shoreline components are tested by default and we have three types of tests:
 
 ### Where does all Storybook stories go?
 
-<!-- TODO: Add link to our public Storybook URL here once we upgrade Chromatic -->
-
-We use [Chromatic](https://www.chromatic.com/) to power our Storybook documentation.
+We use [Chromatic](https://www.chromatic.com/) to power our Storybook documentation and [you can find our storybook here](https://shoreline.storybook.vtex.com).
 
 Chromatic is also the tool responsible for run the visual regression tests, by comparing the stable stories with the new ones after a change is made. We need to make a responsible use of this tool, so we take snapshots of our components from a single story containing all possible variations of a component, instead of taking snapshots of every single story. This is a good practice that helps us keep our Storybook documentation lean and easy to navigate.
 
@@ -149,6 +145,16 @@ In this example you can check how the button documentation looks like in the end
   <!-- It shows a link card reference to the Link component -->
   <ComponentSummary name="link" />
 </ComponentSummaryGrid>
+```
+
+### Running locally
+
+You can test your changes by running the documentation locally, just make sure to run the following commands before:
+
+```sh
+pnpm install && build
+pnpm build:docs
+pnpm dev:docs
 ```
 
 ## Commit convention
