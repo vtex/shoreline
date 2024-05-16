@@ -11,7 +11,8 @@
       "packages/docs/__examples__/*",
       "packages/docs/__props__/*",
       ".next",
-      "dist"
+      "dist",
+      "package.json"
     ]
   },
   "organizeImports": {
