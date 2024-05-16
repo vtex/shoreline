@@ -1,0 +1,102 @@
+import { Steps } from 'nextra/components'
+
+# Development guideline
+
+Before starting the development be sure to install and build the project dependencies.
+
+```bash
+pnpm i && pnpm build
+```
+
+## Implement a component
+
+<Steps>
+
+### Generate from template
+
+We have a command that generates all the necessary files to kick off the component development. To use it just run the following command.
+
+```sh
+pnpm gen:component
+```
+
+### Run storybook
+
+We use [Storybook](https://storybook.js.org/) as a playground to help in the development process of components in Shoreline. It's really helpful since you can see all changes applied in the story. To use it just run the following command.
+
+```sh
+pnpm dev:storybook
+```
+
+### Development
+
+You can follow the [Component model guideline](/guides/engineering-contribution/component-model) as a guidance to develop your component. There you will understand how to structure your component, whether they have state, composition, or just a simple component.
+
+</Steps>
+{/* Storybook guidelines */}
+
+## Write documentation
+
+You can check [our guideline](/guides/engineering-contribution/documentation-guideline) to understand how to write Shoreline's documentation.
+
+## Write tests
+
+You can check [our guideline](/guides/engineering-contribution/test-guideline) to understand how to write Shoreline's tests.
+
+## Commit convention
+
+We follow [semantic versioning](https://semver.org/) which means that we release patch versions for bug fixes, minor version for features and major for breaking changes.
+
+Our release workflow is automated and to help us following best practices during development we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) which adds a semantic pattern to commit messages representing the kind of change you are applying, whether is a bug, feature, breaking change or another type of change.
+
+You can benefit of that by running the following command
+
+```sh
+pnpm commit
+```
+
+## Open a Pull Request
+
+{/* WIP */}
+
+## How does our CI/CD works?
+
+We use GitHub Actions to run our CI/CD. We have a robust workflow that runs every time a:
+
+1. PR is opened
+2. PR is merged to the `main` branch
+
+These workflows ensure that our code is always up to date and that we are not introducing any unexpected issues to our packages, as well as automates the process of generating the docs site, publishing new versions of our packages to NPM and deploying our storybook stories to Chromatic. Vercel takes care of deploying our docs website on a pipeline that runs in parallel with ours.
+
+### Pull Request workflow
+
+Our [Pull Request workflow](.github/workflows/pr.yml) runs the following steps:
+
+1. Validates the PR title according to semantic commit rules to ensure that we are able to generate release notes from it
+2. Builds all packages, ensuring their build is ok
+3. Lints all JavaScript, TypeScript, and CSS files
+4. Runs unit tests for all packages
+5. Run interaction tests for all components
+6. Publishes the components package to Chromatic, which in turn will run visual tests
+
+### Release workflow
+
+Our [Release workflow](.github/workflows/release.yml) runs the following steps:
+
+1. Builds all packages, ensuring their build is ok
+2. Stores the build artifacts on a temporary cache
+3. Publishes the components package to Chromatic
+4. Publishes all publishable packages to NPM
+5. Generates a release note
+
+## Usefull commands
+
+- `pnpm test` which runs all the tests in the repository.
+- `pnpm test watch` to run tests in watch mode.
+- `pnpm dev:docs` which runs the documentation site.
+- `pnpm build:docs` which builds the docs package.
+- `pnpm dev:storybook` which runs the storybook.
+- `pnpm build:storybook` which builds the storybook package.
+- `pnpm format` which runs prettier and formats the code.
+- `pnpm lint` which runs the eslint and stylelint in the code.
+- `pnpm commit` which runs the commit using the commit convention.

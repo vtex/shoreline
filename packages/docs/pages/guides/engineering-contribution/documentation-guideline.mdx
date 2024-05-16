@@ -1,0 +1,108 @@
+# Documentation guideline
+
+We use [Nextra](https://nextra.site/) to write Shoreline documentation. You can test your changes by running the documentation locally, you just need to run the following commands:
+
+```sh
+pnpm install && pnpm build
+pnpm dev:docs
+```
+
+## Component documentation
+
+All the component documentation is written under the [components folder](https://github.com/vtex/shoreline/tree/main/packages/docs/pages/components), and they are generated partially automatically during the build process, you can check the [scripts](https://github.com/vtex/shoreline/tree/main/packages/docs/scripts) in the docs package to see how this works.
+
+In order to make the component documentation available in the site you must follow some conventions described below.
+
+### Description
+
+Every component must have a JSDoc with a description of what the component represents and an example of its usage.
+
+For example, in the button component we have something like that:
+
+```ts
+/**
+ * Buttons with labels represent the most important actions that users
+ * frequently trigger. They can vary in prominence and can include an icon.
+ * @status stable
+ * @example
+ * <Button>Action label</Button>
+ */
+export function Button() { ... }
+```
+
+### Props
+
+1. Every new prop that aren't HTML native must be under the `[YourComponent]Options` interface.
+2. Every property must have a JSDoc with a description.
+3. Add the files that must have the documentation generated in the [props script](https://github.com/vtex/shoreline/blob/main/packages/docs/scripts/build-props.mjs#L10).
+
+For example, in the button component we have something like that:
+
+```ts
+interface ButtonOptions {
+  /**
+   * Button contents
+   */
+  children: ReactNode;
+  /**
+   * Change between color combinations.
+   * @default 'secondary'
+   */
+  variant: "primary" | "secondary" | "tertiary";
+}
+```
+
+### Examples
+
+The examples are implemented under the [packages/docs/examples](https://github.com/vtex/shoreline/tree/main/packages/docs/examples) folder, you can create as many examples as necessary to your component.
+
+### Documentation file
+
+In this file is where you will get together the generated documentation with the written one in the examples, be sure to cover all the sections in the template below:
+
+```md
+# Component name
+
+## Examples
+
+## Required props
+
+## Optional props
+
+## Related components
+```
+
+In this example you can check how the button documentation looks like in the end:
+
+```md
+# Button
+
+<!-- It shows the component description written in the component file -->
+<ComponentDescription name="button" />
+<!-- It shows the button.tsx example written in the examples folder -->
+<Preview name="button" />
+
+## Examples
+
+### Variants
+
+<!-- It shows the button-variants.tsx example written in the examples folder -->
+<Preview name="button-variants" />
+
+## Required props
+
+<!-- It shows all the required props in the ButtonOptions interface -->
+<PropsDocs name="button" required />
+
+## Optional props
+
+<!-- It shows all the optional props in the ButtonOptions interface -->
+<PropsDocs name="button" />
+
+## Related components
+
+<ComponentSummaryGrid>
+  <!-- It shows a link card reference to the Link component -->
+  <ComponentSummary name="link" />
+</ComponentSummaryGrid>
+```
