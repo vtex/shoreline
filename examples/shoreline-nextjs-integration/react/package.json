@@ -1,6 +1,6 @@
 {
   "name": "a-vtex-app",
-  "version": "1.0.0-rc.67",
+  "version": "1.0.0-rc.68",
   "scripts": {
     "test": "vtex-test-tools test"
   },
