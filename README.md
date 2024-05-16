@@ -25,4 +25,4 @@ pnpm dev:docs # [docs package] runs the docs website
 
 ## Contribute to this repo
 
-Pull requests are welcome, please check our [development guide](https://shoreline.vtex.com/guides/engineering-contribution/development-guideline)!
+Pull requests are welcome, please check our [development guideline](https://shoreline.vtex.com/guides/engineering-contribution/development-guideline)!
