@@ -11,7 +11,7 @@ export default {
   },
 }
 
-export function Show() {
+export function Visuals() {
   const variants: any[] = [
     'primary',
     'secondary',

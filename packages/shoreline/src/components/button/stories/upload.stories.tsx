@@ -1,10 +1,10 @@
 import { IconArrowUp } from '@vtex/shoreline-icons'
-import { VisuallyHidden } from '../../../visually-hidden'
+import { VisuallyHidden } from '../../visually-hidden'
 
-import { Button } from '../../index'
+import { Button } from '../index'
 
 export default {
-  title: 'components/button/examples',
+  title: 'components/button',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

@@ -1,7 +1,7 @@
 import { Bleed } from '../index'
 
 export default {
-  title: 'layouts/bleed',
+  title: 'components/bleed',
 }
 
 export function Show() {

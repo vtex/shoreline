@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-import { Calendar } from '../../index'
-import { getLocalTimeZone, today } from '../../../utils'
+import { Calendar } from '../index'
+import { getLocalTimeZone, today } from '../../utils'
 
 export default {
-  title: 'components/calendar/examples',
+  title: 'components/calendar',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -36,4 +36,8 @@ export function Controlled() {
       />
     </>
   )
+}
+
+export function Uncontrolled() {
+  return <Calendar />
 }
