@@ -1,3 +1,5 @@
+import { Steps } from 'nextra/components'
+
 # Component model
 
 
@@ -13,13 +15,11 @@ cloning the props to the first child instead.
 
 You can check the [Composition](/guides/composition/introduction) section to understand how it works its usage.
 
-### How to implement it?
-
 You must use the [Compose component](/components/compose) in order to implement composition within Shoreline. This component is responsible for render the
 children and pass the props to them.
 
 ```tsx
-import { Compose } from '@shoreline/components';
+import { Compose } from '@vtex/shoreline';
 
 export function ComposableButton(props) {
   const { asChild, ...restProps } = props;
@@ -33,5 +33,51 @@ export function ComposableButton(props) {
 }
 ```
 
-## Internatiolization
+## Internationalization
+
+We have internal translations to help our users by previously defining common messages and letting them use the messages.
+This way, we can ensure that the messages are consistent across the apps.
+
+You must follow 3 steps in order to implement internationalization within Shoreline:
+
+<Steps>
+
+### Messages folder
+
+Create a new folder `messages` under the component folder. This is where you will store the messages for the component.
+
+```json
+// messages/en.json file
+{
+  "admin/search-label": "Search"
+}
+```
+
+### Use the translations
+
+Use the translations inside the component by importing the `createMessageHook` function.
+
+```tsx
+import { createMessageHook } from '@vtex/shoreline'
+
+const useMessage = createMessageHook(messages)
+
+function Search(props) {
+  const getMessage = useMessage()
+
+  return <input placeholder={getMessage('admin/search-label')} {...props}/>
+}
+```
+
+### Setup crowdin
+
+Add the messages folder path to the `crowndin.yml` configuration file located in the root of the project.
+
+```yml
+files:
+  - source: /packages/shoreline/src/components/YOUR_COMPONENT/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
+```
+
+</Steps>
 
