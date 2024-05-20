@@ -1,3 +1,37 @@
 # Component model
 
-{/* WIP */}
+
+## State
+
+## Styling
+
+## Composition
+
+Composition is often useful for easily extending behavior. Shoreline relies on the children's property for this task.
+Composable components accept the `asChild` boolean property. When true, the component will not render its default DOM element,
+cloning the props to the first child instead.
+
+You can check the [Composition](/guides/composition/introduction) section to understand how it works its usage.
+
+### How to implement it?
+
+You must use the [Compose component](/components/compose) in order to implement composition within Shoreline. This component is responsible for render the
+children and pass the props to them.
+
+```tsx
+import { Compose } from '@shoreline/components';
+
+export function ComposableButton(props) {
+  const { asChild, ...restProps } = props;
+  const Composition = asChild ? Compose : 'button';
+
+  return (
+    <Composition {...restProps}>
+      {children}
+    </Composition>
+  );
+}
+```
+
+## Internatiolization
+
