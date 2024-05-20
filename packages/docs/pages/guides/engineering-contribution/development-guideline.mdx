@@ -57,7 +57,36 @@ pnpm commit
 
 ## Open a Pull Request
 
-{/* WIP */}
+When you are in a good shape to open a PR and want to get feedback from the team you can push your commits to the remote branch and open a PR.
+Our CI/CD will run all the tests and checks to ensure that your code is good to be merged.
+
+To do so, go to your terminal and run:
+
+```sh
+git add -A
+pnpm commit
+```
+
+**Commit tip**
+
+As said in the previous section, we use conventional commits to help us understand the kind of change you are applying.
+When you run the `pnpm commit` command you will be prompted to write a commit message following the pattern used in the Shoreline.
+
+After your changes are committed, run:
+
+```sh
+git push -u origin { YOUR_BRANCH_NAME }
+```
+
+In the browser, navigate to [Shoreline](https://github.com/vtex/shoreline/compare) and click the button that reads Compare & pull request.
+
+Then you can fill in the PR template and click the button that reads Create pull request.
+
+Stay up to date with your pull request, as the team will review it and give you feedback on your changes.
+To make changes to your PR, just push new commits to the branch and they will be automatically added to the PR, the steps are the same as above, the only difference is that you
+don't need to run `git push -u origin { YOUR_BRANCH_NAME }` again, instead you just need to run `git push`.
+
+Once your PR is approved, it will be merged to the main branch by a Shoreline maintainer.
 
 ## How does our CI/CD works?
 
