@@ -1,27 +1,62 @@
+import { Callout } from 'nextra/components'
+
 # Test guideline
 
 All Shoreline components are tested by default and we have three types of tests that we use to ensure the quality of our components and library.
+
+<Callout type="info">
+Keep in mind that, for components we should prioritize interactive and visual tests over unit tests since they end up being redundant if interactive tests are in place.
+Unit tests are required and more useful for changes on other packages like the utility functions.
+</Callout>
 
 ## Visual tests
 
 We use [Storybook visual testing](https://storybook.js.org/docs/writing-tests/visual-testing) to write visual tests.
 
 [Chromatic](https://www.chromatic.com/) is the tool responsible for run the visual regression tests whenever a change is made, by comparing the stable
-stories with the new ones. We need to make a responsible use of this tool, so we take snapshots of our
-components from a single story containing all possible variations of a component, instead of taking snapshots of every single story.
+stories with the new ones. Due to the usage limits we need to make a responsible use of this tool, so we take snapshots of our
+components from a single story containing all possible variations of a component, instead of taking snapshots of every single story. This is also a good practice
+that helps us keep our Storybook documentation lean and easy to navigate.
 
-This is a good practice that helps us keep our Storybook documentation lean and easy to navigate.
+**What you will test here**
+
+- The visual aspect of the component
+- The component variations
+- The component states
 
 ## Interactive tests
 
 We use [Storybook play functions](https://storybook.js.org/docs/writing-stories/play-function/) to write interactive tests.
 
+**What you will test here**
+
+- The component behavior
+- The component interactions
+
 ## Unit tests
 
-We use [Vitest](https://vitest.dev/) to write unit tests.
+We provide a test utility package that helps us to test your code, which under the hood uses [Vitest](https://vitest.dev/guide/).
 
-### Where does all Storybook stories go?
+To use it you just need to import from `@vtex/shoreline-test-utils`, check the example below:
 
-We use [Chromatic](https://www.chromatic.com/) to power our Storybook documentation and [you can find our storybook here](https://shoreline.storybook.vtex.com).
+```ts
+// sum.js
+// export function sum(a, b) {
+//   return a + b
+// }
 
-Chromatic is also
+import { expect, test } from '@vtex/shoreline-test-utils'
+import { sum } from './sum'
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+})
+```
+
+**What you will test here**
+
+- A function behavior
+- A lint rule
+
+Since many of our tests are visual and interactive, be sure to read the [Storybook guideline]() before writing tests as
+it contains important information about how to write stories in Shoreline.
