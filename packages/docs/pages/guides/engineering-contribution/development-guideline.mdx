@@ -57,7 +57,86 @@ pnpm commit
 
 ## Open a Pull Request
 
-{/* WIP */}
+When you are in a good shape to open a PR and want to get feedback from the team you can push your commits to the remote branch and open a PR.
+Our CI/CD will run all the tests and checks to ensure that your code is good to be merged.
+
+<Steps>
+
+### Commit your changes
+
+To do so, go to your terminal and run:
+
+```sh
+git add -A
+pnpm commit
+```
+
+**Commit tip**
+
+As said in the previous section, we use conventional commits to help us understand the kind of change you are applying.
+When you run the `pnpm commit` command you will be prompted to write a commit message following the pattern used in the Shoreline.
+
+### Push your changes
+
+After your changes are committed, run:
+
+```sh
+git push -u origin { YOUR_BRANCH_NAME }
+```
+
+### Open the pull request on Github
+
+In the browser, navigate to [Shoreline](https://github.com/vtex/shoreline/compare) and click the button that reads Compare & pull request.
+
+Then you can fill in the PR template and click the button that reads Create pull request.
+
+### Update your pull request
+
+Stay up to date with your pull request, as the team will review it and give you feedback on your changes.
+
+* To make changes to your PR, just push new commits to the branch and they will be automatically added to the PR, the steps are the same as above, the only difference is that you
+don't need to run `git push -u origin { YOUR_BRANCH_NAME }` again, instead you just need to run `git push`.
+* To resolve conflicts, you need to rebase your branch with the main branch.
+
+**Rebase tip**
+
+When you open a PR, it's possible that the main branch has changed since you started your work. In this case, you will
+need to rebase your branch with the main branch to ensure that your changes are up to date.
+
+To do so, follow the steps below:
+
+1. Checkout to the main branch and pull the latest changes:
+
+```sh
+git checkout main
+git pull
+```
+
+2. Checkout to your branch and rebase it with the main branch:
+
+```sh
+git checkout { YOUR_BRANCH_NAME }
+git rebase main
+```
+
+3. If there are conflicts, resolve them in your code editor and continue the rebase:
+
+```sh
+git add .
+git rebase --continue
+```
+
+4. Push the changes to your branch:
+
+```sh
+git push -f
+```
+
+### Pull request approval
+
+Once your PR is approved, it will be merged to the main branch by a Shoreline maintainer.
+
+</Steps>
 
 ## How does our CI/CD works?
 
