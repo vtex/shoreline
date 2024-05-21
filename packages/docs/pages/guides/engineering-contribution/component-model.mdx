@@ -9,14 +9,14 @@ In this section you can find detailed information about how to handle components
 All Shoreline components are [Controlled](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components). This means that they are responsible for managing their own state and exposing
 it to the parent component. This way, the parent component can control the state if necessary.
 
-You can check the [State Management](/guides/state-management) section to understand how it works its usage.
+You can check the [State Management section](/guides/state-management) to understand how it works and how to use it.
 
 ## Styling
 
 The way we style component in Shoreline is equal the way we recommend our users to style their components. The only difference is that
 we use use [Sass](https://sass-lang.com/) to apply css. The theme and the styles are defined within the `shoreline` package, [you can check it here](https://github.com/vtex/shoreline/tree/main/packages/shoreline/src/themes/sunrise)
 
-Go for the [Styling section](/guides/styling/introduction) section to get a detailed information and understand how styling works in Shoreline.
+Go for the [Styling section](/guides/styling/introduction) to get a detailed information and understand how styling works in Shoreline.
 
 ## Composition
 
@@ -24,7 +24,7 @@ Composition is often useful for easily extending behavior. Shoreline relies on t
 Composable components accept the `asChild` boolean property. When true, the component will not render its default DOM element,
 cloning the props to the first child instead.
 
-You can check the [Composition](/guides/composition/introduction) section to understand how it works its usage.
+You can check the [Composition section](/guides/composition/introduction) to understand how it works and how to use it.
 
 You must use the [Compose component](/components/compose) in order to implement composition within Shoreline. This component is responsible for render the
 children and pass the props to them.
