@@ -7,10 +7,9 @@ import { parseDate } from '../../utils'
 
 export default {
   title: 'date/date-field',
-}
-
-export function Default() {
-  return <DateField label="Date" />
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Controlled() {

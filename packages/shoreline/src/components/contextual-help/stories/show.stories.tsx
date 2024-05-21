@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { ContextualHelp } from '../index'
 import { Text } from '../../text'
 import { Stack } from '../../stack'
-import './contextual-help-stories.css'
+import './stories.css'
 
 export default {
   title: 'components/contextual-help',

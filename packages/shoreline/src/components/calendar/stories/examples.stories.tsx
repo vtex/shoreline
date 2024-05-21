@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { Stack } from '../../../stack'
 
-import { DatePicker } from '../../index'
-import { getLocalTimeZone, today } from '../../../utils'
+import { Calendar } from '../index'
+import { getLocalTimeZone, today } from '../../utils'
 
 export default {
-  title: 'components/date-picker/examples',
+  title: 'components/calendar/examples',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -17,9 +16,10 @@ export function Controlled() {
   const [focusedValue, setFocusedValue] = useState(now)
 
   return (
-    <Stack>
+    <>
       <p>Selected Date: {value.toString()}</p>
       <p>Focused Date: {focusedValue.toString()}</p>
+
       <button
         onClick={() => {
           setValue(now)
@@ -28,7 +28,16 @@ export function Controlled() {
       >
         Today
       </button>
-      <DatePicker value={value} onChange={setValue} />
-    </Stack>
+      <Calendar
+        value={value}
+        onChange={setValue}
+        focusedValue={focusedValue}
+        onFocusChange={setFocusedValue}
+      />
+    </>
   )
+}
+
+export function Uncontrolled() {
+  return <Calendar />
 }

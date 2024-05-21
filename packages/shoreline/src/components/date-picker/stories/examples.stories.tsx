@@ -54,3 +54,15 @@ export function Locale() {
     </LocaleProvider>
   )
 }
+
+
+export function AsField() {
+  return (
+    <Field error>
+      <Label>Date</Label>
+      <DatePicker />
+      <FieldDescription>The event starting date</FieldDescription>
+      <FieldError>Something went wrong</FieldError>
+    </Field>
+  )
+}

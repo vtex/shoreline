@@ -1,7 +1,7 @@
 import { DatePicker } from '../index'
 
 export default {
-  title: 'components/date-picker',
+  title: 'date/date-picker',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

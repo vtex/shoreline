@@ -4,7 +4,7 @@ import { Alert } from '../index'
 import { Text } from '../../text'
 
 export default {
-  title: 'components/alert',
+  title: 'components/alert/examples',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

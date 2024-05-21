@@ -4,6 +4,11 @@ import { Input } from '../index'
 
 export default {
   title: 'components/input/examples',
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 }
 
 export function Controlled() {

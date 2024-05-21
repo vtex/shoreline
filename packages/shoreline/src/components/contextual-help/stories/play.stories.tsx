@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import type { ContextualHelpProps } from '../index'
 import { ContextualHelp } from '../index'
 import { Stack } from '../../stack'
-import './contextual-help-stories.css'
+import './stories.css'
 
 type BasePlacement = 'top' | 'bottom' | 'left' | 'right'
 type Placement =
