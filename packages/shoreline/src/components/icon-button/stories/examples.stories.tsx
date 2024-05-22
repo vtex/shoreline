@@ -5,7 +5,7 @@ import { Stack } from '../../stack'
 import { IconButton } from '../index'
 
 export default {
-  title: 'components/icon-button/examples',
+  title: 'components/icon-button',
   parameters: {
     chromatic: {
       disableSnapshot: true,

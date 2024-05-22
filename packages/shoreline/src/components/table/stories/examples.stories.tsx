@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'components/table/examples',
+  title: 'components/table',
   parameters: {
     chromatic: {
       disableSnapshot: true,

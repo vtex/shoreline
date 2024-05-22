@@ -3,7 +3,7 @@ import React from 'react'
 import { Input } from '../index'
 
 export default {
-  title: 'components/input/examples',
+  title: 'components/input',
   parameters: {
     chromatic: {
       disableSnapshot: true,

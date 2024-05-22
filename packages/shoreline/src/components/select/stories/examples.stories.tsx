@@ -23,7 +23,7 @@ import {
 import { LocaleProvider } from '../../locale'
 
 export default {
-  title: 'components/select/examples',
+  title: 'components/select',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

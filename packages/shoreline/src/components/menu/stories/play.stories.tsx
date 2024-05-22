@@ -38,6 +38,9 @@ export default {
     variant: 'secondary',
     iconOnly: false,
   },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 }
 
 export function Play(args: MenuProps) {

@@ -2,7 +2,7 @@ import { Label } from '../index'
 import { LocaleProvider } from '../../locale'
 
 export default {
-  title: 'components/label/examples',
+  title: 'components/label',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

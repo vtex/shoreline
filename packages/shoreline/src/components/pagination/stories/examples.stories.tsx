@@ -6,7 +6,7 @@ import { Pagination } from '../index'
 import { LocaleProvider } from '../../locale'
 
 export default {
-  title: 'components/pagination/examples',
+  title: 'components/pagination',
   parameters: {
     chromatic: {
       disableSnapshot: true,

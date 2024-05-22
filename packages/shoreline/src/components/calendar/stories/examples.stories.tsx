@@ -4,7 +4,7 @@ import { Calendar } from '../index'
 import { getLocalTimeZone, today } from '../../utils'
 
 export default {
-  title: 'components/calendar/examples',
+  title: 'components/calendar',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

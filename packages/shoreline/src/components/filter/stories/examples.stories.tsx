@@ -17,7 +17,7 @@ import { EmptyState, Text, Heading } from '../..'
 import { EmptyStateIllustration } from '../../empty-state'
 
 export default {
-  title: 'components/filter/examples',
+  title: 'components/filter',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Radio, RadioGroup, useRadioState } from '../index'
 
 export default {
-  title: 'components/radio/examples',
+  title: 'components/radio',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

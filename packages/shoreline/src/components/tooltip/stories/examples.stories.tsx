@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'components/tooltip/examples',
+  title: 'components/tooltip',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

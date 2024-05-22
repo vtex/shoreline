@@ -10,7 +10,7 @@ import {
 import { Button } from '../../button'
 
 export default {
-  title: 'components/menu/examples',
+  title: 'components/menu',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

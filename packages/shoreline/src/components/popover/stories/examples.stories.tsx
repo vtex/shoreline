@@ -3,7 +3,7 @@ import { Button } from '../../button'
 import { Popover, PopoverProvider, PopoverTrigger } from '../index'
 
 export default {
-  title: 'components/popover/examples',
+  title: 'components/popover',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

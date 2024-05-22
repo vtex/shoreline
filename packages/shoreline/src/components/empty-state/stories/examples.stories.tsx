@@ -9,7 +9,7 @@ import { Filter, FilterProvider, FilterTrigger } from '../../filter'
 import { Popover } from '../../popover'
 
 export default {
-  title: 'components/empty-state/examples',
+  title: 'components/empty-state',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

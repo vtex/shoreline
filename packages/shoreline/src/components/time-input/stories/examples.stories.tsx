@@ -8,7 +8,7 @@ import { TimeInput } from '../index'
 import { Time } from '../../utils'
 
 export default {
-  title: 'date/time-input/examples',
+  title: 'date/time-input',
 }
 
 export function Default() {

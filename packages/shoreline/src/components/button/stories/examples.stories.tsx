@@ -4,7 +4,7 @@ import { Button } from '../index'
 import { VisuallyHidden } from '../../visually-hidden'
 
 export default {
-  title: 'components/button/examples',
+  title: 'components/button',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

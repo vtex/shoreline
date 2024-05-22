@@ -10,7 +10,7 @@ import { Text } from '../../text'
 import { Field, FieldDescription, FieldError } from '../../field'
 
 export default {
-  title: 'components/checkbox/examples',
+  title: 'components/checkbox',
   parameters: {
     chromatic: {
       disableSnapshot: true,

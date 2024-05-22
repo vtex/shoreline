@@ -5,7 +5,7 @@ import { Textarea } from '../index'
 import { Stack } from '../../stack'
 
 export default {
-  title: 'components/textarea/examples',
+  title: 'components/textarea',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

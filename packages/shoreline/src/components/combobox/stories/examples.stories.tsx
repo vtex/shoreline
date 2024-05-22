@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'primitives/combobox/examples',
+  title: 'primitives/combobox',
   parameters: {
     chormatic: {
       disableSnapshot: true,

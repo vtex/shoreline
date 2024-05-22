@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Text } from '../index'
 
 export default {
-  title: 'components/text/examples',
+  title: 'components/text',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

@@ -7,14 +7,14 @@ import {
   ModalFooter,
   ModalHeader,
   ModalHeading,
-} from '../../index'
+} from '../index'
 
 import '../stories.css'
-import { Button } from '../../../button'
-import { Stack } from '../../../stack'
+import { Button } from '../../button'
+import { Stack } from '../../stack'
 
 export default {
-  title: 'components/modal/examples',
+  title: 'components/modal',
   parameters: {
     chromatic: {
       disableSnapshot: true,

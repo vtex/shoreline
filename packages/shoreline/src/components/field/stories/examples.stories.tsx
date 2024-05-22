@@ -4,7 +4,7 @@ import { Label } from '../../label'
 import { Input } from '../../input'
 
 export default {
-  title: 'components/field/examples',
+  title: 'components/field',
   parameters: {
     chromatic: {
       disableSnapshot: true,

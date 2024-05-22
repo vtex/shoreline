@@ -3,7 +3,7 @@ import { Stack } from '../../stack'
 import { Button } from '../../button'
 
 export default {
-  title: 'components/toast/examples',
+  title: 'components/toast',
   parameters: {
     chromatic: { disableSnapshot: true },
   },
