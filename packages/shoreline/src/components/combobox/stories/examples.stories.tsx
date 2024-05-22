@@ -11,7 +11,7 @@ import {
 export default {
   title: 'primitives/combobox',
   parameters: {
-    chormatic: {
+    chromatic: {
       disableSnapshot: true,
     },
   },
