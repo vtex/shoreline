@@ -9,7 +9,7 @@ import {
   ModalHeading,
 } from '../index'
 
-import '../stories.css'
+import './stories.css'
 import { Button } from '../../button'
 import { Stack } from '../../stack'
 
