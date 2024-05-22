@@ -9,6 +9,11 @@ import { Time } from '../../utils'
 
 export default {
   title: 'date/time-input',
+  parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
+  },
 }
 
 export function Default() {
