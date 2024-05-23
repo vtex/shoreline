@@ -5,5 +5,5 @@ export default create({
   brandTitle: 'Shoreline',
   brandUrl: 'https://shoreline.vtex.com',
   brandImage: '/logo.svg',
-  brandTarget: '_self',
+  brandTarget: '_blank',
 })
