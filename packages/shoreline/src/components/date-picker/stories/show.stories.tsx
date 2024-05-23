@@ -1,12 +1,10 @@
+import { parseDate } from '@internationalized/date'
 import { DatePicker } from '../index'
 
 export default {
   title: 'date/date-picker',
-  parameters: {
-    chromatic: { disableSnapshot: true },
-  },
 }
 
 export function Show() {
-  return <DatePicker />
+  return <DatePicker value={parseDate('2024-07-01')} />
 }

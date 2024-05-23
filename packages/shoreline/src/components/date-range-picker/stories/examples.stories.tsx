@@ -13,7 +13,7 @@ export default {
   },
 }
 
-export function Default() {
+export function WithField() {
   return (
     <Field error>
       <Label>Event dates</Label>

@@ -1,9 +1,9 @@
 import { LocaleProvider } from '../../locale'
 
-import { DatePicker } from '../index'
+import { DateRangePicker } from '../index'
 
 export default {
-  title: 'date/date-picker',
+  title: 'date/date-range-picker',
   argTypes: {
     locale: {
       options: [
@@ -39,7 +39,7 @@ interface Args {
 export function Play(args: Args) {
   return (
     <LocaleProvider locale={args.locale}>
-      <DatePicker />
+      <DateRangePicker />
     </LocaleProvider>
   )
 }
