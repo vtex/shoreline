@@ -31,8 +31,8 @@
     "dev:css": "pnpm run build:css -w",
     "dev:css-unlayered": "pnpm run build:css-unlayered -w",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
-    "build:css": "postcss ./src/themes/sunrise/index.scss -o dist/themes/sunrise/styles.css",
-    "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.scss -o dist/themes/sunrise/styles-unlayered.css",
+    "build:css": "postcss ./src/themes/sunrise/index.css -o dist/themes/sunrise/styles.css",
+    "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.css -o dist/themes/sunrise/styles-unlayered.css",
     "theme": "shoreline css"
   },
   "repository": {
