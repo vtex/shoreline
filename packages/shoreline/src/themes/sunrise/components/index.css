@@ -1,15 +1,14 @@
-@import 'content/index.scss';
-@import 'field/index.scss';
-@import 'filter/index.scss';
-@import 'grid/index.scss';
-@import 'menu/index.scss';
-@import 'modal/index.scss';
-@import 'page/index.scss';
-@import 'radio/index.scss';
-@import 'tab/index.scss';
-@import 'table/index.scss';
-@import 'toast/index.scss';
-
+@import 'content.css';
+@import 'field.css';
+@import 'filter.css';
+@import 'grid.css';
+@import 'menu.css';
+@import 'modal.css';
+@import 'page.css';
+@import 'radio.css';
+@import 'tab.css';
+@import 'table.css';
+@import 'toast.css';
 @import 'collection-view.css';
 @import 'collection.css';
 @import 'alert.css';
@@ -38,9 +37,8 @@
 @import 'textarea.css';
 @import 'tooltip-popover.css';
 @import 'empty-state.css';
-
-@import 'calendar/index.scss';
-@import 'ts-table/index.scss';
+@import 'calendar.css';
+@import 'ts-table.css';
 @import 'date-field.css';
 @import 'date-input.css';
 @import 'date-picker.css';

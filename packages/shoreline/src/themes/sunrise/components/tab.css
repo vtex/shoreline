@@ -67,3 +67,19 @@
     }
   }
 }
+
+[data-sl-tab-list] {
+  display: flex;
+  flex-direction: row;
+  outline: none;
+  width: 100%;
+  border-bottom: var(--sl-border-base);
+}
+
+[data-sl-tab-panel] {
+  padding: var(--sl-space-3);
+  outline: none;
+  &:focus-visible {
+    box-shadow: var(--sl-focus-ring-base);
+  }
+}

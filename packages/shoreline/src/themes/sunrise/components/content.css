@@ -1,3 +1,7 @@
+[data-sl-container] {
+  container: sl-container / inline-size;
+}
+
 [data-sl-content] {
   padding: var(--sl-content-space-vertical) var(--sl-content-space-horizontal);
 }

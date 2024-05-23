@@ -5,6 +5,38 @@
   --sl-page-layout: var(--sl-page-layout-standard);
 }
 
+[data-sl-page] {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+[data-sl-page-header-container] {
+  :where(button) {
+    min-width: 6.25rem;
+  }
+
+  [data-sl-page-header] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--sl-space-3);
+  }
+}
+
+[data-sl-page-heading] {
+  font: var(--sl-text-display-3-font);
+  letter-spacing: var(--sl-text-display-3-letter-spacing);
+  color: var(--sl-fg-base);
+}
+
+[data-sl-page-header-row] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 [data-sl-page-container] {
   /* Overrides some of the Container+Content behaviours */
   container: sl-page-container / inline-size;

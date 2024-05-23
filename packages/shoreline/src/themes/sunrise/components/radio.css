@@ -1,3 +1,8 @@
+[data-sl-radio-group] {
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-spacing);
+}
+
 [data-sl-radio] {
   display: flex;
 

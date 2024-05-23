@@ -52,3 +52,42 @@
   padding-top: var(--sl-space-20);
   padding-bottom: var(--sl-space-20);
 }
+
+[data-sl-modal-header] {
+  position: sticky;
+  top: 0;
+  background: var(--sl-bg-base);
+
+  & :where(button:not([data-sl-modal-dismiss])) {
+    min-width: 5rem;
+  }
+
+  & :where(button) {
+    margin-top: calc(var(--sl-element-space-top) * -1);
+    margin-bottom: calc(var(--sl-element-space-bottom) * -1);
+  }
+}
+
+[data-sl-modal-footer] {
+  :where(button) {
+    min-width: var(--sl-modal-footer-button-min-width);
+    width: var(--sl-modal-footer-button-width);
+  }
+
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  column-gap: var(--sl-space-3);
+  background: var(--sl-bg-base);
+  border-top: var(--sl-border-base);
+}
+
+[data-sl-modal-dismiss] {
+  margin-right: calc(var(--sl-element-space-right) * -1);
+}
+
+[data-sl-modal-content] {
+  background-color: var(--sl-bg-base);
+  margin-top: calc(var(--sl-modal-content-space-top) * -1);
+}
