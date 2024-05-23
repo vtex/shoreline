@@ -1,3 +1,216 @@
 # Code styleguide
 
-{/* WIP */}
+In this section you will find common rules and best practices to follow when writing code for Shoreline.
+
+## Components
+
+### File structure
+
+**Component**
+
+```
+// ✅ Good
+// packages/shoreline/src/components/{component} folder
+
+component
+|__ stories
+|   |_ [examples].stories.tsx
+|   |_ play.stories.tsx
+|   |_ show.stories.tsx
+|   |__ tests
+|   |  |_ tests.stories.tsx
+|
+|_ index.ts
+|_ component.tsx
+|_ component-composite.tsx
+```
+
+**Theming**
+
+```
+// ✅ Good
+// packages/shoreline/src/themes/{theme}/{component} folder
+
+component
+|_ index.scss
+|_ component.scss
+|_ component-composite.scss
+```
+
+## Prevent the use of React.FC
+
+The use of React.FunctionComponent (or the React.FC shorthand) is discouraged to type the component props.
+If you need to type children explicitly, use React.ReactNode. [Here you can see some good reasons why](https://github.com/facebook/create-react-app/pull/8177).
+
+## Do not use param destructuring
+
+Prefer destructuring on the component's body.
+
+```tsx
+interface Props {
+  title: string
+  // ...
+}
+
+// ✅ Good
+function Component(props: Props) {
+  const { title, ...restProps } = props
+  // ...
+}
+
+// 🚨 Bad
+function Component({ title }: Props) {
+  // ...
+}
+```
+
+## Do not use inline typing
+
+Always prefer creating an interface or type for the component props.
+
+```tsx
+// ✅ Good
+interface Props {
+  title: string
+}
+
+function Component(props: Props) {
+  // ...
+}
+
+// 🚨 Bad
+function Component({ title }: { title: string }) {
+  // ...
+}
+```
+
+## Do not use inline extension
+
+Avoid extending other types within the function param directly. Prefer extending or compose a new type for a cleaner code.
+
+```tsx
+// ✅ Good
+interface Props extends SomeTypeA {
+  title: string
+}
+
+function Component(props: Props) {
+  // ...
+}
+
+// ✅ Good
+type Props = SomeTypeA & SomeTypeB
+
+function Component(props: Props) {
+  // ...
+}
+
+// 🚨 Bad
+function Component(props: Props & SomeTypeA) {
+  // ...
+}
+```
+
+## Prefer named exports
+
+Named exports are preferred over default exports.
+
+```tsx
+// ✅ Good
+export function Component() {
+  // ...
+}
+
+// 🚨 Bad
+export default function Component() {
+  // ...
+}
+```
+
+## Styling
+
+### Prefer tokens
+
+Always prefer to use tokens instead of hardcoded values.
+
+```scss
+// ✅ Good
+.component {
+  padding: var(--sl-space-4);
+}
+
+// 🚨 Bad
+.component {
+  padding: 16px;
+}
+```
+
+### Use semantic data-attributes prefix
+
+Always use the `data-sl-` prefix for attributes that refer to the component.
+
+```scss
+// ✅ Good
+[data-sl-component] {
+  // ...
+}
+
+// 🚨 Bad
+[data-component] {
+  // ...
+}
+```
+
+### Avoid parent styles
+
+While coding an app it doesn't matter, but if you are within a library this is a bad practice!
+The user will not be able to customize the child's style without the !important flag. So, you must avoid it.
+
+```scss
+// ✅ Good
+[data-sl-component-heading] {
+  // ...
+}
+
+// 🚨 Bad
+[data-sl-component] {
+  & > h1 {
+    // ...
+  }
+}
+```
+
+## Documentation
+
+### Always use JSDoc to document your component
+
+We use the [JSDoc](https://jsdoc.app/) to document our components and they are used to generate the component documentation in the site.
+
+```tsx
+// ✅ Good
+/**
+ * Component description
+ *
+ * @example
+ * <Component title="Hello" />
+ */
+function Component(props: Props) {
+  // ...
+}
+
+interface Props {
+  /**
+   * The title of the component
+   */
+  title: string
+}
+
+// 🚨 Bad
+function Component(props: Props) {
+  // ...
+}
+
+interface Props {
+  title: string
+}
+```
