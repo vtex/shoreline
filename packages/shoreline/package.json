@@ -33,7 +33,8 @@
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
     "build:css": "postcss ./src/themes/sunrise/index.scss -o dist/themes/sunrise/styles.css",
     "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.scss -o dist/themes/sunrise/styles-unlayered.css",
-    "theme": "shoreline css"
+    "theme": "shoreline css",
+    "gen:icons": "node -r sucrase/register src/scripts/icons.ts"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -63,7 +64,8 @@
     "postcss-preset-env": "9.3.0",
     "postcss-scss": "4.0.9",
     "react-hook-form": "7.48.2",
-    "react-window": "1.8.10"
+    "react-window": "1.8.10",
+    "sucrase": "3.35.0"
   },
   "dependencies": {
     "@ariakit/react": "0.4.5",
