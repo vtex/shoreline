@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Compose } from '../index'
 
 export default {
-  title: 'primitives/compose',
+  title: 'components/compose',
 }
 
 export function Show() {

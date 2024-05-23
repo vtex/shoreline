@@ -1,7 +1,7 @@
 import { LinkBox } from '../index'
 
 export default {
-  title: 'primitives/link-box',
+  title: 'components/link-box',
 }
 
 export function Show() {

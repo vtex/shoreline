@@ -1,7 +1,7 @@
 import { Center } from '../index'
 
 export default {
-  title: 'layouts/center',
+  title: 'components/center',
 }
 
 export function Show() {

@@ -2,7 +2,7 @@ import { parseDate } from '@internationalized/date'
 import { RangeCalendar } from '../index'
 
 export default {
-  title: 'date/range-calendar',
+  title: 'components/range-calendar',
 }
 
 export function Show() {

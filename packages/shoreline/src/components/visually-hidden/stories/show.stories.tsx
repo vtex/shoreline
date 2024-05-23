@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import { VisuallyHidden } from '../index'
 
 export default {
-  title: 'primitives/visually-hidden',
+  title: 'components/visually-hidden',
 } as Meta
 
 export function Show() {

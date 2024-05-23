@@ -9,7 +9,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'primitives/combobox',
+  title: 'components/combobox',
   parameters: {
     chromatic: {
       disableSnapshot: true,

@@ -6,7 +6,7 @@ import {
 } from '../index'
 
 export default {
-  title: 'primitives/combobox',
+  title: 'components/combobox',
 }
 
 export function Show() {

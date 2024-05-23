@@ -2,7 +2,7 @@ import { Stack } from '../index'
 import { style } from '@vtex/shoreline-utils'
 
 export default {
-  title: 'layouts/stack',
+  title: 'components/stack',
 }
 
 const itemStyle = style({

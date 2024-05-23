@@ -5,7 +5,7 @@ import { RangeCalendar } from '../index'
 import { getLocalTimeZone, today } from '../../utils'
 
 export default {
-  title: 'date/range-calendar',
+  title: 'components/range-calendar',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

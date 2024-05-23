@@ -1,7 +1,7 @@
 import { Flex } from '../index'
 
 export default {
-  title: 'layouts/flex',
+  title: 'components/flex',
 }
 
 const itemStyle = {

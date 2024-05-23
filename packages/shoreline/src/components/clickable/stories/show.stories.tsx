@@ -1,7 +1,7 @@
 import { Clickable } from '../index'
 
 export default {
-  title: 'primitives/clickable',
+  title: 'components/clickable',
 }
 
 export function Show() {

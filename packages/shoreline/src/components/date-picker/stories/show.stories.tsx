@@ -2,7 +2,7 @@ import { parseDate } from '@internationalized/date'
 import { DatePicker } from '../index'
 
 export default {
-  title: 'date/date-picker',
+  title: 'components/date-picker',
 }
 
 export function Show() {

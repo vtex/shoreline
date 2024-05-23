@@ -6,7 +6,7 @@ import { DateField } from '../index'
 import { parseDate } from '../../utils'
 
 export default {
-  title: 'date/date-field',
+  title: 'components/date-field',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

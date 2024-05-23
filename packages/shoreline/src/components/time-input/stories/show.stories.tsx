@@ -3,7 +3,7 @@ import { parseTime } from '../../utils'
 import { TimeInput } from '../index'
 
 export default {
-  title: 'date/time-input',
+  title: 'components/time-input',
 }
 
 export function Show() {

@@ -1,7 +1,7 @@
 import { DateField } from '../index'
 
 export default {
-  title: 'date/date-field',
+  title: 'components/date-field',
 }
 
 export function Show() {

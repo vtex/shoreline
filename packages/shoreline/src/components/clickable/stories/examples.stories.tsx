@@ -1,7 +1,7 @@
 import { Clickable, ClickableBubble } from '../index'
 
 export default {
-  title: 'primitives/clickable',
+  title: 'components/clickable',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

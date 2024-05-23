@@ -8,7 +8,7 @@ import { DatePicker } from '../index'
 import { getLocalTimeZone, today } from '../../utils'
 
 export default {
-  title: 'date/date-picker',
+  title: 'components/date-picker',
   parameters: {
     chromatic: { disableSnapshot: true },
   },

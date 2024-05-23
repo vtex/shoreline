@@ -2,7 +2,7 @@ import { style } from '@vtex/shoreline-utils'
 import { Grid, GridCell } from '../index'
 
 export default {
-  title: 'layouts/grid',
+  title: 'components/grid',
 }
 
 const cellStyle = style({

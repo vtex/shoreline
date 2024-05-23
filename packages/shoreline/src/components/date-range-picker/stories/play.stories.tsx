@@ -3,7 +3,7 @@ import { LocaleProvider } from '../../locale'
 import { DateRangePicker } from '../index'
 
 export default {
-  title: 'date/date-range-picker',
+  title: 'components/date-range-picker',
   argTypes: {
     locale: {
       options: [

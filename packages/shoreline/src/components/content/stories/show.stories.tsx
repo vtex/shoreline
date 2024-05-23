@@ -3,7 +3,7 @@ import { Container, Content } from '../index'
 import { Flex } from '../../flex'
 
 export default {
-  title: 'layouts/content',
+  title: 'components/content',
 }
 
 export function Show() {

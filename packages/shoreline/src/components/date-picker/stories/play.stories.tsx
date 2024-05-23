@@ -3,7 +3,7 @@ import { LocaleProvider } from '../../locale'
 import { DatePicker } from '../index'
 
 export default {
-  title: 'date/date-picker',
+  title: 'components/date-picker',
   argTypes: {
     locale: {
       options: [

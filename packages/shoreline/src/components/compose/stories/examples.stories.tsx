@@ -4,7 +4,7 @@ import { Compose, Composable } from '../index'
 import { VisuallyHidden } from '../../visually-hidden'
 
 export default {
-  title: 'primitives/compose',
+  title: 'components/compose',
   parameters: {
     chromatic: {
       disableSnapshot: true,
