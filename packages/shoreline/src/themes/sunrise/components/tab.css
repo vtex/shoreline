@@ -46,7 +46,7 @@
   &[aria-selected='true'] {
     border-color: var(--sl-bg-accent-strong);
 
-    & > [data-sl-tab-content] {
+    &[data-sl-tab-content] {
       color: var(--sl-fg-accent);
       background: var(--sl-bg-accent-plain);
     }
