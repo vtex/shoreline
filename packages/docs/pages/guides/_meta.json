@@ -11,7 +11,7 @@
     "type": "separator",
     "title": "Contributing"
   },
-  "introduction": "Introduction",
+  "contributing-introduction": "Introduction",
   "processes": "Processes",
   "design-contribution": "Design Contribution",
   "engineering-contribution": "Engineering Contribution"
