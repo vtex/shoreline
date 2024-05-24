@@ -1,4 +1,0 @@
-@import '../../../__theme-sunrise__/tokens.css';
-@import 'base.css' layer(sl-base);
-@import 'reset.css' layer(sl-reset);
-@import 'components/index.css' layer(sl-components);
