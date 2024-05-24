@@ -2,6 +2,7 @@ import { dirname, join } from 'node:path'
 
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  staticDirs: ['./public'],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     {

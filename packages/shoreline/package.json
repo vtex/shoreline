@@ -27,7 +27,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist && rm -rf __theme-sunrise__ && pnpm run theme",
-    "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
+    "dev": "concurrently -p [{name}] -n tsup,css,css-unlayered \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
     "dev:css": "pnpm run build:css -w",
     "dev:css-unlayered": "pnpm run build:css-unlayered -w",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",

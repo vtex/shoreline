@@ -14,13 +14,13 @@
     "turbo": "turbo",
     "build": "pnpm turbo run build",
     "dev": "pnpm turbo run dev --no-cache --parallel --continue",
-    "clean": "pnpm i && pnpm build",
+    "clean": "sh scripts/clean.sh && pnpm i && pnpm build",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\" \"examples/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "biome check .",
     "lint-fix": "biome check --apply .",
     "commit": "cz",
     "dev:styles": "npm --prefix packages/shoreline run dev",
-    "dev:storybook": "concurrently -p [{name}] -n storybook@shoreline,styles@shoreline -c bgMagenta,bgYellow \"pnpm storybook dev -p 6006\" \"pnpm run dev:styles\"",
+    "dev:storybook": "concurrently -p [{name}] -n storybook,shoreline \"pnpm storybook dev -p 6006\" \"pnpm run dev:styles\"",
     "dev:docs": "npm --prefix packages/docs run dev",
     "build:docs": "npm --prefix packages/docs run build-docs",
     "build:storybook": "pnpm build && pnpm storybook build",
@@ -93,7 +93,6 @@
     "wait-on": "^7.2.0"
   },
   "lint-staged": {
-    "package.json": ["biome check --apply"],
     "*.{ts,tsx,js,jsx,json}": "biome check --apply",
     "*.css": "stylelint --fix"
   },
