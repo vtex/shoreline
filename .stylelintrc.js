@@ -5,5 +5,12 @@ module.exports = {
   reportDescriptionlessDisables: true,
   reportNeedlessDisables: true,
   reportInvalidScopeDisables: true,
-  rules: {},
+  rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['theme'],
+      },
+    ],
+  },
 }

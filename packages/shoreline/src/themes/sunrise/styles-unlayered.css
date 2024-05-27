@@ -1,4 +1,4 @@
 @import 'reset.css';
 @import 'base.css';
-@import '../../../__theme-sunrise__/tokens-unlayered.css';
+@import 'tokens.css';
 @import 'components/index.css';

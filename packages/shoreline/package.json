@@ -26,11 +26,11 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__ && pnpm run theme",
+    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
     "build:css": "node -r sucrase/register src/scripts/build-css.ts",
-    "theme": "shoreline css"
+    "dev:css": "node -r sucrase/register src/scripts/dev-css.ts"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -63,7 +63,8 @@
     "postcss-preset-env": "9.3.0",
     "react-hook-form": "7.48.2",
     "react-window": "1.8.10",
-    "sucrase":" 3.35.0"
+    "sucrase":" 3.35.0",
+    "chokidar": "3.6.0"
   },
   "dependencies": {
     "@ariakit/react": "0.4.5",

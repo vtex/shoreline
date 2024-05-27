@@ -261,8 +261,8 @@ importers:
   packages/cli:
     dependencies:
       '@vtex/shoreline-css':
-        specifier: ^1.0.0-rc.77
-        version: link:../css
+        specifier: 1.0.0-rc.76
+        version: 1.0.0-rc.76(react@18.2.0)
       commander:
         specifier: 11.0.0
         version: 11.0.0
@@ -276,6 +276,9 @@ importers:
       '@vtex/shoreline-utils':
         specifier: workspace:*
         version: link:../utils
+      browserslist:
+        specifier: 4.23.0
+        version: 4.23.0
       c12:
         specifier: 1.5.1
         version: 1.5.1
@@ -285,6 +288,9 @@ importers:
       fs-extra:
         specifier: 11.1.1
         version: 11.1.1
+      lightningcss:
+        specifier: 1.25.0
+        version: 1.25.0
       postcss:
         specifier: 8.4.27
         version: 8.4.27
@@ -466,6 +472,9 @@ importers:
       browserslist:
         specifier: 4.23.0
         version: 4.23.0
+      chokidar:
+        specifier: 3.6.0
+        version: 3.6.0
       concurrently:
         specifier: 8.2.2
         version: 8.2.2
@@ -7201,6 +7210,35 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@vtex/shoreline-css@1.0.0-rc.76(react@18.2.0):
+    resolution: {integrity: sha512-84s7x3wncESu2yjeZ72k8h1cULkoGKDGEoqdO7hiEny9kAkS09Omf/KeLdV7u86gtK1zI15snMq9s0GSZqQ5pg==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@vtex/shoreline-utils': 1.0.0-rc.76(react@18.2.0)
+      c12: 1.5.1
+      cssesc: 3.0.0
+      fs-extra: 11.1.1
+      postcss: 8.4.27
+      postcss-preset-env: 9.3.0(postcss@8.4.27)
+      prettier: 3.0.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
+  /@vtex/shoreline-utils@1.0.0-rc.76(react@18.2.0):
+    resolution: {integrity: sha512-3CmSYKooYT894BjHQDnewcokurbMFXHA/+PMI9jp451RCoAXQWjumKMfQd4z77wvjWE5eh0jFlW32ET6wmyatg==}
+    engines: {node: '>=12'}
+    dependencies:
+      csstype: 3.1.2
+      deepmerge: 4.3.1
+      scule: 1.1.1
+      tiny-invariant: 1.3.1
+      tiny-warning: 1.0.3
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /@webassemblyjs/ast@1.12.1:
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
     dependencies:
@@ -10006,7 +10044,6 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
-    dev: true
 
   /detect-newline@3.1.0:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
@@ -14225,7 +14262,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-darwin-x64@1.25.0:
@@ -14234,7 +14270,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-freebsd-x64@1.25.0:
@@ -14243,7 +14278,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-linux-arm-gnueabihf@1.25.0:
@@ -14252,7 +14286,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-linux-arm64-gnu@1.25.0:
@@ -14261,7 +14294,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-linux-arm64-musl@1.25.0:
@@ -14270,7 +14302,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-linux-x64-gnu@1.25.0:
@@ -14279,7 +14310,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-linux-x64-musl@1.25.0:
@@ -14288,7 +14318,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss-win32-x64-msvc@1.25.0:
@@ -14297,7 +14326,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /lightningcss@1.25.0:
@@ -14315,7 +14343,6 @@ packages:
       lightningcss-linux-x64-gnu: 1.25.0
       lightningcss-linux-x64-musl: 1.25.0
       lightningcss-win32-x64-msvc: 1.25.0
-    dev: true
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
