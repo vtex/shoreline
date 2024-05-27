@@ -1,10 +1,7 @@
 [data-sl-filter-list] {
   overflow-y: auto;
   overflow-x: hidden;
-<<<<<<< HEAD
   padding: var(--sl-space-4) var(--sl-space-6);
-=======
->>>>>>> 97313b480 (feat(shoreline): join compound css)
 
   &[data-focus-visible],
   &:focus-visible {
@@ -16,40 +13,6 @@
   }
 }
 
-<<<<<<< HEAD
-=======
-[data-sl-filter-item] {
-  outline: none;
-  text-decoration: none;
-  justify-content: flex-start;
-  display: flex;
-  cursor: pointer;
-  background: var(--sl-bg-muted-plain);
-  color: var(--sl-fg-muted);
-  padding: var(--sl-space-2) var(--sl-space-3);
-  border-radius: var(--sl-radius-2);
-  font: var(--sl-text-action-font);
-  letter-spacing: var(--sl-text-action-letter-spacing);
-  gap: var(--sl-space-2);
-
-  &:hover {
-    background: var(--sl-bg-muted-plain-hover);
-    color: var(--sl-fg-muted-hover);
-  }
-
-  &:active {
-    background: var(--sl-bg-muted-plain-pressed);
-    color: var(--sl-fg-muted-pressed);
-  }
-
-  &[data-active-item] {
-    background: var(--sl-bg-muted-plain-pressed);
-    color: var(--sl-fg-muted-pressed);
-  }
-}
-
-
->>>>>>> 97313b480 (feat(shoreline): join compound css)
 [data-sl-filter-item-check] {
   --sl-filter-item-check-size: 1.25rem;
   --sl-filter-item-check-border-width: 0.0625rem;
@@ -97,10 +60,7 @@
 
 [data-sl-filter-value] {
   margin-left: calc(-1 * var(--sl-space-1));
-<<<<<<< HEAD
   color: var(--sl-fg-base);
-=======
->>>>>>> 97313b480 (feat(shoreline): join compound css)
 }
 
 [data-sl-filter-popover][data-sl-popover] {
@@ -117,13 +77,6 @@
   grid-auto-rows: auto 1fr auto;
 }
 
-<<<<<<< HEAD
-=======
-[data-sl-filter-list] {
-  padding: var(--sl-space-4) var(--sl-space-6);
-}
-
->>>>>>> 97313b480 (feat(shoreline): join compound css)
 [data-sl-filter-popover-combobox] {
   & > [data-sl-search] {
     min-width: unset;
@@ -144,7 +97,6 @@
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text-body-letter-spacing);
 
-<<<<<<< HEAD
   outline: none;
   text-decoration: none;
   justify-content: flex-start;
@@ -167,10 +119,6 @@
   &[data-active-item] {
     background: var(--sl-bg-muted-plain-pressed);
     color: var(--sl-fg-muted-pressed);
-=======
-  &:hover {
-    background: var(--sl-bg-muted-plain);
->>>>>>> 97313b480 (feat(shoreline): join compound css)
   }
 
   &[data-active-item][data-focus-visible] {
@@ -200,10 +148,3 @@
     }
   }
 }
-<<<<<<< HEAD
-=======
-
-[data-sl-filter-value] {
-  color: var(--sl-fg-base);
-}
->>>>>>> 97313b480 (feat(shoreline): join compound css)
