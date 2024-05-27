@@ -30,6 +30,7 @@
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
     "build:css": "node -r sucrase/register src/scripts/build-css.ts",
+    "theme": "node -r sucrase/register src/scripts/theme.ts",
     "dev:css": "node -r sucrase/register src/scripts/dev-css.ts"
   },
   "repository": {
