@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.0.0-rc.75",
+  "version": "1.0.0-rc.76",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -75,8 +75,8 @@
     "@react-stately/calendar": "3.5.0",
     "@react-stately/datepicker": "3.9.3",
     "@react-stately/toggle": "3.7.3",
-    "@vtex/shoreline-icons": "^1.0.0-rc.75",
-    "@vtex/shoreline-utils": "^1.0.0-rc.75",
+    "@vtex/shoreline-icons": "^1.0.0-rc.76",
+    "@vtex/shoreline-utils": "^1.0.0-rc.76",
     "react-hot-toast": "2.4.1"
   }
 }

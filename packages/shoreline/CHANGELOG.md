@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.76](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.75...@vtex/shoreline@1.0.0-rc.76) (2024-05-27)
+
+### Features
+
+- **shoreline:** join compound css ([5d547c3](https://github.com/vtex/shoreline/commit/5d547c3b3db0f490a3d42c1844f0ee517861a956))
+- **shoreline:** migrate flat components from scss to css ([617ad7b](https://github.com/vtex/shoreline/commit/617ad7b16273c59fe624e20404f544acc4caaa67))
+
 # [1.0.0-rc.75](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.74...@vtex/shoreline@1.0.0-rc.75) (2024-05-25)
 
 **Note:** Version bump only for package @vtex/shoreline
