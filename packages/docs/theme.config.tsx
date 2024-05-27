@@ -22,7 +22,6 @@ const tagline = 'VTEX Design System for back-office experiences.'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
-  faviconGlyph: '🌊',
   useNextSeoProps() {
     return {
       titleTemplate: `%s - ${docsTitle}`,
@@ -32,39 +31,39 @@ const config: DocsThemeConfig = {
     const { frontMatter } = useConfig()
     const title = frontMatter?.title || docsTitle
     const description = frontMatter?.description || tagline
-    // const image = '/shoreline.png';
+    const image = '/shoreline-logo.png'
 
     const composedTitle = `${title} - ${docsTitle}`
 
     return (
       <>
-        {/* <link
+        <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href={`/favicons/apple-touch-icon.png`}
+          href={'/favicon/apple-touch-icon.png'}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href={`/favicons/favicon-32x32.png`}
+          href={'/favicon/favicon-32x32.png'}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href={`/favicons/favicon-16x16.png`}
-        /> */}
+          href={'/favicon/favicon-16x16.png'}
+        />
         <meta name="theme-color" content="#ffffff" />
         <meta name="msapplication-TileColor" content="#ffffff" />
-        {/* <link rel="manifest" href={`/favicons/site.webmanifest`} /> */}
+        <link rel="manifest" href={'/favicon/site.webmanifest'} />
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="title" content={composedTitle} />
         <meta name="description" content={description} />
 
         <meta property="og:description" content={description} />
         <meta property="og:title" content={composedTitle} />
-        {/* <meta property="og:image" content={image} /> */}
+        <meta property="og:image" content={image} />
         <meta property="og:type" content="website" />
         <meta name="apple-mobile-web-app-title" content={docsTitle} />
       </>
