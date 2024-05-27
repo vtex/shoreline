@@ -1,0 +1,212 @@
+import { Callout } from "nextra/components";
+import { FileTree } from "nextra/components";
+
+# Storybook guideline
+
+Storybook is a key tool for developing components in Shoreline. It allows us to develop components in isolation and test them. Shoreline's Storybook is live at https://shoreline.storybook.vtex.com. This guideline will help you understand the best practices for writing stories for Shoreline components.
+
+Always have the [Storybook documentation](https://storybook.js.org/docs/get-started) in hand while writing stories.
+
+## Writing stories
+
+Stories are the way we document and test components in Shoreline. Stories are written in `<story-type>.stories.tsx` files, which are located in the `stories` folder of each component.
+
+### Folder structure
+
+This is the expected folder structure for stories in Shoreline, considering each story type:
+
+<FileTree>
+  <FileTree.Folder name="components" defaultOpen>
+    <FileTree.Folder name="button" defaultOpen>
+      <FileTree.Folder name="stories" defaultOpen>
+        <FileTree.File name="play.stories.tsx" />
+        <FileTree.File name="show.sotires.tsx" />
+        <FileTree.File name="examples.stories.tsx" />
+        <FileTree.Folder name="tests" defaultOpen>
+          <FileTree.File name="test-case-1.stories.tsx" />
+          <FileTree.File name="test-case-2.stories.tsx" />
+          <FileTree.File name="test-case-n.stories.tsx" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+### Exports
+
+Each story file should export the stories according to the story type. For example, a `play.stories.tsx` file should export a `Play` story, a `show.stories.tsx` file should export a `Show` story, and so on, as well as the default export for the story file.
+
+| Story type | Filename                | Expected export                          |
+| ---------- | ----------------------- | ---------------------------------------- |
+| Play       | play.stories.tsx        | `Play`                                   |
+| Show       | show.stories.tsx        | `Show`                                   |
+| Examples   | examples.stories.tsx    | `Example1`, `Example2`, `ExampleN`, etc. |
+| Tests      | test-case-n.stories.tsx | `Test1`, `Test2`, `TestN`, etc.          |
+
+### Story types
+
+We categorized four story types to help us write stories for Shoreline components, targeting specific goals for each type.
+
+Always use your best judgment to decide which story is applicable to the component you are working on, as not all components will need all types of stories.
+
+All stories, except for the [Show](#show) story, should have the `chromatic` parameter disabled. This is because the [Show](#show) story is the only one that should be visually tested by [Chromatic](https://www.chromatic.com/).
+
+#### Play
+
+An interactive playground that allows viewers to control the values of a set of props. A component has only one Play story. This story is specially useful for testing the permutation of props from a component.
+
+##### Sample structure
+
+Here is an example of a Play story base structure:
+
+```tsx filename="play.stories.tsx"
+interface StoryArgs extends ComponentProps {
+  // Any additional props
+}
+
+export function Play(args: StoryArgs) {
+  // Any additional logic, such as state
+
+  return <Component {...args} />;
+}
+```
+
+##### Story configuration
+
+This is the expected default export for a `play.stories.tsx`, in which `argTypes` and `args` should be defined according to the component's props and passed to the component:
+
+```tsx filename="play.stories.tsx"
+export default {
+  title: "components/<component-name>",
+  argTypes: {
+    // Define the props here
+  },
+  args: {
+    // Define the default props here
+  },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+```
+
+#### Show
+
+A component should only have one Show story. This story is used to show the component in all possible states, variants, and sizes, side by side on a single page. **This is the story which visual tests run in Chromatic**.
+
+When writing the Show story, you should consider the following (if applicable):
+
+- The story should show the component in all possible states.
+- The story should show the component in all possible variants.
+- The story should show the component in all possible sizes.
+
+##### Sample structure
+
+Here is an example of a Show story base structure:
+
+```tsx filename="show.stories.tsx"
+export function Show() {
+  // Render the component in all possible states, variants, and sizes
+}
+```
+
+##### Story configuration
+
+This is the expected default export for a `show.stories.tsx`, note that **this is the only story that shouldn't have Chromatic's snapshot disabled (if possible, for the aforementioned reasons)**:
+
+```tsx filename="show.stories.tsx"
+export default {
+  title: "components/<component-name>",
+};
+```
+
+<Callout type="info">
+  **Not all components will be able to have visual tests**. For example,
+  components that are pop-overs, modals, or any other component that requires
+  user interaction to be displayed is not caught by visual tests. Nonetheless,
+  you should still write Show stories for these components.
+</Callout>
+
+#### Examples
+
+A component may have multiple Example stories. These stories are used to show the component in a real-world scenario, often interacting with other components or even libraries, and have examples that aren't reproduced by the Play and Show stories.
+
+When writing Example stories, you should consider the following (if applicable):
+
+- The story should show the component in a real-world scenario, often interacting with other components or even libraries.
+- The story should have examples that aren't reproduced by the Play and Show stories, such as the application of Composition, State Management, or other patterns that doesn't change the UI.
+
+##### Sample structure
+
+Here is an example of an Example story base structure:
+
+```tsx filename="examples.stories.tsx"
+export function AsX() {
+  // ...
+}
+
+export function Controlled() {
+  // ...
+}
+
+export function Uncontrolled() {
+  // ...
+}
+```
+
+##### Story configuration
+
+This is the expected default export for a `examples.stories.tsx`. Note that the `chromatic` parameter is disabled for this story type, as it's not meant to be visual tested by Chromatic:
+
+```tsx filename="examples.stories.tsx"
+export default {
+  title: "components/<component-name>",
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+```
+
+<Callout type="info">
+  You might want to break down the examples into multiple stories if they are
+  too complex, or if the file becomes too large (300+ lines).
+</Callout>
+
+#### Tests
+
+Represents an interaction test case. These are run using the storybook-test-runner. A component may have multiple Test stories.
+
+When writing Test stories, you should consider the following (if applicable):
+
+- The story should test component interactions, such as user input, focus, click and other events.
+
+<Callout type="info">
+  All stories are render-tested by default, meaning that you don't need to write
+  tests to check whether or not a component will render.
+</Callout>
+
+##### Sample structure
+
+Here is an example of a Test story base structure:
+
+```tsx filename="tests/do-something.stories.tsx"
+export function DoSomething() {
+  // Code to test component interactions
+}
+```
+
+##### Story configuration
+
+This is the expected default export for a `tests/<test-case-n>.stories.tsx`. Note that the `chromatic` parameter is disabled for this story type, as it's not meant to be visual tested by Chromatic:
+
+```tsx filename="tests/do-something.stories.tsx"
+export default {
+  title: "components/<component-name>/tests",
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    // Interaction test code to "do something", here
+  },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+};
+```
