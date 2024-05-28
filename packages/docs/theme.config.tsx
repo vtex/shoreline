@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { DocsThemeConfig } from 'nextra-theme-docs'
+import { useConfig, type DocsThemeConfig } from 'nextra-theme-docs'
 import { TokensGrid } from './components/tokens-grid'
 import { IconsGrid } from './components/icons-grid'
 
@@ -17,14 +17,64 @@ import {
 } from './components/component-summary'
 import { ImgCard, ImgCardGrid } from './components/img-card'
 
+const docsTitle = 'Shoreline'
+const tagline = 'VTEX Design System for back-office experiences.'
+
 const config: DocsThemeConfig = {
   logo: <Logo />,
+  useNextSeoProps() {
+    return {
+      titleTemplate: `%s - ${docsTitle}`,
+    }
+  },
+  head() {
+    const { frontMatter } = useConfig()
+    const title = frontMatter?.title || docsTitle
+    const description = frontMatter?.description || tagline
+    const image = '/shoreline-logo.png'
+
+    const composedTitle = `${title} - ${docsTitle}`
+
+    return (
+      <>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={'/favicon/apple-touch-icon.png'}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={'/favicon/favicon-32x32.png'}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={'/favicon/favicon-16x16.png'}
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <link rel="manifest" href={'/favicon/site.webmanifest'} />
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta name="title" content={composedTitle} />
+        <meta name="description" content={description} />
+
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={composedTitle} />
+        <meta property="og:image" content={image} />
+        <meta property="og:type" content="website" />
+        <meta name="apple-mobile-web-app-title" content={docsTitle} />
+      </>
+    )
+  },
   project: {
     link: 'https://github.com/vtex/shoreline',
   },
   docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/docs',
   footer: {
-    text: 'VTEX Design System for back-office experiences.',
+    text: tagline,
   },
   darkMode: false,
   nextThemes: {
