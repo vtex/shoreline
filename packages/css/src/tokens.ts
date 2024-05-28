@@ -1,12 +1,9 @@
 import { outputFileSync, readFileSync } from 'fs-extra'
 import { type TransformTokensArgs, transformTokens } from './transform-tokens'
 
-export interface TokensArgs extends Omit<TransformTokensArgs, 'code'> {
-  inputFile: string
-  outdir: string
-  emitFile: boolean
-}
-
+/**
+ * Transform shoreline tokens
+ */
 export function tokens(args: TokensArgs) {
   const {
     inputFile,
@@ -38,4 +35,19 @@ export function tokens(args: TokensArgs) {
   }
 
   return tokens
+}
+
+export interface TokensArgs extends Omit<TransformTokensArgs, 'code'> {
+  /**
+   * file to transform
+   */
+  inputFile: string
+  /**
+   * output directory
+   */
+  outdir: string
+  /**
+   * wether the tokens.css is emited
+   */
+  emitFile?: boolean
 }

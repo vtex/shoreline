@@ -1,24 +1,6 @@
 import browserslist from 'browserslist'
 import { transform, browserslistToTargets } from 'lightningcss'
 
-export interface TransformTokensArgs {
-  /**
-   * code to transform
-   */
-  code: Buffer
-  /**
-   * css support query
-   * @default 'last 1 versions'
-   *
-   */
-  browserslistQuery?: string | string[]
-  /**
-   * wether it removes the sl-tokens layer
-   * @default true
-   */
-  useCascadeLayers?: boolean
-}
-
 export function transformTokens(args: TransformTokensArgs) {
   const {
     code,
@@ -68,4 +50,22 @@ export function transformTokens(args: TransformTokensArgs) {
   })
 
   return result
+}
+
+export interface TransformTokensArgs {
+  /**
+   * code to transform
+   */
+  code: Buffer
+  /**
+   * css support query
+   * @default 'last 1 versions'
+   *
+   */
+  browserslistQuery?: string | string[]
+  /**
+   * wether it removes the sl-tokens layer
+   * @default true
+   */
+  useCascadeLayers?: boolean
 }

@@ -5,6 +5,9 @@ import { tokens, type TokensArgs } from './tokens'
 
 const layerStatement = '@layer sl-reset, sl-base, sl-tokens, sl-components;'
 
+/**
+ * Bundle css files
+ */
 export function bundle(args: BundleArgs) {
   const {
     inputFile,
@@ -66,5 +69,8 @@ export function bundle(args: BundleArgs) {
 }
 
 export interface BundleArgs extends Omit<TokensArgs, 'emitFile'> {
+  /**
+   * file contaning the tokens
+   */
   tokensFile: string
 }
