@@ -1,23 +1,28 @@
 import browserslist from 'browserslist'
 import { bundle as __bundle, browserslistToTargets } from 'lightningcss'
 import { outputFileSync } from 'fs-extra'
+import { tokens, type TokensArgs } from './tokens'
 
-export interface BundleArgs {
-  inputFile: string
-  outputFile: string
-  banner?: string
-  browserslistQuery?: string | string[]
-}
+const layerStatement = '@layer sl-reset, sl-base, sl-tokens, sl-components;'
 
 export function bundle(args: BundleArgs) {
   const {
     inputFile,
-    outputFile,
-    banner,
+    outdir,
+    tokensFile,
+    useCascadeLayers = true,
     browserslistQuery = 'last 1 versions',
   } = args
 
   const targets = browserslistToTargets(browserslist(browserslistQuery))
+
+  const { code: tokensCode } = tokens({
+    inputFile: tokensFile,
+    emitFile: true,
+    outdir,
+    useCascadeLayers,
+    browserslistQuery,
+  })
 
   const { code: bundledCode } = __bundle({
     filename: inputFile,
@@ -32,12 +37,9 @@ export function bundle(args: BundleArgs) {
     visitor: {
       Rule: {
         custom: {
-          // the selectors are keept
-          theme(rule) {
-            // prefixes --{var} by --sl-
-            return JSON.parse(
-              JSON.stringify(rule.body.value).replace(/--/gi, '--sl-')
-            )
+          theme() {
+            // theme is not bundled with
+            throw new Error('Do not import tokens into your bundle')
           },
         },
       },
@@ -45,17 +47,24 @@ export function bundle(args: BundleArgs) {
   })
 
   try {
+    const outputFile = `${outdir}/styles${
+      useCascadeLayers ? '' : '-unlayered'
+    }.css`
+
     outputFileSync(
       outputFile,
       Buffer.from(
-        banner
-          ? `${banner}\n\n${bundledCode.toString()}`
-          : bundledCode.toString()
+        useCascadeLayers
+          ? `${layerStatement}\n\n${tokensCode.toString()}\n\n${bundledCode.toString()}`
+          : `${tokensCode.toString()}\n\n${bundledCode.toString()}`
       )
     )
-
-    console.log('✅ Styles compiled')
+    console.log(`✅ Generated ${outputFile}`)
   } catch (e) {
     console.log('🚨 Failed to compile styles')
   }
+}
+
+export interface BundleArgs extends Omit<TokensArgs, 'emitFile'> {
+  tokensFile: string
 }

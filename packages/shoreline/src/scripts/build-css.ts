@@ -1,18 +1,19 @@
 import { bundle } from '@vtex/shoreline-css'
 
-function main() {
+export function build() {
   bundle({
     inputFile: 'src/themes/sunrise/styles.css',
-    outputFile: 'dist/themes/sunrise/styles.css',
-    banner: '@layer sl-reset, sl-base, sl-tokens, sl-components;',
-    browserslistQuery: 'last 1 versions',
+    tokensFile: 'src/themes/sunrise/tokens.css',
+    outdir: 'dist/themes/sunrise',
+    useCascadeLayers: true,
   })
 
   bundle({
     inputFile: 'src/themes/sunrise/styles-unlayered.css',
-    outputFile: 'dist/themes/sunrise/styles-unlayered.css',
-    browserslistQuery: 'last 1 versions',
+    tokensFile: 'src/themes/sunrise/tokens.css',
+    outdir: 'dist/themes/sunrise',
+    useCascadeLayers: false,
   })
 }
 
-main()
+build()
