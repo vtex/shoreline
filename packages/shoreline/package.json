@@ -26,7 +26,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__",
+    "prebuild": "rm -rf dist",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
     "build:css": "node -r sucrase/register src/scripts/build-css.ts",
