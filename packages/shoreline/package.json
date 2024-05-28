@@ -26,14 +26,11 @@
     "node": ">=16"
   },
   "scripts": {
-    "prebuild": "rm -rf dist && rm -rf __theme-sunrise__ && pnpm run theme",
-    "dev": "concurrently -p [{name}] -n tsup,css,css-unlayered \"tsup --watch\" \"pnpm run dev:css\" \"pnpm run dev:css-unlayered\"",
-    "dev:css": "pnpm run build:css -w",
-    "dev:css-unlayered": "pnpm run build:css-unlayered -w",
-    "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" \"pnpm run build:css-unlayered\"",
-    "build:css": "postcss ./src/themes/sunrise/index.css -o dist/themes/sunrise/styles.css",
-    "build:css-unlayered": "postcss ./src/themes/sunrise/index-unlayered.css -o dist/themes/sunrise/styles-unlayered.css",
-    "theme": "shoreline css"
+    "prebuild": "rm -rf dist",
+    "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
+    "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
+    "build:css": "node -r sucrase/register src/scripts/build-css.ts",
+    "dev:css": "node -r sucrase/register src/scripts/dev-css.ts"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -49,19 +46,20 @@
   },
   "devDependencies": {
     "@faker-js/faker": "8.3.1",
+    "@types/fs-extra": "11.0.4",
     "@types/node": "20.11.6",
     "@types/react-window": "1.8.8",
-    "@vtex/shoreline-cli": "workspace:*",
     "@vtex/shoreline-css": "workspace:*",
+    "browserslist": "4.23.0",
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
+    "fs-extra": "11.2.0",
+    "lightningcss": "1.25.0",
     "match-sorter": "6.3.1",
-    "postcss": "8.4.32",
-    "postcss-cli": "11.0.0",
-    "postcss-import": "15.1.0",
-    "postcss-preset-env": "9.3.0",
     "react-hook-form": "7.48.2",
-    "react-window": "1.8.10"
+    "react-window": "1.8.10",
+    "sucrase":" 3.35.0",
+    "chokidar": "3.6.0"
   },
   "dependencies": {
     "@ariakit/react": "0.4.5",

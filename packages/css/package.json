@@ -24,20 +24,17 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "devDependencies": {
-    "@types/cssesc": "3.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.4.5"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
-    "c12": "1.5.1",
-    "cssesc": "3.0.0",
     "fs-extra": "11.1.1",
-    "postcss": "8.4.27",
-    "postcss-preset-env": "9.3.0",
-    "prettier": "3.0.0"
+    "browserslist": "4.23.0",
+    "lightningcss": "1.25.0"
   }
 }

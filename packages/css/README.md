@@ -1,27 +1,18 @@
 # Shoreline CSS
 
-The `@vtex/shoreline-css` package transforms a `shoreline.config.(js | ts)` into css. For example, the config:
+The `@vtex/shoreline-css` package transforms shoreline tokens into css. For
+example, theme:
 
-```ts
-//shoreline.config.ts
-
-import { defineConfig } from '@vtex/shoreline-css'
-
-const config = defineConfig({
-  outdir: './shoreline',
-  cwd: process.cwd(),
-  tokens: {
-    space: {
-      1: '1rem',
-      2: '2rem',
-      3: '3rem',
-      gap: '$space-1',
-    },
-  },
-})
+```css
+@theme example {
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+  --space-gap: var(--space-1);
+}
 ```
 
-Generates both: styles.css and tokens.ts
+will convert to:
 
 ```css
 /* shoreline/styles.css */
@@ -33,16 +24,5 @@ Generates both: styles.css and tokens.ts
     --sl-space-3: 3rem;
     --sl-space-gap: var(--sl-space-1);
   }
-}
-```
-
-```ts
-//shoreline/tokens.ts
-
-export const ShorelineTokens = {
-  Space1: 'var(--sl-space-1)',
-  Space3: 'var(--sl-space-2)',
-  Space3: 'var(--sl-space-3)',
-  SpaceGap: 'var(--sl-space-gap)',
 }
 ```
