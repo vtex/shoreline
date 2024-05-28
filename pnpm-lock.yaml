@@ -258,19 +258,6 @@ importers:
         specifier: ^16.5.2
         version: 16.14.0
 
-  packages/cli:
-    dependencies:
-      '@vtex/shoreline-css':
-        specifier: 1.0.0-rc.76
-        version: 1.0.0-rc.76(react@18.2.0)
-      commander:
-        specifier: 11.0.0
-        version: 11.0.0
-    devDependencies:
-      '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
-
   packages/css:
     dependencies:
       '@vtex/shoreline-utils':
@@ -463,9 +450,6 @@ importers:
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
-      '@vtex/shoreline-cli':
-        specifier: workspace:*
-        version: link:../cli
       '@vtex/shoreline-css':
         specifier: workspace:*
         version: link:../css
@@ -7210,35 +7194,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@vtex/shoreline-css@1.0.0-rc.76(react@18.2.0):
-    resolution: {integrity: sha512-84s7x3wncESu2yjeZ72k8h1cULkoGKDGEoqdO7hiEny9kAkS09Omf/KeLdV7u86gtK1zI15snMq9s0GSZqQ5pg==}
-    engines: {node: '>=18'}
-    dependencies:
-      '@vtex/shoreline-utils': 1.0.0-rc.76(react@18.2.0)
-      c12: 1.5.1
-      cssesc: 3.0.0
-      fs-extra: 11.1.1
-      postcss: 8.4.27
-      postcss-preset-env: 9.3.0(postcss@8.4.27)
-      prettier: 3.0.0
-    transitivePeerDependencies:
-      - react
-    dev: false
-
-  /@vtex/shoreline-utils@1.0.0-rc.76(react@18.2.0):
-    resolution: {integrity: sha512-3CmSYKooYT894BjHQDnewcokurbMFXHA/+PMI9jp451RCoAXQWjumKMfQd4z77wvjWE5eh0jFlW32ET6wmyatg==}
-    engines: {node: '>=12'}
-    dependencies:
-      csstype: 3.1.2
-      deepmerge: 4.3.1
-      scule: 1.1.1
-      tiny-invariant: 1.3.1
-      tiny-warning: 1.0.3
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - react
-    dev: false
-
   /@webassemblyjs/ast@1.12.1:
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
     dependencies:
@@ -8763,6 +8718,7 @@ packages:
   /commander@11.0.0:
     resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
     engines: {node: '>=16'}
+    dev: true
 
   /commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}

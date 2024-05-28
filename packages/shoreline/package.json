@@ -50,7 +50,6 @@
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.11.6",
     "@types/react-window": "1.8.8",
-    "@vtex/shoreline-cli": "workspace:*",
     "@vtex/shoreline-css": "workspace:*",
     "browserslist": "4.23.0",
     "concurrently": "8.2.2",
