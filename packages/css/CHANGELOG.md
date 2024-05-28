@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.78](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.77...@vtex/shoreline-css@1.0.0-rc.78) (2024-05-28)
+
+### Features
+
+- **css:** add bundle script ([d9d8f04](https://github.com/vtex/shoreline/commit/d9d8f0490d7f7b8264f7dc15067eb2c1115d0bf5))
+- **css:** add theme script ([f6fb66f](https://github.com/vtex/shoreline/commit/f6fb66fc5336c8f46bc6256098954bd1c103118e))
+- **css:** change signature ([ce48078](https://github.com/vtex/shoreline/commit/ce48078d90d2506d9e7af96e9a3a3c8f15e033e3))
+- **css:** remove configs ([b9131a2](https://github.com/vtex/shoreline/commit/b9131a2ede4287bb350d0ffde612789fd66e5325))
+
 # [1.0.0-rc.77](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.0-rc.76...@vtex/shoreline-css@1.0.0-rc.77) (2024-05-28)
 
 **Note:** Version bump only for package @vtex/shoreline-css
