@@ -1,4 +1,5 @@
 import { theme } from '@vtex/shoreline-css'
+
 function main() {
   theme({
     inputFile: 'src/themes/sunrise/tokens.css',
