@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.77](https://github.com/vtex/shoreline/compare/@vtex/shoreline-icons@1.0.0-rc.76...@vtex/shoreline-icons@1.0.0-rc.77) (2024-05-28)
+
+**Note:** Version bump only for package @vtex/shoreline-icons
+
 # [1.0.0-rc.76](https://github.com/vtex/shoreline/compare/@vtex/shoreline-icons@1.0.0-rc.75...@vtex/shoreline-icons@1.0.0-rc.76) (2024-05-27)
 
 **Note:** Version bump only for package @vtex/shoreline-icons
