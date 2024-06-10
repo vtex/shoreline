@@ -1,10 +1,2 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-echo "Running pre-commit hook"
-
-echo "Make sure that lockfile is up to date"
 pnpm i
-
-echo "Making sure that the code is formatted correctly"
 pnpm lint-staged
