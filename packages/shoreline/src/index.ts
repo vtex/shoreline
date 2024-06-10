@@ -329,7 +329,7 @@ export {
   IconDotsSixVertical,
   IconDotsSixVerticalSmall,
   IconDotsThreeVertical,
-  IconEnvelopeFill,
+  IconEnvelopeSimpleFill,
   IconEnvelopeSimple,
   IconEye,
   IconEyeSlash,
@@ -421,7 +421,7 @@ export {
   IconXCircle,
   IconXCircleFill,
   IconXSmall,
-} from '@vtex/shoreline-icons'
+} from './icons'
 export {
   Store,
   camelCase,
