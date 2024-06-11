@@ -1,4 +1,4 @@
-import { IconTrash } from '@vtex/shoreline-icons'
+import { IconTrash } from '../../../icons'
 import type { IconButtonProps } from '../index'
 import { IconButton } from '../index'
 import { Grid, GridCell } from '../../grid'

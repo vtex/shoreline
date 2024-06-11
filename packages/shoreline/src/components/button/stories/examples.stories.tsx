@@ -1,4 +1,4 @@
-import { IconArrowUpRightSmall, IconArrowUp } from '@vtex/shoreline-icons'
+import { IconArrowUpRightSmall, IconArrowUp } from '../../../icons'
 
 import { Button } from '../index'
 import { VisuallyHidden } from '../../visually-hidden'

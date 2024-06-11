@@ -1,7 +1,7 @@
 import type { AriaRangeCalendarProps } from '@react-aria/calendar'
 import { useRangeCalendar } from '@react-aria/calendar'
 import { useRangeCalendarState } from '@react-stately/calendar'
-import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
+import { IconCaretLeft, IconCaretRight } from '../../icons'
 import { Store } from '@vtex/shoreline-utils'
 import { useMemo, useRef } from 'react'
 

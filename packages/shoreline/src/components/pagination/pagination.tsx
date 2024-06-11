@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useMemo } from 'react'
-import { IconCaretLeft, IconCaretRight } from '@vtex/shoreline-icons'
+import { IconCaretLeft, IconCaretRight } from '../../icons'
 import { createMessageHook } from '../locale'
 
 import { Skeleton } from '../skeleton'

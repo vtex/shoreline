@@ -9,7 +9,7 @@ import { VisuallyHidden } from '../visually-hidden'
 
 import { useFieldContext } from '../field'
 import type { DateValue } from '@react-aria/calendar'
-import { IconCalendarBlank } from '@vtex/shoreline-icons'
+import { IconCalendarBlank } from '../../icons'
 
 import { Calendar } from '../calendar'
 import { DateField } from '../date-field'

@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxGroup } from '../index'
 import { Stack } from '../../stack'
 
-import { IconInfoFill } from '@vtex/shoreline-icons'
+import { IconInfoFill } from '../../../icons'
 
 export default {
   title: 'components/checkbox',

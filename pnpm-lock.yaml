@@ -352,9 +352,6 @@ importers:
       '@react-stately/toggle':
         specifier: 3.7.4
         version: 3.7.4(react@18.2.0)
-      '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.83
-        version: 1.0.0-rc.83(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@vtex/shoreline-utils':
         specifier: ^1.0.0-rc.83
         version: 1.0.0-rc.83(react@18.2.0)
@@ -447,9 +444,6 @@ importers:
       '@tanstack/react-virtual':
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.83
-        version: 1.0.0-rc.83(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@vtex/shoreline-utils':
         specifier: ^1.0.0-rc.83
         version: 1.0.0-rc.83(react@18.2.0)
@@ -3578,13 +3572,6 @@ packages:
 
   '@vitest/utils@1.6.0':
     resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
-
-  '@vtex/shoreline-icons@1.0.0-rc.83':
-    resolution: {integrity: sha512-c3xerYziOIB+arJkARQ9SrMqxSChS6OdshNrsEQi+9+m1QELmL0ZRRSl8E6aQDo6xqr8gB1PaPLMnH9m4FoByQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
 
   '@vtex/shoreline-utils@1.0.0-rc.83':
     resolution: {integrity: sha512-Nni1niT1gxv8HBYrQ2VT2aJSGzUBCd3njRPuOLwwqxs23nv9ynsaPHkU0Wp0sO4p80qDZznWAPr22DeY9sJY2w==}
@@ -14906,11 +14893,6 @@ snapshots:
       estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
-
-  '@vtex/shoreline-icons@1.0.0-rc.83(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
 
   '@vtex/shoreline-utils@1.0.0-rc.83(react@18.2.0)':
     dependencies:

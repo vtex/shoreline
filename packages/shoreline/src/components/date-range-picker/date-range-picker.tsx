@@ -8,7 +8,7 @@ import { IconButton } from '../icon-button'
 import { Popover, PopoverProvider, PopoverTrigger } from '../popover'
 
 import type { DateValue } from '@react-aria/calendar'
-import { IconCalendarBlank, IconMinusSmall } from '@vtex/shoreline-icons'
+import { IconCalendarBlank, IconMinusSmall } from '../../icons'
 
 import { RangeCalendar } from '../range-calendar'
 
