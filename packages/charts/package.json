@@ -36,14 +36,18 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
-    "echarts": "5.x",
     "@vtex/shoreline-components": "1.x",
+    "echarts": "5.x",
     "react": "18.x",
     "react-dom": "18.x"
   },
   "devDependencies": {
-    "echarts": "5.5.0",
+    "@types/lodash": "^4.17.4",
     "@vtex/shoreline-components": "workspace:*",
-    "@vtex/shoreline-theme-sunrise": "workspace:*"
+    "@vtex/shoreline-theme-sunrise": "workspace:*",
+    "echarts": "5.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }

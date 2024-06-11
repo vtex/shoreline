@@ -1,16 +1,30 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { init, getInstanceByDom } from 'echarts'
 import type { ComponentPropsWithoutRef } from 'react'
 import type { EChartsOption, ECharts, SetOptionOpts } from 'echarts'
-import { theme } from './theme'
+import { defaultTheme } from './theme/themes'
+import { getChartOptions } from './utils/chart'
+import type { ChartTypes, ChartVariants } from './types/chart'
 
 /**
  * Render a Shoreline Chart with echarts
  * @see https://echarts.apache.org/en/index.html
  */
 export function Chart(props: ChartProps) {
-  const { option, settings, loading, ...otherProps } = props
+  const {
+    option,
+    settings,
+    loading,
+    variant = 'default',
+    type,
+    ...otherProps
+  } = props
+
   const chartRef = useRef<HTMLDivElement>(null)
+
+  const chartOptions: EChartsOption = useMemo(() => {
+    return getChartOptions(option, type, variant) || option
+  }, [option, type, variant])
 
   useEffect(
     /**
@@ -21,7 +35,7 @@ export function Chart(props: ChartProps) {
       let chart: ECharts | undefined
 
       if (chartRef.current !== null) {
-        chart = init(chartRef.current, theme)
+        chart = init(chartRef.current, defaultTheme)
       }
 
       // Add chart resize listener
@@ -38,7 +52,7 @@ export function Chart(props: ChartProps) {
         window.removeEventListener('resize', resizeChart)
       }
     },
-    [theme]
+    [defaultTheme]
   )
 
   useEffect(
@@ -53,10 +67,10 @@ export function Chart(props: ChartProps) {
       const chart = getInstanceByDom(chartRef.current)
 
       if (chart) {
-        chart.setOption(option, settings)
+        chart.setOption(chartOptions, settings)
       }
     },
-    [option, settings, theme]
+    [settings, defaultTheme, chartOptions]
   )
 
   useEffect(
@@ -76,7 +90,7 @@ export function Chart(props: ChartProps) {
         chart.hideLoading()
       }
     },
-    [loading, theme]
+    [loading, defaultTheme]
   )
 
   return <div data-sl-chart ref={chartRef} {...otherProps} />
@@ -95,6 +109,14 @@ export interface ChartOptions {
    * Wether is loading
    */
   loading?: boolean
+  /**
+   * Chart type to be rendered
+   */
+  type: ChartTypes
+  /**
+   * Pre-defined chart style for each type
+   */
+  variant?: ChartVariants
 }
 
 export type ChartProps = ChartOptions & ComponentPropsWithoutRef<'div'>
