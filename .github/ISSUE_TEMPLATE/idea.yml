@@ -1,6 +1,6 @@
-name: Feature request
+name: Idea
 description: Suggest an enhacement to Shoreline.
-labels: ['suggestion / request', 'status: pending']
+labels: ['idea', 'status: pending']
 body:
   - type: markdown
     attributes:
