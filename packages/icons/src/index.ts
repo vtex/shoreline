@@ -49,7 +49,7 @@ export {
   IconDotsSixVertical,
   IconDotsSixVerticalSmall,
   IconDotsThreeVertical,
-  IconEnvelopeFill,
+  IconEnvelopeSimpleFill,
   IconEnvelopeSimple,
   IconEye,
   IconEyeSlash,

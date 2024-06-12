@@ -242,9 +242,6 @@ importers:
       '@vtex/shoreline':
         specifier: workspace:*
         version: link:../shoreline
-      '@vtex/shoreline-icons':
-        specifier: workspace:*
-        version: link:../icons
       '@vtex/shoreline-ts-table':
         specifier: workspace:*
         version: link:../ts-table

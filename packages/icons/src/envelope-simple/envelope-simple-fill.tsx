@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
 
-export const IconEnvelopeFill = forwardRef<
+export const IconEnvelopeSimpleFill = forwardRef<
   SVGSVGElement,
   ComponentPropsWithoutRef<'svg'>
 >(function IconEnvelopeSimpleFill(props, ref) {
