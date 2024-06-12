@@ -289,15 +289,6 @@ importers:
         specifier: 20.12.7
         version: 20.12.7
 
-  packages/icons:
-    dependencies:
-      react:
-        specifier: '>=18'
-        version: 18.2.0
-      react-dom:
-        specifier: '>=18'
-        version: 18.2.0(react@18.2.0)
-
   packages/next:
     dependencies:
       react:
