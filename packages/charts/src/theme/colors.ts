@@ -1,5 +1,5 @@
 export const CATEGORICAL = {
-  primary: '#013A5E',
+  primary: '#014592',
   secondary: '#9C56F3',
   tertiary: '#0D504D',
   quaternary: '#CA226A',
