@@ -47,7 +47,7 @@
     "echarts": "5.5.0"
   },
   "dependencies": {
-    "@vtex/shoreline-utils": "workspace:1.0.0-rc.82",
+    "@vtex/shoreline-utils": "workspace:*",
     "echarts-for-react": "^3.0.2",
     "lodash": "^4.17.21",
     "vitest": "^1.6.0",

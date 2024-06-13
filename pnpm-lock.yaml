@@ -169,14 +169,14 @@ importers:
         specifier: 8.13.2
         version: 8.13.2(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../../packages/shoreline
       '@vtex/shoreline-next':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(@vtex/shoreline@1.0.0-rc.83)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../../packages/next
       '@vtex/shoreline-ts-table':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(@tanstack/react-table@8.13.2)(@vtex/shoreline@1.0.0-rc.83)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../../packages/ts-table
       next:
         specifier: 14.1.3
         version: 14.1.3(@babel/core@7.24.6)(react-dom@18.2.0)(react@18.2.0)
@@ -209,7 +209,7 @@ importers:
   packages/charts:
     dependencies:
       '@vtex/shoreline-utils':
-        specifier: workspace:1.0.0-rc.82
+        specifier: workspace:*
         version: link:../utils
       echarts-for-react:
         specifier: ^3.0.2
@@ -387,11 +387,11 @@ importers:
         specifier: 3.7.4
         version: 3.7.4(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../utils
       react:
         specifier: '>=18'
         version: 18.2.0
@@ -482,11 +482,11 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0)(react@18.2.0)
       '@vtex/shoreline-icons':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../icons
       '@vtex/shoreline-utils':
-        specifier: ^1.0.0-rc.82
-        version: 1.0.0-rc.83(react@18.2.0)
+        specifier: ^1.0.0-rc.83
+        version: link:../utils
       react:
         specifier: '>=18'
         version: 18.2.0
@@ -6811,91 +6811,6 @@ packages:
       estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
-
-  /@vtex/shoreline-icons@1.0.0-rc.83(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-c3xerYziOIB+arJkARQ9SrMqxSChS6OdshNrsEQi+9+m1QELmL0ZRRSl8E6aQDo6xqr8gB1PaPLMnH9m4FoByQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@vtex/shoreline-next@1.0.0-rc.83(@vtex/shoreline@1.0.0-rc.83)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-64N0ounBMLSzbVkuk8vqihSJF2BFnx+xortRr3rjk7lO+qIkTv0MkBp/AJzLF5U1jApzveW1B+MtjDg0EXwAMg==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      '@vtex/shoreline': 0.x || 1.x
-      next: '>=13'
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      '@vtex/shoreline': 1.0.0-rc.83(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
-      next: 14.1.3(@babel/core@7.24.6)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@vtex/shoreline-ts-table@1.0.0-rc.83(@tanstack/react-table@8.13.2)(@vtex/shoreline@1.0.0-rc.83)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-09fze0NgE8FKSitA+3HsfigzsjYFrkhbAER53VYEIedNiZ51XUf2Ll+BIrxLUcSCryv0jnvNexhwEalvpGVKbg==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      '@tanstack/react-table': '>=8'
-      '@vtex/shoreline': 0.x
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      '@tanstack/react-table': 8.13.2(react-dom@18.2.0)(react@18.2.0)
-      '@tanstack/react-virtual': 3.0.1(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline': 1.0.0-rc.83(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-icons': 1.0.0-rc.83(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-utils': 1.0.0-rc.83(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@vtex/shoreline-utils@1.0.0-rc.83(react@18.2.0):
-    resolution: {integrity: sha512-Nni1niT1gxv8HBYrQ2VT2aJSGzUBCd3njRPuOLwwqxs23nv9ynsaPHkU0Wp0sO4p80qDZznWAPr22DeY9sJY2w==}
-    engines: {node: '>=12'}
-    dependencies:
-      csstype: 3.1.2
-      deepmerge: 4.3.1
-      scule: 1.1.1
-      tiny-invariant: 1.3.1
-      tiny-warning: 1.0.3
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - react
-    dev: false
-
-  /@vtex/shoreline@1.0.0-rc.83(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-ClTJf5ejTWjDaNlGZ0p/jrT1nxJiw0DD2lb/15AFFJuCogBMfgvxv53XwPu4wF/ZckaDYYHqxBzURLdBlI4Fyw==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      '@ariakit/react': 0.4.5(react-dom@18.2.0)(react@18.2.0)
-      '@internationalized/date': 3.5.4
-      '@react-aria/calendar': 3.5.8(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/checkbox': 3.14.3(react@18.2.0)
-      '@react-aria/datepicker': 3.10.1(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/focus': 3.17.1(react@18.2.0)
-      '@react-aria/i18n': 3.11.1(react@18.2.0)
-      '@react-aria/interactions': 3.21.3(react@18.2.0)
-      '@react-stately/calendar': 3.5.1(react@18.2.0)
-      '@react-stately/datepicker': 3.9.4(react@18.2.0)
-      '@react-stately/toggle': 3.7.4(react@18.2.0)
-      '@vtex/shoreline-icons': 1.0.0-rc.83(react-dom@18.2.0)(react@18.2.0)
-      '@vtex/shoreline-utils': 1.0.0-rc.83(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-hot-toast: 2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - csstype
-    dev: false
 
   /@webassemblyjs/ast@1.12.1:
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
