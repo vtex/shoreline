@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
 import { DialogDismiss } from '@ariakit/react'
-import { IconX } from '@vtex/shoreline-icons'
+import { IconX } from '../../icons'
 
 import type { IconButtonOptions } from '../icon-button'
 import { IconButton } from '../icon-button'

@@ -49,7 +49,6 @@ body:
         - '@vtex/shoreline'
         - '@vtex/shoreline-ts-table'
         - '@vtex/shoreline-stylelint'
-        - '@vtex/shoreline-icons'
   - type: textarea
     id: packages-version
     attributes:

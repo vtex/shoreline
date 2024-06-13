@@ -3,7 +3,7 @@ import { FilterValue } from './filter-value'
 import type { PopoverTriggerOptions, PopoverTriggerProps } from '../popover'
 import { PopoverTrigger } from '../popover'
 import { Button } from '../button'
-import { IconCaretDownSmall } from '@vtex/shoreline-icons'
+import { IconCaretDownSmall } from '../../icons'
 
 /**
  * Triggers the Filter Popover box, also displays the Filter applied value

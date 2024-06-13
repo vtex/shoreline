@@ -11,7 +11,7 @@ import { Button } from '../../button'
 import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
-import { IconArrowLeft } from '@vtex/shoreline-icons'
+import { IconArrowLeft } from '../../../icons'
 import type { StoryObj } from '@storybook/react'
 import { Flex } from '../../flex'
 

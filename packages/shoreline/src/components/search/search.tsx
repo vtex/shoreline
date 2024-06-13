@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useRef } from 'react'
 import { IconButton } from '../icon-button'
-import { IconMagnifyingGlassSmall, IconXCircle } from '@vtex/shoreline-icons'
+import { IconMagnifyingGlassSmall, IconXCircle } from '../../icons'
 import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'

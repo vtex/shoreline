@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { IconTrash, IconArrowUpRightSmall } from '@vtex/shoreline-icons'
+import { IconTrash, IconArrowUpRightSmall } from '../../../icons'
 
 import { Button } from '../index'
 import './style.css'

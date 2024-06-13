@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
-import { IconArrowDown, IconArrowUp } from '@vtex/shoreline-icons'
+import { IconArrowDown, IconArrowUp } from '../../icons'
 
 /**
  * Component that indicates if a column is sortable and its current sort direction

@@ -12,7 +12,7 @@ import { IconButton } from '../../icon-button'
 import { Bleed } from '../../bleed'
 import { Tag } from '../../tag'
 import { Stack } from '../../stack'
-import { IconArrowLeft } from '@vtex/shoreline-icons'
+import { IconArrowLeft } from '../../../icons'
 import { Flex } from '../../flex'
 
 export default {

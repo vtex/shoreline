@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { useClipboard } from '../hooks/use-clipboard'
 import { Cell } from './cell'
 
-import { IconCopySimple } from '@vtex/shoreline-icons'
+import { IconCopySimple } from '@vtex/shoreline'
 import styles from './token-cell.module.css'
 
 export function TokenCell(props: ComponentPropsWithoutRef<'div'>) {

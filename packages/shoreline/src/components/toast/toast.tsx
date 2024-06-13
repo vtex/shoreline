@@ -7,7 +7,7 @@ import {
   IconWarningCircleFill,
   IconX,
   IconXCircleFill,
-} from '@vtex/shoreline-icons'
+} from '../../icons'
 
 import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'

@@ -4,7 +4,7 @@ import {
   IconPlusCircle,
   IconProhibit,
   IconWarningCircle,
-} from '@vtex/shoreline-icons'
+} from '../../icons'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
 import { Button } from '../button'

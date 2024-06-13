@@ -6,10 +6,7 @@ import { MenuProvider } from './menu-provider'
 import { MenuTrigger } from './menu-trigger'
 import type { ButtonOptions } from '../button'
 import { Button } from '../button'
-import {
-  IconCaretDownSmall,
-  IconDotsThreeVertical,
-} from '@vtex/shoreline-icons'
+import { IconCaretDownSmall, IconDotsThreeVertical } from '../../icons'
 import { IconButton } from '../icon-button'
 
 /**

@@ -4,7 +4,7 @@ import { EmptyState, EmptyStateActions, EmptyStateIllustration } from '../index'
 import { Button } from '../../button'
 import { Heading } from '../../heading'
 import { Text } from '../../text'
-import { IconMagnifyingGlass, IconWarningCircle } from '@vtex/shoreline-icons'
+import { IconMagnifyingGlass, IconWarningCircle } from '../../../icons'
 import { Filter, FilterProvider, FilterTrigger } from '../../filter'
 import { Popover } from '../../popover'
 

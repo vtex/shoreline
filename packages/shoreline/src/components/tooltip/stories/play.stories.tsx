@@ -1,4 +1,4 @@
-import { IconInfo } from '@vtex/shoreline-icons'
+import { IconInfo } from '../../../icons'
 
 import { Tooltip } from '../index'
 import { IconButton } from '../../icon-button'

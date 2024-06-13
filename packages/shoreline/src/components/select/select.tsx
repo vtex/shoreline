@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
-import { IconCaretUpDownSmall } from '@vtex/shoreline-icons'
+import { IconCaretUpDownSmall } from '../../icons'
 import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
 import { useFieldContext } from '../field'

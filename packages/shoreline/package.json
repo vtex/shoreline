@@ -73,7 +73,6 @@
     "@react-stately/calendar": "3.5.1",
     "@react-stately/datepicker": "3.9.4",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-icons": "^1.0.0-rc.83",
     "@vtex/shoreline-utils": "^1.0.0-rc.83",
     "react-hot-toast": "2.4.1"
   }
