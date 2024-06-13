@@ -86,6 +86,7 @@ export interface ChartsOptions {
   settings?: SetOptionOpts
   /**
    * Wether is loading
+   * @default false
    */
   loading?: boolean
   /**
