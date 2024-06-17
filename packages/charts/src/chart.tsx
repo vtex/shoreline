@@ -14,6 +14,7 @@ import type * as echarts from 'echarts'
 import { defaultTheme } from './theme/themes'
 import type { ChartTypes, ChartVariants } from './types/chart'
 import { getChartOptions } from './utils/chart'
+import { canUseDOM } from '@vtex/shoreline-utils'
 
 /**
  * Render a Shoreline Chart with echarts
@@ -51,6 +52,8 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     }, [])
 
     useEffect(() => {
+      if (!canUseDOM) return
+
       window.addEventListener('resize', handleResize)
       return () => {
         window.removeEventListener('resize', handleResize)

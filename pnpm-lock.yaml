@@ -214,18 +214,12 @@ importers:
       echarts-for-react:
         specifier: ^3.0.2
         version: 3.0.2(echarts@5.5.0)(react@18.2.0)
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       react:
         specifier: 18.x
         version: 18.2.0
       react-dom:
         specifier: 18.x
         version: 18.2.0(react@18.2.0)
-      vitest:
-        specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.12.8)(jsdom@23.0.0)
       vitest-canvas-mock:
         specifier: ^0.3.3
         version: 0.3.3(vitest@1.6.0)
@@ -20358,7 +20352,7 @@ packages:
       - supports-color
       - terser
 
-  /vite-node@1.6.0(@types/node@20.12.8):
+  /vite-node@1.6.0:
     resolution: {integrity: sha512-de6HJgzC+TFzOu0NTC4RAIsyf/DY/ibWDYQUcuEA84EMHhcefTUGkjFHKKEJhQN4A+6I0u++kr3l36ZF2d7XRw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -20367,7 +20361,7 @@ packages:
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.0.13(@types/node@20.12.8)
+      vite: 5.0.13
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -20377,6 +20371,41 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: false
+
+  /vite@5.0.13:
+    resolution: {integrity: sha512-/9ovhv2M2dGTuA+dY93B9trfyWMDRQw2jdVBhHNP6wr0oF34wG2i/N55801iZIpgUpnHDm4F/FabGQLyc+eOgg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.19.12
+      postcss: 8.4.38
+      rollup: 4.18.0
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: false
 
   /vite@5.0.13(@types/node@20.12.8):
@@ -20420,7 +20449,7 @@ packages:
       vitest: '*'
     dependencies:
       jest-canvas-mock: 2.5.2
-      vitest: 1.6.0(@types/node@20.12.8)(jsdom@23.0.0)
+      vitest: 1.6.0
     dev: false
 
   /vitest@0.34.6(jsdom@23.0.0):
@@ -20544,7 +20573,7 @@ packages:
       - supports-color
       - terser
 
-  /vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0):
+  /vitest@1.6.0:
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -20569,7 +20598,6 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': 20.12.8
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
       '@vitest/snapshot': 1.6.0
@@ -20579,7 +20607,6 @@ packages:
       chai: 4.4.1
       debug: 4.3.5
       execa: 8.0.1
-      jsdom: 23.0.0
       local-pkg: 0.5.0
       magic-string: 0.30.10
       pathe: 1.1.2
@@ -20588,8 +20615,8 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.0.13(@types/node@20.12.8)
-      vite-node: 1.6.0(@types/node@20.12.8)
+      vite: 5.0.13
+      vite-node: 1.6.0
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

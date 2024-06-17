@@ -3,7 +3,7 @@ import { CHART_STYLES } from '../theme/chartStyles'
 import type { ChartTypes, ChartVariants } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 
-export const buildDefaultBarSerie = (
+export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
   type: ChartTypes,
   variant: ChartVariants
@@ -22,10 +22,10 @@ export const formatSeries = (
 ) => {
   if (!series) return
   if (Array.isArray(series)) {
-    return series.map((serie) => buildDefaultBarSerie(serie, type, variant))
+    return series.map((serie) => buildDefaultSerie(serie, type, variant))
   }
 
-  return buildDefaultBarSerie(series, type, variant)
+  return buildDefaultSerie(series, type, variant)
 }
 
 export const getChartOptions = (
