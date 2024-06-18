@@ -12,7 +12,7 @@ import ReactECharts from 'echarts-for-react'
 import type * as echarts from 'echarts'
 
 import { defaultTheme } from './theme/themes'
-import type { ChartTypes, ChartVariants } from './types/chart'
+import type { ChartConfig } from './types/chart'
 import { getChartOptions } from './utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 
@@ -26,8 +26,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       settings,
       loading = false,
-      variant = 'default',
-      type,
+      chartConfig,
       style,
       ...otherProps
     } = props
@@ -42,8 +41,9 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     })
 
     const chartOptions: EChartsOption = useMemo(() => {
+      const { type, variant } = chartConfig
       return getChartOptions(option, type, variant) || option
-    }, [option, type, variant])
+    }, [option, chartConfig])
 
     const handleResize = useCallback(() => {
       if (chartRef.current) {
@@ -58,7 +58,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       return () => {
         window.removeEventListener('resize', handleResize)
       }
-    }, [handleResize])
+    }, [handleResize, canUseDOM])
 
     if (loading) return <div>loading...</div>
 
@@ -93,14 +93,10 @@ export interface ChartsOptions {
    */
   loading?: boolean
   /**
-   * Chart type to be rendered
-   */
-  type: ChartTypes
-  /**
-   * Pre-defined chart style for each type
+   * Configs containing type of chart and its variants, each variant is a pre-defined chart style for each type
    * @default default
    */
-  variant?: ChartVariants
+  chartConfig: ChartConfig
 }
 
 export type ChartProps = ChartsOptions & ComponentPropsWithRef<'div'>

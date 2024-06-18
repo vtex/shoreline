@@ -19,7 +19,7 @@ describe('@vtex.shoreline-charts bar chart tests', () => {
           },
           series: { data: BAR_CHART_DATA.series.dayNumbers },
         }}
-        type="bar"
+        chartConfig={{ type: 'bar' }}
         style={{ width: '100%', height: '400px' }}
       />
     )

@@ -1,15 +1,14 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
-import type { ChartTypes, ChartVariants } from '../types/chart'
+import type { ChartConfig } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
-  type: ChartTypes,
-  variant: ChartVariants
+  defaultStyle: EChartsOption
 ): SeriesOption => {
   const seriesClone = structuredClone(serie)
-  const defaultStylesClone = structuredClone(CHART_STYLES[type][variant].series)
+  const defaultStylesClone = structuredClone(defaultStyle.series)
   const serieMerged = merge(defaultStylesClone, seriesClone) as SeriesOption
 
   return serieMerged
@@ -17,30 +16,34 @@ export const buildDefaultSerie = (
 
 export const formatSeries = (
   series: SeriesOption | SeriesOption[] | undefined,
-  type: ChartTypes,
-  variant: ChartVariants
+  defaultStyle: EChartsOption
 ) => {
   if (!series) return
   if (Array.isArray(series)) {
-    return series.map((serie) => buildDefaultSerie(serie, type, variant))
+    return series.map((serie) => buildDefaultSerie(serie, defaultStyle))
   }
 
-  return buildDefaultSerie(series, type, variant)
+  return buildDefaultSerie(series, defaultStyle)
 }
 
 export const getChartOptions = (
   options: EChartsOption,
-  type: ChartTypes,
-  variant: ChartVariants
+  type: ChartConfig['type'],
+  variant: ChartConfig['variant']
 ): EChartsOption | undefined => {
   if (!options) return
   const { series, ...rest } = options
+  const chartStyleType = CHART_STYLES[type]
 
-  const { series: defaultSeries, ...defaulRest } = CHART_STYLES[type][variant]
+  const defaultStyle = variant
+    ? chartStyleType[variant]
+    : chartStyleType.default
 
-  const formattedSeries = formatSeries(series, type, variant)
+  const { series: defaultSeries, ...defaultRest } = defaultStyle
 
-  const mergedOptions = merge(defaulRest, rest)
+  const formattedSeries = formatSeries(series, defaultStyle)
+
+  const mergedOptions = merge(defaultRest, rest)
 
   return { ...mergedOptions, series: formattedSeries }
 }

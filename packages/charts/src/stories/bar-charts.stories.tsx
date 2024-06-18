@@ -13,7 +13,7 @@ export function Basic() {
         },
         series: { data: [1, 2, 3, 4, 5, 6, 7] },
       }}
-      type="bar"
+      chartConfig={{ type: 'bar' }}
       style={{ height: 550 }}
     />
   )
@@ -31,8 +31,7 @@ export function Horizontal() {
           { data: [1, 4, 2, 1, 4, 3, 5] },
         ],
       }}
-      type="bar"
-      variant="horizontal"
+      chartConfig={{ type: 'bar', variant: 'horizontal' }}
       style={{ height: 550 }}
     />
   )
@@ -50,8 +49,7 @@ export function MultiType() {
           { data: [1, 4, 2, 1, 4, 3, 5], type: 'line' },
         ],
       }}
-      type="bar"
-      variant="default"
+      chartConfig={{ type: 'bar', variant: 'default' }}
       style={{ height: 550 }}
     />
   )

@@ -1,4 +1,4 @@
-export const CHART_STYLES = {
+export const CHART_STYLES: any = {
   bar: {
     default: {
       xAxis: {
@@ -25,5 +25,8 @@ export const CHART_STYLES = {
         },
       },
     },
+  },
+  line: {
+    default: {},
   },
 }
