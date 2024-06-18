@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.85](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.84...@vtex/shoreline@1.0.0-rc.85) (2024-06-18)
+
+### Bug Fixes
+
+- **tsconfig:** fix stories jsx-runtime ([7e1a895](https://github.com/vtex/shoreline/commit/7e1a895b8db8788a48d7869c0e37b882969790b0))
+
 # [1.0.0-rc.84](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.0-rc.83...@vtex/shoreline@1.0.0-rc.84) (2024-06-13)
 
 ### Features
