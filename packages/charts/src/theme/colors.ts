@@ -17,4 +17,6 @@ export const CATEGORICAL = {
 
 export const BASE = {
   lineColor: '#ADADAD',
+  textSoft: '#707070',
+  bgLineColor: '#EBEBEB',
 }

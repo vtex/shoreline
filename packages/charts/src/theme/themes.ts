@@ -27,6 +27,9 @@ export const defaultTheme = {
         color: BASE.lineColor,
       },
     },
+    axisLabel: {
+      color: BASE.textSoft,
+    },
   },
   valueAxis: {
     type: 'value',
@@ -34,6 +37,15 @@ export const defaultTheme = {
       show: true,
       lineStyle: {
         color: BASE.lineColor,
+      },
+    },
+    axisLabel: {
+      color: BASE.textSoft,
+    },
+    splitLine: {
+      lineStyle: {
+        color: BASE.bgLineColor,
+        width: 1,
       },
     },
   },
