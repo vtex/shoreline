@@ -23,7 +23,7 @@
     "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
