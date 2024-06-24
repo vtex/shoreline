@@ -6,7 +6,7 @@
     "url": "git+https://github.com/vtex/shoreline.git"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",

@@ -13,20 +13,19 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
-          fetch-depth: 25
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
@@ -73,40 +72,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
           HUSKY: 0
-
-  docs:
-    name: Docs generator
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
-          fetch-depth: 25
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Configure CI Git User
-        run: bash ./scripts/configure-git-user.sh
-        env:
-          GIT_USERS: ${{ secrets.GIT_USERS }}
-          GIT_EMAILS: ${{ secrets.GIT_EMAILS }}
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts

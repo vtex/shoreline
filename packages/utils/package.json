@@ -14,7 +14,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
