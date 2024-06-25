@@ -2,7 +2,8 @@
 
 # 🌊 Shoreline
 
-> [!NOTE] Currently available for internal usage at VTEX
+> [!NOTE]
+> Currently available for internal usage at VTEX
 
 Shoreline is a set of tools designed specifically to enhance the experience of
 designing and implementing apps for the VTEX Admin. The focus is on simplifying
